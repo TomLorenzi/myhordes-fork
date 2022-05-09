@@ -4225,7 +4225,6 @@
       <notes>
         <note category="german">Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</note>
         <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
@@ -4246,7 +4245,6 @@
       <notes>
         <note category="german">Ankündigungen</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ankündigungen</source>
@@ -4257,7 +4255,6 @@
       <notes>
         <note category="german">Foren</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Foren</source>

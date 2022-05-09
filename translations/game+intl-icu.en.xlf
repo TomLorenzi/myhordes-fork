@@ -1077,7 +1077,7 @@
     <unit id="u1m7Ptc" name="Leiche nicht beseitigt!">
       <notes>
         <note category="german">Leiche nicht beseitigt!</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Leiche nicht beseitigt!</source>
@@ -1087,7 +1087,7 @@
     <unit id="u_yrL5q" name="Tot!">
       <notes>
         <note category="german">Tot!</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Tot!</source>
@@ -7623,7 +7623,7 @@
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -7944,7 +7944,7 @@
     <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
       <notes>
         <note category="german">Dieser Bürger hat keine letzten Worte hinterlassen ...</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
@@ -7954,7 +7954,7 @@
     <unit id="O9RB2q8" name="Letzte Worte:">
       <notes>
         <note category="german">Letzte Worte:</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Letzte Worte:</source>
@@ -15206,7 +15206,7 @@
     <unit id="yd0LZz9" name="Diese Bürger is der {role} der Stadt">
       <notes>
         <note category="german">Dieser Bürger ist der {role} der Stadt</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Diese Bürger is der {role} der Stadt</source>
@@ -15720,7 +15720,7 @@
     <unit id="WA0.uhs">
       <notes>
         <note category="german">{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
@@ -18596,7 +18596,7 @@
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
       <notes>
         <note category="german">Der Leichnam von {citizen} wurde nicht zerstört.</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Der Leichnam von {citizen} wurde nicht zerstört.</source>
@@ -18606,7 +18606,7 @@
     <unit id=".67v4pV">
       <notes>
         <note category="german">Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</source>

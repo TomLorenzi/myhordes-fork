@@ -4809,7 +4809,6 @@
       <notes>
         <note category="german">Instanzeigenschaften</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Instanzeigenschaften</source>
@@ -4820,7 +4819,6 @@
       <notes>
         <note category="german">Vergiftet</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vergiftet</source>
@@ -4831,7 +4829,6 @@
       <notes>
         <note category="german">Infiziert</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Infiziert</source>
@@ -4842,7 +4839,6 @@
       <notes>
         <note category="german">Noch nicht aufgehoben</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Noch nicht aufgehoben</source>
@@ -4853,7 +4849,6 @@
       <notes>
         <note category="german">Spielernamen nicht von EternalTwin übernehmen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spielernamen nicht von EternalTwin übernehmen</source>
@@ -4864,7 +4859,6 @@
       <notes>
         <note category="german">Automatische Verwaltung des Spielernamens wiederherstellen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Automatische Verwaltung des Spielernamens wiederherstellen</source>
@@ -4875,7 +4869,6 @@
       <notes>
         <note category="german">Nicht von ET verwaltet.</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nicht von ET verwaltet.</source>
