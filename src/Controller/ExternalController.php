@@ -206,7 +206,7 @@ class ExternalController extends InventoryAwareController {
     }
 
     /**
-     * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
+     * @Route("/jx/disclaimer/{id<\d+>}", name="disclaimer", condition="request.isXmlHttpRequest()")
      * @param int $id
      * @return Response
      */
