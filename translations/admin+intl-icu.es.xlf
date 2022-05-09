@@ -4743,66 +4743,66 @@
       <notes>
         <note category="german">Kurztext bearbeiten ({name})</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Kurztext bearbeiten ({name})</source>
-        <target>Kurztext bearbeiten ({name})</target>
+        <target>Editar texto corto ({name})</target>
       </segment>
     </unit>
     <unit id="YiIAWLn" name="Register herunterladen">
       <notes>
         <note category="german">Register herunterladen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Register herunterladen</source>
-        <target>Register herunterladen</target>
+        <target>Descargar el registro</target>
       </segment>
     </unit>
     <unit id="gse1HoC" name="Stadtregister herunterladen">
       <notes>
         <note category="german">Stadtregister herunterladen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadtregister herunterladen</source>
-        <target>Stadtregister herunterladen</target>
+        <target>Descargar el Gran Registro del pueblo</target>
       </segment>
     </unit>
     <unit id="WCJkiWS" name="Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)">
       <notes>
         <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</source>
-        <target>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</target>
+        <target>Descargar los registros del pueblo y las zonas del Ultramundo (Agrupados por zonas)</target>
       </segment>
     </unit>
     <unit id="9XMDN2u" name="Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)">
       <notes>
         <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</source>
-        <target>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</target>
+        <target>Descargar los registros del pueblo y las zonas del Ultramundo (Agrupados por habitantes)</target>
       </segment>
     </unit>
     <unit id="_iAXN_K" name="Stadt- und Zonenregister herunterladen (chronologisch)">
       <notes>
         <note category="german">Stadt- und Zonenregister herunterladen (chronologisch)</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadt- und Zonenregister herunterladen (chronologisch)</source>
-        <target>Stadt- und Zonenregister herunterladen (chronologisch)</target>
+        <target>Descargar los registros del pueblo y las zonas del Ultramundo (Cronológicamente)</target>
       </segment>
     </unit>
     <unit id="NB6Gonl" name="Instanzeigenschaften">
