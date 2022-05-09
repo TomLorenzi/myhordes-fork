@@ -4229,7 +4229,7 @@
       </notes>
       <segment>
         <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
-        <target>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</target>
+        <target>Puedes moderar en este foro, pero no tienes permisos regulares de lectura. Por lo tanto solo podrás ver temas en los que se haya reportado al menos un mensaje.</target>
       </segment>
     </unit>
     <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
@@ -4250,7 +4250,7 @@
       </notes>
       <segment>
         <source>Ankündigungen</source>
-        <target>Ankündigungen</target>
+        <target>Anuncios</target>
       </segment>
     </unit>
     <unit id="7VfCrWl" name="Foren">
@@ -4261,7 +4261,7 @@
       </notes>
       <segment>
         <source>Foren</source>
-        <target>Foren</target>
+        <target>Foros</target>
       </segment>
     </unit>
   </file>

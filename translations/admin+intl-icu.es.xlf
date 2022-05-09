@@ -4743,66 +4743,66 @@
       <notes>
         <note category="german">Kurztext bearbeiten ({name})</note>
         <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Kurztext bearbeiten ({name})</source>
-        <target>Kurztext bearbeiten ({name})</target>
+        <target>Editar advertencia ({name})</target>
       </segment>
     </unit>
     <unit id="YiIAWLn" name="Register herunterladen">
       <notes>
         <note category="german">Register herunterladen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Register herunterladen</source>
-        <target>Register herunterladen</target>
+        <target>Descargar el registro</target>
       </segment>
     </unit>
     <unit id="gse1HoC" name="Stadtregister herunterladen">
       <notes>
         <note category="german">Stadtregister herunterladen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadtregister herunterladen</source>
-        <target>Stadtregister herunterladen</target>
+        <target>Descargar el Gran Registro del pueblo</target>
       </segment>
     </unit>
     <unit id="WCJkiWS" name="Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)">
       <notes>
         <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</source>
-        <target>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</target>
+        <target>Descargar los registros del pueblo y las zonas del Ultramundo (Agrupados por zonas)</target>
       </segment>
     </unit>
     <unit id="9XMDN2u" name="Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)">
       <notes>
         <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</source>
-        <target>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</target>
+        <target>Descargar los registros del pueblo y las zonas del Ultramundo (Agrupados por habitantes)</target>
       </segment>
     </unit>
     <unit id="_iAXN_K" name="Stadt- und Zonenregister herunterladen (chronologisch)">
       <notes>
         <note category="german">Stadt- und Zonenregister herunterladen (chronologisch)</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadt- und Zonenregister herunterladen (chronologisch)</source>
-        <target>Stadt- und Zonenregister herunterladen (chronologisch)</target>
+        <target>Descargar los registros del pueblo y las zonas del Ultramundo (Cronológicamente)</target>
       </segment>
     </unit>
     <unit id="NB6Gonl" name="Instanzeigenschaften">
@@ -4813,7 +4813,7 @@
       </notes>
       <segment>
         <source>Instanzeigenschaften</source>
-        <target>Instanzeigenschaften</target>
+        <target>Propiedades del objeto</target>
       </segment>
     </unit>
     <unit id="t6AH21h" name="Vergiftet">
@@ -4824,7 +4824,7 @@
       </notes>
       <segment>
         <source>Vergiftet</source>
-        <target>Vergiftet</target>
+        <target>Envenenado</target>
       </segment>
     </unit>
     <unit id="T3Ok4_w" name="Infiziert">
@@ -4835,7 +4835,7 @@
       </notes>
       <segment>
         <source>Infiziert</source>
-        <target>Infiziert</target>
+        <target>Infectado</target>
       </segment>
     </unit>
     <unit id=".7_a1a_" name="Noch nicht aufgehoben">
@@ -4846,7 +4846,7 @@
       </notes>
       <segment>
         <source>Noch nicht aufgehoben</source>
-        <target>Noch nicht aufgehoben</target>
+        <target>Sin recoger</target>
       </segment>
     </unit>
     <unit id="P_.E9gw" name="Spielernamen nicht von EternalTwin übernehmen">
@@ -4857,7 +4857,7 @@
       </notes>
       <segment>
         <source>Spielernamen nicht von EternalTwin übernehmen</source>
-        <target>Spielernamen nicht von EternalTwin übernehmen</target>
+        <target>No mostrar el nombre de usuario de Eternaltwin</target>
       </segment>
     </unit>
     <unit id="y64_fvj" name="Automatische Verwaltung des Spielernamens wiederherstellen">
@@ -4868,7 +4868,7 @@
       </notes>
       <segment>
         <source>Automatische Verwaltung des Spielernamens wiederherstellen</source>
-        <target>Automatische Verwaltung des Spielernamens wiederherstellen</target>
+        <target>Restablecer uso automático del nombre de Eternaltwin</target>
       </segment>
     </unit>
     <unit id="_jfxrwz" name="Nicht von ET verwaltet.">
@@ -4879,7 +4879,7 @@
       </notes>
       <segment>
         <source>Nicht von ET verwaltet.</source>
-        <target>Nicht von ET verwaltet.</target>
+        <target>No administrado por ET.</target>
       </segment>
     </unit>
   </file>
