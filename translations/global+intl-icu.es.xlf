@@ -4250,7 +4250,7 @@
       </notes>
       <segment>
         <source>Ankündigungen</source>
-        <target>Ankündigungen</target>
+        <target>Anuncios</target>
       </segment>
     </unit>
     <unit id="7VfCrWl" name="Foren">
@@ -4261,7 +4261,7 @@
       </notes>
       <segment>
         <source>Foren</source>
-        <target>Foren</target>
+        <target>Foros</target>
       </segment>
     </unit>
   </file>
