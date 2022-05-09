@@ -19438,7 +19438,7 @@
     </unit>
     <unit id="aZTP5kd" name="Behausung:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Behausung:</source>
@@ -19447,7 +19447,7 @@
     </unit>
     <unit id="DPEWu9n" name="Bauarbeiten:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Bauarbeiten:</source>
@@ -19456,7 +19456,7 @@
     </unit>
     <unit id="da5HmMo" name="Verteidigungsgegenstände:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände:</source>
@@ -19465,7 +19465,7 @@
     </unit>
     <unit id="82mfAu." name="Heldenbonus:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Heldenbonus:</source>
@@ -19474,7 +19474,7 @@
     </unit>
     <unit id="GOhyviN" name="Total:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Total:</source>
@@ -19483,7 +19483,7 @@
     </unit>
     <unit id="wyKmZM_">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
