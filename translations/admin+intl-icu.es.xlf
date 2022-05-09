@@ -4747,7 +4747,7 @@
       </notes>
       <segment>
         <source>Kurztext bearbeiten ({name})</source>
-        <target>Editar texto corto ({name})</target>
+        <target>Editar advertencia ({name})</target>
       </segment>
     </unit>
     <unit id="YiIAWLn" name="Register herunterladen">
