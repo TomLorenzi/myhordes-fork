@@ -4857,7 +4857,7 @@
       </notes>
       <segment>
         <source>Spielernamen nicht von EternalTwin übernehmen</source>
-        <target>Spielernamen nicht von EternalTwin übernehmen</target>
+        <target>No mostrar el nombre de usuario de Eternaltwin</target>
       </segment>
     </unit>
     <unit id="y64_fvj" name="Automatische Verwaltung des Spielernamens wiederherstellen">
@@ -4868,7 +4868,7 @@
       </notes>
       <segment>
         <source>Automatische Verwaltung des Spielernamens wiederherstellen</source>
-        <target>Automatische Verwaltung des Spielernamens wiederherstellen</target>
+        <target>Restablecer uso automático del nombre de Eternaltwin</target>
       </segment>
     </unit>
     <unit id="_jfxrwz" name="Nicht von ET verwaltet.">
@@ -4879,7 +4879,7 @@
       </notes>
       <segment>
         <source>Nicht von ET verwaltet.</source>
-        <target>Nicht von ET verwaltet.</target>
+        <target>No administrado por ET.</target>
       </segment>
     </unit>
   </file>
