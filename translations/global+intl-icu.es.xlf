@@ -2878,7 +2878,7 @@
     <unit id="sqGIX9S" name="Zum Wechsein der Seite hier klicken">
       <notes>
         <note category="german">Zum Wechsein der Seite hier klicken</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
         <source>Zum Wechsein der Seite hier klicken</source>
@@ -3691,7 +3691,7 @@
     <unit id="nNymR4f" name="Seite {page}">
       <notes>
         <note category="german">Seite {page}</note>
-        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seite {page}</source>
