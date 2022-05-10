@@ -3954,5 +3954,14 @@
         <target>Foren</target>
       </segment>
     </unit>
+    <unit id="826K03a" name="Kontaktliste">
+      <notes>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontaktliste</source>
+        <target>Kontaktliste</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
