@@ -45,7 +45,7 @@ class WebController extends CustomAbstractController
 {
     public static array $devs = [
         'Benjamin "<i>Brainbox</i>" Behrendt',
-        'Ludovic "<i>Ludofloria</i>" Le Brech',
+        'Ludovic "<i>Cheh\'Tan</i>" Le Brech',
         'Paul "<i>CountCount</i>" Bruhn',
         'Adrien "<i>Adri</i>" Boitelle',
         'Niklas "<i>Choreas</i>" Kosanke',
