@@ -125,7 +125,6 @@ class CitizenDeathDataService implements FixtureProcessorInterface {
                 'icon' => 'haunted',
                 'desc' => 'Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.',
             ],
-
             [
                 'ref' => CauseOfDeath::ExplosiveDoormat,
                 'label' => 'Explosion',
@@ -139,7 +138,6 @@ class CitizenDeathDataService implements FixtureProcessorInterface {
                 'desc' => '???',
                 'pictos' => ['r_paques_#00']
             ],
-            ,
             [
                 'ref' => CauseOfDeath::LiverEaten,
                 'label' => 'Verschlungene Leber',
