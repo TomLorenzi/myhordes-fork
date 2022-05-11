@@ -54,9 +54,15 @@ class ZombieEstimation
      */
     private $citizens;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $seed;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
+        $this->setSeed(mt_rand(PHP_INT_MIN, PHP_INT_MAX));
     }
 
     public function getId(): ?int
@@ -146,6 +152,18 @@ class ZombieEstimation
         if ($this->citizens->contains($citizen)) {
             $this->citizens->removeElement($citizen);
         }
+
+        return $this;
+    }
+
+    public function getSeed(): ?int
+    {
+        return $this->seed;
+    }
+
+    public function setSeed(?int $seed): self
+    {
+        $this->seed = $seed;
 
         return $this;
     }

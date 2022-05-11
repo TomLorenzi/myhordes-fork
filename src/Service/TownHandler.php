@@ -555,7 +555,7 @@ class TownHandler
         $offsetMax = $est->getOffsetMax();
 
         $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
-        mt_srand($town->getDay() + $town->getId());
+        mt_srand($est->getSeed() ?? $town->getDay() + $town->getId());
         $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
         $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $new_formula);
 
