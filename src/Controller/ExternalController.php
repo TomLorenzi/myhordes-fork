@@ -132,9 +132,15 @@ class ExternalController extends InventoryAwareController {
         $data = [];
 
         $APP_KEY = $this->getRequestParam('appkey');
+        $retourUserKey = $this->getUserKey();
         if ($APP_KEY === false) {
             $data = ["error" => "invalid_appkey"];
             $type = 'internalerror';
+        }
+
+        if (!empty($retourUserKey)) {
+            $data = $retourUserKey;
+            $type = "internalerror";
         }
 
         /** @var ExternalApp $app */
@@ -166,16 +172,10 @@ class ExternalController extends InventoryAwareController {
                 ];
                 break;
             case 'items':
-                $data = $this->getPrototypesAPI("items");
-                break;
             case "buildings":
-                $data = $this->getPrototypesAPI("buildings");
-                break;
             case "ruins":
-                $data = $this->getPrototypesAPI("ruins");
-                break;
             case "pictos":
-                $data = $this->getPrototypesAPI("pictos");
+                $data = $this->getPrototypesAPI($type);
                 break;
             case 'debug':
                 $data = $this->getDebugdata();
@@ -185,10 +185,17 @@ class ExternalController extends InventoryAwareController {
                 $data = $this->getUserAPI($type);
                 break;
             case "users":
-                $data = $this->getUsersAPI($type);
+                $data = $this->getUsersAPI();
                 break;
             case "map":
                 $data = $this->getMapAPI();
+                break;
+            case "admin":
+                if ($this->user->getRightsElevation() <= User::USER_LEVEL_CROW) {
+                    break;
+                }
+
+                $data = $this->getAdminAPI();
                 break;
             default:
                 $data = [
@@ -202,7 +209,10 @@ class ExternalController extends InventoryAwareController {
             return $this->json($data);
         }
 
-        return $this->json($data);
+        return $this->json([
+            "error"             => "server_error",
+            "error_description" => "UnknownAction(default)"
+        ]);
     }
 
     /**
@@ -398,6 +408,33 @@ class ExternalController extends InventoryAwareController {
         }
 
         return $this->getUserData($filters, $fields_user);
+    }
+
+    private function getAdminAPI(): array {
+        $entity = $this->getRequestParam('entity');
+        $data = [];
+        switch($entity){
+            case "db":
+                $data = $this->getAdminDbDump();
+                break;
+            case "logs":
+                $data = $this->getAdminLogs();
+                break;
+            default:
+                $data = [
+                    "error"             => "server_error",
+                    "error_description" => "UnknownEntity($entity)"
+                ];
+        }
+        return $data;
+    }
+
+    private function getAdminDbDump(): array {
+        return [];
+    }
+
+    private function getAdminLogs(): array {
+        return [];
     }
 
     private function getArrayItem(Collection $collections, array $fields): array {
