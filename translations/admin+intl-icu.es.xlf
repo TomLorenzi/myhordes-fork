@@ -94,7 +94,7 @@
     <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
       <notes>
         <note category="german">Das Leben dieses Bürgers sofort beenden?</note>
-        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
@@ -4873,6 +4873,17 @@
       <segment>
         <source>Nicht von ET verwaltet.</source>
         <target>No administrado por ET.</target>
+      </segment>
+    </unit>
+    <unit id="GabFwYl" name="Leber fressen">
+      <notes>
+        <note category="german">Eat the liver</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Leber fressen</source>
+        <target>Leber fressen</target>
       </segment>
     </unit>
   </file>

@@ -23167,5 +23167,16 @@ cette violente opération...]]></target>
         <target>{citizen} a souhaité purifier la zone, mais sans succès.</target>
       </segment>
     </unit>
+    <unit id="LbDbpH3" name="Spontanes Leberversagen">
+      <notes>
+        <note category="german">Spontanes Leberversagen</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spontanes Leberversagen</source>
+        <target>Défaillance hépatique</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
