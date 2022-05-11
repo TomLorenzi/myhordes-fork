@@ -1084,6 +1084,8 @@
             $.ajax.no_history().load( document.getElementById('gazette-target'), elem.value, false )
         })
 
+        {% if is_granted("ROLE_ADMIN") %}
+
         $.html.addEventListenerAll('.citizen-main[x-citizen-id]', 'click',  (e,elem) => {
             if (e.target.tagName === 'INPUT') return;
             const details = document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"]');
@@ -1128,6 +1130,8 @@
                 document.querySelector(".citizen-details[x-citizen-id] .invTargetPictos").innerHTML = '';
             }
         })
+
+        {% endif %}
 
     </script>
 {% endblock %}
