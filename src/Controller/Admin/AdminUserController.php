@@ -6,6 +6,7 @@ use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Award;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
@@ -36,6 +37,7 @@ use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
+use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
@@ -1071,6 +1073,21 @@ class AdminUserController extends AdminActionController
     public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
     {
         if ($admh->headshot($this->getUser()->getId(), $id))
+            return AjaxResponse::success();
+
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("api/admin/users/{id}/citizen/eat_liver", name="admin_users_citizen_eat_liver", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @param int $id
+     * @param AdminActionHandler $admh
+     * @return Response
+     */
+    public function users_citizen_eat_liver(int $id, AdminActionHandler $admh): Response
+    {
+        if ($admh->eatLiver($this->getUser()->getId(), $id))
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);

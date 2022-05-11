@@ -140,7 +140,7 @@ class CitizenDeathDataService implements FixtureProcessorInterface {
             ],
             [
                 'ref' => CauseOfDeath::LiverEaten,
-                'label' => 'Verschlungene Leber',
+                'label' => 'Von einem Raben gefressen',
                 'icon' => 'eaten',
                 'desc' => 'Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?'
             ],

@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Balle dans la tête</target>
+        <target>Tir dans la tête</target>
       </segment>
     </unit>
     <unit id="Kt_pe8F" name="Tod bestätigen">
@@ -1019,7 +1019,7 @@
       </notes>
       <segment>
         <source>PM vom Raben</source>
-        <target>MP en tant que Corbeau</target>
+        <target>MP du Corbeau</target>
       </segment>
     </unit>
     <unit id="l2_e9hX" name="Stadt administrieren">

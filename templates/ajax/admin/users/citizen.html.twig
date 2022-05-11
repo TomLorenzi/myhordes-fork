@@ -53,9 +53,16 @@
                         </div>
                         {% if active %}
                             {% if alive %}
+                                <div class="row">
+                                {% if is_granted("ROLE_CROW") %}
                                 <div class="cell padded rw-3">
+                                {% if is_granted("ROLE_ADMIN") %}
                                     <button id="x-headshot"><img src="{{ asset('build/images/actions/bullets.gif') }}" alt="" /><span class="hide-md hide-sm">{{ 'Kopfschuss'|trans({}, 'admin') }}</span></button>
+                                {% endif %}
+                                    <button id="x-liver-eat"><img src="{{ asset('build/images/actions/canteen.gif') }}" alt="" /><span class="hide-md hide-sm">{{ 'Leber zu essen'|trans({}, 'admin') }}</span></button>
                                 </div>
+                                {% endif %}
+
                                 <div class="cell padded rw-3">
                                     <button {% if not is_granted("ROLE_ADMIN") %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: 0}) }}"><i class="fa fa-recycle"></i> <span class="hide-md hide-sm">{{ 'Entkoppeln'|trans({}, 'admin') }}</span></button>
                                 </div>
@@ -64,6 +71,7 @@
                                 </div>
                                 <div class="cell padded rw-3">
                                     <button x-ajax-href="{{ path("admin_town_explorer", {id: town.id}) }}"><i class="fa fa-eye"></i> <span class="hide-md hide-sm">{{ 'Stadt ansehen'|trans({}, 'admin') }}</span></button>
+                                </div>
                                 </div>
 
                                 {% if is_granted("ROLE_ADMIN") %}
@@ -121,6 +129,7 @@
 
         {% if active %}
             {% if alive %}
+                {% if is_granted("ROLE_ADMIN") %}
                 document.getElementById('x-headshot').addEventListener('click', function(e) {
                     e.preventDefault();
                     if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
@@ -129,6 +138,18 @@
                                 $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
                             } )
                 });
+                {% endif %}
+
+                {% if is_granted("ROLE_CROW") %}
+                document.getElementById('x-liver-eat').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
+                        $.ajax.easySend( '{{ path('admin_users_citizen_eat_liver', { 'id': user_citizen.id }) }}', [],
+                            function () {
+                                $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
+                            } )
+                });
+                {% endif %}
 
                 document.getElementById('x-pm').addEventListener('click', function(e) {
                     document.getElementById("forum-content").innerHTML = "";

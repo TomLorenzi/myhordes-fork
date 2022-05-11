@@ -34,13 +34,14 @@ class AdminActionHandler
     private $crow;
 
     private $requiredRole = [
-        'headshot' => 'ROLE_CROW',
+        'headshot' => 'ROLE_ADMIN',
         'suicid' => 'ROLE_CROW',
         'confirmDeath' => 'ROLE_ADMIN',
         'setDefaultRoleDev' => 'ROLE_ADMIN',
         'liftAllBans' => 'ROLE_CROW',
         'ban' => 'ROLE_CROW',
         'clearReports' => 'ROLE_CROW',
+        'eatLiver' => 'ROLE_CROW'
     ];
 
     public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh, CrowService $crow)
@@ -63,15 +64,31 @@ class AdminActionHandler
     public function headshot(int $sourceUser, int $targetCitizenId): string
     {
         if(!$this->hasRights($sourceUser, 'headshot'))
-            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');        
+            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');
+
+        return $this->kill_citizen($targetCitizenId, CauseOfDeath::Headshot);
+    }
+
+    public function eatLiver(int $sourceUser, int $targetCitizenId): string
+    {
+        if(!$this->hasRights($sourceUser, 'eatLiver'))
+            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');
+
+        return $this->kill_citizen($targetCitizenId, CauseOfDeath::LiverEaten);
+    }
+
+    private function kill_citizen($targetCitizenId, $causeOfDeath): string {
         /** @var Citizen $citizen */
         $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targetCitizenId);
         if ($citizen && $citizen->getAlive()) {
             $rem = [];
-            $this->death_handler->kill( $citizen, CauseOfDeath::Headshot, $rem );
+            $this->death_handler->kill( $citizen, $causeOfDeath, $rem );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
             $this->entity_manager->flush();
-            $message = $this->translator->trans('{username} wurde standrechtlich erschossen.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
+            if ($causeOfDeath == CauseOfDeath::Headshot)
+                $message = $this->translator->trans('{username} wurde standrechtlich erschossen.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
+            else if ($causeOfDeath === CauseOfDeath::LiverEaten)
+                $message = $this->translator->trans('{username} hat keine Leber mehr.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
         }
         else {
             $message = $this->translator->trans('Dieser Bürger gehört keiner Stadt an.', [], 'game');

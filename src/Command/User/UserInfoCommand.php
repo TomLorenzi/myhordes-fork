@@ -393,7 +393,7 @@ class UserInfoCommand extends Command
                 if ($input->getOption('validated') && !$user->getValidated()) {
                     return false;
                 }
-                if ($input->getOption('mods') && !$user->getRightsElevation() >= User::USER_LEVEL_CROW) {
+                if ($input->getOption('mods') && $user->getRightsElevation() < User::USER_LEVEL_CROW) {
                     return false;
                 }
 

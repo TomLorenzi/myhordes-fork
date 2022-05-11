@@ -104,7 +104,7 @@
             </div>
             {% if citizen_id is not null %}
                 <div class="row">
-                    <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                    <div class="padded cell rw-5 rw-md-6 rw-sm-12">
                         <button x-ajax-href="{{ path('town_visit', {'id': citizen_id}) }}"><img alt="" src="{{ asset('build/images/icons/home.gif') }}">{{ 'Haus besuchen'|trans({},'soul') }}</button>
                     </div>
                 </div>
@@ -112,10 +112,17 @@
 
             {% if is_granted('ROLE_CROW') %}
             <div class="row">
-                <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                <div class="padded cell rw-5 rw-md-6 rw-sm-12">
                     <button x-ajax-href="{{ path('admin_users_account_view', {id: user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
                 </div>
             </div>
+            {% if user.activeCitizen.alive %}
+            <div class="row">
+                <div class="padded cell rw-5 rw-md-6 rw-sm-12">
+                    <button id="x-liver-eat"><img alt="" src="{{ asset('build/images/actions/canteen.gif') }}">{{ 'Leber zu essen'|trans({},'admin') }}</button>
+                </div>
+            </div>
+            {% endif %}
             {% endif %}
 
             {% if not user|is_granted('ROLE_CROW') and not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
@@ -168,5 +175,16 @@
         let limit_checkbox = document.getElementById('limit-10');
         if (season)
             limit_checkbox.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
+
+        {% if is_granted("ROLE_CROW") %}
+        document.getElementById('x-liver-eat').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
+                $.ajax.easySend( '{{ path('admin_users_citizen_eat_liver', { 'id': user.activeCitizen.id }) }}', [],
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_visit', { 'id': user.Id }) }}', true);
+                    } )
+        });
+        {% endif %}
     </script>
 {% endblock %}
