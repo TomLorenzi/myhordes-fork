@@ -139,6 +139,13 @@ class CitizenDeathDataService implements FixtureProcessorInterface {
                 'desc' => '???',
                 'pictos' => ['r_paques_#00']
             ],
+            ,
+            [
+                'ref' => CauseOfDeath::LiverEaten,
+                'label' => 'Verschlungene Leber',
+                'icon' => 'eaten',
+                'desc' => '???'
+            ],
         ]);
     }
 }

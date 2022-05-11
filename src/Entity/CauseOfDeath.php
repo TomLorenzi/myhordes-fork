@@ -37,7 +37,7 @@ class CauseOfDeath
         15 Cage à viande
         16 Crucifixion
         17 Pulvérisé un peu partout
-        18 Possédé par une âme torturée 
+        18 Possédé par une âme torturée
     */
     const Dehydration      = 1;   // Old : 4;
     const Strangulation    = 2;   // Old : 14;
@@ -59,6 +59,7 @@ class CauseOfDeath
     const Haunted          = 18;  // Old : 17;
     const Radiations       = 19;  // Old : 16;
     const Apocalypse       = 20;  // Old : --
+    const LiverEaten       = 21;
 
     /**
      * @ORM\Id()
