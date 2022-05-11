@@ -35,6 +35,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -112,6 +113,7 @@ class MigrateCommand extends Command
         'c25ec1d6d328d9d3bc03dda9d9bb34873a56484d' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         '049ee184a6e5e2ecb5599a8fc7aa2a8b15948d36' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
         '7fb1baba0c40004b02a556175a73edfa170bdeff' => [ ['app:migrate', ['--calculate-score' => true] ] ],
+        'a45dec20a02f017ab1963d2f0c30e4fa7de9ddf5' => [ ['app:migrate', ['--assign-estimation-seed' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -175,6 +177,7 @@ class MigrateCommand extends Command
             ->addOption('fix-ranking-survived-days', null, InputOption::VALUE_NONE, 'Fix survived day count in rankings')
             ->addOption('reassign-thread-tags', null, InputOption::VALUE_NONE, 'Repairs ThreadTag assignment to forums')
             ->addOption('assign-official-tag', null, InputOption::VALUE_NONE, 'Assign the Official tag in the Town forums')
+            ->addOption('assign-estimation-seed', null, InputOption::VALUE_NONE, 'Assign the random seed in existing Zombie Estimation Entities')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -682,6 +685,18 @@ class MigrateCommand extends Command
                 }
             }
 
+            $this->entity_manager->flush();
+        }
+
+        if ($input->getOption('assign-estimation-seed')) {
+            $estimations = $this->entity_manager->getRepository(ZombieEstimation::class)->findAll();
+            foreach ($estimations as $estimation) {
+                if($estimation->getSeed() === null || $estimation->getSeed() === 0) {
+                    $seed = $estimation->getCitizens()->count() > 0 ? $estimation->getDay() + $estimation->getTown()->getId() : mt_rand(PHP_INT_MIN, PHP_INT_MAX);
+                    $estimation->setSeed($seed);
+                    $this->entity_manager->persist($estimation);
+                }
+            }
             $this->entity_manager->flush();
         }
 
