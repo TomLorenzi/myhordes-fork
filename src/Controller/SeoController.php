@@ -11,7 +11,7 @@ use App\Entity\ExternalApp;
 use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\EternalTwinHandler;

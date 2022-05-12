@@ -4877,7 +4877,7 @@
     </unit>
     <unit id="GabFwYl" name="Leber fressen">
       <notes>
-        <note category="german">Eat the liver</note>
+        <note category="german">Leber fressen</note>
         <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
         <note category="state">new</note>
       </notes>

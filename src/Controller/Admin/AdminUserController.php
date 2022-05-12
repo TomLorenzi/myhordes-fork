@@ -34,7 +34,7 @@ use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
 use App\Service\DeathHandler;
@@ -935,9 +935,9 @@ class AdminUserController extends AdminActionController
      * @AdminLogProfile(enabled=true)
      * @return Response
      */
-    public function users_ban_lift(int $id, AdminActionHandler $admh): Response
+    public function users_ban_lift(int $id): Response
     {                
-        if ($admh->liftAllBans($this->getUser()->getId(), $id))
+        if ($this->adminHandler->liftAllBans($this->getUser()->getId(), $id))
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -1067,10 +1067,10 @@ class AdminUserController extends AdminActionController
      * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
      * @AdminLogProfile(enabled=true)
      * @param int $id
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
+    public function users_citizen_headshot(int $id, AdminHandler $admh): Response
     {
         if ($admh->headshot($this->getUser()->getId(), $id))
             return AjaxResponse::success();
@@ -1082,10 +1082,10 @@ class AdminUserController extends AdminActionController
      * @Route("api/admin/users/{id}/citizen/eat_liver", name="admin_users_citizen_eat_liver", requirements={"id"="\d+"})
      * @AdminLogProfile(enabled=true)
      * @param int $id
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function users_citizen_eat_liver(int $id, AdminActionHandler $admh): Response
+    public function users_citizen_eat_liver(int $id, AdminHandler $admh): Response
     {
         if ($admh->eatLiver($this->getUser()->getId(), $id))
             return AjaxResponse::success();
@@ -1124,7 +1124,7 @@ class AdminUserController extends AdminActionController
      * @AdminLogProfile(enabled=true)
      * @return Response
      */
-    public function users_citizen_confirm_death(int $id, AdminActionHandler $admh): Response
+    public function users_citizen_confirm_death(int $id, AdminHandler $admh): Response
     {                
         if ($admh->confirmDeath($this->getUser()->getId(), $id))
             return AjaxResponse::success();

@@ -6885,7 +6885,7 @@
     </unit>
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php;php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -6894,7 +6894,7 @@
     </unit>
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php;php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7129,7 +7129,7 @@
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php;php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -21730,7 +21730,7 @@
     </unit>
     <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
@@ -21987,6 +21987,15 @@
       <segment>
         <source>Spontanes Leberversagen</source>
         <target>Spontanes Leberversagen</target>
+      </segment>
+    </unit>
+    <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
+      <notes>
+        <note category="from">php:///src/Service/AdminActionHandler.php;php:///src/Service/AdminHandler.php</note>
+      </notes>
+      <segment>
+        <source>{username} hat keine Leber mehr.</source>
+        <target>{username} hat keine Leber mehr.</target>
       </segment>
     </unit>
   </file>

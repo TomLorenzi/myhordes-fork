@@ -4912,7 +4912,6 @@
       <notes>
         <note category="german">Leber fressen</note>
         <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Leber fressen</source>

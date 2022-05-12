@@ -17,11 +17,14 @@ use App\Entity\User;
 use App\Service\DeathHandler;
 use DateInterval;
 use DateTime;
+use DirectoryIterator;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use SplFileInfo;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class AdminActionHandler
+class AdminHandler
 {
     private $entity_manager;
     /**
@@ -32,6 +35,7 @@ class AdminActionHandler
     private $log;
     private $userHandler;
     private $crow;
+    private $params;
 
     private $requiredRole = [
         'headshot' => 'ROLE_ADMIN',
@@ -44,7 +48,7 @@ class AdminActionHandler
         'eatLiver' => 'ROLE_CROW'
     ];
 
-    public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh, CrowService $crow)
+    public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh, CrowService $crow, ParameterBagInterface $params)
     {
         $this->entity_manager = $em;
         $this->death_handler = $dh;
@@ -52,6 +56,7 @@ class AdminActionHandler
         $this->log = $lt;
         $this->userHandler = $uh;
         $this->crow = $crow;
+        $this->params = $params;
     }
 
     protected function hasRights(int $sourceUser, string $desiredAction)
@@ -193,5 +198,106 @@ class AdminActionHandler
             $message = $this->translator->trans('Du gehörst keiner Stadt an.', [], 'admin');
         }
         return $message;
+    }
+
+    /**
+     * @param string $base_path
+     * @param string|string[] $extensions
+     * @return SplFileInfo[]
+     */
+    public function list_files( string $base_path, array|string $extensions ): array {
+        if (!is_array($extensions)) $extensions = [$extensions];
+
+        $result = [];
+
+        $paths = [$base_path];
+        while (!empty($paths)) {
+            $path = array_pop($paths);
+            if (!is_dir($path)) continue;
+            foreach (new DirectoryIterator($path) as $fileInfo) {
+                /** @var SplFileInfo $fileInfo */
+                if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+                elseif ($fileInfo->isFile() && in_array( strtolower($fileInfo->getExtension()), $extensions))
+                    $result[] = $fileInfo->getFileInfo( SplFileInfo::class );
+                elseif ($fileInfo->isDir()) $paths[] = $fileInfo->getRealPath();
+            }
+        }
+
+        return $result;
+    }
+
+    public function getDbDumps(): array {
+        $backup_base_dir = "{$this->params->get('kernel.project_dir')}/var/backup";
+        $extract_backup_types = function(SplFileInfo $f) : array {
+            $ret = [];
+
+            list($type) = explode( '.', array_pad( explode('_', $f->getFilename() ), 3, '')[2], 2);
+            $ret[] = match ($type) {
+                'nightly' => ['color' => '#0D090A', 'tag' => $this->translator->trans('Angriff', [], 'admin')],
+                'daily' => ['color' => '#361F27', 'tag' => $this->translator->trans('Täglich', [], 'admin')],
+                'weekly' => ['color' => '#521945', 'tag' => $this->translator->trans('Wöchentlich', [], 'admin')],
+                'monthly' => ['color' => '#912F56', 'tag' => $this->translator->trans('Monatlich', [], 'admin')],
+                'update' => ['color' => '#738290', 'tag' => $this->translator->trans('Update', [], 'admin')],
+                'manual' => ['color' => '#CD533B', 'tag' => $this->translator->trans('Manuell', [], 'admin')],
+            };
+
+            $ret[] = match ($f->getExtension()) {
+                'sql' => ['color' => '#3E5641', 'tag' => $this->translator->trans('Nicht komprimiert', [], 'admin')],
+                'xz' => ['color' => '#40916C', 'tag' => 'XZ'],
+                'gzip' => ['color' => '#2D6A4F', 'tag' => 'GZIP'],
+                'bz2' => ['color' => '#1B4332', 'tag' => 'BZIP2'],
+            };
+
+            return $ret;
+        };
+
+        $backup_files = array_map( fn($e) => [
+            'info' => $e,
+            'rel' => $e->getRealPath(),
+            'time' => (new \DateTime())->setTimestamp( $e->getCTime() ),
+            'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
+            'tags' => $extract_backup_types($e)
+        ], $this->list_files( $backup_base_dir, ['sql','xz','gzip','bz2'] ));
+        usort($backup_files, fn($a,$b) => $b['time'] <=> $a['time'] );
+        return $backup_files;
+    }
+
+    public function getLogFiles(): array {
+        $log_base_dir = "{$this->params->get('kernel.project_dir')}/var/log";
+        $log_spl_base_path = new SplFileInfo($log_base_dir);
+        $extract_log_type = function(SplFileInfo $f) use ($log_spl_base_path): array {
+            if ($f->getPathInfo(SplFileInfo::class)->getRealPath() === $log_spl_base_path->getRealPath()) return [
+                'tag' => $this->translator->trans('Kernel', [], 'admin'),
+                'color' => '#F71735'
+            ];
+            else return match ($f->getPathInfo(SplFileInfo::class)->getFilename()) {
+                'night' => [
+                    'tag' => $this->translator->trans('Angriff', [], 'admin'),
+                    'color' => '#1481BA'
+                ],
+                'update' => [
+                    'tag' => $this->translator->trans('Update', [], 'admin'),
+                    'color' => '#82846D'
+                ],
+                'admin' => [
+                    'tag' => $this->translator->trans('Admin', [], 'admin'),
+                    'color' => '#ff6633'
+                ],
+                default => [
+                    'tag' => $this->translator->trans('Unbekannt', [], 'admin'),
+                    'color' => '#646165'
+                ],
+            };
+        };
+
+        $log_files = array_map( fn($e) => [
+            'info' => $e,
+            'rel' => $e->getRealPath(),
+            'time' => (new \DateTime())->setTimestamp( $e->getMTime() ),
+            'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
+            'tags' => [$extract_log_type($e)]
+        ], $this->list_files( $log_base_dir, 'log' ));
+        usort($log_files, fn($a,$b) => $b['time'] <=> $a['time'] );
+        return $log_files;
     }
 }

@@ -13,7 +13,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\ReportSeenMarker;
 use App\Entity\User;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -98,10 +98,10 @@ class AdminForumController extends AdminActionController
      * @Route("api/admin/forum/reports/clear", name="admin_reports_clear")
      * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function reports_clear(JSONRequestParser $parser, AdminActionHandler $admh): Response
+    public function reports_clear(JSONRequestParser $parser, AdminHandler $admh): Response
     {
         if (!$parser->has_all(['postId'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -119,10 +119,10 @@ class AdminForumController extends AdminActionController
      * @Route("api/admin/forum/reports/seen", name="admin_reports_seen")
      * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function reports_seen(JSONRequestParser $parser, AdminActionHandler $admh): Response
+    public function reports_seen(JSONRequestParser $parser, AdminHandler $admh): Response
     {
         if (!$parser->has_all(['postId'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);

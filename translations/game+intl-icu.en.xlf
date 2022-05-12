@@ -22964,7 +22964,7 @@
     <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
       <notes>
         <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
         <note category="state">new</note>
       </notes>
       <segment>
@@ -23252,6 +23252,17 @@
       <segment>
         <source>Spontanes Leberversagen</source>
         <target>Liver failure</target>
+      </segment>
+    </unit>
+    <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
+      <notes>
+        <note category="german">{username} hat keine Leber mehr.</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{username} hat keine Leber mehr.</source>
+        <target>{username} doesn't have a liver anymore.</target>
       </segment>
     </unit>
   </file>

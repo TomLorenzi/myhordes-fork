@@ -22886,7 +22886,7 @@ cette violente opération...]]></target>
     <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
       <notes>
         <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
@@ -23171,11 +23171,21 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Spontanes Leberversagen</note>
         <note category="from">db://CauseOfDeath</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spontanes Leberversagen</source>
         <target>Défaillance hépatique</target>
+      </segment>
+    </unit>
+    <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
+      <notes>
+        <note category="german">{username} hat keine Leber mehr.</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{username} hat keine Leber mehr.</source>
+        <target>{username} n'a plus de foie.</target>
       </segment>
     </unit>
   </file>

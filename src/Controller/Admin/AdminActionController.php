@@ -12,6 +12,7 @@ use App\Entity\User;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Response\AjaxResponse;
+use App\Service\AdminHandler;
 use App\Service\AdminLog;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -47,6 +48,7 @@ class AdminActionController extends CustomAbstractController
     protected CrowService $crow_service;
     protected AdminLog $logger;
     protected UrlGeneratorInterface $urlGenerator;
+    protected AdminHandler $adminHandler;
 
     public static function getAdminActions(): array {
         return [
@@ -70,7 +72,7 @@ class AdminActionController extends CustomAbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator, AdminHandler $adminHandler)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->logTemplateHandler = $lth;
@@ -79,6 +81,7 @@ class AdminActionController extends CustomAbstractController
         $this->crow_service = $crow;
         $this->logger = $adminLogger;
         $this->urlGenerator = $urlGenerator;
+        $this->adminHandler = $adminHandler;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array

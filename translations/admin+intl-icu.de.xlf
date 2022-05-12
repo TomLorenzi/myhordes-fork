@@ -1002,7 +1002,7 @@
     </unit>
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php;php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -1011,7 +1011,7 @@
     </unit>
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php;php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>

@@ -41,7 +41,7 @@ use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
@@ -991,10 +991,10 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/settings/defaultrole", name="api_soul_defaultrole")
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function soul_settings_default_role(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+    public function soul_settings_default_role(JSONRequestParser $parser, AdminHandler $admh): Response {
         $user = $this->getUser();
 
         $asDev = $parser->get('dev', false);
@@ -1007,10 +1007,10 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/settings/mod_tools_window", name="api_soul_mod_tools_window")
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function soul_mod_tools_window(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+    public function soul_mod_tools_window(JSONRequestParser $parser, AdminHandler $admh): Response {
         $user = $this->getUser();
 
         $new_window = $parser->get('same_window', false);

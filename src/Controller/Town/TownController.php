@@ -47,7 +47,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\ErrorHelper;
 use App\Service\TownHandler;
 use DateTime;
@@ -284,10 +284,10 @@ class TownController extends InventoryAwareController
     /**
      * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
      * @param int $id Citizen's ID
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function visitHeadshot(int $id, AdminActionHandler $admh): Response
+    public function visitHeadshot(int $id, AdminHandler $admh): Response
     {
         $sourceUserId = $this->getUser()->getId();
         $message = $admh->headshot($sourceUserId, $id);
