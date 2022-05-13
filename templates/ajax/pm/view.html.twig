@@ -41,7 +41,7 @@
                     <ul class="tabs plain" x-tab-group="gpm-inbox" x-tab-control id="gpm-inbox-control">
                         <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Posteingang'|trans({},'global') }}</span></div></li>
                         <li class="tab" x-tab-id="announcements"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_rp.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Ankündigungen'|trans({},'global') }}</span></div></li>
-                        <li class="tab" x-tab-id="forum"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_talk.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Foren'|trans({},'global') }}</span></div></li>
+                        {% if has_forum_notif %}<li class="tab" x-tab-id="forum"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_talk.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Foren'|trans({},'global') }}</span></div></li>{% endif %}
                         {% if official_groups is not empty %}
                             <li class="tab" x-tab-id="support"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_star.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Support-Postfach'|trans({},'global') }}</span></div></li>
                         {% endif %}
