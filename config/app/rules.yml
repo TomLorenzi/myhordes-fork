@@ -137,6 +137,7 @@ parameters:
         give_soulpoints: true
         last_death: ['r_surlst_#00']
         survival_picto: null
+        free_for_all: false
 
       disabled_jobs: ['shaman']
       disabled_roles: []

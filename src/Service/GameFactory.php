@@ -479,7 +479,7 @@ class GameFactory
             return false;
         }
 
-        if (!$internal) {
+        if (!$internal && !$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_SP_REQUIRED )) {
             $conf = $this->conf->getGlobalConf();
             $sp = $this->user_handler->fetchSoulPoints($user);
             $allowed = false;

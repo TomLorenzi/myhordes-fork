@@ -1828,5 +1828,25 @@
         <target>Hungry Ghouls</target>
       </segment>
     </unit>
+    <unit id="RoR55TY" name="Seelenpunkt-Beschränkung deaktivieren:">
+      <notes>
+        <note category="german">Seelenpunkt-Beschränkung deaktivieren:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkt-Beschränkung deaktivieren:</source>
+        <target>Disable soul point limitations:</target>
+      </segment>
+    </unit>
+    <unit id="DAbc25I">
+      <notes>
+        <note category="german">Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</source>
+        <target>Any player can enter this town, regardless of the number of soul points they currently have.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
