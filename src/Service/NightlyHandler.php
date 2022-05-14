@@ -37,6 +37,7 @@ use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
+use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -69,11 +70,13 @@ class NightlyHandler
     private GameFactory $game_factory;
     private GazetteService $gazette_service;
     private GameProfilerService $gps;
+    private TimeKeeperService $timeKeeper;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
-                              CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps)
+                              CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
+                              TimeKeeperService $timeKeeper )
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -94,6 +97,7 @@ class NightlyHandler
         $this->game_factory = $gf;
         $this->gazette_service = $gs;
         $this->gps = $gps;
+        $this->timeKeeper = $timeKeeper;
     }
 
     private function check_town(Town $town): bool {
@@ -130,6 +134,8 @@ class NightlyHandler
     }
 
     private function stage0_stranger(Town $town) {
+        $stranger_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('1sec'));
+
         $stranger_ap = $town->getStrangerPower() * 6 + mt_rand( 0, $town->getStrangerPower() * 3 );
         $this->log->debug( "The stranger's power of <info>{$town->getStrangerPower()}</info> grants him <info>{$stranger_ap} AP</info>." );
 
@@ -162,7 +168,7 @@ class NightlyHandler
         $this->log->debug( 'The stranger has found <info>' . count($items_found) . '</info> items.' );
         foreach ($items_found as $item) {
             $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem($item) );
-            $this->entity_manager->persist( $this->logTemplates->strangerBankItemLog( $town, $item ) );
+            $this->entity_manager->persist( $this->logTemplates->strangerBankItemLog( $town, $item, $stranger_ts ) );
         }
 
         // Building
@@ -219,7 +225,7 @@ class NightlyHandler
             if ($invest > 0) {
                 $building->setHp( min($building->getHp() + 2 * $invest, $building->getPrototype()->getHp()) );
                 $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()} AP</info>." );
-                if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building ) );
+                if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building, $stranger_ts ) );
             }
 
             $ap_for_building -= $invest;
@@ -244,7 +250,7 @@ class NightlyHandler
                 if ($invest > 0) {
                     $building->setAp( min($building->getAp() + $invest, $building->getPrototype()->getAp() - 1) );
                     $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()} AP</info>." );
-                    if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building->getPrototype() ) );
+                    if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building->getPrototype(), $stranger_ts ) );
                 }
 
                 $ap_for_building -= $invest;
