@@ -731,7 +731,7 @@ class UserHandler
     }
 
     protected array $_relation_cache = [];
-    public function checkRelation( User $user, User $relation, int $type, bool $any_direction = false ) {
+    public function checkRelation( User $user, User $relation, int $type, bool $any_direction = false ): bool {
         if ($user === $relation) return false;
         $key = "{$user->getId()}:{$relation->getId()}:{$type}";
         return (

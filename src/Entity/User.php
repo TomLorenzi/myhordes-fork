@@ -294,7 +294,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $noAutoFollowThreads = false;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class)
+     * @ORM\ManyToMany(targetEntity=User::class, fetch="EXTRA_LAZY")
      */
     private $friends;
 

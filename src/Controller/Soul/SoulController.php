@@ -239,11 +239,13 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/refer", name="soul_refer")
-     * @Route("jx/soul/contacts", name="soul_contacts")
+     * @Route("jx/soul/contacts/{opt}", name="soul_contacts", requirements={"opt"="\d"})
+     * @param Request $request
      * @param ConfMaster $conf
+     * @param int $opt
      * @return Response
      */
-    public function soul_refer(Request $request, ConfMaster $conf): Response {
+    public function soul_refer(Request $request, ConfMaster $conf, int $opt = 0): Response {
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
@@ -288,6 +290,10 @@ class SoulController extends CustomAbstractController
             $coa_full = count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5);
         }
 
+        $reverse_friends = $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true);
+        $all_reverse_friends = count($reverse_friends);
+        if ($opt !== 1) $reverse_friends = array_filter( $reverse_friends, fn(User $friend) => !$this->user_handler->checkRelation( $this->getUser(), $friend, SocialRelation::SocialRelationTypeNotInterested ) );
+
         return $this->render( 'ajax/soul/social.html.twig', $this->addDefaultTwigArgs("soul_refer", [
             'tab' => $request->attributes->get('_route') === 'soul_refer' ? 'refer' : 'friends',
 
@@ -296,7 +302,9 @@ class SoulController extends CustomAbstractController
             'lang' => $this->getUserLanguage(),
 
             'friends' => $this->getUser()->getFriends(),
-            'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true),
+            'reverse_friends' => $reverse_friends,
+            'reverse_friends_hidden' => count($reverse_friends) < $all_reverse_friends,
+            'opt' => $opt,
 
             'blocklist' => $this->entity_manager->getRepository( SocialRelation::class )->findBy( ['owner' => $this->getUser(), 'type' => SocialRelation::SocialRelationTypeBlock ] ),
 
@@ -1601,8 +1609,8 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/friend/{action}", name="soul_friend_control")
      * @GateKeeperProfile(allow_during_attack=true)
-     * @param int $id
-     * @param HTMLService $html
+     * @param int $action
+     * @param JSONRequestParser $parser
      * @return Response
      */
     public function api_friend_control(int $action, JSONRequestParser $parser) {
@@ -1617,9 +1625,11 @@ class SoulController extends CustomAbstractController
         if ($action && $this->user_handler->checkRelation($this->getUser(), $user,SocialRelation::SocialRelationTypeBlock, true))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
-        if($action)
+        if ($action) {
             $this->getUser()->addFriend($user);
-        else
+            $ignoreRelation = $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $user, 'type' => SocialRelation::SocialRelationTypeNotInterested ] );
+            if ($ignoreRelation) $this->entity_manager->remove( $ignoreRelation );
+        } else
             $this->getUser()->removeFriend($user);
 
         $this->entity_manager->persist($this->getUser());
@@ -1630,6 +1640,33 @@ class SoulController extends CustomAbstractController
         } else {
             $this->addFlash("notice", $this->translator->trans("Du hast {username} aus deinen Kontakten gelöscht!", ['{username}' => $user], "soul"));
         }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/ignore/{action}", name="soul_ignore_control")
+     * @GateKeeperProfile(allow_during_attack=true)
+     * @param int $action
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function api_ignore_control(int $action, JSONRequestParser $parser) {
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $id = $parser->get("id");
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        if (!$user || $this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($this->getUser()->getFriends()->contains($user) && $action)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($action)
+            $this->entity_manager->persist((new SocialRelation())->setType(SocialRelation::SocialRelationTypeNotInterested)->setOwner($this->getUser())->setRelated($user));
+        else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $user, 'type' => SocialRelation::SocialRelationTypeNotInterested ] ) );
+        $this->entity_manager->flush();
 
         return AjaxResponse::success();
     }

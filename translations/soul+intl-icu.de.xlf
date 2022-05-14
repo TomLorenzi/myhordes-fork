@@ -4354,5 +4354,32 @@
         <target>Ändern des Profils</target>
       </segment>
     </unit>
+    <unit id="JRVXs3." name="Nicht länger ausblenden">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nicht länger ausblenden</source>
+        <target>Nicht länger ausblenden</target>
+      </segment>
+    </unit>
+    <unit id="BC_uip5" name="Ausblenden">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ausblenden</source>
+        <target>Ausblenden</target>
+      </segment>
+    </unit>
+    <unit id="p5LaFyO" name="Ausgeblendete Spieler anzeigen">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ausgeblendete Spieler anzeigen</source>
+        <target>Ausgeblendete Spieler anzeigen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
