@@ -189,12 +189,11 @@ class MessageGlobalPMController extends MessageController
         $target = Request::createFromGlobals()->headers->get('X-Render-Target', '');
 
         if ($target === 'post-office-content') {
-            $this->render_forumNotifications($entries );
             return $this->render( 'ajax/pm/view.html.twig', [
                 'rk' => (new DateTime('now'))->getTimestamp(),
                 'command' => $parser->get('command'),
                 'official_groups' => array_filter( $this->entity_manager->getRepository(OfficialGroup::class)->findAll(), fn(OfficialGroup $o) => $this->perm->userInGroup($this->getUser(), $o->getUsergroup()) ),
-                'has_forum_notif' => count($entries) > 0,
+                'has_forum_notif' => $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser()]) > 0,
             ]);
         }
 
