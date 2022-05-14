@@ -73,7 +73,7 @@ class MessageGlobalPMController extends MessageController
 
         $response = ['new' =>
             count($subscriptions) +
-            $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user) +
+            $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, true, true, true) +
             $em->getRepository(UserGroupAssociation::class)->countUnreadInactivePMsByUser($user) +
             $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user) +
             $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()),
@@ -210,6 +210,9 @@ class MessageGlobalPMController extends MessageController
         foreach ($group_associations as $association) {
             $official_meta = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $association->getAssociation()]);
 
+            $has_response = $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember &&
+                $this->entity_manager->getRepository(GlobalPrivateMessage::class)->lastInGroup($association->getAssociation())->getSenderGroup() !== null;
+
             $owner_assoc = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy([
                 'association' => $association->getAssociation(),
                 'associationLevel' => $official_meta ? UserGroupAssociation::GroupAssociationLevelDefault : UserGroupAssociation::GroupAssociationLevelFounder,
@@ -232,6 +235,7 @@ class MessageGlobalPMController extends MessageController
                 'date'   => $last_post_date,
                 'pinned' => $association->getPriority(),
                 'system' => false,
+                'response' => $has_response,
                 'archive' => $association->getBref(),
                 'official' => $official_meta ? $official_meta->getOfficialGroup() : null,
                 'title'  => $association->getAssociation()->getName(),
@@ -422,7 +426,7 @@ class MessageGlobalPMController extends MessageController
                     break;
                 case 'support':
                     $return[$folder] =
-                        $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, false, true);
+                        $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, false, true, true);
                     break;
                 case 'announcements':
                     $return[$folder] = $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage());

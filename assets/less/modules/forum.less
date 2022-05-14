@@ -769,6 +769,7 @@ ul.subscriptions {
           display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: 0;
           background-image: url(../../img/forum/recent.png); position: absolute;
         }
+        &.responded::before { opacity: 0.5; filter: grayscale(100%) }
       }
       &.new:not(.selected)[x-domain="f"] {
         &::before {

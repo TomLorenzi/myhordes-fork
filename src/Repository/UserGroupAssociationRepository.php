@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\GlobalPrivateMessage;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
@@ -88,24 +89,48 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
      * @param User $user
      * @param bool $include_pm
      * @param bool $include_groups
+     * @param bool $filter_responded
      * @return int
      */
-    public function countUnreadPMsByUser( User $user, bool $include_pm = true, bool $include_groups = true ): int {
+    public function countUnreadPMsByUser( User $user, bool $include_pm = true, bool $include_groups = true, bool $filter_responded = false ): int {
+        if (!$include_groups) $filter_responded = false;
+
+        if ($include_pm && $include_groups && $filter_responded)
+            return $this->countUnreadPMsByUser( $user, true, false, false ) +
+                $this->countUnreadPMsByUser( $user, false, true, true );
+
         $filter = [];
         if ($include_pm) $filter[] = UserGroupAssociation::GroupAssociationTypePrivateMessageMember;
         if ($include_groups) $filter[] = UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember;
 
         if (empty($filter)) return 0;
 
-        $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')->leftJoin('u.association', 'g')
-            ->andWhere('u.user = :user')->setParameter('user', $user)
-            ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
-            ->andWhere('u.bref = false')
-            ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', $filter);
+        if ($filter_responded) {
+            $count = 0;
+            foreach ($this->createQueryBuilder('u')->leftJoin('u.association', 'g')
+                ->andWhere('u.user = :user')->setParameter('user', $user)
+                ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
+                ->andWhere('u.bref = false')
+                ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', $filter)
+                ->getQuery()->getResult() as $group)
+                /** @var UserGroupAssociation $group */
+                if (!$this->getEntityManager()->getRepository(GlobalPrivateMessage::class)->lastInGroup($group->getAssociation())->getSenderGroup())
+                    $count++;
 
-        try {
-            return $qb->getQuery()->getSingleScalarResult();
-        } catch (Exception $e) { return 0; }
+                return $count;
+        } else {
+            $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')->leftJoin('u.association', 'g')
+                ->andWhere('u.user = :user')->setParameter('user', $user)
+                ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
+                ->andWhere('u.bref = false')
+                ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', $filter);
+
+            try {
+                return $qb->getQuery()->getSingleScalarResult();
+            } catch (Exception $e) { return 0; }
+        }
+
+
     }
 
     /**
