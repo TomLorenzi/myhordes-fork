@@ -79,7 +79,9 @@ class Post
      */
     private $_readMarkers;
 
-    private $new = false;
+    private bool $new = false;
+    private bool $hydrated = false;
+    private ?string $hydrated_text = null;
 
     /**
      * @ORM\Column(type="boolean")
@@ -154,7 +156,7 @@ class Post
 
     public function getText(): ?string
     {
-        return $this->text;
+        return $this->hydrated_text ?? $this->text;
     }
 
     public function setText(string $text): self
@@ -274,6 +276,18 @@ class Post
 
     public function setNew(): self {
         $this->new = true;
+        return $this;
+    }
+
+    public function getHydrated(): bool {
+        return $this->hydrated;
+    }
+
+    public function setHydrated(string $text): self {
+        if (!$this->hydrated) {
+            $this->hydrated = true;
+            $this->hydrated_text = $text;
+        }
         return $this;
     }
 
