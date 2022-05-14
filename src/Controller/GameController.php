@@ -7,6 +7,7 @@ use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenRole;
 use App\Entity\CouncilEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
@@ -165,6 +166,13 @@ class GameController extends CustomAbstractController
 
         $citizensWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
 
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
+
+        $votesNeeded = array();
+        foreach ($roles as $role)
+            if ( $this->town_handler->is_vote_needed($town, $role) )
+                $votesNeeded[$role->getName()] = $role;
+
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
 
         $citizen = $this->getActiveCitizen();
@@ -196,6 +204,7 @@ class GameController extends CustomAbstractController
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizenRoleList,
+            'votesNeeded' => $votesNeeded,
             'town' => $town,
             'council' => array_map( fn(CouncilEntry $c) => [$this->gazette_service->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)

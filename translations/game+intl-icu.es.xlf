@@ -23183,5 +23183,27 @@
         <target>{username} hat keine Leber mehr.</target>
       </segment>
     </unit>
+    <unit id="Q3qWi07">
+      <notes>
+        <note category="german">Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</note>
+        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</source>
+        <target>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</target>
+      </segment>
+    </unit>
+    <unit id="e9K2kq6" name="im Wahlbüro abzustimmen">
+      <notes>
+        <note category="german">im Wahlbüro abzustimmen</note>
+        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>im Wahlbüro abzustimmen</source>
+        <target>im Wahlbüro abzustimmen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

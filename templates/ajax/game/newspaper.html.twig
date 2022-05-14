@@ -11,16 +11,20 @@
             <input type="checkbox" name="gazette-switch" id="gazette-switch" />
             {% include 'ajax/game/gazette_widget.html.twig' with { gazette: gazette, council: council } %}
 
-            {% if citizensWithRole|length > 0 %}
+            {% if citizensWithRole|length > 0 or votesNeeded|length > 0 %}
             <h5>{{ 'Stadtrat'|trans({}, 'game') }}</h5>
             <div id="gazette-role-list">
-            {% for roleId, array in citizensWithRole %}
-                {% for citizen in array.citizens %}
-                    {% if not array.role.secret and not array.role.hidden %}
-                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der {rolename} der Stadt ist {username}"|trans({'rolename': array.role.label|trans({'ref': citizen}, 'game'), 'username': citizen, 'username__tag': 'strong', 'rolename__tag': 'strong'} , 'game')|raw }}</p>
-                    {% endif %}
+                {% for role in votesNeeded %}
+                    <p><img alt="•" src="{{ asset('build/images/icons/small_help.gif') }}" />
+                        {{ "Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}."|trans({'rolename': role.label|trans({}, 'game'), 'vote_link': ('<a href="#" x-ajax-href="' ~ path('town_citizen_vote', {roleId: role.id}) ~ '">' ~ 'im Wahlbüro abzustimmen'|trans({}, 'game') ~ '</a>')} , 'game')|raw }}</p>
                 {% endfor %}
-            {% endfor %}
+                {% for roleId, array in citizensWithRole %}
+                    {% for citizen in array.citizens %}
+                        {% if not array.role.secret and not array.role.hidden %}
+                            <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der {rolename} der Stadt ist {username}"|trans({'rolename': array.role.label|trans({'ref': citizen}, 'game'), 'username': citizen, 'username__tag': 'strong', 'rolename__tag': 'strong'} , 'game')|raw }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
             </div>
             {% endif %}
 
