@@ -4724,22 +4724,22 @@
       <notes>
         <note category="german">Specify using player search</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Specify using player search</source>
-        <target>Specify using player search</target>
+        <target>Spécifier à l’aide de la recherche de joueur</target>
       </segment>
     </unit>
     <unit id="96qFRFR" name="Ändern des Profils">
       <notes>
         <note category="german">Ändern des Profils</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ändern des Profils</source>
-        <target>Ändern des Profils</target>
+        <target>Modifier le profil</target>
       </segment>
     </unit>
   </file>
