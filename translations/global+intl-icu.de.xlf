@@ -3963,5 +3963,14 @@
         <target>Kontaktliste</target>
       </segment>
     </unit>
+    <unit id="aD_1HUX" name="STRG">
+      <notes>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>STRG</source>
+        <target>STRG</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

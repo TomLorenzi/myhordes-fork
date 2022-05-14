@@ -4736,7 +4736,6 @@
       <notes>
         <note category="german">Ändern des Profils</note>
         <note category="from">php:///src/Service/LogTemplateHandler.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Ändern des Profils</source>

@@ -4306,5 +4306,15 @@
         <target>Contact list</target>
       </segment>
     </unit>
+    <unit id="aD_1HUX" name="STRG">
+      <notes>
+        <note category="german">STRG</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>STRG</source>
+        <target>CTRL</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
