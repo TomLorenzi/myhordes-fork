@@ -23258,7 +23258,6 @@
       <notes>
         <note category="german">{username} hat keine Leber mehr.</note>
         <note category="from">php:///src/Service/AdminActionHandler.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{username} hat keine Leber mehr.</source>

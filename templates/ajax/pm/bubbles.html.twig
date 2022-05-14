@@ -293,6 +293,10 @@
             <div class="pm-message-header">
                 {% if message.senderGroup and message.senderGroup.anon %}
                     <img src="{{ asset('build/images/icons/small_star.gif') }}" alt=""> <b style="color: #6298fc">[ {{ message.senderGroup.usergroup.name }} ]</b>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {% set playername %}{% include 'ajax/soul/playername.html.twig' with {user: message.sender} only %}{% endset %}
+                        <i class="small">, {{ 'maskiert {playername}'|trans({playername: playername}, 'admin')|raw }}</i>
+                    {% endif %}
                 {% elseif message.senderGroup %}
                     <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="">
                     {% include 'ajax/soul/playername.html.twig' with {user: message.sender} only %}

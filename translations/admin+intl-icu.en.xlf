@@ -4918,5 +4918,15 @@
         <target>Eat the liver</target>
       </segment>
     </unit>
+    <unit id="6kFAjXk" name="maskiert {playername}">
+      <notes>
+        <note category="german">maskiert {playername}</note>
+        <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
+      </notes>
+      <segment>
+        <source>maskiert {playername}</source>
+        <target>masking {playername}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

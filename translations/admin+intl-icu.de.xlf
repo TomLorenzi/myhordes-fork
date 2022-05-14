@@ -4609,5 +4609,14 @@
         <target>Leber fressen</target>
       </segment>
     </unit>
+    <unit id="6kFAjXk" name="maskiert {playername}">
+      <notes>
+        <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
+      </notes>
+      <segment>
+        <source>maskiert {playername}</source>
+        <target>maskiert {playername}</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
