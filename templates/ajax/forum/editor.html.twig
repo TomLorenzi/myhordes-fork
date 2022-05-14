@@ -379,7 +379,7 @@
                 transfer_to_preview();
             });
             node_transfer_source.addEventListener('keydown', e => {
-                if (e.ctrlKey) {
+                if (e.ctrlKey || e.metaKey) {
                     const button = document.querySelector('[x-forum-action="edit"][x-control-shortcut="' + e.key.toLowerCase() + '"]');
                     if (button) {
                         button.dispatchEvent( new Event('click', { bubbles: false, cancelable: true }) );
@@ -930,7 +930,8 @@
 
             $.html.forEach( '[x-control-shortcut]', elem => {
                 const tooltip = elem.querySelector('.forum-button-tooltip');
-                if (tooltip) tooltip.innerHTML = '<div class="center">' + tooltip.innerText + '</div><div class="keyboard"><kbd>{{ 'STRG'|trans({},'global') }}</kbd> + <kbd>' + elem.getAttribute('x-control-shortcut').toUpperCase() + '</kbd></div>';
+                const modifierKey = navigator.platform.indexOf("Mac") === 0 ? '⌘' : '{{ 'STRG'|trans({},'global')|e('js') }}';
+                if (tooltip) tooltip.innerHTML = '<div class="center">' + tooltip.innerText + '</div><div class="keyboard"><kbd>' + modifierKey + '</kbd> + <kbd>' + elem.getAttribute('x-control-shortcut').toUpperCase() + '</kbd></div>';
             } )
         })();
     </script>
