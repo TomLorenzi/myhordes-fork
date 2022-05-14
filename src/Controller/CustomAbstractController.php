@@ -69,11 +69,11 @@ class CustomAbstractController extends AbstractController {
         $data['menu_section'] = $section;
 
         $data['clock'] = [
-            'desc'      => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getName() : $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getDay() : "",
+            'desc'      => $this->getActiveCitizen()?->getTown()->getName() ?? $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
+            'day'       => $this->getActiveCitizen()?->getTown()->getDay() ?? '',
             'timestamp' => new DateTime('now'),
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getType()->getName() : "",
+            'towntype'  => $this->getActiveCitizen()?->getTown()->getType()->getName() ?? '',
             'offset'    => timezone_offset_get( timezone_open( date_default_timezone_get ( ) ), new DateTime() )
         ];
 
@@ -91,7 +91,7 @@ class CustomAbstractController extends AbstractController {
         $data['adminActions'] = AdminActionController::getAdminActions();
         $data['comActions']   = AdminActionController::getCommunityActions();
 
-        if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
+        if ( $this->getActiveCitizen()?->getAlive() ){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
             $data['citizen'] = $this->getActiveCitizen();
             $data['conf'] = $this->getTownConf();

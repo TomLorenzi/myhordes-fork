@@ -143,7 +143,6 @@ class SoulController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'soul_me' ));
 
         $largest = null;
-        $comment = null;
 
         /** @var AccountRestriction[] $restrictions */
         $restrictions = $this->entity_manager->getRepository(AccountRestriction::class)->findBy(['user' => $user, 'active' => true, 'confirmed' => true]);
@@ -154,7 +153,7 @@ class SoulController extends CustomAbstractController
             }
         }
 
-        return $this->render( 'ajax/soul/acc_disabled.html.twig', ['restriction' => $largest]);
+        return $this->render( 'ajax/soul/acc_disabled.html.twig', $this->addDefaultTwigArgs(null, ['restriction' => $largest]));
     }
 
     /**

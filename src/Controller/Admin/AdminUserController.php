@@ -896,8 +896,6 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
         if ($this->user_handler->hasRole( $user, 'ROLE_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-        if ($this->user_handler->hasRole( $user, 'ROLE_SUPER' ))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $reason    = trim($parser->get('reason'));
         $note      = trim($parser->get('note'));
