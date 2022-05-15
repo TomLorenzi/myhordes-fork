@@ -4727,7 +4727,7 @@
       </notes>
       <segment>
         <source>Nicht länger ausblenden</source>
-        <target>Nicht länger ausblenden</target>
+        <target>Dejar de ignorar solicitudes</target>
       </segment>
     </unit>
     <unit id="BC_uip5" name="Ausblenden">
@@ -4738,7 +4738,7 @@
       </notes>
       <segment>
         <source>Ausblenden</source>
-        <target>Ausblenden</target>
+        <target>Ignorar solicitudes</target>
       </segment>
     </unit>
     <unit id="p5LaFyO" name="Ausgeblendete Spieler anzeigen">
@@ -4749,7 +4749,7 @@
       </notes>
       <segment>
         <source>Ausgeblendete Spieler anzeigen</source>
-        <target>Ausgeblendete Spieler anzeigen</target>
+        <target>Mostrar jugadores ignorados</target>
       </segment>
     </unit>
   </file>
