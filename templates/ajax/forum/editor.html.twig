@@ -695,7 +695,7 @@
             } );
 
             // Post as crow toggle
-            {% if (permission.post_as_dev() or permission.post_as_crow()) and forum and not pid %}
+            {% if permission.alt_post_mode() and forum and not pid %}
                 function changeHandler(){
                     let current_option = document.querySelector("input[name=post-type]:checked");
                     if (current_option === null) current_option = document.querySelector("input[name=post-type]").parentElement.firstElementChild;
