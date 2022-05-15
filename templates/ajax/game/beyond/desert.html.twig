@@ -549,7 +549,7 @@
                                     {% else %}
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
-                                    <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
+                                    <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
                                     <div class="inline">
                                         {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
                                         <div class="tooltip normal">
@@ -735,7 +735,7 @@
                                     {% else %}
                                         <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                     {% endif %}
-                                    <!-- <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}"> -->
+                                    <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
                                     <div class="inline">
                                         {% include 'ajax/soul/playername.html.twig' with {user: other_citizen.user} only %}
                                         <div class="tooltip normal">
