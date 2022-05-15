@@ -23154,11 +23154,11 @@
       <notes>
         <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">made-up</note>
       </notes>
       <segment>
         <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
-        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
+        <target>{citizen} Intentó invocar una lluvia para despejar la zona, pero solo quedó en ridículo y los zombies permanecieron intactos..</target>
       </segment>
     </unit>
     <unit id="LbDbpH3" name="Spontanes Leberversagen">
