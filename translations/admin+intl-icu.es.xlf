@@ -2676,7 +2676,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Comunicación interna al pueblo</target>
+        <target>Comunicación dentro del pueblo</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2686,7 +2686,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Comunicarse fuera de las ciudades (PMs)</target>
+        <target>Comunicación fuera del pueblo (Mensajes Privados)</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2706,7 +2706,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Organisación en grupo</target>
+        <target>Organización en grupo</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
