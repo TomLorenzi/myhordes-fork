@@ -23187,7 +23187,7 @@
       <notes>
         <note category="german">Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</source>
@@ -23198,7 +23198,7 @@
       <notes>
         <note category="german">im Wahlbüro abzustimmen</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>im Wahlbüro abzustimmen</source>

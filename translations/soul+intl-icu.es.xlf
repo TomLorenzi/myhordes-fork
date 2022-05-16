@@ -4723,7 +4723,7 @@
       <notes>
         <note category="german">Nicht länger ausblenden</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Nicht länger ausblenden</source>
@@ -4734,7 +4734,7 @@
       <notes>
         <note category="german">Ausblenden</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ausblenden</source>
@@ -4745,7 +4745,7 @@
       <notes>
         <note category="german">Ausgeblendete Spieler anzeigen</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ausgeblendete Spieler anzeigen</source>

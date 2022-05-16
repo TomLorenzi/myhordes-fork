@@ -1828,7 +1828,7 @@
       <notes>
         <note category="german">Seelenpunkt-Beschränkung deaktivieren:</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkt-Beschränkung deaktivieren:</source>
@@ -1839,7 +1839,7 @@
       <notes>
         <note category="german">Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</source>
