@@ -23191,7 +23191,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</source>
-        <target>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</target>
+        <target>Hoy son las elecciones para el {rolename} del pueblo. Recuerda {vote_link}.</target>
       </segment>
     </unit>
     <unit id="e9K2kq6" name="im Wahlbüro abzustimmen">
@@ -23202,7 +23202,7 @@
       </notes>
       <segment>
         <source>im Wahlbüro abzustimmen</source>
-        <target>im Wahlbüro abzustimmen</target>
+        <target>Votar por tu candidato</target>
       </segment>
     </unit>
   </file>
