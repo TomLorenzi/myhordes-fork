@@ -4725,7 +4725,7 @@
       <notes>
         <note category="german">Specify using player search</note>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Specify using player search</source>
