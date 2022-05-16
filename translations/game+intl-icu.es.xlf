@@ -6131,7 +6131,7 @@
       </notes>
       <segment>
         <source>Wunderwerk: Rad des Schreckens</source>
-        <target>Maravilla: La Rueda del Miedo</target>
+        <target>Maravilla: Gran Noria de Znarf</target>
       </segment>
     </unit>
     <unit id="GVSWGjN" name="Sieh nur, man kann von da oben die Zombies sehen!">
@@ -23077,7 +23077,7 @@
       </notes>
       <segment>
         <source>auf {coa_invite} antworten</source>
-        <target>responde a la {coa_invite} de alianza</target>
+        <target>responde a {coa_invite} de alianza</target>
       </segment>
     </unit>
     <unit id="HPWqmw7">
