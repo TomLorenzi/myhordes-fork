@@ -108,6 +108,8 @@ class DebugCommand extends Command
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much users as possible to a town.')
             ->addOption('no-default', null, InputOption::VALUE_NONE, 'When used with --fill-town, disable joining the town without a job')
+            ->addOption('no-dummy', null, InputOption::VALUE_NONE, 'When used with --fill-town, disable joining the town for the dummy users')
+            ->addOption('max-users', null, InputOption::VALUE_REQUIRED, 'When used with --fill-town, limit the number of user joining the town')
             ->addOption('force', null, InputOption::VALUE_NONE, 'Will detach debug users when used with fill-town.')
             ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.')
             ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.')
@@ -274,13 +276,22 @@ class DebugCommand extends Command
             else
                 $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
 
+            $max_user = $input->getOption("max-users");
+            if(!$max_user)
+                $max_user = $town->getPopulation() - $town->getCitizenCount();
+            else
+                $max_user = max(0, $max_user - $town->getCitizenCount());
+
             $users = $this->entity_manager->getRepository(User::class)->findAll();
 
-            for ($i = 0; $i < $town->getPopulation() - $town->getCitizenCount(); $i++) {
+            $no_dummy = $input->getOption('no-dummy');
+
+            for ($i = 0; $i < $max_user; $i++) {
                 /** @var User $user */
                 foreach ($users as $user) {
-                    /** @var Citizen $citizen */
+                    if($no_dummy && strstr($user->getEmail(), "@localhost") === "@localhost" || str_starts_with($user->getEmail(), '$ deleted')) continue;
 
+                    /** @var Citizen $citizen */
                     $citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user);
                     if ($citizen && $citizen->getTown() !== $town && (!$citizen->getAlive() || $force)) {
                         $citizen->setActive(false);
@@ -290,11 +301,15 @@ class DebugCommand extends Command
                         $citizen = null;
                     }
 
+
                     $all = [];
                     if (!$citizen) {
                         $citizen = $this->entity_manager->getRepository(Citizen::class)->findInTown($user, $town);
-                        if ($citizen) $citizen->setActive(true);
-                        else $citizen = $this->game_factory->createCitizen($town, $user, $error, $all);
+                        if ($citizen)
+                            $citizen->setActive(true);
+                        else {
+                            $citizen = $this->game_factory->createCitizen($town, $user, $error, $all);
+                        }
                     } else continue;
 
                     if (!$citizen) continue;
@@ -310,14 +325,20 @@ class DebugCommand extends Command
                     $this->entity_manager->persist($citizen);
                     $this->entity_manager->flush();
 
+                    /** @var Citizen $joined_citizen */
                     foreach ( $all as $joined_citizen ) {
                         $this->gps->recordCitizenJoined( $joined_citizen, 'debug' );
                         if ($citizen->getProfession()->getName() !== 'none')
                             $this->gps->recordCitizenProfessionSelected( $joined_citizen );
+                        if($joined_citizen !== $citizen) {
+                            $output->writeln("Coalition member <comment>{$joined_citizen->getUser()->getName()}</comment> joins <comment>{$town->getName()}</comment> as a <comment>{$this->trans->trans($pro->getLabel(), [], 'game')}</comment>.");
+                            $i += 1;
+                        }
                     }
                     $this->entity_manager->flush();
 
                     $ii = $i + $town->getCitizenCount() + 1;
+
                     $output->writeln("<comment>{$user->getName()}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$this->trans->trans($pro->getLabel(), [], 'game')}</comment>.");
                     break;
                 }
