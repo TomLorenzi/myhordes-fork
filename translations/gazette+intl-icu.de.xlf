@@ -2778,8 +2778,8 @@
         <note category="from">php:///src/Service/GazetteService.php</note>
       </notes>
       <segment>
-        <source>Berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
-        <target>Berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</target>
+        <source>Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</target>
       </segment>
     </unit>
   </file>
