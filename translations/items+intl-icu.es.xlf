@@ -13,7 +13,7 @@
     </unit>
     <unit id="yeqnW9g">
       <notes>
-        <note category="german">Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
+        <note category="german">Wow, du hast einen Trippel geworfen.&lt;hr /&gt;Das hat so viel Spaß gemacht, dass du &lt;strong&gt;1AP gewinnst&lt;/strong&gt;!</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
@@ -23,7 +23,7 @@
     </unit>
     <unit id="rmGP8Al">
       <notes>
-        <note category="german">Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
+        <note category="german">Wow, du hast eine Straße geworfen.&lt;hr /&gt;Das hat so viel Spaß gemacht, dass du &lt;strong&gt;1AP gewinnst&lt;/strong&gt;!</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
@@ -33,7 +33,7 @@
     </unit>
     <unit id="Gk9gFU8">
       <notes>
-        <note category="german">Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
+        <note category="german">Wow, du hast beim ersten Versuch eine 4-2-1 geworfen.&lt;hr /&gt;Das hat so viel Spaß gemacht, dass du &lt;strong&gt;1AP gewinnst&lt;/strong&gt;!</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>

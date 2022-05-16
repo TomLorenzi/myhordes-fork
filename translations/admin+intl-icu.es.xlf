@@ -265,7 +265,7 @@
     <unit id="wcIksDz" name="Admin">
       <notes>
         <note category="german">Admin</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Service/AdminHandler.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
         <note category="state">translated</note>
       </notes>
       <segment>
@@ -607,7 +607,7 @@
     <unit id="DNyzXO8" name="Angriff">
       <notes>
         <note category="german">Angriff</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="from">php:///src/Service/AdminHandler.php;twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Angriff</source>
@@ -958,7 +958,7 @@
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
         <note category="german">Du hast dich umgebracht.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -968,7 +968,7 @@
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
         <note category="german">Du gehörst keiner Stadt an.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
@@ -3954,7 +3954,7 @@
     <unit id="inFhWaa" name="Kernel">
       <notes>
         <note category="german">Kernel</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
         <note category="state">translated</note>
       </notes>
       <segment>
@@ -3965,7 +3965,7 @@
     <unit id="wcEAnT8" name="Update">
       <notes>
         <note category="german">Update</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Update</source>
@@ -3975,7 +3975,7 @@
     <unit id="J2.6H7T" name="Unbekannt">
       <notes>
         <note category="german">Unbekannt</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Unbekannt</source>
@@ -3985,7 +3985,7 @@
     <unit id="OdO2n.0" name="Täglich">
       <notes>
         <note category="german">Täglich</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Täglich</source>
@@ -3995,7 +3995,7 @@
     <unit id="1LsNnOC" name="Wöchentlich">
       <notes>
         <note category="german">Wöchentlich</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Wöchentlich</source>
@@ -4005,7 +4005,7 @@
     <unit id=".QA57M1" name="Monatlich">
       <notes>
         <note category="german">Monatlich</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Monatlich</source>
@@ -4015,7 +4015,7 @@
     <unit id="lhysqm5" name="Manuell">
       <notes>
         <note category="german">Manuell</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Manuell</source>
@@ -4025,7 +4025,7 @@
     <unit id="Iv9Lj0S" name="Nicht komprimiert">
       <notes>
         <note category="german">Nicht komprimiert</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Nicht komprimiert</source>

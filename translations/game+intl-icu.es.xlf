@@ -7047,7 +7047,7 @@
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
         <note category="german">{username} wurde standrechtlich erschossen.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -7057,7 +7057,7 @@
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7277,7 +7277,7 @@
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -23175,7 +23175,7 @@
     <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
       <notes>
         <note category="german">{username} hat keine Leber mehr.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
         <note category="state">new</note>
       </notes>
       <segment>
