@@ -17847,12 +17847,12 @@
     <unit id="yZJkrQZ" name="{citizen} wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;">
       <notes>
         <note category="german">{citizen} wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{citizen} wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</source>
-        <target><![CDATA[{citizen} wurde in die Stadt <span>teleportiert</span>]]></target>
+        <target><![CDATA[{citizen} <span>has been RETURNED</span> to the town!]]></target>
       </segment>
     </unit>
     <unit id="7nokZTi">
