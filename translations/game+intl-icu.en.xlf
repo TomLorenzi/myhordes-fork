@@ -22035,22 +22035,22 @@
       <notes>
         <note category="german">Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} zu <strong>erhängen</strong>!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>!]]></target>
+        <target><![CDATA[The citizens decided to <strong>hang</strong> {citizen} !! The gallows were destroyed during this particularly violent event!]]></target>
       </segment>
     </unit>
     <unit id="xQMsReM">
       <notes>
         <note category="german">Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
+        <target><![CDATA[The citizens decided to drag {citizen} to the <strong>Meat Locker</strong>, then stone him for the show... The city received <strong>+{def} temporary defense pts</strong>!]]></target>
       </segment>
     </unit>
     <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
