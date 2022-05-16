@@ -852,7 +852,7 @@ class TownHandler
      */
     public function is_vote_needed(Town $town, CitizenRole|string $role, bool $duringNightly = false): bool {
         // No votes needed before the town is full or during chaos
-        if ($town->getChaos() || $town->isOpen()) return false;
+        if ($town->getChaos() || ($town->isOpen() && !$town->getForceStartAhead())) return false;
 
         // Resolve the role; if it does not exist or is not votable, no votes are needed
         if (is_string($role)) $role =  $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role]);

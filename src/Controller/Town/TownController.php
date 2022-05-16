@@ -89,8 +89,9 @@ class TownController extends InventoryAwareController
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
 
         $votesNeeded = array();
-        foreach ($roles as $role)
+        foreach ($roles as $role) {
             $votesNeeded[$role->getName()] = $this->town_handler->is_vote_needed($town, $role) ? $role : false;
+        }
 
         return $votesNeeded;
     }
@@ -199,7 +200,7 @@ class TownController extends InventoryAwareController
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
         $has_voted = array();
 
-        if(!$town->isOpen() && !$town->getChaos())
+        if((!$town->isOpen() || $town->getForceStartAhead()) && !$town->getChaos())
             foreach ($roles as $role)
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
 

@@ -3085,5 +3085,15 @@
         <target>A part ça,</target>
       </segment>
     </unit>
+    <unit id="yH_PodW">
+      <notes>
+        <note category="german">Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+      </notes>
+      <segment>
+        <source>Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>Nos éclaireurs signalent avoir repéré un mystérieux étranger dans les environs de la ville...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
