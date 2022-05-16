@@ -224,7 +224,7 @@ class NightlyHandler
 
             if ($invest > 0) {
                 $building->setHp( min($building->getHp() + 2 * $invest, $building->getPrototype()->getHp()) );
-                $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()} AP</info>." );
+                $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()}</info>." );
                 if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building, $stranger_ts ) );
             }
 
@@ -249,7 +249,7 @@ class NightlyHandler
 
                 if ($invest > 0) {
                     $building->setAp( min($building->getAp() + $invest, $building->getPrototype()->getAp() - 1) );
-                    $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()} AP</info>." );
+                    $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()}</info>." );
                     if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building->getPrototype(), $stranger_ts ) );
                 }
 
