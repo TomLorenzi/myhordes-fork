@@ -23191,22 +23191,22 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</source>
-        <target>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</target>
+        <target>Ce soir, il y aura une élection pour le poste de {rolename}. N'oubliez pas {vote_link}.</target>
       </segment>
     </unit>
     <unit id="e9K2kq6" name="im Wahlbüro abzustimmen">
       <notes>
         <note category="german">im Wahlbüro abzustimmen</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>im Wahlbüro abzustimmen</source>
-        <target>im Wahlbüro abzustimmen</target>
+        <target>de voter au bureau électoral</target>
       </segment>
     </unit>
   </file>

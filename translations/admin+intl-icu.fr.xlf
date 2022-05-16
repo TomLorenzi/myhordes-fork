@@ -4907,11 +4907,11 @@
       <notes>
         <note category="german">maskiert {playername}</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>maskiert {playername}</source>
-        <target>maskiert {playername}</target>
+        <target>{playername} masqué</target>
       </segment>
     </unit>
   </file>
