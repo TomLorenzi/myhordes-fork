@@ -632,9 +632,11 @@ class GazetteService
 
         if ($day === 1) {
             $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'gazette') . "</p>";
-            if ($town->isOpen()){
+            if ($town->isOpen() && !$town->getForceStartAhead()){
                 $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{population} Bürger hat</strong>.', ['{population}' => $town->getPopulation()], 'gazette') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
             } else {
+                if($town->getForceStartAhead())
+                    $text .= "<p>" . $this->translator->trans('Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...', [], 'gazette') . '</p>';
                 $text .= $this->translator->trans('Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!', [], 'gazette');
             }
         } else {

@@ -4831,7 +4831,7 @@
       </notes>
       <segment>
         <source>Katapult</source>
-        <target>Catap</target>
+        <target>Catapulta</target>
       </segment>
     </unit>
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -6131,7 +6131,7 @@
       </notes>
       <segment>
         <source>Wunderwerk: Rad des Schreckens</source>
-        <target>Maravilla: La Rueda del Miedo</target>
+        <target>Maravilla: Gran Noria de Znarf</target>
       </segment>
     </unit>
     <unit id="GVSWGjN" name="Sieh nur, man kann von da oben die Zombies sehen!">
@@ -7047,7 +7047,7 @@
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
         <note category="german">{username} wurde standrechtlich erschossen.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -7057,7 +7057,7 @@
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7277,7 +7277,7 @@
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -22967,66 +22967,66 @@
       <notes>
         <note category="german">Die Horde kommt!</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Horde kommt!</source>
-        <target>Die Horde kommt!</target>
+        <target>¡Ya vienen los Zombies!</target>
       </segment>
     </unit>
     <unit id="rxUjiVx">
       <notes>
         <note category="german">Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</source>
-        <target>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</target>
+        <target>Sientes un aroma horripilante en el aire y oyes a lo lejos un rugido cada vez más fuerte...</target>
       </segment>
     </unit>
     <unit id="4xBohtt">
       <notes>
         <note category="german">Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</source>
-        <target>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</target>
+        <target>Las señales son claras: Una turba de zombies se aproxima al pueblo. Parece que llegarán a la medianoche.</target>
       </segment>
     </unit>
     <unit id="awC3BNG">
       <notes>
         <note category="german">Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
-        <target>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</target>
+        <target>Además, nuestros vigilantes informan que han visto a un Extraño Misterioso rondando por el pueblo...</target>
       </segment>
     </unit>
     <unit id="N2bzV9x">
       <notes>
         <note category="german">Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</source>
-        <target>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</target>
+        <target>Esta noche habrá un Ataque Zombie, incluso si el pueblo tiene menos de {population} habitantes antes de la medianoche.</target>
       </segment>
     </unit>
     <unit id="07BtizJ" name="Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.">
       <notes>
         <note category="german">Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
-        <target>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</target>
+        <target>Llegó el día, aún tienes tiempo para preparar la defensa el pueblo.</target>
       </segment>
     </unit>
     <unit id="MpMKNqM">
@@ -23077,7 +23077,7 @@
       </notes>
       <segment>
         <source>auf {coa_invite} antworten</source>
-        <target>responde a la {coa_invite} de alianza</target>
+        <target>responde a {coa_invite} de alianza</target>
       </segment>
     </unit>
     <unit id="HPWqmw7">
@@ -23154,11 +23154,11 @@
       <notes>
         <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">made-up</note>
       </notes>
       <segment>
         <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
-        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
+        <target>{citizen} Intentó invocar una lluvia para despejar la zona, pero solo quedó en ridículo y los zombies permanecieron intactos..</target>
       </segment>
     </unit>
     <unit id="LbDbpH3" name="Spontanes Leberversagen">
@@ -23175,7 +23175,7 @@
     <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
       <notes>
         <note category="german">{username} hat keine Leber mehr.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
         <note category="state">new</note>
       </notes>
       <segment>
@@ -23187,22 +23187,22 @@
       <notes>
         <note category="german">Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</source>
-        <target>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</target>
+        <target>Hoy son las elecciones para el {rolename} del pueblo. Recuerda {vote_link}.</target>
       </segment>
     </unit>
     <unit id="e9K2kq6" name="im Wahlbüro abzustimmen">
       <notes>
         <note category="german">im Wahlbüro abzustimmen</note>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>im Wahlbüro abzustimmen</source>
-        <target>im Wahlbüro abzustimmen</target>
+        <target>Votar por tu candidato</target>
       </segment>
     </unit>
   </file>

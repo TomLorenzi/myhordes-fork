@@ -1828,22 +1828,22 @@
       <notes>
         <note category="german">Seelenpunkt-Beschränkung deaktivieren:</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkt-Beschränkung deaktivieren:</source>
-        <target>Seelenpunkt-Beschränkung deaktivieren:</target>
+        <target>Ignorar restricciones por puntos de alma:</target>
       </segment>
     </unit>
     <unit id="DAbc25I">
       <notes>
         <note category="german">Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</source>
-        <target>Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</target>
+        <target>Cualquier jugador (invitado) podrá unirse a tu pueblo, sin importar cuántos puntos de alma tenga.</target>
       </segment>
     </unit>
   </file>
