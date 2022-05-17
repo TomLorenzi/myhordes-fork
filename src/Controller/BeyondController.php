@@ -175,8 +175,7 @@ class BeyondController extends InventoryAwareController
             $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null, 'alive' => true]);
         }
 
-        $allow_movement = (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden;
-
+        $allow_movement = (!$blocked || $escape > 0 || $scout_movement) && !$citizen_tired && !$citizen_hidden && ($this->getActiveCitizen()->getEscortSettings() === null || $this->getActiveCitizen()->getEscortSettings()->getLeader() === null);
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
