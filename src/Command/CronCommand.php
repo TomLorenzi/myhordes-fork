@@ -500,6 +500,10 @@ class CronCommand extends Command
 
         if ($db_scheme !== 'mysql') throw new Exception('Sorry, only MySQL is supported for backup!');
 
+        $storages = $this->conf->getData()['backup']['storages'];
+
+        if (count($storages) == 0) throw new Exception('No backup storage is defined, cannot store DB backups');
+
         $domain = $input->getArgument('p1');
 
         if ($domain === -1) $domain = 'manual';
@@ -507,7 +511,10 @@ class CronCommand extends Command
             throw new Exception('Invalid backup domain!');
 
         $path = $this->conf->get(MyHordesConf::CONF_BACKUP_PATH, null);
-        if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/backup";
+
+        if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/tmp";
+        $path = str_replace("~", $this->params->get('kernel.project_dir'), $path);
+
         if (!file_exists($path)) mkdir($path, 0700, true);
         $filename = $path . '/' . (new DateTime())->format('Y-m-d_H-i-s-v_') . $domain . '.sql';
 
@@ -552,6 +559,48 @@ class CronCommand extends Command
                     $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE );
                     unlink( $f );
                 }
+            }
+        }
+
+        $success = true;
+
+        foreach ($storages as $config) {
+            if(!$config['enabled']) continue;
+
+            switch($config['type']) {
+                case "local":
+                    $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $config['path']);
+                    if (!file_exists($targetPath))
+                        if(mkdir($targetPath, 0700, true)) {
+                            $output->writeln("Cannot create backup folder $targetPath !");
+                            $success = false;
+                            break;
+                        }
+                    $filename .= match ($compression) {
+                        "xz" => ".xz",
+                        "gzip" => ".gz",
+                        "bzip2" => ".bz2",
+                        "lbzip2" => ".bz2",
+                        "pbzip2" => ".bz2",
+                        null => ""
+                    };
+
+                    if(!copy($filename, $targetPath . "/" . basename($filename))) {
+                        $output->writeln("Cannot put backup file " . basename($filename) . " into folder $targetPath !");
+                        $success = false;
+                    }
+                    break;
+                case "ftp":
+                    break;
+                case "sftp":
+                    break;
+                default:
+                    $output->writeln("<error>Unknown storage type {$config['type']}</error>");
+                    break;
+            }
+
+            if (!$success) {
+                throw new Exception("An error has occured during the backup procedure");
             }
         }
 
