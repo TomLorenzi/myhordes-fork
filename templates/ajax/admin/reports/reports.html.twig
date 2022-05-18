@@ -162,7 +162,7 @@
                         <div class="padded cell rw-3">{{ 'ID'|trans({},'admin') }}</div>
                         <div class="padded cell rw-8">{{ 'Inhalt'|trans({},'admin') }}</div>
                     </div>
-                    {% for snippet in snippets %}
+                    {% for snippet in snippets|sort((a, b) => a.lang == b.lang ? a.short <=> b.short : a.lang <=> b.lang) %}
                         <div class="row">
                             {# @var snippet \App\Entity\ForumModerationSnippet #}
                             <div class="padded cell rw-1"><i>{{ snippet.lang }}</i></div>
