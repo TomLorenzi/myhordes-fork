@@ -534,8 +534,10 @@ class CronCommand extends Command
         if ($relevant_domain_limit !== 0) {
             $output->writeln("Executing <info>mysqldump</info> on <info>$db_host:$db_port</info>, exporting <info>$db_name</info> <comment>$str</comment>", OutputInterface::VERBOSITY_VERBOSE );
             $this->helper->capsule("mysqldump -h $db_host -P $db_port --user='$db_user' --password='$db_pass' --single-transaction --skip-lock-tables $db_name $str", $output, 'Running database backup... ', false );
-        } else
+        } else {
             $output->writeln("Skipping <info>mysqldump</info> in domain <info>$domain</info> since backups for this domain are turned off.", OutputInterface::VERBOSITY_VERBOSE );
+            return 0;
+        }
 
         $success = true;
 

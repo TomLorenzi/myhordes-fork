@@ -1635,7 +1635,10 @@ class NightlyHandler
         $last_mc = null;
         foreach ($roles as $role) {
             $this->log->info("Processing votes for role {$role->getLabel()}");
-            if(!$this->town_handler->is_vote_needed($town, $role, true)) continue;
+            if(!$this->town_handler->is_vote_needed($town, $role, true)) {
+                $this->log->info("The role {$role->getLabel()} doesn't need vote, skipping");
+                continue;
+            }
 
             // Getting vote per role per citizen
             $votes = array();
