@@ -501,9 +501,9 @@ class CronCommand extends Command
 
         if ($db_scheme !== 'mysql') throw new Exception('Sorry, only MySQL is supported for backup!');
 
-        $storages = $this->conf->getData()['backup']['storages'];
+        if (!isset($this->conf->getData()['backup']['storages']) || count($this->conf->getData()['backup']['storages']) == 0) throw new Exception('No backup storage is defined, cannot store DB backups');
 
-        if (count($storages) == 0) throw new Exception('No backup storage is defined, cannot store DB backups');
+        $storages = $this->conf->getData()['backup']['storages'];
 
         $domain = $input->getArgument('p1');
 
