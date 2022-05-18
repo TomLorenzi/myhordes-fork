@@ -130,7 +130,7 @@
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
                             {% if select > 0 %}
-                                <div x-ajax-href="{{ url('forum_thread_view', {fid: forum.id, tid: select, page: post_page}) }}" class="forum-button forum-reload-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}{{ select }}</div></div>
+                                <div x-ajax-href="{{ url('forum_thread_view', {fid: forum.id, tid: select, page: post_page}) }}" class="forum-button forum-reload-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
                             {% else %}
                                 <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button forum-reload-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
                             {% endif %}
