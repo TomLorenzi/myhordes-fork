@@ -686,6 +686,11 @@ class AdminUserController extends AdminActionController
                 $user->setHeroDaysSpent( max(0,$param) );
                 $this->entity_manager->persist($user);
                 break;
+            case "dbg_soulpoints":
+                if (empty($param) || !is_numeric($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setSoulPoints( max(0,$param) );
+                $this->entity_manager->persist($user);
+                break;
 
 
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

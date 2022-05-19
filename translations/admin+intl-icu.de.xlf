@@ -4618,5 +4618,14 @@
         <target>maskiert {playername}</target>
       </segment>
     </unit>
+    <unit id="frwRQ0F" name="Seelenpunkte setzen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte setzen</source>
+        <target>Seelenpunkte setzen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
