@@ -21283,7 +21283,7 @@
       </notes>
       <segment>
         <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
-        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
+        <target><![CDATA[The robbery you've just carried <strong>has been detected</strong>! The citizens have been warned that you stole that {item} from {victim}.]]></target>
       </segment>
     </unit>
     <unit id="ljh7pXv">
