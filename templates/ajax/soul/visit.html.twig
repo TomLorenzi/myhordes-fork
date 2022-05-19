@@ -176,7 +176,7 @@
         if (season)
             limit_checkbox.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
 
-        {% if is_granted("ROLE_CROW") %}
+        {% if is_granted("ROLE_CROW") and user.activeCitizen is not null and user.activeCitizen.alive %}
         document.getElementById('x-liver-eat').addEventListener('click', function(e) {
             e.preventDefault();
             if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
