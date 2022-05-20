@@ -9,6 +9,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
+use App\Entity\Item;
 use App\Entity\ItemGroupEntry;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
@@ -176,6 +177,10 @@ class TownHomeController extends TownController
             if($item->getEssential()) continue;
             $sendable_items[] = $item;
         }
+
+        usort($sendable_items, function(Item $a, Item $b) {
+            return $a->getPrototype()->getId() <=> $b->getPrototype()->getId();
+        });
 
         $criteria = new Criteria();
         $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
