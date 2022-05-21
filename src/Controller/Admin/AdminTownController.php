@@ -432,7 +432,7 @@ class AdminTownController extends AdminActionController
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name',
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
-                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger'
+                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -758,6 +758,17 @@ class AdminTownController extends AdminActionController
                 $gameFactory->enableStranger( $town );
                 break;
 
+            case 'dropall':
+                foreach ($town->getCitizens() as $citizen) {
+                    if (!$citizen->getAlive()) continue;
+                    foreach ($citizen->getInventory()->getItems() as $item)
+                        if (!$item->getEssential())
+                            $this->inventory_handler->forceMoveItem( ($citizen->getZone()?->isTownZone() ? $town->getBank() : $citizen->getZone()?->getFloor()) ?? $town->getBank(), $item );
+                    foreach ($citizen->getHome()->getChest()->getItems() as $item)
+                        $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
+                }
+                break;
+
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
@@ -765,7 +776,7 @@ class AdminTownController extends AdminActionController
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
         }
 
         return AjaxResponse::success();

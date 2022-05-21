@@ -4938,5 +4938,16 @@
         <target>Set soul points</target>
       </segment>
     </unit>
+    <unit id="UbdNUXg" name="Alle Gegenstände aller Bürger ablegen">
+      <notes>
+        <note category="german">Alle Gegenstände aller Bürger ablegen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Alle Gegenstände aller Bürger ablegen</source>
+        <target>Drop all items from all citizens</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

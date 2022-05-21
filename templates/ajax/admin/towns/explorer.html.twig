@@ -621,10 +621,11 @@
                         </div>
                         <br />
                         {% endif %}
+                        <button id="dropall">{{ 'Alle Gegenstände aller Bürger ablegen'|trans({},'admin') }}</button>
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
-                        <div id="forum-content">
-                        </div>
+                        <div id="forum-content"></div>
+
                     </div>
                 </div>
             </div>
@@ -919,6 +920,11 @@
             document.getElementById('townpm').addEventListener('click', function(e) {
                 document.getElementById("forum-content").innerHTML = "";
                 $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'global'}) }}', false )
+            });
+
+            document.getElementById('dropall').addEventListener('click', e => {
+                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    fun_api_call('{{ url('admin_town_manage', {action: 'dropall', id: town.id}) }}',document.getElementById('dropall'));
             });
 
             {% if is_granted("ROLE_ADMIN") %}

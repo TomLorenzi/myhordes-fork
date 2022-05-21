@@ -4627,5 +4627,14 @@
         <target>Seelenpunkte setzen</target>
       </segment>
     </unit>
+    <unit id="UbdNUXg" name="Alle Gegenstände aller Bürger ablegen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Gegenstände aller Bürger ablegen</source>
+        <target>Alle Gegenstände aller Bürger ablegen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

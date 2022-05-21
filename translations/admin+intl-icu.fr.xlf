@@ -4924,5 +4924,16 @@
         <target>Définir les points d'âme</target>
       </segment>
     </unit>
+    <unit id="UbdNUXg" name="Alle Gegenstände aller Bürger ablegen">
+      <notes>
+        <note category="german">Alle Gegenstände aller Bürger ablegen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Alle Gegenstände aller Bürger ablegen</source>
+        <target>Alle Gegenstände aller Bürger ablegen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
