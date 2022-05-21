@@ -870,7 +870,7 @@ class TownHandler
         if ($last_one) {
             if ($last_one->getAlive()) return false;
             // Re-election when the role dies during attack: Next day; otherwise, one penalty day
-            $DoD = $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack ? ($last_one->getDayOfDeath() - 1) : ($last_one->getDayOfDeath() + 1);
+            $DoD = $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack ? ($last_one->getDayOfDeath() - 1) : $last_one->getDayOfDeath();
             if ($DoD >= ($town->getDay() - $limit))
                 return false;
 
