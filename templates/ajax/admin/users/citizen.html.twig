@@ -141,7 +141,7 @@
                 {% endif %}
 
                 {% if is_granted("ROLE_CROW") %}
-                document.getElementById('x-liver-eat').addEventListener('click', function(e) {
+                document.getElementById('x-liver-eat')?.addEventListener('click', function(e) {
                     e.preventDefault();
                     if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
                         $.ajax.easySend( '{{ path('admin_users_citizen_eat_liver', { 'id': user_citizen.id }) }}', [],

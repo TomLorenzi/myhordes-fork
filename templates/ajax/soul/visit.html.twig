@@ -169,15 +169,13 @@
 
         let season_select = document.getElementById('season');
         $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: season_select.value, limit10: document.getElementById("limit-10").checked } )
-        if (season)
-            season_select.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: this.value, limit10: document.getElementById("limit-10").checked } ) } );
-
-        let limit_checkbox = document.getElementById('limit-10');
-        if (season)
-            limit_checkbox.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
+        if (season) {
+            season_select?.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: this.value, limit10: document.getElementById("limit-10").checked } ) } );
+            document.getElementById('limit-10')?.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
+        }
 
         {% if is_granted("ROLE_CROW") and user.activeCitizen is not null and user.activeCitizen.alive %}
-        document.getElementById('x-liver-eat').addEventListener('click', function(e) {
+        document.getElementById('x-liver-eat')?.addEventListener('click', function(e) {
             e.preventDefault();
             if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
                 $.ajax.easySend( '{{ path('admin_users_citizen_eat_liver', { 'id': user.activeCitizen.id }) }}', [],
