@@ -621,7 +621,9 @@
                         </div>
                         <br />
                         {% endif %}
-                        <button id="dropall">{{ 'Alle Gegenstände aller Bürger ablegen'|trans({},'admin') }}</button>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <button id="dropall">{{ 'Alle Gegenstände aller Bürger ablegen'|trans({},'admin') }}</button>
+                        {% endif %}
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
                         <div id="forum-content"></div>
@@ -922,10 +924,12 @@
                 $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'global'}) }}', false )
             });
 
-            document.getElementById('dropall').addEventListener('click', e => {
-                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    fun_api_call('{{ url('admin_town_manage', {action: 'dropall', id: town.id}) }}',document.getElementById('dropall'));
-            });
+            {% if is_granted("ROLE_ADMIN") %}
+                document.getElementById('dropall').addEventListener('click', e => {
+                    if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        fun_api_call('{{ url('admin_town_manage', {action: 'dropall', id: town.id}) }}',document.getElementById('dropall'));
+                });
+            {% endif %}
 
             {% if is_granted("ROLE_ADMIN") %}
             let items = document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]');
