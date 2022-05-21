@@ -308,6 +308,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      */
     private $noAutomaticNameManagement = false;
 
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private $flag;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -1249,6 +1254,18 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setNoAutomaticNameManagement(bool $noAutomaticNameManagement): self
     {
         $this->noAutomaticNameManagement = $noAutomaticNameManagement;
+
+        return $this;
+    }
+
+    public function getFlag(): ?string
+    {
+        return $this->flag;
+    }
+
+    public function setFlag(?string $flag): self
+    {
+        $this->flag = $flag;
 
         return $this;
     }

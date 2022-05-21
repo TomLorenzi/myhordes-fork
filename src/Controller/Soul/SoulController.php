@@ -54,6 +54,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -88,14 +89,16 @@ class SoulController extends CustomAbstractController
 
     protected UserFactory $user_factory;
     protected UserHandler $user_handler;
+    protected KernelInterface $kernel;
     protected Packages $asset;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, KernelInterface $kernel)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->user_handler = $uh;
+        $this->kernel = $kernel;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -517,11 +520,19 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
+            'flags' => $this->getFlagList(),
             'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
         ]) );
+    }
+
+    protected function getFlagList(): array {
+        $flags = [];
+        foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/lang/any") as $f)
+            if ($f !== '.' && $f !== '..' && str_ends_with( strtolower($f), '.svg' )) $flags[] = substr( $f, 0, -4);
+        return $flags;
     }
 
     /**
@@ -535,6 +546,7 @@ class SoulController extends CustomAbstractController
 
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
+        $flag  = $parser->get('flag', '');
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
         $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
         $pronoun = $parser->get('pronoun','none', ['male','female','none']);
@@ -549,6 +561,9 @@ class SoulController extends CustomAbstractController
         }
 
         if ($title < 0 && $icon >= 0)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($flag !== '' && !in_array( $flag, $this->getFlagList() ))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
@@ -590,6 +605,8 @@ class SoulController extends CustomAbstractController
 
             $user->setActiveIcon($award);
         }
+
+        $user->setFlag($flag === '' ? null : $flag);
 
         $desc_obj = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
         if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $len) && $len > 0) {

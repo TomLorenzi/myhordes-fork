@@ -4381,5 +4381,23 @@
         <target>Ausgeblendete Spieler anzeigen</target>
       </segment>
     </unit>
+    <unit id="Mdi60b9" name="Spracheinstellung verwenden">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spracheinstellung verwenden</source>
+        <target>Spracheinstellung verwenden</target>
+      </segment>
+    </unit>
+    <unit id="rqhI1oG" name="Deine Flagge">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Deine Flagge</source>
+        <target>Deine Flagge</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -4775,5 +4775,27 @@
         <target>Liste des joueurs masqués</target>
       </segment>
     </unit>
+    <unit id="Mdi60b9" name="Spracheinstellung verwenden">
+      <notes>
+        <note category="german">Spracheinstellung verwenden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Spracheinstellung verwenden</source>
+        <target>Spracheinstellung verwenden</target>
+      </segment>
+    </unit>
+    <unit id="rqhI1oG" name="Deine Flagge">
+      <notes>
+        <note category="german">Deine Flagge</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine Flagge</source>
+        <target>Deine Flagge</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
