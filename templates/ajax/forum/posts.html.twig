@@ -42,17 +42,11 @@
             {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
             <div class="row-flex wrap stretch">
                 <div class="cell padded grow-1 left">
-                    {% if owned and not locked %}
-                        <div x-forum-moderator-action="lock" class="forum-button">
-                            <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                            <span>{{ 'Schließen'|trans({},'global') }}</span>
-                        </div>
-                    {% endif %}
                     {% if permission.moderate() %}
                         <div tabindex="0" class="forum-button button-dropdown-button" style="padding: 4px;">
                             <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
                             <div class="button-dropdown">
-                                {% if not locked and not owned %}
+                                {% if not locked %}
                                     <div tabindex="0" x-forum-moderator-action="lock" class="forum-button">
                                         <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
                                         <span>{{ 'Schließen'|trans({},'global') }}</span>
@@ -370,7 +364,7 @@
         const reloadPage = function() { loadPage( {{ current_page }} ); };
         const reloadForum = function() { $.ajax.no_history().load( null, '{{ url('forum_view', {id: fid}) }}', false ); }
 
-        {% if owned or permission.moderate %}
+        {% if permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="lock"]', 'click', function(e,elem) {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
