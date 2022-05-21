@@ -300,7 +300,7 @@
     </unit>
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -2496,7 +2496,7 @@
     </unit>
     <unit id="3Ql_d91" name="Suchen">
       <notes>
-        <note category="from">twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Suchen</source>
@@ -3970,6 +3970,15 @@
       <segment>
         <source>STRG</source>
         <target>STRG</target>
+      </segment>
+    </unit>
+    <unit id="zO56j3q" name="Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.">
+      <notes>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</source>
+        <target>Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</target>
       </segment>
     </unit>
   </file>

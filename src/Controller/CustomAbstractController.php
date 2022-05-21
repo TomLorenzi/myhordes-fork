@@ -142,7 +142,7 @@ class CustomAbstractController extends AbstractController {
         return parent::render($view, $parameters, $response);
     }
 
-    protected function renderBlocks(string $view, array $blocks, array $externals = [], array $parameters = [], $include_flash = true, Response $response = null): Response
+    protected function renderBlocks(string $view, array $blocks, array $externals = [], array $parameters = [], $include_flash = true, Response $response = null, bool $wrap = false): Response
     {
         $this->enrichParameter($parameters);
 
@@ -161,7 +161,10 @@ class CustomAbstractController extends AbstractController {
             $blocks[] = "<div x-render-target='#{$target}'>$ext_content</div>";
         }
 
-        return parent::render( 'ajax/ajax_plain.html.twig', ['_ajax_base_content' => join('', $blocks)], $response );
+        $content = join('', $blocks);
+        if ($wrap) $content = "<div>$content</div>";
+
+        return parent::render( 'ajax/ajax_plain.html.twig', ['_ajax_base_content' => $content], $response );
     }
 
     /**

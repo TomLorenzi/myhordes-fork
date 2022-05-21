@@ -4,253 +4,113 @@
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
+
 {% block ajax %}
+    {% macro search_entry(section,currentSection,text,icon,main) %}
+        <li data-section="{{ currentSection }}" class="{% if main %}main{% endif%} {% if section == currentSection %}active{% endif %}">
+            <img src="{{ asset(icon) }}" alt="">
+            <span data-direct="1" class="link" x-ajax-href="{{ url('help', {'name': currentSection}) }}">{{ text }}</span>
+            <span data-indirect="{{ url('help_partial', {'name': currentSection} ) }}" class="link hidden">{{ text }}</span>
+        </li>
+    {% endmacro %}
+
     <div class="row">
         <div class="padded-small map-box cell rw-4 rw-sm-12">
-            <div class="row">
+            <div class="row-flex gap">
+                <div class="cell rw-8"><label><input id="search_value" type="text" placeholder="{{ 'Die Hilfe durchsuchen'|trans({},'help') }}" /></label></div>
+                <div class="cell rw-4"><label><button id="search_help">{{ 'Suchen'|trans({}, 'global') }}</button></div>
+            </div>
+            <div class="row-flex gap">
+                <div class="cell rw-12"><label><button style="margin-top: 5px;" class="hidden" id="search_reset">{{ 'Abbrechen'|trans({}, 'global') }}</button></div>
+            </div>
+            <div style="margin-top: 5px;">
                 {% if support is not defined or support is null %}
            		    <a class="support" href="https://gitlab.com/eternaltwin/myhordes/myhordes/-/issues" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
                 {% else %}
                     <a class="support" x-group-connect="oglink_{{ support.id }}" href="#"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
                 {% endif %}
                 <ul class="HelpList">
-                    <li class="main {% if section == 'welcome' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro">
-                        <span class="link" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">{{ 'MyHordes?'|trans({},'help') }}</span>
-                    </li>
-                    <li class="main {% if section == 'world_beyond' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="outer">
-                        <span class="link" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">{{ 'Die Außenwelt'|trans({},'help') }}</span>
-                    </li>
+                    {{ _self.search_entry(section,'welcome','MyHordes?'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
+                    {{ _self.search_entry(section,'world_beyond','Die Außenwelt'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
                     <li class="sublist">
                         <ul>
-                            <li class="{% if section == 'getting_around' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'getting_around'}) }}">{{ 'Sich bewegen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'map' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/item_map.gif') }}" alt="map">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'map'}) }}">{{ 'Die Karte'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'exploring_and_scavenging' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="explore">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}">{{ 'Erkunden und Graben'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'depleted_zones' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/Small_broken.gif') }}" alt="depleted">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'depleted_zones'}) }}">{{ 'Abgesuchte Zonen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'control_points' %}active{% endif %}">
-                                <img src="{{ asset('build/images/beyond/equal.gif') }}" alt="dom">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'control_points'}) }}">{{ 'Die Kontrollpunkte'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'escort_mode' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="escort">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'escort_mode'}) }}">{{ 'Der Eskortenmodus'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'fighting_the_hordes_in_the_world_beyond' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_cutcut.gif') }}" alt="fight">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'fighting_the_hordes_in_the_world_beyond'}) }}">{{ 'Zombies im Freien bekämpfen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'the_night' %}active{% endif %}">
-                                <img src="{{ asset('build/images/pictos/r_doutsd.gif') }}" alt="night">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'the_night'}) }}">{{ 'Nachts'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'extreme_camping' %}active{% endif %}">
-                                <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="camp">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'extreme_camping'}) }}">{{ 'Wildes Campen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'ruin_exploration' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_exploration.gif') }}" alt="explo">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'ruin_exploration'}) }}">{{ 'Gebäude untersuchen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'lost_souls' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="soul">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'lost_souls'}) }}" style="margin-left: 5px">{{ 'Verlorene Seelen'|trans({},'help') }}</span>
-                            </li>
+                            {{ _self.search_entry(section,'getting_around','Sich bewegen'|trans({},'help'),'build/images/icons/small_move.gif',false) }}
+                            {{ _self.search_entry(section,'map','Die Karte'|trans({},'help'),'build/images/icons/item_map.gif',false) }}
+                            {{ _self.search_entry(section,'exploring_and_scavenging','Erkunden und Graben'|trans({},'help'),'build/images/icons/small_gather.gif',false) }}
+                            {{ _self.search_entry(section,'depleted_zones','Abgesuchte Zonen'|trans({},'help'),'build/images/icons/Small_broken.gif',false) }}
+                            {{ _self.search_entry(section,'control_points','Die Kontrollpunkte'|trans({},'help'),'build/images/beyond/equal.gif',false) }}
+                            {{ _self.search_entry(section,'escort_mode','Der Eskortenmodus'|trans({},'help'),'build/images/icons/small_move.gif',false) }}
+                            {{ _self.search_entry(section,'fighting_the_hordes_in_the_world_beyond','Zombies im Freien bekämpfen'|trans({},'help'),'build/images/item/item_cutcut.gif',false) }}
+                            {{ _self.search_entry(section,'the_night','Nachts'|trans({},'help'),'build/images/pictos/r_doutsd.gif',false) }}
+                            {{ _self.search_entry(section,'extreme_camping','Wildes Campen'|trans({},'help'),'build/images/status/status_camper.gif',false) }}
+                            {{ _self.search_entry(section,'ruin_exploration','Gebäude untersuchen'|trans({},'help'),'build/images/icons/small_exploration.gif',false) }}
+                            {{ _self.search_entry(section,'lost_souls','Du'|trans({},'help'),'build/images/item/item_soul_blue.gif',false) }}
                         </ul>
                     </li>
 
-                    <li class="main {% if section == 'about_you' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="player">
-                        <span class="link" x-ajax-href="{{ url('help', {'name': 'about_you'}) }}">{{ 'Du'|trans({},'help') }}</span>
-                    </li>
+                    {{ _self.search_entry(section,'about_you','Du'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
 
                     <li class="sublist">
                         <ul>
-                            <li class="{% if section == 'health' %}active{% endif %}">
-                                <img src="{{ asset('build/images/status/status_tired.gif') }}" alt="status">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'health'}) }}">{{ 'Dein Gesundheitszustand'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'inventory' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_bag.gif') }}" alt="inv">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'inventory'}) }}">{{ 'Inventar'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'your_soul' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="ghost">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'your_soul'}) }}">{{ 'Deine Seele'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'death_and_soul_points' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/death.gif') }}" alt="death">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'death_and_soul_points'}) }}">{{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'last_man_standing' %}active{% endif %}">
-                                <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" alt="lastOne">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'last_man_standing'}) }}">{{ 'Der letzte Tod'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'hero_mode' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/star.gif') }}" alt="hero">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'hero_mode'}) }}">{{ 'Heldenmodus'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'coalitions' %}active{% endif %}">
-                                <img src="{{ asset('build/images/pictos/r_surgrp.gif') }}" alt="team">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'coalitions'}) }}">{{ 'Kleine Koalitionen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'house_and_work' %}active{% endif %}">
-                                <img src="{{ asset('build/images/pictos/r_hbuild.gif') }}" alt="homeUpgrade">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'house_and_work'}) }}">{{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'ghouls' %}active{% endif %}">
-                                <img src="{{ asset('build/images/roles/ghoul.gif') }}" alt="ghoul">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'ghouls'}) }}">{{ 'Ghule'|trans({},'help') }}</span>
-                            </li>
+                            {{ _self.search_entry(section,'health','Dein Gesundheitszustand'|trans({},'help'),'build/images/status/status_tired.gif',false) }}
+                            {{ _self.search_entry(section,'inventory','Inventar'|trans({},'help'),'build/images/item/item_bag.gif',false) }}
+                            {{ _self.search_entry(section,'your_soul','Deine Seele'|trans({},'help'),'build/images/icons/small_ghost_blue.gif',false) }}
+                            {{ _self.search_entry(section,'death_and_soul_points','Der Tod und deine Seelenpunkte'|trans({},'help'),'build/images/professions/death.gif',false) }}
+                            {{ _self.search_entry(section,'last_man_standing','Der letzte Tod'|trans({},'help'),'build/images/pictos/r_surlst.gif',false) }}
+                            {{ _self.search_entry(section,'hero_mode','Heldenmodus'|trans({},'help'),'build/images/icons/star.gif',false) }}
+                            {{ _self.search_entry(section,'coalitions','Kleine Koalitionen'|trans({},'help'),'build/images/pictos/r_surgrp.gif',false) }}
+                            {{ _self.search_entry(section,'house_and_work','Haus &amp; Hausarbeiten'|trans({},'help'),'build/images/pictos/r_hbuild.gif',false) }}
+                            {{ _self.search_entry(section,'ghouls','Ghule'|trans({},'help'),'build/images/roles/ghoul.gif',false) }}
                         </ul>
                     </li>
 
-                    <li class="main {% if section == 'jobs' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="jobs">
-                        <span class="link" x-ajax-href="{{ url('help', {'name': 'jobs'}) }}">{{ 'Die Berufe'|trans({},'help') }}</span>
-                    </li>
+                    {{ _self.search_entry(section,'jobs','Die Berufe'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
 
                     <li class="sublist">
                         <ul>
-                            <li class="{% if section == 'basic' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'basic'}) }}">{{ 'Einwohner'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'collec' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'collec'}) }}">{{ 'Buddler'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'hunter' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'hunter'}) }}">{{ 'Aufklärer'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'guardian' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'guardian'}) }}">{{ 'Wächter'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'survivalist' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/book.gif') }}" alt="job_hunter">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'survivalist'}) }}">{{ 'Einsiedler'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'tamer' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'tamer'}) }}">{{ 'Dompteur'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'tech' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'tech'}) }}">{{ 'Techniker'|trans({},'help') }}</span>
-                            </li>
+                            {{ _self.search_entry(section,'basic','Einwohner'|trans({},'help'),'build/images/professions/basic.gif',false) }}
+                            {{ _self.search_entry(section,'collec','Buddler'|trans({},'help'),'build/images/professions/dig.gif',false) }}
+                            {{ _self.search_entry(section,'hunter','Aufklärer'|trans({},'help'),'build/images/professions/vest.gif',false) }}
+                            {{ _self.search_entry(section,'guardian','Wächter'|trans({},'help'),'build/images/professions/shield.gif',false) }}
+                            {{ _self.search_entry(section,'survivalist','Einsiedler'|trans({},'help'),'build/images/professions/book.gif',false) }}
+                            {{ _self.search_entry(section,'tamer','Dompteur'|trans({},'help'),'build/images/professions/tamer.gif',false) }}
+                            {{ _self.search_entry(section,'tech','Techniker'|trans({},'help'),'build/images/professions/tech.gif',false) }}
                         </ul>
                     </li>
 
-                    <li class="main {% if section == 'town_roles' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="roles">
-                        <span class="link" x-ajax-href="{{ url('help', {'name': 'town_roles'}) }}">{{ 'Die Rollen'|trans({},'help') }}</span>
-                    </li>
+                    {{ _self.search_entry(section,'town_roles','Die Rollen'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
 
                     <li class="sublist">
                         <ul>
-                            <li class="{% if section == 'shaman' %}active{% endif %}">
-                                <img src="{{ asset('build/images/roles/shaman.gif') }}" alt="role_shaman">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'shaman'}) }}">{{ 'Shamane'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'guide_to_the_world_beyond' %}active{% endif %}">
-                                <img src="{{ asset('build/images/roles/guide.gif') }}" alt="role_guide">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'guide_to_the_world_beyond'}) }}">{{ 'Der Reiseleiter in der Außenwelt'|trans({},'help') }}</span>
-                            </li>
+                            {{ _self.search_entry(section,'shaman','Shamane'|trans({},'help'),'build/images/roles/shaman.gif',false) }}
+                            {{ _self.search_entry(section,'guide_to_the_world_beyond','Der Reiseleiter in der Außenwelt'|trans({},'help'),'build/images/roles/guide.gif',false) }}
                         </ul>
                     </li>
 
-                    <li class="main {% if section == 'welcome_to_the_town' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="city">
-                        <span class="link" x-ajax-href="{{ url('help', {'name': 'welcome_to_the_town'}) }}">{{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}</span>
-                    </li>
+                    {{ _self.search_entry(section,'welcome_to_the_town','Herzlich willkommen in der Stadt'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
 
                     <li class="sublist">
                         <ul>
-                            <li class="{% if section == 'the_community' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_world.gif') }}" alt="demo">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'the_community'}) }}">{{ 'Die Gemeinschaft'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'constructing_new_buildings' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/home.gif') }}" alt="votes">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'constructing_new_buildings'}) }}">{{ 'Neue Gebäude bauen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'blueprints' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_bplan_u.gif') }}" alt="bplans">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'blueprints'}) }}">{{ 'Baupläne'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'daily_upgrades' %}active{% endif %}">
-                                <img src="{{ asset('build/images/building/small_city_up.gif') }}" alt="upgrades">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'daily_upgrades'}) }}">{{ 'Weiterentwicklung des Tages'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'the_attack_of_the_hordes' %}active{% endif %}">
-                                <img src="{{ asset('build/images/log/night.gif') }}" alt="attack">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'the_attack_of_the_hordes'}) }}">{{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'the_watchmen' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/water_soldier.gif') }}" alt="guard">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'the_watchmen'}) }}">{{ 'Die Nachtwächter'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'crimes_and_punishment' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="justice">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'crimes_and_punishment'}) }}">{{ 'Recht und Gesetz'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'shunned_citizens' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_ban.gif') }}" alt="banned">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'shunned_citizens'}) }}">{{ 'Die Verbannten'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'chaos' %}active{% endif %}">
-                                <img src="{{ asset('build/images/professions/death.gif') }}" alt="chaos">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'chaos'}) }}">{{ 'Das Chaos'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'catapult' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_courroie.gif') }}" alt="catapult">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'catapult'}) }}">{{ 'Das Katapult'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'towns_in_nondistantregions' %}active{% endif %}">
-                                <img src="{{ asset('build/images/building/small_falsecity.gif') }}" alt="rne">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'towns_in_nondistantregions'}) }}">{{ 'Kleine Karten'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'devastated_town' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_out_def_broken.gif') }}" alt="devast">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'devastated_town'}) }}">{{ 'Zerstörte Stadt'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'hardcore_towns' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_arma.gif') }}" alt="hardcore">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'hardcore_towns'}) }}">{{ 'Städte des Pandämoniums'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'private_towns' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_chair.gif') }}" alt="customMap">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'private_towns'}) }}">{{ 'Privatstädte'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'roleplay_options' %}active{% endif %}">
-                                <img src="{{ asset('build/images/item/item_dice.gif') }}" alt="rp">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'roleplay_options'}) }}">{{ 'Rollenspieloptionen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'seasons_and_rankings' %}active{% endif %}">
-                                <img src="{{ asset('build/images/forum/coin.png') }}" alt="seasons">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'seasons_and_rankings'}) }}">{{ 'Saisons und Ranglisten'|trans({},'help') }}</span>
-                            </li>
+                            {{ _self.search_entry(section,'the_community','Die Gemeinschaft'|trans({},'help'),'build/images/icons/small_world.gif',false) }}
+                            {{ _self.search_entry(section,'constructing_new_buildings','Neue Gebäude bauen'|trans({},'help'),'build/images/icons/home.gif',false) }}
+                            {{ _self.search_entry(section,'blueprints','Baupläne'|trans({},'help'),'build/images/item/item_bplan_u.gif',false) }}
+                            {{ _self.search_entry(section,'daily_upgrades','Weiterentwicklung des Tages'|trans({},'help'),'build/images/building/small_city_up.gif',false) }}
+                            {{ _self.search_entry(section,'the_attack_of_the_hordes','Der Angriff der Zombiehorde'|trans({},'help'),'build/images/log/night.gif',false) }}
+                            {{ _self.search_entry(section,'the_watchmen','Die Nachtwächter'|trans({},'help'),'build/images/professions/water_soldier.gif',false) }}
+                            {{ _self.search_entry(section,'crimes_and_punishment','Recht und Gesetz'|trans({},'help'),'build/images/icons/small_star.gif',false) }}
+                            {{ _self.search_entry(section,'shunned_citizens','Die Verbannten'|trans({},'help'),'build/images/icons/small_ban.gif',false) }}
+                            {{ _self.search_entry(section,'chaos','Das Chaos'|trans({},'help'),'build/images/professions/death.gif',false) }}
+                            {{ _self.search_entry(section,'catapult','Das Katapult'|trans({},'help'),'build/images/item/item_courroie.gif',false) }}
+                            {{ _self.search_entry(section,'towns_in_nondistantregions','Kleine Karten'|trans({},'help'),'build/images/building/small_falsecity.gif',false) }}
+                            {{ _self.search_entry(section,'devastated_town','Zerstörte Stadt'|trans({},'help'),'build/images/item/item_out_def_broken.gif',false) }}
+                            {{ _self.search_entry(section,'hardcore_towns','Städte des Pandämoniums'|trans({},'help'),'build/images/icons/small_arma.gif',false) }}
+                            {{ _self.search_entry(section,'private_towns','Privatstädte'|trans({},'help'),'build/images/item/item_chair.gif',false) }}
+                            {{ _self.search_entry(section,'roleplay_options','Rollenspieloptionen'|trans({},'help'),'build/images/item/item_dice.gif',false) }}
+                            {{ _self.search_entry(section,'seasons_and_rankings','Saisons und Ranglisten'|trans({},'help'),'build/images/forum/coin.png',false) }}
                         </ul>
                     </li>
 
-                    <li class="main {% if section == 'support' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
-                        <span class="link" x-ajax-href="{{ url('help', {'name': 'support'}) }}">{{ 'Support'|trans({},'help') }}</span>
-                    </li>
+                    {{ _self.search_entry(section,'support','Support'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
 
                     <li class="sublist">
                         <ul>
@@ -262,44 +122,20 @@
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="parasites">
                                 <span class="link">{{ '2- Überprüfe sonstige installierte Programme'|trans({},'help') }}</span>
                             </li> #}
-                            <li class="{% if section == 'getting_help' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="contact">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'getting_help'}) }}">{{ 'Hier erhältst du Hilfe'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'choosing_a_good_password' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="pass">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'choosing_a_good_password'}) }}">{{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'quarantined_towns' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="quarantine">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'quarantined_towns'}) }}">{{ 'Stadt unter Quarantäne'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'i_m_annoyed' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_calim.gif') }}" alt="report">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'i_m_annoyed'}) }}">{{ 'Fehlverhalten melden'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'about_accountsitting' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="sitting">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'about_accountsitting'}) }}">{{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</span>
-                            </li>
+                            {{ _self.search_entry(section,'getting_help','Hier erhältst du Hilfe'|trans({},'help'),'build/images/icons/small_middot.gif',false) }}
+                            {{ _self.search_entry(section,'choosing_a_good_password','Wie wähle ich ein sicheres Passwort?'|trans({},'help'),'build/images/icons/small_middot.gif',false) }}
+                            {{ _self.search_entry(section,'quarantined_towns','Stadt unter Quarantäne'|trans({},'help'),'build/images/icons/small_middot.gif',false) }}
+                            {{ _self.search_entry(section,'i_m_annoyed','Fehlverhalten melden'|trans({},'help'),'build/images/icons/small_calim.gif',false) }}
+                            {{ _self.search_entry(section,'about_accountsitting',"Zum Thema 'Sitting'..."|trans({},'help'),'build/images/icons/small_warning.gif',false) }}
                         </ul>
                     </li>
 
-                    <li class="main {% if section == 'support' %}active{% endif %}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
-                        <span>{{ 'Für Community-Entwickler'|trans({},'help') }}</span>
-                    </li>
+                    {{ _self.search_entry(section,'support','Für Community-Entwickler'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
 
                     <li class="sublist">
                         <ul>
-                            <li class="{% if section == 'use_of_external_sites' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="extern">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'use_of_external_sites'}) }}">{{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}</span>
-                            </li>
-                            <li class="{% if section == 'use_of_external_scripts' %}active{% endif %}">
-                                <img src="{{ asset('build/images/icons/small_more.gif') }}" alt="scripts">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'use_of_external_scripts'}) }}">{{ 'Externe Scripte'|trans({},'help') }}</span>
-                            </li>
+                            {{ _self.search_entry(section,'use_of_external_sites','Externe Webseiten und Anwendungen'|trans({},'help'),'build/images/icons/small_archive.gif',false) }}
+                            {{ _self.search_entry(section,'use_of_external_scripts','Externe Scripte'|trans({},'help'),'build/images/icons/small_more.gif',false) }}
                         </ul>
                     </li>
 
@@ -329,5 +165,38 @@
                 p.click();
             } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
         })
+        $.html.addEventListenerAll('#search_help','click',()=>{
+            const query = document.getElementById('search_value').value;
+            $.ajax.easySend('{{ url('help_search') }}', {query}, data => {
+                if (data.result.length === 0) {
+                    $.html.error('{{ 'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.'|trans({},'global')|e('js') }}');
+                    return;
+                }
+
+                $.html.forEach('[data-section]', section=>section.classList.add('hidden'));
+                $.html.forEach('.HelpList li', elem=>elem.classList.toggle('filtered',data.filtered));
+                $.html.forEach('.HelpList li span[data-direct]', elem=>elem.classList.toggle('hidden',data.filtered));
+                $.html.forEach('.HelpList li span[data-indirect]', elem=>elem.classList.toggle('hidden',!data.filtered));
+                document.getElementById('search_reset').classList.toggle('hidden', !data.filtered);
+                data.result.forEach( section => document.querySelector('[data-section="' + section + '"]').classList.remove('hidden') );
+            });
+        });
+        document.getElementById('search_reset').addEventListener('click', () => {
+            $.html.forEach('[data-section]', section=>section.classList.remove('hidden'));
+            $.html.forEach('.HelpList li', elem=>elem.classList.remove('filtered'));
+            $.html.forEach('.HelpList li span[data-direct]', elem=>elem.classList.remove('hidden'));
+            $.html.forEach('.HelpList li span[data-indirect]', elem=>elem.classList.add('hidden'));
+            document.getElementById('search_reset').classList.add('hidden');
+            document.getElementById('search_value').value = '';
+        })
+        $.html.addEventListenerAll('[data-indirect]','click',(e,elem)=>{
+            $.ajax.load( document.querySelector('.help-content'), elem.dataset.indirect, false, {}, () => {
+                $.html.forEach('li.active', elem => elem.classList.remove('active'));
+                const canonical_url = elem.closest('li').querySelector('[x-ajax-href]').getAttribute('x-ajax-href');
+                elem.closest('li').classList.add('active');
+                history.pushState( canonical_url, '', canonical_url );
+            } );
+        });
+
     </script>
 {% endblock %}
