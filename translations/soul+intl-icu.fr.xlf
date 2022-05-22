@@ -4779,22 +4779,22 @@
       <notes>
         <note category="german">Spracheinstellung verwenden</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Spracheinstellung verwenden</source>
-        <target>Spracheinstellung verwenden</target>
+        <target>Utiliser le paramètre de langue</target>
       </segment>
     </unit>
     <unit id="rqhI1oG" name="Deine Flagge">
       <notes>
         <note category="german">Deine Flagge</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine Flagge</source>
-        <target>Deine Flagge</target>
+        <target>Votre drapeau</target>
       </segment>
     </unit>
   </file>
