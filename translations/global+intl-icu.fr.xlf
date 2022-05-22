@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>Bleibe höflich und freundlich</source>
-        <target>Restez poli et amical</target>
+        <target>Restez poli et cordial</target>
       </segment>
     </unit>
     <unit id="fS360q." name="Werbung ist verboten (Links etc.)">
@@ -4297,11 +4297,11 @@
       <notes>
         <note category="german">Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</note>
         <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</source>
-        <target>Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</target>
+        <target>Aucun document correspondant à votre requête de recherche n’a été trouvé.</target>
       </segment>
     </unit>
   </file>
