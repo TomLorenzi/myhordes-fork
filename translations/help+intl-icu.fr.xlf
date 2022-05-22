@@ -8624,11 +8624,11 @@ Pour contacter les administrateurs, écrivez au support technique <a x-group-con
       <notes>
         <note category="german">Die Hilfe durchsuchen</note>
         <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Hilfe durchsuchen</source>
-        <target>Die Hilfe durchsuchen</target>
+        <target>Chercher dans l'aide</target>
       </segment>
     </unit>
   </file>
