@@ -4928,11 +4928,11 @@
       <notes>
         <note category="german">Alle Gegenstände aller Bürger ablegen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Alle Gegenstände aller Bürger ablegen</source>
-        <target>Alle Gegenstände aller Bürger ablegen</target>
+        <target>Faire lâcher tous les items de tous les citoyens</target>
       </segment>
     </unit>
   </file>
