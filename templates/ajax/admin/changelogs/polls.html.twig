@@ -1,0 +1,284 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block title %}{{ 'Zukunft'|trans({}, 'admin') }}{% endblock %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell rw-12">
+
+            <div class="hidden">
+                {% set emote_lang = (app.request.locale|e('html_attr')|split('_', 2))[0] %}
+                {% for tag,url in emotes %}
+                    <div x-text-emote="{% if url['i18n'] %}{{ asset(url['display']|replace({'{lang}': emote_lang})) }}{% else %}{{ asset(url['display']) }}{% endif %}" x-text-insert-emote="{{ tag }}"></div>
+                {% endfor %}
+            </div>
+
+            <ul class="tabs plain" x-tab-group="admin-announcements" x-tab-control>
+                {% if is_granted('ROLE_CROW') %}
+                    <li class="tab"><div class="tab-link" x-ajax-href="{{ path('admin_changelogs', {tab: 'changelog'}) }}">{% trans from 'admin' %}Changelogs{% endtrans %}</div></li>
+                {% endif %}
+                <li class="tab"><div class="tab-link" x-ajax-href="{{ path('admin_changelogs', {tab: 'announcement'}) }}">{% trans from 'admin' %}Ankündigungen{% endtrans %}</div></li>
+                <li class="tab selected"><div class="tab-link">{% trans from 'soul' %}Umfragen{% endtrans %}</div></li>
+            </ul>
+
+            {% macro poll_input(name,lang,type,small) %}
+                <div class="row-flex gap {% if type != 'textarea' %}v-center{% endif %} {% if lang != app.user.language %}hidden{% endif %}">
+                    <div class="cell shrink-0 grow-0">
+                        <label data-lang-field="{{ lang }}" for="poll_{{ name }}_{{ lang }}">
+                            <img alt="{{ lang }}" src="{{ asset('build/images/lang/' ~ lang ~ '.png') }}">
+                        </label>
+                    </div>
+                    <div class="cell grow-1">
+                        {% if type == 'textarea' %}
+                            <textarea data-field-name="{{ name }}" data-field-lang="{{ lang }}" id="poll_{{ name }}_{{ lang }}" name="{{ name }}:{{ lang }}" class="full-width" {% if small %}style="min-height: 80px; height: 80px;"{% endif %}></textarea>
+                        {% elseif type == 'text' %}
+                            <input data-field-name="{{ name }}" data-field-lang="{{ lang }}" type="text" id="poll_{{ name }}_{{ lang }}" name="{{ name }}:{{ lang }}" class="full-width" />
+                        {% endif %}
+                    </div>
+                </div>
+            {% endmacro %}
+
+            {% macro poll_field(description,name,type,small=false) %}
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest"><label>{{ description }}</label></div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        {% for lang in ['de','en','fr','es'] %}
+                            {{ _self.poll_input( name, lang, type, small ) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endmacro %}
+
+            <div>
+                <h1 class="page-head">{{ 'Eine neue Umfrage anlegen'|trans({},'admin') }}</h1>
+                <h5>{{ 'Editoreinstellungen'|trans({},'admin') }}</h5>
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest"><label>{{ 'Aktuelle Bearbeitungssprache'|trans({},'admin') }} {{ help_btn('Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.'|trans({},'admin')) }}</label></div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <div class="row-flex wrap gap">
+                            {% for lang in ['multi','de','en','fr','es'] %}
+                                <label class="cell">
+                                    <img alt="{{ lang }}" src="{{ asset('build/images/lang/' ~ lang ~ '.png') }}">
+                                    <input {% if lang == app.user.language %}checked{% endif %} type="radio" name="fields_lang" value="{{ lang }}" />
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <h5>{{ 'Umfragedaten'|trans({},'admin') }}</h5>
+                {{ _self.poll_field( 'Titel der Umfrage'|trans({},'admin'), 'title', 'text' ) }}
+
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest"><label for="poll_start">{{ 'Start der Umfrage'|trans({},'admin') }}</label></div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <input id="poll_start" name="poll_start" type="date" value="{{ "now"|date('Y-m-d') }}" min="{{ "now"|date('Y-m-d') }}">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest"><label for="poll_end">{{ 'Ende der Umfrage'|trans({},'admin') }}</label></div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <input id="poll_end" name="poll_end" type="date" value="{{ "now+7days"|date('Y-m-d') }}" min="{{ "tomorrow"|date('Y-m-d') }}">
+                    </div>
+                </div>
+
+                {{ _self.poll_field( 'Kurzbeschreibung'|trans({},'admin'), 'preview', 'textarea', true ) }}
+                {{ _self.poll_field( 'Beschreibung der Umfrage'|trans({},'admin'), 'desc', 'textarea' ) }}
+
+                <h5>{{ 'Antworten'|trans({},'admin') }}</h5>
+                <div class="row-table" id="answers-table">
+                    <div class="row hidden">
+                        <div class="padded cell rw-10 rw-lg-8 rw-sm-6">
+                            {% for lang in ['de','en','fr','es'] %}<span data-lang-label="{{ lang }}"></span>{% endfor %}
+                        </div>
+                        <div class="padded cell rw-2 rw-lg-4 rw-sm-6">
+                            <button class="small inline" data-action="up"><i class="fa fa-arrow-up"></i></button>
+                            <button class="small inline" data-action="down"><i class="fa fa-arrow-down"></i></button>
+                            <button class="small inline" data-action="copy"><i class="fa fa-copy"></i></button>
+                            <button class="small inline" data-action="delete"><i class="fa fa-trash"></i></button>
+                        </div>
+                        <div class="hidden">
+                            {% for lang in ['de','en','fr','es'] %}
+                                <div data-for="{{ lang }}" data-field="title" data-type="html"></div>
+                                <input type="hidden" data-for="{{ lang }}" data-field="title" data-type="twino" />
+                                <div data-for="{{ lang }}" data-field="desc" data-type="html"></div>
+                                <input type="hidden" data-for="{{ lang }}" data-field="desc" data-type="twino" />
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                {{ _self.poll_field( 'Antwortstext'|trans({},'admin'), 'answer_title', 'text' ) }}
+                {{ _self.poll_field( 'Beschreibung'|trans({},'admin'), 'answer_desc', 'textarea', true ) }}
+                <div class="row">
+                    <div class="cell rw-4 ro-8 rw-md-6 ro-md-8 rw-sm-12 ro-sm-0"><button id="add_answer">{{ 'Antwort hinzufügen'|trans({},'admin') }}</button></div>
+                </div>
+
+                <h5>{{ 'Bearbeitung abschließen'|trans({},'admin') }}</h5>
+                <div class="row">
+                    <div class="cell rw-4 ro-8 rw-md-6 ro-md-8 rw-sm-12 ro-sm-0"><button id="submit_poll">{{ 'Umfrage erstellen'|trans({},'admin') }}</button></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll('input[name="fields_lang"]', 'click', (e,elem) => {
+            const white = elem.value;
+            if (white === 'multi') {
+                $.html.forEach( '[data-lang-field]', field => field.closest('.row-flex').classList.remove('hidden') );
+                $.html.forEach( '[data-lang-label]', label => label.classList.add('hidden'));
+                $.html.forEach( '[data-lang-label="{{ app.user.language }}"]', label => label.classList.remove('hidden'));
+            } else {
+                $.html.forEach( '[data-lang-field]', field => field.closest('.row-flex').classList.add('hidden') );
+                $.html.forEach( '[data-lang-field="' + white + '"]', field => field.closest('.row-flex').classList.remove('hidden') );
+                $.html.forEach( '[data-lang-label]', label => label.classList.add('hidden'));
+                $.html.forEach( '[data-lang-label="' + white + '"]', label => label.classList.remove('hidden'));
+            }
+        });
+
+        const get_all_field_values = name => { return {
+            de: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="de"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
+            en: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="en"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
+            fr: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="fr"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
+            es: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="es"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
+        } };
+
+        const reset_field_values = name => {
+            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="de"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
+            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="en"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
+            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="fr"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
+            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="es"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
+            return true;
+        };
+
+        const get_missing_langs = set => [
+            ( !set.de?.length && 'de' ) || 'null',
+            ( !set.en?.length && 'en' ) || 'null',
+            ( !set.fr?.length && 'fr' ) || 'null',
+            ( !set.es?.length && 'es' ) || 'null',
+        ].filter(s => s !== 'null');
+
+        const get_field = (name,nice=null,twinoid=false) => {
+            const values = get_all_field_values(name);
+            const missing = get_missing_langs( values );
+            if (missing.length > 0) {
+                $.html.error( '{{'Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.'|trans({}, 'admin')|e('js') }}'.replace('{field}', nice ?? name).replace('{langs}', missing.join(', ')) );
+                return null;
+            }
+            else {
+                if (twinoid)
+                    ['de','en','fr','es'].forEach(lang => {
+                        values[lang] = $.html.twinoParser.parseToString( values[lang], emote_resolver, {autoLinks: $.client.config.autoParseLinks.get()});
+                    });
+                return values;
+            }
+        };
+
+        const emote_resolver = s => {
+            switch (s) {
+                case ':)': s = ':smile:';    break;
+                case ':d': s = ':lol:';      break;
+                case ':(': s = ':sad:';      break;
+                case ';)': s = ':blink:';    break;
+                case ':o': s = ':surprise:'; break;
+            }
+            if (s.search('"') > -1) return [ null,s ];
+            let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
+            return [n ? n.getAttribute('x-text-emote') : null, s];
+        }
+
+        $.html.addEventListenerAll('#add_answer','click',() => {
+            const title_set = get_field('answer_title', '{{ 'Antwortstext'|trans({},'admin')|e('js') }}');
+            const desc_set = get_field('answer_desc', '{{ 'Beschreibung'|trans({},'admin')|e('js') }}');
+
+            if (!title_set || !desc_set) return;
+
+            reset_field_values('answer_title');
+            reset_field_values('answer_desc');
+
+            const div = document.createElement('div');
+            div.classList.add('row');
+            div.innerHTML = document.querySelector('#answers-table > .row.hidden').innerHTML;
+            ['de','en','fr','es'].forEach(lang => {
+                div.querySelector('[data-field="title"][data-type="twino"][data-for="' + lang + '"]').value = title_set[lang];
+                div.querySelector('[data-field="desc"][data-type="twino"][data-for="' + lang + '"]').value = desc_set[lang];
+                let title_div = div.querySelector('[data-field="title"][data-type="html"][data-for="' + lang + '"]');
+                $.html.twinoParser.parseTo( title_set[lang], title_div, emote_resolver, {autoLinks: $.client.config.autoParseLinks.get()} );
+                $.html.twinoParser.parseTo( desc_set[lang], div.querySelector('[data-field="desc"][data-type="html"][data-for="' + lang + '"]'), emote_resolver, {autoLinks: $.client.config.autoParseLinks.get()} );
+                div.querySelector('span[data-lang-label="' + lang + '"]').innerText = title_div.innerText;
+            });
+
+            div.querySelector('button[data-action="up"]').addEventListener('click',e => {
+                const me = e.target.closest('.row');
+                if (me.previousElementSibling) me.parentElement.insertBefore(me, me.previousElementSibling);
+            });
+            div.querySelector('button[data-action="down"]').addEventListener('click',e => {
+                const me = e.target.closest('.row');
+                if (me.nextElementSibling) me.parentElement.insertBefore(me.nextElementSibling, me);
+            });
+            div.querySelector('button[data-action="delete"]').addEventListener('click',e => e.target.closest('.row').remove());
+            div.querySelector('button[data-action="copy"]').addEventListener('click',e => {
+                const me = e.target.closest('.row');
+                ['de','en','fr','es'].forEach(lang => {
+                    document.querySelector('[data-field-name="answer_title"][data-field-lang="' + lang + '"]').value = me.querySelector('[data-field="title"][data-type="twino"][data-for="' + lang + '"]').value
+                    document.querySelector('[data-field-name="answer_desc"][data-field-lang="' + lang + '"]').value = me.querySelector('[data-field="desc"][data-type="twino"][data-for="' + lang + '"]').value
+                });
+            });
+
+            document.getElementById('answers-table').appendChild( div );
+        });
+
+        $.html.addEventListenerAll('#submit_poll', 'click', () => {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+
+            const title_set = get_field('title', '{{ 'Titel der Umfrage'|trans({},'admin')|e('js') }}', true);
+            const preview_set = get_field('preview', '{{ 'Kurzbeschreibung'|trans({},'admin')|e('js') }}', true);
+            const desc_set = get_field('desc', '{{ 'Beschreibung der Umfrage'|trans({},'admin')|e('js') }}', true);
+
+            if (!title_set || !desc_set || !preview_set) return;
+
+            const date_start = document.getElementById('poll_start').value;
+            const date_end = document.getElementById('poll_end').value;
+
+            let answers = [];
+            $.html.forEach( '#answers-table > .row:not(.hidden)', row => {
+                const obj = { title: {}, desc: {} };
+                ['de','en','fr','es'].forEach(lang => {
+                    obj.title[lang] = row.querySelector('[data-field="title"][data-type="html"][data-for="' + lang + '"]').innerHTML;
+                    obj.desc[lang] = row.querySelector('[data-field="desc"][data-type="html"][data-for="' + lang + '"]').innerHTML;
+                });
+                answers.push(obj);
+            } );
+
+            if (answers.length < 2) {
+                $.html.error( '{{'Es müssen mindestens zwei Antworten hinzugefügt werden.'|trans({}, 'admin')|e('js') }}' );
+                return;
+            }
+
+            $.ajax.easySend( '{{ path('admin_changelog_new_poll') }}', {
+                title: title_set, preview: preview_set, desc: desc_set,
+                start: date_start, end: date_end,
+                answers
+            }, () => {
+                $.html.message('notice', 'OK.');
+                $.ajax.load(null,'{{ path('admin_polls') }}');
+            } );
+        });
+    </script>
+{% endblock %}

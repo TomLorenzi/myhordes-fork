@@ -4,10 +4,14 @@ namespace App\Controller\Messages;
 
 use App\Entity\Announcement;
 use App\Entity\Changelog;
+use App\Entity\ForumPoll;
+use App\Entity\ForumPollAnswer;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\GlobalPoll;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -34,6 +38,81 @@ class MessageAnnouncementController extends MessageController
             'announces' => $this->entity_manager->getRepository(Announcement::class)->findAll(),
             'tab' => $tab
         ]));
+    }
+
+    /**
+     * @Route("jx/admin/com/changelogs/polls", name="admin_polls", priority=1)
+     * @return Response
+     */
+    public function polls(  ): Response
+    {
+        return $this->render( 'ajax/admin/changelogs/polls.html.twig', $this->addDefaultTwigArgs(null, [
+            'polls' => $this->entity_manager->getRepository(GlobalPoll::class)->findAll(),
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+        ]));
+    }
+
+    /**
+     * @Route("api/admin/com/changelogs/new_poll", name="admin_changelog_new_poll")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function create_poll_api(EntityManagerInterface $em, JSONRequestParser $parser, HTMLService $html): Response {
+        $langs = ['de','fr','en','es'];
+
+        if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
+        elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
+        else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
+
+        $format_html = function(&$data) use ($html, $langs, $p): bool {
+            foreach ($langs as $lang) {
+                $str = trim($data[$lang]);
+                if (mb_strlen($str) < 3) return false;
+                $data[$lang] = $html->htmlPrepare( $this->getUser(), $p, false, $data[$lang], null, $len  );
+                if ($len < 3) return false;
+            }
+            return true;
+        };
+
+        $title = $parser->get_array( 'title' );
+        $desc = $parser->get_array( 'desc' );
+        $preview = $parser->get_array( 'preview' );
+
+        try {
+            $start = new DateTime( $parser->get('start', '-1') );
+            $end = new DateTime( $parser->get('end', '-1') );
+        } catch (\Throwable $t) { return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest ); }
+
+        if ($start->getTimestamp() < new DateTime('now')) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ($start->getTimestamp() >= $end->getTimestamp()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $answers = array_values( $parser->get_array( 'answers' ) );
+        if (count($answers) < 2) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if (!$format_html($title)) AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (!$format_html($desc)) AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (!$format_html($preview)) AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $answer_data = [];
+        foreach ( $answers as &$answer ) {
+            if (!$format_html($answer['title'])) AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            if (!$format_html($answer['desc'])) AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            $answer_data[] = [$answer, new ForumPollAnswer()];
+        }
+
+        $poll = (new ForumPoll())->setOwner( $this->getUser() )->setClosed( false );
+        foreach ($answer_data as [,$answer_entity]) $poll->addAnswer( $answer_entity );
+
+        try {
+            $this->entity_manager->persist($poll);
+            $this->entity_manager->flush();
+        } catch (\Throwable $t) { return AjaxResponse::error( ErrorHelper::ErrorDatabaseException ); }
+
+
+
+
+        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
     }
 
     /**
