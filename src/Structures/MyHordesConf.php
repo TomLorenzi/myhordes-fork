@@ -15,8 +15,7 @@ class MyHordesConf extends Conf
 
     const CONF_BACKUP_PATH        = 'backup.path';
     const CONF_BACKUP_COMPRESSION = 'backup.compression';
-    const CONF_BACKUP_LIMITS_INC  = 'backup.limits.';
-    const CONF_BACKUP_STORAGES    = 'backup.storages';
+    const CONF_BACKUP_LIMITS_INC      = 'backup.limits.';
 
     const CONF_MOD_MAIL_DCHOOK = 'modmail.discord';
 
