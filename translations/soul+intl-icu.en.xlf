@@ -1845,7 +1845,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>This player is using an Eternal Twin account. We look forward to welcome him to MyHordes!</target>
+        <target>This player is using an Eternaltwin account. We look forward to welcome him to MyHordes!</target>
       </segment>
     </unit>
     <unit id="XRvl7w0">
@@ -3562,7 +3562,7 @@
       </notes>
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
-        <target>You must use your Eternal Twin account to change your username.</target>
+        <target>You must use your Eternaltwin account to change your username.</target>
       </segment>
     </unit>
     <unit id="4DFz5Xa">
@@ -3572,7 +3572,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
-        <target>You cannot change your username because you have linked an Eternal Twin account. You must go into your Eternal Twin account to change your username.</target>
+        <target>You cannot change your username because you have linked an Eternaltwin account. You must go into your Eternaltwin account to change your username.</target>
       </segment>
     </unit>
     <unit id=".NQ7ahe">
