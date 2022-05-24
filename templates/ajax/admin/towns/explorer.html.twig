@@ -1038,7 +1038,7 @@
                                     }
                                 );
                             });
-
+                        document.querySelectorAll("#zone_floor .item div.tooltip").forEach( elem => $.html.handleTooltip( elem ));
                         document.getElementById("zone_digs").value = data.zone_digs;
                         document.getElementById("ruin_digs").value = data.ruin_digs;
                         document.getElementById("ruin_bury").value = data.ruin_bury;
