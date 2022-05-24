@@ -15,13 +15,11 @@ use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\User;
 use App\Service\DeathHandler;
-use App\Structures\MyHordesConf;
 use DateInterval;
 use DateTime;
 use DirectoryIterator;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use PhpParser\Node\Param;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -51,7 +49,7 @@ class AdminHandler
         'eatLiver' => 'ROLE_CROW'
     ];
 
-    public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh, CrowService $crow, ParameterBagInterface $params, ConfMaster $conf)
+    public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh, CrowService $crow, ParameterBagInterface $params)
     {
         $this->entity_manager = $em;
         $this->death_handler = $dh;
@@ -60,7 +58,6 @@ class AdminHandler
         $this->userHandler = $uh;
         $this->crow = $crow;
         $this->params = $params;
-        $this->conf = $conf->getGlobalConf();
     }
 
     protected function hasRights(int $sourceUser, string $desiredAction)
@@ -209,7 +206,7 @@ class AdminHandler
      * @param string|string[] $extensions
      * @return SplFileInfo[]
      */
-    public function list_local_files(string $base_path, array|string $extensions ): array {
+    public function list_files( string $base_path, array|string $extensions ): array {
         if (!is_array($extensions)) $extensions = [$extensions];
 
         $result = [];
@@ -231,10 +228,7 @@ class AdminHandler
     }
 
     public function getDbDumps(): array {
-        $storages = $this->conf->getData()['backup']['storages'];
-
-        if (count($storages) == 0) return [];
-
+        $backup_base_dir = "{$this->params->get('kernel.project_dir')}/var/backup";
         $extract_backup_types = function(SplFileInfo $f) : array {
             $ret = [];
 
@@ -258,28 +252,13 @@ class AdminHandler
             return $ret;
         };
 
-        $files = [];
-
-        foreach ($storages as $storage) {
-            switch($storage['type']) {
-                case "local":
-                    $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $storage['path']);
-                    $files = $this->list_local_files( $targetPath, ['sql','xz','gzip','bz2'] );
-                    break;
-                case "ftp":
-                    break;
-                case "sftp":
-                    break;
-            }
-        }
         $backup_files = array_map( fn($e) => [
             'info' => $e,
             'rel' => $e->getRealPath(),
             'time' => (new \DateTime())->setTimestamp( $e->getCTime() ),
             'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
             'tags' => $extract_backup_types($e)
-        ], $files);
-
+        ], $this->list_files( $backup_base_dir, ['sql','xz','gzip','bz2'] ));
         usort($backup_files, fn($a,$b) => $b['time'] <=> $a['time'] );
         return $backup_files;
     }
@@ -318,7 +297,7 @@ class AdminHandler
             'time' => (new \DateTime())->setTimestamp( $e->getMTime() ),
             'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
             'tags' => [$extract_log_type($e)]
-        ], $this->list_local_files( $log_base_dir, 'log' ));
+        ], $this->list_files( $log_base_dir, 'log' ));
         usort($log_files, fn($a,$b) => $b['time'] <=> $a['time'] );
         return $log_files;
     }
