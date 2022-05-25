@@ -4797,5 +4797,55 @@
         <target>Votre drapeau</target>
       </segment>
     </unit>
+    <unit id="gQDPOVU" name="Diese Stadt hat folgende Einschränkungen:">
+      <notes>
+        <note category="german">Diese Stadt hat folgende Einschränkungen:</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt hat folgende Einschränkungen:</source>
+        <target>Cette ville a les restrictions suivantes :</target>
+      </segment>
+    </unit>
+    <unit id="4Gjif4f" name="Ausschluss aus dem Ranking">
+      <notes>
+        <note category="german">Ausschluss aus dem Ranking</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ausschluss aus dem Ranking</source>
+        <target>Exclusion du classement</target>
+      </segment>
+    </unit>
+    <unit id="gAN.vX0" name="Löschen der Auszeichnungen">
+      <notes>
+        <note category="german">Löschen der Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Auszeichnungen</source>
+        <target>Suppression des pictos</target>
+      </segment>
+    </unit>
+    <unit id="0kcps11" name="Löschen der Seelenpunkte">
+      <notes>
+        <note category="german">Löschen der Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Seelenpunkte</source>
+        <target>Suppression des points d'âme</target>
+      </segment>
+    </unit>
+    <unit id="QzJ.qzA" name="Die Seelenpunkte dieser Stadt wurden gelöscht">
+      <notes>
+        <note category="german">Die Seelenpunkte dieser Stadt wurden gelöscht</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seelenpunkte dieser Stadt wurden gelöscht</source>
+        <target>Les points d'âme de cette ville ont été supprimés</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

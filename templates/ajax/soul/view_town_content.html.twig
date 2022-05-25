@@ -53,16 +53,16 @@
         <div class="row">
             <div class="cell rw-12 padded">
                 <div class="note note-warning">
-                    This town has the following sanctions:
+                    {{ 'Diese Stadt hat folgende Einschränkungen:'|trans({}, 'soul') }}
                     <ul>
                     {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING')) %}
-                        <li>Ranking exclusion</li>
+                        <li>{{ 'Ausschluss aus dem Ranking'|trans({}, 'soul') }}</li>
                     {% endif %}
                     {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
-                        <li>Pictos deletion</li>
+                        <li>{{ 'Löschen der Auszeichnungen'|trans({}, 'soul') }}</li>
                     {% endif %}
                     {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
-                        <li>Soul points deletion</li>
+                        <li>{{ 'Löschen der Seelenpunkte'|trans({}, 'soul') }}</li>
                     {% endif %}
                     </ul>
                     {% if is_granted('ROLE_CROW') %}
@@ -72,16 +72,16 @@
                             <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING') }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
                         {% endif %}
                         {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
-                            <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">Remove the pictos deletion</div>
+                            <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen wiederherstellen'|trans({}, 'admin') }}</div>
                         {% else %}
-                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">Delete the pictos of this town</div>
+                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
                         {% endif %}
                         {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
-                            <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">Remove the soulpoints deletion</div>
+                            <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte wiederherstellen'|trans({}, 'admin') }}</div>
                         {% else %}
-                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">Delete the soulpoints of this town</div>
+                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
                         {% endif %}
-                        <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">Remove all sanctions</div>
+                        <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">{{ 'Alle Sanktionen entfernen'|trans({}, 'admin') }}</div>
                     {% endif %}
                 </div>
             </div>
@@ -109,13 +109,13 @@
                     <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING') }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
                 {% endif %}
                 {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
-                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">Delete the pictos of this town</div>
+                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
                 {% endif %}
                 {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
-                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">Delete the soulpoints of this town</div>
+                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
                 {% endif %}
                 {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL')) %}
-                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">Exclude the town from the soul</div>
+                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">{{ 'Stadt nicht in der Seele listen'|trans({}, 'admin') }}</div>
                 {% endif %}
                 {% if not town.imported %}
                     <br />
@@ -146,7 +146,7 @@
                     {% if not citizen.hasDisableFlag(constant('\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS')) and not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) and not town.event %}
                         +{{sp}}
                     {% elseif is_granted('ROLE_CROW') %}
-                        <div style="{% if citizen.disabled %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) or town.event %}opacity: 0.5;{% endif %}">+{{sp}}</div>
+                        <div style="{% if citizen.hasDisableFlag(constant('\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS')) %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) or town.event %}opacity: 0.5;{% endif %}">+{{sp}}</div>
                     {% elseif not (citizen.hasDisableFlag(constant('\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS')) and not citizen.limitedImport) and not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) and not town.event %}
                         +{{sp}}
                     {% else %}
@@ -156,20 +156,38 @@
                         {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS")) %}
                             <span>
                                 <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS") }}" class="pointer" src="{{ asset('build/images/icons/small_removesp.gif') }}" alt="del sp" />
-                                <div class="tooltip">Remove this citizen's Soul Points</div>
+                                <div class="tooltip">{{ 'Seelenpunkte dieses Bürgers entfernen'|trans({}, 'admin') }}</div>
                             </span>
-                        {% elseif citizen.disabled and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
+                        {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
                             <span>
-                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
-                                <div class="tooltip">Rerank this citizen</div>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                                <div class="tooltip">{{ 'Seelenpunkte für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
                             </span>
                             {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                         {% endif %}
-                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS")) %}
-                        <span>
+                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING")) %}
+                            <span>
                                 <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING") }}" class="pointer" src="{{ asset('build/images/icons/small_removernk.gif') }}" alt="del rnk" />
-                                <div class="tooltip">Remove this citizen from the ranking</div>
+                                <div class="tooltip">{{ 'Bürger aus dem Ranking entfernen'|trans({}, 'admin') }}</div>
                             </span>
+                        {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                                <div class="tooltip">{{ 'Ranking für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
+                            </span>
+                            {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
+                        {% endif %}
+                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS")) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_ban.gif') }}" alt="del pictos" />
+                                <div class="tooltip">{{ 'Auszeichnungen dieses Bürgers entfernen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                                <div class="tooltip">{{ 'Auszeichnungen für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
+                            </span>
+                            {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                         {% endif %}
                     {% endif %}
                 </div>
@@ -278,7 +296,7 @@
 
             $.html.addEventListenerAll('[x-endpoint][x-action="unrank"]', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
-                $.ajax.easySend(elem.getAttribute('x-endpoint'), {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+                $.ajax.easySend(elem.getAttribute('x-endpoint'), {'flag': elem.getAttribute('x-flag')}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
             });
 
             $.html.addEventListenerAll('[x-model][x-endpoint][x-action]', 'click', (e,elem) => {

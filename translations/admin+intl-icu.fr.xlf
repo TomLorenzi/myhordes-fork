@@ -4935,5 +4935,127 @@
         <target>Faire lâcher tous les items de tous les citoyens</target>
       </segment>
     </unit>
+    <unit id="qtaAXm5" name="Auszeichnungen wiederherstellen">
+      <notes>
+        <note category="german">Auszeichnungen wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen wiederherstellen</source>
+        <target>Restaurer les pictos</target>
+      </segment>
+    </unit>
+    <unit id="rzaAoA6" name="Auszeichnungen aller Einwohner dieser Stadt löschen">
+      <notes>
+        <note category="german">Auszeichnungen aller Einwohner dieser Stadt löschen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen aller Einwohner dieser Stadt löschen</source>
+        <target>Supprimer les pictos de cette ville</target>
+      </segment>
+    </unit>
+    <unit id="WqdvJmx" name="Seelenpunkte wiederherstellen">
+      <notes>
+        <note category="german">Seelenpunkte wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte wiederherstellen</source>
+        <target>Restaurer les points d'âme</target>
+      </segment>
+    </unit>
+    <unit id="p_4sZnN" name="Seelenpunkte aller Einwohner dieser Stadt löschen">
+      <notes>
+        <note category="german">Seelenpunkte aller Einwohner dieser Stadt löschen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte aller Einwohner dieser Stadt löschen</source>
+        <target>Supprimer les points d'âme de cette ville</target>
+      </segment>
+    </unit>
+    <unit id="dMSxQKT" name="Alle Sanktionen entfernen">
+      <notes>
+        <note category="german">Alle Sanktionen entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Sanktionen entfernen</source>
+        <target>Enlever toutes les sanctions</target>
+      </segment>
+    </unit>
+    <unit id="OSDitIr" name="Stadt nicht in der Seele listen">
+      <notes>
+        <note category="german">Stadt nicht in der Seele listen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt nicht in der Seele listen</source>
+        <target>Exclure cette ville de l'âme</target>
+      </segment>
+    </unit>
+    <unit id="0qROaTY" name="Seelenpunkte dieses Bürgers entfernen">
+      <notes>
+        <note category="german">Seelenpunkte dieses Bürgers entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte dieses Bürgers entfernen</source>
+        <target>Supprimer les points d'âme pour ce citoyen</target>
+      </segment>
+    </unit>
+    <unit id="2UIa_nW" name="Ranking für diesen Bürger wiederherstellen">
+      <notes>
+        <note category="german">Ranking für diesen Bürger wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking für diesen Bürger wiederherstellen</source>
+        <target>Réactiver le classement pour ce citoyen</target>
+      </segment>
+    </unit>
+    <unit id="YYl_8gg" name="Bürger aus dem Ranking entfernen">
+      <notes>
+        <note category="german">Bürger aus dem Ranking entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger aus dem Ranking entfernen</source>
+        <target>Exclure ce citoyen du classement</target>
+      </segment>
+    </unit>
+    <unit id="Rh2vAO6" name="Auszeichnungen dieses Bürgers entfernen">
+      <notes>
+        <note category="german">Auszeichnungen dieses Bürgers entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen dieses Bürgers entfernen</source>
+        <target>Supprimer les pictos de ce citoyen</target>
+      </segment>
+    </unit>
+    <unit id="5hVSTeI" name="Seelenpunkte für diesen Bürger wiederherstellen">
+      <notes>
+        <note category="german">Seelenpunkte für diesen Bürger wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte für diesen Bürger wiederherstellen</source>
+        <target>Restaurer les points d'âme de ce citoyen</target>
+      </segment>
+    </unit>
+    <unit id="X83LtBA" name="Auszeichnungen für diesen Bürger wiederherstellen">
+      <notes>
+        <note category="german">Auszeichnungen für diesen Bürger wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen für diesen Bürger wiederherstellen</source>
+        <target>Restaurer les pictos de ce citoyen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
