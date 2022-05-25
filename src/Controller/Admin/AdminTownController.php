@@ -1393,22 +1393,34 @@ class AdminTownController extends AdminActionController
      * @param int $act
      * @return Response
      */
-    public function ranking_toggle_town(int $tid, int $act): Response
+    public function ranking_toggle_town(int $tid, int $act, JSONRequestParser $request): Response
     {
         $town_proxy = $this->entity_manager->getRepository(TownRankingProxy::class)->find($tid);
         if (!$town_proxy) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $town_proxy->setDisabled( $act !== 0 );
+        $flag = $request->get("flag");
+        if($flag === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        //$town_proxy->setDisabled( $act !== 0 );
+        if($act)
+            $town_proxy->addDisableFlag($flag);
+        else
+            $town_proxy->removeDisableFlag($flag);
+
         $this->entity_manager->persist($town_proxy);
         $this->entity_manager->flush();
 
         foreach ($town_proxy->getCitizens() as $citizen) {
-            $this->entity_manager->persist($citizen->getUser()
-                ->setSoulPoints( $this->user_handler->fetchSoulPoints( $citizen->getUser(), false ) )
-                ->setImportedSoulPoints( $this->user_handler->fetchImportedSoulPoints( $citizen->getUser() ) )
-            );
-            foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town_proxy) as $picto)
-                $this->entity_manager->persist($picto->setDisabled($act !== 0 || $citizen->getDisabled()));
+            if(($flag & TownRankingProxy::DISABLE_RANKING) === TownRankingProxy::DISABLE_RANKING) {
+                $this->entity_manager->persist($citizen->getUser()
+                    ->setSoulPoints($this->user_handler->fetchSoulPoints($citizen->getUser(), false))
+                    ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($citizen->getUser()))
+                );
+            }
+            if(($flag & TownRankingProxy::DISABLE_PICTOS) === TownRankingProxy::DISABLE_PICTOS) {
+                foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town_proxy) as $picto)
+                    $this->entity_manager->persist($picto->setDisabled($act !== 0 || $citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_SOULPOINTS)));
+            }
         }
 
 

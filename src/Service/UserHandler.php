@@ -17,6 +17,7 @@ use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
 use App\Entity\SocialRelation;
+use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
@@ -69,8 +70,8 @@ class UserHandler
         $p_soul = $all ? $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]) : null;
         if ($p_soul) $p_soul =['www.hordes.fr' => 'fr', 'www.die2nite.com' => 'en', 'www.dieverdammten.de' => 'de', 'www.zombinoia.com' => 'es'][$p_soul->getScope()] ?? 'none';
         return array_reduce( array_filter(
-            $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => false, 'user' => $user, 'confirmed' => true]),
-            function(CitizenRankingProxy $c) use ($all,$p_soul) { return $c->getTown() && !$c->getTown()->getDisabled() && $c->getTown()->getSeason() !== null && ($c->getImportLang() === null || ($all && $c->getImportLang() === $p_soul) ); }
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['user' => $user, 'confirmed' => true]),
+            function(CitizenRankingProxy $c) use ($all,$p_soul) { return !$c->hasDisableFlag(CitizenRankingProxy::DISABLE_SOULPOINTS) && $c->getTown() && !$c->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_SOULPOINTS) && $c->getTown()->getSeason() !== null && ($c->getImportLang() === null || ($all && $c->getImportLang() === $p_soul) ); }
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 
@@ -79,8 +80,8 @@ class UserHandler
         if ($p_soul === null) return 0;
         $p_soul = ['www.hordes.fr' => 'fr', 'www.die2nite.com' => 'en', 'www.dieverdammten.de' => 'de', 'www.zombinoia.com' => 'es'][$p_soul->getScope()] ?? 'none';
         return array_reduce( array_filter(
-            $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => false, 'user' => $user, 'confirmed' => true]),
-            function(CitizenRankingProxy $c) use ($p_soul) { return $c->getTown() && !$c->getTown()->getDisabled() && $c->getImportLang() === $p_soul; }
+            $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['user' => $user, 'confirmed' => true]),
+            function(CitizenRankingProxy $c) use ($p_soul) { return !$c->hasDisableFlag(CitizenRankingProxy::DISABLE_SOULPOINTS) && $c->getTown() && !$c->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_SOULPOINTS) && $c->getImportLang() === $p_soul; }
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 
