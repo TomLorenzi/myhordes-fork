@@ -355,7 +355,7 @@ class RuinZone
 
     public function setUnifiedDecals(int $decals): self {
         $this->setDecals( $decals & 0xFFFF );
-        $this->setDecalVariants( ($decals & 0xFFFF0000) >> 16 );
+        $this->setDecalVariants( ($decals >> 16) & 0xFFFF );
 
         return $this;
     }
