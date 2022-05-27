@@ -144,7 +144,7 @@ class CitizenRankingProxy
     /**
      * @ORM\Column(type="integer")
      */
-    private $disableFlag;
+    private $disableFlag = self::DISABLE_NOTHING;
 
     public function getId(): ?int
     {

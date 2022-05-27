@@ -125,7 +125,7 @@ class TownRankingProxy
     /**
      * @ORM\Column(type="integer")
      */
-    private $disableFlag = 0;
+    private $disableFlag = self::DISABLE_NOTHING;
 
     public function __construct()
     {
