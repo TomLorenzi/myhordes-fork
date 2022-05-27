@@ -1495,7 +1495,6 @@ class AdminTownController extends AdminActionController
         if (!$flag)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        // $citizen_proxy->setDisabled( $act !== 0 );
         if ($act) {
             $citizen_proxy->addDisableFlag($flag);
         } else {
@@ -1519,9 +1518,6 @@ class AdminTownController extends AdminActionController
             foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen_proxy->getUser(), $town_proxy) as $picto)
                 $this->entity_manager->persist($picto->setDisabled($citizen_proxy->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS)));
         }
-
-
-
 
         $this->entity_manager->flush();
         return AjaxResponse::success();

@@ -114,6 +114,7 @@ class MigrateCommand extends Command
         '049ee184a6e5e2ecb5599a8fc7aa2a8b15948d36' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
         '7fb1baba0c40004b02a556175a73edfa170bdeff' => [ ['app:migrate', ['--calculate-score' => true] ] ],
         'a45dec20a02f017ab1963d2f0c30e4fa7de9ddf5' => [ ['app:migrate', ['--assign-estimation-seed' => true] ] ],
+        '2c688bfc00992c98193e9480848e2f1e63be9d04' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -178,6 +179,7 @@ class MigrateCommand extends Command
             ->addOption('reassign-thread-tags', null, InputOption::VALUE_NONE, 'Repairs ThreadTag assignment to forums')
             ->addOption('assign-official-tag', null, InputOption::VALUE_NONE, 'Assign the Official tag in the Town forums')
             ->addOption('assign-estimation-seed', null, InputOption::VALUE_NONE, 'Assign the random seed in existing Zombie Estimation Entities')
+            ->addOption('assign-disable-flags', null, InputOption::VALUE_NONE, 'Assign the DisableFlag in the ranking entries according to their disable state')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -696,6 +698,19 @@ class MigrateCommand extends Command
                     $estimation->setSeed($seed);
                     $this->entity_manager->persist($estimation);
                 }
+            }
+            $this->entity_manager->flush();
+        }
+
+        if ($input->getOption('assign-disable-flags')) {
+            // A disabled citizen/town has in fact its Ranking disabled. Not its pictos / soul points
+            $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => true]);
+            foreach ($citizens as $citizen) {
+                $this->entity_manager->persist($citizen->addDisableFlag(CitizenRankingProxy::DISABLE_RANKING)->setDisabled(false));
+            }
+            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['disabled' => true]);
+            foreach ($towns as $town) {
+                $this->entity_manager->persist($town->addDisableFlag(TownRankingProxy::DISABLE_RANKING)->setDisabled(false));
             }
             $this->entity_manager->flush();
         }
