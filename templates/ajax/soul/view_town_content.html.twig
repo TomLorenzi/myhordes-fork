@@ -177,13 +177,24 @@
                         {% endif %}
                         {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS")) %}
                             <span>
-                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_ban.gif') }}" alt="del pictos" />
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_removepictos.gif') }}" alt="del pictos" />
                                 <div class="tooltip">{{ 'Auszeichnungen dieses Bürgers entfernen'|trans({}, 'admin') }}</div>
                             </span>
                         {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
                             <span>
-                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_restorepictos.gif') }}" alt="re" />
                                 <div class="tooltip">{{ 'Auszeichnungen für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% endif %}
+                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL")) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL") }}" class="pointer" src="{{ asset('build/images/icons/small_ban.gif') }}" alt="del all" />
+                                <div class="tooltip">{{ 'Stadt nicht in der Seele listen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% else %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re all" />
+                                <div class="tooltip">{{ 'Alle Sanktionen entfernen'|trans({}, 'admin') }}</div>
                             </span>
                         {% endif %}
                         {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
