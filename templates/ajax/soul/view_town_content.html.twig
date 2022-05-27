@@ -137,6 +137,7 @@
             <div class="padded cell rw-4 rw-lg-3 hide-sm">{{'Todesursache'|trans({}, 'soul')}}</div>
             <div class="padded cell rw-4 rw-lg-3 hide-md hide-sm">{{'Kommentar'|trans({}, 'soul')}}</div>
         </div>
+        {# @var \App\Entity\CitizenRankingProxy citizen #}
         {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day) %}
             {% set days = citizen.day %}
             {% set sp = days * ( days + 1 ) / 2 %}
@@ -188,7 +189,7 @@
                         {% endif %}
                         {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL")) %}
                             <span>
-                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL") }}" class="pointer" src="{{ asset('build/images/icons/small_ban.gif') }}" alt="del all" />
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL") }}" class="pointer" src="{{ asset('build/images/icons/small_ban.gif') }}" alt="del all" />
                                 <div class="tooltip">{{ 'Stadt nicht in der Seele listen'|trans({}, 'admin') }}</div>
                             </span>
                         {% else %}

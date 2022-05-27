@@ -1501,7 +1501,7 @@ class AdminTownController extends AdminActionController
             $citizen_proxy->removeDisableFlag($flag);
         }
 
-        if (!$citizen_proxy->hasDisableFlag(CitizenRankingProxy::DISABLE_SOULPOINTS) && $citizen_proxy->getResetMarker()) {
+        if (!$citizen_proxy->hasDisableFlag(CitizenRankingProxy::DISABLE_NOTHING) && $citizen_proxy->getResetMarker()) {
             $this->entity_manager->remove( $citizen_proxy->getResetMarker() );
             $citizen_proxy->setResetMarker(null);
         }
