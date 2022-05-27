@@ -8402,7 +8402,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>You violently attacked {citizen}! The fight degenerated rapidly and resulted in you seriously wounding {citizen}!</target>
+        <target><![CDATA[You violently attacked {citizen}! The fight degenerated rapidly and resulted in you <strong>seriously wounding the other citizen!</strong><hr />The citizens have all been told...]]></target>
       </segment>
     </unit>
     <unit id="1HduKoA">
@@ -8442,7 +8442,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</source>
-        <target>With all your might you attack {citizen}! You exchange blows for a while, until you finally separate from each other mostly unharmed.</target>
+        <target><![CDATA[You violently attacked {citizen}! You exchange blows for a while, until you finally separate from each other mostly unharmed.<hr />The citizens have all been told...]]></target>
       </segment>
     </unit>
     <unit id="0rbqUhr">
@@ -17659,45 +17659,45 @@
     <unit id="DaS3LJ7" name="{username} hat dich angegriffen!">
       <notes>
         <note category="german">{username} hat dich angegriffen!</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>{username} hat dich angegriffen!</source>
-        <target>{username} hat dich angegriffen!</target>
+        <target>You have been attacked by {username}!</target>
       </segment>
     </unit>
     <unit id="kPJRUv1">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</target>
+        <target>While you were chilling at home, minding your own business, {username} came to visit you, pushed you around a bit then set about you! You defended well, young padawan, and returned the favour... Nothing broken. The other citizens have been informed.</target>
       </segment>
     </unit>
     <unit id="0XjfB3Z" name="{username} hat dich angegriffen und verletzt!">
       <notes>
         <note category="german">{username} hat dich angegriffen und verletzt!</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>{username} hat dich angegriffen und verletzt!</source>
-        <target>{username} hat dich angegriffen und verletzt!</target>
+        <target>You have been attacked and wounded by {username}!</target>
       </segment>
     </unit>
     <unit id="WGi7LUy">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</target>
+        <target>While you were chilling at home, minding your own business, came to visit you, {username} pushed you around a bit then set about you! You defended well, but they threw you about like an empty tracksuit. You have been injured as a result of this confrontation! The other citizens have been informed.</target>
       </segment>
     </unit>
     <unit id="cyaNyje" name="Verletzt">
