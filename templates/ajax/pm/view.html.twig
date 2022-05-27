@@ -16,13 +16,13 @@
                             {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
                                 <div class="cell grow-1">
                                     <div x-pm-action="new-single" class="pm-button" id="new-thread-single-button">
-                                        <i class="fa fa-pen-alt"></i> {{ 'Schreiben'|trans({},'global') }}
+                                        <img alt="" src="{{ asset('build/images/forum/edit.png') }}" /> {{ 'Schreiben'|trans({},'global') }}
                                     </div>
                                 </div>
                             {% endif %}
                             <div class="cell grow-1">
                                 <div x-pm-action="search" class="pm-button" id="search-button">
-                                    <i class="fa fa-search"></i> {{ 'Suchen'|trans({},'global') }}
+                                    <img alt="" src="{{ asset('build/images/forum/search.png') }}" /> {{ 'Suchen'|trans({},'global') }}
                                 </div>
                             </div>
                             <div class="cell shrink-1">
@@ -30,7 +30,7 @@
                                     <i class="fa fa-external-link-alt"></i>
                                 </div>
                                 <div class="pm-button" id="return-tab-button">
-                                    <i class="fa fa-window-close"></i>
+                                    <img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}" />
                                 </div>
                             </div>
                         </div>
