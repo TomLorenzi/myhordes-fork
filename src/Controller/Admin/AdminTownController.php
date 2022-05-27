@@ -1565,9 +1565,9 @@ class AdminTownController extends AdminActionController
                     ->setPersisted(2)
                     ->setUser($citizen->getUser());
                 if (is_a($town, Town::class))
-                    $picto->setOld($town->getSeason() === null)->setTown($town)->setDisabled( $town->getRankingEntry()->getDisabled() || $citizen->getRankingEntry()->getDisabled() );
+                    $picto->setOld($town->getSeason() === null)->setTown($town)->setDisabled( $town->getRankingEntry()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) || $citizen->getRankingEntry()->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) );
                 else
-                    $picto->setTownEntry($town)->setDisabled( $town->getDisabled() || $citizen->getRankingEntry()->getDisabled() );
+                    $picto->setTownEntry($town)->setDisabled( $town->getRankingEntry()->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getRankingEntry()->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) );
                 $citizen->getUser()->addPicto($picto);
                 $this->entity_manager->persist($citizen->getUser());
             }

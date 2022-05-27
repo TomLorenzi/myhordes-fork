@@ -1403,11 +1403,10 @@ class SoulController extends CustomAbstractController
             else {
                 $pendingPicto
                     ->setPersisted(2)
-                    ->setDisabled( $nextDeath->getDisabled() || $nextDeath->getTown()->getDisabled() );
+                    ->setDisabled( $nextDeath->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $nextDeath->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) );
                 $this->entity_manager->persist($pendingPicto);
             }
         }
-
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
             $active->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words);
