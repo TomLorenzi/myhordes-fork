@@ -160,10 +160,9 @@
                             </span>
                         {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
                             <span>
-                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS") }}" class="pointer" src="{{ asset('build/images/icons/small_restoresp.gif') }}" alt="re" />
                                 <div class="tooltip">{{ 'Seelenpunkte für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
                             </span>
-                            {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                         {% endif %}
                         {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING")) %}
                             <span>
@@ -172,10 +171,9 @@
                             </span>
                         {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
                             <span>
-                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING") }}" class="pointer" src="{{ asset('build/images/icons/small_restorernk.gif') }}" alt="re" />
                                 <div class="tooltip">{{ 'Ranking für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
                             </span>
-                            {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                         {% endif %}
                         {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS")) %}
                             <span>
@@ -187,8 +185,8 @@
                                 <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
                                 <div class="tooltip">{{ 'Auszeichnungen für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
                             </span>
-                            {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                         {% endif %}
+                        {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                     {% endif %}
                 </div>
                 <div class="padded cell rw-2 rw-md-3 rw-sm-4">

@@ -706,7 +706,8 @@ class MigrateCommand extends Command
             // A disabled citizen/town has in fact its Ranking disabled. Not its pictos / soul points
             $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => true]);
             foreach ($citizens as $citizen) {
-                $this->entity_manager->persist($citizen->addDisableFlag(CitizenRankingProxy::DISABLE_RANKING)->setDisabled(false));
+                $flag = $citizen->getResetMarker() ? CitizenRankingProxy::DISABLE_ALL : CitizenRankingProxy::DISABLE_RANKING;
+                $this->entity_manager->persist($citizen->addDisableFlag($flag)->setDisabled(false));
             }
             $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['disabled' => true]);
             foreach ($towns as $town) {
