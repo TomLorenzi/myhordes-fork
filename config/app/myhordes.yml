@@ -27,6 +27,7 @@ parameters:
           user: 'ftpuser'
           pass: 'ftppass'
           path: '/'
+          passive: true
         sftpremote:
           enabled: false
           type: 'sftp'

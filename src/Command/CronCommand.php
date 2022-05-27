@@ -570,6 +570,19 @@ class CronCommand extends Command
                     }
                     break;
                 case "ftp":
+                    $ftp_conn = $this->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
+                    if (!$ftp_conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+
+                    if (!ftp_put($ftp_conn, $config['path'] . '/' .basename($filename), $filename, FTP_BINARY)) {
+                        $success = false;
+                        $output->writeln("<error>Unable to upload backup file  " . basename($filename) . " to {$config['type']} storage '$name'");
+                    }
+
+                    ftp_close($ftp_conn);
                     break;
                 case "sftp":
                     break;
@@ -587,7 +600,7 @@ class CronCommand extends Command
         foreach ($storages as $name => $config) {
             if (!$config['enabled']) continue;
 
-            $output->writeln("Ensuring retention policy on {$config['type']} storage '$name'", OutputInterface::VERBOSITY_VERBOSE);
+            $output->writeln("Ensuring retention policy on <info>{$config['type']}</info> storage <info>$name</info>", OutputInterface::VERBOSITY_VERBOSE);
             $backup_files = [];
 
             switch ($config['type']) {
@@ -596,7 +609,8 @@ class CronCommand extends Command
                     foreach (new DirectoryIterator($targetPath) as $fileInfo) {
                         /** @var SplFileInfo $fileInfo */
                         if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
-                        elseif ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql', 'xz', 'gzip', 'bz2'])) {
+
+                        if ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql', 'xz', 'gzip', 'bz2'])) {
                             $segments = explode('_', explode('.', $fileInfo->getFilename())[0]);
                             if (count($segments) !== 3 || !in_array($segments[2], ['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual']))
                                 continue;
@@ -606,7 +620,7 @@ class CronCommand extends Command
                     }
                     foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
                         $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
-                        dump($domain_limit);
+
                         if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
                             rsort($backup_files[$sel_domain]);
                             while (count($backup_files[$sel_domain]) > $domain_limit) {
@@ -618,8 +632,53 @@ class CronCommand extends Command
                         }
                     }
                     break;
+                case "ftp":
+                    $ftp_conn = $this->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
+                    if (!$ftp_conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+
+                    $ftpFiles = ftp_mlsd($ftp_conn, $config['path']);
+                    foreach ($ftpFiles as $ftpFile){
+                        if (in_array($ftpFile['type'], ['cdir', 'pdir', 'dir'])) continue;
+                        if (!str_contains($ftpFile['name'], '.')) continue; // No dot, then no extension
+
+                        $details = explode('.', $ftpFile['name']);
+                        $ext = $details[count($details) - 1];
+
+                        // Not an SQL dump, ignore it
+                        if (!in_array(strtolower($ext), ['sql', 'xz', 'gzip', 'bz2'])) continue;
+                        $segments = explode('_', explode('.', $ftpFile['name'])[0]);
+                        if (count($segments) !== 3 || !in_array($segments[2], ['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual']))
+                            continue;
+                        if (!isset($backup_files[$segments[2]])) $backup_files[$segments[2]] = [];
+                        $backup_files[$segments[2]][] = $config['path'] . '/' . $ftpFile['name'];
+                    }
+
+
+                    foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
+                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+
+                        if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
+                            rsort($backup_files[$sel_domain]);
+                            while (count($backup_files[$sel_domain]) > $domain_limit) {
+                                $f = array_pop($backup_files[$sel_domain]);
+                                if ($f === null) break;
+                                $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE);
+                                ftp_delete($ftp_conn, $f);
+                            }
+                        }
+                    }
+
+                    ftp_close($ftp_conn);
+                    break;
             }
         }
+
+        // We remove the temporary backup file (as it should be stored in the different enabled storages)
+        unlink($filename);
 
         return 0;
     }
@@ -649,5 +708,17 @@ class CronCommand extends Command
         }
 
 
+    }
+
+    private function connectToFtp($host, $port, $user, $pass, $passive): \FTP\Connection|false {
+        $ftp_conn = ftp_connect($host, $port);
+        if (!@ftp_login($ftp_conn, $user, $pass)) {
+            ftp_close($ftp_conn);
+            return false;
+        }
+        if ($passive)
+            ftp_pasv($ftp_conn, true);
+
+        return $ftp_conn;
     }
 }
