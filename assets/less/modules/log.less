@@ -36,7 +36,7 @@
 
     &>.log-entry {
       &:before { content: " "; height: 16px; width: 16px; top: 2px; left: 2px; position: absolute; }
-      padding: 2px 2px 2px 20px; position: relative; cursor: default; margin: 1px 0; word-wrap: anywhere;
+      padding: 1px 2px 1px 20px; position: relative; cursor: default; margin: 0; word-wrap: anywhere;
       &>span.log-part-time {
         color: @myhordes-smalltext; font-size: 0.9em; display: inline-block; width: 50px;
         position: relative; text-align: center;
@@ -124,7 +124,10 @@
         div.card     { background: url("../../img/forum/card.png")    left center no-repeat, #36241b }
       }
       &.log-entry-type-17 { &:before { background: url("../../img/log/well_add.gif") } }
-      &:hover { background-color: #7e4d2a; border-color: #ddab76; }
+      &:hover { 
+        background-color: #7e4d2a; border-color: #ddab76; border-width: 1px; border-style: solid; padding: 0px 1px 0px 19px; 
+        &:before { top: 1px; left: 1px; }
+      }
     }
   }
   &+.log-day-select {
