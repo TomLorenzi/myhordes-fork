@@ -18502,7 +18502,7 @@
       </notes>
       <segment>
         <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;{townname}&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[{citizen} étant mort(e), il y a des fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même...]]></target>
+        <target><![CDATA[{citizen} étant mort(e), il y a de fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même...]]></target>
       </segment>
     </unit>
     <unit id="X28KXsi" name="Das Haus">
