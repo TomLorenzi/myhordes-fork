@@ -63,52 +63,118 @@ class GlobalPoll
         return $this->id;
     }
 
-    public function getTitle(): ?array
+    protected function getTitle(): ?array
     {
         return $this->title;
     }
 
-    public function setTitle(array $title): self
+    protected function setTitle(array $title): self
     {
         $this->title = $title;
 
         return $this;
     }
 
-    public function getDescription(): ?array
+    protected function getDescription(): array
     {
         return $this->description;
     }
 
-    public function setDescription(array $description): self
+    protected function setDescription(array $description): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function getAnswers(): ?array
+    protected function getAnswers(): array
     {
         return $this->answers;
     }
 
-    public function setAnswers(array $answers): self
+    protected function setAnswers(array $answers): self
     {
         $this->answers = $answers;
 
         return $this;
     }
 
-    public function getShortDescription(): ?array
+    protected function getShortDescription(): array
     {
         return $this->shortDescription;
     }
 
-    public function setShortDescription(array $shortDescription): self
+    protected function setShortDescription(array $shortDescription): self
     {
         $this->shortDescription = $shortDescription;
 
         return $this;
+    }
+
+    public function getTitleByLang(string $lang): ?string
+    {
+        return $this->getTitle()[$lang] ?? null;
+    }
+
+    public function setTitleByLang(string $lang, string $title): self
+    {
+        $d = $this->getTitle();
+        $d[$lang] = $title;
+        return $this->setTitle( $d );
+    }
+
+    public function getDescriptionByLang(string $lang): ?string
+    {
+        return $this->getDescription()[$lang] ?? null;
+    }
+
+    public function setDescriptionByLang(string $lang, string $description): self
+    {
+        $d = $this->getDescription();
+        $d[$lang] = $description;
+        return $this->setDescription( $d );
+    }
+
+    public function getShortDescriptionByLang(string $lang): ?string
+    {
+        return $this->getShortDescription()[$lang] ?? null;
+    }
+
+    public function setShortDescriptionByLang(string $lang, string $shortDescription): self
+    {
+        $d = $this->getShortDescription();
+        $d[$lang] = $shortDescription;
+        return $this->setShortDescription( $d );
+    }
+
+    public function getAnswerTitleByLang(ForumPollAnswer|int $answer, string $lang): ?string
+    {
+        return (($this->getAnswers()[is_object( $answer ) ? $answer->getId() : $answer] ?? [])[$lang] ?? [])['title'] ?? null;
+    }
+
+    public function setAnswerTitleByLang(ForumPollAnswer|int $answer, string $lang, string $title): self
+    {
+        $id = is_object( $answer ) ? $answer->getId() : $answer;
+        $data = $this->getAnswers();
+        if (!array_key_exists( $id, $data)) $data[$id] = [$lang => ['title' => $title, 'description' => null]];
+        elseif (!array_key_exists( $lang, $data[$id])) $data[$id][$lang] = ['title' => $title, 'description' => null];
+        else $data[$id][$lang]['title'] = $title;
+        return $this->setAnswers($data);
+    }
+
+    public function getAnswerDescriptionByLang(ForumPollAnswer|int $answer, string $lang): ?string
+    {
+        return (($this->getAnswers()[is_object( $answer ) ? $answer->getId() : $answer] ?? [])[$lang] ?? [])['description'] ?? null;
+    }
+
+    public function setAnswerDescriptionByLang(ForumPollAnswer|int $answer, string $lang, string $description): self
+    {
+        $id = is_object( $answer ) ? $answer->getId() : $answer;
+        $data = $this->getAnswers();
+        if (!array_key_exists( $id, $data)) $data[$id] = [$lang => ['title' => null, 'description' => $description]];
+        elseif (!array_key_exists( $lang, $data[$id])) $data[$id][$lang] = ['title' => null, 'description' => $description];
+        else $data[$id][$lang]['description'] = $description;
+        return $this->setAnswers($data);
     }
 
     public function getStartDate(): ?\DateTimeInterface

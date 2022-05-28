@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\GlobalPoll;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -62,15 +63,25 @@ class GlobalPollRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?GlobalPoll
+    /**
+     * @return GlobalPoll[] Returns an array of GlobalPoll objects
+     */
+    public function findByState(bool $include_past, bool $include_active, bool $include_future)
     {
-        return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb = $this->createQueryBuilder('g')->orderBy( 'g.startDate', 'DESC' );
+
+        if (!$include_past)
+            $qb->andWhere('g.endDate >= :now');
+        if (!$include_future)
+            $qb->andWhere('g.startDate <= :now');
+        if (!$include_active)
+            $qb->andWhere('g.startDate > :now OR g.endDate < :now');
+
+        if (!$include_past || !$include_active || !$include_future)
+            $qb->setParameter('now', new DateTime());
+
+        return $qb->getQuery()
+            ->getResult()
         ;
     }
-    */
 }

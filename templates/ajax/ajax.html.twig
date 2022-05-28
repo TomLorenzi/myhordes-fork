@@ -76,6 +76,18 @@
                                 	{{ 'Spiel'|trans({},'global') }}
                                 </li>
                             {% endif %}
+                            {# @var \App\Entity\GlobalPoll poll #}
+                            {% if poll is defined and poll %}
+                                <li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
+                                    <button>
+                                        {{ 'Umfrage starten'|trans({},'global') }}
+                                        <div class="tooltip">
+                                            <b>{{ poll.titleByLang( app.user.language ) }}</b>
+                                            <div>{{ poll.shortDescriptionByLang( app.user.language ) }}</div>
+                                        </div>
+                                    </button>
+                                </li>
+                            {% endif %}
                         {% endif %}
                     {% endblock %}
                     {% if is_granted('ROLE_USER') %}
@@ -103,6 +115,9 @@
             </div>
         {% endblock %}
     </div>
+    {% if poll is defined and poll %}
+        <div style="height: 32px;"></div>
+    {% endif %}
     {% block ajax %}
     {% endblock %}
 {% endblock %}

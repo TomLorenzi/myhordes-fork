@@ -168,4 +168,11 @@ class ForumPoll
 
         return $this;
     }
+
+    public function getAllAnswerTags(): array {
+        $tags = [];
+        foreach ($this->getAnswers() as $answer)
+            $tags = array_merge( $tags, $answer->getTagTitles() );
+        return array_unique($tags);
+    }
 }

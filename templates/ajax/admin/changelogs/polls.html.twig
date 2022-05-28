@@ -93,6 +93,15 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest"><label for="poll_premature">{{ 'Vorläufige Ergebnisse anzeigen'|trans({},'admin') }}</label></div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <input id="poll_premature" name="poll_premature" type="checkbox">
+                    </div>
+                </div>
+
                 {{ _self.poll_field( 'Kurzbeschreibung'|trans({},'admin'), 'preview', 'textarea', true ) }}
                 {{ _self.poll_field( 'Beschreibung der Umfrage'|trans({},'admin'), 'desc', 'textarea' ) }}
 
@@ -254,7 +263,8 @@
             if (!title_set || !desc_set || !preview_set) return;
 
             const date_start = document.getElementById('poll_start').value;
-            const date_end = document.getElementById('poll_end').value;
+            const date_end   = document.getElementById('poll_end').value;
+            const premature  = document.getElementById('poll_premature').checked;
 
             let answers = [];
             $.html.forEach( '#answers-table > .row:not(.hidden)', row => {
@@ -273,11 +283,11 @@
 
             $.ajax.easySend( '{{ path('admin_changelog_new_poll') }}', {
                 title: title_set, preview: preview_set, desc: desc_set,
-                start: date_start, end: date_end,
+                start: date_start, end: date_end, premature,
                 answers
-            }, () => {
+            }, data => {
                 $.html.message('notice', 'OK.');
-                $.ajax.load(null,'{{ path('admin_polls') }}');
+                $.ajax.load(null,data.url);
             } );
         });
     </script>

@@ -54,11 +54,11 @@ class MessageAnnouncementController extends MessageController
 
     /**
      * @Route("api/admin/com/changelogs/new_poll", name="admin_changelog_new_poll")
-     * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param HTMLService $html
      * @return Response
      */
-    public function create_poll_api(EntityManagerInterface $em, JSONRequestParser $parser, HTMLService $html): Response {
+    public function create_poll_api(JSONRequestParser $parser, HTMLService $html): Response {
         $langs = ['de','fr','en','es'];
 
         if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
@@ -69,7 +69,7 @@ class MessageAnnouncementController extends MessageController
             foreach ($langs as $lang) {
                 $str = trim($data[$lang]);
                 if (mb_strlen($str) < 3) return false;
-                $data[$lang] = $html->htmlPrepare( $this->getUser(), $p, false, $data[$lang], null, $len  );
+                if (!$html->htmlPrepare( $this->getUser(), $p, false, $data[$lang], null, $len  )) return false;
                 if ($len < 3) return false;
             }
             return true;
@@ -77,6 +77,7 @@ class MessageAnnouncementController extends MessageController
 
         $title = $parser->get_array( 'title' );
         $desc = $parser->get_array( 'desc' );
+        $premature = (bool)$parser->get( 'premature' );
         $preview = $parser->get_array( 'preview' );
 
         try {
@@ -84,8 +85,8 @@ class MessageAnnouncementController extends MessageController
             $end = new DateTime( $parser->get('end', '-1') );
         } catch (\Throwable $t) { return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest ); }
 
-        if ($start->getTimestamp() < new DateTime('now')) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($start->getTimestamp() >= $end->getTimestamp()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ($end <= new DateTime('now')) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ($start >= $end) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $answers = array_values( $parser->get_array( 'answers' ) );
         if (count($answers) < 2) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -98,7 +99,7 @@ class MessageAnnouncementController extends MessageController
         foreach ( $answers as &$answer ) {
             if (!$format_html($answer['title'])) AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
             if (!$format_html($answer['desc'])) AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-            $answer_data[] = [$answer, new ForumPollAnswer()];
+            $answer_data[] = [$answer, (new ForumPollAnswer())->setNum(0)];
         }
 
         $poll = (new ForumPoll())->setOwner( $this->getUser() )->setClosed( false );
@@ -107,13 +108,58 @@ class MessageAnnouncementController extends MessageController
         try {
             $this->entity_manager->persist($poll);
             $this->entity_manager->flush();
-        } catch (\Throwable $t) { return AjaxResponse::error( ErrorHelper::ErrorDatabaseException ); }
 
+            $global_poll = (new GlobalPoll())
+                ->setPoll( $poll )->setStartDate( $start )->setEndDate( $end )->setShowResultsImmediately( $premature );
 
+            foreach ($langs as $lang) {
+                $global_poll
+                    ->setTitleByLang( $lang, $title[$lang] )
+                    ->setDescriptionByLang( $lang, $desc[$lang] )
+                    ->setShortDescriptionByLang( $lang, $preview[$lang] );
+                foreach ($answer_data as [['title' => $answer_title, 'desc' => $answer_desc],$entity])
+                    $global_poll
+                        ->setAnswerTitleByLang( $entity, $lang, $answer_title[$lang] )
+                        ->setAnswerDescriptionByLang( $entity, $lang, $answer_desc[$lang] );
+            }
 
+            $this->entity_manager->persist($global_poll);
+            $this->entity_manager->flush();
 
-        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        } catch (\Throwable $t) { return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['m' => $t->getMessage()] ); }
+
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_polls', ['id' => $global_poll->getId()])] );
     }
+
+    /**
+     * @Route("api/admin/changelogs/poll/{id}/{action}", name="admin_changelog_poll_control")
+     * @param int $id
+     * @param string $action
+     * @return Response
+     */
+    public function modify_poll_api(int $id, string $action): Response {
+
+        if (!$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $poll = $this->entity_manager->getRepository(GlobalPoll::class)->find($id);
+        if (!$poll) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $now = new DateTime();
+        if ($action === 'start' && $poll->getStartDate() > $now)
+            $this->entity_manager->persist( $poll->setStartDate($now) );
+        elseif ($action === 'close' && $poll->getStartDate() < $now && $poll->getEndDate() > $now)
+            $this->entity_manager->persist( $poll->setEndDate($now) );
+        elseif ($action === 'delete') {
+            $this->entity_manager->remove( $poll );
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success( );
+    }
+
+
 
     /**
      * @Route("jx/admin/changelogs/c/editor", name="admin_new_changelog_editor_controller")
