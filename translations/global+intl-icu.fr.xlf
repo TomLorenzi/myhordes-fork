@@ -3588,7 +3588,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Entwickler von MyHordes.</source>
-        <target>Ce joueur est un développeur de MyHordes.</target>
+        <target>Ce joueur est un administrateur de MyHordes.</target>
       </segment>
     </unit>
     <unit id="z66IFLE" name="Dieser Spieler ist ein Moderator auf MyHordes.">
@@ -3628,7 +3628,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
-        <target>Ce joueur fait partie de l’équipe de développement de MyHordes.</target>
+        <target>Ce joueur a contribué au développement de MyHordes.</target>
       </segment>
     </unit>
     <unit id="9RwexXo">
