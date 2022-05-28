@@ -50,7 +50,7 @@
                 {% if selected.poll.participants.contains( app.user ) %}
                     <div class="help">
                         {{ 'Du hast an dieser Umfrage teilgenommen. Vielen Dank!'|trans({},'soul') }}
-                        {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.showResultsImmediately and not app.user|is_granted('ROLE_ORACLE') and selected.poll.participants.contains( app.user ) %}
+                        {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.showResultsImmediately and not app.user|is_granted('ROLE_ORACLE') %}
                             {{ 'Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.'|trans({},'soul') }}
                         {% endif %}
                     </div>

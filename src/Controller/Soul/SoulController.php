@@ -491,6 +491,11 @@ class SoulController extends CustomAbstractController
         if (($group !== '' || $tag !== '') && !$this->isGranted('ROLE_ADMIN'))
             return $this->redirect($this->generateUrl( 'soul_polls' ));
 
+        if (!$this->isGranted('ROLE_ADMIN')) {
+            $group = 'antigrief';
+            $tag = 'pass';
+        }
+
         $polls = $this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, $this->isGranted('ROLE_ORACLE'));
 
         $selected = ($id > 0 ? $this->entity_manager->getRepository(GlobalPoll::class)->find($id) : null);
