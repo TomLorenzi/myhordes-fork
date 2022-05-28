@@ -21,7 +21,7 @@ class ForumPoll
 
     /**
      * @ORM\ManyToOne(targetEntity=Post::class)
-     * @ORM\JoinColumn(onDelete="CASCADE")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     private $post;
 
@@ -45,6 +45,11 @@ class ForumPoll
      * @ORM\ManyToMany(targetEntity=User::class)
      */
     private $participants;
+
+    /**
+     * @ORM\OneToOne(targetEntity=GlobalPoll::class, mappedBy="poll", cascade={"persist", "remove"})
+     */
+    private $globalPoll;
 
     public function __construct()
     {
@@ -145,5 +150,29 @@ class ForumPoll
         $this->participants->removeElement($participant);
 
         return $this;
+    }
+
+    public function getGlobalPoll(): ?GlobalPoll
+    {
+        return $this->globalPoll;
+    }
+
+    public function setGlobalPoll(GlobalPoll $globalPoll): self
+    {
+        // set the owning side of the relation if necessary
+        if ($globalPoll->getPoll() !== $this) {
+            $globalPoll->setPoll($this);
+        }
+
+        $this->globalPoll = $globalPoll;
+
+        return $this;
+    }
+
+    public function getAllAnswerTags(): array {
+        $tags = [];
+        foreach ($this->getAnswers() as $answer)
+            $tags = array_merge( $tags, $answer->getTagTitles() );
+        return array_unique($tags);
     }
 }

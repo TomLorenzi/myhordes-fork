@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Controller\Admin\AdminActionController;
 use App\Entity\Citizen;
 use App\Entity\ExternalApp;
+use App\Entity\GlobalPoll;
 use App\Entity\Quote;
 use App\Entity\User;
 use App\Service\CitizenHandler;
@@ -90,6 +91,11 @@ class CustomAbstractController extends AbstractController {
 
         $data['adminActions'] = AdminActionController::getAdminActions();
         $data['comActions']   = AdminActionController::getCommunityActions();
+
+        $data["poll"] = array_values(array_filter(
+                $this->entity_manager->getRepository(GlobalPoll::class)->findByState(false, true, false),
+                fn(GlobalPoll $poll) => !$poll->getPoll()->getParticipants()->contains( $this->getUser() )
+            ))[0] ?? null;
 
         if ( $this->getActiveCitizen()?->getAlive() ){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';

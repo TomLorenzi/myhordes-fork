@@ -13,7 +13,9 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\ExternalApp;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
+use App\Entity\ForumPollAnswer;
 use App\Entity\FoundRolePlayText;
+use App\Entity\GlobalPoll;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\OfficialGroup;
 use App\Entity\Picto;
@@ -24,6 +26,7 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\SocialRelation;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
@@ -465,16 +468,91 @@ class SoulController extends CustomAbstractController
         if ($selected === null)
             $selected = $news[0] ?? null;
 
-
-
         try {
             $userHandler->setSeenLatestChangelog( $user, $lang );
             $this->entity_manager->flush();
         } catch (Exception $e) {}
 
         return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'news' => $news, 'selected' => $selected
+            'news' => $news, 'selected' => $selected,
+            'has_polls' => !empty($this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, false))
         ]) );
+    }
+
+    /**
+     * @Route("jx/soul/polls/{id}/{group}/{tag}", name="soul_polls")
+     * @param int $id
+     * @param string $group
+     * @param string $tag
+     * @return Response
+     */
+    public function soul_polls(int $id = 0, string $group = '', string $tag = ''): Response
+    {
+        if (($group !== '' || $tag !== '') && !$this->isGranted('ROLE_ADMIN'))
+            return $this->redirect($this->generateUrl( 'soul_polls' ));
+
+        $polls = $this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, $this->isGranted('ROLE_ORACLE'));
+
+        $selected = ($id > 0 ? $this->entity_manager->getRepository(GlobalPoll::class)->find($id) : null);
+        if ($selected && $selected->getStartDate() > new DateTime() && !$this->isGranted('ROLE_ORACLE'))
+            $selected = null;
+
+        if ($selected === null && $id > 0)
+            return $this->redirect($this->generateUrl( 'soul_polls' ));
+
+        $selected = $selected ?? $polls[0] ?? null;
+
+        return $this->render( 'ajax/soul/polls.html.twig', $this->addDefaultTwigArgs("soul_future", [
+            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected->getPoll()->getAllAnswerTags() : [],
+            'group' => $group, 'tag' => $tag,
+            'polls' => $polls, 'selected' => $selected
+        ]) );
+    }
+
+    /**
+     * @Route("api/soul/polls/{id<\d+>}/{answer<\d+>}", name="soul_poll_participate")
+     * @param int $id
+     * @param int $answer
+     * @return Response
+     */
+    public function soul_poll_participate(int $id = 0, int $answer = 0): Response
+    {
+        $user = $this->getUser();
+        $now = new DateTime();
+
+        $poll = $this->entity_manager->getRepository(GlobalPoll::class)->find($id);
+        if (!$poll || $poll->getStartDate() > $now || $poll->getEndDate() < $now || $poll->getPoll()->getParticipants()->contains($user))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if ($answer > 0) {
+
+            $answer = $this->entity_manager->getRepository(ForumPollAnswer::class)->find($answer);
+            if (!$answer || !$poll->getPoll()->getAnswers()->contains($answer))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+            $answer->setNum( $answer->getNum() + 1 );
+
+            $main = 'none';
+            foreach ($user->getTwinoidImports() as $import)
+                if ($import->getMain()) $main = $import->getScope() ?? 'none';
+
+            $sp = $user->getAllSoulPoints();
+
+            $answer->incTagNumber('origin', $main);
+            $answer->incTagNumber('lang', $user->getLanguage());
+            if ($sp < 100)       $answer->incTagNumber('sp', '0_99');
+            elseif ($sp < 1000)  $answer->incTagNumber('sp', '100_999');
+            elseif ($sp < 10000) $answer->incTagNumber('sp', '1000_9999');
+            else                 $answer->incTagNumber('sp', '10000');
+
+            $this->entity_manager->persist($answer);
+        }
+
+        $poll->getPoll()->addParticipant( $user );
+        $this->entity_manager->persist( $poll->getPoll() );
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
     /**

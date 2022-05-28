@@ -88,15 +88,15 @@
   ul,ol {clear:left;}
 
   ul.poll {
-    .box();
+    &:not(.global-poll) {.box();}
+    &.global-poll { padding: 0; }
     line-height: 0; font-size: 0;
     &>li {
-      list-style: none; position: relative; padding: 10px 3px; margin: 0; line-height: normal; font-size: 1rem;
-      &:not(.plain):not(.q):not(.desc):before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/forum/selected.png); content: " "; }
+      list-style: none; position: relative; padding: 10px 3px; margin: 0; line-height: normal;
+      &:not(.plain):not(.q):not(.desc):before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/emotes/arrowright.gif); content: " "; }
       &.q {
-        font-weight: bold; font-size: 1.1rem; color: @myhordes-smalltext;
+        font-weight: bold; color: @myhordes-smalltext;
         &:not(:first-child) {display: none}
-        &:before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/icons/small_help.gif); content: " "; }
       }
       &.desc { color: @myhordes-smalltext }
       &:not(.desc)+li { border-top: 1px dotted @myhordes-smalltext; }
@@ -105,6 +105,19 @@
         height: 6px; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%); overflow: hidden;
         &>.bar { background: linear-gradient(180deg, #fffb58 0%, #f2c94d 100%); height: 100% }
       }
+    }
+    &:not(.global-poll) > li {
+      font-size: 1rem;
+      &.q {
+        font-size: 1.1rem;
+        &:before { position: absolute; top: 9px; left: -26px; height: 16px; width: 16px; background: url(../../img/icons/small_help.gif); content: " "; }
+      }
+
+    }
+    &.global-poll > li {
+      font-size: 1.3rem;
+      &.q { font-size: 1.6rem;  }
+      &:not(.plain):not(.q) { margin-left: 32px; }
     }
   }
 
