@@ -537,6 +537,7 @@ class SoulController extends CustomAbstractController
                 if ($import->getMain()) $main = $import->getScope() ?? 'none';
 
             $sp = $user->getAllSoulPoints();
+            $anti_grief = $this->getActiveCitizen()->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20);
 
             $answer->incTagNumber('origin', $main);
             $answer->incTagNumber('lang', $user->getLanguage());
@@ -544,6 +545,7 @@ class SoulController extends CustomAbstractController
             elseif ($sp < 1000)  $answer->incTagNumber('sp', '100_999');
             elseif ($sp < 10000) $answer->incTagNumber('sp', '1000_9999');
             else                 $answer->incTagNumber('sp', '10000');
+            $answer->incTagNumber('antigrief', $anti_grief ? 'fail' : 'pass');
 
             $this->entity_manager->persist($answer);
         }
