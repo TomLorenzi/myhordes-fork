@@ -543,7 +543,7 @@
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -840,7 +840,7 @@
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -2280,7 +2280,7 @@
     </unit>
     <unit id="lEIUlKS" name="Changelogs">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
       </notes>
       <segment>
         <source>Changelogs</source>
@@ -2289,7 +2289,7 @@
     </unit>
     <unit id="vdD8Evg" name="Ankündigungen">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
       </notes>
       <segment>
         <source>Ankündigungen</source>
@@ -3279,7 +3279,7 @@
     </unit>
     <unit id="6SYvAH3" name="Beschreibung">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Beschreibung</source>
@@ -4742,6 +4742,213 @@
       <segment>
         <source>Auszeichnungen für diesen Bürger wiederherstellen</source>
         <target>Auszeichnungen für diesen Bürger wiederherstellen</target>
+      </segment>
+    </unit>
+    <unit id="EmNMRly" name="Eine neue Umfrage anlegen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Eine neue Umfrage anlegen</source>
+        <target>Eine neue Umfrage anlegen</target>
+      </segment>
+    </unit>
+    <unit id="TJM._OL" name="Editoreinstellungen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Editoreinstellungen</source>
+        <target>Editoreinstellungen</target>
+      </segment>
+    </unit>
+    <unit id="J4eXZqD" name="Aktuelle Bearbeitungssprache">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Bearbeitungssprache</source>
+        <target>Aktuelle Bearbeitungssprache</target>
+      </segment>
+    </unit>
+    <unit id="Pq9RXOp">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.</source>
+        <target>Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.</target>
+      </segment>
+    </unit>
+    <unit id="cq0sAFY" name="Umfragedaten">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfragedaten</source>
+        <target>Umfragedaten</target>
+      </segment>
+    </unit>
+    <unit id="sWhZJcY" name="Titel der Umfrage">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Titel der Umfrage</source>
+        <target>Titel der Umfrage</target>
+      </segment>
+    </unit>
+    <unit id="kEqiJtm" name="Start der Umfrage">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Start der Umfrage</source>
+        <target>Start der Umfrage</target>
+      </segment>
+    </unit>
+    <unit id="VOrW5W." name="Ende der Umfrage">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ende der Umfrage</source>
+        <target>Ende der Umfrage</target>
+      </segment>
+    </unit>
+    <unit id="Gae8fJJ" name="Vorläufige Ergebnisse anzeigen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Vorläufige Ergebnisse anzeigen</source>
+        <target>Vorläufige Ergebnisse anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="A3H_WPL" name="Kurzbeschreibung">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kurzbeschreibung</source>
+        <target>Kurzbeschreibung</target>
+      </segment>
+    </unit>
+    <unit id="OJaibnh" name="Beschreibung der Umfrage">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beschreibung der Umfrage</source>
+        <target>Beschreibung der Umfrage</target>
+      </segment>
+    </unit>
+    <unit id="Et.Ao0w" name="Antworten">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Antworten</source>
+        <target>Antworten</target>
+      </segment>
+    </unit>
+    <unit id="KWE68ZM" name="Antwortstext">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Antwortstext</source>
+        <target>Antwortstext</target>
+      </segment>
+    </unit>
+    <unit id="6FsF5Ju" name="Antwort hinzufügen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Antwort hinzufügen</source>
+        <target>Antwort hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="5NZ.yvs" name="Bearbeitung abschließen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bearbeitung abschließen</source>
+        <target>Bearbeitung abschließen</target>
+      </segment>
+    </unit>
+    <unit id="h.RALSw" name="Umfrage erstellen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage erstellen</source>
+        <target>Umfrage erstellen</target>
+      </segment>
+    </unit>
+    <unit id="ZfGvbH9" name="Für das Feld &quot;{field}&quot; fehlen Eingaben in folgenden Sprachen: {langs}.">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.</source>
+        <target>Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.</target>
+      </segment>
+    </unit>
+    <unit id="i39tmwm" name="Es müssen mindestens zwei Antworten hinzugefügt werden.">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es müssen mindestens zwei Antworten hinzugefügt werden.</source>
+        <target>Es müssen mindestens zwei Antworten hinzugefügt werden.</target>
+      </segment>
+    </unit>
+    <unit id="RWk8kWb" name="Ergebnisse filtern">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ergebnisse filtern</source>
+        <target>Ergebnisse filtern</target>
+      </segment>
+    </unit>
+    <unit id="zCwSrea" name="Kein Filter">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kein Filter</source>
+        <target>Kein Filter</target>
+      </segment>
+    </unit>
+    <unit id="T6lHx3R" name="Umfrage jetzt beginnen">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage jetzt beginnen</source>
+        <target>Umfrage jetzt beginnen</target>
+      </segment>
+    </unit>
+    <unit id="DeA2l8e" name="Umfrage jetzt beenden">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage jetzt beenden</source>
+        <target>Umfrage jetzt beenden</target>
+      </segment>
+    </unit>
+    <unit id="ncYHSt8" name="Umfrage löschen">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage löschen</source>
+        <target>Umfrage löschen</target>
       </segment>
     </unit>
   </file>

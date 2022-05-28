@@ -284,7 +284,7 @@
     <unit id="SOVZNkR" name="Bestätigen?">
       <notes>
         <note category="german">Bestätigen?</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/polls.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
       </notes>
       <segment>
         <source>Bestätigen?</source>
@@ -384,7 +384,7 @@
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
         <note category="german">Zum Spiel</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/forum/search_wrapper.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/ajax/public/apidocs.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig;twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/forum/search_wrapper.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/ajax/public/apidocs.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Zum Spiel</source>
@@ -3577,7 +3577,7 @@
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
       <notes>
-        <note category="german">Dieser Spieler ist ein Entwickler von MyHordes.</note>
+        <note category="german">Dieser Spieler ist ein Administrator von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -3617,7 +3617,7 @@
     </unit>
     <unit id="hiqmIxi" name="Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.">
       <notes>
-        <note category="german">Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</note>
+        <note category="german">Dieser Spieler hat zur Entwicklung von MyHordes beigetragen.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -4290,6 +4290,28 @@
       <segment>
         <source>Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</source>
         <target>Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</target>
+      </segment>
+    </unit>
+    <unit id="KcsH3SB" name="Schon gewusst?">
+      <notes>
+        <note category="german">Schon gewusst?</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Schon gewusst?</source>
+        <target>Schon gewusst?</target>
+      </segment>
+    </unit>
+    <unit id="QC.do8z" name="Umfrage starten">
+      <notes>
+        <note category="german">Umfrage starten</note>
+        <note category="from">twig:///templates/ajax/ajax.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage starten</source>
+        <target>Umfrage starten</target>
       </segment>
     </unit>
   </file>

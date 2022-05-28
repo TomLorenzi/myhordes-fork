@@ -1400,7 +1400,7 @@
     </unit>
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
-        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -14633,7 +14633,7 @@
     </unit>
     <unit id="ViEKCFv" name="Die Zukunft">
       <notes>
-        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Die Zukunft</source>

@@ -4829,5 +4829,126 @@
         <target>Die Seelenpunkte dieser Stadt wurden gelöscht</target>
       </segment>
     </unit>
+    <unit id="PqTGH.B" name="Umfragen">
+      <notes>
+        <note category="german">Umfragen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfragen</source>
+        <target>Umfragen</target>
+      </segment>
+    </unit>
+    <unit id="99lPVVk">
+      <notes>
+        <note category="german">Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</source>
+        <target>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</target>
+      </segment>
+    </unit>
+    <unit id="0Qotq.l" name="Zu den Umfragen">
+      <notes>
+        <note category="german">Zu den Umfragen</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zu den Umfragen</source>
+        <target>Zu den Umfragen</target>
+      </segment>
+    </unit>
+    <unit id="qnZpV0q" name="Umfrage beendet am {date}.">
+      <notes>
+        <note category="german">Umfrage beendet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage beendet am {date}.</source>
+        <target>Umfrage beendet am {date}.</target>
+      </segment>
+    </unit>
+    <unit id="ryVfUf9" name="Umfrage beginnt am {date} und endet am {date2}.">
+      <notes>
+        <note category="german">Umfrage beginnt am {date} und endet am {date2}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage beginnt am {date} und endet am {date2}.</source>
+        <target>Umfrage beginnt am {date} und endet am {date2}.</target>
+      </segment>
+    </unit>
+    <unit id=".TZbZN8" name="Umfrage endet am {date}.">
+      <notes>
+        <note category="german">Umfrage endet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage endet am {date}.</source>
+        <target>Umfrage endet am {date}.</target>
+      </segment>
+    </unit>
+    <unit id="KKN_8Zz" name="Hier findet ihr alle vorangegangenen Umfragen:">
+      <notes>
+        <note category="german">Hier findet ihr alle vorangegangenen Umfragen:</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hier findet ihr alle vorangegangenen Umfragen:</source>
+        <target>Hier findet ihr alle vorangegangenen Umfragen:</target>
+      </segment>
+    </unit>
+    <unit id="j8qBKgG" name="Diese Umfrage hat noch nicht begonnen.">
+      <notes>
+        <note category="german">Diese Umfrage hat noch nicht begonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Umfrage hat noch nicht begonnen.</source>
+        <target>Diese Umfrage hat noch nicht begonnen.</target>
+      </segment>
+    </unit>
+    <unit id="39o9ij2" name="Du hast an dieser Umfrage teilgenommen. Vielen Dank!">
+      <notes>
+        <note category="german">Du hast an dieser Umfrage teilgenommen. Vielen Dank!</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</source>
+        <target>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</target>
+      </segment>
+    </unit>
+    <unit id="K_LCVfF" name="Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.">
+      <notes>
+        <note category="german">Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</source>
+        <target>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="hTjUC92">
+      <notes>
+        <note category="german">Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</source>
+        <target>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

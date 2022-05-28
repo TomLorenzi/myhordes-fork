@@ -44,20 +44,20 @@
             <div class="forum-post-content content" style="min-height: 155px;">
                 {% if selected.startDate > 'now'|to_date %}
                     <div class="help">
-                        {{ 'Diese Umfrage hat noch nicht begonnen.'|trans({},'global') }}
+                        {{ 'Diese Umfrage hat noch nicht begonnen.'|trans({},'soul') }}
                     </div>
                 {% endif %}
                 {% if selected.poll.participants.contains( app.user ) %}
                     <div class="help">
-                        {{ 'Du hast an dieser Umfrage teilgenommen. Vielen Dank!'|trans({},'global') }}
+                        {{ 'Du hast an dieser Umfrage teilgenommen. Vielen Dank!'|trans({},'soul') }}
                         {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.showResultsImmediately and not app.user|is_granted('ROLE_ORACLE') and selected.poll.participants.contains( app.user ) %}
-                            {{ 'Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.'|trans({},'global') }}
+                            {{ 'Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.'|trans({},'soul') }}
                         {% endif %}
                     </div>
                 {% endif %}
                 {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.showResultsImmediately and app.user|is_granted('ROLE_ORACLE') and selected.poll.participants.contains( app.user ) %}
                     <div class="help">
-                        {{ 'Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.'|trans({},'global') }}
+                        {{ 'Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.'|trans({},'soul') }}
                     </div>
                 {% endif %}
                 {% if app.user|is_granted('ROLE_ADMIN') %}
