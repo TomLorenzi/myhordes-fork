@@ -16,10 +16,10 @@
                     Was tust du, solange der Angriff tobt?
                     </p>
                 {% endtrans %}
-                <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
-                <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
+                <p><button x-action="refresh"><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" /> {{ button_texts[0] }}</button></p>
+                <p><button x-action="refresh"><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" /> {{ button_texts[1] }}</button></p>
                 {% if app.user %}
-                    <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></a></p>
+                    <p><a href="{{ path('home_pm') }}" target="_self"><button><img alt="" src="{{ asset('build/images/item/item_radio_on.gif') }}" /> {{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></a></p>
                 {% endif %}
             {% else %}
                 <p>{% trans from 'ghost' %}Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!{% endtrans %}</p>
