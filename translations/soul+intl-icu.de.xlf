@@ -4399,5 +4399,50 @@
         <target>Deine Flagge</target>
       </segment>
     </unit>
+    <unit id="gQDPOVU" name="Diese Stadt hat folgende Einschränkungen:">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt hat folgende Einschränkungen:</source>
+        <target>Diese Stadt hat folgende Einschränkungen:</target>
+      </segment>
+    </unit>
+    <unit id="4Gjif4f" name="Ausschluss aus dem Ranking">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ausschluss aus dem Ranking</source>
+        <target>Ausschluss aus dem Ranking</target>
+      </segment>
+    </unit>
+    <unit id="gAN.vX0" name="Löschen der Auszeichnungen">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Auszeichnungen</source>
+        <target>Löschen der Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="0kcps11" name="Löschen der Seelenpunkte">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Seelenpunkte</source>
+        <target>Löschen der Seelenpunkte</target>
+      </segment>
+    </unit>
+    <unit id="QzJ.qzA" name="Die Seelenpunkte dieser Stadt wurden gelöscht">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seelenpunkte dieser Stadt wurden gelöscht</source>
+        <target>Die Seelenpunkte dieser Stadt wurden gelöscht</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

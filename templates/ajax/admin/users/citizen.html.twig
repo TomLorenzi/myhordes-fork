@@ -10,7 +10,7 @@
 {% from "ajax/admin/widget/controls.twig" import widget_teleport_control as teleport_control, widget_teleport_control_js as teleport_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_alias_control as alias_control, widget_alias_control_js as alias_control_js %}
 
-{% block title %}{% trans from 'admin' %}Bürger{% endtrans %}{%  endblock %}
+{% block title %}{% trans from 'admin' %}Bürger{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block ajax %}
     <div class="row soul">
         <div class="cell padded header rw-12">

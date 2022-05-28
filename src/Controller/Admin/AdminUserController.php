@@ -502,7 +502,7 @@ class AdminUserController extends AdminActionController
             case 'mh_unreset':
 
                 foreach ($this->entity_manager->getRepository(SoulResetMarker::class)->findBy(['user' => $user]) as $marker) {
-                    $marker->getRanking()->setDisabled(false);
+                    $marker->getRanking()->removeDisableFlag(CitizenRankingProxy::DISABLE_ALL);
                     foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['townEntry' => $marker->getRanking()->getTown(), 'user' => $user]) as $picto)
                         $this->entity_manager->persist( $picto->setDisabled(false) );
                     $this->entity_manager->persist($marker->getRanking());

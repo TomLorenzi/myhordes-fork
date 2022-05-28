@@ -1,4 +1,6 @@
+{# @var \App\Entity\User user #}
 {% extends "ajax/ajax.html.twig" %}
+{% block title %}{{ user.name ~ " - " ~ town.name }}{% endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>

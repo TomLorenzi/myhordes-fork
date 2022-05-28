@@ -11,6 +11,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RolePlayText;
 use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CommandHelper;
 use App\Service\UserHandler;
@@ -137,7 +138,7 @@ class UserInfoCommand extends Command
                             ->setTown($town)
                             ->setOld($town !== null && $town->getSeason() === null)
                             ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                            ->setDisabled(null !== $town && $town->getRankingEntry()->getDisabled())
+                            ->setDisabled(null !== $town && $town->getRankingEntry()->getDisableFlag(TownRankingProxy::DISABLE_PICTOS))
                             ->setUser($user);
                     }
                     $picto->setCount($picto->getCount() + $count);
@@ -180,7 +181,7 @@ class UserInfoCommand extends Command
                         ->setTown($town)
                         ->setOld($town !== null && $town->getSeason() === null)
                         ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                        ->setDisabled(null !== $town && $town->getRankingEntry()->getDisabled())
+                        ->setDisabled(null !== $town && $town->getRankingEntry()->getDisableFlag(TownRankingProxy::DISABLE_PICTOS))
                         ->setUser($user);
                     $user->addPicto($picto);
                     $this->entityManager->persist($user);
