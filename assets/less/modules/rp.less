@@ -1,9 +1,9 @@
 @import "../theme";
 
 .soul .view-rp {
-    margin-left: 3px;
+    margin-left: 3px; overflow: hidden;
     .rp-content {
-        height: 420px; overflow: auto; padding-top: 25px;
+        height: 400px; overflow: auto; padding-top: 25px;
         padding-left: 45px; padding-right: 45px; max-width: 600px;
         color: black; cursor: pointer;
         sup { color: black; }
@@ -220,7 +220,7 @@
         }
     }
 
-    .rp-background(@url) { background: url(@url) no-repeat; max-width: 600px; height: 420px; }
+    .rp-background(@url) { background: url(@url) no-repeat; max-width: 600px; height: 420px; padding-top: 10px; padding-bottom: 10px; }
 
     .carton  {
         .rp-background('../../img/books/carton.gif');
@@ -249,7 +249,7 @@
     .money {
         .rp-background('../../img/books/money.gif');
         .rp-content {
-            padding-left: 120px; padding-top: 120px;
+            padding-left: 120px; margin-top: 65px; padding-top: 55px; height: 250px; max-width: 574px;
             color: #544224;
             p {
                 color: #504227; font-weight: bold;
@@ -266,13 +266,14 @@
 
     .postit {
         .rp-background('../../img/books/postit.gif');
-        .rp-content { margin-left: 120px; padding-top: 80px; max-width: 360px; }
+        padding-top: 64px;
+        .rp-content { margin-left: 120px; padding-top: 20px; max-width: 360px; height: 295px; }
     }
 
     .tinystamp {
         .rp-background('../../img/books/tinystamp.gif');
         .rp-content {
-            margin-left: 130px; max-width: 340px;
+            margin-left: 130px; max-width: 340px; height: 391px;
             p { font-weight: bold; text-align: left; }
             blockquote {
                 padding: 10px;
