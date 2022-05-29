@@ -6,7 +6,7 @@ parameters:
       date_modifier: "tomorrow"
     backup:
       path: ~ # Working directory
-      compression: "bz2"
+      compression: ~
       limits:
         nightly: 0
         daily: 7
