@@ -1674,32 +1674,43 @@ class BeyondController extends InventoryAwareController
 
     /**
      * @Route("api/beyond/desert/rain", name="beyond_desert_shaman_rain")
+     * @param JSONRequestParser $json
      * @return Response
      */
-    public function desert_shaman_rain(): Response {
+    public function desert_shaman_rain(JSONRequestParser $json): Response {
         if (!$this->activeCitizenCanAct())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
-        if (!$citizen->hasRole('shaman') && $citizen->getProfession()->getName() !== "shaman")
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        
-        // Forbidden if not shaman
-        if($citizen->hasRole('shaman') && $citizen->getProfession()->getName() !== "shaman" && $citizen->getPM() < 3) {
-            return AjaxResponse::error( ErrorHelper::ErrorNoMP );
-        } else if ($citizen->getProfession()->getName() == "shaman") {
-            if($citizen->getAp() < 1){
-                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-            } else if($this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0) {
-                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
-            }
-        }
+        $mode = $json->get('mode', null, ['role','job']);
+        if (!$mode) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $zone = $citizen->getZone();
 
         // Forbidden if not outside
         if($zone == null)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($mode === 'role') {
+
+            if (!$citizen->hasRole('shaman'))
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+            if ($citizen->getPM() < 3)
+                return AjaxResponse::error( ErrorHelper::ErrorNoMP );
+
+
+        } elseif ($mode === 'job') {
+
+            if ($citizen->getProfession()->getName() !== "shaman")
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+            if( $citizen->getAp() < 1 )
+                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+            else if ( $this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0 )
+                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+
+        } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $str = [];
         $str[] = $this->translator->trans('Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.', [], 'game');
@@ -1724,19 +1735,22 @@ class BeyondController extends InventoryAwareController
                 $this->entity_manager->persist($this->log->wellAddShaman($citizen, 5));
             }
         }
-        
-        if ($citizen->hasRole('shaman') && $citizen->getPM() >= 3) {
+
+        if ($mode === 'role')
             $citizen->setPM($citizen->getPM() - 3);
-        } else if ($citizen->getProfession()->getName() === "shaman") {
+
+        elseif ($mode === 'job') {
+
             $citizen->setAp($citizen->getAp() - 1);
             $soul = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("soul_blue_#00")]);
             if (!empty($soul)) $this->inventory_handler->forceRemoveItem(array_pop($soul));
-        }
+
+        } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
-        } catch (Exception $e) {
+        } catch (\Throwable $t) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
