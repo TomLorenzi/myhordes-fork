@@ -22016,5 +22016,14 @@
         <target>im Wahlbüro abzustimmen</target>
       </segment>
     </unit>
+    <unit id="EIB6zP8" name="Anzahl der Tage, die du als Einwohner gespielt hast.">
+      <notes>
+        <note category="from">db://PictoPrototype</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
+        <target>Anzahl der Tage, die du als Einwohner gespielt hast.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
