@@ -647,8 +647,8 @@ class TownHandler
                     if($offsetMax > 3)
                         $offsetMax -= $alterMax;
                 } else {
-                    if ($increase_min) $offsetMin -= $alter;
-                    else $offsetMax -= $alter;
+                    if ($increase_min && $offsetMin > 3) $offsetMin -= $alter;
+                    elseif ( $offsetMax > 3 ) $offsetMax -= $alter;
                 }
             }
         }
