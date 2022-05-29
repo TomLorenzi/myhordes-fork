@@ -115,7 +115,7 @@
                                 {% elseif selected.startDate < 'now'|to_date and (selected.endDate < 'now'|to_date or ( selected.showResultsImmediately and selected.poll.participants.contains( app.user ) ) or app.user|is_granted('ROLE_ORACLE')) %}
                                     <div class="cell rw-3 rw-lg-4 rw-sm-12 shrink-0">
                                         <div class="right">{{ answer.tagNumber(group,tag) }}</div>
-                                        <div class="vote-bar"><div class="bar" style="width: {{ total > 0 ? ( 100 * answer.num/total ) : '0' }}%"></div></div>
+                                        <div class="vote-bar"><div class="bar" style="width: {{ total > 0 ? ( 100 * answer.tagNumber(group,tag)/total ) : '0' }}%"></div></div>
                                     </div>
                                 {% endif %}
                             </div>
