@@ -274,7 +274,7 @@ class AdminUserController extends AdminActionController
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
             'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset', 'name_manual', 'name_auto',
-            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset'
+            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history'
         ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -454,6 +454,11 @@ class AdminUserController extends AdminActionController
 
             case 'name_auto':
                 $user->setNoAutomaticNameManagement( false );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'forget_name_history':
+                $user->setNameHistory([]);
                 $this->entity_manager->persist($user);
                 break;
 

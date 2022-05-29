@@ -4951,5 +4951,14 @@
         <target>Umfrage löschen</target>
       </segment>
     </unit>
+    <unit id="elZ0zxc" name="Liste vergangener Namen löschen">
+      <notes>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Liste vergangener Namen löschen</source>
+        <target>Liste vergangener Namen löschen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

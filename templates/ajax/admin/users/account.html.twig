@@ -59,6 +59,7 @@
                                             {% if user.noAutomaticNameManagement %}
                                                 <option value="{{ url('admin_users_account_manage', {action: 'name_auto', id: user.id}) }}" x-confirm="AUTO_NAME">{{ 'Automatische Verwaltung des Spielernamens wiederherstellen'|trans({},'admin') }}</option>
                                             {% endif %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'forget_name_history', id: user.id}) }}" x-confirm="FORGET NAME HISTORY">{{ 'Liste vergangener Namen löschen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         <option value="{{ url('admin_users_account_manage', {action: 'rename_pseudo', id: user.id}) }}" x-confirm="RENAME PSEUDO" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Anzeigenamen ändern'|trans({},'admin') }}</option>
                                         {% if user.displayName %}
