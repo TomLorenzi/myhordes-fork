@@ -1,8 +1,7 @@
 {% extends "ajax/ajax.html.twig" %}
 
 {% block menu_bar %}
-
-    {% if clock is defined %}
+    {% if clock is defined and clock.attack != 0 %}
         <ul class="clock">
             <li class="town-name">{{ clock.desc }}</li>
             <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{% if clock.day != "" %}{{ 'Tag {day}'|trans({'{day}': clock.day}, 'game') }}{% endif %}</li>
@@ -12,7 +11,7 @@
         </ul>
     {% endif %}
     
-    {% if rucksack is defined %}
+    {% if rucksack is defined and clock.attack != 0 %}
         <ul x-ajax-href="{{ path('help', {'name': 'inventory'}) }}" class="rucksack pointer {% if rucksack_size > 10 %}expanded{% endif %} {% if status is defined %}rucksack_status_union{% endif %}">
             <li class="text">{{'Rucksack'|trans({}, 'game')}}</li>
             {% set cc = 0 %}
@@ -32,7 +31,7 @@
         </ul>
     {% endif %}
 
-    {% if status is defined %}
+    {% if status is defined and clock.attack != 0 %}
         <ul class="status link {% if rucksack is defined %}rucksack_status_union{% endif %}" x-ajax-href="{{ path('help', {'name': 'health'}) }}">
             <li class="text">{{'Status'|trans({}, 'game')}}</li>
             {% for role in roles %}
@@ -121,7 +120,7 @@
 
     {% endif %}
 
-    {% if (ap is defined and max_ap is defined) or (bp is defined and max_bp is defined and max_bp > 0) or (pm is defined and max_pm is defined and max_pm > 0) %}
+    {% if ((ap is defined and max_ap is defined) or (bp is defined and max_bp is defined and max_bp > 0) or (pm is defined and max_pm is defined and max_pm > 0)) and clock.attack != 0 %}
     <div class="ulcont">
         {% if ap is defined and max_ap is defined %}
             <div>
