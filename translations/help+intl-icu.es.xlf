@@ -8629,11 +8629,11 @@ Para ponerte en contacto con los administadores, escribe al <a x-group-connect="
       <notes>
         <note category="german">Die Hilfe durchsuchen</note>
         <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Hilfe durchsuchen</source>
-        <target>Die Hilfe durchsuchen</target>
+        <target>Buscar en la guía</target>
       </segment>
     </unit>
   </file>
