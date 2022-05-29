@@ -651,6 +651,12 @@ class PictoDataService implements FixtureProcessorInterface {
                 'icon' => 'r_tamwin',
                 'rare' => true
             ],
+            [
+                'label' => 'Einwohner',
+                'description' => 'Anzahl der Tage, die du als Einwohner gespielt hast.',
+                'icon' => 'r_jbasic',
+                'rare' => false
+            ],
         ]);
     }
 }
