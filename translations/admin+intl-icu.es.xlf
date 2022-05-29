@@ -98,7 +98,7 @@
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
-        <target>¿Terminar con la vida de este habitante inmediatamente?</target>
+        <target>¿Estás seguro/a de matar a este habitante?</target>
       </segment>
     </unit>
     <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
@@ -4879,22 +4879,22 @@
       <notes>
         <note category="german">Leber fressen</note>
         <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Leber fressen</source>
-        <target>Leber fressen</target>
+        <target>Arrancarle el hígado</target>
       </segment>
     </unit>
     <unit id="6kFAjXk" name="maskiert {playername}">
       <notes>
         <note category="german">maskiert {playername}</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>maskiert {playername}</source>
-        <target>maskiert {playername}</target>
+        <target>Enmascarando a {playername}</target>
       </segment>
     </unit>
   </file>

@@ -23165,22 +23165,22 @@
       <notes>
         <note category="german">Spontanes Leberversagen</note>
         <note category="from">db://CauseOfDeath</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Spontanes Leberversagen</source>
-        <target>Spontanes Leberversagen</target>
+        <target>Falla hepática</target>
       </segment>
     </unit>
     <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
       <notes>
         <note category="german">{username} hat keine Leber mehr.</note>
         <note category="from">php:///src/Service/AdminActionHandler.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>{username} hat keine Leber mehr.</source>
-        <target>{username} hat keine Leber mehr.</target>
+        <target>Le arrancaste el hígado a {username}.</target>
       </segment>
     </unit>
     <unit id="Q3qWi07">
