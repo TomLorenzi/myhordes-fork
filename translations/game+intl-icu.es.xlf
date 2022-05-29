@@ -1396,7 +1396,7 @@
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -7047,7 +7047,7 @@
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
         <note category="german">{username} wurde standrechtlich erschossen.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -7057,7 +7057,7 @@
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7277,7 +7277,7 @@
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -15141,7 +15141,7 @@
     <unit id="ViEKCFv" name="Die Zukunft">
       <notes>
         <note category="german">Die Zukunft</note>
-        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Die Zukunft</source>
@@ -23165,22 +23165,22 @@
       <notes>
         <note category="german">Spontanes Leberversagen</note>
         <note category="from">db://CauseOfDeath</note>
-        <note category="state">translated</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Spontanes Leberversagen</source>
-        <target>Falla hepática</target>
+        <target>Spontanes Leberversagen</target>
       </segment>
     </unit>
     <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
       <notes>
         <note category="german">{username} hat keine Leber mehr.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
-        <note category="state">translated</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>{username} hat keine Leber mehr.</source>
-        <target>Le arrancaste el hígado a {username}.</target>
+        <target>{username} hat keine Leber mehr.</target>
       </segment>
     </unit>
     <unit id="Q3qWi07">

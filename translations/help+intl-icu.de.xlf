@@ -7900,5 +7900,14 @@ Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-co
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die <a x-group-connect="{oglink}" href="#">Offizielle Gruppe</a> des Technischen Supports.]]></target>
       </segment>
     </unit>
+    <unit id="YoDh.OZ" name="Die Hilfe durchsuchen">
+      <notes>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Hilfe durchsuchen</source>
+        <target>Die Hilfe durchsuchen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

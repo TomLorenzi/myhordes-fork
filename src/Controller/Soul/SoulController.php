@@ -13,7 +13,9 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\ExternalApp;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
+use App\Entity\ForumPollAnswer;
 use App\Entity\FoundRolePlayText;
+use App\Entity\GlobalPoll;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\OfficialGroup;
 use App\Entity\Picto;
@@ -24,6 +26,7 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\SocialRelation;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
@@ -54,6 +57,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -88,14 +92,16 @@ class SoulController extends CustomAbstractController
 
     protected UserFactory $user_factory;
     protected UserHandler $user_handler;
+    protected KernelInterface $kernel;
     protected Packages $asset;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, KernelInterface $kernel)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->user_handler = $uh;
+        $this->kernel = $kernel;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -462,16 +468,98 @@ class SoulController extends CustomAbstractController
         if ($selected === null)
             $selected = $news[0] ?? null;
 
-
-
         try {
             $userHandler->setSeenLatestChangelog( $user, $lang );
             $this->entity_manager->flush();
         } catch (Exception $e) {}
 
         return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'news' => $news, 'selected' => $selected
+            'news' => $news, 'selected' => $selected,
+            'has_polls' => !empty($this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, false))
         ]) );
+    }
+
+    /**
+     * @Route("jx/soul/polls/{id}/{group}/{tag}", name="soul_polls")
+     * @param int $id
+     * @param string $group
+     * @param string $tag
+     * @return Response
+     */
+    public function soul_polls(int $id = 0, string $group = '', string $tag = ''): Response
+    {
+        if (($group !== '' || $tag !== '') && !$this->isGranted('ROLE_ADMIN'))
+            return $this->redirect($this->generateUrl( 'soul_polls' ));
+
+        if (!$this->isGranted('ROLE_ADMIN')) {
+            $group = 'antigrief';
+            $tag = 'pass';
+        }
+
+        $polls = $this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, $this->isGranted('ROLE_ORACLE'));
+
+        $selected = ($id > 0 ? $this->entity_manager->getRepository(GlobalPoll::class)->find($id) : null);
+        if ($selected && $selected->getStartDate() > new DateTime() && !$this->isGranted('ROLE_ORACLE'))
+            $selected = null;
+
+        if ($selected === null && $id > 0)
+            return $this->redirect($this->generateUrl( 'soul_polls' ));
+
+        $selected = $selected ?? $polls[0] ?? null;
+
+        return $this->render( 'ajax/soul/polls.html.twig', $this->addDefaultTwigArgs("soul_future", [
+            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected->getPoll()->getAllAnswerTags() : [],
+            'group' => $group, 'tag' => $tag,
+            'polls' => $polls, 'selected' => $selected
+        ]) );
+    }
+
+    /**
+     * @Route("api/soul/polls/{id<\d+>}/{answer<\d+>}", name="soul_poll_participate")
+     * @param int $id
+     * @param int $answer
+     * @return Response
+     */
+    public function soul_poll_participate(int $id = 0, int $answer = 0): Response
+    {
+        $user = $this->getUser();
+        $now = new DateTime();
+
+        $poll = $this->entity_manager->getRepository(GlobalPoll::class)->find($id);
+        if (!$poll || $poll->getStartDate() > $now || $poll->getEndDate() < $now || $poll->getPoll()->getParticipants()->contains($user))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if ($answer > 0) {
+
+            $answer = $this->entity_manager->getRepository(ForumPollAnswer::class)->find($answer);
+            if (!$answer || !$poll->getPoll()->getAnswers()->contains($answer))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+            $answer->setNum( $answer->getNum() + 1 );
+
+            $main = 'none';
+            foreach ($user->getTwinoidImports() as $import)
+                if ($import->getMain()) $main = $import->getScope() ?? 'none';
+
+            $sp = $user->getAllSoulPoints();
+            $anti_grief = $this->getActiveCitizen()->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20);
+
+            $answer->incTagNumber('origin', $main);
+            $answer->incTagNumber('lang', $user->getLanguage());
+            if ($sp < 100)       $answer->incTagNumber('sp', '0_99');
+            elseif ($sp < 1000)  $answer->incTagNumber('sp', '100_999');
+            elseif ($sp < 10000) $answer->incTagNumber('sp', '1000_9999');
+            else                 $answer->incTagNumber('sp', '10000');
+            $answer->incTagNumber('antigrief', $anti_grief ? 'fail' : 'pass');
+
+            $this->entity_manager->persist($answer);
+        }
+
+        $poll->getPoll()->addParticipant( $user );
+        $this->entity_manager->persist( $poll->getPoll() );
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
     /**
@@ -517,11 +605,19 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
+            'flags' => $this->getFlagList(),
             'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
         ]) );
+    }
+
+    protected function getFlagList(): array {
+        $flags = [];
+        foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/lang/any") as $f)
+            if ($f !== '.' && $f !== '..' && str_ends_with( strtolower($f), '.svg' )) $flags[] = substr( $f, 0, -4);
+        return $flags;
     }
 
     /**
@@ -535,6 +631,7 @@ class SoulController extends CustomAbstractController
 
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
+        $flag  = $parser->get('flag', '');
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
         $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
         $pronoun = $parser->get('pronoun','none', ['male','female','none']);
@@ -549,6 +646,9 @@ class SoulController extends CustomAbstractController
         }
 
         if ($title < 0 && $icon >= 0)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($flag !== '' && !in_array( $flag, $this->getFlagList() ))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
@@ -590,6 +690,8 @@ class SoulController extends CustomAbstractController
 
             $user->setActiveIcon($award);
         }
+
+        $user->setFlag($flag === '' ? null : $flag);
 
         $desc_obj = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
         if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $len) && $len > 0) {
@@ -1386,11 +1488,10 @@ class SoulController extends CustomAbstractController
             else {
                 $pendingPicto
                     ->setPersisted(2)
-                    ->setDisabled( $nextDeath->getDisabled() || $nextDeath->getTown()->getDisabled() );
+                    ->setDisabled( $nextDeath->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $nextDeath->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) );
                 $this->entity_manager->persist($pendingPicto);
             }
         }
-
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
             $active->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words);

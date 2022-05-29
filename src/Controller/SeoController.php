@@ -72,10 +72,8 @@ class SeoController extends CustomAbstractController
     /**
      * @Route(
      *     "/", priority=100, name="seo_welcome",
-     *     condition="request.headers.has('User-Agent')",
-     *     condition="request.headers.get('User-Agent') matches '%seobots%'"
+     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
      * )
-     * @param string $lang
      * @return Response
      */
     public function seo_welcome(): Response
@@ -87,8 +85,7 @@ class SeoController extends CustomAbstractController
      * @Route(
      *     "/{lang}/", priority=100, name="seo_welcome_lang",
      *     requirements={"lang"="de|en|fr|es"},
-     *     condition="request.headers.has('User-Agent')",
-     *     condition="request.headers.get('User-Agent') matches '%seobots%'"
+     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
      * )
      * @param Request $request
      * @return Response
@@ -104,8 +101,7 @@ class SeoController extends CustomAbstractController
     /**
      * @Route(
      *     "jx/help/{name}", priority=100, name="seo_help",
-     *     condition="request.headers.has('User-Agent')",
-     *     condition="request.headers.get('User-Agent') matches '%seobots%'"
+     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
      * )
      * @param string $name
      * @return Response
@@ -118,10 +114,10 @@ class SeoController extends CustomAbstractController
     /**
      * @Route(
      *     "{lang}/help/{name}", priority=100, name="seo_help_lang", requirements={"lang"="de|en|fr|es"},
-     *     condition="request.headers.has('User-Agent')",
-     *     condition="request.headers.get('User-Agent') matches '%seobots%'"
+     *     condition="request.headers.has('User-Agent') and request.headers.get('User-Agent') matches '%seobots%'"
      * )
      * @param Request $request
+     * @param string $lang
      * @param string $name
      * @return Response
      */

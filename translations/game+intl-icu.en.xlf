@@ -1410,7 +1410,7 @@
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -7062,7 +7062,7 @@
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
         <note category="german">{username} wurde standrechtlich erschossen.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -7072,7 +7072,7 @@
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7293,7 +7293,7 @@
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -8402,7 +8402,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
-        <target>You violently attacked {citizen}! The fight degenerated rapidly and resulted in you seriously wounding {citizen}!</target>
+        <target><![CDATA[You violently attacked {citizen}! The fight degenerated rapidly and resulted in you <strong>seriously wounding the other citizen!</strong><hr />The citizens have all been told...]]></target>
       </segment>
     </unit>
     <unit id="1HduKoA">
@@ -8442,7 +8442,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</source>
-        <target>With all your might you attack {citizen}! You exchange blows for a while, until you finally separate from each other mostly unharmed.</target>
+        <target><![CDATA[You violently attacked {citizen}! You exchange blows for a while, until you finally separate from each other mostly unharmed.<hr />The citizens have all been told...]]></target>
       </segment>
     </unit>
     <unit id="0rbqUhr">
@@ -15348,7 +15348,7 @@
     <unit id="ViEKCFv" name="Die Zukunft">
       <notes>
         <note category="german">Die Zukunft</note>
-        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Die Zukunft</source>
@@ -17659,45 +17659,45 @@
     <unit id="DaS3LJ7" name="{username} hat dich angegriffen!">
       <notes>
         <note category="german">{username} hat dich angegriffen!</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>{username} hat dich angegriffen!</source>
-        <target>{username} hat dich angegriffen!</target>
+        <target>You have been attacked by {username}!</target>
       </segment>
     </unit>
     <unit id="kPJRUv1">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</target>
+        <target>While you were chilling at home, minding your own business, {username} came to visit you, pushed you around a bit then set about you! You defended well, young padawan, and returned the favour... Nothing broken. The other citizens have been informed.</target>
       </segment>
     </unit>
     <unit id="0XjfB3Z" name="{username} hat dich angegriffen und verletzt!">
       <notes>
         <note category="german">{username} hat dich angegriffen und verletzt!</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>{username} hat dich angegriffen und verletzt!</source>
-        <target>{username} hat dich angegriffen und verletzt!</target>
+        <target>You have been attacked and wounded by {username}!</target>
       </segment>
     </unit>
     <unit id="WGi7LUy">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</source>
-        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</target>
+        <target>While you were chilling at home, minding your own business, came to visit you, {username} pushed you around a bit then set about you! You defended well, but they threw you about like an empty tracksuit. You have been injured as a result of this confrontation! The other citizens have been informed.</target>
       </segment>
     </unit>
     <unit id="cyaNyje" name="Verletzt">
@@ -17847,12 +17847,12 @@
     <unit id="yZJkrQZ" name="{citizen} wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;">
       <notes>
         <note category="german">{citizen} wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>{citizen} wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</source>
-        <target><![CDATA[{citizen} wurde in die Stadt <span>teleportiert</span>]]></target>
+        <target><![CDATA[{citizen} <span>has been RETURNED</span> to the town!]]></target>
       </segment>
     </unit>
     <unit id="7nokZTi">
@@ -21279,11 +21279,10 @@
       <notes>
         <note category="german">Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</source>
-        <target>Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.</target>
+        <target><![CDATA[The robbery you've just carried <strong>has been detected</strong>! The citizens have been warned that you stole that {item} from {victim}.]]></target>
       </segment>
     </unit>
     <unit id="ljh7pXv">
@@ -21817,22 +21816,22 @@
       <notes>
         <note category="german">Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Inmitten dieser Zombiehorde konnten wir &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!</source>
-        <target><![CDATA[Inmitten dieser Zombiehorde konnten wir <i class="dagger">†</i> {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!]]></target>
+        <target><![CDATA[In this Horde, we managed to pick out <i class="dagger">†</i> {citizen} ! Dead in the World Beyond, this new zombie made new friends pretty damn quickly...]]></target>
       </segment>
     </unit>
     <unit id="t8qkZPk">
       <notes>
         <note category="german">Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Von der Stadtverteidigung aufgehalten, kehrte &lt;i class="dagger"&gt;†&lt;/i&gt; {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...</source>
-        <target><![CDATA[Von der Stadtverteidigung aufgehalten, kehrte <i class="dagger">†</i> {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...]]></target>
+        <target><![CDATA[Stopped in their tracks by the town's defences, <i class="dagger">†</i> {citizen} was sent packing to join their new living-dead friends...]]></target>
       </segment>
     </unit>
     <unit id="h8TXDGN">
@@ -22035,22 +22034,22 @@
       <notes>
         <note category="german">Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} zu &lt;strong&gt;erhängen&lt;/strong&gt;!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion &lt;strong&gt;zerstört&lt;/strong&gt;!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} zu <strong>erhängen</strong>!! Der Galgen wurde im Zuge dieser gewalttätigen Aktion <strong>zerstört</strong>!]]></target>
+        <target><![CDATA[The citizens decided to <strong>hang</strong> {citizen} !! The gallows were destroyed during this particularly violent event!]]></target>
       </segment>
     </unit>
     <unit id="xQMsReM">
       <notes>
         <note category="german">Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</note>
         <note category="from">db://LogEntryTemplate</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Die Bürger haben entschieden, {citizen} in den &lt;strong&gt;Fleischkäfig&lt;/strong&gt; zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat &lt;strong&gt;+{def} temporäre Stadtverteidigung&lt;/strong&gt; erhalten!</source>
-        <target><![CDATA[Die Bürger haben entschieden, {citizen} in den <strong>Fleischkäfig</strong> zu zerren und dort zum Vergnügen aller zu steinigen... Die Stadt hat <strong>+{def} temporäre Stadtverteidigung</strong> erhalten!]]></target>
+        <target><![CDATA[The citizens decided to drag {citizen} to the <strong>Meat Locker</strong>, then stone him for the show... The city received <strong>+{def} temporary defense pts</strong>!]]></target>
       </segment>
     </unit>
     <unit id="YSYYhvU" name="Anonyme Beschwerde ({num} insgesamt)">
@@ -23257,7 +23256,7 @@
     <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
       <notes>
         <note category="german">{username} hat keine Leber mehr.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} hat keine Leber mehr.</source>

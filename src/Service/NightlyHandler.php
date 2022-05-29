@@ -224,7 +224,7 @@ class NightlyHandler
 
             if ($invest > 0) {
                 $building->setHp( min($building->getHp() + 2 * $invest, $building->getPrototype()->getHp()) );
-                $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()} AP</info>." );
+                $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()}</info>." );
                 if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building, $stranger_ts ) );
             }
 
@@ -249,7 +249,7 @@ class NightlyHandler
 
                 if ($invest > 0) {
                     $building->setAp( min($building->getAp() + $invest, $building->getPrototype()->getAp() - 1) );
-                    $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()} AP</info>." );
+                    $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()}</info>." );
                     if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building->getPrototype(), $stranger_ts ) );
                 }
 
@@ -1396,6 +1396,15 @@ class NightlyHandler
                 foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
 
+                // The town lose water as zombies are entering town.
+                $d = min($town->getWell(), rand(20, 40));
+                
+                if($d > 0){
+                    $this->log->debug("The zombies entering town removed <info>{$d} water rations</info> from the well.");
+                    $this->entity_manager->persist($this->logTemplates->nightlyDevastationAttackWell($d, $town));
+                    $town->setWell($town->getWell() - $d);
+                }
+                
                 //foreach ($town->getBuildings() as $target_building)
                 //    if (!$target_building->getComplete()) $target_building->setAp(0);
             }
@@ -1635,7 +1644,10 @@ class NightlyHandler
         $last_mc = null;
         foreach ($roles as $role) {
             $this->log->info("Processing votes for role {$role->getLabel()}");
-            if(!$this->town_handler->is_vote_needed($town, $role, true)) continue;
+            if(!$this->town_handler->is_vote_needed($town, $role, true)) {
+                $this->log->info("The role {$role->getLabel()} doesn't need vote, skipping");
+                continue;
+            }
 
             // Getting vote per role per citizen
             $votes = array();

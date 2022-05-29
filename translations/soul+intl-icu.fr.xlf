@@ -3559,7 +3559,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
-        <target>Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternal Twin. Vous devez vous rendre sur votre compte Eternal Twin pour changer de pseudo.</target>
+        <target>Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternaltwin. Vous devez vous rendre sur votre compte Eternaltwin pour changer de pseudo.</target>
       </segment>
     </unit>
     <unit id=".NQ7ahe">
@@ -4454,7 +4454,7 @@
       </notes>
       <segment>
         <source>Spieler, die dich als Freund hinzugefügt haben</source>
-        <target>Les joueurs qui vont ont ajouté en ami</target>
+        <target>Les joueurs qui vous ont ajouté en ami</target>
       </segment>
     </unit>
     <unit id="xMippYH">
@@ -4746,33 +4746,226 @@
       <notes>
         <note category="german">Nicht länger ausblenden</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Nicht länger ausblenden</source>
-        <target>Nicht länger ausblenden</target>
+        <target>Ne plus masquer</target>
       </segment>
     </unit>
     <unit id="BC_uip5" name="Ausblenden">
       <notes>
         <note category="german">Ausblenden</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ausblenden</source>
-        <target>Ausblenden</target>
+        <target>Masquer</target>
       </segment>
     </unit>
     <unit id="p5LaFyO" name="Ausgeblendete Spieler anzeigen">
       <notes>
         <note category="german">Ausgeblendete Spieler anzeigen</note>
         <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ausgeblendete Spieler anzeigen</source>
-        <target>Ausgeblendete Spieler anzeigen</target>
+        <target>Liste des joueurs masqués</target>
+      </segment>
+    </unit>
+    <unit id="Mdi60b9" name="Spracheinstellung verwenden">
+      <notes>
+        <note category="german">Spracheinstellung verwenden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Spracheinstellung verwenden</source>
+        <target>Utiliser le paramètre de langue</target>
+      </segment>
+    </unit>
+    <unit id="rqhI1oG" name="Deine Flagge">
+      <notes>
+        <note category="german">Deine Flagge</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Deine Flagge</source>
+        <target>Votre drapeau</target>
+      </segment>
+    </unit>
+    <unit id="gQDPOVU" name="Diese Stadt hat folgende Einschränkungen:">
+      <notes>
+        <note category="german">Diese Stadt hat folgende Einschränkungen:</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt hat folgende Einschränkungen:</source>
+        <target>Cette ville a les restrictions suivantes :</target>
+      </segment>
+    </unit>
+    <unit id="4Gjif4f" name="Ausschluss aus dem Ranking">
+      <notes>
+        <note category="german">Ausschluss aus dem Ranking</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ausschluss aus dem Ranking</source>
+        <target>Exclusion du classement</target>
+      </segment>
+    </unit>
+    <unit id="gAN.vX0" name="Löschen der Auszeichnungen">
+      <notes>
+        <note category="german">Löschen der Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Auszeichnungen</source>
+        <target>Suppression des pictos</target>
+      </segment>
+    </unit>
+    <unit id="0kcps11" name="Löschen der Seelenpunkte">
+      <notes>
+        <note category="german">Löschen der Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Seelenpunkte</source>
+        <target>Suppression des points d'âme</target>
+      </segment>
+    </unit>
+    <unit id="QzJ.qzA" name="Die Seelenpunkte dieser Stadt wurden gelöscht">
+      <notes>
+        <note category="german">Die Seelenpunkte dieser Stadt wurden gelöscht</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seelenpunkte dieser Stadt wurden gelöscht</source>
+        <target>Les points d'âme de cette ville ont été supprimés</target>
+      </segment>
+    </unit>
+    <unit id="PqTGH.B" name="Umfragen">
+      <notes>
+        <note category="german">Umfragen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfragen</source>
+        <target>Umfragen</target>
+      </segment>
+    </unit>
+    <unit id="99lPVVk">
+      <notes>
+        <note category="german">Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</source>
+        <target>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</target>
+      </segment>
+    </unit>
+    <unit id="0Qotq.l" name="Zu den Umfragen">
+      <notes>
+        <note category="german">Zu den Umfragen</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Zu den Umfragen</source>
+        <target>Zu den Umfragen</target>
+      </segment>
+    </unit>
+    <unit id="qnZpV0q" name="Umfrage beendet am {date}.">
+      <notes>
+        <note category="german">Umfrage beendet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage beendet am {date}.</source>
+        <target>Umfrage beendet am {date}.</target>
+      </segment>
+    </unit>
+    <unit id="ryVfUf9" name="Umfrage beginnt am {date} und endet am {date2}.">
+      <notes>
+        <note category="german">Umfrage beginnt am {date} und endet am {date2}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage beginnt am {date} und endet am {date2}.</source>
+        <target>Umfrage beginnt am {date} und endet am {date2}.</target>
+      </segment>
+    </unit>
+    <unit id=".TZbZN8" name="Umfrage endet am {date}.">
+      <notes>
+        <note category="german">Umfrage endet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Umfrage endet am {date}.</source>
+        <target>Umfrage endet am {date}.</target>
+      </segment>
+    </unit>
+    <unit id="KKN_8Zz" name="Hier findet ihr alle vorangegangenen Umfragen:">
+      <notes>
+        <note category="german">Hier findet ihr alle vorangegangenen Umfragen:</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Hier findet ihr alle vorangegangenen Umfragen:</source>
+        <target>Hier findet ihr alle vorangegangenen Umfragen:</target>
+      </segment>
+    </unit>
+    <unit id="j8qBKgG" name="Diese Umfrage hat noch nicht begonnen.">
+      <notes>
+        <note category="german">Diese Umfrage hat noch nicht begonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Diese Umfrage hat noch nicht begonnen.</source>
+        <target>Diese Umfrage hat noch nicht begonnen.</target>
+      </segment>
+    </unit>
+    <unit id="39o9ij2" name="Du hast an dieser Umfrage teilgenommen. Vielen Dank!">
+      <notes>
+        <note category="german">Du hast an dieser Umfrage teilgenommen. Vielen Dank!</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</source>
+        <target>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</target>
+      </segment>
+    </unit>
+    <unit id="K_LCVfF" name="Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.">
+      <notes>
+        <note category="german">Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</source>
+        <target>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="hTjUC92">
+      <notes>
+        <note category="german">Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</source>
+        <target>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</target>
       </segment>
     </unit>
   </file>

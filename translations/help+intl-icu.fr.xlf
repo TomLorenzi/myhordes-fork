@@ -8620,5 +8620,16 @@ Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-co
 Pour contacter les administrateurs, écrivez au support technique <a x-group-connect="{oglink}" href="#">Groupe officiel</a>.]]></target>
       </segment>
     </unit>
+    <unit id="YoDh.OZ" name="Die Hilfe durchsuchen">
+      <notes>
+        <note category="german">Die Hilfe durchsuchen</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Die Hilfe durchsuchen</source>
+        <target>Chercher dans l'aide</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -75,9 +75,9 @@ export default class HTML {
         return elements.length;
     }
 
-    addEventListenerAll(query: string, event: string, handler: eventListener, trigger_now: boolean = false ): number {
+    addEventListenerAll(query: string, event: string, handler: eventListener, trigger_now: boolean = false, capture: boolean = false ): number {
         return this.forEach( query, (elem, i) => {
-            elem.addEventListener( event, e => handler(e,elem,i) );
+            elem.addEventListener( event, e => handler(e,elem,i), capture );
             if (trigger_now) handler(new Event('event'), elem, i);
         } )
     }

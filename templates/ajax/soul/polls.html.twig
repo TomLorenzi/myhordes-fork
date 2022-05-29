@@ -1,0 +1,167 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Die Zukunft'|trans({}, 'game')|raw}}{% endblock %}
+{% block menu_text %}
+    {{ parent() }}
+{% endblock %}
+{% block soul_content %}
+    {# @var \App\Entity\GlobalPoll selected #}
+    {% if selected is null %}
+        COMING SOON
+    {% else %}
+    <div class="news">
+        <div class="head">
+            <div class="title center"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.titleByLang( app.user.language )}}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
+        </div>
+        <div class="version">
+            {% if selected.endDate < 'now'|to_date %}
+                {{"Umfrage beendet am {date}."|trans({date: selected.endDate|format_datetime('medium', 'short')}, 'soul')}}
+            {% elseif selected.startDate > 'now'|to_date %}
+                {{"Umfrage beginnt am {date} und endet am {date2}."|trans({date: selected.startDate|format_datetime('medium', 'short'), date2: selected.endDate|format_datetime('medium', 'short')}, 'soul')}}
+            {% else %}
+                {{"Umfrage endet am {date}."|trans({date: selected.endDate|format_datetime('medium', 'short')}, 'soul')}}
+            {% endif %}
+        </div>
+        {% if polls|length > 1 %}
+        <div class="row">
+            <div class="center version-list">
+                <p><label for="change_poll">{{'Hier findet ihr alle vorangegangenen Umfragen:'|trans({}, 'soul')}}</label></p>
+                <select id="change_poll">
+                    {% for poll in polls %}
+                        {# @var \App\Entity\GlobalPoll poll #}
+                        <option {% if selected.id == poll.id %}selected="selected"{% endif%} value="{{ path('soul_polls', {id: poll.id}) }}">
+                            {% if poll.endDate < 'now'|to_date %}[ ✓ ]
+                            {% elseif poll.startDate > 'now'|to_date %}[ ✉ ]
+                            {% elseif poll.poll.participants.contains( app.user ) %}[ ✍ ]
+                            {% else  %}[ ✴ ]{% endif %}
+                            {{ poll.titleByLang( app.user.language ) }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row forum-post">
+            <div class="forum-post-content content" style="min-height: 155px;">
+                {% if selected.startDate > 'now'|to_date %}
+                    <div class="help">
+                        {{ 'Diese Umfrage hat noch nicht begonnen.'|trans({},'soul') }}
+                    </div>
+                {% endif %}
+                {% if selected.poll.participants.contains( app.user ) %}
+                    <div class="help">
+                        {{ 'Du hast an dieser Umfrage teilgenommen. Vielen Dank!'|trans({},'soul') }}
+                        {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.showResultsImmediately and not app.user|is_granted('ROLE_ORACLE') %}
+                            {{ 'Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.'|trans({},'soul') }}
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.showResultsImmediately and app.user|is_granted('ROLE_ORACLE') and selected.poll.participants.contains( app.user ) %}
+                    <div class="help">
+                        {{ 'Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.'|trans({},'soul') }}
+                    </div>
+                {% endif %}
+                {% if app.user|is_granted('ROLE_ADMIN') %}
+                    {% if all_tags is not empty %}
+                        <div class="row-flex v-center">
+                            <div class="cell rw-6 rw-sm-12 padded note note-lightest">
+                                <label for="change_filter">{{ 'Ergebnisse filtern'|trans({},'admin') }}</label>
+                            </div>
+                            <div class="cell rw-6 rw-sm-12 padded">
+                                <select id="change_filter">
+                                    <option {% if ( group ~ ':' ~ tag ) == ':' %}selected="selected"{% endif%} value="{{ path('soul_polls', {id: selected.id}) }}">
+                                        {{ 'Kein Filter'|trans({},'admin') }}
+                                    </option>
+                                    {% for this_tag in all_tags|sort %}
+                                        {# @var \App\Entity\GlobalPoll poll #}
+                                        <option {% if ( group ~ ':' ~ tag ) == this_tag %}selected="selected"{% endif%} value="{{ path('soul_polls', {id: selected.id, group: this_tag|split(':')[0], tag: this_tag|split(':')[1]}) }}">
+                                            {{ this_tag|split(':')[0] }} → {{ this_tag|split(':')[1] }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row-flex v-center">
+                        <div class="cell rw-6 rw-sm-12 padded note note-lightest">
+                            {{ 'Aktionen'|trans({},'admin') }}
+                        </div>
+                        <div class="cell rw-6 rw-sm-12 padded">
+                            {% if (selected.startDate > 'now'|to_date) %}
+                                <button class="inline small" data-action="{{ path('admin_changelog_poll_control', {id: selected.id, action: 'start'}) }}">{{ 'Umfrage jetzt beginnen'|trans({},'admin') }}</button>
+                            {% endif %}
+                            {% if (selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date)  %}
+                                <button class="inline small" data-action="{{ path('admin_changelog_poll_control', {id: selected.id, action: 'close'}) }}">{{ 'Umfrage jetzt beenden'|trans({},'admin') }}</button>
+                            {% endif %}
+                            <button class="inline small" data-action="{{ path('admin_changelog_poll_control', {id: selected.id, action: 'delete'}) }}">{{ 'Umfrage löschen'|trans({},'admin') }}</button>
+                        </div>
+                    </div>
+                {% endif %}
+                <ul class="poll global-poll">
+                    <li class="q">{{ selected.titleByLang(app.user.language)|raw }}</li>
+                    <li class="plain">{{selected.descriptionByLang(app.user.language)|raw}}</li>
+                    {% set total = 0 %}
+                    {% for answer in selected.poll.answers %}
+                        {% set total = total + answer.tagNumber(group,tag) %}
+                    {% endfor %}
+                    {% for answer in selected.poll.answers %}
+                        <li class="desc">{{ selected.answerDescriptionByLang( answer, app.user.language )|raw }}</li>
+                        <li>
+                            <div class="row-flex wrap">
+                                <div class="cell grow-1">{{ selected.answerTitleByLang( answer, app.user.language )|raw }}</div>
+                                {% if selected.startDate < 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
+                                    <div class="cell shrink-1">
+                                        <button class="small inline" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: answer.id}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
+                                    </div>
+                                {% elseif selected.startDate < 'now'|to_date and (selected.endDate < 'now'|to_date or ( selected.showResultsImmediately and selected.poll.participants.contains( app.user ) ) or app.user|is_granted('ROLE_ORACLE')) %}
+                                    <div class="cell rw-3 rw-lg-4 rw-sm-12 shrink-0">
+                                        <div class="right">{{ answer.tagNumber(group,tag) }}</div>
+                                        <div class="vote-bar"><div class="bar" style="width: {{ total > 0 ? ( 100 * answer.tagNumber(group,tag)/total ) : '0' }}%"></div></div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                    {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
+                        <li>
+                            <div class="row-flex wrap">
+                                <div class="cell grow-1">{{ 'Ich habe keine besondere Meinung zu dieser Frage.' }}</div>
+                                <div class="cell shrink-1">
+                                    <button class="small inline" data-no-vote="1" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: 0}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block js %}
+    {{parent()}}
+    <script>
+        $.html.addEventListenerAll('#change_poll{% if app.user|is_granted('ROLE_ADMIN') %},#change_filter{% endif %}', 'change', function (e,elem) {
+            $.ajax.load(null, elem.value, true);
+        });
+
+        {% if app.user|is_granted('ROLE_ADMIN') %}
+            $.html.addEventListenerAll('[data-action]', 'click', function (e,elem) {
+                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    $.ajax.easySend( elem.dataset.action, {},
+                        function () {
+                            $.ajax.load( target, "{{ path('soul_polls', {id: selected.id}) }}" );
+                        } );
+            });
+        {% endif  %}
+
+        $.html.addEventListenerAll('[data-poll]', 'click', function (e,elem) {
+            const txt = '{{ 'Bestätigen?'|trans({},'global')|e('js') }}';
+
+            if (confirm(txt))
+                $.ajax.easySend( elem.dataset.poll, {},
+                    function () {
+                        $.ajax.load( target, "{{ path('soul_polls', {id: selected.id}) }}" );
+                    } );
+        });
+    </script>
+{% endblock %}

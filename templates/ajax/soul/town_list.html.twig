@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="town-container">
-    {#@var incarnation \App\Entity\CitizenRankingProxy #}
+    {#@var \App\Entity\CitizenRankingProxy incarnation #}
     {% for incarnation in towns %}
         <div class="row-flex stretch {% if incarnation.town.event %}event{% elseif incarnation.town.type.name == 'panda' %}hardcore{% elseif incarnation.town.type.name == 'custom' %}custom{% endif %}">
             <div class="cell padded rw-2 center season bold">
@@ -61,12 +61,12 @@
                 {% endif %}
             </div>
             <div class="cell padded rw-2 center town-points bold">
-                {% if not (incarnation.disabled and not incarnation.limitedImport) and not incarnation.town.disabled %}
+                {% if not (incarnation.hasDisableFlag(constant('\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS')) and not incarnation.limitedImport) and not incarnation.town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
                     +{{incarnation.points}}
                 {% else %}
                     <div>
                         <img alt="" src="{{ asset('build/images/icons/small_warning.gif') }}">
-                        <div class="tooltip help">{{ 'Dieser Eintrag wurde aus dem Ranking gestrichen.'|trans({},'soul')|raw }}</div>
+                        <div class="tooltip help">{{ 'Die Seelenpunkte dieser Stadt wurden gelöscht'|trans({}, 'soul') }}</div>
                     </div>
                 {% endif %}
             </div>

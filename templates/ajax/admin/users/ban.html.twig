@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{% trans from 'admin' %}Verbannung{% endtrans %}{%  endblock %}
+{% block title %}{% trans from 'admin' %}Verbannung{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block ajax %}
     <div class="row soul">
 
@@ -89,6 +89,8 @@
                                         {% for confirmer in restriction.confirmedBy %}
                                             {% if confirmer|is_granted('ROLE_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
                                             {% if confirmer|is_granted('ROLE_SUPER') %}{% set confirmed_by_super = true %}{% endif %}
+                                            {% if restriction.moderator|is_granted('ROLE_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
+                                            {% if restriction.moderator|is_granted('ROLE_SUPER') %}{% set confirmed_by_super = true %}{% endif %}
                                             {% if confirmer != restriction.moderator %}<div>{% if confirmer|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ confirmer.name }}</div>{% endif %}
                                         {% endfor %}
                                         {% set confirmation_is_useful = true %}

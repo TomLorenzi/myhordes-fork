@@ -647,8 +647,8 @@ class TownHandler
                     if($offsetMax > 3)
                         $offsetMax -= $alterMax;
                 } else {
-                    if ($increase_min) $offsetMin -= $alter;
-                    else $offsetMax -= $alter;
+                    if ($increase_min && $offsetMin > 3) $offsetMin -= $alter;
+                    elseif ( $offsetMax > 3 ) $offsetMax -= $alter;
                 }
             }
         }
@@ -852,7 +852,7 @@ class TownHandler
      */
     public function is_vote_needed(Town $town, CitizenRole|string $role, bool $duringNightly = false): bool {
         // No votes needed before the town is full or during chaos
-        if ($town->getChaos() || $town->isOpen()) return false;
+        if ($town->getChaos() || ($town->isOpen() && !$town->getForceStartAhead())) return false;
 
         // Resolve the role; if it does not exist or is not votable, no votes are needed
         if (is_string($role)) $role =  $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role]);
@@ -870,7 +870,7 @@ class TownHandler
         if ($last_one) {
             if ($last_one->getAlive()) return false;
             // Re-election when the role dies during attack: Next day; otherwise, one penalty day
-            $DoD = $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack ? ($last_one->getDayOfDeath() - 1) : ($last_one->getDayOfDeath() + 1);
+            $DoD = $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack ? ($last_one->getDayOfDeath() - 1) : $last_one->getDayOfDeath();
             if ($DoD >= ($town->getDay() - $limit))
                 return false;
 

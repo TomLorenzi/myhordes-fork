@@ -621,10 +621,13 @@
                         </div>
                         <br />
                         {% endif %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <button id="dropall">{{ 'Alle Gegenstände aller Bürger ablegen'|trans({},'admin') }}</button>
+                        {% endif %}
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
-                        <div id="forum-content">
-                        </div>
+                        <div id="forum-content"></div>
+
                     </div>
                 </div>
             </div>
@@ -922,6 +925,13 @@
             });
 
             {% if is_granted("ROLE_ADMIN") %}
+                document.getElementById('dropall').addEventListener('click', e => {
+                    if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        fun_api_call('{{ url('admin_town_manage', {action: 'dropall', id: town.id}) }}',document.getElementById('dropall'));
+                });
+            {% endif %}
+
+            {% if is_granted("ROLE_ADMIN") %}
             let items = document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]');
             for (let i = 0; i < items.length; i++)
                 items[i].addEventListener('click', function(ev) {
@@ -1028,7 +1038,7 @@
                                     }
                                 );
                             });
-
+                        document.querySelectorAll("#zone_floor .item div.tooltip").forEach( elem => $.html.handleTooltip( elem ));
                         document.getElementById("zone_digs").value = data.zone_digs;
                         document.getElementById("ruin_digs").value = data.ruin_digs;
                         document.getElementById("ruin_bury").value = data.ruin_bury;

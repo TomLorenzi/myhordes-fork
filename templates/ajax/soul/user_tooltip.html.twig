@@ -92,12 +92,22 @@
                 {% endif %}
             </div>
             <div class="cell rw-8 row user-infos">
-                {% if crow and dummy %}
-                    <div class="rw-12">{{ 'Ich beobachte euch...'|trans({},'game') }}</div>
-                {% elseif not dummy %}
-                    <div class="rw-12">{% if user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_MALE") %}<img src="{{ asset('build/images/icons/male.png') }}" alt="{{ 'Männlich'|trans({},'global') }}" />{% elseif user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_FEMALE") %}<img src="{{ asset('build/images/icons/female.png') }}" alt="{{ 'Weiblich'|trans({},'global') }}" />{% else %}--{% endif %}</div>
-                    <div class="rw-12">{% if user.language is null %}--{% else %}<img src="{{ asset("build/images/lang/" ~ user.language ~ ".png") }}" alt="{{ user.language }}" />{% endif %}</div>
-                {% endif %}
+                <div class="row-flex v-center gap">
+                    {% if crow and dummy %}
+                        <div class="cell rw-12">{{ 'Ich beobachte euch...'|trans({},'game') }}</div>
+                    {% elseif not dummy %}
+                        {% if user.flag is not null %}
+                            <div class="cell"><div class="user-flag small"><img alt="{{ user.flag }}" src="{{ asset('build/images/lang/any/' ~ user.flag ~ '.svg' ) }}"/></div></div>
+                        {% elseif user.language is not null %}
+                            <div class="cell"><img src="{{ asset("build/images/lang/" ~ user.language ~ ".png") }}" alt="{{ user.language }}" /></div>
+                        {% endif %}
+                        {% if user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_MALE") %}
+                            <div class="cell"><img src="{{ asset('build/images/icons/male.png') }}" alt="{{ 'Männlich'|trans({},'global') }}" /></div>
+                        {% elseif user.preferredPronoun == constant("\\App\\Entity\\User::PRONOUN_FEMALE") %}
+                            <div class="cell"><img src="{{ asset('build/images/icons/female.png') }}" alt="{{ 'Weiblich'|trans({},'global') }}" /></div>
+                        {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
         {% if not userDesc is null and userDesc != "" %}

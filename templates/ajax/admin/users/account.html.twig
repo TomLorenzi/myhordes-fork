@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{% trans from 'admin' %}Account{% endtrans %}{%  endblock %}
+{% block title %}{% trans from 'admin' %}Account{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
@@ -59,6 +59,7 @@
                                             {% if user.noAutomaticNameManagement %}
                                                 <option value="{{ url('admin_users_account_manage', {action: 'name_auto', id: user.id}) }}" x-confirm="AUTO_NAME">{{ 'Automatische Verwaltung des Spielernamens wiederherstellen'|trans({},'admin') }}</option>
                                             {% endif %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'forget_name_history', id: user.id}) }}" x-confirm="FORGET NAME HISTORY">{{ 'Liste vergangener Namen löschen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         <option value="{{ url('admin_users_account_manage', {action: 'rename_pseudo', id: user.id}) }}" x-confirm="RENAME PSEUDO" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Anzeigenamen ändern'|trans({},'admin') }}</option>
                                         {% if user.displayName %}
@@ -138,6 +139,7 @@
                                         {% if app.environment == 'dev' %}
                                             <optgroup label="Debug">
                                                 <option value="{{ url('admin_users_account_manage', {action: 'dbg_herodays', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Heldentage setzen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_users_account_manage', {action: 'dbg_soulpoints', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Seelenpunkte setzen'|trans({},'admin') }}</option>
                                             </optgroup>
                                         {% endif %}
                                     {% endif %}

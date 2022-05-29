@@ -246,5 +246,6 @@ parameters:
       open_town_limit: 2
       open_town_grace: 40
       lock_door_until_full: true
-      give_all_pictos: false
-      give_soulpoints: false
+      features:
+        give_all_pictos: false
+        give_soulpoints: false

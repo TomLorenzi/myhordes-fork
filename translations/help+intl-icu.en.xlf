@@ -8629,5 +8629,15 @@ To contact the server administrators, write a message to the <a x-group-connect=
         <target><![CDATA[Equipped items are stored in your <strong>backpack</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="YoDh.OZ" name="Die Hilfe durchsuchen">
+      <notes>
+        <note category="german">Die Hilfe durchsuchen</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Hilfe durchsuchen</source>
+        <target>Search the Help</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

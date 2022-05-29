@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{% trans from 'admin' %}Sozial{% endtrans %}{%  endblock %}
+{% block title %}{% trans from 'admin' %}Sozial{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
