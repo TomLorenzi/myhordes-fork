@@ -4300,7 +4300,7 @@
       </notes>
       <segment>
         <source>Schon gewusst?</source>
-        <target>Schon gewusst?</target>
+        <target>¿Sabías que?</target>
       </segment>
     </unit>
     <unit id="QC.do8z" name="Umfrage starten">
@@ -4311,7 +4311,7 @@
       </notes>
       <segment>
         <source>Umfrage starten</source>
-        <target>Umfrage starten</target>
+        <target>Iniciar encuesta</target>
       </segment>
     </unit>
   </file>
