@@ -4756,22 +4756,22 @@
       <notes>
         <note category="german">Spracheinstellung verwenden</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Spracheinstellung verwenden</source>
-        <target>Spracheinstellung verwenden</target>
+        <target>Usar la del idioma seleccionado</target>
       </segment>
     </unit>
     <unit id="rqhI1oG" name="Deine Flagge">
       <notes>
         <note category="german">Deine Flagge</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine Flagge</source>
-        <target>Deine Flagge</target>
+        <target>Elige tu bandera</target>
       </segment>
     </unit>
     <unit id="gQDPOVU" name="Diese Stadt hat folgende Einschränkungen:">
