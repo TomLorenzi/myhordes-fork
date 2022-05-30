@@ -98,7 +98,7 @@
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
-        <target>¿Terminar con la vida de este habitante inmediatamente?</target>
+        <target>¿Estás seguro/a de matar a este habitante?</target>
       </segment>
     </unit>
     <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
@@ -2676,7 +2676,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Comunicación interna al pueblo</target>
+        <target>Comunicación dentro del pueblo</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2686,7 +2686,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Comunicarse fuera de las ciudades (PMs)</target>
+        <target>Comunicación fuera del pueblo (Mensajes Privados)</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2706,7 +2706,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Organisación en grupo</target>
+        <target>Organización en grupo</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
@@ -4879,22 +4879,22 @@
       <notes>
         <note category="german">Leber fressen</note>
         <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Leber fressen</source>
-        <target>Leber fressen</target>
+        <target>Arrancarle el hígado</target>
       </segment>
     </unit>
     <unit id="6kFAjXk" name="maskiert {playername}">
       <notes>
         <note category="german">maskiert {playername}</note>
         <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>maskiert {playername}</source>
-        <target>maskiert {playername}</target>
+        <target>Enmascarando a {playername}</target>
       </segment>
     </unit>
     <unit id="frwRQ0F" name="Seelenpunkte setzen">
@@ -4911,407 +4911,407 @@
       <notes>
         <note category="german">Alle Gegenstände aller Bürger ablegen</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Alle Gegenstände aller Bürger ablegen</source>
-        <target>Alle Gegenstände aller Bürger ablegen</target>
+        <target>Soltar TODOS los objetos de TODOS los habitantes</target>
       </segment>
     </unit>
     <unit id="qtaAXm5" name="Auszeichnungen wiederherstellen">
       <notes>
         <note category="german">Auszeichnungen wiederherstellen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Auszeichnungen wiederherstellen</source>
-        <target>Auszeichnungen wiederherstellen</target>
+        <target>Restaurar distinciones</target>
       </segment>
     </unit>
     <unit id="rzaAoA6" name="Auszeichnungen aller Einwohner dieser Stadt löschen">
       <notes>
         <note category="german">Auszeichnungen aller Einwohner dieser Stadt löschen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Auszeichnungen aller Einwohner dieser Stadt löschen</source>
-        <target>Auszeichnungen aller Einwohner dieser Stadt löschen</target>
+        <target>No otorgar distinciones en este pueblo</target>
       </segment>
     </unit>
     <unit id="WqdvJmx" name="Seelenpunkte wiederherstellen">
       <notes>
         <note category="german">Seelenpunkte wiederherstellen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkte wiederherstellen</source>
-        <target>Seelenpunkte wiederherstellen</target>
+        <target>Restaurar Puntos de Alma</target>
       </segment>
     </unit>
     <unit id="p_4sZnN" name="Seelenpunkte aller Einwohner dieser Stadt löschen">
       <notes>
         <note category="german">Seelenpunkte aller Einwohner dieser Stadt löschen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkte aller Einwohner dieser Stadt löschen</source>
-        <target>Seelenpunkte aller Einwohner dieser Stadt löschen</target>
+        <target>No otorgar puntos de alma en este pueblo</target>
       </segment>
     </unit>
     <unit id="dMSxQKT" name="Alle Sanktionen entfernen">
       <notes>
         <note category="german">Alle Sanktionen entfernen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Alle Sanktionen entfernen</source>
-        <target>Alle Sanktionen entfernen</target>
+        <target>Eliminar todas las sanciones</target>
       </segment>
     </unit>
     <unit id="OSDitIr" name="Stadt nicht in der Seele listen">
       <notes>
         <note category="german">Stadt nicht in der Seele listen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Stadt nicht in der Seele listen</source>
-        <target>Stadt nicht in der Seele listen</target>
+        <target>Excluir este pueblo del historial del alma</target>
       </segment>
     </unit>
     <unit id="0qROaTY" name="Seelenpunkte dieses Bürgers entfernen">
       <notes>
         <note category="german">Seelenpunkte dieses Bürgers entfernen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkte dieses Bürgers entfernen</source>
-        <target>Seelenpunkte dieses Bürgers entfernen</target>
+        <target>No otorgar puntos de alma a este habitante</target>
       </segment>
     </unit>
     <unit id="2UIa_nW" name="Ranking für diesen Bürger wiederherstellen">
       <notes>
         <note category="german">Ranking für diesen Bürger wiederherstellen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ranking für diesen Bürger wiederherstellen</source>
-        <target>Ranking für diesen Bürger wiederherstellen</target>
+        <target>Poner a este habitante nuevamente en la clasificación</target>
       </segment>
     </unit>
     <unit id="YYl_8gg" name="Bürger aus dem Ranking entfernen">
       <notes>
         <note category="german">Bürger aus dem Ranking entfernen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Bürger aus dem Ranking entfernen</source>
-        <target>Bürger aus dem Ranking entfernen</target>
+        <target>Eliminar a este habitante de la clasificación</target>
       </segment>
     </unit>
     <unit id="Rh2vAO6" name="Auszeichnungen dieses Bürgers entfernen">
       <notes>
         <note category="german">Auszeichnungen dieses Bürgers entfernen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Auszeichnungen dieses Bürgers entfernen</source>
-        <target>Auszeichnungen dieses Bürgers entfernen</target>
+        <target>No otorgar distinciones a este habitante</target>
       </segment>
     </unit>
     <unit id="5hVSTeI" name="Seelenpunkte für diesen Bürger wiederherstellen">
       <notes>
         <note category="german">Seelenpunkte für diesen Bürger wiederherstellen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkte für diesen Bürger wiederherstellen</source>
-        <target>Seelenpunkte für diesen Bürger wiederherstellen</target>
+        <target>Restaurar los puntos de alma otorgados a este habitante</target>
       </segment>
     </unit>
     <unit id="X83LtBA" name="Auszeichnungen für diesen Bürger wiederherstellen">
       <notes>
         <note category="german">Auszeichnungen für diesen Bürger wiederherstellen</note>
         <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Auszeichnungen für diesen Bürger wiederherstellen</source>
-        <target>Auszeichnungen für diesen Bürger wiederherstellen</target>
+        <target>Restaurar las distinciones otorgadas a este habitante</target>
       </segment>
     </unit>
     <unit id="EmNMRly" name="Eine neue Umfrage anlegen">
       <notes>
         <note category="german">Eine neue Umfrage anlegen</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Eine neue Umfrage anlegen</source>
-        <target>Eine neue Umfrage anlegen</target>
+        <target>Crear una nueva encuesta</target>
       </segment>
     </unit>
     <unit id="TJM._OL" name="Editoreinstellungen">
       <notes>
         <note category="german">Editoreinstellungen</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Editoreinstellungen</source>
-        <target>Editoreinstellungen</target>
+        <target>Ajustes de edición</target>
       </segment>
     </unit>
     <unit id="J4eXZqD" name="Aktuelle Bearbeitungssprache">
       <notes>
         <note category="german">Aktuelle Bearbeitungssprache</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Aktuelle Bearbeitungssprache</source>
-        <target>Aktuelle Bearbeitungssprache</target>
+        <target>Idioma editado actualmente</target>
       </segment>
     </unit>
     <unit id="Pq9RXOp">
       <notes>
         <note category="german">Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.</source>
-        <target>Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.</target>
+        <target>Esta configuración controla qué opciones estarán disponibles. Independientemente de esto, las encuestas se crean en todos los idiomas, por lo que se deben llenar todos los campos en todos los idiomas.</target>
       </segment>
     </unit>
     <unit id="cq0sAFY" name="Umfragedaten">
       <notes>
         <note category="german">Umfragedaten</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfragedaten</source>
-        <target>Umfragedaten</target>
+        <target>Datos de la encuesta</target>
       </segment>
     </unit>
     <unit id="sWhZJcY" name="Titel der Umfrage">
       <notes>
         <note category="german">Titel der Umfrage</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Titel der Umfrage</source>
-        <target>Titel der Umfrage</target>
+        <target>Título de la encuesta</target>
       </segment>
     </unit>
     <unit id="kEqiJtm" name="Start der Umfrage">
       <notes>
         <note category="german">Start der Umfrage</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Start der Umfrage</source>
-        <target>Start der Umfrage</target>
+        <target>Fecha de inicio</target>
       </segment>
     </unit>
     <unit id="VOrW5W." name="Ende der Umfrage">
       <notes>
         <note category="german">Ende der Umfrage</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ende der Umfrage</source>
-        <target>Ende der Umfrage</target>
+        <target>Fecha de finalización</target>
       </segment>
     </unit>
     <unit id="Gae8fJJ" name="Vorläufige Ergebnisse anzeigen">
       <notes>
         <note category="german">Vorläufige Ergebnisse anzeigen</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Vorläufige Ergebnisse anzeigen</source>
-        <target>Vorläufige Ergebnisse anzeigen</target>
+        <target>Mostrar resultados preliminares</target>
       </segment>
     </unit>
     <unit id="A3H_WPL" name="Kurzbeschreibung">
       <notes>
         <note category="german">Kurzbeschreibung</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Kurzbeschreibung</source>
-        <target>Kurzbeschreibung</target>
+        <target>Descripción breve</target>
       </segment>
     </unit>
     <unit id="OJaibnh" name="Beschreibung der Umfrage">
       <notes>
         <note category="german">Beschreibung der Umfrage</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Beschreibung der Umfrage</source>
-        <target>Beschreibung der Umfrage</target>
+        <target>Descripción completa</target>
       </segment>
     </unit>
     <unit id="Et.Ao0w" name="Antworten">
       <notes>
         <note category="german">Antworten</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Antworten</source>
-        <target>Antworten</target>
+        <target>Respuestas</target>
       </segment>
     </unit>
     <unit id="KWE68ZM" name="Antwortstext">
       <notes>
         <note category="german">Antwortstext</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Antwortstext</source>
-        <target>Antwortstext</target>
+        <target>Texto de respuesta</target>
       </segment>
     </unit>
     <unit id="6FsF5Ju" name="Antwort hinzufügen">
       <notes>
         <note category="german">Antwort hinzufügen</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Antwort hinzufügen</source>
-        <target>Antwort hinzufügen</target>
+        <target>Añadir respuesta</target>
       </segment>
     </unit>
     <unit id="5NZ.yvs" name="Bearbeitung abschließen">
       <notes>
         <note category="german">Bearbeitung abschließen</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Bearbeitung abschließen</source>
-        <target>Bearbeitung abschließen</target>
+        <target>Finalizar edición</target>
       </segment>
     </unit>
     <unit id="h.RALSw" name="Umfrage erstellen">
       <notes>
         <note category="german">Umfrage erstellen</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfrage erstellen</source>
-        <target>Umfrage erstellen</target>
+        <target>Crear encuesta</target>
       </segment>
     </unit>
     <unit id="ZfGvbH9" name="Für das Feld &quot;{field}&quot; fehlen Eingaben in folgenden Sprachen: {langs}.">
       <notes>
         <note category="german">Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.</source>
-        <target>Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.</target>
+        <target>El campo "{field}" no tiene texto para el (los) siguiente(s) idioma(s): {langs}.</target>
       </segment>
     </unit>
     <unit id="i39tmwm" name="Es müssen mindestens zwei Antworten hinzugefügt werden.">
       <notes>
         <note category="german">Es müssen mindestens zwei Antworten hinzugefügt werden.</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Es müssen mindestens zwei Antworten hinzugefügt werden.</source>
-        <target>Es müssen mindestens zwei Antworten hinzugefügt werden.</target>
+        <target>Debes añadir al menos dos opciones de respuesta.</target>
       </segment>
     </unit>
     <unit id="RWk8kWb" name="Ergebnisse filtern">
       <notes>
         <note category="german">Ergebnisse filtern</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ergebnisse filtern</source>
-        <target>Ergebnisse filtern</target>
+        <target>Filtrar resultados</target>
       </segment>
     </unit>
     <unit id="zCwSrea" name="Kein Filter">
       <notes>
         <note category="german">Kein Filter</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Kein Filter</source>
-        <target>Kein Filter</target>
+        <target>Sin filtros</target>
       </segment>
     </unit>
     <unit id="T6lHx3R" name="Umfrage jetzt beginnen">
       <notes>
         <note category="german">Umfrage jetzt beginnen</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfrage jetzt beginnen</source>
-        <target>Umfrage jetzt beginnen</target>
+        <target>Iniciar encuesta ahora</target>
       </segment>
     </unit>
     <unit id="DeA2l8e" name="Umfrage jetzt beenden">
       <notes>
         <note category="german">Umfrage jetzt beenden</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfrage jetzt beenden</source>
-        <target>Umfrage jetzt beenden</target>
+        <target>Finalizar encuesta ahora</target>
       </segment>
     </unit>
     <unit id="ncYHSt8" name="Umfrage löschen">
       <notes>
         <note category="german">Umfrage löschen</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfrage löschen</source>
-        <target>Umfrage löschen</target>
+        <target>Eliminar encuesta</target>
       </segment>
     </unit>
     <unit id="elZ0zxc" name="Liste vergangener Namen löschen">
       <notes>
         <note category="german">Liste vergangener Namen löschen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Liste vergangener Namen löschen</source>
-        <target>Liste vergangener Namen löschen</target>
+        <target>Eliminar historial de nombres de usuario</target>
       </segment>
     </unit>
   </file>
