@@ -4296,7 +4296,6 @@
       <notes>
         <note category="german">Schon gewusst?</note>
         <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Schon gewusst?</source>
@@ -4307,7 +4306,6 @@
       <notes>
         <note category="german">Umfrage starten</note>
         <note category="from">twig:///templates/ajax/ajax.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Umfrage starten</source>

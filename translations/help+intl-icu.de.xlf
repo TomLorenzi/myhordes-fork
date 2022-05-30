@@ -93,7 +93,7 @@
     </unit>
     <unit id="8Ld23ql" name="Wildes Campen">
       <notes>
-        <note category="from">twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/seo/help.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
         <source>Wildes Campen</source>
@@ -327,7 +327,7 @@
     </unit>
     <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
       <notes>
-        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/seo/help.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
         <source>Der Angriff der Zombiehorde</source>

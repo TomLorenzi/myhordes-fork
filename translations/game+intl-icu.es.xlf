@@ -23209,7 +23209,6 @@
       <notes>
         <note category="german">Anzahl der Tage, die du als Einwohner gespielt hast.</note>
         <note category="from">db://PictoPrototype</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>

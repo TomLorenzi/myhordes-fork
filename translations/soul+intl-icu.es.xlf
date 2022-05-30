@@ -4943,7 +4943,6 @@
       <notes>
         <note category="german">Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</source>
