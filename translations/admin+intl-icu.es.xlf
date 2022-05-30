@@ -5307,11 +5307,11 @@
       <notes>
         <note category="german">Liste vergangener Namen löschen</note>
         <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Liste vergangener Namen löschen</source>
-        <target>Liste vergangener Namen löschen</target>
+        <target>Eliminar historial de nombres de usuario</target>
       </segment>
     </unit>
   </file>
