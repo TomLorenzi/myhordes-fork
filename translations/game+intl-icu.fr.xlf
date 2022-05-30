@@ -5051,7 +5051,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>Vous avez été banni et ne pouvez donc plus utiliser le Dépotoir.</target>
+        <target>Vous avez été banni et ne pouvez donc plus utiliser la décharge.</target>
       </segment>
     </unit>
     <unit id="JcE4rCF" name="Gesamt: {def}">
