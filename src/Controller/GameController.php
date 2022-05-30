@@ -96,12 +96,15 @@ class GameController extends CustomAbstractController
 
         if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
 
-        return $this->render( 'ajax/game/log_content.html.twig', [
-            'day' => $day,
-            'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
-            'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
-        ] );
+        $args = $this->addDefaultTwigArgs(null, [
+                'day' => $day,
+                'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
+                'entries' => $entries,
+                'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
+            ]
+        );
+
+        return $this->render( 'ajax/game/log_content.html.twig', $args);
     }
 
     /**
@@ -268,13 +271,16 @@ class GameController extends CustomAbstractController
             if(!in_array($job->getName(), $disabledJobs))
                 $selectablesJobs[] = $job;
         }
+
+        $args = $this->addDefaultTwigArgs(null, [
+                'professions' => $selectablesJobs,
+                'prof_count' => $prof_count,
+                'town' => $town,
+                'conf' => $this->getTownConf()
+            ]
+        );
         
-        return $this->render( 'ajax/game/jobs.html.twig', [
-            'professions' => $selectablesJobs,
-            'prof_count' => $prof_count,
-            'town' => $town,
-            'conf' => $this->getTownConf()
-        ] );
+        return $this->render( 'ajax/game/jobs.html.twig', $args);
     }
 
     const ErrorJobAlreadySelected = ErrorHelper::BaseJobErrors + 1;

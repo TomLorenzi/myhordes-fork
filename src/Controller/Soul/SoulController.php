@@ -1560,14 +1560,14 @@ class SoulController extends CustomAbstractController
         }
 
 
-        return $this->render( 'ajax/soul/death.html.twig', [
+        return $this->render( 'ajax/soul/death.html.twig', $this->addDefaultTwigArgs(null, [
             'citizen' => $nextDeath,
             'sp' => $nextDeath->getPoints(),
             'day' => $nextDeath->getDay(),
             'pictos' => $pictosWonDuringTown,
             'gazette' => $canSeeGazette,
             'denied_pictos' => $pictosNotWonDuringTown
-        ] );
+        ]) );
     }
 
     /**
