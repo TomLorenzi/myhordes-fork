@@ -4851,121 +4851,121 @@
       <notes>
         <note category="german">Umfragen</note>
         <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfragen</source>
-        <target>Umfragen</target>
+        <target>Sondages</target>
       </segment>
     </unit>
     <unit id="99lPVVk">
       <notes>
         <note category="german">Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</note>
         <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</source>
-        <target>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</target>
+        <target>Afin de fixer le cap pour le développement de MyHordes, nous menons régulièrement des enquêtes auprès de tous les joueurs. Cliquez sur le bouton ci-dessous pour accéder à un aperçu de tous les sondages actuels et passés.</target>
       </segment>
     </unit>
     <unit id="0Qotq.l" name="Zu den Umfragen">
       <notes>
         <note category="german">Zu den Umfragen</note>
         <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Zu den Umfragen</source>
-        <target>Zu den Umfragen</target>
+        <target>Afficher les sondages</target>
       </segment>
     </unit>
     <unit id="qnZpV0q" name="Umfrage beendet am {date}.">
       <notes>
         <note category="german">Umfrage beendet am {date}.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfrage beendet am {date}.</source>
-        <target>Umfrage beendet am {date}.</target>
+        <target>Le sondage s'est terminé le {date}.</target>
       </segment>
     </unit>
     <unit id="ryVfUf9" name="Umfrage beginnt am {date} und endet am {date2}.">
       <notes>
         <note category="german">Umfrage beginnt am {date} und endet am {date2}.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfrage beginnt am {date} und endet am {date2}.</source>
-        <target>Umfrage beginnt am {date} und endet am {date2}.</target>
+        <target>Le sondage commencera le {date} et se terminera le {date2}.</target>
       </segment>
     </unit>
     <unit id=".TZbZN8" name="Umfrage endet am {date}.">
       <notes>
         <note category="german">Umfrage endet am {date}.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Umfrage endet am {date}.</source>
-        <target>Umfrage endet am {date}.</target>
+        <target>L’enquête se terminera le {date}.</target>
       </segment>
     </unit>
     <unit id="KKN_8Zz" name="Hier findet ihr alle vorangegangenen Umfragen:">
       <notes>
         <note category="german">Hier findet ihr alle vorangegangenen Umfragen:</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Hier findet ihr alle vorangegangenen Umfragen:</source>
-        <target>Hier findet ihr alle vorangegangenen Umfragen:</target>
+        <target>Vous pouvez trouver tous les sondages précédents ici :</target>
       </segment>
     </unit>
     <unit id="j8qBKgG" name="Diese Umfrage hat noch nicht begonnen.">
       <notes>
         <note category="german">Diese Umfrage hat noch nicht begonnen.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Diese Umfrage hat noch nicht begonnen.</source>
-        <target>Diese Umfrage hat noch nicht begonnen.</target>
+        <target>Ce sondage n’a pas encore commencé.</target>
       </segment>
     </unit>
     <unit id="39o9ij2" name="Du hast an dieser Umfrage teilgenommen. Vielen Dank!">
       <notes>
         <note category="german">Du hast an dieser Umfrage teilgenommen. Vielen Dank!</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</source>
-        <target>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</target>
+        <target>Vous avez déjà participé à ce sondage. Merci !</target>
       </segment>
     </unit>
     <unit id="K_LCVfF" name="Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.">
       <notes>
         <note category="german">Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</source>
-        <target>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</target>
+        <target>Quand le sondage sera terminé, les résultats seront affichés.</target>
       </segment>
     </unit>
     <unit id="hTjUC92">
       <notes>
         <note category="german">Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</source>
-        <target>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</target>
+        <target>Les résultats de ce sondage ne sont pas visibles pour les joueurs normaux jusqu’à ce qu’il se termine. Puisque vous êtes un oracle, vous pouvez voir les résultats intermédiaires.</target>
       </segment>
     </unit>
   </file>

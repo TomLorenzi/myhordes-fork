@@ -5051,7 +5051,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>Vous avez été banni et ne pouvez donc plus utiliser le Dépotoir.</target>
+        <target>Vous avez été banni et ne pouvez donc plus utiliser la décharge.</target>
       </segment>
     </unit>
     <unit id="JcE4rCF" name="Gesamt: {def}">
@@ -23207,6 +23207,17 @@ cette violente opération...]]></target>
       <segment>
         <source>im Wahlbüro abzustimmen</source>
         <target>de voter au bureau électoral</target>
+      </segment>
+    </unit>
+    <unit id="EIB6zP8" name="Anzahl der Tage, die du als Einwohner gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Einwohner gespielt hast.</note>
+        <note category="from">db://PictoPrototype</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
+        <target>Jours passés en tant qu'Habitant.</target>
       </segment>
     </unit>
   </file>

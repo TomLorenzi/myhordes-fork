@@ -23205,5 +23205,16 @@
         <target>Votar por tu candidato</target>
       </segment>
     </unit>
+    <unit id="EIB6zP8" name="Anzahl der Tage, die du als Einwohner gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Einwohner gespielt hast.</note>
+        <note category="from">db://PictoPrototype</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
+        <target>Días pasados ​​como un simple habitante.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
