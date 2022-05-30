@@ -23213,11 +23213,11 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Anzahl der Tage, die du als Einwohner gespielt hast.</note>
         <note category="from">db://PictoPrototype</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Einwohner gespielt hast.</target>
+        <target>Jours passés en tant qu'Habitant.</target>
       </segment>
     </unit>
   </file>
