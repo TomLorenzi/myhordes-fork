@@ -232,6 +232,7 @@ class AdminHandler
 
     /**
      * @param \FTP\Connection $ftp_conn
+     * @param string $base_path
      * @param string|string[] $extensions
      * @return array[]
      */
@@ -256,6 +257,42 @@ class AdminHandler
                     $result[] = $ftpFile;
                 }
             }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param $conn
+     * @param string $base_path
+     * @param string|string[] $extensions
+     * @return array[]
+     */
+    public function list_sftp_files($conn, string $base_path, array|string $extensions ): array {
+        if (!is_array($extensions)) $extensions = [$extensions];
+
+        $result = [];
+
+        $paths = [$base_path];
+        while (!empty($paths)) {
+            $path = array_pop($paths);
+
+            $sftp_fd = intval(ssh2_sftp($conn));
+            $handle = opendir("ssh2.sftp://$sftp_fd$path");
+
+            while (false != ($entry = readdir($handle))){
+                if (in_array($entry, ['.', '..'])) continue;
+                if (!str_contains($entry, '.')) continue; // No dot, then no extension
+
+                $details = explode('.', $entry);
+                $ext = $details[count($details) - 1];
+
+                // Not an SQL dump, ignore it
+                if (in_array( strtolower($ext), $extensions)) {
+                    $result[] = $path . '/' . $entry;
+                }
+            }
+            closedir($handle);
         }
 
         return $result;
@@ -299,7 +336,8 @@ class AdminHandler
         };
 
         $backup_files = [];
-        foreach ($storages as $name => $storage) {
+	foreach ($storages as $name => $storage) {
+            if (!$storage['enabled']) continue;
             switch($storage['type']) {
                 case "local":
                     $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $storage['path']);
@@ -313,7 +351,7 @@ class AdminHandler
                     ], $files));
                     break;
                 case "ftp":
-                    $ftp_conn = $this->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);;
+                    $ftp_conn = $this->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);
                     if (!$ftp_conn) break;
                     $files = $this->list_ftp_files($ftp_conn, $storage['path'], ['sql','xz','gzip','bz2']);
                     $backup_files = array_merge($backup_files, array_map( fn($e) => [
@@ -326,6 +364,18 @@ class AdminHandler
                     ftp_close($ftp_conn);
                     break;
                 case "sftp":
+                    $conn = $this->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
+                    if (!$conn) break;
+                    $files = $this->list_sftp_files($conn, $storage['path'], ['sql','xz','gzip','bz2']);
+                    $backup_files = array_merge($backup_files, array_map( fn($e) => [
+                        'info' => $e,
+                        'rel' => "ftp://{$storage['host']}{$storage['path']}/{$e['name']}",
+                        'time' => new DateTime(),
+                        'access' => str_replace(['/','\\'], '::', "{$storage['type']}#{$name}#{$storage['path']}::{$e['name']}"),
+                        'tags' => $extract_backup_types($e['name'], explode('.', $e['name'])[count(explode('.', $e['name'])) - 1], $storage['type'])
+                    ], $files));
+
+                    ssh2_disconnect($conn);
                     break;
             }
         }
@@ -384,5 +434,17 @@ class AdminHandler
             ftp_pasv($ftp_conn, true);
 
         return $ftp_conn;
+    }
+
+    public function connectToSftp($host, $port, $user, $pass)
+    {
+        $connection = ssh2_connect($host,$port);
+        if (!$connection) return false;
+
+        if(!ssh2_auth_password($connection, $user, $pass)) {
+            ssh2_disconnect($connection);
+            return false;
+        }
+        return $connection;
     }
 }

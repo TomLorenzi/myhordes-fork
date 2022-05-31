@@ -14,6 +14,7 @@
         "ext-simplexml": "*",
         "ext-curl": "*",
         "ext-ftp": "*",
+        "ext-ssh2": "*",
         "brainbox-et/etwin-api-client": "^0.1.1",
         "clue/graph": "^0.9.1",
         "doctrine/annotations": "^1.0",

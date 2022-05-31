@@ -282,11 +282,7 @@ class AdminFileSystemController extends AdminActionController
                 $storage = $conf[$name];
                 $ftp_conn = $this->adminHandler->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);
 
-                $fileinfos = explode("/", $path);
-                $localpath = "{$params->get('kernel.project_dir')}/var/backup/" . $fileinfos[count($fileinfos) - 1];
-
                 ftp_delete($ftp_conn, $path);
-
                 ftp_close($ftp_conn);
                 break;
             case "sftp":
