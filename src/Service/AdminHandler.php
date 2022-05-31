@@ -230,15 +230,53 @@ class AdminHandler
         return $result;
     }
 
+    /**
+     * @param \FTP\Connection $ftp_conn
+     * @param string|string[] $extensions
+     * @return array[]
+     */
+    public function list_ftp_files(\FTP\Connection $ftp_conn, string $base_path, array|string $extensions ): array {
+        if (!is_array($extensions)) $extensions = [$extensions];
+
+        $result = [];
+
+        $paths = [$base_path];
+        while (!empty($paths)) {
+            $path = array_pop($paths);
+
+            $ftpFiles = ftp_mlsd($ftp_conn, $base_path);
+
+            foreach ($ftpFiles as $ftpFile){
+                if (in_array($ftpFile['type'], ['cdir', 'pdir', 'dir'])) continue;
+                if (!str_contains($ftpFile['name'], '.')) continue; // No dot, then no extension
+
+                $details = explode('.', $ftpFile['name']);
+                $ext = $details[count($details) - 1];
+                if (in_array( strtolower($ext), $extensions)) {
+                    $result[] = $ftpFile;
+                }
+            }
+        }
+
+        return $result;
+    }
+
     public function getDbDumps(): array {
         $storages = $this->conf->getData()['backup']['storages'];
 
         if (count($storages) == 0) return [];
 
-        $extract_backup_types = function(SplFileInfo $f) : array {
+        $extract_backup_types = function(string $filename, string $extension, string $storage) : array {
             $ret = [];
 
-            list($type) = explode( '.', array_pad( explode('_', $f->getFilename() ), 3, '')[2], 2);
+            list($type) = explode( '.', array_pad( explode('_', $filename ), 3, '')[2], 2);
+
+            $ret[] = match($storage) {
+                'local' => ['color' => "#008080", 'tag' => 'Local'],
+                'ftp' => ['color' => "#000080", 'tag' => 'FTP'],
+                'sftp' => ['color' => "#800080", 'tag' => 'SFTP'],
+            };
+
             $ret[] = match ($type) {
                 'nightly' => ['color' => '#0D090A', 'tag' => $this->translator->trans('Angriff', [], 'admin')],
                 'daily' => ['color' => '#361F27', 'tag' => $this->translator->trans('Täglich', [], 'admin')],
@@ -248,37 +286,49 @@ class AdminHandler
                 'manual' => ['color' => '#CD533B', 'tag' => $this->translator->trans('Manuell', [], 'admin')],
             };
 
-            $ret[] = match ($f->getExtension()) {
+            $ret[] = match ($extension) {
                 'sql' => ['color' => '#3E5641', 'tag' => $this->translator->trans('Nicht komprimiert', [], 'admin')],
                 'xz' => ['color' => '#40916C', 'tag' => 'XZ'],
                 'gzip' => ['color' => '#2D6A4F', 'tag' => 'GZIP'],
                 'bz2' => ['color' => '#1B4332', 'tag' => 'BZIP2'],
             };
 
+
+
             return $ret;
         };
 
-        $files = [];
-
-        foreach ($storages as $storage) {
+        $backup_files = [];
+        foreach ($storages as $name => $storage) {
             switch($storage['type']) {
                 case "local":
                     $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $storage['path']);
                     $files = $this->list_local_files( $targetPath, ['sql','xz','gzip','bz2'] );
+                    $backup_files = array_merge($backup_files, array_map( fn($e) => [
+                        'info' => $e,
+                        'rel' => $e->getRealPath(),
+                        'time' => (new \DateTime())->setTimestamp( $e->getCTime() ),
+                        'access' => str_replace(['/','\\'],'::', "{$storage['type']}#{$name}#" . $e->getRealPath()),
+                        'tags' => $extract_backup_types($e->getFilename(), $e->getExtension(), $storage['type'])
+                    ], $files));
                     break;
                 case "ftp":
+                    $ftp_conn = $this->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);;
+                    if (!$ftp_conn) break;
+                    $files = $this->list_ftp_files($ftp_conn, $storage['path'], ['sql','xz','gzip','bz2']);
+                    $backup_files = array_merge($backup_files, array_map( fn($e) => [
+                        'info' => $e,
+                        'rel' => "ftp://{$storage['host']}{$storage['path']}/{$e['name']}",
+                        'time' => DateTime::createFromFormat("YmdHis", $e['modify']),
+                        'access' => str_replace(['/','\\'], '::', "{$storage['type']}#{$name}#{$storage['path']}::{$e['name']}"),
+                        'tags' => $extract_backup_types($e['name'], explode('.', $e['name'])[count(explode('.', $e['name'])) - 1], $storage['type'])
+                    ], $files));
+                    ftp_close($ftp_conn);
                     break;
                 case "sftp":
                     break;
             }
         }
-        $backup_files = array_map( fn($e) => [
-            'info' => $e,
-            'rel' => $e->getRealPath(),
-            'time' => (new \DateTime())->setTimestamp( $e->getCTime() ),
-            'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
-            'tags' => $extract_backup_types($e)
-        ], $files);
 
         usort($backup_files, fn($a,$b) => $b['time'] <=> $a['time'] );
         return $backup_files;
@@ -321,5 +371,18 @@ class AdminHandler
         ], $this->list_local_files( $log_base_dir, 'log' ));
         usort($log_files, fn($a,$b) => $b['time'] <=> $a['time'] );
         return $log_files;
+    }
+
+    public function connectToFtp($host, $port, $user, $pass, $passive): \FTP\Connection|false {
+        $ftp_conn = ftp_connect($host, $port);
+        if (!@ftp_login($ftp_conn, $user, $pass)) {
+            ftp_close($ftp_conn);
+            return false;
+        }
+
+        if ($passive)
+            ftp_pasv($ftp_conn, true);
+
+        return $ftp_conn;
     }
 }
