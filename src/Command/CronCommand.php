@@ -37,7 +37,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
-use function PHPUnit\Framework\directoryExists;
 
 class CronCommand extends Command
 {
@@ -549,7 +548,7 @@ class CronCommand extends Command
             switch($config['type']) {
                 case "local":
                     $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $config['path']);
-                    if (!directoryExists($targetPath))
+                    if (!is_dir($targetPath))
                         if(mkdir($targetPath, 0700, true)) {
                             $output->writeln("Cannot create backup folder $targetPath !");
                             $success = false;
