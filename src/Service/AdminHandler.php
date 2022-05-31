@@ -364,7 +364,7 @@ class AdminHandler
                     ftp_close($ftp_conn);
                     break;
                 case "sftp":
-                    $conn = $this->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
+                    /*$conn = $this->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
                     if (!$conn) break;
                     $files = $this->list_sftp_files($conn, $storage['path'], ['sql','xz','gzip','bz2']);
                     $backup_files = array_merge($backup_files, array_map( fn($e) => [
@@ -375,7 +375,7 @@ class AdminHandler
                         'tags' => $extract_backup_types($e['name'], explode('.', $e['name'])[count(explode('.', $e['name'])) - 1], $storage['type'])
                     ], $files));
 
-                    ssh2_disconnect($conn);
+                    ssh2_disconnect($conn);*/
                     break;
             }
         }
