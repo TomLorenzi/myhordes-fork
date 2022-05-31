@@ -277,7 +277,7 @@ class AdminHandler
         while (!empty($paths)) {
             $path = array_pop($paths);
 
-            $sftp_fd = intval(ssh2_sftp($conn));
+            $sftp_fd = ssh2_sftp($conn);
             $handle = opendir("ssh2.sftp://$sftp_fd$path");
 
             while (false != ($entry = readdir($handle))){
@@ -289,7 +289,12 @@ class AdminHandler
 
                 // Not an SQL dump, ignore it
                 if (in_array( strtolower($ext), $extensions)) {
-                    $result[] = $path . '/' . $entry;
+                    $stat = ssh2_sftp_stat($sftp_fd, $path . "/" . $entry);
+                    $result[] = [
+                        'name' => $path . '/' . $entry,
+                        'size' => $stat['size'],
+                        'time' => $stat['atime']
+                    ];
                 }
             }
             closedir($handle);
@@ -330,8 +335,6 @@ class AdminHandler
                 'bz2' => ['color' => '#1B4332', 'tag' => 'BZIP2'],
             };
 
-
-
             return $ret;
         };
 
@@ -364,18 +367,18 @@ class AdminHandler
                     ftp_close($ftp_conn);
                     break;
                 case "sftp":
-                    /*$conn = $this->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
+                    $conn = $this->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
                     if (!$conn) break;
                     $files = $this->list_sftp_files($conn, $storage['path'], ['sql','xz','gzip','bz2']);
                     $backup_files = array_merge($backup_files, array_map( fn($e) => [
                         'info' => $e,
-                        'rel' => "ftp://{$storage['host']}{$storage['path']}/{$e['name']}",
-                        'time' => new DateTime(),
-                        'access' => str_replace(['/','\\'], '::', "{$storage['type']}#{$name}#{$storage['path']}::{$e['name']}"),
+                        'rel' => "sftp://{$storage['host']}{$e['name']}",
+                        'time' => (new \DateTime())->setTimestamp( $e['time'] ),
+                        'access' => str_replace(['/','\\'], '::', "{$storage['type']}#{$name}#{$e['name']}"),
                         'tags' => $extract_backup_types($e['name'], explode('.', $e['name'])[count(explode('.', $e['name'])) - 1], $storage['type'])
                     ], $files));
 
-                    ssh2_disconnect($conn);*/
+                    ssh2_disconnect($conn);
                     break;
             }
         }

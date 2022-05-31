@@ -204,7 +204,7 @@ class AdminFileSystemController extends AdminActionController
                 $ftp_conn = $this->adminHandler->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);
 
                 $fileinfos = explode("/", $path);
-                $localpath = "{$params->get('kernel.project_dir')}/var/backup/" . $fileinfos[count($fileinfos) - 1];
+                $localpath = "{$params->get('kernel.project_dir')}/var/tmp/" . $fileinfos[count($fileinfos) - 1];
 
                 $file = ftp_get($ftp_conn,$localpath, $path);
                 ftp_close($ftp_conn);
@@ -212,7 +212,16 @@ class AdminFileSystemController extends AdminActionController
                 $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$path}</debug> from <info>$type</info> storage <info>$name</info>");
                 return $this->file($localpath, $fileinfos[count($fileinfos) - 1], ResponseHeaderBag::DISPOSITION_ATTACHMENT);
             case "sftp":
-                throw new NotImplementedException();
+                $conn = $this->adminHandler->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
+
+                $fileinfos = explode("/", $path);
+                $localpath = "{$params->get('kernel.project_dir')}/var/tmp/" . $fileinfos[count($fileinfos) - 1];
+                ssh2_scp_recv($conn, $path, $localpath);
+
+                ssh2_disconnect($conn);
+
+                $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$path}</debug> from <info>$type</info> storage <info>$name</info>");
+                return $this->file($localpath, $fileinfos[count($fileinfos) - 1], ResponseHeaderBag::DISPOSITION_ATTACHMENT);
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
@@ -276,17 +285,17 @@ class AdminFileSystemController extends AdminActionController
 
                 break;
             case "ftp":
-                $conf = $this->conf->getGlobalConf()->getData()['backup']['storages'];
-                if(!isset($conf[$name])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-                $storage = $conf[$name];
                 $ftp_conn = $this->adminHandler->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);
 
                 ftp_delete($ftp_conn, $path);
                 ftp_close($ftp_conn);
                 break;
             case "sftp":
-                throw new NotImplementedException();
+                $conn = $this->adminHandler->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
+
+                ssh2_sftp_unlink(ssh2_sftp($conn), $path);
+                ssh2_disconnect($conn);
+                break;
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
