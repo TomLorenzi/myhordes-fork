@@ -871,7 +871,7 @@
                                 const node = '@' + elem.getAttribute('x-soul-name').replace(/\W+/,'') + ':' + elem.getAttribute('x-soul-id');
 
                                 node_transfer_source.value = before + node + after;
-                                node_transfer_source.setSelectionRange( node_transfer_source.value.length, node_transfer_source.value.length );
+                                node_transfer_source.setSelectionRange( before.length + node.length, before.length + node.length );
                                 node_transfer_source.focus();
                                 transfer_to_preview();
 
