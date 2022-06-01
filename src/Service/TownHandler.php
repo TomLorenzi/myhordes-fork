@@ -333,6 +333,27 @@ class TownHandler
     }
 
     /**
+     * Remove a building from the list of unlocked building
+     *
+     * @param Town $town The town we want to add a building to
+     * @param BuildingPrototype $prototype The prototype we want to add
+     * @return bool If the removal succeeded
+     */
+    public function removeBuilding( Town &$town, BuildingPrototype $prototype ): bool {
+
+        $building = $this->entity_manager->getRepository(Building::class)->findOneBy(['town' => $town, 'prototype' => $prototype]);
+        if($building){
+            $children = $prototype->getChildren();
+            foreach ($children as $child) {
+                $this->removeBuilding($town, $child);
+            }
+            $town->removeBuilding($building);
+        }
+
+        return true;
+    }
+
+    /**
      * Return the wanted building
      *
      * @param Town $town The town we're looking the building into
