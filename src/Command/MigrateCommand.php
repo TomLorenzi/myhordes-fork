@@ -730,11 +730,16 @@ class MigrateCommand extends Command
             }
 
             $users = $this->entity_manager->getRepository(User::class)->findAll();
-            $output->writeln("Recalculating Soul Points for <info>" . count($users) . "</info> users");
+            $output->writeln("Recalculating Soul Points and pictos for <info>" . count($users) . "</info> users");
             foreach ($users as $user) {
                 $this->entity_manager->persist($user
                     ->setSoulPoints($this->user_handler->fetchSoulPoints($user, false))
                     ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user)));
+
+                foreach ($user->getPastLifes() as $citizen) {
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($user, $citizen->getTown()) as $picto)
+                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+                }
             }
 
             $this->entity_manager->flush();
