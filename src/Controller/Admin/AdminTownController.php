@@ -1930,18 +1930,23 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        if (!$parser->has_all(['prototype_id'])) {
+        if (!$parser->has_all(['prototype_id', 'act'])) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
         $proto_id = $parser->get("prototype_id");
+        $act = $parser->get('act');
 
         $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($proto_id);
         if (!$proto)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $th->addBuilding($town, $proto);
-        $gps->recordBuildingDiscovered( $proto, $town, null, 'debug' );
+        if($act) {
+            $th->addBuilding($town, $proto);
+            $gps->recordBuildingDiscovered($proto, $town, null, 'debug');
+        } else {
+            $th->removeBuilding($town, $proto);
+        }
 
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();
