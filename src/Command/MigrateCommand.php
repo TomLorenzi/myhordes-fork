@@ -707,14 +707,35 @@ class MigrateCommand extends Command
         if ($input->getOption('assign-disable-flags')) {
             // A disabled citizen/town has in fact its Ranking disabled. Not its pictos / soul points
             $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($citizens) . "</info> citizens to update !");
             foreach ($citizens as $citizen) {
                 $flag = $citizen->getResetMarker() ? CitizenRankingProxy::DISABLE_ALL : CitizenRankingProxy::DISABLE_RANKING;
-                $this->entity_manager->persist($citizen->addDisableFlag($flag)->setDisabled(false));
+                $this->entity_manager->persist($citizen
+                    ->addDisableFlag($flag)
+                    ->setDisabled(false));
             }
             $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($towns) . "</info> towns to update !");
             foreach ($towns as $town) {
                 $this->entity_manager->persist($town->addDisableFlag(TownRankingProxy::DISABLE_RANKING)->setDisabled(false));
+                foreach ($town->getCitizens() as $citizen) {
+                    $this->entity_manager->persist($citizen->getUser()
+                        ->setSoulPoints($this->user_handler->fetchSoulPoints($citizen->getUser(), false))
+                        ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($citizen->getUser()))
+                    );
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town) as $picto)
+                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+                }
             }
+
+            $users = $this->entity_manager->getRepository(User::class)->findAll();
+            $output->writeln("Recalculating Soul Points for <info>" . count($users) . "</info> users");
+            foreach ($users as $user) {
+                $this->entity_manager->persist($user
+                    ->setSoulPoints($this->user_handler->fetchSoulPoints($user, false))
+                    ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user)));
+            }
+
             $this->entity_manager->flush();
         }
 
