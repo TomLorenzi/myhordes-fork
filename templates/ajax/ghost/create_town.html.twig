@@ -180,7 +180,7 @@
                         <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
                             <label for="rules">{{'Spezialregeln'|trans({}, 'ghost')}}</label>
                         </div>
-                        <div class="cell padded rw-9 rw-md-6 rw-sm-12">
+                        <div class="cell padded rw-3 rw-md-6 rw-sm-12">
                             <select id="rules" name="rules" multiple size="6" x-payload="rules">
                                 <option value="none" title="{{'Keine Spezialregeln'|trans({}, 'ghost')}}" selected>{{'Keine'|trans({}, 'ghost')}}</option>
                                 <option value="nobuilding" title="{{'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!'|trans({}, 'ghost')}}">{{'Keine Startgebäude'|trans({}, 'ghost')}}</option>
@@ -189,6 +189,9 @@
                                 <option value="with-toxin" title="{{'Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.'|trans({}, 'ghost')}}">{{'Toxin aktivieren'|trans({}, 'ghost')}}</option>
                                 <option value="hungry-ghouls" title="{{'Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.'|trans({}, 'ghost')}}">{{'Hungrige Ghule'|trans({}, 'ghost')}}</option>
                             </select>
+                        </div>
+                        <div class="cell padded rw-6 rw-md-12">
+                            <div class="help" id="helpRules"></div>
                         </div>
                     </div>
                     <div class="row">
@@ -498,11 +501,19 @@
 
         let fun_link_help = function(selector_id, help_id, f = null) {
             $.html.addEventListenerAll('#' + selector_id, 'change', function(e,elem) {
-                document.getElementById(help_id).innerText = elem.querySelector('option:checked').getAttribute('title');
+                let helpTxt = "";
+                let options = elem.querySelectorAll('option:checked');
+                for(let i = 0 ; i < options.length ; i++) {
+                    if (helpTxt !== "") helpTxt += "<br />";
+                    if(elem.hasAttribute('multiple')) helpTxt += "<strong>" + options[i].innerText + "</strong> : ";
+                    helpTxt += options[i].getAttribute('title');
+                }
+                document.getElementById(help_id).innerHTML = helpTxt;
                 if (typeof f === 'function') f(elem.value);
             }, true);
         }
 
+        fun_link_help('rules', 'helpRules');
         fun_link_help('ghoulType','helpGhoul');
         fun_link_help('nightWatchMode','helpNightWatch');
         fun_link_help('nightMode','helpNightMode');
