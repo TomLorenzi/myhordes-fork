@@ -154,17 +154,7 @@ class RankingCommand extends Command
             if (!$clear) $io->section("Ranking for town type <info>{$type->getLabel()}</info>");
 
             /** @var TownRankingProxy[] $towns */
-            $towns = $clear ? [] : $this->entityManager->getRepository(TownRankingProxy::class)->matching(
-                (new Criteria())
-                    ->andWhere(Criteria::expr()->eq('disabled', false))
-                    ->andWhere(Criteria::expr()->eq('event', false))
-                    ->andWhere(Criteria::expr()->eq('season', $season))
-                    ->andWhere(Criteria::expr()->eq('type', $type))
-                    ->andWhere(Criteria::expr()->neq('end', null))
-
-                    ->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC'])
-                    ->setMaxResults(35)
-            );
+            $towns = $clear ? [] : $this->entityManager->getRepository(TownRankingProxy::class)->findTopOfSeason($season, $type);
 
             $data = [];
             foreach ($towns as $place => $town) {
@@ -172,9 +162,15 @@ class RankingCommand extends Command
                 $citizens = $town->getCitizens()->getValues();
                 usort($citizens, fn(CitizenRankingProxy $a, CitizenRankingProxy $b) => $a->getEnd() <=> $b->getEnd());
 
+                /**
+                 * @var int $k Position in the array
+                 * @var CitizenRankingProxy $citizen The citizen entity
+                 */
                 foreach ($citizens as $k => $citizen) {
 
                     if ($k < ($town->getPopulation() / 8) && $citizen->getDay() < 5) continue;
+
+                    if ($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_RANKING)) continue;
 
                     if (!isset($citizen_ranking[$citizen->getUser()->getId()]))
                         $citizen_ranking[$citizen->getUser()->getId()] = [[],[],$citizen->getUser()];
