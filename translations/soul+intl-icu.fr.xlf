@@ -4968,5 +4968,16 @@
         <target>Les résultats de ce sondage ne sont pas visibles pour les joueurs normaux jusqu’à ce qu’il se termine. Puisque vous êtes un oracle, vous pouvez voir les résultats intermédiaires.</target>
       </segment>
     </unit>
+    <unit id="i4zoKXc" name="Du hast in dieser Stadt zusammen gespielt">
+      <notes>
+        <note category="german">Du hast in dieser Stadt zusammen gespielt</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast in dieser Stadt zusammen gespielt</source>
+        <target>Vous avez jouez ensemble dans cette ville</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

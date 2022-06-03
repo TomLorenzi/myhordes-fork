@@ -1578,8 +1578,21 @@ class SoulController extends CustomAbstractController
 
         $limit = (bool)$parser->get('limit10', true);
 
+        $commonTowns = [];
+        $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true);
+        /** @var CitizenRankingProxy $citizen */
+        foreach ($citizens as $citizen) {
+            foreach ($citizen->getTown()->getCitizens() as $c) {
+                if ($c->getUser() === $this->getUser()) {
+                    $commonTowns[] = $citizen->getId();
+                    break;
+                }
+            }
+        }
+
         return $this->render( 'ajax/soul/town_list.html.twig', [
-            'towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true),
+            'towns' => $citizens,
+            'commonTowns' => $commonTowns,
             'editable' => $user->getId() === $this->getUser()->getId()
         ]);
     }
