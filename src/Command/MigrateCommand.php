@@ -116,7 +116,7 @@ class MigrateCommand extends Command
         'a45dec20a02f017ab1963d2f0c30e4fa7de9ddf5' => [ ['app:migrate', ['--assign-estimation-seed' => true] ] ],
         '2c688bfc00992c98193e9480848e2f1e63be9d04' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
         'f38e93b3cc6e37542112c53771d65fe00e05e7a1' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
-        '6e3bce82be2e25424ed46de660aaf7d2ca30450f' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
+        '6e3bce82be2e25424ed46de660aaf7d2ca30450f' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -729,20 +729,18 @@ class MigrateCommand extends Command
                 }
             }
 
-            $users = $this->entity_manager->getRepository(User::class)->findAll();
-            $output->writeln("Recalculating Soul Points and pictos for <info>" . count($users) . "</info> users");
-            foreach ($users as $user) {
-                $this->entity_manager->persist($user
+            $this->entity_manager->flush();
+
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) {
+                $user
                     ->setSoulPoints($this->user_handler->fetchSoulPoints($user, false))
-                    ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user)));
+                    ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
 
                 foreach ($user->getPastLifes() as $citizen) {
                     foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($user, $citizen->getTown()) as $picto)
                         $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
                 }
-            }
-
-            $this->entity_manager->flush();
+            }, true);
         }
 
         if ($input->getOption('repair-proxies')) {
