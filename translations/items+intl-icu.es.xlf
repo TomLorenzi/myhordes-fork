@@ -1141,7 +1141,7 @@
       </notes>
       <segment>
         <source>Zerstörer (entladen)</source>
-        <target>Devastator (vacío)</target>
+        <target>Devastador (vacío)</target>
       </segment>
     </unit>
     <unit id="6JzGDe3" name="Zerstörer (geladen)">
@@ -1151,7 +1151,7 @@
       </notes>
       <segment>
         <source>Zerstörer (geladen)</source>
-        <target>Devastator (cargado)</target>
+        <target>Devastador (cargado)</target>
       </segment>
     </unit>
     <unit id="NWwA1_1" name="Unvollständiger Zerstörer">
@@ -1161,7 +1161,7 @@
       </notes>
       <segment>
         <source>Unvollständiger Zerstörer</source>
-        <target>Devastator incompleto</target>
+        <target>Devastador incompleto</target>
       </segment>
     </unit>
     <unit id=".NeFZzB" name="Zonenmarker 'Radius'">
