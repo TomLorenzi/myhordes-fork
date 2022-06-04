@@ -610,6 +610,17 @@
                                                 </li>
                                             {% endif %}
                                         {% endif %}
+                                        {% for role in other_citizen.roles %}
+                                            {# @var role \App\Entity\CitizenRole #}
+                                            {% if not role.hidden and not role.secret %}
+                                                <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
+                                                    <span>
+                                                        <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen}, 'game'), 'ref': citizen}, 'game')}}</div>
+                                                    </span>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
                                         {% for stat in other_citizen.status %}
                                             {# @var stat \App\Entity\CitizenStatus #}
                                             {% if not stat.hidden %}

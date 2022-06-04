@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Enum\ArrayMergeDirective;
+use App\Interfaces\NamedEntity;
 use App\Interfaces\RandomEntry;
 use App\Interfaces\RandomGroup;
 use Doctrine\Common\Collections\ArrayCollection;

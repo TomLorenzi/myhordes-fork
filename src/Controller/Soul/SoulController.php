@@ -760,17 +760,7 @@ class SoulController extends CustomAbstractController
         if ($currentType === null)
             return $this->redirect($this->generateUrl('soul_season'));
 
-        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching(
-            (new Criteria())
-                ->andWhere(Criteria::expr()->eq('disabled', false))
-                ->andWhere(Criteria::expr()->eq('event', false))
-                ->andWhere(Criteria::expr()->eq('season', $currentSeason))
-                ->andWhere(Criteria::expr()->eq('type', $currentType))
-                ->andWhere(Criteria::expr()->neq('end', null))
-
-                ->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC'])
-                ->setMaxResults(35)
-        );
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findTopOfSeason($currentSeason, $currentType);
         $played = [];
         foreach ($towns as $town) {
             /* @var TownRankingProxy $town */
@@ -1588,8 +1578,21 @@ class SoulController extends CustomAbstractController
 
         $limit = (bool)$parser->get('limit10', true);
 
+        $commonTowns = [];
+        $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true);
+        /** @var CitizenRankingProxy $citizen */
+        foreach ($citizens as $citizen) {
+            foreach ($citizen->getTown()->getCitizens() as $c) {
+                if ($c->getUser() === $this->getUser()) {
+                    $commonTowns[] = $citizen->getId();
+                    break;
+                }
+            }
+        }
+
         return $this->render( 'ajax/soul/town_list.html.twig', [
-            'towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true),
+            'towns' => $citizens,
+            'commonTowns' => $commonTowns,
             'editable' => $user->getId() === $this->getUser()->getId()
         ]);
     }

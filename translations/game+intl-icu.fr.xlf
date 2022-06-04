@@ -2076,7 +2076,7 @@
     <unit id="hlH9eeR" name="Einwohner">
       <notes>
         <note category="german">Einwohner</note>
-        <note category="from">db://CitizenProfession;twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">db://CitizenProfession;db://PictoPrototype;twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Einwohner</source>
