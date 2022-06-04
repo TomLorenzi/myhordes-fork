@@ -15164,7 +15164,7 @@
     <unit id="yd0LZz9" name="Diese Bürger is der {role} der Stadt">
       <notes>
         <note category="german">Dieser Bürger ist der {role} der Stadt</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Diese Bürger is der {role} der Stadt</source>
@@ -23226,6 +23226,83 @@ cette violente opération...]]></target>
       <segment>
         <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
         <target>Jours passés en tant qu'Habitant.</target>
+      </segment>
+    </unit>
+    <unit id="1JTIVJq" name="Standarteinstellung">
+      <notes>
+        <note category="german">Standarteinstellung</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Standarteinstellung</source>
+        <target>Standarteinstellung</target>
+      </segment>
+    </unit>
+    <unit id="8RHVtuo" name="Wählbar">
+      <notes>
+        <note category="german">Wählbar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wählbar</source>
+        <target>Wählbar</target>
+      </segment>
+    </unit>
+    <unit id="wx8.nvD" name="Nicht wählbar">
+      <notes>
+        <note category="german">Nicht wählbar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nicht wählbar</source>
+        <target>Nicht wählbar</target>
+      </segment>
+    </unit>
+    <unit id="md8_mRV" name="Gebaut">
+      <notes>
+        <note category="german">Gebaut</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gebaut</source>
+        <target>Gebaut</target>
+      </segment>
+    </unit>
+    <unit id="VWgF34r" name="Baubar">
+      <notes>
+        <note category="german">Baubar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Baubar</source>
+        <target>Baubar</target>
+      </segment>
+    </unit>
+    <unit id="4lsUHvx" name="Findbar">
+      <notes>
+        <note category="german">Findbar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Findbar</source>
+        <target>Findbar</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <notes>
+        <note category="german">Deaktiviert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Deaktiviert</target>
       </segment>
     </unit>
   </file>
