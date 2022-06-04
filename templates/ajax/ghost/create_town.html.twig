@@ -693,6 +693,7 @@
             document.getElementById('stateholder').innerText = c <= 0 ? '' : ('{{ 'Reservierte Plätze:'|trans({},'soul')|e('js') }}' + ' ' + c);
         }
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             if (searchBox.value.length >= 3) {
                 let skip = [];
@@ -732,7 +733,8 @@
                             searchBox.value = document.getElementById('town-add-users-list').innerHTML = '';
                             update_place_count();
 
-                        })
+                        });
+                        if (enterPressed) document.querySelector( '#town-add-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                     }
                 );
             }
@@ -744,7 +746,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 
