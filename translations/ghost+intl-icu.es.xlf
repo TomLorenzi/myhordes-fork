@@ -1321,7 +1321,7 @@
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
-        <target>Dependiendo del tipo de ciudad seleccionada, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un conciudadano.</target>
+        <target>Dependiendo del tipo de pueblo seleccionado, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un habitante.</target>
       </segment>
     </unit>
     <unit id="F4.K1yp" name="Blutdurst und Aerogen">
@@ -1341,7 +1341,7 @@
       </notes>
       <segment>
         <source>Diese Stadt ist durch ein Passwort geschützt.</source>
-        <target>Esta ciudad está protegida con contraseña.</target>
+        <target>Este pueblo está protegido con contraseña.</target>
       </segment>
     </unit>
     <unit id="n5Q6CYy" name="Für diese Stadt gilt eine Platzreservierung.">
@@ -1351,7 +1351,7 @@
       </notes>
       <segment>
         <source>Für diese Stadt gilt eine Platzreservierung.</source>
-        <target>Una reserva de asiento es válida para esta ciudad.</target>
+        <target>Una reserva de cupo es requerida para este pueblo.</target>
       </segment>
     </unit>
     <unit id="WhL1uY." name="Einer Stadt beitreten">
