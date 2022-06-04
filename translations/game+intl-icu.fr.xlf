@@ -23232,77 +23232,77 @@ cette violente opération...]]></target>
       <notes>
         <note category="german">Standarteinstellung</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Standarteinstellung</source>
-        <target>Standarteinstellung</target>
+        <target>Paramètre par défaut</target>
       </segment>
     </unit>
     <unit id="8RHVtuo" name="Wählbar">
       <notes>
         <note category="german">Wählbar</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Wählbar</source>
-        <target>Wählbar</target>
+        <target>Sélectionnable</target>
       </segment>
     </unit>
     <unit id="wx8.nvD" name="Nicht wählbar">
       <notes>
         <note category="german">Nicht wählbar</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Nicht wählbar</source>
-        <target>Nicht wählbar</target>
+        <target>Non sélectionnable</target>
       </segment>
     </unit>
     <unit id="md8_mRV" name="Gebaut">
       <notes>
         <note category="german">Gebaut</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Gebaut</source>
-        <target>Gebaut</target>
+        <target>Construit</target>
       </segment>
     </unit>
     <unit id="VWgF34r" name="Baubar">
       <notes>
         <note category="german">Baubar</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Baubar</source>
-        <target>Baubar</target>
+        <target>Constructible</target>
       </segment>
     </unit>
     <unit id="4lsUHvx" name="Findbar">
       <notes>
         <note category="german">Findbar</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Findbar</source>
-        <target>Findbar</target>
+        <target>Trouvable</target>
       </segment>
     </unit>
     <unit id="ifwhezW" name="Deaktiviert">
       <notes>
         <note category="german">Deaktiviert</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deaktiviert</source>
-        <target>Deaktiviert</target>
+        <target>Désactivé</target>
       </segment>
     </unit>
   </file>
