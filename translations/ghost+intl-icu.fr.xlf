@@ -44,7 +44,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -64,7 +64,7 @@
     <unit id="gqk_gdE" name="Beitreten">
       <notes>
         <note category="german">Beitreten</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beitreten</source>
@@ -1823,6 +1823,28 @@
       <segment>
         <source>Hungrige Ghule</source>
         <target>Goules affamées</target>
+      </segment>
+    </unit>
+    <unit id="RoR55TY" name="Seelenpunkt-Beschränkung deaktivieren:">
+      <notes>
+        <note category="german">Seelenpunkt-Beschränkung deaktivieren:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkt-Beschränkung deaktivieren:</source>
+        <target>Désactiver les limitations de points d'âme :</target>
+      </segment>
+    </unit>
+    <unit id="DAbc25I">
+      <notes>
+        <note category="german">Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</source>
+        <target>N’importe quel joueur peut rejoindre cette ville, quel que soit le nombre de points d’âme qu’il possède actuellement.</target>
       </segment>
     </unit>
   </file>

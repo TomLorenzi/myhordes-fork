@@ -710,7 +710,7 @@ class MessageForumController extends MessageController
 
         foreach ($posts as $post)
             /** @var Post $post */
-            $post->setText( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
+            $post->setHydrated( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
 
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
@@ -735,6 +735,8 @@ class MessageForumController extends MessageController
     public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, CitizenHandler $ch, int $pid = -1): Response {
         $num_per_page = 10;
         $user = $this->getUser();
+
+        $hydrate_post = fn(Post $post) => $post->getHydrated() ? $post : $post->setHydrated( $this->html->prepareEmotes( $post->getText(), $user, $post->getThread()->getForum()->getTown() ) );
 
         /** @var Thread $thread */
         $thread = $em->getRepository(Thread::class)->find( $tid );
@@ -777,9 +779,9 @@ class MessageForumController extends MessageController
 
 
         $announces = [
-            'reported' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? $thread->getUnseenReportedPosts() : [],
-            'admin' => $em->getRepository(Post::class)->findAdminAnnounces($thread),
-            'oracle' => $em->getRepository(Post::class)->findOracleAnnounces($thread)
+            'reported' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? array_map($hydrate_post, $thread->getUnseenReportedPosts()->toArray()) : [],
+            'admin' => array_map($hydrate_post, $em->getRepository(Post::class)->findAdminAnnounces($thread)),
+            'oracle' => array_map($hydrate_post, $em->getRepository(Post::class)->findOracleAnnounces($thread))
         ];
 
         foreach ($posts as $post){
@@ -821,9 +823,8 @@ class MessageForumController extends MessageController
 
         if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
-        foreach ($posts as $post)
-            /** @var Post $post */
-            $post->setText( $this->html->prepareEmotes( $post->getText(), $user, $post->getThread()->getForum()->getTown() ) );
+
+        foreach ($posts as $post) $hydrate_post($post);
 
         // Check for paranoia
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())
@@ -1005,7 +1006,7 @@ class MessageForumController extends MessageController
         foreach ($in as &$in_entry) $in_entry = str_replace('█', '', $in_entry);
         foreach ($result as $post)
             /** @var Post $post */
-            $post->setText( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
+            $post->setHydrated( $this->html->prepareEmotes( $post->getText(), $this->getUser(), $post->getThread()->getForum()->getTown() ) );
 
         return $this->render( 'ajax/forum/search_result.html.twig', [
             'posts' => $result,
@@ -1208,7 +1209,7 @@ class MessageForumController extends MessageController
 
         switch ($mod) {
             case 'lock':
-                if ($thread->getOwner() !== $this->getUser() && !$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
+                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
                 $thread->setLocked(true)->setSolved(false);
@@ -1426,7 +1427,7 @@ class MessageForumController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow): Response {
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimiterFactory $reportToModerationLimiter): Response {
         if (!$parser->has('postId'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1451,6 +1452,9 @@ class MessageForumController extends MessageController
         foreach ($reports as $report)
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
+
+        if (!$reportToModerationLimiter->create( $user->getId() )->consume($reports->isEmpty() ? 2 : 1)->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         $details = $parser->trimmed('details');
         $post->addAdminReport(

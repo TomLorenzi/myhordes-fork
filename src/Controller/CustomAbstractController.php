@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Controller\Admin\AdminActionController;
 use App\Entity\Citizen;
 use App\Entity\ExternalApp;
+use App\Entity\GlobalPoll;
 use App\Entity\Quote;
 use App\Entity\User;
 use App\Service\CitizenHandler;
@@ -69,11 +70,11 @@ class CustomAbstractController extends AbstractController {
         $data['menu_section'] = $section;
 
         $data['clock'] = [
-            'desc'      => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getName() : $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getDay() : "",
+            'desc'      => $this->getActiveCitizen()?->getTown()->getName() ?? $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
+            'day'       => $this->getActiveCitizen()?->getTown()->getDay() ?? '',
             'timestamp' => new DateTime('now'),
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getType()->getName() : "",
+            'towntype'  => $this->getActiveCitizen()?->getTown()->getType()->getName() ?? '',
             'offset'    => timezone_offset_get( timezone_open( date_default_timezone_get ( ) ), new DateTime() )
         ];
 
@@ -91,7 +92,12 @@ class CustomAbstractController extends AbstractController {
         $data['adminActions'] = AdminActionController::getAdminActions();
         $data['comActions']   = AdminActionController::getCommunityActions();
 
-        if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
+        $data["poll"] = array_values(array_filter(
+                $this->entity_manager->getRepository(GlobalPoll::class)->findByState(false, true, false),
+                fn(GlobalPoll $poll) => !$poll->getPoll()->getParticipants()->contains( $this->getUser() )
+            ))[0] ?? null;
+
+        if ( $this->getActiveCitizen()?->getAlive() ){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
             $data['citizen'] = $this->getActiveCitizen();
             $data['conf'] = $this->getTownConf();
@@ -142,7 +148,7 @@ class CustomAbstractController extends AbstractController {
         return parent::render($view, $parameters, $response);
     }
 
-    protected function renderBlocks(string $view, array $blocks, array $externals = [], array $parameters = [], $include_flash = true, Response $response = null): Response
+    protected function renderBlocks(string $view, array $blocks, array $externals = [], array $parameters = [], $include_flash = true, Response $response = null, bool $wrap = false): Response
     {
         $this->enrichParameter($parameters);
 
@@ -161,7 +167,10 @@ class CustomAbstractController extends AbstractController {
             $blocks[] = "<div x-render-target='#{$target}'>$ext_content</div>";
         }
 
-        return parent::render( 'ajax/ajax_plain.html.twig', ['_ajax_base_content' => join('', $blocks)], $response );
+        $content = join('', $blocks);
+        if ($wrap) $content = "<div>$content</div>";
+
+        return parent::render( 'ajax/ajax_plain.html.twig', ['_ajax_base_content' => $content], $response );
     }
 
     /**

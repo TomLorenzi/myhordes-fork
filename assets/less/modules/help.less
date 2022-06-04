@@ -11,13 +11,14 @@ ul {
             list-style: none;
             border-top: 1px solid transparent;
             border-bottom: 1px solid transparent;
-            &.main { margin-top: 10px; }
+            &.main:not(.filtered) { margin-top: 10px; }
             &.active {
                 background-color: #696486;
                 border-color: #afacc1;
                 &, & span.link { color: white; font-weight: bold; text-decoration: none; cursor: default; }
             }
-            &.sublist > ul { padding-left: 30px; }
+            &.sublist:not(.filtered) > ul { padding-left: 30px; }
+            &.sublist.filtered > ul { padding-left: 0; }
             img { vertical-align: -15%; }
         }
     }    

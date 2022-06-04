@@ -13,7 +13,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\ReportSeenMarker;
 use App\Entity\User;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -98,10 +98,10 @@ class AdminForumController extends AdminActionController
      * @Route("api/admin/forum/reports/clear", name="admin_reports_clear")
      * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function reports_clear(JSONRequestParser $parser, AdminActionHandler $admh): Response
+    public function reports_clear(JSONRequestParser $parser, AdminHandler $admh): Response
     {
         if (!$parser->has_all(['postId'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -119,10 +119,10 @@ class AdminForumController extends AdminActionController
      * @Route("api/admin/forum/reports/seen", name="admin_reports_seen")
      * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function reports_seen(JSONRequestParser $parser, AdminActionHandler $admh): Response
+    public function reports_seen(JSONRequestParser $parser, AdminHandler $admh): Response
     {
         if (!$parser->has_all(['postId'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -339,17 +339,19 @@ class AdminForumController extends AdminActionController
      */
     public function add_snippet(JSONRequestParser $parser): Response {
 
-        if (!$parser->has_all(['id','lang','content'],true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (!$parser->has_all(['id','lang','content','edit'],true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         $lang = strtolower( $parser->trimmed('lang') );
 
         if (!in_array($lang, ['de','en','fr','es'])) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($this->entity_manager->getRepository(ForumModerationSnippet::class)->findOneBy(['id' => $parser->trimmed('id'), 'lang' => $lang]))
+        $existing_id = $parser->get_int('edit', -1);
+        $existing = $this->entity_manager->getRepository(ForumModerationSnippet::class)->findOneBy(['short' => $parser->trimmed('id'), 'lang' => $lang]);
+        $editing  = $existing_id >= 0 ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->find( $existing_id ) : null;
+        if ( ($existing_id < 0 && $existing) || ($existing_id >= 0 && $existing?->getId() !== $existing_id) || ( $existing_id >= 0 && !$editing ) )
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
 
-
-        $this->entity_manager->persist( (new ForumModerationSnippet)
+        $this->entity_manager->persist( ($existing_id < 0 ? (new ForumModerationSnippet) : $editing)
             ->setShort( $parser->trimmed('id') )
             ->setLang( $lang )
             ->setText( $parser->trimmed( 'content' ) )

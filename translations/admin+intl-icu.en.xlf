@@ -95,7 +95,7 @@
     <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
       <notes>
         <note category="german">Das Leben dieses Bürgers sofort beenden?</note>
-        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
@@ -268,7 +268,7 @@
       <notes>
         <note category="german">Admin</note>
         <note category="state">translated</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
+        <note category="from">php:///src/Service/AdminHandler.php;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -561,7 +561,7 @@
     <unit id="DNyzXO8" name="Angriff">
       <notes>
         <note category="german">Angriff</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php;twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="from">php:///src/Service/AdminHandler.php;twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Angriff</source>
@@ -622,7 +622,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -684,7 +684,7 @@
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
         <note category="german">Zukunft</note>
-        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -976,7 +976,7 @@
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
         <note category="german">Du hast dich umgebracht.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -986,7 +986,7 @@
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
         <note category="german">Du gehörst keiner Stadt an.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
@@ -2312,7 +2312,7 @@
       <notes>
         <note category="german">Changelogs</note>
         <note category="state">translated</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
       </notes>
       <segment>
         <source>Changelogs</source>
@@ -2323,7 +2323,7 @@
       <notes>
         <note category="german">Ankündigungen</note>
         <note category="state">translated</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
       </notes>
       <segment>
         <source>Ankündigungen</source>
@@ -2725,7 +2725,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Communicate outside of towns</target>
+        <target>Communicate outside of towns (PMs)</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -3438,11 +3438,11 @@
     <unit id="6SYvAH3" name="Beschreibung">
       <notes>
         <note category="german">Beschreibung</note>
-        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Beschreibung</source>
-        <target>Decription</target>
+        <target>Description</target>
       </segment>
     </unit>
     <unit id="7Cc8BkZ" name="Anonyme Gruppe">
@@ -4003,7 +4003,7 @@
     <unit id="inFhWaa" name="Kernel">
       <notes>
         <note category="german">Kernel</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
         <note category="state">translated</note>
       </notes>
       <segment>
@@ -4014,7 +4014,7 @@
     <unit id="wcEAnT8" name="Update">
       <notes>
         <note category="german">Update</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
         <note category="state">translated</note>
       </notes>
       <segment>
@@ -4025,7 +4025,7 @@
     <unit id="J2.6H7T" name="Unbekannt">
       <notes>
         <note category="german">Unbekannt</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Unbekannt</source>
@@ -4035,7 +4035,7 @@
     <unit id="OdO2n.0" name="Täglich">
       <notes>
         <note category="german">Täglich</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Täglich</source>
@@ -4045,7 +4045,7 @@
     <unit id="1LsNnOC" name="Wöchentlich">
       <notes>
         <note category="german">Wöchentlich</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Wöchentlich</source>
@@ -4055,7 +4055,7 @@
     <unit id=".QA57M1" name="Monatlich">
       <notes>
         <note category="german">Monatlich</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Monatlich</source>
@@ -4065,7 +4065,7 @@
     <unit id="lhysqm5" name="Manuell">
       <notes>
         <note category="german">Manuell</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Manuell</source>
@@ -4075,7 +4075,7 @@
     <unit id="Iv9Lj0S" name="Nicht komprimiert">
       <notes>
         <note category="german">Nicht komprimiert</note>
-        <note category="from">php:///src/Controller/Admin/AdminFileSystemController.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Nicht komprimiert</source>
@@ -4776,6 +4776,536 @@
       <segment>
         <source>Zum Papierkorb</source>
         <target>Open recycle bin</target>
+      </segment>
+    </unit>
+    <unit id="RATqO5N" name="Kurztext bearbeiten ({name})">
+      <notes>
+        <note category="german">Kurztext bearbeiten ({name})</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kurztext bearbeiten ({name})</source>
+        <target>Edit short text ({name})</target>
+      </segment>
+    </unit>
+    <unit id="YiIAWLn" name="Register herunterladen">
+      <notes>
+        <note category="german">Register herunterladen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Register herunterladen</source>
+        <target>Download the register</target>
+      </segment>
+    </unit>
+    <unit id="gse1HoC" name="Stadtregister herunterladen">
+      <notes>
+        <note category="german">Stadtregister herunterladen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadtregister herunterladen</source>
+        <target>Download town register</target>
+      </segment>
+    </unit>
+    <unit id="WCJkiWS" name="Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)</source>
+        <target>Download town and zone registers (grouped by zones)</target>
+      </segment>
+    </unit>
+    <unit id="9XMDN2u" name="Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)</source>
+        <target>Download town and zone registers (grouped by citizens)</target>
+      </segment>
+    </unit>
+    <unit id="_iAXN_K" name="Stadt- und Zonenregister herunterladen (chronologisch)">
+      <notes>
+        <note category="german">Stadt- und Zonenregister herunterladen (chronologisch)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt- und Zonenregister herunterladen (chronologisch)</source>
+        <target>Download town and zone registers (chronologically)</target>
+      </segment>
+    </unit>
+    <unit id="NB6Gonl" name="Instanzeigenschaften">
+      <notes>
+        <note category="german">Instanzeigenschaften</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Instanzeigenschaften</source>
+        <target>Instance properties</target>
+      </segment>
+    </unit>
+    <unit id="t6AH21h" name="Vergiftet">
+      <notes>
+        <note category="german">Vergiftet</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Vergiftet</source>
+        <target>Poisoned</target>
+      </segment>
+    </unit>
+    <unit id="T3Ok4_w" name="Infiziert">
+      <notes>
+        <note category="german">Infiziert</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Infiziert</source>
+        <target>Infected</target>
+      </segment>
+    </unit>
+    <unit id=".7_a1a_" name="Noch nicht aufgehoben">
+      <notes>
+        <note category="german">Noch nicht aufgehoben</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>Noch nicht aufgehoben</source>
+        <target>Not yet picked up</target>
+      </segment>
+    </unit>
+    <unit id="P_.E9gw" name="Spielernamen nicht von EternalTwin übernehmen">
+      <notes>
+        <note category="german">Spielernamen nicht von EternalTwin übernehmen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Spielernamen nicht von EternalTwin übernehmen</source>
+        <target>Don't take display name from EternalTwin</target>
+      </segment>
+    </unit>
+    <unit id="y64_fvj" name="Automatische Verwaltung des Spielernamens wiederherstellen">
+      <notes>
+        <note category="german">Automatische Verwaltung des Spielernamens wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Automatische Verwaltung des Spielernamens wiederherstellen</source>
+        <target>Restore automatic display name management</target>
+      </segment>
+    </unit>
+    <unit id="_jfxrwz" name="Nicht von ET verwaltet.">
+      <notes>
+        <note category="german">Nicht von ET verwaltet.</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nicht von ET verwaltet.</source>
+        <target>Not managed by ET.</target>
+      </segment>
+    </unit>
+    <unit id="GabFwYl" name="Leber fressen">
+      <notes>
+        <note category="german">Leber fressen</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+      </notes>
+      <segment>
+        <source>Leber fressen</source>
+        <target>Eat the liver</target>
+      </segment>
+    </unit>
+    <unit id="6kFAjXk" name="maskiert {playername}">
+      <notes>
+        <note category="german">maskiert {playername}</note>
+        <note category="from">twig:///templates/ajax/pm/bubbles.html.twig</note>
+      </notes>
+      <segment>
+        <source>maskiert {playername}</source>
+        <target>masking {playername}</target>
+      </segment>
+    </unit>
+    <unit id="frwRQ0F" name="Seelenpunkte setzen">
+      <notes>
+        <note category="german">Seelenpunkte setzen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte setzen</source>
+        <target>Set soul points</target>
+      </segment>
+    </unit>
+    <unit id="UbdNUXg" name="Alle Gegenstände aller Bürger ablegen">
+      <notes>
+        <note category="german">Alle Gegenstände aller Bürger ablegen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Gegenstände aller Bürger ablegen</source>
+        <target>Drop all items from all citizens</target>
+      </segment>
+    </unit>
+    <unit id="qtaAXm5" name="Auszeichnungen wiederherstellen">
+      <notes>
+        <note category="german">Auszeichnungen wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen wiederherstellen</source>
+        <target>Restore pictos</target>
+      </segment>
+    </unit>
+    <unit id="rzaAoA6" name="Auszeichnungen aller Einwohner dieser Stadt löschen">
+      <notes>
+        <note category="german">Auszeichnungen aller Einwohner dieser Stadt löschen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen aller Einwohner dieser Stadt löschen</source>
+        <target>Delete the pictos of this town</target>
+      </segment>
+    </unit>
+    <unit id="WqdvJmx" name="Seelenpunkte wiederherstellen">
+      <notes>
+        <note category="german">Seelenpunkte wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte wiederherstellen</source>
+        <target>Restore soul points</target>
+      </segment>
+    </unit>
+    <unit id="p_4sZnN" name="Seelenpunkte aller Einwohner dieser Stadt löschen">
+      <notes>
+        <note category="german">Seelenpunkte aller Einwohner dieser Stadt löschen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte aller Einwohner dieser Stadt löschen</source>
+        <target>Delete the soulpoints of this town</target>
+      </segment>
+    </unit>
+    <unit id="dMSxQKT" name="Alle Sanktionen entfernen">
+      <notes>
+        <note category="german">Alle Sanktionen entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alle Sanktionen entfernen</source>
+        <target>Remove all sanctions</target>
+      </segment>
+    </unit>
+    <unit id="OSDitIr" name="Stadt nicht in der Seele listen">
+      <notes>
+        <note category="german">Stadt nicht in der Seele listen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Stadt nicht in der Seele listen</source>
+        <target>Exclude the town from the soul</target>
+      </segment>
+    </unit>
+    <unit id="0qROaTY" name="Seelenpunkte dieses Bürgers entfernen">
+      <notes>
+        <note category="german">Seelenpunkte dieses Bürgers entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte dieses Bürgers entfernen</source>
+        <target>Remove this citizen's soul points</target>
+      </segment>
+    </unit>
+    <unit id="2UIa_nW" name="Ranking für diesen Bürger wiederherstellen">
+      <notes>
+        <note category="german">Ranking für diesen Bürger wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ranking für diesen Bürger wiederherstellen</source>
+        <target>Rerank this citizen</target>
+      </segment>
+    </unit>
+    <unit id="YYl_8gg" name="Bürger aus dem Ranking entfernen">
+      <notes>
+        <note category="german">Bürger aus dem Ranking entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bürger aus dem Ranking entfernen</source>
+        <target>Remove this citizen from the ranking</target>
+      </segment>
+    </unit>
+    <unit id="Rh2vAO6" name="Auszeichnungen dieses Bürgers entfernen">
+      <notes>
+        <note category="german">Auszeichnungen dieses Bürgers entfernen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen dieses Bürgers entfernen</source>
+        <target>Remove this citizen's pictos</target>
+      </segment>
+    </unit>
+    <unit id="5hVSTeI" name="Seelenpunkte für diesen Bürger wiederherstellen">
+      <notes>
+        <note category="german">Seelenpunkte für diesen Bürger wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte für diesen Bürger wiederherstellen</source>
+        <target>Restore the soul points of this citizen</target>
+      </segment>
+    </unit>
+    <unit id="X83LtBA" name="Auszeichnungen für diesen Bürger wiederherstellen">
+      <notes>
+        <note category="german">Auszeichnungen für diesen Bürger wiederherstellen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen für diesen Bürger wiederherstellen</source>
+        <target>Restore the pictos of this citizen</target>
+      </segment>
+    </unit>
+    <unit id="EmNMRly" name="Eine neue Umfrage anlegen">
+      <notes>
+        <note category="german">Eine neue Umfrage anlegen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Eine neue Umfrage anlegen</source>
+        <target>Create new survey</target>
+      </segment>
+    </unit>
+    <unit id="TJM._OL" name="Editoreinstellungen">
+      <notes>
+        <note category="german">Editoreinstellungen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Editoreinstellungen</source>
+        <target>Editor settings</target>
+      </segment>
+    </unit>
+    <unit id="J4eXZqD" name="Aktuelle Bearbeitungssprache">
+      <notes>
+        <note category="german">Aktuelle Bearbeitungssprache</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Bearbeitungssprache</source>
+        <target>Current editing language</target>
+      </segment>
+    </unit>
+    <unit id="Pq9RXOp">
+      <notes>
+        <note category="german">Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.</source>
+        <target>This setting controls which input fields are visible. Regardless, surveys are always created in all languages, so all fields must be filled in all languages.</target>
+      </segment>
+    </unit>
+    <unit id="cq0sAFY" name="Umfragedaten">
+      <notes>
+        <note category="german">Umfragedaten</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfragedaten</source>
+        <target>Survey data</target>
+      </segment>
+    </unit>
+    <unit id="sWhZJcY" name="Titel der Umfrage">
+      <notes>
+        <note category="german">Titel der Umfrage</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Titel der Umfrage</source>
+        <target>Survey title</target>
+      </segment>
+    </unit>
+    <unit id="kEqiJtm" name="Start der Umfrage">
+      <notes>
+        <note category="german">Start der Umfrage</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Start der Umfrage</source>
+        <target>Survey start</target>
+      </segment>
+    </unit>
+    <unit id="VOrW5W." name="Ende der Umfrage">
+      <notes>
+        <note category="german">Ende der Umfrage</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ende der Umfrage</source>
+        <target>Survey end</target>
+      </segment>
+    </unit>
+    <unit id="Gae8fJJ" name="Vorläufige Ergebnisse anzeigen">
+      <notes>
+        <note category="german">Vorläufige Ergebnisse anzeigen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Vorläufige Ergebnisse anzeigen</source>
+        <target>Display preliminary results</target>
+      </segment>
+    </unit>
+    <unit id="A3H_WPL" name="Kurzbeschreibung">
+      <notes>
+        <note category="german">Kurzbeschreibung</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kurzbeschreibung</source>
+        <target>Short description</target>
+      </segment>
+    </unit>
+    <unit id="OJaibnh" name="Beschreibung der Umfrage">
+      <notes>
+        <note category="german">Beschreibung der Umfrage</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Beschreibung der Umfrage</source>
+        <target>Survey description</target>
+      </segment>
+    </unit>
+    <unit id="Et.Ao0w" name="Antworten">
+      <notes>
+        <note category="german">Antworten</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Antworten</source>
+        <target>Answers</target>
+      </segment>
+    </unit>
+    <unit id="KWE68ZM" name="Antwortstext">
+      <notes>
+        <note category="german">Antwortstext</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Antwortstext</source>
+        <target>Answer text</target>
+      </segment>
+    </unit>
+    <unit id="6FsF5Ju" name="Antwort hinzufügen">
+      <notes>
+        <note category="german">Antwort hinzufügen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Antwort hinzufügen</source>
+        <target>Add answer</target>
+      </segment>
+    </unit>
+    <unit id="5NZ.yvs" name="Bearbeitung abschließen">
+      <notes>
+        <note category="german">Bearbeitung abschließen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Bearbeitung abschließen</source>
+        <target>Finish editing</target>
+      </segment>
+    </unit>
+    <unit id="h.RALSw" name="Umfrage erstellen">
+      <notes>
+        <note category="german">Umfrage erstellen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage erstellen</source>
+        <target>Create survey</target>
+      </segment>
+    </unit>
+    <unit id="ZfGvbH9" name="Für das Feld &quot;{field}&quot; fehlen Eingaben in folgenden Sprachen: {langs}.">
+      <notes>
+        <note category="german">Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.</source>
+        <target>The field "{field}" is missing input for the following languages: {langs}.</target>
+      </segment>
+    </unit>
+    <unit id="i39tmwm" name="Es müssen mindestens zwei Antworten hinzugefügt werden.">
+      <notes>
+        <note category="german">Es müssen mindestens zwei Antworten hinzugefügt werden.</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Es müssen mindestens zwei Antworten hinzugefügt werden.</source>
+        <target>You need to add at least two answers.</target>
+      </segment>
+    </unit>
+    <unit id="RWk8kWb" name="Ergebnisse filtern">
+      <notes>
+        <note category="german">Ergebnisse filtern</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ergebnisse filtern</source>
+        <target>Filter results</target>
+      </segment>
+    </unit>
+    <unit id="zCwSrea" name="Kein Filter">
+      <notes>
+        <note category="german">Kein Filter</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kein Filter</source>
+        <target>No filter</target>
+      </segment>
+    </unit>
+    <unit id="T6lHx3R" name="Umfrage jetzt beginnen">
+      <notes>
+        <note category="german">Umfrage jetzt beginnen</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage jetzt beginnen</source>
+        <target>Begin survey now</target>
+      </segment>
+    </unit>
+    <unit id="DeA2l8e" name="Umfrage jetzt beenden">
+      <notes>
+        <note category="german">Umfrage jetzt beenden</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage jetzt beenden</source>
+        <target>End survey now</target>
+      </segment>
+    </unit>
+    <unit id="ncYHSt8" name="Umfrage löschen">
+      <notes>
+        <note category="german">Umfrage löschen</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Umfrage löschen</source>
+        <target>Delete survey</target>
+      </segment>
+    </unit>
+    <unit id="elZ0zxc" name="Liste vergangener Namen löschen">
+      <notes>
+        <note category="german">Liste vergangener Namen löschen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
+      </notes>
+      <segment>
+        <source>Liste vergangener Namen löschen</source>
+        <target>Delete player name history</target>
       </segment>
     </unit>
   </file>

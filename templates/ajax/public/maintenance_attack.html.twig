@@ -16,10 +16,10 @@
                     Was tust du, solange der Angriff tobt?
                     </p>
                 {% endtrans %}
-                <p><button x-action="refresh">{{ button_texts[0] }}</button></p>
-                <p><button x-action="refresh">{{ button_texts[1] }}</button></p>
+                <p><button x-action="refresh"><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" /> {{ button_texts[0] }}</button></p>
+                <p><button x-action="refresh"><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" /> {{ button_texts[1] }}</button></p>
                 {% if app.user %}
-                    <p><a href="{{ path('home_pm') }}" target="_self"><button>{{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></a></p>
+                    <p><a href="{{ path('home_pm') }}" target="_self"><button><img alt="" src="{{ asset('build/images/item/item_radio_on.gif') }}" /> {{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></a></p>
                 {% endif %}
             {% else %}
                 <p>{% trans from 'ghost' %}Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!{% endtrans %}</p>
@@ -43,6 +43,7 @@
                 <p>{{'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!'|trans({}, 'ghost')}}</p>
                 <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
                 <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
+                {{ help_lnk('Der Angriff der Zombiehorde'|trans({},'help'), 'help', {'name' : 'the_attack_of_the_hordes'}) }}
             </div>
 
             <div class="right">

@@ -20,3 +20,7 @@ framework:
       policy: 'token_bucket'
       limit: 10
       rate: { interval: '10 minutes', amount: 1 }
+    report_to_moderation:
+      policy: 'fixed_window'
+      limit: 20
+      interval: '12 hours'

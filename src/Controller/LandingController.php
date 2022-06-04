@@ -11,6 +11,7 @@ use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,8 +34,14 @@ class LandingController extends CustomAbstractController
      */
     public function main_landing(EntityManagerInterface $em, TimeKeeperService $tk, Request $request, UserHandler $userHandler): Response
     {
-        if ($tk->isDuringAttack())
-            return $this->redirect($this->generateUrl('maintenance_attack'));
+        if ($tk->isDuringAttack()) {
+            $response = new Response('', 302, [
+                'X-AJAX-Control' => 'navigate',
+                'X-AJAX-Navigate' => $this->generateUrl('maintenance_attack')
+            ]);
+            return $response;
+        }
+
 
         /** @var User|null $user */
         $user = $this->getUser();

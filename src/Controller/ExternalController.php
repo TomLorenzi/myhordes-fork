@@ -21,6 +21,7 @@ use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Service\ActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
@@ -47,6 +48,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -73,9 +75,10 @@ class ExternalController extends InventoryAwareController {
     protected                        $item_factory;
     protected DeathHandler           $death_handler;
     protected EntityManagerInterface $entity_manager;
-    protected                        $available_langs = ['en', 'fr', 'de', 'es'];
+    protected array                  $available_langs = ['en', 'fr', 'de', 'es'];
     protected GazetteService         $gazette_service;
-
+    protected AdminHandler           $adminHandler;
+    protected UrlGeneratorInterface  $urlGenerator;
     /**
      * BeyondController constructor.
      * @param EntityManagerInterface $em
@@ -96,6 +99,7 @@ class ExternalController extends InventoryAwareController {
      * @param CrowService $armbrust
      * @param Packages $a
      * @param TownHandler $th
+     * @param AdminHandler $adminHandler
      */
 
     public function __construct(EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch,
@@ -103,13 +107,16 @@ class ExternalController extends InventoryAwareController {
                                 PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf,
                                 RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh,
                                 ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
-                                CrowService $armbrust, Packages $a, TownHandler $th, GazetteService $gs) {
+                                CrowService $armbrust, Packages $a, TownHandler $th, GazetteService $gs,
+                                AdminHandler $adminHandler, UrlGeneratorInterface $urlGenerator) {
         parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
         $this->entity_manager = $em;
         $this->gazette_service = $gs;
+        $this->adminHandler = $adminHandler;
+        $this->urlGenerator = $urlGenerator;
     }
 
     /**
@@ -132,9 +139,15 @@ class ExternalController extends InventoryAwareController {
         $data = [];
 
         $APP_KEY = $this->getRequestParam('appkey');
+        $retourUserKey = $this->getUserKey();
         if ($APP_KEY === false) {
             $data = ["error" => "invalid_appkey"];
             $type = 'internalerror';
+        }
+
+        if (!empty($retourUserKey)) {
+            $data = $retourUserKey;
+            $type = "internalerror";
         }
 
         /** @var ExternalApp $app */
@@ -166,16 +179,10 @@ class ExternalController extends InventoryAwareController {
                 ];
                 break;
             case 'items':
-                $data = $this->getPrototypesAPI("items");
-                break;
             case "buildings":
-                $data = $this->getPrototypesAPI("buildings");
-                break;
             case "ruins":
-                $data = $this->getPrototypesAPI("ruins");
-                break;
             case "pictos":
-                $data = $this->getPrototypesAPI("pictos");
+                $data = $this->getPrototypesAPI($type);
                 break;
             case 'debug':
                 $data = $this->getDebugdata();
@@ -185,10 +192,17 @@ class ExternalController extends InventoryAwareController {
                 $data = $this->getUserAPI($type);
                 break;
             case "users":
-                $data = $this->getUsersAPI($type);
+                $data = $this->getUsersAPI();
                 break;
             case "map":
                 $data = $this->getMapAPI();
+                break;
+            case "admin":
+                if ($this->user->getRightsElevation() <= User::USER_LEVEL_CROW) {
+                    break;
+                }
+
+                $data = $this->getAdminAPI();
                 break;
             default:
                 $data = [
@@ -202,11 +216,14 @@ class ExternalController extends InventoryAwareController {
             return $this->json($data);
         }
 
-        return $this->json($data);
+        return $this->json([
+            "error"             => "server_error",
+            "error_description" => "UnknownAction(default)"
+        ]);
     }
 
     /**
-     * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
+     * @Route("/jx/disclaimer/{id<\d+>}", name="disclaimer", condition="request.isXmlHttpRequest()")
      * @param int $id
      * @return Response
      */
@@ -398,6 +415,59 @@ class ExternalController extends InventoryAwareController {
         }
 
         return $this->getUserData($filters, $fields_user);
+    }
+
+    private function getAdminAPI(): array {
+        $entity = $this->getRequestParam('entity');
+        $data = match ($entity) {
+            "db" => $this->getAdminDbDump(),
+            "logs" => $this->getAdminLogs(),
+            default => [
+                "error" => "server_error",
+                "error_description" => "UnknownEntity($entity)"
+            ],
+        };
+        return $data;
+    }
+
+    private function getAdminDbDump(): array {
+        $dumps = $this->adminHandler->getDbDumps();
+        $res = [];
+        foreach ($dumps as $dump) {
+            $dmp =  [
+                'name' => $dump['info']->getFilename(),
+                'path' => $this->urlGenerator->generate("admin_backup", ['f' => $dump['access']], UrlGeneratorInterface::ABSOLUTE_URL),
+                'tags' => [],
+                'time' => $dump['time']->format('U'),
+            ];
+
+            foreach ($dump['tags'] as $tag) {
+                $dmp['tags'][] = $tag['tag'];
+            }
+
+            $res[] = $dmp;
+        }
+        return $res;
+    }
+
+    private function getAdminLogs(): array {
+        $logs = $this->adminHandler->getLogFiles();
+        $res = [];
+        foreach ($logs as $log) {
+            $lg =  [
+                'name' => $log['info']->getFilename(),
+                'path' => $this->urlGenerator->generate("admin_log", ['a' => 'download', 'f' => $log['access']], UrlGeneratorInterface::ABSOLUTE_URL),
+                'tags' => [],
+                'time' => $log['time']->format('U'),
+            ];
+
+            foreach ($log['tags'] as $tag) {
+                $lg['tags'][] = $tag['tag'];
+            }
+
+            $res[] = $lg;
+        }
+        return $res;
     }
 
     private function getArrayItem(Collection $collections, array $fields): array {
@@ -2072,9 +2142,9 @@ class ExternalController extends InventoryAwareController {
         $request = Request::createFromGlobals();
         $this->request = $request;
 
-        $val = $request->request->get($param);
+        $val = $request->request->get($param) ?? '';
         if (trim($val) === '') {
-            $val = $request->query->get($param);
+            $val = $request->query->get($param) ?? '';
         }
 
         if (trim($val) === '') {

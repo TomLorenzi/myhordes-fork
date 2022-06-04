@@ -109,11 +109,11 @@
                 <label for="{{ type }}-forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
                 <a class="float-right" x-non-extended id="{{ type }}-forum-editor-extend" href="#">{{ 'Zum erweiterten Editor wechseln'|trans({},'global') }}</a>
                 <div x-extended class="forum-button-bar">
-                    <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="big" class="forum-button"><i class="fa fa-expand-alt"></i><span class="forum-button-tooltip">{{ 'Groß'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="b" x-control-shortcut="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="i" x-control-shortcut="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="u" x-control-shortcut="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="s" x-control-shortcut="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="big" x-control-shortcut="+" class="forum-button"><i class="fa fa-expand-alt"></i><span class="forum-button-tooltip">{{ 'Groß'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
                     {% if permission.format_admin() %}
@@ -130,7 +130,7 @@
                     <div x-forum-action="edit" x-text-insert-list-node="0" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Num. Listenpunkt'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="aparte" x-control-shortcut="-" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
                     {% if app.user|has_unlocked('f_glory') %}
                         <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
                     {% endif %}
@@ -145,13 +145,33 @@
                         <div class="row-flex toggle-target">
                             <div class="cell"><div x-forum-action="toggle" x-text-modal-node="@" class="forum-button"><i class="fas fa-user"></i><span class="forum-button-tooltip">{{ 'Spielernamen einfügen'|trans({},'global') }}</span></div></div>
                             <div class="cell hidden">
+                                <div id="{{ type }}-editor-add-friend-list-container" class="add-users-list-container">
+                                    <div style="margin-right: 5px;" x-forum-action="friendlist" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-open-friendlist">
+                                        <i class="fas fa-address-book"></i><span class="forum-button-tooltip">{{ 'Kontaktliste'|trans({},'global') }}</span>
+                                    </div>
+                                    <div id="{{ type }}-editor-add-friend-list" class="add-users-list" style="display: none;">
+                                        {% embed "ajax/soul/users_list.html.twig" with {
+                                            'var': '',
+                                            'single_entry': false,
+                                            'users': app.user.friends,
+                                            'route': ''
+                                        } %}{% endembed %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell hidden">
                                 <div id="{{ type }}-editor-add-users-list-container" class="add-users-list-container">
-                                    <div><label><input type="text" id="{{ type }}-editor-add-users-search" class="add-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                                    <div>
+                                        <label><input type="text" id="{{ type }}-editor-add-users-search" class="add-users-search" /></label>
+                                        <div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div>
+                                    </div>
                                     <div id="{{ type }}-editor-add-users-list" class="add-users-list"></div>
                                 </div>
                             </div>
                             <div class="cell hidden">
-                                <div style="margin-left: 5px;" x-forum-action="toggle" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-add-users-close"><i class="fas fa-times"></i><span class="forum-button-tooltip">{{ 'Abbrechen'|trans({},'global') }}</span></div>
+                                <div style="margin-left: 5px;" x-forum-action="toggle" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-add-users-close">
+                                    <i class="fas fa-times"></i><span class="forum-button-tooltip">{{ 'Abbrechen'|trans({},'global') }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -353,10 +373,19 @@
                 }, {autoLinks: $.client.config.autoParseLinks.get()} );
             }
 
-            node_transfer_source.addEventListener('input', function() {
+            node_transfer_source.addEventListener('input', () => {
                 if ($.client.config.usePostBackup.get())
                     $.client.config.scopedEditorCache.set(['{{ type ~ (town_controls ? 'TC' : '')|e('js') }}',node_transfer_source.value]);
                 transfer_to_preview();
+            });
+            node_transfer_source.addEventListener('keydown', e => {
+                if (e.ctrlKey || e.metaKey) {
+                    const button = document.querySelector('[x-forum-action="edit"][x-control-shortcut="' + e.key.toLowerCase() + '"]');
+                    if (button) {
+                        button.dispatchEvent( new Event('click', { bubbles: false, cancelable: true }) );
+                        e.preventDefault();
+                    }
+                }
             });
 
             let closeModal = function() {
@@ -666,7 +695,7 @@
             } );
 
             // Post as crow toggle
-            {% if (permission.post_as_dev() or permission.post_as_crow()) and forum and not pid %}
+            {% if permission.alt_post_mode() and forum and not pid %}
                 function changeHandler(){
                     let current_option = document.querySelector("input[name=post-type]:checked");
                     if (current_option === null) current_option = document.querySelector("input[name=post-type]").parentElement.firstElementChild;
@@ -842,7 +871,7 @@
                                 const node = '@' + elem.getAttribute('x-soul-name').replace(/\W+/,'') + ':' + elem.getAttribute('x-soul-id');
 
                                 node_transfer_source.value = before + node + after;
-                                node_transfer_source.setSelectionRange( before.length, before.length + node.length );
+                                node_transfer_source.setSelectionRange( node_transfer_source.value.length, node_transfer_source.value.length );
                                 node_transfer_source.focus();
                                 transfer_to_preview();
 
@@ -870,6 +899,40 @@
                 searchBox.addEventListener('focus', () => userSearchHandler());
                 searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('{{ type }}-editor-add-users-list').innerHTML = '', 500));
             }
+
+            let friendlistBtn = document.getElementById("{{ type }}-editor-open-friendlist");
+            let friendlist = document.getElementById("{{ type }}-editor-add-friend-list");
+            if (friendlistBtn) friendlistBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                if(friendlist.style.display === "none") {
+                    friendlist.style.display = "";
+                } else {
+                    friendlist.style.display = "none";
+                }
+            })
+            $.html.addEventListenerAll('#{{ type }}-editor-add-friend-list>.users-list-entry>div', 'click', function (e, elem) {
+
+                const before = node_transfer_source.value.substr( 0, node_transfer_source.selectionStart );
+                const selected = node_transfer_source.value.substr( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd - node_transfer_source.selectionStart );
+                const after = node_transfer_source.value.substr( node_transfer_source.selectionEnd );
+
+                const node = '@' + elem.getAttribute('x-soul-name').replace(/\W+/,'') + ':' + elem.getAttribute('x-soul-id') + " ";
+
+                node_transfer_source.value = before + node + after;
+                node_transfer_source.setSelectionRange( node_transfer_source.value.length, node_transfer_source.value.length );
+                node_transfer_source.focus();
+                transfer_to_preview();
+
+                document.getElementById('{{ type }}-editor-add-users-close').click();
+                friendlist.style.display = "none";
+            })
+
+            $.html.forEach( '[x-control-shortcut]', elem => {
+                const tooltip = elem.querySelector('.forum-button-tooltip');
+                const modifierKey = navigator.platform.indexOf("Mac") === 0 ? '⌘' : '{{ 'STRG'|trans({},'global')|e('js') }}';
+                if (tooltip) tooltip.innerHTML = '<div class="center">' + tooltip.innerText + '</div><div class="keyboard"><kbd>' + modifierKey + '</kbd> + <kbd>' + elem.getAttribute('x-control-shortcut').toUpperCase() + '</kbd></div>';
+            } )
         })();
     </script>
 {% endblock %}

@@ -43,6 +43,7 @@ class ErrorHelper
     const ErrorActionNotAvailableSP      = 56;
     const ErrorActionNotAvailableTerror  = 57;
     const ErrorRateLimited               = 58;
+    const ErrorNoMP                      = 59;
 
     const ErrorBlockedByUser             = 71;
 }

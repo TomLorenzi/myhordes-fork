@@ -1093,7 +1093,7 @@
     </unit>
     <unit id="u1m7Ptc" name="Leiche nicht beseitigt!">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Leiche nicht beseitigt!</source>
@@ -1102,7 +1102,7 @@
     </unit>
     <unit id="u_yrL5q" name="Tot!">
       <notes>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Tot!</source>
@@ -1400,7 +1400,7 @@
     </unit>
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
-        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -6885,7 +6885,7 @@
     </unit>
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -6894,7 +6894,7 @@
     </unit>
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7129,7 +7129,7 @@
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -7264,7 +7264,7 @@
     </unit>
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
-        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -7462,7 +7462,7 @@
     </unit>
     <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
@@ -7471,7 +7471,7 @@
     </unit>
     <unit id="O9RB2q8" name="Letzte Worte:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Letzte Worte:</source>
@@ -14389,7 +14389,7 @@
     </unit>
     <unit id="yd0LZz9" name="Diese Bürger is der {role} der Stadt">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Diese Bürger is der {role} der Stadt</source>
@@ -14633,7 +14633,7 @@
     </unit>
     <unit id="ViEKCFv" name="Die Zukunft">
       <notes>
-        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Die Zukunft</source>
@@ -15074,7 +15074,7 @@
     </unit>
     <unit id="WA0.uhs">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
@@ -17778,7 +17778,7 @@
     </unit>
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Der Leichnam von {citizen} wurde nicht zerstört.</source>
@@ -17787,7 +17787,7 @@
     </unit>
     <unit id=".67v4pV">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</source>
@@ -19438,7 +19438,7 @@
     </unit>
     <unit id="aZTP5kd" name="Behausung:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Behausung:</source>
@@ -19447,7 +19447,7 @@
     </unit>
     <unit id="DPEWu9n" name="Bauarbeiten:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Bauarbeiten:</source>
@@ -19456,7 +19456,7 @@
     </unit>
     <unit id="da5HmMo" name="Verteidigungsgegenstände:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände:</source>
@@ -19465,7 +19465,7 @@
     </unit>
     <unit id="82mfAu." name="Heldenbonus:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Heldenbonus:</source>
@@ -19474,7 +19474,7 @@
     </unit>
     <unit id="GOhyviN" name="Total:">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Total:</source>
@@ -19483,7 +19483,7 @@
     </unit>
     <unit id="wyKmZM_">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
@@ -21730,7 +21730,7 @@
     </unit>
     <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
       <notes>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
@@ -21969,6 +21969,60 @@
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
         <target><![CDATA[Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.<br/>Art der Beschränkung: <b>{type}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</target>
+      </segment>
+    </unit>
+    <unit id="LbDbpH3" name="Spontanes Leberversagen">
+      <notes>
+        <note category="from">db://CauseOfDeath</note>
+      </notes>
+      <segment>
+        <source>Spontanes Leberversagen</source>
+        <target>Spontanes Leberversagen</target>
+      </segment>
+    </unit>
+    <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
+      <notes>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
+      </notes>
+      <segment>
+        <source>{username} hat keine Leber mehr.</source>
+        <target>{username} hat keine Leber mehr.</target>
+      </segment>
+    </unit>
+    <unit id="Q3qWi07">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</source>
+        <target>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</target>
+      </segment>
+    </unit>
+    <unit id="e9K2kq6" name="im Wahlbüro abzustimmen">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+      </notes>
+      <segment>
+        <source>im Wahlbüro abzustimmen</source>
+        <target>im Wahlbüro abzustimmen</target>
+      </segment>
+    </unit>
+    <unit id="EIB6zP8" name="Anzahl der Tage, die du als Einwohner gespielt hast.">
+      <notes>
+        <note category="from">db://PictoPrototype</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
+        <target>Anzahl der Tage, die du als Einwohner gespielt hast.</target>
       </segment>
     </unit>
   </file>

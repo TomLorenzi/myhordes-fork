@@ -809,13 +809,16 @@ export default class TwinoAlikeParser {
                 ( elem.getAttribute('x-qi' ) ? playerCache.id[elem.getAttribute('x-qi' )] : null ) ??
                 ( elem.getAttribute('x-qn' ) ? playerCache.name[elem.getAttribute('x-qn' )] : null ) ?? null;
 
-            if (player_data && player_data.exists) {
+            if (player_data && player_data.exists === 1) {
                 elem.classList.add("username");
                 elem.setAttribute("x-user-id", player_data.id);
                 elem.textContent = player_data.displayName;
                 elem.removeAttribute('x-qi');
                 elem.removeAttribute('x-qn');
                 $.html.handleUserPopup(<HTMLElement>elem);
+            } else if (player_data && player_data.exists > 1) {
+                elem.classList.add("username");
+                elem.textContent = '[ ' + player_data.displayName + ' ]';
             } else if (player_data === null) {
                 elem.classList.add("username");
                 elem.innerHTML = '<i class="fa fa-pulse fa-spinner"></i>'
@@ -881,7 +884,8 @@ export default class TwinoAlikeParser {
                     }, (data) => {
 
                         (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
-                            playerCache.id[ player.id ] = playerCache.name[ player.queryName ] = player;
+                            playerCache.name[ player.queryName ] = player;
+                            if (player.id > 0) playerCache.id[ player.id ] = player;
                         } );
 
                         missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );

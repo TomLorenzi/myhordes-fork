@@ -253,22 +253,27 @@ class TwinoidHandler
                     ->setV1($town->isOld());
             else $entry->setDays( max( $entry->getDays(), $town->getDay() ) );
 
+            $proxy = (new CitizenRankingProxy())
+                ->setBaseID( $user->getId() )
+                ->setImportID( $town->getID() )
+                ->setImportLang( $lang )
+                ->setUser( $user )
+                ->setCod( $town->convertDeath() )
+                ->setComment( $town->getComment() )
+                ->setLastWords( $town->getMessage() )
+                ->setDay( $town->getSurvivedDays() )
+                ->setConfirmed( true )
+                ->setPoints( $town->getScore() )
+                ->setLimitedImport( $isPrimary && $isLimited )
+                ->setCleanupUsername($town->getCleanup()['user'])
+                ->setCleanupType($town->getCleanup()['type']);
+
+            if ($isPrimary && $isLimited) {
+                $proxy->addDisableFlag(CitizenRankingProxy::DISABLE_ALL);
+            }
+
             $entry->addCitizen(
-                (new CitizenRankingProxy())
-                    ->setBaseID( $user->getId() )
-                    ->setImportID( $town->getID() )
-                    ->setImportLang( $lang )
-                    ->setUser( $user )
-                    ->setCod( $town->convertDeath() )
-                    ->setComment( $town->getComment() )
-                    ->setLastWords( $town->getMessage() )
-                    ->setDay( $town->getSurvivedDays() )
-                    ->setConfirmed( true )
-                    ->setPoints( $town->getScore() )
-                    ->setLimitedImport( $isPrimary && $isLimited )
-                    ->setDisabled( $isPrimary && $isLimited )
-                    ->setCleanupUsername($town->getCleanup()['user'])
-                    ->setCleanupType($town->getCleanup()['type'])
+                $proxy
             );
 
             $this->em->persist( $entry );

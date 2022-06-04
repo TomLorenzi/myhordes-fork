@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{% trans from 'admin' %}Verbannung{% endtrans %}{%  endblock %}
+{% block title %}{% trans from 'admin' %}Verbannung{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block ajax %}
     <div class="row soul">
 
@@ -83,11 +83,20 @@
                                     </div>
                                     <div class="cell rw-2 rw-md-5 rw-sm-4 padded">{% if restriction.moderator|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ restriction.moderator.name }}</div>
                                     <div class="cell rw-2 rw-md-5 padded">
+                                        {% set confirmed_by_admin = false %}
+                                        {% set confirmed_by_super = false %}
                                         {% if restriction.confirmedBy|filter(c => c != restriction.moderator) is empty %}<div>-</div>{% endif %}
                                         {% for confirmer in restriction.confirmedBy %}
+                                            {% if confirmer|is_granted('ROLE_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
+                                            {% if confirmer|is_granted('ROLE_SUPER') %}{% set confirmed_by_super = true %}{% endif %}
+                                            {% if restriction.moderator|is_granted('ROLE_ADMIN') %}{% set confirmed_by_admin = true %}{% endif %}
+                                            {% if restriction.moderator|is_granted('ROLE_SUPER') %}{% set confirmed_by_super = true %}{% endif %}
                                             {% if confirmer != restriction.moderator %}<div>{% if confirmer|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ confirmer.name }}</div>{% endif %}
                                         {% endfor %}
-                                        {% if restriction.active and (restriction.expires is null or restriction.expires > 'now'|to_date) and app.user not in restriction.confirmedBy %}
+                                        {% set confirmation_is_useful = true %}
+                                        {% if confirmed_by_super and is_granted('ROLE_SUPER') %}{% set confirmation_is_useful = false %}{% endif %}
+                                        {% if confirmed_by_admin and is_granted('ROLE_ADMIN') and not is_granted('ROLE_SUPER') %}{% set confirmation_is_useful = false %}{% endif %}
+                                        {% if restriction.active and (restriction.expires is null or restriction.expires > 'now'|to_date) and confirmation_is_useful and app.user not in restriction.confirmedBy %}
                                             <button x-confirm-url="{{ path('admin_users_ban_confirm', {bid: restriction.id, uid: user.id}) }}"><img src="{{ asset('build/images/icons/escort_on.gif') }}"> {{ 'Bestätigen'|trans({},'admin') }}</button>
                                         {% endif %}
                                     </div>

@@ -111,6 +111,9 @@
 
   &:not(.wrap):not(.wrap-inverse) { flex-wrap: nowrap; }
   &.wrap { flex-wrap: wrap; }
+  &.gap { gap: @myhordes-grid-padsize }
+  &.gap-small { gap: @myhordes-grid-padsize-small }
+  &.gap-none { gap: 0 }
   &.wrap-inverse { flex-wrap: wrap-reverse; }
 
   &.h-center { justify-content: center; }

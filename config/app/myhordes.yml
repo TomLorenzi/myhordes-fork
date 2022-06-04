@@ -5,7 +5,7 @@ parameters:
       retries: 3
       date_modifier: "tomorrow"
     backup:
-      path: ~
+      path: ~ # Working directory
       compression: ~
       limits:
         nightly: 0
@@ -14,6 +14,29 @@ parameters:
         monthly: 12
         update: 2
         manual: -1
+      storages:
+        local:
+          enabled: true
+          type: 'local'
+          path: '~/var/backup'
+        remote:
+          enabled: false
+          type: 'ftp'
+          host: 'ftp.example.com'
+          port: 21
+          user: 'ftpuser'
+          pass: 'ftppass'
+          path: '/'
+          passive: true
+        sftpremote:
+          enabled: false
+          type: 'sftp'
+          host: 'sftp.example.com'
+          port: 22
+          user: 'sftpuser'
+          pass: 'sftppass'
+          path: '/'
+
     coalitions:
       size: 5
       inactive_after_days: 5

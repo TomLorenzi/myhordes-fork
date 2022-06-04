@@ -6,39 +6,44 @@
 {% endblock %}
 {% block ajax %}
     {{ parent() }}
-    <div class="row">
-        <div class="padded cell rw-12">
+    <div>
+        <div>
             <input type="checkbox" name="gazette-switch" id="gazette-switch" />
+            
             {% include 'ajax/game/gazette_widget.html.twig' with { gazette: gazette, council: council } %}
 
-            {% if citizensWithRole|length > 0 %}
+            {% if citizensWithRole|length > 0 or votesNeeded|length > 0 %}
             <h5>{{ 'Stadtrat'|trans({}, 'game') }}</h5>
             <div id="gazette-role-list">
-            {% for roleId, array in citizensWithRole %}
-                {% for citizen in array.citizens %}
-                    {% if not array.role.secret and not array.role.hidden %}
-                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der {rolename} der Stadt ist {username}"|trans({'rolename': array.role.label|trans({'ref': citizen}, 'game'), 'username': citizen, 'username__tag': 'strong', 'rolename__tag': 'strong'} , 'game')|raw }}</p>
-                    {% endif %}
+                {% for role in votesNeeded %}
+                    <p><img alt="•" src="{{ asset('build/images/icons/small_help.gif') }}" />
+                        {{ "Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}."|trans({'rolename': role.label|trans({}, 'game'), 'vote_link': ('<a href="#" x-ajax-href="' ~ path('town_citizen_vote', {roleId: role.id}) ~ '">' ~ 'im Wahlbüro abzustimmen'|trans({}, 'game') ~ '</a>')} , 'game')|raw }}</p>
                 {% endfor %}
-            {% endfor %}
+                {% for roleId, array in citizensWithRole %}
+                    {% for citizen in array.citizens %}
+                        {% if not array.role.secret and not array.role.hidden %}
+                            <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der {rolename} der Stadt ist {username}"|trans({'rolename': array.role.label|trans({'ref': citizen}, 'game'), 'username': citizen, 'username__tag': 'strong', 'rolename__tag': 'strong'} , 'game')|raw }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
             </div>
             {% endif %}
 
-            <div class="row">
-                <div class="cell padded rw-4">
+            <div class="row gazette-search">
+                <div class="note cell padded rw-3">
                     {% if show_register %}
-                    <h5>{{ 'Das Register filtern'|trans({}, 'game') }}</h5>
-                    <div class="note row">
-                        <label for="citizen-filter" class="cell rw-4 rw-sm-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
-                        <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-sm-12 mb-1" x-filter-name="citizen">
+                    <h2 class="page-head">{{ 'Das Register filtern'|trans({}, 'game') }}</h2>
+                    <div class="row">
+                        <label for="citizen-filter" class="cell rw-4 rw-lg-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
+                        <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-lg-12" x-filter-name="citizen">
                             <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
                             {% for citizen in town.citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
                             <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.name }}</option>
                             {% endfor %}
                         </select>
 
-                        <label for="category-filter" class="cell rw-4 rw-sm-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
-                        <select id="category-filter" name="category-filter" class="cell rw-8 rw-sm-12" x-filter-name="category">
+                        <label for="category-filter" class="cell rw-4 rw-lg-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
+                        <select id="category-filter" name="category-filter" class="cell rw-8 rw-lg-12" x-filter-name="category">
                             <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
                             <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCrimes') }}">{{ 'Verbrechen'|trans({}, 'game') }}</option>
                             <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeBank') }}">{{ 'Bank'|trans({}, 'game') }}</option>
@@ -54,7 +59,6 @@
                     {% endif %}
                 </div>
                 <div class="cell padded rw-8">
-                    <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
                     {% if show_register %}
                         {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}
                         {% endembed %}

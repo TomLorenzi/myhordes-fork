@@ -13,7 +13,9 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\ExternalApp;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
+use App\Entity\ForumPollAnswer;
 use App\Entity\FoundRolePlayText;
+use App\Entity\GlobalPoll;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\OfficialGroup;
 use App\Entity\Picto;
@@ -24,6 +26,7 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\SocialRelation;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
@@ -41,7 +44,7 @@ use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
@@ -54,6 +57,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -88,14 +92,16 @@ class SoulController extends CustomAbstractController
 
     protected UserFactory $user_factory;
     protected UserHandler $user_handler;
+    protected KernelInterface $kernel;
     protected Packages $asset;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, KernelInterface $kernel)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->user_handler = $uh;
+        $this->kernel = $kernel;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -143,7 +149,6 @@ class SoulController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'soul_me' ));
 
         $largest = null;
-        $comment = null;
 
         /** @var AccountRestriction[] $restrictions */
         $restrictions = $this->entity_manager->getRepository(AccountRestriction::class)->findBy(['user' => $user, 'active' => true, 'confirmed' => true]);
@@ -154,7 +159,7 @@ class SoulController extends CustomAbstractController
             }
         }
 
-        return $this->render( 'ajax/soul/acc_disabled.html.twig', ['restriction' => $largest]);
+        return $this->render( 'ajax/soul/acc_disabled.html.twig', $this->addDefaultTwigArgs(null, ['restriction' => $largest]));
     }
 
     /**
@@ -240,11 +245,13 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/refer", name="soul_refer")
-     * @Route("jx/soul/contacts", name="soul_contacts")
+     * @Route("jx/soul/contacts/{opt}", name="soul_contacts", requirements={"opt"="\d"})
+     * @param Request $request
      * @param ConfMaster $conf
+     * @param int $opt
      * @return Response
      */
-    public function soul_refer(Request $request, ConfMaster $conf): Response {
+    public function soul_refer(Request $request, ConfMaster $conf, int $opt = 0): Response {
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
@@ -289,6 +296,10 @@ class SoulController extends CustomAbstractController
             $coa_full = count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5);
         }
 
+        $reverse_friends = $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true);
+        $all_reverse_friends = count($reverse_friends);
+        if ($opt !== 1) $reverse_friends = array_filter( $reverse_friends, fn(User $friend) => !$this->user_handler->checkRelation( $this->getUser(), $friend, SocialRelation::SocialRelationTypeNotInterested ) );
+
         return $this->render( 'ajax/soul/social.html.twig', $this->addDefaultTwigArgs("soul_refer", [
             'tab' => $request->attributes->get('_route') === 'soul_refer' ? 'refer' : 'friends',
 
@@ -297,7 +308,9 @@ class SoulController extends CustomAbstractController
             'lang' => $this->getUserLanguage(),
 
             'friends' => $this->getUser()->getFriends(),
-            'reverse_friends' => $this->entity_manager->getRepository(User::class)->findInverseFriends($this->getUser(), true),
+            'reverse_friends' => $reverse_friends,
+            'reverse_friends_hidden' => count($reverse_friends) < $all_reverse_friends,
+            'opt' => $opt,
 
             'blocklist' => $this->entity_manager->getRepository( SocialRelation::class )->findBy( ['owner' => $this->getUser(), 'type' => SocialRelation::SocialRelationTypeBlock ] ),
 
@@ -355,21 +368,48 @@ class SoulController extends CustomAbstractController
      * @Route("jx/soul/exists", name="user_exists")
      * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
      */
-    public function users_exists(JSONRequestParser $parser): Response {
+    public function users_exists(JSONRequestParser $parser, TranslatorInterface $translator): Response {
         $return = [];
 
-        $add = function(?User $u, string $name, int $id) use (&$return) {
+        $fixed_account_translators = [
+            66 => 'Der Rabe',
+            67 => 'Animateur-Team',
+        ];
+
+        $add = function(?User $u, string $name, int $id) use (&$return, &$translator, &$fixed_account_translators) {
+            $name_fixed = ($fixed_account_translators[$u?->getId() ?? -1] ?? null)
+                ? $translator->trans($fixed_account_translators[$u?->getId() ?? -1], [], 'global')
+                : null;
+
             $return[] =
                 [
-                    'exists' => $u !== null,
+                    'exists' => $u !== null ? 1 : 0,
                     'id' => $u?->getId() ?? $id,
-                    'displayName' => $u?->getName() ?? $name,
+                    'displayName' => $name_fixed ?? $u?->getName() ?? $name,
                     'queryName' => $name
                 ];
         };
 
-        foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name )
-           $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
+        $missing_name = $this->translator->trans( 'Specify using player search', [], 'soul' );
+
+        $addMultiple = function(int $count, string $name) use (&$return, $missing_name) {
+            if ($count > 1)
+                $return[] =
+                    [
+                        'exists' => $count,
+                        'id' => -1,
+                        'displayName' => $missing_name,
+                        'queryName' => $name
+                    ];
+        };
+
+        foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name ) {
+
+            if (($count = $this->entity_manager->getRepository(User::class)->countByNameOrDisplayName( trim($name) )) < 2)
+                $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
+            else $addMultiple( $count, $name );
+        }
+
 
         foreach ( array_slice( $parser->get_array( 'ids', [] ), 0, 100 ) as $id )
             $add( $this->entity_manager->getRepository(User::class)->find( (int)$id ), '', $id );
@@ -428,16 +468,98 @@ class SoulController extends CustomAbstractController
         if ($selected === null)
             $selected = $news[0] ?? null;
 
-
-
         try {
             $userHandler->setSeenLatestChangelog( $user, $lang );
             $this->entity_manager->flush();
         } catch (Exception $e) {}
 
         return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'news' => $news, 'selected' => $selected
+            'news' => $news, 'selected' => $selected,
+            'has_polls' => !empty($this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, false))
         ]) );
+    }
+
+    /**
+     * @Route("jx/soul/polls/{id}/{group}/{tag}", name="soul_polls")
+     * @param int $id
+     * @param string $group
+     * @param string $tag
+     * @return Response
+     */
+    public function soul_polls(int $id = 0, string $group = '', string $tag = ''): Response
+    {
+        if (($group !== '' || $tag !== '') && !$this->isGranted('ROLE_ADMIN'))
+            return $this->redirect($this->generateUrl( 'soul_polls' ));
+
+        if (!$this->isGranted('ROLE_ADMIN')) {
+            $group = 'antigrief';
+            $tag = 'pass';
+        }
+
+        $polls = $this->entity_manager->getRepository(GlobalPoll::class)->findByState(true, true, $this->isGranted('ROLE_ORACLE'));
+
+        $selected = ($id > 0 ? $this->entity_manager->getRepository(GlobalPoll::class)->find($id) : null);
+        if ($selected && $selected->getStartDate() > new DateTime() && !$this->isGranted('ROLE_ORACLE'))
+            $selected = null;
+
+        if ($selected === null && $id > 0)
+            return $this->redirect($this->generateUrl( 'soul_polls' ));
+
+        $selected = $selected ?? $polls[0] ?? null;
+
+        return $this->render( 'ajax/soul/polls.html.twig', $this->addDefaultTwigArgs("soul_future", [
+            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected->getPoll()->getAllAnswerTags() : [],
+            'group' => $group, 'tag' => $tag,
+            'polls' => $polls, 'selected' => $selected
+        ]) );
+    }
+
+    /**
+     * @Route("api/soul/polls/{id<\d+>}/{answer<\d+>}", name="soul_poll_participate")
+     * @param int $id
+     * @param int $answer
+     * @return Response
+     */
+    public function soul_poll_participate(int $id = 0, int $answer = 0): Response
+    {
+        $user = $this->getUser();
+        $now = new DateTime();
+
+        $poll = $this->entity_manager->getRepository(GlobalPoll::class)->find($id);
+        if (!$poll || $poll->getStartDate() > $now || $poll->getEndDate() < $now || $poll->getPoll()->getParticipants()->contains($user))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if ($answer > 0) {
+
+            $answer = $this->entity_manager->getRepository(ForumPollAnswer::class)->find($answer);
+            if (!$answer || !$poll->getPoll()->getAnswers()->contains($answer))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+            $answer->setNum( $answer->getNum() + 1 );
+
+            $main = 'none';
+            foreach ($user->getTwinoidImports() as $import)
+                if ($import->getMain()) $main = $import->getScope() ?? 'none';
+
+            $sp = $user->getAllSoulPoints();
+            $anti_grief = $this->getActiveCitizen()->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20);
+
+            $answer->incTagNumber('origin', $main);
+            $answer->incTagNumber('lang', $user->getLanguage());
+            if ($sp < 100)       $answer->incTagNumber('sp', '0_99');
+            elseif ($sp < 1000)  $answer->incTagNumber('sp', '100_999');
+            elseif ($sp < 10000) $answer->incTagNumber('sp', '1000_9999');
+            else                 $answer->incTagNumber('sp', '10000');
+            $answer->incTagNumber('antigrief', $anti_grief ? 'fail' : 'pass');
+
+            $this->entity_manager->persist($answer);
+        }
+
+        $poll->getPoll()->addParticipant( $user );
+        $this->entity_manager->persist( $poll->getPoll() );
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
     /**
@@ -483,11 +605,19 @@ class SoulController extends CustomAbstractController
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
+            'flags' => $this->getFlagList(),
             'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
         ]) );
+    }
+
+    protected function getFlagList(): array {
+        $flags = [];
+        foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/lang/any") as $f)
+            if ($f !== '.' && $f !== '..' && str_ends_with( strtolower($f), '.svg' )) $flags[] = substr( $f, 0, -4);
+        return $flags;
     }
 
     /**
@@ -501,6 +631,7 @@ class SoulController extends CustomAbstractController
 
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
+        $flag  = $parser->get('flag', '');
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
         $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
         $pronoun = $parser->get('pronoun','none', ['male','female','none']);
@@ -517,6 +648,9 @@ class SoulController extends CustomAbstractController
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if ($flag !== '' && !in_array( $flag, $this->getFlagList() ))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
 
         if ($name_change && !$this->user_handler->isNameValid($displayName))
@@ -525,7 +659,7 @@ class SoulController extends CustomAbstractController
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
-        if ($name_change && $user->getEternalID() !== null)
+        if ($name_change && $user->getEternalID() !== null && !$user->getNoAutomaticNameManagement())
             return AjaxResponse::error(self::ErrorUserUseEternalTwin);
 
         if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $name_change)
@@ -557,6 +691,8 @@ class SoulController extends CustomAbstractController
             $user->setActiveIcon($award);
         }
 
+        $user->setFlag($flag === '' ? null : $flag);
+
         $desc_obj = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
         if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $len) && $len > 0) {
             if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDescription)) {
@@ -566,7 +702,7 @@ class SoulController extends CustomAbstractController
             }
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
 
-        if(!empty($displayName) && $displayName !== $user->getName() && $user->getEternalID() === null) {
+        if(!empty($displayName) && $displayName !== $user->getName() && ($user->getEternalID() === null || $user->getNoAutomaticNameManagement())) {
             $history = $user->getNameHistory() ?? [];
             if(!in_array($user->getName(), $history))
                 $history[] = $user->getName();
@@ -964,10 +1100,10 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/settings/defaultrole", name="api_soul_defaultrole")
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function soul_settings_default_role(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+    public function soul_settings_default_role(JSONRequestParser $parser, AdminHandler $admh): Response {
         $user = $this->getUser();
 
         $asDev = $parser->get('dev', false);
@@ -980,10 +1116,10 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/settings/mod_tools_window", name="api_soul_mod_tools_window")
      * @param JSONRequestParser $parser
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function soul_mod_tools_window(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+    public function soul_mod_tools_window(JSONRequestParser $parser, AdminHandler $admh): Response {
         $user = $this->getUser();
 
         $new_window = $parser->get('same_window', false);
@@ -1232,6 +1368,11 @@ class SoulController extends CustomAbstractController
 
         $name = $user->getUsername();
         $user->setDeleteAfter( new DateTime('+24hour') );
+        $user->setCheckInt($user->getCheckInt() + 1);
+
+        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+            $this->entity_manager->remove($rm_token);
+
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['{name}' => $name], 'login') );
@@ -1347,11 +1488,10 @@ class SoulController extends CustomAbstractController
             else {
                 $pendingPicto
                     ->setPersisted(2)
-                    ->setDisabled( $nextDeath->getDisabled() || $nextDeath->getTown()->getDisabled() );
+                    ->setDisabled( $nextDeath->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $nextDeath->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) );
                 $this->entity_manager->persist($pendingPicto);
             }
         }
-
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
             $active->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words);
@@ -1420,14 +1560,14 @@ class SoulController extends CustomAbstractController
         }
 
 
-        return $this->render( 'ajax/soul/death.html.twig', [
+        return $this->render( 'ajax/soul/death.html.twig', $this->addDefaultTwigArgs(null, [
             'citizen' => $nextDeath,
             'sp' => $nextDeath->getPoints(),
             'day' => $nextDeath->getDay(),
             'pictos' => $pictosWonDuringTown,
             'gazette' => $canSeeGazette,
             'denied_pictos' => $pictosNotWonDuringTown
-        ] );
+        ]) );
     }
 
     /**
@@ -1570,8 +1710,8 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/friend/{action}", name="soul_friend_control")
      * @GateKeeperProfile(allow_during_attack=true)
-     * @param int $id
-     * @param HTMLService $html
+     * @param int $action
+     * @param JSONRequestParser $parser
      * @return Response
      */
     public function api_friend_control(int $action, JSONRequestParser $parser) {
@@ -1586,9 +1726,11 @@ class SoulController extends CustomAbstractController
         if ($action && $this->user_handler->checkRelation($this->getUser(), $user,SocialRelation::SocialRelationTypeBlock, true))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
-        if($action)
+        if ($action) {
             $this->getUser()->addFriend($user);
-        else
+            $ignoreRelation = $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $user, 'type' => SocialRelation::SocialRelationTypeNotInterested ] );
+            if ($ignoreRelation) $this->entity_manager->remove( $ignoreRelation );
+        } else
             $this->getUser()->removeFriend($user);
 
         $this->entity_manager->persist($this->getUser());
@@ -1599,6 +1741,33 @@ class SoulController extends CustomAbstractController
         } else {
             $this->addFlash("notice", $this->translator->trans("Du hast {username} aus deinen Kontakten gelöscht!", ['{username}' => $user], "soul"));
         }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/ignore/{action}", name="soul_ignore_control")
+     * @GateKeeperProfile(allow_during_attack=true)
+     * @param int $action
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function api_ignore_control(int $action, JSONRequestParser $parser) {
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $id = $parser->get("id");
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+
+        if (!$user || $this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($this->getUser()->getFriends()->contains($user) && $action)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($action)
+            $this->entity_manager->persist((new SocialRelation())->setType(SocialRelation::SocialRelationTypeNotInterested)->setOwner($this->getUser())->setRelated($user));
+        else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $user, 'type' => SocialRelation::SocialRelationTypeNotInterested ] ) );
+        $this->entity_manager->flush();
 
         return AjaxResponse::success();
     }

@@ -320,7 +320,7 @@
     </unit>
     <unit id="MO7x7sr">
       <notes>
-        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
@@ -464,7 +464,7 @@
     </unit>
     <unit id="ho.WxzI">
       <notes>
-        <note category="from">twig:///templates/ajax/public/login.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
@@ -473,7 +473,7 @@
     </unit>
     <unit id="uT6i9yH">
       <notes>
-        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>

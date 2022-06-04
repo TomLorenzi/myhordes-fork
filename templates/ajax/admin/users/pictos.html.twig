@@ -2,7 +2,7 @@
 
 {% from "ajax/admin/widget/controls.twig" import widget_picto_creator as picto_creator, widget_picto_creator_js as picto_creator_js, widget_feature_creator as feature_creator, widget_feature_creator_js as feature_creator_js, widget_title_creator as title_creator, widget_title_creator_js as title_creator_js %}
 
-{% block title %}{% trans from 'admin' %}Auszeichnungen{% endtrans %}{%  endblock %}
+{% block title %}{% trans from 'admin' %}Auszeichnungen{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block ajax %}
     <div class="row soul">
         <div class="cell padded header rw-12">

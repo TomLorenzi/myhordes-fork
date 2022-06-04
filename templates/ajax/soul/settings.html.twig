@@ -68,9 +68,9 @@
                         </div>
                     </div>
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null or next_name_change_days > 0 %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
+                        <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or (app.user.eternalID is not null and not app.user.noAutomaticNameManagement) or next_name_change_days > 0 %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
                     </div>
-                    {% if app.user.eternalID is null and app.user.displayName is not null and app.user.displayName != app.user.username %}
+                    {% if (app.user.eternalID is null or app.user.noAutomaticNameManagement) and app.user.displayName is not null and app.user.displayName != app.user.username %}
                         <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
                             <div  class="note warning-box">
                                 {{ 'Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.'|trans({name: app.user.username},'login')|raw }}
@@ -82,7 +82,7 @@
                     {% endif %}
                     <div id="name-warning-box" class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12 {% if app.user.eternalID is null %}hidden{% endif %}">
                         <div  class="note warning-box">
-                            {% if app.user.eternalID is null %}
+                            {% if app.user.eternalID is null or app.user.noAutomaticNameManagement %}
                                 {{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}
                             {% else %}
                                 {{ 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.'|trans({}, 'soul') }}
@@ -141,6 +141,31 @@
                                 <span x-title-icon="-1" class="small pointer">[{{ 'Kein Icon'|trans({},'soul') }}]</span>
                             {% else %}<span class="small bold">{{ 'Du hast noch kein Icon freigeschaltet!'|trans({},'soul') }}</span>{% endif %}
                             <br /><span id="hide_icon_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest">
+                            <label>{{ 'Deine Flagge'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <div class="row-flex v-center">
+                            <input  id="user_flag" type="hidden" value="{% if app.user.flag is null %}{% else %}{{ app.user.flag }}{% endif %}">
+                            {% if app.user.flag is not null %}
+                                <div class="user-flag" id="user_current_flag"><img alt="{{ app.user.flag }}" src="{{ asset('build/images/lang/any/' ~ app.user.flag ~ '.svg' ) }}"/></div>
+                            {% else %}
+                                <div class="user-flag hidden" id="user_current_flag"><img alt="" src=""/></div>
+                            {% endif %}
+                            <span id="show_flag_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
+                        </div>
+                        <div id="flag_sel" class="row-flex wrap v-center gap-small space" style="display: none; margin-top: 5px;">
+                            {% for flag in flags %}
+                                <div class="user-flag cell pointer" id="user_current_flag" data-flag="{{ flag }}"><img alt="{{ flag }}" src="{{ asset('build/images/lang/any/' ~ flag ~ '.svg' ) }}"/></div>
+                            {% endfor %}
+                            <span data-flag="" class="small pointer">[{{ 'Spracheinstellung verwenden'|trans({},'soul') }}]</span>
+                            <br /><span id="hide_flag_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
                         </div>
                     </div>
                 </div>
@@ -631,8 +656,11 @@
 
             $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
                 function () {
-                    alert('{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}');
-                    $.ajax.load(null, '{{ path('public_welcome') }}', true);
+                    alert(
+                        '{{ 'Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.'|trans( {'name': app.user.name}, 'login')|e('js') }}' + "\n\n" +
+                        '{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}'
+                    );
+                    window.location.href = $.ajax.getBaseURL();
                 } )
         });
 
@@ -880,7 +908,8 @@
 
         $.html.addEventListenerAll('#save_profile_header', 'click', () => {
             const title = parseInt(document.getElementById('user_title').value);
-            const icon = parseInt(document.getElementById('user_icon').value);
+            const icon  = parseInt(document.getElementById('user_icon').value);
+            const flag  = document.getElementById('user_flag').value;
             const pronounSel = document.querySelector('input[name="user_pronoun"]:checked');
             const pronoun = pronounSel ? pronounSel.value : 'none';
 
@@ -890,11 +919,9 @@
             }
 
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
-                title: title,
-                icon: icon,
+                title, icon, flag, pronoun,
                 desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()}),
-                displayName: document.getElementById('user_displayname').value,
-                pronoun: pronoun
+                displayName: document.getElementById('user_displayname').value
             }, () => {
                 $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
                 $.ajax.load(null, '{{ path('soul_settings')|e('js') }}');
@@ -923,6 +950,32 @@
             document.getElementById('show_icon_sel').style.display = null;
             document.getElementById('icon_sel').style.display = 'none';
         });
+
+        $.html.addEventListenerAll('#show_flag_sel', 'click', (e,elem) => {
+            elem.style.display = 'none';
+            document.getElementById('flag_sel').style.display = null;
+        });
+        $.html.addEventListenerAll('#hide_flag_sel', 'click', () => {
+            document.getElementById('show_flag_sel').style.display = null;
+            document.getElementById('flag_sel').style.display = 'none';
+        });
+        $.html.addEventListenerAll('[data-flag]', 'click', (e,elem) => {
+            const id = elem.dataset.flag;
+            let target = document.getElementById('user_current_flag');
+            if (id === '') {
+                target.firstElementChild.setAttribute('src','');
+                target.firstElementChild.setAttribute('alt','');
+                target.classList.add('hidden');
+            } else {
+                target.firstElementChild.setAttribute('src',elem.firstElementChild.getAttribute('src'));
+                target.firstElementChild.setAttribute('alt',id);
+                target.classList.remove('hidden');
+            }
+            document.getElementById('user_flag').value = id;
+            document.getElementById('show_flag_sel').style.display = null;
+            document.getElementById('flag_sel').style.display = 'none';
+        });
+
         document.getElementById('user_desc').value = $.html.twinoParser.parseFrom('{{ user_desc|e('js') }}', $.html.twinoParser.OpModeRaw);
     </script>
 {% endblock %}

@@ -194,6 +194,8 @@ class GhostController extends CustomAbstractController
 
                 'give_all_pictos' => $crow_permissions ? (bool)$parser->get('allpictos', false) : false,
                 'give_soulpoints' => $crow_permissions ? (bool)$parser->get('soulpoints', false) : false,
+
+                'free_for_all' => (bool)$parser->get('free_for_all', true),
             ],
 
             'overrides' => [
@@ -546,7 +548,7 @@ class GhostController extends CustomAbstractController
                 || $sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )),
             'remote' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )),
             'panda' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )),
-            'custom' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_CUSTOM, 1000 )),
+            'custom' => 'maybe',
         ];
     }
 

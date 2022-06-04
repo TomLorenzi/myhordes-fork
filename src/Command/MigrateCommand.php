@@ -35,6 +35,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -112,6 +113,9 @@ class MigrateCommand extends Command
         'c25ec1d6d328d9d3bc03dda9d9bb34873a56484d' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         '049ee184a6e5e2ecb5599a8fc7aa2a8b15948d36' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
         '7fb1baba0c40004b02a556175a73edfa170bdeff' => [ ['app:migrate', ['--calculate-score' => true] ] ],
+        'a45dec20a02f017ab1963d2f0c30e4fa7de9ddf5' => [ ['app:migrate', ['--assign-estimation-seed' => true] ] ],
+        '2c688bfc00992c98193e9480848e2f1e63be9d04' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
+        'f38e93b3cc6e37542112c53771d65fe00e05e7a1' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -175,6 +179,8 @@ class MigrateCommand extends Command
             ->addOption('fix-ranking-survived-days', null, InputOption::VALUE_NONE, 'Fix survived day count in rankings')
             ->addOption('reassign-thread-tags', null, InputOption::VALUE_NONE, 'Repairs ThreadTag assignment to forums')
             ->addOption('assign-official-tag', null, InputOption::VALUE_NONE, 'Assign the Official tag in the Town forums')
+            ->addOption('assign-estimation-seed', null, InputOption::VALUE_NONE, 'Assign the random seed in existing Zombie Estimation Entities')
+            ->addOption('assign-disable-flags', null, InputOption::VALUE_NONE, 'Assign the DisableFlag in the ranking entries according to their disable state')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -183,6 +189,7 @@ class MigrateCommand extends Command
             ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
 
             ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
+            ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
         ;
@@ -685,6 +692,32 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
         }
 
+        if ($input->getOption('assign-estimation-seed')) {
+            $estimations = $this->entity_manager->getRepository(ZombieEstimation::class)->findAll();
+            foreach ($estimations as $estimation) {
+                if($estimation->getSeed() === null || $estimation->getSeed() === 0) {
+                    $seed = $estimation->getCitizens()->count() > 0 ? $estimation->getDay() + $estimation->getTown()->getId() : mt_rand(PHP_INT_MIN, PHP_INT_MAX);
+                    $estimation->setSeed($seed);
+                    $this->entity_manager->persist($estimation);
+                }
+            }
+            $this->entity_manager->flush();
+        }
+
+        if ($input->getOption('assign-disable-flags')) {
+            // A disabled citizen/town has in fact its Ranking disabled. Not its pictos / soul points
+            $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => true]);
+            foreach ($citizens as $citizen) {
+                $flag = $citizen->getResetMarker() ? CitizenRankingProxy::DISABLE_ALL : CitizenRankingProxy::DISABLE_RANKING;
+                $this->entity_manager->persist($citizen->addDisableFlag($flag)->setDisabled(false));
+            }
+            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['disabled' => true]);
+            foreach ($towns as $town) {
+                $this->entity_manager->persist($town->addDisableFlag(TownRankingProxy::DISABLE_RANKING)->setDisabled(false));
+            }
+            $this->entity_manager->flush();
+        }
+
         if ($input->getOption('repair-proxies')) {
             $this->helper->leChunk($output, CitizenRankingProxy::class, 1000, [], true, false, function(CitizenRankingProxy $cp): bool {
                 $b = false;
@@ -897,6 +930,22 @@ class MigrateCommand extends Command
         if ($input->getOption('set-old-flag')) {
             $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], true, true, function(Picto $picto) {
                 $picto->setOld($picto->getTownEntry() && !$picto->getTownEntry()->getImported() && $picto->getTownEntry()->getSeason() === null);
+            }, true);
+
+            return 0;
+        }
+
+        if ($input->getOption('fix-flag-setting')) {
+            $flags = [];
+            foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/lang/any") as $f)
+                if ($f !== '.' && $f !== '..' && str_ends_with( strtolower($f), '.svg' )) $flags[] = substr( $f, 0, -4);
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($flags) {
+                if ($user->getFlag() === null || in_array( $user->getFlag(), $flags )) return false;
+
+                if     ( in_array( $user->getFlag(), ['GP','PM','RE'] ) ) $user->setFlag( 'FR' );
+                elseif ( in_array( $user->getFlag(), ['UM'] ) )           $user->setFlag( 'US' );
+                else $user->setFlag( null );
+                return true;
             }, true);
 
             return 0;

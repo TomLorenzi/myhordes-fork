@@ -448,7 +448,7 @@ class ActionHandler
                         else if ($mode >= self::ActionValidityCrossed) $struct->addAction( $action, $item, false );
                     }
 
-            if ($struct->hasActions()) $list[] = $struct;
+            $list[] = $struct;
         }
 
         return $list;
@@ -932,6 +932,10 @@ class ActionHandler
                             $target = [ $citizen->getInventory() ];
                             $force = true;
                             break;
+                        case AffectItemSpawn::DropTargetPreferRucksack:
+                            $target = [ $citizen->getInventory(), $floor_inventory ];
+                            $force = true;
+                            break;
                         case AffectItemSpawn::DropTargetDefault:
                         default:
                             $target = [$execute_info_cache['source_inv'] ?? null, $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
@@ -1332,7 +1336,7 @@ class ActionHandler
                             $this->entity_manager->persist( $this->log->outsideDigSurvivalist( $citizen ) );
                             $execute_info_cache['casino'] = $this->translator->trans($drink ? 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.' : 'Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....', [], 'items');
 
-                        } else $execute_info_cache['casino'] = $this->translator->trans('Trotz intensiver Suche hast du nichts verwertbares gefunden...', [], 'items');
+                        } else $execute_info_cache['casino'] = $this->translator->trans('So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.', [], 'items');
                         break;
                     }
                     // Heroic teleport action

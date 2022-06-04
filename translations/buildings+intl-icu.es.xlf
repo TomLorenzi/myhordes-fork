@@ -2190,7 +2190,7 @@
       </notes>
       <segment>
         <source>Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</source>
-        <target>Esperamos que sirva, no sabemos cómo fue hecho, puesto que en el pueblo no había alambres.</target>
+        <target>Esperamos que sirva. No sabemos cómo fue hecho, puesto que en el pueblo no había alambres.</target>
       </segment>
     </unit>
     <unit id="b82mDa7">
@@ -3340,7 +3340,7 @@
       </notes>
       <segment>
         <source>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="D_tzr7L">
@@ -3390,7 +3390,7 @@
       </notes>
       <segment>
         <source>Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</source>
-        <target>Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y darán +1 punto de defensa temporal a cada uno.</target>
+        <target>Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y cada uno dará +1 punto de defensa temporal.</target>
       </segment>
     </unit>
     <unit id="G1W3bpP">
@@ -3400,7 +3400,7 @@
       </notes>
       <segment>
         <source>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Una inmensa construcción en la que están grabados todos los nombres de los habitantes del pueblo. Sus iniciales C.O.S.A son un misterio. Tampoco nadie puede explicar la frase que figura en su base: ''Antro de la Noche Profunda''. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>Una inmensa construcción en la que están grabados todos los nombres de los habitantes del pueblo. Sus iniciales C.O.S.A son un misterio. Tampoco nadie puede explicar la frase que figura en su base: ''Antro de la Noche Profunda''. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="qVqfrKN">
@@ -3410,7 +3410,7 @@
       </notes>
       <segment>
         <source>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="IakGX2Y">
@@ -3430,7 +3430,7 @@
       </notes>
       <segment>
         <source>Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>¡Gloria al Cuervo! Gloria a su benevolencia. Líbranos del spam y perdona a los trolls como nosotros perdonamos a quienes nos han trolleado. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
+        <target>¡Gloria al Cuervo! Gloria a su benevolencia. Líbranos del spam y perdona a los trolls como nosotros perdonamos a quienes nos han trolleado. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="cYlMU3f">
@@ -3560,7 +3560,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
-        <target>La organización de la defensa total del pueblo aumenta a 12%</target>
+        <target>Las defensas del pueblo aumentan en 12% (+2%)</target>
       </segment>
     </unit>
     <unit id="ZSyuopW" name="Die Verteidigung der Stadt wird um 14% erhöht.">
@@ -3570,7 +3570,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
-        <target>La organización de la defensa total del pueblo aumenta a 14%</target>
+        <target>Las defensas del pueblo aumentan en 14% (+2%)</target>
       </segment>
     </unit>
     <unit id="K_1scXO" name="Zaun (Baustellen)">
@@ -3710,7 +3710,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 10% erhöht.</source>
-        <target>La defensa total del pueblo aumenta a 10%.</target>
+        <target>Las defensas del pueblo aumentan en 10%.</target>
       </segment>
     </unit>
     <unit id="ds6jhOT" name="Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.">

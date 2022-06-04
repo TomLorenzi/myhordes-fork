@@ -162,22 +162,28 @@
                         <div class="padded cell rw-3">{{ 'ID'|trans({},'admin') }}</div>
                         <div class="padded cell rw-8">{{ 'Inhalt'|trans({},'admin') }}</div>
                     </div>
-                    {% for snippet in snippets %}
+                    {% for snippet in snippets|sort((a, b) => a.lang == b.lang ? a.short <=> b.short : a.lang <=> b.lang) %}
                         <div class="row">
                             {# @var snippet \App\Entity\ForumModerationSnippet #}
                             <div class="padded cell rw-1"><i>{{ snippet.lang }}</i></div>
                             <div class="padded cell rw-2"><strong>{{ snippet.short }}</strong></div>
                             <div class="padded cell rw-8"><span class="small">{{ snippet.text }}</span></div>
-                            <div class="padded cell rw-1 right"><button x-delete-snippet-url="{{ path('admin_reports_remove_snippet', {id: snippet.id}) }}" class="small inline"><i class="fa fa-trash"></i></button></div>
+                            <div class="padded cell rw-1 right">
+                                <button data-purpose="edit" data-snippet-id="{{ snippet.id }}" data-snippet-lang="{{ snippet.lang }}" data-snippet="{{ snippet.text }}" data-snippet-short="{{ snippet.short }}" class="small inline"><i class="fa fa-pen"></i></button>
+                                <button data-purpose="cancel" data-snippet-id="{{ snippet.id }}" class="small inline hidden"><i class="fa fa-times"></i></button>
+                                <button x-delete-snippet-url="{{ path('admin_reports_remove_snippet', {id: snippet.id}) }}" class="small inline"><i class="fa fa-trash"></i></button>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
 
-                <h5>{{ 'Neuen Kurztext anlegen'|trans({},'admin') }}</h5>
+                <h5 class="" id="snipped_header_new">{{ 'Neuen Kurztext anlegen'|trans({},'admin') }}</h5>
+                <h5 class="hidden" id="snipped_header_edit" data-default="{{ 'Kurztext bearbeiten ({name})'|trans({},'admin') }}"></h5>
                 <div class="form">
                     <div class="row">
                         <div class="cell padded rw-3 note note-lightest">{{ 'ID'|trans({},'admin')}}</div>
                         <div class="cell padded rw-1">
+                            <input id="snippet_preset_id" type="hidden" value="-1" />
                             <label><select id="snippet_lang"><option>DE</option><option>EN</option><option>FR</option><option>ES</option></select></label>
                         </div>
                         <div class="cell padded rw-8">
@@ -284,6 +290,7 @@
 
         $.html.addEventListenerAll('#snippet_save','click',() => {
             $.ajax.easySend( '{{ path('admin_reports_add_snippet') }}', {
+                    edit: parseInt(document.getElementById('snippet_preset_id').value),
                     id: document.getElementById('snippet_name').value,
                     lang: document.getElementById('snippet_lang').value,
                     content: document.getElementById('numb-forum-editor-text').value,
@@ -297,6 +304,42 @@
                 function () {
                     $.ajax.load(null, '{{ path('admin_reports', {tab: 'snippets', opt: opt}) }}', true);
                 } );
+        });
+        $.html.addEventListenerAll('[data-purpose="edit"]','click',(e,elem) => {
+            document.getElementById('numb-forum-editor-text').value = elem.dataset.snippet;
+            document.getElementById('snippet_preset_id').value = elem.dataset.snippetId;
+            document.getElementById('snippet_lang').value = elem.dataset.snippetLang.toUpperCase();
+            document.getElementById('snippet_name').value = elem.dataset.snippetShort;
+
+            document.getElementById('numb-forum-editor-text').scrollIntoView();
+            document.getElementById('numb-forum-editor-text').dispatchEvent( new Event('input', {
+                bubbles: true,
+                cancelable: true,
+            }) );
+
+            document.getElementById('snipped_header_edit').innerText = document.getElementById('snipped_header_edit').dataset['default'].replace('{name}', elem.dataset.snippetShort);
+            document.getElementById('snipped_header_new').classList.add('hidden');
+            document.getElementById('snipped_header_edit').classList.remove('hidden');
+
+            elem.classList.add('hidden');
+            document.querySelector('[data-purpose="cancel"][data-snippet-id="' + elem.dataset.snippetId + '"]').classList.remove('hidden');
+        });
+        $.html.addEventListenerAll('[data-purpose="cancel"]','click',(e,elem) => {
+            document.getElementById('numb-forum-editor-text').value = '';
+            document.getElementById('snippet_preset_id').value = '-1';
+            document.getElementById('snippet_name').value = '';
+
+            document.getElementById('numb-forum-editor-text').dispatchEvent( new Event('input', {
+                bubbles: true,
+                cancelable: true,
+            }) );
+
+            document.getElementById('snipped_header_edit').innerText = '';
+            document.getElementById('snipped_header_new').classList.remove('hidden');
+            document.getElementById('snipped_header_edit').classList.add('hidden');
+
+            elem.classList.add('hidden');
+            document.querySelector('[data-purpose="edit"][data-snipped-id=' + elem.dataset.snippetId + ']').classList.remove('hidden');
         });
 
         $.ajax.no_history().load( document.getElementById('numb-forum-editor'), '{{ url('admin_numb_editor') }}', false )

@@ -1065,7 +1065,7 @@
     <unit id="u1m7Ptc" name="Leiche nicht beseitigt!">
       <notes>
         <note category="german">Leiche nicht beseitigt!</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Leiche nicht beseitigt!</source>
@@ -1075,7 +1075,7 @@
     <unit id="u_yrL5q" name="Tot!">
       <notes>
         <note category="german">Tot!</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Tot!</source>
@@ -1396,7 +1396,7 @@
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -1991,7 +1991,7 @@
       </notes>
       <segment>
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>Has ganado las distinciones:</target>
+        <target>Has ganado las Distinciones:</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -3901,7 +3901,7 @@
       </notes>
       <segment>
         <source>Drogenabhängigkeit</source>
-        <target>Drogadicción</target>
+        <target>Falta de estimulantes</target>
       </segment>
     </unit>
     <unit id="Ms3Esea">
@@ -3911,7 +3911,7 @@
       </notes>
       <segment>
         <source>Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.</source>
-        <target>Las drogas son excelentes siempre que tenga suficiente. Pero si te quedas sin ellos, las cosas se verán diferentes... sudores, ataques de pánico, temblores... corres al baño cada diez minutos a vomitar. Al final, cuando ya te has vuelto loco, terminas tragando piedras por confundirlas con esteroides.</target>
+        <target>Las drogas son excelentes siempre que tengas suficiente. Pero si te quedas sin ellas, las cosas dejan de ser tan alegres... Empiezas a sudar, te dan escalofríos, ataques de pánico... corres al baño cada diez minutos a vomitar. Al final, cuando ya te has vuelto completamente loco, terminas tragando unas piedritas que confundiste con esteroides.</target>
       </segment>
     </unit>
     <unit id="Ds74xh4">
@@ -4831,7 +4831,7 @@
       </notes>
       <segment>
         <source>Katapult</source>
-        <target>Catap</target>
+        <target>Catapulta</target>
       </segment>
     </unit>
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -6131,7 +6131,7 @@
       </notes>
       <segment>
         <source>Wunderwerk: Rad des Schreckens</source>
-        <target>Maravilla: La Rueda del Miedo</target>
+        <target>Maravilla: Gran Noria de Znarf</target>
       </segment>
     </unit>
     <unit id="GVSWGjN" name="Sieh nur, man kann von da oben die Zombies sehen!">
@@ -6901,7 +6901,7 @@
       </notes>
       <segment>
         <source>Wenn du eine zusätzliche Nacht geblieben wärst, hättest du auch die folgenden Preise gewinnen können:</source>
-        <target>Si hubieras resisitido una noche extra, habrías ganado las siguientes distinciones:</target>
+        <target>Si hubieras resisitido una noche extra, habrías ganado las siguientes Distinciones:</target>
       </segment>
     </unit>
     <unit id="uBjALnI" name="Mein Rucksack">
@@ -7047,7 +7047,7 @@
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
         <note category="german">{username} wurde standrechtlich erschossen.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -7057,7 +7057,7 @@
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7277,7 +7277,7 @@
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
-        <note category="from">php:///src/Service/AdminActionHandler.php</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -7391,7 +7391,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target><![CDATA[Obtendrás un <strong>plano de obras</strong> si acampas en este edificio.]]></target>
+        <target>Obtendrás un plano de obras si acampas en este edificio.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7401,7 +7401,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...]]></target>
+        <target>Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...</target>
       </segment>
     </unit>
     <unit id="WPZOeLX">
@@ -7527,7 +7527,7 @@
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -7857,7 +7857,7 @@
     <unit id="SAtAn5U" name="Dieser Bürger hat keine letzten Worte hinterlassen ...">
       <notes>
         <note category="german">Dieser Bürger hat keine letzten Worte hinterlassen ...</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
@@ -7867,7 +7867,7 @@
     <unit id="O9RB2q8" name="Letzte Worte:">
       <notes>
         <note category="german">Letzte Worte:</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Letzte Worte:</source>
@@ -8865,7 +8865,7 @@
       </notes>
       <segment>
         <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
-        <target>¡Un premio extremadamente raro reservado para las almas que presenciaron El Gran Armagedón!</target>
+        <target>¡Una Distinción extremadamente rara reservado para las almas que presenciaron El Gran Armagedón!</target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -8885,7 +8885,7 @@
       </notes>
       <segment>
         <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
-        <target>¡Distinición extremadamente rara reservada para las almas que presenciaron La Gran Contaminación!</target>
+        <target>¡Distinción extremadamente rara reservada para las almas que presenciaron La Gran Contaminación!</target>
       </segment>
     </unit>
     <unit id="kaJx_.U" name="{citizen} hat das Gebäude {plan} repariert und dabei {ap} ausgegeben.">
@@ -9025,7 +9025,7 @@
       </notes>
       <segment>
         <source>Beschädigte Verteidigung: {defense} / {max}</source>
-        <target>Defensas dañadas: {defense} / {max}</target>
+        <target>Defensas restantes: {defense} / {max}</target>
       </segment>
     </unit>
     <unit id="1EzQJxv" name="Zustand:">
@@ -10996,7 +10996,7 @@
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
-        <target>Una distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.</target>
+        <target>Una Distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="jgy_VVR" name="Shock of heroes">
@@ -11036,7 +11036,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
-        <target>Esta distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.</target>
+        <target>Esta Distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="Ycwc7kf">
@@ -11296,7 +11296,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
-        <target>Una distinción extremadamente rara, otorgada solo a los primeros habitantes de 'MyHordes'. Las drogas no son buenas.</target>
+        <target>Una Distinción extremadamente rara, otorgada solo a los primeros habitantes de 'MyHordes'. Las drogas no son buenas.</target>
       </segment>
     </unit>
     <unit id="CFjOf1p">
@@ -14891,7 +14891,7 @@
     <unit id="yd0LZz9" name="Diese Bürger is der {role} der Stadt">
       <notes>
         <note category="german">Dieser Bürger ist der {role} der Stadt</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Diese Bürger is der {role} der Stadt</source>
@@ -15141,7 +15141,7 @@
     <unit id="ViEKCFv" name="Die Zukunft">
       <notes>
         <note category="german">Die Zukunft</note>
-        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Die Zukunft</source>
@@ -15435,7 +15435,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
-        <target>Esta es una distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
+        <target>Esta es una Distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
       </segment>
     </unit>
     <unit id="d5d0_u_">
@@ -15621,7 +15621,7 @@
     <unit id="WA0.uhs">
       <notes>
         <note category="german">{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
@@ -18565,7 +18565,7 @@
     <unit id="SwbKwjj" name="Der Leichnam von {citizen} wurde nicht zerstört.">
       <notes>
         <note category="german">Der Leichnam von {citizen} wurde nicht zerstört.</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Der Leichnam von {citizen} wurde nicht zerstört.</source>
@@ -18575,7 +18575,7 @@
     <unit id=".67v4pV">
       <notes>
         <note category="german">Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</source>
@@ -20358,7 +20358,7 @@
     <unit id="aZTP5kd" name="Behausung:">
       <notes>
         <note category="german">Behausung:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Behausung:</source>
@@ -20368,7 +20368,7 @@
     <unit id="DPEWu9n" name="Bauarbeiten:">
       <notes>
         <note category="german">Bauarbeiten:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Bauarbeiten:</source>
@@ -20378,7 +20378,7 @@
     <unit id="da5HmMo" name="Verteidigungsgegenstände:">
       <notes>
         <note category="german">Verteidigungsgegenstände:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände:</source>
@@ -20388,7 +20388,7 @@
     <unit id="82mfAu." name="Heldenbonus:">
       <notes>
         <note category="german">Heldenbonus:</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Heldenbonus:</source>
@@ -20399,7 +20399,7 @@
       <notes>
         <note category="german">Total:</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Total:</source>
@@ -20409,7 +20409,7 @@
     <unit id="wyKmZM_">
       <notes>
         <note category="german">Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</note>
-        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
@@ -20897,7 +20897,7 @@
       </notes>
       <segment>
         <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
-        <target>Nuestra estimación actual es demasiado imprecisa para ser útil: ¡necesitamos más habitantes para subir a la torre!</target>
+        <target>Nuestros cálculos actuales son poco fiables. ¡Necesitamos más gente en la torre de vigilancia!</target>
       </segment>
     </unit>
     <unit id="gZG1unt">
@@ -21087,7 +21087,7 @@
       </notes>
       <segment>
         <source>Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.</source>
-        <target>Esta vida se borra de los anales de la historia. No recibe puntos de alma ni premios.</target>
+        <target>Esta vida se borra de los anales de la historia. No recibe puntos de alma ni Distinciones.</target>
       </segment>
     </unit>
     <unit id="gLhMShO" name="Das wird dir in Zukunft schlaflose Nächte bereiten!">
@@ -21492,7 +21492,7 @@
       </notes>
       <segment>
         <source>Auszeichnungsdetails</source>
-        <target>Detalles del premio</target>
+        <target>Detalles de la Distinción</target>
       </segment>
     </unit>
     <unit id="N.42Sjo" name="Trinken (Oder du stirbst heute Nacht)">
@@ -21612,7 +21612,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan wenn Du in diesem Gebäude campst, aber du musst zunächst die Zone aufräumen.</source>
-        <target>Se le dará un plano cuando acampe en este edificio, pero primero debe despejar la zona.</target>
+        <target>Podrías obtener un plano de obras acampando aquí, pero antes habría que despejar la zona.</target>
       </segment>
     </unit>
     <unit id="O_a3lwS" name="(seit {num} Stunden herrscht völlige Flaute)">
@@ -22509,7 +22509,7 @@
       </notes>
       <segment>
         <source>Funkgerät verwenden</source>
-        <target>Abrir la mensajería</target>
+        <target>[Abrir la mensajería]</target>
       </segment>
     </unit>
     <unit id="ZUcAy0O" name="Gebäudeliste einblenden">
@@ -22875,7 +22875,7 @@
     <unit id="i8PEylr" name="Dieser Bürger wurde aus der Gemeinschaft verbannt.">
       <notes>
         <note category="german">Dieser Bürger wurde aus der Gemeinschaft verbannt.</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Bürger wurde aus der Gemeinschaft verbannt.</source>
@@ -22967,66 +22967,66 @@
       <notes>
         <note category="german">Die Horde kommt!</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Horde kommt!</source>
-        <target>Die Horde kommt!</target>
+        <target>¡Ya vienen los Zombies!</target>
       </segment>
     </unit>
     <unit id="rxUjiVx">
       <notes>
         <note category="german">Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</source>
-        <target>Ein fauliger Geruch liegt in der Luft und du hörst ein immer lauter werdendes Stöhnen in der Ferne...</target>
+        <target>Sientes un aroma horripilante en el aire y oyes a lo lejos un rugido cada vez más fuerte...</target>
       </segment>
     </unit>
     <unit id="4xBohtt">
       <notes>
         <note category="german">Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</source>
-        <target>Die Zeichen sind klar; eine Horde von Zombies bewegt sich schlurfend auf die Stadt zu. Du schätzt, dass sie um Mitternacht eintreffen wird.</target>
+        <target>Las señales son claras: Una turba de zombies se aproxima al pueblo. Parece que llegarán a la medianoche.</target>
       </segment>
     </unit>
     <unit id="awC3BNG">
       <notes>
         <note category="german">Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
-        <target>Außerdem berichten unsere Späher, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</target>
+        <target>Además, nuestros vigilantes informan que han visto a un Extraño Misterioso rondando por el pueblo...</target>
       </segment>
     </unit>
     <unit id="N2bzV9x">
       <notes>
         <note category="german">Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</source>
-        <target>Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.</target>
+        <target>Esta noche habrá un Ataque Zombie, incluso si el pueblo tiene menos de {population} habitantes antes de la medianoche.</target>
       </segment>
     </unit>
     <unit id="07BtizJ" name="Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.">
       <notes>
         <note category="german">Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</note>
         <note category="from">twig:///templates/ajax/game/notifications/stranger.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</source>
-        <target>Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.</target>
+        <target>Llegó el día, aún tienes tiempo para preparar la defensa el pueblo.</target>
       </segment>
     </unit>
     <unit id="MpMKNqM">
@@ -23077,7 +23077,7 @@
       </notes>
       <segment>
         <source>auf {coa_invite} antworten</source>
-        <target>responde a la {coa_invite} de alianza</target>
+        <target>responde a {coa_invite} de alianza</target>
       </segment>
     </unit>
     <unit id="HPWqmw7">
@@ -23148,6 +23148,71 @@
       <segment>
         <source>Ein Moderator hat eine Beschränkung für deinen Account aufgehoben.&lt;br/&gt;Art der Beschränkung: &lt;b&gt;{type}&lt;/b&gt;</source>
         <target><![CDATA[Un moderador ha quitado una restricción impuesta sobre tu cuenta.<br/>Restricción: <b>{type}</b>]]></target>
+      </segment>
+    </unit>
+    <unit id="l_hkK1Y" name="{citizen} wollte das Gebiet säubern, aber ohne Erfolg.">
+      <notes>
+        <note category="german">{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">made-up</note>
+      </notes>
+      <segment>
+        <source>{citizen} wollte das Gebiet säubern, aber ohne Erfolg.</source>
+        <target>{citizen} Intentó invocar una lluvia para despejar la zona, pero solo quedó en ridículo y los zombies permanecieron intactos..</target>
+      </segment>
+    </unit>
+    <unit id="LbDbpH3" name="Spontanes Leberversagen">
+      <notes>
+        <note category="german">Spontanes Leberversagen</note>
+        <note category="from">db://CauseOfDeath</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Spontanes Leberversagen</source>
+        <target>Falla hepática</target>
+      </segment>
+    </unit>
+    <unit id="gSYGr4u" name="{username} hat keine Leber mehr.">
+      <notes>
+        <note category="german">{username} hat keine Leber mehr.</note>
+        <note category="from">php:///src/Service/AdminHandler.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>{username} hat keine Leber mehr.</source>
+        <target>Le arrancaste el hígado a {username}.</target>
+      </segment>
+    </unit>
+    <unit id="Q3qWi07">
+      <notes>
+        <note category="german">Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</note>
+        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.</source>
+        <target>Hoy son las elecciones para el {rolename} del pueblo. Recuerda {vote_link}.</target>
+      </segment>
+    </unit>
+    <unit id="e9K2kq6" name="im Wahlbüro abzustimmen">
+      <notes>
+        <note category="german">im Wahlbüro abzustimmen</note>
+        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>im Wahlbüro abzustimmen</source>
+        <target>Votar por tu candidato</target>
+      </segment>
+    </unit>
+    <unit id="EIB6zP8" name="Anzahl der Tage, die du als Einwohner gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Einwohner gespielt hast.</note>
+        <note category="from">db://PictoPrototype</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
+        <target>Días pasados ​​como un simple habitante.</target>
       </segment>
     </unit>
   </file>

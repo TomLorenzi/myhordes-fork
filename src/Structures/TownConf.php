@@ -111,6 +111,7 @@ class TownConf extends Conf
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
     const CONF_FEATURE_LAST_DEATH      = 'features.last_death';
     const CONF_FEATURE_SURVIVAL_PICTO  = 'features.survival_picto';
+    const CONF_FEATURE_NO_SP_REQUIRED  = 'features.free_for_all';
 
     const CONF_GUIDE_ENABLED    = 'spiritual_guide.enabled';
     const CONF_GUIDE_SP_LIMIT   = 'spiritual_guide.sp_limit';

@@ -4,7 +4,7 @@
     <unit id="a66OWC." name="Willkommen bei MyHordes">
       <notes>
         <note category="german">Willkommen bei MyHordes</note>
-        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/seo/welcome.html.twig</note>
+        <note category="from">twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Willkommen bei MyHordes</source>
@@ -34,7 +34,7 @@
     <unit id="vMG7P9w" name="Zum Login">
       <notes>
         <note category="german">Zum Login</note>
-        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Zum Login</source>
@@ -104,7 +104,7 @@
     <unit id="P9PTDGu">
       <notes>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</note>
-        <note category="from">twig:///templates/ajax/public/about.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/seo/welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/about.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</source>
@@ -114,7 +114,7 @@
     <unit id="JyLklnq">
       <notes>
         <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</note>
-        <note category="from">twig:///templates/ajax/public/about.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/seo/welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/about.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</source>
@@ -124,7 +124,7 @@
     <unit id="psTpKgc">
       <notes>
         <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</note>
-        <note category="from">twig:///templates/ajax/public/about.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/seo/welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/about.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/seo/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</source>
@@ -338,7 +338,7 @@
       </notes>
       <segment>
         <source>Mit Aktionspunkten hast du jeden Tag eine bestimmte Anzahl an Aktionen. Durch Essen, Trinken oder die Einnahme von Drogen kannst du deine Aktionspunkte wieder auffüllen. Nutze deine Aktionspunkte mit Bedacht! Du kannst in die Wüste zu gehen und nach Gegenständen und Rohstoffen für den Bau von Verteidigungsbauten suchen. Oder du hilft in der Werkstatt oder auf der Baustelle. Jeden Tag um Mitternacht greift eine immer größer werdende Zombiehorde an. Überlebt eure Stadt dieses Angriff, beginnt ein neuer Tag und der tägliche Kampf ums Überleben geht in eine weitere Runde.</source>
-        <target>Con puntos de acción tienes un cierto número de acciones cada día. Puedes recuperar tus puntos de acción al comer, beber o usar drogas. ¡Usa tus puntos de acción sabiamente! Puedes ir al desierto y buscar objetos y materias primas para construir estructuras defensivas. O puedes ayudar en el taller o el sitio de construcción. Cada día a medianoche, una horde de zombies que siempre crece ataca. Si tu pueblo sobrevive a este ataque, un nuevo día empieza y la batalla diaria por la supervivencia avanza a otra ronda.</target>
+        <target>Con puntos de acción tienes un cierto número de acciones cada día. Puedes recuperar tus puntos de acción al comer, beber o usar drogas. ¡Usa tus puntos de acción sabiamente! Puedes ir al desierto y buscar objetos y materias primas para construir estructuras defensivas. O puedes ayudar en el taller o en las construcciones. Cada día a medianoche, una horda de zombies que siempre crece ataca. Si tu pueblo sobrevive a este ataque, un nuevo día empieza y la batalla diaria por la supervivencia avanza a otra ronda.</target>
       </segment>
     </unit>
     <unit id="gbIBFaz" name="Das Ende">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Je besser ihr euch absprecht, desto länger überlebt eure Stadt. Doch ihr Schicksal ist unausweichlich und bereits besiegelt. Der Tod ist Teil von "MyHordes". Doch mit jeder gespielten Stadt lernst du mehr über das Spiel und darüber wie eine erfolgreiche Gemeinschaft funktioniert. Und vielleicht auch über dich... Die erfolgreichsten Städte und Spieler erscheinen in einer Saison-Rangliste.</source>
-        <target>Mientras mejor se coordinen, más tiempo sobrevivirá su pueblo. Pero su destino es inevitable y ya está sellado. La muerte es parte de "MyHordes." Pero con cada pueblo que juegues, aprenderás más sobre el juego y cómo funciona una comunidad exitosa. Y tal vez también sobre ti mismo... Los pueblos y jugadores más exitosos aparecen en la clasificación de la temporada.</target>
+        <target>Mientras mejor se coordinen, más tiempo sobrevivirá su pueblo. Pero su destino es inevitable y ya está sellado. La muerte es parte de "MyHordes". Pero con cada pueblo que juegues, aprenderás más sobre el juego y cómo funciona una comunidad exitosa. Y tal vez también sobre ti mismo... Los pueblos y jugadores más exitosos aparecen en la clasificación de la temporada.</target>
       </segment>
     </unit>
     <unit id="y3NV_XP" name="Der Preis">
@@ -409,7 +409,7 @@
       </notes>
       <segment>
         <source>Die letzten Updates ansehen:</source>
-        <target>Acceder a actualizacion mayores previas:</target>
+        <target>Ver actualizaciones mayores previas:</target>
       </segment>
     </unit>
     <unit id="kiD.2mD" name="Neuigkeiten bei MyHordes">

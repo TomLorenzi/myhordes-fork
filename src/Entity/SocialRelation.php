@@ -16,6 +16,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 class SocialRelation
 {
     const SocialRelationTypeBlock = 1;
+    const SocialRelationTypeNotInterested = 2;
 
     /**
      * @ORM\Id

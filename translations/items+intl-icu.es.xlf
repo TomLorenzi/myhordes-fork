@@ -13,32 +13,32 @@
     </unit>
     <unit id="yeqnW9g">
       <notes>
-        <note category="german">Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
+        <note category="german">Wow, du hast einen Trippel geworfen.&lt;hr /&gt;Das hat so viel Spaß gemacht, dass du &lt;strong&gt;1AP gewinnst&lt;/strong&gt;!</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>¡Bravo, obtienes un Trío! ¡Es genial! Eso te pone tan contento que ganas 1PA.</target>
+        <target><![CDATA[¡Bravo, obtienes un Trío! ¡Es genial!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="rmGP8Al">
       <notes>
-        <note category="german">Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
+        <note category="german">Wow, du hast eine Straße geworfen.&lt;hr /&gt;Das hat so viel Spaß gemacht, dass du &lt;strong&gt;1AP gewinnst&lt;/strong&gt;!</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>¡Formas una escalera! Eso te pone tan contento que ganas 1PA.</target>
+        <target><![CDATA[¡Formas una escalera!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Gk9gFU8">
       <notes>
-        <note category="german">Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
+        <note category="german">Wow, du hast beim ersten Versuch eine 4-2-1 geworfen.&lt;hr /&gt;Das hat so viel Spaß gemacht, dass du &lt;strong&gt;1AP gewinnst&lt;/strong&gt;!</note>
         <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Obtienes un 421 al primer intento... Nada mal. Eso te pone tan contento que ganas 1PA.</target>
+        <target><![CDATA[Obtienes un 421 al primer intento... Nada mal.<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
@@ -114,7 +114,7 @@
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
       <notes>
         <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
-        <note category="from">php:///src/Service/ActionHandler.php</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
@@ -3533,7 +3533,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Examinas minuciosamente {item} ... Descubres dentro un texto titulado "{rp_text}". Lo lees con mucha atención...{hr}<t-rp_ok><strong>¡Un nuevo documento ha sido agregado a tus Escritos!</strong></t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto <strong>no recibirás una distinción adicional</strong>.</t-rp_fail>]]></target>
+        <target><![CDATA[Examinas minuciosamente {item} ... Descubres dentro un texto titulado "{rp_text}". Lo lees con mucha atención...{hr}<t-rp_ok><strong>¡Un nuevo documento ha sido agregado a tus Escritos!</strong></t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto <strong>no recibirás una Distinción adicional</strong>.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -3850,7 +3850,7 @@
     <unit id="AfDbNyS" name="Hierfür bist du zu weit von der Stadt entfernt ...">
       <notes>
         <note category="german">Hierfür bist du zu weit von der Stadt entfernt ...</note>
-        <note category="from">db://Requirement</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
@@ -5796,7 +5796,7 @@
       </notes>
       <segment>
         <source>Diese alte Blechkiste war mal mit verschiedenen elektronischen Bauteilen gefüllt (CPU, Hauptplatine, Hardwareschnittstellen etc ...). Was willst du jetzt noch damit anfangen?</source>
-        <target>Esta vieja caja metálica contiene un montón de componentes eléctricos. Debe ser de algún antiguo servidor de Eternal Twin, ahora no sirve de mucho...</target>
+        <target>Esta vieja caja metálica contiene un montón de componentes eléctricos. Debe ser de algún antiguo servidor de Eternaltwin, ahora no sirve de mucho...</target>
       </segment>
     </unit>
     <unit id="efZZQJw">
@@ -9456,6 +9456,16 @@
       <segment>
         <source>Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.</source>
         <target>Acercas la sustancia a tu nariz y la hueles un poco... Puajjj! Parece que podría matar incluso a un caballo.</target>
+      </segment>
+    </unit>
+    <unit id="Dkrg9_A">
+      <notes>
+        <note category="german">So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
+      </notes>
+      <segment>
+        <source>So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.</source>
+        <target>Pudo haber sido un libro de supervivencia o un manual de estrategia anti-zombies; pero es solo un curso de bordado... Nada que te pueda servir.</target>
       </segment>
     </unit>
   </file>

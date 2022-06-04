@@ -114,7 +114,7 @@
     <unit id="8Ld23ql" name="Wildes Campen">
       <notes>
         <note category="german">Wildes Campen</note>
-        <note category="from">twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/seo/help.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
         <source>Wildes Campen</source>
@@ -404,7 +404,7 @@
     <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
       <notes>
         <note category="german">Der Angriff der Zombiehorde</note>
-        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/seo/help.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
         <source>Der Angriff der Zombiehorde</source>
@@ -8618,6 +8618,17 @@ Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-co
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</source>
         <target><![CDATA[<strong>CONTACTER LE SUPPORT:</strong>
 Pour contacter les administrateurs, écrivez au support technique <a x-group-connect="{oglink}" href="#">Groupe officiel</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="YoDh.OZ" name="Die Hilfe durchsuchen">
+      <notes>
+        <note category="german">Die Hilfe durchsuchen</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Die Hilfe durchsuchen</source>
+        <target>Chercher dans l'aide</target>
       </segment>
     </unit>
   </file>

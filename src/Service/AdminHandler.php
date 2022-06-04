@@ -1,0 +1,325 @@
+<?php
+
+
+namespace App\Service;
+
+use App\Entity\AdminBan;
+use App\Entity\AdminDeletion;
+use App\Entity\AdminReport;
+use App\Entity\Citizen;
+use App\Entity\CauseOfDeath;
+use App\Entity\CitizenRankingProxy;
+use App\Entity\Forum;
+use App\Entity\Picto;
+use App\Entity\Post;
+use App\Entity\Thread;
+use App\Entity\User;
+use App\Service\DeathHandler;
+use App\Structures\MyHordesConf;
+use DateInterval;
+use DateTime;
+use DirectoryIterator;
+use Doctrine\ORM\EntityManagerInterface;
+use Exception;
+use PhpParser\Node\Param;
+use SplFileInfo;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
+class AdminHandler
+{
+    private EntityManagerInterface $entity_manager;
+    /**
+     * @var DeathHandler
+     */
+    private DeathHandler $death_handler;
+    private TranslatorInterface $translator;
+    private LogTemplateHandler $log;
+    private UserHandler $userHandler;
+    private CrowService $crow;
+    private ParameterBagInterface $params;
+    private MyHordesConf $conf;
+
+    private $requiredRole = [
+        'headshot' => 'ROLE_ADMIN',
+        'suicid' => 'ROLE_CROW',
+        'confirmDeath' => 'ROLE_ADMIN',
+        'setDefaultRoleDev' => 'ROLE_ADMIN',
+        'liftAllBans' => 'ROLE_CROW',
+        'ban' => 'ROLE_CROW',
+        'clearReports' => 'ROLE_CROW',
+        'eatLiver' => 'ROLE_CROW'
+    ];
+
+    public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh, CrowService $crow, ParameterBagInterface $params, ConfMaster $conf)
+    {
+        $this->entity_manager = $em;
+        $this->death_handler = $dh;
+        $this->translator = $ti;
+        $this->log = $lt;
+        $this->userHandler = $uh;
+        $this->crow = $crow;
+        $this->params = $params;
+        $this->conf = $conf->getGlobalConf();
+    }
+
+    protected function hasRights(int $sourceUser, string $desiredAction)
+    {
+        if (!isset($this->requiredRole[$desiredAction])) return false;
+        $acting_user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+        return $acting_user && $this->userHandler->hasRole( $acting_user, $this->requiredRole[$desiredAction] );
+    }
+
+    public function headshot(int $sourceUser, int $targetCitizenId): string
+    {
+        if(!$this->hasRights($sourceUser, 'headshot'))
+            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');
+
+        return $this->kill_citizen($targetCitizenId, CauseOfDeath::Headshot);
+    }
+
+    public function eatLiver(int $sourceUser, int $targetCitizenId): string
+    {
+        if(!$this->hasRights($sourceUser, 'eatLiver'))
+            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');
+
+        return $this->kill_citizen($targetCitizenId, CauseOfDeath::LiverEaten);
+    }
+
+    private function kill_citizen($targetCitizenId, $causeOfDeath): string {
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targetCitizenId);
+        if ($citizen && $citizen->getAlive()) {
+            $rem = [];
+            $this->death_handler->kill( $citizen, $causeOfDeath, $rem );
+            $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
+            $this->entity_manager->flush();
+            if ($causeOfDeath == CauseOfDeath::Headshot)
+                $message = $this->translator->trans('{username} wurde standrechtlich erschossen.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
+            else if ($causeOfDeath === CauseOfDeath::LiverEaten)
+                $message = $this->translator->trans('{username} hat keine Leber mehr.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
+        }
+        else {
+            $message = $this->translator->trans('Dieser Bürger gehört keiner Stadt an.', [], 'game');
+        }
+        return $message;
+    }
+
+    public function confirmDeath(int $sourceUser, int $targetUserId): bool {
+        if(!$this->hasRights($sourceUser, 'confirmDeath'))
+            return false;
+
+        /** @var User $targetUser */
+        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUserId);
+
+        $activeCitizen = $targetUser->getActiveCitizen();
+        if (!(isset($activeCitizen)))
+            return false;
+        if ($activeCitizen->getAlive())
+            return false;
+
+        $activeCitizen->setActive(false);
+
+        // Delete not validated picto from DB
+        // Here, every validated picto should have persisted to 2
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($targetUser, $activeCitizen->getTown());
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            $this->entity_manager->remove($pendingPicto);
+        }
+
+        CitizenRankingProxy::fromCitizen( $activeCitizen, true );
+
+        $this->entity_manager->persist( $activeCitizen );
+        $this->entity_manager->flush();
+
+        return true;
+    }
+
+    public function clearReports(int $sourceUser, int $postId): bool {
+
+        if (!$this->hasRights($sourceUser, 'clearReports'))
+            return false;
+
+        $post = $this->entity_manager->getRepository(Post::class)->find($postId);
+        $reports = $post->getAdminReports();
+        
+        try 
+        {
+            foreach ($reports as $report) {
+                $report->setSeen(true);
+                $this->entity_manager->persist($report);
+            }
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return false;
+        }
+        return true;
+    }
+
+    public function setDefaultRoleDev(int $sourceUser, bool $asDev): bool {
+
+        if (!$this->hasRights($sourceUser, 'setDefaultRoleDev'))
+            return false;
+
+        $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+            
+        if ($asDev) {
+            $defaultRole = "DEV";
+        }    
+        else {
+            $defaultRole = "USER";
+        }
+        
+        try 
+        {
+            $user->setPostAsDefault($defaultRole);
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return false;
+        }
+        return true;
+    }
+
+    public function suicid(int $sourceUser): string
+    {
+        if(!$this->hasRights($sourceUser, 'suicid'))
+            return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');   
+
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
+        $citizen = $user->getActiveCitizen();
+        if ($citizen !== null && $citizen->getAlive()) {
+            $rem = [];
+            $this->death_handler->kill( $citizen, CauseOfDeath::Strangulation, $rem );
+            $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
+            $this->entity_manager->flush();
+            $message = $this->translator->trans('Du hast dich umgebracht.', [], 'admin');
+        }
+        else {
+            $message = $this->translator->trans('Du gehörst keiner Stadt an.', [], 'admin');
+        }
+        return $message;
+    }
+
+    /**
+     * @param string $base_path
+     * @param string|string[] $extensions
+     * @return SplFileInfo[]
+     */
+    public function list_local_files(string $base_path, array|string $extensions ): array {
+        if (!is_array($extensions)) $extensions = [$extensions];
+
+        $result = [];
+
+        $paths = [$base_path];
+        while (!empty($paths)) {
+            $path = array_pop($paths);
+            if (!is_dir($path)) continue;
+            foreach (new DirectoryIterator($path) as $fileInfo) {
+                /** @var SplFileInfo $fileInfo */
+                if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+                elseif ($fileInfo->isFile() && in_array( strtolower($fileInfo->getExtension()), $extensions))
+                    $result[] = $fileInfo->getFileInfo( SplFileInfo::class );
+                elseif ($fileInfo->isDir()) $paths[] = $fileInfo->getRealPath();
+            }
+        }
+
+        return $result;
+    }
+
+    public function getDbDumps(): array {
+        $storages = $this->conf->getData()['backup']['storages'];
+
+        if (count($storages) == 0) return [];
+
+        $extract_backup_types = function(SplFileInfo $f) : array {
+            $ret = [];
+
+            list($type) = explode( '.', array_pad( explode('_', $f->getFilename() ), 3, '')[2], 2);
+            $ret[] = match ($type) {
+                'nightly' => ['color' => '#0D090A', 'tag' => $this->translator->trans('Angriff', [], 'admin')],
+                'daily' => ['color' => '#361F27', 'tag' => $this->translator->trans('Täglich', [], 'admin')],
+                'weekly' => ['color' => '#521945', 'tag' => $this->translator->trans('Wöchentlich', [], 'admin')],
+                'monthly' => ['color' => '#912F56', 'tag' => $this->translator->trans('Monatlich', [], 'admin')],
+                'update' => ['color' => '#738290', 'tag' => $this->translator->trans('Update', [], 'admin')],
+                'manual' => ['color' => '#CD533B', 'tag' => $this->translator->trans('Manuell', [], 'admin')],
+            };
+
+            $ret[] = match ($f->getExtension()) {
+                'sql' => ['color' => '#3E5641', 'tag' => $this->translator->trans('Nicht komprimiert', [], 'admin')],
+                'xz' => ['color' => '#40916C', 'tag' => 'XZ'],
+                'gzip' => ['color' => '#2D6A4F', 'tag' => 'GZIP'],
+                'bz2' => ['color' => '#1B4332', 'tag' => 'BZIP2'],
+            };
+
+            return $ret;
+        };
+
+        $files = [];
+
+        foreach ($storages as $storage) {
+            switch($storage['type']) {
+                case "local":
+                    $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $storage['path']);
+                    $files = $this->list_local_files( $targetPath, ['sql','xz','gzip','bz2'] );
+                    break;
+                case "ftp":
+                    break;
+                case "sftp":
+                    break;
+            }
+        }
+        $backup_files = array_map( fn($e) => [
+            'info' => $e,
+            'rel' => $e->getRealPath(),
+            'time' => (new \DateTime())->setTimestamp( $e->getCTime() ),
+            'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
+            'tags' => $extract_backup_types($e)
+        ], $files);
+
+        usort($backup_files, fn($a,$b) => $b['time'] <=> $a['time'] );
+        return $backup_files;
+    }
+
+    public function getLogFiles(): array {
+        $log_base_dir = "{$this->params->get('kernel.project_dir')}/var/log";
+        $log_spl_base_path = new SplFileInfo($log_base_dir);
+        $extract_log_type = function(SplFileInfo $f) use ($log_spl_base_path): array {
+            if ($f->getPathInfo(SplFileInfo::class)->getRealPath() === $log_spl_base_path->getRealPath()) return [
+                'tag' => $this->translator->trans('Kernel', [], 'admin'),
+                'color' => '#F71735'
+            ];
+            else return match ($f->getPathInfo(SplFileInfo::class)->getFilename()) {
+                'night' => [
+                    'tag' => $this->translator->trans('Angriff', [], 'admin'),
+                    'color' => '#1481BA'
+                ],
+                'update' => [
+                    'tag' => $this->translator->trans('Update', [], 'admin'),
+                    'color' => '#82846D'
+                ],
+                'admin' => [
+                    'tag' => $this->translator->trans('Admin', [], 'admin'),
+                    'color' => '#ff6633'
+                ],
+                default => [
+                    'tag' => $this->translator->trans('Unbekannt', [], 'admin'),
+                    'color' => '#646165'
+                ],
+            };
+        };
+
+        $log_files = array_map( fn($e) => [
+            'info' => $e,
+            'rel' => $e->getRealPath(),
+            'time' => (new \DateTime())->setTimestamp( $e->getMTime() ),
+            'access' => str_replace(['/','\\'],'::', $e->getRealPath()),
+            'tags' => [$extract_log_type($e)]
+        ], $this->list_local_files( $log_base_dir, 'log' ));
+        usort($log_files, fn($a,$b) => $b['time'] <=> $a['time'] );
+        return $log_files;
+    }
+}

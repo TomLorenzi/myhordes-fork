@@ -11,6 +11,7 @@ class AjaxResponse extends JsonResponse
     const AJAX_CONTROL_PROCESS = 0;
     const AJAX_CONTROL_RESET = 1;
     const AJAX_CONTROL_CANCEL = 2;
+    const AJAX_CONTROL_NAVIGATE = 3;
 
     private $control = self::AJAX_CONTROL_PROCESS;
 
@@ -59,6 +60,9 @@ class AjaxResponse extends JsonResponse
             case self::AJAX_CONTROL_CANCEL:
                 $this->data = null;
                 $this->headers->set('X-AJAX-Control', 'cancel');
+                break;
+            case self::AJAX_CONTROL_NAVIGATE:
+                $this->headers->set('X-AJAX-Control', 'navigate');
                 break;
         }
         return $r;
