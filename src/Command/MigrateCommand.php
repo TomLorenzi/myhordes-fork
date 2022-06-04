@@ -116,6 +116,7 @@ class MigrateCommand extends Command
         'a45dec20a02f017ab1963d2f0c30e4fa7de9ddf5' => [ ['app:migrate', ['--assign-estimation-seed' => true] ] ],
         '2c688bfc00992c98193e9480848e2f1e63be9d04' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
         'f38e93b3cc6e37542112c53771d65fe00e05e7a1' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
+        '6e3bce82be2e25424ed46de660aaf7d2ca30450f' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -707,14 +708,40 @@ class MigrateCommand extends Command
         if ($input->getOption('assign-disable-flags')) {
             // A disabled citizen/town has in fact its Ranking disabled. Not its pictos / soul points
             $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($citizens) . "</info> citizens to update !");
             foreach ($citizens as $citizen) {
                 $flag = $citizen->getResetMarker() ? CitizenRankingProxy::DISABLE_ALL : CitizenRankingProxy::DISABLE_RANKING;
-                $this->entity_manager->persist($citizen->addDisableFlag($flag)->setDisabled(false));
+                $this->entity_manager->persist($citizen
+                    ->addDisableFlag($flag)
+                    ->setDisabled(false));
             }
             $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($towns) . "</info> towns to update !");
             foreach ($towns as $town) {
                 $this->entity_manager->persist($town->addDisableFlag(TownRankingProxy::DISABLE_RANKING)->setDisabled(false));
+                foreach ($town->getCitizens() as $citizen) {
+                    $this->entity_manager->persist($citizen->getUser()
+                        ->setSoulPoints($this->user_handler->fetchSoulPoints($citizen->getUser(), false))
+                        ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($citizen->getUser()))
+                    );
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town) as $picto)
+                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+                }
             }
+
+            $users = $this->entity_manager->getRepository(User::class)->findAll();
+            $output->writeln("Recalculating Soul Points and pictos for <info>" . count($users) . "</info> users");
+            foreach ($users as $user) {
+                $this->entity_manager->persist($user
+                    ->setSoulPoints($this->user_handler->fetchSoulPoints($user, false))
+                    ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user)));
+
+                foreach ($user->getPastLifes() as $citizen) {
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($user, $citizen->getTown()) as $picto)
+                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+                }
+            }
+
             $this->entity_manager->flush();
         }
 

@@ -12,6 +12,9 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
+        "ext-curl": "*",
+        "ext-ftp": "*",
+        "ext-ssh2": "*",
         "brainbox-et/etwin-api-client": "^0.1.1",
         "clue/graph": "^0.9.1",
         "doctrine/annotations": "^1.0",
@@ -55,8 +58,7 @@
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/intl-extra": "^3.0",
         "twig/twig": "^2.12|^3.0",
-        "myhordes/fixtures": "@dev",
-        "ext-curl": "*"
+        "myhordes/fixtures": "@dev"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "^6.6",

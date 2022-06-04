@@ -22010,7 +22010,15 @@ cette violente opération...]]></target>
       </notes>
       <segment>
         <source>{deaths} Bürger sind beim heutigen Angriff gestorben!</source>
-        <target>{deaths} citoyens sont morts pendant cette attaque !</target>
+        <target>{ref__icu, select,
+            on {
+                {raw_deaths, plural,
+                    =1 {{deaths} citoyen est mort pendant cette attaque !}
+                    other {{deaths} citoyens sont morts pendant cette attaque !}
+                }
+            }
+            other { {deaths} citoyens sont morts pendant cette attaque ! }
+        }</target>
       </segment>
     </unit>
     <unit id="iLdX6jg">
