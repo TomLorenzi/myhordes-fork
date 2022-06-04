@@ -4861,7 +4861,7 @@ müssen durchdacht geplant werden.</target>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Jede Nacht um Mitternacht (UTC+1) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</target>
+        <target>Jede Nacht um Mitternacht (MEZ/MESZ) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">
@@ -7907,6 +7907,24 @@ Um Kontakt mit den Administratoren aufzunehmen, schreibe an die <a x-group-conne
       <segment>
         <source>Die Hilfe durchsuchen</source>
         <target>Die Hilfe durchsuchen</target>
+      </segment>
+    </unit>
+    <unit id="2JY6gfN" name="Wichtig:">
+      <notes>
+        <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wichtig:</source>
+        <target>Wichtig:</target>
+      </segment>
+    </unit>
+    <unit id="Nhv16uC">
+      <notes>
+        <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
+      </notes>
+      <segment>
+        <source>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</source>
+        <target>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</target>
       </segment>
     </unit>
   </file>

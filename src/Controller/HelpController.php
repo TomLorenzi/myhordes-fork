@@ -25,15 +25,16 @@ class HelpController extends CustomAbstractController
     public function help(string $name = 'welcome'): Response
     {
         if ($name === 'shell') return $this->redirect($this->generateUrl('help'));
-        //try {
+        try {
             $support_groups = $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
             return $this->render( "ajax/help/$name.html.twig", $this->addDefaultTwigArgs(null, [
                 'section' => $name,
+                'timezone' => date_default_timezone_get(),
                 'support' => count($support_groups) === 1 ? $support_groups[0] : null
             ]));
-        //} catch (Exception $e){
-        //    return $this->redirect($this->generateUrl('help'));
-        //}
+        } catch (Exception $e){
+            return $this->redirect($this->generateUrl('help'));
+        }
     }
 
     /**
