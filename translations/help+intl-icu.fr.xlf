@@ -8635,22 +8635,22 @@ Pour contacter les administrateurs, écrivez au support technique <a x-group-con
       <notes>
         <note category="german">Wichtig:</note>
         <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Wichtig:</source>
-        <target>Wichtig:</target>
+        <target>Important :</target>
       </segment>
     </unit>
     <unit id="Nhv16uC">
       <notes>
         <note category="german">In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</note>
         <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</source>
-        <target>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</target>
+        <target>Dans votre fuseau horaire, l’attaque aura lieu à {time}. Vous pouvez toujours voir le temps dont vous disposez jusqu’à la prochaine attaque sur l’horloge dans le coin supérieur droit de l’interface.</target>
       </segment>
     </unit>
   </file>
