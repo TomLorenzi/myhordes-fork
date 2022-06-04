@@ -103,7 +103,7 @@ class BalancingCommand extends Command
 
     protected function getPrincipal( string $class, string $label, InputInterface $input, OutputInterface $output ): object {
         if (!$input->hasArgument('for')) throw new \Exception('Subject required.');
-        $resolved = $this->helper->resolve_string( $input->getArgument('for') , $class, $label, $this->getHelper('question'), $input, $output);
+        $resolved = $this->helper->resolve_string( $input->getArgument('for') ?? '', $class, $label, $this->getHelper('question'), $input, $output);
         if (!$resolved) throw new \Exception('Subject invalid.');
         return $resolved;
     }
