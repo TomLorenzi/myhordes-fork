@@ -18,10 +18,12 @@
         {% else %}
             <img alt="" src="{{ asset('build/images/forum/banner/bannerForumVoid.gif') }}">
         {% endif %}
-        <div>{{ forum.title }}</div>
-        {% if forum.description is not empty %}
-            <span>{{ forum.description }}</span>
-        {% endif %}
+        <div>
+            <div>{{ forum.title }}</div>
+            {% if forum.description is not empty %}
+                <span>{{ forum.description }}</span>
+            {% endif %}
+        </div>
     </div>
 {% endmacro %}
 
@@ -47,8 +49,23 @@
 
                     {% set world_forums = forums|filter(f => f.town is empty)|sort((a,b) => (a.type <=> b.type ?? a.id <=> b.id)) %}
                     {% if world_forums is not empty %}
+
                         <h5>{{ 'Weltforen'|trans({},'global') }}</h5>
-                        {% for forum in world_forums %}
+                        {% for section in forumSections %}
+                            <div class="forumGroup">
+                                <div class="header">
+                                    <img alt="{{ section }}" src="{{ asset('build/images/lang/' ~ section ~ '.png') }}">
+                                    <span>{{ 'Weltforum'|trans({},'global',section) }}</span>
+                                </div>
+                                <div class="content">
+                                    {% for forum in world_forums|filter( f => f.worldForumLanguage == section )|sort( (a,b) => ( a.worldForumSorting <=> b.worldForumSorting ) ) %}
+                                        {{ _self.drawForum(forum, forums_new[forum.id]) }}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        {% for forum in world_forums|filter( f => f.worldForumLanguage is null ) %}
                             {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
@@ -67,10 +84,12 @@
                     {% for group in official_groups %}
                         <div x-group-connect="oglink_{{ group.id }}" class="forum-preview forum-preview-og {% if group.description is not empty %}forum-preview-desc{% endif %}">
                             <img alt="" src="{{ path('app_web_group_icon', { gid: group.usergroup.id, name: group.avatarName, ext: group.avatarExt }) }}" />
-                            <div>{{ group.usergroup.name }}</div>
-                            {% if group.description is not empty %}
-                                <span>{{ group.description }}</span>
-                            {% endif %}
+                            <div>
+                                <div>{{ group.usergroup.name }}</div>
+                                {% if group.description is not empty %}
+                                    <span>{{ group.description }}</span>
+                                {% endif %}
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}

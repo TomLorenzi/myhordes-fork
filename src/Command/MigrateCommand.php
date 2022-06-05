@@ -193,6 +193,7 @@ class MigrateCommand extends Command
             ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
+            ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -974,6 +975,72 @@ class MigrateCommand extends Command
             }, true);
 
             return 0;
+        }
+
+        if ($input->getOption('update-world-forums')) {
+
+            $name_assignment = [
+                'Weltforum' => ['Diskussionen','de'],
+                'Forum Monde' => ['Discussions','fr'],
+                'English Forum' => ['Discussions','en'],
+                'Foro mundial' => ['Discusiones','es']
+            ];
+
+            foreach ( $name_assignment as $original => [$new,$lang] ) {
+                $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $original, 'worldForumLanguage' => null]);
+                if ($forum) {
+                    $output->writeln("Renaming forum <info>{$forum->getTitle()}</info> to <info>{$new}</info> [<info>{$lang}</info>].");
+                    $this->entity_manager->persist( $forum->setTitle( $new )->setWorldForumLanguage( $lang ) );
+                }
+            }
+
+            $this->entity_manager->flush();
+
+            $forum_data_assignment = [
+                'de' => [
+                    [ 'Hilfe', 'bannerForumHelp.gif', 'In diesem Forum könnt ihr Fragen stellen, Überlebensstrategien besprechen und euch austauschen.' ],
+                    [ 'Diskussionen', 'bannerForumDiscuss.gif', 'In diesem Forum könnt ihr Überlebensstrategien besprechen und Spielvorschläge (...ohne Garantie!) machen.' ],
+                    [ 'Der Saloon', 'bannerForumSalon.gif', 'Der Saloon ist ein Raum für stimmungsvolle Diskussionen rund um das MyHordes-Universum (RP oder nicht).' ],
+                ],
+                'fr' => [
+                    [ 'Aide', 'bannerForumHelp.gif', 'Ici vous trouverez les réponses à vos questions, attention toutefois, le corbeau vous a à l\'oeil.' ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'Vous pouvez discuter entre vous, attention toutefois, le corbeau vous a à l\'oeil.' ],
+                    [ 'Le Saloon', 'bannerForumSalon.gif', 'Le Saloon est un espace réservé aux discussions d\'ambiance autour de l’univers de Hordes (RP ou pas).' ],
+                ],
+                'en' => [
+                    [ 'Help', 'bannerForumHelp.gif', 'Discuss the rules and ask questions directly related to the rules of the game.' ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'You can chat with each other, be careful though, the crow is watching.' ],
+                    [ 'The Saloon', 'bannerForumSalon.gif', 'The Saloon is a space reserved for discussions about the MyHordes universe (RP or not).' ],
+                ],
+                'es' => [
+                    [ 'Ayuda General', 'bannerForumHelp.gif', 'Antes de crear un nuevo tema, haz una búsqueda por palabra clave. ¡Aquí no van los pedidos de auxilio!' ],
+                    [ 'Discusiones', 'bannerForumDiscuss.gif', 'Podéis charlar entre vosotros, pero tened cuidado, el cuervo está mirando.' ],
+                    [ 'Historias de MyHordes', 'bannerForumSalon.gif', 'Relatos y leyendas de los habitantes de este mundo condenado.' ],
+                ]
+            ];
+
+            foreach ( $forum_data_assignment as $lang => $data )
+                foreach ( $data as $sort => [ $title, $icon, $desc ] ) {
+
+                    $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
+                    if (!$forum) {
+                        if (!$this->helper->capsule('app:forum:create ' . escapeshellarg($title) . ' 0 --lang ' . $lang, $output))
+                            return 2;
+
+                        $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
+                    }
+
+                    if (!$forum) return 3;
+                    $output->writeln("Updating forum <info>{$forum->getTitle()}</info> [<info>{$lang}</info>] meta data.");
+
+                    $this->entity_manager->persist(
+                        $forum->setDescription( $desc )->setIcon( $icon )->setWorldForumSorting( $sort )
+                    );
+
+                }
+
+            $this->entity_manager->flush();
+
         }
 
         if ($input->getOption('prune-rp-texts')) {

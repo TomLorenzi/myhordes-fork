@@ -241,11 +241,20 @@ class MessageForumController extends MessageController
             ) > 0;
         }
 
+        $forum_sections = array_unique( array_filter( array_map( fn(Forum $f) => $f->getWorldForumLanguage(), $forums ) ) );
+        usort( $forum_sections, function(string $a, string $b) {
+            if ($a === $b) return 0;
+            if ($a === $this->getUserLanguage()) return -1;
+            if ($b === $this->getUserLanguage()) return 1;
+            return $a <=> $b;
+        } );
+
         return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $this->getUser(),
             'forums' => $forums,
             'forums_new' => $forums_new,
             'subscriptions' => $subscriptions,
+            'forumSections' => $forum_sections,
             'official_groups' => $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => [$this->getUserLanguage(),'multi']])
         ] ));
     }
