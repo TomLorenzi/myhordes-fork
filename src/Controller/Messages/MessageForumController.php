@@ -217,7 +217,7 @@ class MessageForumController extends MessageController
     {
         /** @var Forum[] $forums */
         $forums = $this->perm->getForumsWithPermission($this->getUser());
-        $subscriptions = $this->getUser()->getForumThreadSubscriptions()->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
+        $subscriptions = $this->getUser()->getForumThreadSubscriptions()->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
 
         $forums_new = [];
         foreach ($forums as $forum) {
