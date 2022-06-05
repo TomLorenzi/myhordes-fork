@@ -49,9 +49,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MessageForumController extends MessageController
 {
-    private function default_forum_renderer(int $fid, int $tid, int $pid, int $post_page, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
-        $num_per_page = 20;
+    protected const ThreadsPerPage = 20;
+    protected const PostsPerPage = 10;
 
+    private function default_forum_renderer(int $fid, int $tid, int $pid, int $post_page, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $user = $this->getUser();
 
         /** @var Forum $forum */
@@ -81,27 +82,27 @@ class MessageForumController extends MessageController
         $show_hidden_threads = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate );
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
-            $pages = floor(max(0,$em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads, false)-1) / $num_per_page) + 1;
+            $pages = floor(max(0,$em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads, false)-1) / self::ThreadsPerPage) + 1;
 
             if ($sel_thread && !$sel_thread->getPinned())
-                $page = 1 + floor(($em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads, false, $sel_thread)) / $num_per_page);
+                $page = 1 + floor(($em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads, false, $sel_thread)) / self::ThreadsPerPage);
             elseif ($parser->has('page'))
                 $page = min(max(1,$parser->get('page', 1)), $pages);
             else $page = 1;
 
-            $threads = $em->getRepository(Thread::class)->findByForum($forum, $num_per_page, ($page-1)*$num_per_page, $show_hidden_threads);
+            $threads = $em->getRepository(Thread::class)->findByForum($forum, self::ThreadsPerPage, ($page-1)*self::ThreadsPerPage, $show_hidden_threads);
         } elseif ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ) {
 
             $tp = $ttp = 0;
             $threads = array_filter( $em->getRepository(Thread::class)->findByForum($forum, null, null, $show_hidden_threads), function(Thread $t) use ($tp,$ttp,$sel_thread): bool { $tp++; if ($t === $sel_thread) $ttp = $tp-1; return $t->hasReportedPosts(); } );
-            $pages = floor(max(0,count($threads)-1) / $num_per_page) + 1;
+            $pages = floor(max(0,count($threads)-1) / self::ThreadsPerPage) + 1;
             if ($sel_thread && !$sel_thread->getPinned())
-                $page = 1 + ($ttp / $num_per_page);
+                $page = 1 + ($ttp / self::ThreadsPerPage);
             elseif ($parser->has('page'))
                 $page = min(max(1,$parser->get('page', 1)), $pages);
             else $page = 1;
 
-            $threads = array_slice($threads, ($page-1)*$num_per_page, $num_per_page);
+            $threads = array_slice($threads, ($page-1)*self::ThreadsPerPage, self::ThreadsPerPage);
         } else {
             $page = $pages = 1;
             $threads = [];
@@ -214,12 +215,36 @@ class MessageForumController extends MessageController
      */
     public function forums(): Response
     {
+        /** @var Forum[] $forums */
         $forums = $this->perm->getForumsWithPermission($this->getUser());
         $subscriptions = $this->getUser()->getForumThreadSubscriptions()->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
+
+        $forums_new = [];
+        foreach ($forums as $forum) {
+
+            if (!$this->perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionListThreads )) {
+                $forums_new[$forum->getId()] = false;
+                continue;
+            }
+
+            if ($forum->getTown()) {
+                if (!$forum->getTown()->userInTown($this->getUser())) {
+                    $forums_new[$forum->getId()] = false;
+                    continue;
+                }
+
+                $forums_new[$forum->getId()] = $this->entity_manager->getRepository(Thread::class)->countThreadsWithUnreadPosts(
+                    $this->getUser(), $forum
+                ) > 0;
+            } else $forums_new[$forum->getId()] = $this->entity_manager->getRepository(Thread::class)->countThreadsWithUnreadPosts(
+                $this->getUser(), $this->entity_manager->getRepository(Thread::class)->firstPageThreadIDs( $forum, self::ThreadsPerPage )
+            ) > 0;
+        }
 
         return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $this->getUser(),
             'forums' => $forums,
+            'forums_new' => $forums_new,
             'subscriptions' => $subscriptions,
             'official_groups' => $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => [$this->getUserLanguage(),'multi']])
         ] ));
@@ -733,7 +758,6 @@ class MessageForumController extends MessageController
      * @return Response
      */
     public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, CitizenHandler $ch, int $pid = -1): Response {
-        $num_per_page = 10;
         $user = $this->getUser();
 
         $hydrate_post = fn(Post $post) => $post->getHydrated() ? $post : $post->setHydrated( $this->html->prepareEmotes( $post->getText(), $user, $post->getThread()->getForum()->getTown() ) );
@@ -761,21 +785,21 @@ class MessageForumController extends MessageController
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
 
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
-            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
+            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / self::PostsPerPage) + 1;
         else
-            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
+            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / self::PostsPerPage) + 1;
 
         if ($jump_post)
-            $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jump_post, $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
+            $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jump_post, $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / self::PostsPerPage));
         elseif ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         elseif (!$marker->getPost()) $page = 1;
-        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
+        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / self::PostsPerPage));
 
         if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
-            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+            $posts = $em->getRepository(Post::class)->findByThread($thread, self::PostsPerPage, ($page-1)*self::PostsPerPage);
         else
-            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
+            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, self::PostsPerPage, ($page-1)*self::PostsPerPage);
 
 
         $announces = [

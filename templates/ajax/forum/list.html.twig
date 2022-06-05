@@ -8,9 +8,9 @@
 {# @var user \App\Entity\User #}
 {# @var forums \App\Entity\Forum[] #}
 
-{% macro drawForum(forum) %}
+{% macro drawForum(forum, has_new_posts) %}
     {# @var forum \App\Entity\Forum #}
-    <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-preview {% if forum.description is not empty %}forum-preview-desc{% endif %}">
+    <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-preview {{ has_new_posts ? 'new' : ''}} {% if forum.description is not empty %}forum-preview-desc{% endif %}">
         {% if forum.town %}
             <img alt="" src="{{ asset('build/images/forum/banner/bannerForumVille.gif') }}">
         {% elseif forum.icon is not empty %}
@@ -41,7 +41,7 @@
                     {% if town_forums is not empty %}
                         <h5>{{ 'Stadtforum'|trans({},'global') }}</h5>
                         {% for forum in town_forums %}
-                            {{ _self.drawForum(forum) }}
+                            {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
 
@@ -49,7 +49,7 @@
                     {% if world_forums is not empty %}
                         <h5>{{ 'Weltforen'|trans({},'global') }}</h5>
                         {% for forum in world_forums %}
-                            {{ _self.drawForum(forum) }}
+                            {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
 
@@ -57,7 +57,7 @@
                     {% if other_forums is not empty %}
                         <h5>{{ 'Andere Foren'|trans({},'global') }}</h5>
                         {% for forum in other_forums %}
-                            {{ _self.drawForum(forum) }}
+                            {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
                 {% endif %}

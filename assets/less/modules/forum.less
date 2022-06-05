@@ -5,7 +5,7 @@
   background: url("../../img/forum/forum.png") top center repeat-x; cursor: pointer;
   box-shadow: 0 0 10px rgba(0,0,0,0.5); background-position-y: -2px; border: 2px solid #7e4d2b;
   transition: border-color 0.5s ease-in-out, box-shadow 0.25s ease-in-out, color 0.25s ease-in-out;
-  color: rgba(255,255,255,0.8); text-shadow: 0 1px 1px rgba(0,0,0, 0.5);
+  color: rgba(255,255,255,0.8); text-shadow: 0 1px 1px rgba(0,0,0, 0.5); position: relative;
 
   &>img { margin-right: 10px; float: left; max-width: 100px; }
   &>div { margin-top: 2px; }
@@ -17,8 +17,13 @@
     &.forum-preview-og > span { margin-top: 15px; display: block}
   }
 
+  &.new:before {
+    content: " "; position: absolute; width: 20px; height: 20px; border: 1px solid #fe7d00;
+    background: url("../../img/forum/new.png") top center no-repeat, #bd3d00; top: -2px; left: -2px;
+  }
+
   &:hover { border-color: @myhordes-smalltext; box-shadow: 0 0 10px rgba(0,0,0,0.8); color: rgba(255,255,255,1.0); }
-  &::after { clear: both; display: table; content: "";}
+  &:after { clear: both; display: table; content: "";}
 }
 
 @myhordes-forum-button-color:  #a2321a;
