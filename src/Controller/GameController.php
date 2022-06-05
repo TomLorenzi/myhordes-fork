@@ -329,11 +329,6 @@ class GameController extends CustomAbstractController
                 $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
             }
 
-            if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
-                $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
-                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
-            }
-
             foreach ($skills as $skill) {
                 switch($skill->getName()){
                     case "brothers":
@@ -384,6 +379,11 @@ class GameController extends CustomAbstractController
                         break;
                 }
             }
+        }
+
+        if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
+            $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
+            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
         }
 
         if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_arma', true ) ) {
