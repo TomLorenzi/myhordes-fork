@@ -108,12 +108,13 @@ class MessageForumController extends MessageController
             $threads = [];
         }
 
+        $global_marker = $em->getRepository(ThreadReadMarker::class)->findGlobalAndUser($user);
+
         foreach ($threads as $thread) {
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            $lastPost = $thread->lastPost( $show_hidden_threads );
-            if (!$marker || ($lastPost && $lastPost->getId() > $marker->getPost()->getId()))
+            if (($thread->lastPost( $show_hidden_threads )?->getId() ?? 0) > max( $global_marker?->getPost()->getId() ?? 0, $marker?->getPost()->getId() ?? 0))
                 $thread->setNew();
         }
 
@@ -129,8 +130,7 @@ class MessageForumController extends MessageController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            $lastPost = $thread->lastPost( $show_hidden_threads );
-            if (!$marker || ($lastPost && $lastPost->getId() > $marker->getPost()->getId()))
+            if (($thread->lastPost( $show_hidden_threads )?->getId() ?? 0) > max( $global_marker?->getPost()->getId() ?? 0, $marker?->getPost()->getId() ?? 0))
                 $thread->setNew();
         }
         
@@ -1178,6 +1178,30 @@ class MessageForumController extends MessageController
         $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser(), 'thread' => $thread]);
         if (!$existing) try {
             $this->entity_manager->persist((new ForumThreadSubscription())->setThread($thread)->setUser($this->getUser()));
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/forum/read_all", name="forum_all_read_controller")
+     * @return Response
+     */
+    public function forum_mark_all_read(): Response {
+
+        $last_post = $this->entity_manager->getRepository(Post::class)->findBy(['hidden' => false], ['id' => 'DESC'], 1);
+        if (count($last_post) !== 1) return AjaxResponse::success();
+
+        $global_marker =
+            $this->entity_manager->getRepository(ThreadReadMarker::class)->findGlobalAndUser( $this->getUser() )
+            ?? (new ThreadReadMarker())->setUser( $this->getUser() );
+
+        try {
+            $global_marker->setPost( $last_post[0] );
+            $this->entity_manager->persist( $global_marker->setPost( $last_post[0] ) );
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );

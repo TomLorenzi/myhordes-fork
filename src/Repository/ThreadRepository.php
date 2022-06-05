@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Forum;
 use App\Entity\Thread;
+use App\Entity\ThreadReadMarker;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
@@ -120,12 +121,14 @@ class ThreadRepository extends ServiceEntityRepository
     }
 
     public function countThreadsWithUnreadPosts(User $user, array|Forum $threadIDs, bool $includeHidden = false) {
+        $global_limit = $this->getEntityManager()->getRepository(ThreadReadMarker::class)->findGlobalAndUser($user)?->getPost()->getId() ?? 0;
+
         $q = $this->createQueryBuilder('t')
             ->innerJoin('t.posts', 'p')
             ->leftJoin( 't._readMarkers', 'r', Join::WITH, 'r.thread = t.id AND r.user = :user')->setParameter('user', $user)
             ->select('MAX(p.id) AS pid', 't.id AS tid', 'IDENTITY(r.post) AS rid')
             ->groupBy('t.id')
-            ->having( 'rid IS NULL OR rid < pid' )
+            ->having( '(:global < pid) AND (rid IS NULL OR rid < pid)' )->setParameter('global', $global_limit)
         ;
 
         if (is_a( $threadIDs, Forum::class ))

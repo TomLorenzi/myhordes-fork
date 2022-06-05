@@ -79,6 +79,7 @@
         <div class="cell padded header rw-4 rw-lg-12">
             <h5>{% trans from 'global' %}Aktionen{% endtrans %}</h5>
             <button x-ajax-href="{{ path('forum_search_wrapper_controller') }}"><img alt="" src="{{ asset('build/images/forum/search.png') }}"> {{ 'Foren durchsuchen'|trans({},'global') }}</button>
+            <button id="forum_all_read_btn"><img alt="" src="{{ asset('build/images/forum/done.png') }}"> {{ 'Alles als gelesen markieren'|trans({},'global') }}</button>
             <h5>{% trans from 'welcome' %}Abonnierte Themen{% endtrans %}</h5>
             <div class="cell rw-12 padded">
                 {% if subscriptions|length == 0 %}
@@ -114,6 +115,9 @@
         (function() {
             $.html.addEventListenerAll('[x-unsubscribe-api]', 'click', (e,elem) => {
                 $.ajax.easySend(elem.getAttribute('x-unsubscribe-api'), {}, () => $.ajax.load(null,'{{ path('forum_list') }}'));
+            })
+            $.html.addEventListenerAll('#forum_all_read_btn', 'click', (e,elem) => {
+                $.ajax.easySend('{{ path('forum_all_read_controller') }}', {}, () => $.ajax.load(null,'{{ path('forum_list') }}'));
             })
             $.html.addEventListenerAll('[x-group-connect]','click', (e,elem) => {
                 const p = document.getElementById('postbox');
