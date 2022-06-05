@@ -117,6 +117,7 @@ class MigrateCommand extends Command
         '2c688bfc00992c98193e9480848e2f1e63be9d04' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
         'f38e93b3cc6e37542112c53771d65fe00e05e7a1' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
         '6e3bce82be2e25424ed46de660aaf7d2ca30450f' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
+        'd82e52568784983dc614830ac43cc906e874b5a0' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
