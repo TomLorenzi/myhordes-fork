@@ -29,7 +29,7 @@ class ThreadReadMarker
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Thread", inversedBy="_readMarkers")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $thread;
 

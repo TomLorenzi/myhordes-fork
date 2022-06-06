@@ -3999,5 +3999,23 @@
         <target>Umfrage starten</target>
       </segment>
     </unit>
+    <unit id="CHq_sLA" name="Alles als gelesen markieren">
+      <notes>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Alles als gelesen markieren</source>
+        <target>Alles als gelesen markieren</target>
+      </segment>
+    </unit>
+    <unit id="rZ3RgyU" name="Weltforum">
+      <notes>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Weltforum</source>
+        <target>Weltforum</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

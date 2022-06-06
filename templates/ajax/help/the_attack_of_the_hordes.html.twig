@@ -7,6 +7,11 @@
 <p>
 {{ 'Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.'|trans({},'help')|raw }}
 </p>
+{% if timezone is defined %}
+    <p>
+        <b>{{ 'Wichtig:'|trans({},'help') }}</b> {{ 'In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.'|trans({time: '<i class="bold" data-time="' ~ 'tomorrow'|to_date|date('c')  ~ '">[localTime]</i>'},'help')|raw }}
+    </p>
+{% endif %}
 <h2>{{ 'Phase 1: Die Rückkehr der lebenden Toten'|trans({},'help')|raw }}</h2>
 <p>
 {{ 'Alle Einwohner, die am Vortag von Zombies in der Stadt gefressen wurden und deren Körper nicht zerstört oder außerhalb der Stadt entsorgt wurden, stehen auf! Da sie sich bereits in der Stadt befinden, werden sie einen großen Schaden anrichten!'|trans({},'help')|raw }}
@@ -54,4 +59,7 @@ Lies dir den entsprechenden Abschnitt bitte <span x-ajax-href={url_lms}>hier</sp
 </ul> #}
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'the_watchmen'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Nachtwächter'|trans({},'help') }}</strong></a>
+<script>
+    (()=>{ $.html.forEach( '[data-time]', e => e.innerText = (new Date( e.dataset.time )).toLocaleTimeString([], {timeStyle: 'short'}) ) })()
+</script>
 {% endblock %}

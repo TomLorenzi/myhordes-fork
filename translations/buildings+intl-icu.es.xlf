@@ -3575,7 +3575,7 @@
     </unit>
     <unit id="K_1scXO" name="Zaun (Baustellen)">
       <notes>
-        <note category="german">Zaun (Baustellen)</note>
+        <note category="german">Zaun</note>
         <note category="from">db://BuildingPrototype</note>
       </notes>
       <segment>

@@ -33,15 +33,15 @@
     {% endif %}
 
     {% if watchers is not empty %}
-<h5>{{ 'Nachtwächter'|trans({},'game') }}</h5>
-<div class="nightwatch row-table citizens-list">
-    <div class="row header">
-        <div class="cell padded rw-3"></div>
-        <div class="cell padded rw-2"></div>
-        <div class="cell padded rw-6">{{ 'Benutzte Waffe'|trans({}, 'game') }}</div>
-    </div>
-    {% for watcher in watchers %}
-        <div class="row small {% if watcher.citizen == me %} me{% endif %}">
+        <h5>{{ 'Nachtwächter'|trans({},'game') }}</h5>
+        <div class="nightwatch row-table citizens-list">
+            <div class="row header">
+                <div class="cell padded rw-3"></div>
+                <div class="cell padded rw-2"></div>
+                <div class="cell padded rw-6">{{ 'Benutzte Waffe'|trans({}, 'game') }}</div>
+            </div>
+            {% for watcher in watchers %}
+            <div class="row small {% if watcher.citizen == me %} me{% endif %}">
             <div class="cell padded rw-3 center ellipsis">
                 <a href="#" x-ajax-href="{{ path('town_visit', {id: watcher.citizen.id}) }}">{{watcher.citizen.name}}</a>
                 <div class="tooltip normal">{{ watcher.citizen.name }}</div>
@@ -80,14 +80,13 @@
                 {% endif %}
             </div>
         </div>
-    {% endfor %}
-    <div class="row small total" style="border-bottom: 1px solid #f0d79e;">
-        <div class="cell padded rw-8" style="border-bottom: 1px solid transparent;">{{'Gesamtzahl der Zombies, die heute Nacht sterben könnten:'|trans({}, 'game')}}</div>
-        <div class="cell padded rw-4" style="border-bottom: 1px solid transparent;">{{'Höchstens {nw_defense}'|trans({nw_defense: total_def},'game') }}</div>
-    </div>
+        {% endfor %}
+            <div class="row small total" style="border-bottom: 1px solid #f0d79e;">
+                <div class="cell padded rw-8" style="border-bottom: 1px solid transparent;">{{'Gesamtzahl der Zombies, die heute Nacht sterben könnten:'|trans({}, 'game')}}</div>
+                <div class="cell padded rw-4" style="border-bottom: 1px solid transparent;">{{'Höchstens {nw_defense}'|trans({nw_defense: total_def},'game') }}</div>
+            </div>
+        </div>
     {% endif %}
-
-    </div>
 {% endblock %}
 {% block js %}
     {{ parent() }}

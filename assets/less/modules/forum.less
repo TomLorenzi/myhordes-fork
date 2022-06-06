@@ -2,23 +2,58 @@
 
 .forum-preview {
   font-weight: bold; font-size: 1.2em; padding: 5px; border-radius: 10px; margin: 10px;
-  background: url("../../img/forum/forum.png") top center repeat-x; cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); background-position-y: -2px; border: 2px solid #7e4d2b;
-  transition: border-color 0.5s ease-in-out, box-shadow 0.25s ease-in-out, color 0.25s ease-in-out;
-  color: rgba(255,255,255,0.8); text-shadow: 0 1px 1px rgba(0,0,0, 0.5);
+  background: url("../../img/forum/forum.png") top center repeat-x, #7e4d2a; cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); background-position-y: -2px; border: 2px solid #7e4d2b;
+  transition: border-color 0.5s ease-in-out, filter 0.25s ease-in-out, color 0.25s ease-in-out;
+  color: rgba(255,255,255,0.8); text-shadow: 0 1px 1px rgba(0,0,0, 0.5); position: relative;
+  display: flex; align-items: center;
 
-  &>img { margin-right: 10px; float: left; max-width: 100px; }
-  &>div { margin-top: 2px; }
+  &>img { margin-right: 10px; max-width: 100px; flex-grow: 0; object-fit: contain; object-position: top }
+  &>div { margin-top: 2px; flex-grow: 1 }
 
   &.forum-preview-desc {
     line-height: 14px;
-    &>span { font-size: 0.6em; }
+    span { display: block; font-size: 0.6em; margin-top: 4px; line-height: 10px; opacity: 0.8; }
 
-    &.forum-preview-og > span { margin-top: 15px; display: block}
+    &.forum-preview-og span { margin-top: 15px; display: block}
   }
 
-  &:hover { border-color: @myhordes-smalltext; box-shadow: 0 0 10px rgba(0,0,0,0.8); color: rgba(255,255,255,1.0); }
-  &::after { clear: both; display: table; content: "";}
+  &.new:before {
+    content: " "; position: absolute; width: 20px; height: 20px; border: 1px solid #fe7d00; box-shadow: 0 0 3px black;
+    background: url("../../img/forum/new.png") top center no-repeat, #bd3d00; top: -2px; left: -7px;
+  }
+
+  &:hover { border-color: @myhordes-smalltext; filter: drop-shadow(0 0 10px rgba(0,0,0,0.8)); color: rgba(255,255,255,1.0); }
+  &:after { clear: both; display: table; content: "";}
+}
+
+.forumGroup {
+  .header {
+    font-variant: small-caps; font-weight: bold; margin-bottom: 5px;
+    display: flex; align-items: center; gap: 10px; margin-left: 10px;
+    img { flex-grow: 0 }
+    span { flex-grow: 1 }
+  }
+  .content {
+
+    transition: filter 0.25s ease-in-out, color 0.25s ease-in-out;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+    &:hover { filter: drop-shadow(0 0 10px rgba(0,0,0,0.8)); }
+
+    .forum-preview {
+      margin-top: 0; margin-bottom: 0; border-radius: 0; filter: none;
+      border-top-width: 0; border-bottom-width: 0;
+
+      &:first-child { border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-width: 2px; }
+      &:last-child  { border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-width: 2px; }
+
+      &.forum-preview-desc {
+        line-height: 10px; font-size: 1em;
+      }
+    }
+  }
+
+  &+.forumGroup { margin-top: 20px; }
 }
 
 @myhordes-forum-button-color:  #a2321a;

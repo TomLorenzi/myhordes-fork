@@ -847,6 +847,7 @@ class ActionHandler
                     $tags[] = 'consumed';
                 } else {
                     if ($item_result->getMorph()) {
+                        $execute_info_cache['items_spawn'][] = $item_result->getMorph();
                         $item->setPrototype( $execute_info_cache['item_morph'][1] = $item_result->getMorph() );
                         $tags[] = 'morphed';
                     }

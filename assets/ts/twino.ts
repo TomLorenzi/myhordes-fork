@@ -803,6 +803,20 @@ export default class TwinoAlikeParser {
         }
     }
 
+    private static collapseTextNodes( elem: HTMLElement ) {
+        if (elem.nodeType === Node.TEXT_NODE) {
+            if (!elem.parentElement) return;
+            while (elem.nextSibling?.nodeType === Node.TEXT_NODE) {
+                elem.textContent += elem.nextSibling.textContent;
+                elem.nextSibling.remove();
+            }
+        } else {
+            let children = elem.childNodes;
+            for (let i = 0; i < children.length; i++)
+                this.collapseTextNodes( children[i] as HTMLElement )
+        }
+    }
+
     private static processPlayerNames( target: HTMLElement ) {
         target.querySelectorAll( '[x-qi][x-qn]' ).forEach( (elem:HTMLElement) => {
             const player_data =
@@ -843,7 +857,10 @@ export default class TwinoAlikeParser {
         TwinoAlikeParser.parseInsets(container_node);
         TwinoAlikeParser.parseEmotes(container_node, resolver);
 
+        TwinoAlikeParser.collapseTextNodes( container_node );
+
         changed = true;
+
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,true);
 
         let c = null;

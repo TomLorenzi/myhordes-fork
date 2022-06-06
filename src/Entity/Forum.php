@@ -60,6 +60,16 @@ class Forum
      */
     private $allowedTags;
 
+    /**
+     * @ORM\Column(type="string", length=2, nullable=true)
+     */
+    private $worldForumLanguage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $worldForumSorting;
+
     public function __construct()
     {
         $this->threads = new ArrayCollection();
@@ -182,6 +192,30 @@ class Forum
     public function removeAllowedTag(ThreadTag $allowedTag): self
     {
         $this->allowedTags->removeElement($allowedTag);
+
+        return $this;
+    }
+
+    public function getWorldForumLanguage(): ?string
+    {
+        return $this->worldForumLanguage;
+    }
+
+    public function setWorldForumLanguage(?string $worldForumLanguage): self
+    {
+        $this->worldForumLanguage = $worldForumLanguage;
+
+        return $this;
+    }
+
+    public function getWorldForumSorting(): ?int
+    {
+        return $this->worldForumSorting;
+    }
+
+    public function setWorldForumSorting(?int $worldForumSorting): self
+    {
+        $this->worldForumSorting = $worldForumSorting;
 
         return $this;
     }
