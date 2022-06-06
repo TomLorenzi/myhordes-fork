@@ -1618,12 +1618,15 @@ class SoulController extends CustomAbstractController
 
         $commonTowns = [];
         $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true);
-        /** @var CitizenRankingProxy $citizen */
-        foreach ($citizens as $citizen) {
-            foreach ($citizen->getTown()->getCitizens() as $c) {
-                if ($c->getUser() === $this->getUser()) {
-                    $commonTowns[] = $citizen->getId();
-                    break;
+
+        if ($this->getUser() !== $user) {
+            /** @var CitizenRankingProxy $citizen */
+            foreach ($citizens as $citizen) {
+                foreach ($citizen->getTown()->getCitizens() as $c) {
+                    if ($c->getUser() === $this->getUser()) {
+                        $commonTowns[] = $citizen->getId();
+                        break;
+                    }
                 }
             }
         }
