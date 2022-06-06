@@ -8640,22 +8640,22 @@ Para ponerte en contacto con los administadores, escribe al <a x-group-connect="
       <notes>
         <note category="german">Wichtig:</note>
         <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Wichtig:</source>
-        <target>Wichtig:</target>
+        <target>Importante:</target>
       </segment>
     </unit>
     <unit id="Nhv16uC">
       <notes>
         <note category="german">In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</note>
         <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</source>
-        <target>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</target>
+        <target>En tu hora local, el ataque ocurrirá a las {time}. Siempre puedes ver cuánto tiempo falta para el ataque en el reloj que está en la esquina superior derecha de la interfaz.</target>
       </segment>
     </unit>
   </file>
