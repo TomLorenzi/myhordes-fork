@@ -5312,7 +5312,6 @@
       <notes>
         <note category="german">Aktiviert alle untergeordneten Beschränkungen.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Aktiviert alle untergeordneten Beschränkungen.</source>
@@ -5323,7 +5322,6 @@
       <notes>
         <note category="german">Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.</source>
@@ -5334,7 +5332,6 @@
       <notes>
         <note category="german">Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.</source>
@@ -5345,7 +5342,6 @@
       <notes>
         <note category="german">Verbietet die Verwendung des Schwarzen Bretts.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbietet die Verwendung des Schwarzen Bretts.</source>
@@ -5356,7 +5352,6 @@
       <notes>
         <note category="german">Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.</source>
@@ -5367,7 +5362,6 @@
       <notes>
         <note category="german">Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.</source>
@@ -5378,7 +5372,6 @@
       <notes>
         <note category="german">Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.</source>
