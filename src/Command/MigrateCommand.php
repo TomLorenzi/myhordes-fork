@@ -733,15 +733,15 @@ class MigrateCommand extends Command
 
             $this->entity_manager->flush();
 
-            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) {
+            $this->helper->leChunk($output, User::class, 50, [], true, false, function(User $user) {
                 $user
                     ->setSoulPoints($this->user_handler->fetchSoulPoints($user, false))
                     ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
+            }, true);
 
-                foreach ($user->getPastLifes() as $citizen) {
-                    foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($user, $citizen->getTown()) as $picto)
-                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
-                }
+            $this->helper->leChunk($output, CitizenRankingProxy::class, 100, [], true, false, function(CitizenRankingProxy $citizen) {
+                foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $citizen->getTown()) as $picto)
+                    $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
             }, true);
         }
 
