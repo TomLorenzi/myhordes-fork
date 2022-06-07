@@ -33,7 +33,7 @@
     <div class="row-flex wrap">
         {% for role in citizen.roles %}
             {# @var \App\Entity\CitizenRole role #}
-            <div class="padded cell">{{ role.label }}</div>
+            <div class="padded cell">{{ role.label|trans({},'game') }}</div>
         {% endfor %}
     </div><br />
     <div class="row">

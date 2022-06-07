@@ -1,4 +1,4 @@
-{# @var town \App\Entity\TownRankingProxy #}
+{# @var \App\Entity\TownRankingProxy town #}
 <div class="view-town">
     <h5 class="relative">
         {% if town.language is not null %}
@@ -49,13 +49,39 @@
         </div>
     {% endif %}
 
-    {% if town.disabled %}
+    {% if town.getDisableFlag() != constant("\\App\\Entity\\TownRankingProxy::DISABLE_NOTHING") %}
         <div class="row">
             <div class="cell rw-12 padded">
                 <div class="note note-warning">
-                    {{ 'Diese Stadt wurde aus dem Ranking ausgeschlossen.'|trans({},'soul') }}
+                    {{ 'Diese Stadt hat folgende Einschränkungen:'|trans({}, 'soul') }}
+                    <ul>
+                    {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING')) %}
+                        <li>{{ 'Ausschluss aus dem Ranking'|trans({}, 'soul') }}</li>
+                    {% endif %}
+                    {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
+                        <li>{{ 'Löschen der Auszeichnungen'|trans({}, 'soul') }}</li>
+                    {% endif %}
+                    {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
+                        <li>{{ 'Löschen der Seelenpunkte'|trans({}, 'soul') }}</li>
+                    {% endif %}
+                    </ul>
                     {% if is_granted('ROLE_CROW') %}
-                        <div class="button small inline" id="unrank_redact">{{ 'Ranking-Ausschluss zurücknehmen'|trans({},'admin') }}</div>
+                        {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING')) %}
+                            <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING') }}">{{ 'Ranking-Ausschluss zurücknehmen'|trans({},'admin') }}</div>
+                        {% else %}
+                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING') }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
+                        {% endif %}
+                        {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
+                            <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen wiederherstellen'|trans({}, 'admin') }}</div>
+                        {% else %}
+                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
+                        {% endif %}
+                        {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
+                            <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte wiederherstellen'|trans({}, 'admin') }}</div>
+                        {% else %}
+                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
+                        {% endif %}
+                        <div class="button small inline" x-action="unrank_redact" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">{{ 'Alle Sanktionen entfernen'|trans({}, 'admin') }}</div>
                     {% endif %}
                 </div>
             </div>
@@ -76,8 +102,23 @@
         <div class="row">
             <div class="cell rw-12 padded">
                 <div class="button small inline" id="event">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</div>
-                <div class="button small inline" id="unrank">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
+                {% if town.getDisableFlag() != constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL')  %}
+                <br />
+                {% endif %}
+                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING')) %}
+                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING') }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
+                {% endif %}
+                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
+                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
+                {% endif %}
+                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
+                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
+                {% endif %}
+                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL')) %}
+                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">{{ 'Stadt nicht in der Seele listen'|trans({}, 'admin') }}</div>
+                {% endif %}
                 {% if not town.imported %}
+                    <br />
                     <div class="button small inline" id="relang">{{ 'Sprache wechseln'|trans({},'admin') }}</div>
                     <div class="button small inline" id="rename">{{ 'Stadtnamen regenerieren'|trans({},'admin') }}</div>
                 {% endif %}
@@ -96,28 +137,68 @@
             <div class="padded cell rw-4 rw-lg-3 hide-sm">{{'Todesursache'|trans({}, 'soul')}}</div>
             <div class="padded cell rw-4 rw-lg-3 hide-md hide-sm">{{'Kommentar'|trans({}, 'soul')}}</div>
         </div>
+        {# @var \App\Entity\CitizenRankingProxy citizen #}
         {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day) %}
             {% set days = citizen.day %}
             {% set sp = days * ( days + 1 ) / 2 %}
             <div class="row {% if citizen.user.id == app.user.id or citizen.user.id == user.id %}me{% endif %}">
                 <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
                 <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">
-                    {% if not citizen.disabled and not town.disabled and not town.event %}
+                    {% if not citizen.hasDisableFlag(constant('\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS')) and not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) and not town.event %}
                         +{{sp}}
                     {% elseif is_granted('ROLE_CROW') %}
-                        <div style="{% if citizen.disabled %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.disabled or town.event %}opacity: 0.5;{% endif %}">+{{sp}}</div>
-                    {% elseif not (citizen.disabled and not citizen.limitedImport) and not town.disabled and not town.event %}
+                        <div style="{% if citizen.hasDisableFlag(constant('\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS')) %}color: {% if citizen.limitedImport %}rosybrown{% else %}red{% endif %};{% endif %} {% if town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) or town.event %}opacity: 0.5;{% endif %}">+{{sp}}</div>
+                    {% elseif not (citizen.hasDisableFlag(constant('\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS')) and not citizen.limitedImport) and not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) and not town.event %}
                         +{{sp}}
                     {% else %}
                         +0
                     {% endif %}
                     {% if is_granted('ROLE_CROW') %}
-                        {% if not citizen.disabled %}
-                            <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
-                        {% elseif citizen.disabled and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
-                            <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re" />
-                            {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
+                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS")) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS") }}" class="pointer" src="{{ asset('build/images/icons/small_removesp.gif') }}" alt="del sp" />
+                                <div class="tooltip">{{ 'Seelenpunkte dieses Bürgers entfernen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_SOULPOINTS") }}" class="pointer" src="{{ asset('build/images/icons/small_restoresp.gif') }}" alt="re" />
+                                <div class="tooltip">{{ 'Seelenpunkte für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
+                            </span>
                         {% endif %}
+                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING")) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING") }}" class="pointer" src="{{ asset('build/images/icons/small_removernk.gif') }}" alt="del rnk" />
+                                <div class="tooltip">{{ 'Bürger aus dem Ranking entfernen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_RANKING") }}" class="pointer" src="{{ asset('build/images/icons/small_restorernk.gif') }}" alt="re" />
+                                <div class="tooltip">{{ 'Ranking für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% endif %}
+                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS")) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_removepictos.gif') }}" alt="del pictos" />
+                                <div class="tooltip">{{ 'Auszeichnungen dieses Bürgers entfernen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% elseif citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS")) and (citizen.resetMarker is null or is_granted('ROLE_ADMIN')) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_PICTOS") }}" class="pointer" src="{{ asset('build/images/icons/small_restorepictos.gif') }}" alt="re" />
+                                <div class="tooltip">{{ 'Auszeichnungen für diesen Bürger wiederherstellen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% endif %}
+                        {% if not citizen.hasDisableFlag(constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL")) %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 1}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL") }}" class="pointer" src="{{ asset('build/images/icons/small_ban.gif') }}" alt="del all" />
+                                <div class="tooltip">{{ 'Stadt nicht in der Seele listen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% else %}
+                            <span>
+                                <img x-action="unrank" x-endpoint="{{ path('admin_town_citizen_ranking_control', {tid: town.id, cid: citizen.id, act: 0}) }}" x-flag="{{ constant("\\App\\Entity\\CitizenRankingProxy::DISABLE_ALL") }}" class="pointer" src="{{ asset('build/images/icons/small_back.gif') }}" alt="re all" />
+                                <div class="tooltip">{{ 'Alle Sanktionen entfernen'|trans({}, 'admin') }}</div>
+                            </span>
+                        {% endif %}
+                        {% if citizen.resetMarker is not null %}<span class="small">[R]</span>{% endif %}
                     {% endif %}
                 </div>
                 <div class="padded cell rw-2 rw-md-3 rw-sm-4">
@@ -143,6 +224,9 @@
                     {% endif %}
                     {% if not citizen.lastWords is empty %}
                         <img src="{{asset('build/images/log/chat.gif')}}"  alt=""/>
+                        {% if citizen.user != app.user %}
+                            <a data-report-url="{{ path('soul_report_comment', {sid: citizen.user.id, idtown: citizen.town.id, topic: 'lw'}) }}" href="#" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"></a>
+                        {% endif %}
                         {% if is_granted('ROLE_CROW') %}
                             <br/>
                             <img x-model="last" x-action="edit" x-original="{{ citizen.lastWords }}" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
@@ -160,6 +244,9 @@
                 <div class="padded cell rw-4 rw-lg-3 rw-md-12 hide-sm hidden-empty comment">
                     {% if is_granted('ROLE_CROW') and citizen.commentLocked %}<span style="color: red">{{citizen.comment}}</span>
                     {% else %}{{citizen.comment}}{% endif %}
+                    {% if citizen.user != app.user and citizen.comment %}
+                        <a data-report-url="{{ path('soul_report_comment', {sid: citizen.user.id, idtown: citizen.town.id, topic: 'com'}) }}" href="#" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"></a>
+                    {% endif %}
                     {% if is_granted('ROLE_CROW') and citizen.comment is not empty %}
                         <br/>
                         <img x-model="com" x-original="{{ citizen.comment }}" x-action="edit" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
@@ -187,12 +274,48 @@
         {% endfor %}
     </div>
 </div>
+<script>
+    $.html.addEventListenerAll("[data-report-url]", "click", function(event,element){
+        event.preventDefault();
+        event.stopPropagation();
+
+        let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
+        form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
+
+        let sec_p = $.html.createElement('<p class="small"/>', '{{ 'Wenn möglich gib bitte einen Grund für deine Meldung an:'|trans({},'global')|e('js') }}');
+        sec_p.append( $.html.createElement('<div><label><input checked type="radio" name="report_reason" value="0" />' + '{{ 'Keinen Grund angeben'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="1" />' + '{{ 'Cheating'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="2" />' + '{{ 'Flooding oder Spam'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="4" />' + '{{ 'Beleidigungen / Unangemessener Ausdruck'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="5" />' + '{{ 'Pornographie'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="6" />' + '{{ 'Hassrede'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="7" />' + '{{ 'Verbreitung persönlicher Informationen'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="8" />' + '{{ 'Verletzung von Copyright'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="9" />' + '{{ 'Aufruf zu Gesetzesverstößen'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="10" />' + '{{ 'Ermutigung von Selbstmord oder Selbstverletzung'|trans({},'global')|e('js') }}' + '</label></div>') )
+        sec_p.append( $.html.createElement('<p class="small"/>', '{{ 'Zusätzliche Informationen zu deiner Meldung (optional):'|trans({},'global')|e('js') }}') )
+        sec_p.append( $.html.createElement('<div><textarea maxlength="255" style="min-height: 70px; max-height: 120px; height: 70px;" name="report_details"></textarea></div>') )
+
+        form.append(sec_p)
+
+        $.html.popup('{{ 'Unangemessenen Inhalt melden'|trans({},'global')|e('js') }}', form, null, [
+            [ '{{ 'Inhalt melden'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
+                const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
+                const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
+                $.html.triggerPopupPop(elem_sub);
+                $.ajax.easySend( element.dataset.reportUrl, {reason, details: detail }, () => $.ajax.load(null, '{{ return_to|e('js') }}') );
+            }] ] ],
+            [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
+        ] );
+
+    });
+</script>
 {% if is_granted('ROLE_CROW') %}
     <script>
         (function() {
-            $.html.addEventListenerAll('#unrank', 'click', (e,elem) => {
+            $.html.addEventListenerAll('div.button[x-action="unrank"]', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
-                $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 1}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+                $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 1}) }}', {'flag': elem.getAttribute('x-flag')}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
             });
 
             {% if not town.imported %}
@@ -208,9 +331,9 @@
                 });
             {% endif %}
 
-            $.html.addEventListenerAll('#unrank_redact', 'click', (e,elem) => {
+            $.html.addEventListenerAll('div.button[x-action="unrank_redact"]', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
-                $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 0}) }}', {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+                $.ajax.easySend('{{ path('admin_town_town_ranking_control', {tid: town.id, act: 0}) }}', {'flag': elem.getAttribute('x-flag')}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
             });
 
             $.html.addEventListenerAll('#event', 'click', (e,elem) => {
@@ -225,7 +348,7 @@
 
             $.html.addEventListenerAll('[x-endpoint][x-action="unrank"]', 'click', (e,elem) => {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
-                $.ajax.easySend(elem.getAttribute('x-endpoint'), {}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
+                $.ajax.easySend(elem.getAttribute('x-endpoint'), {'flag': elem.getAttribute('x-flag')}, () => $.ajax.load(null, '{{ return_to|e('js') }}'));
             });
 
             $.html.addEventListenerAll('[x-model][x-endpoint][x-action]', 'click', (e,elem) => {

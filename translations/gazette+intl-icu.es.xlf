@@ -3258,5 +3258,15 @@
         <target>Das neueste Geschwätz:</target>
       </segment>
     </unit>
+    <unit id="Lg5PYa2">
+      <notes>
+        <note category="german">Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+      </notes>
+      <segment>
+        <source>Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>Nuestros vigías informan que han visto a un Extraño Misterioso rondando por el pueblo...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

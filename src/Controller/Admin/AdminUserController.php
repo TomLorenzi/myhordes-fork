@@ -6,6 +6,7 @@ use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Award;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
@@ -33,9 +34,10 @@ use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
+use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
@@ -271,8 +273,8 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-            'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
-            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset'
+            'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset', 'name_manual', 'name_auto',
+            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history'
         ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -425,6 +427,7 @@ class AdminUserController extends AdminActionController
                 if (empty($param) || $user->getEternalID() === null)
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user
+                    ->setNoAutomaticNameManagement(false)
                     ->setEternalID( null )
                     ->setEmail( $param );
                 $this->entity_manager->persist($user);
@@ -439,6 +442,23 @@ class AdminUserController extends AdminActionController
             case 'rename_pseudo':
                 if (empty($param)) $user->setDisplayName( null );
                 else $user->setDisplayName( $param );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'name_manual':
+                if (!$user->getEternalID())
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setNoAutomaticNameManagement( true );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'name_auto':
+                $user->setNoAutomaticNameManagement( false );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'forget_name_history':
+                $user->setNameHistory([]);
                 $this->entity_manager->persist($user);
                 break;
 
@@ -487,7 +507,7 @@ class AdminUserController extends AdminActionController
             case 'mh_unreset':
 
                 foreach ($this->entity_manager->getRepository(SoulResetMarker::class)->findBy(['user' => $user]) as $marker) {
-                    $marker->getRanking()->setDisabled(false);
+                    $marker->getRanking()->removeDisableFlag(CitizenRankingProxy::DISABLE_ALL);
                     foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['townEntry' => $marker->getRanking()->getTown(), 'user' => $user]) as $picto)
                         $this->entity_manager->persist( $picto->setDisabled(false) );
                     $this->entity_manager->persist($marker->getRanking());
@@ -669,6 +689,11 @@ class AdminUserController extends AdminActionController
             case 'dbg_herodays':
                 if (empty($param) || !is_numeric($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user->setHeroDaysSpent( max(0,$param) );
+                $this->entity_manager->persist($user);
+                break;
+            case "dbg_soulpoints":
+                if (empty($param) || !is_numeric($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setSoulPoints( max(0,$param) );
                 $this->entity_manager->persist($user);
                 break;
 
@@ -881,8 +906,6 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
         if ($this->user_handler->hasRole( $user, 'ROLE_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-        if ($this->user_handler->hasRole( $user, 'ROLE_SUPER' ))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $reason    = trim($parser->get('reason'));
         $note      = trim($parser->get('note'));
@@ -920,9 +943,9 @@ class AdminUserController extends AdminActionController
      * @AdminLogProfile(enabled=true)
      * @return Response
      */
-    public function users_ban_lift(int $id, AdminActionHandler $admh): Response
+    public function users_ban_lift(int $id): Response
     {                
-        if ($admh->liftAllBans($this->getUser()->getId(), $id))
+        if ($this->adminHandler->liftAllBans($this->getUser()->getId(), $id))
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -1052,12 +1075,27 @@ class AdminUserController extends AdminActionController
      * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
      * @AdminLogProfile(enabled=true)
      * @param int $id
-     * @param AdminActionHandler $admh
+     * @param AdminHandler $admh
      * @return Response
      */
-    public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
-    {                
+    public function users_citizen_headshot(int $id, AdminHandler $admh): Response
+    {
         if ($admh->headshot($this->getUser()->getId(), $id))
+            return AjaxResponse::success();
+
+        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("api/admin/users/{id}/citizen/eat_liver", name="admin_users_citizen_eat_liver", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @param int $id
+     * @param AdminHandler $admh
+     * @return Response
+     */
+    public function users_citizen_eat_liver(int $id, AdminHandler $admh): Response
+    {
+        if ($admh->eatLiver($this->getUser()->getId(), $id))
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -1094,7 +1132,7 @@ class AdminUserController extends AdminActionController
      * @AdminLogProfile(enabled=true)
      * @return Response
      */
-    public function users_citizen_confirm_death(int $id, AdminActionHandler $admh): Response
+    public function users_citizen_confirm_death(int $id, AdminHandler $admh): Response
     {                
         if ($admh->confirmDeath($this->getUser()->getId(), $id))
             return AjaxResponse::success();

@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>Bleibe höflich und freundlich</source>
-        <target>Restez poli et amical</target>
+        <target>Restez poli et cordial</target>
       </segment>
     </unit>
     <unit id="fS360q." name="Werbung ist verboten (Links etc.)">
@@ -294,7 +294,7 @@
     <unit id="SOVZNkR" name="Bestätigen?">
       <notes>
         <note category="german">Bestätigen?</note>
-        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/multi_index.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/routes.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/polls.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/social.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig;twig:///templates/ajax/soul/visit.html.twig;twig:///templates/scripts/actions.js.twig</note>
       </notes>
       <segment>
         <source>Bestätigen?</source>
@@ -314,7 +314,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
-        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/planner.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -394,7 +394,7 @@
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
         <note category="german">Zum Spiel</note>
-        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/forum/search_wrapper.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/ajax/public/apidocs.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig;twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/files/list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/admin/users/social.html.twig;twig:///templates/ajax/forum/list.html.twig;twig:///templates/ajax/forum/search_wrapper.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/newspaper.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/proxy.html.twig;twig:///templates/ajax/public/apidocs.html.twig;twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/view_town_foreign.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Zum Spiel</source>
@@ -725,7 +725,7 @@
     <unit id="_zZCBE9" name="Anpinnen">
       <notes>
         <note category="german">Anpinnen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Anpinnen</source>
@@ -735,7 +735,7 @@
     <unit id="Bw5vcAl" name="Loslösen">
       <notes>
         <note category="german">Loslösen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Loslösen</source>
@@ -1519,7 +1519,7 @@
     <unit id="GgZ6pgy" name="Bist du sicher, dass du diesen Post an die Moderatoren melden willst?">
       <notes>
         <note category="german">Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
@@ -2631,7 +2631,7 @@
     <unit id="3Ql_d91" name="Suchen">
       <notes>
         <note category="german">Suchen</note>
-        <note category="from">twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Suchen</source>
@@ -2883,7 +2883,7 @@
     <unit id="sqGIX9S" name="Zum Wechsein der Seite hier klicken">
       <notes>
         <note category="german">Zum Wechsein der Seite hier klicken</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/view.html.twig</note>
       </notes>
       <segment>
         <source>Zum Wechsein der Seite hier klicken</source>
@@ -3153,7 +3153,7 @@
     <unit id="S5yBc2R" name="Wenn möglich gib bitte einen Grund für deine Meldung an:">
       <notes>
         <note category="german">Wenn möglich gib bitte einen Grund für deine Meldung an:</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Wenn möglich gib bitte einen Grund für deine Meldung an:</source>
@@ -3163,7 +3163,7 @@
     <unit id="APXGipg" name="Keinen Grund angeben">
       <notes>
         <note category="german">Keinen Grund angeben</note>
-        <note category="from">php:///src/Service/CrowService.php;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">php:///src/Service/CrowService.php;twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Keinen Grund angeben</source>
@@ -3173,7 +3173,7 @@
     <unit id="ePXpaiZ" name="Cheating">
       <notes>
         <note category="german">Cheating</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Cheating</source>
@@ -3183,7 +3183,7 @@
     <unit id="6Hh6LXv" name="Flooding oder Spam">
       <notes>
         <note category="german">Flooding oder Spam</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Flooding oder Spam</source>
@@ -3203,7 +3203,7 @@
     <unit id="feEwSD7" name="Beleidigungen / Unangemessener Ausdruck">
       <notes>
         <note category="german">Beleidigungen / Unangemessener Ausdruck</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Beleidigungen / Unangemessener Ausdruck</source>
@@ -3213,7 +3213,7 @@
     <unit id="o64FZLa" name="Pornographie">
       <notes>
         <note category="german">Pornographie</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
         <note category="state">translated</note>
       </notes>
       <segment>
@@ -3224,7 +3224,7 @@
     <unit id="l9G12go" name="Hassrede">
       <notes>
         <note category="german">Hassrede</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Hassrede</source>
@@ -3234,7 +3234,7 @@
     <unit id="ZVAuBRQ" name="Verbreitung persönlicher Informationen">
       <notes>
         <note category="german">Verbreitung persönlicher Informationen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Verbreitung persönlicher Informationen</source>
@@ -3244,7 +3244,7 @@
     <unit id="dE9afiC" name="Verletzung von Copyright">
       <notes>
         <note category="german">Verletzung von Copyright</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Verletzung von Copyright</source>
@@ -3254,7 +3254,7 @@
     <unit id="haH8YNU" name="Aufruf zu Gesetzesverstößen">
       <notes>
         <note category="german">Aufruf zu Gesetzesverstößen</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Aufruf zu Gesetzesverstößen</source>
@@ -3264,7 +3264,7 @@
     <unit id="cczOm4l" name="Ermutigung von Selbstmord oder Selbstverletzung">
       <notes>
         <note category="german">Ermutigung von Selbstmord oder Selbstverletzung</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Ermutigung von Selbstmord oder Selbstverletzung</source>
@@ -3274,7 +3274,7 @@
     <unit id="EblNNdf" name="Inhalt melden">
       <notes>
         <note category="german">Inhalt melden</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Inhalt melden</source>
@@ -3284,7 +3284,7 @@
     <unit id="4M3lurj" name="Verwendung einer anderen als der Stadtsprache">
       <notes>
         <note category="german">Verwendung einer anderen als der Stadtsprache</note>
-        <note category="from">twig:///templates/ajax/game/town/posts.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig</note>
       </notes>
       <segment>
         <source>Verwendung einer anderen als der Stadtsprache</source>
@@ -3294,7 +3294,7 @@
     <unit id="GAVyRWS" name="Unangemessenen Inhalt melden">
       <notes>
         <note category="german">Unangemessenen Inhalt melden</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Unangemessenen Inhalt melden</source>
@@ -3583,12 +3583,12 @@
     </unit>
     <unit id="TyNTK6_" name="Dieser Spieler ist ein Entwickler von MyHordes.">
       <notes>
-        <note category="german">Dieser Spieler ist ein Entwickler von MyHordes.</note>
+        <note category="german">Dieser Spieler ist ein Administrator von MyHordes.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist ein Entwickler von MyHordes.</source>
-        <target>Ce joueur est un développeur de MyHordes.</target>
+        <target>Ce joueur est un administrateur de MyHordes.</target>
       </segment>
     </unit>
     <unit id="z66IFLE" name="Dieser Spieler ist ein Moderator auf MyHordes.">
@@ -3623,12 +3623,12 @@
     </unit>
     <unit id="hiqmIxi" name="Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.">
       <notes>
-        <note category="german">Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</note>
+        <note category="german">Dieser Spieler hat zur Entwicklung von MyHordes beigetragen.</note>
         <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/forum/posts_small.html.twig;twig:///templates/ajax/soul/user_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.</source>
-        <target>Ce joueur fait partie de l’équipe de développement de MyHordes.</target>
+        <target>Ce joueur a contribué au développement de MyHordes.</target>
       </segment>
     </unit>
     <unit id="9RwexXo">
@@ -3666,7 +3666,7 @@
     <unit id="yqSnrUg" name="Zusätzliche Informationen zu deiner Meldung (optional):">
       <notes>
         <note category="german">Zusätzliche Informationen zu deiner Meldung (optional):</note>
-        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Zusätzliche Informationen zu deiner Meldung (optional):</source>
@@ -3696,7 +3696,7 @@
     <unit id="nNymR4f" name="Seite {page}">
       <notes>
         <note category="german">Seite {page}</note>
-        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/all_index.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seite {page}</source>
@@ -4206,6 +4206,145 @@
       <segment>
         <source>Diskussion aktualisieren</source>
         <target>Actualiser la discussion</target>
+      </segment>
+    </unit>
+    <unit id="kmZd3k9" name="Support-Postfach">
+      <notes>
+        <note category="german">Support-Postfach</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Support-Postfach</source>
+        <target>Support</target>
+      </segment>
+    </unit>
+    <unit id="l1ILLYu">
+      <notes>
+        <note category="german">Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.</source>
+        <target>Vous avez effectué cette action trop de fois. Attendez un peu, puis réessayez.</target>
+      </segment>
+    </unit>
+    <unit id="Zk.GHM6">
+      <notes>
+        <note category="german">Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</note>
+        <note category="from">twig:///templates/ajax/forum/view.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.</source>
+        <target>Vous modérez ce forum, mais n’avez pas de droits de lecture. Vous ne verrez que les sujets où au moins un message a été signalé.</target>
+      </segment>
+    </unit>
+    <unit id="YPszuOR" name="Für diese Aktion hast du nicht genug MP.">
+      <notes>
+        <note category="german">Für diese Aktion hast du nicht genug MP.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+      </notes>
+      <segment>
+        <source>Für diese Aktion hast du nicht genug MP.</source>
+        <target>Vous n'avez pas assez de PM pour cette action.</target>
+      </segment>
+    </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <notes>
+        <note category="german">Ankündigungen</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Annonces</target>
+      </segment>
+    </unit>
+    <unit id="7VfCrWl" name="Foren">
+      <notes>
+        <note category="german">Foren</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Foren</source>
+        <target>Forum</target>
+      </segment>
+    </unit>
+    <unit id="826K03a" name="Kontaktliste">
+      <notes>
+        <note category="german">Kontaktliste</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>Kontaktliste</source>
+        <target>Liste des contacts</target>
+      </segment>
+    </unit>
+    <unit id="aD_1HUX" name="STRG">
+      <notes>
+        <note category="german">STRG</note>
+        <note category="from">twig:///templates/ajax/forum/editor.html.twig</note>
+      </notes>
+      <segment>
+        <source>STRG</source>
+        <target>CTRL</target>
+      </segment>
+    </unit>
+    <unit id="zO56j3q" name="Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.">
+      <notes>
+        <note category="german">Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.</source>
+        <target>Aucun document correspondant à votre requête de recherche n’a été trouvé.</target>
+      </segment>
+    </unit>
+    <unit id="KcsH3SB" name="Schon gewusst?">
+      <notes>
+        <note category="german">Schon gewusst?</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Schon gewusst?</source>
+        <target>Le saviez-vous?</target>
+      </segment>
+    </unit>
+    <unit id="QC.do8z" name="Umfrage starten">
+      <notes>
+        <note category="german">Umfrage starten</note>
+        <note category="from">twig:///templates/ajax/ajax.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfrage starten</source>
+        <target>Répondre au sondage</target>
+      </segment>
+    </unit>
+    <unit id="CHq_sLA" name="Alles als gelesen markieren">
+      <notes>
+        <note category="german">Alles als gelesen markieren</note>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Alles als gelesen markieren</source>
+        <target>Alles als gelesen markieren</target>
+      </segment>
+    </unit>
+    <unit id="rZ3RgyU" name="Weltforum">
+      <notes>
+        <note category="german">Weltforum</note>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Weltforum</source>
+        <target>Forum Monde</target>
       </segment>
     </unit>
   </file>

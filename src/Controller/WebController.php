@@ -11,7 +11,7 @@ use App\Entity\ExternalApp;
 use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\EternalTwinHandler;
@@ -45,7 +45,7 @@ class WebController extends CustomAbstractController
 {
     public static array $devs = [
         'Benjamin "<i>Brainbox</i>" Behrendt',
-        'Ludovic "<i>Ludofloria</i>" Le Brech',
+        'Ludovic "<i>Cheh\'Tan</i>" Le Brech',
         'Paul "<i>CountCount</i>" Bruhn',
         'Adrien "<i>Adri</i>" Boitelle',
         'Niklas "<i>Choreas</i>" Kosanke',

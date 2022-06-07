@@ -37,6 +37,7 @@ use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
+use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -69,11 +70,13 @@ class NightlyHandler
     private GameFactory $game_factory;
     private GazetteService $gazette_service;
     private GameProfilerService $gps;
+    private TimeKeeperService $timeKeeper;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
-                              CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps)
+                              CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
+                              TimeKeeperService $timeKeeper )
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -94,6 +97,7 @@ class NightlyHandler
         $this->game_factory = $gf;
         $this->gazette_service = $gs;
         $this->gps = $gps;
+        $this->timeKeeper = $timeKeeper;
     }
 
     private function check_town(Town $town): bool {
@@ -130,6 +134,8 @@ class NightlyHandler
     }
 
     private function stage0_stranger(Town $town) {
+        $stranger_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('1sec'));
+
         $stranger_ap = $town->getStrangerPower() * 6 + mt_rand( 0, $town->getStrangerPower() * 3 );
         $this->log->debug( "The stranger's power of <info>{$town->getStrangerPower()}</info> grants him <info>{$stranger_ap} AP</info>." );
 
@@ -162,7 +168,7 @@ class NightlyHandler
         $this->log->debug( 'The stranger has found <info>' . count($items_found) . '</info> items.' );
         foreach ($items_found as $item) {
             $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem($item) );
-            $this->entity_manager->persist( $this->logTemplates->strangerBankItemLog( $town, $item ) );
+            $this->entity_manager->persist( $this->logTemplates->strangerBankItemLog( $town, $item, $stranger_ts ) );
         }
 
         // Building
@@ -218,8 +224,8 @@ class NightlyHandler
 
             if ($invest > 0) {
                 $building->setHp( min($building->getHp() + 2 * $invest, $building->getPrototype()->getHp()) );
-                $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()} AP</info>." );
-                if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building ) );
+                $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()}</info>." );
+                if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building, $stranger_ts ) );
             }
 
             $ap_for_building -= $invest;
@@ -243,8 +249,8 @@ class NightlyHandler
 
                 if ($invest > 0) {
                     $building->setAp( min($building->getAp() + $invest, $building->getPrototype()->getAp() - 1) );
-                    $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()} AP</info>." );
-                    if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building->getPrototype() ) );
+                    $this->log->debug( "The stranger invests <info>{$invest} AP</info> into constructing <info>{$building->getPrototype()->getLabel()}</info>." );
+                    if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvest( $town, $building->getPrototype(), $stranger_ts ) );
                 }
 
                 $ap_for_building -= $invest;
@@ -1390,6 +1396,15 @@ class NightlyHandler
                 foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
 
+                // The town lose water as zombies are entering town.
+                $d = min($town->getWell(), rand(20, 40));
+                
+                if($d > 0){
+                    $this->log->debug("The zombies entering town removed <info>{$d} water rations</info> from the well.");
+                    $this->entity_manager->persist($this->logTemplates->nightlyDevastationAttackWell($d, $town));
+                    $town->setWell($town->getWell() - $d);
+                }
+                
                 //foreach ($town->getBuildings() as $target_building)
                 //    if (!$target_building->getComplete()) $target_building->setAp(0);
             }
@@ -1629,7 +1644,10 @@ class NightlyHandler
         $last_mc = null;
         foreach ($roles as $role) {
             $this->log->info("Processing votes for role {$role->getLabel()}");
-            if(!$this->town_handler->is_vote_needed($town, $role, true)) continue;
+            if(!$this->town_handler->is_vote_needed($town, $role, true)) {
+                $this->log->info("The role {$role->getLabel()} doesn't need vote, skipping");
+                continue;
+            }
 
             // Getting vote per role per citizen
             $votes = array();
@@ -1711,24 +1729,26 @@ class NightlyHandler
                     $last_mc = $partition['_mc'][0];
 
                 } else $last_mc = null;
-
+                $semantic = null;
                 switch ($role->getName()) {
                     case 'shaman':
                         if ($valid_citizens === 1)
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootShamanSingle, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootShamanSingle;
                         elseif ( $valid_citizens < 10 )
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootShamanFew, $partition, $flags );
-                        else $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootShamanFew;
+                        else
+                            $semantic = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootShamanNext : CouncilEntryTemplate::CouncilNodeRootShamanFirst;
                         break;
                     case 'guide':
                         if ($valid_citizens === 1)
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootGuideSingle, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootGuideSingle;
                         elseif ( $valid_citizens < 10 )
-                            $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), CouncilEntryTemplate::CouncilNodeRootGuideFew, $partition, $flags );
-                        else $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst, $partition, $flags );
+                            $semantic = CouncilEntryTemplate::CouncilNodeRootGuideFew;
+                        else
+                            $semantic = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town) ? CouncilEntryTemplate::CouncilNodeRootGuideNext : CouncilEntryTemplate::CouncilNodeRootGuideFirst;
                         break;
                 }
-
+                $this->gazette_service->generateCouncilNodeList( $town, $town->getDay(), $semantic, $partition, $flags );
             } else {
                 switch ($role->getName()) {
                     case 'shaman':
@@ -1805,7 +1825,8 @@ class NightlyHandler
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
         if (!$this->check_town($town)) {
             $this->log->info("Precondition failed. Attack is <info>cancelled</info>.");
-            $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
+            if (!empty($town->getCitizens()))
+                $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
 

@@ -200,11 +200,10 @@
                         {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
                         {% endembed %}
                         {% if is_granted("ROLE_ADMIN") %}
+                            <div id="zone_floor"></div>
                             <div id="dash_zone_generator" x-target="zone" x-id="">
-                                {{ 'Zone'|trans({}, 'admin') }} <span id="zone_coords"></span>
                                 {{ item_creator(itemPrototypes, 'zone') }}
                             </div>
-                            <div id="zone_floor"></div>
                             <div class="lightbox">
                                 <div class="row">
                                     <div class="cell rw-12 padded">
@@ -251,113 +250,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="dash_zone_log"></div>
                         {% endif %}
                     </div>
                 </div>
             </div>
-
-            {% if is_granted("ROLE_ADMIN") %}
-            <div x-tab-group="admin-town" x-tab-id="buildings" x-tab-target>
-                {% macro building_entry(building, buildable, n, dict, available) %}
-                    {% if available[building.id] is defined %}
-                    {% set fromTown = available[building.id] %}
-                    {% endif %}
-                    {# @var building \App\Entity\BuildingPrototype #}
-                    {# @var fromTown \App\Entity\Building #}
-
-                    <div class="row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
-                        <div class="padded cell rw-5 rw-lg-12">
-                            {% if not fromTown is defined %}
-                            <input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToTown" />
-                            {% endif %}
-                            {% if buildable %}
-                                <img alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" >
-                            {% else %}
-                                <img alt="" src="{{ asset('build/images/icons/lock.gif' ) }}" >
-                            {% endif %}
-                            <span>{{ building.label|trans({},'buildings') }}</span>
-                            {% if building.temp %}
-                                <span>
-                                <img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
-                                <div class="tooltip temp-building">
-                                    <h1>{{ 'Temporäre Konstruktion!'|trans({}, 'buildings') }}</h1>
-                                    {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings') }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
-                                </div>
-                            </span>
-                            {% endif %}
-                            {% if building.defense > 0 %}
-                                <div class="float-right defense">
-                                    {% if building.defense > 0 %}
-                                        {{ building.defense }}
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-                            {% if building.description %}
-                                <div class="tooltip help">
-                                    {{ building.description|trans({}, 'buildings') }}
-                                </div>
-                            {% endif %}
-                        </div>
-                        {% if fromTown is defined %}
-                        <div class="padded cell rw-3 rw-lg-5 rw-sm-12 no-ws">
-                            {% if fromTown.ap > 0 and not fromTown.complete %}
-                                <div class="ap-bar">
-                                    <div class="bar" style="width: {{ 100*(fromTown.ap/building.ap) }}%"></div>
-                                </div>
-                            {% elseif fromTown.complete and fromTown.hp < building.hp %}
-                                <div class="ap-bar">
-                                    <div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%"></div>
-                                    <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
-                                </div>
-                            {% endif %}
-
-                            <div class="build-req">
-                                <div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
-                            </div>
-                        </div>
-                        <div class="padded cell rw-4 rw-lg-7 rw-sm-12 right">
-                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><i class="fa fa-edit"></i></button>
-                            {% if not fromTown.complete %}
-                                <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><i class="fa fa-check"></i></button>
-                            {% else %}
-                                <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><i class="fa fa-times"></i></button>
-                            {% endif %}
-                        </div>
-                        {% endif %}
-                    </div>
-                    {% if n < 20 and dict[building.id] is not empty %}
-                        {% for sub_building in dict[building.id] %}
-                            {{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available) }}
-                        {% endfor %}
-                    {% endif %}
-                {% endmacro %}
-
-                {# @var rootBuildings \App\Entity\BuildingPrototype[] #}
-                <div>
-                    <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
-                        <li class="tab" x-tab-id="all">
-                            <div class="tab-link">
-                                <img class="hide-desktop" alt="*" src="{{ asset( 'build/images/icons/small_new.gif' ) }}" >
-                                <span class="hide-lg hide-md hide-sm">{{ 'Alle'|trans({},'game') }}</span>
-                            </div>
-                        </li>
-                        {% for building in rootBuildings %}
-                            <li class="tab" x-tab-id="type_{{ building.icon }}">
-                                <div class="tab-link">
-                                    <img class="hide-desktop" alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" >
-                                    {% set label = building.label|trans({}, 'buildings') %}
-                                    <span class="hide-lg hide-md hide-sm">{{ label|length > 12 ? (label|slice(0,10) ~ '...') : label }}</span>
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                {% for building in rootBuildings %}
-                    <div x-tab-group="buildings" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings) }}</div>
-                {% endfor %}
-            </div>
-            {% endif %}
 
             <div x-tab-group="admin-town" x-tab-id="bank" x-tab-target>
                 <div class="row">
@@ -372,7 +269,7 @@
                                 </div>
                             </div>
                         {% endif %}
-                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
+                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true, 'debug': is_granted("ROLE_ADMIN")} %}
                             {% block class %}bank{% endblock %}
                             {% block title %}{% endblock %}
                         {% endembed %}
@@ -476,7 +373,7 @@
                                             <img style="width: 16px" class="float-right" src="{{ asset("build/images/lang/" ~ citizen.user.language ~ ".png") }}" alt="{{ citizen.user.language }}" />
                                         {% endif %}
                                     </div>
-                                    <div class="cell factor-0 rw-sm-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+                                    <div class="cell factor-0 rw-sm-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 92px; max-height: 32px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
                                     <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
@@ -621,10 +518,13 @@
                         </div>
                         <br />
                         {% endif %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <button id="dropall">{{ 'Alle Gegenstände aller Bürger ablegen'|trans({},'admin') }}</button>
+                        {% endif %}
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
-                        <div id="forum-content">
-                        </div>
+                        <div id="forum-content"></div>
+
                     </div>
                 </div>
             </div>
@@ -647,6 +547,15 @@
 
                 {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
                 {% endembed %}
+
+                <br/>
+                <h1 class="page-head">{{ 'Register herunterladen'|trans({},'admin') }}</h1>
+                <div class="row">
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'register'}) }}"><i class="fa fa-file"></i> {{ 'Stadtregister herunterladen'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'zones'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'citizens'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'all'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (chronologisch)'|trans({},'admin') }}</a></div>
+                </div>
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="blackboard" x-tab-target>
@@ -833,6 +742,110 @@
                         {% endfor %}
                     </div>
                 </div>
+
+                <div x-tab-group="admin-town" x-tab-id="buildings" x-tab-target>
+                    {% macro building_entry(building, buildable, n, dict, available) %}
+                        {% if available[building.id] is defined %}
+                            {% set fromTown = available[building.id] %}
+                        {% endif %}
+                        {# @var building \App\Entity\BuildingPrototype #}
+                        {# @var fromTown \App\Entity\Building #}
+
+                        <div class="row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
+                            <div class="padded cell rw-5 rw-lg-12">
+                                {% if not fromTown is defined %}
+                                    <label><input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToTown" /></label>
+                                {% else %}
+                                    <img class="link" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" x-prototype-id="{{ building.id }}" x-building-admin-action="removeFromTown" />
+                                {% endif %}
+                                {% if buildable %}
+                                    <img alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" >
+                                {% else %}
+                                    <img alt="" src="{{ asset('build/images/icons/lock.gif' ) }}" >
+                                {% endif %}
+                                <span>{{ building.label|trans({},'buildings') }}</span>
+                                {% if building.temp %}
+                                    <span>
+                                <img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
+                                <div class="tooltip temp-building">
+                                    <h1>{{ 'Temporäre Konstruktion!'|trans({}, 'buildings') }}</h1>
+                                    {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings') }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
+                                </div>
+                            </span>
+                                {% endif %}
+                                {% if building.defense > 0 %}
+                                    <div class="float-right defense">
+                                        {% if building.defense > 0 %}
+                                            {{ building.defense }}
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                {% if building.description %}
+                                    <div class="tooltip help">
+                                        {{ building.description|trans({}, 'buildings') }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            {% if fromTown is defined %}
+                                <div class="padded cell rw-3 rw-lg-5 rw-sm-12 no-ws">
+                                    {% if fromTown.ap > 0 and not fromTown.complete %}
+                                        <div class="ap-bar">
+                                            <div class="bar" style="width: {{ 100*(fromTown.ap/building.ap) }}%"></div>
+                                        </div>
+                                    {% elseif fromTown.complete and fromTown.hp < building.hp %}
+                                        <div class="ap-bar">
+                                            <div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%"></div>
+                                            <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="build-req">
+                                        <div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
+                                    </div>
+                                </div>
+                                <div class="padded cell rw-4 rw-lg-7 rw-sm-12 right">
+                                    <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><i class="fa fa-edit"></i></button>
+                                    {% if not fromTown.complete %}
+                                        <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><i class="fa fa-check"></i></button>
+                                    {% else %}
+                                        <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><i class="fa fa-times"></i></button>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if n < 20 and dict[building.id] is not empty %}
+                            {% for sub_building in dict[building.id] %}
+                                {{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available) }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endmacro %}
+
+                    {# @var rootBuildings \App\Entity\BuildingPrototype[] #}
+                    <div>
+                        <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
+                            <li class="tab" x-tab-id="all">
+                                <div class="tab-link">
+                                    <img class="hide-desktop" alt="*" src="{{ asset( 'build/images/icons/small_new.gif' ) }}" >
+                                    <span class="hide-lg hide-md hide-sm">{{ 'Alle'|trans({},'game') }}</span>
+                                </div>
+                            </li>
+                            {% for building in rootBuildings %}
+                                <li class="tab" x-tab-id="type_{{ building.icon }}">
+                                    <div class="tab-link">
+                                        <img class="hide-desktop" alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" >
+                                        {% set label = building.label|trans({}, 'buildings') %}
+                                        <span class="hide-lg hide-md hide-sm">{{ label|length > 12 ? (label|slice(0,10) ~ '...') : label }}</span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    {% for building in rootBuildings %}
+                        <div x-tab-group="buildings" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings) }}</div>
+                    {% endfor %}
+                </div>
+
             {% endif %}
 
             <br />
@@ -842,11 +855,7 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
 {% endblock %}
 {% block js %}
     {{ parent() }}
@@ -865,7 +874,6 @@
         {% embed "scripts/log.js.twig" %}{% endembed %}
 
         (function() {
-
             $.html.addEventListenerAll('input[x-all][x-target]', 'click', (e,elem) => {
                 $.html.forEach( 'input[x-id][x-target="' + elem.getAttribute('x-target') + '"]', c => c.checked = elem.checked );
             });
@@ -914,6 +922,11 @@
             });
 
             {% if is_granted("ROLE_ADMIN") %}
+            document.getElementById('dropall').addEventListener('click', e => {
+                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    fun_api_call('{{ url('admin_town_manage', {action: 'dropall', id: town.id}) }}',document.getElementById('dropall'));
+            });
+
             let items = document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]');
             for (let i = 0; i < items.length; i++)
                 items[i].addEventListener('click', function(ev) {
@@ -985,11 +998,23 @@
                            break;
                        case "addToTown":
                            $.ajax.easySend("{{ path('admin_town_add_building', {id: town.id }) }}", {
-                               'prototype_id': buildingBtns[i].getAttribute("x-prototype-id")
-                           },
-                           function () {
-                               $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
-                           } );
+                                   'prototype_id': buildingBtns[i].getAttribute("x-prototype-id"),
+                                   'act': 1
+                               },
+                               function () {
+                                   $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
+                               }
+                           );
+                           break;
+                       case "removeFromTown":
+                           $.ajax.easySend("{{ path('admin_town_add_building', {id: town.id }) }}", {
+                                   'prototype_id': buildingBtns[i].getAttribute("x-prototype-id"),
+                                   'act': 0
+                               },
+                               function () {
+                                   $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
+                               }
+                           );
                            break;
                    }
                 });
@@ -1001,11 +1026,11 @@
                     ev.preventDefault();ev.stopPropagation();
                     let target = ev.target.parentElement;
                     document.getElementById("dash_zone_generator").setAttribute('x-id', target.getAttribute("x-id"));
-                    document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
+                    // document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
                     $.ajax.easySend('{{ url('get_zone_infos', {id: town.id}) }}', {'zone_id': target.getAttribute("x-id")}, function(data){
                         document.querySelector("#zone_floor").innerHTML = data.view;
                         document.querySelector("#zone_floor .inventory").classList.add('desert');
-                        document.querySelector("#zone_floor .inventory .title").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
+                        document.querySelector("#zone_floor .inventory .title").innerText = "{{ 'Zone'|trans({}, 'admin') }} [" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
                         let items = document.querySelectorAll('#zone_floor .inventory .item:not(.locked)[x-item-id]');
                         for (let i = 0; i < items.length; i++)
                             items[i].addEventListener('click', function(ev) {
@@ -1020,13 +1045,15 @@
                                     }
                                 );
                             });
-
+                        document.querySelectorAll("#zone_floor .item div.tooltip").forEach( elem => $.html.handleTooltip( elem ));
                         document.getElementById("zone_digs").value = data.zone_digs;
                         document.getElementById("ruin_digs").value = data.ruin_digs;
                         document.getElementById("ruin_bury").value = data.ruin_bury;
                         document.getElementById("ruin_camp_level").value = data.camp_levl;
                         document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
                         document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
+                        document.getElementById("dash_zone_log").innerHTML = data.zone_log;
+                        {% embed "scripts/log.js.twig" with {'base_element': "document.getElementById('dash_zone_log')"} %}{% endembed %}
                     });
                 });
             }
@@ -1074,6 +1101,7 @@
             $.ajax.no_history().load( document.getElementById('gazette-target'), elem.value, false )
         })
 
+        {% if is_granted("ROLE_ADMIN") %}
         $.html.addEventListenerAll('.citizen-main[x-citizen-id]', 'click',  (e,elem) => {
             if (e.target.tagName === 'INPUT') return;
             const details = document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"]');
@@ -1118,6 +1146,7 @@
                 document.querySelector(".citizen-details[x-citizen-id] .invTargetPictos").innerHTML = '';
             }
         })
+        {% endif %}
 
     </script>
 {% endblock %}

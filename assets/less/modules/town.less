@@ -481,7 +481,7 @@ div.town-banner {
     text-align: right;
     font-size: 1.2rem;
     color: #ddab76;
-    &.disabled {
+    .disabled {
       text-decoration: line-through;
       font-weight: normal;
       color: grey;
@@ -620,6 +620,20 @@ ul.list{
   border-bottom: 1px solid #7e4d2a;
   margin: 0;
   position: relative;
+}
+
+.gazette-search {
+  margin-left: 35px;
+  color: #f0d79e;
+
+  div>h2 {
+    margin-top: 0;
+    background-image: none;
+  }
+
+  div>div>select {
+    margin-bottom: 2px;
+  }
 }
 
 #gazette {
@@ -876,6 +890,7 @@ ul.list{
   color: #ffe3bf;
   p {
     margin: 0;
+    &+p { margin-top: 5px }
     strong {
       color: white;
     }
@@ -971,4 +986,19 @@ ul.list{
 .citizen-label-name-me{
   border-top: 1px solid #6C7188 !important; 
   background-color: #4e5162 !important;
+}
+
+.row-table.workshop {
+  border-bottom: 3px solid #f0d79e;
+  .header {
+    border-bottom: 3px solid #f0d79e;
+    font-size: 1.2rem;
+  }
+
+  .recipe > div {
+    &:not(:last-child) {
+      border-right: 1px solid #7e4d2a;
+    }
+    border-bottom: 1px solid #7e4d2a;
+  }
 }

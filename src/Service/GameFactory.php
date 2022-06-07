@@ -32,6 +32,7 @@ use App\Entity\ZoneTag;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
+use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Util\Exception;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -42,7 +43,6 @@ class GameFactory
     private GameValidator $validator;
     private Locksmith $locksmith;
     private ItemFactory $item_factory;
-    private StatusFactory $status_factory;
     private RandomGenerator $random_generator;
     private InventoryHandler $inventory_handler;
     private CitizenHandler $citizen_handler;
@@ -55,6 +55,7 @@ class GameFactory
     private MazeMaker $maze_maker;
     private CrowService $crow;
     private PermissionHandler $perm;
+    private TimeKeeperService $timeKeeper;
 
     const ErrorNone = 0;
     const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
@@ -67,15 +68,14 @@ class GameFactory
     private GameProfilerService $gps;
 
     public function __construct(ConfMaster $conf,
-        EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
-        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
+        EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th, TimeKeeperService $ts,
+        RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
         TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
         $this->locksmith = $l;
         $this->item_factory = $if;
-        $this->status_factory = $sf;
         $this->random_generator = $rg;
         $this->inventory_handler = $ih;
         $this->citizen_handler = $ch;
@@ -89,6 +89,7 @@ class GameFactory
         $this->crow = $crow;
         $this->perm = $perm;
         $this->gps = $gps;
+        $this->timeKeeper = $ts;
     }
 
     private static array $town_name_snippets = [
@@ -254,14 +255,22 @@ class GameFactory
                 $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'always' );
             }
 
-        foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
-            if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
-                $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy(['name' => $str_prototype]);
-                if ($prototype) {
-                    $this->town_handler->addBuilding($town, $prototype);
-                    $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'config' );
+        $buildings_to_unlock = array_unique( array_merge( $conf->get(TownConf::CONF_BUILDINGS_UNLOCKED), $conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) ) );
+        $failed_unlocks = $last_failed_unlocks = 0;
+        do {
+            $last_failed_unlocks = $failed_unlocks;
+            $failed_unlocks = 0;
+            foreach ($buildings_to_unlock as $str_prototype)
+                if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
+                    $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy(['name' => $str_prototype]);
+                    if ($prototype) {
+                        if ($this->town_handler->addBuilding($town, $prototype))
+                            $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'config' );
+                        else $failed_unlocks++;
+                    }
                 }
-            }
+        } while ($failed_unlocks > 0 && $failed_unlocks !== $last_failed_unlocks);
+
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
             if (in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
@@ -478,7 +487,7 @@ class GameFactory
             return false;
         }
 
-        if (!$internal) {
+        if (!$internal && !$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_SP_REQUIRED )) {
             $conf = $this->conf->getGlobalConf();
             $sp = $this->user_handler->fetchSoulPoints($user);
             $allowed = false;
@@ -687,7 +696,7 @@ class GameFactory
         $town->setStrangerPower( $town->getPopulation() - $town->getCitizenCount() );
         $town->setPopulation( $town->getCitizenCount() );
         $this->entity_manager->persist( $town );
-        $this->entity_manager->persist( $this->log->strangerJoinProfession( $town ) );
+        $this->entity_manager->persist( $this->log->strangerJoinProfession( $town, $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('2min'))));
         return true;
     }
 }

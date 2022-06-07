@@ -45,8 +45,8 @@
 {% block js %}
     {{ parent() }}
     <script>
-        if ($.client.get('current', 'routes') !== null) {
-            let route = document.querySelector('div.routes-list [x-route-id="' + $.client.get('current', 'routes') +'"]');
+        if ($.client.get('current', 'routes', null, [true,true,false]) !== null) {
+            let route = document.querySelector('div.routes-list [x-route-id="' + $.client.get('current', 'routes', null, [true,true,false]) +'"]');
             if(route) route.classList.add("me");
         }
 

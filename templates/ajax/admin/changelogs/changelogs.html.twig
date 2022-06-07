@@ -13,6 +13,7 @@
                     <li class="tab" x-tab-id="changelog"><div class="tab-link">{% trans from 'admin' %}Changelogs{% endtrans %}</div></li>
                 {% endif %}
                 <li class="tab" x-tab-id="announcement"><div class="tab-link">{% trans from 'admin' %}Ankündigungen{% endtrans %}</div></li>
+                <li class="tab"><div class="tab-link" x-ajax-href="{{ path('admin_polls') }}">{% trans from 'soul' %}Umfragen{% endtrans %}</div></li>
             </ul>
 
             {% if is_granted('ROLE_CROW') %}

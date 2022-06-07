@@ -1058,7 +1058,7 @@
       </notes>
       <segment>
         <source>{c} Auszeichnungen</source>
-        <target>{c} Premios</target>
+        <target>{c} Distinciones</target>
       </segment>
     </unit>
     <unit id="Vq0_2Ri" name="{c} Auszeichnungs-Typen, {cc} davon selten">
@@ -1068,7 +1068,7 @@
       </notes>
       <segment>
         <source>{c} Auszeichnungs-Typen, {cc} davon selten</source>
-        <target>{c} Tipos de premios y {cc} que son raros</target>
+        <target>{c} Tipos de Distinciones y {cc} que son raras</target>
       </segment>
     </unit>
     <unit id="7A2DFcs" name="{c} Auszeichnungs-Typen">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>{c} Auszeichnungs-Typen</source>
-        <target>{c} Tipos de premios</target>
+        <target>{c} Tipos de Distinciones</target>
       </segment>
     </unit>
     <unit id="OGd6rRz" name="{num} unbekannte Auszeichnungen!">
@@ -1088,7 +1088,7 @@
       </notes>
       <segment>
         <source>{num} unbekannte Auszeichnungen!</source>
-        <target>{num} premios desconocidos!</target>
+        <target>¡{num} Distinciones desconocidas!</target>
       </segment>
     </unit>
     <unit id="304pJcq" name="Keine Auszeichnungen">
@@ -1098,7 +1098,7 @@
       </notes>
       <segment>
         <source>Keine Auszeichnungen</source>
-        <target>Sin premios</target>
+        <target>Sin Distinciones</target>
       </segment>
     </unit>
     <unit id="QfF3ttL" name="{c} Tage als Held">
@@ -1189,7 +1189,7 @@
       </notes>
       <segment>
         <source>Auszeichnungen</source>
-        <target>Premios</target>
+        <target>Distinciones</target>
       </segment>
     </unit>
     <unit id="D8ATKTz">
@@ -1199,7 +1199,7 @@
       </notes>
       <segment>
         <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
-        <target>Aquí puedes ver los premios que has ganado a lo largo del tiempo.</target>
+        <target>Aquí puedes ver las Distinciones que has ganado a lo largo del tiempo.</target>
       </segment>
     </unit>
     <unit id="mxKbILU" name="Auszeichnung">
@@ -1209,7 +1209,7 @@
       </notes>
       <segment>
         <source>Auszeichnung</source>
-        <target>Premio</target>
+        <target>Distinción</target>
       </segment>
     </unit>
     <unit id="cXTeIrr" name="Anzahl">
@@ -1359,7 +1359,7 @@
       </notes>
       <segment>
         <source>Unbekannte Auszeichnung</source>
-        <target>Premio desconocido</target>
+        <target>Distinción desconocida</target>
       </segment>
     </unit>
     <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
@@ -1509,7 +1509,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</source>
-        <target>Los puntos de alma, los premios y la experiencia de héroe de esta alma se pueden importar a tu perfil de MyHordes.</target>
+        <target>Los puntos de alma, las Distinciones y la experiencia de héroe de esta alma se pueden importar a tu perfil de MyHordes.</target>
       </segment>
     </unit>
     <unit id=".NldYpW" name="Dies ist nicht deine Hauptseele.">
@@ -1529,7 +1529,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</source>
-        <target>Los puntos de alma, los premios y la experiencia de héroe solo se pueden importar de tu alma principal a tu perfil de MyHordes.</target>
+        <target>Los puntos de alma, las Distinciones y la experiencia de héroe solo se pueden importar de tu alma principal a tu perfil de MyHordes.</target>
       </segment>
     </unit>
     <unit id="ujVgB2r" name="Möchtest du diese Seele zu deiner Hauptseele erklären?">
@@ -1549,7 +1549,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
-        <target>Los puntos de alma, los premios y la experiencia de héroe solo pueden ser importados por un alma: tu alma principal. Piensa cuidadosamente en tu decisión, ¡porque no podrás cambiar la elección de tu alma principal más tarde!</target>
+        <target>Los puntos de alma, las Distinciones y la experiencia de héroe solo pueden ser importados por un alma: tu alma principal. Piensa cuidadosamente en tu decisión, ¡porque no podrás cambiar la elección de tu alma principal más tarde!</target>
       </segment>
     </unit>
     <unit id="DJ.7w.9">
@@ -2636,7 +2636,7 @@
     <unit id="IHRCYe1" name="In Foren posten">
       <notes>
         <note category="german">In Foren posten</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>In Foren posten</source>
@@ -2656,7 +2656,7 @@
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
       <notes>
         <note category="german">Kommunikation in der Stadt</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommunikation in der Stadt</source>
@@ -2676,7 +2676,7 @@
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation</source>
@@ -2696,7 +2696,7 @@
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare</source>
@@ -2716,7 +2716,7 @@
     <unit id="cnYKFrt" name="Gruppenorganisation">
       <notes>
         <note category="german">Gruppenorganisation</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gruppenorganisation</source>
@@ -2736,7 +2736,7 @@
     <unit id="WPixbld" name="Spielen">
       <notes>
         <note category="german">Spielen</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Spielen</source>
@@ -2816,7 +2816,7 @@
     <unit id="e5CjO7g" name="Ändern des Avatars">
       <notes>
         <note category="german">Ändern des Avatars</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Avatars</source>
@@ -2836,7 +2836,7 @@
     <unit id="sXIofxl" name="Ändern des Profiltitels">
       <notes>
         <note category="german">Ändern des Profiltitels</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Profiltitels</source>
@@ -2856,7 +2856,7 @@
     <unit id="U8rWfCJ" name="Ändern der Profilbeschreibung">
       <notes>
         <note category="german">Ändern der Profilbeschreibung</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung</source>
@@ -3417,7 +3417,7 @@
     <unit id="vsOyofZ" name="Schwarzes Brett">
       <notes>
         <note category="german">Schwarzes Brett</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Schwarzes Brett</source>
@@ -3487,7 +3487,7 @@
     <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
       <notes>
         <note category="german">Ändern des Spielernamens</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Spielernamens</source>
@@ -3551,7 +3551,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
-        <target>No puedes cambiar tu nombre de jugador porque tienes una cuenta asociada de Eternal Twin. Deberá ir a su cuenta de Eternal Twin para cambiar su nombre de jugador.</target>
+        <target>No puedes cambiar tu nombre de jugador porque tienes una cuenta asociada de Eternaltwin. Deberá ir a su cuenta de Eternaltwin para cambiar su nombre de jugador.</target>
       </segment>
     </unit>
     <unit id=".NQ7ahe">
@@ -3764,7 +3764,7 @@
       </notes>
       <segment>
         <source>Auf MyHordes erworbene Auszeichnungen</source>
-        <target>Premios ganados en MyHordes</target>
+        <target>Distinciones ganadas en MyHordes</target>
       </segment>
     </unit>
     <unit id="hohD1vV" name="Importierte Auszeichnungen">
@@ -3814,7 +3814,7 @@
       </notes>
       <segment>
         <source>Alte Auszeichnungen</source>
-        <target>Logros Antiguos</target>
+        <target>Distinciones Antiguas</target>
       </segment>
     </unit>
     <unit id="lc.3X.C">
@@ -3824,7 +3824,7 @@
       </notes>
       <segment>
         <source>In der Vergangenheit importierte Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele sind deinem MyHordes-Profil gutgeschrieben worden. Neu hinzu gekommene Seelenpunkte, Auszeichnungen und Heldenerfahrung werden jedoch nur in einem gesonderten Bereich deiner Seele angezeigt.</source>
-        <target>Los puntos de alma, los premios y los dias de héroe importados de esta alma en el pasado se han acreditado en su perfil de MyHordes. Sin embargo, los puntos de alma, los premios y los dias de héroe recién agregados solo se muestran en un área separada de su alma.</target>
+        <target>Los puntos de alma, las Distinciones y los dias de héroe importados de esta alma en el pasado se han acreditado en su perfil de MyHordes. Sin embargo, los puntos de alma, las Distinciones y los dias de héroe recién agregados solo se muestran en un área separada de su alma.</target>
       </segment>
     </unit>
     <unit id="l.Sx3SK">
@@ -3844,7 +3844,7 @@
       </notes>
       <segment>
         <source>Da du bereits Punkte auf MyHordes gesammelt hast, kannst du nicht länger Seelenpunkte, Auszeichnungen und Heldenerfahrung von einer importierten Seele übernehmen.</source>
-        <target>Como ya ha ganado puntos en MyHordes, ya no puede obtener puntos de alma, premios y experiencia de héroe de un alma importada.</target>
+        <target>Como ya ha ganado puntos en MyHordes, ya no puede obtener puntos de alma, Distinciones y experiencia de héroe de un alma importada.</target>
       </segment>
     </unit>
     <unit id="qDPKzOI" name="Achtung, der Seelenimport unterliegt aktuell zusätzlichen Einschränkungen.">
@@ -3884,7 +3884,7 @@
       </notes>
       <segment>
         <source>Es werden nach wie vor alle Informationen aus deiner importierten Seele auf MyHordes gespeichert. Durch den Import &lt;b&gt;neu&lt;/b&gt; gewonnene Auszeichnungen, SP oder Heldenerfahrung wird jedoch &lt;b&gt;nur noch in einem gesonderten Bereich&lt;/b&gt; auf deiner MH-Seele angezeigt.</source>
-        <target><![CDATA[Toda la información de su alma importada todavía se guarda en MyHordes. Sin embargo, los premios, puntos de alma o dias de héroe obtenidos a través de la importación <b>nuevo</b>, <b>solo se mostrarán en un área separada</b> de su alma MH.]]></target>
+        <target><![CDATA[Toda la información de su alma importada todavía se guarda en MyHordes. Sin embargo, las Distinciones, puntos de alma o dias de héroe obtenidos a través de la importación <b>nuevo</b>, <b>solo se mostrarán en un área separada</b> de su alma MH.]]></target>
       </segment>
     </unit>
     <unit id="FgytNDj" name="Du kannst deine Seele aktuell &lt;b&gt;ohne Einschränkungen&lt;/b&gt; importieren.">
@@ -4044,7 +4044,7 @@
       </notes>
       <segment>
         <source>Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits &lt;b&gt;mehr als {thresholdS} Seelenpunkte&lt;/b&gt; gesammelt oder &lt;b&gt;mehr als {thresholdT} Städte&lt;/b&gt; nach dem Ende der Alpha-Phase gespielt haben.</source>
-        <target><![CDATA[Esta restricción afecta a todos los jugadores que ya han obtenido <b>más de {thresholdS} Puntos de alma</b> o hayan jugado <b>más de {thresholdT} Pueblos</b> después del final de la fase Alfa.]]></target>
+        <target><![CDATA[Esta restricción afecta a todos los jugadores que ya han obtenido <b>más de {thresholdS} puntos de alma</b> o hayan jugado <b>más de {thresholdT} Pueblos</b> después del final de la fase Alfa.]]></target>
       </segment>
     </unit>
     <unit id=".RTSS25" name="Zurück zur Kartei von {player}">
@@ -4584,7 +4584,7 @@
       </notes>
       <segment>
         <source>Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</source>
-        <target><![CDATA[Si quieres importar enteramente un alma a pesar de las restricciones para importar, tienes la opción de <b>una sola vez</b> de reiniciar tu alma de MyHordes.]]></target>
+        <target><![CDATA[Si quieres importar completamente un alma a pesar de las restricciones para la importación, puedes reiniciar tu alma de MyHordes <b>una sola vez</b>.]]></target>
       </segment>
     </unit>
     <unit id="dsL.BQg" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:">
@@ -4604,7 +4604,7 @@
       </notes>
       <segment>
         <source>Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</source>
-        <target>Tus puntos de alma obtenidos luego del fin de la fase alfa en MyHordes</target>
+        <target>Tus puntos de alma obtenidos después del fin de la fase Alfa en MyHordes</target>
       </segment>
     </unit>
     <unit id="wRK8LRh">
@@ -4614,7 +4614,7 @@
       </notes>
       <segment>
         <source>Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</source>
-        <target>Tus distinciones obtenidas en pueblos luego del fin de la fase alfa (¡incluyendo distinciones de la clasificación dadas al final de una temporada!)</target>
+        <target>Tus Distinciones obtenidas en pueblos después del fin de la fase Alfa (¡Incluso las Distinciones por la clasificación al final de la temporada!)</target>
       </segment>
     </unit>
     <unit id="qGQ4apv" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:">
@@ -4634,7 +4634,7 @@
       </notes>
       <segment>
         <source>Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</source>
-        <target>La lista de tus pueblos jugados en MyHordes hasta ahora con toda la información adjunta (causa de muerte, últimas palabras, días sobrevividos, etc).</target>
+        <target>La lista de tus pueblos jugados en MyHordes hasta ahora y su información relacionada (causa de muerte, últimas palabras, días sobrevividos, etc).</target>
       </segment>
     </unit>
     <unit id="VUNm4fP" name="Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung">
@@ -4644,7 +4644,7 @@
       </notes>
       <segment>
         <source>Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</source>
-        <target>Distinciones especiales, como la distinción Alfa</target>
+        <target>Las Distinciones especiales, como la Distinción Alfa</target>
       </segment>
     </unit>
     <unit id="gYtpBfG" name="Gegenstände in deinem spiritueller Rucksack">
@@ -4654,7 +4654,7 @@
       </notes>
       <segment>
         <source>Gegenstände in deinem spiritueller Rucksack</source>
-        <target>Objetos en tu mochila espiritual</target>
+        <target>Los objetos en tu mochila espiritual</target>
       </segment>
     </unit>
     <unit id="E2LwrUJ" name="Deine gespielten Heldentage">
@@ -4664,7 +4664,7 @@
       </notes>
       <segment>
         <source>Deine gespielten Heldentage</source>
-        <target>El número de días que jugaste como un héroe</target>
+        <target>La cantidad de días de héroe acumulados</target>
       </segment>
     </unit>
     <unit id="K1yAZOB" name="Seelenpunkte oder Auszeichnungen, die du importiert hast">
@@ -4674,7 +4674,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte oder Auszeichnungen, die du importiert hast</source>
-        <target>Puntos de alma o distinciones que has importado</target>
+        <target>Los puntos de alma o las Distinciones que hayas importado</target>
       </segment>
     </unit>
     <unit id="VEBXP0O" name="Meine Seele zurücksetzen">
@@ -4695,6 +4695,269 @@
       <segment>
         <source>Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</source>
         <target>Por favor confirma que quieres reiniciar tu alma. Solo puedes realizar esta acción UNA VEZ. ¡Esta acción NO PUEDE SER REVERTIDA!</target>
+      </segment>
+    </unit>
+    <unit id="fh5UH56" name="Specify using player search">
+      <notes>
+        <note category="german">Specify using player search</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="state">made-up</note>
+      </notes>
+      <segment>
+        <source>Specify using player search</source>
+        <target>Especificar usando la búsqueda de jugador</target>
+      </segment>
+    </unit>
+    <unit id="96qFRFR" name="Ändern des Profils">
+      <notes>
+        <note category="german">Ändern des Profils</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ändern des Profils</source>
+        <target>Cambiar el perfil</target>
+      </segment>
+    </unit>
+    <unit id="JRVXs3." name="Nicht länger ausblenden">
+      <notes>
+        <note category="german">Nicht länger ausblenden</note>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Nicht länger ausblenden</source>
+        <target>Dejar de ignorar solicitudes</target>
+      </segment>
+    </unit>
+    <unit id="BC_uip5" name="Ausblenden">
+      <notes>
+        <note category="german">Ausblenden</note>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ausblenden</source>
+        <target>Ignorar solicitudes</target>
+      </segment>
+    </unit>
+    <unit id="p5LaFyO" name="Ausgeblendete Spieler anzeigen">
+      <notes>
+        <note category="german">Ausgeblendete Spieler anzeigen</note>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ausgeblendete Spieler anzeigen</source>
+        <target>Mostrar jugadores ignorados</target>
+      </segment>
+    </unit>
+    <unit id="Mdi60b9" name="Spracheinstellung verwenden">
+      <notes>
+        <note category="german">Spracheinstellung verwenden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Spracheinstellung verwenden</source>
+        <target>Usar la del idioma seleccionado</target>
+      </segment>
+    </unit>
+    <unit id="rqhI1oG" name="Deine Flagge">
+      <notes>
+        <note category="german">Deine Flagge</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Deine Flagge</source>
+        <target>Elige tu bandera</target>
+      </segment>
+    </unit>
+    <unit id="gQDPOVU" name="Diese Stadt hat folgende Einschränkungen:">
+      <notes>
+        <note category="german">Diese Stadt hat folgende Einschränkungen:</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt hat folgende Einschränkungen:</source>
+        <target>Este pueblo tiene las siguientes restricciones:</target>
+      </segment>
+    </unit>
+    <unit id="4Gjif4f" name="Ausschluss aus dem Ranking">
+      <notes>
+        <note category="german">Ausschluss aus dem Ranking</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ausschluss aus dem Ranking</source>
+        <target>Sin participación en la clasificación</target>
+      </segment>
+    </unit>
+    <unit id="gAN.vX0" name="Löschen der Auszeichnungen">
+      <notes>
+        <note category="german">Löschen der Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Löschen der Auszeichnungen</source>
+        <target>Eliminación de distinciones</target>
+      </segment>
+    </unit>
+    <unit id="0kcps11" name="Löschen der Seelenpunkte">
+      <notes>
+        <note category="german">Löschen der Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Löschen der Seelenpunkte</source>
+        <target>Eliminación de Puntos de Alma</target>
+      </segment>
+    </unit>
+    <unit id="QzJ.qzA" name="Die Seelenpunkte dieser Stadt wurden gelöscht">
+      <notes>
+        <note category="german">Die Seelenpunkte dieser Stadt wurden gelöscht</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Die Seelenpunkte dieser Stadt wurden gelöscht</source>
+        <target>Se han eliminado los puntos de alma otorgados en este pueblo</target>
+      </segment>
+    </unit>
+    <unit id="PqTGH.B" name="Umfragen">
+      <notes>
+        <note category="german">Umfragen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfragen</source>
+        <target>Encuestas</target>
+      </segment>
+    </unit>
+    <unit id="99lPVVk">
+      <notes>
+        <note category="german">Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</source>
+        <target>Con el objetivo de determinar el rumbo del desarrollo futuro de MyHordes, hacemos encuestas a todos los jugadores regularmente. Puedes hacer clic en el siguiente botón para ver un resumen de todas las encuestas realizadas y en curso.</target>
+      </segment>
+    </unit>
+    <unit id="0Qotq.l" name="Zu den Umfragen">
+      <notes>
+        <note category="german">Zu den Umfragen</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Zu den Umfragen</source>
+        <target>Mostrar encuestas</target>
+      </segment>
+    </unit>
+    <unit id="qnZpV0q" name="Umfrage beendet am {date}.">
+      <notes>
+        <note category="german">Umfrage beendet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfrage beendet am {date}.</source>
+        <target>Esta encuesta finalizó el {date}.</target>
+      </segment>
+    </unit>
+    <unit id="ryVfUf9" name="Umfrage beginnt am {date} und endet am {date2}.">
+      <notes>
+        <note category="german">Umfrage beginnt am {date} und endet am {date2}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfrage beginnt am {date} und endet am {date2}.</source>
+        <target>Esta encuesta estará disponible desde el {date} hasta el {date2}.</target>
+      </segment>
+    </unit>
+    <unit id=".TZbZN8" name="Umfrage endet am {date}.">
+      <notes>
+        <note category="german">Umfrage endet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfrage endet am {date}.</source>
+        <target>Esta encuesta finalizará el {date}.</target>
+      </segment>
+    </unit>
+    <unit id="KKN_8Zz" name="Hier findet ihr alle vorangegangenen Umfragen:">
+      <notes>
+        <note category="german">Hier findet ihr alle vorangegangenen Umfragen:</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Hier findet ihr alle vorangegangenen Umfragen:</source>
+        <target>Aquí puedes ver todas las encuestas anteriores:</target>
+      </segment>
+    </unit>
+    <unit id="j8qBKgG" name="Diese Umfrage hat noch nicht begonnen.">
+      <notes>
+        <note category="german">Diese Umfrage hat noch nicht begonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Diese Umfrage hat noch nicht begonnen.</source>
+        <target>Esta encuesta aun no está disponible.</target>
+      </segment>
+    </unit>
+    <unit id="39o9ij2" name="Du hast an dieser Umfrage teilgenommen. Vielen Dank!">
+      <notes>
+        <note category="german">Du hast an dieser Umfrage teilgenommen. Vielen Dank!</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</source>
+        <target>Ya participaste en esta encuesta. ¡Muchas gracias!</target>
+      </segment>
+    </unit>
+    <unit id="K_LCVfF" name="Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.">
+      <notes>
+        <note category="german">Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</source>
+        <target>Los resultados estarán disponibles cuando finalice la encuesta.</target>
+      </segment>
+    </unit>
+    <unit id="hTjUC92">
+      <notes>
+        <note category="german">Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</source>
+        <target>Los resultados de esta encuesta no están disponibles para los jugadores regulares hasta que termine la encuesta. Puedes ver los resultados actuales ya que eres un Oráculo.</target>
+      </segment>
+    </unit>
+    <unit id="i4zoKXc" name="Du hast in dieser Stadt zusammen gespielt">
+      <notes>
+        <note category="german">Du hast in dieser Stadt zusammen gespielt</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du hast in dieser Stadt zusammen gespielt</source>
+        <target>Ambos jugaron juntos en este pueblo</target>
       </segment>
     </unit>
   </file>

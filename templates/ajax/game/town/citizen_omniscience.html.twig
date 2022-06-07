@@ -19,35 +19,48 @@
             </div>
         </div>
         {% for citizen in citizens|sort((a,b) => (a.infos.alive == b.infos.alive) ? ((a.infos.alive) ? (a.infos.alias != null ? a.infos.alias[2:] : a.infos.name)|lower <=> (b.infos.alias != null ? b.infos.alias[2:] : b.infos.name)|lower : b.infos.survivedDays <=> a.infos.survivedDays) : b.infos.alive <=> a.infos.alive) %}
-            {% if citizen.infos.alive %}
             <div class="row-flex stretch{% if citizen.infos == me%} me{% endif %}">
-                <div class="cell factor-0 citizen-{{ citizen.infos.alive ? (citizen.infos.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">&nbsp;</div>
-                <div class="cell factor-0 content-center-vertical">
+                <div class="cell factor-0 citizen-{{ citizen.infos.alive ? (citizen.infos.online ? 'online' : 'offline') : 'dead' }} link" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">&nbsp;</div>
+                <div class="cell factor-0 content-center-vertical link" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                         <img alt="{{ citizen.infos.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.infos.home.prototype.icon ~ '.gif') }}" />
                 </div>
                 <div class="cell rw-4 rw-md-5 small citizen-box {% if citizen.infos == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %} content-center-vertical pl-05">
-                    <span>
-                        {% if citizen.infos.banished %}
-                            <div class="inline">
-                                <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
-                                <div class="tooltip help">
-                                    {{ 'Dieser Bürger wurde aus der Gemeinschaft verbannt.'|trans({},'game') }}
+                    {% if citizen.infos.alive %}
+                        <img alt="{{ citizen.infos.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.infos.profession.icon ~ '.gif') }}" />
+                        {% for role in citizen.infos.roles %}
+                            {% if not role.secret and not role.hidden %}
+                                <span>
+                                        <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen.infos}, 'game'), 'ref': citizen.infos}, 'game')}}</div>
+                                    </span>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                        {% if citizen.infos.home.holdsBody %}
+                            <div class="inline-block">
+                                <img alt="{{ 'Leiche nicht beseitigt!'|trans({},'game') }}" src="{{ asset('build/images/icons/small_warning.gif') }}" />
+                                <div class="tooltip normal"><span class="warning">{{'Der Leichnam von {citizen} wurde nicht zerstört.'|trans({'{citizen}': citizen.infos.name}, 'game')}}</span> {{'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.'|trans({}, 'game')}}</div>
+                            </div>
+                        {% endif %}
+                        {% if citizen.infos.home.recycling >= 15 %}
+                            <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/icons/home_recycled.gif') }}" />
+                        {% endif %}
+                        {% if citizen.infos.hasEaten %}
+                            <div class="inline-block">
+                                <img alt="" src="{{ asset('build/images/professions/cannib.gif') }}" />
+                                <div class="tooltip normal">
+                                    {{'{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'{citizen}':citizen.name}, 'game')}}
                                 </div>
                             </div>
                         {% endif %}
-                        <img alt="{{ citizen.infos.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.infos.profession.icon ~ '.gif') }}" />
-                        {% include 'ajax/soul/playername.html.twig' with {user: citizen.infos.user, tag: 'a', additional_classes: [
-                            'undecorated',
-                            citizen.infos == me ? 'citizen-label-name-me' : null,
-                        ]} only %}
-                        {% if citizen.infos.profession.heroic %}
-                            <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
-                        {% else %}
-                            <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
-                        {% endif %}
-                    </span>
+                    {% endif %}
+                    {% include 'ajax/soul/playername.html.twig' with {user: citizen.infos.user, tag: 'a', additional_classes: [
+                        'undecorated',
+                        citizen.infos == me ? 'citizen-label-name-me' : null,
+                    ]} only %}
                 </div>
-                <div class="cell rw-4 rw-md-2 small citizen-box content-center-horizontal content-center-vertical">
+                <div class="cell rw-3 rw-md-2 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                     {% if not hidden[citizen.infos.id] %}
                         {% if citizen.infos.home.chest.items|length == 0 %}
                             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
@@ -65,16 +78,27 @@
                     {% endif %}
 
                 </div>
-                <div class="cell rw-2 rd-md-1 small citizen-box content-center-horizontal content-center-vertical">
+                {% if citizen.infos.alive %}
+                <div class="cell rw-2 rd-md-1 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                     {{ citizen.soulPoint }} {{ 'Punkt(e)'|trans({},'game') }}
                 </div>
-                <div class="cell rw-2 small citizen-box content-center-horizontal content-center-vertical">
+                <div class="cell rw-3 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                 {% if citizen.omniscienceLevel > 0 %}
                     {% for i in range(1, citizen.omniscienceLevel) %}<img src="{{ asset('build/images/icons/small_new.gif') }}" alt="*" />{% endfor %}
                 {% endif %}
                 </div>
+                {% else %}
+                <div class="cell rw-5 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
+                    {% if citizen.infos.lastWords is null %}
+                        <span>--</span>
+                    {% elseif citizen.infos.lastWords is empty %}
+                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                    {% else %}
+                        <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.infos.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
+                    {% endif %}
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
         {% endfor %}
     </div>
 

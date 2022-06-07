@@ -3,19 +3,21 @@
 namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
+use App\Entity\Item;
 use App\Entity\ItemGroupEntry;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
-use App\Service\AdminActionHandler;
+use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
@@ -176,6 +178,10 @@ class TownHomeController extends TownController
             if($item->getEssential()) continue;
             $sendable_items[] = $item;
         }
+
+        usort($sendable_items, function(Item $a, Item $b) {
+            return $a->getPrototype()->getId() <=> $b->getPrototype()->getId();
+        });
 
         $criteria = new Criteria();
         $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
@@ -375,6 +381,9 @@ class TownHomeController extends TownController
      * @return Response
      */
     public function describe_house_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
         // Get description and truncate to 64 chars
         $new_desc = $parser->get('desc');
         if ($new_desc !== null) $new_desc = mb_substr($new_desc,0,64);
@@ -476,7 +485,7 @@ class TownHomeController extends TownController
      * @Route("api/town/house/suicid", name="town_home_suicid")
      * @return Response
      */
-    public function suicid(AdminActionHandler $admh): Response
+    public function suicid(AdminHandler $admh): Response
     {
         $message = $admh->suicid($this->getUser()->getId());
         $this->addFlash('notice', $message);

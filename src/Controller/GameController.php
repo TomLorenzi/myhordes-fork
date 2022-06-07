@@ -7,6 +7,7 @@ use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenRole;
 use App\Entity\CouncilEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
@@ -95,12 +96,15 @@ class GameController extends CustomAbstractController
 
         if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
 
-        return $this->render( 'ajax/game/log_content.html.twig', [
-            'day' => $day,
-            'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
-            'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
-        ] );
+        $args = $this->addDefaultTwigArgs(null, [
+                'day' => $day,
+                'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
+                'entries' => $entries,
+                'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
+            ]
+        );
+
+        return $this->render( 'ajax/game/log_content.html.twig', $args);
     }
 
     /**
@@ -165,6 +169,13 @@ class GameController extends CustomAbstractController
 
         $citizensWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
 
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
+
+        $votesNeeded = array();
+        foreach ($roles as $role)
+            if ( $this->town_handler->is_vote_needed($town, $role) )
+                $votesNeeded[$role->getName()] = $role;
+
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
 
         $citizen = $this->getActiveCitizen();
@@ -196,6 +207,7 @@ class GameController extends CustomAbstractController
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizenRoleList,
+            'votesNeeded' => $votesNeeded,
             'town' => $town,
             'council' => array_map( fn(CouncilEntry $c) => [$this->gazette_service->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
@@ -259,13 +271,16 @@ class GameController extends CustomAbstractController
             if(!in_array($job->getName(), $disabledJobs))
                 $selectablesJobs[] = $job;
         }
+
+        $args = $this->addDefaultTwigArgs(null, [
+                'professions' => $selectablesJobs,
+                'prof_count' => $prof_count,
+                'town' => $town,
+                'conf' => $this->getTownConf()
+            ]
+        );
         
-        return $this->render( 'ajax/game/jobs.html.twig', [
-            'professions' => $selectablesJobs,
-            'prof_count' => $prof_count,
-            'town' => $town,
-            'conf' => $this->getTownConf()
-        ] );
+        return $this->render( 'ajax/game/jobs.html.twig', $args);
     }
 
     const ErrorJobAlreadySelected = ErrorHelper::BaseJobErrors + 1;
@@ -311,11 +326,6 @@ class GameController extends CustomAbstractController
 
             if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {
                 $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
-                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
-            }
-
-            if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
-                $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
                 $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
             }
 
@@ -369,6 +379,11 @@ class GameController extends CustomAbstractController
                         break;
                 }
             }
+        }
+
+        if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
+            $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
+            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
         }
 
         if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_arma', true ) ) {

@@ -116,6 +116,7 @@
         let typingTimer, doneTypingInterval = 500;
         let searchBox = document.getElementById('users-search');
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             if (searchBox.value.length >= 3)
                 $.ajax.background().load(
@@ -137,6 +138,7 @@
                             let ss = document.getElementById('users-list-soul');
                             ss.style.display = 'none';
                         })
+                        if (enterPressed) document.querySelector( '#users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                     }
                 );
             else document.getElementById('users-list').innerHTML = '';
@@ -147,7 +149,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 

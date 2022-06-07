@@ -16,13 +16,13 @@
                             {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
                                 <div class="cell grow-1">
                                     <div x-pm-action="new-single" class="pm-button" id="new-thread-single-button">
-                                        <i class="fa fa-pen-alt"></i> {{ 'Schreiben'|trans({},'global') }}
+                                        <img alt="" src="{{ asset('build/images/forum/edit.png') }}" /> {{ 'Schreiben'|trans({},'global') }}
                                     </div>
                                 </div>
                             {% endif %}
                             <div class="cell grow-1">
                                 <div x-pm-action="search" class="pm-button" id="search-button">
-                                    <i class="fa fa-search"></i> {{ 'Suchen'|trans({},'global') }}
+                                    <img alt="" src="{{ asset('build/images/forum/search.png') }}" /> {{ 'Suchen'|trans({},'global') }}
                                 </div>
                             </div>
                             <div class="cell shrink-1">
@@ -30,7 +30,7 @@
                                     <i class="fa fa-external-link-alt"></i>
                                 </div>
                                 <div class="pm-button" id="return-tab-button">
-                                    <i class="fa fa-window-close"></i>
+                                    <img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}" />
                                 </div>
                             </div>
                         </div>
@@ -39,8 +39,13 @@
 
                 <div class="cell grow-0">
                     <ul class="tabs plain" x-tab-group="gpm-inbox" x-tab-control id="gpm-inbox-control">
-                        <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /> {{ 'Posteingang'|trans({},'global') }}</div></li>
-                        <li class="tab" x-tab-id="archive"><div class="tab-link"><img src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" /> {{ 'Archiv'|trans({},'global') }}</div></li>
+                        <li class="tab" x-tab-id="inbox"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Posteingang'|trans({},'global') }}</span></div></li>
+                        <li class="tab" x-tab-id="announcements"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_rp.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Ankündigungen'|trans({},'global') }}</span></div></li>
+                        {% if has_forum_notif %}<li class="tab" x-tab-id="forum"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_talk.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Foren'|trans({},'global') }}</span></div></li>{% endif %}
+                        {% if official_groups is not empty %}
+                            <li class="tab" x-tab-id="support"><div class="tab-link"><img  src="{{ asset("build/images/icons/small_star.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Support-Postfach'|trans({},'global') }}</span></div></li>
+                        {% endif %}
+                        <li class="tab" x-tab-id="archive"><div class="tab-link"><img src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" /><span class="hide-sm hide-md hide-lg hide-elg"> {{ 'Archiv'|trans({},'global') }}</span></div></li>
                     </ul>
                     <div class="row-flex hidden" id="conv_search_bar">
                         <div class="padded cell"><label for="conv_list_filter"><i class="fa fa-search"></i></label></div>
@@ -88,6 +93,19 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                                <div class="cell">
+                                    <div x-pm-action="pin-single" class="pm-button" id="pin-single-button">
+                                        <i class="fa fa-thumbtack"></i> {{ 'Anpinnen'|trans({},'global') }}
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div x-pm-action="unpin-single" class="pm-button" id="unpin-single-button">
+                                        <span style="display: inline-block; transform: rotate(45deg); padding-right: 4px">
+                                            <i class="fa fa-thumbtack"></i>
+                                        </span>
+                                        {{ 'Loslösen'|trans({},'global') }}
+                                    </div>
+                                </div>
                                 <div class="cell">
                                     <div x-pm-action="archive-single" class="pm-button" id="archive-single-button">
                                         <i class="fa fa-archive"></i> {{ 'Archivieren'|trans({},'global') }}
@@ -251,6 +269,17 @@
                 window.location.href = '{{ path('home') }}';
             })
 
+            const update_folder_states = () => {
+                let folders = [];
+                $.html.forEach( 'ul#gpm-inbox-control>li[x-tab-id]', e => folders.push( e.getAttribute('x-tab-id') ) );
+
+                $.ajax.background().easySend( '{{ path('pm_check_folder_states') }}', {folders}, data =>
+                    $.html.forEach( 'ul#gpm-inbox-control>li[x-tab-id]', e => e.classList.toggle( 'highlight-new', (data?.folders[e.getAttribute('x-tab-id')] ?? 0) > 0 ) )
+                );
+            }
+
+            update_folder_states();
+
             let loading_conv_list = false;
             let conv_list_more = null;
 
@@ -292,7 +321,12 @@
 
             document.getElementById('gpm-inbox-control').addEventListener('tab-switch', (e) => {
                 switch (e.detail.tab) {
-                    case 'inbox'  : core_list_path = '{{ path('pm_list', {set: 'inbox'}) }}'; break;
+                    case 'inbox' : core_list_path = '{{ path('pm_list', {set: 'inbox'}) }}'; break;
+                    case 'announcements' : core_list_path = '{{ path('pm_list', {set: 'announcements'}) }}'; break;
+                    case 'forum' : core_list_path = '{{ path('pm_list', {set: 'forum'}) }}'; break;
+                    {% if official_groups is not empty %}
+                        case 'support': core_list_path = '{{ path('pm_list', {set: 'support'}) }}'; break;
+                    {% endif %}
                     case 'archive': core_list_path = '{{ path('pm_list', {set: 'archive'}) }}'; break;
                 }
                 init_conv_list();
@@ -334,6 +368,8 @@
                         ['x-unread'  , 'unread-single'],
                         ['x-userlist', 'show-single'],
                         ['x-block'   , 'block-sender'],
+                        ['x-pin'     , 'pin-single'],
+                        ['x-unpin'   , 'unpin-single'],
                         ['x-archive' , 'archive-single'],
                         ['x-restore' , 'restore-single'],
                         ['x-archive' , 'refresh-single'],
@@ -361,6 +397,7 @@
                         else $.msg.restoreFetchEndpoint();
 
                         $.html.setTitleSegmentCount( document.querySelector('ul.pm-conversation-list>li[x-title][x-endpoint].new') ? 99 : 0 );
+                        update_folder_states();
                     } );
                 });
 
@@ -394,7 +431,8 @@
                         conv_list_more = null;
                     }
 
-                    document.querySelector('#pm-conversation-list>.pm-conversation-list').innerHTML += messages.innerHTML;
+                    let target_list = document.querySelector('#pm-conversation-list>.pm-conversation-list');
+                    while (messages.firstChild) target_list.appendChild( messages.firstChild );
 
                     fun_conv_events();
                     loading_conv_list = false;
@@ -547,7 +585,8 @@
                         msg_list_more.setAttribute('x-endless-endpoint', more.getAttribute('x-endless-endpoint'));
                     }
 
-                    document.querySelector('#gpm-forum-content>ul.group-conversation').innerHTML += messages.innerHTML;
+                    let target_list = document.querySelector('#gpm-forum-content>ul.group-conversation');
+                    while (messages.firstChild) target_list.appendChild( messages.firstChild );
 
                     fun_msg_events();
                     loading_msg_list = false;
@@ -568,6 +607,7 @@
 
             document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
 
+            let enterPressed = false;
             const userSearchHandler = function() {
                 if (searchBox.value.length >= 3) {
                     let skip = [];
@@ -592,7 +632,8 @@
                                 }
 
                                 searchBox.value = '';
-                            })
+                            });
+                            if (enterPressed) document.querySelector( '#pm-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                         }
                     );
                 }
@@ -604,7 +645,8 @@
                 typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
             };
 
-            const userSearchHandlerDown = function () {
+            const userSearchHandlerDown = e => {
+                enterPressed = e.keyCode === 13;
                 clearTimeout(typingTimer);
             };
 
@@ -618,6 +660,8 @@
             $.html.addEventListenerAll('[x-pm-action="search"]', 'click', function () {
                 document.getElementById('conv_search_bar').classList.toggle('hidden');
                 document.getElementById('conv_list_filter').value = '';
+                if (!document.getElementById('conv_search_bar').classList.contains('hidden'))
+                    document.getElementById('conv_list_filter').focus();
                 filter_function();
             });
 
@@ -676,7 +720,10 @@
                 document.getElementById('pm-forum-editor-container').classList.remove('hidden');
                 document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
 
-                list.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}' + list.innerHTML;
+                let temp = document.createElement('div');
+                temp.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}';
+                const list_fc = list.firstChild;
+                while (temp.firstChild) list.insertBefore(temp.firstChild, list_fc);
 
                 if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
@@ -756,6 +803,36 @@
                 if (!selected_thread) return;
 
                 $.ajax.easySend(selected_thread.getAttribute('x-restore'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="pin-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-pin'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="unpin-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-unpin'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="pin-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-pin'), {}, function() {
                     $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
                 });
             });

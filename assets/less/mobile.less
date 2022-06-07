@@ -8,6 +8,7 @@
 
 // Visual Controls
 @media (max-width: (@screen-extra-large-threshold - 1)) {
+  .hide-@{screen-extra-large} {display: none !important;};
   #post-office {
     backdrop-filter: none !important; padding: 0 !important;
     #post-office-box {
@@ -124,6 +125,11 @@
     }
   }
   h4.preview-header { width: 100%; left: 0; padding: 4px; }
+
+  .soul .view-rp {
+    .postit, .tinystamp { margin-left: -80px; }
+    .money { margin-left: -40px; }
+  }
 }
 @media (max-width: (@screen-small-threshold - 1)) {
   .hide-@{screen-small} {display: none !important;};
@@ -135,6 +141,7 @@
       display: block; width: 24px; height: 24px; font-size: 14px; text-align: center; box-shadow: 0 0 3px black;
     }
   }
+  #wrapper > #content #apps #apps-list ul li.app-external { width: 100% !important; }
   button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
 
   h4.preview-header { width: 100%; left: 0; padding: 4px; }
@@ -149,6 +156,11 @@
 
   .soul .news .content {
     padding: 5px; background: #5c2b20; min-height: auto;
+  }
+
+  .soul .view-rp {
+    .postit, .tinystamp { margin-left: -135px; }
+    .money { margin-left: -66px; }
   }
 
   body:not(.icon-zoom-1-00) ul.inventory {
@@ -300,6 +312,8 @@
   }
 
   .rucksack_status_union.status:before { background: url("../img/game-bar/cog2m.png") 0 0 no-repeat !important; }
+
+  #beyond_chat { height: calc( 100% - 16px ); margin-top: 8px; margin-bottom: 8px; }
 }
 
 .postfix(@threshold, @postfix) {

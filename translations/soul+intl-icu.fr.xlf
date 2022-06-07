@@ -2644,7 +2644,7 @@
     <unit id="IHRCYe1" name="In Foren posten">
       <notes>
         <note category="german">In Foren posten</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>In Foren posten</source>
@@ -2664,7 +2664,7 @@
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
       <notes>
         <note category="german">Kommunikation in der Stadt</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommunikation in der Stadt</source>
@@ -2684,7 +2684,7 @@
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation</source>
@@ -2704,7 +2704,7 @@
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare</source>
@@ -2724,7 +2724,7 @@
     <unit id="cnYKFrt" name="Gruppenorganisation">
       <notes>
         <note category="german">Gruppenorganisation</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gruppenorganisation</source>
@@ -2744,7 +2744,7 @@
     <unit id="WPixbld" name="Spielen">
       <notes>
         <note category="german">Spielen</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Spielen</source>
@@ -2824,7 +2824,7 @@
     <unit id="e5CjO7g" name="Ändern des Avatars">
       <notes>
         <note category="german">Ändern des Avatars</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Avatars</source>
@@ -2844,7 +2844,7 @@
     <unit id="sXIofxl" name="Ändern des Profiltitels">
       <notes>
         <note category="german">Ändern des Profiltitels</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Profiltitels</source>
@@ -2864,7 +2864,7 @@
     <unit id="U8rWfCJ" name="Ändern der Profilbeschreibung">
       <notes>
         <note category="german">Ändern der Profilbeschreibung</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung</source>
@@ -3425,7 +3425,7 @@
     <unit id="vsOyofZ" name="Schwarzes Brett">
       <notes>
         <note category="german">Schwarzes Brett</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Schwarzes Brett</source>
@@ -3495,7 +3495,7 @@
     <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
       <notes>
         <note category="german">Ändern des Spielernamens</note>
-        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Spielernamens</source>
@@ -3559,7 +3559,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
-        <target>Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternal Twin. Vous devez vous rendre sur votre compte Eternal Twin pour changer de pseudo.</target>
+        <target>Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternaltwin. Vous devez vous rendre sur votre compte Eternaltwin pour changer de pseudo.</target>
       </segment>
     </unit>
     <unit id=".NQ7ahe">
@@ -4454,7 +4454,7 @@
       </notes>
       <segment>
         <source>Spieler, die dich als Freund hinzugefügt haben</source>
-        <target>Les joueurs qui vont ont ajouté en ami</target>
+        <target>Les joueurs qui vous ont ajouté en ami</target>
       </segment>
     </unit>
     <unit id="xMippYH">
@@ -4581,143 +4581,401 @@
       <notes>
         <note category="german">Deine MyHordes-Seele zurücksetzen</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine MyHordes-Seele zurücksetzen</source>
-        <target>Deine MyHordes-Seele zurücksetzen</target>
+        <target>Réinitialiser votre âme MyHordes</target>
       </segment>
     </unit>
     <unit id="y9khXik">
       <notes>
         <note category="german">Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du &lt;b&gt;einmalig&lt;/b&gt; die Option, deine MyHordes-Seele zurückzusetzen.</source>
-        <target><![CDATA[Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du <b>einmalig</b> die Option, deine MyHordes-Seele zurückzusetzen.]]></target>
+        <target><![CDATA[Si vous souhaitez importer complètement une âme malgré les <b>restrictions d’importation</b>, vous avez une option unique pour réinitialiser votre âme MyHordes.]]></target>
       </segment>
     </unit>
     <unit id="dsL.BQg" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:">
       <notes>
         <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;betroffen&lt;/b&gt;:</source>
-        <target><![CDATA[Folgende Aspekte deiner Seele sind von diesem Reset <b>betroffen</b>:]]></target>
+        <target><![CDATA[Les aspects suivants de votre âme sont <b>affectés</b> par cette réinitialisation :]]></target>
       </segment>
     </unit>
     <unit id="RPTgSwQ" name="Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte">
       <notes>
         <note category="german">Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</source>
-        <target>Deine nach dem Ende der Alpha-Phase auf MyHordes erworbenen Seelenpunkte</target>
+        <target>Vos points d’âme gagnés après la fin de la phase alpha sur MyHordes</target>
       </segment>
     </unit>
     <unit id="wRK8LRh">
       <notes>
         <note category="german">Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</source>
-        <target>Deine nach dem Ende der Alpha-Phase im Rahmen von Städten erworbenen Auszeichnungen (einschließlich Ranking-Auszeichnungen, die am Ende einer Saison vergeben werden!)</target>
+        <target>Vos distinctions gagnées dans les villes après la fin de la phase alpha (y compris les distinctions de classement données à la fin d’une saison !)</target>
       </segment>
     </unit>
     <unit id="qGQ4apv" name="Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:">
       <notes>
         <note category="german">Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Folgende Aspekte deiner Seele sind von diesem Reset &lt;b&gt;nicht betroffen&lt;/b&gt;:</source>
-        <target><![CDATA[Folgende Aspekte deiner Seele sind von diesem Reset <b>nicht betroffen</b>:]]></target>
+        <target><![CDATA[Les aspects suivants de votre âme <b>ne sont pas affectés</b> par cette réinitialisation :]]></target>
       </segment>
     </unit>
     <unit id="YT57JhK">
       <notes>
         <note category="german">Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</source>
-        <target>Die Liste deiner bisher auf MyHordes gespielten Städte mit allen angehängten Informationen (Todesart, letzte Worte, überlebte Tage, etc)</target>
+        <target>La liste de vos villes jouées sur MyHordes jusqu’à présent avec toutes les informations jointes (cause du décès, derniers mots, jours de survie, etc.)</target>
       </segment>
     </unit>
     <unit id="VUNm4fP" name="Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung">
       <notes>
         <note category="german">Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</source>
-        <target>Spezielle Auszeichnungen, wie beispielsweise die Alpha-Auszeichnung</target>
+        <target>Les distinctions spéciales, comme la distinction de l'Alpha</target>
       </segment>
     </unit>
     <unit id="gYtpBfG" name="Gegenstände in deinem spiritueller Rucksack">
       <notes>
         <note category="german">Gegenstände in deinem spiritueller Rucksack</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Gegenstände in deinem spiritueller Rucksack</source>
-        <target>Gegenstände in deinem spiritueller Rucksack</target>
+        <target>Les objets dans votre sac à dos spirituel</target>
       </segment>
     </unit>
     <unit id="E2LwrUJ" name="Deine gespielten Heldentage">
       <notes>
         <note category="german">Deine gespielten Heldentage</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Deine gespielten Heldentage</source>
-        <target>Deine gespielten Heldentage</target>
+        <target>Le nombre de jours que vous avez joués en tant que héros</target>
       </segment>
     </unit>
     <unit id="K1yAZOB" name="Seelenpunkte oder Auszeichnungen, die du importiert hast">
       <notes>
         <note category="german">Seelenpunkte oder Auszeichnungen, die du importiert hast</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Seelenpunkte oder Auszeichnungen, die du importiert hast</source>
-        <target>Seelenpunkte oder Auszeichnungen, die du importiert hast</target>
+        <target>Les points d’âme ou distinctions que vous avez importés</target>
       </segment>
     </unit>
     <unit id="VEBXP0O" name="Meine Seele zurücksetzen">
       <notes>
         <note category="german">Meine Seele zurücksetzen</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Meine Seele zurücksetzen</source>
-        <target>Meine Seele zurücksetzen</target>
+        <target>Réinitialiser mon âme</target>
       </segment>
     </unit>
     <unit id="ZCrhTK8">
       <notes>
         <note category="german">Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</note>
         <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</source>
-        <target>Bitte bestätige, dass du deine Seele zurücksetzen möchtest. Du kannst diese Aktion NUR EIN MAL ausführen. Diese Aktion KANN NICHT RÜCKGÄNGIG GEMACHT WERDEN!</target>
+        <target>Veuillez confirmer que vous voulez réinitialiser votre âme. Vous ne pouvez effectuer cette action QU’UNE SEULE FOIS. Cette action ne peut pas être annulée !</target>
+      </segment>
+    </unit>
+    <unit id="fh5UH56" name="Specify using player search">
+      <notes>
+        <note category="german">Specify using player search</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Specify using player search</source>
+        <target>Spécifier à l’aide de la recherche de joueur</target>
+      </segment>
+    </unit>
+    <unit id="96qFRFR" name="Ändern des Profils">
+      <notes>
+        <note category="german">Ändern des Profils</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ändern des Profils</source>
+        <target>Modifier le profil</target>
+      </segment>
+    </unit>
+    <unit id="JRVXs3." name="Nicht länger ausblenden">
+      <notes>
+        <note category="german">Nicht länger ausblenden</note>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Nicht länger ausblenden</source>
+        <target>Ne plus masquer</target>
+      </segment>
+    </unit>
+    <unit id="BC_uip5" name="Ausblenden">
+      <notes>
+        <note category="german">Ausblenden</note>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ausblenden</source>
+        <target>Masquer</target>
+      </segment>
+    </unit>
+    <unit id="p5LaFyO" name="Ausgeblendete Spieler anzeigen">
+      <notes>
+        <note category="german">Ausgeblendete Spieler anzeigen</note>
+        <note category="from">twig:///templates/ajax/soul/social.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Ausgeblendete Spieler anzeigen</source>
+        <target>Liste des joueurs masqués</target>
+      </segment>
+    </unit>
+    <unit id="Mdi60b9" name="Spracheinstellung verwenden">
+      <notes>
+        <note category="german">Spracheinstellung verwenden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Spracheinstellung verwenden</source>
+        <target>Utiliser le paramètre de langue</target>
+      </segment>
+    </unit>
+    <unit id="rqhI1oG" name="Deine Flagge">
+      <notes>
+        <note category="german">Deine Flagge</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Deine Flagge</source>
+        <target>Mon drapeau</target>
+      </segment>
+    </unit>
+    <unit id="gQDPOVU" name="Diese Stadt hat folgende Einschränkungen:">
+      <notes>
+        <note category="german">Diese Stadt hat folgende Einschränkungen:</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt hat folgende Einschränkungen:</source>
+        <target>Cette ville a les restrictions suivantes :</target>
+      </segment>
+    </unit>
+    <unit id="4Gjif4f" name="Ausschluss aus dem Ranking">
+      <notes>
+        <note category="german">Ausschluss aus dem Ranking</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ausschluss aus dem Ranking</source>
+        <target>Exclusion du classement</target>
+      </segment>
+    </unit>
+    <unit id="gAN.vX0" name="Löschen der Auszeichnungen">
+      <notes>
+        <note category="german">Löschen der Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Auszeichnungen</source>
+        <target>Suppression des pictos</target>
+      </segment>
+    </unit>
+    <unit id="0kcps11" name="Löschen der Seelenpunkte">
+      <notes>
+        <note category="german">Löschen der Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
+      </notes>
+      <segment>
+        <source>Löschen der Seelenpunkte</source>
+        <target>Suppression des points d'âme</target>
+      </segment>
+    </unit>
+    <unit id="QzJ.qzA" name="Die Seelenpunkte dieser Stadt wurden gelöscht">
+      <notes>
+        <note category="german">Die Seelenpunkte dieser Stadt wurden gelöscht</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Seelenpunkte dieser Stadt wurden gelöscht</source>
+        <target>Les points d'âme de cette ville ont été supprimés</target>
+      </segment>
+    </unit>
+    <unit id="PqTGH.B" name="Umfragen">
+      <notes>
+        <note category="german">Umfragen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/changelogs/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfragen</source>
+        <target>Sondages</target>
+      </segment>
+    </unit>
+    <unit id="99lPVVk">
+      <notes>
+        <note category="german">Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</source>
+        <target>Afin de fixer le cap pour le développement de MyHordes, nous menons régulièrement des enquêtes auprès de tous les joueurs. Cliquez sur le bouton ci-dessous pour accéder à un aperçu de tous les sondages actuels et passés.</target>
+      </segment>
+    </unit>
+    <unit id="0Qotq.l" name="Zu den Umfragen">
+      <notes>
+        <note category="german">Zu den Umfragen</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Zu den Umfragen</source>
+        <target>Afficher les sondages</target>
+      </segment>
+    </unit>
+    <unit id="qnZpV0q" name="Umfrage beendet am {date}.">
+      <notes>
+        <note category="german">Umfrage beendet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfrage beendet am {date}.</source>
+        <target>Le sondage s'est terminé le {date}.</target>
+      </segment>
+    </unit>
+    <unit id="ryVfUf9" name="Umfrage beginnt am {date} und endet am {date2}.">
+      <notes>
+        <note category="german">Umfrage beginnt am {date} und endet am {date2}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfrage beginnt am {date} und endet am {date2}.</source>
+        <target>Le sondage commencera le {date} et se terminera le {date2}.</target>
+      </segment>
+    </unit>
+    <unit id=".TZbZN8" name="Umfrage endet am {date}.">
+      <notes>
+        <note category="german">Umfrage endet am {date}.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Umfrage endet am {date}.</source>
+        <target>L’enquête se terminera le {date}.</target>
+      </segment>
+    </unit>
+    <unit id="KKN_8Zz" name="Hier findet ihr alle vorangegangenen Umfragen:">
+      <notes>
+        <note category="german">Hier findet ihr alle vorangegangenen Umfragen:</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Hier findet ihr alle vorangegangenen Umfragen:</source>
+        <target>Vous pouvez trouver tous les sondages précédents ici :</target>
+      </segment>
+    </unit>
+    <unit id="j8qBKgG" name="Diese Umfrage hat noch nicht begonnen.">
+      <notes>
+        <note category="german">Diese Umfrage hat noch nicht begonnen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Diese Umfrage hat noch nicht begonnen.</source>
+        <target>Ce sondage n’a pas encore commencé.</target>
+      </segment>
+    </unit>
+    <unit id="39o9ij2" name="Du hast an dieser Umfrage teilgenommen. Vielen Dank!">
+      <notes>
+        <note category="german">Du hast an dieser Umfrage teilgenommen. Vielen Dank!</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du hast an dieser Umfrage teilgenommen. Vielen Dank!</source>
+        <target>Vous avez déjà participé à ce sondage. Merci !</target>
+      </segment>
+    </unit>
+    <unit id="K_LCVfF" name="Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.">
+      <notes>
+        <note category="german">Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Sobald die Umfrage beendet ist, werden die Ergebnisse angezeigt.</source>
+        <target>Quand le sondage sera terminé, les résultats seront affichés.</target>
+      </segment>
+    </unit>
+    <unit id="hTjUC92">
+      <notes>
+        <note category="german">Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</source>
+        <target>Les résultats de ce sondage ne sont pas visibles pour les joueurs normaux jusqu’à ce qu’il se termine. Puisque vous êtes un oracle, vous pouvez voir les résultats intermédiaires.</target>
+      </segment>
+    </unit>
+    <unit id="i4zoKXc" name="Du hast in dieser Stadt zusammen gespielt">
+      <notes>
+        <note category="german">Du hast in dieser Stadt zusammen gespielt</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast in dieser Stadt zusammen gespielt</source>
+        <target>Vous avez jouez ensemble dans cette ville</target>
       </segment>
     </unit>
   </file>

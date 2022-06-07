@@ -33,6 +33,7 @@ use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -68,12 +69,12 @@ class MessageGlobalPMController extends MessageController
 
         if (!empty($subscriptions)) {
             $forums = $this->perm->getForumsWithPermission($user);
-            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
+            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
         }
 
         $response = ['new' =>
             count($subscriptions) +
-            $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user) +
+            $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, true, true, true) +
             $em->getRepository(UserGroupAssociation::class)->countUnreadInactivePMsByUser($user) +
             $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user) +
             $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()),
@@ -137,7 +138,7 @@ class MessageGlobalPMController extends MessageController
 
                 /** @var UserGroupAssociation $group_association */
                 $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' =>
-                    [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember],
+                    [UserGroupAssociation::GroupAssociationTypePrivateMessageMember],
                 'association' => $group]);
                 if (!$group_association) break;
 
@@ -192,7 +193,8 @@ class MessageGlobalPMController extends MessageController
             return $this->render( 'ajax/pm/view.html.twig', [
                 'rk' => (new DateTime('now'))->getTimestamp(),
                 'command' => $parser->get('command'),
-                'official_groups' => array_filter( $this->entity_manager->getRepository(OfficialGroup::class)->findAll(), fn(OfficialGroup $o) => $this->perm->userInGroup($this->getUser(), $o->getUsergroup()) )
+                'official_groups' => array_filter( $this->entity_manager->getRepository(OfficialGroup::class)->findAll(), fn(OfficialGroup $o) => $this->perm->userInGroup($this->getUser(), $o->getUsergroup()) ),
+                'has_forum_notif' => $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser()]) > 0,
             ]);
         }
 
@@ -207,10 +209,10 @@ class MessageGlobalPMController extends MessageController
         if ($entries === null) $entries = [];
 
         foreach ($group_associations as $association) {
-
-
-
             $official_meta = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $association->getAssociation()]);
+
+            $has_response = $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember &&
+                $this->entity_manager->getRepository(GlobalPrivateMessage::class)->lastInGroup($association->getAssociation())->getSenderGroup() !== null;
 
             $owner_assoc = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy([
                 'association' => $association->getAssociation(),
@@ -232,7 +234,9 @@ class MessageGlobalPMController extends MessageController
             $entries[] = [
                 'obj'    => $association,
                 'date'   => $last_post_date,
+                'pinned' => $association->getPriority(),
                 'system' => false,
+                'response' => $has_response,
                 'archive' => $association->getBref(),
                 'official' => $official_meta ? $official_meta->getOfficialGroup() : null,
                 'title'  => $association->getAssociation()->getName(),
@@ -260,6 +264,7 @@ class MessageGlobalPMController extends MessageController
             $entries[] = [
                 'obj'    => $announcement,
                 'date'   => $announcement->getTimestamp(),
+                'pinned' => 0,
                 'system' => false,
                 'archive' => false,
                 'official' => null,
@@ -278,7 +283,7 @@ class MessageGlobalPMController extends MessageController
      * @param array|null $entries
      * @param int[] $skip
      */
-    private function render_forumNotifications( ?array &$entries = null, array $skip = [] ): void {
+    private function render_forumNotifications( ?array &$entries = null, array $skip = [], ?string $query = null ): void {
         if ($entries === null) $entries = [];
 
         /** @var Collection|ForumThreadSubscription[] $subscriptions */
@@ -290,7 +295,7 @@ class MessageGlobalPMController extends MessageController
 
         if (!empty($subscriptions)) {
             $forums = $this->perm->getForumsWithPermission($this->getUser());
-            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !in_array($s->getThread()->getId(), $skip) && in_array($s->getThread()->getForum(), $forums));
+            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && !in_array($s->getThread()->getId(), $skip) && ($query === null || mb_strpos( mb_strtolower($s->getThread()->getTitle()), mb_strtolower( $query ) ) !== false) && in_array($s->getThread()->getForum(), $forums));
         }
 
         foreach ($subscriptions as $subscription) {
@@ -309,6 +314,7 @@ class MessageGlobalPMController extends MessageController
             $entries[] = [
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
+                'pinned' => 0,
                 'system' => false,
                 'archive' => false,
                 'official' => null,
@@ -332,18 +338,20 @@ class MessageGlobalPMController extends MessageController
         if ($entries === null) $entries = [];
 
         $latest_pm = empty($pms) ? null : $pms[0];
+        $unread = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($this->getUser());
 
         if ($latest_pm) {
             $crow = $this->entity_manager->getRepository(User::class)->find(66);
             $entries[] = [
                 'obj'    => $latest_pm,
                 'date'   => $latest_pm->getTimestamp(),
+                'pinned' => $unread > 0 ? 200 : 0,
                 'system' => true,
                 'official' => null,
                 'title'  => $this->translator->trans('Nachrichten des Raben', [], 'global'),
                 'closed' => false,
                 'count'  => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->count(['receiverUser' => $this->getUser(), 'receiverGroup' => null]),
-                'unread' => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($this->getUser()),
+                'unread' => $unread,
                 'owner'  => $crow,
                 'users'  => [$this->getUser(),$crow]
             ];
@@ -361,33 +369,89 @@ class MessageGlobalPMController extends MessageController
     public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p, string $set = 'inbox'): Response {
         $entries = [];
 
-        if (!in_array($set,['inbox','archive'])) return new Response('');
+        if (!in_array($set,['inbox','archive','support','forum','announcements'])) return new Response('');
+
+        $group_filter = match($set) {
+            'support' => [ UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember ],
+            'archive' => [ UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember ],
+            'inbox'   => [ UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive ],
+            default   => []
+        };
 
         $skip = $p->get_array('skip');
         $num = max(5,min(30,$p->get_int('num', 30)));
 
         $query = $p->get('filter');
 
-        $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
-            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
-        ], $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
+        if (!empty($group_filter))
+            $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), $group_filter,
+                    $skip['g'] ?? [], $num+1, $set === 'archive', $query), $entries );
 
-        $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
+        if ($set === 'announcements' || $set === 'archive')
+            $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
                                                                                          $skip['a'] ?? [], $num+1, $set === 'archive', $query), $entries );
-
-        if ($set !== 'archive' && $query === null) {
-
+        if ($set === 'inbox' && $query === null) {
             if (empty($skip['d'])) $this->render_directNotifications($this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1), $entries);
-            $this->render_forumNotifications($entries, $skip['f'] ?? [] );
-
         }
 
-        usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
+        if ($set === 'forum')
+            $this->render_forumNotifications($entries, $skip['f'] ?? [], $query );
+
+        usort($entries, fn($a,$b) => $b['pinned'] <=> $a['pinned'] ?: $b['date'] <=> $a['date']);
 
         return $this->render( 'ajax/pm/list.html.twig', $this->addDefaultTwigArgs(null, [
             'more' => count($entries) > $num,
             'entries' => array_slice($entries,0,$num)
         ] ));
+    }
+
+    /**
+     * @Route("api/pm/folders/state", name="pm_check_folder_states")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function check_folder_states( EntityManagerInterface $em, JSONRequestParser $parser ): Response {
+
+        $folders = array_unique( $parser->get_array('folders') );
+        $user = $this->getUser();
+
+        $return = [];
+        foreach ($folders as $folder)
+            switch ($folder) {
+                case 'inbox':
+                    $return[$folder] =
+                        $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, true, false) +
+                        $em->getRepository(UserGroupAssociation::class)->countUnreadInactivePMsByUser($user) +
+                        $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user);
+                    break;
+                case 'support':
+                    $return[$folder] =
+                        $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user, false, true, true);
+                    break;
+                case 'announcements':
+                    $return[$folder] = $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage());
+                    break;
+                case 'forum':
+                    /** @var Collection|ForumThreadSubscription[] $subscriptions */
+                    $subscriptions = $em->getRepository(ForumThreadSubscription::class)->matching(
+                        (new Criteria())
+                            ->andWhere( Criteria::expr()->eq('user', $user) )
+                            ->andWhere( Criteria::expr()->gt('num', 0))
+                    );
+
+                    if (!empty($subscriptions)) {
+                        $forums = $this->perm->getForumsWithPermission($user);
+                        $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
+                    }
+
+                    $return[$folder] = count($subscriptions);
+                    break;
+                default:
+                    $return[$folder] = 0;
+                    break;
+            }
+        return AjaxResponse::success(true, ['folders' => $return]);
     }
 
     /**
@@ -837,6 +901,35 @@ class MessageGlobalPMController extends MessageController
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $this->entity_manager->persist( $group_association->setBref($arch !== 0) );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/group/pin/{id<\d+>}/{pin<\d>}", name="pm_pin_conv_group")
+     * @param int $id
+     * @param int $pin
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_pin_conversation_group(int $id, int $pin, EntityManagerInterface $em): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
+        ], 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $this->entity_manager->persist( $group_association->setPriority($pin !== 0 ? 100 : 0) );
 
         try {
             $em->flush();
@@ -1310,7 +1403,7 @@ class MessageGlobalPMController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow): Response {
+    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow, RateLimiterFactory $reportToModerationLimiter): Response {
         $user = $this->getUser();
 
         $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
@@ -1334,6 +1427,9 @@ class MessageGlobalPMController extends MessageController
         foreach ($reports as $report)
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
+
+        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())

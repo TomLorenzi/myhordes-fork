@@ -18,6 +18,11 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
  */
 class TownRankingProxy
 {
+    const DISABLE_NOTHING = 0;
+    const DISABLE_RANKING = 1 << 0;
+    const DISABLE_PICTOS = 1 << 1;
+    const DISABLE_SOULPOINTS = 1 << 2;
+    const DISABLE_ALL = self::DISABLE_PICTOS | self::DISABLE_RANKING | self::DISABLE_SOULPOINTS;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -116,6 +121,11 @@ class TownRankingProxy
      * @ORM\Column(type="integer")
      */
     private $profilerVersion = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $disableFlag = self::DISABLE_NOTHING;
 
     public function __construct()
     {
@@ -408,5 +418,31 @@ class TownRankingProxy
         $this->profilerVersion = $profilerVersion;
 
         return $this;
+    }
+
+    public function getDisableFlag(): ?int
+    {
+        return $this->disableFlag;
+    }
+
+    public function setDisableFlag(int $disableFlag): self
+    {
+        $this->disableFlag = $disableFlag;
+
+        return $this;
+    }
+
+    public function addDisableFlag(int $disableFlag): self {
+        $this->setDisableFlag( $this->getDisableFlag() | $disableFlag );
+        return $this;
+    }
+
+    public function removeDisableFlag(int $disableFlag): self {
+        $this->setDisableFlag( $this->getDisableFlag() & ~$disableFlag );
+        return $this;
+    }
+
+    public function hasDisableFlag(int $disableFlag): bool {
+        return ($this->getDisableFlag() & $disableFlag) === $disableFlag;
     }
 }

@@ -36,6 +36,17 @@ class GlobalPrivateMessageRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function lastInGroup(UserGroup $group): ?GlobalPrivateMessage
+    {
+        try {
+            return $this->createQueryBuilder('g')
+                ->andWhere('g.receiverGroup = :group')->setParameter('group', $group)
+                ->orderBy('g.timestamp', 'DESC')->orderBy('g.id', 'DESC')
+                ->setMaxResults(1)
+                ->getQuery()->getOneOrNullResult();
+        } catch (\Throwable $t) { return null; }
+    }
+
     public function countUnreadDirectPMsByUser( User $user ): int
     {
         try {

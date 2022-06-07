@@ -44,7 +44,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -64,7 +64,7 @@
     <unit id="gqk_gdE" name="Beitreten">
       <notes>
         <note category="german">Beitreten</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beitreten</source>
@@ -654,7 +654,7 @@
       </notes>
       <segment>
         <source>Abstimmung aller Piktogramme:</source>
-        <target>Recompensar todas las distinciones:</target>
+        <target>Recompensar todas las Distinciones:</target>
       </segment>
     </unit>
     <unit id="WjDyWyC">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</source>
-        <target>Da el total de distinciones obtenidas en el pueblo en lugar de sólamente una tercera parte.</target>
+        <target>Da el total de Distinciones obtenidas en el pueblo en lugar de sólamente una tercera parte.</target>
       </segment>
     </unit>
     <unit id="vLYm3DY" name="Seelenpunkte vergeben:">
@@ -1201,7 +1201,7 @@
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
-        <target>El modo nocturno está activado y Luces públicas están disponibles.</target>
+        <target>El modo nocturno está activado y Alumbrado Público está disponible.</target>
       </segment>
     </unit>
     <unit id="JeVu4ox" name="Erweitert">
@@ -1221,7 +1221,7 @@
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
-        <target>El modo nocturno está activado. Luces públicas no está disponible.</target>
+        <target>El modo nocturno está activado pero Alumbrado Público no está disponible.</target>
       </segment>
     </unit>
     <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
@@ -1321,7 +1321,7 @@
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
-        <target>Dependiendo del tipo de ciudad seleccionada, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un conciudadano.</target>
+        <target>Dependiendo del tipo de pueblo seleccionado, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un habitante.</target>
       </segment>
     </unit>
     <unit id="F4.K1yp" name="Blutdurst und Aerogen">
@@ -1341,7 +1341,7 @@
       </notes>
       <segment>
         <source>Diese Stadt ist durch ein Passwort geschützt.</source>
-        <target>Esta ciudad está protegida con contraseña.</target>
+        <target>Este pueblo está protegido con contraseña.</target>
       </segment>
     </unit>
     <unit id="n5Q6CYy" name="Für diese Stadt gilt eine Platzreservierung.">
@@ -1351,7 +1351,7 @@
       </notes>
       <segment>
         <source>Für diese Stadt gilt eine Platzreservierung.</source>
-        <target>Una reserva de asiento es válida para esta ciudad.</target>
+        <target>Una reserva de cupo es requerida para este pueblo.</target>
       </segment>
     </unit>
     <unit id="WhL1uY." name="Einer Stadt beitreten">
@@ -1711,7 +1711,7 @@
       </notes>
       <segment>
         <source>Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.</source>
-        <target>El lenguaje de este pueblo no coincide con la configuración de lenguaje de tu alma. Al unirte a este pueblo, aceptas solo usar el lenguaje del pueblo cuando te comuniques con otros jugadores.</target>
+        <target>El idioma de este pueblo no coincide con la configuración de idioma de tu alma. Al unirte a este pueblo, aceptas solo usar el idioma del pueblo cuando te comuniques con otros jugadores.</target>
       </segment>
     </unit>
     <unit id="xdlAaLd">
@@ -1721,7 +1721,7 @@
       </notes>
       <segment>
         <source>Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!</source>
-        <target>¡Usar otros lenguajes puede resultar en sanciones de la moderación!</target>
+        <target>¡Usar otros idiomas puede resultar en sanciones de la moderación!</target>
       </segment>
     </unit>
     <unit id="L1PDlgY">
@@ -1811,7 +1811,7 @@
       </notes>
       <segment>
         <source>Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.</source>
-        <target>Cuando está activado, los mutantes recién transformados empiezan con un poco de hambre...</target>
+        <target>Cuando esta opción está activada, los mutantes recién transformados empezarán con un poco de voracidad...</target>
       </segment>
     </unit>
     <unit id="v7CDf.f" name="Hungrige Ghule">
@@ -1821,7 +1821,73 @@
       </notes>
       <segment>
         <source>Hungrige Ghule</source>
-        <target>Mutantes Hambrientos</target>
+        <target>Voracidad inicial</target>
+      </segment>
+    </unit>
+    <unit id="RoR55TY" name="Seelenpunkt-Beschränkung deaktivieren:">
+      <notes>
+        <note category="german">Seelenpunkt-Beschränkung deaktivieren:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkt-Beschränkung deaktivieren:</source>
+        <target>Ignorar restricciones por puntos de alma:</target>
+      </segment>
+    </unit>
+    <unit id="DAbc25I">
+      <notes>
+        <note category="german">Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</source>
+        <target>Cualquier jugador (invitado) podrá unirse a tu pueblo, sin importar cuántos puntos de alma tenga.</target>
+      </segment>
+    </unit>
+    <unit id="HaKUn1F">
+      <notes>
+        <note category="german">Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.</source>
+        <target>Normalmente, los oficios disponibles para un pueblo se controlan desde otras opciones, como el tipo de chamán. Con esta opción puedes sobrescribir la configuración automática y activar o desactivar los oficios manualmente.</target>
+      </segment>
+    </unit>
+    <unit id="iLGm469" name="Individuelle Konfiguration">
+      <notes>
+        <note category="german">Individuelle Konfiguration</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Individuelle Konfiguration</source>
+        <target>Configuración individual</target>
+      </segment>
+    </unit>
+    <unit id="TfcJ9Mi" name="Verfügbare Konstruktionen">
+      <notes>
+        <note category="german">Verfügbare Konstruktionen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Konstruktionen</source>
+        <target>Construcciones disponibles</target>
+      </segment>
+    </unit>
+    <unit id="RkbjKTP">
+      <notes>
+        <note category="german">Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.</source>
+        <target>Normalmente, las construcciones disponibles para un pueblo se controlan desde otras opciones, como el tipo de Pueblo. Con esta opción puedes sobrescribir la configuración automática y configurar las construcciones manualmente.</target>
       </segment>
     </unit>
   </file>

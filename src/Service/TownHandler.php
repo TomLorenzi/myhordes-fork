@@ -333,6 +333,27 @@ class TownHandler
     }
 
     /**
+     * Remove a building from the list of unlocked building
+     *
+     * @param Town $town The town we want to add a building to
+     * @param BuildingPrototype $prototype The prototype we want to add
+     * @return bool If the removal succeeded
+     */
+    public function removeBuilding( Town &$town, BuildingPrototype $prototype ): bool {
+
+        $building = $this->entity_manager->getRepository(Building::class)->findOneBy(['town' => $town, 'prototype' => $prototype]);
+        if($building){
+            $children = $prototype->getChildren();
+            foreach ($children as $child) {
+                $this->removeBuilding($town, $child);
+            }
+            $town->removeBuilding($building);
+        }
+
+        return true;
+    }
+
+    /**
      * Return the wanted building
      *
      * @param Town $town The town we're looking the building into
@@ -555,7 +576,7 @@ class TownHandler
         $offsetMax = $est->getOffsetMax();
 
         $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
-        mt_srand($town->getDay() + $town->getId());
+        mt_srand($est->getSeed() ?? $town->getDay() + $town->getId());
         $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
         $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $new_formula);
 
@@ -647,8 +668,8 @@ class TownHandler
                     if($offsetMax > 3)
                         $offsetMax -= $alterMax;
                 } else {
-                    if ($increase_min) $offsetMin -= $alter;
-                    else $offsetMax -= $alter;
+                    if ($increase_min && $offsetMin > 3) $offsetMin -= $alter;
+                    elseif ( $offsetMax > 3 ) $offsetMax -= $alter;
                 }
             }
         }
@@ -852,7 +873,7 @@ class TownHandler
      */
     public function is_vote_needed(Town $town, CitizenRole|string $role, bool $duringNightly = false): bool {
         // No votes needed before the town is full or during chaos
-        if ($town->getChaos() || $town->isOpen()) return false;
+        if ($town->getChaos() || ($town->isOpen() && !$town->getForceStartAhead())) return false;
 
         // Resolve the role; if it does not exist or is not votable, no votes are needed
         if (is_string($role)) $role =  $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role]);
@@ -870,7 +891,7 @@ class TownHandler
         if ($last_one) {
             if ($last_one->getAlive()) return false;
             // Re-election when the role dies during attack: Next day; otherwise, one penalty day
-            $DoD = $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack ? ($last_one->getDayOfDeath() - 1) : ($last_one->getDayOfDeath() + 1);
+            $DoD = $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack ? ($last_one->getDayOfDeath() - 1) : $last_one->getDayOfDeath();
             if ($DoD >= ($town->getDay() - $limit))
                 return false;
 

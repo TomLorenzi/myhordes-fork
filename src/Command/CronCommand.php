@@ -9,6 +9,7 @@ use App\Entity\AttackSchedule;
 use App\Entity\EventAnnouncementMarker;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
@@ -60,6 +61,7 @@ class CronCommand extends Command
     private GameProfilerService $gps;
     private ContainerInterface $container;
     private Environment $twig;
+    private AdminHandler $adminHandler;
 
     private array $db;
 
@@ -67,7 +69,7 @@ class CronCommand extends Command
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps, ContainerInterface $container)
+                                GameProfilerService $gps, ContainerInterface $container, AdminHandler $adminHandler)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -87,6 +89,7 @@ class CronCommand extends Command
         $this->params = $params;
         $this->gps = $gps;
         $this->container = $container;
+        $this->adminHandler = $adminHandler;
 
         $this->db = $db;
         parent::__construct();
@@ -500,6 +503,10 @@ class CronCommand extends Command
 
         if ($db_scheme !== 'mysql') throw new Exception('Sorry, only MySQL is supported for backup!');
 
+        if (!isset($this->conf->getData()['backup']['storages']) || count($this->conf->getData()['backup']['storages']) == 0) throw new Exception('No backup storage is defined, cannot store DB backups');
+
+        $storages = $this->conf->getData()['backup']['storages'];
+
         $domain = $input->getArgument('p1');
 
         if ($domain === -1) $domain = 'manual';
@@ -507,7 +514,10 @@ class CronCommand extends Command
             throw new Exception('Invalid backup domain!');
 
         $path = $this->conf->get(MyHordesConf::CONF_BACKUP_PATH, null);
-        if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/backup";
+
+        if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/tmp";
+        $path = str_replace("~", $this->params->get('kernel.project_dir'), $path);
+
         if (!file_exists($path)) mkdir($path, 0700, true);
         $filename = $path . '/' . (new DateTime())->format('Y-m-d_H-i-s-v_') . $domain . '.sql';
 
@@ -522,38 +532,210 @@ class CronCommand extends Command
 
         $relevant_domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $domain, -1);
 
+
         if ($relevant_domain_limit !== 0) {
             $output->writeln("Executing <info>mysqldump</info> on <info>$db_host:$db_port</info>, exporting <info>$db_name</info> <comment>$str</comment>", OutputInterface::VERBOSITY_VERBOSE );
             $this->helper->capsule("mysqldump -h $db_host -P $db_port --user='$db_user' --password='$db_pass' --single-transaction --skip-lock-tables $db_name $str", $output, 'Running database backup... ', false );
-        } else
+        } else {
             $output->writeln("Skipping <info>mysqldump</info> in domain <info>$domain</info> since backups for this domain are turned off.", OutputInterface::VERBOSITY_VERBOSE );
+            return 0;
+        }
 
-        $backup_files = [];
+        $success = true;
 
-        foreach (new DirectoryIterator($path) as $fileInfo) {
-            /** @var SplFileInfo $fileInfo */
-            if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
-            elseif ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql','xz','gzip','bz2'])) {
-                $segments = explode('_', explode('.',$fileInfo->getFilename())[0]);
-                if (count($segments) !== 3 || !in_array($segments[2], ['nightly','daily','weekly','monthly','update','manual']))
-                    continue;
-                if (!isset($backup_files[$segments[2]])) $backup_files[$segments[2]] = [];
-                $backup_files[$segments[2]][] = $fileInfo->getRealPath();
+        // Putting created backup into the different storages
+        foreach ($storages as $name => $config) {
+            if(!$config['enabled']) continue;
+
+            $output->writeln("Putting newly created backup into {$config['type']} storage '$name'", OutputInterface::VERBOSITY_VERBOSE);
+            switch($config['type']) {
+                case "local":
+                    $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $config['path']);
+                    if (!is_dir($targetPath))
+                        if(mkdir($targetPath, 0700, true)) {
+                            $output->writeln("Cannot create backup folder $targetPath !");
+                            $success = false;
+                            break;
+                        }
+                    $filename .= match ($compression) {
+                        "xz" => ".xz",
+                        "gzip" => ".gz",
+                        "bzip2" => ".bz2",
+                        "lbzip2" => ".bz2",
+                        "pbzip2" => ".bz2",
+                        null => ""
+                    };
+
+                    if(!copy($filename, $targetPath . "/" . basename($filename))) {
+                        $output->writeln("Cannot put backup file " . basename($filename) . " into folder $targetPath !");
+                        $success = false;
+                    }
+                    break;
+                case "ftp":
+                    $ftp_conn = $this->adminHandler->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
+                    if (!$ftp_conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+
+                    if (!ftp_put($ftp_conn, $config['path'] . '/' .basename($filename), $filename, FTP_BINARY)) {
+                        $success = false;
+                        $output->writeln("<error>Unable to upload backup file  " . basename($filename) . " to {$config['type']} storage '$name'");
+                    }
+
+                    ftp_close($ftp_conn);
+                    break;
+                case "sftp":
+                    $conn = $this->adminHandler->connectToSftp($config['host'], $config['port'], $config['user'], $config['pass']);
+                    if(!$conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+
+                    if(!ssh2_scp_send($conn, $filename, $config['path'] . '/' .basename($filename))) {
+                        $success = false;
+                        $output->writeln("<error>Unable to upload backup file  " . basename($filename) . " to {$config['type']} storage '$name'");
+                    }
+                    ssh2_disconnect($conn);
+                    break;
+                default:
+                    $output->writeln("<error>Unknown storage type {$config['type']}</error>");
+                    break;
             }
         }
 
-        foreach (['nightly','daily','weekly','monthly','update','manual'] as $sel_domain) {
-            $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
-            if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
-                rsort($backup_files[$sel_domain]);
-                while (count($backup_files[$sel_domain]) > $domain_limit) {
-                    $f = array_pop($backup_files[$sel_domain]);
-                    if ($f === null) break;
-                    $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE );
-                    unlink( $f );
-                }
+        if (!$success) {
+            throw new Exception("An error has occured while putting the new backup file into a storage");
+        }
+
+        // Processing storages to ensure retention policies
+        foreach ($storages as $name => $config) {
+            if (!$config['enabled']) continue;
+
+            $output->writeln("Ensuring retention policy on <info>{$config['type']}</info> storage <info>$name</info>", OutputInterface::VERBOSITY_VERBOSE);
+            $backup_files = [];
+
+            switch ($config['type']) {
+                case "local":
+                    $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $config['path']);
+                    foreach (new DirectoryIterator($targetPath) as $fileInfo) {
+                        /** @var SplFileInfo $fileInfo */
+                        if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+
+                        if ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql', 'xz', 'gzip', 'bz2'])) {
+                            $segments = explode('_', explode('.', $fileInfo->getFilename())[0]);
+                            if (count($segments) !== 3 || !in_array($segments[2], ['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual']))
+                                continue;
+                            if (!isset($backup_files[$segments[2]])) $backup_files[$segments[2]] = [];
+                            $backup_files[$segments[2]][] = $fileInfo->getRealPath();
+                        }
+                    }
+                    foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
+                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+
+                        if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
+                            rsort($backup_files[$sel_domain]);
+                            while (count($backup_files[$sel_domain]) > $domain_limit) {
+                                $f = array_pop($backup_files[$sel_domain]);
+                                if ($f === null) break;
+                                $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE);
+                                unlink($f);
+                            }
+                        }
+                    }
+                    break;
+                case "ftp":
+                    $ftp_conn = $this->adminHandler->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
+                    if (!$ftp_conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+
+                    $ftpFiles = ftp_mlsd($ftp_conn, $config['path']);
+                    foreach ($ftpFiles as $ftpFile){
+                        if (in_array($ftpFile['type'], ['cdir', 'pdir', 'dir'])) continue;
+                        if (!str_contains($ftpFile['name'], '.')) continue; // No dot, then no extension
+
+                        $details = explode('.', $ftpFile['name']);
+                        $ext = $details[count($details) - 1];
+
+                        // Not an SQL dump, ignore it
+                        if (!in_array(strtolower($ext), ['sql', 'xz', 'gzip', 'bz2'])) continue;
+                        $segments = explode('_', explode('.', $ftpFile['name'])[0]);
+                        if (count($segments) !== 3 || !in_array($segments[2], ['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual']))
+                            continue;
+                        if (!isset($backup_files[$segments[2]])) $backup_files[$segments[2]] = [];
+                        $backup_files[$segments[2]][] = $config['path'] . '/' . $ftpFile['name'];
+                    }
+
+
+                    foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
+                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+
+                        if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
+                            rsort($backup_files[$sel_domain]);
+                            while (count($backup_files[$sel_domain]) > $domain_limit) {
+                                $f = array_pop($backup_files[$sel_domain]);
+                                if ($f === null) break;
+                                $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE);
+                                ftp_delete($ftp_conn, $f);
+                            }
+                        }
+                    }
+
+                    ftp_close($ftp_conn);
+                    break;
+                case "sftp":
+                    $conn = $this->adminHandler->connectToSftp($config['host'], $config['port'], $config['user'], $config['pass']);
+                    if(!$conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+                    $sftp_fd = ssh2_sftp($conn);
+                    $handle = opendir("ssh2.sftp://$sftp_fd{$config['path']}");
+
+                    while (false != ($entry = readdir($handle))){
+                        if (in_array($entry, ['.', '..'])) continue;
+                        if (!str_contains($entry, '.')) continue; // No dot, then no extension
+
+                        $details = explode('.', $entry);
+                        $ext = $details[count($details) - 1];
+
+                        // Not an SQL dump, ignore it
+                        if (!in_array(strtolower($ext), ['sql', 'xz', 'gzip', 'bz2'])) continue;
+                        $segments = explode('_', explode('.', $entry)[0]);
+                        if (count($segments) !== 3 || !in_array($segments[2], ['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual']))
+                            continue;
+                        if (!isset($backup_files[$segments[2]])) $backup_files[$segments[2]] = [];
+                        $backup_files[$segments[2]][] = $config['path'] . '/' . $entry;
+                    }
+                    closedir($handle);
+
+                    foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
+                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+
+                        if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
+                            rsort($backup_files[$sel_domain]);
+                            while (count($backup_files[$sel_domain]) > $domain_limit) {
+                                $f = array_pop($backup_files[$sel_domain]);
+                                if ($f === null) break;
+                                $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE);
+                                ssh2_sftp_unlink($sftp_fd, $f);
+                            }
+                        }
+                    }
+
+                    ssh2_disconnect($conn);
+                    break;
             }
         }
+
+        // We remove the temporary backup file (as it should be stored in the different enabled storages)
+        unlink($filename);
 
         return 0;
     }

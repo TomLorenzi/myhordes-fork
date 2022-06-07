@@ -206,7 +206,7 @@ class ZoneHandler
                             // Novelty Lamps are at lv1 and the zone distance is above 6km; apply malus
                             elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6) $factor -= $night_mode_malue;
                             // Novelty Lamps are at lv2 and the zone distance is above 10km; apply malus
-                            elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 10) $factor -= $night_mode_malue;
+                            elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 999) $factor -= $night_mode_malue;
                             // Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
                             // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10) $factor += 0.2;
 
@@ -261,22 +261,13 @@ class ZoneHandler
                 $executable_timer->setDigCache(null);
             else foreach ($executable_timer->getDigCache() as $time => $mode) {
 
-                switch ($mode) {
-                    case -1:
-                        $item_prototype = null;
-                        break;
-                    case 0:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $empty_group, $conf );
-                        break;
-                    case 1:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $base_group, $conf );
-                        break;
-                    case 2:
-                        $item_prototype = $this->random_generator->pickItemPrototypeFromGroup( $event_group ?? $base_group, $conf );
-                        break;
-                    default:
-                        $item_prototype = null;
-                }
+                $item_prototype = match ($mode) {
+                    -1 => null,
+                    0 => $this->random_generator->pickItemPrototypeFromGroup($empty_group, $conf),
+                    1 => $this->random_generator->pickItemPrototypeFromGroup($base_group, $conf),
+                    2 => $this->random_generator->pickItemPrototypeFromGroup($event_group ?? $base_group, $conf),
+                    default => null,
+                };
 
                 $zone_update = true;
 
@@ -317,9 +308,9 @@ class ZoneHandler
                     $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, (new DateTime())->setTimestamp($time) ) );
                 }
 
-                // Banished citizen's stach check
+                // Banished citizen's stash check
                 if(!$executable_timer->getCitizen()->getBanished() && $this->hasHiddenItem($executable_timer->getZone()) && $this->random_generator->chance(0.05)){
-                    $items = $timer->getZone()->getFloor()->getItems();
+                    $items = $executable_timer->getZone()->getFloor()->getItems();
                     $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
                     if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
                         $ret_str[] = $this->trans->trans('Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto), '{citizen}' => $current_citizen ], 'game');
@@ -396,7 +387,7 @@ class ZoneHandler
             $total_zombies += $zone->getZombies();
             $killedZombies += ($zone->getInitialZombies() - $zone->getZombies());
 
-            $despair = max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2);
+            $despair = floor(max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2));
             if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
             $zone_db[$zone->getX()][$zone->getY()] = $zone->getZombies();
             $despair_db[$zone->getX()][$zone->getY()] = $despair;
@@ -551,10 +542,13 @@ class ZoneHandler
             foreach ($zone->getChatSilenceTimers() as $cst)
                 $this->entity_manager->remove( $cst );
             $zone->getChatSilenceTimers()->clear();
-            foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
+            foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry) {
                 /** @var TownLogEntry $entry */
-                if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile() )
-                    $this->entity_manager->remove( $entry );
+                if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile()) {
+                    $entry->setAdminOnly(true);
+                    $this->entity_manager->persist($entry);
+                }
+            }
         }
 
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer

@@ -93,7 +93,7 @@
     </unit>
     <unit id="8Ld23ql" name="Wildes Campen">
       <notes>
-        <note category="from">twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/seo/help.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
         <source>Wildes Campen</source>
@@ -327,7 +327,7 @@
     </unit>
     <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
       <notes>
-        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/seo/help.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/seo/help.html.twig</note>
       </notes>
       <segment>
         <source>Der Angriff der Zombiehorde</source>
@@ -4861,7 +4861,7 @@ müssen durchdacht geplant werden.</target>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Jede Nacht um Mitternacht (UTC+1) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</target>
+        <target>Jede Nacht um Mitternacht (MEZ/MESZ) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">
@@ -7898,6 +7898,33 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die &lt;a x-group-connect="{oglink}" href="#"&gt;Offizielle Gruppe&lt;/a&gt; des Technischen Supports.</source>
         <target><![CDATA[<strong>DEN SUPPORT KONTAKTIEREN:</strong>
 Um Kontakt mit den Administratoren aufzunehmen, schreibe an die <a x-group-connect="{oglink}" href="#">Offizielle Gruppe</a> des Technischen Supports.]]></target>
+      </segment>
+    </unit>
+    <unit id="YoDh.OZ" name="Die Hilfe durchsuchen">
+      <notes>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Hilfe durchsuchen</source>
+        <target>Die Hilfe durchsuchen</target>
+      </segment>
+    </unit>
+    <unit id="2JY6gfN" name="Wichtig:">
+      <notes>
+        <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wichtig:</source>
+        <target>Wichtig:</target>
+      </segment>
+    </unit>
+    <unit id="Nhv16uC">
+      <notes>
+        <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
+      </notes>
+      <segment>
+        <source>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</source>
+        <target>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</target>
       </segment>
     </unit>
   </file>

@@ -11,11 +11,9 @@
         <div class="center"><span class="small">{{'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...'|trans({}, 'soul')}}</span></div>
         {% endif %}
 
-        <div style="overflow: auto;">
-            <div class="{{rp.text.background}}">
-                <div class="rp-content design-{{rp.text.design}}" x-ajax-href="{%if rp.text.pages|length > 1 and current < rp.text.pages|length %}{{path('soul_rp', {id: rp.id, page: current+1})}}{% else %}{{ path('soul_rps') }}{% endif %}">
-                    {{page.content|raw}}
-                </div>
+        <div class="{{rp.text.background}}">
+            <div class="rp-content design-{{rp.text.design}}" x-ajax-href="{%if rp.text.pages|length > 1 and current < rp.text.pages|length %}{{path('soul_rp', {id: rp.id, page: current+1})}}{% else %}{{ path('soul_rps') }}{% endif %}">
+                {{page.content|raw}}
             </div>
         </div>
 

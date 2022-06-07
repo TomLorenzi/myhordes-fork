@@ -294,7 +294,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $noAutoFollowThreads = false;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class)
+     * @ORM\ManyToMany(targetEntity=User::class, fetch="EXTRA_LAZY")
      */
     private $friends;
 
@@ -302,6 +302,16 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      * @ORM\Column(type="boolean")
      */
     private $classicBankSort = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $noAutomaticNameManagement = false;
+
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private $flag;
 
     public function __construct()
     {
@@ -418,13 +428,17 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
 
+    public function isDisabled(): bool {
+        return $this->pass === null && $this->getEternalID() === null;
+    }
+
     /**
      * @inheritDoc
      */
     public function getRoles(): array
     {
         $roles = [];
-        if ($this->pass === null && $this->getEternalID() === null) return $roles;
+        if ($this->isDisabled()) return $roles;
 
         if     ($this->rightsElevation >= self::USER_LEVEL_SUPER)  $roles[] = 'ROLE_SUPER';
         elseif ($this->rightsElevation >= self::USER_LEVEL_ADMIN)  $roles[] = 'ROLE_ADMIN';
@@ -1228,6 +1242,30 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setClassicBankSort(bool $classicBankSort): self
     {
         $this->classicBankSort = $classicBankSort;
+
+        return $this;
+    }
+
+    public function getNoAutomaticNameManagement(): ?bool
+    {
+        return $this->noAutomaticNameManagement;
+    }
+
+    public function setNoAutomaticNameManagement(bool $noAutomaticNameManagement): self
+    {
+        $this->noAutomaticNameManagement = $noAutomaticNameManagement;
+
+        return $this;
+    }
+
+    public function getFlag(): ?string
+    {
+        return $this->flag;
+    }
+
+    public function setFlag(?string $flag): self
+    {
+        $this->flag = $flag;
 
         return $this;
     }

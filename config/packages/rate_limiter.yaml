@@ -1,11 +1,26 @@
 framework:
   rate_limiter:
     anonymous_api:
-      # use 'sliding_window' if you prefer that policy
       policy: 'sliding_window'
       limit: 1000
       interval: '60 minutes'
     authenticated_api:
       policy: 'token_bucket'
-      limit: 5000
-      rate: { interval: '15 minutes', amount: 500 }
+      limit: 7500
+      rate: { interval: '15 minutes', amount: 750 }
+    blackboard_edit_slide:
+      policy: 'token_bucket'
+      limit: 10
+      rate: { interval: '2 minutes', amount: 1 }
+    blackboard_edit_fixed:
+      policy: 'fixed_window'
+      limit: 100
+      interval: '24 hours'
+    forum_thread_creation:
+      policy: 'token_bucket'
+      limit: 10
+      rate: { interval: '10 minutes', amount: 1 }
+    report_to_moderation:
+      policy: 'fixed_window'
+      limit: 20
+      interval: '12 hours'

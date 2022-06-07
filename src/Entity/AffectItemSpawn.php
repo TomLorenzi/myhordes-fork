@@ -19,6 +19,7 @@ class AffectItemSpawn
     const DropTargetDefault = 0;
     const DropTargetRucksack = 1;
     const DropTargetFloor = 2;
+    const DropTargetPreferRucksack = 3;
 
     /**
      * @ORM\Id()

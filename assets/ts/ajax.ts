@@ -367,6 +367,11 @@ export default class Ajax {
                 case 'process': default: break;
             }
 
+            if (this.getResponseHeader('X-Session-Domain')) {
+                const [p = '0', v1 = '0', v2 = '0', v3 = '0'] = this.getResponseHeader('X-Session-Domain').split(':');
+                $.client.setSessionDomain(parseInt(p),parseInt(v1),parseInt(v2),parseInt(v3));
+            }
+
             if (this.status >= 400) {
                 this_promise[1]();
                 switch (this.status) {
@@ -446,6 +451,12 @@ export default class Ajax {
                     return;
                 case 'process': default: break;
             }
+
+            if (this.getResponseHeader('X-Session-Domain')) {
+                const [p = '0', v1 = '0', v2 = '0', v3 = '0'] = this.getResponseHeader('X-Session-Domain').split(':');
+                $.client.setSessionDomain(parseInt(p),parseInt(v1),parseInt(v2),parseInt(v3));
+            }
+
             callback( this.response, this.status );
             if (!no_loader) $.html.removeLoadStack();
         });

@@ -257,6 +257,10 @@ div.tooltip.badge-tooltip {
                 background-color:#3b3249;
             }
 
+            .row-flex.common {
+                background-color: #0A3019;
+            }
+
             .row-flex.event {
               background-color: @myhordes-green-color;
             }
@@ -623,4 +627,14 @@ div#user-tooltip {
     .row:hover {
         outline: none !important;
     }
+}
+
+.user-flag {
+  display: inline-block; width: 36px; height: 28px;
+  position: relative;
+  &.small { width: 24px; height: 19px }
+  &>img:first-child { width: 27px; height: 19px; position: absolute; left: 4px; top: 4px; }
+  &.small>img:first-child { width: 20px; height: 16px; left: 2px; top: 1px; }
+
+  &:after { content: " "; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("../../img/lang/mask.png") center/cover no-repeat }
 }

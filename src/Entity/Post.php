@@ -79,7 +79,9 @@ class Post
      */
     private $_readMarkers;
 
-    private $new = false;
+    private bool $new = false;
+    private bool $hydrated = false;
+    private ?string $hydrated_text = null;
 
     /**
      * @ORM\Column(type="boolean")
@@ -154,7 +156,7 @@ class Post
 
     public function getText(): ?string
     {
-        return $this->text;
+        return $this->hydrated_text ?? $this->text;
     }
 
     public function setText(string $text): self
@@ -277,6 +279,18 @@ class Post
         return $this;
     }
 
+    public function getHydrated(): bool {
+        return $this->hydrated;
+    }
+
+    public function setHydrated(string $text): self {
+        if (!$this->hydrated) {
+            $this->hydrated = true;
+            $this->hydrated_text = $text;
+        }
+        return $this;
+    }
+
     public function getTranslate(): ?bool
     {
         return $this->translate;
@@ -303,12 +317,11 @@ class Post
 
     public function isEditable(): bool {
         if ($this->getTranslate()) return false;
-        switch ($this->getEditingMode()) {
-            case self::EditorTimed: return (time() - $this->getDate()->getTimestamp()) < 600;
-            case self::EditorPerpetual: return true;
-
-            default: return false;
-        }
+        return match ($this->getEditingMode()) {
+            self::EditorTimed => (time() - $this->getDate()->getTimestamp()) < 600,
+            self::EditorPerpetual => true,
+            default => false,
+        };
     }
 
     public function getLastAdminActionBy(): ?User

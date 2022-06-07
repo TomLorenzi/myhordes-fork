@@ -1,36 +1,39 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
-    {% macro icon_master(user) %}
-        {% if user|is_granted('ROLE_SUPER') %}
-            <div class="inline-block mh-icon">
-                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
-                <div class="tooltip">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>
-            </div>
-        {% elseif user|is_granted('ROLE_ADMIN') %}
-            <div class="inline-block mh-icon">
-                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
-                <div class="tooltip">{{ 'Dieser Spieler ist ein Entwickler von MyHordes.'|trans({},'global') }}</div>
-            </div>
-        {% elseif user|is_granted('ROLE_CROW') %}
-            <div class="inline-block mh-icon">
-                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
-                <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
-            </div>
-        {% elseif user|is_granted('ROLE_ANIMAC') %}
-            <div class="inline-block mh-icon">
-                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_anim.gif') }}" />
-                <div class="tooltip">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
-            </div>
-        {% elseif user|is_granted('ROLE_ORACLE') %}
-            <div class="inline-block mh-icon">
-                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
-                <div class="tooltip">{{ 'Dieser Spieler ist ein Orakel auf MyHordes.'|trans({},'global') }}</div>
-            </div>
-        {% elseif user|is_granted('ROLE_TEAM') %}
-            <div class="inline-block mh-icon">
-                <img alt="MHA" src="{{ asset('build/images/icons/icon_mh_team.gif') }}" />
-                <div class="tooltip">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
-            </div>
+    {% macro icon_master(post) %}
+        {% set user = post.owner %}
+        {% if post.type != "USER" or post.thread.forum.town is null %}
+            {% if user|is_granted('ROLE_SUPER') %}
+                <div class="inline-block mh-icon">
+                    <img alt="ADM" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>
+                </div>
+            {% elseif user|is_granted('ROLE_ADMIN') %}
+                <div class="inline-block mh-icon">
+                    <img alt="ADM" src="{{ asset('build/images/icons/icon_mh_admin.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Entwickler von MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% elseif user|is_granted('ROLE_CROW') %}
+                <div class="inline-block mh-icon">
+                    <img alt="MOD" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% elseif user|is_granted('ROLE_ANIMAC') %}
+                <div class="inline-block mh-icon">
+                    <img alt="ANIM" src="{{ asset('build/images/icons/icon_mh_anim.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% elseif user|is_granted('ROLE_ORACLE') %}
+                <div class="inline-block mh-icon">
+                    <img alt="ORAC" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Orakel auf MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% elseif user|is_granted('ROLE_TEAM') %}
+                <div class="inline-block mh-icon">
+                    <img alt="MH" src="{{ asset('build/images/icons/icon_mh_team.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% endif %}
         {% endif %}
     {% endmacro %}
 
@@ -42,17 +45,11 @@
             {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
             <div class="row-flex wrap stretch">
                 <div class="cell padded grow-1 left">
-                    {% if owned and not locked %}
-                        <div x-forum-moderator-action="lock" class="forum-button">
-                            <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                            <span>{{ 'Schließen'|trans({},'global') }}</span>
-                        </div>
-                    {% endif %}
                     {% if permission.moderate() %}
                         <div tabindex="0" class="forum-button button-dropdown-button" style="padding: 4px;">
                             <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
                             <div class="button-dropdown">
-                                {% if not locked and not owned %}
+                                {% if not locked %}
                                     <div tabindex="0" x-forum-moderator-action="lock" class="forum-button">
                                         <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
                                         <span>{{ 'Schließen'|trans({},'global') }}</span>
@@ -128,11 +125,11 @@
             <div class="row">
                 <div id="pagenav-{{ id }}" class="cell rw-12 padded center">
                     {% if current_page > 1 %}
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
                     {% else %}
-                        <div class="forum-button-disabled"><i class="fa fa-fast-backward"></i></div>
-                        <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
                     {% endif %}
                     <div class="forum-button" x-forum-action="post-select-page">
                         {{ 'Seite {page}/{pages}'|trans({'{page}': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '{pages}': pages},'global')|raw }}
@@ -141,11 +138,11 @@
                         </div>
                     </div>
                     {% if current_page < pages %}
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
-                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
                     {% else %}
-                        <div class="forum-button-disabled"><i class="fa fa-forward"></i></div>
-                        <div class="forum-button-disabled"><i class="fa fa-fast-forward"></i></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" /></div>
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_next.gif') }}" /></div>
                     {% endif %}
                 </div>
             </div>
@@ -234,7 +231,7 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post.owner))}}<br />
+                        {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post))}}<br />
                         {% if post.owner.name == 'Der Rabe' %}
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
@@ -370,7 +367,7 @@
         const reloadPage = function() { loadPage( {{ current_page }} ); };
         const reloadForum = function() { $.ajax.no_history().load( null, '{{ url('forum_view', {id: fid}) }}', false ); }
 
-        {% if owned or permission.moderate %}
+        {% if permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="lock"]', 'click', function(e,elem) {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;

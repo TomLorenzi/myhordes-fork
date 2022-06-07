@@ -35,6 +35,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -112,6 +113,11 @@ class MigrateCommand extends Command
         'c25ec1d6d328d9d3bc03dda9d9bb34873a56484d' => [ ['app:migrate', ['--fix-forum-posts' => true] ] ],
         '049ee184a6e5e2ecb5599a8fc7aa2a8b15948d36' => [ ['app:migrate', ['--reassign-thread-tags' => true] ] ],
         '7fb1baba0c40004b02a556175a73edfa170bdeff' => [ ['app:migrate', ['--calculate-score' => true] ] ],
+        'a45dec20a02f017ab1963d2f0c30e4fa7de9ddf5' => [ ['app:migrate', ['--assign-estimation-seed' => true] ] ],
+        '2c688bfc00992c98193e9480848e2f1e63be9d04' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
+        'f38e93b3cc6e37542112c53771d65fe00e05e7a1' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
+        '6e3bce82be2e25424ed46de660aaf7d2ca30450f' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
+        'd82e52568784983dc614830ac43cc906e874b5a0' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -175,6 +181,8 @@ class MigrateCommand extends Command
             ->addOption('fix-ranking-survived-days', null, InputOption::VALUE_NONE, 'Fix survived day count in rankings')
             ->addOption('reassign-thread-tags', null, InputOption::VALUE_NONE, 'Repairs ThreadTag assignment to forums')
             ->addOption('assign-official-tag', null, InputOption::VALUE_NONE, 'Assign the Official tag in the Town forums')
+            ->addOption('assign-estimation-seed', null, InputOption::VALUE_NONE, 'Assign the random seed in existing Zombie Estimation Entities')
+            ->addOption('assign-disable-flags', null, InputOption::VALUE_NONE, 'Assign the DisableFlag in the ranking entries according to their disable state')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -183,8 +191,10 @@ class MigrateCommand extends Command
             ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
 
             ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
+            ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
+            ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -685,6 +695,56 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
         }
 
+        if ($input->getOption('assign-estimation-seed')) {
+            $estimations = $this->entity_manager->getRepository(ZombieEstimation::class)->findAll();
+            foreach ($estimations as $estimation) {
+                if($estimation->getSeed() === null || $estimation->getSeed() === 0) {
+                    $seed = $estimation->getCitizens()->count() > 0 ? $estimation->getDay() + $estimation->getTown()->getId() : mt_rand(PHP_INT_MIN, PHP_INT_MAX);
+                    $estimation->setSeed($seed);
+                    $this->entity_manager->persist($estimation);
+                }
+            }
+            $this->entity_manager->flush();
+        }
+
+        if ($input->getOption('assign-disable-flags')) {
+            // A disabled citizen/town has in fact its Ranking disabled. Not its pictos / soul points
+            $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($citizens) . "</info> citizens to update !");
+            foreach ($citizens as $citizen) {
+                $flag = $citizen->getResetMarker() ? CitizenRankingProxy::DISABLE_ALL : CitizenRankingProxy::DISABLE_RANKING;
+                $this->entity_manager->persist($citizen
+                    ->addDisableFlag($flag)
+                    ->setDisabled(false));
+            }
+            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($towns) . "</info> towns to update !");
+            foreach ($towns as $town) {
+                $this->entity_manager->persist($town->addDisableFlag(TownRankingProxy::DISABLE_RANKING)->setDisabled(false));
+                foreach ($town->getCitizens() as $citizen) {
+                    $this->entity_manager->persist($citizen->getUser()
+                        ->setSoulPoints($this->user_handler->fetchSoulPoints($citizen->getUser(), false))
+                        ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($citizen->getUser()))
+                    );
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town) as $picto)
+                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+                }
+            }
+
+            $this->entity_manager->flush();
+
+            $this->helper->leChunk($output, User::class, 50, [], true, false, function(User $user) {
+                $user
+                    ->setSoulPoints($this->user_handler->fetchSoulPoints($user, false))
+                    ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
+            }, true);
+
+            $this->helper->leChunk($output, CitizenRankingProxy::class, 100, [], true, false, function(CitizenRankingProxy $citizen) {
+                foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $citizen->getTown()) as $picto)
+                    $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+            }, true);
+        }
+
         if ($input->getOption('repair-proxies')) {
             $this->helper->leChunk($output, CitizenRankingProxy::class, 1000, [], true, false, function(CitizenRankingProxy $cp): bool {
                 $b = false;
@@ -900,6 +960,88 @@ class MigrateCommand extends Command
             }, true);
 
             return 0;
+        }
+
+        if ($input->getOption('fix-flag-setting')) {
+            $flags = [];
+            foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/lang/any") as $f)
+                if ($f !== '.' && $f !== '..' && str_ends_with( strtolower($f), '.svg' )) $flags[] = substr( $f, 0, -4);
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($flags) {
+                if ($user->getFlag() === null || in_array( $user->getFlag(), $flags )) return false;
+
+                if     ( in_array( $user->getFlag(), ['GP','PM','RE'] ) ) $user->setFlag( 'FR' );
+                elseif ( in_array( $user->getFlag(), ['UM'] ) )           $user->setFlag( 'US' );
+                else $user->setFlag( null );
+                return true;
+            }, true);
+
+            return 0;
+        }
+
+        if ($input->getOption('update-world-forums')) {
+
+            $name_assignment = [
+                'Weltforum' => ['Diskussionen','de'],
+                'Forum Monde' => ['Discussions','fr'],
+                'English Forum' => ['Discussions','en'],
+                'Foro mundial' => ['Discusiones','es']
+            ];
+
+            foreach ( $name_assignment as $original => [$new,$lang] ) {
+                $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $original, 'worldForumLanguage' => null]);
+                if ($forum) {
+                    $output->writeln("Renaming forum <info>{$forum->getTitle()}</info> to <info>{$new}</info> [<info>{$lang}</info>].");
+                    $this->entity_manager->persist( $forum->setTitle( $new )->setWorldForumLanguage( $lang ) );
+                }
+            }
+
+            $this->entity_manager->flush();
+
+            $forum_data_assignment = [
+                'de' => [
+                    [ 'Hilfe', 'bannerForumHelp.gif', 'In diesem Forum könnt ihr Fragen stellen, Überlebensstrategien besprechen und euch austauschen.' ],
+                    [ 'Diskussionen', 'bannerForumDiscuss.gif', 'In diesem Forum könnt ihr Überlebensstrategien besprechen und Spielvorschläge (...ohne Garantie!) machen.' ],
+                    [ 'Der Saloon', 'bannerForumSalon.gif', 'Der Saloon ist ein Raum für stimmungsvolle Diskussionen rund um das MyHordes-Universum (RP oder nicht).' ],
+                ],
+                'fr' => [
+                    [ 'Aide', 'bannerForumHelp.gif', 'Ici vous trouverez les réponses à vos questions, attention toutefois, le corbeau vous a à l\'oeil.' ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'Vous pouvez discuter entre vous, attention toutefois, le corbeau vous a à l\'oeil.' ],
+                    [ 'Le Saloon', 'bannerForumSalon.gif', 'Le Saloon est un espace réservé aux discussions d\'ambiance autour de l’univers de Hordes (RP ou pas).' ],
+                ],
+                'en' => [
+                    [ 'Help', 'bannerForumHelp.gif', 'Discuss the rules and ask questions directly related to the rules of the game.' ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'You can chat with each other, be careful though, the crow is watching.' ],
+                    [ 'The Saloon', 'bannerForumSalon.gif', 'The Saloon is a space reserved for discussions about the MyHordes universe (RP or not).' ],
+                ],
+                'es' => [
+                    [ 'Ayuda General', 'bannerForumHelp.gif', 'Antes de crear un nuevo tema, haz una búsqueda por palabra clave. ¡Aquí no van los pedidos de auxilio!' ],
+                    [ 'Discusiones', 'bannerForumDiscuss.gif', 'Podéis charlar entre vosotros, pero tened cuidado, el cuervo está mirando.' ],
+                    [ 'Historias de MyHordes', 'bannerForumSalon.gif', 'Relatos y leyendas de los habitantes de este mundo condenado.' ],
+                ]
+            ];
+
+            foreach ( $forum_data_assignment as $lang => $data )
+                foreach ( $data as $sort => [ $title, $icon, $desc ] ) {
+
+                    $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
+                    if (!$forum) {
+                        if (!$this->helper->capsule('app:forum:create ' . escapeshellarg($title) . ' 0 --lang ' . $lang, $output))
+                            return 2;
+
+                        $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
+                    }
+
+                    if (!$forum) return 3;
+                    $output->writeln("Updating forum <info>{$forum->getTitle()}</info> [<info>{$lang}</info>] meta data.");
+
+                    $this->entity_manager->persist(
+                        $forum->setDescription( $desc )->setIcon( $icon )->setWorldForumSorting( $sort )
+                    );
+
+                }
+
+            $this->entity_manager->flush();
+
         }
 
         if ($input->getOption('prune-rp-texts')) {

@@ -355,12 +355,12 @@
     <unit id="ync5VnT">
       <notes>
         <note category="german">So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">db://GazetteEntryTemplate</note>
       </notes>
       <segment>
         <source>So richtig scheint keiner über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} und &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target><![CDATA[So richtig scheint keiner über den Tod von <i class="dagger">†</i> {cadaver1} und <i class="dagger">†</i> {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.]]></target>
+        <target><![CDATA[No one really seems to mourn the death of <i class="dagger">†</i> {cadaver1} and <i class="dagger">†</i> {cadaver2}. They were probably not the most popular in town.]]></target>
       </segment>
     </unit>
     <unit id="WGjdoHe">
@@ -3267,6 +3267,16 @@
       <segment>
         <source>Das neueste Geschwätz:</source>
         <target>Das neueste Geschwätz:</target>
+      </segment>
+    </unit>
+    <unit id="Lg5PYa2">
+      <notes>
+        <note category="german">Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</note>
+        <note category="from">php:///src/Service/GazetteService.php</note>
+      </notes>
+      <segment>
+        <source>Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...</source>
+        <target>Our scouts report that they have spotted a mysterious stranger in the vicinity of the town...</target>
       </segment>
     </unit>
   </file>

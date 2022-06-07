@@ -426,17 +426,16 @@ class HTMLConverterFromBlocks {
         }
 
         let quotespace = false;
+        let no_announces = false;
         let raw_fallback = false;
         let cp = parent;
 
         while (cp) {
             if (cp.nodeType === Node.ELEMENT_NODE) {
                 if (!quotespace   && cp.classList.contains('no-quote')) quotespace = true;
+                if (!no_announces && cp.classList.contains('no-announce')) no_announces = true;
                 if (!raw_fallback && (cp.tagName === 'PRE' || cp.classList.contains('raw-fallback'))) raw_fallback = true;
             }
-
-            if (cp.nodeType === Node.ELEMENT_NODE && cp.classList.contains('no-quote'))
-                quotespace = true;
             cp = cp.parentNode as HTMLElement;
         }
 
@@ -498,16 +497,16 @@ class HTMLConverterFromBlocks {
                     else if (block.hasClass('sideNote'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'aparte' );
                     else if (block.hasClass('adminAnnounce'))
-                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'admannounce' );
+                        ret += no_announces ? block.nodeText : HTMLConverterFromBlocks.wrapBlock( block, 'admannounce' );
                     else if (block.hasClass('modAnnounce'))
-                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'modannounce' );
+                        ret += no_announces ? block.nodeText : HTMLConverterFromBlocks.wrapBlock( block, 'modannounce' );
                     else if (block.hasClass('oracleAnnounce'))
-                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'announce' );
+                        ret += no_announces ? block.nodeText : HTMLConverterFromBlocks.wrapBlock( block, 'announce' );
                     else if (block.hasClass('rpText'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'rp' );
                     else if (block.hasClass('glory'))
                         ret += HTMLConverterFromBlocks.wrapBlock(block, 'glory');
-                    else ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;;
+                    else ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;
                     break;
                 case 'blockquote':
                     ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( block, 'quote' );
@@ -538,8 +537,8 @@ class HTMLConverterFromBlocks {
 
 export default class TwinoAlikeParser {
 
-    public readonly OpModeRaw   = 0x1;
-    public readonly OpModeQuote = 0x2;
+    public readonly OpModeRaw        = 0x1;
+    public readonly OpModeQuote      = 0x2;
     public AjaxUrl = "";
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
@@ -803,19 +802,36 @@ export default class TwinoAlikeParser {
         }
     }
 
+    private static collapseTextNodes( elem: HTMLElement ) {
+        if (elem.nodeType === Node.TEXT_NODE) {
+            if (!elem.parentElement) return;
+            while (elem.nextSibling?.nodeType === Node.TEXT_NODE) {
+                elem.textContent += elem.nextSibling.textContent;
+                elem.nextSibling.remove();
+            }
+        } else {
+            let children = elem.childNodes;
+            for (let i = 0; i < children.length; i++)
+                this.collapseTextNodes( children[i] as HTMLElement )
+        }
+    }
+
     private static processPlayerNames( target: HTMLElement ) {
         target.querySelectorAll( '[x-qi][x-qn]' ).forEach( (elem:HTMLElement) => {
             const player_data =
                 ( elem.getAttribute('x-qi' ) ? playerCache.id[elem.getAttribute('x-qi' )] : null ) ??
                 ( elem.getAttribute('x-qn' ) ? playerCache.name[elem.getAttribute('x-qn' )] : null ) ?? null;
 
-            if (player_data && player_data.exists) {
+            if (player_data && player_data.exists === 1) {
                 elem.classList.add("username");
                 elem.setAttribute("x-user-id", player_data.id);
                 elem.textContent = player_data.displayName;
                 elem.removeAttribute('x-qi');
                 elem.removeAttribute('x-qn');
                 $.html.handleUserPopup(<HTMLElement>elem);
+            } else if (player_data && player_data.exists > 1) {
+                elem.classList.add("username");
+                elem.textContent = '[ ' + player_data.displayName + ' ]';
             } else if (player_data === null) {
                 elem.classList.add("username");
                 elem.innerHTML = '<i class="fa fa-pulse fa-spinner"></i>'
@@ -840,7 +856,10 @@ export default class TwinoAlikeParser {
         TwinoAlikeParser.parseInsets(container_node);
         TwinoAlikeParser.parseEmotes(container_node, resolver);
 
+        TwinoAlikeParser.collapseTextNodes( container_node );
+
         changed = true;
+
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,true);
 
         let c = null;
@@ -881,7 +900,8 @@ export default class TwinoAlikeParser {
                     }, (data) => {
 
                         (data as unknown as { data: Array<playerCacheEntry> })?.data?.forEach( player => {
-                            playerCache.id[ player.id ] = playerCache.name[ player.queryName ] = player;
+                            playerCache.name[ player.queryName ] = player;
+                            if (player.id > 0) playerCache.id[ player.id ] = player;
                         } );
 
                         missing_ids.forEach( id => { if (!playerCache.id[id]) delete playerCache.id[id] } );
@@ -959,7 +979,7 @@ export default class TwinoAlikeParser {
     parseFrom( htmlText: string, opmode: number ): string {
 
         let container_node = document.createElement('p');
-        if (opmode & this.OpModeQuote) container_node.classList.add('no-quote');
+        if (opmode & this.OpModeQuote) container_node.classList.add('no-quote', 'no-announce');
         if (opmode & this.OpModeRaw)   container_node.classList.add('raw-fallback');
         container_node.innerHTML = htmlText;
 

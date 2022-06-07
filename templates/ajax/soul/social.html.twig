@@ -123,6 +123,17 @@
                                                 <img x-friend-id="{{ entry.id }}" x-friend-control="1" src="{{ asset('build/images/icons/addContact.png') }}" alt="" />
                                                 <div class="tooltip">{{ 'Kontakt hinzufügen'|trans({}, 'soul') }}</div>
                                             </div>
+                                            {% if app.user|related(entry, constant('App\\Entity\\SocialRelation::SocialRelationTypeNotInterested')) %}
+                                                <div class="inline pointer">
+                                                    <img x-friend-id="{{ entry.id }}" x-friend-control="unignore" src="{{ asset('build/images/icons/small_more2.gif') }}" alt="" />
+                                                    <div class="tooltip">{{ 'Nicht länger ausblenden'|trans({}, 'soul') }}</div>
+                                                </div>
+                                            {% else %}
+                                                <div class="inline pointer">
+                                                    <img x-friend-id="{{ entry.id }}" x-friend-control="ignore" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="" />
+                                                    <div class="tooltip">{{ 'Ausblenden'|trans({}, 'soul') }}</div>
+                                                </div>
+                                            {% endif  %}
                                             <div class="inline pointer">
                                                 <img x-ajax-href="{{ path('soul_visit', {id: entry.id}) }}" alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
                                                 <div class="tooltip">{{'Seine Seele ansehen'|trans({ref: entry}, 'game')}}</div>
@@ -131,6 +142,11 @@
                                     </div>
                                 {% endfor %}
                             </div>
+                        </div>
+                    {% endif %}
+                    {% if reverse_friends_hidden %}
+                        <div class="padded cell rw-12 small">
+                            <a href="#" x-ajax-href="{{ path('soul_contacts', {opt: 1}) }}">{{ 'Ausgeblendete Spieler anzeigen'|trans({},'soul') }}</a>
                         </div>
                     {% endif %}
                 </div>
@@ -293,16 +309,26 @@
     {{parent()}}
     <script>
         $.html.addEventListenerAll('[x-to-coa]', 'click', (e,elem) => {
-            $.ajax.easySend(elem.getAttribute('x-to-coa'), {}, () => $.ajax.load(null, elem.hasAttribute('x-contacts') ? '{{ path('soul_contacts') }}' : '{{ path('soul_refer') }}'));
+            $.ajax.easySend(elem.getAttribute('x-to-coa'), {}, () => $.ajax.load(null, elem.hasAttribute('x-contacts') ? '{{ path('soul_contacts', {opt: opt}) }}' : '{{ path('soul_refer') }}'));
         })
         $.html.addEventListenerAll('[x-friend-control="0"][x-friend-id]', 'click', (e,elem) => {
             if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) $.ajax.easySend( '{{ path('soul_friend_control', {action: 0}) }}', {'id': elem.getAttribute('x-friend-id')},
-                () => $.ajax.load(null, '{{ path('soul_contacts') }}')
+                () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
             );
         });
         $.html.addEventListenerAll('[x-friend-control="1"][x-friend-id]', 'click', (e,elem) => {
             $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-friend-id')},
-                () => $.ajax.load(null, '{{ path('soul_contacts') }}')
+                () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
+            );
+        });
+        $.html.addEventListenerAll('[x-friend-control="ignore"][x-friend-id]', 'click', (e,elem) => {
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) $.ajax.easySend( '{{ path('soul_ignore_control', {action: 1}) }}', {'id': elem.getAttribute('x-friend-id')},
+                () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
+            );
+        });
+        $.html.addEventListenerAll('[x-friend-control="unignore"][x-friend-id]', 'click', (e,elem) => {
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) $.ajax.easySend( '{{ path('soul_ignore_control', {action: 0}) }}', {'id': elem.getAttribute('x-friend-id')},
+                () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
             );
         });
         $.html.addEventListenerAll('[x-ulink]', 'click', (e, elem) => {
@@ -320,13 +346,14 @@
             url = url.replace("0", elem.getAttribute("x-user-id"));
             $.ajax.easySend( url, {},
                 function () {
-                    $.ajax.load(null, '{{ path('soul_contacts', {}) }}', true);
+                    $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}', true);
                 } );
         });
 
         let typingTimer, doneTypingInterval = 500;
         let searchBox = document.getElementById('users-search');
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             if (searchBox.value.length >= 3)
                 $.ajax.background().load(
@@ -337,9 +364,10 @@
                     function () {
                         $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
                             $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-soul-id')},
-                                () => $.ajax.load(null, '{{ path('soul_contacts') }}')
+                                () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
                             );
-                        })
+                        });
+                        if (enterPressed) document.querySelector( '#users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                     }
                 );
             else document.getElementById('users-list').innerHTML = '';
@@ -350,7 +378,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 
@@ -363,7 +392,7 @@
 
         document.getElementById('social_control').addEventListener('tab-switch', e => {
             switch (e.detail.tab) {
-                case 'friends': history.pushState( '{{ path('soul_contacts') }}', '', '{{ path('soul_contacts') }}' ); break;
+                case 'friends': history.pushState( '{{ path('soul_contacts', {opt: opt}) }}', '', '{{ path('soul_contacts', {opt: opt}) }}' ); break;
                 case 'refer':   history.pushState( '{{ path('soul_refer') }}', '', '{{ path('soul_refer') }}' ); break;
             }
         });

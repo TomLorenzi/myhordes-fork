@@ -107,7 +107,7 @@
                         '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
                     ) }}
                 </div>
-                <div class="padded cell rw-6 rw-lg-12 left medium">
+                <div class="padded cell rw-6 rw-lg-12 left medium" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}disabled{% endif %}>
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
                     <div class="small">
                         <button style="margin-top: 3px;" class="inline small" id="desc_edit_button">{{ 'Speichern'|trans({},'game') }}</button>
@@ -145,12 +145,9 @@
                 {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                 {% endembed %}
 
-
-                {% if is_granted('ROLE_CROW') %}
+                {% if is_granted('ROLE_CROW') and app.environment == 'dev' %}
                     <button id="suicid" class="mt-1"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
-                    {% if app.environment == 'dev' %}
-                        <button x-ajax-href="{{ path('admin_users_account_view', {id: home.citizen.user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
-                    {% endif %}
+                    <button x-ajax-href="{{ path('admin_users_account_view', {id: home.citizen.user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
                 {% endif %}
             </div>
 
@@ -384,18 +381,16 @@
                 {{ 'In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...'|trans({}, 'game')|raw }}</div></div>{% endif %}</div>
             <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_plate.gif') }}" /> {{'Hausverteidigung'|trans({}, 'game')}}</div>
             <div class="padded cell rw-8 ellipsis row-detail">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" />
-                <a class='help-button'>
-                    <div class='tooltip help'>
-                        <ul class="defList">
-                            <li>{{ 'Behausung:'|trans({}, 'game') }} <strong>+{{ def.house_defense }} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
-                            <li>{{ 'Bauarbeiten:'|trans({}, 'game') }} <strong>+{{ def.upgrades_defense }} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
-                            <li>{{ 'Verteidigungsgegenstände:'|trans({}, 'game')}} <strong>+{{ def.item_defense}} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
-                            <li>{{ 'Heldenbonus:'|trans({}, 'game')}} <strong>+{{ def.job_defense + def.job_guard_defense}} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
-                            <li class="total">{{ 'Total:'|trans({}, 'game') }}<strong> {{ def.sum }} {{ 'Punkt(e)'|trans({}, 'game') }}</strong> </li>
-                        </ul>
-                        <em>{{'Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.'|trans({}, 'game')}}</em>
-                    </div>{{ "Hilfe"|trans({}, "global")}}
-                </a>
+                {{ help_btn(
+                    'Behausung'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.house_defense},'game') ~ '</strong><br />' ~
+                    'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.upgrades_defense},'game') ~ '</strong><br />' ~
+                    'Verteidigungsgegenstände'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.item_defense},'game') ~ '</strong><br />' ~
+                    'Heldenbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_defense},'game') ~ '</strong><br />' ~
+                    (def.job_guard_defense > 0 ? ('Wächterbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_guard_defense},'game') ~ '</strong><br />') : '') ~
+                '<hr />' ~
+                'Total'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.sum},'game') ~ '</strong>' ~
+                '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
+                ) }}
             </div>
         </div>
         <div class="lightbox">
