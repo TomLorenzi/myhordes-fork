@@ -9507,5 +9507,15 @@
         <target>So much for the survival book. Hardly surprising that this book didn't go beyond the elementary stages... No wonder Junior Woodchuck only wrote one book - he probably starved to death in a desert somewhere. You have found absolutely nothing, but you probably knew that already.</target>
       </segment>
     </unit>
+    <unit id="KR3SOiX">
+      <notes>
+        <note category="german">Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</source>
+        <target><![CDATA[You have <strong>already drank once today</strong>: the only other use for water today will be to quench your thirst later on.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

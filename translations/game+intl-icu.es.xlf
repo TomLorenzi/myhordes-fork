@@ -23292,5 +23292,16 @@
         <target>Deaktiviert</target>
       </segment>
     </unit>
+    <unit id="P8D4LMV">
+      <notes>
+        <note category="german">Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
+        <target>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

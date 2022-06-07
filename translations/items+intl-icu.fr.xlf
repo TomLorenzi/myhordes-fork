@@ -9494,5 +9494,15 @@
         <target>Tu parles d'un livre de survie. Rien d'étonnant qu'avec ce guide les castors n'aient pas pu dépasser le stade de juniors... Vous n'avez strictement rien trouvé, mais ça vous l'aviez compris.</target>
       </segment>
     </unit>
+    <unit id="KR3SOiX">
+      <notes>
+        <note category="german">Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</source>
+        <target><![CDATA[Vous avez <strong>déjà bu une fois aujourd'hui</strong> : la seule utilité de l'eau pour cette journée sera d'étancher votre soif plus tard.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

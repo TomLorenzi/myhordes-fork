@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
@@ -380,6 +381,9 @@ class TownHomeController extends TownController
      * @return Response
      */
     public function describe_house_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
         // Get description and truncate to 64 chars
         $new_desc = $parser->get('desc');
         if ($new_desc !== null) $new_desc = mb_substr($new_desc,0,64);
