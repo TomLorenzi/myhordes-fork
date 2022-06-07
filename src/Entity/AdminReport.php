@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Enum\AdminReportSpecification;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminReportRepository")
@@ -59,6 +60,23 @@ class AdminReport
      * @ORM\Column(type="text", nullable=true)
      */
     private $details = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=BlackboardEdit::class)
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $blackBoard;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CitizenRankingProxy::class)
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $citizen;
+
+    /**
+     * @ORM\Column(type="integer", enumType=AdminReportSpecification::class)
+     */
+    private AdminReportSpecification $specification = AdminReportSpecification::None;
 
     public function getId(): ?int
     {
@@ -157,6 +175,42 @@ class AdminReport
     public function setDetails(?string $details): self
     {
         $this->details = $details;
+
+        return $this;
+    }
+
+    public function getBlackBoard(): ?BlackboardEdit
+    {
+        return $this->blackBoard;
+    }
+
+    public function setBlackBoard(?BlackboardEdit $blackBoard): self
+    {
+        $this->blackBoard = $blackBoard;
+
+        return $this;
+    }
+
+    public function getCitizen(): ?CitizenRankingProxy
+    {
+        return $this->citizen;
+    }
+
+    public function setCitizen(?CitizenRankingProxy $citizen): self
+    {
+        $this->citizen = $citizen;
+
+        return $this;
+    }
+
+    public function getSpecification(): ?AdminReportSpecification
+    {
+        return $this->specification;
+    }
+
+    public function setSpecification(AdminReportSpecification $specification): self
+    {
+        $this->specification = $specification;
 
         return $this;
     }

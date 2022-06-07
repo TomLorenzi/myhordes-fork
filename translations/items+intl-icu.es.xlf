@@ -9468,5 +9468,16 @@
         <target>Pudo haber sido un libro de supervivencia o un manual de estrategia anti-zombies; pero es solo un curso de bordado... Nada que te pueda servir.</target>
       </segment>
     </unit>
+    <unit id="KR3SOiX">
+      <notes>
+        <note category="german">Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</source>
+        <target><![CDATA[<strong>Ya has bebido una vez hoy</strong>. Hoy el agua solo te servirá para apagar tu sed.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
