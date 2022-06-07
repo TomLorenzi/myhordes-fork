@@ -23374,11 +23374,10 @@
       <notes>
         <note category="german">Vor.</note>
         <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vor.</source>
-        <target>Vor.</target>
+        <target>Stk.</target>
       </segment>
     </unit>
     <unit id="g1XSymV" name="Anz.">
@@ -23399,6 +23398,16 @@
       <segment>
         <source>Handeln</source>
         <target>Action</target>
+      </segment>
+    </unit>
+    <unit id="P8D4LMV">
+      <notes>
+        <note category="german">Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
+        <target>You have reported this post on the black board to The Crow. Who knows, maybe its author will die tonight... caaaw caaaw!</target>
       </segment>
     </unit>
   </file>

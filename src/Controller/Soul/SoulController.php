@@ -5,10 +5,12 @@ namespace App\Controller\Soul;
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
+use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
+use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\ExternalApp;
 use App\Entity\FeatureUnlock;
@@ -35,8 +37,10 @@ use App\Entity\UserGroupAssociation;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
+use App\Enum\AdminReportSpecification;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
+use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
 use App\Service\HTMLService;
@@ -59,6 +63,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -94,14 +99,16 @@ class SoulController extends CustomAbstractController
     protected UserHandler $user_handler;
     protected KernelInterface $kernel;
     protected Packages $asset;
+    protected CrowService $crow;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, KernelInterface $kernel)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih, KernelInterface $kernel, CrowService $crow)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->user_handler = $uh;
         $this->kernel = $kernel;
+        $this->crow = $crow;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -1000,6 +1007,37 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("api/soul/{sid}/town/{idtown}/report/{topic}", name="soul_report_comment")
+     * @param int $sid
+     * @param int $idtown
+     * @param string $topic
+     * @param JSONRequestParser $parser
+     * @param RateLimiterFactory $reportToModerationLimiter
+     * @return Response
+     */
+    public function soul_report_comment(int $sid, int $idtown, string $topic, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter): Response
+    {
+        if (!in_array( $topic, ['lw','com'] )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
+
+        $user = $this->getUser();
+        if ($sid === $user->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        $target_user = $this->entity_manager->getRepository(User::class)->find($sid);
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
+
+        if (!$town || !$target_user)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
+
+        $citizen = null;
+        foreach ($town->getCitizens() as $c) if ($c->getUser() === $target_user) $citizen = $c;
+        if (!$citizen)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
+
+        return $this->reportCitizen( $citizen, $topic === 'lw' ? AdminReportSpecification::CitizenLastWords : AdminReportSpecification::CitizenTownComment, $parser, $reportToModerationLimiter );
+    }
+
+    /**
      * @Route("api/soul/settings/generateid", name="api_soul_settings_generateid")
      * @param EntityManagerInterface $entityManager
      * @return Response
@@ -1580,12 +1618,15 @@ class SoulController extends CustomAbstractController
 
         $commonTowns = [];
         $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true);
-        /** @var CitizenRankingProxy $citizen */
-        foreach ($citizens as $citizen) {
-            foreach ($citizen->getTown()->getCitizens() as $c) {
-                if ($c->getUser() === $this->getUser()) {
-                    $commonTowns[] = $citizen->getId();
-                    break;
+
+        if ($this->getUser() !== $user) {
+            /** @var CitizenRankingProxy $citizen */
+            foreach ($citizens as $citizen) {
+                foreach ($citizen->getTown()->getCitizens() as $c) {
+                    if ($c->getUser() === $this->getUser()) {
+                        $commonTowns[] = $citizen->getId();
+                        break;
+                    }
                 }
             }
         }
@@ -1773,5 +1814,65 @@ class SoulController extends CustomAbstractController
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
+    }
+
+    public function reportCitizen( Citizen|CitizenRankingProxy $citizen, AdminReportSpecification $specification, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
+
+        $user = $this->getUser();
+
+        $proxy   = is_a( $citizen, CitizenRankingProxy::class ) ? $citizen : $citizen->getRankingEntry();
+        $citizen = $proxy->getCitizen();
+
+        if ($specification === AdminReportSpecification::CitizenAnnouncement && (!$citizen || $citizen->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) )
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        $payload = match ($specification) {
+            AdminReportSpecification::CitizenAnnouncement => $citizen?->getHome()->getDescription(),
+            AdminReportSpecification::CitizenLastWords => $proxy->getLastWords(),
+            AdminReportSpecification::CitizenTownComment => $proxy->getComment(),
+            default => null
+        };
+
+        if (empty( $payload ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['citizen' => $proxy, 'specification' => $specification->value]);
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $report_count = count($reports) + 1;
+
+        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+
+        $details = $parser->trimmed('details');
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setDetails( $details ?: null )
+            ->setTs(new \DateTime('now'))
+            ->setCitizen( $proxy )
+            ->setSpecification( $specification );
+
+        try {
+            $this->entity_manager->persist($newReport);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        try {
+            $this->crow->triggerExternalModNotification( match ($specification) {
+                AdminReportSpecification::CitizenAnnouncement => "A citizen's home message has been reported.",
+                AdminReportSpecification::CitizenLastWords => "A citizen's last words have been reported.",
+                AdminReportSpecification::CitizenTownComment => "A town comment has been reported.",
+                default => '[invalid]'
+            }, $proxy, $newReport, "This is report #{$report_count}." );
+        } catch (\Throwable $e) {}
+
+        $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $proxy->getUser()->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success( );
     }
 }
