@@ -9472,7 +9472,6 @@
       <notes>
         <note category="german">Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</note>
         <note category="from">db://Requirement</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</source>

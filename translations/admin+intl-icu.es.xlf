@@ -5318,77 +5318,77 @@
       <notes>
         <note category="german">Aktiviert alle untergeordneten Beschränkungen.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Aktiviert alle untergeordneten Beschränkungen.</source>
-        <target>Aktiviert alle untergeordneten Beschränkungen.</target>
+        <target>Habilita todas las restricciones subordinadas.</target>
       </segment>
     </unit>
     <unit id="VYJ_xkT">
       <notes>
         <note category="german">Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.</source>
-        <target>Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.</target>
+        <target>Prohibe la creación de nuevos hilos y publicaciones, así como la edición de publicaciones existentes en todos los foros (foro global y de pueblo). También prohibe la participación en encuestas del foro.</target>
       </segment>
     </unit>
     <unit id="sfn1b2M">
       <notes>
         <note category="german">Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.</source>
-        <target>Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.</target>
+        <target>Prohibe el uso del chat de zona y el tablero de anuncios, enviar MDs en el pueblo, y cambiar anuncios personales.</target>
       </segment>
     </unit>
     <unit id="4M2f5JJ" name="Verbietet die Verwendung des Schwarzen Bretts.">
       <notes>
         <note category="german">Verbietet die Verwendung des Schwarzen Bretts.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Verbietet die Verwendung des Schwarzen Bretts.</source>
-        <target>Verbietet die Verwendung des Schwarzen Bretts.</target>
+        <target>Prohibe el uso del tablero de anuncios</target>
       </segment>
     </unit>
     <unit id="H.pKF46">
       <notes>
         <note category="german">Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.</source>
-        <target>Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.</target>
+        <target>Prohibe la creación de nuevos MDs globales así como responder y agregar nuevos jugadores a MDs existentes.</target>
       </segment>
     </unit>
     <unit id="zbJW5L2">
       <notes>
         <note category="german">Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.</source>
-        <target>Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.</target>
+        <target>Prohibe la edición de comentarios de pueblo así como dejar últimas palabras.</target>
       </segment>
     </unit>
     <unit id="Le2cc5P">
       <notes>
         <note category="german">Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.</source>
-        <target>Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.</target>
+        <target>Prohibe la formación de nuevas alianzas y la administración de membresías y chat de alianza de alianzas existentes.</target>
       </segment>
     </unit>
   </file>
