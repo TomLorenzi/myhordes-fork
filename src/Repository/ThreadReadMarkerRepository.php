@@ -40,6 +40,23 @@ class ThreadReadMarkerRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param User $user
+     * @return ThreadReadMarker|null
+     */
+    public function findGlobalAndUser(User $user): ?ThreadReadMarker
+    {
+        try {
+            return $this->createQueryBuilder('t')
+                ->andWhere('t.user = :user')->setParameter('user', $user)
+                ->andWhere('t.thread IS NULL')
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
     // /**
     //  * @return ThreadReadMarker[] Returns an array of ThreadReadMarker objects
     //  */

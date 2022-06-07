@@ -210,6 +210,7 @@
         let typingTimer, doneTypingInterval = 500;
         let searchBox = document.getElementById('users-search');
 
+        let enterPressed = false;
         const userSearchHandler = function () {
             if (searchBox.value.length >= 3)
                 $.ajax.background().load(
@@ -231,7 +232,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 

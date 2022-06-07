@@ -854,6 +854,8 @@
 
             let typingTimer, doneTypingInterval = 500;
             let searchBox = document.getElementById('{{ type }}-editor-add-users-search');
+
+            let enterPressed = false;
             const userSearchHandler = function() {
                 if (searchBox.value.length >= 3) {
                     $.ajax.background().load(
@@ -871,13 +873,14 @@
                                 const node = '@' + elem.getAttribute('x-soul-name').replace(/\W+/,'') + ':' + elem.getAttribute('x-soul-id');
 
                                 node_transfer_source.value = before + node + after;
-                                node_transfer_source.setSelectionRange( node_transfer_source.value.length, node_transfer_source.value.length );
+                                node_transfer_source.setSelectionRange( before.length + node.length, before.length + node.length );
                                 node_transfer_source.focus();
                                 transfer_to_preview();
 
                                 searchBox.value = document.getElementById('{{ type }}-editor-add-users-list').innerHTML = '';
                                 document.getElementById('{{ type }}-editor-add-users-close').click();
-                            })
+                            });
+                            if (enterPressed) document.querySelector( '#{{ type }}-editor-add-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                         }
                     );
                 }
@@ -889,7 +892,8 @@
                 typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
             };
 
-            const userSearchHandlerDown = function () {
+            const userSearchHandlerDown = e => {
+                enterPressed = e.keyCode === 13;
                 clearTimeout(typingTimer);
             };
 

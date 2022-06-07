@@ -8,9 +8,9 @@
 {# @var user \App\Entity\User #}
 {# @var forums \App\Entity\Forum[] #}
 
-{% macro drawForum(forum) %}
+{% macro drawForum(forum, has_new_posts) %}
     {# @var forum \App\Entity\Forum #}
-    <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-preview {% if forum.description is not empty %}forum-preview-desc{% endif %}">
+    <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-preview {{ has_new_posts ? 'new' : ''}} {% if forum.description is not empty %}forum-preview-desc{% endif %}">
         {% if forum.town %}
             <img alt="" src="{{ asset('build/images/forum/banner/bannerForumVille.gif') }}">
         {% elseif forum.icon is not empty %}
@@ -18,10 +18,12 @@
         {% else %}
             <img alt="" src="{{ asset('build/images/forum/banner/bannerForumVoid.gif') }}">
         {% endif %}
-        <div>{{ forum.title }}</div>
-        {% if forum.description is not empty %}
-            <span>{{ forum.description }}</span>
-        {% endif %}
+        <div>
+            <div>{{ forum.title }}</div>
+            {% if forum.description is not empty %}
+                <span>{{ forum.description }}</span>
+            {% endif %}
+        </div>
     </div>
 {% endmacro %}
 
@@ -41,15 +43,30 @@
                     {% if town_forums is not empty %}
                         <h5>{{ 'Stadtforum'|trans({},'global') }}</h5>
                         {% for forum in town_forums %}
-                            {{ _self.drawForum(forum) }}
+                            {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
 
                     {% set world_forums = forums|filter(f => f.town is empty)|sort((a,b) => (a.type <=> b.type ?? a.id <=> b.id)) %}
                     {% if world_forums is not empty %}
+
                         <h5>{{ 'Weltforen'|trans({},'global') }}</h5>
-                        {% for forum in world_forums %}
-                            {{ _self.drawForum(forum) }}
+                        {% for section in forumSections %}
+                            <div class="forumGroup">
+                                <div class="header">
+                                    <img alt="{{ section }}" src="{{ asset('build/images/lang/' ~ section ~ '.png') }}">
+                                    <span>{{ 'Weltforum'|trans({},'global',section) }}</span>
+                                </div>
+                                <div class="content">
+                                    {% for forum in world_forums|filter( f => f.worldForumLanguage == section )|sort( (a,b) => ( a.worldForumSorting <=> b.worldForumSorting ) ) %}
+                                        {{ _self.drawForum(forum, forums_new[forum.id]) }}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        {% for forum in world_forums|filter( f => f.worldForumLanguage is null ) %}
+                            {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
 
@@ -57,7 +74,7 @@
                     {% if other_forums is not empty %}
                         <h5>{{ 'Andere Foren'|trans({},'global') }}</h5>
                         {% for forum in other_forums %}
-                            {{ _self.drawForum(forum) }}
+                            {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
                 {% endif %}
@@ -67,10 +84,12 @@
                     {% for group in official_groups %}
                         <div x-group-connect="oglink_{{ group.id }}" class="forum-preview forum-preview-og {% if group.description is not empty %}forum-preview-desc{% endif %}">
                             <img alt="" src="{{ path('app_web_group_icon', { gid: group.usergroup.id, name: group.avatarName, ext: group.avatarExt }) }}" />
-                            <div>{{ group.usergroup.name }}</div>
-                            {% if group.description is not empty %}
-                                <span>{{ group.description }}</span>
-                            {% endif %}
+                            <div>
+                                <div>{{ group.usergroup.name }}</div>
+                                {% if group.description is not empty %}
+                                    <span>{{ group.description }}</span>
+                                {% endif %}
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}
@@ -79,6 +98,7 @@
         <div class="cell padded header rw-4 rw-lg-12">
             <h5>{% trans from 'global' %}Aktionen{% endtrans %}</h5>
             <button x-ajax-href="{{ path('forum_search_wrapper_controller') }}"><img alt="" src="{{ asset('build/images/forum/search.png') }}"> {{ 'Foren durchsuchen'|trans({},'global') }}</button>
+            <button id="forum_all_read_btn"><img alt="" src="{{ asset('build/images/forum/done.png') }}"> {{ 'Alles als gelesen markieren'|trans({},'global') }}</button>
             <h5>{% trans from 'welcome' %}Abonnierte Themen{% endtrans %}</h5>
             <div class="cell rw-12 padded">
                 {% if subscriptions|length == 0 %}
@@ -114,6 +134,9 @@
         (function() {
             $.html.addEventListenerAll('[x-unsubscribe-api]', 'click', (e,elem) => {
                 $.ajax.easySend(elem.getAttribute('x-unsubscribe-api'), {}, () => $.ajax.load(null,'{{ path('forum_list') }}'));
+            })
+            $.html.addEventListenerAll('#forum_all_read_btn', 'click', (e,elem) => {
+                $.ajax.easySend('{{ path('forum_all_read_controller') }}', {}, () => $.ajax.load(null,'{{ path('forum_list') }}'));
             })
             $.html.addEventListenerAll('[x-group-connect]','click', (e,elem) => {
                 const p = document.getElementById('postbox');

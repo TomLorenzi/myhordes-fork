@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use _PHPStan_c0c409264\Nette\NotImplementedException;
+use _PHPStan_c0c409264\Nette\NotSupportedException;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\LogEntryTemplate;
@@ -16,6 +18,7 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use function Symfony\Component\String\b;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -165,7 +168,7 @@ class AdminFileSystemController extends AdminActionController
     }
 
     /**
-     * @Route("admin/fs/townlog/fetch/{f}", name="admin_backup", condition="!request.isXmlHttpRequest()")
+     * @Route("admin/fs/backup/fetch/{f}", name="admin_backup", condition="!request.isXmlHttpRequest()")
      * @AdminLogProfile(enabled=true)
      * @param ParameterBagInterface $params
      * @param string $f
@@ -178,13 +181,50 @@ class AdminFileSystemController extends AdminActionController
         if (empty($f)) $f = $params->get('kernel.environment');
         $f = str_replace(['..','::'],['','/'],$f);
 
-        $spl_core_path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup");
-        $path = new SplFileInfo($f);
-        if (!$path->isFile() || !in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) || !str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() )) return new Response('', 404);
+        $details = explode("#", $f);
+        $type = $details[0];
+        $name = $details[1];
+        $path = $details[2];
 
-        $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$f}</debug>");
+        $conf = $this->conf->getGlobalConf()->getData()['backup']['storages'];
+        if(!isset($conf[$name])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $storage = $conf[$name];
+        $targetPath = str_replace("~", $params->get('kernel.project_dir'), $storage['path']);
 
-        return $this->file($path->getRealPath(), $path->getFilename(), ResponseHeaderBag::DISPOSITION_ATTACHMENT);
+        switch($type){
+            case "local":
+                $spl_core_path = new SplFileInfo($targetPath);
+                $path = new SplFileInfo($path);
+                if (!$path->isFile() || !in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) || !str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() )) return new Response('', 404);
+
+                $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$path}</debug> from storage <info>$name</info>");
+
+                return $this->file($path->getRealPath(), $path->getFilename(), ResponseHeaderBag::DISPOSITION_ATTACHMENT);
+            case "ftp":
+                $ftp_conn = $this->adminHandler->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);
+
+                $fileinfos = explode("/", $path);
+                $localpath = "{$params->get('kernel.project_dir')}/var/tmp/" . $fileinfos[count($fileinfos) - 1];
+
+                $file = ftp_get($ftp_conn,$localpath, $path);
+                ftp_close($ftp_conn);
+
+                $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$path}</debug> from <info>$type</info> storage <info>$name</info>");
+                return $this->file($localpath, $fileinfos[count($fileinfos) - 1], ResponseHeaderBag::DISPOSITION_ATTACHMENT);
+            case "sftp":
+                $conn = $this->adminHandler->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
+
+                $fileinfos = explode("/", $path);
+                $localpath = "{$params->get('kernel.project_dir')}/var/tmp/" . $fileinfos[count($fileinfos) - 1];
+                ssh2_scp_recv($conn, $path, $localpath);
+
+                ssh2_disconnect($conn);
+
+                $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> downloaded backup <debug>{$path}</debug> from <info>$type</info> storage <info>$name</info>");
+                return $this->file($localpath, $fileinfos[count($fileinfos) - 1], ResponseHeaderBag::DISPOSITION_ATTACHMENT);
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
     }
 
     /**
@@ -225,12 +265,42 @@ class AdminFileSystemController extends AdminActionController
         if (empty($f)) $f = $params->get('kernel.environment');
         $f = str_replace(['..','::'],['','/'],$f);
 
-        $spl_core_path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/backup");
-        $path = new SplFileInfo($f);
-        if ($path->isFile() && in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
-            unlink($path->getRealPath());
+        $details = explode("#", $f);
+        $type = $details[0];
+        $name = $details[1];
+        $path = $details[2];
 
-        $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> deleted backup <debug>{$f}</debug>");
+        $conf = $this->conf->getGlobalConf()->getData()['backup']['storages'];
+        if(!isset($conf[$name])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $storage = $conf[$name];
+        $targetPath = str_replace("~", $params->get('kernel.project_dir'), $storage['path']);
+
+        switch($type){
+            case "local":
+                $spl_core_path = new SplFileInfo($targetPath);
+                $path = new SplFileInfo($path);
+
+                if ($path->isFile() && in_array(strtolower($path->getExtension()), ['sql','xz','gzip','bz2']) && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
+                    unlink($path->getRealPath());
+
+                break;
+            case "ftp":
+                $ftp_conn = $this->adminHandler->connectToFtp($storage['host'], $storage['port'], $storage['user'], $storage['pass'], $storage['passive']);
+
+                ftp_delete($ftp_conn, $path);
+                ftp_close($ftp_conn);
+                break;
+            case "sftp":
+                $conn = $this->adminHandler->connectToSftp($storage['host'], $storage['port'], $storage['user'], $storage['pass']);
+
+                ssh2_sftp_unlink(ssh2_sftp($conn), $path);
+                ssh2_disconnect($conn);
+                break;
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> deleted backup <debug>{$path}</debug> from <info>$type</info> storage <info>$name</info>");
 
         return AjaxResponse::success();
     }

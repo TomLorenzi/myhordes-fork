@@ -1848,5 +1848,45 @@
         <target>Any player can enter this town, regardless of the number of soul points they currently have.</target>
       </segment>
     </unit>
+    <unit id="HaKUn1F">
+      <notes>
+        <note category="german">Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.</source>
+        <target>Usually, the available professions in a city are controlled by other options, for example the Shaman mode. With this option you can override the automatic settings and turn the professions on or off manually instead.</target>
+      </segment>
+    </unit>
+    <unit id="iLGm469" name="Individuelle Konfiguration">
+      <notes>
+        <note category="german">Individuelle Konfiguration</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Individuelle Konfiguration</source>
+        <target>Individual configuration</target>
+      </segment>
+    </unit>
+    <unit id="TfcJ9Mi" name="Verfügbare Konstruktionen">
+      <notes>
+        <note category="german">Verfügbare Konstruktionen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Konstruktionen</source>
+        <target>Available construction sites</target>
+      </segment>
+    </unit>
+    <unit id="RkbjKTP">
+      <notes>
+        <note category="german">Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+      </notes>
+      <segment>
+        <source>Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.</source>
+        <target>Usually the available constructions in a city are controlled by other options, for example the city type. With this option you can override the automatic settings and configure the constructions manually instead.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

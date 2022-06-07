@@ -1141,7 +1141,7 @@
       </notes>
       <segment>
         <source>Zerstörer (entladen)</source>
-        <target>Devastator (vacío)</target>
+        <target>Devastador (vacío)</target>
       </segment>
     </unit>
     <unit id="6JzGDe3" name="Zerstörer (geladen)">
@@ -1151,7 +1151,7 @@
       </notes>
       <segment>
         <source>Zerstörer (geladen)</source>
-        <target>Devastator (cargado)</target>
+        <target>Devastador (cargado)</target>
       </segment>
     </unit>
     <unit id="NWwA1_1" name="Unvollständiger Zerstörer">
@@ -1161,7 +1161,7 @@
       </notes>
       <segment>
         <source>Unvollständiger Zerstörer</source>
-        <target>Devastator incompleto</target>
+        <target>Devastador incompleto</target>
       </segment>
     </unit>
     <unit id=".NeFZzB" name="Zonenmarker 'Radius'">
@@ -3814,7 +3814,7 @@
       </notes>
       <segment>
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>
-        <target><![CDATA[Hurgando en los alrededores descubres un pequeño charco de agua estancada. Como no tienes otra opción, empiezas a beber su contenido (así como todo lo que flota dentro)...{hr}<strong>Has recuperado todos tus PA.</strong>]]></target>
+        <target><![CDATA[Hurgando en los alrededores descubres un pequeño charco de agua estancada. Como no tienes otra opción, empiezas a beber su contenido (así como todo lo que flota dentro)...<hr/><strong>Has recuperado todos tus PA.</strong>]]></target>
       </segment>
     </unit>
     <unit id=".jOYrxS" name="Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....">
@@ -8222,7 +8222,7 @@
       </notes>
       <segment>
         <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;{ap} neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!{hr}Has <strong>regenerado tus {ap} PA</strong>.]]></target>
+        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!<hr>Has <strong>regenerado tus {ap} PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9">
@@ -9466,6 +9466,16 @@
       <segment>
         <source>So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.</source>
         <target>Pudo haber sido un libro de supervivencia o un manual de estrategia anti-zombies; pero es solo un curso de bordado... Nada que te pueda servir.</target>
+      </segment>
+    </unit>
+    <unit id="KR3SOiX">
+      <notes>
+        <note category="german">Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du hast &lt;strong&gt;heute bereits getrunken&lt;/strong&gt;: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.</source>
+        <target><![CDATA[<strong>Ya has bebido una vez hoy</strong>. Hoy el agua solo te servirá para apagar tu sed.]]></target>
       </segment>
     </unit>
   </file>

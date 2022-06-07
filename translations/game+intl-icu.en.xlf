@@ -2122,7 +2122,7 @@
     <unit id="hlH9eeR" name="Einwohner">
       <notes>
         <note category="german">Einwohner</note>
-        <note category="from">db://CitizenProfession;twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="from">db://CitizenProfession;db://PictoPrototype;twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Einwohner</source>
@@ -15206,7 +15206,7 @@
     <unit id="yd0LZz9" name="Diese Bürger is der {role} der Stadt">
       <notes>
         <note category="german">Dieser Bürger ist der {role} der Stadt</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
       </notes>
       <segment>
         <source>Diese Bürger is der {role} der Stadt</source>
@@ -18998,12 +18998,12 @@
     <unit id="_hvDFgE">
       <notes>
         <note category="german">Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
-        <target><![CDATA[Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!]]></target>
+        <target><![CDATA[You've been spotted by a <strong>zombie in the zone</strong>!<hr/>It has turned in your direction!<hr/>Your camouflage has been exposed!]]></target>
       </segment>
     </unit>
     <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
@@ -23291,6 +23291,124 @@
       <segment>
         <source>Anzahl der Tage, die du als Einwohner gespielt hast.</source>
         <target>Number of days spent as a regular Resident.</target>
+      </segment>
+    </unit>
+    <unit id="1JTIVJq" name="Standarteinstellung">
+      <notes>
+        <note category="german">Standarteinstellung</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Standarteinstellung</source>
+        <target>Standard setting</target>
+      </segment>
+    </unit>
+    <unit id="8RHVtuo" name="Wählbar">
+      <notes>
+        <note category="german">Wählbar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Wählbar</source>
+        <target>Selectable</target>
+      </segment>
+    </unit>
+    <unit id="wx8.nvD" name="Nicht wählbar">
+      <notes>
+        <note category="german">Nicht wählbar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Nicht wählbar</source>
+        <target>Not selectable</target>
+      </segment>
+    </unit>
+    <unit id="md8_mRV" name="Gebaut">
+      <notes>
+        <note category="german">Gebaut</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Gebaut</source>
+        <target>Built</target>
+      </segment>
+    </unit>
+    <unit id="VWgF34r" name="Baubar">
+      <notes>
+        <note category="german">Baubar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Baubar</source>
+        <target>Buildable</target>
+      </segment>
+    </unit>
+    <unit id="4lsUHvx" name="Findbar">
+      <notes>
+        <note category="german">Findbar</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Findbar</source>
+        <target>Findable</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <notes>
+        <note category="german">Deaktiviert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Deactivated</target>
+      </segment>
+    </unit>
+    <unit id="P8D4LMV">
+      <notes>
+        <note category="german">Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
+        <target>You have reported this post on the black board to The Crow. Who knows, maybe its author will die tonight... caaaw caaaw!</target>
+      </segment>
+    </unit>
+    <unit id="G3CtrOz" name="Vor.">
+      <notes>
+        <note category="german">Vor.</note>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vor.</source>
+        <target>Vor.</target>
+      </segment>
+    </unit>
+    <unit id="g1XSymV" name="Anz.">
+      <notes>
+        <note category="german">Anz.</note>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Anz.</source>
+        <target>Stk.</target>
+      </segment>
+    </unit>
+    <unit id="kVopbOG" name="Handeln">
+      <notes>
+        <note category="german">Handeln</note>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Handeln</source>
+        <target>Action</target>
       </segment>
     </unit>
   </file>

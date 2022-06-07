@@ -1321,7 +1321,7 @@
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
-        <target>Dependiendo del tipo de ciudad seleccionada, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un conciudadano.</target>
+        <target>Dependiendo del tipo de pueblo seleccionado, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un habitante.</target>
       </segment>
     </unit>
     <unit id="F4.K1yp" name="Blutdurst und Aerogen">
@@ -1341,7 +1341,7 @@
       </notes>
       <segment>
         <source>Diese Stadt ist durch ein Passwort geschützt.</source>
-        <target>Esta ciudad está protegida con contraseña.</target>
+        <target>Este pueblo está protegido con contraseña.</target>
       </segment>
     </unit>
     <unit id="n5Q6CYy" name="Für diese Stadt gilt eine Platzreservierung.">
@@ -1351,7 +1351,7 @@
       </notes>
       <segment>
         <source>Für diese Stadt gilt eine Platzreservierung.</source>
-        <target>Una reserva de asiento es válida para esta ciudad.</target>
+        <target>Una reserva de cupo es requerida para este pueblo.</target>
       </segment>
     </unit>
     <unit id="WhL1uY." name="Einer Stadt beitreten">
@@ -1844,6 +1844,50 @@
       <segment>
         <source>Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.</source>
         <target>Cualquier jugador (invitado) podrá unirse a tu pueblo, sin importar cuántos puntos de alma tenga.</target>
+      </segment>
+    </unit>
+    <unit id="HaKUn1F">
+      <notes>
+        <note category="german">Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.</source>
+        <target>Normalmente, los oficios disponibles para un pueblo se controlan desde otras opciones, como el tipo de chamán. Con esta opción puedes sobrescribir la configuración automática y activar o desactivar los oficios manualmente.</target>
+      </segment>
+    </unit>
+    <unit id="iLGm469" name="Individuelle Konfiguration">
+      <notes>
+        <note category="german">Individuelle Konfiguration</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Individuelle Konfiguration</source>
+        <target>Configuración individual</target>
+      </segment>
+    </unit>
+    <unit id="TfcJ9Mi" name="Verfügbare Konstruktionen">
+      <notes>
+        <note category="german">Verfügbare Konstruktionen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Konstruktionen</source>
+        <target>Construcciones disponibles</target>
+      </segment>
+    </unit>
+    <unit id="RkbjKTP">
+      <notes>
+        <note category="german">Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.</source>
+        <target>Normalmente, las construcciones disponibles para un pueblo se controlan desde otras opciones, como el tipo de Pueblo. Con esta opción puedes sobrescribir la configuración automática y configurar las construcciones manualmente.</target>
       </segment>
     </unit>
   </file>

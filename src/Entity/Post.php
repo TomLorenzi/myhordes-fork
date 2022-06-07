@@ -317,12 +317,11 @@ class Post
 
     public function isEditable(): bool {
         if ($this->getTranslate()) return false;
-        switch ($this->getEditingMode()) {
-            case self::EditorTimed: return (time() - $this->getDate()->getTimestamp()) < 600;
-            case self::EditorPerpetual: return true;
-
-            default: return false;
-        }
+        return match ($this->getEditingMode()) {
+            self::EditorTimed => (time() - $this->getDate()->getTimestamp()) < 600,
+            self::EditorPerpetual => true,
+            default => false,
+        };
     }
 
     public function getLastAdminActionBy(): ?User

@@ -108,6 +108,7 @@
 
                 document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
 
+                let enterPressed = false;
                 const userSearchHandler = function() {
                     if (searchBox.value.length >= 3) {
                         let skip = [];
@@ -128,7 +129,8 @@
                                     $.ajax.background().easySend(url, {}, () => {
                                         $.ajax.background().load(target, '{{ path('pm_conv_group_users', {id: gid}) }}', false);
                                     });
-                                })
+                                });
+                                if (enterPressed) document.querySelector( '#pm-add-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                             }
                         );
                     }
@@ -140,7 +142,8 @@
                     typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
                 };
 
-                const userSearchHandlerDown = function () {
+                const userSearchHandlerDown = e => {
+                    enterPressed = e.keyCode === 13;
                     clearTimeout(typingTimer);
                 };
 

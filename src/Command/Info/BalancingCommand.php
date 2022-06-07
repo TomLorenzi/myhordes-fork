@@ -23,6 +23,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class BalancingCommand extends Command
 {
@@ -31,13 +32,16 @@ class BalancingCommand extends Command
     private CommandHelper $helper;
     private EntityManagerInterface $em;
     private RandomGenerator $rand;
+    private TranslatorInterface $translator;
 
 
-    public function __construct(CommandHelper $h, EntityManagerInterface $em, RandomGenerator $rand)
+    public function __construct(CommandHelper $h, EntityManagerInterface $em, RandomGenerator $rand, TranslatorInterface $translator)
     {
         $this->helper = $h;
         $this->em = $em;
         $this->rand = $rand;
+        $this->translator = $translator;
+        $this->translator->setLocale("en");
         parent::__construct();
     }
 
@@ -100,10 +104,31 @@ class BalancingCommand extends Command
         return 0;
     }
 
+    protected function executeGroupDroprate(ItemGroup $itemGroup, array $named, SymfonyStyle $io): int {
+        $io->title("Item Drop Rates for <info>{$itemGroup->getName()}</info>");
+
+        $fun_by_proto = function ($itemPrototype) use ($itemGroup) {
+            return [$this->translator->trans($itemPrototype->getLabel(), [], 'items'), $this->rand->resolveChance( $itemGroup ,$itemPrototype )];
+        };
+
+        $data = [];
+        foreach ($itemGroup->getEntries() as $entry) {
+            $chances = $fun_by_proto($entry->getPrototype());
+            $chances[1] = round($chances[1] * 100, $chances[1] < 0.01 ? 4 : ( $chances[1] < 0.1 ? 2 : 1) ) . '%';
+            $data[] = $chances;
+        }
+
+        if (!empty($data)) {
+            $io->section('Items');
+            $io->table(['Item', 'Chance'], $data);
+        }
+
+        return 0;
+    }
 
     protected function getPrincipal( string $class, string $label, InputInterface $input, OutputInterface $output ): object {
         if (!$input->hasArgument('for')) throw new \Exception('Subject required.');
-        $resolved = $this->helper->resolve_string( $input->getArgument('for') , $class, $label, $this->getHelper('question'), $input, $output);
+        $resolved = $this->helper->resolve_string( $input->getArgument('for') ?? '', $class, $label, $this->getHelper('question'), $input, $output);
         if (!$resolved) throw new \Exception('Subject invalid.');
         return $resolved;
     }
@@ -112,6 +137,8 @@ class BalancingCommand extends Command
     {
         return match ($input->getArgument('what')) {
             'item-spawnrate' => $this->executeItemDroprate($this->getPrincipal(ItemPrototype::class, 'Item Prototype', $input, $output), $input->getOption('named-drop') ?? [], new SymfonyStyle($input, $output)),
+            'group-spawnrate' => $this->executeGroupDroprate($this->getPrincipal(ItemGroup::class, 'Item Group', $input, $output), $input->getOption('named-drop') ?? [], new SymfonyStyle($input, $output)),
+            'ruin-spawnrate' => $this->executeGroupDroprate($this->getPrincipal(ZonePrototype::class, 'Zone Prototype', $input, $output)->getDrops(), $input->getOption('named-drop') ?? [], new SymfonyStyle($input, $output)),
             default => throw new \Exception('Unknown topic.'),
         };
     }

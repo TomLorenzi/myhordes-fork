@@ -4794,7 +4794,7 @@
       </notes>
       <segment>
         <source>Deine Flagge</source>
-        <target>Votre drapeau</target>
+        <target>Mon drapeau</target>
       </segment>
     </unit>
     <unit id="gQDPOVU" name="Diese Stadt hat folgende Einschränkungen:">
@@ -4966,6 +4966,16 @@
       <segment>
         <source>Die Ergebnisse dieser Umfrage sind für normale Spieler erst nach ihrem Ende sichtbar. Da du ein Orakel bist, kannst du die Zwischenergebnisse sehen.</source>
         <target>Les résultats de ce sondage ne sont pas visibles pour les joueurs normaux jusqu’à ce qu’il se termine. Puisque vous êtes un oracle, vous pouvez voir les résultats intermédiaires.</target>
+      </segment>
+    </unit>
+    <unit id="i4zoKXc" name="Du hast in dieser Stadt zusammen gespielt">
+      <notes>
+        <note category="german">Du hast in dieser Stadt zusammen gespielt</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast in dieser Stadt zusammen gespielt</source>
+        <target>Vous avez joué ensemble dans cette ville</target>
       </segment>
     </unit>
   </file>

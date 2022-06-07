@@ -4952,5 +4952,15 @@
         <target>The results of this poll are not visible to normal players until it ends. Since you are an oracle, you can see the intermediate results.</target>
       </segment>
     </unit>
+    <unit id="i4zoKXc" name="Du hast in dieser Stadt zusammen gespielt">
+      <notes>
+        <note category="german">Du hast in dieser Stadt zusammen gespielt</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du hast in dieser Stadt zusammen gespielt</source>
+        <target>You have played together in this town</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

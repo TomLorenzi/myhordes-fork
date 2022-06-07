@@ -5345,12 +5345,12 @@ müssen durchdacht geplant werden.</source>
     </unit>
     <unit id="jdns.Il">
       <notes>
-        <note category="german">Jede Nacht um Mitternacht (UTC+1) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
+        <note category="german">Jede Nacht um Mitternacht (MEZ/MESZ) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
         <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Cada noche (0:00, UTC+1), a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
+        <target>Cada noche (0:00, CET/CEST), a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
       </segment>
     </unit>
     <unit id="xMTq99h" name="Phase 1: Die Rückkehr der lebenden Toten">
@@ -8634,6 +8634,28 @@ Para ponerte en contacto con los administadores, escribe al <a x-group-connect="
       <segment>
         <source>Die Hilfe durchsuchen</source>
         <target>Buscar en la guía</target>
+      </segment>
+    </unit>
+    <unit id="2JY6gfN" name="Wichtig:">
+      <notes>
+        <note category="german">Wichtig:</note>
+        <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Wichtig:</source>
+        <target>Importante:</target>
+      </segment>
+    </unit>
+    <unit id="Nhv16uC">
+      <notes>
+        <note category="german">In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</note>
+        <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.</source>
+        <target>En tu hora local, el ataque ocurrirá a las {time}. Siempre puedes ver cuánto tiempo falta para el ataque en el reloj que está en la esquina superior derecha de la interfaz.</target>
       </segment>
     </unit>
   </file>

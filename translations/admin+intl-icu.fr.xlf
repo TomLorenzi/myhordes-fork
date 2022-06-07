@@ -5319,5 +5319,82 @@
         <target>Supprimer l’historique des noms de joueur</target>
       </segment>
     </unit>
+    <unit id="PLjQYnR" name="Aktiviert alle untergeordneten Beschränkungen.">
+      <notes>
+        <note category="german">Aktiviert alle untergeordneten Beschränkungen.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Aktiviert alle untergeordneten Beschränkungen.</source>
+        <target>Active toutes les restrictions subordonnées.</target>
+      </segment>
+    </unit>
+    <unit id="VYJ_xkT">
+      <notes>
+        <note category="german">Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.</source>
+        <target>Interdit la création de nouveaux sujets et messages, ainsi que l’édition de messages existants dans tous les forums (forums ville et monde). Interdit également la participation aux sondages du forum.</target>
+      </segment>
+    </unit>
+    <unit id="sfn1b2M">
+      <notes>
+        <note category="german">Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.</source>
+        <target>Interdit l’utilisation du chat de zone et du tableau noir, l’envoi de MP de ville et la modification des annonces personnelles.</target>
+      </segment>
+    </unit>
+    <unit id="4M2f5JJ" name="Verbietet die Verwendung des Schwarzen Bretts.">
+      <notes>
+        <note category="german">Verbietet die Verwendung des Schwarzen Bretts.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verbietet die Verwendung des Schwarzen Bretts.</source>
+        <target>Interdit l'utilisation du tableau noir.</target>
+      </segment>
+    </unit>
+    <unit id="H.pKF46">
+      <notes>
+        <note category="german">Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.</source>
+        <target>Interdit la création de nouveaux MP globaux ainsi que la réponse et l’ajout de nouveaux joueurs aux MP existants.</target>
+      </segment>
+    </unit>
+    <unit id="zbJW5L2">
+      <notes>
+        <note category="german">Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.</source>
+        <target>Interdit l’édition des commentaires de ville ainsi que l'écriture des derniers mots.</target>
+      </segment>
+    </unit>
+    <unit id="Le2cc5P">
+      <notes>
+        <note category="german">Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.</source>
+        <target>Interdit la formation de nouvelles coalitions et la gestion des membres et le chat des coalitions existantes.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
