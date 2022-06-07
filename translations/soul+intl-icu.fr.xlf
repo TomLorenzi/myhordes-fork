@@ -4866,7 +4866,7 @@
       </notes>
       <segment>
         <source>Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.</source>
-        <target>Afin de fixer le cap pour le développement de MyHordes, nous menons régulièrement des enquêtes auprès de tous les joueurs. Cliquez sur le bouton ci-dessous pour accéder à un aperçu de tous les sondages actuels et passés.</target>
+        <target>Afin de fixer le cap pour le développement de MyHordes, nous menons régulièrement des sondages auprès de tous les joueurs. Cliquez sur le bouton ci-dessous pour accéder à un aperçu de tous les sondages actuels et passés.</target>
       </segment>
     </unit>
     <unit id="0Qotq.l" name="Zu den Umfragen">
@@ -4910,7 +4910,7 @@
       </notes>
       <segment>
         <source>Umfrage endet am {date}.</source>
-        <target>L’enquête se terminera le {date}.</target>
+        <target>Le sondage se terminera le {date}.</target>
       </segment>
     </unit>
     <unit id="KKN_8Zz" name="Hier findet ihr alle vorangegangenen Umfragen:">
