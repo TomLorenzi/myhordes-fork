@@ -739,7 +739,7 @@ class MigrateCommand extends Command
                     ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
             }, true);
 
-            $this->helper->leChunk($output, CitizenRankingProxy::class, 100, [], true, false, function(CitizenRankingProxy $citizen) {
+            $this->helper->leChunk($output, CitizenRankingProxy::class, 100, ['importLang' => null], true, false, function(CitizenRankingProxy $citizen) {
                 foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $citizen->getTown()) as $picto)
                     $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
             }, true);
