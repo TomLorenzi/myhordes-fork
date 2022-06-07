@@ -23370,5 +23370,36 @@
         <target>Deactivated</target>
       </segment>
     </unit>
+    <unit id="G3CtrOz" name="Vor.">
+      <notes>
+        <note category="german">Vor.</note>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vor.</source>
+        <target>Vor.</target>
+      </segment>
+    </unit>
+    <unit id="g1XSymV" name="Anz.">
+      <notes>
+        <note category="german">Anz.</note>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Anz.</source>
+        <target>Stk.</target>
+      </segment>
+    </unit>
+    <unit id="kVopbOG" name="Handeln">
+      <notes>
+        <note category="german">Handeln</note>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Handeln</source>
+        <target>Action</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
