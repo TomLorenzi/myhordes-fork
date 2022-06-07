@@ -4316,11 +4316,11 @@
       <notes>
         <note category="german">Alles als gelesen markieren</note>
         <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Alles als gelesen markieren</source>
-        <target>Alles als gelesen markieren</target>
+        <target>Marcar todo como leído</target>
       </segment>
     </unit>
     <unit id="rZ3RgyU" name="Weltforum">
