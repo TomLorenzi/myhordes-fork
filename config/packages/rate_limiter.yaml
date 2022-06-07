@@ -6,8 +6,8 @@ framework:
       interval: '60 minutes'
     authenticated_api:
       policy: 'token_bucket'
-      limit: 5000
-      rate: { interval: '15 minutes', amount: 500 }
+      limit: 7500
+      rate: { interval: '15 minutes', amount: 750 }
     blackboard_edit_slide:
       policy: 'token_bucket'
       limit: 10
