@@ -223,10 +223,8 @@ class CommandHelper
         $this->_db[ItemGroup::class][IdentifierSemantic::GuessMatch]   = ['%name'];
 
         $this->_db[ZonePrototype::class][IdentifierSemantic::PerfectMatch] = ['#id'];
-        $this->_db[ZonePrototype::class][IdentifierSemantic::LikelyMatch]  = ['label'];
-        $this->_db[ZonePrototype::class][IdentifierSemantic::GuessMatch]   = ['%label'];
-        $this->_db[ZonePrototype::class][IdentifierSemantic::LikelyMatch]  = ['icon'];
-        $this->_db[ZonePrototype::class][IdentifierSemantic::GuessMatch]   = ['%icon'];
+        $this->_db[ZonePrototype::class][IdentifierSemantic::LikelyMatch]  = ['label', 'icon'];
+        $this->_db[ZonePrototype::class][IdentifierSemantic::GuessMatch]   = ['%label', '%icon'];
         return $this->_db;
     }
 
