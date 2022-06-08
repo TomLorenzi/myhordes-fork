@@ -22124,5 +22124,32 @@
         <target>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</target>
       </segment>
     </unit>
+    <unit id="G3CtrOz" name="Vor.">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Vor.</source>
+        <target>Vor.</target>
+      </segment>
+    </unit>
+    <unit id="g1XSymV" name="Anz.">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Anz.</source>
+        <target>Anz.</target>
+      </segment>
+    </unit>
+    <unit id="kVopbOG" name="Handeln">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Handeln</source>
+        <target>Handeln</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

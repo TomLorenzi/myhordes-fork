@@ -4953,11 +4953,11 @@
       <notes>
         <note category="german">Du hast in dieser Stadt zusammen gespielt</note>
         <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du hast in dieser Stadt zusammen gespielt</source>
-        <target>Du hast in dieser Stadt zusammen gespielt</target>
+        <target>Ambos jugaron juntos en este pueblo</target>
       </segment>
     </unit>
   </file>
