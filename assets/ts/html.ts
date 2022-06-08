@@ -433,6 +433,20 @@ export default class HTML {
         }
     };
 
+    createTooltip(element: HTMLElement, attribute: string, tooltip_type: string = "help"): void {
+        let tooltip_text = element.getAttribute(attribute);
+        if (tooltip_text === undefined || tooltip_text === "") return;
+
+        let tooltip = document.createElement("div");
+        tooltip.classList.add("tooltip");
+        if(tooltip_type !== null && tooltip_type !== "") tooltip.classList.add(tooltip_type);
+        tooltip.innerText = tooltip_text;
+        element.appendChild(tooltip);
+        element.removeAttribute(attribute);
+
+        this.handleTooltip(tooltip);
+    }
+
     handleUserPopup( element: HTMLElement ): void {
         element.addEventListener( 'click', (event) => {
             event.stopPropagation();
