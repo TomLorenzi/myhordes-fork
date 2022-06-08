@@ -1527,7 +1527,7 @@ class SoulController extends CustomAbstractController
             $this->entity_manager->persist( $active );
         }
 
-        $nextDeath->setConfirmed(true)->setLastWords( $last_words );
+        $nextDeath->setConfirmed(true)->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words );
 
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
