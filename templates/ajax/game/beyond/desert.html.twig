@@ -551,7 +551,12 @@
             <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
         {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
-                <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
+                <h5 class="row">
+                    <span class="cell rw-4 rw-lg-6 rw-md-4 rw-sm-9">{% trans from 'game' %}Deine Eskorte{% endtrans %}</span>
+                    <span class="cell rw-4 rw-4 rw-lg-2 rw-md-4 hide-sm">{{ 'Infos'|trans({}, 'game') }}</span>
+                    <span class="cell rw-4 hide-sm right">{{ 'Aktionen'|trans({}, 'game') }}</span>
+                </h5>
+
                 <div class="row-table">
                     {% set can_escort_dig = 0 %}
                     {% for other_citizen in other_citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
@@ -749,13 +754,18 @@
             {% endif %}
 
             {% if other_citizens|length - citizen.validLeadingEscorts|length > 0 %}
-                <h5>{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</h5>
+                <h5 class="row">
+                    <span class="cell rw-4 rw-lg-6 rw-md-4 rw-sm-6">{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</span>
+                    <span class="cell rw-4 rw-4 rw-lg-2 rw-md-4 rw-sm-3">{{ 'Infos'|trans({}, 'game') }}</span>
+                    <span class="cell rw-4 rw-sm-3 right">{{ 'Aktionen'|trans({}, 'game') }}</span>
+                </h5>
+
                 <div class="row-table">
                     {% for other_citizen in other_citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
                             <div class="row beyond-escort-off">
-                                <div class="padded cell rw-4 rw-lg-6 rw-md-4 rw-sm-9 citizen-box">
+                                <div class="padded cell rw-4 rw-lg-6 rw-md-4 rw-sm-6 citizen-box">
                                     {% if other_citizen.online %}
                                         <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
                                     {% else %}
@@ -807,7 +817,7 @@
                                         {% endif %}
                                     </ul>
                                 </div>
-                                <div class="padded cell rw-4 rw-sm-12 right">
+                                <div class="padded cell rw-4 rw-sm-3 right">
                                     {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
                                         <button {% if not can_attack_citizen or citizen_hidden %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
                                             <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>

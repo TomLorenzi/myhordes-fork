@@ -23374,10 +23374,11 @@
       <notes>
         <note category="german">Vor.</note>
         <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="state">new</note>
       </notes>
       <segment>
         <source>Vor.</source>
-        <target>Stk.</target>
+        <target>Vor.</target>
       </segment>
     </unit>
     <unit id="g1XSymV" name="Anz.">
@@ -23410,35 +23411,25 @@
         <target>You have reported this post on the black board to The Crow. Who knows, maybe its author will die tonight... caaaw caaaw!</target>
       </segment>
     </unit>
-    <unit id="G3CtrOz" name="Vor.">
+    <unit id="qrK4heb" name="Infos">
       <notes>
-        <note category="german">Vor.</note>
-        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="german">Infos</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
         <note category="state">new</note>
       </notes>
       <segment>
-        <source>Vor.</source>
-        <target>Vor.</target>
+        <source>Infos</source>
+        <target>Infos</target>
       </segment>
     </unit>
-    <unit id="g1XSymV" name="Anz.">
+    <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
-        <note category="german">Anz.</note>
-        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
+        <note category="german">Aktionen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
-        <source>Anz.</source>
-        <target>Stk.</target>
-      </segment>
-    </unit>
-    <unit id="kVopbOG" name="Handeln">
-      <notes>
-        <note category="german">Handeln</note>
-        <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
-      </notes>
-      <segment>
-        <source>Handeln</source>
-        <target>Action</target>
+        <source>Aktionen</source>
+        <target>Actions</target>
       </segment>
     </unit>
   </file>
