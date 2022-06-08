@@ -127,7 +127,7 @@ class MessageGlobalPMController extends MessageController
                     $this->entity_manager->flush();
                 } catch (Exception $e) {}
 
-                foreach ($dm_cache as $entry) $entry->setText( $this->html->prepareEmotes( $entry->getText(), $this->getUser() ) );
+                foreach ($dm_cache as $entry) $entry->setText( $this->html->prepareEmotes( $entry->getText() ?? '', $this->getUser() ) );
                 $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_dm' => $dm_cache] )->getContent();
 
                 break;
