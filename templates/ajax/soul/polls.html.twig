@@ -124,7 +124,7 @@
                     {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
                         <li>
                             <div class="row-flex wrap">
-                                <div class="cell grow-1">{{ 'Ich habe keine besondere Meinung zu dieser Frage.' }}</div>
+                                <div class="cell grow-1">{{ 'Ich habe keine besondere Meinung zu dieser Frage.'|trans({},'soul') }}</div>
                                 <div class="cell shrink-1">
                                     <button class="small inline" data-no-vote="1" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: 0}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
                                 </div>

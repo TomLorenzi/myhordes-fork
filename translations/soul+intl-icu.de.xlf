@@ -4552,5 +4552,14 @@
         <target>Du hast in dieser Stadt zusammen gespielt</target>
       </segment>
     </unit>
+    <unit id="6AH1m9u" name="Ich habe keine besondere Meinung zu dieser Frage.">
+      <notes>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ich habe keine besondere Meinung zu dieser Frage.</source>
+        <target>Ich habe keine besondere Meinung zu dieser Frage.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

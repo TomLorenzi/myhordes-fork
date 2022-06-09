@@ -4962,5 +4962,15 @@
         <target>You have played together in this town</target>
       </segment>
     </unit>
+    <unit id="6AH1m9u" name="Ich habe keine besondere Meinung zu dieser Frage.">
+      <notes>
+        <note category="german">Ich habe keine besondere Meinung zu dieser Frage.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ich habe keine besondere Meinung zu dieser Frage.</source>
+        <target>I don't have any particular opinion on this topic.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

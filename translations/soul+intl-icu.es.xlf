@@ -4960,5 +4960,15 @@
         <target>Ambos jugaron juntos en este pueblo</target>
       </segment>
     </unit>
+    <unit id="6AH1m9u" name="Ich habe keine besondere Meinung zu dieser Frage.">
+      <notes>
+        <note category="german">Ich habe keine besondere Meinung zu dieser Frage.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+      </notes>
+      <segment>
+        <source>Ich habe keine besondere Meinung zu dieser Frage.</source>
+        <target>No tengo ninguna opinión particular sobre este tema.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

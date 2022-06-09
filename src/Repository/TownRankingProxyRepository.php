@@ -40,7 +40,7 @@ class TownRankingProxyRepository extends ServiceEntityRepository
      * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
      * @param string $value Value to search for
      */
-    public function findTopOfSeason(Season $season, TownClass $class)
+    public function findTopOfSeason(?Season $season, TownClass $class)
     {
             return $this->createQueryBuilder('t')
                 ->andWhere('BIT_AND(t.disableFlag, :flag) <> :flag')->setParameter('flag', TownRankingProxy::DISABLE_RANKING)
