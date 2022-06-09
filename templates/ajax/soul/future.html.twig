@@ -7,6 +7,17 @@
     {% if selected is null %}
         COMING SOON
     {% else %}
+    {% if has_polls %}
+        <div class="row">
+            <div class="cell padded rw-12">
+                <div class="help">
+                    <b>{{ 'Schon gewusst?'|trans({},'global') }}</b>
+                    {{ 'Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.'|trans({},'soul') }}
+                    <div class="right"><button x-ajax-href="{{ path('soul_polls') }}" class="small inline">{{ 'Zu den Umfragen'|trans({},'soul') }}</button></div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <div class="news">
         <div class="head">
             <div class="title center"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.title}}</span><img src="{{ asset('build/images/log/build.gif') }}" /></div>
@@ -32,18 +43,6 @@
             </div>
         </div>
     </div>
-    {% if has_polls %}
-        <div class="row">
-            <div class="cell padded rw-12">
-                <div class="help">
-                    <b>{{ 'Schon gewusst?'|trans({},'global') }}</b>
-                    {{ 'Um den Kurs für die Weiterentwicklung von MyHordes zu bestimmen, führen wir regelmäßig Umfragen mit allen Spielern durch. Klicke den folgenden Button, um zu einer Übersicht aller aktuellen und vergangenen Umfragen zu gelangen.'|trans({},'soul') }}
-                    <div class="right"><button x-ajax-href="{{ path('soul_polls') }}" class="small inline">{{ 'Zu den Umfragen'|trans({},'soul') }}</button></div>
-                </div>
-            </div>
-        </div>
-
-    {% endif %}
     {% endif %}
 {% endblock %}
 {% block js %}
