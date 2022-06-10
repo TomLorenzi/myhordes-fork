@@ -9014,12 +9014,12 @@
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <notes>
         <note category="german">Die Waffe &lt;strong&gt;hat keine Batterie&lt;/strong&gt; mehr.</note>
-        <note category="state">madeup</note>
+        <note category="state">translated</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
         <source>Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</source>
-        <target><![CDATA[The weapon <strong>no longer has a battery</strong>.]]></target>
+        <target><![CDATA[The weapon has <strong>run out of batteries</strong>.]]></target>
       </segment>
     </unit>
     <unit id="3YKCcgW">
