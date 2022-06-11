@@ -118,6 +118,7 @@ class MigrateCommand extends Command
         'f38e93b3cc6e37542112c53771d65fe00e05e7a1' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
         '6e3bce82be2e25424ed46de660aaf7d2ca30450f' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
         'd82e52568784983dc614830ac43cc906e874b5a0' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
+        '22b1072473d9ec5881f70702b85674ca4b39af9d' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -207,6 +208,7 @@ class MigrateCommand extends Command
 
             ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
             ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
+            ->addOption('adjust-sandball-pictos', null, InputOption::VALUE_NONE, '')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
@@ -958,6 +960,19 @@ class MigrateCommand extends Command
             $this->helper->leChunk($output, Picto::class, 1000, ['imported' => false], true, true, function(Picto $picto) {
                 $picto->setOld($picto->getTownEntry() && !$picto->getTownEntry()->getImported() && $picto->getTownEntry()->getSeason() === null);
             }, true);
+
+            return 0;
+        }
+
+        if ($input->getOption('adjust-sandball-pictos')) {
+            $sandball_picto_proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_sandb_#00');
+            if ($sandball_picto_proto)
+                $this->helper->leChunk($output, Picto::class, 250, ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto ], true, false, function(Picto $picto) {
+                    if ($picto->getCount() > 6) {
+                        $picto->setCount( 5 + ceil(( $picto->getCount() - 5 ) / 10) );
+                        return true;
+                    } else return false;
+                }, false );
 
             return 0;
         }
