@@ -54,7 +54,7 @@ class AnnouncementRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('a')->select('COUNT(a.id)')
             ->andWhere(':user NOT MEMBER OF a.readBy')->setParameter('user', $user)
             ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
-            ->andWhere('a.timestamp > :cut')->setParameter('cut', new \DateTime('-60days'));
+            ->andWhere('a.timestamp > :cut')->setParameter('cut', new DateTime('-60days'));
 
         try {
             return $qb->getQuery()->getSingleScalarResult();

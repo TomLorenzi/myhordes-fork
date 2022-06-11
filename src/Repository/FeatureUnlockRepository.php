@@ -6,6 +6,7 @@ use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Season;
 use App\Entity\User;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -34,7 +35,7 @@ class FeatureUnlockRepository extends ServiceEntityRepository
             ->setParameter('fems', FeatureUnlock::FeatureExpirationSeason);
         if ($season !== null) $qb->setParameter('season', $season);
 
-        return $qb->setParameter('femt', FeatureUnlock::FeatureExpirationTimestamp)->setParameter('now', new \DateTime())
+        return $qb->setParameter('femt', FeatureUnlock::FeatureExpirationTimestamp)->setParameter('now', new DateTime())
             ->setParameter('femc', FeatureUnlock::FeatureExpirationTownCount)
             ->orderBy('f.expirationMode', 'DESC')
             ->getQuery()
