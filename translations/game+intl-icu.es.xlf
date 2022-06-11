@@ -734,7 +734,7 @@
     <unit id="8N0dl_g" name="Zombies">
       <notes>
         <note category="german">Zombies</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
@@ -8019,12 +8019,11 @@
     <unit id="wVNJv3." name="Camping">
       <notes>
         <note category="german">Camping</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Camping</source>
-        <target>Camping</target>
+        <target>Acampada</target>
       </segment>
     </unit>
     <unit id="qIelrId" name="Eskorte">
@@ -8230,7 +8229,7 @@
     <unit id="CoVKZbl" name="{sender}: {message}">
       <notes>
         <note category="german">{sender}: {message}</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -11392,7 +11391,7 @@
     <unit id="oDsiHGx" name="???">
       <notes>
         <note category="german">???</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://CauseOfDeath</note>
       </notes>
       <segment>
@@ -11973,7 +11972,7 @@
     <unit id="Ry7M.1L" name="Cooking Mama">
       <notes>
         <note category="german">Cooking Mama</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -13435,7 +13434,7 @@
     <unit id="gUIyMph" name="Jeffrey Dahmer">
       <notes>
         <note category="german">Jeffrey Dahmer</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -13666,7 +13665,7 @@
     <unit id="lUV0fyN" name="Bingo">
       <notes>
         <note category="german">Bingo</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -13857,12 +13856,11 @@
     <unit id="UTJLf6u" name="Soul Man">
       <notes>
         <note category="german">Soul Man</note>
-        <note category="state">new</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
         <source>Soul Man</source>
-        <target>Soul Man</target>
+        <target>Hombre de Alma</target>
       </segment>
     </unit>
     <unit id="npv5jjJ" name="Bei meiner Seel">
@@ -14068,12 +14066,12 @@
     <unit id="k._y0h1" name="Holy F***ing Iceberg">
       <notes>
         <note category="german">Holy F***ing Iceberg</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
         <source>Holy F***ing Iceberg</source>
-        <target>Holy F***ing Iceberg</target>
+        <target>¡Maldita sea, un Iceberg!</target>
       </segment>
     </unit>
     <unit id="W7EFZTB" name="Verrückter Skeptiker">
@@ -14679,7 +14677,7 @@
     <unit id="1YdiLSd" name="Bonus">
       <notes>
         <note category="german">Bonus</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
@@ -14690,7 +14688,7 @@
     <unit id="X7RHtVg" name="UFC">
       <notes>
         <note category="german">UFC</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://PictoPrototype</note>
       </notes>
       <segment>
@@ -15922,12 +15920,12 @@
     <unit id="DqJn30N" name="Die Revolte steht bevor!">
       <notes>
         <note category="german">Die Revolte steht bevor!</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Die Revolte steht bevor!</source>
-        <target>Die Revolte steht bevor!</target>
+        <target>¡La insurrección está a punto de ocurrir!</target>
       </segment>
     </unit>
     <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
@@ -16666,12 +16664,12 @@
     <unit id="0Kqpu1t" name="gering">
       <notes>
         <note category="german">gering</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
         <source>gering</source>
-        <target>gering</target>
+        <target>bajo</target>
       </segment>
     </unit>
     <unit id=".CQK_8d" name="hoch">
@@ -16747,7 +16745,7 @@
     <unit id="tz.x2ip" name="Bruce Campbell">
       <notes>
         <note category="german">Bruce Campbell</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -16848,7 +16846,7 @@
     <unit id="7zruD98" name="Tomb Raider">
       <notes>
         <note category="german">Tomb Raider</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -16889,23 +16887,23 @@
     <unit id="A9.RjsE" name="Lucky 7">
       <notes>
         <note category="german">Lucky 7</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
         <source>Lucky 7</source>
-        <target>Lucky 7</target>
+        <target>7 de la Suerte</target>
       </segment>
     </unit>
     <unit id="29D05i3" name="Money for Nothing">
       <notes>
         <note category="german">Money for Nothing</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
         <source>Money for Nothing</source>
-        <target>Money for Nothing</target>
+        <target>Dinero para Nada</target>
       </segment>
     </unit>
     <unit id="jt3aCAC" name="Wilde Bestie">
@@ -16951,7 +16949,7 @@
     <unit id="Y7BDALO" name="Internet Explorer">
       <notes>
         <note category="german">Internet Explorer</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">db://AwardPrototype</note>
       </notes>
       <segment>
@@ -19025,12 +19023,12 @@
     <unit id="jQ18AzU" name="1. April">
       <notes>
         <note category="german">1. April</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>1. April</source>
-        <target>1. April</target>
+        <target>1ro de Abril</target>
       </segment>
     </unit>
     <unit id="5kvPhGt" name="St. Patrick">
@@ -19056,7 +19054,7 @@
     <unit id="BJVmtrE" name="Halloween">
       <notes>
         <note category="german">Halloween</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
@@ -19467,7 +19465,7 @@
     <unit id="ybPDgkf" name="Total">
       <notes>
         <note category="german">Total</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -20398,7 +20396,7 @@
     <unit id="GOhyviN" name="Total:">
       <notes>
         <note category="german">Total:</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -20792,7 +20790,7 @@
     <unit id="olizD4j" name="Global">
       <notes>
         <note category="german">Global</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
         <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
@@ -22139,7 +22137,7 @@
       <notes>
         <note category="german">Def.</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Def.</source>
@@ -22190,11 +22188,11 @@
       <notes>
         <note category="german">Einen Aufstand der Verbannten vorbereiten (optional).</note>
         <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Einen Aufstand der Verbannten vorbereiten (optional).</source>
-        <target>Einen Aufstand der Verbannten vorbereiten (optional).</target>
+        <target>Prepara una Insurrección (opcional).</target>
       </segment>
     </unit>
     <unit id="gfklKsJ" name="Du bist der {rolename} dieser Stadt.">
@@ -22222,33 +22220,33 @@
       <notes>
         <note category="german">Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</source>
-        <target>Mit dieser Aktion kannst du die Stadt betreten, ohne dass es ins Stadtregister eingetragen wird. Wenn du ein paar Spieler eskortierst, werden diese am Stadttor zurückgelassen.</target>
+        <target>Esta acción te permite pasar por el portal del pueblo sin que sea registrado en el Registro. Si estás escoltando jugadores, serán dejados en el portal.</target>
       </segment>
     </unit>
     <unit id="PanD2KO">
       <notes>
         <note category="german">Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</source>
-        <target>Mit dieser Aktion kannst du deinen unersättlichen Hunger nach Menschenfleisch stillen!</target>
+        <target>¡Esta acción te permite saciar tu insaciable hambre de carne humana!</target>
       </segment>
     </unit>
     <unit id="lt7mbY8">
       <notes>
         <note category="german">Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</note>
         <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</source>
-        <target>Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.</target>
+        <target>Esta acción te permite dejar el pueblo sin que esto sea registrado en el registro.</target>
       </segment>
     </unit>
     <unit id="EnGH19o" name="in der Außenwelt">
@@ -23053,11 +23051,11 @@
       <notes>
         <note category="german">Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du kannst diese Aktion nicht durchführen, während in der Stadt &lt;strong&gt;Chaos&lt;/strong&gt; herrscht.</source>
-        <target><![CDATA[Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.]]></target>
+        <target><![CDATA[Es imposible hacer esto en tiempos de <strong>Caos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="niUF_zZ">
@@ -23325,11 +23323,11 @@
       <notes>
         <note category="german">Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
-        <target>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</target>
+        <target>Has reportado esta publicación en la pizarra al Cuervo. Quién sabe, quizás su autor morirá esta noche... ¡caaaw caaaw!</target>
       </segment>
     </unit>
     <unit id="qrK4heb" name="Infos">
