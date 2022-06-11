@@ -4309,7 +4309,7 @@
       </notes>
       <segment>
         <source>Umfrage starten</source>
-        <target>Iniciar encuesta</target>
+        <target>Ver encuesta actual</target>
       </segment>
     </unit>
     <unit id="CHq_sLA" name="Alles als gelesen markieren">
