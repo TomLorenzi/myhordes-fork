@@ -549,7 +549,10 @@ class SoulController extends CustomAbstractController
                 if ($import->getMain()) $main = $import->getScope() ?? 'none';
 
             $sp = $user->getAllSoulPoints();
-            $anti_grief = $user->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20);
+            $anti_grief =
+                $user->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20) ||
+                $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ) ||
+                $this->isGranted( 'ROLE_DUMMY' );
 
             $answer->incTagNumber('origin', $main);
             $answer->incTagNumber('lang', $user->getLanguage());
