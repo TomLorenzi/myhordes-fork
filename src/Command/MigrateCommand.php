@@ -142,6 +142,21 @@ class MigrateCommand extends Command
         parent::__construct();
     }
 
+    protected function ensureForumPermissions( OutputInterface $output, ?Forum $forum, UserGroup $group, int $grant = ForumUsagePermissions::PermissionReadWrite, int $deny = ForumUsagePermissions::PermissionNone) {
+        $po = $this->entity_manager->getRepository(ForumUsagePermissions::class)->findOneBy(['principalUser' => null, 'forum' => $forum, 'principalGroup' => $group]);
+        if (!$po) {
+            if ($forum)
+                $output->writeln("Creating group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
+            else $output->writeln("Creating group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
+            $this->entity_manager->persist( (new ForumUsagePermissions())->setForum($forum)->setPrincipalGroup($group)->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
+        } elseif ($po->getPermissionsGranted() !== $grant || $po->getPermissionsDenied() !== $deny) {
+            if ($forum)
+                $output->writeln("Resetting group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
+            else $output->writeln("Resetting group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
+            $this->entity_manager->persist( $po->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
+        }
+    }
+
     protected function configure()
     {
         $this
@@ -855,21 +870,6 @@ class MigrateCommand extends Command
                 }
             };
 
-            $fun_permissions = function( ?Forum $forum, UserGroup $group, int $grant = ForumUsagePermissions::PermissionReadWrite, int $deny = ForumUsagePermissions::PermissionNone) use ($output) {
-                $po = $this->entity_manager->getRepository(ForumUsagePermissions::class)->findOneBy(['principalUser' => null, 'forum' => $forum, 'principalGroup' => $group]);
-                if (!$po) {
-                    if ($forum)
-                        $output->writeln("Creating group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
-                    else $output->writeln("Creating group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
-                    $this->entity_manager->persist( (new ForumUsagePermissions())->setForum($forum)->setPrincipalGroup($group)->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
-                } elseif ($po->getPermissionsGranted() !== $grant || $po->getPermissionsDenied() !== $deny) {
-                    if ($forum)
-                        $output->writeln("Resetting group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
-                    else $output->writeln("Resetting group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
-                    $this->entity_manager->persist( $po->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
-                }
-            };
-
             $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
             $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
             $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
@@ -920,24 +920,24 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
 
             // Fix permissions
-            $fun_permissions(null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
-            $fun_permissions(null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionFormattingOracle);
-            $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
-            $fun_permissions(null, $g_admin, ForumUsagePermissions::PermissionOwn);
+            $this->ensureForumPermissions($output,null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
+            $this->ensureForumPermissions($output,null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionFormattingOracle);
+            $this->ensureForumPermissions($output,null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
+            $this->ensureForumPermissions($output,null, $g_admin, ForumUsagePermissions::PermissionOwn);
 
             foreach ($this->entity_manager->getRepository(Forum::class)->findAll() as $forum) {
 
                 if ($forum->getTown())
-                    $fun_permissions($forum, $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $forum->getTown()->getId()] ));
+                    $this->ensureForumPermissions($output, $forum, $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $forum->getTown()->getId()] ));
 
                 elseif ($forum->getType() === Forum::ForumTypeDefault || $forum->getType() === null) {
-                    $fun_permissions($forum, $g_users);
-                    $fun_permissions($forum, $g_oracle, ForumUsagePermissions::PermissionHelp);
+                    $this->ensureForumPermissions($output, $forum, $g_users);
+                    $this->ensureForumPermissions($output, $forum, $g_oracle, ForumUsagePermissions::PermissionHelp);
                 }
-                elseif ($forum->getType() === Forum::ForumTypeElevated) $fun_permissions($forum, $g_elev);
-                elseif ($forum->getType() === Forum::ForumTypeMods) $fun_permissions($forum, $g_mods);
-                elseif ($forum->getType() === Forum::ForumTypeAdmins) $fun_permissions($forum, $g_admin);
-                elseif ($forum->getType() === Forum::ForumTypeAnimac) $fun_permissions($forum, $g_anim);
+                elseif ($forum->getType() === Forum::ForumTypeElevated) $this->ensureForumPermissions($output,$forum, $g_elev);
+                elseif ($forum->getType() === Forum::ForumTypeMods) $this->ensureForumPermissions($output,$forum, $g_mods);
+                elseif ($forum->getType() === Forum::ForumTypeAdmins) $this->ensureForumPermissions($output,$forum, $g_admin);
+                elseif ($forum->getType() === Forum::ForumTypeAnimac) $this->ensureForumPermissions($output,$forum, $g_anim);
 
             }
 
@@ -999,29 +999,31 @@ class MigrateCommand extends Command
 
             $forum_data_assignment = [
                 'de' => [
-                    [ 'Hilfe', 'bannerForumHelp.gif', 'In diesem Forum könnt ihr Fragen stellen, Überlebensstrategien besprechen und euch austauschen.' ],
-                    [ 'Diskussionen', 'bannerForumDiscuss.gif', 'In diesem Forum könnt ihr Überlebensstrategien besprechen und Spielvorschläge (...ohne Garantie!) machen.' ],
-                    [ 'Der Saloon', 'bannerForumSalon.gif', 'Der Saloon ist ein Raum für stimmungsvolle Diskussionen rund um das MyHordes-Universum (RP oder nicht).' ],
+                    [ 'Hilfe', 'bannerForumHelp.gif', 'In diesem Forum könnt ihr Fragen stellen, Überlebensstrategien besprechen und euch austauschen.', true ],
+                    [ 'Diskussionen', 'bannerForumDiscuss.gif', 'In diesem Forum könnt ihr Überlebensstrategien besprechen und Spielvorschläge (...ohne Garantie!) machen.', false ],
+                    [ 'Der Saloon', 'bannerForumSalon.gif', 'Der Saloon ist ein Raum für stimmungsvolle Diskussionen rund um das MyHordes-Universum (RP oder nicht).', false ],
                 ],
                 'fr' => [
-                    [ 'Aide', 'bannerForumHelp.gif', 'Ici vous trouverez les réponses à vos questions, attention toutefois, le corbeau vous a à l\'oeil.' ],
-                    [ 'Discussions', 'bannerForumDiscuss.gif', 'Vous pouvez discuter entre vous, attention toutefois, le corbeau vous a à l\'oeil.' ],
-                    [ 'Le Saloon', 'bannerForumSalon.gif', 'Le Saloon est un espace réservé aux discussions d\'ambiance autour de l’univers de Hordes (RP ou pas).' ],
+                    [ 'Aide', 'bannerForumHelp.gif', 'Ici vous trouverez les réponses à vos questions, attention toutefois, le corbeau vous a à l\'oeil.', true ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'Vous pouvez discuter entre vous, attention toutefois, le corbeau vous a à l\'oeil.', false ],
+                    [ 'Le Saloon', 'bannerForumSalon.gif', 'Le Saloon est un espace réservé aux discussions d\'ambiance autour de l’univers de Hordes (RP ou pas).', false ],
                 ],
                 'en' => [
-                    [ 'Help', 'bannerForumHelp.gif', 'Discuss the rules and ask questions directly related to the rules of the game.' ],
-                    [ 'Discussions', 'bannerForumDiscuss.gif', 'You can chat with each other, be careful though, the crow is watching.' ],
-                    [ 'The Saloon', 'bannerForumSalon.gif', 'The Saloon is a space reserved for discussions about the MyHordes universe (RP or not).' ],
+                    [ 'Help', 'bannerForumHelp.gif', 'Discuss the rules and ask questions directly related to the rules of the game.', true ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'You can chat with each other, be careful though, the crow is watching.', false ],
+                    [ 'The Saloon', 'bannerForumSalon.gif', 'The Saloon is a space reserved for discussions about the MyHordes universe (RP or not).', false ],
                 ],
                 'es' => [
-                    [ 'Ayuda General', 'bannerForumHelp.gif', 'Antes de crear un nuevo tema, haz una búsqueda por palabra clave. ¡Aquí no van los pedidos de auxilio!' ],
-                    [ 'Discusiones', 'bannerForumDiscuss.gif', 'Podéis charlar entre vosotros, pero tened cuidado, el cuervo está mirando.' ],
-                    [ 'Historias de MyHordes', 'bannerForumSalon.gif', 'Relatos y leyendas de los habitantes de este mundo condenado.' ],
+                    [ 'Ayuda General', 'bannerForumHelp.gif', 'Antes de crear un nuevo tema, haz una búsqueda por palabra clave. ¡Aquí no van los pedidos de auxilio!', true ],
+                    [ 'Discusiones', 'bannerForumDiscuss.gif', 'Podéis charlar entre vosotros, pero tened cuidado, el cuervo está mirando.', false ],
+                    [ 'Historias de MyHordes', 'bannerForumSalon.gif', 'Relatos y leyendas de los habitantes de este mundo condenado.', false ],
                 ]
             ];
 
+            $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
+
             foreach ( $forum_data_assignment as $lang => $data )
-                foreach ( $data as $sort => [ $title, $icon, $desc ] ) {
+                foreach ( $data as $sort => [ $title, $icon, $desc, $isHelp ] ) {
 
                     $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
                     if (!$forum) {
@@ -1037,6 +1039,9 @@ class MigrateCommand extends Command
                     $this->entity_manager->persist(
                         $forum->setDescription( $desc )->setIcon( $icon )->setWorldForumSorting( $sort )
                     );
+
+                    if ($g_oracle)
+                        $this->ensureForumPermissions( $output, $forum, $g_oracle, $isHelp ? ForumUsagePermissions::PermissionHelp : ForumUsagePermissions::PermissionNone );
 
                 }
 

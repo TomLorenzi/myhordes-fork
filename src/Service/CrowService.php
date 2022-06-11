@@ -211,7 +211,7 @@ class CrowService {
                     case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_postDeleted'; break;
                     default: return null;
                 }
-                $data = [ 'link_post' => $object->getId(), 'threadname' => $object->getThread()->getTitle(), 'forumname' => $object->getThread()->getForum()->getTitle() ];
+                $data = [ 'link_post' => $object->getId(), 'threadname' => $object->getThread()->getTitle(), 'forumname' => $object->getThread()->getForum()->getTitle(), 'reason' => $reason ];
                 break;
             }
 

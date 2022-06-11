@@ -54,6 +54,10 @@
                                         <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
                                         <span>{{ 'Schließen'|trans({},'global') }}</span>
                                     </div>
+                                    <div tabindex="0" x-forum-moderator-action="solve" class="forum-button">
+                                        <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
+                                        <span>{{ 'Gelöst'|trans({},'global') }}</span>
+                                    </div>
                                 {% endif %}
                                 {% if locked %}
                                     <div tabindex="0" x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button">
@@ -369,16 +373,16 @@
 
         {% if permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="lock"]', 'click', function(e,elem) {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', null, reloadPage);
+                let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
+                if (reason !== null)
+                    $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', {reason}, reloadPage);
             });
         {% endif %}
-        {% if permission.help %}
+        {% if permission.help or permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="solve"]', 'click', function(e,elem) {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'solve'}) }}', null, reloadPage);
+                let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
+                if (reason !== null)
+                    $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'solve'}) }}', {reason}, reloadPage);
             });
         {% endif %}
 

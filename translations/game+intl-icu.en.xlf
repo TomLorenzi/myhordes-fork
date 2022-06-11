@@ -22564,26 +22564,6 @@
         <target>{citizen} hat das Gebäude {plan} repariert (Sklaverei: +50% AP).</target>
       </segment>
     </unit>
-    <unit id="hq.m1hn" name="Ein Moderator hat deinen Thread &quot;{threadname}&quot; geschlossen. {link_post}">
-      <notes>
-        <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</note>
-        <note category="from">db://LogEntryTemplate</note>
-      </notes>
-      <segment>
-        <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. {link_post}</source>
-        <target>A moderator has closed your thread "{threadname}". {link_post}</target>
-      </segment>
-    </unit>
-    <unit id="AEFBcgF">
-      <notes>
-        <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</note>
-        <note category="from">db://LogEntryTemplate</note>
-      </notes>
-      <segment>
-        <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. {link_post}</source>
-        <target>A moderator has marked your thread "{threadname}" as "resolved". {link_post}</target>
-      </segment>
-    </unit>
     <unit id="4zy_n9Y" name="Funkgerät verwenden">
       <notes>
         <note category="german">Funkgerät verwenden</note>
@@ -23430,6 +23410,26 @@
       <segment>
         <source>Aktionen</source>
         <target>Actions</target>
+      </segment>
+    </unit>
+    <unit id="AApRbvy">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" geschlossen. Grund: "{reason}" {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" geschlossen. Grund: "{reason}" {link_post}</source>
+        <target>A moderator has closed your thread "{threadname}". Reason: "{reason}" {link_post}</target>
+      </segment>
+    </unit>
+    <unit id="tMO07PV">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. Grund: "{reason}" {link_post}</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. Grund: "{reason}" {link_post}</source>
+        <target>A moderator has marked your thread "{threadname}" as "resolved". Reason: "{reason}" {link_post}</target>
       </segment>
     </unit>
   </file>

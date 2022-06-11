@@ -1274,7 +1274,7 @@ class MessageForumController extends MessageController
                 if ($thread->getOwner() !== $this->getUser()) {
                     $notification = $crow->createPM_moderation( $thread->getOwner(),
                                                                 CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionClose,
-                                                                $thread->firstPost(true)
+                                                                $thread->firstPost(true), $parser->get( 'reason', '-' )
                     );
                     if ($notification) $this->entity_manager->persist($notification);
                 }
@@ -1287,7 +1287,7 @@ class MessageForumController extends MessageController
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
             case 'solve':
-                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionHelp))
+                if (!$this->perm->checkAnyEffectivePermissions($this->getUser(), $forum, [ForumUsagePermissions::PermissionModerate,ForumUsagePermissions::PermissionHelp]))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
                 $thread->setLocked(true)->setSolved(true);
@@ -1295,7 +1295,7 @@ class MessageForumController extends MessageController
                 if ($thread->getOwner() !== $this->getUser()) {
                     $notification = $crow->createPM_moderation( $thread->getOwner(),
                                                                 CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionSolve,
-                                                                $thread->firstPost(true)
+                                                                $thread->firstPost(true), $parser->get( 'reason', '-' )
                     );
                     if ($notification) $this->entity_manager->persist($notification);
                 }
