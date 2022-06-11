@@ -35,6 +35,10 @@
     &>span { position: relative; display: block; left: 0; top: 0; width: 100%; color: black; }
   }
 
+  div.game-menu-area > div.game-bar > ul.text-menu > li.poll-dash {
+    left: calc( 100vw - 240px );
+  }
+
   #gazette {
     perspective: 1000px;
     width: 95%;
@@ -142,7 +146,7 @@
     }
   }
   #wrapper > #content #apps #apps-list ul li.app-external { width: 100% !important; }
-  button, .button { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
+  button:not(.no-mobile-resize), .button:not(.no-mobile-resize) { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
 
   h4.preview-header { width: 100%; left: 0; padding: 4px; }
   .about-paragraph img { max-width: 100%; width: 100% }

@@ -79,8 +79,8 @@
                             {# @var \App\Entity\GlobalPoll poll #}
                             {% if poll is defined and poll %}
                                 <li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
-                                    <button>
-                                        {{ 'Umfrage starten'|trans({},'global') }}
+                                    <button class="no-mobile-resize">
+                                        <span>{{ 'Umfrage starten'|trans({},'global') }}</span>
                                         <div class="tooltip">
                                             <b>{{ poll.titleByLang( app.user.language ) }}</b>
                                             <div>{{ poll.shortDescriptionByLang( app.user.language ) }}</div>

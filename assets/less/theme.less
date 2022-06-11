@@ -1029,12 +1029,14 @@ div.game-menu-area {
     position: absolute; z-index: 11; width: 100%; top: 37px; display: block; background: @myhordes-panel-box-bg;
     box-shadow: 0 0 5px black; transition: height 0.4s ease, opacity 0.4s ease; overflow: hidden;
     &>ul.text-menu {
-      padding: 10px; margin: 0;
+      padding: 10px; margin: 0; display: flex; flex-direction: column; align-items: stretch;
       &>li {
         &.burger-button { display: none; }
         padding: 5px; font-size: 1.6rem; font-weight: bold; font-variant: small-caps; list-style: none;
         cursor: pointer;
         &:hover { background: lighten(@myhordes-panel-box-bg, 10%) }
+        &.back-dash { order: 1; margin-top: 25px; }
+        &.poll-dash { order: 2; margin-top: 25px; }
       }
     }
   }
@@ -1122,7 +1124,8 @@ div.game-menu-area {
             background: url('../img/background/sondagebt_bg.gif') center / cover no-repeat;
             button {
               position: absolute; width: 156px; min-height: auto; height: 20px; top: 19px;
-              left: 11px;
+              left: 11px; white-space: nowrap; overflow: hidden; text-overflow: fade;
+              &>span { display: block; width: 130%; position: relative; left: -15%; text-align: center; transform: scaleX(0.85); }
             }
           }
 
