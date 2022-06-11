@@ -1264,10 +1264,43 @@ class AdminTownController extends AdminActionController
         ]);
 
         return AjaxResponse::success(true, [
+            'desc' => $citizen->getAlive() ? $citizen->getHome()->getDescription() : $citizen->getRankingEntry()->getLastWords(),
             'rucksack' => $rucksack,
             'chest' => $chest,
             'pictos' => $pictos,
         ]);
+    }
+
+    /**
+     * @Route("api/admin/town/{id}/clear_citizen_attribs", name="clear_citizen_attribs", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @Security("is_granted('ROLE_CROW')")
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function clear_citizen_attribs(int $id, JSONRequestParser  $parser) {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $id = $parser->get_int('id');
+        $clear = $parser->get('clear');
+
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($id);
+        if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        switch ($clear) {
+            case 'citizen-custom-message':
+                $this->entity_manager->persist( $citizen->getHome()->setDescription( null ) );
+                $this->entity_manager->persist( $citizen->setLastWords( '' ) );
+                $this->entity_manager->persist( $citizen->getRankingEntry()->setLastWords( null ) );
+                break;
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
     }
 
     /**

@@ -408,7 +408,7 @@
                                             {% endif %}
                                             </span>
                                         {% endif %}
-                                        {% if citizen.home.description is not null or citizen.lastWords is not null %}
+                                        {% if citizen.home.description is not null or (citizen.lastWords is not null and citizen.lastWords != '') %}
                                             <div>
                                                 <img src="{{ asset('build/images/forum/r_forum.gif') }}" alt="" />
                                                 <div class="tooltip normal">
@@ -426,6 +426,10 @@
                                 <div x-citizen-id="{{ citizen.id }}" class="row hidden citizen-details">
                                     <div class="cell rw-12">
                                         <div class="row">
+                                            <div class="padded cell rw-12 hidden">
+                                                <div class="invTargetDesc lightbox"></div>
+                                                <button data-clear="citizen-custom-message" class="small inline float-right">{{ 'Löschen'|trans({},'admin') }}</button>
+                                            </div>
                                             <div class="padded cell rw-6"><div class="invTargetRucksack"></div></div>
                                             <div class="padded cell rw-6"><div class="invTargetChest"></div></div>
                                             <div class="padded cell rw-12 soul"><div class="invTargetPictos"></div></div>
@@ -1101,6 +1105,15 @@
             $.ajax.no_history().load( document.getElementById('gazette-target'), elem.value, false )
         })
 
+        $.html.addEventListenerAll( '[x-citizen-id] [data-clear]', 'click', (e,elem) => {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            const id = parseInt(elem.closest('[x-citizen-id]').getAttribute('x-citizen-id'));
+            $.ajax.easySend('{{ path('clear_citizen_attribs', {id: town.id}) }}', {id, clear: elem.dataset.clear},
+                () => $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true)
+            );
+        } );
+
         {% if is_granted("ROLE_ADMIN") %}
         $.html.addEventListenerAll('.citizen-main[x-citizen-id]', 'click',  (e,elem) => {
             if (e.target.tagName === 'INPUT') return;
@@ -1112,6 +1125,9 @@
 
                 const refresh = () => {
                     $.ajax.easySend('{{ url('get_citizen_infos', {id: town.id}) }}', {'citizen_id': elem.getAttribute('x-citizen-id')}, data => {
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetDesc').innerText = data.desc;
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetDesc').parentNode?.classList.toggle('hidden', !data.desc)
+
                         document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack').innerHTML = data.rucksack;
                         document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack .inventory').classList.add('rucksack');
                         document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack .inventory .title').innerText = '{{ 'Rucksack'|trans({},'game')|e('js') }}';
