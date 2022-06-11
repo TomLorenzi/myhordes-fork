@@ -1,3 +1,4 @@
+@import (once) "fonts";
 @import (once) "grid";
 
 @import (once) "modules/map";
@@ -15,30 +16,12 @@
 @import (once) "modules/docs";
 @import (once) "modules/events";
 
-@import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Courier+Prime&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Lora&display=swap');
-@font-face {
-  font-family: 'visitor2';
-  src: url('../fonts/visitor2.ttf')  format('truetype');
-  font-weight:normal;
-  font-style:normal;
-}
-
-@font-face {
-  font-family: 'OCR A Extended';
-  src: url('../fonts/ocr_a_ext.ttf')  format('truetype');
-  font-weight:normal;
-  font-style:normal;
-}
-
 @myhordes-fixed-font: "Courier Prime", fixed;
 @myhordes-sans-serif-font: "Comic Neue", sans-serif;
 @myhordes-serif-font: "Lora", serif;
 @myhordes-gazette-font: "Courier New", "Courier", monospace;
-
-@myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
+@myhordes-tab-font: "Arial", sans-serif;
+@myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", "Verdana", 'Open Sans',sans-serif;
 
 @myhordes-background: url(../img/background/bg_colored.jpg) fixed top no-repeat, #100C0B;
 @myhordes-background-online: url(../img/background/bg_gray.jpg) fixed top no-repeat, #100C0B;
@@ -427,7 +410,7 @@ x-message {
         color: #f0d79e;
         text-align: left;
         line-height: 17px;
-        font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+        font-family: @myhordes-font;
         letter-spacing: 1px;
 
         img {
@@ -1419,7 +1402,7 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
       border-left: 1px solid #694023; border-right: 1px solid #694023;
       cursor: pointer;
 
-      font-family: Arial, sans-serif; font-size: 1rem; font-variant: small-caps;
+      font-family: @myhordes-tab-font; font-size: 1rem; font-variant: small-caps;
       color: #f0d79e; padding: 2px 4px 0; text-decoration: underline;
     }
 
@@ -1810,7 +1793,7 @@ div.daily-attack {
       margin: 0px 0px 5px;
       color: #ddab76;
       text-align: left;
-      font-family: Verdana;
+      font-family: @myhordes-serif-font;
       text-transform: uppercase;
       border-bottom: 2px solid #ddab76;
       font-size: 1.3rem;
