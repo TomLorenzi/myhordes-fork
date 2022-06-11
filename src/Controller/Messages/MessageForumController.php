@@ -864,6 +864,15 @@ class MessageForumController extends MessageController
             $paranoid = $ch->hasStatusEffect($user->getActiveCitizen(),'tg_paranoid');
         else $paranoid = false;
 
+        $other_forums_raw = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? array_filter($this->perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionModerate), fn(Forum $f) => $f !== $forum ) : [];
+        $other_forums = [];
+
+        foreach ( array_merge( [$user->getLanguage()], array_filter(['de','en','es','fr'], function(string $s) use ($user) { return $s !== $user->getLanguage(); }) ) as $lang )
+            $other_forums[ $this->translator->trans('Weltforum', [], 'global', $lang) . " [$lang]"] = array_filter( $other_forums_raw, function(Forum $f) use($lang) { return $f->getTown() === null && $f->getWorldForumLanguage() === $lang; } );
+
+        $other_forums[ $this->translator->trans('Weltforen', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() === null && $f->getWorldForumLanguage() === null );
+        $other_forums[ $this->translator->trans('Stadtforum', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() !== null );
+
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
             'owned' => $thread->getOwner() === $user,
@@ -886,7 +895,7 @@ class MessageForumController extends MessageController
 
             'paranoid' => $paranoid,
 
-            'thread_moveable_forums' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? array_filter($this->perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionModerate), fn(Forum $f) => $f !== $forum ) : [],
+            'thread_moveable_forums' => $other_forums
         ] );
     }
 
