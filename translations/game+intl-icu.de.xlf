@@ -22088,15 +22088,6 @@
         <target>Deaktiviert</target>
       </segment>
     </unit>
-    <unit id="P8D4LMV">
-      <notes>
-        <note category="from">php:///src/Controller/Town/TownController.php</note>
-      </notes>
-      <segment>
-        <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
-        <target>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</target>
-      </segment>
-    </unit>
     <unit id="G3CtrOz" name="Vor.">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/workshop.html.twig</note>
@@ -22122,6 +22113,33 @@
       <segment>
         <source>Handeln</source>
         <target>Handeln</target>
+      </segment>
+    </unit>
+    <unit id="P8D4LMV">
+      <notes>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
+        <target>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</target>
+      </segment>
+    </unit>
+    <unit id="qrK4heb" name="Infos">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Infos</source>
+        <target>Infos</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Aktionen</target>
       </segment>
     </unit>
   </file>

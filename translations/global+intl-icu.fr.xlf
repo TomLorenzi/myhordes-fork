@@ -4341,6 +4341,7 @@
       <notes>
         <note category="german">Weltforum</note>
         <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Weltforum</source>

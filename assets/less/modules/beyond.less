@@ -132,6 +132,10 @@ div.other_citizens {
     font-style: italic;
     font-size: 1.3rem;
   }
+  h5 {
+    color: white;
+    margin-bottom: 0;
+  }
 }
 
 span.ruin-bury-desc { font-variant: small-caps; font-size: 0.9em; color: #5c2b33; font-weight: bold}
@@ -162,6 +166,24 @@ div.beyond-escort-off, div.beyond-escort-on {
 
   .citizen-box {
     border: none;
+  }
+
+  &:not(.beyond-escort-on-all) {
+    > div {
+      min-height: 34px;
+      border-bottom: 1px solid #7e4d2a;
+      &:not(:last-child) {
+        border-right: 1px solid #7e4d2a;
+      }
+    }
+    &.beyond-escort-on {
+      > div:nth-last-child(2) {
+        border-right: none;
+      }
+      > div:last-child {
+        border-bottom: none;
+      }
+    }
   }
 }
 

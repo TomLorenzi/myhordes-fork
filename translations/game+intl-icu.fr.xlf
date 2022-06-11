@@ -23305,17 +23305,6 @@ cette violente opération...]]></target>
         <target>Désactivé</target>
       </segment>
     </unit>
-    <unit id="P8D4LMV">
-      <notes>
-        <note category="german">Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</note>
-        <note category="from">php:///src/Controller/Town/TownController.php</note>
-        <note category="state">translated</note>
-      </notes>
-      <segment>
-        <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
-        <target>Vous avez signalé ce message sur le tableau noir au Corbeau. Qui sait, peut-être que son auteur mourra ce soir... Croâââ !</target>
-      </segment>
-    </unit>
     <unit id="G3CtrOz" name="Vor.">
       <notes>
         <note category="german">Vor.</note>
@@ -23344,6 +23333,38 @@ cette violente opération...]]></target>
       <segment>
         <source>Handeln</source>
         <target>Action</target>
+      </segment>
+    </unit>
+    <unit id="P8D4LMV">
+      <notes>
+        <note category="german">Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+        <note category="state">translated</note>
+      </notes>
+      <segment>
+        <source>Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...</source>
+        <target>Vous avez signalé ce message sur le tableau noir au Corbeau. Qui sait, peut-être que son auteur mourra ce soir... Croâââ !</target>
+      </segment>
+    </unit>
+    <unit id="qrK4heb" name="Infos">
+      <notes>
+        <note category="german">Infos</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Infos</source>
+        <target>Infos</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Actions</target>
       </segment>
     </unit>
   </file>
