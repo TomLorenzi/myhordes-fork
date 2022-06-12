@@ -23351,5 +23351,15 @@
         <target>Un moderador ha marcado tu tema "{threadname}" como "Resuelto". Razón: "{reason}" {link_post}</target>
       </segment>
     </unit>
+    <unit id="0pam2Rc">
+      <notes>
+        <note category="german">Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...</note>
+        <note category="from">twig:///templates/scripts/inventory.js.twig</note>
+      </notes>
+      <segment>
+        <source>Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...</source>
+        <target>¡Mientras lo pensabas, alguien se ha llevado el objeto antes que tú!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

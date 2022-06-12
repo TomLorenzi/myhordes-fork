@@ -23367,5 +23367,15 @@ cette violente opération...]]></target>
         <target>Un modérateur a marqué votre sujet "{threadname}" comme "résolu". Raison: « {reason} » {link_post}</target>
       </segment>
     </unit>
+    <unit id="0pam2Rc">
+      <notes>
+        <note category="german">Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...</note>
+        <note category="from">twig:///templates/scripts/inventory.js.twig</note>
+      </notes>
+      <segment>
+        <source>Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...</source>
+        <target>Le temps que vous vous décidiez, quelqu'un d'autre a pris l'objet avant vous !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
