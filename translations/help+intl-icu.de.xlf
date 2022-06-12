@@ -3096,7 +3096,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
     </unit>
     <unit id="pMxpfAN" name="Wichtiger Hinweis:">
       <notes>
-        <note category="from">twig:///templates/ajax/help/hero_mode.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/hero_mode.html.twig;twig:///templates/ajax/soul/polls.html.twig</note>
       </notes>
       <segment>
         <source>Wichtiger Hinweis:</source>

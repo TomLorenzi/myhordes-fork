@@ -4988,5 +4988,16 @@
         <target>Je n'ai pas d'avis particulier sur le sujet.</target>
       </segment>
     </unit>
+    <unit id="ALrkXd_" name="Du kannst nur eine Antwort auswählen.">
+      <notes>
+        <note category="german">Du kannst nur eine Antwort auswählen.</note>
+        <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst nur eine Antwort auswählen.</source>
+        <target>Du kannst nur eine Antwort auswählen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
