@@ -433,16 +433,19 @@ export default class HTML {
         }
     };
 
-    createTooltip(element: HTMLElement, attribute: string, tooltip_type: string = "help"): void {
-        let tooltip_text = element.getAttribute(attribute);
+    createTooltip(element: HTMLElement, tooltip_type: string = "help"): void {
+        let text_attribute = element.getAttribute('x-tooltip');
+        if (!element.hasAttribute(text_attribute)) return;
+        let tooltip_text = element.getAttribute(text_attribute);
         if (tooltip_text === undefined || tooltip_text === "") return;
 
         let tooltip = document.createElement("div");
         tooltip.classList.add("tooltip");
         if(tooltip_type !== null && tooltip_type !== "") tooltip.classList.add(tooltip_type);
+
         tooltip.innerText = tooltip_text;
         element.appendChild(tooltip);
-        element.removeAttribute(attribute);
+        element.removeAttribute(text_attribute);
 
         this.handleTooltip(tooltip);
     }
