@@ -370,6 +370,10 @@
         };
         const reloadPage = function() { loadPage( {{ current_page }} ); };
         const reloadForum = function() { $.ajax.no_history().load( null, '{{ url('forum_view', {id: fid}) }}', false ); }
+        const reloadForumKeepPage = function() {
+            const page = parseInt( document.querySelector('[data-thread-current-page]')?.dataset?.threadCurrentPage ?? 0 );
+            $.ajax.no_history().load( null, '{{ url('forum_view', {id: fid}) }}', false, { page } );
+        }
 
         {% if permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="lock"]', 'click', function(e,elem) {
@@ -447,7 +451,7 @@
                 $.html.popup('{{ 'Thread verschieben'|trans({},'global')|e('js') }}', form, null, [
                     [ '{{ 'Verschieben'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
                         $.html.triggerPopupPop(elem_sub);
-                        $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, 'mod': 'move'}) }}', {to: parseInt( select.value)}, reloadForum );
+                        $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, 'mod': 'move'}) }}', {to: parseInt( select.value)}, reloadForumKeepPage );
                     }] ] ],
                     [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
                 ] );
