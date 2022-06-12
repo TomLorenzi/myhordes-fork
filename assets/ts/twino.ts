@@ -774,19 +774,17 @@ export default class TwinoAlikeParser {
                 let result = null;
                 let found = false;
 
-                while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\b/g.exec( str )) {
+                while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\s?/g.exec( str )) {
                     found = true;
 
-                    let trailing_slash = str.substr(result.index + result[0].length, 1) === '/';
-
                     let a = document.createElement('a');
-                    a.setAttribute('href', result[0] + (trailing_slash ? '/' : ''));
-                    a.innerText = result[0] + (trailing_slash ? '/' : '');
+                    a.setAttribute('href', a.innerText = result[1]);
+                    a.setAttribute('x-raw', "1");
 
                     elem.parentElement.insertBefore( document.createTextNode( str.slice(0,result.index) ), elem );
                     elem.parentElement.insertBefore( a, elem );
 
-                    str = str.slice(result.index + result[0].length + (trailing_slash ? 1 : 0));
+                    str = str.slice(result.index + result[1].length);
                 }
 
                 if (found) {
@@ -854,13 +852,12 @@ export default class TwinoAlikeParser {
         TwinoAlikeParser.postprocessDOM( container_node, options );
 
         TwinoAlikeParser.parseInsets(container_node);
-        TwinoAlikeParser.parseEmotes(container_node, resolver);
-
         TwinoAlikeParser.collapseTextNodes( container_node );
 
         changed = true;
-
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,true);
+
+        TwinoAlikeParser.parseEmotes(container_node, resolver);
 
         let c = null;
         while ((c = target.lastChild))

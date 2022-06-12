@@ -108,6 +108,7 @@ class ThreadRepository extends ServiceEntityRepository
                 ->andWhere('t.pinned = false')
                 ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
                 ->andWhere('t.hidden = false OR t.hidden is NULL')
+                ->orderBy('t.lastPost', 'DESC')
                 ->setMaxResults($threadsPerPage)
                 ->getQuery()->getSingleColumnResult(),
             $this->createQueryBuilder('t')

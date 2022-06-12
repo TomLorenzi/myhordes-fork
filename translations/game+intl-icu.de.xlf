@@ -22142,5 +22142,14 @@
         <target>Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. Grund: "{reason}" {link_post}</target>
       </segment>
     </unit>
+    <unit id="0pam2Rc">
+      <notes>
+        <note category="from">twig:///templates/scripts/inventory.js.twig</note>
+      </notes>
+      <segment>
+        <source>Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...</source>
+        <target>Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

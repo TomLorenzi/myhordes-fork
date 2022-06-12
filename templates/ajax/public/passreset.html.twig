@@ -28,12 +28,13 @@
                         <div class="cell padded-small rw-6 rw-md-12"><input name="pass2" id="recover-password2" type="password" /></div>
                     </div>
                 {% endif %}
-            </form>
-            <div class="row">
-                <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">
-                    <button id="reset_button">{% trans from 'login' %}Passwort zurücksetzen{% endtrans %}</button>
+                <div class="row">
+                    <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">
+                        <button id="reset_button">{% trans from 'login' %}Passwort zurücksetzen{% endtrans %}</button>
+                    </div>
                 </div>
-            </div>
+            </form>
+
             <p class="right small">
                 <a href="" x-ajax-href="{{ path('public_login') }}">{% trans from 'login' %}Abbrechen{% endtrans %}</a>
             </p>
@@ -49,11 +50,10 @@
                 function (data) {
                     if (data.success === 'validate') {
                         $.html.message('notice', '{{ 'Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.'|trans({}, 'login') }}')
-                        $.ajax.load(null, '{{ path('public_welcome') }}', true);
                     } else {
                         $.html.message('notice', '{{ 'Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.'|trans({}, 'login') }}')
-                        $.ajax.load(null, '{{ path('public_login') }}', true);
                     }
+                    $.ajax.load(null, '{{ path('public_login') }}', true);
                 }, {
                     'invalid_fields': function(data) {
                         let message = '{% trans from 'login' %}Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.{% endtrans %}' + "\n";

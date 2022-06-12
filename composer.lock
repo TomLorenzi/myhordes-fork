@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b4bc259e6b1808bbff5fc5b55571339",
+    "content-hash": "cbe7002c420f182e69c88379984e3418",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -4681,16 +4681,16 @@
         },
         {
             "name": "symfony/mailer",
-            "version": "v6.0.7",
+            "version": "v6.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailer.git",
-                "reference": "f7343f94e7afecca2ad840b078f9d80200e1bd27"
+                "reference": "706af6b3e99ebcbc639c9c664f5579aaa869409b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/f7343f94e7afecca2ad840b078f9d80200e1bd27",
-                "reference": "f7343f94e7afecca2ad840b078f9d80200e1bd27",
+                "url": "https://api.github.com/repos/symfony/mailer/zipball/706af6b3e99ebcbc639c9c664f5579aaa869409b",
+                "reference": "706af6b3e99ebcbc639c9c664f5579aaa869409b",
                 "shasum": ""
             },
             "require": {
@@ -4735,7 +4735,7 @@
             "description": "Helps sending emails",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/mailer/tree/v6.0.7"
+                "source": "https://github.com/symfony/mailer/tree/v6.0.8"
             },
             "funding": [
                 {
@@ -4751,7 +4751,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-18T16:06:28+00:00"
+            "time": "2022-04-27T17:10:30+00:00"
         },
         {
             "name": "symfony/mime",
@@ -10541,21 +10541,22 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "wvsgnovize01/versioning-bundle": 20,
-        "myhordes/fixtures": 20
+        "myhordes/fixtures": 20,
+        "wvsgnovize01/versioning-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=8.1",
         "ext-ctype": "*",
+        "ext-curl": "*",
         "ext-dom": "*",
+        "ext-ftp": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
         "ext-json": "*",
         "ext-libxml": "*",
-        "ext-simplexml": "*",
-        "ext-curl": "*"
+        "ext-simplexml": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
