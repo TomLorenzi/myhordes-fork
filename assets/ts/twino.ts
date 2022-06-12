@@ -854,13 +854,12 @@ export default class TwinoAlikeParser {
         TwinoAlikeParser.postprocessDOM( container_node, options );
 
         TwinoAlikeParser.parseInsets(container_node);
-        TwinoAlikeParser.parseEmotes(container_node, resolver);
-
         TwinoAlikeParser.collapseTextNodes( container_node );
 
         changed = true;
-
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,true);
+
+        TwinoAlikeParser.parseEmotes(container_node, resolver);
 
         let c = null;
         while ((c = target.lastChild))
