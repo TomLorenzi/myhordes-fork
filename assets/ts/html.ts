@@ -443,7 +443,10 @@ export default class HTML {
         tooltip.classList.add("tooltip");
         if(tooltip_type !== null && tooltip_type !== "") tooltip.classList.add(tooltip_type);
 
-        tooltip.innerText = tooltip_text;
+        if(element.hasAttribute("x-tooltip-html") && element.getAttribute("x-tooltip-html") === "true")
+            tooltip.innerHTML = tooltip_text;
+        else
+            tooltip.innerText = tooltip_text;
         element.appendChild(tooltip);
         element.removeAttribute(text_attribute);
 
