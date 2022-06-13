@@ -4992,11 +4992,11 @@
       <notes>
         <note category="german">Du kannst nur eine Antwort auswählen.</note>
         <note category="from">twig:///templates/ajax/soul/polls.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">translated</note>
       </notes>
       <segment>
         <source>Du kannst nur eine Antwort auswählen.</source>
-        <target>Du kannst nur eine Antwort auswählen.</target>
+        <target>Vous ne pouvez sélectionner qu’une seule réponse.</target>
       </segment>
     </unit>
   </file>

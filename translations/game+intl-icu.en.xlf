@@ -21930,11 +21930,11 @@
       <notes>
         <note category="german">Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</note>
         <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
       </notes>
       <segment>
         <source>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</source>
-        <target>Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.</target>
+        <target>The complete repair of this site still requires {remaining} AP.</target>
       </segment>
     </unit>
     <unit id="Plqho0r" name="Niemand ist in der Nähe der Stadt (maximal 2 Felder).">
