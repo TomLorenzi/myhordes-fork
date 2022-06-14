@@ -1439,7 +1439,7 @@ class TownController extends InventoryAwareController
             $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$usedap</strong>", 'raw_count' => $usedap], "game");
 
 
-        if ($slave_bonus)
+        if ($slave_bonus && !$was_completed)
             $messages[] = $this->translator->trans("Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).", [], "game");
 
         // Set the activity status
