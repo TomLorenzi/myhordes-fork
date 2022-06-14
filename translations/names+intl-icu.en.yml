@@ -1,0 +1,217 @@
+TDG_PRE_00_: Ev
+TDG_PRE_10_: Hunn
+TDG_PRE_20_: Itch
+TDG_PRE_30_: Kill
+TDG_PRE_40_: Lill
+TDG_PRE_50_: Mitz
+TDG_PRE_01_: Munch
+TDG_PRE_11_: Pumpkinn
+TDG_PRE_21_: Scratch
+TDG_PRE_31_: Scruff
+TDG_PRE_41_: Smurf
+TDG_PRE_51_: Soxx
+TDG_PRE_02_: Till
+TDG_PRE_12_: Till
+TDG_PRE_22_: Tutt
+TDG_PRE_32_: Tutt
+TDG_PRE_42_: Soxx
+TDG_PRE_52_: Smurf
+TDG_PRE_03_: Pumpkinn
+TDG_PRE_13_: Mitz
+TDG_PRE_23_: Itch
+TDG_PRE_33_: Hunn
+TDG_PRE_43_: Ev
+TDG_PRE_53_: Lill
+TDG_PRE_04_: Itch
+TDG_PRE_14_: Mitz
+TDG_PRE_24_: Scratch
+TDG_PRE_34_: Munch
+TDG_PRE_44_: Kill
+TDG_PRE_54_: Soxx
+TDG_PRE_05_: Smurf
+TDG_PRE_15_: Scruff
+TDG_PRE_25_: Kits
+TDG_PRE_35_: Till
+TDG_PRE_45_: Munch
+TDG_PRE_55_: Mitz
+TDG_PRE_06_: Itch
+TDG_PRE_16_: Hunn
+TDG_PRE_26_: Ev
+TDG_PRE_36_: Munch
+TDG_PRE_46_: Lill
+TDG_PRE_56_: Mitz
+TDG_PRE_07_: Tutt
+TDG_PRE_17_: Scruff
+TDG_PRE_27_: Lill
+TDG_PRE_37_: Scruff
+TDG_PRE_47_: Scratch
+TDG_PRE_57_: Munch
+TDG_PRE_08_: Tutt
+TDG_PRE_18_: Lill
+TDG_PRE_28_: Kill
+TDG_PRE_38_: Hunn
+TDG_PRE_48_: Ev
+TDG_PRE_58_: Soxx
+TDG_PRE_09_: Pumpkinn
+TDG_PRE_19_: Scruff
+TDG_PRE_29_: Scratch
+TDG_PRE_39_: Mitz
+TDG_PRE_49_: Itch
+TDG_PRE_59_: Kits
+TDG_SUF_00: aroo
+TDG_SUF_10: er
+TDG_SUF_20: kanevil
+TDG_SUF_30: o
+TDG_SUF_40: thumper
+TDG_SUF_50: 'y'
+TDG_SUF_01: ybaby
+TDG_SUF_11: yboy
+TDG_SUF_21: ybunny
+TDG_SUF_31: ykins
+TDG_SUF_41: ypie
+TDG_SUF_51: aroo
+TDG_SUF_02: er
+TDG_SUF_12: kanevil
+TDG_SUF_22: o
+TDG_SUF_32: thumper
+TDG_SUF_42: 'y'
+TDG_SUF_52: ybaby
+TDG_SUF_03: yboy
+TDG_SUF_13: ybunny
+TDG_SUF_23: ykins
+TDG_SUF_33: ypie
+TDG_SUF_43: aroo
+TDG_SUF_53: er
+TDG_SUF_04: kanevil
+TDG_SUF_14: o
+TDG_SUF_24: thumper
+TDG_SUF_34: 'y'
+TDG_SUF_44: ybaby
+TDG_SUF_54: yboy
+TDG_SUF_05: ybunny
+TDG_SUF_15: ykins
+TDG_SUF_25: une
+TDG_SUF_35: ypie
+TDG_SUF_45: aroo
+TDG_SUF_55: er
+TDG_SUF_06: kanevil
+TDG_SUF_16: o
+TDG_SUF_26: thumper
+TDG_SUF_36: 'y'
+TDG_SUF_46: yabby
+TDG_SUF_56: yboy
+TDG_SUF_07: ybunny
+TDG_SUF_17: ykins
+TDG_SUF_27: ypie
+TDG_SUF_37: aroo
+TDG_SUF_47: er
+TDG_SUF_57: kanevil
+TDG_SUF_08: o
+TDG_SUF_18: thumper
+TDG_SUF_28: 'y'
+TDG_SUF_38: ybaby
+TDG_SUF_48: yboy
+TDG_SUF_58: ybunny
+TDG_SUF_09: ykins
+TDG_SUF_19: ypie
+TDG_SUF_29: aroo
+TDG_SUF_39: er
+TDG_SUF_49: kanevil
+TDG_SUF_59: une
+'Krankenhaus Beinapp': 'Cash Ulty Hospital'
+Aesthetyxiations-Abteilung: 'Aesthetyxiation Unit'
+'Krankenhaus Krankenstedt': 'Syck Niss Hospital'
+'Waldorf Klinik': 'Royal Troon Hospital'
+'STD Behandlungszentrum Bohlen': 'The Munro Chronic STI Treatment Unit'
+'Bill S. Preston Memorial Hospital': 'Bill S. Preston Memorial Hospital'
+'Klinik von Dr. Quack Salber': 'Dr Kwak''s Clinic!'
+Wasserallergie-Behandlungszentrum: 'The Mererid Allergy Clinic'
+'Klinikum Altenburg': 'Pelle Grain Hospital'
+'Stadtkrankenhaus am Dorfplatz': 'Osmond St Hospital'
+Blanko-Penisverkleinerungsklinik: 'The Chapman Penis Reduction Clinic'
+'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'The Brunting Daily Exhaustion Center'
+'Bordeaux Grace': 'Bordeaux Grace'
+'George und Ralph Kinderkrankenhaus': 'George and Ralph Children''s Hospital'
+'Charlton Eston Hotel': 'Charlton Eston Hotel'
+'Motel Zauberstübchen': 'The Enchanted Motel'
+'Rabble Lodge': 'The Rabble Lodge'
+'Gasthof ''Zum Spanner''': 'The Unravel Inn'
+'Zur Erbrochenen Krone': 'The Busted Arts'
+'Terminal Hotel': 'Terminal Hotel'
+'Hotel Von Otto': 'Hotel Von Otto'
+'S+M B+B': 'S+M B+B'
+'Hotel Peculiar': 'The Hotel Peculiar'
+'Liza Defloration Hotel': 'Liza Defenestration Hotel'
+'Santas Absteige': 'The Smashed Santa Inn'
+'Chez Clem Hotel': 'Chez Clem Hotel'
+'Drei Eingänge Hotel + Spa': 'Three Door Hotel + Spa'
+'Hostel Partout': 'Hostel Partout'
+'Bumbling Inn': 'The Bumbling Inn'
+'Vajazzl Inn': 'The Vajazzl Inn'
+'Hotel Venga': 'Hotel Venga'
+'Verlassener Bunker': 'Abandonned Bunker'
+Thermonuklear-Bunker: 'Thermonuclear Bunker'
+Garrison-Haus: 'Garrison House'
+'Bastion der Angst': 'Bastion of Fear'
+'Bunker der Wut': 'Bunker of Fury'
+'Fallout Shelter': 'Fallout Shelter'
+'Keine Hoffnung ohne Öffnung!': 'Nowhere to hide'
+Schattenfort: 'even inside!'
+'Verlassene Trooper-Station': 'Shady Fort'
+Verwesungsversteck: 'Abandoned Troop Station'
+Knochenkeller: 'Bone-filled Bunker'
+'Geheimes Testlabor': 'Bone Blockhouse'
+'Area 52.1 Bunker': 'Secret Testing Center'
+'Area 33 Bunker': 'Area 52.1 Shelter'
+Quarantäne-Zone: 'Area 33 Bunker'
+'Zum Schlafen Reichts Motel': 'Zum Schlafen Reichts Motel'
+Psychose: Psychosis
+Demenz: Dementia
+Leid: Agony
+Trinke: Drink
+Schlaf: Sleep
+Blut: Blood
+Wut: Rage
+Hass: Hate
+Töte: Kill
+'Töte sie': 'Kill them'
+Mord: Murder
+Drogen: Drugs
+'Der Tod wartet': 'Death awaits you'
+'Du wirst sterben': 'You will die'
+'Du wirst heute sterben': 'You''ll die tonight'''
+'Folge den Schatten': 'Join the shadows'
+Alpträume: Nightmares
+Verstümmelung: Mutilations
+'Keine Hoffnung': 'No hope'
+'Sie beobachten dich': 'They''re watching you'
+'Sie wollen dich töten': 'They want you to die'
+'Traue niemandem': 'Trust No One'
+'Lauf lauf weg': 'Run away'
+'Hör nicht auf sie': 'Don''t listen to them'
+'Sie werden dich töten': 'They''ll kill you'
+'Dein Nachbar will deinen Tod': 'Your neighbor wants you dead'
+'Sie wollen dich hängen': 'They want to hang you'
+'Sie werden dich umbringen': 'They''re going to kill you'
+'Bleib hier': 'You''ll survive'
+'Koste ihr Blut': 'Taste their blood'
+'Wir beobachten dich': 'You''re being watched'
+'Sie sind VERRÜCKT': 'They are CRAZY'
+'Wir wollen deine Haut': 'They''ll take your skin'
+'Koste ihr Fleisch': 'Taste their flesh'
+'Iss ihn': 'Eat one of them'
+'Töte ihn': 'Kill one of them'
+'Lass ihn zahlen': 'Make him pay'
+'Räche dich': 'Take revenge'
+'Verrate sie': 'Betray them'
+'Ohne Gnade': 'No pity'
+'Ich bin nicht verrückt': 'I''m not crazy'
+'Ich sehe nichts': 'I don''t see anything'
+'Sie sind wahnsinnig': 'They are mad'
+'Bis zum Tod': Die
+'Töte sie alle': 'Kill them all'
+'Sie werden sterben': 'They will die'
+'Lass sie sterben': 'Hope for their death'
+'Verschlinge sie': 'Devour them'
+'Gib auf': Abandon
+'Alles... ist ... OK …': 'Everything ... is ... fine …'
