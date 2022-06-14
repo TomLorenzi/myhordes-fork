@@ -111,16 +111,6 @@
         <target>A little live music can seduce the ladies and restores the spirit... but you'll have to be content with the 2nd effect. Your playing has generated {ap} action points which will be shared amongst the townsfolk.</target>
       </segment>
     </unit>
-    <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
-      <notes>
-        <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
-        <target>After exhaustive searching, the only thing you have discovered is the emptiness of wasted time...</target>
-      </segment>
-    </unit>
     <unit id="23PgQVZ" name="Ration Wasser">
       <notes>
         <note category="german">Ration Wasser</note>
@@ -3853,16 +3843,6 @@
       <segment>
         <source>Die Rückkehr des Helden</source>
         <target>Heroic Return</target>
-      </segment>
-    </unit>
-    <unit id="AfDbNyS" name="Hierfür bist du zu weit von der Stadt entfernt ...">
-      <notes>
-        <note category="german">Hierfür bist du zu weit von der Stadt entfernt ...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>You are too far from the Town for this ...</target>
       </segment>
     </unit>
     <unit id="9XqTW0w" name="Fund">

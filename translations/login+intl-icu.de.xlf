@@ -300,15 +300,6 @@
         <target>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</target>
       </segment>
     </unit>
-    <unit id="DMKAJPg" name="Dein Name kann keine Leerzeichen sowie &quot;$&quot;, &quot;&lt;&quot; und &quot;&gt;&quot; enthalten.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
-        <target><![CDATA[Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.]]></target>
-      </segment>
-    </unit>
     <unit id="ZJtAei3">
       <notes>
         <note category="from">php:///src/Controller/Soul/SoulController.php</note>
@@ -462,15 +453,6 @@
         <target>Wenn du noch einen alten MyHordes-Account hast, kannst du dich auch damit weiter einloggen.</target>
       </segment>
     </unit>
-    <unit id="ho.WxzI">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit Eternaltwin zu verknüpfen.</target>
-      </segment>
-    </unit>
     <unit id="uT6i9yH">
       <notes>
         <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
@@ -505,15 +487,6 @@
       <segment>
         <source>Gleich kanns losgehen!</source>
         <target>Gleich kanns losgehen!</target>
-      </segment>
-    </unit>
-    <unit id="NYi.sD7">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
-        <target>Dank deines Eternaltwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</target>
       </segment>
     </unit>
     <unit id="zK1Sfzm">

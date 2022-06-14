@@ -1279,15 +1279,6 @@
         <target>S+M B+B</target>
       </segment>
     </unit>
-    <unit id="38Pnm9V" name="Zm Schlafen Reichts Motel">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zm Schlafen Reichts Motel</source>
-        <target>Zum Schlafen Reichts Motel</target>
-      </segment>
-    </unit>
     <unit id="ugpUYNk" name="Hotel Peculiar">
       <notes>
         <note category="from">php:///src/Controller/ExplorationController.php</note>

@@ -111,16 +111,6 @@
         <target>Una canción puede animar hasta un velorio... Tu talento le da {ap} puntos de acción a tus vecinos.</target>
       </segment>
     </unit>
-    <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
-      <notes>
-        <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
-        <target>Te echas a buscar y no encuentras nada. ¡Grrrr!...</target>
-      </segment>
-    </unit>
     <unit id="23PgQVZ" name="Ration Wasser">
       <notes>
         <note category="german">Ration Wasser</note>
@@ -3847,16 +3837,6 @@
         <target>El retorno del Héroe</target>
       </segment>
     </unit>
-    <unit id="AfDbNyS" name="Hierfür bist du zu weit von der Stadt entfernt ...">
-      <notes>
-        <note category="german">Hierfür bist du zu weit von der Stadt entfernt ...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>¡Estás demasiado lejos del pueblo para utilizar este poder! La distancia máxima es 11km.</target>
-      </segment>
-    </unit>
     <unit id="9XqTW0w" name="Fund">
       <notes>
         <note category="german">Fund</note>
@@ -7317,12 +7297,6 @@
       <segment>
         <source>Gegenstände suchen</source>
         <target>Buscar un objeto</target>
-      </segment>
-    </unit>
-    <unit id="47DEQpj" name="">
-      <segment>
-        <source></source>
-        <target></target>
       </segment>
     </unit>
     <unit id="txP7Qji" name="Vodka Marinostov">

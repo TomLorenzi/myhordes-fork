@@ -111,16 +111,6 @@
         <target>Une petite chansonnette permet de séduire les femmes et donner de l'énergie... mais il va falloir vous contenter de ce 2ème effet. Vous apportez {ap} points d'actions partagés entre vos concitoyens.</target>
       </segment>
     </unit>
-    <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
-      <notes>
-        <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
-        <target>Après des recherches épuisantes, vous n'avez rien trouvé d'autre que la vacuité de ces moments perdus..</target>
-      </segment>
-    </unit>
     <unit id="23PgQVZ" name="Ration Wasser">
       <notes>
         <note category="german">Ration Wasser</note>
@@ -3851,16 +3841,6 @@
       <segment>
         <source>Die Rückkehr des Helden</source>
         <target>Retour du Héros</target>
-      </segment>
-    </unit>
-    <unit id="AfDbNyS" name="Hierfür bist du zu weit von der Stadt entfernt ...">
-      <notes>
-        <note category="german">Hierfür bist du zu weit von der Stadt entfernt ...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>Vous êtes trop loin de la ville pour cela...</target>
       </segment>
     </unit>
     <unit id="9XqTW0w" name="Fund">

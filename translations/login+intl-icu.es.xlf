@@ -504,16 +504,6 @@
         <target>Si tienes una cuenta antigua de MyHordes, al menos por ahora, también puedes entrar con ella.</target>
       </segment>
     </unit>
-    <unit id="ho.WxzI">
-      <notes>
-        <note category="german">Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit Eternaltwin zu verknüpfen.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>Esto no será posible para siempre. Te recomendamos que vincules tu antigua cuenta de MyHordes a Eternaltwin lo antes posible.</target>
-      </segment>
-    </unit>
     <unit id="uT6i9yH">
       <notes>
         <note category="german">Deine Seele bleibt bei der Verknüpfung mit Eternaltwin selbstverständlich vollständig erhalten.</note>

@@ -442,24 +442,6 @@
         <target>Support</target>
       </segment>
     </unit>
-    <unit id="BKRwO03" name="1- Überprüfe deinen Browser">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>1- Überprüfe deinen Browser</source>
-        <target>1- Überprüfe deinen Browser</target>
-      </segment>
-    </unit>
-    <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>2- Überprüfe sonstige installierte Programme</source>
-        <target>2- Überprüfe sonstige installierte Programme</target>
-      </segment>
-    </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
       <notes>
         <note category="from">twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/seo/help.html.twig</note>
@@ -946,15 +928,6 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       <segment>
         <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
         <target><![CDATA[Der Mark.-Knopf <strong>[3]</strong> zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.]]></target>
-      </segment>
-    </unit>
-    <unit id="px25T6e">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
-        <target><![CDATA[Der Globale Knopf <strong>[4]</strong> zeigt alle Zonen an, die der <strong>Stadt als Ganzes</strong> bekannt sind.]]></target>
       </segment>
     </unit>
     <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
@@ -3633,15 +3606,6 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
         <target>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir {img_ap} zurück und senkt deinen Heißhunger.</target>
       </segment>
     </unit>
-    <unit id="h_gD9Uq">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</source>
-        <target><![CDATA[Pro gefressenem Mitbürger gewinnst du <strong>1 Heldentag</strong> (Du erhältst sie nach deinem Tod).]]></target>
-      </segment>
-    </unit>
     <unit id="v4LpsCZ">
       <notes>
         <note category="from">twig:///templates/ajax/help/ghouls.html.twig</note>
@@ -4864,42 +4828,6 @@ müssen durchdacht geplant werden.</target>
         <target>Jede Nacht um Mitternacht (MEZ/MESZ) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</target>
       </segment>
     </unit>
-    <unit id="D4X9Djo" name="España: 01h00">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>España: 01h00</source>
-        <target>España: 01h00</target>
-      </segment>
-    </unit>
-    <unit id="cf00bvp" name="México: 18h00">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>México: 18h00</source>
-        <target>México: 18h00</target>
-      </segment>
-    </unit>
-    <unit id="GBtY4go" name="Argentina, Chile y Uruguay: 20h00">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Argentina, Chile y Uruguay: 20h00</source>
-        <target>Argentina, Chile y Uruguay: 20h00</target>
-      </segment>
-    </unit>
-    <unit id="EQq8xCY" name="Colombia y Perú: 18h00">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Colombia y Perú: 18h00</source>
-        <target>Colombia y Perú: 18h00</target>
-      </segment>
-    </unit>
     <unit id="xMTq99h" name="Phase 1: Die Rückkehr der lebenden Toten">
       <notes>
         <note category="from">twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
@@ -5221,15 +5149,6 @@ Eine davon ist es der <strong>Nachtwache</strong> beizutreten.]]></target>
       <segment>
         <source>Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</source>
         <target>Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</target>
-      </segment>
-    </unit>
-    <unit id="_bckoqm">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</source>
-        <target>Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</target>
       </segment>
     </unit>
     <unit id="SVBBTil">
@@ -5836,15 +5755,6 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       <segment>
         <source>&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</source>
         <target><![CDATA[<strong>Das Stadttor ist irreparabel zerstört</strong>: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.]]></target>
-      </segment>
-    </unit>
-    <unit id="MBxcEi9" name="Alle Gebäude, die sich im Bau befanden, wurden zerstört.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alle Gebäude, die sich im Bau befanden, wurden zerstört.</source>
-        <target>Alle Gebäude, die sich im Bau befanden, wurden zerstört.</target>
       </segment>
     </unit>
     <unit id="4FoyWoL" name="Die Wasserreserven des Stadtbrunnens sind stark gesunken.">
@@ -6463,26 +6373,6 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
         <target>Nachfolgend findest du eine Liste zu den verschiedenen Seiten und Bereichen, in denen du Hilfe bekommen kannst:</target>
       </segment>
     </unit>
-    <unit id="qjGA5u0">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
-        <target><![CDATA[<strong>HÄUFIG GESTELLTE FRAGEN:</strong>
-Lies dir bitte die offizielle <span x-ajax-href={url_support}>Technische Supportseite von MyHordes</span> durch!]]></target>
-      </segment>
-    </unit>
-    <unit id="u6CHRLa">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href={url_forums}>Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
-      </segment>
-    </unit>
     <unit id="4oAKxr3">
       <notes>
         <note category="from">twig:///templates/ajax/help/getting_help.html.twig</note>
@@ -6503,15 +6393,6 @@ Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist,
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href={url_git}&gt;Buglisten&lt;/a&gt;.</source>
         <target><![CDATA[<strong>EINEN BUG MELDEN:</strong>
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: <a href={url_git}>Buglisten auf Gitlab</a>.]]></target>
-      </segment>
-    </unit>
-    <unit id="XkmnbTG">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</source>
-        <target><![CDATA[Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst dem <span x-ajax-href={url_oracle}>Orakels</span> anschreiben.]]></target>
       </segment>
     </unit>
     <unit id="jcxOFSe">
@@ -6620,15 +6501,6 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       <segment>
         <source>Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</source>
         <target>Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</target>
-      </segment>
-    </unit>
-    <unit id="Y9Uk1gC">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</source>
-        <target>Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</target>
       </segment>
     </unit>
     <unit id="GE.0HDW">

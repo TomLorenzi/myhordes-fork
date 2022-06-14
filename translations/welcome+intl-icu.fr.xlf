@@ -31,16 +31,6 @@
         <target>Valider le compte</target>
       </segment>
     </unit>
-    <unit id="vMG7P9w" name="Zum Login">
-      <notes>
-        <note category="german">Zum Login</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zum Login</source>
-        <target>Se connecter</target>
-      </segment>
-    </unit>
     <unit id="lHIUXzm" name="Bürger gestorben">
       <notes>
         <note category="german">Bürger gestorben</note>

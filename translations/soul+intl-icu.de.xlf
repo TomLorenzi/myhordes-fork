@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
   <file id="soul.de">
-    <unit id="BNcLxkK" name="Deine Seele">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deine Seele</source>
-        <target>Deine Seele</target>
-      </segment>
-    </unit>
     <unit id="wvl2WtX" name="E-Mail-Adresse">
       <notes>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
@@ -233,15 +224,6 @@
       <segment>
         <source>Aktuelles Passwort</source>
         <target>Aktuelles Passwort</target>
-      </segment>
-    </unit>
-    <unit id="wIQ05bj" name="Passwort aktualisieren">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Passwort aktualisieren</source>
-        <target>Passwort aktualisieren</target>
       </segment>
     </unit>
     <unit id="fuUze6t" name="Externe Anwendungen">
@@ -514,42 +496,6 @@
         <target>Standardsprache</target>
       </segment>
     </unit>
-    <unit id="gBz_D6E" name="Deutsch">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deutsch</source>
-        <target>Deutsch</target>
-      </segment>
-    </unit>
-    <unit id="vp_4VdN" name="Französisch">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Französisch</source>
-        <target>Französisch</target>
-      </segment>
-    </unit>
-    <unit id="mD6lfyI" name="Englisch">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Englisch</source>
-        <target>Englisch</target>
-      </segment>
-    </unit>
-    <unit id="bjgV6Xr" name="Spanisch">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spanisch</source>
-        <target>Spanisch</target>
-      </segment>
-    </unit>
     <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
       <notes>
         <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
@@ -575,17 +521,6 @@
       <segment>
         <source>Hier findet ihr alle vorangegangenen Updates:</source>
         <target>Hier findet ihr alle vorangegangenen Updates:</target>
-      </segment>
-    </unit>
-    <unit id="EHTi.hN">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
       </segment>
     </unit>
     <unit id="lJGEo3w" name="Koalition">
@@ -750,15 +685,6 @@
         <target>Deine importierten Seelen</target>
       </segment>
     </unit>
-    <unit id="aTN.bek" name="Vorschau">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vorschau</source>
-        <target>Vorschau</target>
-      </segment>
-    </unit>
     <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
       <notes>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
@@ -831,15 +757,6 @@
         <target>Stadtname</target>
       </segment>
     </unit>
-    <unit id="H9ZffoW" name="Nachrichten">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachrichten</source>
-        <target>Nachrichten</target>
-      </segment>
-    </unit>
     <unit id="hn7LsRJ" name="Punkte">
       <notes>
         <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
@@ -847,15 +764,6 @@
       <segment>
         <source>Punkte</source>
         <target>Punkte</target>
-      </segment>
-    </unit>
-    <unit id="HcPQCBJ" name="{d} überlebt">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{d} überlebt</source>
-        <target>{d} überlebt</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -2712,17 +2620,6 @@
         <target>Dein Avatar</target>
       </segment>
     </unit>
-    <unit id="FFE77tY">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
-      </segment>
-    </unit>
     <unit id="ff37B3l" name="Du hast aktuell noch keine Plätze reserviert.">
       <notes>
         <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
@@ -3146,15 +3043,6 @@
         <target>BBCode</target>
       </segment>
     </unit>
-    <unit id="9y1x0zd" name="Freunde">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Freunde</source>
-        <target>Freunde</target>
-      </segment>
-    </unit>
     <unit id="LzzllLx" name="Empfänger">
       <notes>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
@@ -3425,24 +3313,6 @@
       <segment>
         <source>Änderung der E-Mail Adresse abbrechen</source>
         <target>Änderung der E-Mail Adresse abbrechen</target>
-      </segment>
-    </unit>
-    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
-      <notes>
-        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-      </notes>
-      <segment>
-        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
-        <target>Diese Stadt wurde aus dem Ranking ausgeschlossen.</target>
-      </segment>
-    </unit>
-    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
-      <notes>
-        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
-      </notes>
-      <segment>
-        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
-        <target>Dieser Eintrag wurde aus dem Ranking gestrichen.</target>
       </segment>
     </unit>
     <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">

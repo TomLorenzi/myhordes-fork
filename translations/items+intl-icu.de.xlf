@@ -100,15 +100,6 @@
         <target>Ein bisschen Live-Musik begeistert die Damen und hebt die Motivation... aber dir muss der Nebeneffekt genügen. Dein Spiel hat {ap} Aktionspunkte generiert, die unter den Bürgern aufgeteilt werden.</target>
       </segment>
     </unit>
-    <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
-        <target>Trotz intensiver Suche hast du nichts verwertbares gefunden...</target>
-      </segment>
-    </unit>
     <unit id="23PgQVZ" name="Ration Wasser">
       <notes>
         <note category="from">db://ItemPrototype</note>
@@ -2386,15 +2377,6 @@
         <target>Abdruck vom Schlagschlüssel</target>
       </segment>
     </unit>
-    <unit id="ST6MLb5" name="Abdruck vom Dosenöffner">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Abdruck vom Dosenöffner</source>
-        <target>Abdruck vom Dosenöffner</target>
-      </segment>
-    </unit>
     <unit id="UH8KN45" name="Ghul-Serum">
       <notes>
         <note category="from">db://ItemPrototype</note>
@@ -3070,15 +3052,6 @@
         <target>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</target>
       </segment>
     </unit>
-    <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Hierfür brauchst du eine Ration Wasser.</target>
-      </segment>
-    </unit>
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="from">db://ItemAction;db://Recipe</note>
@@ -3133,15 +3106,6 @@
         <target><![CDATA[Du hast dein <span class="tool">{item}</span> ausgepackt und <span class="tool">{items_spawn}</span> erhalten!]]></target>
       </segment>
     </unit>
-    <unit id="RG55Xgx">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</source>
-        <target><![CDATA[Du hast die <span class="tool">{item}</span> geöffnet und darin <span class="tool">{items_spawn}</span> gefunden!]]></target>
-      </segment>
-    </unit>
     <unit id="TbNnR3t">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -3167,24 +3131,6 @@
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
         <target>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</target>
-      </segment>
-    </unit>
-    <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Batterie.</source>
-        <target>Hierfür brauchst du eine Batterie.</target>
-      </segment>
-    </unit>
-    <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Hierfür brauchst du einen Kanister.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3304,15 +3250,6 @@
         <target>Verbinden</target>
       </segment>
     </unit>
-    <unit id="j6UDssn" name="Reinigen">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Reinigen</source>
-        <target>Reinigen</target>
-      </segment>
-    </unit>
     <unit id="8ngzajs" name="Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -3320,15 +3257,6 @@
       <segment>
         <source>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</source>
         <target>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</target>
-      </segment>
-    </unit>
-    <unit id="MAqdFU1" name="Hierfür brauchst du eine Micropur Brausetablette.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du eine Micropur Brausetablette.</source>
-        <target>Hierfür brauchst du eine Micropur Brausetablette.</target>
       </segment>
     </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
@@ -3347,15 +3275,6 @@
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
         <target>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</target>
-      </segment>
-    </unit>
-    <unit id="m2_GRND">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
-        <target>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</target>
       </segment>
     </unit>
     <unit id="T9EFRxo" name="Reparieren mit">
@@ -3385,15 +3304,6 @@
         <target>Vergiften mit</target>
       </segment>
     </unit>
-    <unit id="6wfIVGg" name="Du hast {target} mit {item} vergiftet!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast {target} mit {item} vergiftet!</source>
-        <target>Du hast {target} mit {item} vergiftet!</target>
-      </segment>
-    </unit>
     <unit id="6qvzljH" name="Mithilfe des {item} hast du die Umgebung gescannt.">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -3401,15 +3311,6 @@
       <segment>
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
         <target>Mithilfe des {item} hast du die Umgebung gescannt.</target>
-      </segment>
-    </unit>
-    <unit id="2lPNuwg" name="Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</source>
-        <target>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</target>
       </segment>
     </unit>
     <unit id="ufBL9cN" name="Das kannst du nicht tun während du umzingelt bist...">
@@ -3466,33 +3367,6 @@
         <target>Rauchen</target>
       </segment>
     </unit>
-    <unit id="4oX2an8" name="Hierfür brauchst du Streichhölzer...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du Streichhölzer...</source>
-        <target>Hierfür brauchst du Streichhölzer...</target>
-      </segment>
-    </unit>
-    <unit id="4Xp26aZ" name="Losschicken">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Losschicken</source>
-        <target>Losschicken</target>
-      </segment>
-    </unit>
-    <unit id="l2NsvcD" name="Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
-        <target>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</target>
-      </segment>
-    </unit>
     <unit id="AYQyaTb" name="Dopen">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -3500,24 +3374,6 @@
       <segment>
         <source>Dopen</source>
         <target>Dopen</target>
-      </segment>
-    </unit>
-    <unit id="ok9rcgr" name="Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</source>
-        <target>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</target>
-      </segment>
-    </unit>
-    <unit id="Gn7WeIB" name="Hierfür brauchst du ein Steroid.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du ein Steroid.</source>
-        <target>Hierfür brauchst du ein Steroid.</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -3590,15 +3446,6 @@
       <segment>
         <source>Die Rückkehr des Helden</source>
         <target>Die Rückkehr des Helden</target>
-      </segment>
-    </unit>
-    <unit id="AfDbNyS" name="Hierfür bist du zu weit von der Stadt entfernt ...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>Hierfür bist du zu weit von der Stadt entfernt ...</target>
       </segment>
     </unit>
     <unit id="9XqTW0w" name="Fund">
@@ -6364,15 +6211,6 @@
         <target>Aufbauen</target>
       </segment>
     </unit>
-    <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast das hiesige Versteck erheblich verbessert.</source>
-        <target>Du hast das hiesige Versteck erheblich verbessert.</target>
-      </segment>
-    </unit>
     <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -6625,33 +6463,6 @@
         <target>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</target>
       </segment>
     </unit>
-    <unit id="ZM5U_5i" name="Heilen (5AP)">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heilen (5AP)</source>
-        <target>Heilen (5AP)</target>
-      </segment>
-    </unit>
-    <unit id="8.uDazR" name="Heilen (6AP)">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heilen (6AP)</source>
-        <target>Heilen (6AP)</target>
-      </segment>
-    </unit>
-    <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigung organisieren (1 AP)</source>
-        <target>Verteidigung organisieren (1 AP)</target>
-      </segment>
-    </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -6706,15 +6517,6 @@
         <target>Angriff und Verteidigung</target>
       </segment>
     </unit>
-    <unit id="sHQDGQ4" name="Ausschneiden">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausschneiden</source>
-        <target>Ausschneiden</target>
-      </segment>
-    </unit>
     <unit id="fZlwOf2" name="Ausweiden">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -6751,15 +6553,6 @@
         <target>Droge herstellen</target>
       </segment>
     </unit>
-    <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
-        <target>Hierfür brauchst du 2x Pharmazeutische Substanz...</target>
-      </segment>
-    </unit>
     <unit id="z79RBPW" name="Kochen">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -6785,15 +6578,6 @@
       <segment>
         <source>Gegenstände suchen</source>
         <target>Gegenstände suchen</target>
-      </segment>
-    </unit>
-    <unit id="R2RcDum" name="Kompass">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Kompass</source>
-        <target>Kompass</target>
       </segment>
     </unit>
     <unit id="QwC3IQO" name="Mystischer Trank">
@@ -6857,15 +6641,6 @@
       <segment>
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
         <target><![CDATA[Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>]]></target>
-      </segment>
-    </unit>
-    <unit id="exY2Hkq">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vous vous allongez un peu pour vous reposer.&lt;t-ap-up&gt;Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;La panique environnant ne vous permet pas de vous reposer....&lt;/nt-ap-up&gt;</source>
-        <target><![CDATA[Vous vous allongez un peu pour vous reposer.<t-ap-up>Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up>La panique environnant ne vous permet pas de vous reposer....</nt-ap-up>]]></target>
       </segment>
     </unit>
     <unit id="p0SlVNr">
@@ -6974,15 +6749,6 @@
       <segment>
         <source>Pkte</source>
         <target>Pkte</target>
-      </segment>
-    </unit>
-    <unit id="UGai_eX">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="tqLPvCK" name="Heilen">
@@ -7111,15 +6877,6 @@
         <target>Benutzen</target>
       </segment>
     </unit>
-    <unit id="Nsd1Ael">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
     <unit id="Y1T4Y0D" name="Schönes Fundstück">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -7156,15 +6913,6 @@
         <target><![CDATA[<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>]]></target>
       </segment>
     </unit>
-    <unit id="sTuI8fr">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
     <unit id="0qToQ7z">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -7172,15 +6920,6 @@
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
-      </segment>
-    </unit>
-    <unit id="h5657VO">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
       </segment>
     </unit>
     <unit id="HpUrD8S" name="Vielleicht solltest du stattdessen dein Labor benutzen...">
@@ -7208,15 +6947,6 @@
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
         <target>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</target>
-      </segment>
-    </unit>
-    <unit id="txcEenB">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Deine Truhe kann nicht <strong>{items_count} Gegenstände</strong> aufnehmen: er hat <strong>{size} Platz(e)</strong> übrig.</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
@@ -7334,24 +7064,6 @@
       <segment>
         <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
         <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
-      </segment>
-    </unit>
-    <unit id="sGKanc7" name="Abstimmen">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Abstimmen</source>
-        <target>Abstimmen</target>
-      </segment>
-    </unit>
-    <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Vous avez voté pour {citizen} en tant que {role} !</source>
-        <target>Vous avez voté pour {citizen} en tant que {role} !</target>
       </segment>
     </unit>
     <unit id="aKn4VEo" name="Munitionsgriff">
@@ -7525,15 +7237,6 @@
         <target>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</target>
       </segment>
     </unit>
-    <unit id="n50zH5w">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
-      </segment>
-    </unit>
     <unit id="Mmr6mlb">
       <notes>
         <note category="from">db://ItemAction</note>
@@ -7604,15 +7307,6 @@
       <segment>
         <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
         <target>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</target>
-      </segment>
-    </unit>
-    <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
       </segment>
     </unit>
     <unit id="m8tmcds">
@@ -7804,24 +7498,6 @@
         <target>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</target>
       </segment>
     </unit>
-    <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
-      </segment>
-    </unit>
-    <unit id="BmWCshI">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><nt-kill-latest>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</nt-kill-latest>]]></target>
-      </segment>
-    </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
       <notes>
         <note category="from">db://ItemPrototype</note>
@@ -7910,15 +7586,6 @@
       <segment>
         <source>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</source>
         <target>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</target>
-      </segment>
-    </unit>
-    <unit id="NU_DTOa">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
-        <target><![CDATA[Du hast mit dem(r) <span class="tool">{item_tool}</span> ein(e) <span class="tool">{item}</span> geöffnet und darin folgenden Gegenstand gefunden: <span class="tool">{items_spawn}</span>.]]></target>
       </segment>
     </unit>
     <unit id="lXVMIpX">

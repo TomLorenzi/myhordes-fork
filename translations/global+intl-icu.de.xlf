@@ -172,24 +172,6 @@
         <target>Neues Thema</target>
       </segment>
     </unit>
-    <unit id="bej0jm2" name="Themen">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Themen</source>
-        <target>Themen</target>
-      </segment>
-    </unit>
-    <unit id="Zyb_RyS" name="Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</source>
-        <target>Bisher hat niemand in dieses Forum geschrieben. Sei du doch der Erste!</target>
-      </segment>
-    </unit>
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/forum/view.html.twig;twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/posts.html.twig;twig:///templates/ajax/pm/bubbles.html.twig;twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/playername.html.twig</note>
@@ -377,24 +359,6 @@
       <segment>
         <source>Zum Spiel</source>
         <target>Zum Spiel</target>
-      </segment>
-    </unit>
-    <unit id="tkZocIU" name="Ausloggen">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausloggen</source>
-        <target>Ausloggen</target>
-      </segment>
-    </unit>
-    <unit id="YeLCoLU" name="Seite neu laden">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Seite neu laden</source>
-        <target>Seite neu laden</target>
       </segment>
     </unit>
     <unit id="gBz_D6E" name="Deutsch">
@@ -631,15 +595,6 @@
         <target>Dazu hast Du kein Recht.</target>
       </segment>
     </unit>
-    <unit id=".dh3UEc" name="als Rabe">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>als Rabe</source>
-        <target>als Rabe</target>
-      </segment>
-    </unit>
     <unit id="Em1EFUR" name="Moderation">
       <notes>
         <note category="from">twig:///templates/ajax/ajax.html.twig;twig:///templates/ajax/forum/view.html.twig</note>
@@ -683,15 +638,6 @@
       <segment>
         <source>Dev</source>
         <target>Dev</target>
-      </segment>
-    </unit>
-    <unit id="oR9GFiR" name="Melden">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Melden</source>
-        <target>Melden</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -793,24 +739,6 @@
         <target>{color} {value}</target>
       </segment>
     </unit>
-    <unit id="awzJBNC" name="Users">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Users</source>
-        <target>Users</target>
-      </segment>
-    </unit>
-    <unit id="5qZlTRd" name="Meldungen">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Meldungen</source>
-        <target>Meldungen</target>
-      </segment>
-    </unit>
     <unit id="aTN.bek" name="Vorschau">
       <notes>
         <note category="from">twig:///templates/ajax/forum/editor.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
@@ -899,24 +827,6 @@
       <segment>
         <source>Durchstreichen</source>
         <target>Durchstreichen</target>
-      </segment>
-    </unit>
-    <unit id="aZc6vxf" name="Einfache Liste">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einfache Liste</source>
-        <target>Einfache Liste</target>
-      </segment>
-    </unit>
-    <unit id="1CuRrf_" name="Nummerierte Liste">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nummerierte Liste</source>
-        <target>Nummerierte Liste</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -1657,15 +1567,6 @@
         <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="uB2Vk6P" name="oder">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>oder</source>
-        <target>oder</target>
-      </segment>
-    </unit>
     <unit id="1N_y7nB">
       <notes>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
@@ -2294,15 +2195,6 @@
       <segment>
         <source>Gestern</source>
         <target>Gestern</target>
-      </segment>
-    </unit>
-    <unit id="BXmgyWZ" name="Neuer Beitrag in {topic}">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Neuer Beitrag in {topic}</source>
-        <target>Neuer Beitrag in {topic}</target>
       </segment>
     </unit>
     <unit id="0lz2qGs" name="Abonniert">
@@ -3457,24 +3349,6 @@
       <segment>
         <source>Ende</source>
         <target>Ende</target>
-      </segment>
-    </unit>
-    <unit id="5quivVp" name="Programming">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Programming</source>
-        <target>Programming</target>
-      </segment>
-    </unit>
-    <unit id="MRosxv3" name="Thanks to">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Thanks to</source>
-        <target>Thanks to</target>
       </segment>
     </unit>
     <unit id="rtPvko.">

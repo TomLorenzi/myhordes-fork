@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
   <file id="welcome.de">
-    <unit id="7VfCrWl" name="Foren">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Foren</source>
-        <target>Foren</target>
-      </segment>
-    </unit>
     <unit id="a66OWC." name="Willkommen bei MyHordes">
       <notes>
         <note category="from">twig:///templates/seo/welcome.html.twig</note>
@@ -35,15 +26,6 @@
       <segment>
         <source>Account validieren</source>
         <target>Account validieren</target>
-      </segment>
-    </unit>
-    <unit id="vMG7P9w" name="Zum Login">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zum Login</source>
-        <target>Zum Login</target>
       </segment>
     </unit>
     <unit id="lHIUXzm" name="Bürger gestorben">

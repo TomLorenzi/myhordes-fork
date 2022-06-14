@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
   <file id="game.fr">
-    <unit id="hzf0c1L">
-      <notes>
-        <note category="german">{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>L'alarme de {victim} a réveillé la moitié de la ville et vous a effrayé !</target>
-      </segment>
-    </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
       <notes>
         <note category="german">Deine Route wurde gespeichert.</note>
@@ -1931,16 +1921,6 @@
       <segment>
         <source>Zonenregister</source>
         <target>Discussions</target>
-      </segment>
-    </unit>
-    <unit id="nq1XXly" name="Stadtregister">
-      <notes>
-        <note category="german">Stadtregister</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-      </notes>
-      <segment>
-        <source>Stadtregister</source>
-        <target>Registre de la ville</target>
       </segment>
     </unit>
     <unit id="eR2SPb." name="Das Stadtregister steht nicht zur Verfügung.">
@@ -20380,66 +20360,6 @@
         <target>Défenses maison</target>
       </segment>
     </unit>
-    <unit id="aZTP5kd" name="Behausung:">
-      <notes>
-        <note category="german">Behausung:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Behausung:</source>
-        <target>Habitation :</target>
-      </segment>
-    </unit>
-    <unit id="DPEWu9n" name="Bauarbeiten:">
-      <notes>
-        <note category="german">Bauarbeiten:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bauarbeiten:</source>
-        <target>Travaux :</target>
-      </segment>
-    </unit>
-    <unit id="da5HmMo" name="Verteidigungsgegenstände:">
-      <notes>
-        <note category="german">Verteidigungsgegenstände:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigungsgegenstände:</source>
-        <target>Objets de défense :</target>
-      </segment>
-    </unit>
-    <unit id="82mfAu." name="Heldenbonus:">
-      <notes>
-        <note category="german">Heldenbonus:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heldenbonus:</source>
-        <target>Bonus héros :</target>
-      </segment>
-    </unit>
-    <unit id="GOhyviN" name="Total:">
-      <notes>
-        <note category="german">Total:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Total:</source>
-        <target>Total :</target>
-      </segment>
-    </unit>
-    <unit id="wyKmZM_">
-      <notes>
-        <note category="german">Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objets de défense (plaques de tôle, etc.) sont à poser dans le Coffre.</target>
-      </segment>
-    </unit>
     <unit id="HUYhE2a" name="kein Verteidigungsbonus">
       <notes>
         <note category="german">kein Verteidigungsbonus</note>
@@ -22531,16 +22451,6 @@ cette violente opération...]]></target>
         <target><![CDATA[En regardant autour de vous, <strong>vous êtes pris(e) d'une soudaine et incontrôlable panique</strong> ! Impossible de faire un pas de plus...  Votre déplacement a été <strong>interrompu</strong> et vous avez perdu<strong>1 AP</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="1catDqP">
-      <notes>
-        <note category="german">&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</source>
-        <target><![CDATA[<strong>{citizen1}</strong> aurait retrouvé le corps de <strong>† {cadaver1}</strong> au milieu d'un chantier ce matin. Selon ce citoyen, il s'agirait d'un suicide... Seulement, <strong>{citizen1}</strong> n'a pas pu nous expliquer le couteau planté dans le dos du corps...]]></target>
-      </segment>
-    </unit>
     <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
       <notes>
         <note category="german">{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!</note>
@@ -22719,17 +22629,6 @@ cette violente opération...]]></target>
       <segment>
         <source>Normale Ansicht</source>
         <target>Vue normale</target>
-      </segment>
-    </unit>
-    <unit id="NmtcN7Z">
-      <notes>
-        <note category="german">Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</note>
-        <note category="from">[unused]</note>
-        <note category="state">madeup</note>
-      </notes>
-      <segment>
-        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
-        <target><![CDATA[L’horrible attaque de la nuit dernière a coûté la vie à des citoyens : {cadavres}. Autour de <strong>{attaque} Zombies</strong> ! La violence observée dans cette dernière attaque nous fait nous attendre au pire...]]></target>
       </segment>
     </unit>
     <unit id="Mv5rYXb">

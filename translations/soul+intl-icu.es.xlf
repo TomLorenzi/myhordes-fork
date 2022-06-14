@@ -3687,26 +3687,6 @@
         <target>Cancelar el cambio de la dirección de correo electrónico</target>
       </segment>
     </unit>
-    <unit id="0_cdRLf" name="Diese Stadt wurde aus dem Ranking ausgeschlossen.">
-      <notes>
-        <note category="german">Diese Stadt wurde aus dem Ranking ausgeschlossen.</note>
-        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
-      </notes>
-      <segment>
-        <source>Diese Stadt wurde aus dem Ranking ausgeschlossen.</source>
-        <target>Esta ciudad fue excluida del ranking.</target>
-      </segment>
-    </unit>
-    <unit id="7kH99Rl" name="Dieser Eintrag wurde aus dem Ranking gestrichen.">
-      <notes>
-        <note category="german">Dieser Eintrag wurde aus dem Ranking gestrichen.</note>
-        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
-      </notes>
-      <segment>
-        <source>Dieser Eintrag wurde aus dem Ranking gestrichen.</source>
-        <target>Esta entrada ha sido eliminada del ranking.</target>
-      </segment>
-    </unit>
     <unit id="vv_dKqx" name="Bürger, Willkommen in der Hölle!">
       <notes>
         <note category="german">Bürger, Willkommen in der Hölle!</note>

@@ -61,16 +61,6 @@
         <target>No hay pueblos de este tipo por el momento.</target>
       </segment>
     </unit>
-    <unit id="gqk_gdE" name="Beitreten">
-      <notes>
-        <note category="german">Beitreten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beitreten</source>
-        <target>Unirse</target>
-      </segment>
-    </unit>
     <unit id="CwvX2yq">
       <notes>
         <note category="german">Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</note>

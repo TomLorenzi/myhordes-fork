@@ -2025,16 +2025,6 @@
         <target>Enregistrer une nouvelle app externe</target>
       </segment>
     </unit>
-    <unit id="2OM.kVy" name="Änderungen an {appname} speichern">
-      <notes>
-        <note category="german">Änderungen an « {appname} » speichern</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Änderungen an {appname} speichern</source>
-        <target>Enregister les modifications de « {appname} »</target>
-      </segment>
-    </unit>
     <unit id="I2gx52t" name="Neue Anwendung">
       <notes>
         <note category="german">Neue Anwendung</note>

@@ -235,15 +235,6 @@
         <target>Fallgruben</target>
       </segment>
     </unit>
-    <unit id="rCdMakD" name="Zaun">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zaun</source>
-        <target>Zaun</target>
-      </segment>
-    </unit>
     <unit id="1VFjm8C" name="Holzzaun">
       <notes>
         <note category="from">db://BuildingPrototype</note>
@@ -584,15 +575,6 @@
       <segment>
         <source>Pumpe</source>
         <target>Pumpe</target>
-      </segment>
-    </unit>
-    <unit id="soE_FyU" name="Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</target>
       </segment>
     </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
@@ -953,24 +935,6 @@
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
         <target>Die AP-Kosten aller Bauprojekte werden um 18% gesenkt.</target>
-      </segment>
-    </unit>
-    <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 24% gesenkt.</target>
-      </segment>
-    </unit>
-    <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 30% gesenkt.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">

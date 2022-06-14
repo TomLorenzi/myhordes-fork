@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="de">
   <file id="game.de">
-    <unit id="hzf0c1L">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
-        <target>{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</target>
-      </segment>
-    </unit>
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
       <notes>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
@@ -145,24 +136,6 @@
         <target>{citizen} hat seine neue Berufung als {profession} gefunden.</target>
       </segment>
     </unit>
-    <unit id="tflCZQU" name="{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.</source>
-        <target>{zombies} haben vergeblich versucht, in das Haus von {citizen} einzudringen.</target>
-      </segment>
-    </unit>
-    <unit id=".Zilgxy" name="{num} Zombies">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{num} Zombies</source>
-        <target>{num} Zombies</target>
-      </segment>
-    </unit>
     <unit id="5hg7k.0" name="{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...">
       <notes>
         <note category="from">db://LogEntryTemplate</note>
@@ -172,24 +145,6 @@
         <target>{citizen} hat seine Behausung in ein(e,n) {home} verwandelt...</target>
       </segment>
     </unit>
-    <unit id="5tMkNnc">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</source>
-        <target>{citizen} folgendes hergestellt: {list2}; dabei wurden folgende Gegenstände verbraucht: {list1}.</target>
-      </segment>
-    </unit>
-    <unit id="jb1iSAe" name="{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!</source>
-        <target>{zombie} ist von den Toten auferstanden und hat {victim} zerfleischt!</target>
-      </segment>
-    </unit>
     <unit id="5a5L3xz">
       <notes>
         <note category="from">db://LogEntryTemplate</note>
@@ -197,15 +152,6 @@
       <segment>
         <source>{zombie} ist von den Toten auferstanden und hat die Baustelle für {building} verwüstet!</source>
         <target>{zombie} ist von den Toten auferstanden und hat die Baustelle für {building} verwüstet!</target>
-      </segment>
-    </unit>
-    <unit id="oRvYJE9">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{zombie} ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns {num} Rationen Wasser!</source>
-        <target>{zombie} ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns {num} Rationen Wasser!</target>
       </segment>
     </unit>
     <unit id="YOzcl2Y" name="{num} Zombies attackieren die Stadtbewohner!">
@@ -323,15 +269,6 @@
       <segment>
         <source>Du kannst auf dieser Zone nicht graben.</source>
         <target>Du kannst auf dieser Zone nicht graben.</target>
-      </segment>
-    </unit>
-    <unit id="MPn9B5E" name="Das Stadttor ist geschlossen!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das Stadttor ist geschlossen!</source>
-        <target>Das Stadttor ist geschlossen!</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -793,15 +730,6 @@
         <target>Truhe und Aktionen</target>
       </segment>
     </unit>
-    <unit id="wMh6wqD" name="Mein(e) {type}">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Mein(e) {type}</source>
-        <target>Mein(e) {type}</target>
-      </segment>
-    </unit>
     <unit id="lQhjNcE" name="Bauarbeiten">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
@@ -874,15 +802,6 @@
         <target>Mein Register</target>
       </segment>
     </unit>
-    <unit id="HbM7uO9" name="Verteidigung und Dekoration">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigung und Dekoration</source>
-        <target>Verteidigung und Dekoration</target>
-      </segment>
-    </unit>
     <unit id="77.Cp5H" name="Verteidigung">
       <notes>
         <note category="from">twig:///templates/ajax/game/gazette_widget.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
@@ -890,42 +809,6 @@
       <segment>
         <source>Verteidigung</source>
         <target>Verteidigung</target>
-      </segment>
-    </unit>
-    <unit id="ESh2aNj" name="durch Haus">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Haus</source>
-        <target>durch Haus</target>
-      </segment>
-    </unit>
-    <unit id="bhU20pv" name="durch Beruf">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Beruf</source>
-        <target>durch Beruf</target>
-      </segment>
-    </unit>
-    <unit id="d5El4_h" name="durch Ausbauten">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Ausbauten</source>
-        <target>durch Ausbauten</target>
-      </segment>
-    </unit>
-    <unit id="0Rphz24" name="durch Gegenstände">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>durch Gegenstände</source>
-        <target>durch Gegenstände</target>
       </segment>
     </unit>
     <unit id=".k1cQGO" name="Dekoration">
@@ -944,34 +827,6 @@
       <segment>
         <source>Gegenstände</source>
         <target>Gegenstände</target>
-      </segment>
-    </unit>
-    <unit id="UfaHlFI" name="Ausbauten">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausbauten</source>
-        <target>Ausbauten</target>
-      </segment>
-    </unit>
-    <unit id="32LY7bW">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</source>
-        <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine Ausbauten funktionslos.</target>
-      </segment>
-    </unit>
-    <unit id="vmzgnNz" name="Stufe {level}">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Stufe {level}</source>
-        <target>Stufe {level}</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
@@ -1216,15 +1071,6 @@
       <segment>
         <source>Todesursache</source>
         <target>Todesursache</target>
-      </segment>
-    </unit>
-    <unit id="rD2ZHAN" name="Letzte Worte">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Letzte Worte</source>
-        <target>Letzte Worte</target>
       </segment>
     </unit>
     <unit id="tTFjSe8" name="Gemeinschaft">
@@ -1543,15 +1389,6 @@
         <target>Baustellenregister</target>
       </segment>
     </unit>
-    <unit id="0m1lFXV" name="Wie viele Aktionspunkte möchtest du in den Bau investieren?">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wie viele Aktionspunkte möchtest du in den Bau investieren?</source>
-        <target>Wie viele Aktionspunkte möchtest du in den Bau investieren?</target>
-      </segment>
-    </unit>
     <unit id="WZRacPK" name="{rations} Rationen Wasser übrig">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/well.html.twig</note>
@@ -1723,15 +1560,6 @@
         <target>Punkt(e)</target>
       </segment>
     </unit>
-    <unit id="yuTuMOR" name="Stadt in {km} Entfernung">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Stadt in {km} Entfernung</source>
-        <target>Stadt in {km} Entfernung</target>
-      </segment>
-    </unit>
     <unit id="AW6aLpM" name="Am Boden">
       <notes>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/beyond/ruin.html.twig</note>
@@ -1757,33 +1585,6 @@
       <segment>
         <source>{z} Zombies kontrollieren diese Zone!</source>
         <target>{z} Zombies kontrollieren diese Zone!</target>
-      </segment>
-    </unit>
-    <unit id="5GwqUxA">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiben:</target>
-      </segment>
-    </unit>
-    <unit id="1lHHd11">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</target>
-      </segment>
-    </unit>
-    <unit id="DJhmFr9" name="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</target>
       </segment>
     </unit>
     <unit id="Zkh813p">
@@ -1939,24 +1740,6 @@
         <target>Zonenregister</target>
       </segment>
     </unit>
-    <unit id="T478uEB" name="Zonenchat">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zonenchat</source>
-        <target>Zonenchat</target>
-      </segment>
-    </unit>
-    <unit id="nq1XXly" name="Stadtregister">
-      <notes>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
-      </notes>
-      <segment>
-        <source>Stadtregister</source>
-        <target>Stadtregister</target>
-      </segment>
-    </unit>
     <unit id="eR2SPb." name="Das Stadtregister steht nicht zur Verfügung.">
       <notes>
         <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
@@ -2047,18 +1830,6 @@
         <target>Aktionspunkte</target>
       </segment>
     </unit>
-    <unit id="dWg5UEc">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.</source>
-        <target>Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</target>
-      </segment>
-    </unit>
     <unit id="bfXTcH6" name="Baupunkte">
       <notes>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
@@ -2066,17 +1837,6 @@
       <segment>
         <source>Baupunkte</source>
         <target>Baupunkte</target>
-      </segment>
-    </unit>
-    <unit id="cycrpjD">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Diese Punkte können ausschließlich auf den Baustellen der Stadt eingesetzt werden.</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -2106,16 +1866,6 @@
         <target>Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.</target>
       </segment>
     </unit>
-    <unit id="00tQ4_W">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
-                Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der Stadt aus, musst du als einfacher Einwohner weiterspielen.</target>
-      </segment>
-    </unit>
     <unit id="hc1h_MP" name="Held">
       <notes>
         <note category="from">twig:///templates/ajax/soul/pictos.html.twig;twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
@@ -2123,16 +1873,6 @@
       <segment>
         <source>Held</source>
         <target>Held</target>
-      </segment>
-    </unit>
-    <unit id="_W.HOtd">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
-                verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</source>
-        <target>Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -3017,15 +2757,6 @@
         <target>Es wurde ein neues Gebäude gebaut: {plan}.</target>
       </segment>
     </unit>
-    <unit id="x8EBgJi" name="{citizen} wurde von {zombies} zerfleischt!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} wurde von {zombies} zerfleischt!</source>
-        <target>{citizen} wurde von {zombies} zerfleischt!</target>
-      </segment>
-    </unit>
     <unit id="954uB9J">
       <notes>
         <note category="from">db://LogEntryTemplate</note>
@@ -3088,15 +2819,6 @@
       <segment>
         <source>{citizen} hat mit dem Gegenstand {item} {kills} Zombie(s) getötet.</source>
         <target>{citizen} hat mit dem Gegenstand {item} {kills} Zombie(s) getötet.</target>
-      </segment>
-    </unit>
-    <unit id="JLXNnq_" name="{citizen} hat {kills} Zombies getötet.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat {kills} Zombies getötet.</source>
-        <target>{citizen} hat {kills} Zombies getötet.</target>
       </segment>
     </unit>
     <unit id="6TXzJgz" name="{citizen} hat das Stadtgebiet in Richtung {direction} verlassen.">
@@ -3234,24 +2956,6 @@
         <target>Nicht ein Zombie hat die Stadt betreten!</target>
       </segment>
     </unit>
-    <unit id="NIymd5x" name="{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.</source>
-        <target>{citizen} hat die Leiche von {disposed} aus der Stadt gezerrt.</target>
-      </segment>
-    </unit>
-    <unit id="twDmRwR">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} hat die Leiche von {disposed} vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>{citizen} hat die Leiche von {disposed} vernichtet, indem er sie mit Wasser übergossen hat.</target>
-      </segment>
-    </unit>
     <unit id="TNs0DHS">
       <notes>
         <note category="from">db://LogEntryTemplate</note>
@@ -3286,15 +2990,6 @@
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei {victim} eingebrochen und hat {item} gestohlen...</source>
         <target>VERDAMMT! Es scheint, jemand ist bei {victim} eingebrochen und hat {item} gestohlen...</target>
-      </segment>
-    </unit>
-    <unit id="Fn2.PoP" name="{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...</source>
-        <target>{actor} ist bei {victim} eingebrochen und hat {item} hinterlassen...</target>
       </segment>
     </unit>
     <unit id="TYXZ3N7" name="Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...">
@@ -3674,15 +3369,6 @@
         <target>Den morgigen Angriff berechnen</target>
       </segment>
     </unit>
-    <unit id="cePRD7K" name="In der Stadt wohnen @citizens Bürger.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>In der Stadt wohnen @citizens Bürger.</source>
-        <target>In der Stadt wohnen @citizens Bürger.</target>
-      </segment>
-    </unit>
     <unit id="fUbvGiO" name="Leere Truhe">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
@@ -3953,15 +3639,6 @@
         <target>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</target>
       </segment>
     </unit>
-    <unit id="b15cXr8" name="Mord">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Mord</source>
-        <target>Mord</target>
-      </segment>
-    </unit>
     <unit id="THDibIm">
       <notes>
         <note category="from">db://CauseOfDeath</note>
@@ -4050,15 +3727,6 @@
       <segment>
         <source>Kopfschuss</source>
         <target>Kopfschuss</target>
-      </segment>
-    </unit>
-    <unit id="._4eMx4">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</source>
-        <target>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hälst?</target>
       </segment>
     </unit>
     <unit id="Pq_GOUr">
@@ -4448,15 +4116,6 @@
         <target>Dieser von Einschusskratern und schwarzen getrockneten Blutlachen übersäte Schützengraben lässt erahnen, was sich hier abgespielt hat. Der größte Teil des Grabens ist in sich zusammengestürzt, doch hier und dort erblickst du noch ein paar begehbare Stellen, die sich nach nutzbaren Gegenständen absuchen lassen.</target>
       </segment>
     </unit>
-    <unit id="odvB3Fd">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</source>
-        <target>What was once the local library is now a collection of several small houses. Today, the books are mostly torn or burnt, the ground is littered with torn pages and the shelves have been knocked over.</target>
-      </segment>
-    </unit>
     <unit id="Uin8bw9">
       <notes>
         <note category="from">db://ZonePrototype</note>
@@ -4736,15 +4395,6 @@
         <target>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</target>
       </segment>
     </unit>
-    <unit id="Lm_z2Dh" name="Deine Tarnung ist aufgeflogen!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Deine Tarnung ist aufgeflogen!</source>
-        <target>Deine Tarnung ist aufgeflogen!</target>
-      </segment>
-    </unit>
     <unit id="RPns7ug" name="Wächt">
       <notes>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
@@ -4788,15 +4438,6 @@
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</source>
         <target>Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</target>
-      </segment>
-    </unit>
-    <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
-        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</target>
       </segment>
     </unit>
     <unit id="7Xw94D3" name="Du kannst nur einen Behälter auf einmal tragen.">
@@ -5076,15 +4717,6 @@
       <segment>
         <source>Verteidigungsgegenstände</source>
         <target>Verteidigungsgegenstände</target>
-      </segment>
-    </unit>
-    <unit id="FAUZkS8" name="Häuser">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Häuser</source>
-        <target>Häuser</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -6563,33 +6195,6 @@
         <target>{citizens} Bürger am Leben</target>
       </segment>
     </unit>
-    <unit id="wjS3J8H">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hier wohnte ein Bürger, der beschloss, sich außerhalb der Stadt niederzulassen, weil er dachte, er würde länger unbeeinflusst von den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, überleben. Die Hälfte ihrer Leiche ist immer noch im Wohnzimmer.</source>
-        <target>Hier wohnte ein Bürger, der beschloss, sich außerhalb der Stadt niederzulassen, weil er dachte, er würde länger unbeeinflusst von den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, überleben. Die Hälfte ihrer Leiche ist immer noch im Wohnzimmer.</target>
-      </segment>
-    </unit>
-    <unit id="9mURbki">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum wuchsen, verschwand dann... spezialisiert darauf, Dinge so billig wie möglich zu machen, sollten Sie hier alles finden können, was Sie brauchen. Ob Sie nun potless sind oder einfach nur dichter als zwei Anstriche, kaufen Sie bei Albis ein!</source>
-        <target>Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum wuchsen, verschwand dann... spezialisiert darauf, Dinge so billig wie möglich zu machen, sollten Sie hier alles finden können, was Sie brauchen. Ob Sie nun potless sind oder einfach nur dichter als zwei Anstriche, kaufen Sie bei Albis ein!</target>
-      </segment>
-    </unit>
-    <unit id="qDUSf43">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hättest du mehr als {day} Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
-        <target>Hättest du mehr als {day} Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</target>
-      </segment>
-    </unit>
     <unit id="lc.POOW">
       <notes>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
@@ -6606,15 +6211,6 @@
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
         <target>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</target>
-      </segment>
-    </unit>
-    <unit id="ds84D99">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</source>
-        <target>Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</target>
       </segment>
     </unit>
     <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
@@ -6660,15 +6256,6 @@
       <segment>
         <source>Sekunde(n)</source>
         <target>Sekunde(n)</target>
-      </segment>
-    </unit>
-    <unit id="q221mSN" name="am">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>am</source>
-        <target>am</target>
       </segment>
     </unit>
     <unit id="KsxoZXu" name="vor {time}">
@@ -6865,15 +6452,6 @@
         <target>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
       </segment>
     </unit>
-    <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
-        <target>Während Zombies die Zone kontrollieren, kannst du nicht graben.</target>
-      </segment>
-    </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
       <notes>
         <note category="from">twig:///templates/scripts/errors/inventory.txt.twig</note>
@@ -6908,15 +6486,6 @@
       <segment>
         <source>{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
         <target>{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
-      </segment>
-    </unit>
-    <unit id="4.0b7Pm">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält {def} Verteidigung dafür.</source>
-        <target>Alles oder Nichts! Jeder einzelne Gegenstand in der Bank wurde zerstört. Die Stadt erhält {def} Verteidigung dafür.</target>
       </segment>
     </unit>
     <unit id="pEq8Vut" name="Headshot">
@@ -7063,15 +6632,6 @@
         <target>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</target>
       </segment>
     </unit>
-    <unit id="IYIMtxo">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
-      </segment>
-    </unit>
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
       <notes>
         <note category="from">db://CitizenStatus</note>
@@ -7107,15 +6667,6 @@
                 other {Reiseleiter in der Außenwelt}
             }
         </target>
-      </segment>
-    </unit>
-    <unit id="ti26S85" name="Dazu hast Du nicht das Recht.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dazu hast Du nicht das Recht.</source>
-        <target>Dazu hast Du nicht das Recht.</target>
       </segment>
     </unit>
     <unit id="wxLqZEY" name="Den {rolename} wählen">
@@ -7307,15 +6858,6 @@
         <target>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</target>
       </segment>
     </unit>
-    <unit id="PzrQbvb" name="Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.</source>
-        <target>Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.</target>
-      </segment>
-    </unit>
     <unit id="GuvA6wB">
       <notes>
         <note category="from">db://LogEntryTemplate</note>
@@ -7377,24 +6919,6 @@
       <segment>
         <source>{citizen} hat beschlossen sich wieder allein fortzubewegen.</source>
         <target>{citizen} hat beschlossen sich wieder allein fortzubewegen.</target>
-      </segment>
-    </unit>
-    <unit id="avaGnHb" name="{citizen} a convaincu {target_citizen} de le suivre.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} a convaincu {target_citizen} de le suivre.</source>
-        <target>{citizen} a convaincu {target_citizen} de le suivre.</target>
-      </segment>
-    </unit>
-    <unit id="0iI5ANu" name="Finalement, {citizen} a décidé de planter {target_citizen} là...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Finalement, {citizen} a décidé de planter {target_citizen} là...</source>
-        <target>Finalement, {citizen} a décidé de planter {target_citizen} là...</target>
       </segment>
     </unit>
     <unit id="KYKuCCa">
@@ -7741,15 +7265,6 @@
         <target>Du kannst keinen weiteren Bürger eskortieren.</target>
       </segment>
     </unit>
-    <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dieser Bürger hat kein AP mehr.</source>
-        <target>Dieser Bürger hat kein AP mehr.</target>
-      </segment>
-    </unit>
     <unit id="hz8ReXU">
       <notes>
         <note category="from">db://CitizenStatus</note>
@@ -7802,24 +7317,6 @@
       <segment>
         <source>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
         <target>Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
-      </segment>
-    </unit>
-    <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der Schamane dieser Stadt.</source>
-        <target>Du bist der Schamane dieser Stadt.</target>
-      </segment>
-    </unit>
-    <unit id="YfnhC9h" name="Du bist der Reiseleiter in der Außenwelt dieser Stadt.">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</source>
-        <target>Du bist der Reiseleiter in der Außenwelt dieser Stadt.</target>
       </segment>
     </unit>
     <unit id="5mCmMZu" name="Besessen von einer gequälten Seele">
@@ -7885,24 +7382,6 @@
         <target>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : {citizens}</target>
       </segment>
     </unit>
-    <unit id="rFh36Gr" name="Klassischer Editor">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Klassischer Editor</source>
-        <target>Klassischer Editor</target>
-      </segment>
-    </unit>
-    <unit id="wkidHer" name="Grafischer Editor">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Grafischer Editor</source>
-        <target>Grafischer Editor</target>
-      </segment>
-    </unit>
     <unit id="BpkKJfs" name="Zusammenbauen">
       <notes>
         <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
@@ -7910,15 +7389,6 @@
       <segment>
         <source>Zusammenbauen</source>
         <target>Zusammenbauen</target>
-      </segment>
-    </unit>
-    <unit id="dGfxw4F">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
@@ -7966,15 +7436,6 @@
         <target>Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von {deathChance}% sterben und zu einer Wahrscheinlichkeit von {woundAndTerrorChance}% eine Verwundung oder Angststarre während der Wache erleiden wirst.</target>
       </segment>
     </unit>
-    <unit id="vuWaICz">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
-        <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</target>
-      </segment>
-    </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig</note>
@@ -8018,24 +7479,6 @@
       <segment>
         <source>{citizen} ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</source>
         <target>{citizen} ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</target>
-      </segment>
-    </unit>
-    <unit id="nF6hvp2">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Es ist nicht ohne Abscheu, dass {disposing_citizen} den leblosen Körper von {citizen} losgeworden ist.</source>
-        <target>Es ist nicht ohne Abscheu, dass {disposing_citizen} den leblosen Körper von {citizen} losgeworden ist.</target>
-      </segment>
-    </unit>
-    <unit id="Z78uiOP">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dank der Bemühungen von {disposing_citizen} konnte der Körper von {citizen} auf faule Flüssigkeit reduziert werden.</source>
-        <target>Dank der Bemühungen von {disposing_citizen} konnte der Körper von {citizen} auf faule Flüssigkeit reduziert werden.</target>
       </segment>
     </unit>
     <unit id="jqa.16L">
@@ -8180,114 +7623,6 @@
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
         <target>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</target>
-      </segment>
-    </unit>
-    <unit id="HHrNFas">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target>{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
-      </segment>
-    </unit>
-    <unit id="4xQZLpn">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</target>
-      </segment>
-    </unit>
-    <unit id="9OEwJJM">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
-      </segment>
-    </unit>
-    <unit id="RiEm2s6">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</target>
-      </segment>
-    </unit>
-    <unit id="X7mffuU">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</target>
-      </segment>
-    </unit>
-    <unit id="WWLQc3o">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</target>
-      </segment>
-    </unit>
-    <unit id="IEPC99r">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</target>
-      </segment>
-    </unit>
-    <unit id="EvcUHEC">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</target>
-      </segment>
-    </unit>
-    <unit id="ZuQMNC6">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</target>
-      </segment>
-    </unit>
-    <unit id="MHTYtp1">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</source>
-        <target>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</target>
-      </segment>
-    </unit>
-    <unit id="Phxyt4a">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</target>
-      </segment>
-    </unit>
-    <unit id="bkMZ85E" name="Horizont">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Horizont</source>
-        <target>Horizont</target>
       </segment>
     </unit>
     <unit id="fbPbjvi">
@@ -8670,15 +8005,6 @@
         <target>Status</target>
       </segment>
     </unit>
-    <unit id="m9ipH9g" name="[nights]">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>[nights]</source>
-        <target>[nights]</target>
-      </segment>
-    </unit>
     <unit id="r_z_E60" name="Notruf">
       <notes>
         <note category="from">db://ZoneTag</note>
@@ -8832,15 +8158,6 @@
         <target>{citizen} hat das Gebäude {plan} repariert und dabei {ap} ausgegeben.</target>
       </segment>
     </unit>
-    <unit id="DZRfvZb" name="Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
-      </segment>
-    </unit>
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
       <notes>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
@@ -8904,15 +8221,6 @@
         <target>Keine Nachricht gespeichert.</target>
       </segment>
     </unit>
-    <unit id="wo3L_zx" name="Neue Nachright">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Neue Nachright</source>
-        <target>Neue Nachright</target>
-      </segment>
-    </unit>
     <unit id="47O8Zzm" name="Empfänger:">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
@@ -8947,15 +8255,6 @@
       <segment>
         <source>Betreff:</source>
         <target>Betreff:</target>
-      </segment>
-    </unit>
-    <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>Ich BESTÄTIGE meine Nachricht</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -10237,15 +9536,6 @@
         <target>Alle</target>
       </segment>
     </unit>
-    <unit id="N1iUWVV" name="Du bist {status}">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du bist {status}</source>
-        <target>Du bist {status}</target>
-      </segment>
-    </unit>
     <unit id="Pzhs1Mo" name="Ratschlag:">
       <notes>
         <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
@@ -10370,17 +9660,6 @@
       <segment>
         <source>Zufälliger Bürger</source>
         <target>Zufälliger Bürger</target>
-      </segment>
-    </unit>
-    <unit id="dTDcH8R">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
       </segment>
     </unit>
     <unit id="lpSEXvf">
@@ -10632,21 +9911,6 @@
         <target>Spielzeit</target>
       </segment>
     </unit>
-    <unit id="5MeFkca">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</target>
-      </segment>
-    </unit>
     <unit id="NAC.Ln5">
       <notes>
         <note category="from">twig:///templates/ajax/game/game.html.twig</note>
@@ -10840,15 +10104,6 @@
         <target>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</target>
       </segment>
     </unit>
-    <unit id="74NqrNr" name="Triumphator">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Triumphator</source>
-        <target>Triumphator</target>
-      </segment>
-    </unit>
     <unit id="Ycwc7kf">
       <notes>
         <note category="from">db://PictoPrototype</note>
@@ -10874,15 +10129,6 @@
       <segment>
         <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
         <target>Sieg für die Aufklärer beim Shock of Heroes Event!</target>
-      </segment>
-    </unit>
-    <unit id="z03nP6t" name="Shock of Heroes Champion">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Shock of Heroes Champion</source>
-        <target>Shock of Heroes Champion</target>
       </segment>
     </unit>
     <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
@@ -11189,15 +10435,6 @@
       <segment>
         <source>Schokoladenkreuz</source>
         <target>Schokoladenkreuz</target>
-      </segment>
-    </unit>
-    <unit id="K65v2LS">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
       </segment>
     </unit>
     <unit id="0S63eNq" name="Regentanz ausführen">
@@ -12172,33 +11409,6 @@
         <target>Fleisch ist mein Gemüse</target>
       </segment>
     </unit>
-    <unit id="kux2P8d" name="Nervensäge">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nervensäge</source>
-        <target>Nervensäge</target>
-      </segment>
-    </unit>
-    <unit id="EmKmq5r" name="Sozialschmarotzer">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Sozialschmarotzer</source>
-        <target>Sozialschmarotzer</target>
-      </segment>
-    </unit>
-    <unit id="fReXfmp" name="Die Wüste ist mein Zuhause">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Die Wüste ist mein Zuhause</source>
-        <target>Die Wüste ist mein Zuhause</target>
-      </segment>
-    </unit>
     <unit id="HYrdx8z" name="Immer ein Auge offen">
       <notes>
         <note category="from">db://AwardPrototype</note>
@@ -13061,15 +12271,6 @@
       <segment>
         <source>Jeffrey Dahmer</source>
         <target>Jeffrey Dahmer</target>
-      </segment>
-    </unit>
-    <unit id="rtCWNuh" name="Fido">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Fido</source>
-        <target>Fido</target>
       </segment>
     </unit>
     <unit id="O.WFVAT" name="Fast schon ein Zombie...">
@@ -14117,15 +13318,6 @@
         </target>
       </segment>
     </unit>
-    <unit id="UFB43D7" name="Tätigkeit">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Tätigkeit</source>
-        <target>Tätigkeit</target>
-      </segment>
-    </unit>
     <unit id="r9GesCe">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
@@ -14523,15 +13715,6 @@
         <target>irgendwo {location} der Stadt...</target>
       </segment>
     </unit>
-    <unit id="FgE68_." name="inmitten eines unentwirrbaren Trümmerhaufens...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>inmitten eines unentwirrbaren Trümmerhaufens...</source>
-        <target>inmitten eines unentwirrbaren Trümmerhaufens...</target>
-      </segment>
-    </unit>
     <unit id=".Qv4CCd" name="in einer unheimlichen Ruine {location}">
       <notes>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
@@ -14692,15 +13875,6 @@
       <segment>
         <source>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</source>
         <target>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</target>
-      </segment>
-    </unit>
-    <unit id="xDLABuz">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
-        <target>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</target>
       </segment>
     </unit>
     <unit id="fXqavJn" name="Die Aktivierung des Katapults kostet {ap}.">
@@ -15171,15 +14345,6 @@
         <target>Auf den Aufstand hinarbeiten</target>
       </segment>
     </unit>
-    <unit id="O4DTjBm" name="{citizen} ist ausgegangen...">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>{citizen} ist ausgegangen...</source>
-        <target>{citizen} ist ausgegangen...</target>
-      </segment>
-    </unit>
     <unit id="NLrfO4J">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
@@ -15359,15 +14524,6 @@
       <segment>
         <source>Die Revolte steht bevor!</source>
         <target>Die Revolte steht bevor!</target>
-      </segment>
-    </unit>
-    <unit id="p.fy7Bk" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!</source>
-        <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> nicht erlaubt!]]></target>
       </segment>
     </unit>
     <unit id="RtIKPqy" name="Meisterkoch der Sterne">
@@ -16016,15 +15172,6 @@
       <segment>
         <source>Architekt (title)</source>
         <target>Architekt</target>
-      </segment>
-    </unit>
-    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
-        <target>Bürger! Seid auf inoffiziellen Webseiten wachsam!</target>
       </segment>
     </unit>
     <unit id="0Kqpu1t" name="gering">
@@ -17170,19 +16317,6 @@
         <target>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</target>
       </segment>
     </unit>
-    <unit id="70ClwHa">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</source>
-        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von {citizen} keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</target>
-      </segment>
-    </unit>
     <unit id="DqKvoHz">
       <notes>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
@@ -17271,24 +16405,6 @@
       <segment>
         <source>Zombieangriff (newspaper)</source>
         <target>Zombieangriff (newspaper)</target>
-      </segment>
-    </unit>
-    <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Zum Schlafen Reichts Motel</source>
-        <target>Zum Schlafen Reichts Motel</target>
-      </segment>
-    </unit>
-    <unit id="DXGanAJ" name="Wie soll ich spielen?">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Wie soll ich spielen?</source>
-        <target>Wie soll ich spielen?</target>
       </segment>
     </unit>
     <unit id="7ufilHx" name="Den Lernmodus ausschalten">
@@ -17522,24 +16638,6 @@
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
         <target>Er enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
-      </segment>
-    </unit>
-    <unit id="bhwk0Sz">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
-        <target>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </target>
-      </segment>
-    </unit>
-    <unit id="UezITiX">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
       </segment>
     </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
@@ -19434,60 +18532,6 @@
       <segment>
         <source>Hausverteidigung</source>
         <target>Hausverteidigung</target>
-      </segment>
-    </unit>
-    <unit id="aZTP5kd" name="Behausung:">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Behausung:</source>
-        <target>Behausung:</target>
-      </segment>
-    </unit>
-    <unit id="DPEWu9n" name="Bauarbeiten:">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Bauarbeiten:</source>
-        <target>Bauarbeiten:</target>
-      </segment>
-    </unit>
-    <unit id="da5HmMo" name="Verteidigungsgegenstände:">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigungsgegenstände:</source>
-        <target>Verteidigungsgegenstände:</target>
-      </segment>
-    </unit>
-    <unit id="82mfAu." name="Heldenbonus:">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Heldenbonus:</source>
-        <target>Heldenbonus:</target>
-      </segment>
-    </unit>
-    <unit id="GOhyviN" name="Total:">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Total:</source>
-        <target>Total:</target>
-      </segment>
-    </unit>
-    <unit id="wyKmZM_">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
-        <target>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</target>
       </segment>
     </unit>
     <unit id="HUYhE2a" name="kein Verteidigungsbonus">
@@ -21413,15 +20457,6 @@
         <target><![CDATA[Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.]]></target>
       </segment>
     </unit>
-    <unit id="1catDqP">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;strong&gt;{citizen1}&lt;/strong&gt; soll heute Morgen die Leiche von &lt;strong&gt;† {cadaver1}&lt;/strong&gt; inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte &lt;strong&gt;{citizen1}&lt;/strong&gt; uns das Messer, das im Rücken der Leiche steckte, nicht erklären...</source>
-        <target><![CDATA[<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...]]></target>
-      </segment>
-    </unit>
     <unit id="bVo7YAL" name="{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!">
       <notes>
         <note category="from">db://LogEntryTemplate</note>
@@ -21582,15 +20617,6 @@
       <segment>
         <source>Normale Ansicht</source>
         <target>Normale Ansicht</target>
-      </segment>
-    </unit>
-    <unit id="NmtcN7Z">
-      <notes>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa &lt;strong&gt;{attack} Zombies&lt;/strong&gt;! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...</source>
-        <target><![CDATA[Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...]]></target>
       </segment>
     </unit>
     <unit id="Mv5rYXb">

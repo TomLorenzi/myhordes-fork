@@ -61,16 +61,6 @@
         <target>There are no towns of this type currently.</target>
       </segment>
     </unit>
-    <unit id="gqk_gdE" name="Beitreten">
-      <notes>
-        <note category="german">Beitreten</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Beitreten</source>
-        <target>Join</target>
-      </segment>
-    </unit>
     <unit id="CwvX2yq">
       <notes>
         <note category="german">Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</note>

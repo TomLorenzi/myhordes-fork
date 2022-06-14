@@ -1997,16 +1997,6 @@
         <target>Registrar nueva solicitud</target>
       </segment>
     </unit>
-    <unit id="2OM.kVy" name="Änderungen an {appname} speichern">
-      <notes>
-        <note category="german">Änderungen an « {appname} » speichern</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Änderungen an {appname} speichern</source>
-        <target>Guardar cambios en « {appname} »</target>
-      </segment>
-    </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
       <notes>
         <note category="german">Anzeigen</note>
@@ -4490,16 +4480,6 @@
       <segment>
         <source>Nicht installiert</source>
         <target>No instalado</target>
-      </segment>
-    </unit>
-    <unit id="rDme7TT" name="Nachricht:">
-      <notes>
-        <note category="german">Nachricht:</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Nachricht:</source>
-        <target>Noticias:</target>
       </segment>
     </unit>
     <unit id="pACkzCf" name="Persönliche Beschreibung:">
