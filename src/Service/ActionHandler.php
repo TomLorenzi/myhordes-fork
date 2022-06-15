@@ -435,8 +435,8 @@ class ActionHandler
         $list = [];
         /** @var EscortActionGroup[] $escort_actions */
         $escort_actions = $this->entity_manager->getRepository(EscortActionGroup::class)->findAll();
-        foreach ($escort_actions as $escort_action) if ($limit === null || $escort_action === $limit) {
 
+        foreach ($escort_actions as $escort_action) if ($limit === null || $escort_action === $limit) {
             $struct = new EscortItemActionSet( $escort_action );
 
             foreach ($citizen->getInventory()->getItems() as $item)
@@ -722,7 +722,8 @@ class ActionHandler
                         $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
                 }
 
-                if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
+                // No role update if it's an escort action
+                if ($status->getRole() !== null && $status->getRoleAdd() !== null && $citizen->getEscortSettings() !== null && $citizen->getEscortSettings()->getLeader() !== null) {
                     if ($status->getRoleAdd()) {
                         if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
                             $tags[] = 'role-up';
@@ -752,7 +753,8 @@ class ActionHandler
                 }
                 elseif ($status->getResult()) {
                     $inflict = true;
-                    if($status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
+
+                    if($inflict && $status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
                         $inflict = $this->random_generator->chance(0.5);
                         $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
                         if($inflict){
