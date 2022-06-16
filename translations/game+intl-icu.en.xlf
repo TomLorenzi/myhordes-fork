@@ -15740,12 +15740,12 @@
     <unit id="GeJZ7mU" name="Auf den Aufstand hinarbeiten">
       <notes>
         <note category="german">Auf den Aufstand hinarbeiten</note>
-        <note category="state">new</note>
+        <note category="state">madeup</note>
         <note category="from">twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Auf den Aufstand hinarbeiten</source>
-        <target>Auf den Aufstand hinarbeiten</target>
+        <target>Prepare an insurrection</target>
       </segment>
     </unit>
     <unit id="09pTJsM" name="Du hast {num} anonyme Anzeige(n) erhalten.">
