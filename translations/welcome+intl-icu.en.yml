@@ -1,4 +1,3 @@
----
 'Willkommen bei MyHordes': 'Welcome to MyHordes'
 'Zum Spiel': 'Back to site'
 'Account validieren': 'Account validation'
@@ -23,7 +22,7 @@ Spielhilfe: Help
 'Sterben gehört in "MyHordes" zum Alltag und ist nichts Außergewöhnliches. Doch deine Seele kann das Erlebte nicht vergessen...': 'You will die often in MyHordes. Very often. However, your soul keeps track of all your incarnations and exploits in the World Beyond.'
 'Die Bank: Ein Ort gegenseitigen Vertrauens. Und ein Segen für Diebe, die die Leichtgläubigkeit ihrer Nachbarn missbrauchen wollen. Auf welcher Seite willst du spielen?': 'The bank is a place for sharing and trust. Also a godsend for a would be tea-leaf looking to profit from their gullible neighbours. Choose a side, citizen!'
 Nachrichten: Messages
-Weiterlesen: Keep reading
+Weiterlesen: 'Keep reading'
 'Das Online-Spiel <strong>MyHordes</strong> ist ein kooperatives Survival Game, das in einer postapokalyptischen Welt voller Zombies spielt.': 'MyHordes is a free zombie survival game set in a hostile world inhabited by zombies.'
 'Das Prinzip': 'The game'
 'Die Welt nach der Apokalypse: Die Zivilisation, wie wir sie kannten, ist nicht mehr. Die letzten Menschen verschanzen sich in Städten und haben nur ein Ziel: Überleben. Du bist einer von 40 Bürgern und musst in einer von Zombies umzingelten Stadt jeden Tag um dein Überleben kämpfen. Ziel des Spiels ist es, allein oder in der Gruppe so lange wie möglich zu überleben.': 'The world after the apocalypse: civilization as we knew it is no more. The last people are hiding in cities and have only one goal: survival. You are one of 40 citizens and you have to fight for your survival every day in a city surrounded by zombies. The objective of the game is to survive as long as possible, alone or in a group.'
@@ -40,5 +39,5 @@ Weiterlesen: Keep reading
 'Update {version} - {title}': 'Update {version} - {title}'
 'Die letzten Updates ansehen:': 'Access previous major updates:'
 'Neuigkeiten bei MyHordes': 'News from MyHordes'
-Spielen!: Try it!
+Spielen!: 'Try it!'
 Startseite: Back

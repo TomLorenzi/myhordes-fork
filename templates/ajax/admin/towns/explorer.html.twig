@@ -60,6 +60,7 @@
                         {{ _self.valuelist('Ersteller'|trans({},'admin'),  town.creator != null ? town.creator.name : '--') }}
                         {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
                         {{ _self.valuelist('Bürger'|trans({},'admin'),     town.citizens|length) }}
+                        {{ _self.valuelist('Fortschritt des Aufstands'|trans({},'admin'),     town.insurrectionProgress ~ "%") }}
                         {% if town.strangerEnabled %}
                             {{ _self.valuelist('Fremder'|trans({},'admin'),     town.strangerPower) }}
                         {% endif %}

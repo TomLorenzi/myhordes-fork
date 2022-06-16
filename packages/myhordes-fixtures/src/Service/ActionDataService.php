@@ -821,11 +821,11 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', [ 'zone' => ['chatSilence' => 60] ] ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
 
-                'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 87], ['become_ghoul_25', 8] ]] ] ],
-                'eat_fleshroom_2'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], ],
+                'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 87], ['become_ghoul_25', 8] ]] ], 'escort_message_key' => 'escort_food_eat' ],
+                'eat_fleshroom_2'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
 
-                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 256], ['become_ghoul_25', 45] ]] ], 'message_key' => 'eat_human_meat' ],
-                'eat_meat_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
+                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 256], ['become_ghoul_25', 45] ]] ], 'message_key' => 'eat_human_meat', 'escort_message_key' => 'escort_food_eat' ],
+                'eat_meat_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul', 'escort_message_key' => 'escort_food_eat' ],
 
                 'eat_bone_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 705], [ 'infect', 776 ], ['become_ghoul_25', 48] ]] ], 'message_key' => 'eat_human_meat' ],
                 'eat_bone_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
@@ -987,7 +987,7 @@ class ActionDataService implements FixtureProcessorInterface {
                     'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2'
                 ]],
                 'ex_eat'   => [ 'icon' => 'eat', 'label' => 'Essen', 'tooltip' => '{citizen} befehlen etwas zu essen.', 'actions' => [
-                    'eat_6ap', 'eat_7ap'
+                    'eat_6ap', 'eat_7ap', 'eat_fleshroom_1', 'eat_fleshroom_2', 'eat_meat_1', 'eat_meat_2'
                 ]],
             ],
 

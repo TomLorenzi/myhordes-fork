@@ -1,8 +1,7 @@
----
 'Die gewählte Stadt ist bereits voll.': 'El pueblo elegido ya está lleno.'
 'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'No puedes unirte a más de un pueblo al mismo tiempo.'
 'Du bist dieser Stadt bereits beigetreten.': 'Ya te has unido a este pueblo.'
-Stadtname: Nombre del pueblo
+Stadtname: 'Nombre del pueblo'
 Aktionen: Acciones
 'Aktuell gibt es keine Stadt diesen Typs.': 'No hay pueblos de este tipo por el momento.'
 'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.': 'El idioma del pueblo seleccionado es {lang_town}. Tu idioma seleccionado es {lang_user}.'
@@ -18,8 +17,8 @@ Aktionen: Acciones
 'Privatstadt gründen': 'Crear un pueblo privado'
 'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'En un pueblo privado puedes jugar entre amigos o crear un pueblo entorno a un "tema". '
 'Name der Stadt': 'nombre del pueblo'
-Zugangscode: Código de acceso
-Stadttyp: Tipo de pueblo
+Zugangscode: 'Código de acceso'
+Stadttyp: 'Tipo de pueblo'
 Ghule: Mutante
 'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'El mutante aparecerá según las reglas propias del tipo de pueblo elegido.'
 Normal: Normal
@@ -27,19 +26,19 @@ Normal: Normal
 Blutdurst: Voraces
 'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.': 'No hay mutantes en la noche. Pero cuidado, los mutantes podrían aparecer por otros medios.'
 'Stadt der Kuscheltiere': 'Pueblo de los juguetes de peluche'
-Wasservorrat: Reserva de agua
+Wasservorrat: 'Reserva de agua'
 'Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300': '(Valor normal entre 100 y 180). Valor reducida en un tercio si es Pandemonio. '
 Einstellungen: Opciones
 'XML Feed für diese Stadt deaktivieren': 'Desactivar el flujo XML para este pueblo (desactiva complementos).'
-Event-Stadt: Pueblos especiales
-Spezialregeln: Reglas especiales
-'Keine Spezialregeln': 'Ninguna'
+Event-Stadt: 'Pueblos especiales'
+Spezialregeln: 'Reglas especiales'
+'Keine Spezialregeln': Ninguna
 Keine: Ninguno
 'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!': 'Ningún edificio está desbloqueado desde el comienzo, ¡todos deben encontrarse en el Ultramundo!'
 'Keine Startgebäude': 'Sin construcciones al inicio'
 'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.': 'Toda la comida y drogas que consumas tendrá una pequeña probabilidad de infectarte.'
 'Kontaminierte Zone': 'Zona contaminada'
-Stadtmodifikationen: Personalización del pueblo
+Stadtmodifikationen: 'Personalización del pueblo'
 'Exploration:': 'Exploración:'
 'Begehbare Ruinen aktivieren': 'Activa las exploraciones de las ruinas avanzadas'
 'Seelen & Schamane:': 'Almas & Chamán:'
@@ -60,17 +59,17 @@ Angriffe: Ataques
 'Stärke der Angriffe': 'Gestión de los ataques'
 'Leiche Angriffe': 'Ataques débiles'
 'Schwere Angriffe': 'Ataques severos'
-Spiel-Optionen: Opciones del juego
+Spiel-Optionen: 'Opciones del juego'
 'Abstimmung aller Piktogramme:': 'Recompensar todas las Distinciones:'
 'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.': 'Da el total de Distinciones obtenidas en el pueblo en lugar de sólamente una tercera parte.'
 'Seelenpunkte vergeben:': 'Recompensar puntos de alma:'
 'Gibt Ihnen Seelenpunkte.': 'Te da puntos de alma.'
-Achtung!: '¡Atención!'
+Achtung!: ¡Atención!
 'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.': 'Si el pueblo no se llena en 2 días, será anulado.'
 'Diese Stadt gründen': 'Crear este pueblo'
-Platzreservierung: Reservar plazas
+Platzreservierung: 'Reservar plazas'
 'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?': "Reencárnate en otro pueblo de MyHordes y mejora tu estrategia de supervivencia. Quién sabe lo que te espera en esta nueva vida...\n"
-Karten-Seed: Semilla del mapa
+Karten-Seed: 'Semilla del mapa'
 'Der Schamane wird gewählt und die Seelen werden gequält.': 'El chamán es un rol y las almas son atormentadas.'
 'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.': 'El chamán es un rol, las almas son transformadas en el taller.'
 Job: Oficio
@@ -100,7 +99,7 @@ Sofort: Inmediatamente
 'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.': 'No has estado activo en este pueblo y por lo tanto has perjudicado al resto de jugadores en él. Si esto sucede de nuevo serás penalizado y no podrás entrar a ningún pueblo por varios días.'
 'Wiedergeburt: Privatstadt gründen': 'Reencarnar: Crear pueblo privado'
 'Wiedergeburt: Wahl der Partie': 'Reencarnar: Elegir un pueblo'
-Kartengröße: Tamaño del mapa
+Kartengröße: 'Tamaño del mapa'
 Automatisch: Automático
 'Kleine Karte': 'Mapa pequeño'
 'Normale Karte': 'Mapa mediano'
@@ -113,7 +112,7 @@ Automatisch: Automático
 'Eher Zentral': 'Casi Central'
 Zentral: Central
 'Spielmodifikationen:': 'Personalizaciones del juego:'
-Raben-Optionen: Opciones de Cuervo
+Raben-Optionen: 'Opciones de Cuervo'
 Events: Eventos
 'Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.': 'El modo nocturno está activado y Alumbrado Público está disponible.'
 Erweitert: Extendido
@@ -149,9 +148,9 @@ Einwohnerzahl: Población
 'Zeitzone:': 'Huso horario:'
 'Die eingestellte Zeit gibt die Dauer des Tages an.': 'La hora establecida controla la duración del día.'
 'Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.': 'Si el modo nocturno está desactivado, este ajuste es solo cosmético.'
-Tagesphase: Hora del día
+Tagesphase: 'Hora del día'
 'Die eingestellte Zeit gibt die Dauer der Nacht an.': 'La hora establecida controla la duración de la noche.'
-Nachtphase: Fase nocturna
+Nachtphase: 'Fase nocturna'
 'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?': 'Este pueblo tiene un cupo limitado. Los miembros de su alianza no pueden seguirlo automáticamente cuando ingrese a esta ciudad. ¿Continuar?'
 'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?': 'Los siguientes miembros de la alianza no pueden seguirte a el pueblo seleccionado. ¿Continuar?'
 'Spielhilfe ansehen': 'Ver la ayuda del juego'

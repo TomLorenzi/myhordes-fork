@@ -2230,36 +2230,29 @@ class TownController extends InventoryAwareController
         $town->setInsurrectionProgress($town->getInsurrectionProgress() + intval(round(100 / $non_shunned)));
 
         if ($town->getInsurrectionProgress() >= 100) {
-
             // Let's do the insurrection !
             $town->setInsurrectionProgress(100);
 
-            $bank = $citizen->getTown()->getBank();
-            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
+            /*$bank = $citizen->getTown()->getBank();
+            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable']);*/
 
-            foreach ($town->getCitizens() as $foreinCitizen) {
-                if(!$foreinCitizen->getAlive()) continue;
+            foreach ($town->getCitizens() as $foreignCitizen) {
+                if(!$foreignCitizen->getAlive()) continue;
 
                 // Remove complaints
-                $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($foreinCitizen);
+                $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($foreignCitizen);
                 foreach ($complaints as $complaint)
                     $this->entity_manager->remove($complaint);
 
-                if ($foreinCitizen->getBanished()) {
-                    $foreinCitizen->setBanished(false);
-                    $this->citizen_handler->inflictStatus($foreinCitizen, 'tg_revolutionist');
+                if ($foreignCitizen->getBanished()) {
+                    $foreignCitizen->setBanished(false);
+                    $this->citizen_handler->inflictStatus($foreignCitizen, 'tg_revolutionist');
                 } else {
-                    $foreinCitizen->setBanished(true);
-                    foreach ($foreinCitizen->getInventory()->getItems() as $item)
-                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
-                            $this->inventory_handler->forceMoveItem( $bank, $item );
-                    foreach ($foreinCitizen->getHome()->getChest()->getItems() as $item)
-                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
-                            $this->inventory_handler->forceMoveItem( $bank, $item );
-                    $this->picto_handler->give_picto($foreinCitizen, "r_ban_#00");
+                    $null = null;
+                    $this->citizen_handler->updateBanishment($foreignCitizen, null, null, $null, true);
                 }
 
-                $this->entity_manager->persist($foreinCitizen);
+                $this->entity_manager->persist($foreignCitizen);
             }
         }
 
