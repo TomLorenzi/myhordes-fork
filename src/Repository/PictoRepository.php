@@ -162,6 +162,8 @@ class PictoRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('i')
             ->andWhere('i.user = :val')->setParameter('val', $user)
             ->andWhere(($town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
+            ->addOrderBy('i.count', 'DESC')
+            ->addOrderBy('i.prototype', 'DESC')
             ->getQuery()->getResult();
     }
 
