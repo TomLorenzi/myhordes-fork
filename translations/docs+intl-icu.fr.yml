@@ -1,18 +1,19 @@
-'URL anfordern': 'URL d''appel'
-Rückgabetyp: 'Type de retour'
+---
+'URL anfordern': URL d'appel
+Rückgabetyp: Type de retour
 '"true", wenn der Angriff ausgeführt wird': '"true", quand l''attaque est en cours'
 '"true", wenn das Spiel gewartet wird': '"true", lorsque le jeu est en maintenance'
-Spielkarten-ID: 'ID de la carte de jeu'
-Serverzeit: 'Heure du serveur'
-Kartenbreite: 'Largeur de la carte'
-Kartenhöhe: 'Hauteur de la carte'
+Spielkarten-ID: ID de la carte de jeu
+Serverzeit: Heure du serveur
+Kartenbreite: Largeur de la carte
+Kartenhöhe: Hauteur de la carte
 'Wenn es einen Aufstand gibt': 'S''il y a insurrection'
-Bonuspunkte: 'Points bonus'
-Stadttag: 'Jour de la ville'
+Bonuspunkte: Points bonus
+Stadttag: Jour de la ville
 'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht': 'Booléen qui indique si la ville est privée ou non'
 'Liste bekannter Zonen': 'Liste des zones connues'
 'Liste der Bürger': 'Liste des citoyens'
-Stadtinformationen: 'Informations de la ville'
+Stadtinformationen: Informations de la ville
 'Liste der Leichen': 'Liste des cadavres'
 'Liste der Expeditionen': 'Liste des expéditions'
 'City Creation Season ID': 'ID de la saison de la création de la ville'
@@ -21,9 +22,9 @@ Stadtinformationen: 'Informations de la ville'
 'X von der oberen linken Ecke': 'X par rapport au coin en haut à gauche'
 'Y von der oberen linken Ecke': 'Y par rapport au coin en haut à gauche'
 'Heute nicht besucht': 'Pas visité aujourd''hui'
-Zonen-Tag: 'Balise de la zone'
+Zonen-Tag: Balise de la zone
 'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau': 'Niveau de danger 0 = vert, 1 = vert-jaune, 2 = orange, 3 = rouge, 4 = bleu'
-Bereichsdetails: 'Détails de la zone'
+Bereichsdetails: Détails de la zone
 'Liste der Objekte in diesem Bereich': 'Liste des objets dans cette zone'
 'Informationen zum Gebäude in der Umgebung': 'Informations sur le bâtiment présent sur la zone'
 'Die Gebäude-ID': 'L''ID du bâtiment'
@@ -35,21 +36,21 @@ Bereichsdetails: 'Détails de la zone'
 'Die Anzahl der Zombies': 'Le nombre de zombies'
 'Die Anzahl der Menschen': 'Le nombre d''humain'
 'Den Bereich austrocknen': 'L''assèchement de la zone'
-Spielername: 'Nom d''affichage'
+Spielername: Nom d'affichage
 'ob der Spieler verkörpert ist (false) oder nicht (true)': 'Si le joueur est incarné (false) ou non (true)'
 'Die Twinoid-ID, wenn er sein Konto verknüpft hat': 'L''ID Twinoid s''il a lié son compte'
 'So verkörpert die ID seiner Stadt': 'Si incarné, l''ID de sa ville'
 'Wenn verkörpert, eine Instanz von Map': 'Si incarné, un instance de Map'
 'Persönlicher Text (über die Seele)': 'Texte personnel (sur l''Âme)'
-Spieler-Avatar-URL: 'URL de l''avatar du joueur'
+Spieler-Avatar-URL: URL de l'avatar du joueur
 'Liste der alten Inkarnationen': 'La liste des anciennes incarnations'
-ID-MyHordes: 'ID MyHordes'
+ID-MyHordes: ID MyHordes
 'universelle ID (zB: basic = Einwohner)': 'ID universel (ex: basic = habitant)'
 'Der Name des Berufs': 'Le nom du métier'
 'Die Beschreibung': 'La description'
 'Name der Stadt': 'Nom de la ville'
 'Anzahl der verfügbaren Wasserrationen': 'Nombre de rations d''eau disponibles'
-Stadtposition: 'Position de la ville'
+Stadtposition: Position de la ville
 'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist': 'Booléen qui précise si la porte de la ville est ouverte'
 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet': 'Booléen qui précise que la ville est en chaos'
 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist': 'Booléen qui dit si la ville est pandémonium'
@@ -81,8 +82,8 @@ Stadtposition: 'Position de la ville'
 'Verteidigung durch die Wächter': 'Défense apportée par les Gardiens'
 'Anzahl der angegriffenen Zombies': 'Nombre de zombie à avoir attaqué'
 'Anzahl der Verteidigungspunkte': 'Nombre de points de défense'
-Gazette-Text: 'Texte de la Gazette'
-'Richtung der Regeneration des stellvertretenden Rückkehrers?': 'Direction de la régénération du scrutateur ?'
+Gazette-Text: Texte de la Gazette
+'Richtung der Regeneration des stellvertretenden Rückkehrers?': Direction de la régénération du scrutateur ?
 'Anzahl der im Brunnen verbleibenden Rationen?': 'Nombre de ration restante dans le puits ?'
 'ID der Site': 'ID du chantier'
 'Anzahl der für den Bau benötigten AP': 'Nombre de PA nécessaires à sa construction'
@@ -98,23 +99,23 @@ Gazette-Text: 'Texte de la Gazette'
 'Objekte benötigt': 'Objet nécessaire'
 'Spieler ID': 'ID du joueur'
 'Twinoid-ID des Spielers': 'ID Twinoid du joueur'
-Karten-ID: 'ID de la carte'
+Karten-ID: ID de la carte
 'Anzahl der Tage überlebt': 'Nombre de jours survécus'
-Kartentag: 'Jour de la carte'
+Kartentag: Jour de la carte
 'Spieler Avatar': 'Avatar du joueur'
 'Name der Karte': 'Nom de la carte'
-Saisonnummer: 'Numéro de la saison'
+Saisonnummer: Numéro de la saison
 '"true" wenn diese Leiche aus dem Spiel V1 stammt': '"true" si ce cadavre provient de la V1 du jeu'
 Ergebnis: Score
 'relevante Spielzeit': 'Saison de jeu concernée'
 'Kennung des Todestyps': 'Identifiant de type de mort'
-Todesnachricht: 'Message de mort'
+Todesnachricht: Message de mort
 Kommentar: Commentaire
 'Name des Spielers, der den Körper entsorgt hat': 'Nom du joueur qui s''est débarrassé du corps'
 'Methode : garbage, water, cook order ghoul': 'Méthode : garbage, water, cook ou ghoul'
-Expeditionsname: 'Nom de l''expédition'
+Expeditionsname: Nom de l'expédition
 'der Autor': 'L''auteur'
-Versandlänge: 'Longueur de l''expédition'
+Versandlänge: Longueur de l'expédition
 'Punkte, die den Kurs definieren': 'Points définisant le parcours'
 'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen': 'Tous les codes de pays ISO 3166-1 alpha-2 placés dans le champ'
 'zB :': 'ex :'
