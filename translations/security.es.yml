@@ -1,3 +1,4 @@
+---
 'An authentication exception occurred.': 'Ocurrió un error de autenticación.'
 'Authentication credentials could not be found.': 'Credenciales de autenticación no encontradas.'
 'Authentication request could not be processed due to a system problem.': 'La solicitud de autenticación no se pudo procesar debido a un problema del sistema.'
