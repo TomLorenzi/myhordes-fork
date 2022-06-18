@@ -244,7 +244,7 @@
                                 {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner.activeTitle.prototype.title|trans({},'game')|raw }}</i>{% endif %}
                             </span>
                         {% endif %}
-                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
+                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': '<span class="hide-sm">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-md hide-lg hide-desktop">[0, 0]</span>' })|raw }}</div>{% endif %}
                     </div>
                     {% if permission.moderate() %}
                         {% if post.adminReports(true)|length > 0 %}
