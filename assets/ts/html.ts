@@ -137,11 +137,20 @@ export default class HTML {
             ]);
 
         } else {
+
+            const notification_parent = document.getElementById('notifications');
+            if (!notification_parent) {
+                console.error('Notification area is unavailable!');
+                return;
+            }
+
             let div = document.createElement('div');
             div.innerHTML = msg;
             div.classList.add( label );
             const f_hide = function() {
                 div.classList.remove('show');
+                div.classList.add('disappear');
+                div.style.marginTop = '-' + div.clientHeight + 'px';
                 setTimeout( node => node.remove(), 500, div );
             };
             div.addEventListener('click', f_hide);
@@ -149,8 +158,11 @@ export default class HTML {
             div.addEventListener('pointerenter', () => clearTimeout(timeout_id) );
             div.addEventListener('pointerleave', () => timeout_id = setTimeout( f_hide, 5000 ) );
 
-            div = document.getElementById('notifications').appendChild( div );
+            div = notification_parent.appendChild( div );
             setTimeout( node => node.classList.add('show'), 100, div );
+
+            if (notification_parent.children.length > 3)
+                notification_parent.firstChild.dispatchEvent( new Event( 'click' ) );
         }
 
 
