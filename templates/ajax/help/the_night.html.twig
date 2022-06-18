@@ -7,6 +7,11 @@
 <p>
 {{ 'Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...'|trans({},'help')|raw }}
 </p>
+{% if timezone is defined %}
+    <p>
+        {{ 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.'|trans({time0: '<i class="bold" data-time="' ~ '18:00'|to_date|date('c')  ~ '">[localTime]</i>', time1: '<i class="bold" data-time="' ~ '7:00'|to_date|date('c')  ~ '">[localTime]</i>'},'help')|raw }}
+    </p>
+{% endif %}
 <div class="clear"></div>
 <p>{{ 'Die folgenden Änderungen gelten Nachts:'|trans({},'help')|raw }}</p>
 <ul>
@@ -21,4 +26,7 @@
 </em>
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'extreme_camping'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Wildes Campen'|trans({},'help') }}</strong></a>
+<script>
+    (()=>{ $.html.forEach( '[data-time]', e => e.innerText = (new Date( e.dataset.time )).toLocaleTimeString([], {timeStyle: 'short'}) ) })()
+</script>
 {% endblock %}

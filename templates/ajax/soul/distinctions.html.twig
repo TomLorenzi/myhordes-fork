@@ -7,10 +7,27 @@
     </div>
 
     {% if points is defined %}
-            <div class="distinctions-points">
-                {{ '{points} Punkte'|trans({'{points}':points}, 'global') }}
+        <div class="distinctions-points">
+            {{ '{points} Punkte'|trans({'{points}':points}, 'global') }}
+        </div>
+    {% endif %}
+    {% if top3 is defined and top3|length > 0 %}
+        <div class="distinctions-top">
+            {% for picto in top3 %}
+            <div class="picto {% if picto.rare %}rare{% endif %}">
+                <div class="counter-wrapper">
+                    <div class="counter">
+                        {% for number in picto.c|split('') %}<span class="count" num="{{number}}">{{number}}</span>{% endfor %}
+                    </div>
+                </div>
+                <div class="infos">
+                    <img alt="" src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
+                    <div class="label">{{ picto.label|trans({}, 'game') }}</div>
+                </div>
             </div>
-        {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="distinctions-list center">
         {% if plain is not defined or not plain and user.awards|length != 0%}
             <ul class="tabs plain" x-tab-group="awards" x-tab-control x-tab-default="dinstinctions">

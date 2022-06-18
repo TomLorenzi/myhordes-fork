@@ -142,8 +142,19 @@ class InventoryHandler
         if (is_string( $prototype )) $prototype = $is_property
             ? $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $prototype] )->getItemPrototypes()->getValues()
             : $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $prototype] );
+
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
+
+        if (count( $inventory ) === 1 && is_a( $inventory[0], Inventory::class ))
+            return count( array_filter( $inventory[0]->getItems()->getValues(),
+                fn(Item $i) =>
+                    in_array( $i->getPrototype(), $prototype) &&
+                    ( $broken === null || $i->getBroken() === $broken ) &&
+                    ( $poison === null || $i->getPoison()->poisoned() === $poison )
+            )
+        );
+
         try {
             $qb = $this->entity_manager->createQueryBuilder()
                 ->select('SUM(i.count)')->from('App:Item', 'i')
@@ -325,14 +336,6 @@ class InventoryHandler
             $ex->getX() === $inventory->getRuinZone()->getX() && $ex->getY() === $inventory->getRuinZone()->getY()  )
             return self::TransferTypeLocal;
 
-        // Check if the inventory belongs to the citizens current ruin room zone
-       /* if ($inventory->getRuinZoneRoom() && !$citizen_is_at_home &&
-            $inventory->getRuinZoneRoom()->getZone()->getId() === $citizen->getZone()->getId() &&
-            ($ex = $citizen->activeExplorerStats()) && $ex->getInRoom() &&
-            $ex->getX() === $inventory->getRuinZoneRoom()->getX() && $ex->getY() === $inventory->getRuinZoneRoom()->getY()  )
-            return self::TransferTypeLocal;*/
-
-        //ToDo: Check escort
         return self::TransferTypeUnknown;
     }
 

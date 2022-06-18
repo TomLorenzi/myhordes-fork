@@ -1,0 +1,531 @@
+'Diesen Bürger töten?': 'Diesen Bürger töten?'
+Status: Status
+Dauer: Dauer
+Grund: Grund
+'Derzeitiges Leben': 'Derzeitiges Leben'
+'TOD NICHT BESTÄTIGT': 'TOD NICHT BESTÄTIGT'
+Kopfschuss: Kopfschuss
+'Tod bestätigen': 'Tod bestätigen'
+'Das Leben dieses Bürgers sofort beenden?': 'Das Leben dieses Bürgers sofort beenden?'
+'Tod dieses Bürgers zwangsweise bestätigen?': 'Tod dieses Bürgers zwangsweise bestätigen?'
+Forum: Foren
+Autor: Autor
+'gemeldet von': 'gemeldet von'
+Gesehen: Gesehen
+Verbannung: Verbannung
+Bürger: Bürger
+'Suche:': 'Suche:'
+Account: Account
+Benutzername: Benutzername
+E-Mail: E-Mail
+Validiert: Validiert
+Ja: Ja
+Nein: Nein
+Berechtigungsstufe: Berechtigungsstufe
+Spieler: Spieler
+Krähe: Krähe
+Admin: Admin
+Validierungstokens: Validierungstokens
+Keine: Keine
+'User administrieren': 'User administrieren'
+Validierung: Validierung
+'Erneute Validierung erzwingen': 'Erneute Validierung erzwingen'
+'Manuell validieren': 'Manuell validieren'
+'Offene Token erneut ankündigen': 'Offene Token erneut ankündigen'
+'Offene Token regenerieren': 'Offene Token regenerieren'
+Sicherheit: Sicherheit
+'Passwort-Reset auslösen': 'Passwort-Reset auslösen'
+'Passwort-Reset erzwingen': 'Passwort-Reset erzwingen'
+Ausführen: Ausführen
+Übersicht: Übersicht
+'Posts mit nur einer Meldung werden ausgeblendet.': 'Posts mit nur einer Meldung werden ausgeblendet.'
+'Alle anzeigen': 'Alle anzeigen'
+Users: Users
+Städte: Städte
+Zukunft: Zukunft
+Auszeichnungen: Auszeichnungen
+Admin-Wachturm: Admin-Wachturm
+Ruinenscanner: Ruinenscanner
+ID: ID
+Stadtname: Stadtname
+Sprache: Sprache
+Typ: Typ
+Population: Population
+Saison: Saison
+Tag: Tag
+Offen: Offen
+Chaos: Chaos
+Zerstört: Zerstört
+'Tor offen': 'Tor offen'
+Brunnen: Brunnen
+Angriff: Angriff
+'Bereich Min': 'Bereich Min'
+'Bereich Max': 'Bereich Max'
+Position: Position
+Distanz: Distanz
+Zombies: Zombies
+Abdruck: Abdruck
+Schlüssel: Schlüssel
+Durchsucht: Durchsucht
+'Aktuelle Sitzung': 'Aktuelle Sitzung'
+Flucht: Flucht
+Raum: Raum
+Zeit: Zeit
+'Alle Sitzungen': 'Alle Sitzungen'
+Stadtübersicht: Stadtübersicht
+'Liste aller Städte': 'Liste aller Städte'
+Pop.: Pop.
+Aktionen: Aktionen
+Tot: Tot
+Getrennt: Getrennt
+Details: Details
+Titel: Titel
+Version: Version
+'Neue Update': 'Neues Update'
+'Dieser Login ist ausschließlich für Administratoren gedacht.': 'Dieser Login ist ausschließlich für Administratoren gedacht.'
+'Admin Dashboard': 'Admin Dashboard'
+'Geplante Angriffe': 'Geplante Angriffe'
+'Überfällig seit {s} Sekunden!': 'Überfällig seit {s} Sekunden!'
+'Soldatenberuf freischalten': 'Soldatenberuf freischalten'
+'999 AP zuweisen': '999 AP zuweisen'
+'Munition erzeugen': 'Munition erzeugen'
+'Admin-Berechtigung setzen': 'Admin-Berechtigung setzen'
+'+ 9999 Seelenpunkte': '+ 9999 Seelenpunkte'
+'Geheime Saison freischalten': 'Geheime Saison freischalten'
+'Computer sagt nein.': 'Computer sagt nein.'
+'Du hast dich umgebracht.': 'Du hast dich umgebracht.'
+'Du gehörst keiner Stadt an.': 'Du gehörst keiner Stadt an.'
+'Selbstmord begehen': 'Selbstmord begehen'
+'PM vom Raben': 'PM vom Raben'
+Stadtregister: Stadtregister
+'Rundmail als Rabe': 'Rundmail als Rabe'
+'Stadt administrieren': 'Stadt administrieren'
+'Nächtlicher Angriff': 'Nächtlicher Angriff'
+'Quarantäne aufheben': 'Quarantäne aufheben'
+'Unter Quarantäne stellen': 'Unter Quarantäne stellen'
+'Manueller Tageswechsel': 'Manueller Tageswechsel'
+Twinoid-Konto: Twinoid-Konto
+Orakel: Orakel
+Twinoid-Integration: Twinoid-Integration
+'Integrationen löschen': 'Integrationen löschen'
+'Hauptseele zurücksetzen': 'Hauptseele zurücksetzen'
+'Du hast keine Berechtigung, diesen Benutzer zu administrieren!': 'Du hast keine Berechtigung, diesen Benutzer zu administrieren!'
+Profil: Profil
+'Neuen Namen eingeben.': 'Neuen Namen eingeben.'
+Umbenennen: Umbenennen
+Löschen: Löschen
+Berechtigungen: Berechtigungen
+'Gewähren: {role}': 'Gewähren: {role}'
+'Berechtigungsstufe zurücksetzen': 'Berechtigungsstufe zurücksetzen'
+'Bitte bestätige folgende Aktion:': 'Bitte bestätige folgende Aktion:'
+'Multi-Account Report': 'Multi-Account Report'
+Verdacht: Verdacht
+'Andere Accounts': 'Andere Accounts'
+Bann: Bann
+Verwaltung: Verwaltung
+Annulieren: Annulieren
+Verschüttet: Verschüttet
+'Multi-Account Whitelist': 'Multi-Account Whitelist'
+Spieler-ID: Spieler-ID
+'Multi-Account Whitelist-Eintrag hinzufügen': 'Multi-Account Whitelist-Eintrag hinzufügen'
+'Verwende folgende Syntax, um deine Suche zu spezifizieren:': 'Verwende folgende Syntax, um deine Suche zu spezifizieren:'
+'Klick, um Profil in neuem Tab zu öffnen': 'Klick, um Profil in neuem Tab zu öffnen'
+'STRG+Klick, um zur Whitelist hinzuzufügen': 'STRG+Klick, um zur Whitelist hinzuzufügen'
+Whitelist: Whitelist
+'E-Mail eingeben.': 'E-Mail eingeben.'
+'E-Mail ändern': 'E-Mail ändern'
+'Neues Passwort eingeben.': 'Neues Passwort eingeben.'
+'Neues Passwort setzen': 'Neues Passwort setzen'
+EternalTwin-Integration: Eternaltwin-Integration
+'In lokalen Account umwandeln': 'In lokalen Account umwandeln'
+Kartei: Kartei
+Anzeigename: Anzeigename
+'Lokal: {account}': 'Lokal: {account}'
+'Von EternalTwin verwaltet': 'Von Eternaltwin verwaltet'
+'Nur für Administratoren sichtbar': 'Nur für Administratoren sichtbar'
+'Verknüpfte Konten': 'Verknüpfte Konten'
+EternalTwin-Konto: Eternaltwin-Konto
+Sonstiges: Sonstiges
+AntiSpam: AntiSpam
+'Account zur Löschung vorgemerkt!': 'Account zur Löschung vorgemerkt!'
+'Anzahl der gelisteten Domains: {number}': 'Anzahl der gelisteten Domains: {number}'
+Domain-Suche: Domain-Suche
+'Gewählte entfernen': 'Gewählte entfernen'
+'Domains hinzufügen': 'Domains hinzufügen'
+Hinzufügen: Hinzufügen
+'Nachricht?': 'Nachricht?'
+Foren-Meldungen: Foren-Meldungen
+PN-Meldungen: PN-Meldungen
+Öffnen: Öffnen
+Dashboard: Dashboard
+'Stadt {townname}': 'Stadt {townname}'
+Bank: Bank
+Apps: Apps
+'Einen Gegenstand erzeugen:': 'Einen Gegenstand erzeugen:'
+'Vergiftet:': 'Vergiftet:'
+'Zerstört:': 'Zerstört:'
+'Essentiell:': 'Essentiell:'
+Erzeugen!: Erzeugen!
+Rucksack: Rucksack
+Truhe: Truhe
+'Leere Truhe': 'Leere Truhe'
+Anwendung: Anwendung
+Besitzer: Besitzer
+Kontakt: Kontakt
+'Name der Anwendung': 'Name der Anwendung'
+Niemand: Niemand
+URL: URL
+Anzeige: Anzeige
+'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.': 'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.'
+Testbetrieb: Testbetrieb
+Icon: Icon
+Datenzugriff: Datenzugriff
+'Anwendungen ohne API-Zugang werden nur als Links eingebunden.': 'Anwendungen ohne API-Zugang werden nur als Links eingebunden.'
+'Zugang zur API': 'Zugang zur API'
+'Wird automatisch generiert': 'Wird automatisch generiert'
+'Schlüssel regenerieren': 'Schlüssel regenerieren'
+Foren-Mod.: Foren-Mod.
+Kurztexte: Kurztexte
+Inhalt: Inhalt
+'Neuen Kurztext anlegen': 'Neuen Kurztext anlegen'
+'ID eingeben': 'ID eingeben'
+'Anzahl der Auszeichnungen:': 'Anzahl der Auszeichnungen:'
+Vergeben!: Vergeben!
+'Aktuelle Städte': 'Aktuelle Städte'
+'Fertige Städte': 'Fertige Städte'
+Importiert: Importiert
+'Seite {page}/{total}': 'Seite {page}/{total}'
+'Neue Anwendung registrieren': 'Neue Anwendung registrieren'
+Anzeigen: Anzeigen
+'Gegen {culprit}': 'Gegen {culprit}'
+Anwendungen: Anwendungen
+'Neue Anwendung': 'Neue Anwendung'
+'Anwendung "{external_app}"': 'Anwendung "{external_app}"'
+'Eine Auszeichnungen auswählen:': 'Eine Auszeichnung auswählen:'
+'Einen Status auswählen:': 'Einen Status auswählen:'
+Saisons: Saisons
+'Neue Saison': 'Neue Saison'
+'Status vergeben': 'Status vergeben'
+'Status entfernen': 'Status entfernen'
+'Eine Rolle auswählen:': 'Eine Rolle auswählen:'
+'Rolle vergeben': 'Rolle vergeben'
+'Rolle entfernen': 'Rolle entfernen'
+'Bürger nach Sprache': 'Bürger nach Sprache'
+Geöffnet: Geöffnet
+Leben: Leben
+Seasons: Seasons
+Akt.: Akt.
+Nummer: Nummer
+Sub-Nummer: Sub-Nummer
+Name: Name
+'Saison "{season}"': 'Saison "{season}"'
+'Saison Nummer': 'Saison Nummer'
+'Saison Sub-Nummer': 'Saison Sub-Nummer'
+'Aktuelle Saison': 'Aktuelle Saison'
+AP: AP
+Setzen: Setzen
+Abziehen: Abziehen
+Changelogs: Changelogs
+Ankündigungen: Ankündigungen
+'Neue Ankündigung': 'Neue Ankündigung'
+Konstruktionen: Konstruktionen
+'Gib den Namen oder die ID der Stadt ein.': 'Gib den Namen oder die ID der Stadt ein.'
+Stimmen: Stimmen
+'Für {target}': 'Für {target}'
+Ersteller: Ersteller
+'Existierende Beschränkungen': 'Existierende Beschränkungen'
+'Dieser Spieler hat eine weiße Weste.': 'Dieser Spieler hat eine weiße Weste.'
+'Bestätigt von': 'Bestätigt von'
+Datum: Datum
+Endet: Endet
+Info: Info
+'Neue Beschränkung hinzufügen': 'Neue Beschränkung hinzufügen'
+'24 Stunden': '24 Stunden'
+'{d} Tage': '{d} Tage'
+'Bestätigung erforderlich': 'Bestätigung erforderlich'
+'1 Jahr': '1 Jahr'
+'Admin-Bestätigung erforderlich': 'Admin-Bestätigung erforderlich'
+'2 Jahre': '2 Jahre'
+Dauerhaft: Dauerhaft
+'Interner Vermerk': 'Interner Vermerk'
+'Art der Beschränkung': 'Art der Beschränkung'
+'Soziale Interaktion verbieten': 'Soziale Interaktion verbieten'
+'Posten in Foren verbieten': 'Posten in Foren verbieten'
+'Stadt-interne Kommunikation verbieten': 'Stadt-interne Kommunikation verbieten'
+'Stadtübergreifende Kommunikation verbieten': 'Stadtübergreifende Kommunikation verbieten'
+'Kommentare verbieten': 'Kommentare verbieten'
+'Organisation in Gruppen verbieten': 'Organisation in Gruppen verbieten'
+'Spielen verbieten': 'Spielen verbieten'
+'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': 'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.'
+'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': 'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.'
+'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': 'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.'
+'Stadt ansehen': 'Stadt ansehen'
+'Nicht bestätigt!': 'Nicht bestätigt!'
+Abgelaufen: Abgelaufen
+Deaktiviert: Deaktiviert
+Art: Art
+Sozial: Sozial
+Stadt-Kom.: Stadt-Kom.
+'Globale Kom.': 'Globale Kom.'
+Kommentare: Kommentare
+Org.: Org.
+Spiel: Spiel
+Bestätigen: Bestätigen
+'Schwarzes Brett': 'Schwarzes Brett'
+'Stadt füllen': 'Stadt füllen'
+'Bank füllen': 'Bank füllen'
+'Banksperre aufheben': 'Banksperre aufheben'
+'Durst aufheben': 'Durst aufheben'
+'Alle Spieler entkoppeln': 'Alle Spieler entkoppeln'
+'Alle Spieler koppeln': 'Alle Spieler koppeln'
+Zone: Zone
+'Leere Zone': 'Leere Zone'
+'Entkoppelte Leben': 'Entkoppelte Leben'
+Entkoppeln: Entkoppeln
+Punkte: Punkte
+Rollen: Rollen
+'Versteckter Status': 'Versteckter Status'
+'Versteckt:': 'Versteckt:'
+'Kein Bürger ausgewählt!': 'Kein Bürger ausgewählt!'
+BP: BP
+MP: MP
+'Einen Beruf auswählen:': 'Einen Beruf auswählen:'
+'Stadt anlegen': 'Stadt anlegen'
+Avatar: Avatar
+Profilbeschreibung: Profilbeschreibung
+'Änderungen am Profil verbieten': 'Änderungen am Profil verbieten'
+'Ändern des Avatars verbieten': 'Ändern des Avatars verbieten'
+'Ändern der Profilbeschreibung verbieten': 'Ändern der Profilbeschreibung verbieten'
+'Ändern des Titels verbieten': 'Ändern des Titels verbieten'
+'Anzeigenamen ändern': 'Anzeigenamen ändern'
+'Anzeigenamen entfernen': 'Anzeigenamen entfernen'
+'Avatar entfernen': 'Avatar entfernen'
+'Profilbeschreibung entfernen': 'Profilbeschreibung entfernen'
+'Titel & Icon entfernen': 'Titel & Icon entfernen'
+'Neuer Füllstand:': 'Neuer Füllstand:'
+'Brunnen-Füllstand setzen': 'Brunnen-Füllstand setzen'
+'Alle Gebäude freischalten': 'Alle Gebäude freischalten'
+'Baufortschritt setzen:': 'Baufortschritt setzen:'
+'Integrität setzen:': 'Integrität setzen:'
+'Neue Anzahl:': 'Neue Anzahl:'
+'Heldentage setzen': 'Heldentage setzen'
+'Hausverbesserungen:': 'Hausverbesserungen:'
+'Teleportieren:': 'Teleportieren:'
+'In die Stadt': 'In die Stadt'
+'Zu einer Zone': 'Zu einer Zone'
+'Neue Saison registrieren': 'Neue Saison registrieren'
+'Änderungen speichern': 'Änderungen speichern'
+Freundschaftswerbung: Freundschaftswerbung
+'Ref-Namen ändern': 'Ref-Namen ändern'
+'Ref-Namen sperren': 'Ref-Namen sperren'
+'Ref-Namen entsprerren': 'Ref-Namen entsprerren'
+'Sponsor setzen': 'Sponsor setzen'
+Ref-Name: Ref-Name
+'Gesponsort von': 'Gesponsort von'
+'Gesponsorte Spieler': 'Gesponsorte Spieler'
+'Zombie-Spread ausführen': 'Zombie-Spread ausführen'
+'Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).': 'Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).'
+'Zombies setzen': 'Zombies setzen'
+'Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)': 'Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)'
+Gruppen: Gruppen
+Anon.: Anon.
+Mitglieder: Mitglieder
+Mitglied: Mitglied
+'Die Mitgliederliste ist versteckt.': 'Die Mitgliederliste ist versteckt.'
+'Neue Gruppe': 'Neue Gruppe'
+'Gruppe "{group}"': 'Gruppe "{group}"'
+Gruppe: Gruppe
+Beschreibung: Beschreibung
+'Anonyme Gruppe': 'Anonyme Gruppe'
+'Neue Gruppe anlegen': 'Neue Gruppe anlegen'
+'Anzahl der Tage': 'Anzahl der Tage'
+Vorspulen: Vorspulen
+'Herauswerfen (ohne Verletzung)': 'Herauswerfen (ohne Verletzung)'
+'Herauswerfen (mit Verletzung)': 'Herauswerfen (mit Verletzung)'
+'Timer erhöhen (1min)': 'Timer erhöhen (1min)'
+'Timer erhöhen (24h)': 'Timer erhöhen (24h)'
+'Löschen (ermöglicht erneutes Betreten der Ruine)': 'Löschen (ermöglicht erneutes Betreten der Ruine)'
+'Feature freigeben:': 'Feature freigeben:'
+Bearbeiten: Bearbeiten
+Werte: Werte
+Hunger: Hunger
+'Camp Chance': 'Camp Chance'
+'Camp Zähler': 'Camp Zähler'
+'Verwendung des Schwarzen Bretts verbieten': 'Verwendung des Schwarzen Bretts verbieten'
+Passwort-geschützt: Passwort-geschützt
+'Passwort ändern': 'Passwort ändern'
+'Passwort entfernen': 'Passwort entfernen'
+'Passwort setzen': 'Passwort setzen'
+'Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.': 'Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.'
+'Stärke des Angriffs setzen': 'Stärke des Angriffs setzen'
+Chaos-Modus: Chaos-Modus
+'Stadt zerstören': 'Stadt zerstören'
+'Ändern des Spielernamens verbieten': 'Ändern des Spielernamens verbieten'
+Spielername: Spielername
+'Chaos-Modus deaktivieren': 'Chaos-Modus deaktivieren'
+'Stadt reparieren': 'Stadt reparieren'
+'Versteckte Statuseffekte': 'Versteckte Statuseffekte'
+'Ranking-Ausschluss zurücknehmen': 'Ranking-Ausschluss zurücknehmen'
+'Diese Stadt aus dem Ranking ausschließen': 'Diese Stadt aus dem Ranking ausschließen'
+Ranking-Eintrag: Ranking-Eintrag
+'Event-Markierung entfernen': 'Event-Markierung entfernen'
+'Als Event-Stadt markieren': 'Als Event-Stadt markieren'
+'Funktionen für Spezialrollen': 'Funktionen für Spezialrollen'
+'Stadt-ID eingeben.': 'Stadt-ID eingeben.'
+'Zugang zu Stadtforum gewähren': 'Zugang zu Stadtforum gewähren'
+'Zugang zu Stadtforum entziehen': 'Zugang zu Stadtforum entziehen'
+Spezialrollen: Spezialrollen
+Animateur: Animateur
+'Community Dashboard': 'Community Dashboard'
+Team: Team
+Regelsatz: Regelsatz
+Regel: Regel
+'Aktiver Wert': 'Aktiver Wert'
+'Eskortierte Bürger teleportieren': 'Eskortierte Bürger teleportieren'
+Seele: Seele
+Alle: Alle
+MyHordes: MyHordes
+Alt: Alt
+'Eingeschränkter Import': 'Eingeschränkter Import'
+'Hauptseele ohne Einschränkungen importieren': 'Hauptseele ohne Einschränkungen importieren'
+'Einzigartige Titel oder Icons bearbeiten:': 'Einzigartige Titel oder Icons bearbeiten:'
+'Neuer Titel': 'Neuer Titel'
+'Neues Icon': 'Neues Icon'
+Kernel: Kernel
+Update: Update
+Unbekannt: Unbekannt
+Täglich: Täglich
+Wöchentlich: Wöchentlich
+Monatlich: Monatlich
+Manuell: Manuell
+'Nicht komprimiert': 'Nicht komprimiert'
+Systemlogs: Systemlogs
+Datenbank-Backups: Datenbank-Backups
+Tags: Tags
+Datei: Datei
+'Dateigröße: {s}': 'Dateigröße: {s}'
+Dateisystem: Dateisystem
+'Alle User': 'Alle User'
+Account-Zustand: Account-Zustand
+Aktiv: Aktiv
+Dummy: Dummy
+Spezial: Spezial
+'Zur Löschung vorgemerkt': 'Zur Löschung vorgemerkt'
+Gelöscht: Gelöscht
+Inkarnation: Inkarnation
+'Zuletzt aktiv': 'Zuletzt aktiv'
+Hauptseele: Hauptseele
+'Keine Hauptseele': 'Keine Hauptseele'
+'Verknüpfte Seele': 'Verknüpfte Seele'
+'Beliebige verknüpfte Seele': 'Beliebige verknüpfte Seele'
+'Keine verknüpfte Seele': 'Keine verknüpfte Seele'
+Accountbeschränkung: Accountbeschränkung
+'Nicht bestätigt': 'Nicht bestätigt'
+'Nicht aktiv': 'Nicht aktiv'
+Rolle: Rolle
+'Aktion bei Klick:': 'Aktion bei Klick:'
+'Verbleibe Zonengrabungen:': 'Verbleibe Zonengrabungen:'
+'Verbleibende Ruinengrabungen:': 'Verbleibende Ruinengrabungen:'
+'Zurzeit in der Stadt': 'Zurzeit in der Stadt'
+'Eternal-Twin-Konto verlinkt': 'Eternaltwin-Konto verlinkt'
+Gruppentyp: Gruppentyp
+'Änderungen an ''{appname}'' speichern': 'Änderungen an ''{appname}'' speichern'
+'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.'
+'Diese Auszeichnung wurde verdient.': 'Diese Auszeichnung wurde verdient.'
+Freundesliste: Freundesliste
+'Spieler, sie sich als Freund hinzugefügt haben': 'Spieler, die sie/ihn als Freund hinzugefügt haben'
+'Spieler werben': 'Spieler werben'
+Blockierliste: Blockierliste
+'Blockiert von': 'Blockiert von'
+'Bürger-Alias ​​ändern:': 'Bürger-Alias ​​ändern:'
+'Kein Alias ​​angegeben': 'Kein Alias ​​angegeben'
+'Bitte nicht für mehrere Bürger denselben Alias eingeben!': 'Bitte nicht für mehrere Bürger denselben Alias eingeben!'
+'Bank leeren': 'Bank leeren'
+Stadt-Event: Stadt-Event
+Koalitionen: Koalitionen
+Profiler: Profiler
+'Nicht installiert': 'Nicht installiert'
+'Persönliche Beschreibung:': 'Persönliche Beschreibung:'
+'Letzte Worte:': 'Letzte Worte:'
+'Stadtnamen regenerieren': 'Stadtnamen regenerieren'
+'Sprache wechseln': 'Sprache wechseln'
+Fremder: Fremder
+'Mysteriösen Fremden aktivieren': 'Mysteriösen Fremden aktivieren'
+Notiz: Notiz
+'Whitelist von {admin}': 'Whitelist von {admin}'
+'Whitelist hat keinen Autor': 'Whitelist hat keinen Autor'
+'Whitelist hat keine Notiz': 'Whitelist hat keine Notiz'
+'Alle bannen': 'Alle bannen'
+Tödlich: Tödlich
+Infektiös: Infektiös
+'AP zum Freilegen der Ruine:': 'AP zum Freilegen der Ruine:'
+'Camping-Ausbaulevel:': 'Camping-Ausbaulevel:'
+'Basis:': 'Basis:'
+'MyHordes-Seele wiederherstellen': 'MyHordes-Seele wiederherstellen'
+'Seele zurückgesetzt': 'Seele zurückgesetzt'
+'{num} Städte betroffen': '{num} Städte betroffen'
+'Du siehst aktuell gelöschte Meldungen.': 'Du siehst aktuell gelöschte Meldungen.'
+'Zurück zur Meldungsübersicht': 'Zurück zur Meldungsübersicht'
+'Möchtest du bereits gelöschte Meldungen durchsuchen?': 'Möchtest du bereits gelöschte Meldungen durchsuchen?'
+'Zum Papierkorb': 'Zum Papierkorb'
+'Kurztext bearbeiten ({name})': 'Kurztext bearbeiten ({name})'
+'Register herunterladen': 'Register herunterladen'
+'Stadtregister herunterladen': 'Stadtregister herunterladen'
+'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)': 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)'
+'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)': 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)'
+'Stadt- und Zonenregister herunterladen (chronologisch)': 'Stadt- und Zonenregister herunterladen (chronologisch)'
+Instanzeigenschaften: Instanzeigenschaften
+Vergiftet: Vergiftet
+Infiziert: Infiziert
+'Noch nicht aufgehoben': 'Noch nicht aufgehoben'
+'Spielernamen nicht von EternalTwin übernehmen': 'Spielernamen nicht von EternalTwin übernehmen'
+'Automatische Verwaltung des Spielernamens wiederherstellen': 'Automatische Verwaltung des Spielernamens wiederherstellen'
+'Nicht von ET verwaltet.': 'Nicht von ET verwaltet.'
+'Leber fressen': 'Leber fressen'
+'maskiert {playername}': 'maskiert {playername}'
+'Seelenpunkte setzen': 'Seelenpunkte setzen'
+'Alle Gegenstände aller Bürger ablegen': 'Alle Gegenstände aller Bürger ablegen'
+'Auszeichnungen wiederherstellen': 'Auszeichnungen wiederherstellen'
+'Auszeichnungen aller Einwohner dieser Stadt löschen': 'Auszeichnungen aller Einwohner dieser Stadt löschen'
+'Seelenpunkte wiederherstellen': 'Seelenpunkte wiederherstellen'
+'Seelenpunkte aller Einwohner dieser Stadt löschen': 'Seelenpunkte aller Einwohner dieser Stadt löschen'
+'Alle Sanktionen entfernen': 'Alle Sanktionen entfernen'
+'Stadt nicht in der Seele listen': 'Stadt nicht in der Seele listen'
+'Seelenpunkte dieses Bürgers entfernen': 'Seelenpunkte dieses Bürgers entfernen'
+'Ranking für diesen Bürger wiederherstellen': 'Ranking für diesen Bürger wiederherstellen'
+'Bürger aus dem Ranking entfernen': 'Bürger aus dem Ranking entfernen'
+'Auszeichnungen dieses Bürgers entfernen': 'Auszeichnungen dieses Bürgers entfernen'
+'Seelenpunkte für diesen Bürger wiederherstellen': 'Seelenpunkte für diesen Bürger wiederherstellen'
+'Auszeichnungen für diesen Bürger wiederherstellen': 'Auszeichnungen für diesen Bürger wiederherstellen'
+'Eine neue Umfrage anlegen': 'Eine neue Umfrage anlegen'
+Editoreinstellungen: Editoreinstellungen
+'Aktuelle Bearbeitungssprache': 'Aktuelle Bearbeitungssprache'
+'Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.': 'Diese Einstellung steuert, welche Eingabefelder sichtbar sind. Unabhängig davon werden Umfragen immer in allen Sprachen erstellt, es müssen also alle Felder in allen Sprachen ausgefüllt werden.'
+Umfragedaten: Umfragedaten
+'Titel der Umfrage': 'Titel der Umfrage'
+'Start der Umfrage': 'Start der Umfrage'
+'Ende der Umfrage': 'Ende der Umfrage'
+'Vorläufige Ergebnisse anzeigen': 'Vorläufige Ergebnisse anzeigen'
+Kurzbeschreibung: Kurzbeschreibung
+'Beschreibung der Umfrage': 'Beschreibung der Umfrage'
+Antworten: Antworten
+Antwortstext: Antwortstext
+'Antwort hinzufügen': 'Antwort hinzufügen'
+'Bearbeitung abschließen': 'Bearbeitung abschließen'
+'Umfrage erstellen': 'Umfrage erstellen'
+'Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.': 'Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.'
+'Es müssen mindestens zwei Antworten hinzugefügt werden.': 'Es müssen mindestens zwei Antworten hinzugefügt werden.'
+'Ergebnisse filtern': 'Ergebnisse filtern'
+'Kein Filter': 'Kein Filter'
+'Umfrage jetzt beginnen': 'Umfrage jetzt beginnen'
+'Umfrage jetzt beenden': 'Umfrage jetzt beenden'
+'Umfrage löschen': 'Umfrage löschen'
+'Liste vergangener Namen löschen': 'Liste vergangener Namen löschen'
+'Aktiviert alle untergeordneten Beschränkungen.': 'Aktiviert alle untergeordneten Beschränkungen.'
+'Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.': 'Verbietet das Erstellen neuer Threads und Posts sowie das Bearbeiten existierender Posts in allen Foren (Stadt- und Weltforum). Verbietet zudem die Teilnahme an Foren-Umfragen.'
+'Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.': 'Verbietet die Benutzung des Zonen-Chats und des Schwarzen Bretts, das Versenden von Stadt-PNs sowie die Änderung der persönlichen Ankündigung.'
+'Verbietet die Verwendung des Schwarzen Bretts.': 'Verbietet die Verwendung des Schwarzen Bretts.'
+'Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.': 'Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.'
+'Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.': 'Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.'
+'Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.': 'Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.'
+'Fortschritt des Aufstands': 'Fortschritt des Aufstands'

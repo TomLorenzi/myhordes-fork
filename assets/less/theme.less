@@ -102,7 +102,7 @@ x-message {
   position: fixed; top: 0; height: 100%; width: 480px; left: 50%; margin-left: -240px; z-index: 1000; pointer-events: none;
   &>* {pointer-events: all}
   &>div {
-    transition: top 0.5s ease, opacity 0.5s ease; top: -50px; opacity: 0;
+    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out; top: -50px; opacity: 0;
     &:before { content: " "; position: absolute; top: 5px; bottom: 5px; left: 3px; width: 4px; }
     position: relative; margin: 5px 0; box-shadow: 0 0 4px black; cursor: pointer; text-align: justify;
     padding: 5px 5px 5px 12px; background: #5c2b20; border: 1px solid #b37c4a; outline: 1px solid black; color: @myhordes-smalltext;
@@ -110,6 +110,7 @@ x-message {
       color: white;
     }
     &.show { top: 0; opacity: 1 }
+    &.disappear { top: 0; opacity: 0 }
     &.notice:before { background: #5eb5e0 }
     &.warning:before { background: #e09a4f }
     &.error:before { background: #a90017 }
@@ -1035,8 +1036,8 @@ div.game-menu-area {
         padding: 5px; font-size: 1.6rem; font-weight: bold; font-variant: small-caps; list-style: none;
         cursor: pointer;
         &:hover { background: lighten(@myhordes-panel-box-bg, 10%) }
-        &.back-dash { order: 1; margin-top: 25px; }
-        &.poll-dash { order: 2; margin-top: 25px; }
+        &.back-dash { order: 1; /*margin-top: 25px;*/ }
+        &.poll-dash { order: 2; margin-top: 10px; }
       }
     }
   }

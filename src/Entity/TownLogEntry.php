@@ -6,6 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TownLogEntryRepository")
+ * @ORM\Table(indexes={
+ *      @ORM\Index(name="logs_by_town_day_zone_idx", columns={"town_id","day","zone_id"}),
+ *      @ORM\Index(name="logs_by_type_idx", columns={"log_entry_template_id"})
+ * })
  */
 class TownLogEntry
 {

@@ -60,6 +60,7 @@
                         {{ _self.valuelist('Ersteller'|trans({},'admin'),  town.creator != null ? town.creator.name : '--') }}
                         {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
                         {{ _self.valuelist('Bürger'|trans({},'admin'),     town.citizens|length) }}
+                        {{ _self.valuelist('Fortschritt des Aufstands'|trans({},'admin'),     town.insurrectionProgress ~ "%") }}
                         {% if town.strangerEnabled %}
                             {{ _self.valuelist('Fremder'|trans({},'admin'),     town.strangerPower) }}
                         {% endif %}
@@ -373,7 +374,7 @@
                                             <img style="width: 16px" class="float-right" src="{{ asset("build/images/lang/" ~ citizen.user.language ~ ".png") }}" alt="{{ citizen.user.language }}" />
                                         {% endif %}
                                     </div>
-                                    <div class="cell factor-0 rw-sm-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 92px; max-height: 32px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+                                    <div class="cell factor-0 rw-sm-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 92px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
                                     <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">

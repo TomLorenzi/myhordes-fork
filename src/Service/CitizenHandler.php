@@ -193,7 +193,7 @@ class CitizenHandler
 
     }
 
-    public function updateBanishment( Citizen &$citizen, ?Building $gallows, ?Building $cage, ?Building &$active = null ): bool {
+    public function updateBanishment( Citizen &$citizen, ?Building $gallows, ?Building $cage, ?Building &$active = null, bool $forceBan = false ): bool {
 
         $active = null;
         if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
@@ -213,10 +213,10 @@ class CitizenHandler
             $complaintNeeded = $complaintNeededKill;
         }
 
-        if (($shunningEnabled || $gallows || $cage) && $nbComplaint >= $complaintNeeded)
+        if (($shunningEnabled || $gallows || $cage) && ($nbComplaint >= $complaintNeeded || $forceBan))
             $action = true;
 
-        if ($action && ($gallows || $cage))
+        if ($action && ($gallows || $cage) && !$forceBan)
             $kill = true;
 
         if ($action) {

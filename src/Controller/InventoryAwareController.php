@@ -965,6 +965,13 @@ class InventoryAwareController extends CustomAbstractController
         $scavenger_sense = $this->getActiveCitizen()->getProfession()->getName() === 'collec';
         $scout_sense     = $this->getActiveCitizen()->getProfession()->getName() === 'hunter';
 
+        $citizen_zone_cache = [];
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+            if ($citizen->getAlive() && $citizen->getZone() !== null) {
+                if (!isset($citizen_zone_cache[$citizen->getZone()->getId()])) $citizen_zone_cache = [$citizen];
+                else $citizen_zone_cache[$citizen->getZone()->getId()][] = $citizen;
+            }
+
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -1023,8 +1030,8 @@ class InventoryAwareController extends CustomAbstractController
             if (!$zone->isTownZone() && $zone->getTag()) $current_zone['tg'] = $zone->getTag()->getRef();
             if (!$zone->isTownZone() && $this->getActiveCitizen()->getZone() === null
                 && !$this->getActiveCitizen()->getTown()->getChaos()
-                && !$zone->getCitizens()->isEmpty())
-                $current_zone['c'] = array_map( fn(Citizen $c) => $c->getName(), $zone->getCitizens()->getValues() );
+                && !empty( $citizen_zone_cache[$zone->getId()] ?? [] ) )
+                $current_zone['c'] = array_map( fn(Citizen $c) => $c->getName(), $citizen_zone_cache[$zone->getId()] );
             elseif ($zone->isTownZone())
                 $current_zone['co'] = count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
 

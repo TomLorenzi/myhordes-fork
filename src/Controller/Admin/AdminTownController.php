@@ -1753,8 +1753,13 @@ class AdminTownController extends AdminActionController
         switch ($parser->get('role')) {
 
             case '_ban_':
+                $null = null;
                 foreach ($citizens as $citizen) {
-                    $citizen->setBanished($control);
+                    if($control) {
+                        $this->citizen_handler->updateBanishment($citizen, null, null, $null, true);
+                    } else {
+                        $citizen->setBanished(false);
+                    }
                     $this->entity_manager->persist($citizen);
                 }
                 break;
