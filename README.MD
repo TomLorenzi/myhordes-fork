@@ -206,40 +206,19 @@ bin/console cache:clear
 
 This part will allow you and potentially other users to access the game from a browser via the apache2 web server.
 
-#### Optional: Allowing access through the web
-
-If you want people to access your server, you can follow these optional steps:
-
-- Find the IP address of your server. For this example, let's use 6.6.6.6
-- If you own a domain, add a `A` DNS rule pointing to the IP (domain or subdomain)
-
-Let's say your domain name is `myhordes.net`
-
-Domain DNS rule example : `IN A    6.6.6.6`
-
-Typing `myhordes.net` will redirect you to the server 6.6.6.6
-
-Subdomain DNS rule example : `hordes1    IN A    6.6.6.6`
-
-Typing `hordes1.myhordes.net` will redirect you to the server with the address 6.6.6.6
-
-These two rules do not interfere with each other; even with the same IP address. apache2 will be able to handle it. But you should only need one, for making your version accessible.
-
 #### Configuring the Apache Virtual Host
 
 First, you need to make sure your `public` folder is accessible to apache. You can just do a `chmod 777 -R MyHordes` if you like, but if you want a real production server I would encourage to looking into it further (adding you and apache to a usergroup for example, and using `chown`)
 
-With your favorite text editor, create and edit a new file `/etc/apache2/sites-available/<name>.conf` where `<name>` should be the subdomain.domain name of the previous step, if you did it. In our example, we would create :
+With your favorite text editor, create and edit a new file `/etc/apache2/sites-available/myhordes.conf`. For example :
 
-`/etc/apache2/sites-available/hordes1.myhordes.conf`
-
-If you don't have a domain or haven't done the previous step, just chose the name you like.
+`nano /etc/apache2/sites-available/myhordes.conf`
 
 Insert these contents in the newly created file :
 
 ```
 <VirtualHost *:80>
-        ServerName hordes1.myhordes.net
+        ServerName localhost
         DocumentRoot /MyHordes/public
         <Directory /MyHordes/public>
                 AllowOverride All
@@ -248,9 +227,7 @@ Insert these contents in the newly created file :
 </VirtualHost>
 ```
 
-Make sure to replace every instance (2) of `hordes1.myhordes.net` with your own domain name if applicable.
-
-Make sure to replace every instance (2) of `/MyHordes/public` with your own correct path for the project's public directory.
+Make sure to replace every instance (2) of `/MyHordes/public` with your own correct path for the project's public directory. For example : `/home/<username>/myhordes/public`.
 
 Now, tell apache2 that a new site has been configured :
 
@@ -270,7 +247,26 @@ Afterwards, the server must be restarted:
 sudo service apache2 restart
 ```
 
-The server is now accessible from the address you configured (direct IP, or domain if applicable)
+The server is now accessible by typing "localhost" in your browser.
+
+#### Optional: Allowing access through the web
+
+If you want people to access your server, you can follow these optional steps:
+
+- Find the IP address of your server. For this example, let's use 6.6.6.6
+- If you own a domain, add a `A` DNS rule pointing to the IP (domain or subdomain)
+
+Let's say your domain name is `myhordes.net`
+
+Domain DNS rule example : `IN A    6.6.6.6`
+
+Typing `myhordes.net` will redirect you to the server 6.6.6.6
+
+Subdomain DNS rule example : `hordes1    IN A    6.6.6.6`
+
+Typing `hordes1.myhordes.net` will redirect you to the server with the address 6.6.6.6
+
+These two rules do not interfere with each other; even with the same IP address. apache2 will be able to handle it. But you should only need one, for making your version accessible.
 
 Optional: If you want to enable https you can use `certbot`
 
