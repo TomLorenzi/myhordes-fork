@@ -1,3 +1,4 @@
+---
 'Dein Name muss mindestens { limit } Zeichen umfassen.': 'Tu nombre debe tener al menos { limit } caracteres.'
 'Dein Name kann höchstens { limit } Zeichen umfassen.': 'Tu nombre solo puede tener hasta { limit } caracteres.'
 'Die eingegebene E-Mail Adresse ist nicht gültig.': 'La dirección de correo electrónico ingresada no es válida.'
@@ -12,23 +13,23 @@
 'Hallo {name}!': '¡Hola {name}!'
 'Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.': 'Antes de continuar, debes verificar tu dirección de correo electrónico .'
 'Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.': 'Por favor ingresa el código de verificación que ha sido enviado a tu dirección de correo electrónico.'
-Validierungscode: 'Código de verificación'
+Validierungscode: Código de verificación
 Prüfen: Comprobar
 Ausloggen: Desconectarse
 'Du hast noch keinen Account?': '¿Aún no tienes una cuenta?'
-Registrieren!: ¡Regístrate!
+Registrieren!: '¡Regístrate!'
 'Du hast deine E-Mail Adresse schon validiert?': '¿Ya has verificado tu dirección de correo electrónico?'
 Einloggen!: '¡Inicia sesión!'
 'Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.': 'La verificación falló. Por favor comprueba lo ingresado.'
 'Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.': 'Algunos campos no fueron completados correctamente. Por favor comprueba lo ingresado.'
 Registrieren: Registrarse
-Spielername: 'Nombre del Jugador'
+Spielername: Nombre del Jugador
 'E-Mail Adresse': 'Dirección de correo electrónico'
 wiederholen: repetir
 Passwort: Contraseña
 "Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "Para completar el registro y activar tu cuenta, \n\\t\\t\\t\\t\\t\\tdebes hacer clic en el enlace de activación que se enviará a la dirección de correo electrónico especificada."
 'Du hast schon einen Account?': '¿Ya tienes una cuenta?'
-Einloggen: 'Iniciar sesión'
+Einloggen: Iniciar sesión
 'Bitte gib deinen Spielernamen und dein Passwort ein.': 'Por favor, ingresa tu nombre de usuario y contraseña.'
 'Login fehlgeschlagen. Bitte prüfe deine Eingaben.': 'El identificador o la contraseña no son válidos.'
 'Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.': 'Tu contraseña ha sido cambiada con éxito. Inicia sesión con tu nueva contraseña.'
