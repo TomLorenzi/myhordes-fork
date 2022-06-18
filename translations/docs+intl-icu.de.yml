@@ -1,0 +1,134 @@
+'URL anfordern': Anforderungs-URL
+Rückgabetyp: Rückgabetyp
+'"true", wenn der Angriff ausgeführt wird': '"true", wenn der Angriff ausgeführt wird'
+'"true", wenn das Spiel gewartet wird': '"true", wenn das Spiel gewartet wird'
+Spielkarten-ID: Spiel-ID
+Serverzeit: Serverzeit
+Kartenbreite: Kartenbreite
+Kartenhöhe: Kartenhöhe
+'Wenn es einen Aufstand gibt': 'Wenn es einen Aufstand gibt'
+Bonuspunkte: Bonuspunkte
+Stadttag: Stadttag
+'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht': 'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht'
+'Liste bekannter Zonen': 'Liste bekannter Zonen'
+'Liste der Bürger': 'Liste der Bürger'
+Stadtinformationen: Stadtinformationen
+'Liste der Leichen': 'Liste der Leichen'
+'Liste der Expeditionen': 'Liste der Expeditionen'
+'City Creation Season ID': 'Season, in der die Stadt gestartet wurde'
+'UID des Spielers, der Schamane ist': 'UID des Spielers, der Schamane ist'
+'UID des Spielers, der Reiseleiter in der Außenwel ist': 'UID des Spielers, der Reiseleiter in der Außenwelt ist'
+'X von der oberen linken Ecke': 'X (von der oberen linken Ecke)'
+'Y von der oberen linken Ecke': 'Y (von der oberen linken Ecke)'
+'Heute nicht besucht': 'Heute nicht besucht'
+Zonen-Tag: Zonen-Tag
+'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau': 'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau'
+Bereichsdetails: Zonendetails
+'Liste der Objekte in diesem Bereich': 'Liste der Objekte in dieser Zone'
+'Informationen zum Gebäude in der Umgebung': 'Informationen zum Gebäude in der Umgebung'
+'Die Gebäude-ID': 'Die Gebäude-ID'
+'Die Anzahl der Sandhaufen auf dem Gebäude': 'Die Anzahl der Sandhaufen auf dem Gebäude'
+'Der Name des Gebäudes': 'Der Name des Gebäudes'
+'Beschreibung des Gebäudes': 'Beschreibung des Gebäudes'
+'Wenn das Gebäude gelagert wurde': 'Ob auf dem Gebäude gecampt wurde'
+'Das Gebäude trocknen': 'Ob das Gebäude leergesucht ist'
+'Die Anzahl der Zombies': 'Die Anzahl der Zombies'
+'Die Anzahl der Menschen': 'Die Anzahl der Menschen'
+'Den Bereich austrocknen': 'Ob die Zone leergesucht ist'
+Spielername: Spielername
+'ob der Spieler verkörpert ist (false) oder nicht (true)': 'Ob der Spieler in einer Stadt ist (false) oder nicht (true)'
+'Die Twinoid-ID, wenn er sein Konto verknüpft hat': 'Die Twinoid-ID, wenn er sein Konto verknüpft hat'
+'So verkörpert die ID seiner Stadt': 'Stadt-ID (wenn der Spieler in einer Stadt ist)'
+'Wenn verkörpert, eine Instanz von Map': 'Wenn der Spieler in einer Stadt ist, eine Instanz von deren Map-Objekt'
+'Persönlicher Text (über die Seele)': 'Persönlicher Text (über die Seele)'
+Spieler-Avatar-URL: Spieler-Avatar-URL
+'Liste der alten Inkarnationen': 'Liste der vergangenen Städte'
+ID-MyHordes: ID-MyHordes
+'universelle ID (zB: basic = Einwohner)': 'Universelle ID (zB: basic = Einwohner)'
+'Der Name des Berufs': 'Der Name des Berufs'
+'Die Beschreibung': 'Die Beschreibung'
+'Name der Stadt': 'Name der Stadt'
+'Anzahl der verfügbaren Wasserrationen': 'Anzahl der verfügbaren Wasserrationen'
+Stadtposition: Stadtposition
+'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist': 'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist'
+'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet': 'Boolescher Wert, der angibt, ob sich die Stadt im Chaos befindet'
+'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist': 'Boolescher Wert, der angibt, ob die Stadt eine Pandämonium-Stadt ist'
+'Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist': 'Boolescher Wert, der angibt, ob die Stadt zerstört ist'
+'Vollständige Liste der verfügbaren Websites': 'Vollständige Liste der verfügbaren Websites'
+'Liste der Baustellen': 'Liste der Baustellen'
+'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung': 'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung'
+'Informationen zur Verteidigung der Stadt': 'Informationen zur Verteidigung der Stadt'
+'Liste der verfügbaren Verbesserungen (Pumpe usw.)': 'Liste der verfügbaren Verbesserungen (Pumpe usw.)'
+'Schätzung für den Abendangriff': 'Schätzung für den abendlichen Angriff'
+'Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer': 'Schätzen Sie für den Angriff am folgenden Tag (wenn verfügbar)'
+'Objekte in der Bank': 'Objekte in der Bank'
+'Die Tage der Schätzung': 'Tag der Schätzung'
+'Der minimale Angriff': 'Minimaler Angriff'
+'Maximaler Angriff': 'Maximaler Angriff'
+'totale Verteidigung': 'Gesamte Verteidigung'
+'Grundverteidigung (10)': 'Grundverteidigung (10)'
+'Verteidigung durch Konstruktionen': 'Verteidigung durch Konstruktionen'
+'Verteidigung durch Entwicklungen': 'Verteidigung durch Entwicklungen'
+'Anzahl der Verteidigungsobjekte': 'Anzahl der Verteidigungsobjekte'
+'Verteidigung durch Verteidigungsobjekte': 'Verteidigung durch Verteidigungsobjekte'
+'Verteidigung durch Häuser gebracht': 'Verteidigung durch Häuser'
+'Verteidigung durch die Wachen (oder Anzahl der Wachen)': 'Verteidigung durch die Wächter (oder Anzahl der Wächter)'
+'Verteidigung von den Wächtern gebracht': 'Verteidigung durch Nachtwache'
+'Verteidigung durch Seelen gebracht': 'Verteidigung durch Seelen'
+'Vorübergehende Verteidigung': 'Temporäre Verteidigung'
+'Verteidigung durch Leichen gebracht': 'Verteidigung durch Leichen'
+'Anzahl der Wachen': 'Anzahl der Wächter'
+'Verteidigung durch die Wächter': 'Verteidigung durch die Wächter'
+'Anzahl der angegriffenen Zombies': 'Anzahl der angreifenden Zombies'
+'Anzahl der Verteidigungspunkte': 'Anzahl der Verteidigungspunkte'
+Gazette-Text: Zeitungstext
+'Richtung der Regeneration des stellvertretenden Rückkehrers?': Windrichtung
+'Anzahl der im Brunnen verbleibenden Rationen?': 'Anzahl der im Brunnen verbleibenden Rationen?'
+'ID der Site': 'ID der Konstruktion'
+'Anzahl der für den Bau benötigten AP': 'Anzahl der für den Bau benötigten AP'
+'aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)': 'Aktuelle Lebenspunkte der Konstruktion (falls nicht gebaut = 0)'
+'Stimmen für diese Seite gesammelt': 'Stimmen für diese Konstruktion'
+'ob dieses Gebäude nach dem Angriff zerstört werden kann': 'ob diese Konstruktion nach dem Angriff zerstört werden kann'
+'Verteidigung dieses Gebäudes': 'Verteidigung diese Konstruktion'
+'Wenn sich dieses Gebäude weiterentwickeln kann': 'Wenn sich diese Konstruktion weiterentwickeln kann'
+'Seltenheit des Plans': 'Seltenheit des Plans'
+'Temporäres Gebäude': 'Temporäre Konstruktion'
+'Gebäude-ID des vorherigen Zweigs': 'ID der übergeordneten Konstruktion'
+'Anzahl der benötigten Ressourcen': 'Anzahl der benötigten Ressourcen'
+'Objekte benötigt': 'Objekte benötigt'
+'Spieler ID': 'Spieler ID'
+'Twinoid-ID des Spielers': 'Twinoid-ID des Spielers'
+Karten-ID: Karten-ID
+'Anzahl der Tage überlebt': 'Anzahl der Tage überlebt'
+Kartentag: Kartentag
+'Spieler Avatar': 'Spieler Avatar'
+'Name der Karte': 'Name der Karte'
+Saisonnummer: Saisonnummer
+'"true" wenn diese Leiche aus dem Spiel V1 stammt': '"true" wenn diese Leiche aus dem Spiel V1 stammt'
+Ergebnis: Ergebnis
+'relevante Spielzeit': 'relevante Spielzeit'
+'Kennung des Todestyps': 'Kennung des Todestyps'
+Todesnachricht: Todesnachricht
+Kommentar: Kommentar
+'Name des Spielers, der den Körper entsorgt hat': 'Name des Spielers, der den Körper entsorgt hat'
+'Methode : garbage, water, cook order ghoul': 'Methode : garbage, water, cook oder ghoul'
+Expeditionsname: Expeditionsname
+'der Autor': 'der Autor'
+Versandlänge: Versandlänge
+'Punkte, die den Kurs definieren': 'Punkte, die den Kurs definieren'
+'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen': 'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "languages" eingetragen'
+'zB :': 'zB :'
+Beispiel: Beispiel
+'Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.': 'Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch die echte Hordes-ID ersetzt.'
+'Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:': 'Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:'
+'Es wird angezeigt :': 'Es wird angezeigt :'
+'Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.': 'Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.'
+'Phase der Stadt; entweder "alpha", "beta", "import" oder "native"': 'Phase der Stadt; entweder "alpha", "beta", "import" oder "native"'
+'Herkunfts-Server der Stadt': 'Herkunfts-Server der Stadt'
+'ID der Picto': 'ID der Picto'
+'Wenn dieses Picto selten ist': 'Wenn dieses Picto selten ist'
+'Wenn dieses Picto eine Gemeinschaftsauszeichnung ist': 'Wenn dieses Picto eine Gemeinschaftsauszeichnung ist'
+'ID der Ruine': 'ID der Ruine'
+'Erforschbare Ruine': 'Erforschbare Ruine'
+'Die Eternaltwin-ID, wenn er sein Konto verknüpft hat': 'Die Eternaltwin-ID, wenn er sein Konto verknüpft hat'
+'Eternaltwin-ID des Spielers': 'Eternaltwin-ID des Spielers'

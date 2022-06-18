@@ -136,13 +136,13 @@ class AntiCheatService {
                     );
                 }
 
-                if ($lev <= 0) $struct->addLikeliness( 1500 * $factor );
-                elseif ($lev <= 1) $struct->addLikeliness( 750 * $factor );
-                elseif ($lev <= 2) $struct->addLikeliness( 500 * $factor );
-                elseif ($lev <= 3) $struct->addLikeliness( 250 * $factor );
+                if ($lev <= 0) $struct->addLikeliness(intval(1500 * $factor));
+                elseif ($lev <= 1) $struct->addLikeliness(intval(750 * $factor));
+                elseif ($lev <= 2) $struct->addLikeliness(intval(500 * $factor));
+                elseif ($lev <= 3) $struct->addLikeliness(intval(250 * $factor));
 
                 foreach ($time_list as $time_dif)
-                    $struct->addLikeliness( $fun_score_time($time_dif) * $factor );
+                    $struct->addLikeliness( intval($fun_score_time($time_dif) * $factor ));
             }
             $ret[$principal] = $struct;
         }
@@ -153,7 +153,7 @@ class AntiCheatService {
             foreach ($struct->getUsers() as $user)
                 $c[$id] += $ret[$user->getId()]->getLikeliness() * min(0.5,$struct->getLikeliness() / 100);
         }
-        foreach ($ret as $id => $struct) $struct->addLikeliness( $c[$id] );
+        foreach ($ret as $id => $struct) $struct->addLikeliness( intval($c[$id]) );
 
         uasort( $ret, function (CheatTable $a, CheatTable $b) { return $b->getLikeliness() <=> $a->getLikeliness(); } );
 

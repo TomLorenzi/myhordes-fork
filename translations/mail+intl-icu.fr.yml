@@ -1,0 +1,10 @@
+'Account validieren': 'Valider le compte'
+'Passwort zurücksetzen': 'Réinitialiser le mot de passe'
+'Hallo {user}! Willkommen bei MyHordes!': 'Bonjour {user}! Bienvenue sur MyHordes!'
+'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:': 'Pour terminer votre inscription, vous avez besoin du code de validation suivant:'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.": "Vous recevrez cet e-mail parce que vous (ou quelqu'un d'autre) avez fourni votre adresse e-mail lors de votre inscription.\n        Si vous ne vous êtes pas inscrit sur MyHordes, ignorez ce message."
+'Hallo {user}!': 'Bonjour {user} !'
+'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :': 'Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant :'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst.": "Vous avez reçu cet e-mail parce que vous (ou quelqu'un d'autre) avez entré votre adresse e-mail dans la fonction de réinitialisation du mot de passe.\n        Si vous ne souhaitez pas réinitialiser votre mot de passe, ignorez cet e-mail. Votre ancien mot de passe reste valide si vous ne le faites pas\n        en cliquant sur le lien ci-dessus."
+'E-Mail Validierung': 'Validation E-Mail'
+'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:': 'Quelqu''un (probablement vous !) a demandé à changer l''adresse email liée à votre compte. Pour valider la requête, utilisez ce jeton dans les paramètres de votre âme :'

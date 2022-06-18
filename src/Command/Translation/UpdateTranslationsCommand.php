@@ -64,7 +64,7 @@ class UpdateTranslationsCommand extends Command
                                         'locale' => $lang,
                                         '--force' => true,
                                         '--sort' => 'asc',
-                                        '--format' => 'xlf',
+                                        '--format' => 'yml',
                                         '--prefix' => '',
                                     ]);
             $input->setInteractive(false);

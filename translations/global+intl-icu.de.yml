@@ -1,0 +1,432 @@
+'Allgemeiner Fehler.': 'Allgemeiner Fehler.'
+'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.'
+'Dein Text muss mindestens 2 Zeichen lang sein.': 'Dein Text muss mindestens 2 Zeichen lang sein.'
+'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.': 'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.'
+Kommunikationsfehler.: Kommunikationsfehler.
+'Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.': 'Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.'
+'Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.': 'Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.'
+'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.': 'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.'
+'Für diese Aktion hast du nicht genug AP.': 'Für diese Aktion hast du nicht genug AP.'
+'Diese Aktion steht dir aktuell nicht zur Verfügung.': 'Diese Aktion steht dir aktuell nicht zur Verfügung.'
+'Hierfür fehlen dir notwendige Gegenstände.': 'Hierfür fehlen dir notwendige Gegenstände.'
+'Diese Aktion steht nur Helden zur Verfügung.': 'Diese Aktion steht nur Helden zur Verfügung.'
+'Neuer Thread': 'Neuer Thread'
+'Neuer Post': 'Neuer Post'
+Titel: Titel
+'Deine Nachricht': 'Deine Nachricht'
+Absenden: Absenden
+Zurück: Zurück
+'Neues Thema': 'Neues Thema'
+'Der Rabe': 'Der Rabe'
+'Seite {page}/{pages}': 'Seite {page}/{pages}'
+'Bitte halte dich an die Regeln:': 'Bitte halte dich an die Regeln:'
+'Achte auf deine Rechtschreibung': 'Achte auf deine Rechtschreibung'
+'Bleibe höflich und freundlich': 'Bleibe höflich und freundlich'
+'Werbung ist verboten (Links etc.)': 'Werbung ist verboten (Links etc.)'
+'Heute um': 'Heute um'
+'Gestern um': 'Gestern um'
+Antworten: Antworten
+Schließen: Schließen
+'Bestätigen?': 'Bestätigen?'
+Rückgängig: Rückgängig
+Abbrechen: Abbrechen
+Speichern: Speichern
+Achtung: Achtung
+'Bist du sicher?': 'Bist du sicher?'
+'Auswahl bestätigen': 'Auswahl bestätigen'
+Forum: Foren
+'Deine Seele': 'Deine Seele'
+Hilfe: Hilfe
+'Zum Spiel': 'Zum Spiel'
+Deutsch: Deutsch
+Englisch: Englisch
+Französisch: Französisch
+Spanisch: Spanisch
+Bearbeiten: Bearbeiten
+Hinweis: Hinweis
+Spiel: Spiel
+Statistiken: Statistiken
+'{points} Punkte': '{points} Punkte'
+'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Dieser Spieler hat bisher noch keine Preise gewonnen...'
+Seelenpunktzahl: Seelenpunktzahl
+'Aktuelles Leben': 'Aktuelles Leben'
+Saison: Saison
+Tage: Tage
+Punkte: Punkte
+'Es wurde keine Stadt gefunden...': 'Es wurde keine Stadt gefunden...'
+'Achtung! Der von dir ausgewählte Link, leitet dich auf eine <strong>nicht-offizielle Seite</strong> weiter (sprich: eine Fan- oder Spielerseite).': 'Achtung! Der von dir ausgewählte Link, leitet dich auf eine <strong>nicht-offizielle Seite</strong> weiter (sprich: eine Fan- oder Spielerseite).'
+'Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!': 'Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!'
+'Auch dann nicht, wenn du dazu aufgefordert wirst!': 'Auch dann nicht, wenn du dazu aufgefordert wirst!'
+'Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.': 'Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.'
+'Weiter zu': 'Weiter zu'
+'Du hast keine Externe ID.': 'Du hast keine Externe ID.'
+'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'Ohne diese <strong>kannst du keine externen Apps nutzen</strong>. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.'
+Verzeichnis: Verzeichnis
+'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:'
+'Dazu hast Du kein Recht.': 'Dazu hast Du kein Recht.'
+Moderation: Moderation
+Online: Online
+Offline: Offline
+Sticky: Sticky
+Dev: Dev
+Löschen: Löschen
+Öffnen: Öffnen
+Anpinnen: Anpinnen
+Loslösen: Loslösen
+'Du wurdest aus dem Forum verbannt.': 'Du wurdest aus dem Forum verbannt.'
+Schere: Schere
+Stein: Stein
+Papier: Papier
+Kopf: Kopf
+Zahl: Zahl
+'{color} {value}': '{color} {value}'
+Vorschau: Vorschau
+'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...'
+Autor: Autor
+Datum: Datum
+Züruck: Züruck
+Archivieren: Archivieren
+Fett: Fett
+Kursiv: Kursiv
+Unterstreichen: Unterstreichen
+Durchstreichen: Durchstreichen
+Listenpunkt: Listenpunkt
+Spoiler: Spoiler
+Zitat: Zitat
+Ruhm: Ruhm
+Linie: Linie
+Entstauben: Entstauben
+Einfügen: Einfügen
+'Du kannst keine weiteren Gegenstände senden.': 'Du kannst keine weiteren Gegenstände senden.'
+Verräter: Verräter
+'Link einfügen': 'Link einfügen'
+'Bild einfügen': 'Bild einfügen'
+'Admin Ankündigung': 'Admin Ankündigung'
+'Mod Ankündigung': 'Mod Ankündigung'
+'Orakel Ankündigung': 'Orakel Ankündigung'
+Rollenspiel: Rollenspiel
+Link-Text: Link-Text
+Link-URL: Link-URL
+Bildtitel: Bildtitel
+Bild-URL: Bild-URL
+'Liste der Themen aktualisieren': 'Liste der Themen aktualisieren'
+'Dieses Thema enthält offizielle Ansagen der Website Administratoren.': 'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'
+'Dieses Thema enthält Ansagen von Community-Vertretern.': 'Dieses Thema enthält Ansagen von Community-Vertretern.'
+'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:'
+'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:'
+Zitieren: Zitieren
+Version: Version
+Sprache: Sprache
+Vertraulich: Vertraulich
+'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.'
+'Diese Punkte werden für die Seelenrangliste verwendet.': 'Diese Punkte werden für die Seelenrangliste verwendet.'
+'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.': 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'
+'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.'
+Bestätigen: Bestätigen
+'Num. Listenpunkt': 'Num. Listenpunkt'
+'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...'
+'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'
+'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'
+'Unangemessene Nachricht blockieren': 'Unangemessene Nachricht blockieren'
+Link: Link
+'Permanenter Link zu diesem Post:': 'Permanenter Link zu diesem Post:'
+'Mehr anzeigen': 'Mehr anzeigen'
+'Deinen Rucksack umklammern': 'Deinen Rucksack umklammern'
+Schreien: Schreien
+'Rotz und Wasser heulen': 'Rotz und Wasser heulen'
+'Die Zähne zusammenbeißen': 'Die Zähne zusammenbeißen'
+'Eine Gitarre umarmen': 'Eine Gitarre umarmen'
+'Nervös weinen': 'Nervös weinen'
+'In Panik ausbrechen': 'In Panik ausbrechen'
+'Hinter dem Wrack verstecken': 'Hinter dem Wrack verstecken'
+'Die Tür zuhalten': 'Die Tür zuhalten'
+'Unter der Decke verstecken': 'Unter der Decke verstecken'
+'Nach Hilfe schreien': 'Nach Hilfe schreien'
+'"Hilfe" schreien': '"Hilfe" schreien'
+'Unter einem Karton verstecken': 'Unter einem Karton verstecken'
+'Unter dem Bett verstecken': 'Unter dem Bett verstecken'
+'Ruhig bleiben...': 'Ruhig bleiben...'
+'In die Fötusstellung zusammenrollen': 'In die Fötusstellung zusammenrollen'
+'Alleine laut singen': 'Alleine laut singen'
+'Um dein Leben beten': 'Um dein Leben beten'
+'Die Backen halten': 'Die Backen halten'
+'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?': 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'
+'Schön hier im Warmen bleiben': 'Schön hier im Warmen bleiben'
+'Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.': 'Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.'
+'Ursprünglichen Text anzeigen': 'Ursprünglichen Text anzeigen'
+Mehrsprachig: Mehrsprachig
+'Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.': 'Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'
+'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)': 'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.': 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'
+'Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..': 'Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..'
+Stadtforum: Stadtforum
+Weltforen: Weltforen
+'Andere Foren': 'Andere Foren'
+'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.': 'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.'
+'Dieses Thema enthält {count} gemeldete Posts:': 'Dieses Thema enthält {count} gemeldete Posts:'
+'{num} Meldungen. Klicken, um Benutzer anzuzeigen.': '{num} Meldungen. Klicken, um Benutzer anzuzeigen.'
+'Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.': 'Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.'
+Überprüft: Überprüft
+Wiederherstellen: Wiederherstellen
+'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.'
+'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!': '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!'
+'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.': 'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.'
+'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.': 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.'
+'Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>': 'Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>'
+'Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.': 'Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.'
+'Du musst noch mehr Erfahrung sammeln, um das tun zu können...': 'Du musst noch mehr Erfahrung sammeln, um das tun zu können...'
+Code: Code
+Kein: Kein
+'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'
+'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'
+'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.'
+Ausblenden: Ausblenden
+Nachricht: Nachricht
+Ausb.+Nachr.: Ausb.+Nachr.
+'<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>'
+Entwickler-Einstellungen: Entwickler-Einstellungen
+'Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.': 'Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.'
+'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.': 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.'
+'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.': 'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.'
+'Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.': 'Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.'
+'Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.': 'Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.'
+'Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.': 'Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.'
+'Alle Foren': 'Alle Foren'
+'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...': 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...'
+'Die Seite wird von Horden von Zombies belagert!': 'Die Seite wird von Horden von Zombies belagert!'
+'Spielhilfe:': 'Spielhilfe:'
+'Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:': 'Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:'
+'Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.': 'Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.'
+'Bürger! Seid auf inoffiziellen Webseiten wachsam!': 'Bürger! Seid auf inoffiziellen Webseiten wachsam!'
+'Du bist vor Angst erstarrt...': 'Du bist vor Angst erstarrt...'
+'Nachrichten des Raben': 'Nachrichten des Raben'
+Anzeigen: Anzeigen
+Dauerhaft: Dauerhaft
+'{n} Tage': '{n} Tage'
+'1 Tag': '1 Tag'
+'{n} Stunden': '{n} Stunden'
+'1 Stunde': '1 Stunde'
+'{n} Minuten': '{n} Minuten'
+'1 Minute': '1 Minute'
+'{n} Sekunden': '{n} Sekunden'
+'1 Sekunde': '1 Sekunde'
+'Zum erweiterten Editor wechseln': 'Zum erweiterten Editor wechseln'
+'Aktuelle Teilnehmer': 'Aktuelle Teilnehmer'
+'Spieler ausschließen': 'Spieler ausschließen'
+'Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.': 'Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.'
+'Spieler hinzufügen': 'Spieler hinzufügen'
+'Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.': 'Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.'
+'Einen Empfänger hinzufügen': 'Einen Empfänger hinzufügen'
+'Ausgeschlossene Teilnehmer': 'Ausgeschlossene Teilnehmer'
+'Ausschluss annulieren': 'Ausschluss annulieren'
+'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.': 'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.'
+'Wird geladen...': 'Wird geladen...'
+'Bitte wähle eine Konversation auf der linken Seite.': 'Bitte wähle eine Konversation auf der linken Seite.'
+'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.': 'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.'
+'Weitere Einträge werden geladen...': 'Weitere Einträge werden geladen...'
+Aktionen: Aktionen
+Schreiben: Schreiben
+Konversationen: Konversationen
+'Lade Unterhaltungen ...': 'Lade Unterhaltungen ...'
+'Diese Konversation': 'Diese Konversation'
+'Nicht gelesen': 'Nicht gelesen'
+Teilnehmer: Teilnehmer
+'Lade Unterhaltung...': 'Lade Unterhaltung...'
+'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.': 'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.'
+'Neue Nachricht': 'Neue Nachricht'
+Ankündigung: Ankündigung
+'{n} Teilnehmer': '{n} Teilnehmer'
+'Weitere Einträge laden': 'Weitere Einträge laden'
+'Posteingang wird geladen ...': 'Posteingang wird geladen ...'
+'Fehler beim Laden des Posteingangs.': 'Fehler beim Laden des Posteingangs.'
+Heute: Heute
+Gestern: Gestern
+Abonniert: Abonniert
+Abonnieren: Abonnieren
+und: und
+'HINWEIS: Diese Aktion ist nur in der Stadt möglich.': 'HINWEIS: Diese Aktion ist nur in der Stadt möglich.'
+'HINWEIS: Diese Aktion ist nur in Übersee möglich.': 'HINWEIS: Diese Aktion ist nur in der Außenwelt möglich.'
+'Neuer Beitrag in': 'Neuer Beitrag in'
+'Diese Diskussion ist beendet.': 'Diese Diskussion ist beendet.'
+'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.'
+'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt'
+'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.'
+'Nachrichten suchen': 'Nachrichten suchen'
+Suchbegriff: Suchbegriff
+'Suchbegriffe eingeben': 'Suchbegriffe eingeben'
+'Benutzer (optional)': 'Benutzer (optional)'
+Entfernen: Entfernen
+Optionen: Optionen
+'In Titeln suchen': 'In Titeln suchen'
+'Tipps zur Suche': 'Tipps zur Suche'
+'Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"': 'Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"'
+'Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen': 'Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen'
+'Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!': 'Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!'
+Suchen: Suchen
+'Foren durchsuchen': 'Foren durchsuchen'
+'Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.': 'Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.'
+'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.': 'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.'
+'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!': 'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!'
+'Diese Aktion kostet dich 1 AP!': 'Diese Aktion kostet dich 1 AP!'
+'Es wurde noch keine Stadt in die Rangliste aufgenommen!': 'Es wurde noch keine Stadt in die Rangliste aufgenommen!'
+'Bitte wähle die Art der Beschränkung.': 'Bitte wähle die Art der Beschränkung.'
+'Wer?': 'Wer?'
+'Namen eingeben': 'Namen eingeben'
+'Dein Icon': 'Dein Icon'
+Auswählen: Auswählen
+'Dein Titel': 'Dein Titel'
+'Deine Beschreibung': 'Deine Beschreibung'
+Avatar: Avatar
+'Gruppe aus {num} Spielern': 'Gruppe aus {num} Spielern'
+'Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>': 'Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>'
+Groß: Groß
+'Mit offiziellen Gruppen in Kontakt treten': 'Mit offiziellen Gruppen in Kontakt treten'
+'Eine offizielle Gruppe kontaktieren': 'Eine offizielle Gruppe kontaktieren'
+'via {group_inbox}': 'via {group_inbox}'
+'Überlebte Tage': 'Überlebte Tage'
+Abschiedsworte: Abschiedsworte
+'Zum Wechsein der Seite hier klicken': 'Zum Wechsein der Seite hier klicken'
+'Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.': 'Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.'
+'Pin entfernen': 'Pin entfernen'
+'Angepinnte Nachricht': 'Angepinnte Nachricht'
+Einblenden: Einblenden
+'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.': 'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.'
+'{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.': '{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.'
+'{users} und {last_user}': '{users} und {last_user}'
+'{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.': '{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.'
+'Du hast diesen Spieler auf deine Blacklist gesetzt.': 'Du hast diesen Spieler auf deine Blacklist gesetzt.'
+'Du hast diesen Spieler von deiner Blacklist genommen.': 'Du hast diesen Spieler von deiner Blacklist genommen.'
+'Du hast {user} blockiert.': 'Du hast {user} blockiert.'
+'Blockade aufheben': 'Blockade aufheben'
+'Spieler blockieren': 'Spieler blockieren'
+'{user} blockieren': '{user} blockieren'
+'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'
+'Möchtest du fortfahren?': 'Möchtest du fortfahren?'
+'Absender blockieren': 'Absender blockieren'
+'Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'
+'Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.': 'Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.'
+'Bevorzugte Pronomen': 'Bevorzugte Pronomen'
+'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.': 'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.'
+Männlich: Männlich
+Weiblich: Weiblich
+'Keine Präferenz': 'Keine Präferenz'
+'E-Mail konnte nicht gesendet werden.': 'E-Mail konnte nicht gesendet werden.'
+Kopieren: Kopieren
+'Wenn möglich gib bitte einen Grund für deine Meldung an:': 'Wenn möglich gib bitte einen Grund für deine Meldung an:'
+'Keinen Grund angeben': 'Keinen Grund angeben'
+Cheating: Cheating
+'Flooding oder Spam': 'Flooding oder Spam'
+'Verwendung einer anderen als der Forensprache': 'Verwendung einer anderen als der Forensprache'
+'Beleidigungen / Unangemessener Ausdruck': 'Beleidigungen / Unangemessener Ausdruck'
+Pornographie: Pornographie
+Hassrede: Hassrede
+'Verbreitung persönlicher Informationen': 'Verbreitung persönlicher Informationen'
+'Verletzung von Copyright': 'Verletzung von Copyright'
+'Aufruf zu Gesetzesverstößen': 'Aufruf zu Gesetzesverstößen'
+'Ermutigung von Selbstmord oder Selbstverletzung': 'Ermutigung von Selbstmord oder Selbstverletzung'
+'Inhalt melden': 'Inhalt melden'
+'Verwendung einer anderen als der Stadtsprache': 'Verwendung einer anderen als der Stadtsprache'
+'Unangemessenen Inhalt melden': 'Unangemessenen Inhalt melden'
+'Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.': 'Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.'
+'Diese Umfrage ist ungültig oder wurde gelöscht.': 'Diese Umfrage ist ungültig oder wurde gelöscht.'
+Abstimmen: Abstimmen
+'Ergebnisse anzeigen': 'Ergebnisse anzeigen'
+'Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?': 'Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?'
+'Umfrage einfügen': 'Umfrage einfügen'
+'Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!': 'Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!'
+'Fragetext eingeben (optional)': 'Fragetext eingeben (optional)'
+'Antwort hinzufügen': 'Antwort hinzufügen'
+Antwort: Antwort
+(optional): (optional)
+'Info-Text hinzufügen': 'Info-Text hinzufügen'
+Info-Text: Info-Text
+'Du musst mindestens eine Antwort eingeben.': 'Du musst mindestens eine Antwort eingeben.'
+'Spielernamen einfügen': Spieler
+'Umfrage schließen': 'Umfrage schließen'
+'Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?': 'Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?'
+Animateur-Team: Animateur-Team
+Entwickler: Entwickler
+Community-Tools: Community-Tools
+Posteingang: Posteingang
+Archiv: Archiv
+'Nachricht suchen...': 'Nachricht suchen...'
+'Gib hier den Titel einer Nachricht ein, um danach zu suchen.': 'Gib hier den Titel einer Nachricht ein, um danach zu suchen.'
+'Dieser Ordner ist leer.': 'Dieser Ordner ist leer.'
+'Es wurden keine passenden Nachrichten gefunden.': 'Es wurden keine passenden Nachrichten gefunden.'
+'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).': 'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).'
+'Dieser Spieler ist ein Administrator auf diesem Server.': 'Dieser Spieler ist ein Administrator von MyHordes.'
+'Dieser Spieler ist ein Entwickler von MyHordes.': 'Dieser Spieler ist ein Administrator von MyHordes.'
+'Dieser Spieler ist ein Moderator auf MyHordes.': 'Dieser Spieler ist ein Moderator auf MyHordes.'
+'Dieser Spieler ist ein Animateur auf MyHordes.': 'Dieser Spieler ist ein Animateur auf MyHordes.'
+'Dieser Spieler ist ein Orakel auf MyHordes.': 'Dieser Spieler ist ein Orakel auf MyHordes.'
+'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.': 'Dieser Spieler hat zur Entwicklung von MyHordes beigetragen.'
+"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>"
+'Das Zombie Survival Game!': 'Das Zombie Survival Game!'
+Details: Details
+'Zusätzliche Informationen zu deiner Meldung (optional):': 'Zusätzliche Informationen zu deiner Meldung (optional):'
+Anfang: Anfang
+Vorh.: Vorh.
+'Seite {page}': 'Seite {page}'
+Folg.: Folg.
+Ende: Ende
+'Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von <b>MotionTwin</b>.': 'Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von <b>MotionTwin</b>.'
+'All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von <b>MotionTwin</b>': 'All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von <b>MotionTwin</b>'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.': 'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.'
+'MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.': 'MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.'
+Programmierung: Programmierung
+'Danke an': 'Danke an'
+'Thread verschieben': 'Thread verschieben'
+'Verschiebe den aktuellen Thread in ein anderes Forum:': 'Verschiebe den aktuellen Thread in ein anderes Forum:'
+Verschieben: Verschieben
+Icons: Icons
+'Einzigartige Titel': 'Einzigartige Titel'
+'Einzigartige Icons': 'Einzigartige Icons'
+Ergebnisse: Ergebnisse
+'Ergebnisse pro Seite': 'Ergebnisse pro Seite'
+Ja: Ja
+Nein: Nein
+Anwenden: Anwenden
+'Keine Ergebnisse': 'Keine Ergebnisse'
+'Deine Nachricht benötigt einen Titel sowie Inhalt.': 'Deine Nachricht benötigt einen Titel sowie Inhalt.'
+Gelöst: Gelöst
+'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).': 'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).'
+Fehler: Fehler
+Changelog: Changelog
+Event: Event
+RP: RP
+Update: Update
+Post: Post
+Disk.: Disk.
+Guide: Guide
+Orga.: Orga.
+Vorschlag: Vorschlag
+SALC: SALC
+Projekt: Projekt
+'Tag hinzufügen (optional)': 'Tag hinzufügen (optional)'
+Tag: Tag
+'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:'
+'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.'
+'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.'
+Offiziell: Offiziell
+'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.'
+'{n} neue Beiträge in': '{n} neue Beiträge in'
+'{n} oder mehr neue Beiträge in': '{n} oder mehr neue Beiträge in'
+'und andere.': 'und andere.'
+'Deine Platzierung': 'Deine Platzierung'
+'{num} Seelenpunkte, Platz {rank}': '{num} Seelenpunkte, Platz <b>{rank}</b>'
+'Zu meinem Eintrag springen': 'Zu meinem Eintrag springen'
+'Diskussion aktualisieren': 'Diskussion aktualisieren'
+Support-Postfach: Support-Postfach
+'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.': 'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.'
+'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.': 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.'
+'Für diese Aktion hast du nicht genug MP.': 'Für diese Aktion hast du nicht genug MP.'
+Ankündigungen: Ankündigungen
+Foren: Foren
+Kontaktliste: Kontaktliste
+STRG: STRG
+'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.': 'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.'
+'Schon gewusst?': 'Schon gewusst?'
+'Umfrage starten': 'Umfrage starten'
+'Alles als gelesen markieren': 'Alles als gelesen markieren'
+Weltforum: Weltforum

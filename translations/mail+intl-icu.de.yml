@@ -1,0 +1,10 @@
+'Account validieren': 'Account validieren'
+'Passwort zurücksetzen': 'Passwort zurücksetzen'
+'Hallo {user}! Willkommen bei MyHordes!': 'Hallo {user}! Willkommen bei MyHordes!'
+'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:': 'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.": "Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht."
+'Hallo {user}!': 'Hallo {user}!'
+'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :': 'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst.": "Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst."
+'E-Mail Validierung': 'E-Mail Validierung'
+'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:': 'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:'

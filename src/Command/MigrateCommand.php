@@ -362,6 +362,21 @@ class MigrateCommand extends Command
                     $output->writeln("<error>Unable to create english town.</error>");
                     return 5;
                 }
+
+                if (!$this->helper->capsule('app:town:create remote 40 fr', $output)) {
+                    $output->writeln("<error>Unable to create french town.</error>");
+                    return 5;
+                }
+
+                if (!$this->helper->capsule('app:town:create remote 40 de', $output)) {
+                    $output->writeln("<error>Unable to create german town.</error>");
+                    return 5;
+                }
+
+                if (!$this->helper->capsule('app:town:create remote 40 es', $output)) {
+                    $output->writeln("<error>Unable to create spanish town.</error>");
+                    return 5;
+                }
             }
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
