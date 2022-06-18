@@ -1061,8 +1061,19 @@ class MessageForumController extends MessageController
         if ($user !== null)
             $user = $this->entity_manager->getRepository(User::class)->find($user);
 
+        $forums = $this->perm->getForumsWithPermission($this->getUser());
+
+        $forum_sections = array_unique( array_filter( array_map( fn(Forum $f) => $f->getWorldForumLanguage(), $forums ) ) );
+        usort( $forum_sections, function(string $a, string $b) {
+            if ($a === $b) return 0;
+            if ($a === $this->getUserLanguage()) return -1;
+            if ($b === $this->getUserLanguage()) return 1;
+            return $a <=> $b;
+        } );
+
         return $this->render( 'ajax/forum/search.html.twig', [
-            'forums' => $this->perm->getForumsWithPermission($this->getUser()),
+            'forums' => $forums,
+            'forumSections' => $forum_sections,
             'select' => $default ? $default->getId() : -1,
             'user' => $user,
             'query' => $query,
