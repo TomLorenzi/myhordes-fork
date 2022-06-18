@@ -99,7 +99,7 @@
                 <ul class="poll global-poll">
                     <li class="q">{{ selected.titleByLang(app.user.language)|raw }}</li>
                     <li class="plain">{{selected.descriptionByLang(app.user.language)|raw}}</li>
-                    {% if selected.startDate < 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
+                    {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
                         <li class="plain"><div class="help">
                             <b>{{ 'Wichtiger Hinweis:'|trans({},'help')|raw }}</b>
                             {{ 'Du kannst nur eine Antwort auswählen.'|trans({},'soul') }}
@@ -114,7 +114,7 @@
                         <li>
                             <div class="row-flex wrap">
                                 <div class="cell rw-9 rw-lg-8 rw-sm-12">{{ selected.answerTitleByLang( answer, app.user.language )|raw }}</div>
-                                {% if selected.startDate < 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
+                                {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
                                     <div class="cell rw-3 rw-lg-4 rw-sm-12 right">
                                         <button class="small inline" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: answer.id}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
                                     </div>
