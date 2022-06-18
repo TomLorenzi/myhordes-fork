@@ -1,3 +1,4 @@
+---
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'You roll the dice, you get a {dc1}, a {dc2} and a {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Nicely done, you got three of a kind! This is a great game!<hr />You''re enjoying it so much that you have gained <strong>1AP</strong>!'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'You have rolled a straight ! That always raises the spirits.<hr />You''re enjoying it so much that you have gained <strong>1AP</strong>!'
@@ -21,26 +22,26 @@ Taser: Taser
 Rasenmäher: Lawnmower
 'Verstellbarer Schraubenschlüssel': 'Adjustable Spanner'
 Schraubenzieher: Screwdriver
-'Großer trockener Stock': Staff
-Jagdmesser: 'Serrated Knife'
+'Großer trockener Stock': 'Staff'
+Jagdmesser: Serrated Knife
 Machete: Machete
 'Lächerliches Taschenmesser': 'Pathetic Penknife'
 'Schweizer Taschenmesser': 'Spanners and Bump keys'
-Teppichmesser: 'Box Cutter'
-Einkaufswagen: 'Shopping Trolley'
-Dosenöffner: 'Can Opener'
-'Extra Tasche': Manbag
-Streichholzschachtel: 'Box of Matches'
-Beruhigungsspritze: 'Valium Shot'
-Schaukelstuhl: 'Rocking Chair'
+Teppichmesser: Box Cutter
+Einkaufswagen: Shopping Trolley
+Dosenöffner: Can Opener
+'Extra Tasche': 'Manbag'
+Streichholzschachtel: Box of Matches
+Beruhigungsspritze: Valium Shot
+Schaukelstuhl: Rocking Chair
 'Staubiges Buch': 'Dusty Book'
 Matratze: Mattress
 'Ausgeschaltete Nachttischlampe': 'Bedside Lamp'
-Perser: 'Persian Rug'
+Perser: Persian Rug
 'Mini Hi-Fi Anlage (defekt)': 'Mini HI-Fi (Broken)'
 'Kette + Vorhängeschloss': 'Padlock and Chain'
 Fußabstreifer: Doormat
-'Ein paar Würfel': Dice
+'Ein paar Würfel': 'Dice'
 Motor: Engine
 Riemen: Belt
 'Handvoll Schrauben und Muttern': 'Handful of nuts and bolts'
@@ -55,31 +56,31 @@ Huhn: Chicken
 'Leckeres Steak': 'Tasty-looking Steak'
 'Undefinierbares Fleisch': 'Unspecified Meat'
 Zeltplane: Groundsheet
-'Superpraktischer Rucksack': Ultra-Rucksack
-Kanister: 'Full Jerrycan'
+'Superpraktischer Rucksack': 'Ultra-Rucksack'
+Kanister: Full Jerrycan
 'Krummes Holzbrett': 'Twisted Plank'
-Alteisen: 'Wrought Iron'
-Wasserbombe: 'Water Bomb'
-Blechplatte: 'Sheet Metal'
+Alteisen: Wrought Iron
+Wasserbombe: Water Bomb
+Blechplatte: Sheet Metal
 'Kanisterpumpe (zerlegt)': 'Jerrycan Gun (unattached)'
 Bandage: Bandage
 'Grüne Bierflasche': 'Green Beer Bottle'
 'Kanisterpumpe (leer)': 'Jerrycan Gun (empty)'
-Videoprojektor: 'Video Projector'
+Videoprojektor: Video Projector
 Sprengstoff: Semtex
-Menschenfleisch: 'Human Flesh'
-Plastiktüte: 'Plastic Bag'
+Menschenfleisch: Human Flesh
+Plastiktüte: Plastic Bag
 'Explodierende Wasserbombe': 'Exploding Water Bomb'
 'Plastiktüte mit Sprengstoff': 'Plastic Bag and Semtex'
 'Unvollständige Kettensäge': 'Incomplete Chainsaw'
 'Unvollständiger Handmixer': 'Electric Whisk (incomplete)'
-Klebeband: 'Duct Tape'
+Klebeband: Duct Tape
 'Zerlegter Rasenmäher': 'Dismantled Mower'
-Kupferrohr: 'Copper Pipe'
+Kupferrohr: Copper Pipe
 'Wackliger Einkaufswagen': 'Wonky Shopping Trolley'
 'Gürtel mit Tasche': 'Utility Belt'
 'Twinoid 500mg': 'Twinoid 500mg'
-Metallkiste: 'Metal Chest'
+Metallkiste: Metal Chest
 'Großer Metallkoffer': 'Large Metal Chest'
 Werkzeugkiste: Toolbox
 'Nachttischlampe (an)': 'Bedside Lamp (on)'
@@ -94,12 +95,12 @@ Kaffeekocher: Cafetière
 'Habseligkeiten eines Bürgers': 'Citizen''s Welcome Pack'
 'Hydraton 100mg': 'Hydratone 100mg'
 'Kassettenradio (ohne Strom)': 'Radio Cassette Player (no battery)'
-Kassettenradio: 'Radio Cassette Player'
-Zyanid: 'Suicide by ingestion of Cyanide'
+Kassettenradio: Radio Cassette Player
+Zyanid: Suicide by ingestion of Cyanide
 'Alte Tür': 'Old Door'
 'Verdächtiges Gemüse': 'Suspicious-looking Vegetable'
 'Reparaturset (kaputt)': 'Repair Kit (damaged)'
-Reparaturset: 'Repair Kit'
+Reparaturset: Repair Kit
 'Wasserpistole (leer)': 'Water Pistol (empty)'
 'Aqua-Splash (3 Ladungen)': 'Aqua-Splash (3 shots)'
 'Aqua-Splash (2 Ladungen)': 'Aqua-Splash (2 shots)'
@@ -114,19 +115,19 @@ Reparaturset: 'Repair Kit'
 'Zerstörer (geladen)': 'Devastator (loaded)'
 'Unvollständiger Zerstörer': 'Devastator (incomplete)'
 'Zonenmarker ''Radius''': 'Radius Radar Beacon'
-Leuchtrakete: 'Spy Flare'
+Leuchtrakete: Spy Flare
 'Kanisterpumpe (einsatzbereit)': 'Jerrycan Gun (ready)'
 'Ektorp-Gluten Stuhl': 'Ektorp-Gluten Chair'
 'Revolver (entladen)': 'Revolver (unloaded)'
 'Sturmgewehr (entladen)': 'Assault Rifle (unloaded)'
-Zünder: 'Compact detonator'
-Zementsack: 'Bag of Cement'
+Zünder: Compact detonator
+Zementsack: Bag of Cement
 'Unförmige Zementblöcke': 'Unshaped Concrete Blocks'
 'Etikettenloses Medikament': 'Unlabelled Drug'
 'Paracetoid 7g': 'Paracetoid 7g'
 'Unkrautbekämpfungsmittel Ness-Quick': 'Ness-Quick Weedkiller'
-Nahrungsmittelkiste: 'Food Parcel'
-Doggybag: 'Doggy Bag'
+Nahrungsmittelkiste: Food Parcel
+Doggybag: Doggy Bag
 'Tüte mit labbrigen Chips': 'Packet of Soft Crisps'
 'Verschimmelte Waffeln': 'Mouldy Neapolitan'
 'Trockene Kaugummis': 'Dried Chewing Gum'
@@ -139,54 +140,54 @@ Doggybag: 'Doggy Bag'
 'Starke Gewürze': 'Strong Spices'
 'Gewürzte chinesische Nudeln': 'Spicy Chinese Noodles'
 'Unvollständiges Kartenspiel': 'Incomplete Deck of Cards'
-Gesellschaftsspiel: 'Box of Games'
+Gesellschaftsspiel: Box of Games
 'Aqua-Splash (zerlegt)': 'Aqua-Splash (incomplete)'
 'Vibrator (entladen)': 'Pocket Vibrator (incomplete)'
 'Knochen mit Fleisch': 'Meaty Bone'
 'Angeknackster menschlicher Knochen': 'Broken Human Bone'
 'Zusammengeschusterter Holzbalken': 'Patchwork Beam'
-Metallstruktur: 'Metal Support'
-Metalltrümmer: 'Scrap Metal'
+Metallstruktur: Metal Support
+Metalltrümmer: Scrap Metal
 'Verrotteter Baumstumpf': 'Rotting Log'
 Metallsäge: Hacksaw
 'Gut erhaltener Holzscheit': 'Quality Log'
 'Defektes Elektrogerät': 'Broken Electronic Device'
-Möbelpackung: 'Flatpacked Furniture'
+Möbelpackung: Flatpacked Furniture
 'Beschädigte Metallsäge': 'Broken Hacksaw'
 Getriebe: Mechanism
 Holzbock: Trestle
-Järpen-Tisch: 'Järpen Table'
+Järpen-Tisch: Järpen Table
 'Micropur Brausetablette': 'Water Purifying Tablets'
-Darmmelone: 'Intestine Melon'
-Raketenpulver: 'Flash Powder'
-Schießpulverbombe: 'Flash Grenade'
-Teddybär: 'Teddy Bear'
-Holzkistendeckel: 'Crate Lid'
+Darmmelone: Intestine Melon
+Raketenpulver: Flash Powder
+Schießpulverbombe: Flash Grenade
+Teddybär: Teddy Bear
+Holzkistendeckel: Crate Lid
 'Solide Holzplatte': 'Solid Wooden Board'
-Geldbündel: 'Wad of Cash'
+Geldbündel: Wad of Cash
 'Loses Werkzeug': 'Tool Bag'
 'Radius Mark II (entladen)': 'Radius Mark II (incomplete)'
 'Radius Mark II': 'Radius Mark II'
-'Reparatur Fix': Kwik-fix
+'Reparatur Fix': 'Kwik-fix'
 'Unvollständiger Motor': 'Engine (incomplete)'
 'Alte Waschmaschine': 'Old Washing Machine'
 'Krebserregender Ofen': 'Carcinogenic Oven'
-Minibar: 'Beer Fridge'
+Minibar: Beer Fridge
 'Ein Brief ohne Adresse': 'A letter with no address'
-'Aufgewelltes Blatt': Scroll
-Betriebsanleitung: 'Instruction Manual'
+'Aufgewelltes Blatt': 'Scroll'
+Betriebsanleitung: Instruction Manual
 'Unleserliches Notizbuch': 'Illegible Notebook'
-Fotoalbum: 'Photo Album'
-Blätterstapel: 'Stack of Papers'
+Fotoalbum: Photo Album
+Blätterstapel: Stack of Papers
 'Große rostige Kette': 'Rusty Chain'
 'Verdächtige Speise': 'Dodgy Homemade Dish'
 'Leckere Speise': 'Tasty Homemade Dish'
-Schrankkoffer: 'Iron Chest'
+Schrankkoffer: Iron Chest
 Kartons: Boxes
 'Nagelbare Barrikade': 'Makeshift Barricade'
-'Ein Briefumschlag': Envelope
-'Ein Paket': Parcel
-Maschendrahtzaunstück: 'Wire Mesh'
+'Ein Briefumschlag': 'Envelope'
+'Ein Paket': 'Parcel'
+Maschendrahtzaunstück: Wire Mesh
 'Wasserpistole (3 Ladungen)': 'Water Pistol (3 shots)'
 'Wasserpistole (2 Ladungen)': 'Water Pistol (2 shots)'
 'Wasserpistole (1 Ladung)': 'Water Pistol (1 shot)'
@@ -200,22 +201,22 @@ Maschendrahtzaunstück: 'Wire Mesh'
 'Kiste mit Materialien (3)': 'Construction Kit (3)'
 'Kiste mit Materialien (2)': 'Construction Kit (2)'
 'Kiste mit Materialien (1)': 'Construction Kit (1)'
-Autotür: 'Car Door'
+Autotür: Car Door
 'Beschädigte Autotür': 'Car Door (incomplete)'
-Giftfläschchen: 'Vial of Poison'
-Ätzmittel: 'Corrosive Liquid'
+Giftfläschchen: Vial of Poison
+Ätzmittel: Corrosive Liquid
 'Vorräte eines umsichtigen Bürgers': 'Shrewd Citizen''s Stash'
-Postpaket: 'Gift Parcel'
-Lunch-Box: 'Armageddon Lunch Box'
+Postpaket: Gift Parcel
+Lunch-Box: Armageddon Lunch Box
 'Eine Handvoll Bonbons': 'Handful of Sweets'
-Sperrholzstück: 'Sheet of Plywood'
+Sperrholzstück: Sheet of Plywood
 Fackel: Torch
 'Verbrauchte Fackel': 'Burnt out Torch'
 'Getrocknete Marshmallows': 'Dried Marshmallows'
 'Geröstete Marshmallows': 'Burnt Marshmallows'
-PC-Gehäuse: 'PC Base Unit'
+PC-Gehäuse: PC Base Unit
 Safe: Safe
-'Eine Enzyklopädie': Encyclopedia
+'Eine Enzyklopädie': 'Encyclopedia'
 'Wasserspender (leer)': 'Water Cooler Bottle (Empty)'
 'Wasserspender (1 Ration)': 'Water Cooler Bottle (1 Ration)'
 'Wasserspender (2 Rationen)': 'Water Cooler Bottle (2 Rations)'
@@ -224,21 +225,21 @@ Safe: Safe
 'Betapropin-Tablette 5mg': 'Betapropine 5mg'
 Aasbeeren: Fleshrooms
 'Schleimige Kugel': 'Sticky Pastry Ball'
-Fleischfetzen: 'Pound of Flesh'
+Fleischfetzen: Pound of Flesh
 'Makabre Bombe': 'Grisly Bomb'
 'Dickflüssige Substanz': 'Thick Solution'
-Aasbeerenbrei: 'Fleshroom Puree'
+Aasbeerenbrei: Fleshroom Puree
 'Eisengefäß mit modrigem Wasser': 'Stagnant Water Can'
 'Gereinigtes modriges Wasser': 'Purified Stagnant Water'
 'Notizzettel eines Verbannten': 'Banned Citizen''s Note'
 'Blutdurchtränkter Verband': 'Bloody Dressing'
 'Verfluchter Teddybär': 'Cursed Cuddly Toy'
-Sägemehlsteak: 'Sawdust Steak'
+Sägemehlsteak: Sawdust Steak
 'Abgetragene rote Jacke': 'Second-hand Red Coat'
 'Zerrissene rote Hose': 'Ripped Red Trousers'
 'Schweißtriefende rote Mütze': 'Foul-smelling Red Hat'
 'Übelriechender Anzug aus einer anderen Zeit': 'Foul-smelling Vintage Suit'
-Mobiltelefon: 'Mobile Phone'
+Mobiltelefon: Mobile Phone
 'Ekliger Hautfetzen': 'Festering Flesh'
 'MagLite Kinderlampe (aus)': 'Novelty Torch (off)'
 'MagLite Kinderlampe (1 Ladung)': 'Novelty Torch (1 charge)'
@@ -246,23 +247,23 @@ Mobiltelefon: 'Mobile Phone'
 'Leiche eines Reisenden': 'Traveller''s Corpse'
 'Angenagte Leiche': 'Gnawed Corpse'
 'Rauchgranate ''Tannenduft''': '« Pine Fresh » Smoke Bomb'
-Sandball: 'Sand Ball'
+Sandball: Sand Ball
 'Normaler Bauplan (gewöhnlich)': 'Construction Blueprint (common)'
 'Normaler Bauplan (ungewöhnlich)': 'Construction Blueprint (uncommon)'
 'Normaler Bauplan (selten)': 'Construction Blueprint (rare)'
 'Normaler Bauplan (sehr selten!)': 'Construction Blueprint (very rare!)'
-Architektenkoffer: 'Architect''s Chest'
+Architektenkoffer: Architect's Chest
 'Versiegelter Architektenkoffer': 'Sealed Architect''s Chest'
 Ei: Egg
 Apfel: Apple
 'Explosive Pampelmuse': 'Exploding Grapefruit'
 'Abgenutzte Kuriertasche': 'Worn Leather Bag'
-Magnet-Schlüssel: 'Magnetic Key'
-Schlagschlüssel: 'Bump Key'
-Flaschenöffner: 'Bottle Opener'
+Magnet-Schlüssel: Magnetic Key
+Schlagschlüssel: Bump Key
+Flaschenöffner: Bottle Opener
 'Abdruck vom Magnet-Schlüssel': 'Magnetic Key Blank'
 'Abdruck vom Schlagschlüssel': 'Bump Key Blank'
-Ghul-Serum: 'Ghoul Vaccine'
+Ghul-Serum: Ghoul Vaccine
 'Hotel-Bauplan (ungewöhnlich)': 'Hotel Blueprint (uncommon)'
 'Hotel-Bauplan (selten)': 'Hotel Blueprint (rare)'
 'Hotel-Bauplan (sehr selten!)': 'Hotel Blueprint (very rare!)'
@@ -275,23 +276,23 @@ Ghul-Serum: 'Ghoul Vaccine'
 'Verirrte Seele': 'Lost Soul'
 'Starke Seele': 'Powerful Soul'
 'Schwache Seele': 'Weak Soul'
-Bierkrug: 'Beer mug'
+Bierkrug: Beer mug
 Brezel: Pretzel
 Dackel: Dachshund
-Pfahlwerfer: 'Stake Launcher'
+Pfahlwerfer: Stake Launcher
 Kalaschni-Splash: Kalashni-Splash
 'Schnellgebauter Tisch': 'Hastily-built Desk'
 'Leerer Automat': 'Empty Vending Machine'
 'Santas Rentier': 'Santa''s Reindeer'
-Osterei: 'Easter Egg'
+Osterei: Easter Egg
 'ANZAC Badge': 'ANZAC Badge'
 'Kalaschni-Splash (leer)': 'Kalashni-Splash (empty)'
-Drahtspule: 'Wire Reel'
-Ölkännchen: 'Empty Oil Can'
-Konvexlinse: 'Convex Lens'
+Drahtspule: Wire Reel
+Ölkännchen: Empty Oil Can
+Konvexlinse: Convex Lens
 'Wütende Mieze (halb verdaut)': 'Furious Kitten (partially digested)'
-Tretmine: 'Claymore Mine'
-Laserdiode: 'Laser Diode'
+Tretmine: Claymore Mine
+Laserdiode: Laser Diode
 'Selbstgebaute Gitarre': 'Makeshift Guitar'
 LSD: LSD
 'Starker Laserpointer (4 Schuss)': 'Burning Laser Pointer (4 charges)'
@@ -301,11 +302,11 @@ LSD: LSD
 'Starker Laserpointer (Leer)': 'Burning Laser Pointer (Empty)'
 Teleskop: Telescope
 'Unpersönliche Explodierende Fußmatte': 'Impersonal Exploding Doormat'
-Chuck-Figur: 'Chuck Figurine'
+Chuck-Figur: Chuck Figurine
 'Kleine Zen-Fibel': 'Little Book of Calm'
 'Trockene Kräuter': 'Bag of Damp Grass'
-Mutterkorn: 'Ergot Fungus'
-Korn-Bräu: 'Ergot Homebrew'
+Mutterkorn: Ergot Fungus
+Korn-Bräu: Ergot Homebrew
 'Verfluchte HiFi': 'Cursed HiFi'
 'Phil Collins CD': 'Phil Collins CD'
 Ohrstöpsel: Earplugs
@@ -321,19 +322,19 @@ Ohrstöpsel: Earplugs
 'Überraschungskiste (2 Geschenke)': 'Christmas Present (2)'
 'Überraschungskiste (1 Geschenk)': 'Christmas Present (1)'
 'Verdächtiger Traubensaft': 'Suspicious looking plum juice'
-'Ein Etikett': Label
-Bürgerbekleidung: 'Town Uniform'
+'Ein Etikett': 'Label'
+Bürgerbekleidung: Town Uniform
 'Dreckige Bürgerbekleidung': 'Dirty Uniform'
-Tarnanzug: 'Camouflage suit'
+Tarnanzug: Camouflage suit
 'Tarnkleidung (nicht wirksam!)': 'Camouflage Vest (not equipped!)'
 'Kleine Schaufel': 'Small spade'
 'Dreibeiniger Malteser': '3-legged Labradoodle'
 'Malteser Hündchen auf Droge': 'Drugged Labradoodle'
 'Müdes Malteser Hündchen': 'Tired Labradoodle'
-Survivalbuch: 'Survival Guide'
-Schraubenschlüssel: 'Handyman''s Toolbelt'
-Schutzschild: 'Riot Shield'
-Voodoo-Maske: 'Voodoo Mask'
+Survivalbuch: Survival Guide
+Schraubenschlüssel: Handyman's Toolbelt
+Schutzschild: Riot Shield
+Voodoo-Maske: Voodoo Mask
 Trinken: Drink
 Befüllen: Fill
 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!': 'You poured a {items_consume} into your {item_from} and received {item_to}!'
@@ -346,7 +347,7 @@ Einsetzen: Use
 '<nt-spawned>Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...</nt-spawned><t-spawned>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</t-spawned>': '<nt-spawned>You waste precious time looking for the combination to the {item}.<hr />You have used <strong>1 action point</strong>.</nt-spawned><t-spawned>Nice one! You have found the secret combination for the {item}! The code was 4715... You find the {items_spawn} inside.<hr />You have used <strong>1 action point</strong>.</t-spawned>'
 Laden: Build
 'Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!': 'You inserted a {items_consume} into your {item_from} and received a {item_to}!'
-'Waffe einsetzen': Attack
+'Waffe einsetzen': 'Attack'
 'Zum Glück sind hier keine Zombies...': 'There are no zombies here...'
 Lesen: Read
 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>': 'You examine the document closely... You find a text, seemingly entitled "{rp_text}". You read it intently...{hr}<t-rp_ok><strong>A new text has been added to your documents !</strong></t-rp_ok><t-rp_fail>You have already found this book, so it doesn''t earn you any additional distinctions.</t-rp_fail>'
@@ -668,23 +669,23 @@ Rettung: Rescue
 'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.': 'Unparalleled for smashing construction records, this complete tool kit includes a top-of-the-line adjustable wrench!'
 ' Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.': ' It''s big and it''s zombie-proof. In this world who could ask for more... It allows you to face 2 additional zombies in the desert..'
 'Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.': 'This antique mask, which has been used by ancient voodoo sorcerors for thousands of years, allows the Shaman to know exactly where the souls of freshly-deceased citizens are located in the World Beyond.'
-Heldentaten: 'Heroic Actions'
-Berufsgegenstand: 'Professional tool (cannot be dropped)'
+Heldentaten: Heroic Actions
+Berufsgegenstand: Professional tool (cannot be dropped)
 'Schwerer Gegenstand': 'Heavy object'
-Einrichtungsgegenstand: 'Home decoration'
-Verteidigungsgegenstand: 'Defense Object'
+Einrichtungsgegenstand: Home decoration
+Verteidigungsgegenstand: Defense Object
 Waffe: Weapon
-Super-Flaum-Pulver: 'Super-Fuzz Powder'
+Super-Flaum-Pulver: Super-Fuzz Powder
 'Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.': 'Depending on the era, this powder was used sequentially as a detonator for various artillery pieces, then as a cheap drug for needy citizens and finally as the main component of fireworks. In all three cases, many people have not survived.'
-Flush-Abschussrohr: 'Firework Launch Tube'
+Flush-Abschussrohr: Firework Launch Tube
 'Mehrere lange Plastikschläuche ohne großes Interesse.': 'Several long plastic hoses without much interest.'
-Feuerwerkskiste: 'Box of Fireworks'
+Feuerwerkskiste: Box of Fireworks
 'Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.': 'This box contains a lot of highly toxic chemicals with startling names such as: sodium fuzz, carbopotassium bling bling or rainbow lithium cyanurized.'
 'Leuchtender Kürbis': 'Lit Pumpkin'
 'Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?': 'A kind of big, smelly orange vegetable like you''ve never seen before. A grimacing face is carved into his flesh: what is the barbaric tradition behind this ritual?'
 'Ausgeschnitzter weicher Kürbis': 'Carved Soft Pumpkin'
 'Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... ': 'Here''s a crazy idea: this large, weird vegetable has been stripped of its flesh, shaped and there is a lit candle in it ... '
-Krähengirlande: 'Crow garland'
+Krähengirlande: Crow garland
 'Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.': 'A garland of an apparently ancient tradition. It is recommended to hang it up at home as a decoration, it could be good for the town''s morale.'
 '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>': '<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be built first.</t-bp_parent><t-bp_fail><strong>Your town has already unlocked all construction projects in this category!</strong>{hr}This plan is therefore useless, so you decide to throw it away.</t-bp_fail>'
 Aufbauen: Install
@@ -702,7 +703,7 @@ Wandeln: Transform
 Zerlegen: Dismantle
 Baustoffe: Resources
 Grundnahrungsmittel: Food
-'Apotheke und Labor': Pharmacy
+'Apotheke und Labor': 'Pharmacy'
 Expedition: Expedition
 Sonstiges: Miscellaneous
 Einrichtungen: Facilities
@@ -713,7 +714,7 @@ Kaputt: Broken
 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.': 'You feel that you cannot do better in this zone since you have already done your best.'
 'Haus aufräumen und putzen': 'Clean and tidy my house'
 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn''s ne Bruchbude ist, es ist DEIN Zuhause...': 'You pick up the rubbish that''s lying around, tidy up your few remaining possessions and generally try to make the place you call home a little less squalid...'
-Duschen: 'Take a shower'
+Duschen: Take a shower
 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.': 'You jump under the homemade shower without giving it a second thought. The frozen water shocks you but you stay under the weak stream of water for a few moments. In the absence of soap, you rub yourself with a smooth stone, trying to shift the mud and bloodstains. You try to persuade yourself that it feels good.'
 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!': 'The butcher took great care of {item} ... You now have {items_spawn}. Goodbye dear friend.'
 'Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.': 'You take a walk round the town to check for weaknesses and kick some dodgy-looking repairs to test their worth. The town has earned +10 temporary defence points.'
@@ -746,7 +747,7 @@ Bube: Jack
 Dame: Queen
 König: King
 Ass: Ace
-Nachtwache-Waffen: 'Guard weapon'
+Nachtwache-Waffen: Guard weapon
 Pkte: Pts
 Heilen: Heal
 'Verteidigung organisieren': 'Organize defence'
@@ -775,15 +776,15 @@ Benutzen: Use
 'Öffnen (1 BP)': 'Open (1 CP)'
 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...': 'This has a truly bizarre taste, it''s difficult to define. It does the job though: fills your stomach. On the other hand, it doesn''t give you any extra energy...'
 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>': 'Just this once does no harm, you enjoy devouring the <span class="tool">{item}</span>. It makes a change from the usual disgusting slop... it perks you right up.{hr}You get <strong>a bonus of 1 AP !</strong>'
-Krähenelfe: 'Crow elf'
+Krähenelfe: Crow elf
 'Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...': 'This is some strange looking little beast... Seems to resemble a crow... But it''s green, and is wearing a funny hat...'
-'Logbuch Schokolade': 'Chocolate log'
+'Logbuch Schokolade': Chocolate log
 'Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...': 'Either a shriveled up old Christmas cake, or something a little less palatable, done on Christmas day none the less! Anyway enjoy this cake... Thing...'
 'Grüner Kobold-Anzug': 'Green Imp Suit'
 'In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?': 'With this outfit on, you are so conspicuous no-one will even notice you, or think they imagined it! You wouldn''t abuse it, would you?'
 'Unidentifizierbare Trümmerstücke': 'Unrecognisable Remains'
 'Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...': 'This debris is that of an unidentifiable object that appears to have been thrown at high speed against the ground.'
-Munitionsgriff: 'Handful of Bullets'
+Munitionsgriff: Handful of Bullets
 'Eine Handvoll Munition. Aber was hat das für einen Sinn?': 'These small cylinders are extremely deadly. If only we knew how to use them...'
 'Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).': 'You have partially cleared the zone using your {item} (<strong>{bury_count} points</strong> cleared)...'
 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.': 'You throw your smoke bomb into the area, causing mass confusion!{hr}Your <strong>next move</strong> will not be recorded in the register if carried out <strong>in the next 60 seconds</strong> .'
@@ -795,9 +796,9 @@ Munitionsgriff: 'Handful of Bullets'
 'Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.': 'Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.'
 'Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!': 'You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Quimby than Joe Calzaghe... <strong>You couldn''t get him to go down</strong>!'
 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...': 'Your weapon just <strong>broke</strong> on impact...'
-Weihnachts-Süßigkeiten: 'Christmas candy'
+Weihnachts-Süßigkeiten: Christmas candy
 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...': 'It looks like a kind of little chocolate candy, which contains alcoholic liquor. Or any other product...'
-Geschenkpaket: 'Gift Parcel'
+Geschenkpaket: Gift Parcel
 'Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!': 'The address has become illegible, but there''s definitely something inside... Merry Christmass !!!'
 'Großes Geschenkpaket': 'Large Gift Parcel'
 'Du hast {item} getrunken, aber scheinbar geschieht nichts...': 'You drank {item} but nothing seems to be happening...'
@@ -833,7 +834,7 @@ Geschenkpaket: 'Gift Parcel'
 'Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.': 'Now the labradoodle is on steroids, it can carry heavy stuff to the town. You notice that he is now drooling constantly and in increasing quantities. It looks like an attack is a matter of minutes away.'
 'Weicher Kürbis': 'Soft Pumpkin'
 'Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...': 'A kind of big, smelly, orange vegetable like you''ve never seen before. A sudden urge to carve it grabs you without you knowing why...'
-Hurlingstock: 'Hurling stick'
+Hurlingstock: Hurling stick
 'Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.': 'A word of advice. If you''re picking the wrong fight... at least pick the right weapon.'
 Guiness: Winness
 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen': 'Nothing beats a pint of the black stuff to inspire poetry, laughter and erm, fight the zombies... *Approved by Charlie Sheen'
@@ -935,7 +936,7 @@ Ruhm: Glory
 'Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.': 'You have to be more than 3 kilometers from the town to do that.'
 'Hierfür hast du keinen Platz.': 'You have no room for this.'
 'Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...': 'Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...'
-Eintrittskarte: 'Admission ticket'
+Eintrittskarte: Admission ticket
 'Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.': 'This allows you to join cities even though you haven''t reached the minimum number of soul points.'
 'Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.': 'You are currently <strong>too far from the town to use this power</strong>! You are {km_from_town} km away, and the maximum distance is 11 km.</div>'
 Toxin: Toxin
