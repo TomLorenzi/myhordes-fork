@@ -1,3 +1,4 @@
+---
 'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.': 'Ayer fue un día como cualquier otro. Según los rumores , {citizen1} y {citizen2} fueron vistos bañándose juntos en la fuente. Si mañana todo el mundo está con una infección por hongos, estará claro quiénes fueron los culpables.'
 'Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."': '¡Qué día tan memorable! Los zombis ya no importaban después de que {citizen1} corriera por el pueblo desnudo en la pared a la hora del almuerzo. Comentario de {citizen2}: "La vista no estaba mal".'
 'Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.': 'Esto hay que festejarlo. ¡Ningún muerto en el pueblo y fueron muchísimos atacándonos en el muro este!'
@@ -167,7 +168,7 @@ Virunoir: Virunoir
 Chlorotwinat: Chlorotwinat
 Kaliumchlorid: Kaliumchlorid
 Kurare: Kurare
-'Zyanid (poison)': 'Suicidio por ingestión de cianuro'
+'Zyanid (poison)': Suicidio por ingestión de cianuro
 Phenol: Phenol
 Ponasulfat: Ponasulfat
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
@@ -197,16 +198,16 @@ Kampfzwerg: Fido
 Brummbrumm: Pirulo
 Quälgeist: Plutarco
 Wuschel: Pulgoso
-Ratte: 'el ratón'
-Ziege: 'el mono'
-Pudel: 'el perrito'
-Hamster: 'el hamster'
-Köter: 'el perro cojo'
-Schwein: 'el cerdo'
-Erdmännchen: 'el conejo'
-Wasserschwein: 'el loro'
-Sumpfschildkröte: 'el hurón'
-Kätzchen: 'el gato'
+Ratte: el ratón
+Ziege: el mono
+Pudel: el perrito
+Hamster: el hamster
+Köter: el perro cojo
+Schwein: el cerdo
+Erdmännchen: el conejo
+Wasserschwein: el loro
+Sumpfschildkröte: el hurón
+Kätzchen: el gato
 'einen Haufen Gerümpel ': 'einen Haufen Gerümpel '
 'einen Holzstapel ': 'einen Holzstapel '
 'einen Haufen Schrott': 'einen Haufen Schrott'
