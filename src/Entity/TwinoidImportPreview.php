@@ -26,7 +26,7 @@ class TwinoidImportPreview
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="twinoidImportPreview", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

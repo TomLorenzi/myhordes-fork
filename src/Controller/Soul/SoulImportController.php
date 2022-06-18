@@ -227,14 +227,15 @@ class SoulImportController extends SoulController
         } elseif ($user->getTwinoidID() !== $twin_id)
             return AjaxResponse::error(self::ErrorTwinImportProfileMismatch);
 
-        $user->setTwinoidImportPreview( (new TwinoidImportPreview())
+        $import_preview = (new TwinoidImportPreview())
+            ->setUser($user)
             ->setTwinoidID($twin_id)
             ->setCreated(new DateTime())
             ->setScope($scope)
-            ->setPayload(array_merge($data1,$data2['me'])) );
+            ->setPayload(array_merge($data1,$data2['me']));
 
         try {
-            $this->entity_manager->persist($user);
+            $this->entity_manager->persist($import_preview);
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -254,7 +255,6 @@ class SoulImportController extends SoulController
         $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
         if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $user->setTwinoidImportPreview(null);
         $pending->setUser(null);
 
         try {
@@ -326,7 +326,6 @@ class SoulImportController extends SoulController
                 $import_ds->setMain( $to_main );
 
                 $user->setTwinoidID( $pending->getTwinoidID() );
-                $user->setTwinoidImportPreview(null);
                 $pending->setUser(null);
 
                 $this->entity_manager->remove($pending);

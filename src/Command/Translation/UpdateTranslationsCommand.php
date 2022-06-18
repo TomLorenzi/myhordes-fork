@@ -3,68 +3,15 @@
 
 namespace App\Command\Translation;
 
-
-use App\Entity\AccountRestriction;
-use App\Entity\AdminBan;
-use App\Entity\AffectStatus;
-use App\Entity\Building;
-use App\Entity\Citizen;
-use App\Entity\CitizenRankingProxy;
-use App\Entity\CitizenStatus;
-use App\Entity\Complaint;
-use App\Entity\FeatureUnlock;
-use App\Entity\FeatureUnlockPrototype;
-use App\Entity\Forum;
-use App\Entity\ForumUsagePermissions;
-use App\Entity\FoundRolePlayText;
-use App\Entity\GitVersions;
-use App\Entity\HeroicActionPrototype;
-use App\Entity\Item;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
-use App\Entity\Post;
-use App\Entity\RolePlayText;
-use App\Entity\RuinZone;
-use App\Entity\Season;
-use App\Entity\ShadowBan;
-use App\Entity\SpecialActionPrototype;
-use App\Entity\Thread;
-use App\Entity\ThreadTag;
-use App\Entity\Town;
-use App\Entity\TownLogEntry;
-use App\Entity\TownRankingProxy;
-use App\Entity\User;
-use App\Entity\UserGroup;
-use App\Entity\Zone;
-use App\Entity\ZonePrototype;
-use App\Entity\ZoneTag;
-use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
-use App\Service\ConfMaster;
-use App\Service\GameFactory;
 use App\Service\Globals\TranslationConfigGlobal;
-use App\Service\InventoryHandler;
-use App\Service\MazeMaker;
-use App\Service\PermissionHandler;
-use App\Service\RandomGenerator;
-use App\Service\UserFactory;
-use App\Service\UserHandler;
-use App\Structures\TownConf;
-use Doctrine\Common\Collections\Criteria;
-use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
-use Symfony\Component\Console\Question\Question;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 class UpdateTranslationsCommand extends Command
 {

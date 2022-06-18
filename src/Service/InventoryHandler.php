@@ -142,8 +142,19 @@ class InventoryHandler
         if (is_string( $prototype )) $prototype = $is_property
             ? $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $prototype] )->getItemPrototypes()->getValues()
             : $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $prototype] );
+
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
+
+        if (count( $inventory ) === 1 && is_a( $inventory[0], Inventory::class ))
+            return count( array_filter( $inventory[0]->getItems()->getValues(),
+                fn(Item $i) =>
+                    in_array( $i->getPrototype(), $prototype) &&
+                    ( $broken === null || $i->getBroken() === $broken ) &&
+                    ( $poison === null || $i->getPoison()->poisoned() === $poison )
+            )
+        );
+
         try {
             $qb = $this->entity_manager->createQueryBuilder()
                 ->select('SUM(i.count)')->from('App:Item', 'i')
