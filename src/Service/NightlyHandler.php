@@ -1381,10 +1381,11 @@ class NightlyHandler
 
                 }
 
-                $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
-                $this->town_handler->devastateTown($town);
-
                 $gazette = $town->findGazette($town->getDay(), true);
+                if (!$gazette->getReactorExplosion())
+                    $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
+
+                $this->town_handler->devastateTown($town);
 
                 if (!$gazette->getReactorExplosion()) {
                     $townTemplate = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
