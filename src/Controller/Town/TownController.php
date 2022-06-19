@@ -2214,11 +2214,11 @@ class TownController extends InventoryAwareController
         /** @var Citizen $citizen */
         $citizen = $this->getUser()->getActiveCitizen();
 
-        if($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection"))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
         /** @var Town $town */
         $town = $citizen->getTown();
+
+        if ($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") || $town->getInsurrectionProgress() >= 100)
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $non_shunned = 0;
 
