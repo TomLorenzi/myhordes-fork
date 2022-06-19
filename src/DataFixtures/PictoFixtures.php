@@ -52,6 +52,7 @@ class PictoFixtures extends Fixture
                 ->setDescription($entry['description'])
                 ->setIcon($entry['icon'])
                 ->setRare($entry['rare'])
+                ->setPriority($entry['priority'] ?? 0)
                 ->setCommunity($entry['community'] ?? false)
             ;
 

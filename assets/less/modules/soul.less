@@ -86,19 +86,20 @@ div.tooltip.badge-tooltip {
         .distinctions-points { color: #FF8866; font-size: 2.4rem; margin-top: 5px; }
 
         .distinctions-top {
+
+          display: flex; justify-content: space-evenly; column-gap: 4px; align-items: stretch;
+          margin: 10px 6px;
+
             .picto {
                 border: 1px solid white;
                 border-radius: 3px;
-                margin: 10px 0 3px 0;
                 display: inline-block;
-                box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.5);
                 padding: 5px;
-                &:not(:last-child) {
-                    margin-right: 4px;
-                }
+
                 .counter-wrapper {
                     position: absolute;
-                    width: 55px;
+                    width: 65px;
                     height: 13px;
                     display: block;
                     margin-top: -13px;
@@ -119,7 +120,7 @@ div.tooltip.badge-tooltip {
                 }
 
                 .infos {
-                    width: 55px;
+                    width: 65px;
                     margin-bottom: 5px;
                 }
 
