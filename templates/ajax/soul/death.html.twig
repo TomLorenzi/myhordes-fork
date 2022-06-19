@@ -96,7 +96,7 @@
                             <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
                         </div>
                         <div class="cell rw-8">
-                            <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" />
+                            <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionComments')) %}disabled{% endif %} />
                         </div>
                         <div class="cell rw-12 rebirth_btn">
                             <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>
