@@ -1596,6 +1596,7 @@ class SoulController extends CustomAbstractController
 
 
         return $this->render( 'ajax/soul/death.html.twig', $this->addDefaultTwigArgs(null, [
+            'dead_citizen' => $nextDeath,
             'citizen' => $nextDeath,
             'sp' => $nextDeath->getPoints(),
             'day' => $nextDeath->getDay(),
