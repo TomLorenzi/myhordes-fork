@@ -88,6 +88,9 @@ class PublicController extends CustomAbstractController
      */
     public function login(ConfMaster $conf, EternalTwinHandler $etwin): Response
     {
+        $rt = Request::createFromGlobals()->headers->get('X-Render-Target');
+        if ($rt && $rt !== 'content' ) throw new DynamicAjaxResetException(Request::createFromGlobals());
+
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
 
