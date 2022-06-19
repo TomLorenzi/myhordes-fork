@@ -16,7 +16,7 @@
                             {% if big or action_button is not null %}
                                 <div><img src="{{ asset(target[2]) }}" alt="{{ target[1] }}"> {{ target[1] }}</div>
                                 {% if action_button is not null %}
-                                    <button class="inline small float-right" x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'{target}':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}">{{ action_button }}</button>
+                                    <button class="inline small" x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'{target}':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}">{{ action_button }}</button>
                                 {% endif %}
                             {% else %}
                                 <img src="{{ asset(target[2]) }}" alt="{{ target[1] }}">
