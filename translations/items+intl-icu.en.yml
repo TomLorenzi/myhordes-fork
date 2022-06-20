@@ -722,7 +722,7 @@ Duschen: Take a shower
 '<t-zone>Du hast eine neue Ruine auf {zone} entdeckt!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>': '<t-zone>You have revealed a new building at the following co-ordinates: {zone}!</t-zone><nt-zone>It seems like there is nothing left to discover ...</nt-zone>'
 'Wasserwaffen füllen': 'Fill water weapons'
 'Ins Kino gehen': 'Go to the Cinema'
-'Angriff und Verteidigung': 'Angriff und Verteidigung'
+'Angriff und Verteidigung': 'Attack and Defense'
 Ausweiden: Carve
 Läutern: Purify
 'Du hast die Seele gereinigt und sie friedlich gemacht.': 'You have purified a lost soul. It evaporates leaving you with an aftertaste of peace and serenity...'
