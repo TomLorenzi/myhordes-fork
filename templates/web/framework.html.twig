@@ -26,7 +26,7 @@
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
 
-        {% if app.user.language == "ach" %}
+        {% if app.user != null and app.user.language == "ach" %}
         <script type="text/javascript">
             var _jipt = [];
             _jipt.push(['project', 'myhordes']);
