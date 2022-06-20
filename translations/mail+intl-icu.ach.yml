@@ -1,0 +1,11 @@
+---
+'Account validieren': 'crwdns72022:0crwdne72022:0'
+'Passwort zurücksetzen': 'crwdns72024:0crwdne72024:0'
+'Hallo {user}! Willkommen bei MyHordes!': 'crwdns72026:0{user}crwdne72026:0'
+'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:': 'crwdns72028:0crwdne72028:0'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.": "crwdns72030:0crwdne72030:0"
+'Hallo {user}!': 'crwdns72032:0{user}crwdne72032:0'
+'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :': 'crwdns72034:0crwdne72034:0'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst.": "crwdns72036:0crwdne72036:0"
+'E-Mail Validierung': 'crwdns72038:0crwdne72038:0'
+'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:': 'crwdns72040:0crwdne72040:0'
