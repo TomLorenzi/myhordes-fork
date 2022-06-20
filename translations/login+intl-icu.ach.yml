@@ -1,0 +1,85 @@
+---
+'Dein Name muss mindestens { limit } Zeichen umfassen.': 'crwdns71854:0{ limit }crwdne71854:0'
+'Dein Name kann höchstens { limit } Zeichen umfassen.': 'crwdns71856:0{ limit }crwdne71856:0'
+'Die eingegebene E-Mail Adresse ist nicht gültig.': 'crwdns71858:0crwdne71858:0'
+'Die eingegebenen E-Mail Adressen stimmen nicht überein.': 'crwdns71860:0crwdne71860:0'
+'Dein Passwort muss mindestens { limit } Zeichen umfassen.': 'crwdns71862:0{ limit }crwdne71862:0'
+'Die eingegebenen Passwörter stimmen nicht überein.': 'crwdns71864:0crwdne71864:0'
+'Der Validierungscode muss { limit } Zeichen umfassen.': 'crwdns71866:0{ limit }crwdne71866:0'
+'Der angegebene Validierungscode ist nicht gültig.': 'crwdns71868:0crwdne71868:0'
+'Der angegebene Name existiert bereits im Spiel.': 'crwdns71870:0crwdne71870:0'
+'Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.': 'crwdns71872:0crwdne71872:0'
+'E-Mail Adresse validieren': 'crwdns71874:0crwdne71874:0'
+'Hallo {name}!': 'crwdns71876:0{name}crwdne71876:0'
+'Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.': 'crwdns71878:0crwdne71878:0'
+'Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.': 'crwdns71880:0crwdne71880:0'
+Validierungscode: crwdns71882:0crwdne71882:0
+Prüfen: crwdns71884:0crwdne71884:0
+Ausloggen: crwdns71886:0crwdne71886:0
+'Du hast noch keinen Account?': 'crwdns71888:0crwdne71888:0'
+Registrieren!: crwdns71890:0crwdne71890:0
+'Du hast deine E-Mail Adresse schon validiert?': 'crwdns71892:0crwdne71892:0'
+Einloggen!: crwdns71894:0crwdne71894:0
+'Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.': 'crwdns71896:0crwdne71896:0'
+'Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.': 'crwdns71898:0crwdne71898:0'
+Registrieren: crwdns71900:0crwdne71900:0
+Spielername: crwdns71902:0crwdne71902:0
+'E-Mail Adresse': 'crwdns71904:0crwdne71904:0'
+wiederholen: crwdns71906:0crwdne71906:0
+Passwort: crwdns71908:0crwdne71908:0
+"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "crwdns71910:0crwdne71910:0"
+'Du hast schon einen Account?': 'crwdns71912:0crwdne71912:0'
+Einloggen: crwdns71914:0crwdne71914:0
+'Bitte gib deinen Spielernamen und dein Passwort ein.': 'crwdns71916:0crwdne71916:0'
+'Login fehlgeschlagen. Bitte prüfe deine Eingaben.': 'crwdns71918:0crwdne71918:0'
+'Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.': 'crwdns71920:0crwdne71920:0'
+'Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.': 'crwdns71922:0{name}crwdne71922:0'
+'Aktuelles Passwort': 'crwdns71924:0crwdne71924:0'
+'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.': 'crwdns71926:0crwdne71926:0'
+'Passwort vergessen?': 'crwdns71928:0crwdne71928:0'
+'Passwort zurücksetzen': 'crwdns71930:0crwdne71930:0'
+'Bitte gib ein neues Passwort ein.': 'crwdns71932:0crwdne71932:0'
+'Bitte gib deine E-Mail Adresse ein.': 'crwdns71934:0crwdne71934:0'
+Abbrechen: crwdns71936:0crwdne71936:0
+'Dieses Konto wartet bereits auf eine Passwortzurücksetzung.': 'crwdns71938:0crwdne71938:0'
+'Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.': 'crwdns71940:0crwdne71940:0'
+'Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.': 'crwdns71942:0crwdne71942:0'
+'Angemeldet bleiben': 'crwdns71944:0crwdne71944:0'
+'Fehler bei der Datenübertragung.': 'crwdns71946:0crwdne71946:0'
+'MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!': 'crwdns71948:0crwdne71948:0'
+'Über EternalTwin einloggen': 'crwdns71950:0crwdne71950:0'
+'Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.': 'crwdns71952:0crwdne71952:0'
+'Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.': 'crwdns71954:0crwdne71954:0'
+'Über MyHordes einloggen': 'crwdns71956:0crwdne71956:0'
+'Verknüpfung mit EternalTwin': 'crwdns71958:0crwdne71958:0'
+'Gleich kanns losgehen!': 'crwdns71960:0crwdne71960:0'
+"<strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt\n                                    <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen\n                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.": "crwdns71962:0crwdne71962:0"
+'Los geht''s!': 'crwdns71964:0crwdne71964:0'
+'Hallo {username}!': 'crwdns71966:0{username}crwdne71966:0'
+'Dein Account wurde erfolgreich verknüpft!': 'crwdns71968:0crwdne71968:0'
+'Du wirst eingeloggt. Bitte warte eine Sekunde ...': 'crwdns71970:0crwdne71970:0'
+'Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!': 'crwdns71972:0{namecheck_mh}crwdnd71972:0{namecheck_et}crwdne71972:0'
+'Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.': 'crwdns71974:0crwdne71974:0'
+'Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".': 'crwdns71976:0crwdne71976:0'
+Verknüpfen: crwdns71978:0crwdne71978:0
+'Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.': 'crwdns71980:0crwdne71980:0'
+'Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.': 'crwdns71982:0crwdne71982:0'
+'Du wurdest erfolgreich von allen Geräten abgemeldet.': 'crwdns71984:0crwdne71984:0'
+'Dein Name kann nur alphanumerische Zeichen enthalten.': 'crwdns71986:0crwdne71986:0'
+'Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.': 'crwdns71988:0crwdne71988:0'
+Pate: crwdns71990:0crwdne71990:0
+'Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...': 'crwdns71992:0crwdne71992:0'
+'Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.': 'crwdns71994:0crwdne71994:0'
+'Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.': 'crwdns71996:0crwdne71996:0'
+"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "crwdns71998:0crwdne71998:0"
+'Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.': 'crwdns72000:0{name}crwdne72000:0'
+'Die eingegebene E-Mail Adresse ist nicht korrekt.': 'crwdns72002:0crwdne72002:0'
+'Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.': 'crwdns72004:0crwdne72004:0'
+'Die E-Mail ist nicht angekommen?': 'crwdns72006:0crwdne72006:0'
+'Erneut senden!': 'crwdns72008:0crwdne72008:0'
+'Die Validierungs-Mail wurde erfolgreich gesendet.': 'crwdns72010:0crwdne72010:0'
+'Du musst 5 Minuten warten, bevor du eine erneute E-Mail versenden kannst. Bitte prüfe in der Zwischenzeit, ob die Mail möglicherweise in deinem Spam-Ordner gelandet ist.': 'crwdns72012:0crwdne72012:0'
+'Du hast deinen Anzeigenamen auf EternalTwin geändert. Wir haben diese Änderung soeben für dich übernommen!': 'crwdns72014:0crwdne72014:0'
+'Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.': 'crwdns72016:0crwdne72016:0'
+'Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.': 'crwdns72018:0crwdne72018:0'
+'Deine E-Mail-Adresse wurde erfolgreich geändert.': 'crwdns72020:0crwdne72020:0'
