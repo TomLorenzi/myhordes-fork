@@ -1,11 +1,11 @@
 ---
-'Account validieren': 'Account validation'
-'Passwort zurücksetzen': 'Reset Password'
-'Hallo {user}! Willkommen bei MyHordes!': 'Hello {user}! Welcome on MyHordes!'
-'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:': 'To complete your registration, you need the following validation code:'
-"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.": "You received this email becasue you (or someone else) provided your email address when registering.\n          If you haven't registered on MyHordes, ignore this message."
-'Hallo {user}!': 'Hello {user}!'
-'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :': 'To reset your password, please visit the following link:'
-"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst.": "You received this email becasue you (or someone else) entered your email address in the password reset function.\n          If you don't want to reset your password, ignore this email. Your old password remains valid unless you change it by clicking on the link above."
-'E-Mail Validierung': 'E-Mail validation'
-'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:': 'Someone (hopefully you!) ask to change the email linked to your account. To approve the request, use this token in your soul settings :'
+'Account validieren': 'Account validieren'
+'Passwort zurücksetzen': 'Passwort zurücksetzen'
+'Hallo {user}! Willkommen bei MyHordes!': 'Hallo {user}! Willkommen bei MyHordes!'
+'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:': 'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.": "Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht."
+'Hallo {user}!': 'Hallo {user}!'
+'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :': 'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst.": "Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst."
+'E-Mail Validierung': 'E-Mail Validierung'
+'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:': 'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:'
