@@ -26,6 +26,14 @@
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
 
+        {% if app.user.language == "ach" %}
+        <script type="text/javascript">
+            var _jipt = [];
+            _jipt.push(['project', 'myhordes']);
+        </script>
+        <script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>
+        {% endif %}
+
         <!-- Load JS -->
         {{ encore_entry_script_tags('app') }}
 
