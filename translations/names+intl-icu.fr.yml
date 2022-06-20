@@ -1,64 +1,64 @@
 ---
-TDG_PRE_00_: Ami
-TDG_PRE_10_: Bicho
-TDG_PRE_20_: Bouti
-TDG_PRE_30_: Bou
-TDG_PRE_40_: Bla
-TDG_PRE_50_: Cachou
-TDG_PRE_01_: Cana
-TDG_PRE_11_: Champi
-TDG_PRE_21_: Chifou
+TDG_PRE_00_: TDG_PRE_00_
+TDG_PRE_10_: Asta
+TDG_PRE_20_: Baby
+TDG_PRE_30_: Barney
+TDG_PRE_40_: Baxter
+TDG_PRE_50_: Beau
+TDG_PRE_01_: Beatrice
+TDG_PRE_11_: Beethoven
+TDG_PRE_21_: Benji
 TDG_PRE_31_: Animal social
-TDG_PRE_41_: Dana
-TDG_PRE_51_: Efi
-TDG_PRE_02_: Epa
-TDG_PRE_12_: Epi
-TDG_PRE_22_: Fessi
-TDG_PRE_32_: Fla
-TDG_PRE_42_: Forta
-TDG_PRE_52_: Gru
-TDG_PRE_03_: Gueu
-TDG_PRE_13_: Gupi
-TDG_PRE_23_: Hano
-TDG_PRE_33_: Himou
-TDG_PRE_43_: Hista
-TDG_PRE_53_: Ipra
-TDG_PRE_04_: Jaba
-TDG_PRE_14_: Jamen
-TDG_PRE_24_: Jiji
-TDG_PRE_34_: Koka
-TDG_PRE_44_: Lepo
+TDG_PRE_41_: Bolt
+TDG_PRE_51_: Boomer
+TDG_PRE_02_: Brinkley
+TDG_PRE_12_: Bruiser
+TDG_PRE_22_: Buckley
+TDG_PRE_32_: Buddy
+TDG_PRE_42_: Chopper
+TDG_PRE_52_: Cosmo
+TDG_PRE_03_: Cujo
+TDG_PRE_13_: Copper
+TDG_PRE_23_: Daisy
+TDG_PRE_33_: Dug
+TDG_PRE_43_: Einstein
+TDG_PRE_53_: Fang
+TDG_PRE_04_: Frank
+TDG_PRE_14_: Hachi
+TDG_PRE_24_: Hooch
+TDG_PRE_34_: Lady
+TDG_PRE_44_: Jack
 TDG_PRE_54_: Exterminateur
-TDG_PRE_05_: Lorbo
-TDG_PRE_15_: Lou
-TDG_PRE_25_: Multi
-TDG_PRE_35_: Nepa
-TDG_PRE_45_: Nubi
-TDG_PRE_55_: Ona
-TDG_PRE_06_: Pavu
-TDG_PRE_16_: Pina
-TDG_PRE_26_: Qana
-TDG_PRE_36_: Quali
-TDG_PRE_46_: Quito
-TDG_PRE_56_: Ristou
-TDG_PRE_07_: Souni
-TDG_PRE_17_: Taupu
-TDG_PRE_27_: Tiba
-TDG_PRE_37_: Tristo
-TDG_PRE_47_: Troufi
-TDG_PRE_57_: Vitou
-TDG_PRE_08_: Vivrou
-TDG_PRE_18_: Westi
-TDG_PRE_28_: Wouli
-TDG_PRE_38_: Zazou
-TDG_PRE_48_: Zouti
-TDG_PRE_58_: Abou
-TDG_PRE_09_: Mousti
-TDG_PRE_19_: Oubi
-TDG_PRE_29_: Rexo
-TDG_PRE_39_: Tou
-TDG_PRE_49_: Nepa
-TDG_PRE_59_: Lorbo
+TDG_PRE_05_: Marley
+TDG_PRE_15_: Max
+TDG_PRE_25_: Otis
+TDG_PRE_35_: Rocco
+TDG_PRE_45_: Pixie
+TDG_PRE_55_: Rinty
+TDG_PRE_06_: Princess
+TDG_PRE_16_: Skipper
+TDG_PRE_26_: Reno
+TDG_PRE_36_: Snuffles
+TDG_PRE_46_: Stitch
+TDG_PRE_56_: Toto
+TDG_PRE_07_: Verdell
+TDG_PRE_17_: Uggie
+TDG_PRE_27_: William
+TDG_PRE_37_: Zero
+TDG_PRE_47_: Winky
+TDG_PRE_57_: Whiskey
+TDG_PRE_08_: Bandit
+TDG_PRE_18_: Arlo
+TDG_PRE_28_: Bismarck
+TDG_PRE_38_: Blue
+TDG_PRE_48_: Brian
+TDG_PRE_58_: Spike
+TDG_PRE_09_: Scooby
+TDG_PRE_19_: Lassie
+TDG_PRE_29_: Comet
+TDG_PRE_39_: Claude
+TDG_PRE_49_: Dino
+TDG_PRE_59_: Slinky
 TDG_SUF_00: ''
 TDG_SUF_10: ''
 TDG_SUF_20: ''
@@ -119,100 +119,100 @@ TDG_SUF_29: ''
 TDG_SUF_39: ''
 TDG_SUF_49: ''
 TDG_SUF_59: ''
-'Krankenhaus Beinapp': 'Hôpital Velpo'
-Aesthetyxiations-Abteilung: Clinique esthétruique
-'Krankenhaus Krankenstedt': 'Hôpital malade'
-'Waldorf Klinik': 'L''Hôpital du régal'
-'STD Behandlungszentrum Bohlen': 'L''hospice du vice'
-'Bill S. Preston Memorial Hospital': 'L''hôpital du mal'
-'Klinik von Dr. Quack Salber': 'Clinique du couic !'
-Wasserallergie-Behandlungszentrum: Clinique aux allergiques
-'Klinikum Altenburg': 'Pelle grain'
-'Stadtkrankenhaus am Dorfplatz': 'Sale pré-trier'
-Blanko-Penisverkleinerungsklinik: White et Necker
-'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'C.H.UT'
-'Bordeaux Grace': 'Bordeaux grace'
-'George und Ralph Kinderkrankenhaus': 'Georges XXXII'
-'Charlton Eston Hotel': 'Hôtel charlton eston'
-'Motel Zauberstübchen': 'Le Motel enchanté'
-'Rabble Lodge': 'Caesar palace'
-'Gasthof ''Zum Spanner''': 'Le palace de la place'
-'Zur Erbrochenen Krone': 'L''Hôtel sordide'
-'Terminal Hotel': 'Hôtel terminus'
-'Hotel Von Otto': 'Palace pas classe'
-'S+M B+B': 'Relais des gourmets'
-'Hotel Peculiar': 'Hôtel particulier'
-'Liza Defloration Hotel': 'Hôtel de la défenestration'
-'Santas Absteige': 'Hôtel Santa frit'
-'Chez Clem Hotel': 'Hôtel Chez yen'
-'Drei Eingänge Hotel + Spa': 'Hôtel Old port bay club'
-'Hostel Partout': 'Hôtel Sapin lodge'
-'Bumbling Inn': 'Hôtel Front tenace'
-'Vajazzl Inn': 'Hôtel Beverly colline'
-'Hotel Venga': 'Palace Gonzalez'
+'Krankenhaus Beinapp': 'Krankenhaus Beinapp'
+Aesthetyxiations-Abteilung: Aesthetyxiations-Abteilung
+'Krankenhaus Krankenstedt': 'Krankenhaus Krankenstedt'
+'Waldorf Klinik': 'Waldorf Klinik'
+'STD Behandlungszentrum Bohlen': 'STD Behandlungszentrum Bohlen'
+'Bill S. Preston Memorial Hospital': 'Bill S. Preston Memorial Hospital'
+'Klinik von Dr. Quack Salber': 'Klinik von Dr. Quack Salber'
+Wasserallergie-Behandlungszentrum: Wasserallergie-Behandlungszentrum
+'Klinikum Altenburg': 'Klinikum Altenburg'
+'Stadtkrankenhaus am Dorfplatz': 'Stadtkrankenhaus am Dorfplatz'
+Blanko-Penisverkleinerungsklinik: Blanko-Penisverkleinerungsklinik
+'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'Chronische Erschöpfungsheilanstalt Dr. Sloth'
+'Bordeaux Grace': 'Bordeaux Grace'
+'George und Ralph Kinderkrankenhaus': 'George und Ralph Kinderkrankenhaus'
+'Charlton Eston Hotel': 'Charlton Eston Hotel'
+'Motel Zauberstübchen': 'Motel Zauberstübchen'
+'Rabble Lodge': 'Rabble Lodge'
+'Gasthof ''Zum Spanner''': 'Gasthof ''Zum Spanner'''
+'Zur Erbrochenen Krone': 'Zur Erbrochenen Krone'
+'Terminal Hotel': 'Terminal Hotel'
+'Hotel Von Otto': 'Hotel Von Otto'
+'S+M B+B': 'S+M B+B'
+'Hotel Peculiar': 'Hotel Peculiar'
+'Liza Defloration Hotel': 'Liza Defloration Hotel'
+'Santas Absteige': 'Santas Absteige'
+'Chez Clem Hotel': 'Chez Clem Hotel'
+'Drei Eingänge Hotel + Spa': 'Drei Eingänge Hotel + Spa'
+'Hostel Partout': 'Hostel Partout'
+'Bumbling Inn': 'Bumbling Inn'
+'Vajazzl Inn': 'Vajazzl Inn'
+'Hotel Venga': 'Hotel Venga'
 'Verlassener Bunker': 'Bunker abandonné'
-Thermonuklear-Bunker: Bunker thermonucléaire
-Garrison-Haus: Bunker maginot
-'Bastion der Angst': 'Bunker de la peur'
-'Bunker der Wut': 'Bunker de la fureur'
-'Fallout Shelter': 'Abri atomique'
-'Keine Hoffnung ohne Öffnung!': 'Pas d''abri, t''es pris !'
-Schattenfort: Blockhaus glauque
-'Verlassene Trooper-Station': 'Blockhaus abandonné'
-Verwesungsversteck: Blockhaus plein d'os
-Knochenkeller: Blockhaus à l'os
-'Geheimes Testlabor': 'Centre d''expérimentation'
-'Area 52.1 Bunker': 'Bunker zone 52.1'
-'Area 33 Bunker': 'Bunker zone 33'
-Quarantäne-Zone: Étude des quarantaines
-'Zum Schlafen Reichts Motel': 'Hôtel de passe'
-Psychose: Psychoses
-Demenz: Démence
-Leid: Agonie
-Trinke: Boire
-Schlaf: Dormir
-Blut: Sang
-Wut: Rage
-Hass: Haine
-Töte: Tuer
-'Töte sie': 'Tues-les'
-Mord: Meurtre
+Thermonuklear-Bunker: Thermonuklear-Bunker
+Garrison-Haus: Garrison-Haus
+'Bastion der Angst': 'Bastion der Angst'
+'Bunker der Wut': 'Bunker der Wut'
+'Fallout Shelter': 'Fallout Shelter'
+'Keine Hoffnung ohne Öffnung!': 'Keine Hoffnung ohne Öffnung!'
+Schattenfort: Schattenfort
+'Verlassene Trooper-Station': 'Verlassene Trooper-Station'
+Verwesungsversteck: Verwesungsversteck
+Knochenkeller: Knochenkeller
+'Geheimes Testlabor': 'Geheimes Testlabor'
+'Area 52.1 Bunker': 'Area 52.1 Bunker'
+'Area 33 Bunker': 'Area 33 Bunker'
+Quarantäne-Zone: Quarantäne-Zone
+'Zum Schlafen Reichts Motel': 'Zum Schlafen Reichts Motel'
+Psychose: Psychose
+Demenz: Demenz
+Leid: Leid
+Trinke: Trinke
+Schlaf: Schlaf
+Blut: Blut
+Wut: Wut
+Hass: Hass
+Töte: Töte
+'Töte sie': 'Töte sie'
+Mord: Mord
 Drogen: Drogues
-'Der Tod wartet': 'La mort t''attend'
-'Du wirst sterben': 'Tu vas mourir'
-'Du wirst heute sterben': 'Tu mourras cette nuit'
-'Folge den Schatten': 'Rejoins les ombres'
-Alpträume: Cauchemars
-Verstümmelung: Mutilations
-'Keine Hoffnung': 'Aucun espoir'
-'Sie beobachten dich': 'Ils t''espionnent'
-'Sie wollen dich töten': 'Ils veulent ta mort'
-'Traue niemandem': 'Ne leur fais pas confiance'
-'Lauf lauf weg': 'Enfuis toi loin'
-'Hör nicht auf sie': 'Ne les écoutes pas'
-'Sie werden dich töten': 'Ils te tueront'
-'Dein Nachbar will deinen Tod': 'Ton voisin veut ta mort'
-'Sie wollen dich hängen': 'Ils veulent vous pendre'
-'Sie werden dich umbringen': 'Ils veulent te pendre'
-'Bleib hier': 'Tu y passeras'
-'Koste ihr Blut': 'Goûte leur sang'
-'Wir beobachten dich': 'On t''observe'
-'Sie sind VERRÜCKT': 'Ils sont FOUS'
-'Wir wollen deine Haut': 'On veut ta peau'
-'Koste ihr Fleisch': 'Goûte leur chair'
-'Iss ihn': 'Manges en un'
-'Töte ihn': 'Tues en un'
-'Lass ihn zahlen': 'Fais lui payer'
-'Räche dich': 'Venge-toi'
-'Verrate sie': 'Trahis-les'
-'Ohne Gnade': 'Sans pitié'
-'Ich bin nicht verrückt': 'Je ne suis pas fou'
-'Ich sehe nichts': 'Je ne vois rien'
-'Sie sind wahnsinnig': 'Ils sont fous'
-'Bis zum Tod': 'A mort'
-'Töte sie alle': 'Tue les tous'
-'Sie werden sterben': 'Ils mourront'
-'Lass sie sterben': 'Qu''ils meurent'
-'Verschlinge sie': 'Dévore-les'
-'Gib auf': 'Abandonne'
-'Alles... ist ... OK …': 'Tout … va … bien …'
+'Der Tod wartet': 'Der Tod wartet'
+'Du wirst sterben': 'Du wirst sterben'
+'Du wirst heute sterben': 'Du wirst heute sterben'
+'Folge den Schatten': 'Folge den Schatten'
+Alpträume: Alpträume
+Verstümmelung: Verstümmelung
+'Keine Hoffnung': 'Keine Hoffnung'
+'Sie beobachten dich': 'Sie beobachten dich'
+'Sie wollen dich töten': 'Sie wollen dich töten'
+'Traue niemandem': 'Traue niemandem'
+'Lauf lauf weg': 'Lauf lauf weg'
+'Hör nicht auf sie': 'Hör nicht auf sie'
+'Sie werden dich töten': 'Sie werden dich töten'
+'Dein Nachbar will deinen Tod': 'Dein Nachbar will deinen Tod'
+'Sie wollen dich hängen': 'Sie wollen dich hängen'
+'Sie werden dich umbringen': 'Sie werden dich umbringen'
+'Bleib hier': 'Bleib hier'
+'Koste ihr Blut': 'Koste ihr Blut'
+'Wir beobachten dich': 'Wir beobachten dich'
+'Sie sind VERRÜCKT': 'Sie sind VERRÜCKT'
+'Wir wollen deine Haut': 'Wir wollen deine Haut'
+'Koste ihr Fleisch': 'Koste ihr Fleisch'
+'Iss ihn': 'Iss ihn'
+'Töte ihn': 'Töte ihn'
+'Lass ihn zahlen': 'Lass ihn zahlen'
+'Räche dich': 'Räche dich'
+'Verrate sie': 'Verrate sie'
+'Ohne Gnade': 'Ohne Gnade'
+'Ich bin nicht verrückt': 'Ich bin nicht verrückt'
+'Ich sehe nichts': 'Ich sehe nichts'
+'Sie sind wahnsinnig': 'Sie sind wahnsinnig'
+'Bis zum Tod': 'Bis zum Tod'
+'Töte sie alle': 'Töte sie alle'
+'Sie werden sterben': 'Sie werden sterben'
+'Lass sie sterben': 'Lass sie sterben'
+'Verschlinge sie': 'Verschlinge sie'
+'Gib auf': 'Gib auf'
+'Alles... ist ... OK …': 'Alles... ist... gut...'
