@@ -246,11 +246,19 @@ class ExternalController extends InventoryAwareController {
     }
 
     /**
-     * @Route("/jx/docs", name="docs", condition="request.isXmlHttpRequest()")
+     * @Route("/jx/json_docs", name="json_docs", condition="request.isXmlHttpRequest()")
      * @return Response
      */
-    public function documentation(): Response {
-        return $this->render('ajax/public/apidocs.html.twig', []);
+    public function json_documentation(): Response {
+        return $this->render('ajax/public/jsonapidocs.html.twig', []);
+    }
+
+    /**
+     * @Route("/jx/xml_docs", name="xml_docs", condition="request.isXmlHttpRequest()")
+     * @return Response
+     */
+    public function xml_documentation(): Response {
+        return $this->render('ajax/public/xmlapidocs.html.twig', []);
     }
 
     private function SURLL_parser(): array {
@@ -2215,7 +2223,6 @@ class ExternalController extends InventoryAwareController {
         // Get the app.
         /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-
         if ($app === null) {
             return false;
         }

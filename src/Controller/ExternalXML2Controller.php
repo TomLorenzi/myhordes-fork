@@ -50,9 +50,9 @@ class ExternalXML2Controller extends ExternalController {
     /**
      * Check if the userkey and/or appkey has been given
      * @param bool $must_be_secure If the request must have an app_key
-     * @return Response|User Error or the user linked to the user_key
+     * @return array|Response Error or the user linked to the user_key
      */
-    private function check_keys($must_be_secure = false) {
+    private function check_keys($must_be_secure = false): array|Response {
         /** @var Request $request */
         $request = $this->container->get('request_stack')->getCurrentRequest();
 
@@ -84,6 +84,9 @@ class ExternalXML2Controller extends ExternalController {
         }
 
         // If still no key, none was sent correctly.
+
+        $app = null;
+
         if ($must_be_secure) {
             if(trim($app_key) == '') {
                 $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
@@ -110,7 +113,11 @@ class ExternalXML2Controller extends ExternalController {
             return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
         }
 
-        return $user;
+        return [
+            'user' => $user,
+            'appkey' => ($app ? $app_key : null),
+            'userkey' => $user_key
+        ];
     }
 
     /**
@@ -119,23 +126,30 @@ class ExternalXML2Controller extends ExternalController {
      * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
     public function api_xml(): Response {
-        $user = $this->check_keys(false);
+        $check = $this->check_keys(false);
 
-        if($user instanceof Response)
-            return $user;
+        dump($check);
 
-        $endpoints = [];
+        if($check instanceof Response)
+            return $check;
+
+        $endpoints = [
+            'list' => [
+                'name' => 'endpoint',
+                'items' => []
+            ]
+        ];
         if ($this->isSecureRequest()) {
-            $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
-            $endpoints['items']= $this->generateUrl('api_x2_xml_items', [], UrlGeneratorInterface::ABSOLUTE_URL);
-            $endpoints['buildings']= $this->generateUrl('api_x2_xml_buildings', [], UrlGeneratorInterface::ABSOLUTE_URL);
-            $endpoints['ruins']= $this->generateUrl('api_x2_xml_ruins', [], UrlGeneratorInterface::ABSOLUTE_URL);
-            $endpoints['pictos']= $this->generateUrl('api_x2_xml_pictos', [], UrlGeneratorInterface::ABSOLUTE_URL);
+            $endpoints['list']['items'][] = ['attributes' => ['name' => 'user'], 'value' => $this->generateUrl('api_x2_xml_user', ['userkey' => $check["userkey"], 'appkey' => $check['appkey']], UrlGeneratorInterface::ABSOLUTE_URL)];
+            $endpoints['list']['items'][] = ['attributes' => ['name' => 'items'], 'value' => $this->generateUrl('api_x2_xml_items', ['userkey' => $check["userkey"], 'appkey' => $check['appkey']], UrlGeneratorInterface::ABSOLUTE_URL)];
+            $endpoints['list']['items'][] = ['attributes' => ['name' => 'buildings'], 'value' => $this->generateUrl('api_x2_xml_buildings', ['userkey' => $check["userkey"], 'appkey' => $check['appkey']], UrlGeneratorInterface::ABSOLUTE_URL)];
+            $endpoints['list']['items'][] = ['attributes' => ['name' => 'ruins'], 'value' => $this->generateUrl('api_x2_xml_ruins', ['userkey' => $check["userkey"], 'appkey' => $check['appkey']], UrlGeneratorInterface::ABSOLUTE_URL)];
+            $endpoints['list']['items'][] = ['attributes' => ['name' => 'pictos'], 'value' => $this->generateUrl('api_x2_xml_pictos', ['userkey' => $check["userkey"], 'appkey' => $check['appkey']], UrlGeneratorInterface::ABSOLUTE_URL)];
         }
-        if ($user->getActiveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
+        if ($check['user']->getActiveCitizen()) $endpoints['list']['items'][] = ['attributes' => ['name' => 'town'], 'value' => $this->generateUrl("api_x2_xml_town", ['userkey' => $check["userkey"], 'appkey' => $check['appkey']], UrlGeneratorInterface::ABSOLUTE_URL)];
 
         $array = [
-            "endpoint_list" => $endpoints
+            "endpoints" => $endpoints
         ];
 
         // All fine, let's populate the response.
