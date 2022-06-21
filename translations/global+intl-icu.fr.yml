@@ -405,7 +405,7 @@ Vorschlag: Suggs
 SALC: SALC
 Projekt: Projet
 'Tag hinzufügen (optional)': 'Ajouter un tag (optionnel)'
-Tag: Tag
+Tag: Jour
 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'Un script sur cette page a crashé; plus d’informations ont été envoyées à la console Web. La page peut ne plus fonctionner correctement. Vous pouvez signaler cette erreur :'
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'Une erreur s’est produite. Aucune autre information n’est disponible.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Le saviez-vous? Pour de nombreuses actions, une info-bulle s’affiche d’abord sur les appareils mobiles. Si vous souhaitez effectuer l’action, vous devez appuyer à nouveau sur celle-ci. Si vous êtes pressé et préférez ne pas voir les textes d’aide, vous pouvez désactiver cette fonctionnalité dans les paramètres de votre âme via le paramètre «\_Afficher les info-bulles sur les appareils mobiles en appuyant dessus\_».'
@@ -431,3 +431,5 @@ STRG: CTRL
 'Umfrage starten': 'Répondre au sondage'
 'Alles als gelesen markieren': 'Marquer tout comme lu'
 Weltforum: Forum Monde
+'im-Kontext Übersetzung': 'Traduction En-Contexte'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Cette langue particulière active la fonctionnalité Tranduction En-Contexte de Crowdin. Vous pourrez traduire MyHordes directement depuis le jeu.'
