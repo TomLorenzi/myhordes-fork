@@ -2,8 +2,8 @@
 'Die gewählte Stadt ist bereits voll.': 'Cette ville est déjà pleine.'
 'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'Vous ne pouvez pas rejoindre plus d''une ville à la fois.'
 'Du bist dieser Stadt bereits beigetreten.': 'Vous avez déjà rejoint cette ville.'
-Stadtname: Nom de Ville
-Aktionen: Actions
+Stadtname: Nouvelles villes disponibles
+Aktionen: Action
 'Aktuell gibt es keine Stadt diesen Typs.': 'Aucune ville de ce type n''est actuellement disponible.'
 'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.': 'Les joueurs de cette ville parlent {lang_town}. Vous jouez actuellement en {lang_user}.'
 'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?': 'La communication est indispensable dans MyHordes. Veuillez ne pas rejoindre une ville dont vous ne parlez pas la langue... Validez-vous ce choix?'
@@ -34,7 +34,7 @@ Einstellungen: Réglages
 Event-Stadt: Ville événement
 Spezialregeln: Règles spéciales
 'Keine Spezialregeln': 'Aucune règle spéciale'
-Keine: Aucun
+Keine: Aucune
 'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!': 'Aucun chantier n''est préalablement débloqué, tout est à trouver dans le désert !'
 'Keine Startgebäude': 'Aucun chantier de départ'
 'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.': 'Chaque nourriture ou drogue avalée a une petite chance de provoquer une infection.'
