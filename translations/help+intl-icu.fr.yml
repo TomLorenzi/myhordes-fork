@@ -1,7 +1,7 @@
 ---
 'Brauchst du Hilfe?': 'Besoin d''aide ?'
 'Besuche unsere Technische Supportseite': 'Consultez le site du support technique'
-'Die Außenwelt': 'L''outre-monde'
+'Die Außenwelt': 'L''Outre-Monde'
 'Sich bewegen': 'Se déplacer'
 'Die Karte': 'La carte'
 'Erkunden und Graben': 'Explorer et Fouiller'
@@ -19,9 +19,9 @@ Inventar: Inventaire
 'Der Tod und deine Seelenpunkte': 'La mort et les Points d''âme'
 'Der letzte Tod': 'La Mort Ultime !'
 Heldenmodus: Mode Héros
-'Kleine Koalitionen': 'Citoyens coalisés'
+'Kleine Koalitionen': 'Petites Coalitions'
 'Haus &amp; Hausarbeiten': 'Maisons & Travaux'
-Ghule: Type de goule
+Ghule: Les goules
 'Die Berufe': 'Les métiers'
 Einwohner: Habitant
 Buddler: Fouineur
@@ -218,7 +218,7 @@ Außenweltgebäude: Les bâtiments extérieurs
 'Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.': 'Toutefois, la ville doit avoir tenu <strong>10 jours complets minimum</strong> pour que cette distinction soit attribuée.'
 'Um möglichst lange zu überleben, solltest du auf deine <strong>Gesundheit</strong> achten.': 'Pour survivre dans un monde pareil, il est primordial de bien <strong>surveiller votre état de santé</strong>. De nombreux indicateurs sont visibles en haut du site.'
 'Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...': 'Vous y apprendrez en un coup d''œil si vous avez besoin de boire, vous soigner, etc.'
-Erschöpfung: Fatigué(e)
+Erschöpfung: Fatigue
 'Wenn du keine {img_ap} Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href={url_move}>Sich bewegen</span>).': 'Lorsque vous n''avez plus de {img_ap} Points d''action, vous devenez fatigué(e) et vous ne pouvez plus marcher (voir <span x-ajax-href={url_move}>Se déplacer</span>).'
 Durst: Soif
 "Du musst etwas trinken... Warte nicht zu lang, sonst bist du\n<strong>{img_dehy} Dehydriert</strong>!": "Vous avez besoin de boire... Ne tardez pas trop à le faire, vous risquez de finir par devenir <strong>{img_dehy} Déshydraté(e)</strong> !"
@@ -227,7 +227,7 @@ Satt: Rassasié(e)
 'Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.': 'Ces états indiquent que vous avez bu et/ou mangé aujourd''hui. Répéter cette action ne vous fera plus récupérer vos points d''action à nouveau pour la journée.'
 'Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.': 'Exemple : vous avez bu une gourde ce matin pour récupérer vos points d''action et annuler l''état SOIF. Si vous buvez à nouveau aujourd''hui, vous pourrez annuler à nouveau la SOIF mais pas récupérer vos points d''action.'
 Verwundung: Blessure
-Infektion: Infecté(e)
+Infektion: Infection
 'Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.': 'Elle est due à une blessure ou à la consommation d''une nourriture peu recommandable, soignez-vous rapidement, elle a 50% de chance d''être mortelle, 75% dans les cités du Pandémonium.'
 Rauschzustand: Drogué(e)
 Angst: Terreur
@@ -255,7 +255,7 @@ Arme: Bras
 'Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...': 'votre blessure vous empêche de participer aux chantiers de ville ou de manipuler la Grande Porte...'
 Bein: Jambe
 'In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!': 'dans l''Outre-Monde, vous avez une chance à chaque pas de vous effondrer. Votre PA est alors perdu et vous ne quittez pas la case où vous êtes !'
-Auge: Oeil
+Auge: Œil
 'Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.': 'vos chances de trouver un objet en extérieur lors d''une fouille (désert ou bâtiment) sont considérablement réduites.'
 Fuß: Pied
 'Bringt dir keine Nachteile.': 'pas de pénalité supplémentaire.'
@@ -406,7 +406,7 @@ Nachteile: Désavantages
 'Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...': 'N''oubliez pas que tout le monde peut être transformé en Goule ! Même le leader charismatique qui dirige votre ville et qui vous donne de bons conseils.'
 "Jeder Spieler startet in \"Die Verdammten\" als einfacher Bürger. \nDaneben gibt es jedoch noch <strong>7 außergewöhnliche Berufe</strong>. \nDiese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.": "<strong>Chaque citoyen dans MyHordes peut commencer en tant que simple Habitant ou choisir un métier</strong> qui lui apporte un avantage dans un domaine spécifique : le métier de Fouineur permet par exemple de trouver plus d'objets dans le désert que la moyenne."
 "Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. \nDer Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler \nEinwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.\nDarüber hinaus erhält man je nach Beruf einen <strong>speziellen Gegenstand</strong>. \nDer Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...": "Un métier <strong>donne accès à un objet spécial que vous seul(e) pouvez posséder</strong>. La tenue de camouflage pour l'Éclaireur, une pelle pour le Fouineur, etc."
-'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.': 'L''habitant est un citoyen tout à fait normal, sans aucune capacité notable...'
+'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.': 'L''Habitant est le citoyen de base dans MyHordes : il n''a aucune capacité spéciale.'
 Startausrüstung: Équipement de départ
 Bürgerkleidung: Tenue de Citoyen
 'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'Votre uniforme de citoyen inchangé depuis des années est votre seule possession. C''est également le dernier vêtement que vous porterez pour le restant de vos jours. Néanmoins, cette tenue est fonctionnelle et relativement confortable donc il n''y a pas trop à se plaindre non plus...'
@@ -468,7 +468,7 @@ Schraubenschlüssel: Kit du bricoleur
 'Doch manchmal greift das Schicksal ein und zerrt dich aus Ihrem kleinen Leben in große Abenteuer und kühne Taten.': 'Mais il arrive que le sort fasse que vous deviez vous élever et sortir de votre rôle si tranquille de citoyen.'
 'Überleben durch Kommunikation und Kooperation': 'Survivre c''est communiquer'
 'So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in ''MyHordes'' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.': 'Tout comme l''Éclaireur est un métier important pour la communauté car il est une véritable source d''information, chacun, peu importe son métier, a un rôle à jouer. Certes, il est possible de survivre seul. Peut-être même est-ce la solution quand il ne reste plus grand monde pour contrecarrer les attaques de la Horde. Cependant, au début de votre nouvelle existence, s''allier avec vos concitoyens est le meilleur cheminement pour créer une ville plus forte et récupérer des ressources et des objets plus facilement dans le désert de l''Outre-Monde.'
-'Die Bank': 'La banque'
+'Die Bank': 'La Banque'
 'Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, <strong>sollten</strong> alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.': 'Afin de pouvoir construire des bâtiments et de renforcer les défenses de la ville, les aventuriers peuvent donner à la ville le fruit de leurs recherches <strong>s''ils en ont envie</strong>. Ainsi donner des morceaux de tôle récupérés sur de vieilles carlingues d''avion permettra de renforcer le blindage des murs extérieurs. De la même façon donner du bois ou du métal permettra la construction des bâtiments communautaires.'
 '<strong>Beherzige das Sprichwort</strong>: Wer nichts gibt und nichts spendet, der verendet!': '<strongSuivez le dicton</strong> : Ne rien partager, ne rien donner, c''est la meilleure solution pour se faire bouffer.'
 'Das Stadtforum und seine Unterforen': 'Le Forum et les espaces de communication'
@@ -608,7 +608,7 @@ Hängung: Elimination
 "Kleine Städte (Kartentyp \"Kleine Karte\") sind für die neuen Spieler bei \"Die Verdammten\" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. \nDiese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.": "Les régions non éloignées sont des zones pour joueurs débutants dans le monde des hordes. Elles sont accessibles à tous et proposent un challenge moindre."
 'Punkte für Auszeichnungen erhalten nur jene Spieler, die mehr als 100 Seelenpunkte haben und die mindestens 8 Tage in der Stadt verbracht haben.': 'Les récompenses ne sont attribuées qu''au bout du huitième jour pour les joueurs possédant plus de 100 points d''âme (ou les atteignant à leur mort).'
 'Denk daran, im Gegensatz zu den 5-Tage-Regel in Kleinen Städten werden für erfahrene Spieler keine Auszeichnungen vor dem 8. Tag vergeben. Nach dem finalen Angriff (niemand mehr am Leben) werden die Belohnungen verteilt.': 'Attention, contrairement à la règle du jour 5 en Région Eloignée, aucune récompense ne sera attribuée avant le jour 8 pour ces joueurs expérimentés. Lors de la dernière attaque (plus de survivants), les récompenses seront attribuées.'
-'Spiritueller Führer': 'Guide Spirituel'
+'Spiritueller Führer': 'Le Guide Spirituel'
 'Im Gegenzug kann man sich ab dem ersten Tag Punkte für den Titel <strong>Spiritueller Führer</strong> verdienen.': 'En revanche, un titre est accessible dès le premier jour, le guide spirituel.'
 "Versucht, so lange wie möglich in einer kleinen Stadt zu überleben.\nKleine Städte stehen auch Spielern mit mehr als 100 Seelenpunkten offen, wenn sich mindestens 20 Bürger mit weniger als 100 Seelenpunkten in der Stadt befinden.\nDie Punkte für den Titel \"Spiritueller Führer\" kumulieren sich mit jedem Tag. Jeder überlebte Tag bringt die jeweilige Menge an Punkten.": "Chargé de faire durer une ville en RNE le plus longtemps possible. Il sera accessible aux joueurs ayant plus de 100 points d'âme, tant qu'ils parviennent à faire durer une ville contenant au moins 50% d'âmes de moins de 100 points. Les points de ce titre seront cumulatifs au fil des jours. Chaque jour passé offre son équivalent en nombre de point."
 'Beispiel:': 'Exemple :'
