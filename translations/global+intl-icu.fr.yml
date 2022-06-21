@@ -25,16 +25,16 @@ Zurück: Retour
 'Werbung ist verboten (Links etc.)': 'La publicité est interdite (liens, etc.)'
 'Heute um': 'Aujourd''hui à'
 'Gestern um': 'Hier à'
-Antworten: Réponses
+Antworten: Répondre
 Schließen: Fermer
 'Bestätigen?': 'Confirmer ?'
 Rückgängig: 'Annuler le dernier point'
 Abbrechen: Annuler
-Speichern: 'Inscrire mon annonce'
+Speichern: Enregistrer
 Achtung: Attention
 'Bist du sicher?': 'Etes-vous sûr de vouloir laisser ce message ?'
 'Auswahl bestätigen': 'Valider mon choix'
-Forum: Forum
+Forum: Forums
 'Deine Seele': 'Votre âme'
 Hilfe: Aide
 'Zum Spiel': 'Retour au site'
@@ -42,50 +42,49 @@ Deutsch: Allemand
 Englisch: Anglais
 Französisch: Français
 Spanisch: Espagnol
-Bearbeiten: Modifier
-Hinweis: Note
-Spiel: Jeu
 Statistiken: Statistiques
 '{points} Punkte': '{points} points'
-'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Ce joueur n''a pas encore gagné de distinctions...'
 Seelenpunktzahl: 'Score d''âme'
+'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Ce joueur n''a pas encore gagné de distinctions...'
 'Aktuelles Leben': 'Incarnation actuelle'
-Saison: Saison
-Tage: Jours
-Punkte: Points
 'Es wurde keine Stadt gefunden...': 'Aucune ville trouvée...'
+Saison: Saison
+Punkte: Points
+Tage: Jours
+Bearbeiten: Modifier
+Spiel: Jouer
 'Achtung! Der von dir ausgewählte Link, leitet dich auf eine <strong>nicht-offizielle Seite</strong> weiter (sprich: eine Fan- oder Spielerseite).': 'Attention ! Le lien que vous avez sélectionné renvoie sur un <strong>site non-officiel</strong> (c''est à dire créé par des joueurs).'
 'Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!': 'Vous ne devez jamais leur donner votre mot de passe MyHordes !'
 'Auch dann nicht, wenn du dazu aufgefordert wirst!': 'même si le site vous y invite !'
 'Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.': 'En cas de problème ou de questions concernant ce site, merci de contacter {contact}.'
 'Weiter zu': 'Continuer vers'
-'Du hast keine Externe ID.': 'Vous n''avez pas d''ID externe.'
-'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'Sans cela, <strong>vous ne pouvez pas utiliser d''applications externes</strong>. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.'
 Verzeichnis: Annuaire
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :'
-'Dazu hast Du kein Recht.': 'Tu n''as pas le droit de faire ça.'
-Moderation: Modération
+'Du hast keine Externe ID.': 'Vous n''avez pas d''ID externe.'
+'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'Sans cela, <strong>vous ne pouvez pas utiliser d''applications externes</strong>. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.'
+Sticky: Épinglé
 Online: 'En ligne'
 Offline: 'Hors ligne'
-Sticky: Épinglé
-Dev: Dev
-Löschen: Effacer
 Öffnen: Ouvrir
+Moderation: Modération
+'Dazu hast Du kein Recht.': 'Vous n''avez pas le droit.'
+'Du wurdest aus dem Forum verbannt.': 'Vous avez été banni du Forum.'
+Löschen: Supprimer
 Anpinnen: Épingler
 Loslösen: Désépingler
-'Du wurdest aus dem Forum verbannt.': 'Vous avez été banni du Forum.'
+Dev: Dev
 Schere: Ciseaux
 Stein: Pierre
 Papier: Papier
-Kopf: Tête
+Kopf: Pile
 Zahl: Face
 '{color} {value}': '{value} de {color}'
 Vorschau: Aperçu
-'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Au moment de passer à l''action, votre blessure vous arrache un hurlement et vous arrête net. Soignez-vous avant de pouvoir faire ça...'
 Autor: Auteur
 Datum: Date
 Züruck: Retour
 Archivieren: Archiver
+'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Au moment de passer à l''action, votre blessure vous arrache un hurlement et vous arrête net. Soignez-vous avant de pouvoir faire ça...'
 Fett: Gras
 Kursiv: Italique
 Unterstreichen: Souligné
@@ -96,37 +95,37 @@ Zitat: Citation
 Ruhm: 'Balise Glorieuse'
 Linie: Ligne
 Entstauben: Désarchiver
-Einfügen: Valider
-'Du kannst keine weiteren Gegenstände senden.': 'Vous ne pouvez plus envoyer d''objets.'
-Verräter: Traître
 'Link einfügen': 'Insérer un lien'
 'Bild einfügen': 'Insérer une image'
-'Admin Ankündigung': 'Annonce Admin'
-'Mod Ankündigung': 'Annonce modérateur'
-'Orakel Ankündigung': 'Annonce oracle'
-Rollenspiel: Roleplay
 Link-Text: 'Texte du lien'
 Link-URL: 'URL du lien'
 Bildtitel: 'Titre de l''image'
 Bild-URL: 'URL de l''image'
-'Liste der Themen aktualisieren': 'Actualiser la liste des sujets'
+Einfügen: Valider
 'Dieses Thema enthält offizielle Ansagen der Website Administratoren.': 'Ce sujet comporte une ou plusieurs annonces officielles des administrateurs.'
 'Dieses Thema enthält Ansagen von Community-Vertretern.': 'Ce sujet comporte une ou plusieurs annonces de représentants de la communauté.'
-'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'Cette discussion comporte {count} annonce(s) officielle(s) des administrateurs de MyHordes :'
+'Admin Ankündigung': 'Annonce Admin'
+'Mod Ankündigung': 'Annonce modérateur'
+'Orakel Ankündigung': 'Annonce oracle'
 'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'Cette discussion comporte {count} annonce(s) de représentants de la communauté :'
+'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'Cette discussion comporte {count} annonce(s) officielle(s) des administrateurs de MyHordes :'
 Zitieren: Citer
+'Du kannst keine weiteren Gegenstände senden.': 'Vous ne pouvez plus envoyer d''objets.'
+Rollenspiel: Roleplay
+Verräter: Traître
+'Liste der Themen aktualisieren': 'Actualiser la liste des sujets'
 Version: Version
 Sprache: Langue
 Vertraulich: Aparté
-'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'Cet identifiant doit être donné au site auquel vous souhaitez donner un accès (en lecture) aux informations de jeu de votre compte MyHordes : informations sur votre ville, liste des citoyens, carte du monde...etc.'
 'Diese Punkte werden für die Seelenrangliste verwendet.': 'Ces points servent au classement  dans l''Échelle des Âmes.'
 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.': 'Vous gagnez des points à la fin de chaque partie en fonction du nombre de jours survécus.'
-'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'Si cette condition n''a pas changé à minuit, il n''y a pas d''attaque nocturne. La journée se prolonge alors artificiellement.'
-Bestätigen: Confirmer
+'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'Cet identifiant doit être donné au site auquel vous souhaitez donner un accès (en lecture) aux informations de jeu de votre compte MyHordes : informations sur votre ville, liste des citoyens, carte du monde...etc.'
 'Num. Listenpunkt': 'Liste numérotée'
-'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'Si vous n''avez rien sous la main pour soulager votre fatigue, rendez-vous sur le forum pour obtenir de l''aide...'
+Bestätigen: Confirmer
 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'Le marqueur est visible sur la carte pour TOUS les citoyens. Utilisez-le pour partager des informations sur une zone spécifique avec la communauté.'
 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'Remarque : Tous les messages écrits ici seront perdus si tous les citoyens quittent la zone.'
+'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'Si cette condition n''a pas changé à minuit, il n''y a pas d''attaque nocturne. La journée se prolonge alors artificiellement.'
+'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'Si vous n''avez rien sous la main pour soulager votre fatigue, rendez-vous sur le forum pour obtenir de l''aide...'
 'Unangemessene Nachricht blockieren': Signaler
 Link: Lien
 'Permanenter Link zu diesem Post:': 'Lien permanent vers ce message :'
@@ -162,27 +161,27 @@ Mehrsprachig: Multilingue
 Stadtforum: 'Forum de la ville'
 Weltforen: 'Forums Monde'
 'Andere Foren': 'Autres forums'
+'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.': 'Chaque <strong>objet de défense</strong> placé dans la Banque apporte <strong>1 points de défense à la ville</strong>.'
+'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Nous devrions construire davantage de défenses dans les chantiers ! Si des ressources manquent, fouillez l''Outre-Monde (le désert autour de la ville) pour en dénicher.'
+'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!': '<strong>Important :</strong> les objets de défense peuvent rapporter au maximum <strong>500</strong> points de défense !'
+'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.': 'Ces défenses sont apportées par les âmes purifiées.'
 'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.': 'Au moins un message sur ce sujet a été signalé aux modérateurs.'
 'Dieses Thema enthält {count} gemeldete Posts:': 'Ce sujet contient {count} message(s) signalé(s) :'
 '{num} Meldungen. Klicken, um Benutzer anzuzeigen.': '{num} Messages. Cliquez pour voir les utilisateurs.'
 'Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.': 'Supprimé par {user} ({time}). Cliquez pour révéler la raison.'
 Überprüft: Vérifié
 Wiederherstellen: Restaurer
-'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Nous devrions construire davantage de défenses dans les chantiers ! Si des ressources manquent, fouillez l''Outre-Monde (le désert autour de la ville) pour en dénicher.'
-'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!': '<strong>Important :</strong> les objets de défense peuvent rapporter au maximum <strong>500</strong> points de défense !'
-'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.': 'Ces défenses sont apportées par les âmes purifiées.'
-'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.': 'Chaque <strong>objet de défense</strong> placé dans la Banque apporte <strong>1 points de défense à la ville</strong>.'
 'Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>': 'Les citoyens suivants sont : <ul><li>soit sur leur page de mort (ils n''ont pas validé leur décès),</li><li>soit déjà en jeu,</li><li>soit ils ont choisi de ne pas rejoindre automatiquement une ville avec le reste de la coalition.</li><li>non reconnectés depuis plus de 5 jours.</li></ul>'
 'Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.': 'Si un autre membre de la coalition rejoint une ville, vous le suivrez et commencerez dans la même ville que lui.'
 'Du musst noch mehr Erfahrung sammeln, um das tun zu können...': 'Vous devez acquérir plus d''expérience pour pouvoir le faire ...'
-Code: Code
-Kein: Aucun
 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'Ce message vous a été envoyé par le Corbeau lui-même, qui rôde au-dessus de votre ville...'
+Kein: Aucun
+Code: Code
 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'Ce bonus est obtenu grâce à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.'
-'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Ce bonus ne fonctionne que si les gardiens sont en ville pendant l''attaque.'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Ces défenses sont apportées par les joueurs jouant le rôle de veilleur la nuit au moment de l''attaque.'
 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'Ce coût peut être réduit en construisant une <strong>Décharge organisée</strong>.'
 Ausblenden: Cacher
-Nachricht: Annonce
+Nachricht: Message
 Ausb.+Nachr.: 'Masquer + Message'
 '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>La ville est en situation de Chaos total !</strong></p>Plus aucune loi n''a cours... Il va falloir se serrer les coudes et composer avec les quelques derniers survivants !<p><em>... Ou vous entretuer. Au choix.</em>'
 Entwickler-Einstellungen: 'Paramètres de développeur'
@@ -201,7 +200,7 @@ Entwickler-Einstellungen: 'Paramètres de développeur'
 'Bürger! Seid auf inoffiziellen Webseiten wachsam!': 'Citoyens ! Hors du site officiel, prudence !'
 'Du bist vor Angst erstarrt...': 'Vous êtes figé dans la peur...'
 'Nachrichten des Raben': 'Nouvelles du Corbeau'
-Anzeigen: Plaintes
+Anzeigen: Montrer
 Dauerhaft: Permanent
 '{n} Tage': '{n} Jours'
 '1 Tag': '1 Jour'
@@ -248,10 +247,8 @@ und: et
 'HINWEIS: Diese Aktion ist nur in der Stadt möglich.': 'NOTE : Cette action est possible uniquement en ville.'
 'HINWEIS: Diese Aktion ist nur in Übersee möglich.': 'NOTE : Cette action est possible uniquement dans l''Outre-Monde.'
 'Neuer Beitrag in': 'Nouvelle réponse dans'
-'Diese Diskussion ist beendet.': 'Cette discussion est terminée.'
-'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'Ce score est la somme du score de la ville et des points bonus gagnés au cours de la partie. Il représente donc la capacité de la ville à s''organiser pour permettre à tous de survivre.'
-'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Cliquez pour être informé(e) des nouvelles réponses apportées à cette discussion.'
-'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Cliquez pour ne plus être informé(e) des nouvelles réponses.'
+'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!': 'Vous serez blessé(e) si vous tentez de passer en force !'
+'Diese Aktion kostet dich 1 AP!': 'Cette action vous coûtera 1 PA !'
 'Nachrichten suchen': 'Rechercher un message'
 Suchbegriff: 'Mots clés'
 'Suchbegriffe eingeben': 'Entrez les mots-clés'
@@ -267,12 +264,14 @@ Suchen: Rechercher
 'Foren durchsuchen': 'Recherche dans les forums'
 'Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.': 'Aucun message correspondant à votre recherche n''a été trouvé.'
 'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.': 'Davantage de résultats ont été trouvés, mais il n''est pas possible de tous les afficher. Si vous n''avez pas trouvé, essayez de préciser votre recherche.'
-'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!': 'Vous serez blessé(e) si vous tentez de passer en force !'
-'Diese Aktion kostet dich 1 AP!': 'Cette action vous coûtera 1 PA !'
 'Es wurde noch keine Stadt in die Rangliste aufgenommen!': 'Aucune ville n''est encore dans le classement !'
-'Bitte wähle die Art der Beschränkung.': 'Veuillez choisir le type de restriction.'
+'Diese Diskussion ist beendet.': 'Cette discussion est terminée.'
+'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'Ce score est la somme du score de la ville et des points bonus gagnés au cours de la partie. Il représente donc la capacité de la ville à s''organiser pour permettre à tous de survivre.'
+'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Cliquez pour être informé(e) des nouvelles réponses apportées à cette discussion.'
+'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Cliquez pour ne plus être informé(e) des nouvelles réponses.'
 'Wer?': 'Qui?'
 'Namen eingeben': 'Entrez le nom'
+'Bitte wähle die Art der Beschränkung.': 'Veuillez choisir le type de restriction.'
 'Dein Icon': 'Mon icône'
 Auswählen: Choisir
 'Dein Titel': 'Mon titre'
@@ -307,7 +306,7 @@ Einblenden: Montrer
 'Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'Si vous bloquez l’expéditeur de ce message, il ne pourra pas vous envoyer de nouveaux messages. Si vous êtes tous les deux ajoutés à un message de groupe par une tierce personne, les publications du joueur bloqué vous seront masquées par défaut.'
 'Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.': 'Cet utilisateur vous a bloqué, vous ne pouvez plus lui envoyer de message.'
 'Bevorzugte Pronomen': 'Pronoms préférés'
-'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.': 'Vous pouvez spécifier ici quels pronoms personnels le jeu doit utiliser s’il se réfère à vous (ex : «\_masculin\_» pour «\_il\_», «\_lui\_», etc. et «\_féminin\_» pour «\_elle\_», «\_la\_», etc.<br /><em>Cette option influence la façon dont vous et les autres joueurs affichent certains textes lorsque l’option «\_Utiliser les nouvelles traductions\_» est active.</em>.'
+'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.': "Vous pouvez spécifier ici quels pronoms personnels le jeu doit utiliser s’il se réfère à vous (ex : «\_masculin\_» pour «\_il\_», «\_lui\_», etc. et «\_féminin\_» pour «\_elle\_», «\_la\_», etc.<br /><em>Cette option influence la façon dont vous et les autres joueurs affichent certains textes lorsque l’option «\_Utiliser les nouvelles traductions\_» est active.</em>."
 Männlich: Masculin
 Weiblich: Féminin
 'Keine Präferenz': 'Pas de préférence'
@@ -395,7 +394,7 @@ Fehler: Bugs
 Changelog: Changelog
 Event: Event
 RP: Roleplay
-Update: 'Mise à jour'
+Update: Maj
 Post: Courrier
 Disk.: Débat
 Guide: Guide
@@ -404,10 +403,10 @@ Vorschlag: Suggs
 SALC: SALC
 Projekt: Projet
 'Tag hinzufügen (optional)': 'Ajouter un tag (optionnel)'
-Tag: Jour
+Tag: Tag
 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'Un script sur cette page a crashé; plus d’informations ont été envoyées à la console Web. La page peut ne plus fonctionner correctement. Vous pouvez signaler cette erreur :'
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'Une erreur s’est produite. Aucune autre information n’est disponible.'
-'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Le saviez-vous? Pour de nombreuses actions, une info-bulle s’affiche d’abord sur les appareils mobiles. Si vous souhaitez effectuer l’action, vous devez appuyer à nouveau sur celle-ci. Si vous êtes pressé et préférez ne pas voir les textes d’aide, vous pouvez désactiver cette fonctionnalité dans les paramètres de votre âme via le paramètre «\_Afficher les info-bulles sur les appareils mobiles en appuyant dessus\_».'
+'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': "Le saviez-vous? Pour de nombreuses actions, une info-bulle s’affiche d’abord sur les appareils mobiles. Si vous souhaitez effectuer l’action, vous devez appuyer à nouveau sur celle-ci. Si vous êtes pressé et préférez ne pas voir les textes d’aide, vous pouvez désactiver cette fonctionnalité dans les paramètres de votre âme via le paramètre «\_Afficher les info-bulles sur les appareils mobiles en appuyant dessus\_»."
 Offiziell: Officiel
 'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'Nous DEVONS construire d''avantage de défenses dans les chantiers ! Si des ressources manquent, fouillez l''Outre-monde (le désert autour de la ville) pour en dénicher.'
 '{n} neue Beiträge in': '{n} nouvelles réponses dans'
@@ -416,6 +415,7 @@ Offiziell: Officiel
 'Deine Platzierung': 'Votre position'
 '{num} Seelenpunkte, Platz {rank}': '{num} points d''âme, position : <b>{rank, selectordinal, one {#er} other {#ème}}</b>'
 'Zu meinem Eintrag springen': 'Aller à ma position'
+Hinweis: Note
 'Diskussion aktualisieren': 'Actualiser la discussion'
 Support-Postfach: Support
 'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.': 'Vous avez effectué cette action trop de fois. Attendez un peu, puis réessayez.'
@@ -430,5 +430,3 @@ STRG: CTRL
 'Umfrage starten': 'Répondre au sondage'
 'Alles als gelesen markieren': 'Marquer tout comme lu'
 Weltforum: 'Forum Monde'
-'im-Kontext Übersetzung': 'Traduction En-Contexte'
-'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Cette langue particulière active la fonctionnalité Tranduction En-Contexte de Crowdin. Vous pourrez traduire MyHordes directement depuis le jeu.'

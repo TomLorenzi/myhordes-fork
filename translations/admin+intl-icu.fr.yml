@@ -1,7 +1,9 @@
-'Diesen Bürger töten?': 'Tuer ce citoyen ?'
 Status: États
 Dauer: Durée
 Grund: Raison
+Bürger: Citoyens
+Verbannung: Bannissement
+'Diesen Bürger töten?': 'Tuer ce citoyen ?'
 'Derzeitiges Leben': 'Incarnation actuelle'
 'TOD NICHT BESTÄTIGT': 'MORT NON CONFIRMÉE'
 Kopfschuss: 'Tir dans la tête'
@@ -12,12 +14,13 @@ Forum: Forum
 Autor: Auteur
 'gemeldet von': 'Signalé par'
 Gesehen: Vu
-Verbannung: Bannissement
-Bürger: Citoyens
 'Suche:': 'Recherche :'
+Übersicht: Aperçu
+'Posts mit nur einer Meldung werden ausgeblendet.': 'Les messages contenant un seul message sont masqués.'
+'Alle anzeigen': 'Voir tout'
 Account: Compte
 Benutzername: 'Nom d''utilisateur'
-E-Mail: E-mail
+E-Mail: E-Mail
 Validiert: Validé
 Ja: Oui
 Nein: Non
@@ -37,15 +40,7 @@ Sicherheit: Sécurité
 'Passwort-Reset auslösen': 'Initier la réinitialisation du mot de passe'
 'Passwort-Reset erzwingen': 'Forcer la réinitialisation du mot de passe'
 Ausführen: Exécuter
-Übersicht: Aperçu
-'Posts mit nur einer Meldung werden ausgeblendet.': 'Les messages contenant un seul message sont masqués.'
-'Alle anzeigen': 'Voir tout'
-Users: Utilisateurs
-Städte: Villes
-Zukunft: Évolutions
-Auszeichnungen: Distinctions
 Admin-Wachturm: TDG
-Ruinenscanner: Ruines
 ID: ID
 Stadtname: 'Nom de Ville'
 Sprache: Langue
@@ -61,6 +56,21 @@ Brunnen: Puits
 Angriff: Attaque
 'Bereich Min': Min
 'Bereich Max': Max
+Stadtübersicht: 'Liste des villes'
+'Liste aller Städte': 'Liste de toutes les villes'
+Pop.: Pop.
+Aktionen: Actions
+Tot: Mort
+Getrennt: Déconnecté
+Details: Détails
+Users: Utilisateurs
+Städte: Villes
+Zukunft: Évolutions
+Titel: Titre
+Version: Version
+'Neue Update': 'Nouvelle mise à jour'
+Auszeichnungen: Distinctions
+Ruinenscanner: Ruines
 Position: Position
 Distanz: Distance
 Zombies: Zombies
@@ -72,16 +82,6 @@ Flucht: 'S''enfuir'
 Raum: Pièce
 Zeit: Temps
 'Alle Sitzungen': 'Toutes les sessions'
-Stadtübersicht: 'Liste des villes'
-'Liste aller Städte': 'Liste de toutes les villes'
-Pop.: Pop.
-Aktionen: Actions
-Tot: Mort
-Getrennt: Déconnecté
-Details: Détails
-Titel: Titre
-Version: Version
-'Neue Update': 'Nouvelle mise à jour'
 'Dieser Login ist ausschließlich für Administratoren gedacht.': 'Cette connexion est réservée aux administrateurs.'
 'Admin Dashboard': 'Tableau de bord administrateur'
 'Geplante Angriffe': 'Attaques planifiées'
@@ -93,12 +93,12 @@ Version: Version
 '+ 9999 Seelenpunkte': '+ 9999 points d''âme'
 'Geheime Saison freischalten': 'Débloquer la saison secrète'
 'Computer sagt nein.': 'L''ordinateur a dit non.'
-'Du hast dich umgebracht.': 'Vous vous êtes suicidé.'
-'Du gehörst keiner Stadt an.': 'Vous n''appartenez pas à une ville.'
-'Selbstmord begehen': 'Se suicider'
-'PM vom Raben': 'MP du Corbeau'
 Stadtregister: Registre
+'Du hast dich umgebracht.': 'Vous vous êtes suicidé.'
+'Selbstmord begehen': 'Se suicider'
+'Du gehörst keiner Stadt an.': 'Vous n''appartenez pas à une ville.'
 'Rundmail als Rabe': 'Écrire à tout le monde en tant que Corbeau'
+'PM vom Raben': 'MP du Corbeau'
 'Stadt administrieren': 'Administrer la ville'
 'Nächtlicher Angriff': 'Attaque nocturne'
 'Quarantäne aufheben': 'Supprimer la quarantaine'
@@ -122,9 +122,9 @@ Berechtigungen: Autorisations
 Verdacht: Soupçon
 'Andere Accounts': 'Autres comptes'
 Bann: Bannir
+Verschüttet: Enterré
 Verwaltung: Administration
 Annulieren: Annuler
-Verschüttet: Enterré
 'Multi-Account Whitelist': 'Liste blanche multi-comptes'
 Spieler-ID: 'ID du joueur'
 'Multi-Account Whitelist-Eintrag hinzufügen': 'Ajouter une entrée de liste blanche multi-comptes'
@@ -160,7 +160,6 @@ PN-Meldungen: 'Messages MP'
 Dashboard: 'Tableau de bord'
 'Stadt {townname}': 'Ville {townname}'
 Bank: Banque
-Apps: Apps
 'Einen Gegenstand erzeugen:': 'Faire apparaître un objet :'
 'Vergiftet:': 'Empoisonné :'
 'Zerstört:': 'Cassé :'
@@ -169,6 +168,7 @@ Erzeugen!: 'Créer !'
 Rucksack: Sac
 Truhe: Coffre
 'Leere Truhe': 'Coffre vide'
+Apps: Apps
 Anwendung: Application
 Besitzer: Propriétaire
 Kontakt: Contact
@@ -189,22 +189,20 @@ Kurztexte: Fast-Replace
 Inhalt: Contenu
 'Neuen Kurztext anlegen': 'Créer un nouveau Fast-Replace'
 'ID eingeben': 'Entrer l''ID'
+'Eine Auszeichnungen auswählen:': 'Donner une distinction :'
 'Anzahl der Auszeichnungen:': 'Nombre de distinctions :'
 Vergeben!: 'Donner !'
 'Aktuelle Städte': 'Villes actuelles'
 'Fertige Städte': 'Villes terminées'
 Importiert: Importée
 'Seite {page}/{total}': 'Page {page}/{total}'
-'Neue Anwendung registrieren': 'Enregistrer une nouvelle app externe'
 Anzeigen: Plaintes
 'Gegen {culprit}': 'Contre {culprit}'
-Anwendungen: Applications
+'Neue Anwendung registrieren': 'Enregistrer une nouvelle app externe'
 'Neue Anwendung': 'Nouvelle application'
 'Anwendung "{external_app}"': 'Application "{external_app}"'
-'Eine Auszeichnungen auswählen:': 'Donner une distinction :'
+Anwendungen: Applications
 'Einen Status auswählen:': 'Attribuer un statut :'
-Saisons: Saisons
-'Neue Saison': 'Nouvelle saison'
 'Status vergeben': 'Attribuer le statut'
 'Status entfernen': 'Retirer le statut'
 'Eine Rolle auswählen:': 'Attribuer un rôle :'
@@ -213,19 +211,21 @@ Saisons: Saisons
 'Bürger nach Sprache': 'Citoyens par ville'
 Geöffnet: Ouvert
 Leben: Vivants
+Saisons: Saisons
+'Neue Saison': 'Nouvelle saison'
 Seasons: Saisons
 Akt.: Act.
 Nummer: Numéro
 Sub-Nummer: Sous-numéro
 Name: Nom
-'Saison "{season}"': 'Saison {season}'
+'Saison "{season}"': 'Saison "{season}"'
 'Saison Nummer': 'Numéro de Saison'
 'Saison Sub-Nummer': 'Sous-numéro de Saison'
 'Aktuelle Saison': 'Saison actuelle'
 AP: PA
 Setzen: Mettre
 Abziehen: Retirer
-Changelogs: 'Notes de versions'
+Changelogs: Changelogs
 Ankündigungen: Annonces
 'Neue Ankündigung': 'Nouvelle annonce'
 Konstruktionen: Chantiers
@@ -233,21 +233,33 @@ Konstruktionen: Chantiers
 Stimmen: Votes
 'Für {target}': 'Pour {target}'
 Ersteller: Créateur
+'Stadt ansehen': 'Voir la ville'
 'Existierende Beschränkungen': 'Sanctions existantes'
 'Dieser Spieler hat eine weiße Weste.': 'Ce joueur n''a aucune sanction existante.'
+Info: Info
 'Bestätigt von': 'Confirmé par'
 Datum: Date
 Endet: 'Prend fin'
-Info: Info
+'Nicht bestätigt!': 'Pas confirmé!'
+Abgelaufen: Expiré
+Deaktiviert: Désactivé
+'Interner Vermerk': 'Note interne'
+Art: Type
+Sozial: Social
+Stadt-Kom.: 'Com. ville'
+'Globale Kom.': 'Com. global'
+Kommentare: Commentaire
+Org.: Org.
+Spiel: Jeu
+Bestätigen: Confirmer
+'{d} Tage': '{d} Jours'
 'Neue Beschränkung hinzufügen': 'Ajouter une sanction'
 '24 Stunden': '24 Heures'
-'{d} Tage': '{d} Jours'
 'Bestätigung erforderlich': 'Confirmation nécessaire'
 '1 Jahr': '1 An'
 'Admin-Bestätigung erforderlich': 'Confirmation de l''administrateur requise'
 '2 Jahre': '2 Ans'
 Dauerhaft: Permanent
-'Interner Vermerk': 'Note interne'
 'Art der Beschränkung': 'Type de restriction'
 'Soziale Interaktion verbieten': 'Interdire les interactions sociales'
 'Posten in Foren verbieten': 'Publication dans les forums'
@@ -259,18 +271,6 @@ Dauerhaft: Permanent
 'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un autre modérateur avant qu''elle ne devienne active.'
 'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': 'La durée de la restriction ne compte qu''à partir du moment où elle est activée.'
 'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un administrateur avant qu''elle ne devienne active.'
-'Stadt ansehen': 'Voir la ville'
-'Nicht bestätigt!': 'Pas confirmé!'
-Abgelaufen: Expiré
-Deaktiviert: Désactivé
-Art: Type
-Sozial: Social
-Stadt-Kom.: 'Com. ville'
-'Globale Kom.': 'Com. global'
-Kommentare: Commentaire
-Org.: Org.
-Spiel: Jeu
-Bestätigen: Confirmer
 'Schwarzes Brett': 'Tableau noir'
 'Stadt füllen': 'Remplir la ville de citoyens'
 'Bank füllen': 'Remplir la banque'
@@ -528,4 +528,4 @@ Antwortstext: 'Texte de la réponse'
 'Verbietet die Erstellung neuer globaler PNs sowie das Antworten und die Hinzufügung neuer Spieler zu bestehenden PNs.': 'Interdit la création de nouveaux MP globaux ainsi que la réponse et l’ajout de nouveaux joueurs aux MP existants.'
 'Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.': 'Interdit l’édition des commentaires de ville ainsi que l''écriture des derniers mots.'
 'Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.': 'Interdit la formation de nouvelles coalitions et la gestion des membres et le chat des coalitions existantes.'
-'Fortschritt des Aufstands': 'Prog. de l''insurrection'
+'Fortschritt des Aufstands': 'Fortschritt des Aufstands'
