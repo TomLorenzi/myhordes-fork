@@ -1,14 +1,28 @@
----
-E-Mail-Adresse: Adresse email
+E-Mail-Adresse: 'Adresse email'
 'Externe ID für Apps': 'ID externe pour les apps'
 'Neue ID generieren': 'Générer un nouvel ID'
 'ID löschen': 'Supprimer l''ID'
 'Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.': 'En supprimant l''ID, vous empêchez les applications externes d''accéder à vos données.'
-Seele: Ame
+Seele: Âme
 News: News
 Einstellungen: Réglages
 Logout: Déconnexion
-'Einen Kommentar hinzufügen': 'Ajouter un commentaire'
+Schriften: Écrits
+'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...': 'L''histoire d''un monde n''est que le reflet de multiples épopées individuelles...'
+'Gefundene Texte: {count}': 'Textes découverts : {count}'
+Titel: Titre
+Entdeckt: Découvert
+'Redakteur:': 'Rédacteur :'
+'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...': 'Ce document comporte plusieurs pages. Cliquez dessus pour passer à la page suivante...'
+'Vorherige Seite': 'Page précédente'
+'Nächste Seite': 'Page suivante'
+'Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.': 'Ce serveur n''est pas configuré pour supporter les avatars.'
+'Dieses Dateiformat wird nicht unterstützt.': 'Ce format de fichier n''est pas pris en charge.'
+'Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.': 'Ce fichier est corrompu et ne peux pas être traité.'
+'Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.': 'Ce fichier est trop volumineux et le serveur n''a pas pu le compresser suffisamment.'
+'Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.': 'Une erreur interne est survenue lors du traitement de l''image.'
+'Die Datei ist zu groß.': 'Ce fichier est trop volumineux.'
+'Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.': 'La résolution de cette image ne convient pas pour une image de profil.'
 'Dein Profil': 'Votre Profil'
 'Normale Anzeige': 'Affichage normal'
 'Komprimierte Anzeige': 'Affichage compressé'
@@ -18,57 +32,40 @@ Logout: Déconnexion
 'Komprimierte Anzeige bearbeiten': 'Choix de la zone d''affichage compressée'
 'Profilbild hochladen': 'Envoyer une image de profil'
 Darstellung: Affichage
-'Bevorzugt komprimierte Profilbilder anzeigen': 'Préférer l''affichage compressé des avatars'
 'Login und Sicherheit': 'Connexion et sécurité'
-'Passwort ändern': 'Changer le mot de passe'
-'Neues Passwort': 'Nouveau mot de passe'
-'Neues Passwort wiederholen': 'Confirmation du nouveau mot de passe'
-'Aktuelles Passwort': 'Mot de passe actuel'
 'Externe Anwendungen': 'Applications externes'
+'Bitte wähle nur eine einzige Datei aus.': 'Veuillez sélectionner un seul fichier.'
+'Bevorzugt komprimierte Profilbilder anzeigen': 'Préférer l''affichage compressé des avatars'
+'Einen Kommentar hinzufügen': 'Ajouter un commentaire'
+'Überlebte Tage': 'Jours survécus'
+Ergebnis: Score
+Bürger: Citoyen
+Todesursache: 'Cause de la mort'
+Kommentar: Commentaire
 'Account löschen': 'Suppression du compte'
 'Meinen Account löschen': 'Supprimer mon compte'
 'Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!': 'Souhaitez vous réellement supprimer votre compte ? Cette action est irréversible.'
-'Bitte wähle nur eine einzige Datei aus.': 'Veuillez sélectionner un seul fichier.'
-'Die Datei ist zu groß.': 'Ce fichier est trop volumineux.'
-'Dieses Dateiformat wird nicht unterstützt.': 'Ce format de fichier n''est pas pris en charge.'
-'Überlebte Tage': 'Jours survécus'
-Ergebnis: Score
-Bürger: Citoyens
-Todesursache: Cause du décès
-Kommentar: Commentaire
-Schriften: Écrits
-'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...': 'Ce document comporte plusieurs pages. Cliquez dessus pour passer à la page suivante...'
-'Vorherige Seite': 'Page précédente'
-'Nächste Seite': 'Page suivante'
-'Redakteur:': 'Rédacteur :'
-'Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...': 'L''histoire d''un monde n''est que le reflet de multiples épopées individuelles...'
-Titel: Titre
-Entdeckt: Découvert
-'Gefundene Texte: {count}': 'Textes découverts : {count}'
-'Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.': 'Ce serveur n''est pas configuré pour supporter les avatars.'
-'Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.': 'Ce fichier est corrompu et ne peux pas être traité.'
-'Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.': 'Ce fichier est trop volumineux et le serveur n''a pas pu le compresser suffisamment.'
-'Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.': 'Une erreur interne est survenue lors du traitement de l''image.'
-'Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.': 'La résolution de cette image ne convient pas pour une image de profil.'
+'Passwort ändern': 'Changer de mot de passe'
+'Neues Passwort': 'Nouveau mot de passe'
+'Neues Passwort wiederholen': 'Confirmation du nouveau mot de passe'
+'Aktuelles Passwort': 'Mot de passe actuel'
 'Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.': 'Votre mot de passe est incorrect. Vous devez saisir votre mot de passe actuel pour modifier votre compte.'
 'Standardrolle im Forum': 'Rôle par défaut dans le forum'
 'Standardmäßig als dev posten': 'Poster comme développeur par défaut'
-Standardsprache: Langue par défaut
 'Es sind in dieser Stadt noch ein paar Bürger übrig...': 'Il y a encore des citoyens vivants dans cette ville...'
-Version: Version
+Standardsprache: 'Langue par défaut'
+Version: 'Mise à jour'
 'Hier findet ihr alle vorangegangenen Updates:': 'Accès aux mises à jour majeures précédentes :'
 Koalition: Coalition
 'Saison {season}': 'Saison {season}'
-Browser-Einstellungen: Paramètres du navigateur
-'Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.': 'Les paramètres suivants sont enregistrés dans votre navigateur et ne sont donc valables que pour votre appareil actuel et votre navigateur actuel.'
-'Benachrichtigungen als Popups anzeigen': 'Afficher les notifications sous forme de fenêtres'
-'Deine Einstellung wurde gespeichert.': 'Vos réglages ont été enregistrés.'
 'Alte Städte': 'Vieilles villes'
 'Nur 10 Städte anzeigen': 'Limiter l''affichage à 10 villes'
 'Kartei schließen': 'Fermer cette fiche'
+Browser-Einstellungen: 'Paramètres du navigateur'
+'Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.': 'Les paramètres suivants sont enregistrés dans votre navigateur et ne sont donc valables que pour votre appareil actuel et votre navigateur actuel.'
+'Benachrichtigungen als Popups anzeigen': 'Afficher les notifications sous forme de fenêtres'
+'Deine Einstellung wurde gespeichert.': 'Vos réglages ont été enregistrés.'
 'Haus besuchen': 'Visiter sa maison'
-'Seele suchen': 'Recherche d''une âme'
-'Gib den Pseudo des Bürgers ein.': 'Entrez ici le pseudo du joueur'
 'Eine neue Seele importieren': 'Importez une nouvelle âme'
 'Twinoid Application ID': 'ID d''application Twinoid'
 'Twinoid Secret Key': 'Clé secrète Twinoid'
@@ -77,12 +74,12 @@ Browser-Einstellungen: Paramètres du navigateur
 'Deine importierten Seelen': 'Vos âmes importées'
 'Hurra, wir haben dein Profil heruntergeladen!': 'Hourra, nous avons téléchargé votre profil !'
 'Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.': 'Veuillez vérifier les données ci-dessous et confirmer l''importation si tout va bien.'
-Twinoid-Profil: Profil Twinoid
+Twinoid-Profil: 'Profil Twinoid'
 'Profil ansehen': 'Voir le profil'
-Seelen-ID: ID de l'âme
+Seelen-ID: 'ID de l''âme'
 Saison: Saison
 Tag: Jour
-Stadtname: Nom de Ville
+Stadtname: 'Nom de la ville'
 Punkte: Points
 'Letzte Worte': 'Derniers mots'
 'Import bestätigen': 'Confirmer l''importation'
@@ -122,7 +119,7 @@ Todesart: Mort
 Auszeichnungen: Distinctions
 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.': 'Ici, vous pouvez voir les distinctions que vous avez gagnées au fil du temps.'
 Auszeichnung: Distinctions
-Anzahl: Stock
+Anzahl: Nombre
 Freischaltbares: Déverrouillables
 'Hier siehst du deine Titel und Icons.': 'Ici, vous pouvez voir vos titres et icônes.'
 Typ: Type
@@ -171,7 +168,9 @@ Orakel: Oracle
 'Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.': 'Cette fiche est celle d''un Oracle. Les Oracles sont des liens entre la Communauté et les Développeurs. Vous pouvez les contacter en toute confiance si vous avez des questions ou des problèmes.'
 'Irgend etwas erscheint an dieser Karteikarte merkwürdig...': 'Quelque chose semble étrange sur cette fiche...'
 'Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'Ce joueur a importé au moins une âme de Twinoid. Nous avons hâte de l''accueillir sur MyHordes !'
-Twinoid-Nutzer: Utilisateur Twinoid
+Twinoid-Nutzer: 'Utilisateur Twinoid'
+'Seele suchen': 'Recherche d''une âme'
+'Gib den Pseudo des Bürgers ein.': 'Entrez ici le pseudo du joueur'
 'Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.': 'Cette ville a été importée depuis {host}. Les informations affichées peuvent être incomplètes.'
 Tage: Jours
 'Dein Account wurde gesperrt.': 'Votre compte a été bloqué.'
@@ -181,7 +180,7 @@ Tage: Jours
 'Du kannst auch keiner neuen Stadt mehr beitreten.': 'Vous ne pouvez plus rejoindre une nouvelle ville.'
 'Folgende Begründung wurde für deine Sperre hinterlegt:': 'La raison suivante a été fournie pour votre bannissement :'
 'Es wurde keine Begründung für diese Sperre hinterlegt.': 'Aucune raison n''a été donnée pour ce bannissement.'
-EternalTwin-Nutzer: Utilisateur Eternaltwin
+EternalTwin-Nutzer: 'Utilisateur Eternaltwin'
 'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'Ce joueur utilise un compte Eternaltwin. Nous avons hâte de l''accueillir sur MyHordes !'
 'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.': 'Le profil spécifié ne peut pas être importé car il est déjà associé à un autre compte MyHordes.'
 'MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!': 'MyHordes est une fière partie du réseau Eternaltwin !'
@@ -200,15 +199,15 @@ EternalTwin-Nutzer: Utilisateur Eternaltwin
 'Einer existierenden Koalition beitreten': 'Rejoindre une coalition existante'
 'Es hat dich bisher noch niemand eingeladen.': 'Pour l''instant personne ne vous a envoyé d''invitation.'
 Name: Nom
-Aktionen: Actions
-Mitmachen!: Rejoindre !
+Aktionen: Action
+Mitmachen!: 'Rejoindre !'
 'Die Einladung ablehnen.': 'Refuser l''invitation.'
 'Shoutbox der Koalition': 'Shoutbox de la coalition'
 'Verfügbare Mitglieder': 'Membres disponibles'
-'Nicht verfügbar': 'Indisponibles'
+'Nicht verfügbar': Indisponibles
 'Ausstehende Einladungen': 'Invitations en attente'
 'Einen Freund einladen': 'Ajouter un ami'
-Optionen: Paramètres
+Optionen: Options
 'Du stehst <strong>zur Verfügung</strong>.': 'Vous êtes <strong>disponible</strong>.'
 'Du stehst <strong>nicht zur Verfügung</strong>.': 'Vous êtes <strong>indisponible</strong>.'
 'Meinen Status ändern': 'Changer mon statut'
@@ -237,27 +236,27 @@ Absenden: Envoyer
 'Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.': 'Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connecté. La fonction "Rester connecté" sera également désactivée sur ces appareils.'
 'Animationen verringern': 'Réduire les animations'
 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.': 'Cochez cette case si vous rencontrez des ralentissements notables lorsque la carte du jeu est affichée.<br /><em>Cette option réduira la qualité des animations liées à la carte du jeu.</em>'
-'Kleine Koalitionen': 'Citoyens coalisés'
+'Kleine Koalitionen': 'Petites coalitions'
 'Saison {number}': 'Saison {number}'
 Pos.: Pos.
 Score: Score
 'Vorangegangene Saisons:': 'Accès aux saisons précédentes :'
 Lang.: Lang.
-Pandämoniumsstadt: Ville du Pandémonium
-Privatstadt: Ville privée
+Pandämoniumsstadt: 'Ville du Pandémonium'
+Privatstadt: 'Ville privée'
 Zukunft: Évolutions
 'Einen Empfänger hinzufügen': 'Ajouter un destinataire'
 'Draußen gestorben': 'Mort dehors'
 'In der Stadt gestorben': 'Mort en ville'
-'Kleine Stadt': 'Petite carte'
-'Entfernte Regionen': 'Région éloignée'
-Pandämonium: Pandémonium
-'Private Stadt': 'Ville privée'
 'ALLE SAISONS': 'LES SAISONS'
-Seelenpunkte: Valeur de l'âme
+Seelenpunkte: 'Points d''âme'
+Spieler: Joueur
+'Entfernte Regionen': 'Villes Normales'
+Pandämonium: 'Villes du Pandémonium'
+'Kleine Stadt': 'Petites Villes'
+'Private Stadt': 'Villes Privées'
 'Zugriff auf die Rangliste einer bestimmten Saison:': 'Accès au classement d''une saison particulière :'
 'Alle Saisons': 'Toutes les saisons'
-Spieler: Joueur
 'Diese Sperre ist bis zu folgendem Zeitpunkt gültig:': 'Ce bannissement sera actif jusqu’à la date suivante :'
 'Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.': 'Si vous pensez avoir été banni à tort, vous pouvez vous rendre dans le Nid des corbeaux (en bas de la page des forums).'
 'Dein Account ist eingeschränkt!': 'Votre compte est limité !'
@@ -268,9 +267,9 @@ Spieler: Joueur
 'Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.': 'Vous ne pouvez pas écrire de messages dans la ville ou utiliser le tableau noir ou le chat de zone.'
 'Stadtübergreifende Kommunikation': 'Communication interville'
 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.': 'Vous ne pouvez pas envoyer de messages via le Centre de messagerie.'
-Kommentare: Commentaire
+Kommentare: Commentaires
 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.': 'Vous ne pouvez pas transmettre de derniers mots ou écrire des commentaires sur la ville.'
-Gruppenorganisation: Organisation de groupe
+Gruppenorganisation: 'Organisation de groupe'
 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.': 'Vous ne pouvez pas former ou rejoindre de petites coalitions.'
 Spielen: Jouer
 'Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.': 'Vous ne pouvez pas rejoindre des villes. Si vous êtes déjà dans une ville, vous ne pouvez plus effectuer d’actions ou ouvrir une page de la ville. Vous perdrez également l’accès au Forum de la ville.'
@@ -301,12 +300,12 @@ Errungenschaften: Gains
 'Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.': 'Le jeu est entièrement gratuit - il n’y a pas de contenu payant, nous ne faisons pas de publicité ni de traçage de nos utilisateurs.'
 'Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.': 'Si vous aimez MyHordes et que vous souhaitez nous soutenir, vous pouvez le faire en faisant un don au projet Eternaltwin.'
 'Geworbener Spieler': 'Joueur parrainé'
-Heldenerfahrung: Expérience de héros
+Heldenerfahrung: 'Expérience de héros'
 'Du hast keine Koalition.': 'Vous n''avez pas de coalition.'
 'Kein freier Platz': 'Pas de place disponible'
-Koalitionsmitglied: Membre de votre coalition
+Koalitionsmitglied: 'Membre de votre coalition'
 'Noch nicht bestätigt...': 'Pas encore de réponse...'
-Koalitionseinladung: Invitation à la coalition
+Koalitionseinladung: 'Invitation à la coalition'
 'Die Freundschaftswerbung': 'Le parrainage'
 'Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!': 'Vous pouvez bénéficier d''avantages exceptionnels en parrainant de nouveaux joueurs sur MyHordes !'
 'Lass dich überraschen!': 'Laissez-vous surprendre !'
@@ -338,8 +337,8 @@ oder: ou
 'HTML Code': 'Code HTML'
 BBCode: BBCode
 Empfänger: Destinataire
-'In diesem Abschnitt findest du alle bisher von dir gespielten Partien.': 'Cette section présente la liste de toutes vos parties jouées.'
 'Verlauf meiner Städte': 'Historique de mes parties'
+'In diesem Abschnitt findest du alle bisher von dir gespielten Partien.': 'Cette section présente la liste de toutes vos parties jouées.'
 'Schwarzes Brett': 'Tableau noir'
 'Du kannst das Schwarze Brett nicht verwenden.': 'Vous ne pouvez pas utiliser le tableau noir.'
 'Neue Übersetzungen verwenden': 'Utiliser les nouvelles traductions'
@@ -355,12 +354,12 @@ Empfänger: Destinataire
 'Bitte ändere deinen Anzeigenamen auf EternalTwin.': 'Vous devez utiliser votre compte Eternaltwin pour changer votre nom d''affichage.'
 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.': 'Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternaltwin. Vous devez vous rendre sur votre compte Eternaltwin pour changer de pseudo.'
 'Gib hier den Nickname des Spielers ein, den du einladen möchtest.<br />Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch <strong>{size} Plätze</strong> übrig.': "\n          \n            {ref__icu, select,\n                on {\n                    {size, select,\n                        0 {Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste <strong>plus de place</strong>.}\n                        1 {Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste que <strong>{size} place</strong>.}\n                        other {Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste que <strong>{size} places</strong>.}\n                    }\n                }\n                other {\n                  Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste que <strong>{size} place(s)</strong>.\n                }\n            }\n        \n        "
-Moderationseinstellungen: Paramètres de modération
 'Moderationslinks in neuem Fenster öffnen': 'Ouvrir les liens de modération dans la même fenêtre'
+Moderationseinstellungen: 'Paramètres de modération'
 'E-Mail-Adresse ändern': 'Changer d''adresse email'
 'Neue E-Mail-Adresse': 'Nouvelle adresse email'
 'E-Mail-Adresse wiederholen': 'Confirmation de l''email'
-Validierungs-Token: Jeton de validation
+Validierungs-Token: 'Jeton de validation'
 'Account-Infos aktualisieren': 'Actualiser les infos du compte'
 'Der Validierungs-Token ist ungültig.': 'Le jeton de validation est incorrect.'
 'Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.': 'Vous devez valider votre nouvelle adresse email avant de pouvoir l''utiliser.'
@@ -370,9 +369,10 @@ Validierungs-Token: Jeton de validation
 'Dies ist eine Event-Stadt.': 'C’est une ville événement.'
 Animateur: Animacteur
 'Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.': 'Ce badge appartient à un animacteur. Les animacteurs organisent et coordonnent des événements communautaires.'
+Details: Détails
 'Auf MyHordes erworbene Auszeichnungen': 'Distinctions obtenues sur MyHordes'
 'Importierte Auszeichnungen': 'Distinctions importées'
-Beta-Saison: Saison Beta
+Beta-Saison: 'Saison Beta'
 '<span class="number">Beta</span> Saison': 'Saison <span class="number">Beta</span>'
 'Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.': 'Cette ville est issue de la phase alpha de MyHordes. Les informations affichées peuvent donc être incomplètes ou ne pas ressembler à ce que vous vous attendez.'
 'Alte Auszeichnungen': 'Anciennes distinctions'
@@ -393,7 +393,7 @@ Beta-Saison: Saison Beta
 'nur Baseline-Format': 'format de référence uniquement'
 'Texteditor-Inhalte zur Sicherheit zwischenspeichern': 'Sauvegarde automatique du contenu de l''éditeur de texte du forum'
 'Alle Saisons auf MyHordes': 'Toutes les saisons de MyHordes'
-Alpha-Seelen: Ames Alpha
+Alpha-Seelen: 'Ames Alpha'
 'Es sind keine Spieler aufgelistet!': 'Aucun joueur ne figure au classement!'
 'Alte Seelen': 'Anciennes âmes'
 Icon: Icône
@@ -411,30 +411,29 @@ Icon: Icône
 'Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.': 'Si ce paramètre est activé, le premier appui sur un objet ouvre son info-bulle - seul le deuxième appui effectue l’action réelle. Si le paramètre est désactivé, le premier appui effectue l’action directement - pour ouvrir l''info-bulle, l''appui sur l''action doit être effectué plus longtemps. Cela s’applique uniquement aux appareils avec un écran tactile ou un stylet. Lors de l''usage d’une souris, ce paramètre n’a aucun effet.'
 'Profil und Avatar': 'Profil et Avatar'
 'Account und Sicherheit': 'Compte et Sécurité'
-Seelenimport: Importation d'âme
+Seelenimport: 'Importation d''âme'
 Allgemein: Général
 Browser: Navigateur
-Erweitert: Étendu
+Erweitert: Avancé
 'Icon-Zoom auf mobilen Geräten': 'Zoom des icônes pour les appareils mobiles'
 'Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.': 'Pour faciliter la sélection d''objets dans votre sac à dos et la banque avec votre doigt sur un appareil mobile, vous pouvez ajuster leur taille. Ce paramètre n’affecte que les appareils mobiles avec un petit écran, tels que les smartphones.'
 'Zoom deaktiviert': 'Zoom désactivé'
 'Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.': 'Ouvrez MyHordes dans une fenêtre plus grande ou sur un périphérique avec un écran plus grand pour régler la zone d''affichage compressée.'
 'Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.': 'Sélectionnez la partie de votre photo de profil à utiliser pour l''affichage réduit. Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.'
-Details: Détails
 'Denke daran, dich ebenfalls aus deinem EternalTwin Account auszuloggen!': 'N’oubliez pas de vous déconnecter également de votre compte Eternaltwin !'
 'Du kannst deinen Spielernamen erst in {days} Tagen erneut ändern.': 'Vous pourrez changer de nom d''affichage {days, plural, =1 {demain} other {dans # jours}}.'
 'Haus ansehen': 'Voir sa maison'
 'Profil auf MyHordes': 'Profil MyHordes'
 'Profil Eternal-Twin': 'Profil Eternaltwin'
-Schreiben: Écrire
+Schreiben: 'Envoyer un message'
 'Kontakt hinzufügen': 'Ajouter contact'
 'Kontakt löschen': 'Retirer contact'
 'Dieser Spieler gehört nicht zu deinen Kontakten.': 'Ce joueur ne fait pas partie de vos contacts.'
 'Du hast {username} zu deinen Kontakten hinzugefügt!': 'Vous avez ajouté {username} à vos contacts !'
 'Du hast {username} aus deinen Kontakten gelöscht!': 'Vous avez retiré {username} de vos contacts !'
 Sozial: Social
-Freundesliste: Liste d'amis
-'Spieler werben': 'Parrainage'
+Freundesliste: Amis
+'Spieler werben': Parrainage
 'Wahrer Freund': 'Ami Mutuel'
 'Deine Freundesliste ist leer.': 'Votre liste d''amis est vide.'
 'Neue Freunde finden': 'Chercher un ami'
@@ -442,7 +441,7 @@ Freundesliste: Liste d'amis
 'Spieler, die dich als Freund hinzugefügt haben': 'Les joueurs qui vous ont ajouté en ami'
 'Hier siehst du Spieler, die dich in ihre Freundesliste eingetragen haben. Wenn du möchtest, kannst du sie ebenfalls in deine Freundesliste eintragen.': 'Ici, vous pouvez voir les joueurs qui vous ont ajouté à leur liste d''amis. Si vous le souhaitez, vous pouvez faire de même.'
 'Du kannst verhindern, dass ein Spieler dich in seine Freundesliste aufnimmt, indem du ihn blockierst. Bedenke, dass er dich danach auch nicht mehr via über eine private Nachricht kontaktieren kann.': 'Vous pouvez empêcher un joueur de vous ajouter à sa liste d''amis en le bloquant. Gardez à l''esprit qu''il ne pourra plus vous contacter via message privé par la suite.'
-Blockierliste: Liste noire
+Blockierliste: 'Liste noire'
 'Blockierter Spieler': 'Joueurs bloqués'
 'Deine Blockierliste ist leer.': 'Votre liste noire est vide.'
 'Dieses MyHordes-Konto wurde gelöscht.': 'Le compte MyHordes de ce joueur n''existe plus.'
@@ -450,7 +449,7 @@ Blockierliste: Liste noire
 'Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.': 'Par défaut, la banque dans MyHordes est triée par type d’objet. Si vous préférez le tri utilisé sur Hordes, où les éléments étaient principalement triés en fonction de leur quantité, activez ce paramètre.'
 'Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!': 'Félicitations, vous venez de créer votre coalition !'
 'Du hast hiermit die Koalition verlassen.': 'Vous avez quitté la coalition.'
-Koalitionseinladungen: mes invitations
+Koalitionseinladungen: 'mes invitations'
 'Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden': 'Activer par défaut la vue de l’éditeur avancé pour les MP'
 'Deine MyHordes-Seele zurücksetzen': 'Réinitialiser votre âme MyHordes'
 'Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du <b>einmalig</b> die Option, deine MyHordes-Seele zurückzusetzen.': 'Si vous souhaitez importer complètement une âme malgré les <b>restrictions d’importation</b>, vous avez une option unique pour réinitialiser votre âme MyHordes.'
@@ -468,7 +467,7 @@ Koalitionseinladungen: mes invitations
 'Specify using player search': 'Spécifier à l’aide de la recherche de joueur'
 'Ändern des Profils': 'Modifier le profil'
 'Nicht länger ausblenden': 'Ne plus masquer'
-Ausblenden: Cacher
+Ausblenden: Masquer
 'Ausgeblendete Spieler anzeigen': 'Liste des joueurs masqués'
 'Spracheinstellung verwenden': 'Utiliser le paramètre de langue'
 'Deine Flagge': 'Mon drapeau'

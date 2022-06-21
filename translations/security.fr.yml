@@ -1,4 +1,3 @@
----
 'An authentication exception occurred.': 'Une exception d''authentification s''est produite.'
 'Authentication credentials could not be found.': 'Les identifiants d''authentification n''ont pas pu être trouvés.'
 'Authentication request could not be processed due to a system problem.': 'La requête d''authentification n''a pas pu être executée à cause d''un problème système.'
@@ -18,5 +17,5 @@
 'Invalid or expired login link.': 'Lien de connexion invalide ou expiré.'
 'Too many failed login attempts, please try again in %minutes% minute.': 'Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans %minutes% minute.'
 'Too many failed login attempts, please try again in %minutes% minutes.': 'Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans %minutes% minutes.'
-'Too many failed login attempts, please try again in {minutes} minute.': 'Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans %minutes% minute.'
+'Too many failed login attempts, please try again in {minutes} minute.': 'Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans {minutes} minute.'
 'Too many failed login attempts, please try again in {minutes} minutes.': 'Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans {minutes} minutes.'

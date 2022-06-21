@@ -1,45 +1,46 @@
----
 'Die gewählte Stadt ist bereits voll.': 'The selected town is full.'
 'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'You can''t join more than one town at a time.'
 'Du bist dieser Stadt bereits beigetreten.': 'You have already joined this town.'
-Stadtname: Town's name
+Stadtname: 'Town name'
 Aktionen: Actions
 'Aktuell gibt es keine Stadt diesen Typs.': 'There are no towns of this type currently.'
 'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.': 'The language of the selected town is {lang_town}. Your current language setting is {lang_user}.'
 'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?': 'Communication is important in MyHordes. Please don''t enter a town whose language you don''t speak. Do you wish to continue?'
-'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten': 'Do you want to enter the terrible world of MyHordes as a citizen of {town_name}'
 'Deine Seele genügt den Anforderungen für diesen Stadttypen.': 'Your soul meets the requirements for this Town type.'
+'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten': 'Do you want to enter the terrible world of MyHordes as a citizen of {town_name}'
 "<p>\n                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...\n                    </p>\n                    <p>\n                    Was tust du, solange der Angriff tobt?\n                    </p>": "<p>\n                    Hordes of zombies are <strong>attacking</strong> your town! They are everywhere, you hear citizens <strong>screaming</strong> in the night, the attackers clashing noisily against sheet metal... Hungry <strong>groaning</strong> from the starving masses... What's going to become of it?!\n                    </p>\n                    <p>\n                    Are you going to <strong>die2nite</strong>?!\n                    </p>"
 'Was hat das zu bedeuten?': 'What does it mean?'
 'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!': 'MyHordes is currently overrun by zombies! This happens every day!'
 'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.': 'It is impossible to login or even register... The site should be available again in a short while.'
 'Und ja, es wird Tote geben...': 'There''ll be some dead bodies too...'
-'Worauf warten Sie noch?': 'What are you waiting for?'
-'Privatstadt gründen': 'Create a private town'
-'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'Private towns allow groups of friends to play easily together, or to create "theme" towns.'
-'Name der Stadt': 'Name der Stadt'
-Zugangscode: Access code
-Stadttyp: Town type
-Ghule: Ghoul type
+Zugangscode: 'Access code'
+Stadttyp: 'Town type'
+Ghule: 'Ghoul type'
 'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'The ghoul functions normally and will appear as defined by the rules of the town chosen.'
 Normal: Normal
 'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'The rate of appearance of the ghoul is unchanged but ghouls can only reduce their hunger by devouring a citizen.'
 Blutdurst: Bloodthirsty
 'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.': 'No ghoul appears at midnight. Other events can trigger ghouls to appear.'
 'Stadt der Kuscheltiere': 'Town of cuddly toys'
-Wasservorrat: Water supply
+Achtung!: Warning!
+'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.': 'If the city is not filled in 2 days, it will be cancelled.'
+'Worauf warten Sie noch?': 'What are you waiting for?'
+'Privatstadt gründen': 'Create a private town'
+'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'Private towns allow groups of friends to play easily together, or to create "theme" towns.'
+'Name der Stadt': 'Town Name'
+Wasservorrat: 'Water supply'
 'Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300': '(Whole number between 100 and 180). Value reduced by a third for Pandemonium towns.'
 Einstellungen: Settings
 'XML Feed für diese Stadt deaktivieren': 'Deactivate the XML feed for this town (deactivates addons).'
-Event-Stadt: Event Towns
-Spezialregeln: Game rules
+Event-Stadt: 'Event Towns'
+Spezialregeln: 'Game rules'
 'Keine Spezialregeln': 'No special rules'
 Keine: None
 'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!': 'No building is unlocked at the beginning. All must be found in the World Beyond!'
 'Keine Startgebäude': 'No starting buildings'
 'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.': 'Every food and drug you consume has a low risk of infection.'
 'Kontaminierte Zone': 'Contamined Zone'
-Stadtmodifikationen: Town modifications
+Stadtmodifikationen: 'Town modifications'
 'Exploration:': 'Exploration:'
 'Begehbare Ruinen aktivieren': 'Activate explorable ruins'
 'Seelen & Schamane:': 'Souls & Shamans:'
@@ -60,17 +61,15 @@ Angriffe: Attacks
 'Stärke der Angriffe': 'Strength of Attacks'
 'Leiche Angriffe': 'Weak Attacks'
 'Schwere Angriffe': 'Severe Attacks'
-Spiel-Optionen: Game Options
+Spiel-Optionen: 'Game Options'
 'Abstimmung aller Piktogramme:': 'Reward all Distinctions:'
 'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.': 'Gives the total of the Distinctions received during the Town, instead of a third of them.'
 'Seelenpunkte vergeben:': 'Reward soul points:'
 'Gibt Ihnen Seelenpunkte.': 'Gives you Soul Points.'
-Achtung!: Warning!
-'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.': 'If the city is not filled in 2 days, it will be cancelled.'
 'Diese Stadt gründen': 'Create this Town'
-Platzreservierung: Reserve places
+Platzreservierung: 'Reserve places'
 'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?': 'You can now be reincarnated in the world of MyHordes to try and survive once more. Who knows what is waiting for you in this new life?'
-Karten-Seed: Map Seed
+Karten-Seed: 'Map Seed'
 'Der Schamane wird gewählt und die Seelen werden gequält.': 'The shaman is a Role and the souls are tormented.'
 'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.': 'The shaman is a Profession, souls are transformed in the workshop.'
 Job: Job
@@ -100,7 +99,7 @@ Sofort: Immediately
 'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.': 'You have not been active recently, essentially penalizing active players in your recent Towns. This is a polite warning, that should it happen again, you will not be eligible to join a new town for several days.'
 'Wiedergeburt: Privatstadt gründen': 'Incarnation: Create a private town'
 'Wiedergeburt: Wahl der Partie': 'Incarnation: Choose a game'
-Kartengröße: Map size
+Kartengröße: 'Map size'
 Automatisch: Automatic
 'Kleine Karte': 'Small map'
 'Normale Karte': 'Normal map'
@@ -113,7 +112,7 @@ Automatisch: Automatic
 'Eher Zentral': 'Rather central'
 Zentral: Central
 'Spielmodifikationen:': 'Game modifications:'
-Raben-Optionen: Crow options
+Raben-Optionen: 'Crow options'
 Events: Events
 'Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.': 'Night mode is activated and Public lights are available.'
 Erweitert: Extended
@@ -141,7 +140,7 @@ Aerogen: Aerogenic
 'Willkommen in der Hölle!': 'Welcome in Hell!'
 'Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.': 'You are in the process of joining a city with 39 other poor souls with the goal of surviving as long as possible.'
 'Spiel betreten': 'Enter the game'
-Einwohnerzahl: Number of Citizens
+Einwohnerzahl: 'Number of Citizens'
 'Muss zwischen 10 und 80 liegen.': 'Must be between 10 an 80.'
 'Bürger-Aliase:': 'Citizen Aliases:'
 'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen': 'Allows a citizen to select an alias instead of their usual name for this town'
@@ -149,21 +148,21 @@ Einwohnerzahl: Number of Citizens
 'Zeitzone:': 'Time Zone:'
 'Die eingestellte Zeit gibt die Dauer des Tages an.': 'The given time controls the duration of the day.'
 'Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.': 'If Night Mode is disabled, this setting is purely cosmetic.'
-Tagesphase: Day Time Phase
+Tagesphase: 'Day Time Phase'
 'Die eingestellte Zeit gibt die Dauer der Nacht an.': 'The given time controls the duration of the night.'
-Nachtphase: Night Time Phase
+Nachtphase: 'Night Time Phase'
 'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?': 'This town has an access restriction. Your coalition members cannot automatically follow you if you enter this town. Continue?'
 'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?': 'The following members of your coalition are unable to follow you into this town. Continue?'
 'Spielhilfe ansehen': 'Read the Guide!'
 'Spielen, Lernen und STERBEN!': 'Play, Learn and DIE!'
-'Als Event-Stadt markieren': 'Mark as an event town'
+'Als Event-Stadt markieren': 'Create as an event town'
 'Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.': 'Event towns will not be included in the season ranking and are specially marked in the town list.'
 'Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.': 'This is an event town, it will not appear in the ranking after it finished. This town may use unusual rules.'
 'Jeder Spieler erhält 1x Betapropin beim Start der Stadt.': 'Each player receives 1x Betaprophine when joining the town.'
 'Beta-Funktionen aktivieren': 'Enable Beta functions'
 'Eine Stadt aussuchen': 'Choose a town'
 'Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.': 'Warning: You are NOT AVAILABLE to your {coalition}! That means you will play this game alone.'
-'Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.': 'Warning: Your {coalition} is not showing as "available": if you join a town now, you will do so alone.'
+'Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.': 'Warning: Your {coalition} is not showing as "available": if you join a town now, you will do so alone!'
 'Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.': 'Warning: At the moment not all members of your {coalition} are available to follow you into a town..'
 'Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:': 'When you enter a town, the following members of your {coalition} will follow you:'
 'Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.': 'The town''s language does not match your soul''s language setting. By joining this town, you agree to only use the town language when communicating with other players.'

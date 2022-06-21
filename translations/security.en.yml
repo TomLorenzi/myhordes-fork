@@ -1,4 +1,3 @@
----
 'An authentication exception occurred.': 'An authentication exception occurred.'
 'Authentication credentials could not be found.': 'Authentication credentials could not be found.'
 'Authentication request could not be processed due to a system problem.': 'Authentication request could not be processed due to a system problem.'
@@ -18,5 +17,5 @@
 'Invalid or expired login link.': 'Invalid or expired login link.'
 'Too many failed login attempts, please try again in %minutes% minute.': 'Too many failed login attempts, please try again in %minutes% minute.'
 'Too many failed login attempts, please try again in %minutes% minutes.': 'Too many failed login attempts, please try again in %minutes% minutes.'
-'Too many failed login attempts, please try again in {minutes} minute.': 'Too many failed login attempts, please try again in %minutes% minute.'
+'Too many failed login attempts, please try again in {minutes} minute.': 'Too many failed login attempts, please try again in {minutes} minute.'
 'Too many failed login attempts, please try again in {minutes} minutes.': 'Too many failed login attempts, please try again in {minutes} minutes.'
