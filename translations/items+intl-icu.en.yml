@@ -26,7 +26,7 @@ Schraubenzieher: Screwdriver
 Jagdmesser: Serrated Knife
 Machete: Machete
 'Lächerliches Taschenmesser': 'Pathetic Penknife'
-'Schweizer Taschenmesser': 'Spanners and Bump keys'
+'Schweizer Taschenmesser': 'Swiss Army Knife'
 Teppichmesser: Box Cutter
 Einkaufswagen: Shopping Trolley
 Dosenöffner: Can Opener
@@ -96,7 +96,7 @@ Kaffeekocher: Cafetière
 'Hydraton 100mg': 'Hydratone 100mg'
 'Kassettenradio (ohne Strom)': 'Radio Cassette Player (no battery)'
 Kassettenradio: Radio Cassette Player
-Zyanid: Suicide by ingestion of Cyanide
+Zyanid: Cyanide
 'Alte Tür': 'Old Door'
 'Verdächtiges Gemüse': 'Suspicious-looking Vegetable'
 'Reparaturset (kaputt)': 'Repair Kit (damaged)'
@@ -325,13 +325,13 @@ Ohrstöpsel: Earplugs
 'Ein Etikett': 'Label'
 Bürgerbekleidung: Town Uniform
 'Dreckige Bürgerbekleidung': 'Dirty Uniform'
-Tarnanzug: Camouflage suit
+Tarnanzug: Camouflage Vest
 'Tarnkleidung (nicht wirksam!)': 'Camouflage Vest (not equipped!)'
-'Kleine Schaufel': 'Small spade'
-'Dreibeiniger Malteser': '3-legged Labradoodle'
+'Kleine Schaufel': 'Small Spade'
+'Dreibeiniger Malteser': 'Three-legged Labradoodle'
 'Malteser Hündchen auf Droge': 'Drugged Labradoodle'
 'Müdes Malteser Hündchen': 'Tired Labradoodle'
-Survivalbuch: Survival Guide
+Survivalbuch: Survival Book
 Schraubenschlüssel: Handyman's Toolbelt
 Schutzschild: Riot Shield
 Voodoo-Maske: Voodoo Mask
@@ -375,7 +375,7 @@ Knuddeln: Cuddle
 Rauchen: Smoke
 Dopen: Dope
 'Wasser suchen': Water
-'Essen suchen': Eat
+'Essen suchen': Food
 Tarnen: Camouflage
 'Du bist nun getarnt.': 'You are now camouflaged.'
 'Du ziehst eine Karte... es ist: {color} {value}.': 'You draw a card ... it is the: {value} of {color}.'
@@ -384,7 +384,7 @@ Tarnen: Camouflage
 'Die Rückkehr des Helden': 'Heroic Return'
 Fund: Seeker
 'Wildstyle Uppercut': 'Vicious Uppercut'
-'Zweite Lunge': 'Second wind'
+'Zweite Lunge': 'Second Lease of Life'
 'Den Tod besiegen': 'Cheat Death'
 Rettung: Rescue
 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!': 'Summoning up all your strength and will, you faced the World Beyond, saved {citizen} and returned unscathed!'
@@ -660,13 +660,13 @@ Rettung: Rescue
 'Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.': 'It seems that a neighbour has left a small box with your name on it in front of your house... What could be inside ?'
 'Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: ''Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen''. Das willste doch nicht trinken? Oder etwa doch?!': 'This carefully sealed vial contains plum juice. Seems suspicious if you ask me. Especially when you conside that the label reads : ''in case of ingestion, contact the nearest poisons unit''. You''re not going to drink it anyway, are you? Really?'
 'Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!': 'A label from a bottle of something... Hang on, there''s something written on the back !'
-'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'The citizen''s uniform has remained unchanged in years. This is also the uniform you will wear for the rest of your days. Nonetheless, the outfit is functional and pretty comfortable, so there''s not really that much to complain about...'
+'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'A Resident is effectively a normal, everyday citizen, with no remarkable abilities to speak of...'
 'Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!': 'Your uniform : torn, dirty and covered in splashes of God-knows-what... You should really think about washing it when you get back to the town.'
-'Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.': 'This outfit allows you to move around freely in zombie controlled zones in the desert. Always be careful though, there is always a chance of being discovered if the zone is swarming with living dead...'
-'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.': 'The small spade (automatically) reduces the time required for each search in the desert... The chances of finding an object are also significantly increased.'
+'Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.': 'This allows you to move freely through zombie-infested areas in the desert. Always be careful though, as there is a chance you could be spotted if you''re trying to cross an area that''s crawling with the undead....'
+'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.': 'The standard tool of the Scavenger. The small shovel automatically reduces searching time in the desert... The chances of finding an object are also significantly increased.'
 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.': 'He follows you everywhere, smelling of wet dog and drooling constantly. And he yaps. Often. Once a day though, you can ask him to take the contents of your rucksack back to the town from anywhere in the desert.'
 'Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.': 'Your precious book entitled "Junior Woodchuck''s Scouting Manual". Even though it may look like a children''s book, it contains a wealth of useful information for anyone looking to survive in the great outdoors. It even shows you how to find food easily.'
-'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.': 'Unparalleled for smashing construction records, this complete tool kit includes a top-of-the-line adjustable wrench!'
+'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.': 'This comprehensive tool kit, which includes a top-of-the-line adjustable wrench, allows the technician to build more easily. Thanks to the array of tools in the kit, the tech can also take an impression of a lock in a secured door.'
 ' Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.': ' It''s big and it''s zombie-proof. In this world who could ask for more... It allows you to face 2 additional zombies in the desert..'
 'Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.': 'This antique mask, which has been used by ancient voodoo sorcerors for thousands of years, allows the Shaman to know exactly where the souls of freshly-deceased citizens are located in the World Beyond.'
 Heldentaten: Heroic Actions
@@ -707,7 +707,7 @@ Grundnahrungsmittel: Food
 Expedition: Expedition
 Sonstiges: Miscellaneous
 Einrichtungen: Facilities
-Verteidigung: Defence
+Verteidigung: Defences
 Waffenarsenal: Armoury
 'Taschen und Behälter': 'Containers and boxes'
 Kaputt: Broken
