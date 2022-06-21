@@ -30,7 +30,9 @@ use App\Entity\ThreadTag;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
 use Symfony\Component\Translation\MessageCatalogue;
@@ -38,16 +40,18 @@ use Symfony\Component\Translation\MessageCatalogue;
 class DatabaseExtractor implements ExtractorInterface
 {
     private TranslationConfigGlobal $config;
+    private ConfMaster $confMaster;
 
     protected $prefix;
     protected $em;
 
     protected static $has_been_run = false;
 
-    public function __construct(EntityManagerInterface $em, TranslationConfigGlobal $config)
+    public function __construct(EntityManagerInterface $em, TranslationConfigGlobal $config, ConfMaster $confMaster)
     {
         $this->em = $em;
         $this->config = $config;
+        $this->confMaster = $confMaster;
     }
 
     private function insert(MessageCatalogue &$c, string $message, string $domain, string $class) {
@@ -271,6 +275,10 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var CouncilEntryTemplate $councilTemplate */
             if ($councilTemplate->getText())
                 $this->insert( $c, $councilTemplate->getText(), 'council', CouncilEntryTemplate::class );
+        //</editor-fold>
+
+        //<editor-fold desc="Global Domain">
+        $langs = $this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
         //</editor-fold>
     }
 

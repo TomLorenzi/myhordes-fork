@@ -69,6 +69,27 @@ parameters:
         panda: 500
         return_small: 500
         custom: 1000
+    langs:
+      - code: fr
+        label: Französisch
+        tooltip: ''
+        generate: true
+      - code: en
+        label: Englisch
+        tooltip: ''
+        generate: true
+      - code: de
+        label: Deutsch
+        tooltip: ''
+        generate: true
+      - code: es
+        label: Spanisch
+        tooltip: ''
+        generate: true
+      - code: ach
+        label: 'Crowdin In-Place Translation'
+        tooltip: ''
+        generate: false
     towns:
       autolangs: ['de','en','fr','es']
       openmin:

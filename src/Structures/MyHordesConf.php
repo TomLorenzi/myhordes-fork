@@ -41,6 +41,8 @@ class MyHordesConf extends Conf
     const CONF_SOULPOINT_LIMIT_BACK_TO_SMALL = 'soulpoints.limits.return_small';
     const CONF_SOULPOINT_LIMIT_CUSTOM        = 'soulpoints.limits.custom';
 
+    const CONF_LANGS                         = 'langs';
+
     const CONF_TOWNS_AUTO_LANG = 'towns.autolangs';
     const CONF_TOWNS_OPENMIN_REMOTE = 'towns.openmin.remote';
     const CONF_TOWNS_OPENMIN_PANDA  = 'towns.openmin.panda';

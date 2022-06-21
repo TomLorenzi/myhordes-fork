@@ -621,7 +621,8 @@ class SoulController extends CustomAbstractController
             'next_name_change_days' => $user->getLastNameChange() ? max(0, (30 * 4) - $user->getLastNameChange()->diff(new DateTime())->days ) : 0,
             'show_importer'     => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_ENABLED, true),
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
-            'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)]
+            'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)],
+            'langs' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS),
         ]) );
     }
 
@@ -1106,7 +1107,8 @@ class SoulController extends CustomAbstractController
     public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session): Response {
         $user = $this->getUser();
 
-        $validLanguages = ['de','fr','en','es'];
+        $validLanguages = array_map(function($item) {return $item['code'];}, $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS));
+
         if (!$parser->has('lang', true))
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         

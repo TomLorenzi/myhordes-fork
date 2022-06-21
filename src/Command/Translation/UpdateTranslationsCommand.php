@@ -4,7 +4,9 @@
 namespace App\Command\Translation;
 
 use App\Service\CommandHelper;
+use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Structures\MyHordesConf;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -20,11 +22,13 @@ class UpdateTranslationsCommand extends Command
     private CommandHelper $helper;
 
     private TranslationConfigGlobal $conf_trans;
+    private ConfMaster $confMaster;
 
-    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper)
+    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ConfMaster $confMaster)
     {
         $this->conf_trans = $conf_trans;
         $this->helper = $helper;
+        $this->confMaster = $confMaster;
 
         parent::__construct();
     }
@@ -47,7 +51,10 @@ class UpdateTranslationsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $lang = $input->getArgument( 'lang' );
-        $langs = ($lang === 'all') ? ['en', 'fr', 'es', 'de'] : [$lang];
+
+        $langs = ($lang === 'all') ? array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
+            return $item['generate'];
+        })) : [$lang];
         if (count($langs) === 1) {
 
             $this->conf_trans->setConfigured(true);
