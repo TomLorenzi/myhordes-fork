@@ -147,13 +147,13 @@ class InventoryHandler
         if (!is_array($inventory)) $inventory = [$inventory];
 
         if (count( $inventory ) === 1 && is_a( $inventory[0], Inventory::class ))
-            return count( array_filter( $inventory[0]->getItems()->getValues(),
+            return array_reduce( array_filter( $inventory[0]->getItems()->getValues(),
                 fn(Item $i) =>
                     in_array( $i->getPrototype(), $prototype) &&
                     ( $broken === null || $i->getBroken() === $broken ) &&
                     ( $poison === null || $i->getPoison()->poisoned() === $poison )
             )
-        );
+        , fn(int $c, Item $i) => $i->getCount(), 0);
 
         try {
             $qb = $this->entity_manager->createQueryBuilder()
