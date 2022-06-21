@@ -430,5 +430,5 @@ STRG: CTRL
 'Umfrage starten': 'Take the survey'
 'Alles als gelesen markieren': 'Mark all as read'
 Weltforum: 'World Forum'
-'im-Kontext Übersetzung': 'im-Kontext Übersetzung'
-'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.'
+'im-Kontext Übersetzung': 'In-Context Translation'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'This particular language enable Crowdin''s In-Context translation. You will be able to translate MyHordes directly from the game itself.'
