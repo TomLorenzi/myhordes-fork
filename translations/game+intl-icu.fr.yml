@@ -77,7 +77,7 @@ Zombies: Zombies
 'Morgige Abschätzung': 'Attaque du lendemain'
 'Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses ''alles'' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.': 'Woaw ! Vous pouvez voir pratiquement tout d''ici ! C''est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville.'
 'Tag {day}': 'Jour {day}'
-Rucksack: Sac
+Rucksack: Sac à dos
 Truhe: Coffre
 'Truhe und Aktionen': 'Coffre et Actions'
 Bauarbeiten: Travaux
@@ -116,11 +116,11 @@ Tot!: Mort !
 'Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).': 'Veuillez saisir un nom valide (entre 3 et 32 caractères).'
 '{citizen}s Truhe': 'Coffre de {citizen}'
 Tot: Mort
-Haus: Maison
+Haus: Habitation
 Todesursache: Cause du décès
 Gemeinschaft: Espionnage et ragots de voisinage
 '{citizen} hat bereits {num} Anzeige(n).': '{citizen} a reçu {num} plainte(s).'
-Verbannung: Bannissement
+Verbannung: un bannissement
 Todesstrafe: la peine de mort
 'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L''une d''entre elle est la vôtre. Vous avez demandé {punishment}.'
 'Anzeige erstatten': 'Envoyer une dénonciation'
@@ -248,7 +248,7 @@ Atombunker: Abri anti-atomique
 Autobahnraststätte: Relais autoroutier
 Autowracks: Carcasses de voitures
 'Bar der verlorenen Hoffnungen': 'Le bar des illusions perdues'
-Baumarkt: Stratégies citoyennes
+Baumarkt: Bricotout
 Baustellencontainer: Abri de chantier
 'Dönerbude Utsel-Brutzel': 'Kebab « Chez Coluche »'
 'Dukes Villa': 'Villa de Duke'
@@ -357,16 +357,16 @@ Techniker: "Technicien"
 Schamane: "Chaman"
 Einsiedler: "Ermite"
 'Verbesserung des Tages': 'Les évolutions du jour'
-Wachturm: Tour de guet
-Werkstatt: Atelier
+Wachturm: Tour
+Werkstatt: L'atelier
 'Jemand hat eine anonyme Anzeige gegen {citizen} vorgebracht!': 'Une plainte anonyme a été envoyée contre {citizen} !'
 'Jemand hat seine anonyme Anzeige gegen {citizen} zurückgezogen.': 'Quelqu''un a retiré sa plainte contre {citizen}.'
 'Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.': 'Nous ne disposons pas de la technologie suffisante pour évaluer l''attaque du lendemain.'
 'Den morgigen Angriff berechnen': 'Calculer l''attaque du lendemain'
-'Leere Truhe': 'Coffre vide'
+'Leere Truhe': 'Coffre vide...'
 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:': 'En jetant un oeil par la fenêtre, vous pouvez apercevoir les choses suivantes dans la maison :'
 'Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.': 'Le Puits est l''endroit où chaque jour les citoyens viennent récupérer leur ration d''eau.'
-Übersicht: Aperçu
+Übersicht: Vue d'ensemble de la ville
 'Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.': 'Devant vous s''offre à perte de vue le paysage désolé de l''Outre-Monde. Vous imaginez les autres colons qui l''explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.'
 'Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...': 'Déciderez-vous de vous avancer ou de rester derrière les enceintes fortifiées ? Certains pensent qu''il faut être fou, d''autres qu''il faut être malin. Peut-être faut-il être un peu des deux...'
 'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'Les nuits sont glaciales dans le désert... Une brume de poussière épaisse enveloppe tout et vous entendez des grincements lugubres tout autour de vous. Parfois, vous apercevez une forme indistincte qui se déplace dans les ombres. Pourvu que ce soit votre imagination...'
@@ -402,7 +402,7 @@ Erhängt: Justice populaire (mort par Pendaison)
 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.': 'Certains ne vous aimaient pas en ville… Plusieurs citoyens, vos voisins, parfois même certains de vos amis vous ont traîné aux portes de la ville… Vers la “cage à viande”. Sans ménagement, il vous y ont enfermé, puis quelqu''un a proposé de vous jeter des pierres, pour le spectacle. Une aubaine pour vous ! Vous n''étiez presque pas conscient(e) lorsque les zombies vous ont trouvé le soir venu.'
 Strangulation: Strangulation
 'Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.': 'Salutations de Brainbox, Shaïtan, Kitsune et Dylan du passé qui sont devant leur PC en Février 2020 et Mai 2020 et qui ont écrit ce texte.'
-Kopfschuss: Tir dans la tête
+Kopfschuss: Balle dans la tête
 'Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.': 'Ici vivait un Citoyen qui avait décidé de s''installer hors de la ville, pensant survivre plus longtemps, loin des querelles et des trahisons. <strong>La moitié de son corps est toujours dans le salon</strong>.'
 'Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!': 'Une enseigne de la chaîne de magasins Brian Fargo. On y trouve généralement tout ce qu''il faut pour nettoyer et entretenir sa maison. Les plus démunis y trouveront de quoi manger...'
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'Il y a des réflexes qui ne pardonnent pas. Prenez par exemple le coup de la caverne : vous êtes poursuivi(e) et vous vous engouffrez bêtement dans une caverne pour vous mettre à l''abri. Le problème qui se pose alors : maintenant que vous êtes dans une impasse, combien de temps allez-vous pouvoir hurler en attendant que vos poursuivants vous rattrapent ? Le type au fond, à qui il manque la moitié du visage, n''a pas dû crier bien longtemps.'
@@ -478,8 +478,8 @@ Kopfschuss: Tir dans la tête
 'Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.': 'Vous estimez que vos chances de survie ici sont élevées : vous devriez pouvoir passer la nuit ici.'
 'Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.': 'Vous estimez que vos chances de survie ici sont optimales : personne ne vous verrait même en vous pointant du doigt.'
 Wächt: Veille
-Müllhalde: Décharge publique
-Katapult: Catapulte Primitive
+Müllhalde: Décharge
+Katapult: Catapulte
 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...': 'Après des recherches épuisantes, vous n''avez rien trouvé d''autre que la vacuité de ces moments perdus...'
 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!': 'Après de longues recherches, vous finissez par trouver {item} par terre...'
 'Du kannst nur einen Behälter auf einmal tragen.': 'Vous ne pouvez <strong>pas</strong> prendre cet objet.<hr />Vous êtes limité(e) à un conteneur à la fois sur vous.'
@@ -491,7 +491,7 @@ Ja: Oui
 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was {citizen} bei sich aufbewahrt...': 'En regardant par la fenêtre, vous constatez qu''un gros rideau cache la vue et qu''il n''est pas possible de voir ce que {citizen} a stocké chez lui...'
 'Unsere Verteidigung :': 'Nos défenses :'
 'Geschätzter Angriff :': 'Attaque estimée :'
-Unbekannt: Inconnu
+Unbekannt: Inconnue
 'Morgiger Angriff :': 'Attaque du lendemain :'
 'Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.': 'Nos défenses sont suffisantes pour l''attaque de ce soir.'
 'Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.': 'Il n''est pas possible d''évaluer avec précision notre situation face à l''attaque de ce soir.'
@@ -704,7 +704,7 @@ Sekunde(n): seconde(s)
 '{username} wurde standrechtlich erschossen.': '{username} a été abattu.'
 'Dieser Bürger gehört keiner Stadt an.': 'Ce citoyen n''appartient pas à une ville.'
 '{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!': '{citizen} a été abattu. Vive la dictature !'
-Headshot: Tir dans la tête
+Headshot: Balle dans la tête
 'Du hast noch keine Drogen genommen.': 'Vous n''avez jamais consommé de drogue.'
 'Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.': 'Vous avez bu une fois aujourd''hui. Vous ne pourrez donc pas récupérer vos PA à nouveau avec de l''eau pour la journée.'
 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.': 'Vous avez mangé aujourd''hui. Une nouvelle ration de nourriture ne vous permettra pas de récupérer plus de PA pour cette journée.'
@@ -1136,7 +1136,7 @@ Schlachtenbummler: Titan du Choc
 'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)': 'Lorsque cette option est activée, un autre joueur peut vous ordonner de collecter ou de déposer des objets. REMARQUE: certains objets «personnels» ne peuvent en aucun cas être déposés (écrits, armes, etc.)'
 Explosion: Pulvérisé un peu partout
 '???': '???'
-Schokoladenkreuz: Croix en Chocolat
+Schokoladenkreuz: Croix en chocolat
 'Regentanz ausführen': 'Faire tomber la pluie'
 'Einsiedler - Gewinner des SoH': 'Ermite gagnant du CDH'
 'Buddler - Gewinner des SoH': 'Fouineur gagnant du CDH'
@@ -1462,7 +1462,7 @@ Anwesenheit: Statut
 'Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!': 'Le lutin vert a été vu volant {item} à {victim} !'
 Aktivität: Activité
 'Häuser der Bürger': 'Maisons citoyens'
-'Temporäre Verteidigung': 'Défense temporaire'
+'Temporäre Verteidigung': 'Apports temporaires'
 Leichen-Bonus: Bonus cadavres
 Bonus: Bonus
 UFC: UFC
@@ -1487,7 +1487,7 @@ UFC: UFC
 Wätcher: Veilleurs
 'Diese Bürger is der {role} der Stadt': "Ce citoyen est le {role} de la ville"
 Expeditionen: Expéditions
-'Verbessrung des Tages': 'Les évolutions du jour'
+'Verbessrung des Tages': 'Évolutions du jour'
 'Die Bank': 'La banque'
 'Bauprojekte der Stadt': 'Les chantiers de la ville'
 'Der Brunnen': 'Le puits'
@@ -1658,7 +1658,7 @@ Pisa-Geraderichter: Redresseur de Pise
 'Ein Patch, kein Spiel': 'Patch-day, no-play'
 'Ein Riss? Welcher Riss?': 'Une fissure ? Quelle fissure ?'
 'Das braucht noch 10 Jahre!': 'Ça tiendra encore 10 ans !'
-'Architekt (title)': Architecte
+'Architekt (title)': Maître-architecte
 gering: réduites
 hoch: importantes
 'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...': 'Vos chances d''être repéré(e) si vous dévorez un citoyen en ville sont {chances}...'
@@ -1780,7 +1780,7 @@ Verletzt: Blessé
 'Die Route wurde gelöscht.': 'Votre expédition a été effacée.'
 'In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..': 'Cette section vous permet d''indiquer à vos concitoyens des "chemins" dans l''Outre-Monde, et ainsi d''organiser des expéditions passant par les zones qui vous intéressent'
 'Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!': 'Attention, la ville est limitée à 16 expéditions. Pensez à toujours supprimer les expéditions devenues inutiles !'
-Dauer: Durée
+Dauer: Distance
 'von {citizen}': 'De {citizen}'
 Ansehen: Voir
 'Diese Expedition löschen': 'Supprimer cette expédition'
@@ -2029,7 +2029,7 @@ Zuhause: Habitation
 Hausverteidigung: Défenses maison
 'kein Verteidigungsbonus': 'aucun bonus de défense'
 'Stufe {lvl}': 'Niveau {lvl}'
-Keine: Aucun
+Keine: Aucun.
 'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?': 'Comment ! vous n''avez pas encore de déco dans votre humble demeure ? Qu''attendez-vous pour fouiller le désert et ramener de magnifiques canapés en peau de zombie ? Ou encore un de ces adorables grigris un peu mous : une main ou un pied encore frais.'
 Deko-Punkte: points déco
 'Komiteenote:': 'Note du comité :'
@@ -2118,7 +2118,7 @@ Ranking-Ausschluss: Exclusion du classement
 '{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.': '{citizen} a déblayé la zone pour <strong>{count} points</strong> avec  {item} .'
 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).': 'Cette action est permise par un bâtiment de votre ville (seuls les héros peuvent en profiter).'
 'Durch die Lüftungsschächte klettern (in)': 'Entrer par l''aération'
-'Durch die Lüftungsschächte klettern (out)': 'Entrer par l''aération'
+'Durch die Lüftungsschächte klettern (out)': 'Sortir par l''aération'
 'Höchstens {nw_defense}': "\n              {nw_defense, plural,\n                =0 {Aucun !!}\n                other {Au maximum #}\n              }\n          "
 'Dieser Bürger': "Selon les rumeurs, le citoyen {citizen} :"
 'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...': "n'est pas en ville et <strong>n'a pas protégé sa maison contre les voleurs</strong>..."
