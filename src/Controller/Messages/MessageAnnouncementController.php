@@ -59,14 +59,12 @@ class MessageAnnouncementController extends MessageController
      * @return Response
      */
     public function create_poll_api(JSONRequestParser $parser, HTMLService $html): Response {
-        $langs = ['de','fr','en','es'];
-
         if ($this->isGranted('ROLE_ADMIN')) $p = ForumUsagePermissions::PermissionOwn;
         elseif ($this->isGranted('ROLE_CROW')) $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingModerator;
         else $p = ForumUsagePermissions::PermissionReadWrite | ForumUsagePermissions::PermissionFormattingOracle;
 
-        $format_html = function(&$data) use ($html, $langs, $p): bool {
-            foreach ($langs as $lang) {
+        $format_html = function(&$data) use ($html, $p): bool {
+            foreach ($this->generatedLangsCodes as $lang) {
                 $str = trim($data[$lang]);
                 if (mb_strlen($str) < 3) return false;
                 if (!$html->htmlPrepare( $this->getUser(), $p, false, $data[$lang], null, $len  )) return false;

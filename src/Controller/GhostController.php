@@ -139,7 +139,8 @@ class GhostController extends CustomAbstractController
         return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
             'professions' => array_filter( $em->getRepository(CitizenProfession::class)->findAll(), fn(CitizenProfession $pro) => $pro->getName() !== CitizenProfession::DEFAULT ),
-            'constructions' => $em->getRepository(BuildingPrototype::class)->findAll()
+            'constructions' => $em->getRepository(BuildingPrototype::class)->findAll(),
+            'langs' => $this->generatedLangs
         ]));
     }
 

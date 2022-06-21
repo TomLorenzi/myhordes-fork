@@ -35,6 +35,10 @@ class CustomAbstractController extends AbstractController {
     protected CitizenHandler $citizen_handler;
     protected InventoryHandler $inventory_handler;
     protected TranslatorInterface $translator;
+    protected array $generatedLangs;
+    protected array $allLangs;
+    protected array $generatedLangsCodes;
+    protected array $allLangsCodes;
 
     public function __construct(ConfMaster $conf, EntityManagerInterface $em, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, TranslatorInterface $translator) {
         $this->conf = $conf;
@@ -43,6 +47,15 @@ class CustomAbstractController extends AbstractController {
         $this->citizen_handler = $ch;
         $this->inventory_handler = $ih;
         $this->translator = $translator;
+
+        $allLangs = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
+        $allLangsCodes = array_map(function($item) {return $item['code'];}, $allLangs);
+
+        $generatedLangs = array_filter($allLangs, function($item) {
+            return $item['generate'];
+        });
+        $generatedLangsCodes = array_map(function($item) {return $item['code'];}, $generatedLangs);
+
     }
 
     public function getUserLanguage(): string {
@@ -50,12 +63,11 @@ class CustomAbstractController extends AbstractController {
             return $this->getUser()->getLanguage();
         $l = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
         if ($l) $l = explode('_', $l)[0];
-        return in_array($l, ['en','de','es','fr']) ? $l : 'de';
+        return in_array($l, $this->allLangsCodes) ? $l : 'de';
     }
 
     private static int $flash_message_count = 0;
-    protected function addFlash(string $type, $message): void
-    {
+    protected function addFlash(string $type, $message): void {
         parent::addFlash( $type, [$message,++self::$flash_message_count] );
     }
 
@@ -80,7 +92,7 @@ class CustomAbstractController extends AbstractController {
 
         $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
         if ($locale) $locale = explode('_', $locale)[0];
-        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+        if (!in_array($locale, $this->generatedLangsCodes)) $locale = null;
 
         $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
         shuffle($quotes);

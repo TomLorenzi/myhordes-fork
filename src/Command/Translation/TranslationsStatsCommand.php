@@ -4,7 +4,9 @@
 namespace App\Command\Translation;
 
 use App\Service\CommandHelper;
+use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Structures\MyHordesConf;
 use DirectoryIterator;
 use Exception;
 use SplFileInfo;
@@ -27,16 +29,18 @@ class TranslationsStatsCommand extends Command
     protected static $defaultName = 'app:translation:stats';
 
     private CommandHelper $helper;
+    private ConfMaster $confMaster;
 
     private ContainerInterface $container;
     private ParameterBagInterface $param;
 
-    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ParameterBagInterface $param, ContainerInterface $container)
+    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ParameterBagInterface $param, ContainerInterface $container, ConfMaster $confMaster)
     {
         $this->conf_trans = $conf_trans;
         $this->container = $container;
         $this->helper = $helper;
         $this->param = $param;
+        $this->confMaster = $confMaster;
 
         parent::__construct();
     }
@@ -70,9 +74,17 @@ class TranslationsStatsCommand extends Command
         foreach ($known_domains as $domain) $stats[$domain] = [];
         $stats['TOTAL'] = [];
 
+        $langs = array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
+            return $item['generate'];
+        }));
+
+        $foreignLangs = array_filter($langs, function($item) {
+            return $item != "de";
+        });
+
         foreach ($known_domains as $domain) {
-            $de_icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$domain}+intl-icu.de.xlf";
-            $de_base_file = "{$this->param->get('kernel.project_dir')}/translations/{$domain}.de.xlf";
+            $de_icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$domain}+intl-icu.de.yml";
+            $de_base_file = "{$this->param->get('kernel.project_dir')}/translations/{$domain}.de.yml";
 
             $de_file = file_exists($de_icu_file) ? $de_icu_file : ( file_exists( $de_base_file ) ? $de_base_file : null );
             if ($de_file === null) throw new Exception('Source file not found.');
@@ -92,10 +104,10 @@ class TranslationsStatsCommand extends Command
 
             $total_messages['TOTAL'] += $total_messages[$domain];
 
-            foreach (['en','fr','es'] as $lang) {
+            foreach ($foreignLangs as $lang) {
 
-                $icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$domain}+intl-icu.{$lang}.xlf";
-                $base_file = "{$this->param->get('kernel.project_dir')}/translations/{$domain}.{$lang}.xlf";
+                $icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$domain}+intl-icu.{$lang}.yml";
+                $base_file = "{$this->param->get('kernel.project_dir')}/translations/{$domain}.{$lang}.yml";
 
                 $file = file_exists($icu_file) ? $icu_file : ( file_exists( $base_file ) ? $base_file : null );
                 if ($file === null) throw new Exception('Source file not found.');
@@ -137,12 +149,10 @@ class TranslationsStatsCommand extends Command
         $known_domains[] = 'TOTAL';
 
         foreach ( array_keys($known_states) as $state ) {
-
             $table = new Table($output);
-            $table->setHeaders( $display_absolute ? [mb_strtoupper( $state ), '[ DE ]', '[ FR ]', '[ EN ]', '[ ES ]' ] : [mb_strtoupper( $state ), '[ FR ]', '[ EN ]', '[ ES ]' ]);
+            $table->setHeaders( $display_absolute ? array_merge([mb_strtoupper( $state )], array_map(function($item){return "[ " . strtoupper($item) . " ]";}, $langs)) : array_merge([mb_strtoupper( $state )], array_map(function($item){return "[ " . strtoupper($item) . " ]";}, $foreignLangs)));
 
             foreach ($known_domains as $domain) {
-
                 $table->addRow( array_merge([ $domain ], array_map( function($lang) use ($domain,$state,$display_absolute,&$stats,&$total_messages) {
                     $total = $lang === 'de' ? $total_messages[$domain] : ($stats[$domain][$lang][$state] ?? 0);
                     $matching = min(100,round(100 * $total / $total_messages[$domain]));
@@ -162,7 +172,7 @@ class TranslationsStatsCommand extends Command
                     else                 $color = 'red';
 
                     return "<fg=$color>{$display}</>";
-                }, $display_absolute ? ['de', 'fr','en','es'] : ['fr','en','es'])) );
+                }, $display_absolute ? $langs : $foreignLangs)) );
 
             }
 

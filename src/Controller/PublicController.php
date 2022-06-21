@@ -70,7 +70,7 @@ class PublicController extends CustomAbstractController
 
         $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
         if ($locale) $locale = explode('_', $locale)[0];
-        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+        if (!in_array($locale, $this->generatedLangsCodes)) $locale = null;
 
         $facts = $this->entity_manager->getRepository(HordesFact::class)->findBy(['lang' => $locale ?? 'de']);
         shuffle($facts);
