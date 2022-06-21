@@ -116,7 +116,7 @@ Bild-URL: Image URL
 'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'This thread contains {count} official announcement(s) from MyHordes Administrators :'
 'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'This thread contains {count} Announcement(s) from community representatives:'
 Zitieren: Quote
-Version: Version
+Version: Update
 Sprache: Language
 Vertraulich: Side Note
 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'This identifier must be supplied to any sites which you wish to allow to access (read-only) to game information held in your MyHordes account : Information on your town, list of citizens, map of the world, etc...'
@@ -405,7 +405,7 @@ Vorschlag: Idea
 SALC: SALC
 Projekt: Project
 'Tag hinzufügen (optional)': 'Add a tag (optional)'
-Tag: Tag
+Tag: Day
 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'A script on this page has crashed; details have been sent to the web console. The page may no longer work properly. Please report this issue:'
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'An error occurred. No further details are available.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Did you know? Many actions will display a help text when they are first tapped. To perform the action, simply tap them again. If you''re in a hurry and prefer to not see these help texts, disable the setting "Single tap to show tooltips" within your soul settings.'
@@ -431,3 +431,5 @@ STRG: CTRL
 'Umfrage starten': 'Take the survey'
 'Alles als gelesen markieren': 'Mark all as read'
 Weltforum: World Forum
+'im-Kontext Übersetzung': 'In-Context Translation'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'This particular language enable Crowdin''s In-Context translation. You will be able to translate MyHordes directly from the game itself.'
