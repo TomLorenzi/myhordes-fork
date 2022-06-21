@@ -20,10 +20,10 @@ Logout: Logout
 Darstellung: Display
 'Bevorzugt komprimierte Profilbilder anzeigen': 'Show compressed avatar'
 'Login und Sicherheit': 'Connection and security'
-'Passwort ändern': 'Change Password'
+'Passwort ändern': 'Change password'
 'Neues Passwort': 'New password'
 'Neues Passwort wiederholen': 'Confirm new password'
-'Aktuelles Passwort': 'Current Password'
+'Aktuelles Passwort': 'Current password'
 'Externe Anwendungen': 'External Applications'
 'Account löschen': 'Account deletion'
 'Meinen Account löschen': 'Delete my account'
@@ -32,10 +32,10 @@ Darstellung: Display
 'Die Datei ist zu groß.': 'This file is too large.'
 'Dieses Dateiformat wird nicht unterstützt.': 'The file format isn''t supported.'
 'Überlebte Tage': 'Days survived'
-Ergebnis: Ergebnis
+Ergebnis: Score
 Bürger: Citizen
 Todesursache: Cause of death
-Kommentar: Kommentar
+Kommentar: Comments
 Schriften: Texts
 'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...': 'This document contain many pages. Click here to go to the next page...'
 'Vorherige Seite': 'Previous page'
@@ -55,7 +55,7 @@ Entdeckt: Discovered
 'Standardmäßig als dev posten': 'Post as a developer by default'
 Standardsprache: Default language
 'Es sind in dieser Stadt noch ein paar Bürger übrig...': 'There''s still alive citizens in this town...'
-Version: Update
+Version: Version
 'Hier findet ihr alle vorangegangenen Updates:': 'Access previous major updates:'
 Koalition: Coalition
 'Saison {season}': 'Season {season}'
@@ -82,7 +82,7 @@ Twinoid-Profil: Twinoid Profile
 Seelen-ID: Soul-ID
 Saison: Season
 Tag: Day
-Stadtname: Town's name
+Stadtname: Town name
 Punkte: Points
 'Letzte Worte': 'Last Words'
 'Import bestätigen': 'Confirm import'
@@ -118,11 +118,11 @@ Zusammenfassung: Summary
 Infos: Infos
 Todesart: Cause of death
 Überlebt: Survived
-'{d} Tage': '{d} Day(s)'
-Auszeichnungen: Distinctions
+'{d} Tage': '{d} Days'
+Auszeichnungen: Awards
 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.': 'Here you can see the awards you have earned over time.'
 Auszeichnung: Award
-Anzahl: Stock
+Anzahl: Number
 Freischaltbares: Unlockable
 'Hier siehst du deine Titel und Icons.': 'Here you can see your Titles and Icons.'
 Typ: Type
@@ -173,7 +173,7 @@ Orakel: Oracle
 'Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player imported at least one soul from Twinoid. We look forward to welcome him to MyHordes!'
 Twinoid-Nutzer: Twinoid User
 'Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.': 'This town has been imported from {host}. The information on this page may be incomplete.'
-Tage: Day
+Tage: Days
 'Dein Account wurde gesperrt.': 'Your account was blocked.'
 'Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.': 'Your account was banned from the game by an Administrator.'
 'Diese Sperre ist permanent.': 'This blocking is permanent.'
@@ -200,7 +200,7 @@ EternalTwin-Nutzer: Eternaltwin users
 'Einer existierenden Koalition beitreten': 'JOIN AN EXISTING COALITION'
 'Es hat dich bisher noch niemand eingeladen.': 'You have no pending invitations at the moment.'
 Name: Name
-Aktionen: Actions
+Aktionen: Action
 Mitmachen!: Participate!
 'Die Einladung ablehnen.': 'Decline the invitation.'
 'Shoutbox der Koalition': 'Coalition shoutbox'
@@ -237,7 +237,7 @@ Absenden: Send
 'Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.': 'With this you can log out of all devices and browsers that you are currently logged in to. This also deactivates the "remember login" function on the affected devices.'
 'Animationen verringern': 'Reduce animations'
 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.': 'Check the box if you notice the game slowing down considerably when the game map is being displayed.<br /><em>This option will reduce the quality of the animations associated with the game map.</em>.'
-'Kleine Koalitionen': 'Small Coalitions'
+'Kleine Koalitionen': 'Coalitions'
 'Saison {number}': 'Season {number}'
 Pos.: Pos.
 Score: Score
@@ -245,16 +245,16 @@ Score: Score
 Lang.: Lang.
 Pandämoniumsstadt: Hardcore Town
 Privatstadt: Private town
-Zukunft: Updates
+Zukunft: Future
 'Einen Empfänger hinzufügen': 'Add a recipient'
 'Draußen gestorben': 'Died outside'
 'In der Stadt gestorben': 'Died in town'
-'Kleine Stadt': 'Small Town'
-'Entfernte Regionen': 'Distant Region'
-Pandämonium: Pandemonium
-'Private Stadt': 'Private Town'
+'Kleine Stadt': 'Small Towns'
+'Entfernte Regionen': 'Normal Towns'
+Pandämonium: Hardcore Towns
+'Private Stadt': 'Private Towns'
 'ALLE SAISONS': 'SEASONS'
-Seelenpunkte: Soul Value
+Seelenpunkte: Soul points
 'Zugriff auf die Rangliste einer bestimmten Saison:': 'Access a particular season''s rankings:'
 'Alle Saisons': 'All Seasons'
 Spieler: Player
@@ -268,7 +268,7 @@ Spieler: Player
 'Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.': 'You can''t write messages in the city or use the blackboard or zone chat.'
 'Stadtübergreifende Kommunikation': 'Intertown communication'
 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.': 'You cannot send messages through the message center.'
-Kommentare: Comment
+Kommentare: Comments
 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.': 'You can''t write final words or comments about the city.'
 Gruppenorganisation: Group organization
 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.': 'You can''t form or join coalitions.'
@@ -414,7 +414,7 @@ Icon: Icon
 Seelenimport: Soul Import
 Allgemein: General
 Browser: Browser
-Erweitert: Extended
+Erweitert: Advanced
 'Icon-Zoom auf mobilen Geräten': 'Icon zoom for mobile devices'
 'Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.': 'To make it easier to select items in your backpack and bank with your finger on a mobile device, you can adjust their size. This setting only affects mobile devices with a small screen, such as smartphones.'
 'Zoom deaktiviert': 'Zoom disabled'
@@ -426,14 +426,14 @@ Details: Details
 'Haus ansehen': 'See their house'
 'Profil auf MyHordes': 'MyHordes Profile'
 'Profil Eternal-Twin': 'Eternaltwin Profile'
-Schreiben: Write
+Schreiben: Send a message
 'Kontakt hinzufügen': 'Add contact'
 'Kontakt löschen': 'Remove contact'
 'Dieser Spieler gehört nicht zu deinen Kontakten.': 'This player is not one of your contacts.'
 'Du hast {username} zu deinen Kontakten hinzugefügt!': 'You have added {username} to your contacts  !'
 'Du hast {username} aus deinen Kontakten gelöscht!': 'You have removed {username} from your contacts !'
 Sozial: Social
-Freundesliste: Friend list
+Freundesliste: Friend List
 'Spieler werben': 'Sponsorship'
 'Wahrer Freund': 'True Friend'
 'Deine Freundesliste ist leer.': 'Your friend list is empty.'
