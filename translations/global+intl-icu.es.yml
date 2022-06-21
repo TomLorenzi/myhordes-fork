@@ -26,18 +26,18 @@ Zurück: Atrás
 'Werbung ist verboten (Links etc.)': 'La publicidad está prohibida (Links etc.)'
 'Heute um': 'Hoy a las'
 'Gestern um': 'Ayer a las'
-Antworten: Respuestas
+Antworten: Responder
 Schließen: Cerrar
 'Bestätigen?': '¿Confirmar?'
 Rückgängig: Deshacer
 Abbrechen: Cancelar
-Speichern: Publicar mi anuncio
+Speichern: Guardar
 Achtung: Atención
 'Bist du sicher?': '¿Estás seguro de dejar este mensaje?'
 'Auswahl bestätigen': 'Confirmar selección'
-Forum: Foro
+Forum: Foros
 'Deine Seele': 'Tu alma'
-Hilfe: Ayuda
+Hilfe: Guía
 'Zum Spiel': 'Jugar'
 Deutsch: Alemán
 Englisch: Inglés
@@ -64,21 +64,21 @@ Punkte: Puntos
 'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'Sin esto <strong>no puedes usar aplicaciones externas</strong>. Para configurar un ID externo, ve a Tu alma > Configuración y genera un ID.'
 Verzeichnis: Anuario
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'Los siguientes enlaces dirigen hacia sitios web elaborados por la comunidad. Proponen información y herramientas complementarias al juego:'
-'Dazu hast Du kein Recht.': 'Tú no tienes derecho de hacer eso.'
+'Dazu hast Du kein Recht.': 'No tienes derecho a hacer esto.'
 Moderation: Moderación
 Online: Conectado
 Offline: Desconectado
 Sticky: Destacado
 Dev: Desarrollador
 Löschen: Eliminar
-Öffnen: Abrir
+Öffnen: Desbloquear
 Anpinnen: Destacar
 Loslösen: Desprender
 'Du wurdest aus dem Forum verbannt.': 'Has sido baneado.'
 Schere: Tijera
 Stein: Piedra
 Papier: Papel
-Kopf: Cabeza
+Kopf: Cara
 Zahl: Cruz
 '{color} {value}': '{value} de {color}'
 Vorschau: Vista previa
@@ -180,10 +180,10 @@ Code: Código
 Kein: "No"
 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'Éste mensaje te lo trajo personalmente el Cuervo. Él siempre vuela sobre el pueblo y tiene un ojo clavado en tí...'
 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'Este bonus se encuentra disponible gracias a tus antiguos camaradas y a la Construcción <strong>Defensa Post-Mortem</strong>.'
-'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Este Bonus sólo funciona si los guardianes están en el pueblo durante el ataque.'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Este Bonus sólo se encuentra disponible si los Guardianes se encuentran en la ciudad.'
 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'Este costo puede reducirse con la construcción <strong>Vertedero gratuito</strong>.'
 Ausblenden: Esconder
-Nachricht: Anuncio personal
+Nachricht: Noticia
 Ausb.+Nachr.: Remplazar
 '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>¡El pueblo está en Caos Total!</strong></p> Ninguna ley se aplica... ¡Habrá que mantenerse unidos...!<p><em> O matarse los unos a los otros.</em>'
 Entwickler-Einstellungen: Opciones de desarrollador
@@ -337,7 +337,7 @@ Abstimmen: Votar
 'Umfrage einfügen': 'Insertar encuesta'
 'Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!': '¡Consulta tus entradas! Las encuestas ya no se pueden editar una vez que se ha enviado la publicación.'
 'Fragetext eingeben (optional)': 'Ingrese el texto de la pregunta (opcional)'
-'Antwort hinzufügen': 'Añadir respuesta'
+'Antwort hinzufügen': 'Agregar respuesta'
 Antwort: Respuesta
 (optional): (opcional)
 'Info-Text hinzufügen': 'Agregar texto informativo'
@@ -396,7 +396,7 @@ Fehler: Error
 Changelog: Cambios
 Event: Evento
 RP: RP
-Update: Actualizar
+Update: Versión
 Post: Correo
 Disk.: Debate
 Guide: Guía
@@ -405,7 +405,7 @@ Vorschlag: Sugerencia
 SALC: Tonterías
 Projekt: Proyecto
 'Tag hinzufügen (optional)': 'Agregar una etiqueta (opcional)'
-Tag: Día
+Tag: Etiqueta
 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'Un script en esta página ha fallado; los detalles han sido enviados a la consola web. Es posible que la página ya no funcione correctamente. Por favor reporta este problema:'
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'Un error ha ocurrido. No hay más detalles disponibles.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': ' ¿Lo sabías? Muchas acciones mostrarán texto de ayuda cuando sean tocadas por primera vez. Para realizar la acción, simplemente tócalas de nuevo. Si estás apresurado y prefieres no tener que ver estos textos de ayuda, desactiva la configuración "Un solo toque para mostrar descripción" dentro de tus configuraciones de alma.'
@@ -423,7 +423,7 @@ Support-Postfach: Contacto con el Soporte
 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.': 'Puedes moderar en este foro, pero no tienes permisos regulares de lectura. Por lo tanto solo podrás ver temas en los que se haya reportado al menos un mensaje.'
 'Für diese Aktion hast du nicht genug MP.': 'No tienes suficientes PM para esta acción.'
 Ankündigungen: Anuncios
-Foren: Foro
+Foren: Foros
 Kontaktliste: Lista de contactos
 STRG: CTRL
 'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.': 'No pudimos encontrar nada que coincidiera con tu búsqueda.'
