@@ -153,7 +153,7 @@ class InventoryHandler
                     ( $broken === null || $i->getBroken() === $broken ) &&
                     ( $poison === null || $i->getPoison()->poisoned() === $poison )
             )
-        , fn(int $c, Item $i) => $i->getCount(), 0);
+        , fn(int $c, Item $i) => $i->getCount() + $c, 0);
 
         try {
             $qb = $this->entity_manager->createQueryBuilder()
