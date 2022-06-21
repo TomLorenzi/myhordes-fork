@@ -15,15 +15,15 @@
 Du: About You
 'Dein Gesundheitszustand': 'Health'
 Inventar: Inventory
-'Deine Seele': 'My soul'
+'Deine Seele': 'Your Soul'
 'Der Tod und deine Seelenpunkte': 'Death and soul points'
 'Der letzte Tod': 'Last Man Standing!'
 Heldenmodus: Hero mode
-'Kleine Koalitionen': 'Small Coalitions'
+'Kleine Koalitionen': 'Coalitions'
 'Haus &amp; Hausarbeiten': 'House and Work'
-Ghule: Ghoul type
+Ghule: Ghouls
 'Die Berufe': 'Jobs'
-Einwohner: Citizen
+Einwohner: Resident
 Buddler: Scavenger
 Aufklärer: Scout
 Wächter: Guardian
@@ -218,16 +218,16 @@ Außenweltgebäude: Outside buildings
 'Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.': 'In any case, the town must have survived for <strong>a minimum of 10 complete days</strong> for this distinction to be awarded.'
 'Um möglichst lange zu überleben, solltest du auf deine <strong>Gesundheit</strong> achten.': 'To survive in a world like this, it is essential to <strong>keep a close watch on your health</strong>. Several health indicators can be seen at the top of the page.'
 'Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...': 'You will quickly get used to looking here to check if you need to drink, heal yourself, etc...'
-Erschöpfung: Exhausted
+Erschöpfung: Exhaustion
 'Wenn du keine {img_ap} Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href={url_move}>Sich bewegen</span>).': 'When you run out of {img_ap} action points, you become exhausted and will no longer be able to move around (see <span x-ajax-href={url_move}>Getting around</span>).'
-Durst: Thirsty
+Durst: Thirst
 "Du musst etwas trinken... Warte nicht zu lang, sonst bist du\n<strong>{img_dehy} Dehydriert</strong>!": "You need to drink... Don't wait too long, or you risk getting <strong>{img_dehy} Dehydrated</strong>!"
 oder: or
-Satt: Fed
+Satt: '= Satisfied'
 'Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.': 'These states indicate that you have drank and/or eaten today. Repetition of these actions will not restore action points.'
 'Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.': 'Example: you drank a flask of water in the morning to restore your action points and to alleviate your THIRST. If you drink again today, you can once again get rid of THIRST, but your action points will not be restored.'
 Verwundung: Wounded
-Infektion: Infected
+Infektion: Infection
 'Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.': 'This is due to a wound, or eating something that was a little too far out of date. Heal yourself quickly, an infection comes with a 50% mortality rate, 75% in Pandemonium Cities.'
 Rauschzustand: Drugged
 Angst: Terrorised
@@ -236,9 +236,9 @@ Angst: Terrorised
 Trunkenheit: Drunk
 Clean: Clean
 'Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...': 'This status indicates you have not taken any drugs up to this point. An impressive display of restraint, when you know the kinds of marvellous hallucinations they allow you to experience...'
-Immunisiert: Immunised
+Immunisiert: Innoculated
 "Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!\nAußerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.\nDer Schutz endet nach dem Angriff um Mitternacht.": "Some medicine or something else you consumed recently has made you immune to infection, you can also use it to prevent you from turning into a ghoul at midnight! This effect will wear off just after the attack."
-'Umsichtiger Camper': 'Learned Camper'
+'Umsichtiger Camper': 'Prudent camper'
 'Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!': 'If you manage to camp outside for one night and survive, you will receive a special status for the following day, which will improve your excavation activities!'
 Ghul: Ghoul
 'Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href={url_ghoul}>Ghul</span> verwandelt.': 'You have been infected by an incurable disease and have now turned into a <span x-ajax-href={url_ghoul}>Ghoul</span>.'
@@ -251,7 +251,7 @@ Kopf: Head
 'Du gibst wirres Zeug von dir.': 'your ramblings will become incoherent...'
 Hände: Hands
 'Du kannst bestimmte Gegenstände nicht mehr benutzen.': 'you will no longer be able to use certain objects...'
-Arme: Arms
+Arme: Arm
 'Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...': 'your wound stops you from working at the town''s construction sites and opening/closing the town gates...'
 Bein: Leg
 'In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!': 'in the World Beyond, whenever you try to move, there is a chance your leg will give way and you''ll fall. You will lose your AP but remain in the same zone!'
@@ -406,7 +406,7 @@ Nachteile: Disadvantages
 'Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...': 'Don''t forget that anybody can be transformed into a ghoul! Even the charismatic leader who is calling the shots and giving you good advice.'
 "Jeder Spieler startet in \"Die Verdammten\" als einfacher Bürger. \nDaneben gibt es jedoch noch <strong>7 außergewöhnliche Berufe</strong>. \nDiese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.": "<strong>All citizens in MyHordes start out as a simple Resident</strong> or choose their own job which gives them an advantage in a given domain: a Scavenger, for example, can find more objects in the desert than an average citizen."
 "Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. \nDer Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler \nEinwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.\nDarüber hinaus erhält man je nach Beruf einen <strong>speziellen Gegenstand</strong>. \nDer Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...": "A job <strong>gives the citizen a special object or tool which only they can possess</strong>. A camouflage suit for the Scout, a spade for the Scavenger, etc..."
-'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.': 'The resident is basically a normal citizen, with no remarkable abilities to speak of...'
+'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.': 'A Resident is effectively a normal, everyday citizen, with no remarkable abilities to speak of...'
 Startausrüstung: Basic equipment
 Bürgerkleidung: Citizen's uniform
 'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'The citizen''s uniform has remained unchanged in years. This is also the uniform you will wear for the rest of your days. Nonetheless, the outfit is functional and pretty comfortable, so there''s not really that much to complain about...'
