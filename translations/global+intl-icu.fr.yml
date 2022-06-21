@@ -26,16 +26,16 @@ Zurück: Retour
 'Werbung ist verboten (Links etc.)': 'La publicité est interdite (liens, etc.)'
 'Heute um': 'Aujourd''hui à'
 'Gestern um': 'Hier à'
-Antworten: Réponses
+Antworten: Répondre
 Schließen: Fermer
 'Bestätigen?': 'Confirmer ?'
 Rückgängig: Annuler le dernier point
 Abbrechen: Annuler
-Speichern: Inscrire mon annonce
+Speichern: Enregistrer
 Achtung: Attention
 'Bist du sicher?': 'Etes-vous sûr de vouloir laisser ce message ?'
 'Auswahl bestätigen': 'Valider mon choix'
-Forum: Forum
+Forum: Forums
 'Deine Seele': 'Votre âme'
 Hilfe: Aide
 'Zum Spiel': 'Retour au site'
@@ -45,7 +45,7 @@ Französisch: Français
 Spanisch: Espagnol
 Bearbeiten: Modifier
 Hinweis: Note
-Spiel: Jeu
+Spiel: Jouer
 Statistiken: Statistiques
 '{points} Punkte': '{points} points'
 'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Ce joueur n''a pas encore gagné de distinctions...'
@@ -64,13 +64,13 @@ Punkte: Points
 'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'Sans cela, <strong>vous ne pouvez pas utiliser d''applications externes</strong>. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.'
 Verzeichnis: Annuaire
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :'
-'Dazu hast Du kein Recht.': 'Tu n''as pas le droit de faire ça.'
+'Dazu hast Du kein Recht.': 'Vous n''avez pas le droit.'
 Moderation: Modération
 Online: En ligne
 Offline: Hors ligne
 Sticky: Épinglé
 Dev: Dev
-Löschen: Effacer
+Löschen: Supprimer
 Öffnen: Ouvrir
 Anpinnen: Épingler
 Loslösen: Désépingler
@@ -78,7 +78,7 @@ Loslösen: Désépingler
 Schere: Ciseaux
 Stein: Pierre
 Papier: Papier
-Kopf: Tête
+Kopf: Pile
 Zahl: Face
 '{color} {value}': '{value} de {color}'
 Vorschau: Aperçu
@@ -180,10 +180,10 @@ Code: Code
 Kein: Aucun
 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'Ce message vous a été envoyé par le Corbeau lui-même, qui rôde au-dessus de votre ville...'
 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'Ce bonus est obtenu grâce à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.'
-'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Ce bonus ne fonctionne que si les gardiens sont en ville pendant l''attaque.'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'Ces défenses sont apportées par les joueurs jouant le rôle de veilleur la nuit au moment de l''attaque.'
 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'Ce coût peut être réduit en construisant une <strong>Décharge organisée</strong>.'
 Ausblenden: Cacher
-Nachricht: Annonce
+Nachricht: Message
 Ausb.+Nachr.: Masquer + Message
 '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>La ville est en situation de Chaos total !</strong></p>Plus aucune loi n''a cours... Il va falloir se serrer les coudes et composer avec les quelques derniers survivants !<p><em>... Ou vous entretuer. Au choix.</em>'
 Entwickler-Einstellungen: Paramètres de développeur
@@ -202,7 +202,7 @@ Entwickler-Einstellungen: Paramètres de développeur
 'Bürger! Seid auf inoffiziellen Webseiten wachsam!': 'Citoyens ! Hors du site officiel, prudence !'
 'Du bist vor Angst erstarrt...': 'Vous êtes figé dans la peur...'
 'Nachrichten des Raben': 'Nouvelles du Corbeau'
-Anzeigen: Plaintes
+Anzeigen: Montrer
 Dauerhaft: Permanent
 '{n} Tage': '{n} Jours'
 '1 Tag': '1 Jour'
@@ -396,7 +396,7 @@ Fehler: Bugs
 Changelog: Changelog
 Event: Event
 RP: Roleplay
-Update: Mise à jour
+Update: Maj
 Post: Courrier
 Disk.: Débat
 Guide: Guide
@@ -405,7 +405,7 @@ Vorschlag: Suggs
 SALC: SALC
 Projekt: Projet
 'Tag hinzufügen (optional)': 'Ajouter un tag (optionnel)'
-Tag: Jour
+Tag: Tag
 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'Un script sur cette page a crashé; plus d’informations ont été envoyées à la console Web. La page peut ne plus fonctionner correctement. Vous pouvez signaler cette erreur :'
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'Une erreur s’est produite. Aucune autre information n’est disponible.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Le saviez-vous? Pour de nombreuses actions, une info-bulle s’affiche d’abord sur les appareils mobiles. Si vous souhaitez effectuer l’action, vous devez appuyer à nouveau sur celle-ci. Si vous êtes pressé et préférez ne pas voir les textes d’aide, vous pouvez désactiver cette fonctionnalité dans les paramètres de votre âme via le paramètre «\_Afficher les info-bulles sur les appareils mobiles en appuyant dessus\_».'
