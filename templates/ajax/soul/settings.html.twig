@@ -467,6 +467,11 @@
                             {% for lang in langs %}
                                 <div class="note note-lightest">
                                     <input x-lang-setting {% if preferredLanguage == lang['code'] %}checked{% endif%} value="{{ lang['code'] }}" type="radio" name="setting_preferred_language" id="setting_preferred_language_{{ lang['code'] }}">&nbsp;<label for="setting_preferred_language_{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</label>
+                                    {% if lang["tooltip"] != '' and lang['tooltip'] != null %}
+                                    <div class="tooltip help">
+                                        {{ lang['tooltip']|trans({}, 'global') }}
+                                    </div>
+                                    {% endif %}
                                 </div>
                             {% endfor %}
                         </div>

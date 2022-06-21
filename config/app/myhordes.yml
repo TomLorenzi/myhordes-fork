@@ -87,8 +87,8 @@ parameters:
         tooltip: ''
         generate: true
       - code: ach
-        label: 'Crowdin In-Place Translation'
-        tooltip: ''
+        label: 'In-Context Translation'
+        tooltip: 'This particular language enable Crowdin''s In-Context translation. You will be able to translate MyHordes directly from the game itself'
         generate: false
     towns:
       autolangs: ['de','en','fr','es']
