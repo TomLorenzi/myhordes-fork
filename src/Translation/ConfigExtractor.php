@@ -44,9 +44,9 @@ class ConfigExtractor implements ExtractorInterface
         //<editor-fold desc="Global Domain">
         $langs = $this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
         foreach ($langs as $lang) {
-            $this->insert($c, $lang['label'], 'global', 'app/mhordes.yml');
+            $this->insert($c, $lang['label'], 'global', 'app/myhordes.yml');
             if (!empty($lang['tooltip']))
-                $this->insert($c, $lang['tooltip'], 'global', 'app/mhordes.yml');
+                $this->insert($c, $lang['tooltip'], 'global', 'app/myhordes.yml');
         }
         //</editor-fold>
     }

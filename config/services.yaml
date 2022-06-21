@@ -152,6 +152,10 @@ services:
         tags:
             - { name: translation.extractor, alias: 'twig' }
             - { name: translation.extractor.myhordes, alias: 'twig' }
+    App\Translation\ConfigExtractor:
+        tags:
+            - { name: translation.extractor, alias: 'config' }
+            - { name: translation.extractor.myhordes, alias: 'config' }
 
     app.decoration.trans_dumper:
       class: App\Translation\ExpandedDumper
