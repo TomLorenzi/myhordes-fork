@@ -6,7 +6,7 @@ E-Mail-Adresse: Dirección de correo electrónico
 'Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.': 'Eliminar el ID evita que las aplicaciones externas tengan acceso a tus datos.'
 Seele: Alma
 News: Noticias
-Einstellungen: Opciones
+Einstellungen: Configuración
 Logout: Desconexión
 'Einen Kommentar hinzufügen': 'Agregar un comentario'
 'Dein Profil': 'Tu perfil'
@@ -20,7 +20,7 @@ Logout: Desconexión
 Darstellung: Presentación
 'Bevorzugt komprimierte Profilbilder anzeigen': 'Mostrar avatares reducidos'
 'Login und Sicherheit': 'Inicio de sesión y seguridad'
-'Passwort ändern': 'Cambiar la contraseña'
+'Passwort ändern': 'Cambiar contraseña'
 'Neues Passwort': 'Nueva contraseña'
 'Neues Passwort wiederholen': 'Repetir nueva contraseña'
 'Aktuelles Passwort': 'Contraseña actual'
@@ -32,10 +32,10 @@ Darstellung: Presentación
 'Die Datei ist zu groß.': 'El archivo es demasiado grande.'
 'Dieses Dateiformat wird nicht unterstützt.': 'Este formato no es compatible con los admitidos.'
 'Überlebte Tage': 'Días sobrevividos'
-Ergebnis: Puntos de alma obtenidos
-Bürger: Habitantes
-Todesursache: Causa de la muerte
-Kommentar: comentario
+Ergebnis: Score
+Bürger: Habitante
+Todesursache: Muerte
+Kommentar: Comentario
 Schriften: Escritos
 'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...': 'Este documento contiene varias páginas. Haz clic para pasar a la página siguiente...'
 'Vorherige Seite': 'Página anterior'
@@ -115,14 +115,14 @@ Zusammenfassung: Resumen
 'Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.': 'Este valor es estimado y puede diferir del valor real. Desafortunadamente, esto no se puede evitar.'
 'Vergangene Städte': 'Ciudades pasadas'
 'Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.': 'Esto muestra las ciudades en las que ha jugado en el pasado. Si se encuentra actualmente en una ciudad, no se mostrará aquí y no se importará.'
-Infos: Infos
+Infos: Noticias
 Todesart: Causa de la muerte
 Überlebt: Sobrevivió
 '{d} Tage': '{d} Días'
 Auszeichnungen: Distinciones
 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.': 'Aquí puedes ver las Distinciones que has ganado a lo largo del tiempo.'
 Auszeichnung: Distinción
-Anzahl: Stock
+Anzahl: Número
 Freischaltbares: Desbloqueable
 'Hier siehst du deine Titel und Icons.': 'Aquí puedes ver tus títulos e íconos.'
 Typ: Tipo
@@ -173,7 +173,7 @@ Orakel: Oráculo
 'Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'Este jugador importó al menos un alma de Twinoid. ¡Esperamos darle la bienvenida a MyHordes!'
 Twinoid-Nutzer: Usuario de Twinoid
 'Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.': 'Esta ciudad ha sido importada de {host}. La información de esta página puede estar incompleta.'
-Tage: Día
+Tage: Dias
 'Dein Account wurde gesperrt.': 'Tu cuenta ha sido bloqueada.'
 'Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.': 'Un administrador ha prohibido tu cuenta del juego.'
 'Diese Sperre ist permanent.': 'Este bloqueo es permanente.'
@@ -200,7 +200,7 @@ EternalTwin-Nutzer: Usuario de Eternaltwin
 'Einer existierenden Koalition beitreten': '>Unirse a una alianza existente'
 'Es hat dich bisher noch niemand eingeladen.': 'De momento nadie te ha enviado una invitación.'
 Name: Nombre
-Aktionen: Acciones
+Aktionen: Acción
 Mitmachen!: '¡Unirme!'
 'Die Einladung ablehnen.': 'Rechazar la invitación.'
 'Shoutbox der Koalition': 'Muro de la alianza'
@@ -237,7 +237,7 @@ Absenden: Enviar
 'Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.': 'Con esto, puedes cerrar sesión en todos los dispositivos y navegadores en los que estás conectado actualmente. La función "recordar inicio de sesión" también será desactivada en los dispositivos afectados.'
 'Animationen verringern': 'Disminuir animaciones'
 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.': 'Marca la casilla si notas que el juego se enlentece considerablemente cuando se muestra el mapa.<br /><em>Esta opción reducirá la calidad de las animaciones relacionadas con el mapa.</em>'
-'Kleine Koalitionen': 'Alianza'
+'Kleine Koalitionen': 'Alianzas'
 'Saison {number}': 'Temporada {number}'
 Pos.: Pos.
 Score: Puntuación
@@ -245,16 +245,16 @@ Score: Puntuación
 Lang.: Leng.
 Pandämoniumsstadt: Pueblo de Pandemonio
 Privatstadt: Pueblo privado
-Zukunft: Actualizaciones
+Zukunft: Futuro
 'Einen Empfänger hinzufügen': 'Agregar un destinatario'
 'Draußen gestorben': 'Muerto fuera'
 'In der Stadt gestorben': 'Muerto en el pueblo'
-'Kleine Stadt': 'Amateur'
-'Entfernte Regionen': 'Leyenda'
-Pandämonium: Pandemonio
-'Private Stadt': 'Pueblo privado'
+'Kleine Stadt': 'Pueblos Amateur'
+'Entfernte Regionen': 'Pueblos Leyenda'
+Pandämonium: Pueblos del Pandemonio
+'Private Stadt': 'Pueblos Privados'
 'ALLE SAISONS': 'TEMPORADAS'
-Seelenpunkte: Puntos de Alma
+Seelenpunkte: Puntos de alma
 'Zugriff auf die Rangliste einer bestimmten Saison:': 'Ir a la clasificación de una temporada:'
 'Alle Saisons': 'Todas las temporadas'
 Spieler: Jugador
@@ -268,11 +268,11 @@ Spieler: Jugador
 'Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.': 'No puedes escribir un Anuncio personal, escribir en la Pizarra de los héroes ni usar el chat del Ultramundo.'
 'Stadtübergreifende Kommunikation': 'Enviar mensajes privados'
 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.': 'No puedes crear nuevas conversaciones ni responder a conversaciones existentes.'
-Kommentare: Comentario
+Kommentare: Comentar
 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.': 'No puedes escribir Últimas palabras ni dejar comentarios en tus pueblos.'
 Gruppenorganisation: Organizarse
 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.': 'No puedes crear nuevas alianzas ni unirte a alianzas existentes.'
-Spielen: Tocar
+Spielen: Jugar
 'Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.': 'No puedes unirte a nuevos pueblos; si ya estabas en un pueblo, no podrás realizar ninguna acción ni abrir una página del pueblo. Tampoco podrás seguir viendo el foro del Pueblo actual.'
 'Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.': 'Esta nota es visible para ti, pero no para los jugadores que consulten tu alma.'
 'Dauerhafte Beschränkung': 'Sanción permanente'
@@ -332,7 +332,7 @@ Koalitionseinladung: Invitación a la alianza
 'Wie funktioniert das genau?': '¿Cómo lo hago?'
 'Du kannst aus mehreren Methoden wählen:': 'Tienes varios métodos disponibles:'
 'Versende einen Einladungs-Link:': 'Invítales a unirse a ti desde esta dirección:'
-oder: o
+oder: O
 'Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:': 'Pídele que ingrese tu nick en el espacio "Patrocinador" del formulario de inscripción:'
 'Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).': 'Utiliza uno de los banners como firma de tu correo electrónico, en Facebook, en tu blog o en un foro (¡quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).'
 'HTML Code': 'Código HTML'
@@ -340,7 +340,7 @@ BBCode: BBCode
 Empfänger: Destinatario
 'In diesem Abschnitt findest du alle bisher von dir gespielten Partien.': 'Esta es una lista de tus partidas jugadas.'
 'Verlauf meiner Städte': 'Historial de mis partidas'
-'Schwarzes Brett': 'Pizarra'
+'Schwarzes Brett': 'Tablón de anuncios'
 'Du kannst das Schwarze Brett nicht verwenden.': 'No puede utilizar el tablón de anuncios.'
 'Neue Übersetzungen verwenden': 'Utilizar nuevas traducciones'
 'Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.': 'Con el nuevo sistema de traducción, los textos se representan con mayor precisión en su idioma (por ejemplo, el uso apropiado de formas singulares y plurales). Desmarca esta opción para ver la traduccion original.'
@@ -396,7 +396,7 @@ Beta-Saison: Temporada Beta
 Alpha-Seelen: Almas alfa
 'Es sind keine Spieler aufgelistet!': '¡No hay jugadores en la lista!'
 'Alte Seelen': 'Almas viejas'
-Icon: Ícono
+Icon: icono
 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {threshold} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.': 'Esta restricción afecta a todos los jugadores que ya han jugado <b>más de {threshold} Pueblos</b> después del final de la fase Alfa.'
 'Diese Einschränkung betrifft alle Spieler, die auf MyHordes bereits <b>mehr als {thresholdS} Seelenpunkte</b> gesammelt oder <b>mehr als {thresholdT} Städte</b> nach dem Ende der Alpha-Phase gespielt haben.': 'Esta restricción afecta a todos los jugadores que ya han obtenido <b>más de {thresholdS} puntos de alma</b> o hayan jugado <b>más de {thresholdT} Pueblos</b> después del final de la fase Alfa.'
 'Zurück zur Kartei von {player}': 'Volver a la ficha de {player}'
@@ -414,7 +414,7 @@ Icon: Ícono
 Seelenimport: Importación de Alma
 Allgemein: General
 Browser: Navegador
-Erweitert: Extendido
+Erweitert: Avanzada
 'Icon-Zoom auf mobilen Geräten': 'Zoom de iconos para dispositivos móviles'
 'Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.': 'Para hacer que los objetos en tu mochila y el almacén sean más fáciles de seleccionar con tu dedo en un dispositivo móvil, puedes ajustar su tamaño. Esta configuración solamente afecta dispositivos móviles con una pantalla pequeña, como los smartphones.'
 'Zoom deaktiviert': 'Zoom desactivado'
@@ -426,14 +426,14 @@ Details: Detalles
 'Haus ansehen': 'Ver su casa'
 'Profil auf MyHordes': 'Perfil MyHordes'
 'Profil Eternal-Twin': 'Perfil Eternaltwin'
-Schreiben: Escribir
+Schreiben: Enviar mensaje
 'Kontakt hinzufügen': 'Agregar contacto'
 'Kontakt löschen': 'Retirar contacto'
 'Dieser Spieler gehört nicht zu deinen Kontakten.': 'Este jugador no está en tus contactos.'
 'Du hast {username} zu deinen Kontakten hinzugefügt!': '¡Ahora {username} está en tus contactos!'
 'Du hast {username} aus deinen Kontakten gelöscht!': '¡Ahora {username} ya no está en tus contactos!'
 Sozial: Social
-Freundesliste: Lista de amigos
+Freundesliste: Lista de contactos
 'Spieler werben': 'Patrocinio'
 'Wahrer Freund': 'Amigo'
 'Deine Freundesliste ist leer.': 'Tu lista de contactos está vacía.'
@@ -468,7 +468,7 @@ Koalitionseinladungen: las invitaciones
 'Specify using player search': 'Especificar usando la búsqueda de jugador'
 'Ändern des Profils': 'Cambiar el perfil'
 'Nicht länger ausblenden': 'Dejar de ignorar solicitudes'
-Ausblenden: Esconder
+Ausblenden: Ignorar solicitudes
 'Ausgeblendete Spieler anzeigen': 'Mostrar jugadores ignorados'
 'Spracheinstellung verwenden': 'Usar la del idioma seleccionado'
 'Deine Flagge': 'Elige tu bandera'
