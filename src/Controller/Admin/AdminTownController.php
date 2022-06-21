@@ -833,7 +833,7 @@ class AdminTownController extends AdminActionController
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $newLang = $parser->get('param');
-        if (!in_array( $newLang, [ 'de', 'es', 'en', 'fr', 'multi' ] ))
+        if (!in_array( $newLang, array_merge($this->generatedLangsCodes, [ 'multi' ]) ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $town->setLanguage( $newLang );
@@ -1481,7 +1481,7 @@ class AdminTownController extends AdminActionController
         $lang = $parser->get('lang');
         $rename = $parser->get( 'rename' );
 
-        if ($lang !== ($town_proxy->getLanguage() ?? '') && !in_array( $lang, ['de','en','fr','es','multi'] ))
+        if ($lang !== ($town_proxy->getLanguage() ?? '') && !in_array( $lang, array_merge($this->generatedLangsCodes, [ 'multi' ]) ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($lang !== ($town_proxy->getLanguage() ?? '')) {

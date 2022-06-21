@@ -935,7 +935,8 @@ class MessageForumController extends MessageController
             'username' => $username,
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
-            'tags' => $tags
+            'tags' => $tags,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1181,7 +1182,8 @@ class MessageForumController extends MessageController
             'forum' => true,
             'town_controls' => $thread->getForum()->getTown() !== null,
             'tags' => $tags,
-            'current_tag' => $thread->getTag()
+            'current_tag' => $thread->getTag(),
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 

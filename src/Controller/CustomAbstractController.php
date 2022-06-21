@@ -13,6 +13,7 @@ use App\Service\ConfMaster;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\EventConf;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -48,13 +49,13 @@ class CustomAbstractController extends AbstractController {
         $this->inventory_handler = $ih;
         $this->translator = $translator;
 
-        $allLangs = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
-        $allLangsCodes = array_map(function($item) {return $item['code'];}, $allLangs);
+        $this->allLangs = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
+        $this->allLangsCodes = array_map(function($item) {return $item['code'];}, $this->allLangs);
 
-        $generatedLangs = array_filter($allLangs, function($item) {
+        $this->generatedLangs = array_filter($this->allLangs, function($item) {
             return $item['generate'];
         });
-        $generatedLangsCodes = array_map(function($item) {return $item['code'];}, $generatedLangs);
+        $this->generatedLangsCodes = array_map(function($item) {return $item['code'];}, $this->generatedLangs);
 
     }
 
@@ -97,6 +98,7 @@ class CustomAbstractController extends AbstractController {
         $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
         shuffle($quotes);
 
+        $data["langsCodes"] = $this->generatedLangsCodes;
         $data['quote'] = $quotes[0];
 
         $data['apps'] = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['active' => true]);

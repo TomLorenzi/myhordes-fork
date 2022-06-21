@@ -1107,13 +1107,11 @@ class SoulController extends CustomAbstractController
     public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session): Response {
         $user = $this->getUser();
 
-        $validLanguages = array_map(function($item) {return $item['code'];}, $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS));
-
         if (!$parser->has('lang', true))
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         
         $lang = $parser->get('lang', 'de');
-        if (!in_array($lang, $validLanguages))
+        if (!in_array($lang, $this->allLangsCodes))
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
 
         // Check if the user has seen all news in the previous language

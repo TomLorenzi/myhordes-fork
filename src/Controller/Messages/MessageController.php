@@ -170,7 +170,8 @@ class MessageController extends CustomAbstractController
             'type' => 'numb',
             'username' => $user->getName(),
             'target_url' => '',
-            'town_controls' => false
+            'town_controls' => false,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 }

@@ -570,7 +570,7 @@ class BeyondController extends InventoryAwareController
             ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
             ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
             ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-            , $this->getActiveCitizen()->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
+            , $this->getActiveCitizen()->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
 
         try {
             $this->entity_manager->persist( $this->log->beyondChat( $this->getActiveCitizen(), $message ) );

@@ -183,7 +183,8 @@ class MessageAnnouncementController extends MessageController
             'type' => 'changelog',
             'username' => $user->getName(),
             'target_url' => 'admin_changelog_new_changelog',
-            'town_controls' => false
+            'town_controls' => false,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -211,7 +212,8 @@ class MessageAnnouncementController extends MessageController
             'type' => 'announcement',
             'username' => $user->getName(),
             'target_url' => 'admin_changelog_new_announcement',
-            'town_controls' => false
+            'town_controls' => false,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 

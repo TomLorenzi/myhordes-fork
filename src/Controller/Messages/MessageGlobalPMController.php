@@ -1097,6 +1097,7 @@ class MessageGlobalPMController extends MessageController
 
             'type' => 'global-pm',
             'target_url' => 'pm_new_thread_controller',
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1122,6 +1123,7 @@ class MessageGlobalPMController extends MessageController
 
             'type' => 'global-og-pm',
             'target_url' => 'pm_new_og_thread_controller',
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1151,6 +1153,7 @@ class MessageGlobalPMController extends MessageController
             'type' => 'global-pm',
             'target_url'  => 'pm_new_post_controller',
             'target_data' => ['id' => $id],
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
