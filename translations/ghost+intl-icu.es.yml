@@ -17,7 +17,7 @@ Aktionen: Acciones
 'Worauf warten Sie noch?': '¿Qué estás esperando?'
 'Privatstadt gründen': 'Crear un pueblo privado'
 'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'En un pueblo privado puedes jugar entre amigos o crear un pueblo entorno a un "tema". '
-'Name der Stadt': 'nombre del pueblo'
+'Name der Stadt': 'Nombre del pueblo'
 Zugangscode: Código de acceso
 Stadttyp: Tipo de pueblo
 Ghule: Mutante
@@ -29,7 +29,7 @@ Blutdurst: Voraces
 'Stadt der Kuscheltiere': 'Pueblo de los juguetes de peluche'
 Wasservorrat: Reserva de agua
 'Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300': '(Valor normal entre 100 y 180). Valor reducida en un tercio si es Pandemonio. '
-Einstellungen: Opciones
+Einstellungen: Configuración
 'XML Feed für diese Stadt deaktivieren': 'Desactivar el flujo XML para este pueblo (desactiva complementos).'
 Event-Stadt: Pueblos especiales
 Spezialregeln: Reglas especiales
