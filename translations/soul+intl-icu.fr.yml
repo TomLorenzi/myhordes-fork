@@ -4,7 +4,7 @@ E-Mail-Adresse: Adresse email
 'Neue ID generieren': 'Générer un nouvel ID'
 'ID löschen': 'Supprimer l''ID'
 'Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.': 'En supprimant l''ID, vous empêchez les applications externes d''accéder à vos données.'
-Seele: Ame
+Seele: Âme
 News: News
 Einstellungen: Réglages
 Logout: Déconnexion
@@ -20,7 +20,7 @@ Logout: Déconnexion
 Darstellung: Affichage
 'Bevorzugt komprimierte Profilbilder anzeigen': 'Préférer l''affichage compressé des avatars'
 'Login und Sicherheit': 'Connexion et sécurité'
-'Passwort ändern': 'Changer le mot de passe'
+'Passwort ändern': 'Changer de mot de passe'
 'Neues Passwort': 'Nouveau mot de passe'
 'Neues Passwort wiederholen': 'Confirmation du nouveau mot de passe'
 'Aktuelles Passwort': 'Mot de passe actuel'
@@ -33,8 +33,8 @@ Darstellung: Affichage
 'Dieses Dateiformat wird nicht unterstützt.': 'Ce format de fichier n''est pas pris en charge.'
 'Überlebte Tage': 'Jours survécus'
 Ergebnis: Score
-Bürger: Citoyens
-Todesursache: Cause du décès
+Bürger: Citoyen
+Todesursache: Cause de la mort
 Kommentar: Commentaire
 Schriften: Écrits
 'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...': 'Ce document comporte plusieurs pages. Cliquez dessus pour passer à la page suivante...'
@@ -55,7 +55,7 @@ Entdeckt: Découvert
 'Standardmäßig als dev posten': 'Poster comme développeur par défaut'
 Standardsprache: Langue par défaut
 'Es sind in dieser Stadt noch ein paar Bürger übrig...': 'Il y a encore des citoyens vivants dans cette ville...'
-Version: Version
+Version: Mise à jour
 'Hier findet ihr alle vorangegangenen Updates:': 'Accès aux mises à jour majeures précédentes :'
 Koalition: Coalition
 'Saison {season}': 'Saison {season}'
@@ -82,7 +82,7 @@ Twinoid-Profil: Profil Twinoid
 Seelen-ID: ID de l'âme
 Saison: Saison
 Tag: Jour
-Stadtname: Nom de Ville
+Stadtname: Nom de la ville
 Punkte: Points
 'Letzte Worte': 'Derniers mots'
 'Import bestätigen': 'Confirmer l''importation'
@@ -122,7 +122,7 @@ Todesart: Mort
 Auszeichnungen: Distinctions
 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.': 'Ici, vous pouvez voir les distinctions que vous avez gagnées au fil du temps.'
 Auszeichnung: Distinctions
-Anzahl: Stock
+Anzahl: Nombre
 Freischaltbares: Déverrouillables
 'Hier siehst du deine Titel und Icons.': 'Ici, vous pouvez voir vos titres et icônes.'
 Typ: Type
@@ -200,7 +200,7 @@ EternalTwin-Nutzer: Utilisateur Eternaltwin
 'Einer existierenden Koalition beitreten': 'Rejoindre une coalition existante'
 'Es hat dich bisher noch niemand eingeladen.': 'Pour l''instant personne ne vous a envoyé d''invitation.'
 Name: Nom
-Aktionen: Actions
+Aktionen: Action
 Mitmachen!: Rejoindre !
 'Die Einladung ablehnen.': 'Refuser l''invitation.'
 'Shoutbox der Koalition': 'Shoutbox de la coalition'
@@ -208,7 +208,7 @@ Mitmachen!: Rejoindre !
 'Nicht verfügbar': 'Indisponibles'
 'Ausstehende Einladungen': 'Invitations en attente'
 'Einen Freund einladen': 'Ajouter un ami'
-Optionen: Paramètres
+Optionen: Options
 'Du stehst <strong>zur Verfügung</strong>.': 'Vous êtes <strong>disponible</strong>.'
 'Du stehst <strong>nicht zur Verfügung</strong>.': 'Vous êtes <strong>indisponible</strong>.'
 'Meinen Status ändern': 'Changer mon statut'
@@ -237,7 +237,7 @@ Absenden: Envoyer
 'Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.': 'Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connecté. La fonction "Rester connecté" sera également désactivée sur ces appareils.'
 'Animationen verringern': 'Réduire les animations'
 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.': 'Cochez cette case si vous rencontrez des ralentissements notables lorsque la carte du jeu est affichée.<br /><em>Cette option réduira la qualité des animations liées à la carte du jeu.</em>'
-'Kleine Koalitionen': 'Citoyens coalisés'
+'Kleine Koalitionen': 'Petites coalitions'
 'Saison {number}': 'Saison {number}'
 Pos.: Pos.
 Score: Score
@@ -249,12 +249,12 @@ Zukunft: Évolutions
 'Einen Empfänger hinzufügen': 'Ajouter un destinataire'
 'Draußen gestorben': 'Mort dehors'
 'In der Stadt gestorben': 'Mort en ville'
-'Kleine Stadt': 'Petite carte'
-'Entfernte Regionen': 'Région éloignée'
-Pandämonium: Pandémonium
-'Private Stadt': 'Ville privée'
+'Kleine Stadt': 'Petites Villes'
+'Entfernte Regionen': 'Villes Normales'
+Pandämonium: Villes du Pandémonium
+'Private Stadt': 'Villes Privées'
 'ALLE SAISONS': 'LES SAISONS'
-Seelenpunkte: Valeur de l'âme
+Seelenpunkte: Points d'âme
 'Zugriff auf die Rangliste einer bestimmten Saison:': 'Accès au classement d''une saison particulière :'
 'Alle Saisons': 'Toutes les saisons'
 Spieler: Joueur
@@ -268,7 +268,7 @@ Spieler: Joueur
 'Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.': 'Vous ne pouvez pas écrire de messages dans la ville ou utiliser le tableau noir ou le chat de zone.'
 'Stadtübergreifende Kommunikation': 'Communication interville'
 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.': 'Vous ne pouvez pas envoyer de messages via le Centre de messagerie.'
-Kommentare: Commentaire
+Kommentare: Commentaires
 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.': 'Vous ne pouvez pas transmettre de derniers mots ou écrire des commentaires sur la ville.'
 Gruppenorganisation: Organisation de groupe
 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.': 'Vous ne pouvez pas former ou rejoindre de petites coalitions.'
@@ -414,7 +414,7 @@ Icon: Icône
 Seelenimport: Importation d'âme
 Allgemein: Général
 Browser: Navigateur
-Erweitert: Étendu
+Erweitert: Avancé
 'Icon-Zoom auf mobilen Geräten': 'Zoom des icônes pour les appareils mobiles'
 'Um Items in deinem Rucksack und der Bank auf einem mobilen Gerät einfacher mit dem Finger auswählen zu können, kannst du deren Größe anpassen. Diese Einstellung betrifft nur mobile Geräte mit einem kleinen Bildschirm, beispielsweise Smartphones.': 'Pour faciliter la sélection d''objets dans votre sac à dos et la banque avec votre doigt sur un appareil mobile, vous pouvez ajuster leur taille. Ce paramètre n’affecte que les appareils mobiles avec un petit écran, tels que les smartphones.'
 'Zoom deaktiviert': 'Zoom désactivé'
@@ -426,14 +426,14 @@ Details: Détails
 'Haus ansehen': 'Voir sa maison'
 'Profil auf MyHordes': 'Profil MyHordes'
 'Profil Eternal-Twin': 'Profil Eternaltwin'
-Schreiben: Écrire
+Schreiben: Envoyer un message
 'Kontakt hinzufügen': 'Ajouter contact'
 'Kontakt löschen': 'Retirer contact'
 'Dieser Spieler gehört nicht zu deinen Kontakten.': 'Ce joueur ne fait pas partie de vos contacts.'
 'Du hast {username} zu deinen Kontakten hinzugefügt!': 'Vous avez ajouté {username} à vos contacts !'
 'Du hast {username} aus deinen Kontakten gelöscht!': 'Vous avez retiré {username} de vos contacts !'
 Sozial: Social
-Freundesliste: Liste d'amis
+Freundesliste: Amis
 'Spieler werben': 'Parrainage'
 'Wahrer Freund': 'Ami Mutuel'
 'Deine Freundesliste ist leer.': 'Votre liste d''amis est vide.'
@@ -468,7 +468,7 @@ Koalitionseinladungen: mes invitations
 'Specify using player search': 'Spécifier à l’aide de la recherche de joueur'
 'Ändern des Profils': 'Modifier le profil'
 'Nicht länger ausblenden': 'Ne plus masquer'
-Ausblenden: Cacher
+Ausblenden: Masquer
 'Ausgeblendete Spieler anzeigen': 'Liste des joueurs masqués'
 'Spracheinstellung verwenden': 'Utiliser le paramètre de langue'
 'Deine Flagge': 'Mon drapeau'
