@@ -77,7 +77,7 @@ Zombies: Zombies
 'Morgige Abschätzung': 'TOMORROW''S ATTACK'
 'Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses ''alles'' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.': 'Wow, you can see pretty much everything from here! It''s just a shame that this "everything" is limited to an empty sandy desert. However, if you take a closer look, you can count the zombies that are crawling towards the city.'
 'Tag {day}': 'Day {day}'
-Rucksack: Backpack
+Rucksack: Rucksack
 Truhe: Chest
 'Truhe und Aktionen': 'Inventory + Actions'
 Bauarbeiten: Building upgrades
@@ -88,7 +88,7 @@ Speichern: Make an announcement
 'Meine Spezialaktionen': 'My special Actions'
 'Rucksack ausleeren': 'Empty rucksack into your chest'
 'Mein Register': 'My Register'
-Verteidigung: Defence
+Verteidigung: Defences
 Dekoration: Decoration
 Gegenstände: objects
 'Mein Haus ausbauen': 'Upgrade your home'
@@ -115,12 +115,12 @@ Tot!: Dead!
 'Nur Helden können komplexe Routen planen.': 'Only heroes can create complex expeditions.'
 'Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).': 'Please enter a valid name (between 3 and 32 characters).'
 '{citizen}s Truhe': '{citizen}''s Chest'
-Tot: Deaths
-Haus: House
+Tot: Dead
+Haus: Habitation
 Todesursache: Cause of death
 Gemeinschaft: Spying and neighbourhood gossip
 '{citizen} hat bereits {num} Anzeige(n).': '{citizen} has received {num} complaint(s).'
-Verbannung: Banishment
+Verbannung: Shunning
 Todesstrafe: Death penalty
 'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'One of them is yours. You asked for {punishment}.'
 'Anzeige erstatten': 'Register a complaint'
@@ -163,10 +163,10 @@ Baustellenregister: Constructions
 Brunnenregister: The Well
 Stadt: Town
 'Mein Haus': 'Home'
-Brunnen: Well rations
-Bank: Bank
-Bürger: Citizen
-Konstruktionen: Construction sites
+Brunnen: The Well
+Bank: The Bank
+Bürger: Citizens
+Konstruktionen: Construction Sites
 'Kaum erforschte Zone': 'Unknown sector'
 'Die Zone wurde teilweise erforscht': 'Partially explored sector'
 'Die Zone wurde erforscht': 'Sector regularly visited'
@@ -248,7 +248,7 @@ Atombunker: Nuclear Bunker
 Autobahnraststätte: Motorway Services
 Autowracks: Disused Car Park
 'Bar der verlorenen Hoffnungen': 'The ''Shattered Illusions'' Bar'
-Baumarkt: Builder’s Merchant
+Baumarkt: Home Depot
 Baustellencontainer: Construction Site Shelter
 'Dönerbude Utsel-Brutzel': 'Fraser D''s Kebab-ish'
 'Dukes Villa': 'Duke''s Villa'
@@ -357,16 +357,16 @@ Techniker: "Technician"
 Schamane: "Shaman"
 Einsiedler: "Survivalist"
 'Verbesserung des Tages': 'Town Upgrades'
-Wachturm: Watchtower
+Wachturm: Tower
 Werkstatt: Workshop
 'Jemand hat eine anonyme Anzeige gegen {citizen} vorgebracht!': 'Someone sent an anonymous complaint on {citizen}!'
 'Jemand hat seine anonyme Anzeige gegen {citizen} zurückgezogen.': 'Someone withdrew their complaint on {citizen}.'
 'Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.': 'We don''t have the technology required to forecast tomorrow''s attack.'
 'Den morgigen Angriff berechnen': 'Calculate tomorrow''s attack'
-'Leere Truhe': 'Empty chest'
+'Leere Truhe': 'Empty Chest'
 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:': 'Taking a quick look through the window, you can see the following objects:'
 'Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.': "The well is where citizens go each day to collect their water ration.\n                If the town builds a pump, you will be able to get more water!"
-Übersicht: Overview
+Übersicht: Overview of the town
 'Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.': 'The desolate wastelands of the World Beyond extend for as far as the eye can see. You spare a thought for the other colonists who are scavenging at this very moment, searching the ruins. You pause to think about the suffering of those who will never return.'
 'Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...': 'Will you decide to move forward or to hide behind the fortified walls ? Some believe that it is best to be cautious and consider all options, others maintain that faint heart never won fair maiden... Perhaps the truth lies somewhere between the two...'
 'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'The nights are freezing cold in the desert... A thick dust cloud engulfs everything and you can hear mournful groaning all around you. Occasionally you make out an indistinct figure moving in the shadows. Let''s hope that it''s just your imagination...'
@@ -402,7 +402,7 @@ Erhängt: Mob justice (death by hanging)!
 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.': 'Let''s not beat about the bush. There are some people in town who don''t like you... Several in fact, your neighbours, and even some of your friends helped drag you to the town gates... To the "meat locker". Without trial, they locked you inside, then someone suggested throwing stones at you for entertainment purposes. What a result for you! You were barely conscious when the zombie horde arrived...'
 Strangulation: Strangulation
 'Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.': 'You couldn''t stand in this town and its citizens anymore that you decided to shorten your existence by yourself. What a courageous Admin... Meh.'
-Kopfschuss: Headshot
+Kopfschuss: Shot in the head
 'Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.': 'This was home to a citizen who decided to settle down outside the town, thinking they would survive for longer unaffected by the quarrels and betrayals inherent in town life. Half of their corpse is still in the living room.'
 'Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!': 'One of the many Smith''s Superstores that proliferated around the year 2010 then disappeared... specialising in making things as cheap as possible, you should be able to find whatever you need here. Whether you''re potless or just being tighter than two coats of paint, shop at Smiths!'
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'Some actions cannot be forgiven. Take, for example, the case of the cavern: your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn''t have to cry for long...'
@@ -478,7 +478,7 @@ Kopfschuss: Headshot
 'Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.': 'You reckon your chances of surviving here are good, you should be able to spend the night here.'
 'Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.': 'You reckon your chances of surviving here are optimal. Nobody would see you, even if they were looking straight at you.'
 Wächt: W-Men
-Müllhalde: Garbage Dump
+Müllhalde: Dump
 Katapult: Catapult
 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...': 'After exhaustive searching, the only thing you have discovered is the emptiness of wasted time...'
 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!': 'Scavengin in the rubbish lying around near the town, you manage to find: {item}!'
@@ -759,7 +759,7 @@ Headshot: Headshot
 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: {item}!': 'After some effort, your expedition found the following: {item}!'
 'Was sagst du dazu?': 'What do you say?'
 'Dieser Bürger hat keine letzten Worte hinterlassen ...': 'This citizen didn''t leave any last words...'
-'Letzte Worte:': 'Last words:'
+'Letzte Worte:': 'Last Words:'
 'Deine letzten Worte:': 'Your last words:'
 Mystic-Punkte: Shamanic Points
 'Diese Punkte sind exklusiv für den Schamanen reserviert.': 'These points are reserved exclusively for the shaman.'
@@ -1462,7 +1462,7 @@ Anwesenheit: Presence
 'Leprechaun wurde gesehen, wie er den {item} von {victim} stahl!': 'Leprechaun was seen stealing the {item} from {victim}!'
 Aktivität: Activity
 'Häuser der Bürger': 'Citizens'' Houses'
-'Temporäre Verteidigung': 'Vorübergehende Verteidigung'
+'Temporäre Verteidigung': 'Temporary Defences'
 Leichen-Bonus: Cadaver Bonus
 Bonus: Bonus
 UFC: UFC
@@ -1487,7 +1487,7 @@ UFC: UFC
 Wätcher: Watchmen
 'Diese Bürger is der {role} der Stadt': "This citizen is the {role} of the Town"
 Expeditionen: Expeditions
-'Verbessrung des Tages': 'Town Upgrades'
+'Verbessrung des Tages': 'Improvement of the day'
 'Die Bank': 'The Bank'
 'Bauprojekte der Stadt': 'Construction Sites'
 'Der Brunnen': 'The Well'
@@ -1559,7 +1559,7 @@ Gemeinschaftsfreak: Community Extremist
 'Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!': 'Evolution of the {upgrade} has successfully reached level {level}!'
 'Einen Bürger heimbringen:': 'Escort a citizen:'
 '{citizen} hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...': '{citizen} had started to deal with their raging hunger by munching on parts of their fellow citizens. Next time, get rid of the dead to ensure they don''t get up again the next day...'
-Anzeigen: Show
+Anzeigen: Complaints
 'Du hast {num} anonyme Anzeige(n) erhalten.': 'You have received {num} anonymous complaints.'
 'Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!': 'After 8 complaints, you will be shunned!'
 'Grund:': 'Reason:'
@@ -1658,7 +1658,7 @@ Pisa-Geraderichter: The Fixer
 'Ein Patch, kein Spiel': 'Patch-up Specialist'
 'Ein Riss? Welcher Riss?': 'A crack? What crack?'
 'Das braucht noch 10 Jahre!': 'That''ll last another 10 years!'
-'Architekt (title)': Architect
+'Architekt (title)': Master Architect
 gering: low
 hoch: high
 'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...': 'The chance to be seen, while devouring a citizen, is <strong>{chances}</strong>...'
@@ -1780,7 +1780,7 @@ Verletzt: Verletzt
 'Die Route wurde gelöscht.': 'The route has been deleted.'
 'In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..': 'This section allows you to show your fellow citiens ''routes'' around the World Beyond, and to organise expeditions to areas of interest.'
 'Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!': 'Warning: the town is limited to 16 expeditions. Always consider abandoning expeditions which have become pointless!'
-Dauer: Duration
+Dauer: Long.
 'von {citizen}': 'by {citizen}'
 Ansehen: Show
 'Diese Expedition löschen': 'Delete this expedition'
@@ -1971,7 +1971,7 @@ Material: Use
 'Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.': 'Note: Containers (such as a rucksack, trolley, etc...) will not automatically be placed in the bank.'
 'Deine Nachricht wurde gespeichert.': 'Your comment has been saved.'
 'Meine Partien': 'My games'
-'Name der Stadt': 'Name der Stadt'
+'Name der Stadt': 'Town name'
 'In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &quot;vollkommen überlebt&quot;, <strong>wenn du beim Zombieangriff um 23:59 stirbst</strong>. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..': 'This colums indicates the number of full days each citizen has survived. A day is not counted as "complete" if a citizen dies <strong>for any reason OTHER than the attack of the Horde at 23:59</strong>.'
 'Die blau markierten Felder sind Städte, in denen du mitgespielt hast!': 'Lines with a blue background correspond to towns in which you participated!'
 'Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.': 'Rankings are updated after the midnight attack.'
@@ -2118,7 +2118,7 @@ Ranking-Ausschluss: Ranking Exclusion
 '{citizen} hat <strong>{count} Haufen Schutt</strong> mithilfe von {item} bereinigt.': '{citizen} cleared <strong>{count} parts</strong> of the zone with their {item}.'
 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).': 'This action is made possible by a building in your town (only Heroes can do this).'
 'Durch die Lüftungsschächte klettern (in)': 'Enter via the air-vent'
-'Durch die Lüftungsschächte klettern (out)': 'Enter via the air-vent'
+'Durch die Lüftungsschächte klettern (out)': 'Climb out the air-vent'
 'Höchstens {nw_defense}': "\n              {nw_defense, plural,\n                =0 {None!}\n                other {At most #}\n              }\n          "
 'Dieser Bürger': "If you believe the rumors, {citizen}:"
 'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...': "is not in town and <strong>hasn't protected their house against thievery</strong>..."
@@ -2200,7 +2200,7 @@ Fortfahren...: Continue...
 Def.: Def.
 'Zeigt die Hausverteidigung an.': 'Indicates the defensive rating of a house.'
 'Dieser Wert spiegelt die Anwesenheit und Aktivität eines jeden Bürgers wider.': 'This score reflects how active a player is and whether they connect regularly.'
-Löschen: Clear
+Löschen: Delete
 'Meine persönliche Nachricht ändern': 'Change my personal message'
 'Einen Aufstand der Verbannten vorbereiten (optional).': 'Einen Aufstand der Verbannten vorbereiten (optional).'
 'Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...': 'Solange dieser Bürger <strong>vor Angst erstarrt</strong> ist, wird es für ihn unmöglich sein, inmitten von Zombies zu handeln...'
