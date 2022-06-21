@@ -44,6 +44,7 @@ class UpdateTranslationsCommand extends Command
             ->addOption('disable-php', null, InputOption::VALUE_NONE, 'Disables translation of PHP files')
             ->addOption('disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
             ->addOption('disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
+            ->addOption('disable-config', null, InputOption::VALUE_NONE, 'Disables translation of config files')
 
         ;
     }
@@ -61,6 +62,7 @@ class UpdateTranslationsCommand extends Command
             if ($input->getOption('disable-db')) $this->conf_trans->setDatabaseSearch(false);
             if ($input->getOption('disable-php')) $this->conf_trans->setPHPSearch(false);
             if ($input->getOption('disable-twig')) $this->conf_trans->setTwigSearch(false);
+            if ($input->getOption('disable-config')) $this->conf_trans->setConfigSearch(false);
             foreach ($input->getOption('file') as $file_name)
                 $this->conf_trans->addMatchedFileName($file_name);
 
@@ -88,9 +90,11 @@ class UpdateTranslationsCommand extends Command
             foreach ($langs as $current_lang) {
 
                 $com = "app:translation:update $current_lang";
-                if ($input->getOption('disable-db')) $com .= " --trans-disable-db";
-                if ($input->getOption('disable-php')) $com .= " --trans-disable-php";
-                if ($input->getOption('disable-twig')) $com .= " --trans-disable-twig";
+                if ($input->getOption('disable-db')) $com .= " --disable-db";
+                if ($input->getOption('disable-php')) $com .= " --disable-php";
+                if ($input->getOption('disable-twig')) $com .= " --disable-twig";
+                if ($input->getOption('disable-config')) $com .= "--disable-config";
+
                 foreach ($input->getOption('file') as $file_name)
                     $com .= " --file $file_name";
 
@@ -118,6 +122,7 @@ class UpdateTranslationsCommand extends Command
             if ($input->getOption('disable-db')) $com .= " --disable-db";
             if ($input->getOption('disable-php')) $com .= " --disable-php";
             if ($input->getOption('disable-twig')) $com .= " --disable-twig";
+            if ($input->getOption('disable-config')) $com .= "--disable-config";
             foreach ($input->getOption('file') as $file_name)
                 $com .= " --file $file_name";
 
