@@ -13,7 +13,7 @@ Kommunikationsfehler.: Communication error.
 'Diese Aktion steht nur Helden zur Verfügung.': 'This action is only available to heroes.'
 'Neuer Thread': 'New Thread'
 'Neuer Post': 'New Post'
-Titel: Title
+Titel: Subject
 'Deine Nachricht': 'Your Message'
 Absenden: Send
 Zurück: Back
@@ -26,16 +26,16 @@ Zurück: Back
 'Werbung ist verboten (Links etc.)': 'Advertising (links etc.) is forbidden; feel free to link the Eternaltwin discord though!'
 'Heute um': 'Today at'
 'Gestern um': 'Yesterday at'
-Antworten: Answers
+Antworten: Reply
 Schließen: Close
 'Bestätigen?': 'Confirm?'
 Rückgängig: Undo
 Abbrechen: Cancel
-Speichern: Make an announcement
+Speichern: Save
 Achtung: Warning
 'Bist du sicher?': 'Are you sure?'
 'Auswahl bestätigen': 'Confirm selection'
-Forum: Forum
+Forum: Forums
 'Deine Seele': 'My soul'
 Hilfe: Help
 'Zum Spiel': 'Back to site'
@@ -64,14 +64,14 @@ Punkte: Points
 'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'Without these, <strong>you cannot use external apps</strong>. To set an external ID, go into your Soul > Settings and generate an ID.'
 Verzeichnis: Directory
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'The following links lead to sites created by players from the MyHordes community. They offer tools or supplementary information relating to the game :'
-'Dazu hast Du kein Recht.': 'You have no right to do that.'
+'Dazu hast Du kein Recht.': 'You have no right to do this.'
 Moderation: Moderation
 Online: Online
 Offline: Offline
 Sticky: Sticky
 Dev: Dev
-Löschen: Clear
-Öffnen: Open
+Löschen: Delete
+Öffnen: Unlock
 Anpinnen: Stick
 Loslösen: Unstick
 'Du wurdest aus dem Forum verbannt.': 'You have been banned from the forum.'
@@ -116,7 +116,7 @@ Bild-URL: Image URL
 'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'This thread contains {count} official announcement(s) from MyHordes Administrators :'
 'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'This thread contains {count} Announcement(s) from community representatives:'
 Zitieren: Quote
-Version: Update
+Version: Version
 Sprache: Language
 Vertraulich: Side Note
 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'This identifier must be supplied to any sites which you wish to allow to access (read-only) to game information held in your MyHordes account : Information on your town, list of citizens, map of the world, etc...'
@@ -180,10 +180,10 @@ Code: Code
 Kein: None
 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'This message was personally delivered to you by the Crow. He hovers over your town and always keeps a watchful eye on you...'
 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'This bonus has been obtained thanks to your old friends and the <strong>Small Cemetary</strong> building.'
-'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'This bonus is only available if the guardians are in the town during the attack.'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'This bonus is only available if the watchmen are in the town during the attack.'
 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'This cost can be reduced by building an <strong>Free dump</strong>.'
 Ausblenden: Hide
-Nachricht: Status message
+Nachricht: Your message
 Ausb.+Nachr.: Hide + Message
 '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>The town is in total chaos!</strong></p>Laws are no longer enforced... You will have to close ranks and work together with the other remaining survivors!<p><em>... Or kill each other. As you like...</em>'
 Entwickler-Einstellungen: Developer settings
@@ -350,7 +350,7 @@ Animateur-Team: AnimACTION team
 Entwickler: Devs
 Community-Tools: Community Tools
 Posteingang: Inbox
-Archiv: Archives
+Archiv: Archive
 'Nachricht suchen...': 'Search message...'
 'Gib hier den Titel einer Nachricht ein, um danach zu suchen.': 'Enter the title of a message to search for it.'
 'Dieser Ordner ist leer.': 'This folder is empty.'
@@ -405,7 +405,7 @@ Vorschlag: Idea
 SALC: SALC
 Projekt: Project
 'Tag hinzufügen (optional)': 'Add a tag (optional)'
-Tag: Day
+Tag: Tag
 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'A script on this page has crashed; details have been sent to the web console. The page may no longer work properly. Please report this issue:'
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'An error occurred. No further details are available.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Did you know? Many actions will display a help text when they are first tapped. To perform the action, simply tap them again. If you''re in a hurry and prefer to not see these help texts, disable the setting "Single tap to show tooltips" within your soul settings.'
