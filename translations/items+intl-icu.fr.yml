@@ -26,7 +26,7 @@ Schraubenzieher: Tournevis
 Jagdmesser: Couteau à dents
 Machete: Coupe-Coupe
 'Lächerliches Taschenmesser': 'Canif dérisoire'
-'Schweizer Taschenmesser': 'Nuchuk à molette'
+'Schweizer Taschenmesser': 'Couteau suisse'
 Teppichmesser: Cutter
 Einkaufswagen: Caddie
 Dosenöffner: Ouvre-boîtes
@@ -96,7 +96,7 @@ Kaffeekocher: Cafetière
 'Hydraton 100mg': 'Hydratone 100mg'
 'Kassettenradio (ohne Strom)': 'Radio K7 (éteint)'
 Kassettenradio: Radio K7
-Zyanid: Suicide par ingestion de Cyanure
+Zyanid: Cyanure
 'Alte Tür': 'Vieille porte'
 'Verdächtiges Gemüse': 'Légume suspect'
 'Reparaturset (kaputt)': 'Kit de bricolage (abimé)'
@@ -327,13 +327,13 @@ Bürgerbekleidung: Uniforme de citoyen
 'Dreckige Bürgerbekleidung': 'Uniforme de citoyen sale'
 Tarnanzug: Tenue de camouflage
 'Tarnkleidung (nicht wirksam!)': 'Camouflage (inactif !)'
-'Kleine Schaufel': 'Petite pelle'
+'Kleine Schaufel': 'Petite Pelle'
 'Dreibeiniger Malteser': 'Bichon maltais à 3 pattes'
 'Malteser Hündchen auf Droge': 'Bichon maltais shooté'
 'Müdes Malteser Hündchen': 'Bichon maltais fatigué'
-Survivalbuch: Manuel de survie
-Schraubenschlüssel: Kit du bricoleur
-Schutzschild: Bouclier anti-émeute
+Survivalbuch: Livre de survie
+Schraubenschlüssel: Clé à molette de compet'
+Schutzschild: Bouclier Anti-émeutes
 Voodoo-Maske: Masque Voodoo
 Trinken: Boire
 Befüllen: Remplir
@@ -375,7 +375,7 @@ Knuddeln: Étreindre
 Rauchen: Fumer
 Dopen: Lui donner un stéroïde
 'Wasser suchen': Chercher de l'eau
-'Essen suchen': Manger
+'Essen suchen': Chercher de la nourriture
 Tarnen: Remettre
 'Du bist nun getarnt.': 'Vous êtes maintenant camouflé.'
 'Du ziehst eine Karte... es ist: {color} {value}.': 'Vous tirez la carte {value} de {color}.'
@@ -660,10 +660,10 @@ Rettung: Sauvetage
 'Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.': 'On dirait qu''un voisin a laissé une petite caisse avec votre nom inscrit dessus devant chez vous... Que peut-elle donc bien contenir ?'
 'Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: ''Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen''. Das willste doch nicht trinken? Oder etwa doch?!': 'Cette fiole soigneusement scellée contient du jus de mirabelle. C''est vraiment suspect. D''autant qu''elle porte une étiquette : ''en cas d''ingestion, contacter le centre anti-poison le plus proche de chez vous''. Vous n''allez quand même pas boire ça ? Si ?'
 'Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!': 'Une étiquette de bouteille... Hé, il y a des choses inscrites derrière !'
-'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'Votre uniforme de citoyen inchangé depuis des années est votre seule possession. C''est également le dernier vêtement que vous porterez pour le restant de vos jours. Néanmoins, cette tenue est fonctionnelle et relativement confortable donc il n''y a pas trop à se plaindre non plus...'
+'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'Votre uniforme de citoyen, inchangé depuis des années. Également le dernier vêtement que vous porterez pour le restant de vos jours. Néanmoins, cette tenue est fonctionnelle et relativement confortable donc il n''y a pas trop à se plaindre non plus...'
 'Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!': 'Votre uniforme de citoyen : abîmé, sale et couvert de taches en tous genres... Il faudra penser à le nettoyer à votre retour en ville.'
 'Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.': 'Cette tenue vous permet d''avancer dans le désert au milieu des zombies sans contrainte. Prudence toutefois, vous avez une chance d''être repéré(e) si vous traversez un secteur largement contrôlé par les morts-vivants.'
-'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.': 'La petite pelle permet de réduire (automatiquement) le temps de chaque fouille dans le désert... Les chances de trouver un objet sont également sensiblement plus élevées.'
+'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.': 'L''outil bien connu des Fouineurs. La petite pelle vous permet de réduire (automatiquement) le temps de fouille dans le désert... Les chances de trouver un objet sont également sensiblement plus élevées.'
 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.': 'Il vous suit partout, sent le poil mouillé, claudique et bave abondamment. Et il jappe également. Souvent. Vous pouvez lui demander, une fois par jour, de ramener le contenu de votre sac à dos en ville, depuis n''importe quel coin du désert.'
 'Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.': 'Votre précieux guide, intitulé "le manuel des castors juniors". Même s''il ressemble à une édition pour enfants, il contient une foule d''informations utiles pour qui veut se débrouiller seul dans la nature. Il vous permettra de trouver à manger ou à boire facilement.'
 'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.': 'Indispensable pour pulvériser les records de construction de chantier, le kit complet du bricoleur est accompagné d''une clé à molette de compétition !'
@@ -707,7 +707,7 @@ Grundnahrungsmittel: Provisions
 Expedition: Expédition
 Sonstiges: Divers
 Einrichtungen: Aménagements
-Verteidigung: en défense
+Verteidigung: Défense
 Waffenarsenal: Armurerie
 'Taschen und Behälter': 'Conteneurs et boîtes'
 Kaputt: Cassé
@@ -752,7 +752,7 @@ Pkte: Pts
 Heilen: Se soigner
 'Verteidigung organisieren': 'Organiser les défenses'
 'Reinigen (Wasser)': Purifier
-'Reinigen (Kleidung)': Purifier
+'Reinigen (Kleidung)': Nettoyer
 'Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.': 'Cette empreinte de clé high-tech permettra d''ouvrir les portes sécurisées de niveau 6.2 AOC.'
 'Abdruck vom Flaschenöffner': 'Empreinte de décapsuleur'
 'Kamera aus Vorkriegs-Tagen': 'Appareil photo d''avant-guerre'
@@ -763,7 +763,7 @@ Heilen: Se soigner
 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.': 'Vous installez solidement {item} puis placez dessus quelques débris et branches séchées pour camoufler le tout. Voilà qui devrait <strong>améliorer vos chances de vous cacher ici</strong> cette nuit.{hr}Vous avez utilisé <strong>1 point(s) d''action</strong>.'
 'Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.<t-bannote_ok>Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...</t-bannote_ok><t-bannote_fail>Leider ist der Inhalt dieses Manuskripts völlig unleserlich.</t-bannote_fail>': 'Vous lisez {item} avec la plus grande attention. <t-bannote_ok>Cette note appartenait à un citoyen banni... La seule chose que vous pouvez lire est "{zone}"... Étrange... Vous détruisez la page juste pour être sûr que personne ne la lise...</t-bannote_ok><t-bannote_fail>Pas de chance, le contenu de cette note manuscrite est totalement illisible.</t-bannote_fail>'
 Benutzen: Utiliser
-'Schönes Fundstück': 'Jolies trouvailles'
+'Schönes Fundstück': 'Trouvaille (améliorée)'
 'Zur Truhe schicken': 'Mon coffre personnel'
 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.': 'Ce médicament a renforcé votre organisme : vous ne subirez ni infection, ni ne serez transformé(e) en Goule. Cet effet se dissipera après l''attaque de ce soir. Note : cet effet ne protège pas des infections provoquées par une blessure non-traitée à minuit.'
 '<t-stat-up-addict>Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!</t-stat-up-addict>': '<t-stat-up-addict>Mauvaise nouvelle ! Vous devenez par la même occasion dépendant(e) ! Vous devrez dorénavant consommer au moins une drogue par jour ou mourir !</t-stat-up-addict>'
@@ -891,7 +891,7 @@ Guiness: Guiness
 'Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.': 'En tant que victime de la Grande Contamination, votre système immunitaire vous a donné une chance de prévenir les infections.'
 'Zeuge des Armageddon': 'Témoin de l''Armageddon'
 'Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.': 'En tant que témoin de l’Armageddon, vous pouvez fuir les situations sans issue.'
-Ruhm: Balise Glorieuse
+Ruhm: Gloire
 'Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.': 'En tant que champion, vous pouvez ajouter du pouvoir à vos messages sur le forum.'
 'Kreischender Wecker': 'Réveil-Hurleur'
 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?': 'Vous n''en revenez pas ! Toute la voracité qui vous rongeait de l''intérieur disparaît petit à petit. Est-ce vraiment possible que vous soyez redevenu humain ?'
