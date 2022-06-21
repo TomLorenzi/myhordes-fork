@@ -1,9 +1,8 @@
----
 'Allgemeiner Fehler.': 'Erreur générale.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'Le forum sélectionné n''existe pas ou vous n''avez pas l''autorisation d''y accéder.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Votre texte doit contenir au moins 2 caractères.'
 'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.': 'Votre titre doit contenir entre 3 et 64 caractères.'
-Kommunikationsfehler.: Erreur de communication.
+Kommunikationsfehler.: 'Erreur de communication.'
 'Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.': 'Cette action ne peut pas être effectuée car la demande est incorrecte ou incomplète.'
 'Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.': 'Une erreur de base de données est survenue durant cette action. Veuillez réessayer plus tard.'
 'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.': 'Une erreur interne est survenue durant cette action. Veuillez réessayer plus tard.'
@@ -29,9 +28,9 @@ Zurück: Retour
 Antworten: Réponses
 Schließen: Fermer
 'Bestätigen?': 'Confirmer ?'
-Rückgängig: Annuler le dernier point
+Rückgängig: 'Annuler le dernier point'
 Abbrechen: Annuler
-Speichern: Inscrire mon annonce
+Speichern: 'Inscrire mon annonce'
 Achtung: Attention
 'Bist du sicher?': 'Etes-vous sûr de vouloir laisser ce message ?'
 'Auswahl bestätigen': 'Valider mon choix'
@@ -49,7 +48,7 @@ Spiel: Jeu
 Statistiken: Statistiques
 '{points} Punkte': '{points} points'
 'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Ce joueur n''a pas encore gagné de distinctions...'
-Seelenpunktzahl: Score d'âme
+Seelenpunktzahl: 'Score d''âme'
 'Aktuelles Leben': 'Incarnation actuelle'
 Saison: Saison
 Tage: Jours
@@ -66,8 +65,8 @@ Verzeichnis: Annuaire
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'Les liens suivants renvoient vers des sites réalisés par la communauté des joueurs de Hordes. Ils proposent des outils ou des infos complémentaires pour le jeu :'
 'Dazu hast Du kein Recht.': 'Tu n''as pas le droit de faire ça.'
 Moderation: Modération
-Online: En ligne
-Offline: Hors ligne
+Online: 'En ligne'
+Offline: 'Hors ligne'
 Sticky: Épinglé
 Dev: Dev
 Löschen: Effacer
@@ -91,10 +90,10 @@ Fett: Gras
 Kursiv: Italique
 Unterstreichen: Souligné
 Durchstreichen: Barré
-Listenpunkt: Élément de liste
+Listenpunkt: 'Élément de liste'
 Spoiler: Spoiler
 Zitat: Citation
-Ruhm: Balise Glorieuse
+Ruhm: 'Balise Glorieuse'
 Linie: Ligne
 Entstauben: Désarchiver
 Einfügen: Valider
@@ -106,10 +105,10 @@ Verräter: Traître
 'Mod Ankündigung': 'Annonce modérateur'
 'Orakel Ankündigung': 'Annonce oracle'
 Rollenspiel: Roleplay
-Link-Text: Texte du lien
-Link-URL: URL du lien
-Bildtitel: Titre de l'image
-Bild-URL: URL de l'image
+Link-Text: 'Texte du lien'
+Link-URL: 'URL du lien'
+Bildtitel: 'Titre de l''image'
+Bild-URL: 'URL de l''image'
 'Liste der Themen aktualisieren': 'Actualiser la liste des sujets'
 'Dieses Thema enthält offizielle Ansagen der Website Administratoren.': 'Ce sujet comporte une ou plusieurs annonces officielles des administrateurs.'
 'Dieses Thema enthält Ansagen von Community-Vertretern.': 'Ce sujet comporte une ou plusieurs annonces de représentants de la communauté.'
@@ -128,7 +127,7 @@ Bestätigen: Confirmer
 'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'Si vous n''avez rien sous la main pour soulager votre fatigue, rendez-vous sur le forum pour obtenir de l''aide...'
 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'Le marqueur est visible sur la carte pour TOUS les citoyens. Utilisez-le pour partager des informations sur une zone spécifique avec la communauté.'
 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'Remarque : Tous les messages écrits ici seront perdus si tous les citoyens quittent la zone.'
-'Unangemessene Nachricht blockieren': 'Signaler'
+'Unangemessene Nachricht blockieren': Signaler
 Link: Lien
 'Permanenter Link zu diesem Post:': 'Lien permanent vers ce message :'
 'Mehr anzeigen': 'Afficher plus'
@@ -160,8 +159,8 @@ Mehrsprachig: Multilingue
 'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)': 'Vous ne savez pas quoi faire ? Suivez les recommandations ci-dessous :)'
 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.': 'Ce bonus ne fonctionne que si les gardiens sont en ville pendant l''attaque.'
 'Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..': 'Certains objets que vous possédez sont <strong>utilisables</strong>. Cliquez alors simplement sur un lien ci-dessous pour vous en servir. D''autres objets, comme les armes par exemple, ne peuvent être utilisés que <strong>hors de la ville</strong>.'
-Stadtforum: Forum de la ville
-Weltforen: Forums Monde
+Stadtforum: 'Forum de la ville'
+Weltforen: 'Forums Monde'
 'Andere Foren': 'Autres forums'
 'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.': 'Au moins un message sur ce sujet a été signalé aux modérateurs.'
 'Dieses Thema enthält {count} gemeldete Posts:': 'Ce sujet contient {count} message(s) signalé(s) :'
@@ -184,9 +183,9 @@ Kein: Aucun
 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'Ce coût peut être réduit en construisant une <strong>Décharge organisée</strong>.'
 Ausblenden: Cacher
 Nachricht: Annonce
-Ausb.+Nachr.: Masquer + Message
+Ausb.+Nachr.: 'Masquer + Message'
 '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>La ville est en situation de Chaos total !</strong></p>Plus aucune loi n''a cours... Il va falloir se serrer les coudes et composer avec les quelques derniers survivants !<p><em>... Ou vous entretuer. Au choix.</em>'
-Entwickler-Einstellungen: Paramètres de développeur
+Entwickler-Einstellungen: 'Paramètres de développeur'
 'Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.': 'En tant que développeur de ce site Web, vous pouvez régler certains paramètres ici.'
 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.': 'Cette adresse e-mail sera affichée comme adresse de contact.'
 'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.': 'Il s''agit de l''URL vers laquelle les joueurs seront dirigés lorsqu''ils cliquent sur le lien.'
@@ -222,7 +221,7 @@ Dauerhaft: Permanent
 'Ausgeschlossene Teilnehmer': 'Participants exclus'
 'Ausschluss annulieren': 'Annuler l''exclusion'
 'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.': 'L''exclusion du joueur sera annulée et il retrouvera un accès complet au groupe.'
-'Wird geladen...': 'Chargement...'
+'Wird geladen...': Chargement...
 'Bitte wähle eine Konversation auf der linken Seite.': 'Veuillez sélectionner une conversation sur la gauche.'
 'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.': 'Protection anti-spam: vous avez déjà contacté un grand nombre de joueurs aujourd''hui; vous devez attendre un moment avant de pouvoir rédiger un nouveau message.'
 'Weitere Einträge werden geladen...': 'Chargement d''autres entrées...'
@@ -241,7 +240,7 @@ Ankündigung: Annonce
 'Weitere Einträge laden': 'Charger plus d''entrées'
 'Posteingang wird geladen ...': 'Chargement de la boîte de réception...'
 'Fehler beim Laden des Posteingangs.': 'Erreur lors du chargement de la boîte de réception.'
-Heute: Aujourd'hui
+Heute: 'Aujourd''hui'
 Gestern: Hier
 Abonniert: Abonné
 Abonnieren: Suivre
@@ -254,9 +253,9 @@ und: et
 'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Cliquez pour être informé(e) des nouvelles réponses apportées à cette discussion.'
 'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Cliquez pour ne plus être informé(e) des nouvelles réponses.'
 'Nachrichten suchen': 'Rechercher un message'
-Suchbegriff: Mots clés
+Suchbegriff: 'Mots clés'
 'Suchbegriffe eingeben': 'Entrez les mots-clés'
-'Benutzer (optional)': 'Utilisateur'
+'Benutzer (optional)': Utilisateur
 Entfernen: Supprimer
 Optionen: Paramètres
 'In Titeln suchen': 'Recherche dans les titres'
@@ -286,10 +285,10 @@ Groß: Gros
 'Eine offizielle Gruppe kontaktieren': 'Contacter un groupe officiel'
 'via {group_inbox}': 'via {group_inbox}'
 'Überlebte Tage': 'Jours survécus'
-Abschiedsworte: Commentaire personnel
+Abschiedsworte: 'Commentaire personnel'
 'Zum Wechsein der Seite hier klicken': 'Cliquez pour changer de page'
 'Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.': 'Vous n''avez pas le droit d''envoyer un objet à un citoyen hors de la ville en mode chaos.'
-'Pin entfernen': 'Désépingler'
+'Pin entfernen': Désépingler
 'Angepinnte Nachricht': 'Message épinglé'
 Einblenden: Montrer
 'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.': 'Message caché de {user}. Cliquer pour montrer.'
@@ -299,7 +298,7 @@ Einblenden: Montrer
 'Du hast diesen Spieler auf deine Blacklist gesetzt.': 'Cet utilisateur a été ajouté à votre liste noire.'
 'Du hast diesen Spieler von deiner Blacklist genommen.': 'Cet utilisateur a été retiré de votre liste noire.'
 'Du hast {user} blockiert.': 'Vous avez bloqué {user}.'
-'Blockade aufheben': 'Débloquer'
+'Blockade aufheben': Débloquer
 'Spieler blockieren': 'Bloquer ce joueur'
 '{user} blockieren': 'Bloquer {user}'
 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'Si vous bloquez ce joueur, il ne pourra pas vous envoyer de nouveaux messages. Si vous êtes tous les deux ajoutés à un message de groupe par une tierce personne, les publications du joueur bloqué vous seront masquées par défaut.'
@@ -321,7 +320,7 @@ Cheating: Triche
 'Verwendung einer anderen als der Forensprache': 'Utilisation d’une langue autre que la langue du forum'
 'Beleidigungen / Unangemessener Ausdruck': 'Insultes / Langage inapproprié'
 Pornographie: Pornographie
-Hassrede: Incitation à la haine raciale
+Hassrede: 'Incitation à la haine raciale'
 'Verbreitung persönlicher Informationen': 'Diffusion d''informations personnelles sensibles'
 'Verletzung von Copyright': 'Non respect des droits d''auteur'
 'Aufruf zu Gesetzesverstößen': 'Incitation à la violation de la loi'
@@ -346,9 +345,9 @@ Info-Text: Description
 'Spielernamen einfügen': Joueur
 'Umfrage schließen': 'Fermer le sondage'
 'Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?': 'Cette action ne peut pas être annulée. Etes-vous sûr ?'
-Animateur-Team: L'Animaction
+Animateur-Team: 'L''Animaction'
 Entwickler: Développeur
-Community-Tools: Outils communautaires
+Community-Tools: 'Outils communautaires'
 Posteingang: Réception
 Archiv: Archives
 'Nachricht suchen...': 'Rechercher un message...'
@@ -362,7 +361,7 @@ Archiv: Archives
 'Dieser Spieler ist ein Animateur auf MyHordes.': 'Ce joueur est un animacteur sur MyHordes.'
 'Dieser Spieler ist ein Orakel auf MyHordes.': 'Ce joueur est un oracle sur MyHordes.'
 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.': 'Ce joueur a contribué au développement de MyHordes.'
-"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "Le nombre de monticules de terre et de déchets vous indique qu'il n'y a sans doute plus grand chose à trouver ici. <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>"
+"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": 'Le nombre de monticules de terre et de déchets vous indique qu''il n''y a sans doute plus grand chose à trouver ici. <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>'
 'Das Zombie Survival Game!': 'Le jeu de survie dans un monde peuplé de zombies !'
 Details: Détails
 'Zusätzliche Informationen zu deiner Meldung (optional):': 'Informations supplémentaires sur le signalement (facultatif):'
@@ -376,7 +375,7 @@ Ende: Fin
 'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.': 'MyHordes est <i>Open Source</i> et tout le monde est le bienvenu pour y <b>participer</b>. Vous pouvez consulter le code source sur {gitlab}.'
 'MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.': 'MyHordes fait partie du projet {etwin}, si vous le souhaitez, vous pouvez faire une donation sur {opencollective}.'
 Programmierung: Développement
-'Danke an': 'Remerciements'
+'Danke an': Remerciements
 'Thread verschieben': 'Déplacer le sujet'
 'Verschiebe den aktuellen Thread in ein anderes Forum:': 'Déplacez ce sujet vers un autre forum :'
 Verschieben: Déplacer
@@ -396,7 +395,7 @@ Fehler: Bugs
 Changelog: Changelog
 Event: Event
 RP: Roleplay
-Update: Mise à jour
+Update: 'Mise à jour'
 Post: Courrier
 Disk.: Débat
 Guide: Guide
@@ -424,10 +423,12 @@ Support-Postfach: Support
 'Für diese Aktion hast du nicht genug MP.': 'Vous n''avez pas assez de PM pour cette action.'
 Ankündigungen: Annonces
 Foren: Forum
-Kontaktliste: Liste des contacts
+Kontaktliste: 'Liste des contacts'
 STRG: CTRL
 'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.': 'Aucun document correspondant à votre requête de recherche n’a été trouvé.'
 'Schon gewusst?': 'Le saviez-vous?'
 'Umfrage starten': 'Répondre au sondage'
 'Alles als gelesen markieren': 'Marquer tout comme lu'
-Weltforum: Forum Monde
+Weltforum: 'Forum Monde'
+'im-Kontext Übersetzung': 'im-Kontext Übersetzung'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.'

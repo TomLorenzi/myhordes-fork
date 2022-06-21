@@ -1,5 +1,4 @@
----
-Wassergraben: Great Moat
+Wassergraben: 'Great Moat'
 'Großer Graben': 'Great Pit'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'The Great Pit gives an additional 23 defence points.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'The Great Pit gives an additional 44 defence points.'
@@ -7,15 +6,15 @@ Wassergraben: Great Moat
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'The Great Pit gives an additional 109 defence points.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'The Great Pit gives an additional 160 defence points.'
 Rasierklingenmauer: Grater
-Pfahlgraben: Spiked Pit
+Pfahlgraben: 'Spiked Pit'
 Köder: Bait
-Stacheldraht: Barbed Wire
+Stacheldraht: 'Barbed Wire'
 'Weiterentwickelte Stadtmauer': 'Wall Upgrade v2'
-'Groooße Mauer': 'Überwall'
-Zackenmauer: Spiked Wall
+'Groooße Mauer': Überwall
+Zackenmauer: 'Spiked Wall'
 'Dritte Schicht': 'Third Wall'
 'Zweite Schicht': 'Inner Wall'
-Betonschicht: Concrete Reinforcement
+Betonschicht: 'Concrete Reinforcement'
 'Entwicklungsfähige Stadtmauer': 'Evolutive Wall'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'The Evolutive Wall gives an additional 85 defence points.'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'The Evolutive Wall gives an additional 120 defence points.'
@@ -23,82 +22,82 @@ Betonschicht: Concrete Reinforcement
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'The Evolutive Wall gives an additional 235 defence points.'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'The Evolutive Wall gives an additional 315 defence points.'
 'Verstärkende Balken': 'Metal Patches'
-Zombiereibe: Zombie Grater
-Fallgruben: Old-school traps
-Holzzaun: Small Fence
+Zombiereibe: 'Zombie Grater'
+Fallgruben: 'Old-school traps'
+Holzzaun: 'Small Fence'
 Sperrholz: Plywood
 'Rüstungsplatten 3.0': 'Armour Plating v3'
 Extramauer: Extrawall
-Rüstungsplatten: Armour Plating
+Rüstungsplatten: 'Armour Plating'
 'Rüstungsplatten 2.0': 'Armour Plating v2'
-Einseifer: Slip 'n' Slide
-Spraykanone: Gas Gun
-Säurespray: Acid Spray
+Einseifer: 'Slip ''n'' Slide'
+Spraykanone: 'Gas Gun'
+Säurespray: 'Acid Spray'
 Zerstäuber: Vaporiser
 'Verstärkte Stadtmauer': 'Wall Upgrade v1'
 Minen: Mines
-Wasserfilter: Water Filter
-Wasserreiniger: Water Purifier
+Wasserfilter: 'Water Filter'
+Wasserreiniger: 'Water Purifier'
 Dünger: Fertilizer
 Granatapfel: Grapeboom
-Gemüsebeet: Vegetable Plot
+Gemüsebeet: 'Vegetable Plot'
 'Projekt Eden': 'Eden Project'
-Brunnenbohrer: Drilling Rig
-Kärcher: Boiling Fog
+Brunnenbohrer: 'Drilling Rig'
+Kärcher: 'Boiling Fog'
 'Kreischender Rotor': 'Saniflow Macerator'
-Sprinkleranlage: Automatic Sprinkler
+Sprinkleranlage: 'Automatic Sprinkler'
 Dusche: Shower
-Wasserleitungsnetz: Hydraulic Network
-Wasserturm: Water Turrets
+Wasserleitungsnetz: 'Hydraulic Network'
+Wasserturm: 'Water Turrets'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'The Water Turrets is multiply by 1.8 (126 defense points), but cost 2 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'The Water Turrets is multiply by 2.6 (182 defense points), but cost 4 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'The Water Turrets is multiply by 3.4 (238 defense points), but cost 6 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'The Water Turrets is multiply by 4.2 (294 defense points), but cost 9 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'The Water Turrets is multiply by 5 (350 defense points), but cost 12 water rations per night.'
-Wasserfänger: Water Catcher
-Wasserkanone: Mist Spray
+Wasserfänger: 'Water Catcher'
+Wasserkanone: 'Mist Spray'
 Schleuse: Sluice
-Wasserfall: Decon Shower
-Wünschelrakete: Divining Rocket
-Wünschelrute: Divining Rods
-Apfelbaum: Apple Tree
+Wasserfall: 'Decon Shower'
+Wünschelrakete: 'Divining Rocket'
+Wünschelrute: 'Divining Rods'
+Apfelbaum: 'Apple Tree'
 Pumpe: Pump
 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'Add 20 water rations to the well (one time only).'
 'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'Add 30 water rations to the well (one time only).'
 'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'Add 40 water rations to the well (one time only).'
 Kremato-Cue: Cremato-Cue
 Metzgerei: Butcher
-Verteidigungsanlage: Defensive Focus
+Verteidigungsanlage: 'Defensive Focus'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'Each defence object in the bank gives 2 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'Each defence object in the bank gives 2.5 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'TEach defence object in the bank gives 3 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'Each defence object in the bank gives 3.5 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Each defence object in the bank gives 4 defence points to the town.'
-Steinkanone: Rock Cannon
-'Selbstgebaute Railgun': 'Railgun'
-Blechplattenwerfer: Plate Gun
+Steinkanone: 'Rock Cannon'
+'Selbstgebaute Railgun': Railgun
+Blechplattenwerfer: 'Plate Gun'
 'Brutale Kanone': 'Brutal Cannon'
-Kanonenhügel: Cannon Mounds
-Holzbalkendrehkreuz: War Mill
+Kanonenhügel: 'Cannon Mounds'
+Holzbalkendrehkreuz: 'War Mill'
 Manufaktur: Factory
 'Kreischende Sägen': 'Screaming Saws'
-Bauhaus: Architect’s Study
+Bauhaus: 'Architect’s Study'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'The Town will receive 4 common blueprints after the attack.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'Once only, the Town will receive 2 common construction blueprints and 2 uncommon blueprints after the attack.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'The Town will receive 2 uncommon blueprints and 2 rare blueprints after the attack (maybe a surprise too?).'
-Baustellenbuch: Building Registry
+Baustellenbuch: 'Building Registry'
 Galgen: Gallows
 'Kleines Cafe': 'Small Café'
-Sarg-Katapult: Coffin Catapult
+Sarg-Katapult: 'Coffin Catapult'
 'Kleiner Friedhof': 'Small Cemetary'
 Hühnerstall: Henhouse
 Schlachthof: Abbatoir
-Pentagon: Defensive Thinktank
-Kantine: Central Cafeteria
-Bollwerk: Community Involvement
-Baumarkt: Builder’s Merchant
+Pentagon: 'Defensive Thinktank'
+Kantine: 'Central Cafeteria'
+Bollwerk: 'Community Involvement'
+Baumarkt: 'Builder’s Merchant'
 Krankenstation: Infirmary
-Labor: Central Laboratory
+Labor: 'Central Laboratory'
 Werkstatt: Workshop
 'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'The cost (AP) of all construction projects is reduced by 6%.'
 'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'The cost (AP) of all construction projects is reduced by 12%.'
@@ -113,50 +112,50 @@ Forschungsturm: Searchtower
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'There is a 73% chance of desert zone regeneration.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'There is a 85% chance of desert zone regeneration.'
 Verteidigungspfähle: Spikes
-Notfallabstützung: Wood Plating
-Guerilla: Guerilla Traps
-Trümmerberg: Mount Killaman-Jaro
-Abfallberg: Rubbish Heap
+Notfallabstützung: 'Wood Plating'
+Guerilla: 'Guerilla Traps'
+Trümmerberg: 'Mount Killaman-Jaro'
+Abfallberg: 'Rubbish Heap'
 Wolfsfalle: Pits
-Sprengfalle: Bomb Factory
+Sprengfalle: 'Bomb Factory'
 'Nackte Panik': 'Abject Panic'
-Dollhouse: Frat House
+Dollhouse: 'Frat House'
 'Heiliger Regen': 'Holy Raincloud'
-Voodoo-Puppe: XXL Voodoo Doll
+Voodoo-Puppe: 'XXL Voodoo Doll'
 'Spirituelles Wunder': 'Spirit Mirage'
 'Bokors Guillotine': 'Sword of Bokor'
-Notfallkonstruktion: Emergency Supplies
+Notfallkonstruktion: 'Emergency Supplies'
 'Verbesserter Katapult': 'Upgraded Catapult'
 Katapult: Catapult
 'Kleine Waffenschmiede': 'Miniature Armory'
 'Schwedische Schreinerei': 'Swedish Workshop'
-Schießstand: Shooting Gallery
+Schießstand: 'Shooting Gallery'
 'Kleiner Tribok': 'Small Trebuchet'
-Wächter-Turm: Guard Tower
-Krähennest: Crows’ Nest
+Wächter-Turm: 'Guard Tower'
+Krähennest: 'Crows’ Nest'
 Wachturm: Watchtower
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'Zombies within 3 zones are detected.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'Zombies within 6 zones are detected.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'Zombies within 10 zones are detected.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Zombies within 10 zones are detected + Allows citizens within 1 km of the town to return without using any APs.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Zombies within 10 zones are detected + Allows citizens within 2 km of the town to return without using any APs.'
-Bohrturm: Mechanical Pump
+Bohrturm: 'Mechanical Pump'
 'Falsche Stadt': 'False Town'
 Wasserhahn: Faucet
 'Großer Umbau': 'The Big Rebuild'
 Vogelscheuche: Scarecrows
-Fleischkäfig: Meat Locker
-Bürgergericht: People’s Court
+Fleischkäfig: 'Meat Locker'
+Bürgergericht: 'People’s Court'
 Befestigungen: Fortifications
-Holzabfall: Wood Dump
-Metallabfall: Metal Dump
-Tierabfälle: Animal Dump
+Holzabfall: 'Wood Dump'
+Metallabfall: 'Metal Dump'
+Tierabfälle: 'Animal Dump'
 'Müll für Alle': 'Free Dump'
-Waffenabfall: Weapons Dump
-Biomüll: Food Dump
-Rüstungsabfall: Defence Dump
+Waffenabfall: 'Weapons Dump'
+Biomüll: 'Food Dump'
+Rüstungsabfall: 'Defence Dump'
 'Verbesserte Müllhalde': 'Dump Upgrade'
-Müllhalde: Garbage Dump
+Müllhalde: 'Garbage Dump'
 Leuchtturm: Lighthouse
 Altar: Altar
 'Riesige Sandburg': 'Giant Sandcastle'
@@ -166,42 +165,42 @@ Reaktor: Reactor
 Labyrinth: Labyrinth
 'Alles oder nichts': 'All or Nothing'
 'Riesiger KVF': 'Giant BRD'
-Riesenrad: Wonder Wheel
-Feuerwerk: Firework Foray
-Krähenstatue: Crow Statue
+Riesenrad: 'Wonder Wheel'
+Feuerwerk: 'Firework Foray'
+Krähenstatue: 'Crow Statue'
 Kino: Cinema
-Luftschlag: Air Strike
-Heißluftballon: Hot Air Balloon
-Tunnelratte: No Holes Barred
+Luftschlag: 'Air Strike'
+Heißluftballon: 'Hot Air Balloon'
+Tunnelratte: 'No Holes Barred'
 Fundament: Foundations
-Torpanzerung: Reinforced Gates
-Automatiktür: Last-Minute Lock
-Kolbenschließmechanismus: Automatic Piston Lock
-Ventilationssystem: Ventilation System
-Portal: Portal Lock
-Feldbett: Camp Bed
+Torpanzerung: 'Reinforced Gates'
+Automatiktür: 'Last-Minute Lock'
+Kolbenschließmechanismus: 'Automatic Piston Lock'
+Ventilationssystem: 'Ventilation System'
+Portal: 'Portal Lock'
+Feldbett: 'Camp Bed'
 Zelt: Tent
 Baracke: Hovel
 Hütte: Shack
 Haus: House
-'Umzäuntes Haus': 'Safehouse'
-'Befestigte Unterkunft': 'Stronghold'
-Bunker: Nuclear Bunker
+'Umzäuntes Haus': Safehouse
+'Befestigte Unterkunft': Stronghold
+Bunker: 'Nuclear Bunker'
 Schloss: Palace
 'Großer Vorhang': 'Large Curtain'
 'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'Prevents players from peeking on your house directly from the Citizens list.'
-Hobbylabor: Home Laboratory
+Hobbylabor: 'Home Laboratory'
 'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'A small hole which smells of camphor and death, right in the middle of your ''living room''. However, you can carry out your chemistry experiments in peace here (each level increases the chances of obtaining a powerful drug by 25%.)...'
 Küche: Kitchen
 'In dieser notdürftig zusammengeschraubten Küche können schmackhafte und ''gesunde'' Speisen zubereitet werden.': 'The kitchen is an area which is roughly equipped to prepare the best quality rations (each level increases the chance of getting a good dish by 33%).'
 'Primitives Alarmsystem': 'Rudimentary Alarm'
 'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'This is a somewhat simplistic system made up of scrap metal held in place with a cable, but it works well for mobilising everybody if someone breaks into your home...'
-Ruheecke: Siesta Time™
+Ruheecke: 'Siesta Time™'
 'Was hier als ''Ruhe-Ecke'' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.': 'It''s really just a hole in the ground covered with cardboard, but it''s great for grabbing a quick nap when you feel like it (each level increases the chances of sleeping soundly by 33%.).'
 Türschloss: Lock
 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.': 'This rudimentary but efficient system prevents anybody from stealing your property.'
 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.': 'When walls just don''t cut it anymore, a good fence isn''t a luxury, it''s a quality defensive measure.'
-Stauraum: More Storage
+Stauraum: 'More Storage'
 'Deine persönliche Truhe vergrößert sich. ': 'Adds one additional storage compartment each time the upgrade is performed. '
 Verstärkungen: Reinforcements
 'Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.': 'A little bit of DIY from MacGyver here should make it last longer... should. (each level adds one defence point).'
@@ -356,13 +355,13 @@ Hammam: Hammam
 'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.': 'Constructed and available for use — A place of relaxation and contemplation perfectly suited for the transition of lost souls to the other side.'
 'Die Verteidigung der Stadt wird um 12% erhöht.': 'The total defence of the town is permanently increased by 12%.'
 'Die Verteidigung der Stadt wird um 14% erhöht.': 'The total defence of the town is permanently increased by 14%.'
-'Zaun (Baustellen)': Wooden Fencing
+'Zaun (Baustellen)': 'Wooden Fencing'
 'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.': 'The building cost (AP) of all construction projects is reduced by 24%.'
 'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.': 'The building cost (AP) of all construction projects is reduced by 28%.'
-'Zaun (Haus)': Wooden Fencing
-Schokoladenkreuz: Chocolate Cross
+'Zaun (Haus)': 'Wooden Fencing'
+Schokoladenkreuz: 'Chocolate Cross'
 'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...': 'A beautiful cross made of chocolate to place unwanted citizens there rather than just banning them from the community...'
-Straßenbeleuchtung: Public lights
+Straßenbeleuchtung: 'Public lights'
 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.': 'When deep night has come, the dim gleam of lampposts will allow you to continue your desert excavations. No more excuses for going to bed!'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'The reduction in the chance of searchs at night is canceled within a 6 km radius of town, 1 battery is consumed per day.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'The reduction in the chance of searchs at night is canceled within a 10 km radius of town, 1 battery is consumed per day.'

@@ -7,3 +7,4 @@ framework:
         providers:
             crowdin:
                 dsn: '%env(CROWDIN_DSN)%'
+                locales: ['en', 'fr', 'es', 'de']

@@ -1,4 +1,3 @@
----
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'Lanzas los dados y obtienes {dc1}, {dc2} y {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Bravo, obtienes un Trío! ¡Es genial!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Formas una escalera!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
@@ -12,10 +11,10 @@
 'Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.': 'Una canción puede animar hasta un velorio... Tu talento le da {ap} puntos de acción a tus vecinos.'
 'Ration Wasser': 'Ración de agua'
 Batterie: Pila
-Konservendose: Lata de conservas
+Konservendose: 'Lata de conservas'
 'Offene Konservendose': 'Lata de conservas abierta'
 'Batteriewerfer 1-PDTG (geladen)': 'Lanzapilas 1-PDTG (cargado)'
-Taser: Táser de autodefensa
+Taser: 'Táser de autodefensa'
 'Aqua-Splash (leer)': 'Rifle de agua (vacío)'
 'Handmixer (geladen)': 'Batidora eléctrica (cargada)'
 'Kettensäge (geladen)': 'Sierra eléctrica (cargada)'
@@ -23,25 +22,25 @@ Rasenmäher: Cortacésped
 'Verstellbarer Schraubenschlüssel': 'Llave inglesa'
 Schraubenzieher: Destornillador
 'Großer trockener Stock': 'Gran estaca'
-Jagdmesser: Cuchillo dentado
+Jagdmesser: 'Cuchillo dentado'
 Machete: Machete
-'Lächerliches Taschenmesser': 'Navaja'
-'Schweizer Taschenmesser': 'Mascafierros'
+'Lächerliches Taschenmesser': Navaja
+'Schweizer Taschenmesser': Mascafierros
 Teppichmesser: Cutter
 Einkaufswagen: Carrito
 Dosenöffner: Abrelatas
 'Extra Tasche': 'Mochila adicional'
-Streichholzschachtel: Caja de cerillas
-Beruhigungsspritze: Inyección calmante
+Streichholzschachtel: 'Caja de cerillas'
+Beruhigungsspritze: 'Inyección calmante'
 Schaukelstuhl: Mecedora
 'Staubiges Buch': 'Libro empolvado'
 Matratze: Colchón
 'Ausgeschaltete Nachttischlampe': 'Lámpara de mesa apagada'
-Perser: Alfombra persa
+Perser: 'Alfombra persa'
 'Mini Hi-Fi Anlage (defekt)': 'Equipo de sonido malogrado'
 'Kette + Vorhängeschloss': 'Cadena + candado'
 Fußabstreifer: Felpudo
-'Ein paar Würfel': 'Dados'
+'Ein paar Würfel': Dados
 Motor: Motor
 Riemen: Correa
 'Handvoll Schrauben und Muttern': 'Puñado de tornillos y tuercas'
@@ -55,34 +54,34 @@ Huhn: Gallina
 'Anaboles Steroid': 'Esteroides anabólicos'
 'Leckeres Steak': 'Bistec jugoso'
 'Undefinierbares Fleisch': 'Carne irreconocible'
-Zeltplane: Tela de carpa
+Zeltplane: 'Tela de carpa'
 'Superpraktischer Rucksack': 'Mochila super-práctica'
-Kanister: Cantimplora llena
+Kanister: 'Cantimplora llena'
 'Krummes Holzbrett': 'Tabla torcida'
 Alteisen: Chatarra
-Wasserbombe: Globo de agua
-Blechplatte: Lámina de metal
+Wasserbombe: 'Globo de agua'
+Blechplatte: 'Lámina de metal'
 'Kanisterpumpe (zerlegt)': 'Bomba para cantimplora incompleta'
-Bandage: Vendaje rudimentario
+Bandage: 'Vendaje rudimentario'
 'Grüne Bierflasche': 'Vodka Rosquetoff'
 'Kanisterpumpe (leer)': 'Bomba para cantimplora (vacía)'
-Videoprojektor: Proyector de cine
+Videoprojektor: 'Proyector de cine'
 Sprengstoff: Explosivos
-Menschenfleisch: Carne humana
-Plastiktüte: Bolsa de plástico
+Menschenfleisch: 'Carne humana'
+Plastiktüte: 'Bolsa de plástico'
 'Explodierende Wasserbombe': 'Bolsa de agua explosiva'
 'Plastiktüte mit Sprengstoff': 'Bolsa de plástico con explosivo'
 'Unvollständige Kettensäge': 'Sierra eléctrica incompleta'
 'Unvollständiger Handmixer': 'Batidora incompleta'
 Klebeband: Adhesivo
 'Zerlegter Rasenmäher': 'Cortacésped incompleto'
-Kupferrohr: Tubo de cobre
+Kupferrohr: 'Tubo de cobre'
 'Wackliger Einkaufswagen': 'Carrito cojo'
 'Gürtel mit Tasche': 'Cinturón de herramientas'
 'Twinoid 500mg': 'Twinoid 500mg'
-Metallkiste: Caja de metal
+Metallkiste: 'Caja de metal'
 'Großer Metallkoffer': 'Gran cofre de metal'
-Werkzeugkiste: Caja con cachivaches
+Werkzeugkiste: 'Caja con cachivaches'
 'Nachttischlampe (an)': 'Lámpara encendida'
 'Mini Hi-Fi Anlage (an)': 'Pequeño equipo de sonido encendido'
 'Pharmazeutische Substanz': 'Productos farmacéuticos'
@@ -95,12 +94,12 @@ Kaffeekocher: Cafetera
 'Habseligkeiten eines Bürgers': 'Objetos de un habitante'
 'Hydraton 100mg': 'Hydratone 100mg'
 'Kassettenradio (ohne Strom)': 'Radio casetera apagada'
-Kassettenradio: Radio casetera
-Zyanid: Suicidio por ingestión de cianuro
+Kassettenradio: 'Radio casetera'
+Zyanid: 'Suicidio por ingestión de cianuro'
 'Alte Tür': 'Vieja puerta'
 'Verdächtiges Gemüse': 'Verdura sospechosa'
 'Reparaturset (kaputt)': 'Kit de herramientas en mal estado'
-Reparaturset: Kit de herramientas
+Reparaturset: 'Kit de herramientas'
 'Wasserpistole (leer)': 'Pistola de agua (vacía)'
 'Aqua-Splash (3 Ladungen)': 'Rifle de agua (3 cargas)'
 'Aqua-Splash (2 Ladungen)': 'Rifle de agua (2 cargas)'
@@ -120,13 +119,13 @@ Leuchtrakete: Bengala
 'Ektorp-Gluten Stuhl': 'Silla Ektörp-Gluten'
 'Revolver (entladen)': 'Revólver (vacío)'
 'Sturmgewehr (entladen)': 'Fusil de asalto (vacío)'
-Zünder: Detonador compacto
-Zementsack: Saco de cemento
+Zünder: 'Detonador compacto'
+Zementsack: 'Saco de cemento'
 'Unförmige Zementblöcke': 'Adoquín de hormigón'
 'Etikettenloses Medikament': 'Medicamento sin etiqueta'
 'Paracetoid 7g': 'Paracetoide 7g'
 'Unkrautbekämpfungsmittel Ness-Quick': 'Herbicida Ness-Quick'
-Nahrungsmittelkiste: Caja de alimentos
+Nahrungsmittelkiste: 'Caja de alimentos'
 Doggybag: Doggy-bag
 'Tüte mit labbrigen Chips': 'Bolsa de papas fritas rancias'
 'Verschimmelte Waffeln': 'Bizcochos enmohecidos'
@@ -140,54 +139,54 @@ Doggybag: Doggy-bag
 'Starke Gewürze': 'Salsa picante'
 'Gewürzte chinesische Nudeln': 'Tallarines chinos picantes'
 'Unvollständiges Kartenspiel': 'Juego de cartas incompleto'
-Gesellschaftsspiel: Caja de juegos
+Gesellschaftsspiel: 'Caja de juegos'
 'Aqua-Splash (zerlegt)': 'Rifle de agua incompleto'
 'Vibrator (entladen)': 'Pequeño vibrador (apagado)'
 'Knochen mit Fleisch': 'Hueso con carne'
 'Angeknackster menschlicher Knochen': 'Hueso humano'
 'Zusammengeschusterter Holzbalken': 'Viga reforzada'
-Metallstruktur: Estructuras metálicas
-Metalltrümmer: Restos de metal
+Metallstruktur: 'Estructuras metálicas'
+Metalltrümmer: 'Restos de metal'
 'Verrotteter Baumstumpf': 'Tronco podrido'
-Metallsäge: Sierra de metal
+Metallsäge: 'Sierra de metal'
 'Gut erhaltener Holzscheit': 'Leña en buen estado'
 'Defektes Elektrogerät': 'Aparato electrónico descompuesto'
-Möbelpackung: Mueble para armar
+Möbelpackung: 'Mueble para armar'
 'Beschädigte Metallsäge': 'Sierra de metal en mal estado'
 Getriebe: Mecanismo
 Holzbock: Caballete
-Järpen-Tisch: Mesa Järpen
+Järpen-Tisch: 'Mesa Järpen'
 'Micropur Brausetablette': 'Desinfectante efervescente'
-Darmmelone: Melón de intestino
-Raketenpulver: Pólvora brillante
-Schießpulverbombe: Bomba de carnaval
-Teddybär: Osito cariñosito
-Holzkistendeckel: Pedazo de caja
+Darmmelone: 'Melón de intestino'
+Raketenpulver: 'Pólvora brillante'
+Schießpulverbombe: 'Bomba de carnaval'
+Teddybär: 'Osito cariñosito'
+Holzkistendeckel: 'Pedazo de caja'
 'Solide Holzplatte': 'Plancha de madera'
-Geldbündel: Fajo de billetes
+Geldbündel: 'Fajo de billetes'
 'Loses Werkzeug': 'Herramientas sueltas'
 'Radius Mark II (entladen)': 'Radius Mark II descargado'
 'Radius Mark II': 'Radius Mark II'
-'Reparatur Fix': 'Repara-fácil'
+'Reparatur Fix': Repara-fácil
 'Unvollständiger Motor': 'Motor incompleto'
 'Alte Waschmaschine': 'Vieja lavadora'
 'Krebserregender Ofen': 'Horno cancerígeno'
 Minibar: Frigorífico
 'Ein Brief ohne Adresse': 'Una carta'
 'Aufgewelltes Blatt': 'Hoja de papel embarrada'
-Betriebsanleitung: Manual de instrucciones
+Betriebsanleitung: 'Manual de instrucciones'
 'Unleserliches Notizbuch': 'Libreta ilegible'
-Fotoalbum: Álbum de fotos
-Blätterstapel: Pila de papeles
+Fotoalbum: 'Álbum de fotos'
+Blätterstapel: 'Pila de papeles'
 'Große rostige Kette': 'Cadena oxidada'
 'Verdächtige Speise': 'Plato casero extraño'
 'Leckere Speise': 'Plato casero delicioso'
-Schrankkoffer: Baúl de metal
-Kartons: Cajas de cartón
-'Nagelbare Barrikade': 'Barricadas'
+Schrankkoffer: 'Baúl de metal'
+Kartons: 'Cajas de cartón'
+'Nagelbare Barrikade': Barricadas
 'Ein Briefumschlag': 'Un sobre'
 'Ein Paket': 'Un paquete'
-Maschendrahtzaunstück: Pedazo de rejilla
+Maschendrahtzaunstück: 'Pedazo de rejilla'
 'Wasserpistole (3 Ladungen)': 'Pistola de agua (3 cargas)'
 'Wasserpistole (2 Ladungen)': 'Pistola de agua (2 cargas)'
 'Wasserpistole (1 Ladung)': 'Pistola de agua (1 carga)'
@@ -201,21 +200,21 @@ Maschendrahtzaunstück: Pedazo de rejilla
 'Kiste mit Materialien (3)': 'Caja de materiales (3)'
 'Kiste mit Materialien (2)': 'Caja de materiales (2)'
 'Kiste mit Materialien (1)': 'Caja de materiales (1)'
-Autotür: Puerta de coche
+Autotür: 'Puerta de coche'
 'Beschädigte Autotür': 'Puerta de coche incompleta'
-Giftfläschchen: Frasco de veneno
-Ätzmittel: Producto corrosivo
+Giftfläschchen: 'Frasco de veneno'
+Ätzmittel: 'Producto corrosivo'
 'Vorräte eines umsichtigen Bürgers': 'Reservas de habitante precavido'
-Postpaket: Paquete postal
+Postpaket: 'Paquete postal'
 Lunch-Box: Lonchera
 'Eine Handvoll Bonbons': 'Puñado de caramelos'
-Sperrholzstück: Pedazo de contrachapado
+Sperrholzstück: 'Pedazo de contrachapado'
 Fackel: Antorcha
 'Verbrauchte Fackel': 'Antorcha consumida'
 'Getrocknete Marshmallows': 'Malvaviscos secos'
 'Geröstete Marshmallows': 'Malvaviscos quemados'
-PC-Gehäuse: Unidad central
-Safe: Caja fuerte
+PC-Gehäuse: 'Unidad central'
+Safe: 'Caja fuerte'
 'Eine Enzyklopädie': 'Una enciclopedia'
 'Wasserspender (leer)': 'Bombona de agua (vacía)'
 'Wasserspender (1 Ration)': 'Bombona de agua (1 Ración)'
@@ -223,23 +222,23 @@ Safe: Caja fuerte
 'Wasserspender (3 Rationen)': 'Bombona de agua (3 Raciones)'
 'Abgelaufene Betapropin-Tablette 5mg': 'Betapropín 5mg vencido'
 'Betapropin-Tablette 5mg': 'Betapropín 5mg'
-Aasbeeren: Hongos carroñeros
+Aasbeeren: 'Hongos carroñeros'
 'Schleimige Kugel': 'Bola viscosa'
-Fleischfetzen: Trozo de pellejo
+Fleischfetzen: 'Trozo de pellejo'
 'Makabre Bombe': 'Bomba macabra'
 'Dickflüssige Substanz': 'Sustancia espesa'
-Aasbeerenbrei: Puré de hongos carroñeros
+Aasbeerenbrei: 'Puré de hongos carroñeros'
 'Eisengefäß mit modrigem Wasser': 'Agua estancada'
 'Gereinigtes modriges Wasser': 'Agua estancada purificada'
 'Notizzettel eines Verbannten': 'Nota de un habitante desterrado'
 'Blutdurchtränkter Verband': 'Tirita ensangrentada'
 'Verfluchter Teddybär': 'Osito cariñosito maldito'
-Sägemehlsteak: Bistec de serrín
+Sägemehlsteak: 'Bistec de serrín'
 'Abgetragene rote Jacke': 'Chaqueta roja usada'
 'Zerrissene rote Hose': 'Pantalones rojos usados'
 'Schweißtriefende rote Mütze': 'Gorro rojo maloliente'
 'Übelriechender Anzug aus einer anderen Zeit': 'Traje de Papá Noel'
-Mobiltelefon: Teléfono móvil
+Mobiltelefon: 'Teléfono móvil'
 'Ekliger Hautfetzen': 'Pellejo humano'
 'MagLite Kinderlampe (aus)': 'Linterna Gagdet (apagada)'
 'MagLite Kinderlampe (1 Ladung)': 'Linterna Gagdet (1 carga)'
@@ -247,23 +246,23 @@ Mobiltelefon: Teléfono móvil
 'Leiche eines Reisenden': 'Cadáver de un viajero'
 'Angenagte Leiche': 'Cadáver carcomido'
 'Rauchgranate ''Tannenduft''': 'Bomba de humo «Aroma de pino»'
-Sandball: Bola de arena
+Sandball: 'Bola de arena'
 'Normaler Bauplan (gewöhnlich)': 'Plano de construcción (común)'
 'Normaler Bauplan (ungewöhnlich)': 'Plano de construcción (inusual)'
 'Normaler Bauplan (selten)': 'Plano de construcción (raro)'
 'Normaler Bauplan (sehr selten!)': 'Plano de construcción (¡muy raro!)'
-Architektenkoffer: Maletín de arquitecto
+Architektenkoffer: 'Maletín de arquitecto'
 'Versiegelter Architektenkoffer': 'Cofre de arquitecto sellado'
 Ei: Huevo
 Apfel: Manzana
 'Explosive Pampelmuse': 'Pomelo explosivo'
 'Abgenutzte Kuriertasche': 'Maletín usado'
-Magnet-Schlüssel: Llave magnética
-Schlagschlüssel: Llave de percusión
+Magnet-Schlüssel: 'Llave magnética'
+Schlagschlüssel: 'Llave de percusión'
 Flaschenöffner: Abrebotellas
 'Abdruck vom Magnet-Schlüssel': 'Molde para llave magnética'
 'Abdruck vom Schlagschlüssel': 'Molde para llave de percusión'
-Ghul-Serum: Vacuna para mutante
+Ghul-Serum: 'Vacuna para mutante'
 'Hotel-Bauplan (ungewöhnlich)': 'Plano de construcción de hotel (inusual)'
 'Hotel-Bauplan (selten)': 'Plano de construcción de hotel (raro)'
 'Hotel-Bauplan (sehr selten!)': 'Plano de construcción de hotel (¡muy raro!)'
@@ -276,23 +275,23 @@ Ghul-Serum: Vacuna para mutante
 'Verirrte Seele': 'Alma errante'
 'Starke Seele': 'Alma fuerte'
 'Schwache Seele': 'Alma débil'
-Bierkrug: Jarra de cerveza
+Bierkrug: 'Jarra de cerveza'
 Brezel: Pretzel
-Dackel: Perro salchicha
+Dackel: 'Perro salchicha'
 Pfahlwerfer: Lanzadardos
 Kalaschni-Splash: Aguashnikov
 'Schnellgebauter Tisch': 'Escritorio mal montado'
 'Leerer Automat': 'Cajero vacío'
 'Santas Rentier': 'Reno de Papá Noel'
-Osterei: Huevo de Pascua
+Osterei: 'Huevo de Pascua'
 'ANZAC Badge': 'Placa de Sheriff'
 'Kalaschni-Splash (leer)': 'Aguashnikov (vacío)'
-Drahtspule: Bobina de hilo metálico
-Ölkännchen: Bidón de aceite vacío
-Konvexlinse: Lente convexa
+Drahtspule: 'Bobina de hilo metálico'
+Ölkännchen: 'Bidón de aceite vacío'
+Konvexlinse: 'Lente convexa'
 'Wütende Mieze (halb verdaut)': 'Gatito furioso (digerido parcialmente)'
-Tretmine: Mina antipersonal
-Laserdiode: Diodo láser
+Tretmine: 'Mina antipersonal'
+Laserdiode: 'Diodo láser'
 'Selbstgebaute Gitarre': 'Guitarra artesanal'
 LSD: LSD
 'Starker Laserpointer (4 Schuss)': 'Puntero láser potente de 4 cargas'
@@ -302,14 +301,14 @@ LSD: LSD
 'Starker Laserpointer (Leer)': 'Puntero láser potente descargado'
 Teleskop: Telescopio
 'Unpersönliche Explodierende Fußmatte': 'Felpudo explosivo'
-Chuck-Figur: Muñequito de Chuck
+Chuck-Figur: 'Muñequito de Chuck'
 'Kleine Zen-Fibel': 'Mini-libro de meditación'
 'Trockene Kräuter': 'Costal de hierba fresca'
-Mutterkorn: Claviceps Purpurea
-Korn-Bräu: Cidra claviceps artesanal
+Mutterkorn: 'Claviceps Purpurea'
+Korn-Bräu: 'Cidra claviceps artesanal'
 'Verfluchte HiFi': 'Equipo de música maldito'
 'Phil Collins CD': 'CD de Phil Collins'
-Ohrstöpsel: Tapones de oído
+Ohrstöpsel: 'Tapones de oído'
 'Kaputter Stock': 'Palo roto'
 'Britney Spears CD': 'CD de Britney Spears'
 'Best of The King CD': 'Hits de Elvis'
@@ -323,18 +322,18 @@ Ohrstöpsel: Tapones de oído
 'Überraschungskiste (1 Geschenk)': 'Caja sorpresa (1 regalo)'
 'Verdächtiger Traubensaft': 'Mosto sospechoso'
 'Ein Etikett': 'Una etiqueta'
-Bürgerbekleidung: Uniforme de habitante
+Bürgerbekleidung: 'Uniforme de habitante'
 'Dreckige Bürgerbekleidung': 'Uniforme de habitante sucio'
-Tarnanzug: Traje de camuflaje
+Tarnanzug: 'Traje de camuflaje'
 'Tarnkleidung (nicht wirksam!)': 'Camuflaje (inactivo)'
 'Kleine Schaufel': 'Pala pequeña'
 'Dreibeiniger Malteser': 'Perro maltés de 3 patas'
 'Malteser Hündchen auf Droge': 'Bichón maltés eufórico'
 'Müdes Malteser Hündchen': 'Bichón maltés cansado'
-Survivalbuch: Manual de sobrevivencia
-Schraubenschlüssel: Kit de herramientas
-Schutzschild: Escudo antimotín
-Voodoo-Maske: Máscara de vudú
+Survivalbuch: 'Manual de sobrevivencia'
+Schraubenschlüssel: 'Kit de herramientas'
+Schutzschild: 'Escudo antimotín'
+Voodoo-Maske: 'Máscara de vudú'
 Trinken: Beber
 Befüllen: Llenar
 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!': 'Has llenado {item_to} utilizando una {item_from}.'
@@ -374,9 +373,9 @@ Knuddeln: Abrazar
 'Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>': 'Coger {item} fuertemente contra ti... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>'
 Rauchen: Fumar
 Dopen: Drogar
-'Wasser suchen': Buscar agua
+'Wasser suchen': 'Buscar agua'
 'Essen suchen': Comer
-Tarnen: Camuflarse con
+Tarnen: 'Camuflarse con'
 'Du bist nun getarnt.': 'Ahora estás camuflado.'
 'Du ziehst eine Karte... es ist: {color} {value}.': 'Lanzas la carta {value} de {color}...'
 'Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.': 'Hurgando en los alrededores descubres un pequeño charco de agua estancada. Como no tienes otra opción, empiezas a beber su contenido (así como todo lo que flota dentro)...<hr/><strong>Has recuperado todos tus PA.</strong>'
@@ -444,7 +443,7 @@ Rettung: Rescate
 'Sie riecht schlecht und weist ein paar Schimmelspuren auf, aber jetzt mal ganz ehrlich: In dieser Lage kannst du nicht rumnörgeln. Mit der Bandage kannst du eine Wunde verbinden.': 'Huele mal y tiene manchas de moho, pero no estamos aquí para hacernos los difíciles. Te ayudará a cubrir tus heridas.'
 'Das Glas dieser gut erhaltenen Bierflasche ist ziemlich verfärbt. Du vermutest, dass es früher mal grün war. Ah, da, das Etikett! Roter Rand..."Welcome to the Feck''s experience"... okay, ein Pils. Na dann lass uns doch mal das "Experiment" wagen... .(Mit einem kräftigen Schluck kippst du dir den Saft hinter die Binde und lässt kurz darauf einen Riesenrülpser los!) - "Prost Kameraden!"': 'Un buen trago que quema la garganta y te quita el cansancio, ¡recuperando además puntos de Acción!... 85° de alcohol puro, con algunos bichos flotando en el fondo. ¡Salud camarada!'
 'Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...': 'Este proyector defectuoso ya no se puede utilizar para nada. Sin embargo, la lente todavía parece relativamente intacta... Desafortunadamente no tienes nada para desarmarla...'
-'Booom! ': '¡Bum!'
+'Booom! ': ¡Bum!
 'Denk am besten gar nicht daran, was du soeben geschluckt hast und mach einfach weiter...': 'Trata de tragarla rápidamente sin pensar en lo que es... ¡Si te gusta, tienes un problema!'
 'Eine alte Plastiktüte aus dem Supermarkt. Wenn du sie mit Wasser füllst, verwandelt sie sich in eine gefürchtete Waffe...': 'Una vieja bolsa de supermercado que puedes convertir en un arma fatal si la llenas de agua...'
 'Aus einer Plastiktüte, Wasser und etwas Sprengstoff bastelst du dir eine Massenvernichtungswaffe, die du nur noch in eine Zombiehorde werfen brauchst. Gibt ein nettes Massaker.': 'Una bolsa de plástico llena de agua, amarrada a un explosivo. Ingenioso, ¿verdad? Esta es una verdadera arma de destrucción masiva contra las turbas de zombies.'
@@ -669,23 +668,23 @@ Rettung: Rescate
 'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.': 'Indispensable para romper todos los récords de construcción, incluye una llave inglesa profesional.'
 ' Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.': 'Grande y a prueba de zombies. No se puede pedir más... Te protege de 2 zombies más en el desierto y aumenta las defensas si estás en el pueblo.'
 'Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.': 'Esta máscara esconde el conocimiento y el poder miles de sacerdotes vudú. El chamán la puede usar para revelar dónde deambulan las almas de los habitantes muertos en el Ultramundo.'
-Heldentaten: Acciones heroicas
-Berufsgegenstand: Objeto de oficio (no puede ser depositado)
+Heldentaten: 'Acciones heroicas'
+Berufsgegenstand: 'Objeto de oficio (no puede ser depositado)'
 'Schwerer Gegenstand': 'Objeto pesado'
-Einrichtungsgegenstand: Equipamiento de vivienda
+Einrichtungsgegenstand: 'Equipamiento de vivienda'
 Verteidigungsgegenstand: Defensa
 Waffe: Arma
-Super-Flaum-Pulver: Polvo Súper-Fuzz
+Super-Flaum-Pulver: 'Polvo Súper-Fuzz'
 'Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.': 'Dependiendo de la era, este polvo fue usado esencialmente como detonador para varias piezas de artillería, luego como una droga barata para los habitantes necesitados y, finalmente como el principal componente de los fuegos artificiales. En los tres casos, muchas personas no han sobrevivido.'
-Flush-Abschussrohr: Tubo de lanzamiento de fuegos artificiales
+Flush-Abschussrohr: 'Tubo de lanzamiento de fuegos artificiales'
 'Mehrere lange Plastikschläuche ohne großes Interesse.': 'Varios largos tubos de plástico poco interesantes.'
-Feuerwerkskiste: Caja de fuegos artificiales
+Feuerwerkskiste: 'Caja de fuegos artificiales'
 'Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.': 'Ésta caja contiene muchos químicos altamente tóxicos con nombres destacables como: Sodio Fuzz, Carbo-Potasio Bling Bling o Litio Arcoíris Cianurizado.'
 'Leuchtender Kürbis': 'Calabaza encendida'
 'Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?': 'Un tipo de vegetal naranja grande y maloliente como nunca has visto antes. Un rostro adusto está tallado en su carne: ¿cuál es la tradición bárbara detrás de este ritual?'
 'Ausgeschnitzter weicher Kürbis': 'Calabaza suave tallada'
 'Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... ': 'He aquí una idea loca: este gran y extraño vegetal ha sido despojado de su carne, de su forma, y hay una vela encendida en él...'
-Krähengirlande: Guirnalda de cuervo
+Krähengirlande: 'Guirnalda de cuervo'
 'Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.': 'Una guirnalda de una tradición aparentemente antigua. Se recomienda colgarla en casa como decoración, podría ser bueno para la moral del pueblo.'
 '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>': '<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}! Colocas esa información en el panel de las construcciones.</t-bp_ok><t-bp_parent>{hr}Ese proyecto requiere primeramente la construcción: {bp_parent}.</t-bp_parent><t-bp_fail><strong>¡Tu pueblo ya ha liberado todas las construcciones de esta categoría!</strong> Por lo tanto este {item} es inútil y decides tirarlo.</t-bp_fail>'
 Aufbauen: Instalar
@@ -703,10 +702,10 @@ Wandeln: Transformar
 Zerlegen: Desmontar
 Baustoffe: Recursos
 Grundnahrungsmittel: Provisiones
-'Apotheke und Labor': 'Farmacia'
+'Apotheke und Labor': Farmacia
 Expedition: Expedición
 Sonstiges: Otros
-Einrichtungen: Objetos caseros
+Einrichtungen: 'Objetos caseros'
 Verteidigung: Defensa
 Waffenarsenal: Armería
 'Taschen und Behälter': 'Contenedores y cajas'
@@ -714,7 +713,7 @@ Kaputt: Roto/a
 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.': 'No crees poder mejorar más la zona por hoy. Hiciste lo que pudiste.'
 'Haus aufräumen und putzen': 'Ordenar mi casa'
 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn''s ne Bruchbude ist, es ist DEIN Zuhause...': 'Escondes un poco el desorden, sacudes el polvo... ¡y ya está! Ahora tu madriguera tiene un aspecto menos desagradable.'
-Duschen: Tomar una ducha
+Duschen: 'Tomar una ducha'
 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.': 'Te colocas bajo la ducha artesanal sin pensarlo mucho. El agua está helada pero haces el esfuerzo de permanecer bajo el fino chorro. Sin jabón, te lavas con una piedra lisa, tratando de quitarte las manchas de barro y de sangre. Intentas convencerte de que eso te hace sentir bien.'
 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!': 'El carnicero hizo lo que pudo para salvar a {item}… Recibes {items_spawn}. Adiós fiel amigo.'
 'Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.': 'Te das una vuelta por el pueblo para revisar la existencia de fallas y les das algunas patadas a cosas mal puestas. El pueblo ha ganado <strong>+10 puntos de defensa temporales</strong>.'
@@ -747,7 +746,7 @@ Bube: Jota
 Dame: Reina
 König: Rey
 Ass: As
-Nachtwache-Waffen: Arma centinela
+Nachtwache-Waffen: 'Arma centinela'
 Pkte: pts
 Heilen: Curar
 'Verteidigung organisieren': 'Organizar defensas'
@@ -776,15 +775,15 @@ Benutzen: Utilizar
 'Öffnen (1 BP)': 'Abrir (1 PC)'
 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...': 'Tiene un sabor muy raro, difícil de describir. Al menos cumple con su misión: llenar tu estómago. Pero no te da un bonus de energía.'
 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>': 'Te das un gusto comiendo <span class="tool">{item}</span>, de vez en cuando no está mal para cambiar de esas raciones pútridas.{hr}<strong>¡Recibes un bonus de 1 PA!</strong>'
-Krähenelfe: Cuervo navideño
+Krähenelfe: 'Cuervo navideño'
 'Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...': 'Una pequeña bestia de aspecto extraño. Se asemeja a un cuervo... pero es verde y lleva un sombrero...'
-'Logbuch Schokolade': Tronco de Navidad
+'Logbuch Schokolade': 'Tronco de Navidad'
 'Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...': '¡Oh, un viejo pastel navideño arrugado! O algo menos sabroso... ¡Pero aún así horneado el día de Navidad! De cualquier modo, disfruta de este... pastel...'
 'Grüner Kobold-Anzug': 'Traje de duendecillo'
 'In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?': '¡En este traje, eres tan llamativo que los que te miran piensan que te han imaginado! No abusarías de ello, ¿verdad?'
 'Unidentifizierbare Trümmerstücke': 'Restos irreconocibles'
 'Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...': 'Estos escombros alguna vez fueron parte de un objeto que ya no eres capaz de identificar. La deformación de las piezas sugiere que el objeto golpeó el suelo a gran velocidad...'
-Munitionsgriff: Puñado de balas
+Munitionsgriff: 'Puñado de balas'
 'Eine Handvoll Munition. Aber was hat das für einen Sinn?': 'Estos pequeños cilindros son extremadamente mortales. Si tan sólo supiéramos usarlos...'
 'Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).': 'Has limpiado parcialmente la zona gracias a {item} (<strong>{bury_count} puntos</strong> despejados).'
 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.': '¡Lanzas tu bomba de humo en la zona, sembrando la más grande confusión!{hr}Tu <strong>próximo desplazamiento</strong> no quedará anotado en el registro si la llevas a cabo <strong>en los próximos 60 segundos</strong>.'
@@ -796,9 +795,9 @@ Munitionsgriff: Puñado de balas
 'Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.': 'Probablemente has tenido suerte... Como víctima de la Gran Plaga, esta vez has evitado una desagradable infección.'
 'Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!': '¡Golpeas a un zombie con todas tus fuerzas, pero <strong>él es más duro que una piedra y resiste tus golpes</strong>!'
 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...': 'Tu arma se ha <strong>roto</strong> con el golpe...'
-Weihnachts-Süßigkeiten: Dulce de Navidad
+Weihnachts-Süßigkeiten: 'Dulce de Navidad'
 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...': 'Parece una especie de pequeño caramelo de chocolate, que contiene licor alcohólico. O cualquier otro producto...'
-Geschenkpaket: Paquete de regalo
+Geschenkpaket: 'Paquete de regalo'
 'Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!': 'La dirección se ha vuelto ilegible, pero definitivamente hay algo dentro... ¡Feliz Navidad!'
 'Großes Geschenkpaket': 'Gran paquete de regalo'
 'Du hast {item} getrunken, aber scheinbar geschieht nichts...': 'Has bebido {item}, pero no parece tener ningún efecto...'
@@ -834,7 +833,7 @@ Geschenkpaket: Paquete de regalo
 'Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.': 'Bajo los efectos de los esteroides, tu perrito puede llevar objetos voluminosos al pueblo. Notarás que babea demasiado. Parece que está a un pelo de un ataque.'
 'Weicher Kürbis': 'Calabaza suave'
 'Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...': 'Un tipo de verdura naranja grande y maloliente, como nunca has visto antes. Tienes un repentino impulso de tallarla, sin saber por qué...'
-Hurlingstock: Palo de Hockey
+Hurlingstock: 'Palo de Hockey'
 'Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.': 'Solo un consejo. Si nada en este mundo es lógico no le busques razón a usar un arma como esta.'
 Guiness: Winness
 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen': 'No hay nada mejor como una pinta de cerveza oscura para inspirar poesía, risas y lucha de zombies... *Aprobado por Charlie Sheen'
@@ -900,7 +899,7 @@ Ruhm: Gloria
 'Die Waffe hat <strong>keine Batterie mehr</strong>.': 'El arma <strong>ya no tiene pilas</strong>.'
 '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>': '<nt-stat-up-infection><nt-role-up-ghoul>Unos segundos después notas que esa cosa tiene un sabor horrible...</nt-role-up-ghoul></nt-stat-up-infection>'
 'Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!': 'Esa sensación de bienestar que evoca este pequeño café te ayudará a recuperarte de inmediato. ¡Aah!'
-'{watchpoint} pkt attacke': "{watchpoint} pts ataque"
+'{watchpoint} pkt attacke': '{watchpoint} pts ataque'
 'Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.': 'Cuidado, la idea tampoco es de hacer una parranda. Otro habitante ya tocó la guitarra hoy. Nadie quiere oír tantos chillidos el mismo día.'
 '<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>': '<t-fail><strong>No tienes armas de agua para llenar</strong> en tu mochila o baul.</t-fail> <nt-fail>Pudiste recargar {items_spawn} gratis gracias a la griferia.</nt-fail>'
 'Diese Aktion wurde in dieser Partie schon ausgeführt.': 'Esta acción ya fue utilizada en esta partida.'
@@ -936,7 +935,7 @@ Ruhm: Gloria
 'Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.': 'Para hacer esto debes estar a más de 3 kilómetros del pueblo.'
 'Hierfür hast du keinen Platz.': 'No tienes espacio para guardar el objeto.'
 'Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...': 'No puedes usar esa vacuna en ti, o conviértete en el mejor amigo de un mutante...'
-Eintrittskarte: Boleto de admisión
+Eintrittskarte: 'Boleto de admisión'
 'Hiermit kannst du Städten beitreten, obwohl du die Mindestanzahl an Seelenpunkten noch nicht erreicht hast.': 'Esto te permite unirte a pueblos aunque no hayas alcanzado el número mínimo de puntos de alma necesarios.'
 'Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.': '¡Estás <strong>demasiado lejos del pueblo para utilizar este poder</strong>! Estás a {km_from_town}km cuando la distancia máxima es de 11km.</div>'
 Toxin: Toxina
