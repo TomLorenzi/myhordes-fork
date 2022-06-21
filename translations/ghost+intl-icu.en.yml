@@ -2,7 +2,7 @@
 'Die gewählte Stadt ist bereits voll.': 'The selected town is full.'
 'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'You can''t join more than one town at a time.'
 'Du bist dieser Stadt bereits beigetreten.': 'You have already joined this town.'
-Stadtname: Town's name
+Stadtname: Town name
 Aktionen: Actions
 'Aktuell gibt es keine Stadt diesen Typs.': 'There are no towns of this type currently.'
 'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.': 'The language of the selected town is {lang_town}. Your current language setting is {lang_user}.'
@@ -17,7 +17,7 @@ Aktionen: Actions
 'Worauf warten Sie noch?': 'What are you waiting for?'
 'Privatstadt gründen': 'Create a private town'
 'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'Private towns allow groups of friends to play easily together, or to create "theme" towns.'
-'Name der Stadt': 'Name der Stadt'
+'Name der Stadt': 'Town Name'
 Zugangscode: Access code
 Stadttyp: Town type
 Ghule: Ghoul type
@@ -156,7 +156,7 @@ Nachtphase: Night Time Phase
 'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?': 'The following members of your coalition are unable to follow you into this town. Continue?'
 'Spielhilfe ansehen': 'Read the Guide!'
 'Spielen, Lernen und STERBEN!': 'Play, Learn and DIE!'
-'Als Event-Stadt markieren': 'Mark as an event town'
+'Als Event-Stadt markieren': 'Create as an event town'
 'Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.': 'Event towns will not be included in the season ranking and are specially marked in the town list.'
 'Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.': 'This is an event town, it will not appear in the ranking after it finished. This town may use unusual rules.'
 'Jeder Spieler erhält 1x Betapropin beim Start der Stadt.': 'Each player receives 1x Betaprophine when joining the town.'
