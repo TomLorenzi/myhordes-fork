@@ -40,7 +40,14 @@
                     <div class="cell padded rw-9">
                         <select name="search-forum" id="search-forum">
                             <option value="-1">- {{ 'Alle Foren'|trans({}, 'global') }} -</option>
-                            {% for forum in forums %}
+                            {% for section in forumSections %}
+                                <optgroup label="{{ 'Weltforum'|trans({},'global',section) }}">
+                                    {% for forum in forums|filter( f => f.worldForumLanguage == section )|sort( (a,b) => ( a.worldForumSorting <=> b.worldForumSorting ) ) %}
+                                        <option value="{{ forum.id }}" {% if forum.id == select %}selected{% endif %}>{{ forum.title }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            {% endfor %}
+                            {% for forum in forums|filter( f => f.worldForumLanguage is null )|sort( (a,b) => ( a.title <=> b.title ) ) %}
                                 {# @var forum \App\Entity\Forum #}
                                 <option value="{{ forum.id }}" {% if forum.id == select %}selected{% endif %}>{{ forum.title }}</option>
                             {% endfor %}
@@ -116,6 +123,7 @@
         let typingTimer, doneTypingInterval = 500;
         let searchBox = document.getElementById('users-search');
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             if (searchBox.value.length >= 3)
                 $.ajax.background().load(
@@ -137,6 +145,7 @@
                             let ss = document.getElementById('users-list-soul');
                             ss.style.display = 'none';
                         })
+                        if (enterPressed) document.querySelector( '#users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                     }
                 );
             else document.getElementById('users-list').innerHTML = '';
@@ -147,7 +156,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 

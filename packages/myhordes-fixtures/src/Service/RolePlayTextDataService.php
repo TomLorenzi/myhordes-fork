@@ -4232,8 +4232,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 "author" => "ChrisCool",
                 "content" => [
                     '<div class="hr"></div>
-                <p>Ceci est un message à l\'aide ! Je suis situé dans la ville de la <strong>Toundra<s>s</s> du nord</strong> ! Si quelqu\'un reçoit <s>mon</s>ce message, QU\'IL VIENNE M\'APPORTER UN <s>PM</s>PETIT MANCHE VIBRANT, c\'est une question<s>s</s> de VIE OU DE MORT !</p>
-                </div>'
+                    <p>Ceci est un message à l\'aide ! Je suis situé dans la ville de la <strong>Toundra<s>s</s> du nord</strong> ! Si quelqu\'un reçoit <s>mon</s>ce message, QU\'IL VIENNE M\'APPORTER UN <s>PM</s>PETIT MANCHE VIBRANT, c\'est une question<s>s</s> de VIE OU DE MORT !</p>'
                 ],
                 "lang" => "fr",
                 "background" => "carton",

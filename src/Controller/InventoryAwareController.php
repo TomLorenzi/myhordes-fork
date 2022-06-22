@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionCounter;
+use App\Entity\AdminReport;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\EventActivationMarker;
 use App\Entity\ExpeditionRoute;
 use App\Entity\FoundRolePlayText;
@@ -31,6 +33,7 @@ use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Enum\AdminReportSpecification;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -57,6 +60,7 @@ use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -961,6 +965,13 @@ class InventoryAwareController extends CustomAbstractController
         $scavenger_sense = $this->getActiveCitizen()->getProfession()->getName() === 'collec';
         $scout_sense     = $this->getActiveCitizen()->getProfession()->getName() === 'hunter';
 
+        $citizen_zone_cache = [];
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+            if ($citizen->getAlive() && $citizen->getZone() !== null) {
+                if (!isset($citizen_zone_cache[$citizen->getZone()->getId()])) $citizen_zone_cache = [$citizen];
+                else $citizen_zone_cache[$citizen->getZone()->getId()][] = $citizen;
+            }
+
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -1019,8 +1030,8 @@ class InventoryAwareController extends CustomAbstractController
             if (!$zone->isTownZone() && $zone->getTag()) $current_zone['tg'] = $zone->getTag()->getRef();
             if (!$zone->isTownZone() && $this->getActiveCitizen()->getZone() === null
                 && !$this->getActiveCitizen()->getTown()->getChaos()
-                && !$zone->getCitizens()->isEmpty())
-                $current_zone['c'] = array_map( fn(Citizen $c) => $c->getName(), $zone->getCitizens()->getValues() );
+                && !empty( $citizen_zone_cache[$zone->getId()] ?? [] ) )
+                $current_zone['c'] = array_map( fn(Citizen $c) => $c->getName(), $citizen_zone_cache[$zone->getId()] );
             elseif ($zone->isTownZone())
                 $current_zone['co'] = count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
 
@@ -1427,5 +1438,65 @@ class InventoryAwareController extends CustomAbstractController
         }
         else return AjaxResponse::error( $error );
         return AjaxResponse::success( true, ['url' => $url] );
+    }
+
+    public function reportCitizen( Citizen|CitizenRankingProxy $citizen, AdminReportSpecification $specification, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
+
+        $user = $this->getUser();
+
+        $proxy   = is_a( $citizen, CitizenRankingProxy::class ) ? $citizen : $citizen->getRankingEntry();
+        $citizen = $proxy->getCitizen();
+
+        if ($specification === AdminReportSpecification::CitizenAnnouncement && (!$citizen || $citizen->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) )
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        $payload = match ($specification) {
+            AdminReportSpecification::CitizenAnnouncement => $citizen?->getHome()->getDescription(),
+            AdminReportSpecification::CitizenLastWords => $proxy->getLastWords(),
+            AdminReportSpecification::CitizenTownComment => $proxy->getComment(),
+            default => null
+        };
+
+        if (empty( $payload ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['citizen' => $proxy, 'specification' => $specification->value]);
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $report_count = count($reports) + 1;
+
+        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+
+        $details = $parser->trimmed('details');
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setDetails( $details ?: null )
+            ->setTs(new \DateTime('now'))
+            ->setCitizen( $proxy )
+            ->setSpecification( $specification );
+
+        try {
+            $this->entity_manager->persist($newReport);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        try {
+            $this->crow->triggerExternalModNotification( match ($specification) {
+                AdminReportSpecification::CitizenAnnouncement => "A citizen's home message has been reported.",
+                AdminReportSpecification::CitizenLastWords => "A citizen's last words have been reported.",
+                AdminReportSpecification::CitizenTownComment => "A town comment has been reported.",
+                default => '[invalid]'
+            }, $proxy, $newReport, "This is report #{$report_count}." );
+        } catch (\Throwable $e) {}
+
+        $message = $this->translator->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $proxy->getUser()->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success( );
     }
 }

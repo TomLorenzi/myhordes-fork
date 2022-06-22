@@ -182,37 +182,7 @@ class ZoneHandler
             usort( $dig_timers_due, $sort_func );
             foreach ($dig_timers_due as &$timer)
                 if ($timer->getTimestamp() < $up_to) {
-
-                    $factor = 1.0;
-                    if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.2; // based on 769 search made as scavenger
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1; // if we use gathered stats, this value should be around 0.15
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.5; // based on 30 searchs made with eye injury
-                    if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.2; // based on 51 search made while being drunk
-                    // if ($conf->isNightMode($timer->getTimestamp()) && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
-
-                    if ($conf->isNightMode($timer->getTimestamp())) {
-
-                        // If there are items that prevent night mode present, the night malus is set to 0
-                        $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.25 : 0.0; // based on 733 searchs made during night
-
-                        if ($timer->getCitizen()->hasStatus('tg_novlamps')) {
-                            // Night mode is active, but so are the Novelty Lamps; we must check if they apply
-                            $novelty_lamps = $this->town_handler->getBuilding( $timer->getCitizen()->getTown(), 'small_novlamps_#00', true );
-
-                            // Novelty Lamps are not built; apply malus
-                            if (!$novelty_lamps) $factor -= $night_mode_malue;
-                            // Novelty Lamps are at lv0 and the zone distance is above 2km; apply malus
-                            elseif ($novelty_lamps->getLevel() === 0 && $zone->getDistance() > 2) $factor -= $night_mode_malue;
-                            // Novelty Lamps are at lv1 and the zone distance is above 6km; apply malus
-                            elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6) $factor -= $night_mode_malue;
-                            // Novelty Lamps are at lv2 and the zone distance is above 10km; apply malus
-                            elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 10) $factor -= $night_mode_malue;
-                            // Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
-                            // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10) $factor += 0.2;
-
-                        } else $factor -= $night_mode_malue; // Night mode is active; apply malus
-
-                    }
+                    $factor = $this->getDigChanceFactor($timer->getCitizen(), $zone);
 
                     $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )), 0.9);
 
@@ -369,6 +339,41 @@ class ZoneHandler
 
         return empty($ret_str) ? null : implode('<hr />', $ret_str);
 
+    }
+
+    function getDigChanceFactor(Citizen $citizen, Zone $zone): float {
+        $time = new DateTime();
+        $factor = 1.0;
+        if ($citizen->getProfession()->getName() === 'collec') $factor += 0.2; // based on 769 search made as scavenger
+        if ($this->citizen_handler->hasStatusEffect( $citizen, 'camper' )) $factor += 0.1; // if we use gathered stats, this value should be around 0.15
+        if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $factor -= 0.5; // based on 30 searchs made with eye injury
+        if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $factor -= 0.2; // based on 51 search made while being drunk
+
+        if ($this->conf->getTownConfiguration( $citizen->getTown() )->isNightMode($time)) {
+
+            // If there are items that prevent night mode present, the night malus is set to 0
+            $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.25 : 0.0; // based on 733 searchs made during night
+
+            if ($citizen->hasStatus('tg_novlamps')) {
+                // Night mode is active, but so are the Novelty Lamps; we must check if they apply
+                $novelty_lamps = $this->town_handler->getBuilding( $citizen->getTown(), 'small_novlamps_#00', true );
+
+                // Novelty Lamps are not built; apply malus
+                if (!$novelty_lamps) $factor -= $night_mode_malue;
+                // Novelty Lamps are at lv0 and the zone distance is above 2km; apply malus
+                elseif ($novelty_lamps->getLevel() === 0 && $zone->getDistance() > 2) $factor -= $night_mode_malue;
+                // Novelty Lamps are at lv1 and the zone distance is above 6km; apply malus
+                elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6) $factor -= $night_mode_malue;
+                // Novelty Lamps are at lv2 and the zone distance is above 10km; apply malus
+                elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 999) $factor -= $night_mode_malue;
+                // Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
+                // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10) $factor += 0.2;
+
+            } else $factor -= $night_mode_malue; // Night mode is active; apply malus
+
+        }
+
+        return $factor;
     }
 
     const RespawnModeNone = 0;

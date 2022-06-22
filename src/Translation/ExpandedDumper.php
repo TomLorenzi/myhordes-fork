@@ -4,21 +4,22 @@
 namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
-use Symfony\Component\Translation\Dumper\XliffFileDumper;
+use Symfony\Component\Translation\Dumper\YamlFileDumper;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ExpandedDumper extends XliffFileDumper
+class ExpandedDumper extends YamlFileDumper
 {
     private TranslatorInterface $trans;
-    private XliffFileDumper $dumper;
+    private YamlFileDumper $dumper;
     private TranslationConfigGlobal $conf;
 
-    public function __construct(XliffFileDumper $dumper, TranslatorInterface $trans, TranslationConfigGlobal $conf)
+    public function __construct(YamlFileDumper $dumper, TranslatorInterface $trans, TranslationConfigGlobal $conf)
     {
         $this->dumper = $dumper;
         $this->trans = $trans;
         $this->conf = $conf;
+        parent::__construct();
     }
 
     protected function preprocess(MessageCatalogue &$messages, $domain) {
@@ -71,7 +72,6 @@ class ExpandedDumper extends XliffFileDumper
 
     public function formatCatalogue(MessageCatalogue $messages, $domain, array $options = []): string
     {
-        $options['xliff_version'] = '2.0';
         if ( $this->conf->isConfigured() ) $this->preprocess($messages, $domain);
         return $this->dumper->formatCatalogue( $messages, $domain, $options );
     }

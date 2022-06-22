@@ -1264,10 +1264,43 @@ class AdminTownController extends AdminActionController
         ]);
 
         return AjaxResponse::success(true, [
+            'desc' => $citizen->getAlive() ? $citizen->getHome()->getDescription() : $citizen->getRankingEntry()->getLastWords(),
             'rucksack' => $rucksack,
             'chest' => $chest,
             'pictos' => $pictos,
         ]);
+    }
+
+    /**
+     * @Route("api/admin/town/{id}/clear_citizen_attribs", name="clear_citizen_attribs", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @Security("is_granted('ROLE_CROW')")
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function clear_citizen_attribs(int $id, JSONRequestParser  $parser) {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $id = $parser->get_int('id');
+        $clear = $parser->get('clear');
+
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($id);
+        if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        switch ($clear) {
+            case 'citizen-custom-message':
+                $this->entity_manager->persist( $citizen->getHome()->setDescription( null ) );
+                $this->entity_manager->persist( $citizen->setLastWords( '' ) );
+                $this->entity_manager->persist( $citizen->getRankingEntry()->setLastWords( null ) );
+                break;
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
     }
 
     /**
@@ -1419,7 +1452,7 @@ class AdminTownController extends AdminActionController
             }
             if(($flag & TownRankingProxy::DISABLE_PICTOS) === TownRankingProxy::DISABLE_PICTOS) {
                 foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town_proxy) as $picto)
-                    $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS)));
+                    $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town_proxy->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
             }
         }
 
@@ -1720,8 +1753,13 @@ class AdminTownController extends AdminActionController
         switch ($parser->get('role')) {
 
             case '_ban_':
+                $null = null;
                 foreach ($citizens as $citizen) {
-                    $citizen->setBanished($control);
+                    if($control) {
+                        $this->citizen_handler->updateBanishment($citizen, null, null, $null, true);
+                    } else {
+                        $citizen->setBanished(false);
+                    }
                     $this->entity_manager->persist($citizen);
                 }
                 break;
@@ -1930,18 +1968,23 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        if (!$parser->has_all(['prototype_id'])) {
+        if (!$parser->has_all(['prototype_id', 'act'])) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
         $proto_id = $parser->get("prototype_id");
+        $act = $parser->get('act');
 
         $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($proto_id);
         if (!$proto)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $th->addBuilding($town, $proto);
-        $gps->recordBuildingDiscovered( $proto, $town, null, 'debug' );
+        if($act) {
+            $th->addBuilding($town, $proto);
+            $gps->recordBuildingDiscovered($proto, $town, null, 'debug');
+        } else {
+            $th->removeBuilding($town, $proto);
+        }
 
         $this->entity_manager->persist($town);
         $this->entity_manager->flush();

@@ -107,7 +107,7 @@
                         '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
                     ) }}
                 </div>
-                <div class="padded cell rw-6 rw-lg-12 left medium">
+                <div class="padded cell rw-6 rw-lg-12 left medium" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}disabled{% endif %}>
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
                     <div class="small">
                         <button style="margin-top: 3px;" class="inline small" id="desc_edit_button">{{ 'Speichern'|trans({},'game') }}</button>

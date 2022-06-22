@@ -56,6 +56,7 @@ class ForumCreatorCommand extends Command
 
             ->addOption('description', 'd', InputOption::VALUE_REQUIRED, 'The Forum Description')
             ->addOption('icon', 'i', InputOption::VALUE_REQUIRED, 'The Forum Icon')
+            ->addOption('lang', 'l', InputOption::VALUE_REQUIRED, 'The Forum Language')
             ->addOption('no-permissions', null, InputOption::VALUE_NONE, 'If set, no permissions will be set for the forum. If CUSTOM forum type is selected, this option has no effect.')
         ;
     }
@@ -111,6 +112,7 @@ class ForumCreatorCommand extends Command
             ->setType( (int)$input->getArgument('Type') )
             ->setDescription( $input->getOption('description') ?? null )
             ->setIcon( $input->getOption('icon') ?? null )
+            ->setWorldForumLanguage( $input->getOption('lang') ?? null )
         );
 
         if (!$input->getOption('no-permissions')) {

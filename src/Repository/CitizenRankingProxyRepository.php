@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Season;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -121,8 +122,11 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
             ->addOrderBy('c.day', 'DESC')
             ->addOrderBy('c.id', 'DESC');
 
+        $disableTown = TownRankingProxy::DISABLE_ALL;
+        $disableCitizen = CitizenRankingProxy::DISABLE_ALL;
+
         if (!$show_hidden)
-            $query->andWhere('(t.disabled = false AND c.disabled = false)');
+            $query->andWhere("(BIT_AND(t.disableFlag, $disableTown) != $disableTown) AND (BIT_AND(c.disableFlag, $disableCitizen) != $disableCitizen)");
 
         if($season !== null)
             $query->andWhere('t.season = :season')

@@ -1370,64 +1370,75 @@ class BeyondController extends InventoryAwareController
             $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
 
         if ($zone->getRuinDigs() > 0) {
+            $factor = $this->zone_handler->getDigChanceFactor( $this->getActiveCitizen(), $zone );
+            $total_dig_chance = min(max(0.1, $factor * 0.75), 0.95);
+
+            $item_found = $this->random_generator->chance($total_dig_chance);
+
             $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
             $this->entity_manager->persist($dm);
 
-            $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
+            if ($item_found) {
+                $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
 
-            $event_conf = null; $event_confs = [];
-            foreach ($this->conf->getCurrentEvents($zone->getTown()) as $ev)
-                foreach ($ev->get(EventConf::EVENT_DIG_RUINS, []) as $e)
-                    if ($e['name'] === $zone->getPrototype()->getIcon())
-                        $event_confs[] = $e;
+                $event_conf = null; $event_confs = [];
+                foreach ($this->conf->getCurrentEvents($zone->getTown()) as $ev)
+                    foreach ($ev->get(EventConf::EVENT_DIG_RUINS, []) as $e)
+                        if ($e['name'] === $zone->getPrototype()->getIcon())
+                            $event_confs[] = $e;
 
-            if (!empty($event_confs)) $event_conf = $this->random_generator->pick( $event_confs );
+                if (!empty($event_confs)) $event_conf = $this->random_generator->pick( $event_confs );
 
-            $named_groups = $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] );
-            $group = $event_conf
-                ? ( $this->random_generator->chance($event_conf['chance'])
-                    ? $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event_conf['group']])
-                    : $zone->getPrototype()->getDropByNames( $named_groups ) )
-                : $zone->getPrototype()->getDropByNames( $named_groups );
+                $named_groups = $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] );
+                $group = $event_conf
+                    ? ( $this->random_generator->chance($event_conf['chance'])
+                        ? $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event_conf['group']])
+                        : $zone->getPrototype()->getDropByNames( $named_groups ) )
+                    : $zone->getPrototype()->getDropByNames( $named_groups );
 
-            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
-            if ($prototype) {
-                $item = $this->item_factory->createItem( $prototype );
-                $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );
-                $noPlaceLeftMsg = "";
-                if ($item) {
-                    $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
-                    if($inventoryDest === $zone->getFloor()){
-                        $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item->getPrototype(), true));
-                        $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
+                $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
+                if ($prototype) {
+                    $item = $this->item_factory->createItem( $prototype );
+                    $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );
+                    $noPlaceLeftMsg = "";
+                    if ($item) {
+                        $inventoryDest = $this->inventory_handler->placeItem( $citizen, $item, [ $citizen->getInventory(), $zone->getFloor() ] );
+                        if($inventoryDest === $zone->getFloor()){
+                            $this->entity_manager->persist($this->log->beyondItemLog($citizen, $item->getPrototype(), true));
+                            $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
+                        }
+                        $this->entity_manager->persist( $item );
+                        $this->entity_manager->persist( $citizen->getInventory() );
+                        $this->entity_manager->persist( $zone->getFloor() );
                     }
-                    $this->entity_manager->persist( $item );
-                    $this->entity_manager->persist( $citizen->getInventory() );
-                    $this->entity_manager->persist( $zone->getFloor() );
-                }
 
-                // If we get a Chest XL, we earn a picto
-                if ($prototype->getName() == 'chest_xl_#00') {
-                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_chstxl_#00"]);
-                    $this->picto_handler->give_picto($citizen, $pictoPrototype);
-                }
+                    // If we get a Chest XL, we earn a picto
+                    if ($prototype->getName() == 'chest_xl_#00') {
+                        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_chstxl_#00"]);
+                        $this->picto_handler->give_picto($citizen, $pictoPrototype);
+                    }
 
-                $distance = round(sqrt(pow($zone->getX(),2) + pow($zone->getY(),2)));
-                $pictoName = "";
-                if($distance >= 6 && $distance <= 17) {
-                    $pictoName = "r_explor_#00";
-                } else if($distance >= 18) {
-                    $pictoName = "r_explo2_#00";
+                    $distance = round(sqrt(pow($zone->getX(),2) + pow($zone->getY(),2)));
+                    $pictoName = "";
+                    if($distance >= 6 && $distance <= 17) {
+                        $pictoName = "r_explor_#00";
+                    } else if($distance >= 18) {
+                        $pictoName = "r_explo2_#00";
+                    }
+                    if($pictoName != ""){
+                        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
+                        $this->picto_handler->give_picto($citizen, $picto);
+                    }
+                    $this->addFlash( 'notice', $this->translator->trans( 'Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.', [
+                        '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>",
+                        "{building}" => "<strong>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], "game") . "</strong>"
+                    ], 'game' ) . "$noPlaceLeftMsg");
+                } else {
+                    // Should not happen... This is an error case.
+                    return AjaxResponse::error(ErrorHelper::ErrorInternalError);
                 }
-                if($pictoName != ""){
-                    $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
-                    $this->picto_handler->give_picto($citizen, $picto);
-                }
-                $this->addFlash( 'notice', $this->translator->trans( 'Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.', [
-                    '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>",
-                    "{building}" => "<strong>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], "game") . "</strong>"
-                ], 'game' ) . "$noPlaceLeftMsg");
             } else {
+                // Nothing found.
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
         } else {

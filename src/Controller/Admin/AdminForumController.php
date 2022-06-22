@@ -458,7 +458,7 @@ class AdminForumController extends AdminActionController
             }
         }
 
-        /** @var AdminReport[] $pm_reports */
+        /** @var AdminReport[] $gpm_reports */
         $gpm_reports = array_filter($reports, function(AdminReport $r) {
             if ($r->getGpm() === null || $r->getGpm()->getReceiverGroup() === null || $r->getGpm()->getSender() === null) return false;
             return true;

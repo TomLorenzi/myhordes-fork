@@ -54,6 +54,10 @@
                                         <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
                                         <span>{{ 'Schließen'|trans({},'global') }}</span>
                                     </div>
+                                    <div tabindex="0" x-forum-moderator-action="solve" class="forum-button">
+                                        <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
+                                        <span>{{ 'Gelöst'|trans({},'global') }}</span>
+                                    </div>
                                 {% endif %}
                                 {% if locked %}
                                     <div tabindex="0" x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button">
@@ -240,7 +244,7 @@
                                 {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner.activeTitle.prototype.title|trans({},'game')|raw }}</i>{% endif %}
                             </span>
                         {% endif %}
-                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
+                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': '<span class="hide-sm">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-md hide-lg hide-desktop">[0, 0]</span>' })|raw }}</div>{% endif %}
                     </div>
                     {% if permission.moderate() %}
                         {% if post.adminReports(true)|length > 0 %}
@@ -366,19 +370,23 @@
         };
         const reloadPage = function() { loadPage( {{ current_page }} ); };
         const reloadForum = function() { $.ajax.no_history().load( null, '{{ url('forum_view', {id: fid}) }}', false ); }
+        const reloadForumKeepPage = function() {
+            const page = parseInt( document.querySelector('[data-thread-current-page]')?.dataset?.threadCurrentPage ?? 0 );
+            $.ajax.no_history().load( null, '{{ url('forum_view', {id: fid}) }}', false, { page } );
+        }
 
         {% if permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="lock"]', 'click', function(e,elem) {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', null, reloadPage);
+                let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
+                if (reason !== null)
+                    $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', {reason}, reloadPage);
             });
         {% endif %}
-        {% if permission.help %}
+        {% if permission.help or permission.moderate %}
             $.html.addEventListenerAll('[x-forum-moderator-action="solve"]', 'click', function(e,elem) {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'solve'}) }}', null, reloadPage);
+                let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
+                if (reason !== null)
+                    $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'solve'}) }}', {reason}, reloadPage);
             });
         {% endif %}
 
@@ -427,8 +435,15 @@
                 form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Verschiebe den aktuellen Thread in ein anderes Forum:'|trans({},'global')|e('js') }}' ));
 
                 let select = $.html.createElement('<select/>');
-                {% for move_forum in thread_moveable_forums %}
-                    select.append($.html.createElement( '<option value="{{ move_forum.id }}">{{ move_forum.title }}</option>' ) );
+                let group = null;
+                {% for label, forum_group in thread_moveable_forums %}
+                    group = $.html.createElement( '<optgroup label="{{ label }}"></optgroup>' )
+                    {% for move_forum in forum_group|sort((a,b) => a.worldForumSorting <=> b.worldForumSorting) %}
+                        group.append($.html.createElement( '<option value="{{ move_forum.id }}">{{ move_forum.title }}</option>' ) );
+                    {% endfor %}
+                    {% if forum_group is not empty %}
+                        select.append(group );
+                    {% endif %}
                 {% endfor %}
 
                 form.append(select)
@@ -436,7 +451,7 @@
                 $.html.popup('{{ 'Thread verschieben'|trans({},'global')|e('js') }}', form, null, [
                     [ '{{ 'Verschieben'|trans({},'global')|e('js') }}',  [ ['click', (e_sub, elem_sub) => {
                         $.html.triggerPopupPop(elem_sub);
-                        $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, 'mod': 'move'}) }}', {to: parseInt( select.value)}, reloadForum );
+                        $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, 'mod': 'move'}) }}', {to: parseInt( select.value)}, reloadForumKeepPage );
                     }] ] ],
                     [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
                 ] );

@@ -255,14 +255,22 @@ class GameFactory
                 $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'always' );
             }
 
-        foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
-            if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
-                $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy(['name' => $str_prototype]);
-                if ($prototype) {
-                    $this->town_handler->addBuilding($town, $prototype);
-                    $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'config' );
+        $buildings_to_unlock = array_unique( array_merge( $conf->get(TownConf::CONF_BUILDINGS_UNLOCKED), $conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) ) );
+        $failed_unlocks = $last_failed_unlocks = 0;
+        do {
+            $last_failed_unlocks = $failed_unlocks;
+            $failed_unlocks = 0;
+            foreach ($buildings_to_unlock as $str_prototype)
+                if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS))) {
+                    $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy(['name' => $str_prototype]);
+                    if ($prototype) {
+                        if ($this->town_handler->addBuilding($town, $prototype))
+                            $this->gps->recordBuildingDiscovered( $prototype, $town, null, 'config' );
+                        else $failed_unlocks++;
+                    }
                 }
-            }
+        } while ($failed_unlocks > 0 && $failed_unlocks !== $last_failed_unlocks);
+
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
             if (in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
@@ -412,6 +420,8 @@ class GameFactory
 
         $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
         $distribution = [];
+
+        $zone_list = $town->getZones()->getValues();
         foreach ($conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []) as $dd) {
             $distribution[$dd['item']] = ['min' => $dd['min'], 'max' => $dd['max']];
         }
@@ -427,7 +437,10 @@ class GameFactory
             }
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($zone_list, $min_distance, $max_distance);
-            if ($spawnZone) $this->inventory_handler->forceMoveItem( $spawnZone->getFloor(), $this->item_factory->createItem( $item_spawns[$i] ) );
+            if ($spawnZone) {
+                $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $this->item_factory->createItem($item_spawns[$i]));
+                $zone_list = array_filter( $zone_list, fn(Zone $z) => $z !== $spawnZone );
+            }
         }
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );

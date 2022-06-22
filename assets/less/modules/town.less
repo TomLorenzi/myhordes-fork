@@ -299,6 +299,10 @@ div.town-banner {
   }
 }
 
+.citizens-list  {
+  line-height: 20px;
+}
+
 .citizens-list,
 .messages-list,
 .routes-list{
@@ -481,7 +485,7 @@ div.town-banner {
     text-align: right;
     font-size: 1.2rem;
     color: #ddab76;
-    &.disabled {
+    .disabled {
       text-decoration: line-through;
       font-weight: normal;
       color: grey;
@@ -882,10 +886,15 @@ ul.list{
   display: none;
 }
 
+#gazette-role-title {
+  margin: 5px;
+}
+
 #gazette-role-list {
   background: @myhordes-cell-header-background-color;
   border: 1px solid @myhordes-input-border;
   padding: 4px;
+  margin: 5px;
   font-size: 1.2rem;
   color: #ffe3bf;
   p {
@@ -986,4 +995,19 @@ ul.list{
 .citizen-label-name-me{
   border-top: 1px solid #6C7188 !important; 
   background-color: #4e5162 !important;
+}
+
+.row-table.workshop {
+  border-bottom: 3px solid #f0d79e;
+  .header {
+    border-bottom: 3px solid #f0d79e;
+    font-size: 1.2rem;
+  }
+
+  .recipe > div {
+    &:not(:last-child) {
+      border-right: 1px solid #7e4d2a;
+    }
+    border-bottom: 1px solid #7e4d2a;
+  }
 }

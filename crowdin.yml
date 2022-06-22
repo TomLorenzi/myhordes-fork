@@ -1,0 +1,5 @@
+files:
+  - source: /translations/*.de.yml
+    translation: /translations/%file_name%.%two_letters_code%.yml
+    translation_replace:
+      .de: ''

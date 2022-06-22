@@ -426,17 +426,16 @@ class HTMLConverterFromBlocks {
         }
 
         let quotespace = false;
+        let no_announces = false;
         let raw_fallback = false;
         let cp = parent;
 
         while (cp) {
             if (cp.nodeType === Node.ELEMENT_NODE) {
                 if (!quotespace   && cp.classList.contains('no-quote')) quotespace = true;
+                if (!no_announces && cp.classList.contains('no-announce')) no_announces = true;
                 if (!raw_fallback && (cp.tagName === 'PRE' || cp.classList.contains('raw-fallback'))) raw_fallback = true;
             }
-
-            if (cp.nodeType === Node.ELEMENT_NODE && cp.classList.contains('no-quote'))
-                quotespace = true;
             cp = cp.parentNode as HTMLElement;
         }
 
@@ -498,16 +497,16 @@ class HTMLConverterFromBlocks {
                     else if (block.hasClass('sideNote'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'aparte' );
                     else if (block.hasClass('adminAnnounce'))
-                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'admannounce' );
+                        ret += no_announces ? block.nodeText : HTMLConverterFromBlocks.wrapBlock( block, 'admannounce' );
                     else if (block.hasClass('modAnnounce'))
-                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'modannounce' );
+                        ret += no_announces ? block.nodeText : HTMLConverterFromBlocks.wrapBlock( block, 'modannounce' );
                     else if (block.hasClass('oracleAnnounce'))
-                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'announce' );
+                        ret += no_announces ? block.nodeText : HTMLConverterFromBlocks.wrapBlock( block, 'announce' );
                     else if (block.hasClass('rpText'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'rp' );
                     else if (block.hasClass('glory'))
                         ret += HTMLConverterFromBlocks.wrapBlock(block, 'glory');
-                    else ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;;
+                    else ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;
                     break;
                 case 'blockquote':
                     ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( block, 'quote' );
@@ -538,8 +537,8 @@ class HTMLConverterFromBlocks {
 
 export default class TwinoAlikeParser {
 
-    public readonly OpModeRaw   = 0x1;
-    public readonly OpModeQuote = 0x2;
+    public readonly OpModeRaw        = 0x1;
+    public readonly OpModeQuote      = 0x2;
     public AjaxUrl = "";
 
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
@@ -775,19 +774,17 @@ export default class TwinoAlikeParser {
                 let result = null;
                 let found = false;
 
-                while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\b/g.exec( str )) {
+                while (result = /\b((?:https?|ftps?):\/\/[^\s{}[\]<>]*)\s?/g.exec( str )) {
                     found = true;
 
-                    let trailing_slash = str.substr(result.index + result[0].length, 1) === '/';
-
                     let a = document.createElement('a');
-                    a.setAttribute('href', result[0] + (trailing_slash ? '/' : ''));
-                    a.innerText = result[0] + (trailing_slash ? '/' : '');
+                    a.setAttribute('href', a.innerText = result[1]);
+                    a.setAttribute('x-raw', "1");
 
                     elem.parentElement.insertBefore( document.createTextNode( str.slice(0,result.index) ), elem );
                     elem.parentElement.insertBefore( a, elem );
 
-                    str = str.slice(result.index + result[0].length + (trailing_slash ? 1 : 0));
+                    str = str.slice(result.index + result[1].length);
                 }
 
                 if (found) {
@@ -800,6 +797,20 @@ export default class TwinoAlikeParser {
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
                 this.postprocessDOM( children[i] as HTMLElement, options )
+        }
+    }
+
+    private static collapseTextNodes( elem: HTMLElement ) {
+        if (elem.nodeType === Node.TEXT_NODE) {
+            if (!elem.parentElement) return;
+            while (elem.nextSibling?.nodeType === Node.TEXT_NODE) {
+                elem.textContent += elem.nextSibling.textContent;
+                elem.nextSibling.remove();
+            }
+        } else {
+            let children = elem.childNodes;
+            for (let i = 0; i < children.length; i++)
+                this.collapseTextNodes( children[i] as HTMLElement )
         }
     }
 
@@ -841,10 +852,12 @@ export default class TwinoAlikeParser {
         TwinoAlikeParser.postprocessDOM( container_node, options );
 
         TwinoAlikeParser.parseInsets(container_node);
-        TwinoAlikeParser.parseEmotes(container_node, resolver);
+        TwinoAlikeParser.collapseTextNodes( container_node );
 
         changed = true;
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,true);
+
+        TwinoAlikeParser.parseEmotes(container_node, resolver);
 
         let c = null;
         while ((c = target.lastChild))
@@ -963,7 +976,7 @@ export default class TwinoAlikeParser {
     parseFrom( htmlText: string, opmode: number ): string {
 
         let container_node = document.createElement('p');
-        if (opmode & this.OpModeQuote) container_node.classList.add('no-quote');
+        if (opmode & this.OpModeQuote) container_node.classList.add('no-quote', 'no-announce');
         if (opmode & this.OpModeRaw)   container_node.classList.add('raw-fallback');
         container_node.innerHTML = htmlText;
 

@@ -157,11 +157,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $heroDaysSpent = 0;
 
     /**
-     * @ORM\OneToOne(targetEntity=TwinoidImportPreview::class, mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
-     */
-    private $twinoidImportPreview;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $twinoidID;
@@ -282,11 +277,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      * @ORM\Column(type="integer")
      */
     private $roleFlag = 0;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\ShadowBan", mappedBy="user", cascade={"persist"})
-     */
-    private $shadowBan;
 
     /**
      * @ORM\Column(type="boolean")
@@ -791,23 +781,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
 
-    public function getTwinoidImportPreview(): ?TwinoidImportPreview
-    {
-        return $this->twinoidImportPreview;
-    }
-
-    public function setTwinoidImportPreview(?TwinoidImportPreview $twinoidImportPreview): self
-    {
-        $this->twinoidImportPreview = $twinoidImportPreview;
-
-        // set the owning side of the relation if necessary
-        if ($twinoidImportPreview !== null && $twinoidImportPreview->getUser() !== $this) {
-            $twinoidImportPreview->setUser($this);
-        }
-
-        return $this;
-    }
-
     public function getTwinoidID(): ?int
     {
         return $this->twinoidID;
@@ -1180,22 +1153,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function hasRoleFlag(int $roleFlag): bool {
         return ($this->getRoleFlag() & $roleFlag) === $roleFlag;
-    }
-
-    /**
-     * @return ShadowBan
-     */
-    public function getShadowBan()
-    {
-        return $this->shadowBan;
-    }
-
-    /**
-     * @param ShadowBan $shadowBan
-     */
-    public function setShadowBan($shadowBan): void
-    {
-        $this->shadowBan = $shadowBan;
     }
 
     public function getNoAutoFollowThreads(): ?bool

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Interfaces\NamedEntity;
 use App\Interfaces\RandomGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

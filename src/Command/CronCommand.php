@@ -9,6 +9,7 @@ use App\Entity\AttackSchedule;
 use App\Entity\EventAnnouncementMarker;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
@@ -37,7 +38,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
-use function PHPUnit\Framework\directoryExists;
 
 class CronCommand extends Command
 {
@@ -61,6 +61,7 @@ class CronCommand extends Command
     private GameProfilerService $gps;
     private ContainerInterface $container;
     private Environment $twig;
+    private AdminHandler $adminHandler;
 
     private array $db;
 
@@ -68,7 +69,7 @@ class CronCommand extends Command
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps, ContainerInterface $container)
+                                GameProfilerService $gps, ContainerInterface $container, AdminHandler $adminHandler)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -88,6 +89,7 @@ class CronCommand extends Command
         $this->params = $params;
         $this->gps = $gps;
         $this->container = $container;
+        $this->adminHandler = $adminHandler;
 
         $this->db = $db;
         parent::__construct();
@@ -549,7 +551,7 @@ class CronCommand extends Command
             switch($config['type']) {
                 case "local":
                     $targetPath = str_replace("~", $this->params->get('kernel.project_dir'), $config['path']);
-                    if (!directoryExists($targetPath))
+                    if (!is_dir($targetPath))
                         if(mkdir($targetPath, 0700, true)) {
                             $output->writeln("Cannot create backup folder $targetPath !");
                             $success = false;
@@ -570,7 +572,7 @@ class CronCommand extends Command
                     }
                     break;
                 case "ftp":
-                    $ftp_conn = $this->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
+                    $ftp_conn = $this->adminHandler->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
                     if (!$ftp_conn) {
                         $success = false;
                         $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
@@ -585,6 +587,18 @@ class CronCommand extends Command
                     ftp_close($ftp_conn);
                     break;
                 case "sftp":
+                    $conn = $this->adminHandler->connectToSftp($config['host'], $config['port'], $config['user'], $config['pass']);
+                    if(!$conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+
+                    if(!ssh2_scp_send($conn, $filename, $config['path'] . '/' .basename($filename))) {
+                        $success = false;
+                        $output->writeln("<error>Unable to upload backup file  " . basename($filename) . " to {$config['type']} storage '$name'");
+                    }
+                    ssh2_disconnect($conn);
                     break;
                 default:
                     $output->writeln("<error>Unknown storage type {$config['type']}</error>");
@@ -633,7 +647,7 @@ class CronCommand extends Command
                     }
                     break;
                 case "ftp":
-                    $ftp_conn = $this->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
+                    $ftp_conn = $this->adminHandler->connectToFtp($config['host'], $config['port'], $config['user'], $config['pass'], $config['passive']);;
                     if (!$ftp_conn) {
                         $success = false;
                         $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
@@ -674,6 +688,49 @@ class CronCommand extends Command
 
                     ftp_close($ftp_conn);
                     break;
+                case "sftp":
+                    $conn = $this->adminHandler->connectToSftp($config['host'], $config['port'], $config['user'], $config['pass']);
+                    if(!$conn) {
+                        $success = false;
+                        $output->writeln("<error>Unable to connect to {$config['type']} storage '$name'</error>");
+                        break;
+                    }
+                    $sftp_fd = ssh2_sftp($conn);
+                    $handle = opendir("ssh2.sftp://$sftp_fd{$config['path']}");
+
+                    while (false != ($entry = readdir($handle))){
+                        if (in_array($entry, ['.', '..'])) continue;
+                        if (!str_contains($entry, '.')) continue; // No dot, then no extension
+
+                        $details = explode('.', $entry);
+                        $ext = $details[count($details) - 1];
+
+                        // Not an SQL dump, ignore it
+                        if (!in_array(strtolower($ext), ['sql', 'xz', 'gzip', 'bz2'])) continue;
+                        $segments = explode('_', explode('.', $entry)[0]);
+                        if (count($segments) !== 3 || !in_array($segments[2], ['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual']))
+                            continue;
+                        if (!isset($backup_files[$segments[2]])) $backup_files[$segments[2]] = [];
+                        $backup_files[$segments[2]][] = $config['path'] . '/' . $entry;
+                    }
+                    closedir($handle);
+
+                    foreach (['nightly', 'daily', 'weekly', 'monthly', 'update', 'manual'] as $sel_domain) {
+                        $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+
+                        if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
+                            rsort($backup_files[$sel_domain]);
+                            while (count($backup_files[$sel_domain]) > $domain_limit) {
+                                $f = array_pop($backup_files[$sel_domain]);
+                                if ($f === null) break;
+                                $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE);
+                                ssh2_sftp_unlink($sftp_fd, $f);
+                            }
+                        }
+                    }
+
+                    ssh2_disconnect($conn);
+                    break;
             }
         }
 
@@ -708,17 +765,5 @@ class CronCommand extends Command
         }
 
 
-    }
-
-    private function connectToFtp($host, $port, $user, $pass, $passive): \FTP\Connection|false {
-        $ftp_conn = ftp_connect($host, $port);
-        if (!@ftp_login($ftp_conn, $user, $pass)) {
-            ftp_close($ftp_conn);
-            return false;
-        }
-        if ($passive)
-            ftp_pasv($ftp_conn, true);
-
-        return $ftp_conn;
     }
 }

@@ -120,37 +120,43 @@
             document.getElementById('group-member-add').classList.add('hidden');
         });
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             $.ajax.background().load(
                 document.getElementById('users-list'),
                 '{{ path('admin_users_fuzzyfind') }}',
                 false,
                 {'name': searchBox.value, 'no-href': true},
-                () => $.html.addEventListenerAll('.users-list-entry', 'click', function(e,elem) {
-                    let container = document.getElementById('group-member-container');
-                    const m_id = parseInt(elem.getAttribute('x-user-id'));
+                () => {
+                    $.html.addEventListenerAll('.users-list-entry', 'click', function (e, elem) {
+                        let container = document.getElementById('group-member-container');
+                        const m_id = parseInt(elem.getAttribute('x-user-id'));
 
-                    if (container.querySelector('[x-member-id="' + m_id + '"]'))
-                        return;
+                        if (container.querySelector('[x-member-id="' + m_id + '"]'))
+                            return;
 
-                    if (members_added.indexOf(m_id) < 0) members_added.push(m_id);
-                    const rem_index = members_removed.indexOf( m_id );
-                    if (rem_index >= 0) members_removed.splice( rem_index, 1);
+                        if (members_added.indexOf(m_id) < 0) members_added.push(m_id);
+                        const rem_index = members_removed.indexOf(m_id);
+                        if (rem_index >= 0) members_removed.splice(rem_index, 1);
 
-                    let new_entry = $.html.createElement('<div/>');
-                    let control;
-                    new_entry.appendChild( $.html.createElement('<b/>',elem.getAttribute('x-user-name')) );
-                    new_entry.appendChild( control = $.html.createElement('<div class="float-right pointer" x-member-id="' + m_id + '"/>') );
+                        let new_entry = $.html.createElement('<div/>');
+                        let control;
+                        new_entry.appendChild($.html.createElement('<b/>', elem.getAttribute('x-user-name')));
+                        new_entry.appendChild(control = $.html.createElement('<div class="float-right pointer" x-member-id="' + m_id + '"/>'));
 
-                    control.addEventListener('click', function() { removeMember( m_id ); });
-                    control.append($.html.createElement('<i class="fa fa-trash" />'));
+                        control.addEventListener('click', function () {
+                            removeMember(m_id);
+                        });
+                        control.append($.html.createElement('<i class="fa fa-trash" />'));
 
-                    container.append(new_entry);
-                    document.getElementById('group-member-select').classList.add('hidden');
-                    document.getElementById('group-member-add').classList.remove('hidden');
+                        container.append(new_entry);
+                        document.getElementById('group-member-select').classList.add('hidden');
+                        document.getElementById('group-member-add').classList.remove('hidden');
 
-                    document.getElementById('users-list').innerHTML = '';
-                })
+                        document.getElementById('users-list').innerHTML = '';
+                    });
+                    if (enterPressed) document.querySelector( '.users-list-entry' ).dispatchEvent( new Event('click') );
+                }
             );
         };
 
@@ -159,7 +165,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 

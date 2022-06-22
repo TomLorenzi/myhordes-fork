@@ -17,6 +17,8 @@ use App\Entity\UserPendingValidation;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\Validation;
@@ -25,13 +27,14 @@ use Twig\Environment;
 
 class UserFactory
 {
-    private $entity_manager;
-    private $encoder;
-    private $locksmith;
-    private $url;
-    private $twig;
-    private $trans;
-    private $perm;
+    private EntityManagerInterface $entity_manager;
+    private UserPasswordHasherInterface $encoder;
+    private Locksmith $locksmith;
+    private UrlGeneratorInterface $url;
+    private Environment $twig;
+    private TranslatorInterface $trans;
+    private PermissionHandler $perm;
+    private MailerInterface $mailer;
 
     const ErrorNone = 0;
     const ErrorUserExists        = ErrorHelper::BaseUserErrors + 1;
@@ -44,7 +47,7 @@ class UserFactory
 
     public function __construct( EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
-                                 PermissionHandler $p)
+                                 PermissionHandler $p, MailerInterface $mailer)
     {
         $this->entity_manager = $em;
         $this->encoder = $passwordEncoder;
@@ -53,6 +56,7 @@ class UserFactory
         $this->twig = $e;
         $this->trans = $t;
         $this->perm = $p;
+        $this->mailer = $mailer;
     }
 
     public function resetUserPassword( string $email, string $validation_key, string $password, ?int &$error ): ?User {
@@ -277,19 +281,17 @@ class UserFactory
         }
 
         if ($message === null || $headline === null) return false;
-        // FROM: https://stackoverflow.com/questions/4389676/email-from-php-has-broken-subject-header-encoding/27648245
-        $headline = "MyHordes - $headline";
-        mb_internal_encoding('UTF-8');
-        $headline = mb_encode_mimeheader($headline, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
-        return mail(
-            $token->getType() === UserPendingValidation::ChangeEmailValidation ? $token->getUser()->getPendingEmail() : $token->getUser()->getEmail(),
-            $headline,
-            $message,
-            [
-                'MIME-Version' => '1.0',
-                'Content-type' => 'text/html; charset=UTF-8',
-                'From' => 'The Undead Mailman <mailzombie@' . ($_SERVER['SERVER_NAME'] ?? 'localhost') . '>'
-            ]
-        );
+
+        try {
+            $this->mailer->send( (new Email())
+                ->from( 'The Undead Mailman <mailzombie@' . ($_SERVER['SERVER_NAME'] ?? 'localhost') . '>' )
+                ->to( $token->getType() === UserPendingValidation::ChangeEmailValidation ? $token->getUser()->getPendingEmail() : $token->getUser()->getEmail() )
+                ->subject( "MyHordes - $headline" )
+                ->html( $message )
+            );
+            return true;
+        } catch (\Throwable $t) {
+            return false;
+        }
     }
 }

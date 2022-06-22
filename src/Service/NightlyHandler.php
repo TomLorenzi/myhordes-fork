@@ -1381,10 +1381,11 @@ class NightlyHandler
 
                 }
 
-                $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
-                $this->town_handler->devastateTown($town);
-
                 $gazette = $town->findGazette($town->getDay(), true);
+                if (!$gazette->getReactorExplosion())
+                    $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
+
+                $this->town_handler->devastateTown($town);
 
                 if (!$gazette->getReactorExplosion()) {
                     $townTemplate = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
@@ -1825,7 +1826,8 @@ class NightlyHandler
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
         if (!$this->check_town($town)) {
             $this->log->info("Precondition failed. Attack is <info>cancelled</info>.");
-            $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
+            if (!empty($town->getCitizens()))
+                $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
 

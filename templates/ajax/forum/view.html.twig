@@ -125,6 +125,10 @@
                         <div class="forum-header-bar">
                             <a href="#" x-ajax-href="{{ url('forum_list') }}">{{ 'Alle Foren'|trans({},'global') }}</a>
                             <span><i class="fa fa-caret-right"></i></span>
+                            {% if forum.worldForumLanguage %}
+                                <img style="height: 15px; width: auto;" alt="forum.worldForumLanguage" src="{{ asset('build/images/lang/' ~ forum.worldForumLanguage ~ '.png') }}" >
+                                <span><i class="fa fa-caret-right"></i></span>
+                            {% endif %}
                             <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
                         </div>
                         <div class="forum-button-bar">
@@ -179,7 +183,7 @@
                                 <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_prev.gif') }}" /></div>
                                 <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/small_moveleft.gif') }}" /></div>
                                 {% endif %}
-                                <div class="forum-button" x-forum-action="thread-select-page">
+                                <div class="forum-button" x-forum-action="thread-select-page" data-thread-current-page="{{ current_page }}">
                                     {{ 'Seite {page}/{pages}'|trans({'{page}': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '{pages}': pages},'global')|raw }}
                                     <div class="tooltip">
                                         {{ 'Zum Wechsein der Seite hier klicken'|trans({}, 'global') }}

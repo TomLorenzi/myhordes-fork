@@ -2,7 +2,7 @@
 
 {% block ajax_base %}
     {% block header %}
-        {% if is_granted('ROLE_USER') and apps is defined and clock.attack != 0 %}
+        {% if is_granted('ROLE_USER') and apps is defined and (clock is not defined or clock.attack != 0) %}
             <div id="apps">
                 <h1><img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="{{ 'Verzeichnis'|trans({},'global') }}"><span>{{ 'Verzeichnis'|trans({},'global') }}</span></h1>
                 <div id="apps-list">
@@ -30,7 +30,7 @@
             </div>
         {% endif %}
     {% endblock %}
-    {% if (is_granted('ROLE_CROW') and adminActions is defined) or (is_granted('ROLE_ELEVATED') and comActions is defined and clock.attack != 0) %}
+    {% if (is_granted('ROLE_CROW') and adminActions is defined) or (is_granted('ROLE_ELEVATED') and comActions is defined and (clock is not defined or clock.attack != 0)) %}
         <div id="modeCommand">
             <h1><span>{{ is_granted('ROLE_CROW') ? 'Moderation'|trans({},'global') : 'Community-Tools'|trans({},'global') }}</span></h1>
             <div id="scrollMenu">
@@ -49,7 +49,7 @@
                 {% block text_menu_content %}
                 <ul class="text-menu">
                     <li class="burger-button"><i class="fa fa-bars"></i></li>
-                    {% if is_granted('ROLE_USER') and clock.attack != 0 %}
+                    {% if is_granted('ROLE_USER') and (clock is not defined or clock.attack != 0) %}
                         <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">
                         <div class="tooltip help">
                     		<p>{% trans from 'game' %}Mit den anderen Bürgern reden... {% endtrans %}</p>
@@ -58,7 +58,7 @@
 						{{ 'Forum'|trans({},'global') }}</li>
                     {% endif %}
                     {% block menu_text %}
-                        {% if app.user and clock.attack != 0 %}
+                        {% if app.user and (clock is not defined or clock.attack != 0) %}
                             {% if app.user.activeCitizen %}
                                 <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">
                                 	<div class="tooltip help">
@@ -79,8 +79,8 @@
                             {# @var \App\Entity\GlobalPoll poll #}
                             {% if poll is defined and poll %}
                                 <li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
-                                    <button>
-                                        {{ 'Umfrage starten'|trans({},'global') }}
+                                    <button class="no-mobile-resize">
+                                        <span>{{ 'Umfrage starten'|trans({},'global') }}</span>
                                         <div class="tooltip">
                                             <b>{{ poll.titleByLang( app.user.language ) }}</b>
                                             <div>{{ poll.shortDescriptionByLang( app.user.language ) }}</div>
@@ -90,7 +90,7 @@
                             {% endif %}
                         {% endif %}
                     {% endblock %}
-                    {% if is_granted('ROLE_USER') and clock.attack != 0 %}
+                    {% if is_granted('ROLE_USER') and (clock is not defined or clock.attack != 0) %}
                         <li class="soul" x-ajax-href="{{ url('soul_me') }}">
                         	<div class="tooltip help">
                     			<p>{{ 'Deine Seele'|trans({},'global') }}</p>

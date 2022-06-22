@@ -50,35 +50,41 @@
             {% endtrans %}
         </div>
 
-        <div class="row-table">
-        <div class="row-flex header bottom ">
-            <div class="padded cell rw-2">
-                <span class="hide-md hide-sm">{% trans from 'game' %}Vorrat{% endtrans %}</span>
+        <div class="row-table workshop">
+        <div class="row-flex header bottom">
+            <div class="padded cell rw-1 hide-mobile hide-lg">
+                {% trans from 'game' %}Vorrat{% endtrans %}
             </div>
-            <div class="padded cell rw-6 hide-desktop hide-lg">
+            <div class="padded cell rw-1 hide-desktop">
+                {% trans from 'game' %}Vor.{% endtrans %}
+            </div>
+            <div class="padded cell rw-7 hide-desktop hide-lg center">
                 {% trans from 'game' %}Umwandlung{% endtrans %}
             </div>
-            <div class="padded cell rw-2 hide-sm hide-md center">
+            <div class="padded cell rw-3 hide-sm hide-md">
                 {% trans from 'game' %}Material{% endtrans %}
             </div>
-            <div class="padded cell rw-4 hide-sm hide-md center">
+            <div class="padded cell rw-4 hide-sm hide-md">
                 {% trans from 'game' %}Hergestellter Gegenstand{% endtrans %}
             </div>
-            <div class="padded cell rw-1">
-                <span class="hide-md hide-sm">{% trans from 'game' %}Anzahl{% endtrans %}</span>
+            <div class="padded cell hide-mobile hide-lg rw-1">
+                {% trans from 'game' %}Anzahl{% endtrans %}
             </div>
-            <div class="padded cell rw-3 right">
-                <div class="ap">{{ need_ap }}</div>
+            <div class="padded cell rw-2 rw-lg-1 hide-desktop">
+                {% trans from 'game' %}Anz.{% endtrans %}
+            </div>
+            <div class="padded cell rw-3 rw-md-2 rw-sm-2 right">
+                <span class="hide-md hide-sm">{% trans from 'game' %}Handeln{% endtrans %}</span> (<div class="ap">{{ need_ap }}</div>)
             </div>
         </div>
         {% for recipe in recipes %}
             {# @var recipe \App\Entity\Recipe #}
             {% if source[recipe.id] > 0 %}
-                <div class="row-flex">
+                <div class="row-flex recipe">
                     <div class="padded cell rw-1 grow-0 shrink-0">
                         <span class="small">{{ source[recipe.id] }}</span>
                     </div>
-                    <div class="padded cell rw-2 grow-0 shrink-0 right">
+                    <div class="padded cell rw-2 grow-0 shrink-0">
                         {% for entry in recipe.source.entries %}
                             {# @var entry \App\Entity\ItemGroupEntry #}
                             <span>

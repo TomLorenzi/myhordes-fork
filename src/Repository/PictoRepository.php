@@ -35,6 +35,7 @@ class PictoRepository extends ServiceEntityRepository
             ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')
             ->andWhere('i.user = :val')->setParameter('val', $user)
             ->orderBy('pp.rare', 'DESC')
+            ->addOrderBy('pp.priority', 'DESC')
             ->addOrderBy('c', 'DESC')
             ->addOrderBy('pp.id', 'DESC')
             ->leftJoin('i.prototype', 'pp')
@@ -117,6 +118,7 @@ class PictoRepository extends ServiceEntityRepository
             ->andWhere('i.disabled = false')
             ->andWhere('i.old = false')
             ->orderBy('pp.rare', 'DESC')
+            ->addOrderBy('pp.priority', 'DESC')
             ->addOrderBy('c', 'DESC')
             ->addOrderBy('pp.id', 'DESC')
             ->leftJoin('i.prototype', 'pp')
@@ -143,6 +145,7 @@ class PictoRepository extends ServiceEntityRepository
             ->andWhere('i.old = true')
             ->andWhere('i.imported = false')
             ->orderBy('pp.rare', 'DESC')
+            ->addOrderBy('pp.priority', 'DESC')
             ->addOrderBy('c', 'DESC')
             ->addOrderBy('pp.id', 'DESC')
             ->leftJoin('i.prototype', 'pp')
@@ -162,6 +165,8 @@ class PictoRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('i')
             ->andWhere('i.user = :val')->setParameter('val', $user)
             ->andWhere(($town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
+            ->addOrderBy('i.count', 'DESC')
+            ->addOrderBy('i.prototype', 'DESC')
             ->getQuery()->getResult();
     }
 

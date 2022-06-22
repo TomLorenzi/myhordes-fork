@@ -4,7 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Forum;
 use App\Entity\Thread;
+use App\Entity\ThreadReadMarker;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 use Exception;
@@ -91,6 +94,52 @@ class ThreadRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    /**
+     * @param Forum $forum
+     * @param int $threadsPerPage
+     * @return int[]
+     */
+    public function firstPageThreadIDs( Forum $forum, int $threadsPerPage ): array {
+        return array_merge(
+            $this->createQueryBuilder('t')
+                ->select('t.id')
+                ->andWhere('t.pinned = false')
+                ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+                ->andWhere('t.hidden = false OR t.hidden is NULL')
+                ->orderBy('t.lastPost', 'DESC')
+                ->setMaxResults($threadsPerPage)
+                ->getQuery()->getSingleColumnResult(),
+            $this->createQueryBuilder('t')
+                ->select('t.id')
+                ->andWhere('t.pinned = true')
+                ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+                ->andWhere('t.hidden = false OR t.hidden is NULL')
+                ->getQuery()->getSingleColumnResult(),
+        );
+
+    }
+
+    public function countThreadsWithUnreadPosts(User $user, array|Forum $threadIDs, bool $includeHidden = false) {
+        $global_limit = $this->getEntityManager()->getRepository(ThreadReadMarker::class)->findGlobalAndUser($user)?->getPost()->getId() ?? 0;
+
+        $q = $this->createQueryBuilder('t')
+            ->innerJoin('t.posts', 'p')
+            ->leftJoin( 't._readMarkers', 'r', Join::WITH, 'r.thread = t.id AND r.user = :user')->setParameter('user', $user)
+            ->select('MAX(p.id) AS pid', 't.id AS tid', 'IDENTITY(r.post) AS rid')
+            ->groupBy('t.id')
+            ->having( '(:global < pid) AND (rid IS NULL OR rid < pid)' )->setParameter('global', $global_limit)
+        ;
+
+        if (is_a( $threadIDs, Forum::class ))
+            $q->andWhere( 't.forum = :forum' )->setParameter('forum', $threadIDs);
+        else $q->andWhere( 't.id IN (:threads)' )->setParameter('threads', $threadIDs);
+
+        if (!$includeHidden)
+            $q->andWhere('p.hidden = false');
+
+        return count($q->getQuery()->getScalarResult());
     }
 
     // /**

@@ -109,8 +109,40 @@ class AntiCheatService {
                 foreach ($fun_get_user($principal)->getConnectionWhitelists() as $wl)
                     if ($wl->getUsers()->contains( $fun_get_user($multi) )) continue 2;
                 $struct->addUser( $fun_get_user($multi) );
+
+                $factor = $this->user_handler->isRestricted( $fun_get_user($multi), AccountRestriction::RestrictionGameplay ) ? 2 : 1;
+
+                $lev = min(
+                    levenshtein( $fun_get_user($principal)->getUsername(), $fun_get_user($multi)->getUsername() ),
+                    levenshtein( $fun_get_user($principal)->getUsername(), $fun_get_user($multi)->getDisplayName() ?? '' ),
+                    levenshtein( $fun_get_user($principal)->getUsername(), explode( '@', $fun_get_user($multi)->getEmail() ?? '' )[0]),
+                );
+
+                if ($fun_get_user($principal)->getDisplayName())
+                    $lev = min(
+                        $lev,
+                        levenshtein( $fun_get_user($principal)->getDisplayName(), $fun_get_user($multi)->getUsername() ),
+                        levenshtein( $fun_get_user($principal)->getDisplayName(), $fun_get_user($multi)->getDisplayName() ?? '' ),
+                        levenshtein( $fun_get_user($principal)->getDisplayName(), explode( '@', $fun_get_user($multi)->getEmail() ?? '' )[0]),
+                    );
+
+                if ($fun_get_user($principal)->getEmail()) {
+                    $email = explode( '@', $fun_get_user($principal)->getEmail())[0];
+                    $lev = min(
+                        $lev,
+                        levenshtein( $email, $fun_get_user($multi)->getUsername() ),
+                        levenshtein( $email, $fun_get_user($multi)->getDisplayName() ?? '' ),
+                        levenshtein( $email, explode( '@', $fun_get_user($multi)->getEmail() ?? '' )[0]),
+                    );
+                }
+
+                if ($lev <= 0) $struct->addLikeliness(intval(1500 * $factor));
+                elseif ($lev <= 1) $struct->addLikeliness(intval(750 * $factor));
+                elseif ($lev <= 2) $struct->addLikeliness(intval(500 * $factor));
+                elseif ($lev <= 3) $struct->addLikeliness(intval(250 * $factor));
+
                 foreach ($time_list as $time_dif)
-                    $struct->addLikeliness( $fun_score_time($time_dif) * ($this->user_handler->isRestricted( $fun_get_user($multi), AccountRestriction::RestrictionGameplay ) ? 2 : 1) );
+                    $struct->addLikeliness( intval($fun_score_time($time_dif) * $factor ));
             }
             $ret[$principal] = $struct;
         }
@@ -121,7 +153,7 @@ class AntiCheatService {
             foreach ($struct->getUsers() as $user)
                 $c[$id] += $ret[$user->getId()]->getLikeliness() * min(0.5,$struct->getLikeliness() / 100);
         }
-        foreach ($ret as $id => $struct) $struct->addLikeliness( $c[$id] );
+        foreach ($ret as $id => $struct) $struct->addLikeliness( intval($c[$id]) );
 
         uasort( $ret, function (CheatTable $a, CheatTable $b) { return $b->getLikeliness() <=> $a->getLikeliness(); } );
 

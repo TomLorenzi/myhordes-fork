@@ -11,6 +11,7 @@
         let typingTimer, doneTypingInterval = 500;
         let searchBox = document.getElementById('town-search');
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             $.ajax.background().load(
                 document.getElementById('towns-list'),

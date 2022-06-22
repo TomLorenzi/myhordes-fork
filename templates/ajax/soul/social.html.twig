@@ -353,6 +353,7 @@
         let typingTimer, doneTypingInterval = 500;
         let searchBox = document.getElementById('users-search');
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             if (searchBox.value.length >= 3)
                 $.ajax.background().load(
@@ -365,7 +366,8 @@
                             $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-soul-id')},
                                 () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
                             );
-                        })
+                        });
+                        if (enterPressed) document.querySelector( '#users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                     }
                 );
             else document.getElementById('users-list').innerHTML = '';
@@ -376,7 +378,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 

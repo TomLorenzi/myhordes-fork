@@ -607,6 +607,7 @@
 
             document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
 
+            let enterPressed = false;
             const userSearchHandler = function() {
                 if (searchBox.value.length >= 3) {
                     let skip = [];
@@ -631,7 +632,8 @@
                                 }
 
                                 searchBox.value = '';
-                            })
+                            });
+                            if (enterPressed) document.querySelector( '#pm-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
                         }
                     );
                 }
@@ -643,7 +645,8 @@
                 typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
             };
 
-            const userSearchHandlerDown = function () {
+            const userSearchHandlerDown = e => {
+                enterPressed = e.keyCode === 13;
                 clearTimeout(typingTimer);
             };
 

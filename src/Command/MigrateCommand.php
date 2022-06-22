@@ -5,46 +5,31 @@ namespace App\Command;
 
 
 use App\Entity\AccountRestriction;
-use App\Entity\AdminBan;
-use App\Entity\AffectStatus;
-use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\CitizenStatus;
-use App\Entity\Complaint;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\FoundRolePlayText;
 use App\Entity\GitVersions;
-use App\Entity\HeroicActionPrototype;
-use App\Entity\Item;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Post;
 use App\Entity\RolePlayText;
-use App\Entity\RuinZone;
 use App\Entity\Season;
-use App\Entity\ShadowBan;
-use App\Entity\SpecialActionPrototype;
 use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\Town;
-use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
-use App\Entity\ZoneTag;
-use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
-use App\Service\Globals\TranslationConfigGlobal;
-use App\Service\InventoryHandler;
 use App\Service\MazeMaker;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
@@ -55,11 +40,9 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
@@ -116,6 +99,10 @@ class MigrateCommand extends Command
         'a45dec20a02f017ab1963d2f0c30e4fa7de9ddf5' => [ ['app:migrate', ['--assign-estimation-seed' => true] ] ],
         '2c688bfc00992c98193e9480848e2f1e63be9d04' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
         'f38e93b3cc6e37542112c53771d65fe00e05e7a1' => [ ['app:migrate', ['--fix-flag-setting' => true] ] ],
+        '6e3bce82be2e25424ed46de660aaf7d2ca30450f' => [ ['app:migrate', ['--assign-disable-flags' => true] ] ],
+        'd82e52568784983dc614830ac43cc906e874b5a0' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
+        '22b1072473d9ec5881f70702b85674ca4b39af9d' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
+        '16cc0d24c7c9c3e92666695c8734338b7e840151' => [ ['app:migrate', ['--adjust-sandball-pictos' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -138,6 +125,21 @@ class MigrateCommand extends Command
         $this->helper = $helper;
 
         parent::__construct();
+    }
+
+    protected function ensureForumPermissions( OutputInterface $output, ?Forum $forum, UserGroup $group, int $grant = ForumUsagePermissions::PermissionReadWrite, int $deny = ForumUsagePermissions::PermissionNone) {
+        $po = $this->entity_manager->getRepository(ForumUsagePermissions::class)->findOneBy(['principalUser' => null, 'forum' => $forum, 'principalGroup' => $group]);
+        if (!$po) {
+            if ($forum)
+                $output->writeln("Creating group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
+            else $output->writeln("Creating group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
+            $this->entity_manager->persist( (new ForumUsagePermissions())->setForum($forum)->setPrincipalGroup($group)->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
+        } elseif ($po->getPermissionsGranted() !== $grant || $po->getPermissionsDenied() !== $deny) {
+            if ($forum)
+                $output->writeln("Resetting group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
+            else $output->writeln("Resetting group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
+            $this->entity_manager->persist( $po->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
+        }
     }
 
     protected function configure()
@@ -190,8 +192,10 @@ class MigrateCommand extends Command
 
             ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
             ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
+            ->addOption('adjust-sandball-pictos', null, InputOption::VALUE_NONE, '')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
+            ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -356,6 +360,21 @@ class MigrateCommand extends Command
             if ($result) {
                 if (!$this->helper->capsule('app:town:create remote 40 en', $output)) {
                     $output->writeln("<error>Unable to create english town.</error>");
+                    return 5;
+                }
+
+                if (!$this->helper->capsule('app:town:create remote 40 fr', $output)) {
+                    $output->writeln("<error>Unable to create french town.</error>");
+                    return 5;
+                }
+
+                if (!$this->helper->capsule('app:town:create remote 40 de', $output)) {
+                    $output->writeln("<error>Unable to create german town.</error>");
+                    return 5;
+                }
+
+                if (!$this->helper->capsule('app:town:create remote 40 es', $output)) {
+                    $output->writeln("<error>Unable to create spanish town.</error>");
                     return 5;
                 }
             }
@@ -707,15 +726,39 @@ class MigrateCommand extends Command
         if ($input->getOption('assign-disable-flags')) {
             // A disabled citizen/town has in fact its Ranking disabled. Not its pictos / soul points
             $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($citizens) . "</info> citizens to update !");
             foreach ($citizens as $citizen) {
                 $flag = $citizen->getResetMarker() ? CitizenRankingProxy::DISABLE_ALL : CitizenRankingProxy::DISABLE_RANKING;
-                $this->entity_manager->persist($citizen->addDisableFlag($flag)->setDisabled(false));
+                $this->entity_manager->persist($citizen
+                    ->addDisableFlag($flag)
+                    ->setDisabled(false));
             }
             $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['disabled' => true]);
+            $output->writeln("<info>" . count($towns) . "</info> towns to update !");
             foreach ($towns as $town) {
                 $this->entity_manager->persist($town->addDisableFlag(TownRankingProxy::DISABLE_RANKING)->setDisabled(false));
+                foreach ($town->getCitizens() as $citizen) {
+                    $this->entity_manager->persist($citizen->getUser()
+                        ->setSoulPoints($this->user_handler->fetchSoulPoints($citizen->getUser(), false))
+                        ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($citizen->getUser()))
+                    );
+                    foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $town) as $picto)
+                        $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $town->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+                }
             }
+
             $this->entity_manager->flush();
+
+            $this->helper->leChunk($output, User::class, 50, [], true, false, function(User $user) {
+                $user
+                    ->setSoulPoints($this->user_handler->fetchSoulPoints($user, false))
+                    ->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
+            }, true);
+
+            $this->helper->leChunk($output, CitizenRankingProxy::class, 100, ['importLang' => null], true, false, function(CitizenRankingProxy $citizen) {
+                foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $citizen->getTown()) as $picto)
+                    $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+            }, true);
         }
 
         if ($input->getOption('repair-proxies')) {
@@ -828,21 +871,6 @@ class MigrateCommand extends Command
                 }
             };
 
-            $fun_permissions = function( ?Forum $forum, UserGroup $group, int $grant = ForumUsagePermissions::PermissionReadWrite, int $deny = ForumUsagePermissions::PermissionNone) use ($output) {
-                $po = $this->entity_manager->getRepository(ForumUsagePermissions::class)->findOneBy(['principalUser' => null, 'forum' => $forum, 'principalGroup' => $group]);
-                if (!$po) {
-                    if ($forum)
-                        $output->writeln("Creating group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
-                    else $output->writeln("Creating group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
-                    $this->entity_manager->persist( (new ForumUsagePermissions())->setForum($forum)->setPrincipalGroup($group)->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
-                } elseif ($po->getPermissionsGranted() !== $grant || $po->getPermissionsDenied() !== $deny) {
-                    if ($forum)
-                        $output->writeln("Resetting group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
-                    else $output->writeln("Resetting group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
-                    $this->entity_manager->persist( $po->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
-                }
-            };
-
             $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
             $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
             $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
@@ -893,24 +921,24 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
 
             // Fix permissions
-            $fun_permissions(null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
-            $fun_permissions(null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionFormattingOracle);
-            $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
-            $fun_permissions(null, $g_admin, ForumUsagePermissions::PermissionOwn);
+            $this->ensureForumPermissions($output,null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
+            $this->ensureForumPermissions($output,null, $g_anim,  ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionFormattingOracle);
+            $this->ensureForumPermissions($output,null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
+            $this->ensureForumPermissions($output,null, $g_admin, ForumUsagePermissions::PermissionOwn);
 
             foreach ($this->entity_manager->getRepository(Forum::class)->findAll() as $forum) {
 
                 if ($forum->getTown())
-                    $fun_permissions($forum, $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $forum->getTown()->getId()] ));
+                    $this->ensureForumPermissions($output, $forum, $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $forum->getTown()->getId()] ));
 
                 elseif ($forum->getType() === Forum::ForumTypeDefault || $forum->getType() === null) {
-                    $fun_permissions($forum, $g_users);
-                    $fun_permissions($forum, $g_oracle, ForumUsagePermissions::PermissionHelp);
+                    $this->ensureForumPermissions($output, $forum, $g_users);
+                    $this->ensureForumPermissions($output, $forum, $g_oracle, ForumUsagePermissions::PermissionHelp);
                 }
-                elseif ($forum->getType() === Forum::ForumTypeElevated) $fun_permissions($forum, $g_elev);
-                elseif ($forum->getType() === Forum::ForumTypeMods) $fun_permissions($forum, $g_mods);
-                elseif ($forum->getType() === Forum::ForumTypeAdmins) $fun_permissions($forum, $g_admin);
-                elseif ($forum->getType() === Forum::ForumTypeAnimac) $fun_permissions($forum, $g_anim);
+                elseif ($forum->getType() === Forum::ForumTypeElevated) $this->ensureForumPermissions($output,$forum, $g_elev);
+                elseif ($forum->getType() === Forum::ForumTypeMods) $this->ensureForumPermissions($output,$forum, $g_mods);
+                elseif ($forum->getType() === Forum::ForumTypeAdmins) $this->ensureForumPermissions($output,$forum, $g_admin);
+                elseif ($forum->getType() === Forum::ForumTypeAnimac) $this->ensureForumPermissions($output,$forum, $g_anim);
 
             }
 
@@ -935,6 +963,19 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('adjust-sandball-pictos')) {
+            $sandball_picto_proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_sandb_#00');
+            if ($sandball_picto_proto)
+                $this->helper->leChunk($output, Picto::class, 250, ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto ], true, false, function(Picto $picto) {
+                    if ($picto->getCount() > 6) {
+                        $picto->setCount( 5 + ceil(( $picto->getCount() - 5 ) / 10) );
+                        return true;
+                    } else return false;
+                }, false );
+
+            return 0;
+        }
+
         if ($input->getOption('fix-flag-setting')) {
             $flags = [];
             foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/lang/any") as $f)
@@ -949,6 +990,77 @@ class MigrateCommand extends Command
             }, true);
 
             return 0;
+        }
+
+        if ($input->getOption('update-world-forums')) {
+
+            $name_assignment = [
+                'Weltforum' => ['Diskussionen','de'],
+                'Forum Monde' => ['Discussions','fr'],
+                'English Forum' => ['Discussions','en'],
+                'Foro mundial' => ['Discusiones','es']
+            ];
+
+            foreach ( $name_assignment as $original => [$new,$lang] ) {
+                $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $original, 'worldForumLanguage' => null]);
+                if ($forum) {
+                    $output->writeln("Renaming forum <info>{$forum->getTitle()}</info> to <info>{$new}</info> [<info>{$lang}</info>].");
+                    $this->entity_manager->persist( $forum->setTitle( $new )->setWorldForumLanguage( $lang ) );
+                }
+            }
+
+            $this->entity_manager->flush();
+
+            $forum_data_assignment = [
+                'de' => [
+                    [ 'Hilfe', 'bannerForumHelp.gif', 'In diesem Forum könnt ihr Fragen stellen, Überlebensstrategien besprechen und euch austauschen.', true ],
+                    [ 'Diskussionen', 'bannerForumDiscuss.gif', 'In diesem Forum könnt ihr Überlebensstrategien besprechen und Spielvorschläge (...ohne Garantie!) machen.', false ],
+                    [ 'Der Saloon', 'bannerForumSalon.gif', 'Der Saloon ist ein Raum für stimmungsvolle Diskussionen rund um das MyHordes-Universum (RP oder nicht).', false ],
+                ],
+                'fr' => [
+                    [ 'Aide', 'bannerForumHelp.gif', 'Ici vous trouverez les réponses à vos questions, attention toutefois, le corbeau vous a à l\'oeil.', true ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'Vous pouvez discuter entre vous, attention toutefois, le corbeau vous a à l\'oeil.', false ],
+                    [ 'Le Saloon', 'bannerForumSalon.gif', 'Le Saloon est un espace réservé aux discussions d\'ambiance autour de l’univers de Hordes (RP ou pas).', false ],
+                ],
+                'en' => [
+                    [ 'Help', 'bannerForumHelp.gif', 'Discuss the rules and ask questions directly related to the rules of the game.', true ],
+                    [ 'Discussions', 'bannerForumDiscuss.gif', 'You can chat with each other, be careful though, the crow is watching.', false ],
+                    [ 'The Saloon', 'bannerForumSalon.gif', 'The Saloon is a space reserved for discussions about the MyHordes universe (RP or not).', false ],
+                ],
+                'es' => [
+                    [ 'Ayuda General', 'bannerForumHelp.gif', 'Antes de crear un nuevo tema, haz una búsqueda por palabra clave. ¡Aquí no van los pedidos de auxilio!', true ],
+                    [ 'Discusiones', 'bannerForumDiscuss.gif', 'Podéis charlar entre vosotros, pero tened cuidado, el cuervo está mirando.', false ],
+                    [ 'Historias de MyHordes', 'bannerForumSalon.gif', 'Relatos y leyendas de los habitantes de este mundo condenado.', false ],
+                ]
+            ];
+
+            $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
+
+            foreach ( $forum_data_assignment as $lang => $data )
+                foreach ( $data as $sort => [ $title, $icon, $desc, $isHelp ] ) {
+
+                    $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
+                    if (!$forum) {
+                        if (!$this->helper->capsule('app:forum:create ' . escapeshellarg($title) . ' 0 --lang ' . $lang, $output))
+                            return 2;
+
+                        $forum = $this->entity_manager->getRepository(Forum::class)->findOneBy(['town' => null, 'title' => $title, 'worldForumLanguage' => $lang]);
+                    }
+
+                    if (!$forum) return 3;
+                    $output->writeln("Updating forum <info>{$forum->getTitle()}</info> [<info>{$lang}</info>] meta data.");
+
+                    $this->entity_manager->persist(
+                        $forum->setDescription( $desc )->setIcon( $icon )->setWorldForumSorting( $sort )
+                    );
+
+                    if ($g_oracle)
+                        $this->ensureForumPermissions( $output, $forum, $g_oracle, $isHelp ? ForumUsagePermissions::PermissionHelp : ForumUsagePermissions::PermissionNone );
+
+                }
+
+            $this->entity_manager->flush();
+
         }
 
         if ($input->getOption('prune-rp-texts')) {

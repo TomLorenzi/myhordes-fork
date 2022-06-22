@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Entity\Season;
+use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -34,32 +36,23 @@ class TownRankingProxyRepository extends ServiceEntityRepository
             ->getQuery()->getResult();
     }
 
-    // /**
-    //  * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
+     * @param string $value Value to search for
+     */
+    public function findTopOfSeason(?Season $season, TownClass $class)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+            return $this->createQueryBuilder('t')
+                ->andWhere('BIT_AND(t.disableFlag, :flag) <> :flag')->setParameter('flag', TownRankingProxy::DISABLE_RANKING)
+                ->andWhere('t.event = false')
+                ->andWhere('t.season = :season')->setParameter('season', $season)
+                ->andWhere('t.type = :type')->setParameter('type', $class)
+                ->andWhere('t.end IS NOT NULL')
+                ->setMaxResults(35)
+                ->addOrderBy('t.score', 'desc')
+                ->addOrderBy('t.days', 'desc')
+                ->addOrderBy('t.end', 'asc')
+                ->addOrderBy('t.id', 'asc')
+                ->getQuery()->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?TownRankingProxy
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -551,7 +551,12 @@
             <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
         {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
-                <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
+                <h5 class="row">
+                    <span class="cell rw-4 rw-lg-6 rw-md-4 rw-sm-9">{% trans from 'game' %}Deine Eskorte{% endtrans %}</span>
+                    <span class="cell rw-4 rw-4 rw-lg-2 rw-md-4 hide-sm">{{ 'Infos'|trans({}, 'game') }}</span>
+                    <span class="cell rw-4 hide-sm right">{{ 'Aktionen'|trans({}, 'game') }}</span>
+                </h5>
+
                 <div class="row-table">
                     {% set can_escort_dig = 0 %}
                     {% for other_citizen in other_citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
@@ -610,6 +615,17 @@
                                                 </li>
                                             {% endif %}
                                         {% endif %}
+                                        {% for role in other_citizen.roles %}
+                                            {# @var role \App\Entity\CitizenRole #}
+                                            {% if not role.hidden and not role.secret %}
+                                                <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
+                                                    <span>
+                                                        <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen}, 'game'), 'ref': citizen}, 'game')}}</div>
+                                                    </span>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
                                         {% for stat in other_citizen.status %}
                                             {# @var stat \App\Entity\CitizenStatus #}
                                             {% if not stat.hidden %}
@@ -738,13 +754,18 @@
             {% endif %}
 
             {% if other_citizens|length - citizen.validLeadingEscorts|length > 0 %}
-                <h5>{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</h5>
+                <h5 class="row">
+                    <span class="cell rw-4 rw-lg-6 rw-md-4 rw-sm-6">{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</span>
+                    <span class="cell rw-4 rw-4 rw-lg-2 rw-md-4 rw-sm-3">{{ 'Infos'|trans({}, 'game') }}</span>
+                    <span class="cell rw-4 rw-sm-3 right">{{ 'Aktionen'|trans({}, 'game') }}</span>
+                </h5>
+
                 <div class="row-table">
                     {% for other_citizen in other_citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
                             <div class="row beyond-escort-off">
-                                <div class="padded cell rw-4 rw-lg-6 rw-md-4 rw-sm-9 citizen-box">
+                                <div class="padded cell rw-4 rw-lg-6 rw-md-4 rw-sm-6 citizen-box">
                                     {% if other_citizen.online %}
                                         <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
                                     {% else %}
@@ -796,7 +817,7 @@
                                         {% endif %}
                                     </ul>
                                 </div>
-                                <div class="padded cell rw-4 rw-sm-12 right">
+                                <div class="padded cell rw-4 rw-sm-3 right">
                                     {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
                                         <button {% if not can_attack_citizen or citizen_hidden %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
                                             <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
@@ -849,7 +870,7 @@
             <div class="row">
                 <h5><span class="float-right link small" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                 <div class="cell rw-12">
-                    <div class="row-flex v-center">
+                    <div class="row-flex stretch">
                         <div class="padded cell grow-1"><label><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></label></div>
                         <div class="padded cell grow-0"><button id="chat_button">{{ 'Senden'|trans({},'game') }}</button></div>
                     </div>

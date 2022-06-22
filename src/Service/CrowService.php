@@ -4,7 +4,9 @@ namespace App\Service;
 
 use App\Entity\AdminReport;
 use App\Entity\Award;
+use App\Entity\BlackboardEdit;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\Forum;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\LogEntryTemplate;
@@ -16,8 +18,10 @@ use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Enum\AdminReportSpecification;
 use App\Structures\MyHordesConf;
 use DateTime;
+use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Finder\Glob;
@@ -207,7 +211,7 @@ class CrowService {
                     case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_postDeleted'; break;
                     default: return null;
                 }
-                $data = [ 'link_post' => $object->getId(), 'threadname' => $object->getThread()->getTitle(), 'forumname' => $object->getThread()->getForum()->getTitle() ];
+                $data = [ 'link_post' => $object->getId(), 'threadname' => $object->getThread()->getTitle(), 'forumname' => $object->getThread()->getForum()->getTitle(), 'reason' => $reason ];
                 break;
             }
 
@@ -296,23 +300,27 @@ class CrowService {
 
     /**
      * @param string $text
-     * @param GlobalPrivateMessage|Post|PrivateMessage $object
+     * @param Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy $object
      * @param AdminReport $report
+     * @param string|null $note
      * @return void
      */
-    public function triggerExternalModNotification(string $text, Post|GlobalPrivateMessage|PrivateMessage $object, AdminReport $report, ?string $note = null ): void {
+    public function triggerExternalModNotification(string $text, Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy $object, AdminReport $report, ?string $note = null ): void {
 
         $endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_MOD_MAIL_DCHOOK );
+        $class = ClassUtils::getRealClass(get_class($object));
 
         if ($endpoint) {
 
-            $id = md5(get_class( $object ) . '##' . $object->getId() . "##" . $report->getId());
+            $id = md5($class . '##' . $object->getId() . "##" . $report->getId());
             $report_path = "{$this->report_path}/{$id}/discord";
 
-            $user = match ( get_class($object) ) {
+            $user = match ( $class ) {
                 Post::class => $object->getOwner(),
                 PrivateMessage::class => $object->getOwner()?->getUser(),
                 GlobalPrivateMessage::class => $object->getSender(),
+                BlackboardEdit::class => $object->getUser(),
+                CitizenRankingProxy::class => $object->getUser(),
                 default => null
             };
 
@@ -329,21 +337,36 @@ class CrowService {
 
                 $message_embed = [
                     'color' => 16733440,
-                    'title' => match ( get_class($object) ) {
+                    'title' => match ( $class ) {
                         Post::class => $object->getThread()->getTitle(),
                         PrivateMessage::class => $object->getPrivateMessageThread()->getTitle(),
                         GlobalPrivateMessage::class => $object->getReceiverGroup()->getName(),
+                        BlackboardEdit::class => 'The words of Heroes',
+                        CitizenRankingProxy::class => 'Citizens',
                         default => 'untitled'
                     },
-                    'description' => match ( get_class($object) ) {
+                    'description' => match ( $class ) {
                         Post::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
                         PrivateMessage::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
                         GlobalPrivateMessage::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        BlackboardEdit::class => $object->getText(),
+                        CitizenRankingProxy::class => match ($report->getSpecification()) {
+                            AdminReportSpecification::None => 'no content',
+                            AdminReportSpecification::CitizenAnnouncement => $object->getCitizen()?->getHome()->getDescription() ?? 'deleted',
+                            AdminReportSpecification::CitizenLastWords => $object->getLastWords(),
+                            AdminReportSpecification::CitizenTownComment => $object->getComment(),
+                        },
                         default => 'no content'
                     },
-                    'url' => match ( get_class($object) ) {
+                    'url' => match ( $class ) {
                         Post::class => $this->url_generator->generate( 'forum_jump_view', [ 'pid' => $object->getId() ], UrlGeneratorInterface::ABSOLUTE_URL ),
                         PrivateMessage::class, GlobalPrivateMessage::class => $this->url_generator->generate('admin_reports', [ 'tab' => 'reports' ], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        BlackboardEdit::class => $this->url_generator->generate( 'admin_town_explorer', ['id' => $object->getTown()->getId(), 'tab' => 'blackboard'], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        CitizenRankingProxy::class => match ($report->getSpecification()) {
+                            AdminReportSpecification::None => 'no content',
+                            AdminReportSpecification::CitizenAnnouncement => $object->getCitizen() ? $this->url_generator->generate( 'admin_town_explorer', ['id' => $object->getCitizen()->getTown()->getId(), 'tab' => 'citizens'], UrlGeneratorInterface::ABSOLUTE_URL ) : 'deleted',
+                            AdminReportSpecification::CitizenLastWords, AdminReportSpecification::CitizenTownComment => $this->url_generator->generate( 'soul_view_town', ['sid' => $object->getUser()->getId(), 'idtown' => $object->getTown()->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
+                        },
                         default => 'no content'
                     },
                 ];

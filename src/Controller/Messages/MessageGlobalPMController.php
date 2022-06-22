@@ -69,7 +69,7 @@ class MessageGlobalPMController extends MessageController
 
         if (!empty($subscriptions)) {
             $forums = $this->perm->getForumsWithPermission($user);
-            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
+            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
         }
 
         $response = ['new' =>
@@ -127,7 +127,7 @@ class MessageGlobalPMController extends MessageController
                     $this->entity_manager->flush();
                 } catch (Exception $e) {}
 
-                foreach ($dm_cache as $entry) $entry->setText( $this->html->prepareEmotes( $entry->getText(), $this->getUser() ) );
+                foreach ($dm_cache as $entry) $entry->setText( $this->html->prepareEmotes( $entry->getText() ?? '', $this->getUser() ) );
                 $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_dm' => $dm_cache] )->getContent();
 
                 break;
@@ -295,7 +295,7 @@ class MessageGlobalPMController extends MessageController
 
         if (!empty($subscriptions)) {
             $forums = $this->perm->getForumsWithPermission($this->getUser());
-            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !in_array($s->getThread()->getId(), $skip) && ($query === null || mb_strpos( mb_strtolower($s->getThread()->getTitle()), mb_strtolower( $query ) ) !== false) && in_array($s->getThread()->getForum(), $forums));
+            $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && !in_array($s->getThread()->getId(), $skip) && ($query === null || mb_strpos( mb_strtolower($s->getThread()->getTitle()), mb_strtolower( $query ) ) !== false) && in_array($s->getThread()->getForum(), $forums));
         }
 
         foreach ($subscriptions as $subscription) {
@@ -442,7 +442,7 @@ class MessageGlobalPMController extends MessageController
 
                     if (!empty($subscriptions)) {
                         $forums = $this->perm->getForumsWithPermission($user);
-                        $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
+                        $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
                     }
 
                     $return[$folder] = count($subscriptions);

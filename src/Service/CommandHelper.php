@@ -8,12 +8,14 @@ use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\Inventory;
+use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Entity\ZonePrototype;
 use App\Interfaces\NamedEntity;
 use App\Structures\IdentifierSemantic;
 use DirectoryIterator;
@@ -212,10 +214,17 @@ class CommandHelper
         $this->_db[UserGroup::class][IdentifierSemantic::LikelyMatch]  = ['name'];
         $this->_db[UserGroup::class][IdentifierSemantic::GuessMatch]   = ['%name'];
 
-        $this->_db[Recipe::class][IdentifierSemantic::PerfectMatch] = ['#id',];
+        $this->_db[Recipe::class][IdentifierSemantic::PerfectMatch] = ['#id'];
         $this->_db[Recipe::class][IdentifierSemantic::LikelyMatch]  = ['name'];
         $this->_db[Recipe::class][IdentifierSemantic::GuessMatch]   = ['%name'];
 
+        $this->_db[ItemGroup::class][IdentifierSemantic::PerfectMatch] = ['#id'];
+        $this->_db[ItemGroup::class][IdentifierSemantic::LikelyMatch]  = ['name'];
+        $this->_db[ItemGroup::class][IdentifierSemantic::GuessMatch]   = ['%name'];
+
+        $this->_db[ZonePrototype::class][IdentifierSemantic::PerfectMatch] = ['#id'];
+        $this->_db[ZonePrototype::class][IdentifierSemantic::LikelyMatch]  = ['label', 'icon'];
+        $this->_db[ZonePrototype::class][IdentifierSemantic::GuessMatch]   = ['%label', '%icon'];
         return $this->_db;
     }
 

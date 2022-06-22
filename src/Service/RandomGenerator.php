@@ -170,5 +170,4 @@ class RandomGenerator
 
         return $zone_list[0] ?? null;
     }
-
 }

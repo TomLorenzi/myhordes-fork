@@ -435,8 +435,8 @@ class ActionHandler
         $list = [];
         /** @var EscortActionGroup[] $escort_actions */
         $escort_actions = $this->entity_manager->getRepository(EscortActionGroup::class)->findAll();
-        foreach ($escort_actions as $escort_action) if ($limit === null || $escort_action === $limit) {
 
+        foreach ($escort_actions as $escort_action) if ($limit === null || $escort_action === $limit) {
             $struct = new EscortItemActionSet( $escort_action );
 
             foreach ($citizen->getInventory()->getItems() as $item)
@@ -722,7 +722,8 @@ class ActionHandler
                         $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
                 }
 
-                if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
+                // No role update if it's an escort action
+                if ($status->getRole() !== null && $status->getRoleAdd() !== null && $citizen->getEscortSettings() !== null && $citizen->getEscortSettings()->getLeader() !== null) {
                     if ($status->getRoleAdd()) {
                         if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
                             $tags[] = 'role-up';
@@ -752,7 +753,8 @@ class ActionHandler
                 }
                 elseif ($status->getResult()) {
                     $inflict = true;
-                    if($status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
+
+                    if($inflict && $status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
                         $inflict = $this->random_generator->chance(0.5);
                         $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
                         if($inflict){
@@ -847,6 +849,7 @@ class ActionHandler
                     $tags[] = 'consumed';
                 } else {
                     if ($item_result->getMorph()) {
+                        $execute_info_cache['items_spawn'][] = $item_result->getMorph();
                         $item->setPrototype( $execute_info_cache['item_morph'][1] = $item_result->getMorph() );
                         $tags[] = 'morphed';
                     }
@@ -899,7 +902,7 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
-                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
+                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
                         if ($i !== $citizen->getInventory())
                             $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                         $execute_info_cache['items_spawn'][] = $target;

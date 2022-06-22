@@ -61,6 +61,11 @@ class PictoPrototype implements NamedEntity
      */
     private $community = false;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $priority = 0;
+
     public function __construct()
     {
         $this->awards = new ArrayCollection();
@@ -170,6 +175,18 @@ class PictoPrototype implements NamedEntity
     public function setCommunity(bool $community): self
     {
         $this->community = $community;
+
+        return $this;
+    }
+
+    public function getPriority(): ?int
+    {
+        return $this->priority;
+    }
+
+    public function setPriority(int $priority): self
+    {
+        $this->priority = $priority;
 
         return $this;
     }

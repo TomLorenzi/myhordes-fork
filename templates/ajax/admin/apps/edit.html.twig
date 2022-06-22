@@ -126,20 +126,24 @@
             image_change = true;
         });
 
+        let enterPressed = false;
         const userSearchHandler = function() {
             $.ajax.background().load(
                 document.getElementById('users-list'),
                 '{{ path('admin_users_fuzzyfind') }}',
                 false,
                 {'name': searchBox.value, 'no-href': true},
-                () => $.html.addEventListenerAll('.users-list-entry', 'click', function(e,elem) {
-                    document.getElementById('app_owner').value = elem.getAttribute('x-user-id');
-                    document.getElementById('app_owner_label').innerHTML = "<strong><a href=\"" + elem.getAttribute('x-admin-url') + "\">" + elem.getAttribute('x-user-name') + "</a></strong>"
-                    document.getElementById('app_owner_select').classList.add('hidden');
-                    document.getElementById('app_owner_edit').classList.remove('hidden');
-                    document.getElementById('app_owner_clear').classList.remove('hidden');
-                    document.getElementById('users-list').innerHTML = "";
-                })
+                () => {
+                    $.html.addEventListenerAll('.users-list-entry', 'click', function (e, elem) {
+                        document.getElementById('app_owner').value = elem.getAttribute('x-user-id');
+                        document.getElementById('app_owner_label').innerHTML = "<strong><a href=\"" + elem.getAttribute('x-admin-url') + "\">" + elem.getAttribute('x-user-name') + "</a></strong>"
+                        document.getElementById('app_owner_select').classList.add('hidden');
+                        document.getElementById('app_owner_edit').classList.remove('hidden');
+                        document.getElementById('app_owner_clear').classList.remove('hidden');
+                        document.getElementById('users-list').innerHTML = "";
+                    });
+                    if (enterPressed) document.querySelector( '.users-list-entry' ).dispatchEvent( new Event('click') );
+                }
             );
         };
 
@@ -148,7 +152,8 @@
             typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
         };
 
-        const userSearchHandlerDown = function () {
+        const userSearchHandlerDown = e => {
+            enterPressed = e.keyCode === 13;
             clearTimeout(typingTimer);
         };
 

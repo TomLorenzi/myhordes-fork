@@ -7,6 +7,7 @@ use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
 use App\Entity\ActionEventLog;
+use App\Entity\AdminReport;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
@@ -35,6 +36,7 @@ use App\Entity\User;
 use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\AdminReportSpecification;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
 use App\Service\GameProfilerService;
@@ -278,7 +280,8 @@ class TownController extends InventoryAwareController
             'new_coa_message' => $messages,
             'additional_bullet_points' => $additional_bullets,
             'additional_situation_points' => $additional_situation,
-            'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2')
+            'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2'),
+            'bbe_id' => $this->entity_manager->getRepository(BlackboardEdit::class)->findOneBy(['town' => $town], ['id' => 'DESC'])?->getId() ?? -1,
         ]) );
     }
 
@@ -750,6 +753,25 @@ class TownController extends InventoryAwareController
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/visit/{id}/report", name="report_personal_desc")
+     * @param int $id
+     * @param JSONRequestParser $parser
+     * @param RateLimiterFactory $reportToModerationLimiter
+     * @return Response
+     */
+    public function report_personal_desc_api(int $id, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
+
+        if ($id === $this->getActiveCitizen()->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+        if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        return $this->reportCitizen( $citizen, AdminReportSpecification::CitizenAnnouncement, $parser, $reportToModerationLimiter );
     }
 
     /**
@@ -1417,7 +1439,7 @@ class TownController extends InventoryAwareController
             $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$usedap</strong>", 'raw_count' => $usedap], "game");
 
 
-        if ($slave_bonus)
+        if ($slave_bonus && !$was_completed)
             $messages[] = $this->translator->trans("Die in das Gebäude investierten APs zählten <strong>50% mehr</strong> (Sklaverei).", [], "game");
 
         // Set the activity status
@@ -1848,6 +1870,8 @@ class TownController extends InventoryAwareController
     /**
      * @Route("api/town/dashboard/wordofheroes", name="town_dashboard_save_woh")
      * @param JSONRequestParser $parser
+     * @param RateLimiterFactory $blackboardEditSlideLimiter
+     * @param RateLimiterFactory $blackboardEditFixedLimiter
      * @return Response
      */
     public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, RateLimiterFactory $blackboardEditSlideLimiter, RateLimiterFactory $blackboardEditFixedLimiter ): Response {
@@ -1892,6 +1916,58 @@ class TownController extends InventoryAwareController
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/dashboard/wordofheroes/report", name="town_dashboard_report_woh")
+     * @param JSONRequestParser $parser
+     * @param RateLimiterFactory $reportToModerationLimiter
+     * @return Response
+     */
+    public function dashboard_report_wordofheroes_api(JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
+
+
+        $user = $this->getUser();
+        $blackBoardEdit = $this->entity_manager->getRepository(BlackboardEdit::class)->find( $parser->get_int('bbe') );
+
+        if (!$blackBoardEdit || empty( $blackBoardEdit->getText() ) || $blackBoardEdit->getTown() !== $this->getActiveCitizen()->getTown())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $targetUser = $blackBoardEdit->getUser();
+        if ($targetUser === $user)
+            return AjaxResponse::success();
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['blackBoard' => $blackBoardEdit]);
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+        $report_count = count($reports) + 1;
+
+        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+
+        $details = $parser->trimmed('details');
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setDetails( $details ?: null )
+            ->setTs(new DateTime('now'))
+            ->setBlackBoard( $blackBoardEdit );
+
+        try {
+            $this->entity_manager->persist($newReport);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        try {
+            $this->crow->triggerExternalModNotification( "A blackboard message has been reported.", $blackBoardEdit, $newReport, "This is report #{$report_count}." );
+        } catch (\Throwable $e) {}
+
+        $message = $this->translator->trans('Du hast die Nachricht auf dem Schwarzen Brett an den Raben gemeldet. Wer weiß, vielleicht wird deren Verfasser heute Nacht stääärben...', [], 'game');
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success( );
     }
 
     /**
@@ -2138,11 +2214,11 @@ class TownController extends InventoryAwareController
         /** @var Citizen $citizen */
         $citizen = $this->getUser()->getActiveCitizen();
 
-        if($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection"))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
         /** @var Town $town */
         $town = $citizen->getTown();
+
+        if ($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") || $town->getInsurrectionProgress() >= 100)
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $non_shunned = 0;
 
@@ -2154,36 +2230,29 @@ class TownController extends InventoryAwareController
         $town->setInsurrectionProgress($town->getInsurrectionProgress() + intval(round(100 / $non_shunned)));
 
         if ($town->getInsurrectionProgress() >= 100) {
-
             // Let's do the insurrection !
             $town->setInsurrectionProgress(100);
 
-            $bank = $citizen->getTown()->getBank();
-            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
+            /*$bank = $citizen->getTown()->getBank();
+            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable']);*/
 
-            foreach ($town->getCitizens() as $foreinCitizen) {
-                if(!$foreinCitizen->getAlive()) continue;
+            foreach ($town->getCitizens() as $foreignCitizen) {
+                if(!$foreignCitizen->getAlive()) continue;
 
                 // Remove complaints
-                $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($foreinCitizen);
+                $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($foreignCitizen);
                 foreach ($complaints as $complaint)
                     $this->entity_manager->remove($complaint);
 
-                if ($foreinCitizen->getBanished()) {
-                    $foreinCitizen->setBanished(false);
-                    $this->citizen_handler->inflictStatus($foreinCitizen, 'tg_revolutionist');
+                if ($foreignCitizen->getBanished()) {
+                    $foreignCitizen->setBanished(false);
+                    $this->citizen_handler->inflictStatus($foreignCitizen, 'tg_revolutionist');
                 } else {
-                    $foreinCitizen->setBanished(true);
-                    foreach ($foreinCitizen->getInventory()->getItems() as $item)
-                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
-                            $this->inventory_handler->forceMoveItem( $bank, $item );
-                    foreach ($foreinCitizen->getHome()->getChest()->getItems() as $item)
-                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
-                            $this->inventory_handler->forceMoveItem( $bank, $item );
-                    $this->picto_handler->give_picto($foreinCitizen, "r_ban_#00");
+                    $null = null;
+                    $this->citizen_handler->updateBanishment($foreignCitizen, null, null, $null, true);
                 }
 
-                $this->entity_manager->persist($foreinCitizen);
+                $this->entity_manager->persist($foreignCitizen);
             }
         }
 

@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
+use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
+use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\SpecialActionPrototype;
@@ -26,6 +28,7 @@ use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
+use App\Structures\TownConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -135,6 +138,8 @@ class GhostController extends CustomAbstractController
 
         return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
+            'professions' => array_filter( $em->getRepository(CitizenProfession::class)->findAll(), fn(CitizenProfession $pro) => $pro->getName() !== CitizenProfession::DEFAULT ),
+            'constructions' => $em->getRepository(BuildingPrototype::class)->findAll()
         ]));
     }
 
@@ -259,10 +264,12 @@ class GhostController extends CustomAbstractController
             $customConf['explorable_ruins'] = $ruin_count[1];
         }
 
+        $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
+
         if(!empty($well) && is_numeric($well) && $well <= ($crow_permissions ? 9999 : 300)){
             $customConf['well'] = [
-                'min' => $well,
-                'max' => $well
+                'min' => round($well * ($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1),
+                'max' => round($well * ($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1)
             ];
         }
 
@@ -307,23 +314,6 @@ class GhostController extends CustomAbstractController
         else if ($customConf['features']['shaman'] === "job" || $customConf['features']['shaman'] === "none")
             $disabled_roles[] = 'shaman';
 
-        if ($crow_permissions) {
-            if(!(bool)$parser->get('basic', true)) $disabled_jobs[] = 'basic';
-            if(!(bool)$parser->get('collec', true)) $disabled_jobs[] = 'collec';
-            if(!(bool)$parser->get('guardian', true)) $disabled_jobs[] = 'guardian';
-            if(!(bool)$parser->get('hunter', true)) $disabled_jobs[] = 'hunter';
-            if(!(bool)$parser->get('tamer', true)) $disabled_jobs[] = 'tamer';
-            if(!(bool)$parser->get('tech', true)) $disabled_jobs[] = 'tech';
-            if(!(bool)$parser->get('survivalist', true)) $disabled_jobs[] = 'survivalist';
-
-            if(!(bool)$parser->get('shaman', false))
-                $disabled_jobs[] = 'shaman';
-            else if (in_array('shaman', $disabled_jobs)) {
-                // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
-                $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
-            }
-        }
-
         if (!(bool)$parser->get('improveddump', true)) {
             $disabled_builds[] = 'small_trash_#01';
             $disabled_builds[] = 'small_trash_#02';
@@ -348,11 +338,59 @@ class GhostController extends CustomAbstractController
         if ($nightwatch !== 'normal')
             $disabled_builds[] = 'small_round_path_#00';
 
+        if ($crow_permissions) {
+            foreach ($parser->get_array( 'professions', [] ) as $profession => $setting)
+                switch ($setting) {
+                    case 'include':
+                        $disabled_jobs = array_filter( $disabled_jobs, fn(string $s) => $s !== $profession );
+                        break;
+                    case 'lock':
+                        $disabled_jobs[] = $profession;
+                        break;
+                }
+
+            $constructions = $parser->get_array( 'constructions', [] );
+            if (!empty($constructions)) {
+
+                $core_config = $this->conf->getTownConfigurationByType( $type );
+                $initial_buildings  = $core_config->get( TownConf::CONF_BUILDINGS_CONSTRUCTED );
+                $unlocked_buildings = array_unique( array_merge( $core_config->get( TownConf::CONF_BUILDINGS_UNLOCKED ), $disabled_builds) );
+                $disabled_buildings = $core_config->get( TownConf::CONF_DISABLED_BUILDINGS );
+
+                foreach ($constructions as $construction => $setting)
+                    switch ($setting) {
+                        case 'prebuild':
+                            if (!in_array( $construction, $initial_buildings )) $initial_buildings[] = $construction;
+                            $unlocked_buildings = array_filter( $unlocked_buildings, fn(string $s) => $s !== $construction );
+                            $disabled_buildings = array_filter( $disabled_buildings, fn(string $s) => $s !== $construction );
+                            break;
+                        case 'prefound':
+                            $initial_buildings = array_filter( $initial_buildings, fn(string $s) => $s !== $construction );
+                            if (!in_array( $construction, $unlocked_buildings )) $unlocked_buildings[] = $construction;
+                            $disabled_buildings = array_filter( $disabled_buildings, fn(string $s) => $s !== $construction );
+                            break;
+                        case 'findable':
+                            $initial_buildings = array_filter( $initial_buildings, fn(string $s) => $s !== $construction );
+                            $unlocked_buildings = array_filter( $unlocked_buildings, fn(string $s) => $s !== $construction );
+                            $disabled_buildings = array_filter( $disabled_buildings, fn(string $s) => $s !== $construction );
+                            break;
+                        case 'lock':
+                            $initial_buildings = array_filter( $initial_buildings, fn(string $s) => $s !== $construction );
+                            $unlocked_buildings = array_filter( $unlocked_buildings, fn(string $s) => $s !== $construction );
+                            if (!in_array( $construction, $disabled_buildings )) $disabled_buildings[] = $construction;
+                            break;
+                    }
+
+                $customConf['initial_buildings']['replace']  = $initial_buildings;
+                $customConf['unlocked_buildings']['replace'] = $unlocked_buildings;
+                $disabled_builds = $disabled_buildings;
+            }
+        }
+
         $customConf['disabled_jobs']['replace']      = $disabled_jobs;
         $customConf['disabled_buildings']['replace'] = $disabled_builds;
         $customConf['disabled_roles']['replace']     = $disabled_roles;
 
-        $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
         if ($crow_permissions && $parser->get('unprivate', false))
             $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed);
         else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed))->setDeriveConfigFrom( $type );

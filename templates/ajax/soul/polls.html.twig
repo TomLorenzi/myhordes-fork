@@ -99,6 +99,12 @@
                 <ul class="poll global-poll">
                     <li class="q">{{ selected.titleByLang(app.user.language)|raw }}</li>
                     <li class="plain">{{selected.descriptionByLang(app.user.language)|raw}}</li>
+                    {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
+                        <li class="plain"><div class="help">
+                            <b>{{ 'Wichtiger Hinweis:'|trans({},'help')|raw }}</b>
+                            {{ 'Du kannst nur eine Antwort auswählen.'|trans({},'soul') }}
+                        </div></li>
+                    {% endif %}
                     {% set total = 0 %}
                     {% for answer in selected.poll.answers %}
                         {% set total = total + answer.tagNumber(group,tag) %}
@@ -107,13 +113,13 @@
                         <li class="desc">{{ selected.answerDescriptionByLang( answer, app.user.language )|raw }}</li>
                         <li>
                             <div class="row-flex wrap">
-                                <div class="cell grow-1">{{ selected.answerTitleByLang( answer, app.user.language )|raw }}</div>
-                                {% if selected.startDate < 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
-                                    <div class="cell shrink-1">
+                                <div class="cell rw-9 rw-lg-8 rw-sm-12">{{ selected.answerTitleByLang( answer, app.user.language )|raw }}</div>
+                                {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
+                                    <div class="cell rw-3 rw-lg-4 rw-sm-12 right">
                                         <button class="small inline" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: answer.id}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
                                     </div>
                                 {% elseif selected.startDate < 'now'|to_date and (selected.endDate < 'now'|to_date or ( selected.showResultsImmediately and selected.poll.participants.contains( app.user ) ) or app.user|is_granted('ROLE_ORACLE')) %}
-                                    <div class="cell rw-3 rw-lg-4 rw-sm-12 shrink-0">
+                                    <div class="cell rw-3 rw-lg-4 rw-sm-12">
                                         <div class="right">{{ answer.tagNumber(group,tag) }}</div>
                                         <div class="vote-bar"><div class="bar" style="width: {{ total > 0 ? ( 100 * answer.tagNumber(group,tag)/total ) : '0' }}%"></div></div>
                                     </div>
@@ -124,7 +130,7 @@
                     {% if selected.startDate < 'now'|to_date and selected.endDate > 'now'|to_date and not selected.poll.participants.contains( app.user ) %}
                         <li>
                             <div class="row-flex wrap">
-                                <div class="cell grow-1">{{ 'Ich habe keine besondere Meinung zu dieser Frage.' }}</div>
+                                <div class="cell grow-1">{{ 'Ich habe keine besondere Meinung zu dieser Frage.'|trans({},'soul') }}</div>
                                 <div class="cell shrink-1">
                                     <button class="small inline" data-no-vote="1" data-poll="{{ path('soul_poll_participate', {id: selected.id, answer: 0}) }}">{{ 'Abstimmen'|trans({},'game') }}</button>
                                 </div>

@@ -85,6 +85,67 @@ div.tooltip.badge-tooltip {
 
         .distinctions-points { color: #FF8866; font-size: 2.4rem; margin-top: 5px; }
 
+        .distinctions-top {
+
+          display: flex; justify-content: space-evenly; column-gap: 4px; align-items: stretch;
+          margin: 10px 6px;
+
+            .picto {
+                border: 1px solid white;
+                border-radius: 3px;
+                display: inline-block;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                padding: 5px;
+
+                .counter-wrapper {
+                    position: absolute;
+                    width: 65px;
+                    height: 13px;
+                    display: block;
+                    margin-top: -13px;
+                    font-size: 0;
+                    line-height: 0;
+                    .counter {
+                        background-color: #3d2016 !important;
+                        border: 1px solid white;
+                        display: inline-block;
+                        padding: 2px 4px;
+                        .count {
+                            background: url("../../fonts/fontBitmap.png") no-repeat; line-height: 0; font-size: 0; width: 5px; height: 8px; display: inline-block;
+                            .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
+                            .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
+                            .pictoBitmapFont();
+                        }
+                    }
+                }
+
+                .infos {
+                    width: 65px;
+                    margin-bottom: 5px;
+                }
+
+                .label {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    text-align: center;
+                }
+
+                &.rare {
+                    border-color: #FFE96C;
+                    border-bottom-color: #FFFFB9;
+                    box-shadow: inset 0px 0px 4px #fe7d00, 0px 0px 4px #fe7d00, 0px 2px 4px #1d2028;
+
+                    .counter {
+                        border-color: #FFE653;
+                    }
+
+                    .label {
+                        color: #feb500;
+                    }
+                }
+            }
+        }
+
         .distinctions-list {
             padding: 0 10px; min-height: 100px;
 
@@ -255,6 +316,10 @@ div.tooltip.badge-tooltip {
 
             .row-flex.custom {
                 background-color:#3b3249;
+            }
+
+            .row-flex.common {
+                background-color: #0A3019;
             }
 
             .row-flex.event {

@@ -43,6 +43,11 @@ class ConfMaster
         return $tc->complete();
     }
 
+    public function getTownConfigurationByType( string $type ): TownConf {
+        $tc = new TownConf( [$this->game_rules['default'], $this->game_rules[$type] ?? []] );
+        return $tc->complete();
+    }
+
     public function getEvent(string $name): EventConf {
         return $this->event_cache[$name] ?? ($this->event_cache[$name] = isset($this->events[$name])
             ? (new EventConf( $name, $this->events[$name]['conf'] ))->complete()

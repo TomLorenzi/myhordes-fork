@@ -1,3 +1,4 @@
+@import (once) "fonts";
 @import (once) "grid";
 
 @import (once) "modules/map";
@@ -15,30 +16,12 @@
 @import (once) "modules/docs";
 @import (once) "modules/events";
 
-@import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Courier+Prime&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
-@import (css) url('https://fonts.googleapis.com/css?family=Lora&display=swap');
-@font-face {
-  font-family: 'visitor2';
-  src: url('../fonts/visitor2.ttf')  format('truetype');
-  font-weight:normal;
-  font-style:normal;
-}
-
-@font-face {
-  font-family: 'OCR A Extended';
-  src: url('../fonts/ocr_a_ext.ttf')  format('truetype');
-  font-weight:normal;
-  font-style:normal;
-}
-
 @myhordes-fixed-font: "Courier Prime", fixed;
 @myhordes-sans-serif-font: "Comic Neue", sans-serif;
 @myhordes-serif-font: "Lora", serif;
 @myhordes-gazette-font: "Courier New", "Courier", monospace;
-
-@myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
+@myhordes-tab-font: "Arial", sans-serif;
+@myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", "Verdana", 'Open Sans',sans-serif;
 
 @myhordes-background: url(../img/background/bg_colored.jpg) fixed top no-repeat, #100C0B;
 @myhordes-background-online: url(../img/background/bg_gray.jpg) fixed top no-repeat, #100C0B;
@@ -119,7 +102,7 @@ x-message {
   position: fixed; top: 0; height: 100%; width: 480px; left: 50%; margin-left: -240px; z-index: 1000; pointer-events: none;
   &>* {pointer-events: all}
   &>div {
-    transition: top 0.5s ease, opacity 0.5s ease; top: -50px; opacity: 0;
+    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out; top: -50px; opacity: 0;
     &:before { content: " "; position: absolute; top: 5px; bottom: 5px; left: 3px; width: 4px; }
     position: relative; margin: 5px 0; box-shadow: 0 0 4px black; cursor: pointer; text-align: justify;
     padding: 5px 5px 5px 12px; background: #5c2b20; border: 1px solid #b37c4a; outline: 1px solid black; color: @myhordes-smalltext;
@@ -127,6 +110,7 @@ x-message {
       color: white;
     }
     &.show { top: 0; opacity: 1 }
+    &.disappear { top: 0; opacity: 0 }
     &.notice:before { background: #5eb5e0 }
     &.warning:before { background: #e09a4f }
     &.error:before { background: #a90017 }
@@ -427,7 +411,7 @@ x-message {
         color: #f0d79e;
         text-align: left;
         line-height: 17px;
-        font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+        font-family: @myhordes-font;
         letter-spacing: 1px;
 
         img {
@@ -958,6 +942,7 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       &>ul {
         margin: 0; padding: 0; font-size: 0; max-height: 300px; overflow-y: auto;
         &>li {
+          &.line { display: flex; align-items: center; &>*:first-child { flex-grow: 1 } }
           &:not(.line) { cursor: pointer; }
           &:not(.line):not(.expanded) { display: inline-block;}
           &>div:not(.tooltip) { font-size: 1.2rem; display: inline-block }
@@ -1046,12 +1031,14 @@ div.game-menu-area {
     position: absolute; z-index: 11; width: 100%; top: 37px; display: block; background: @myhordes-panel-box-bg;
     box-shadow: 0 0 5px black; transition: height 0.4s ease, opacity 0.4s ease; overflow: hidden;
     &>ul.text-menu {
-      padding: 10px; margin: 0;
+      padding: 10px; margin: 0; display: flex; flex-direction: column; align-items: stretch;
       &>li {
         &.burger-button { display: none; }
         padding: 5px; font-size: 1.6rem; font-weight: bold; font-variant: small-caps; list-style: none;
         cursor: pointer;
         &:hover { background: lighten(@myhordes-panel-box-bg, 10%) }
+        &.back-dash { order: 1; /*margin-top: 25px;*/ }
+        &.poll-dash { order: 2; margin-top: 10px; }
       }
     }
   }
@@ -1139,7 +1126,8 @@ div.game-menu-area {
             background: url('../img/background/sondagebt_bg.gif') center / cover no-repeat;
             button {
               position: absolute; width: 156px; min-height: auto; height: 20px; top: 19px;
-              left: 11px;
+              left: 11px; white-space: nowrap; overflow: hidden; text-overflow: fade;
+              &>span { display: block; width: 130%; position: relative; left: -15%; text-align: center; transform: scaleX(0.85); }
             }
           }
 
@@ -1419,7 +1407,7 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
       border-left: 1px solid #694023; border-right: 1px solid #694023;
       cursor: pointer;
 
-      font-family: Arial, sans-serif; font-size: 1rem; font-variant: small-caps;
+      font-family: @myhordes-tab-font; font-size: 1rem; font-variant: small-caps;
       color: #f0d79e; padding: 2px 4px 0; text-decoration: underline;
     }
 
@@ -1810,7 +1798,7 @@ div.daily-attack {
       margin: 0px 0px 5px;
       color: #ddab76;
       text-align: left;
-      font-family: Verdana;
+      font-family: @myhordes-serif-font;
       text-transform: uppercase;
       border-bottom: 2px solid #ddab76;
       font-size: 1.3rem;

@@ -54,10 +54,10 @@ services:
 
     # This aliases the classes used by the translation tool commands
     translation.tools.loader:
-      alias: 'translation.loader.xliff'
+      alias: 'translation.loader.yml'
       public: true
     translation.tools.dumper:
-      alias: 'translation.dumper.xliff'
+      alias: 'translation.dumper.yml'
       public: true
 
     # controllers are imported separately to make sure services can be injected
@@ -155,7 +155,7 @@ services:
 
     app.decoration.trans_dumper:
       class: App\Translation\ExpandedDumper
-      decorates: translation.dumper.xliff
+      decorates: translation.dumper.yml
       arguments: [ '@app.decoration.trans_dumper.inner' ]
       public: false
 
