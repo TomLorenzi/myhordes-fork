@@ -454,14 +454,14 @@ class AwardTitleDataService implements FixtureProcessorInterface {
             ['title'=>'Schließt die Ränke und haltet durch', 'unlockquantity'=>60, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
             ['title'=>'Hallo... ist da draußen jemand?', 'unlockquantity'=>100, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
             ['title'=>'Haltet eure Position!', 'unlockquantity'=>150, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
-            ['title'=>'Nur ein Finger', 'unlockquantity'=>30, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
-            ['title'=>'Plünderer der Schnapsläden', 'unlockquantity'=>60, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
-            ['title'=>'Hennessy Highwayman', 'unlockquantity'=>150, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
-            ['title'=>'Barney Gumble der Außenwelt', 'unlockquantity'=>300, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
-            ['title'=>'Fass das Saufen lieber sein', 'unlockquantity'=>400, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
-            ['title'=>'Gib mir was zu saufen oder es knallt!', 'unlockquantity'=>500, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
-            ['title'=>'Alles unter 55% ist Wasser', 'unlockquantity'=>600, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
-            ['title'=>'Dialyse', 'unlockquantity'=>800, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Nur ein Finger', 'unlockquantity'=>30, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Plünderer der Schnapsläden', 'unlockquantity'=>60, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Hennessy Highwayman', 'unlockquantity'=>150, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Barney Gumble der Außenwelt', 'unlockquantity'=>300, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Fass das Saufen lieber sein', 'unlockquantity'=>400, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Gib mir was zu saufen oder es knallt!', 'unlockquantity'=>500, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Alles unter 55% ist Wasser', 'unlockquantity'=>600, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Dialyse', 'unlockquantity'=>800, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
         ]);
     }
 }
