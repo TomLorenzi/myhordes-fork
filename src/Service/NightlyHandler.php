@@ -1352,8 +1352,9 @@ class NightlyHandler
             if ($aliveCitizenInTown == 0) {
                 $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
 
-                if($town->getDay() >= 5){
-                    $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
+                $last_stand_day = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH_DAY, 5);
+                if($town->getDay() >= $last_stand_day){
+                    $this->log->debug("Town has lived for $last_stand_day days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town");
                     $citizen_eligible = [];
                     foreach ($town->getCitizens() as $citizen) {
                         /** @var Citizen $citizen */
