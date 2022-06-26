@@ -504,6 +504,7 @@ class NightlyHandler
 
         $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
 
+        $gazette = $town->findGazette( $town->getDay(), true );
         if (!$town->getDevastated()) {
 
             if ($this->upgraded_building !== null) {
@@ -547,8 +548,8 @@ class NightlyHandler
                                 $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem($plan['item']) );
                             $tx[] = "<info>{$plan['item']->getLabel()} x{$plan['count']}</info>";
                         }
-
-                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $this->upgraded_building, $plans ));
+                        if (!$gazette->getReactorExplosion())
+                            $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $this->upgraded_building, $plans ));
                         $this->log->debug("Leveling up <info>{$this->upgraded_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
                         break;
                 }
@@ -557,7 +558,8 @@ class NightlyHandler
 
         $daily_items = []; $tx = [];
         if ($spawn_default_blueprint) {
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
+            if (!$gazette->getReactorExplosion())
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
             $daily_items['bplan_c_#00'] = 1;
         }
 
