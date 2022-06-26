@@ -224,7 +224,9 @@ class ZoneHandler
         foreach ($active_dig_timers as &$executable_timer ) {
 
             $current_citizen = $executable_timer->getCitizen();
-            if ($active && $active !== $current_citizen && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() !== $active)
+            if (!$active)
+                continue;
+            if ($active !== $current_citizen && (!$current_citizen->getEscortSettings() || $current_citizen->getEscortSettings()->getLeader() !== $active))
                 continue;
 
             if (empty($executable_timer->getDigCache()) || !is_array($executable_timer->getDigCache()))
