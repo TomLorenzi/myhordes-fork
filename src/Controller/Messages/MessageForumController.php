@@ -313,7 +313,7 @@ class MessageForumController extends MessageController
                                             ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
                                             ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
                                             ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-                , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
+                , $town_citizen->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
 
         if ( !$this->isGranted('ROLE_ELEVATED') && !$forumThreadCreationLimiter->create( $user->getId() )->consume( $forum->getTown() ? 1 : 2 )->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited );
@@ -673,7 +673,7 @@ class MessageForumController extends MessageController
                                                        ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
                                                        ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
                                                        ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-                        , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
+                        , $town_citizen->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
 
                 $thread->setTitle($title)->setTag($tag);
                 $this->entity_manager->persist($thread);

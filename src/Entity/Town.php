@@ -238,7 +238,7 @@ class Town
         return $this->language;
     }
 
-    public function getRealLanguage($allowedLangs): ?string {
+    public function getRealLanguage(array $allowedLangs): ?string {
         return in_array($this->getLanguage(), $allowedLangs) ? $this->getLanguage() : null;
     }
 
