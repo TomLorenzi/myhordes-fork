@@ -1785,7 +1785,7 @@ class ActionHandler
             $list[] = $item->getPrototype();
         }
 
-        $this->citizen_handler->deductAPBP( $citizen, $ap );
+        $this->citizen_handler->deductAPBP( $citizen, $ap, $used_ap, $used_bp );
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ) );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
@@ -1821,7 +1821,7 @@ class ActionHandler
         $message = $this->translator->trans( $base, [
             '{item_list}' => $this->wrap_concat( $list ),
             '{item}' => $this->wrap( $new_item ),
-            '{ap}' => $ap,
+            '{ap}' => $used_ap,
         ], 'game' );
 
         return self::ErrorNone;
