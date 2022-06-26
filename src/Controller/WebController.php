@@ -106,7 +106,8 @@ class WebController extends CustomAbstractController
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
             'supporters' => $supporters,
-            'ajax_landing' => $ajax_landing
+            'ajax_landing' => $ajax_landing,
+            'langs' => $this->allLangs
         ] );
     }
 
@@ -143,7 +144,7 @@ class WebController extends CustomAbstractController
         if (!$this->isGranted('ROLE_USER'))
             return $this->redirect($this->generateUrl('home'));
 
-        return $this->render( 'web/pm-host.html.twig', $com ? ['command' => $com] : [] );
+        return $this->render( 'web/pm-host.html.twig', $com ? ['command' => $com, 'langs' => $this->allLangs] : ['langs' => $this->allLangs] );
     }
 
     /**

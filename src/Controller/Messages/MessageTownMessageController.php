@@ -486,6 +486,7 @@ class MessageTownMessageController extends MessageController
             'type' => 'pm',
             'target_url' => 'town_house_send_pm_controller',
             'town_controls' => true,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -517,6 +518,7 @@ class MessageTownMessageController extends MessageController
             'type' => $type,
             'target_url' => 'town_house_send_pm_controller',
             'town_controls' => true,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -545,6 +547,7 @@ class MessageTownMessageController extends MessageController
             'type' => $type,
             'target_url' => 'admin_send_pm_controller',
             'town_controls' => true,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 

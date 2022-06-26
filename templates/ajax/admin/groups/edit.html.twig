@@ -12,7 +12,7 @@
                     <div class="cell padded rw-4 note note-lightest"><label for="group-lang">{{ 'Sprache'|trans({},'admin') }}</label></div>
                     <div class="cell padded rw-4">
                         <select id="group-lang">
-                            {% for lang in ['de','fr','en','es','multi'] %}
+                            {% for lang in langsCodes|merge(['multi']) %}
                                 <option value="{{ lang }}"{% if current_group is not null and current_group.lang == lang %} selected{% endif %}>{{ lang }}</option>
                             {% endfor %}
                         </select>

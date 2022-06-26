@@ -1,0 +1,71 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block title %}XML API Doc{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block ajax %}
+    <div id="api-docs" class="row api-docs">
+        <div class="cell rw-12 padded">
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ 'URL anfordern'|trans({},'docs') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml') }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml_town', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml_town') }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml_user', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml_user') }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml_buildings', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml_buildings') }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml_pictos', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml_pictos') }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml_ruins', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml_ruins') }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml_items', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml_user') }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ url('api_x2_xml_titles', {"userkey": app.user.externalId}) }}">{{ url('api_x2_xml_titles') }}</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+<pre>
+<a class="entity" id="endpoint">&lt;Endpoint&gt;</a>
+    Attributes : <a class="attribute">name</a> : Name of the endpoint
+    Value : <a class="attribute">url</a> : URL of the endpoint
+{{ 'Beispiel'|trans({},'docs') }} :
+&lt;endpoint name="town"&gt;
+    {{ url('api_x2_xml_town', {"userkey": app.user.externalId}) }}
+&lt;/endpoint&gt;
+
+
+        </div>
+    </div>
+{% endblock %}

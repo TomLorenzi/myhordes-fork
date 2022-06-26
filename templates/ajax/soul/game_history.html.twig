@@ -25,6 +25,7 @@
             </div>
         </div>
         <div class="town-container">
+            {# @var incarnation \App\Entity\CitizenRankingProxy #}
             {% for incarnation in towns %}
                 {% if incarnation.citizen is null or not incarnation.citizen.alive %}
                     <div class="row-flex stretch {% if incarnation.town.type.name == 'panda' %}hardcore{% elseif incarnation.town.type.name == 'custom' %}custom{% endif %}">
@@ -41,10 +42,11 @@
                         </div>
                         <div class="cell padded rw-4 town-name">
                             <div class="pointer" x-ajax-href="{{ path('soul_view_town',  {sid: app.user == incarnation.user ? 'me' : incarnation.user.id, idtown: incarnation.town.id, return_path: 'soul_game_history'}) }}" x-ajax-target="default">
-                                <img src="{{ asset('build/images/icons/small_more.gif') }}" alt="+" /> {{ incarnation.town.name }}
+                                <img src="{{ asset('build/images/icons/small_more.gif') }}" alt="+" /> {{ incarnation.town.name }}<br />
+                                <span class="small">{{ incarnation.cod.label|trans({}, 'game') }}</span>
                             </div>
                         </div>
-                        <div class="cell padded rw-1 center town-days bold">
+                        <div class="cell padded content-center-vertical rw-1 town-days bold">
                             {{ incarnation.day }}
                             {% if incarnation.town.town is not null and incarnation.town.town.aliveCitizen %}
                                 <span>

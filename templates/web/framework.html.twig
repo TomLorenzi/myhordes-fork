@@ -26,6 +26,14 @@
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
 
+        {% if app.user != null and app.user.language == "ach" %}
+        <script type="text/javascript">
+            var _jipt = [];
+            _jipt.push(['project', 'myhordes']);
+        </script>
+        <script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>
+        {% endif %}
+
         <!-- Load JS -->
         {{ encore_entry_script_tags('app') }}
 
@@ -171,10 +179,9 @@
                 {{ include('scripts/errors/messages.txt.twig') }}
             },
             'langs': {
-                'de': '{{ 'Deutsch'|trans({},'global') }}',
-                'en': '{{ 'Englisch'|trans({},'global') }}',
-                'fr': '{{ 'Französisch'|trans({},'global') }}',
-                'es': '{{ 'Spanisch'|trans({},'global') }}',
+                {% for lang in langs %}
+                '{{ lang['code'] }}': '{{ lang["label"] |trans({},'global') }}',
+                {% endfor %}
             },
             'label': {
                 'confirm': '{{ 'Bestätigen'|trans({},'global') }}'

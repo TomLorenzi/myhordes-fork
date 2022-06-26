@@ -63,13 +63,16 @@
 
             <h5>{{ 'Stadt anlegen'|trans({},'admin') }}</h5>
             <div class="row-flex wrap">
-                <div class="padded cell rw-sm-12 grow-0 shrink-0"><label><select id="new_town_lang">
-                            <option value="de">DE</option>
-                            <option value="en">EN</option>
-                            <option value="fr">FR</option>
-                            <option value="es">ES</option>
-                            <option value="multi">MULTI</option>
-                </select></label></div>
+                <div class="padded cell rw-sm-12 grow-0 shrink-0">
+                    <label>
+                        <select id="new_town_lang">
+                            {% for lang in langs %}
+                                <option value="{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</option>
+                            {% endfor %}
+                            <option value="multi">Multi</option>
+                        </select>
+                    </label>
+                </div>
                 <div class="padded cell rw-sm-12 grow-1 shrink-1"><label><input id="new_town_name" type="text" placeholder="{{ 'Stadtname'|trans({},'admin') }}" /></label></div>
                 <div class="padded cell rw-sm-12 grow-0 shrink-0"><label><select id="new_town_type">
                             <option value="small">{{ 'Kleine Stadt'|trans({},'game') }}</option>
