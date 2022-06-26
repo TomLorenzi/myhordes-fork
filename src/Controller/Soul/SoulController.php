@@ -1013,6 +1013,27 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("api/soul/{sid}/report", name="soul_report_user")
+     * @param int $sid
+     * @param JSONRequestParser $parser
+     * @param RateLimiterFactory $reportToModerationLimiter
+     * @return Response
+     */
+    public function soul_report_user(int $sid, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter): Response
+    {
+        $user = $this->getUser();
+        if ($sid === $user->getId())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        $target_user = $this->entity_manager->getRepository(User::class)->find($sid);
+
+        if (!$target_user)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
+
+        return $this->reportUser( $target_user, $parser, $reportToModerationLimiter );
+    }
+
+    /**
      * @Route("api/soul/{sid}/town/{idtown}/report/{topic}", name="soul_report_comment")
      * @param int $sid
      * @param int $idtown
@@ -1883,4 +1904,45 @@ class SoulController extends CustomAbstractController
         $this->addFlash('notice', $message);
         return AjaxResponse::success( );
     }
+
+    public function reportUser( User $reportedUser, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
+
+        $user = $this->getUser();
+        if ($user === $reportedUser)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['user' => $reportedUser]);
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $report_count = count($reports) + 1;
+
+        if (!$reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 )->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+
+        $details = $parser->trimmed('details');
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setDetails( $details ?: null )
+            ->setTs(new \DateTime('now'))
+            ->setUser( $reportedUser );
+
+        try {
+            $this->entity_manager->persist($newReport);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        try {
+            $this->crow->triggerExternalModNotification( 'A user account has been reported.', $reportedUser, $newReport, "This is report #{$report_count}." );
+        } catch (\Throwable $e) {}
+
+        $message = $this->translator->trans('Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $reportedUser->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success( );
+    }
+
 }
