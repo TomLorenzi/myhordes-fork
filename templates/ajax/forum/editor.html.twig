@@ -266,7 +266,7 @@
                         </div>
                     {% endif %}
                     {% if snippets is not empty %}
-                        {% for lang in langs %}
+                        {% for lang in langsCodes %}
                             <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="mod-snip-{{ lang }}" x-tab-target>
                                 {% for snippet in snippets %}
                                     {# @var snippet \App\Entity\ForumModerationSnippet #}
