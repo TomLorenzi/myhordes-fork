@@ -41,17 +41,17 @@
             </div>
             <div class="row-table">
                 <div class="row header">
-                    <div class="cell padded rw-1">{{ 'ID'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-5">{{ 'Stadtname'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-1">{{ 'Tag'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-1">{{ 'Pop.'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-1">{{ 'Importiert'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-3 right">{{ 'Aktionen'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1 rw-sm-0">{{ 'ID'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-5 rw-sm-12">{{ 'Stadtname'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1 rw-sm-0">{{ 'Tag'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1 rw-sm-0">{{ 'Pop.'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1 rw-sm-0">{{ 'Importiert'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-3 rw-sm-0 right">{{ 'Aktionen'|trans({},'admin') }}</div>
                 </div>
                 {# @var towns \App\Entity\TownRankingEntry[] #}
                 {% for town in towns %}
-                    <div class="row">
-                        <div class="cell padded rw-1">
+                    <div class="row-flex wrap">
+                        <div class="cell padded rw-1 rw-sm-2 shrink-0">
                             {% if town.imported %}
                                 {{ town.baseID }}
                             {% else %}
@@ -61,15 +61,15 @@
                                 <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
                             {% endif %}
                         </div>
-                        <div class="cell padded rw-5">
+                        <div class="cell padded rw-5 rw-sm-8">
                             {{ town.name }}
                         </div>
-                        <div class="cell padded rw-1">{{ town.days }}</div>
-                        <div class="cell padded rw-1">
+                        <div class="cell padded rw-1 rw-sm-2 shrink-0">{{ town.days }}</div>
+                        <div class="cell padded rw-1 rw-sm-4">
                             {{ town.citizens|length }} / {{ town.population }}
                         </div>
-                        <div class="cell padded rw-1">{% if town.imported %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}</div>
-                        <div class="cell padded rw-3 right">
+                        <div class="cell padded rw-1 rw-sm-4">{% if town.imported %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}</div>
+                        <div class="cell padded rw-3 rw-sm-4 right">
                             <button x-ajax-href="{{ path('admin_old_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
                         </div>
                     </div>
