@@ -429,4 +429,6 @@ STRG: CTRL
 'Schon gewusst?': 'Le saviez-vous?'
 'Umfrage starten': 'Répondre au sondage'
 'Alles als gelesen markieren': 'Marquer tout comme lu'
-Weltforum: 'Forum Monde'
+Weltforum: Forum Monde
+'im-Kontext Übersetzung': 'Traduction dans le contexte'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Cette langue particulière active la fonctionnalité Traduction En-Contexte de Crowdin. Vous pourrez traduire MyHordes directement depuis le jeu.'
