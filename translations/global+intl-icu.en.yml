@@ -430,3 +430,8 @@ STRG: CTRL
 'Umfrage starten': 'Take the survey'
 'Alles als gelesen markieren': 'Mark all as read'
 Weltforum: 'World Forum'
+'im-Kontext Übersetzung': 'In-Context Translation'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.'
+'Spieler melden': 'Report player'
+'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?': 'Are you sure you want to report this player to the moderation?'
+'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.': 'If you want to report a message or forum post by this player, please use the report function of the corresponding message instead.'

@@ -2312,3 +2312,4 @@ Aktionen: Actions
 'Ein Moderator hat deinen Thread "{threadname}" geschlossen. Grund: "{reason}" {link_post}': 'A moderator has closed your thread "{threadname}". Reason: "{reason}" {link_post}'
 'Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. Grund: "{reason}" {link_post}': 'A moderator has marked your thread "{threadname}" as "resolved". Reason: "{reason}" {link_post}'
 'Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...': 'In the time it took you to make your mind up, someone else has taken the object first!'
+'Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...': 'You have reported {username} to The Crow. Who knows, maybe {username} will die tonight... caaaw caaaw!'
