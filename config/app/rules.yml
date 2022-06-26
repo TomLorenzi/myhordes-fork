@@ -14,8 +14,8 @@ parameters:
       population: { min: 40, max:  40 }
       zone_items:
         min: 4
-        max: 10
-        refresh_min: 1
+        max: 8
+        refresh_min: 3
         refresh_max: 8
         fill_max: 30
         throttle_at: 12
