@@ -59,10 +59,11 @@ class CustomAbstractController extends AbstractController {
 
     }
 
-    public function getUserLanguage(): string {
-        if ($this->getUser() && $this->getUser()->getLanguage())
+    public function getUserLanguage( bool $ignore_profile_language = false ): string {
+        if (!$ignore_profile_language && $this->getUser() && $this->getUser()->getLanguage())
             return $this->getUser()->getLanguage();
-        $l = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
+
+        $l = $this->container->get('request_stack')->getCurrentRequest()->getPreferredLanguage( array_diff( $this->allLangsCodes, ['ach'] ) );
         if ($l) $l = explode('_', $l)[0];
         return in_array($l, $this->allLangsCodes) ? $l : 'de';
     }

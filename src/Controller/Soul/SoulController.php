@@ -1111,7 +1111,7 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         
         $lang = $parser->get('lang', 'de');
-        if (!in_array($lang, $this->allLangsCodes) || $lang === 'ach')
+        if (!in_array($lang, $this->allLangsCodes))
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
 
         // Check if the user has seen all news in the previous language

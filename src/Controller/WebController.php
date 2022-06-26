@@ -148,6 +148,27 @@ class WebController extends CustomAbstractController
     }
 
     /**
+     * @Route("/r/ach", name="revert_ach_language")
+     * @GateKeeperProfile("skip")
+     * @return Response
+     */
+    public function rescue_mode_lang_ach( ): Response
+    {
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+
+        if (!($user = $this->getUser())) return $this->redirect($this->generateUrl('home'));
+        
+        if ($user->getLanguage() === 'ach')
+            $user->setLanguage( $this->getUserLanguage( true ) );
+
+        $this->entity_manager->persist( $user );
+        $this->entity_manager->flush();
+
+        return $this->redirect($this->generateUrl('home'));
+    }
+
+    /**
      * @Route("gateway/eternal-twin", name="gateway-etwin")
      * @param EternalTwinHandler $etwin
      * @param SessionInterface $session
