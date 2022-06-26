@@ -90,7 +90,7 @@ class ItemDataService implements FixtureProcessorInterface {
                 ['label' => 'Holzbock', 'icon' => 'trestle', 'category' => 'Armor', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 4, 'deco_text' => 'Verbessert die Verteidigung'],                                                // -- ---
                 ['label' => 'Järpen-Tisch', 'icon' => 'table', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 8, 'deco_text' => 'Verbessert die Verteidigung'],                                              // -- ---
                 ['label' => 'Solide Holzplatte', 'icon' => 'wood_plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung'],                                    // -- ---
-                ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40, 'deco_text' => 'Verbessert die Verteidigung'],                                                // -- ---
+                ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 23, 'deco_text' => 'Verbessert die Verteidigung'],                                                // -- ---
                 ['label' => 'Fackel', 'icon' => 'torch', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 15, 'deco_text' => 'Verbessert die Verteidigung'],                                                   // -- Out
                 ['label' => 'Dackel', 'icon' => 'tekel', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'deco_text' => 'Verbessert die Verteidigung und verhindert Diebstähle'],                                                  // -- Out
 
