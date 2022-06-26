@@ -1232,14 +1232,13 @@ class ActionHandler
                                 continue;
 
                             // Don't give AP if already full
-                            if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen))
+                            if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen)) {
                                 continue;
-                            else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk', 'drugged', 'addict'], false)) {
-                                $this->citizen_handler->setAP($target_citizen, true, 2, 0);
-                                $count+=2;
                             } else {
-                                $this->citizen_handler->setAP($target_citizen, true, 1, 0);
-                                $count++;
+                                $count += $this->citizen_handler->setAP($target_citizen,
+                                                                        true,
+                                                                        $this->citizen_handler->hasStatusEffect($target_citizen, ['drunk', 'drugged', 'addict'], false) ? 2 : 1,
+                                                                        0);
                             }
                         }
                         $execute_info_cache['casino'] = $this->translator->trans('Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.', ['{ap}' => $count], 'items');
