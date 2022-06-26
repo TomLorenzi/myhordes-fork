@@ -465,6 +465,7 @@ class AwardTitleDataService implements FixtureProcessorInterface {
             ['title'=>'Chef der Mauer', 'unlockquantity'=>1, 'associatedtag'=>':defwin:', 'associatedpicto'=>'r_defwin_#00'],
             ['title'=>'Schaufelführer', 'unlockquantity'=>1, 'associatedtag'=>':cdhwin:', 'associatedpicto'=>'r_cdhwin_#00'],
             ['title'=>'Ich bin ein Biest!', 'unlockquantity'=>1, 'associatedtag'=>':tamwin:', 'associatedpicto'=>'r_tamwin_#00'],
+            ['title'=>'DdA Beste Buddler', 'unlockquantity'=>1, 'associatedtag'=>':scaddh:', 'associatedpicto'=>'r_scaddh_#00'],
         ]);
     }
 }
