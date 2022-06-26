@@ -560,10 +560,10 @@ class MessageGlobalPMController extends MessageController
         if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         /** @var UserGroupAssociation $group_association */
-        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' =>
-            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, 'associationLevel' => UserGroupAssociation::GroupAssociationLevelFounder
-                                                                                            , 'association' => $group]);
-        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
+            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember,UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember], 'association' => $group]);
+        if (!$group_association || ($group_association->getAssociationType() !== UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember && $group_association->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $member_count = $em->getRepository(UserGroupAssociation::class)->count(['association' => $group]);
         if ($member_count >= 100) return AjaxResponse::error( self::ErrorGPMMemberLimitHit);
@@ -618,7 +618,9 @@ class MessageGlobalPMController extends MessageController
 
         return $this->render( 'ajax/pm/user_list.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
-            'owner' => $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
+            'owner' => $og_link
+                ? $group_association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
+                : $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
             'owning_user' => $oa,
             'can_add' => count($all_associations) < 100,
             'active'   => array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMember ? $a->getUser() : null, $all_associations ) ),
