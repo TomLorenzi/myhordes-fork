@@ -159,10 +159,16 @@ export default class HTML {
             div.addEventListener('pointerleave', () => timeout_id = setTimeout( f_hide, 5000 ) );
 
             div = notification_parent.appendChild( div );
-            setTimeout( node => node.classList.add('show'), 100, div );
+            setTimeout( node => node.classList.add('show'), 1, div );
 
-            if (notification_parent.children.length > 3)
-                notification_parent.firstChild.dispatchEvent( new Event( 'click' ) );
+            let n = notification_parent.children.length - 3;
+            let fc = notification_parent.firstChild;
+
+            while (n > 0 && fc) {
+                fc.dispatchEvent( new Event( 'click' ) );
+                fc = fc.nextSibling;
+                --n;
+            }
         }
 
 
