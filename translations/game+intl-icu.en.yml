@@ -326,7 +326,7 @@ Warenlager: Warehouse
 '{citizen} hat die Leiche von {disposed} vernichtet.': '{citizen} destroyed {disposed}''s body.'
 'HALTET DEN DIEB! {actor} ist bei {victim} eingebrochen und hat {item} gestohlen!': '{actor} was seen stealing the {item} from {victim}!'
 'VERDAMMT! Es scheint, jemand ist bei {victim} eingebrochen und hat {item} gestohlen...': 'It seems someone broke into {victim} and stole {item}...'
-'Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...': 'Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...'
+'Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...': 'It seems someone broke into {victim} and stole {item}...'
 '{citizen} hat mit dem Gegenstand {item} {kills} Zombie(s) getötet.': '{citizen} has annihilated {kills} zombie(s) with their {item}.'
 'Leiche aus der Stadt ziehen': 'Drag it out of Town'
 'Leiche mit Wasser übergießen': 'Water the corpse'

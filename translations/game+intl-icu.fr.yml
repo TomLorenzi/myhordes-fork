@@ -2312,4 +2312,4 @@ Aktionen: Actions
 'Ein Moderator hat deinen Thread "{threadname}" geschlossen. Grund: "{reason}" {link_post}': 'Un modérateur a fermé votre sujet "{threadname}". Raison: « {reason} » {link_post}'
 'Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. Grund: "{reason}" {link_post}': 'Un modérateur a marqué votre sujet "{threadname}" comme "résolu". Raison: « {reason} » {link_post}'
 'Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...': 'Le temps que vous vous décidiez, quelqu''un d''autre a pris l''objet avant vous !'
-'Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...': 'Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...'
+'Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...': 'Vous avez signalé le message de {username} aux Corbeaux. Qui sait, peut-être que {username} va mourir ce soâââr...'

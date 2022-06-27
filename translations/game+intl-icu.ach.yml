@@ -2313,3 +2313,4 @@ Aktionen: crwdns66416:0crwdne66416:0
 'Ein Moderator hat deinen Thread "{threadname}" geschlossen. Grund: "{reason}" {link_post}': 'crwdns66418:0{threadname}crwdnd66418:0{reason}crwdnd66418:0{link_post}crwdne66418:0'
 'Ein Moderator hat deinen Thread "{threadname}" als "Gelöst" markiert. Grund: "{reason}" {link_post}': 'crwdns66420:0{threadname}crwdnd66420:0{reason}crwdnd66420:0{link_post}crwdne66420:0'
 'Ein anderer Einwohner hat sich in der Zwischenzeit dieses Gegenstandes bemächtigt. Du solltest das nächste Mal nicht so lange zögern...': 'crwdns66422:0crwdne66422:0'
+'Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...': 'crwdns74758:0{username}crwdnd74758:0{username}crwdne74758:0'
