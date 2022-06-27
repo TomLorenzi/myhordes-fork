@@ -462,6 +462,10 @@ class AwardTitleDataService implements FixtureProcessorInterface {
             ['title'=>'Gib mir was zu saufen oder es knallt!', 'unlockquantity'=>500, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
             ['title'=>'Alles unter 55% ist Wasser', 'unlockquantity'=>600, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
             ['title'=>'Dialyse', 'unlockquantity'=>800, 'associatedtag'=>':alc:', 'associatedpicto'=>'r_alcool_#00'],
+            ['title'=>'Chef der Mauer', 'unlockquantity'=>1, 'associatedtag'=>':defwin:', 'associatedpicto'=>'r_defwin_#00'],
+            ['title'=>'Schaufelführer', 'unlockquantity'=>1, 'associatedtag'=>':cdhwin:', 'associatedpicto'=>'r_cdhwin_#00'],
+            ['title'=>'Ich bin ein Biest!', 'unlockquantity'=>1, 'associatedtag'=>':tamwin:', 'associatedpicto'=>'r_tamwin_#00'],
+            ['title'=>'DdA Beste Buddler', 'unlockquantity'=>1, 'associatedtag'=>':scaddh:', 'associatedpicto'=>'r_scaddh_#00'],
         ]);
     }
 }

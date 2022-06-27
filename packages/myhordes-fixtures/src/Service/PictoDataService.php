@@ -661,6 +661,12 @@ class PictoDataService implements FixtureProcessorInterface {
                 'icon' => 'r_jbasic',
                 'rare' => false
             ],
+            [
+                'label' => 'Buddler - Gewinner des DdA',
+                'description' => 'Auszeichnung für die Mitglieder der Buddler-Liga, die beim Duell der Achter gewonnen haben!',
+                'icon' => 'r_scaddh',
+                'rare' => true
+            ],
         ]);
     }
 }
