@@ -722,8 +722,7 @@ class ActionHandler
                         $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
                 }
 
-                // No role update if it's an escort action
-                if ($status->getRole() !== null && $status->getRoleAdd() !== null && $citizen->getEscortSettings() !== null && $citizen->getEscortSettings()->getLeader() !== null) {
+                if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                     if ($status->getRoleAdd()) {
                         if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
                             $tags[] = 'role-up';
