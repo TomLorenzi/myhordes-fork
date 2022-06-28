@@ -875,7 +875,7 @@ Guiness: Guiness
 'Du benötigst {items_required}.': 'Vous avez besoin de {items_required}.'
 'Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...': 'Vous avalez votre pilule... Quelques instants plus tard, la sensation de soif finit par s''estomper. Mais à quel prix...'
 'Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.': 'Perdu au milieu d''innombrables documents sans intérêt, vous avez découvert {item_to}.'
-'Hierfür brauchst du mindestens 1 CP.': 'Vous avez besoin d''au moins 1 CP pour effectuer cette action.'
+'Hierfür brauchst du mindestens 1 CP.': 'Vous avez besoin d''au moins 1 PC pour effectuer cette action.'
 'Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.': 'Vous avez démoli {item_from} à grands coups de {item_tool}. Vous trouvez {item_to} dans les restes par terre.'
 'Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...': 'Vous ne pouvez utiliser ce type d''objet qu''<strong>1 fois par jour</strong>...'
 'So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!': 'Un coup de ciseau, on crache sur la plaie pour désinfecter... Voilà c''est comme neuf.'
