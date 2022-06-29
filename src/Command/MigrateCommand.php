@@ -103,6 +103,7 @@ class MigrateCommand extends Command
         'd82e52568784983dc614830ac43cc906e874b5a0' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
         '22b1072473d9ec5881f70702b85674ca4b39af9d' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
         '16cc0d24c7c9c3e92666695c8734338b7e840151' => [ ['app:migrate', ['--adjust-sandball-pictos' => true] ] ],
+        'd6819ff2d1671db91d2089234309e7c9cc439d0e' => [ ['app:migrate', ['--set-town-base-def' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -183,6 +184,7 @@ class MigrateCommand extends Command
             ->addOption('assign-official-tag', null, InputOption::VALUE_NONE, 'Assign the Official tag in the Town forums')
             ->addOption('assign-estimation-seed', null, InputOption::VALUE_NONE, 'Assign the random seed in existing Zombie Estimation Entities')
             ->addOption('assign-disable-flags', null, InputOption::VALUE_NONE, 'Assign the DisableFlag in the ranking entries according to their disable state')
+            ->addOption('set-town-base-def', null, InputOption::VALUE_NONE, 'Set the base town defense into each towns')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('migrate-oracles', null, InputOption::VALUE_NONE, 'Moves the Oracle role from account elevation to the special permissions flag')
@@ -758,6 +760,12 @@ class MigrateCommand extends Command
             $this->helper->leChunk($output, CitizenRankingProxy::class, 100, ['importLang' => null], true, false, function(CitizenRankingProxy $citizen) {
                 foreach ($this->entity_manager->getRepository(Picto::class)->findNotPendingByUserAndTown($citizen->getUser(), $citizen->getTown()) as $picto)
                     $this->entity_manager->persist($picto->setDisabled($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS)));
+            }, true);
+        }
+
+        if ($input->getOption('set-town-base-def')) {
+            $this->helper->leChunk($output, Town::class, 100, [], true, false, function(Town $town) {
+                $town->setBaseDefense(10);
             }, true);
         }
 
