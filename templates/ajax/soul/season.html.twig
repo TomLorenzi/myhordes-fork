@@ -304,10 +304,19 @@
             document.querySelectorAll('[x-town-tohide="' + id + '"]').forEach(function( target ) {
                 // We hide all the other details
                 document.querySelectorAll('[x-town-tohide]:not([x-town-tohide="' + id + '"])').forEach(function(target2){
-                    if (!target2.classList.contains('hidden')) target2.classList.add('hidden');
+                    if (!target2.classList.contains('hidden')) {
+                        target2.classList.add('hidden');
+                        let img = document.querySelector('img[x-town-toggle="' + target2.getAttribute("x-town-tohide") + '"]');
+                        let old_src = img.getAttribute('src');
+                        let new_src = img.getAttribute('alt-src');
+                        img.setAttribute('src', new_src);
+                        img.setAttribute('alt-src', old_src);
+                    }
                 });
                 if (target.classList.contains('hidden')) target.classList.remove('hidden');
-                else target.classList.add('hidden');
+                else {
+                    target.classList.add('hidden');
+                }
             })
             document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
                 if (!target.classList.contains('hidden')) target.classList.add('hidden');
