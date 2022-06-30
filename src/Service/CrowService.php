@@ -18,6 +18,7 @@ use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\UserDescription;
 use App\Enum\AdminReportSpecification;
 use App\Structures\MyHordesConf;
 use DateTime;
@@ -305,7 +306,7 @@ class CrowService {
      * @param string|null $note
      * @return void
      */
-    public function triggerExternalModNotification(string $text, Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy $object, AdminReport $report, ?string $note = null ): void {
+    public function triggerExternalModNotification(string $text, Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy|User $object, AdminReport $report, ?string $note = null ): void {
 
         $endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_MOD_MAIL_DCHOOK );
         $class = ClassUtils::getRealClass(get_class($object));
@@ -321,6 +322,7 @@ class CrowService {
                 GlobalPrivateMessage::class => $object->getSender(),
                 BlackboardEdit::class => $object->getUser(),
                 CitizenRankingProxy::class => $object->getUser(),
+                User::class => $object,
                 default => null
             };
 
@@ -343,12 +345,13 @@ class CrowService {
                         GlobalPrivateMessage::class => $object->getReceiverGroup()->getName(),
                         BlackboardEdit::class => 'The words of Heroes',
                         CitizenRankingProxy::class => 'Citizens',
+                        User::class => $object->getName(),
                         default => 'untitled'
                     },
                     'description' => match ( $class ) {
-                        Post::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
-                        PrivateMessage::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
-                        GlobalPrivateMessage::class => strip_tags( str_replace('<br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        Post::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        PrivateMessage::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        GlobalPrivateMessage::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
                         BlackboardEdit::class => $object->getText(),
                         CitizenRankingProxy::class => match ($report->getSpecification()) {
                             AdminReportSpecification::None => 'no content',
@@ -356,6 +359,7 @@ class CrowService {
                             AdminReportSpecification::CitizenLastWords => $object->getLastWords(),
                             AdminReportSpecification::CitizenTownComment => $object->getComment(),
                         },
+                        User::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $this->em->getRepository(UserDescription::class)->findOneBy(['user' => $user])?->getText() ?? '[no description]' ) ) ),
                         default => 'no content'
                     },
                     'url' => match ( $class ) {
@@ -367,6 +371,7 @@ class CrowService {
                             AdminReportSpecification::CitizenAnnouncement => $object->getCitizen() ? $this->url_generator->generate( 'admin_town_explorer', ['id' => $object->getCitizen()->getTown()->getId(), 'tab' => 'citizens'], UrlGeneratorInterface::ABSOLUTE_URL ) : 'deleted',
                             AdminReportSpecification::CitizenLastWords, AdminReportSpecification::CitizenTownComment => $this->url_generator->generate( 'soul_view_town', ['sid' => $object->getUser()->getId(), 'idtown' => $object->getTown()->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
                         },
+                        User::class => $this->url_generator->generate( 'soul_visit', ['id' => $object->getId()], UrlGeneratorInterface::ABSOLUTE_URL  ),
                         default => 'no content'
                     },
                 ];

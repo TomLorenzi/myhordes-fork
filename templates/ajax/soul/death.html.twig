@@ -1,15 +1,15 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
-    {# @var citizen \App\Entity\CitizenRankingProxy #}
+    {# @var dead_citizen \App\Entity\CitizenRankingProxy #}
 
     <div class="row">
         <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
             <div class="death_header">
                 <div>{{ 'Herzlichen Glückwunsch, du bist TOT!'|trans({},'game') }}</div>
-                <div>{{ citizen.cod.label|trans({},'game') }}</div>
+                <div>{{ dead_citizen.cod.label|trans({},'game') }}</div>
             </div>
             <div class="death_footer">
-                {% if not citizen.disabled and not citizen.town.disabled %}
+                {% if not dead_citizen.disabled and not dead_citizen.town.disabled %}
                     {% if sp > 0 %}
                         {{ 'Du hast {sp} Seelenpunkte gewonnen!'|trans({'{sp}':sp},'game') }}
                     {% elseif (day <= 1) %}
@@ -24,8 +24,8 @@
 
             <div class="row">
                 <div class="cell rw-6 rw-sm-12 death-desc">
-                    <img class="fit" alt="" src="{{ asset('build/images/death/' ~ citizen.cod.icon ~ '.jpg') }}" />
-                    <div class="small-note">{{ citizen.cod.description|trans({},'game') }}</div>
+                    <img class="fit" alt="" src="{{ asset('build/images/death/' ~ dead_citizen.cod.icon ~ '.jpg') }}" />
+                    <div class="small-note">{{ dead_citizen.cod.description|trans({},'game') }}</div>
                     <div>
                         <button {% if gazette %}x-ajax-href="{{ path('game_newspaper') }}"{% else %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
                         {% if not gazette %}<div class="tooltip">{{ 'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.'|trans({}, 'game') }}</div>{% endif %}
@@ -33,7 +33,7 @@
                 </div>
                 <div class="cell rw-6 rw-sm-12">
                     <div class="death_list">
-                        {% if citizen.disabled or citizen.town.disabled %}
+                        {% if dead_citizen.disabled or dead_citizen.town.disabled %}
                             <div class="note note-warning">
                                 <b>{{ 'Ranking-Ausschluss'|trans({},'game') }}</b><br />
                                 {{ 'Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.'|trans({},'game') }}
@@ -91,12 +91,12 @@
                     </div>
                 </div>
                 <div class="rebirth padded rw-12 cell row">
-                    {% if citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Poison') and citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten') and citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Strangulation') %}
+                    {% if dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Poison') and dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten') and dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Strangulation') %}
                         <div class="cell rw-4 rebirth_label">
                             <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
                         </div>
                         <div class="cell rw-8">
-                            <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" />
+                            <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionComments')) %}disabled{% endif %} />
                         </div>
                         <div class="cell rw-12 rebirth_btn">
                             <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>

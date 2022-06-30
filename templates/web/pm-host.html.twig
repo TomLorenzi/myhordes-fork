@@ -79,10 +79,9 @@
                 {{ include('scripts/errors/ghost.txt.twig') }}
             },
             'langs': {
-                'de': '{{ 'Deutsch'|trans({},'global') }}',
-                'en': '{{ 'Englisch'|trans({},'global') }}',
-                'fr': '{{ 'Französisch'|trans({},'global') }}',
-                'es': '{{ 'Spanisch'|trans({},'global') }}',
+                {% for lang in langs %}
+                '{{ lang['code'] }}': '{{ lang["label"] |trans({},'global') }}',
+                {% endfor %}
             },
             'label': {
                 'confirm': '{{ 'Bestätigen'|trans({},'global') }}'

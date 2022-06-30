@@ -18,9 +18,9 @@ Inventar: Inventario
 'Der Tod und deine Seelenpunkte': 'La muerte y los Puntos de Alma'
 'Der letzte Tod': '¡El Último Habitante!'
 Heldenmodus: 'El Modo Héroe'
-'Kleine Koalitionen': Alianza
+'Kleine Koalitionen': 'Las alianzas'
 'Haus &amp; Hausarbeiten': 'Casas y construcciones'
-Ghule: Mutante
+Ghule: 'Los mutantes'
 'Die Berufe': 'Los oficios'
 Einwohner: Habitante
 Buddler: Excavador
@@ -217,16 +217,16 @@ Außenweltgebäude: 'Los edificios exteriores'
 'Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.': 'Sin embargo, el pueblo debe haber resistido <strong>10 días completos como mínimo</strong> para que esta Distinción sea entregada.'
 'Um möglichst lange zu überleben, solltest du auf deine <strong>Gesundheit</strong> achten.': 'Para sobrevivir en un tal mundo, es primordial <strong>vigilar tu estado de salud</strong>. Encontrarás diferentes indicadores en la parte superior de la pantalla.'
 'Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...': 'Con un solo vistazo sabrás si debes beber, curarte, etc.'
-Erschöpfung: Cansado
+Erschöpfung: Cansancio
 'Wenn du keine {img_ap} Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href={url_move}>Sich bewegen</span>).': 'Cuando ya no te queden más {img_ap} Puntos de Acción, estarás cansado y ya no podrás caminar (ver <span x-ajax-href={url_move}>Desplazarse</span>).'
-Durst: Sediento
+Durst: Sed
 "Du musst etwas trinken... Warte nicht zu lang, sonst bist du\n<strong>{img_dehy} Dehydriert</strong>!": 'Necesitas beber... No tardes mucho en hacerlo, ¡corres el riesgo de quedar <strong>{img_dehy} Deshidratado</strong>!'
 oder: o
-Satt: 'Sin hambre'
+Satt: Saciado
 'Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.': 'Este estado indica que has comido y/o bebido hoy. Repetir esta acción no te hará recuperar más Puntos de Acción durante el día.'
 'Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.': 'Ejemplo: Has bebido una cantimplora esta mañana para recuperar tus Puntos de Acción y anular el estado de SED. Si vuelves a beber hoy, podrás anular la SED pero no recuperarás Puntos de Acción.'
 Verwundung: Herida
-Infektion: Infectado
+Infektion: Infección
 'Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.': 'Es provocada por una herida o el consumo de alimentos de dudosa calidad, cúrate rápido, una infección tiene 50% probabilidades de ser mortal, 75% en las ciudades del Pandemonio.'
 Rauschzustand: Drogado
 Angst: Terror
@@ -239,7 +239,7 @@ Immunisiert: Inmunizado
 "Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!\nAußerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.\nDer Schutz endet nach dem Angriff um Mitternacht.": '¡Un medicamento u otro producto te ha inmunizado contra la infección! También te salvarás de convertirte en un mutante en la noche. Este efecto desaparecerá después del ataque.'
 'Umsichtiger Camper': 'Campista astuto'
 'Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!': 'Si sobrevives una noche fuera por haber acampado, ¡este estado le dará un bonus a todas tus búsquedas durante el día!'
-Ghul: ¡Mutante!
+Ghul: Mutante
 'Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href={url_ghoul}>Ghul</span> verwandelt.': 'Has sido infectado por un mal incurable que te convierte en un monstruoso <span x-ajax-href={url_ghoul}>mutante</span>.'
 'Die Drogenabhängigkeit': 'La dependencia a los estimulantes'
 "Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du\n<strong>{img_addict} Abhängig</strong>! Darüber hinaus wirst du diese <strong>Sucht auch nicht mehr los</strong>.": 'Cuando consumes demasiados estimulantes (más de uno al día), ¡te vuelves <strong>{img_addict} Dependiente</strong>! Y es <strong>imposible salir de esa depedencia</strong>.'
@@ -398,14 +398,14 @@ Nachteile: Desventajas
 'Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.': 'Un habitante podría convertirse en mutante al comer alimentos sospechosos: Cadáver de viajero, Carne humana y cosas así. Las posibilidades son remotas, ¿pero realmente quieres correr el riesgo de convertirte en uno de esos monstruos?'
 'Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!': 'Es posible curarse gracias a la vacuna anti-mutante.'
 'Wie tötet man einen Ghul?': '¿Cómo matar a un mutante?'
-'Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.': 'Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.'
+'Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.': 'Un mutante no es totalmente un zombie y puede morir por ciertas causas "normales": ahorcamiento y adicción a los estimulantes. Sin embargo, es inmune a la sed y a la infección.'
 "<strong>Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.</strong>\nDoch aufgepasst: Ein körperlicher Angriff kostet einiges an {img_ap} und\nes besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)": '<strong>La agresión es la solución más eficaz y mata instantáneamente a un mutante. </strong> Atención: la agresión cuesta cara en {img_ap} y tiene una alta posibilidad de herir a la víctima. Cuidado con las agresiones injustificadas.'
 'Wie erkenne ich einen Ghul?': '¿Cómo identificar a un mutante?'
 'Das Stadtregister ist dein wichtigster Anhaltspunkt. Außerdem solltest du einen Blick auf die An- und Abwesenheit bestimmter Spieler achten.': 'El Registro del pueblo será tu mejor aliado. Vigila también las presencias y ausencias de jugadores.'
 'Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...': '¡No olvides que todos pueden convertirse en mutantes! Incluso el muy simpático líder de tu pueblo o aquella persona que tanto aprecias...'
 "Jeder Spieler startet in \"Die Verdammten\" als einfacher Bürger. \nDaneben gibt es jedoch noch <strong>7 außergewöhnliche Berufe</strong>. \nDiese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.": '<strong>En MyHordes, cada habitante comienza como una persona común y corriente.</strong>. Los héroes, pueden elegir un oficio que les dé una ventaja en un dominio específico: El oficio de Excavador permite encontrarmás objetos en el desierto que el promedio.'
 "Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. \nDer Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler \nEinwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.\nDarüber hinaus erhält man je nach Beruf einen <strong>speziellen Gegenstand</strong>. \nDer Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...": 'Un oficio <strong>te da acceso a un objeto especial y exclusivo</strong>. El traje de camuflaje para el Explorador, una pala para el Excavador, etc.'
-'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.': 'Es un tipo común y corriente en el pueblo, debe cooperar para sobrevivir.'
+'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.': 'En su estado más básico no tiene ninguna capacidad particular.'
 Startausrüstung: 'Equipo de partida'
 Bürgerkleidung: 'Vestimenta de habitante'
 'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'Tu único y usado uniforme que llevarás puesto durante tu vida. Sin embargo es muy práctico y relativamente cómodo, no te puedes quejar...'
@@ -467,7 +467,7 @@ Schraubenschlüssel: 'Kit de herramientas'
 'Doch manchmal greift das Schicksal ein und zerrt dich aus Ihrem kleinen Leben in große Abenteuer und kühne Taten.': 'Sin embargo, algunas veces la fortuna interviene y te lleva desde tu pequeña existencia hasta grandes aventuras y acciones audaces.'
 'Überleben durch Kommunikation und Kooperation': 'Comunicarse para sobrevivir'
 'So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in ''MyHordes'' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.': 'Así como el oficio de Explorador es crucial por ser una formidable fuente de información, todos los oficios tienen una gran importancia. Si bien es cierto que es posible sobrevivir solo y que cada habitante debe poder salvar su propio pellejo ante los ataques de las hordas de zombies, aliarse a otros suele ser la mejor manera de hacer que el pueblo entero resista y de encontrar recursos en el Ultramundo.'
-'Die Bank': 'El almacén'
+'Die Bank': 'El Almacén'
 'Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, <strong>sollten</strong> alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.': 'Para construir los edificios y reforzar sus defensas, los aventureros pueden donar al pueblo el fruto de sus búsquedas <strong>si lo desean</strong>. Así una lámina de metal ayudaría a reforzar el blindaje de los muros exteriores.'
 '<strong>Beherzige das Sprichwort</strong>: Wer nichts gibt und nichts spendet, der verendet!': '<strong>Vigila el registro del almacén</strong>: Alguien podría estar robando materiales.'
 'Das Stadtforum und seine Unterforen': 'El Foro y los espacios de comunicación'
@@ -841,4 +841,4 @@ Gebäudeverbesserung: 'Mejoras en construcciones'
 'Die Hilfe durchsuchen': 'Buscar en la guía'
 'Wichtig:': 'Importante:'
 'In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.': 'En tu hora local, el ataque ocurrirá a las {time}. Siempre puedes ver cuánto tiempo falta para el ataque en el reloj que está en la esquina superior derecha de la interfaz.'
-'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.': 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.'
+'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.': 'La noche en MyHordes se extiende desde {time0} hasta {time1} en tu zona horaria local. Ten en cuenta que estos tiempos pueden variar en pueblos de eventos especialmente designados.'

@@ -139,7 +139,8 @@ class GhostController extends CustomAbstractController
         return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
             'professions' => array_filter( $em->getRepository(CitizenProfession::class)->findAll(), fn(CitizenProfession $pro) => $pro->getName() !== CitizenProfession::DEFAULT ),
-            'constructions' => $em->getRepository(BuildingPrototype::class)->findAll()
+            'constructions' => $em->getRepository(BuildingPrototype::class)->findAll(),
+            'langs' => $this->generatedLangs
         ]));
     }
 
@@ -264,10 +265,12 @@ class GhostController extends CustomAbstractController
             $customConf['explorable_ruins'] = $ruin_count[1];
         }
 
+        $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
+
         if(!empty($well) && is_numeric($well) && $well <= ($crow_permissions ? 9999 : 300)){
             $customConf['well'] = [
-                'min' => $well,
-                'max' => $well
+                'min' => round($well * ($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1),
+                'max' => round($well * ($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1)
             ];
         }
 
@@ -335,8 +338,6 @@ class GhostController extends CustomAbstractController
 
         if ($nightwatch !== 'normal')
             $disabled_builds[] = 'small_round_path_#00';
-
-        $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
 
         if ($crow_permissions) {
             foreach ($parser->get_array( 'professions', [] ) as $profession => $setting)

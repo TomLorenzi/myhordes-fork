@@ -1,4 +1,5 @@
-'Diesen Bürger töten?': '¿Matar a este habitante?'
+Verbannung: Destierro
+Bürger: Habitantes
 Status: Estatus
 Dauer: Duración
 Grund: Motivo
@@ -12,8 +13,7 @@ Forum: Foro
 Autor: Autor
 'gemeldet von': 'Reportado por'
 Gesehen: Visto
-Verbannung: Destierro
-Bürger: Habitantes
+'Diesen Bürger töten?': '¿Matar a este habitante?'
 'Suche:': 'Buscar:'
 Account: Cuenta
 Benutzername: 'Nombre de usuario'
@@ -98,12 +98,12 @@ Version: Versión
 'Selbstmord begehen': 'Cometer suicidio'
 'PM vom Raben': 'MP como Cuervo'
 Stadtregister: 'Registro del pueblo'
-'Rundmail als Rabe': 'Mensaje Global como Cuervo'
 'Stadt administrieren': 'Administración del pueblo'
 'Nächtlicher Angriff': 'Ataque Nocturno'
 'Quarantäne aufheben': 'Levantar Cuarentena'
 'Unter Quarantäne stellen': 'Poner bajo Cuarentena'
 'Manueller Tageswechsel': 'Cambiar el día manualmente'
+'Rundmail als Rabe': 'Mensaje Global como Cuervo'
 Twinoid-Konto: 'Cuenta de Twinoid'
 Orakel: Oráculo
 Twinoid-Integration: 'Integración de Twinoid'
@@ -189,6 +189,7 @@ Kurztexte: 'Texto Corto'
 Inhalt: Contenido
 'Neuen Kurztext anlegen': 'Crear nuevo Texto Corto'
 'ID eingeben': 'Ingresar ID'
+'Eine Auszeichnungen auswählen:': 'Seleccionar una Distinción:'
 'Anzahl der Auszeichnungen:': 'Número de las Distinciones:'
 Vergeben!: ¡Entregar!
 'Aktuelle Städte': 'Pueblos actuales'
@@ -201,7 +202,6 @@ Anzeigen: Mostrar
 Anwendungen: Solicitudes
 'Neue Anwendung': 'Nueva solicitud'
 'Anwendung "{external_app}"': 'Solicitar "{external_app}"'
-'Eine Auszeichnungen auswählen:': 'Seleccionar una Distinción:'
 'Einen Status auswählen:': 'Seleccionar status:'
 Saisons: Temporadas
 'Neue Saison': 'Nueva temporada'
@@ -233,21 +233,33 @@ Konstruktionen: Construcciónes
 Stimmen: Votos
 'Für {target}': 'Para {target}'
 Ersteller: Creador
+'Stadt ansehen': 'Ver el pueblo'
 'Existierende Beschränkungen': 'Sanciones vigentes'
 'Dieser Spieler hat eine weiße Weste.': 'Este jugador no tiene ninguna sanción vigente'
+Info: Info
 'Bestätigt von': 'Confirmado por'
 Datum: Fecha
 Endet: Termina
-Info: Info
+'Nicht bestätigt!': '¡No confirmado!'
+Abgelaufen: Expirado
+Deaktiviert: Desactivado
+'Interner Vermerk': 'Nota interna'
+Art: Tipo
+Sozial: Social
+Stadt-Kom.: 'Com. pueblo'
+'Globale Kom.': 'Com. global'
+Kommentare: Comentario
+Org.: Org.
+Spiel: Juego
+Bestätigen: Confirmar
+'{d} Tage': '{d} Días'
 'Neue Beschränkung hinzufügen': 'Añadir una sanción'
 '24 Stunden': '24 Horas'
-'{d} Tage': '{d} Días'
 'Bestätigung erforderlich': 'Confirmación necesaria'
 '1 Jahr': '1 Año'
 'Admin-Bestätigung erforderlich': 'Confirmación del Administrador necesaría'
 '2 Jahre': '2 Años'
 Dauerhaft: Permanente
-'Interner Vermerk': 'Nota interna'
 'Art der Beschränkung': 'Tipo de restricción'
 'Soziale Interaktion verbieten': 'Impedir las interacciones sociales'
 'Posten in Foren verbieten': 'Publicar en los foros'
@@ -259,18 +271,6 @@ Dauerhaft: Permanente
 'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': 'Esta restricción de la cuenta debe ser aprobada por otro moderador antes de que se active.'
 'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': 'La duración de la restricción sólo cuenta a partir del momento en que se activa.'
 'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': 'Esta restricción de la cuenta debe ser aprobada por un Administrador antes de que se active.'
-'Stadt ansehen': 'Ver el pueblo'
-'Nicht bestätigt!': '¡No confirmado!'
-Abgelaufen: Expirado
-Deaktiviert: Desactivado
-Art: Tipo
-Sozial: Social
-Stadt-Kom.: 'Com. pueblo'
-'Globale Kom.': 'Com. global'
-Kommentare: Comentario
-Org.: Org.
-Spiel: Juego
-Bestätigen: Confirmar
 'Schwarzes Brett': Pizarra
 'Stadt füllen': 'Llenar el pueblo'
 'Bank füllen': 'Llenar el almacén'

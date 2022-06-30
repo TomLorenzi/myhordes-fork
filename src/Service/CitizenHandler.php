@@ -420,12 +420,26 @@ class CitizenHandler
         return $this->isWounded($citizen) ? 5 : 6;
     }
 
-    public function setAP(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null) {
-        if ($max_bonus !== null)
+    /**
+     * Set the AP of a citizen.
+     * @param Citizen &$citizen The citizen on which we'll change AP
+     * @param bool $relative Is this set relative to current citizen AP or not?
+     * @param int $num The number of AP to set
+     * @param int $max_bonus The bonus to apply to max AP (default null)
+     * @return int The number of affected AP to citizen (may be different from what was asked because of some rules)
+     */
+    public function setAP(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null): int {
+        $beforeAp = $citizen->getAp();
+        
+        if ($max_bonus !== null) {
             $citizen->setAp( max(0, min(max($this->getMaxAP( $citizen ) + $max_bonus, $citizen->getAp()), $relative ? ($citizen->getAp() + $num) : max(0,$num) )) );
-        else $citizen->setAp( max(0, $relative ? ($citizen->getAp() + $num) : max(0,$num) ) );
-        if ($citizen->getAp() == 0) $this->inflictStatus( $citizen, 'tired' );
-        else $this->removeStatus( $citizen, 'tired' );
+        } else {
+            $citizen->setAp( max(0, $relative ? ($citizen->getAp() + $num) : max(0,$num) ) );
+        }
+        
+        $citizen->getAp() == 0 ? $this->inflictStatus( $citizen, 'tired' ) : $this->removeStatus( $citizen, 'tired' );
+
+        return $citizen->getAp() - $beforeAp;
     }
 
     public function getMaxBP(Citizen $citizen) {
@@ -456,7 +470,7 @@ class CitizenHandler
         $citizen->setPm(max(0, $relative ? ($citizen->getPm() + $num) : max(0,$num) ) );
     }
 
-    public function deductAPBP(Citizen &$citizen, int $ap, int &$usedap = 0, int &$usedbp = 0) {
+    public function deductAPBP(Citizen &$citizen, int $ap, ?int &$usedap = 0, ?int &$usedbp = 0) {
         if ($ap <= $citizen->getBp()) {
             $usedbp = $ap;
             $this->setBP($citizen, true, -$ap);

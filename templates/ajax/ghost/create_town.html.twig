@@ -62,10 +62,9 @@
                         </div>
                         <div class="cell padded rw-3 rw-md-6 rw-sm-12">
                             <select name="lang" id="lang" x-payload="lang">
-                                <option value="de" {% if app.user.language == 'de' %}selected{% endif %}>{{ 'Deutsch'|trans({}, 'global') }}</option>
-                                <option value="en" {% if app.user.language == 'en' %}selected{% endif %}>{{ 'Englisch'|trans({}, 'global') }}</option>
-                                <option value="fr" {% if app.user.language == 'fr' %}selected{% endif %}>{{ 'Französisch'|trans({}, 'global') }}</option>
-                                <option value="es" {% if app.user.language == 'es' %}selected{% endif %}>{{ 'Spanisch'|trans({}, 'global') }}</option>
+                                {% for lang in langs %}
+                                    <option value="{{ lang['code'] }}" {% if app.user.language == lang['code'] %}selected{% endif %}>{{ lang['label']|trans({}, 'global') }}</option>
+                                {% endfor %}
                                 <option value="multi">{{ 'Mehrsprachig'|trans({}, 'global') }}</option>
                             </select>
                         </div>

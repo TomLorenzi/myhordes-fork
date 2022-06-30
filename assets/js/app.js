@@ -133,3 +133,20 @@ const resizer = function() {
 };
 window.addEventListener("resize", resizer);
 window.addEventListener('load', resizer, {once: true});
+window.addEventListener( 'load', () => {
+    if (document.querySelector('#crowdin-jipt-mask')) {
+        console.log('do');
+        let button = document.createElement('button');
+        button.style.display = 'inline-block';
+        button.style.width = 'auto';
+        button.style.position = 'fixed';
+        button.style.right = '10px';
+        button.style.bottom = '10px';
+        button.innerText = 'Exit In-Context Translation';
+        button.style.zIndex = '2047483650';
+        button.addEventListener('click', () => {
+            window.location.assign( url + '/r/ach' );
+        })
+        document.body.append( button );
+    }
+}, {once: true} )

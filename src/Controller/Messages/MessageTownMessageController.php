@@ -156,7 +156,17 @@ class MessageTownMessageController extends MessageController
             // Special drunk handler
             if ($recipient && $this->citizen_handler->hasStatusEffect($sender,'drunk')) {
 
-                $list = $sender->getTown()->getCitizens()->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive())->getValues();
+                // Filter possible recipents. A sender can only send to someone who has the same banishment status.
+                $list = $sender->getTown()
+                               ->getCitizens()
+                               ->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive() && $sender->getBanished() === $c->getBanished())
+                               ->getValues();
+
+                // If there's no recipient, we have to send an error. No MP will be sent.
+                if (empty($list)) {
+                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+                }
+
                 shuffle($list);
 
                 if ($this->rand->chance(0.5))
@@ -486,6 +496,7 @@ class MessageTownMessageController extends MessageController
             'type' => 'pm',
             'target_url' => 'town_house_send_pm_controller',
             'town_controls' => true,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -517,6 +528,7 @@ class MessageTownMessageController extends MessageController
             'type' => $type,
             'target_url' => 'town_house_send_pm_controller',
             'town_controls' => true,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -545,6 +557,7 @@ class MessageTownMessageController extends MessageController
             'type' => $type,
             'target_url' => 'admin_send_pm_controller',
             'town_controls' => true,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 

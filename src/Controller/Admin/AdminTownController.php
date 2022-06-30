@@ -57,6 +57,7 @@ use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Structures\EventConf;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -83,7 +84,8 @@ class AdminTownController extends AdminActionController
     {
         return $this->render('ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
-            'citizen_stats' => $this->entity_manager->getRepository(Citizen::class)->getStatByLang()
+            'citizen_stats' => $this->entity_manager->getRepository(Citizen::class)->getStatByLang(),
+            'langs' => $this->generatedLangs,
         ]));
     }
 
@@ -318,7 +320,7 @@ class AdminTownController extends AdminActionController
             'current_event' => $this->conf->getCurrentEvents($town),
             'citizen_langs' => $langs,
             'citizen_langs_alive' => $langs_alive,
-            'langs' => ['de','en','fr','es','multi']
+            'langs' => array_merge($this->generatedLangsCodes, ['multi'])
         ], $this->get_map_blob($town))));
     }
 
@@ -831,7 +833,7 @@ class AdminTownController extends AdminActionController
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $newLang = $parser->get('param');
-        if (!in_array( $newLang, [ 'de', 'es', 'en', 'fr', 'multi' ] ))
+        if (!in_array( $newLang, array_merge($this->generatedLangsCodes, [ 'multi' ]) ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $town->setLanguage( $newLang );
@@ -859,7 +861,7 @@ class AdminTownController extends AdminActionController
         $town_type = $parser->get('type', '');
         $town_lang = $parser->get('lang', 'de');
 
-        if (!in_array($town_lang, ['de','en','es','fr','multi']))
+        if (!in_array($town_lang, array_merge($this->generatedLangsCodes, ['multi'])))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $this->logger->invoke("[add_default_town] Admin <info>{$this->getUser()->getName()}</info> created a <info>$town_lang</info> town (custom name: '<info>$town_name</info>'), which is of type <info>$town_type</info>");
@@ -1479,7 +1481,7 @@ class AdminTownController extends AdminActionController
         $lang = $parser->get('lang');
         $rename = $parser->get( 'rename' );
 
-        if ($lang !== ($town_proxy->getLanguage() ?? '') && !in_array( $lang, ['de','en','fr','es','multi'] ))
+        if ($lang !== ($town_proxy->getLanguage() ?? '') && !in_array( $lang, array_merge($this->generatedLangsCodes, [ 'multi' ]) ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($lang !== ($town_proxy->getLanguage() ?? '')) {

@@ -110,6 +110,7 @@ class TownConf extends Conf
     const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
     const CONF_FEATURE_LAST_DEATH      = 'features.last_death';
+    const CONF_FEATURE_LAST_DEATH_DAY  = 'features.last_death_day';
     const CONF_FEATURE_SURVIVAL_PICTO  = 'features.survival_picto';
     const CONF_FEATURE_NO_SP_REQUIRED  = 'features.free_for_all';
 

@@ -13,6 +13,7 @@ class TranslationConfigGlobal
     private bool $includeDatabase = true;
     private bool $includePhp = true;
     private bool $includeTwig = true;
+    private bool $includeConfig = true;
     private bool $configured = false;
 
     private array $source_cache = [];
@@ -51,6 +52,10 @@ class TranslationConfigGlobal
         return $this->includeTwig;
     }
 
+    function useConfig(): bool {
+        return $this->includeConfig;
+    }
+
     function addMatchedFileName(string $file): self {
         if ($this->matchFileNames === false) $this->matchFileNames = [$file];
         else $this->matchFileNames[] = $file;
@@ -76,8 +81,14 @@ class TranslationConfigGlobal
         return $this;
     }
 
+    function setConfigSearch(bool $conf): self {
+        $this->includeConfig = $conf;
+        $this->configured = true;
+        return $this;
+    }
+
     function isExhaustive(): bool {
-        return $this->includeDatabase && $this->includePhp && $this->includeTwig && !$this->useFileNameMatching();
+        return $this->includeDatabase && $this->includePhp && $this->includeTwig && $this->includeConfig && !$this->useFileNameMatching();
     }
 
     function setConfigured(bool $b) {

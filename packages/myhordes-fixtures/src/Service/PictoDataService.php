@@ -14,7 +14,8 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Heldentaten',
                 'description' => 'Anzahl deiner wirklich außergewöhnlichen Heldentaten.',
                 'icon' => 'r_heroac',
-                'rare' => true
+                'rare' => true,
+                'priority' => 3,
             ],
             [
                 'label' => 'Alkohol',
@@ -327,13 +328,15 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Letzter Toter',
                 'description' => 'Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.',
                 'icon' => 'r_surlst',
-                'rare' => true
+                'rare' => true,
+                'priority' => 2,
             ],
             [
                 'label' => 'Letzter Toter in einer Pandämoniumstadt',
                 'description' => 'Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!',
                 'icon' => 'r_suhard',
-                'rare' => true
+                'rare' => true,
+                'priority' => 1,
             ],
             [
                 'label' => 'Mystic',
@@ -405,7 +408,8 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Überlebende der Hölle!',
                 'description' => 'Sie sind ein wahrer Überlebenskünstler der Hölle.',
                 'icon' => 'r_pande',
-                'rare' => true
+                'rare' => true,
+                'priority' => 4,
             ],
             [
                 'label' => 'Hausarbeiten',
@@ -656,6 +660,12 @@ class PictoDataService implements FixtureProcessorInterface {
                 'description' => 'Anzahl der Tage, die du als Einwohner gespielt hast.',
                 'icon' => 'r_jbasic',
                 'rare' => false
+            ],
+            [
+                'label' => 'Buddler - Gewinner des DdA',
+                'description' => 'Auszeichnung für die Mitglieder der Buddler-Liga, die beim Duell der Achter gewonnen haben!',
+                'icon' => 'r_scaddh',
+                'rare' => true
             ],
         ]);
     }

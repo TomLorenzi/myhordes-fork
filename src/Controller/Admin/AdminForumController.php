@@ -342,7 +342,7 @@ class AdminForumController extends AdminActionController
         if (!$parser->has_all(['id','lang','content','edit'],true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         $lang = strtolower( $parser->trimmed('lang') );
 
-        if (!in_array($lang, ['de','en','fr','es'])) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (!in_array($lang, $this->allLangsCodes)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $existing_id = $parser->get_int('edit', -1);
         $existing = $this->entity_manager->getRepository(ForumModerationSnippet::class)->findOneBy(['short' => $parser->trimmed('id'), 'lang' => $lang]);

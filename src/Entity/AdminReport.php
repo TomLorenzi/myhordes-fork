@@ -78,6 +78,11 @@ class AdminReport
      */
     private AdminReportSpecification $specification = AdminReportSpecification::None;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -211,6 +216,18 @@ class AdminReport
     public function setSpecification(AdminReportSpecification $specification): self
     {
         $this->specification = $specification;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

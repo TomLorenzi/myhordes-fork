@@ -63,7 +63,7 @@ class ExternalController extends InventoryAwareController {
     private                          $request;
     private                          $SURLLobj;
     private array                    $filters         = [];
-    private array                    $langue          = ['en', 'fr', 'de', 'es'];
+    private array                    $langue;
     private array                    $fields          = [];
     private Town                     $town;
     private User                     $user;
@@ -75,7 +75,6 @@ class ExternalController extends InventoryAwareController {
     protected                        $item_factory;
     protected DeathHandler           $death_handler;
     protected EntityManagerInterface $entity_manager;
-    protected array                  $available_langs = ['en', 'fr', 'de', 'es'];
     protected GazetteService         $gazette_service;
     protected AdminHandler           $adminHandler;
     protected UrlGeneratorInterface  $urlGenerator;
@@ -117,6 +116,7 @@ class ExternalController extends InventoryAwareController {
         $this->gazette_service = $gs;
         $this->adminHandler = $adminHandler;
         $this->urlGenerator = $urlGenerator;
+        $this->langue = $this->generatedLangsCodes;
     }
 
     /**
@@ -246,11 +246,19 @@ class ExternalController extends InventoryAwareController {
     }
 
     /**
-     * @Route("/jx/docs", name="docs", condition="request.isXmlHttpRequest()")
+     * @Route("/jx/json_docs", name="json_docs", condition="request.isXmlHttpRequest()")
      * @return Response
      */
-    public function documentation(): Response {
-        return $this->render('ajax/public/apidocs.html.twig', []);
+    public function json_documentation(): Response {
+        return $this->render('ajax/public/jsonapidocs.html.twig', []);
+    }
+
+    /**
+     * @Route("/jx/xml_docs", name="xml_docs", condition="request.isXmlHttpRequest()")
+     * @return Response
+     */
+    public function xml_documentation(): Response {
+        return $this->render('ajax/public/xmlapidocs.html.twig', []);
     }
 
     private function SURLL_parser(): array {
@@ -2184,7 +2192,7 @@ class ExternalController extends InventoryAwareController {
 
         $language = explode('_', $language)[0];
 
-        if ($language !== 'all' && !in_array($language, $this->available_langs)) {
+        if ($language !== 'all' && !in_array($language, $this->generatedLangsCodes)) {
             $language = 'de';
         }
 
@@ -2215,7 +2223,6 @@ class ExternalController extends InventoryAwareController {
         // Get the app.
         /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-
         if ($app === null) {
             return false;
         }

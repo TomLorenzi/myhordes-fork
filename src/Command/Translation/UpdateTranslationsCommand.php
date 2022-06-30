@@ -4,7 +4,9 @@
 namespace App\Command\Translation;
 
 use App\Service\CommandHelper;
+use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Structures\MyHordesConf;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -20,11 +22,13 @@ class UpdateTranslationsCommand extends Command
     private CommandHelper $helper;
 
     private TranslationConfigGlobal $conf_trans;
+    private ConfMaster $confMaster;
 
-    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper)
+    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ConfMaster $confMaster)
     {
         $this->conf_trans = $conf_trans;
         $this->helper = $helper;
+        $this->confMaster = $confMaster;
 
         parent::__construct();
     }
@@ -40,6 +44,7 @@ class UpdateTranslationsCommand extends Command
             ->addOption('disable-php', null, InputOption::VALUE_NONE, 'Disables translation of PHP files')
             ->addOption('disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
             ->addOption('disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
+            ->addOption('disable-config', null, InputOption::VALUE_NONE, 'Disables translation of config files')
 
         ;
     }
@@ -47,13 +52,17 @@ class UpdateTranslationsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $lang = $input->getArgument( 'lang' );
-        $langs = ($lang === 'all') ? ['en', 'fr', 'es', 'de'] : [$lang];
+
+        $langs = ($lang === 'all') ? array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
+            return $item['generate'];
+        })) : [$lang];
         if (count($langs) === 1) {
 
             $this->conf_trans->setConfigured(true);
             if ($input->getOption('disable-db')) $this->conf_trans->setDatabaseSearch(false);
             if ($input->getOption('disable-php')) $this->conf_trans->setPHPSearch(false);
             if ($input->getOption('disable-twig')) $this->conf_trans->setTwigSearch(false);
+            if ($input->getOption('disable-config')) $this->conf_trans->setConfigSearch(false);
             foreach ($input->getOption('file') as $file_name)
                 $this->conf_trans->addMatchedFileName($file_name);
 
@@ -81,9 +90,11 @@ class UpdateTranslationsCommand extends Command
             foreach ($langs as $current_lang) {
 
                 $com = "app:translation:update $current_lang";
-                if ($input->getOption('disable-db')) $com .= " --trans-disable-db";
-                if ($input->getOption('disable-php')) $com .= " --trans-disable-php";
-                if ($input->getOption('disable-twig')) $com .= " --trans-disable-twig";
+                if ($input->getOption('disable-db')) $com .= " --disable-db";
+                if ($input->getOption('disable-php')) $com .= " --disable-php";
+                if ($input->getOption('disable-twig')) $com .= " --disable-twig";
+                if ($input->getOption('disable-config')) $com .= "--disable-config";
+
                 foreach ($input->getOption('file') as $file_name)
                     $com .= " --file $file_name";
 
@@ -111,6 +122,7 @@ class UpdateTranslationsCommand extends Command
             if ($input->getOption('disable-db')) $com .= " --disable-db";
             if ($input->getOption('disable-php')) $com .= " --disable-php";
             if ($input->getOption('disable-twig')) $com .= " --disable-twig";
+            if ($input->getOption('disable-config')) $com .= "--disable-config";
             foreach ($input->getOption('file') as $file_name)
                 $com .= " --file $file_name";
 
