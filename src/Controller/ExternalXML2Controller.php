@@ -511,7 +511,7 @@ class ExternalXML2Controller extends ExternalController {
                     $buildingXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
                     $buildingXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings');
                 } else {
-                    foreach ($this->available_langs as $lang) {
+                    foreach ($this->generatedLangsCodes as $lang) {
                         $buildingXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
                         $buildingXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings', $lang)];
                     }
@@ -536,7 +536,7 @@ class ExternalXML2Controller extends ExternalController {
                         $updateXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
                         $updateXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings');
                     } else {
-                        foreach ($this->available_langs as $lang) {
+                        foreach ($this->generatedLangsCodes as $lang) {
                             $updateXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
                             $updateXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings', $lang)];
                         }
@@ -561,7 +561,7 @@ class ExternalXML2Controller extends ExternalController {
                             'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
                         ];
                     } else {
-                        foreach($this->available_langs as $lang) {
+                        foreach($this->generatedLangsCodes as $lang) {
                             $gazette = $this->gazette_service->renderGazette($town, null, true, $lang);
                             $data['data']['city']['news']["content-$lang"] = [
                                 'cdata_value' => $gazette['text'] . '<p>' . $gazette['wind'] . '</p>'
@@ -592,7 +592,7 @@ class ExternalXML2Controller extends ExternalController {
                     if ($language !== 'all') {
                         $itemXml['attributes']['name'] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items');
                     } else {
-                        foreach ($this->available_langs as $lang) {
+                        foreach ($this->generatedLangsCodes as $lang) {
                             $itemXml['attributes']["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
                         }
                     }
@@ -749,7 +749,7 @@ class ExternalXML2Controller extends ExternalController {
                         $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
                         $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
                     } else {
-                        foreach ($this->available_langs as $lang) {
+                        foreach ($this->generatedLangsCodes as $lang) {
                             $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
                             $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
                         }
@@ -859,7 +859,7 @@ class ExternalXML2Controller extends ExternalController {
                 $itemXml['attributes']['name'] = $this->translator->trans($item->getLabel(), [], 'items');
                 $itemXml['cdata_value'] = $this->translator->trans($item->getDescription(), [], 'items');
             } else {
-                foreach ($this->available_langs as $lang) {
+                foreach ($this->generatedLangsCodes as $lang) {
                     $itemXml['attributes']["name-$lang"] = $this->translator->trans($item->getLabel(), [], 'items', $lang);
                     $itemXml["value-$lang"]['cdata_value'] = $this->translator->trans($item->getDescription(), [], 'items', $lang);
                 }
@@ -928,7 +928,7 @@ class ExternalXML2Controller extends ExternalController {
                 $buildingXml['attributes']['name'] = $this->translator->trans($building->getLabel(), [], 'buildings');
                 $buildingXml['cdata_value'] = $this->translator->trans($building->getDescription(), [], 'buildings');
             } else {
-                foreach ($this->available_langs as $lang) {
+                foreach ($this->generatedLangsCodes as $lang) {
                     $buildingXml['attributes']["name-$lang"] = $this->translator->trans($building->getLabel(), [], 'buildings', $lang);
                     $buildingXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getDescription(), [], 'buildings', $lang)];
                 }
@@ -999,7 +999,7 @@ class ExternalXML2Controller extends ExternalController {
                 $ruinXml['attributes']['name'] = $this->translator->trans($ruin->getLabel(), [], 'game');
                 $ruinXml['cdata_value'] = $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game');
             } else {
-                foreach ($this->available_langs as $lang) {
+                foreach ($this->generatedLangsCodes as $lang) {
                     $ruinXml['attributes']["name-$lang"] = $this->translator->trans($ruin->getLabel(), [], 'game', $lang);
                     $ruinXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game', $lang)];
                 }
@@ -1066,7 +1066,7 @@ class ExternalXML2Controller extends ExternalController {
                 $pictoXml['attributes']['name'] = $this->translator->trans($picto->getLabel(), [], 'game');
                 $pictoXml['cdata_value'] = $this->translator->trans($picto->getDescription(), [], 'game');
             } else {
-                foreach ($this->available_langs as $lang) {
+                foreach ($this->generatedLangsCodes as $lang) {
                     $pictoXml['attributes']["name-$lang"] = $this->translator->trans($picto->getLabel(), [], 'game', $lang);
                     $pictoXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($picto->getDescription(), [], 'game', $lang)];
                 }
@@ -1134,7 +1134,7 @@ class ExternalXML2Controller extends ExternalController {
             if ($language !== 'all') {
                 $awardXml['attributes']['name'] = $this->translator->trans($award->getTitle(), [], 'game');
             } else {
-                foreach ($this->available_langs as $lang) {
+                foreach ($this->generatedLangsCodes as $lang) {
                     $awardXml['attributes']["name-$lang"] = $this->translator->trans($award->getTitle(), [], 'game', $lang);
                 }
             }
@@ -1322,7 +1322,7 @@ class ExternalXML2Controller extends ExternalController {
 
                             if($language !== "all")
                                 $headers['headers']['owner']['myZone']['list']['items'][$str]['attributes']['name'] = $this->translator->trans($item->getPrototype()->getLabel(), [], 'items');
-                            else foreach ($this->available_langs as $lang)
+                            else foreach ($this->generatedLangsCodes as $lang)
                                 $headers['headers']['owner']['myZone']['list']['items'][$str]['attributes']["name-$lang"] = $this->translator->trans($item->getPrototype()->getLabel(), [], 'items', $lang);
 
                         } else $headers['headers']['owner']['myZone']['list']['items'][$str]['attributes']['count']++;
