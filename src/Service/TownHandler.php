@@ -472,6 +472,7 @@ class TownHandler
 
     public function calculate_town_def( Town &$town, ?TownDefenseSummary &$summary = null ): int {
         $summary = new TownDefenseSummary();
+        $summary->base_defense = $town->getBaseDefense();
         $summary->base_defense += $town->getStrangerPower();
 
         $f_house_def = 0.0;
@@ -519,6 +520,8 @@ class TownHandler
                     $summary->cemetery = $ratio * $c;
                 }
             }
+
+        $summary->temp_defense += $town->getTempDefenseBonus();
 
 
         $summary->item_defense = min(500, floor($this->inventory_handler->countSpecificItems( $town->getBank(),

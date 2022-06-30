@@ -57,6 +57,7 @@ use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Structures\EventConf;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -83,7 +84,8 @@ class AdminTownController extends AdminActionController
     {
         return $this->render('ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
-            'citizen_stats' => $this->entity_manager->getRepository(Citizen::class)->getStatByLang()
+            'citizen_stats' => $this->entity_manager->getRepository(Citizen::class)->getStatByLang(),
+            'langs' => $this->generatedLangs,
         ]));
     }
 
@@ -318,7 +320,7 @@ class AdminTownController extends AdminActionController
             'current_event' => $this->conf->getCurrentEvents($town),
             'citizen_langs' => $langs,
             'citizen_langs_alive' => $langs_alive,
-            'langs' => ['de','en','fr','es','multi']
+            'langs' => array_merge($this->generatedLangsCodes, ['multi'])
         ], $this->get_map_blob($town))));
     }
 
@@ -432,7 +434,8 @@ class AdminTownController extends AdminActionController
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name',
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
-                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall'
+                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
+                'dbg_set_town_base_def', 'dbg_set_town_temp_def'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -768,6 +771,12 @@ class AdminTownController extends AdminActionController
                         $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 }
                 break;
+            case 'dbg_set_town_base_def':
+                $town->setBaseDefense($param);
+                break;
+            case 'dbg_set_town_temp_def':
+                $town->setTempDefenseBonus($param);
+                break;
 
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -831,7 +840,7 @@ class AdminTownController extends AdminActionController
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $newLang = $parser->get('param');
-        if (!in_array( $newLang, [ 'de', 'es', 'en', 'fr', 'multi' ] ))
+        if (!in_array( $newLang, array_merge($this->generatedLangsCodes, [ 'multi' ]) ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $town->setLanguage( $newLang );
@@ -859,7 +868,7 @@ class AdminTownController extends AdminActionController
         $town_type = $parser->get('type', '');
         $town_lang = $parser->get('lang', 'de');
 
-        if (!in_array($town_lang, ['de','en','es','fr','multi']))
+        if (!in_array($town_lang, array_merge($this->generatedLangsCodes, ['multi'])))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $this->logger->invoke("[add_default_town] Admin <info>{$this->getUser()->getName()}</info> created a <info>$town_lang</info> town (custom name: '<info>$town_name</info>'), which is of type <info>$town_type</info>");
@@ -1479,7 +1488,7 @@ class AdminTownController extends AdminActionController
         $lang = $parser->get('lang');
         $rename = $parser->get( 'rename' );
 
-        if ($lang !== ($town_proxy->getLanguage() ?? '') && !in_array( $lang, ['de','en','fr','es','multi'] ))
+        if ($lang !== ($town_proxy->getLanguage() ?? '') && !in_array( $lang, array_merge($this->generatedLangsCodes, [ 'multi' ]) ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($lang !== ($town_proxy->getLanguage() ?? '')) {

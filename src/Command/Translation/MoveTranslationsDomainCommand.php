@@ -4,7 +4,9 @@
 namespace App\Command\Translation;
 
 use App\Service\CommandHelper;
+use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Structures\MyHordesConf;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -25,16 +27,18 @@ class MoveTranslationsDomainCommand extends Command
     protected static $defaultName = 'app:translation:move-domain';
 
     private CommandHelper $helper;
+    private ConfMaster $confMaster;
 
     private ContainerInterface $container;
     private ParameterBagInterface $param;
 
-    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ParameterBagInterface $param, ContainerInterface $container)
+    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ParameterBagInterface $param, ContainerInterface $container, ConfMaster $confMaster)
     {
         $this->conf_trans = $conf_trans;
         $this->container = $container;
         $this->helper = $helper;
         $this->param = $param;
+        $this->confMaster = $confMaster;
 
         parent::__construct();
     }
@@ -118,8 +122,10 @@ class MoveTranslationsDomainCommand extends Command
         if (!$this->getHelper('question')->ask($input, $output, new ConfirmationQuestion('Continue? (y/n) ', false)))
             return 0;
 
-
-        foreach (['de','en','fr','es'] as $lang) {
+        $langs = array_map(function($item) {return $item['code'];}, array_filter($this->confMaster->getGlobalConf()->get(MyHordesConf::CONF_LANGS), function($item) {
+            return $item['generate'];
+        }));
+        foreach ($langs as $lang) {
             $output->write("Loading <comment>$lang</comment> catalogue files... ");
             $in_icu_file  = "{$this->param->get('kernel.project_dir')}/translations/{$domain}+intl-icu.{$lang}.xlf";
             $in_base_file = "{$this->param->get('kernel.project_dir')}/translations/{$domain}.{$lang}.xlf";

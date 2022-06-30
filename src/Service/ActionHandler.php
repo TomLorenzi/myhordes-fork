@@ -722,8 +722,7 @@ class ActionHandler
                         $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
                 }
 
-                // No role update if it's an escort action
-                if ($status->getRole() !== null && $status->getRoleAdd() !== null && $citizen->getEscortSettings() !== null && $citizen->getEscortSettings()->getLeader() !== null) {
+                if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                     if ($status->getRoleAdd()) {
                         if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
                             $tags[] = 'role-up';
@@ -1232,14 +1231,13 @@ class ActionHandler
                                 continue;
 
                             // Don't give AP if already full
-                            if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen))
+                            if($target_citizen->getAp() >= $this->citizen_handler->getMaxAP($target_citizen)) {
                                 continue;
-                            else if ($this->citizen_handler->hasStatusEffect($target_citizen, ['drunk', 'drugged', 'addict'], false)) {
-                                $this->citizen_handler->setAP($target_citizen, true, 2, 0);
-                                $count+=2;
                             } else {
-                                $this->citizen_handler->setAP($target_citizen, true, 1, 0);
-                                $count++;
+                                $count += $this->citizen_handler->setAP($target_citizen,
+                                                                        true,
+                                                                        $this->citizen_handler->hasStatusEffect($target_citizen, ['drunk', 'drugged', 'addict'], false) ? 2 : 1,
+                                                                        0);
                             }
                         }
                         $execute_info_cache['casino'] = $this->translator->trans('Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.', ['{ap}' => $count], 'items');
@@ -1786,7 +1784,7 @@ class ActionHandler
             $list[] = $item->getPrototype();
         }
 
-        $this->citizen_handler->deductAPBP( $citizen, $ap );
+        $this->citizen_handler->deductAPBP( $citizen, $ap, $used_ap, $used_bp );
 
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ) );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
@@ -1822,7 +1820,7 @@ class ActionHandler
         $message = $this->translator->trans( $base, [
             '{item_list}' => $this->wrap_concat( $list ),
             '{item}' => $this->wrap( $new_item ),
-            '{ap}' => $ap,
+            '{ap}' => $used_ap,
         ], 'game' );
 
         return self::ErrorNone;

@@ -504,6 +504,7 @@ class NightlyHandler
 
         $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
 
+        $gazette = $town->findGazette( $town->getDay(), true );
         if (!$town->getDevastated()) {
 
             if ($this->upgraded_building !== null) {
@@ -547,8 +548,8 @@ class NightlyHandler
                                 $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem($plan['item']) );
                             $tx[] = "<info>{$plan['item']->getLabel()} x{$plan['count']}</info>";
                         }
-
-                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $this->upgraded_building, $plans ));
+                        if (!$gazette->getReactorExplosion())
+                            $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $this->upgraded_building, $plans ));
                         $this->log->debug("Leveling up <info>{$this->upgraded_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
                         break;
                 }
@@ -557,7 +558,8 @@ class NightlyHandler
 
         $daily_items = []; $tx = [];
         if ($spawn_default_blueprint) {
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
+            if (!$gazette->getReactorExplosion())
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
             $daily_items['bplan_c_#00'] = 1;
         }
 
@@ -1187,6 +1189,8 @@ class NightlyHandler
             }
             $b->setTempDefenseBonus(0);
         }
+
+        $town->setTempDefenseBonus(0);
     }
 
     private function stage3_status(Town $town) {
@@ -1350,8 +1354,9 @@ class NightlyHandler
             if ($aliveCitizenInTown == 0) {
                 $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
 
-                if($town->getDay() >= 5){
-                    $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
+                $last_stand_day = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH_DAY, 5);
+                if($town->getDay() >= $last_stand_day){
+                    $this->log->debug("Town has lived for $last_stand_day days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town");
                     $citizen_eligible = [];
                     foreach ($town->getCitizens() as $citizen) {
                         /** @var Citizen $citizen */

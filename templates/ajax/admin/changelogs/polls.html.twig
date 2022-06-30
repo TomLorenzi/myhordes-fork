@@ -46,7 +46,7 @@
                         <div class="note note-lightest"><label>{{ description }}</label></div>
                     </div>
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                        {% for lang in ['de','en','fr','es'] %}
+                        {% for lang in langsCodes %}
                             {{ _self.poll_input( name, lang, type, small ) }}
                         {% endfor %}
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
                         <div class="row-flex wrap gap">
-                            {% for lang in ['multi','de','en','fr','es'] %}
+                            {% for lang in ['multi']|merge(langsCodes) %}
                                 <label class="cell">
                                     <img alt="{{ lang }}" src="{{ asset('build/images/lang/' ~ lang ~ '.png') }}">
                                     <input {% if lang == app.user.language %}checked{% endif %} type="radio" name="fields_lang" value="{{ lang }}" />
@@ -109,7 +109,7 @@
                 <div class="row-table" id="answers-table">
                     <div class="row hidden">
                         <div class="padded cell rw-10 rw-lg-8 rw-sm-6">
-                            {% for lang in ['de','en','fr','es'] %}<span data-lang-label="{{ lang }}"></span>{% endfor %}
+                            {% for lang in langsCodes %}<span data-lang-label="{{ lang }}"></span>{% endfor %}
                         </div>
                         <div class="padded cell rw-2 rw-lg-4 rw-sm-6">
                             <button class="small inline" data-action="up"><i class="fa fa-arrow-up"></i></button>
@@ -118,7 +118,7 @@
                             <button class="small inline" data-action="delete"><i class="fa fa-trash"></i></button>
                         </div>
                         <div class="hidden">
-                            {% for lang in ['de','en','fr','es'] %}
+                            {% for lang in langsCodes %}
                                 <div data-for="{{ lang }}" data-field="title" data-type="html"></div>
                                 <input type="hidden" data-for="{{ lang }}" data-field="title" data-type="twino" />
                                 <div data-for="{{ lang }}" data-field="desc" data-type="html"></div>
@@ -192,7 +192,7 @@
             }
             else {
                 if (twinoid)
-                    ['de','en','fr','es'].forEach(lang => {
+                    langsCodes.forEach(lang => {
                         values[lang] = $.html.twinoParser.parseToString( values[lang], emote_resolver, {autoLinks: $.client.config.autoParseLinks.get()});
                     });
                 return values;
@@ -224,7 +224,7 @@
             const div = document.createElement('div');
             div.classList.add('row');
             div.innerHTML = document.querySelector('#answers-table > .row.hidden').innerHTML;
-            ['de','en','fr','es'].forEach(lang => {
+            langsCodes.forEach(lang => {
                 div.querySelector('[data-field="title"][data-type="twino"][data-for="' + lang + '"]').value = title_set[lang];
                 div.querySelector('[data-field="desc"][data-type="twino"][data-for="' + lang + '"]').value = desc_set[lang];
                 let title_div = div.querySelector('[data-field="title"][data-type="html"][data-for="' + lang + '"]');
@@ -244,7 +244,7 @@
             div.querySelector('button[data-action="delete"]').addEventListener('click',e => e.target.closest('.row').remove());
             div.querySelector('button[data-action="copy"]').addEventListener('click',e => {
                 const me = e.target.closest('.row');
-                ['de','en','fr','es'].forEach(lang => {
+                langsCodes.forEach(lang => {
                     document.querySelector('[data-field-name="answer_title"][data-field-lang="' + lang + '"]').value = me.querySelector('[data-field="title"][data-type="twino"][data-for="' + lang + '"]').value
                     document.querySelector('[data-field-name="answer_desc"][data-field-lang="' + lang + '"]').value = me.querySelector('[data-field="desc"][data-type="twino"][data-for="' + lang + '"]').value
                 });
@@ -269,7 +269,7 @@
             let answers = [];
             $.html.forEach( '#answers-table > .row:not(.hidden)', row => {
                 const obj = { title: {}, desc: {} };
-                ['de','en','fr','es'].forEach(lang => {
+                langsCodes.forEach(lang => {
                     obj.title[lang] = row.querySelector('[data-field="title"][data-type="html"][data-for="' + lang + '"]').innerHTML;
                     obj.desc[lang] = row.querySelector('[data-field="desc"][data-type="html"][data-for="' + lang + '"]').innerHTML;
                 });

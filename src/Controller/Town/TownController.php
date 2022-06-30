@@ -350,12 +350,14 @@ class TownController extends InventoryAwareController
         // Same day, use relative format if no other notation applies
         elseif ($date->format('d') === (new DateTime())->format('d')) {
             // Tableau des unités et de leurs valeurs en secondes
-            $times = array( 3600     =>  T::__('Stunde(n)', 'game'),
-                60       =>  T::__('Minute(n)', 'game'),
-                1        =>  T::__('Sekunde(n)', 'game'));
+            $times = [
+                3600 =>  T::__('Stunde(n)', 'game'),
+                60   =>  T::__('Minute(n)', 'game'),
+                1    =>  T::__('Sekunde(n)', 'game')
+            ];
 
             foreach ($times as $seconds => $unit) {
-                $delta = round($time / $seconds);
+                $delta = floor($time / $seconds);
 
                 if ($delta >= 1) {
                     $unit = $this->translator->trans($unit, [], 'game');

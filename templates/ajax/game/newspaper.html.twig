@@ -13,7 +13,7 @@
             {% include 'ajax/game/gazette_widget.html.twig' with { gazette: gazette, council: council } %}
 
             {% if citizensWithRole|length > 0 or votesNeeded|length > 0 %}
-            <h5>{{ 'Stadtrat'|trans({}, 'game') }}</h5>
+            <h5 id="gazette-role-title">{{ 'Stadtrat'|trans({}, 'game') }}</h5>
             <div id="gazette-role-list">
                 {% for role in votesNeeded %}
                     <p><img alt="•" src="{{ asset('build/images/icons/small_help.gif') }}" />
@@ -30,42 +30,44 @@
             {% endif %}
 
             <div class="row gazette-search">
-                <div class="note cell padded rw-3">
-                    {% if show_register %}
-                    <h2 class="page-head">{{ 'Das Register filtern'|trans({}, 'game') }}</h2>
-                    <div class="row">
-                        <label for="citizen-filter" class="cell rw-4 rw-lg-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
-                        <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-lg-12" x-filter-name="citizen">
-                            <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
-                            {% for citizen in town.citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
-                            <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.name }}</option>
-                            {% endfor %}
-                        </select>
+                {% if show_register %}
+                    <div class="note cell padded rw-3">
+                        <h2 class="page-head">{{ 'Das Register filtern'|trans({}, 'game') }}</h2>
+                        <div class="row">
+                            <label for="citizen-filter" class="cell rw-4 rw-lg-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
+                            <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-lg-12" x-filter-name="citizen">
+                                <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
+                                {% for citizen in town.citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
+                                <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.name }}</option>
+                                {% endfor %}
+                            </select>
 
-                        <label for="category-filter" class="cell rw-4 rw-lg-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
-                        <select id="category-filter" name="category-filter" class="cell rw-8 rw-lg-12" x-filter-name="category">
-                            <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCrimes') }}">{{ 'Verbrechen'|trans({}, 'game') }}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeBank') }}">{{ 'Bank'|trans({}, 'game') }}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDump') }}">{{ 'Müllhalde'|trans({}, 'game') }}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeConstruction') }}">{{'Baustelle'|trans({}, 'game')}}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWorkshop') }}">{{ 'Werkstatt'|trans({}, 'game') }}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDoor') }}">{{ 'Stadttor'|trans({}, 'game') }}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWell') }}">{{ 'Brunnen'|trans({}, 'game') }}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCitizens') }}">{{ 'Neue und Tote'|trans({}, 'game') }}</option>
-                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeNightly') }}">{{ 'Zombieangriff (newspaper)'|trans({}, 'game') }}</option>
-                        </select>
+                            <label for="category-filter" class="cell rw-4 rw-lg-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
+                            <select id="category-filter" name="category-filter" class="cell rw-8 rw-lg-12" x-filter-name="category">
+                                <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCrimes') }}">{{ 'Verbrechen'|trans({}, 'game') }}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeBank') }}">{{ 'Bank'|trans({}, 'game') }}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDump') }}">{{ 'Müllhalde'|trans({}, 'game') }}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeConstruction') }}">{{'Baustelle'|trans({}, 'game')}}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWorkshop') }}">{{ 'Werkstatt'|trans({}, 'game') }}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDoor') }}">{{ 'Stadttor'|trans({}, 'game') }}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWell') }}">{{ 'Brunnen'|trans({}, 'game') }}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCitizens') }}">{{ 'Neue und Tote'|trans({}, 'game') }}</option>
+                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeNightly') }}">{{ 'Zombieangriff (newspaper)'|trans({}, 'game') }}</option>
+                            </select>
+                        </div>
                     </div>
-                    {% endif %}
-                </div>
-                <div class="cell padded rw-8">
-                    {% if show_register %}
+                {% endif %}
+                {% if show_register %}
+                    <div class="cell padded rw-8">
                         {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}
                         {% endembed %}
-                    {% else %}
-                    <div class="note">{{ 'Das Stadtregister steht nicht zur Verfügung.'|trans({}, 'game') }}</div>
-                    {% endif %}
-                </div>
+                    </div>
+                {% else %}
+                    <div class="cell padded rw-8 ro-3">
+                        <div class="note">{{ 'Das Stadtregister steht nicht zur Verfügung.'|trans({}, 'game') }}</div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

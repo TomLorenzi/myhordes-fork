@@ -47,7 +47,7 @@ class SeoController extends CustomAbstractController
     private function renderWithLanguageLinks( Request $request, string $view, array $data ): Response {
         $routes = [];
         if ($request->get('lang', null) && $request->get('_route', null))
-            foreach (['de','en','fr','es'] as $lang) if ($lang !== $request->get('lang'))
+            foreach ($this->generatedLangsCodes as $lang) if ($lang !== $request->get('lang'))
                 $routes[$lang] = $this->generateUrl( $request->get('_route'), array_merge( $request->get('_route_params'), ['lang' => $lang] ), UrlGeneratorInterface::ABSOLUTE_URL );
 
         $data = array_merge( $data, ['in_other_languages' => $routes] );

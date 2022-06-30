@@ -1,4 +1,3 @@
----
 'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.': 'It is rumored that {citizen1} and {citizen2} were seen bathing together in the Well. I strongly advise against water this morning, it''s a blow to nab an infection...'
 'Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."': 'This morning, {citizen1} wanted to celebrate with dignity the night passed without a dead <strong>by running naked like a worm</strong> in our alleys. "The view was not bad." {citizen2} would have explained.'
 'Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.': 'A great night for some well-earned celebrations. No deaths in town resulting from the attack! A sizeable horde attacked at the northern wall.'
@@ -61,7 +60,7 @@
 '{citizen1} verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen <strong>massiven Zusammenbruch</strong> hatten. Letzte Nacht gab es keine Toten in der Stadt.': '{citizen1} spent the whole night howling in their house, to the point that everyone thought that the zombies were making citizen steaks out of him. It turns out that they were just having a <strong>massive breakdown</strong>. No deaths in town last night.'
 '{citizen1} und {citizen2} wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern <strong>zu erhängen</strong>. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend <strong>keine Zombies</strong> in die Stadt geschafft haben.': '{citizen1} and {citizen2} were saved in the nick of time when getting ready to hang themselves in their home last night. They explained, "I thought they were going to eat me alive, and I didn''t want to live to see that". In hindsight, it was a poor decision, as no zombies made it into town last night.'
 'Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.': 'This morning, {citizen1} celebrated last night''s thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.'
-'Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!': 'Multiple fires were reported in our <strong>Reactor core</strong> before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took <strong>a few seconds</strong> for the few remaining survivors to perish through <strong>radiation poisoning<s/trong>. What a climax!'
+'Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!': 'Multiple fires were reported in our <strong>Reactor core</strong> before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took <strong>a few seconds</strong> for the few remaining survivors to perish through <strong>radiation poisoning</strong>. What a climax!'
 'Wenn du wissen willst, was euer Schamane wert ist, frag <i class="dagger">†</i> {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.': 'Wenn du wissen willst, was euer Schamane wert ist, frag <i class="dagger">†</i> {cadaver1}. Er würde wahrscheinlich etwas in der Art von "dieser verf#/}M@$ Scharlatan!!" sagen.'
 'Anmerkung: einer der {attack} Zombies, die letzte Nacht angegriffen haben, wurde <strong>im Brunnen</strong> gefunden... Ich rate euch dringend davon ab, heute Morgen Wasser zu trinken, sonst fangt ihr euch noch eine Infektion ein...': 'One of the {attack} attacking zombies from last night was found <strong>in the well</strong> I''d strongly advise you to skip your water ration today, as it''d be a great way to get an infection...'
 'Außerdem haben mehrere Zombies unerwartet die <strong>Arbeiten</strong> am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten <strong>eure Baustellen besser nicht so ungesichert lassen</strong>.': 'Außerdem haben mehrere Zombies unerwartet die <strong>Arbeiten</strong> am Westflügel genutzt, um in die Stadt einzudringen und {deaths} Menschen zu verschlingen... Ihr sollten <strong>eure Baustellen besser nicht so ungesichert lassen</strong>.'
@@ -168,7 +167,7 @@ Virunoir: Virunoir
 Chlorotwinat: Chlorotwinat
 Kaliumchlorid: Kaliumchlorid
 Kurare: Kurare
-'Zyanid (poison)': Zyanid (poison)
+'Zyanid (poison)': 'Zyanid (poison)'
 Phenol: Phenol
 Ponasulfat: Ponasulfat
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
@@ -197,13 +196,13 @@ Nuffi: Carwash
 Kampfzwerg: Bernard
 Brummbrumm: Trousers
 Quälgeist: Christian
-Wuschel: K'mere
-Ratte: abnormally large rat
+Wuschel: 'K''mere'
+Ratte: 'abnormally large rat'
 Ziege: terrapin
 Pudel: labradoodle
-Hamster: fat hamster
-Köter: alaskan malamute
-Schwein: pot-bellied pig
+Hamster: 'fat hamster'
+Köter: 'alaskan malamute'
+Schwein: 'pot-bellied pig'
 Erdmännchen: capybara
 Wasserschwein: meerkat
 Sumpfschildkröte: toyger

@@ -506,6 +506,7 @@ class HTMLConverterFromBlocks {
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'rp' );
                     else if (block.hasClass('glory'))
                         ret += HTMLConverterFromBlocks.wrapBlock(block, 'glory');
+                    else if (block.hasClass('clear')) {/* Do nothing, as a clearfix tag should be ignored */}
                     else ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;
                     break;
                 case 'blockquote':

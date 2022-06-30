@@ -199,7 +199,10 @@ class AdminUserController extends AdminActionController
             'page' => $parser->get_int('page', 0),
             'pages' => ceil($total_count / $parser->get_int('limit', 50)),
             'total' => $total_count,
-            'filters' => $filter
+            'filters' => $filter,
+            'langFilter' => array_merge(array_map(function($lang) {
+                return [$lang['code'], $this->translator->trans($lang['label'], [], 'global')];
+            }, $this->allLangs), [['null', 'null']]),
         ]));
     }
 

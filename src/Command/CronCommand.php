@@ -254,9 +254,13 @@ class CronCommand extends Command
             if ($begin === null || $end === null) continue;
 
 
+
             $lang_fallback_path = ['en','fr','de','es'];
             $lang_mapping = [];
-            foreach (['en','fr','de','es'] as $lang)
+            $langs = array_map(function($item) {return $item['code'];}, array_filter($this->conf->get(MyHordesConf::CONF_LANGS), function($item) {
+                return $item['generate'];
+            }));
+            foreach ($langs as $lang)
                 if (file_exists( "{$this->kernel->getProjectDir()}/templates/event/{$entry[0]}/$lang.html.twig" ))
                     $lang_mapping[$lang] = $lang;
                 else foreach ($lang_fallback_path as $fallback)

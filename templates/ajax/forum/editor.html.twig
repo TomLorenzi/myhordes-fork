@@ -189,14 +189,13 @@
                             <li class="tab" x-tab-id="rp_player"><div class="tab-link"><i class="fa fa-user"></i></div></li>
                         {% endif %}
                         {% if snippets is not empty %}
-                            {% set langs = ['de','en','fr','es'] %}
-                            {% for lang in langs %}
+                            {% for lang in langsCodes %}
                                 <li class="tab" x-tab-id="mod-snip-{{ lang }}"><div class="tab-link"><img alt="mod" src="{{ asset('build/images/assets/img/icons/mod.png') }}" /> <span class="small">{{ lang }}</span></div></li>
                             {% endfor %}
                         {% endif %}
                     </ul>
                     {% set emote_lang = (app.request.locale|e('html_attr')|split('_', 2))[0] %}
-                    {% if not emote_lang in ['de','en','es','fr'] %}
+                    {% if not emote_lang in langsCodes %}
                         {% set emote_lang = 'en' %}
                     {% endif %}
                     <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
@@ -267,7 +266,7 @@
                         </div>
                     {% endif %}
                     {% if snippets is not empty %}
-                        {% for lang in langs %}
+                        {% for lang in langsCodes %}
                             <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="mod-snip-{{ lang }}" x-tab-target>
                                 {% for snippet in snippets %}
                                     {# @var snippet \App\Entity\ForumModerationSnippet #}

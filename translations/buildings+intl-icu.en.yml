@@ -1,5 +1,4 @@
----
-Wassergraben: Great Moat
+Wassergraben: 'Great Moat'
 'Großer Graben': 'Great Pit'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'The Great Pit gives an additional 23 defence points.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'The Great Pit gives an additional 44 defence points.'
@@ -7,15 +6,15 @@ Wassergraben: Great Moat
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'The Great Pit gives an additional 109 defence points.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'The Great Pit gives an additional 160 defence points.'
 Rasierklingenmauer: Grater
-Pfahlgraben: Spiked Pit
+Pfahlgraben: 'Spiked Pit'
 Köder: Bait
-Stacheldraht: Barbed Wire
+Stacheldraht: 'Barbed Wire'
 'Weiterentwickelte Stadtmauer': 'Wall Upgrade v2'
-'Groooße Mauer': 'Überwall'
-Zackenmauer: Spiked Wall
+'Groooße Mauer': Überwall
+Zackenmauer: 'Spiked Wall'
 'Dritte Schicht': 'Third Wall'
 'Zweite Schicht': 'Inner Wall'
-Betonschicht: Concrete Reinforcement
+Betonschicht: 'Concrete Reinforcement'
 'Entwicklungsfähige Stadtmauer': 'Evolutive Wall'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'The Evolutive Wall gives an additional 85 defence points.'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'The Evolutive Wall gives an additional 120 defence points.'
@@ -23,82 +22,82 @@ Betonschicht: Concrete Reinforcement
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'The Evolutive Wall gives an additional 235 defence points.'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'The Evolutive Wall gives an additional 315 defence points.'
 'Verstärkende Balken': 'Metal Patches'
-Zombiereibe: Zombie Grater
-Fallgruben: Old-school traps
-Holzzaun: Small Fence
+Zombiereibe: 'Zombie Grater'
+Fallgruben: 'Old-school traps'
+Holzzaun: 'Small Fence'
 Sperrholz: Plywood
 'Rüstungsplatten 3.0': 'Armour Plating v3'
 Extramauer: Extrawall
-Rüstungsplatten: Armour Plating
+Rüstungsplatten: 'Armour Plating'
 'Rüstungsplatten 2.0': 'Armour Plating v2'
-Einseifer: Slip 'n' Slide
-Spraykanone: Gas Gun
-Säurespray: Acid Spray
+Einseifer: 'Slip ''n'' Slide'
+Spraykanone: 'Gas Gun'
+Säurespray: 'Acid Spray'
 Zerstäuber: Vaporiser
 'Verstärkte Stadtmauer': 'Wall Upgrade v1'
 Minen: Mines
-Wasserfilter: Water Filter
-Wasserreiniger: Water Purifier
+Wasserfilter: 'Water Filter'
+Wasserreiniger: 'Water Purifier'
 Dünger: Fertilizer
 Granatapfel: Grapeboom
-Gemüsebeet: Vegetable Plot
+Gemüsebeet: 'Vegetable Plot'
 'Projekt Eden': 'Eden Project'
-Brunnenbohrer: Drilling Rig
-Kärcher: Boiling Fog
+Brunnenbohrer: 'Drilling Rig'
+Kärcher: 'Boiling Fog'
 'Kreischender Rotor': 'Saniflow Macerator'
-Sprinkleranlage: Automatic Sprinkler
+Sprinkleranlage: 'Automatic Sprinkler'
 Dusche: Shower
-Wasserleitungsnetz: Hydraulic Network
-Wasserturm: Water Turrets
+Wasserleitungsnetz: 'Hydraulic Network'
+Wasserturm: 'Water Turrets'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'The Water Turrets is multiply by 1.8 (126 defense points), but cost 2 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'The Water Turrets is multiply by 2.6 (182 defense points), but cost 4 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'The Water Turrets is multiply by 3.4 (238 defense points), but cost 6 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'The Water Turrets is multiply by 4.2 (294 defense points), but cost 9 water rations per night.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'The Water Turrets is multiply by 5 (350 defense points), but cost 12 water rations per night.'
-Wasserfänger: Water Catcher
-Wasserkanone: Mist Spray
+Wasserfänger: 'Water Catcher'
+Wasserkanone: 'Mist Spray'
 Schleuse: Sluice
-Wasserfall: Decon Shower
-Wünschelrakete: Divining Rocket
-Wünschelrute: Divining Rods
-Apfelbaum: Apple Tree
+Wasserfall: 'Decon Shower'
+Wünschelrakete: 'Divining Rocket'
+Wünschelrute: 'Divining Rods'
+Apfelbaum: 'Apple Tree'
 Pumpe: Pump
 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'Add 20 water rations to the well (one time only).'
 'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'Add 30 water rations to the well (one time only).'
 'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'Add 40 water rations to the well (one time only).'
 Kremato-Cue: Cremato-Cue
 Metzgerei: Butcher
-Verteidigungsanlage: Defensive Focus
+Verteidigungsanlage: 'Defensive Focus'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'Each defence object in the bank gives 2 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'Each defence object in the bank gives 2.5 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'TEach defence object in the bank gives 3 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'Each defence object in the bank gives 3.5 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Each defence object in the bank gives 4 defence points to the town.'
-Steinkanone: Rock Cannon
-'Selbstgebaute Railgun': 'Railgun'
-Blechplattenwerfer: Plate Gun
+Steinkanone: 'Rock Cannon'
+'Selbstgebaute Railgun': Railgun
+Blechplattenwerfer: 'Plate Gun'
 'Brutale Kanone': 'Brutal Cannon'
-Kanonenhügel: Cannon Mounds
-Holzbalkendrehkreuz: War Mill
+Kanonenhügel: 'Cannon Mounds'
+Holzbalkendrehkreuz: 'War Mill'
 Manufaktur: Factory
 'Kreischende Sägen': 'Screaming Saws'
-Bauhaus: Architect’s Study
+Bauhaus: 'Architect’s Study'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'The Town will receive 4 common blueprints after the attack.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'Once only, the Town will receive 2 common construction blueprints and 2 uncommon blueprints after the attack.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'The Town will receive 2 uncommon blueprints and 2 rare blueprints after the attack (maybe a surprise too?).'
-Baustellenbuch: Building Registry
+Baustellenbuch: 'Building Registry'
 Galgen: Gallows
 'Kleines Cafe': 'Small Café'
-Sarg-Katapult: Coffin Catapult
+Sarg-Katapult: 'Coffin Catapult'
 'Kleiner Friedhof': 'Small Cemetary'
 Hühnerstall: Henhouse
 Schlachthof: Abbatoir
-Pentagon: Defensive Thinktank
-Kantine: Central Cafeteria
-Bollwerk: Community Involvement
-Baumarkt: Builder’s Merchant
+Pentagon: 'Defensive Thinktank'
+Kantine: 'Central Cafeteria'
+Bollwerk: 'Community Involvement'
+Baumarkt: 'Builder’s Merchant'
 Krankenstation: Infirmary
-Labor: Central Laboratory
+Labor: 'Central Laboratory'
 Werkstatt: Workshop
 'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'The cost (AP) of all construction projects is reduced by 6%.'
 'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'The cost (AP) of all construction projects is reduced by 12%.'
@@ -113,50 +112,50 @@ Forschungsturm: Searchtower
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'There is a 73% chance of desert zone regeneration.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'There is a 85% chance of desert zone regeneration.'
 Verteidigungspfähle: Spikes
-Notfallabstützung: Wood Plating
-Guerilla: Guerilla Traps
-Trümmerberg: Mount Killaman-Jaro
-Abfallberg: Rubbish Heap
+Notfallabstützung: 'Wood Plating'
+Guerilla: 'Guerilla Traps'
+Trümmerberg: 'Mount Killaman-Jaro'
+Abfallberg: 'Rubbish Heap'
 Wolfsfalle: Pits
-Sprengfalle: Bomb Factory
+Sprengfalle: 'Bomb Factory'
 'Nackte Panik': 'Abject Panic'
-Dollhouse: Frat House
+Dollhouse: 'Frat House'
 'Heiliger Regen': 'Holy Raincloud'
-Voodoo-Puppe: XXL Voodoo Doll
+Voodoo-Puppe: 'XXL Voodoo Doll'
 'Spirituelles Wunder': 'Spirit Mirage'
 'Bokors Guillotine': 'Sword of Bokor'
-Notfallkonstruktion: Emergency Supplies
+Notfallkonstruktion: 'Emergency Supplies'
 'Verbesserter Katapult': 'Upgraded Catapult'
 Katapult: Catapult
 'Kleine Waffenschmiede': 'Miniature Armory'
 'Schwedische Schreinerei': 'Swedish Workshop'
-Schießstand: Shooting Gallery
+Schießstand: 'Shooting Gallery'
 'Kleiner Tribok': 'Small Trebuchet'
-Wächter-Turm: Guard Tower
-Krähennest: Crows’ Nest
+Wächter-Turm: 'Guard Tower'
+Krähennest: 'Crows’ Nest'
 Wachturm: Watchtower
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'Zombies within 3 zones are detected.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'Zombies within 6 zones are detected.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'Zombies within 10 zones are detected.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Zombies within 10 zones are detected + Allows citizens within 1 km of the town to return without using any APs.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Zombies within 10 zones are detected + Allows citizens within 2 km of the town to return without using any APs.'
-Bohrturm: Mechanical Pump
+Bohrturm: 'Mechanical Pump'
 'Falsche Stadt': 'False Town'
 Wasserhahn: Faucet
 'Großer Umbau': 'The Big Rebuild'
 Vogelscheuche: Scarecrows
-Fleischkäfig: Meat Locker
-Bürgergericht: People’s Court
+Fleischkäfig: 'Meat Locker'
+Bürgergericht: 'People’s Court'
 Befestigungen: Fortifications
-Holzabfall: Wood Dump
-Metallabfall: Metal Dump
-Tierabfälle: Animal Dump
+Holzabfall: 'Wood Dump'
+Metallabfall: 'Metal Dump'
+Tierabfälle: 'Animal Dump'
 'Müll für Alle': 'Free Dump'
-Waffenabfall: Weapons Dump
-Biomüll: Food Dump
-Rüstungsabfall: Defence Dump
+Waffenabfall: 'Weapons Dump'
+Biomüll: 'Food Dump'
+Rüstungsabfall: 'Defence Dump'
 'Verbesserte Müllhalde': 'Dump Upgrade'
-Müllhalde: Garbage Dump
+Müllhalde: 'Garbage Dump'
 Leuchtturm: Lighthouse
 Altar: Altar
 'Riesige Sandburg': 'Giant Sandcastle'
@@ -166,42 +165,42 @@ Reaktor: Reactor
 Labyrinth: Labyrinth
 'Alles oder nichts': 'All or Nothing'
 'Riesiger KVF': 'Giant BRD'
-Riesenrad: Wonder Wheel
-Feuerwerk: Firework Foray
-Krähenstatue: Crow Statue
+Riesenrad: 'Wonder Wheel'
+Feuerwerk: 'Firework Foray'
+Krähenstatue: 'Crow Statue'
 Kino: Cinema
-Luftschlag: Air Strike
-Heißluftballon: Hot Air Balloon
-Tunnelratte: No Holes Barred
+Luftschlag: 'Air Strike'
+Heißluftballon: 'Hot Air Balloon'
+Tunnelratte: 'No Holes Barred'
 Fundament: Foundations
-Torpanzerung: Reinforced Gates
-Automatiktür: Last-Minute Lock
-Kolbenschließmechanismus: Automatic Piston Lock
-Ventilationssystem: Ventilation System
-Portal: Portal Lock
-Feldbett: Camp Bed
+Torpanzerung: 'Reinforced Gates'
+Automatiktür: 'Last-Minute Lock'
+Kolbenschließmechanismus: 'Automatic Piston Lock'
+Ventilationssystem: 'Ventilation System'
+Portal: 'Portal Lock'
+Feldbett: 'Camp Bed'
 Zelt: Tent
 Baracke: Hovel
 Hütte: Shack
 Haus: House
-'Umzäuntes Haus': 'Safehouse'
-'Befestigte Unterkunft': 'Stronghold'
-Bunker: Nuclear Bunker
+'Umzäuntes Haus': Safehouse
+'Befestigte Unterkunft': Stronghold
+Bunker: 'Nuclear Bunker'
 Schloss: Palace
 'Großer Vorhang': 'Large Curtain'
 'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'Prevents players from peeking on your house directly from the Citizens list.'
-Hobbylabor: Home Laboratory
+Hobbylabor: 'Home Laboratory'
 'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'A small hole which smells of camphor and death, right in the middle of your ''living room''. However, you can carry out your chemistry experiments in peace here (each level increases the chances of obtaining a powerful drug by 25%.)...'
 Küche: Kitchen
 'In dieser notdürftig zusammengeschraubten Küche können schmackhafte und ''gesunde'' Speisen zubereitet werden.': 'The kitchen is an area which is roughly equipped to prepare the best quality rations (each level increases the chance of getting a good dish by 33%).'
 'Primitives Alarmsystem': 'Rudimentary Alarm'
 'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'This is a somewhat simplistic system made up of scrap metal held in place with a cable, but it works well for mobilising everybody if someone breaks into your home...'
-Ruheecke: Siesta Time™
+Ruheecke: 'Siesta Time™'
 'Was hier als ''Ruhe-Ecke'' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.': 'It''s really just a hole in the ground covered with cardboard, but it''s great for grabbing a quick nap when you feel like it (each level increases the chances of sleeping soundly by 33%.).'
 Türschloss: Lock
 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.': 'This rudimentary but efficient system prevents anybody from stealing your property.'
 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.': 'When walls just don''t cut it anymore, a good fence isn''t a luxury, it''s a quality defensive measure.'
-Stauraum: More Storage
+Stauraum: 'More Storage'
 'Deine persönliche Truhe vergrößert sich. ': 'Adds one additional storage compartment each time the upgrade is performed. '
 Verstärkungen: Reinforcements
 'Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.': 'A little bit of DIY from MacGyver here should make it last longer... should. (each level adds one defence point).'
@@ -223,27 +222,26 @@ Hammam: Hammam
 'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.': 'Lots of metal skewers mounted on metal patches to make zombie kebabs when darkness falls...'
 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.': 'A third wall within the existing walls provides an additional layer of protection against the nocturnal hordes...'
 'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.': 'A wall within the existing walls provides an additional layer of protection against the nocturnal hordes...'
-'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!': 'By adding an iron frame to the walls, it''ll be easy to improve them each day, and without much effort!'
 'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.': 'A concrete wall within the existing walls provides an additional layer of protection against the nocturnal hordes...'
+'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!': 'By adding an iron frame to the walls, it''ll be easy to improve them each day, and without much effort!'
 'Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.': 'Metallic supports to reinforce the weaker parts of the wall.'
 'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.': 'Cover a large area of the ground with in shards of sharpened metal and you get the world''s largest cheese grater.'
 'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.': 'Lots of holes surrounding the town which have been covered with branches. Now you just need to wait for something to fall into them...'
 'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.': 'Wooden fences surrounding the town should - in theory - slow down the zombie hordes significantly during the attack...'
-'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': 'Why did nobody think of this before? Instead of wasting your time on personal hygiene, use your soap to make the town walls slippy. Combined with the zombie grater, its ideal, except for the "noise".'
-'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.': 'This certainly isn''t going to improve the looks of the zombies at the gates.'
-'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'Many choose to forget this, but zombies have brains of their own. Sometimes two, if theyre lucky. This is handy: the concentrate projected by this gun has an astonishing capacity for turning brains to sludge.'
 'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..': 'A basic defensive device, but nonetheless one which youll be happy to have when your ex-neighbour Kevo tries to snack on your delicious frontal lobe this evening.'
 'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.': 'Its not particularly advanced, but it does the job: makes you less likely to die.'
 'Simpel aber stabil: Was will man mehr?': 'Basic, but thick. Cant ask for much more really.?'
 'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...': 'Plywood. You only picked up the thing because you had nothing better to do. You know its useless, but you did it anyway. Lets go...'
 'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.': 'It certainly wasnt a genius who came up with this construction project, but in the end everyone agreed that another big wall is never a bad thing.'
+'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': 'Why did nobody think of this before? Instead of wasting your time on personal hygiene, use your soap to make the town walls slippy. Combined with the zombie grater, its ideal, except for the "noise".'
+'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'Many choose to forget this, but zombies have brains of their own. Sometimes two, if theyre lucky. This is handy: the concentrate projected by this gun has an astonishing capacity for turning brains to sludge.'
+'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.': 'This certainly isn''t going to improve the looks of the zombies at the gates.'
 'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).': 'A small hydraulic device designed to spray water vapour (and amusing chemicals too).'
-'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': 'Are you sick of standing in the dust drenched in zombie guts? Tired of tripping over the severed limbs of the zeds you took out? Maybe it''s time to rise above the apocalypse and survey the hordes from on high. The construction of the Battlements will allow you to stand watch over the town at night, while getting a little closer to heaven.'
 'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.': 'Rocket powder, detonators, and clean water are all you need to make a big pile of putrified flesh pulp. A powerful defence, but it can only be used once.'
 'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).': 'Significantly increases the output of the purifier (high performance).'
 'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.': 'Converts water from Jerrycans found in the desert into drinkable water.'
-'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!': 'This is a major scientific breakthrough: by planting sticks of dynamite and watering them carefully, you can grow grenades!'
 'Verbessert die Ausbeute des Gemüsebeets erheblich.': 'Significantly increases the yield of the vegetable plot.'
+'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!': 'This is a major scientific breakthrough: by planting sticks of dynamite and watering them carefully, you can grow grenades!'
 'Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.': 'The vegetable plot can be used to grow vegetables that arent overly mouldy and fruit that starts to rot before it gets ripe. In short, basic rations, if were not being too fussy...'
 'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.': 'This is the last resort when there is no more water: rupture the water table with dynamite to extend the towns reserves.'
 'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.': 'A home made drilling rig which allows the well to be extended deeper into the ground, therefore significantly increasing available reserves...'
@@ -255,11 +253,11 @@ Hammam: Hammam
 'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.': 'This revolutionary defensive device fires powerful jets of water vapor into the ranks of zombies approaching our walls. With some additional adjustments, this will be an exceptionally powerful defence!'
 'Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.': 'When it comes to water, every drop counts. This construction adds +2 rations to the well and can be rebuilt every day.'
 'Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.': 'A nice fine mist to water the beds of zombies growing near the gates'
-'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'An apple tree which looks more like a half-dead scrawny shrub but produces beautiful blue apples. Euh, hang on.. What?'
 'Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?': 'The towns waste water can still be used: all you need to do is to connect every citizens toilet to a cunning network of pipes and toboggans, and open the sluices at midnight. Just to check, everyone has their tent set up correctly, right?'
 'Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.': 'At the start, this was supposed to be a decontamination system. Upon use, however, it was seen to be an effective weapon against our pestilential friends. By adding a squirt of coconut shower gel, you can even perfume the rotting corpses youre responsible for.'
 'Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.': 'A home-made rocket launcher fired into the ground: think about it! As the story goes, the inventor of this construction project was trying to invent the "rocket-jump". All he did was to re-invent "the crater". Nonetheless, this construction adds +60 water rations to the well.'
 'Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.': 'For once, cutting-edge technology does something other than knock off vast quantities of zombies... This construction adds +100 water rations to the well.'
+'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'An apple tree which looks more like a half-dead scrawny shrub but produces beautiful blue apples. Euh, hang on.. What?'
 'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.': 'The pump unlocks all the construction projects involving water. It also increases the wells underground reserves considerably.'
 'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...': 'OK, do we all know what a crematorium is? Do we all also know what a barbecue is? Well then, its easy to guess what purpose a Cremato-Cue serves. In any case, it means we dont die of starvation...well, some of us!'
 'In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...': 'Here you can transform your little companions (dogs, cats, snakes...) into rations. Just think...some crazy people prefer beef!'
@@ -275,26 +273,24 @@ Hammam: Hammam
 'Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.': 'When intelligent citizens meet in the evenings around the fire, great things are invented. Well, on the condition that theyve built an Architecture Study. This building gives the town a (common) construction blueprint every day.'
 'Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.': 'With a little organisation and a solid table, it is possible to keep a detailed account of what is going on in the construction sites.'
 'An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...': 'A cracking gallows for hanging undesirable types when youd rather go a little further than just banishing them from the community... Please note: given the poor standard of construction, the gallows can only be used ONCE, for ONE hanging: they must be rebuilt before they can be used again.'
-'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.': 'An abattoir installed just in front of the town gates, and the entrance is facing the World Beyond. The problem generally lies in finding a volunteer every night to stand in it, waving their arms to entice the zombies in.'
-'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).': 'A major re-structuring of our defences to get the very best out of them (total town defences are increased by +10%).'
 'Das Mittagessen liegt schon lange zurück... Was gibt''s da besseres als eine solide Holzplanke und altbackenes Brot.': 'When its a long time until meal time... Theres nothing like a solid plank of wood and some stale bread.'
 'Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.': 'Between two corpses, the one thats moving has the best chance of eating you, trick the enemy by catapulting your corpses into the carnivorous crowd of shuffling scum! Each body earns +20 defence points instead of +10.'
 'Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.': 'Bring out your dead! For once, theyre going to be useful. Use them to summarily improve our defences. Each dead citizen brought to the cemetary gives +10 defence points to the town. Note: How and where the victim died makes no nevermind...'
-'Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.': 'The canteen increases the production of "kitchens" built by your towns Heroes.'
-'Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.': 'The laboratory increases the production of "personal laboratories" built by your towns Heroes..'
 'Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.': 'If you forgot some time ago what a fried mushroom omelette with bacon and herbs tastes like, this building will be of no use to you. Well, on the plus side youll get some eggs. If you have your heart set on mushrooms, youd best go and talk to the zombies...'
-'Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.': 'In the event of minor accidents or major trauma, the infirmery will welcome you with open arms. Well, on the condition that youre able to carry out any procedures yourself, as the facility doesnt come with medical personnel.'
+'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.': 'An abattoir installed just in front of the town gates, and the entrance is facing the World Beyond. The problem generally lies in finding a volunteer every night to stand in it, waving their arms to entice the zombies in.'
+'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).': 'A major re-structuring of our defences to get the very best out of them (total town defences are increased by +10%).'
+'Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.': 'The canteen increases the production of "kitchens" built by your towns Heroes.'
 'Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.': 'This major building provides the means to build more advanced houses.'
 'Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.': 'The goal of this ambitious urban project is to better incorporate the defences of citizens homes into the towns defences. With this construction, 80% of personal defences will count towards the towns total, instead of the usual 40%.'
+'Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.': 'In the event of minor accidents or major trauma, the infirmery will welcome you with open arms. Well, on the condition that youre able to carry out any procedures yourself, as the facility doesnt come with medical personnel.'
+'Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.': 'The laboratory increases the production of "personal laboratories" built by your towns Heroes..'
 'Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.': 'The advancement of a town depends on the construction of a shabby workshop full of nondescript clutter. It allows resources to be converted and is a pre-requisite for the construction of other more advanced buildings.'
-'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!': 'This upgrade improves the catapult by reducing the number of action points needed to launch items into the World Beyond.'
-'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).': 'The catapult is a special machine which allows you fire all kinds of things into the World Beyond: very useful for preparing the ground for faraway expeditions!'
 'Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.': 'This homemade scanner, if used correctly, makes it twice as easy to obtain an estimation of the magnitude of the forthcoming attack (only requires half as many citizens to use it to obtain a solid estimate)! It is essential if the town is to be run efficiently.'
 'Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...': 'This simple electronic gadget increases the level of detail visible on the map of the World Beyond: the exact number of zombies in each zone can be clearly seen. Invaluable if you dont want to wander mindlessly into feeding time at the zombie zoo....'
 'Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!': 'The predictor is a calculator of sorts, which estimates the magnitude of and works out details relating to the attack. In particular, it gives an estimation of TOMORROWS attack!'
 'Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.': 'Each day, the search tower allows objects to be found in zones which were previously deemed "depleted". It detects unusual meteorological phenomena occurring outside and notes which area has been affected in the Chronicle.'
-'Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.': 'In case of emergency, it is often possible to make it through one more night by patching up the town walls with wood plating.'
 'Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.': 'Installing spiked poles around the town gives some extra defences at minimal cost, but they might just make the difference some nights...'
+'Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.': 'In case of emergency, it is often possible to make it through one more night by patching up the town walls with wood plating.'
 'Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.': 'Setting a variety traps all over the place is a great way to take out large numbers of attacking zombies.'
 'Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!': 'Once you have built a huge pile of rubbish, it is easy to cover it in skewers that are as rusty as they are deadly!'
 'Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.': 'When the proverbial hits the fan, and there''s nothing else for it, just pile up everything that comes to hand, and pray that it slows the Hordes down... The good thing is that you can build some really effective traps into it!'
@@ -302,67 +298,70 @@ Hammam: Hammam
 'Dynamit, Zombies, Blut.': 'Dynamite, Zombies, Blood.'
 'Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.': 'If the situation gets really desperate, you can decide to scream and panic. The advantage of this is that if all the survivors do it, this will disorientate the zombies (who really don''t need that kind of stress) and earns you some virtual defence points... Yeah, it''s a load of nonsense..'
 'Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.': 'Partying is the best way to forget whats going on outside, thankfully the zombies are there to ensure that it doesnt get out of hand.'
-'Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.': 'An agglomeration of damp tissue of over two metres in length, criss-crossed with all sorts of wires and needles. In the powerful hands of the shaman, this XXL doll decimates several zombies before becoming a shapeless, inanimate mass once again..'
-'Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.': 'Using this wicked looking guillotine and crudely constructed mannequin, the shaman can cut off the head of a pack-leader zombie at a distance, causing those who follow it to turn and wander back into the desert.'
-'Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.': 'A spell cast by the shaman causing a disorienting mirage which causes a good number of zombies to get lost in the desert.'
 'Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.': 'A ritualistic dance round a lit fire, to which only the shaman know the technique, creates a small cloud which floats up through the air, and causes a shower of holy water to rain down on the zombie horde.'
+'Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.': 'An agglomeration of damp tissue of over two metres in length, criss-crossed with all sorts of wires and needles. In the powerful hands of the shaman, this XXL doll decimates several zombies before becoming a shapeless, inanimate mass once again..'
+'Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.': 'A spell cast by the shaman causing a disorienting mirage which causes a good number of zombies to get lost in the desert.'
+'Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.': 'Using this wicked looking guillotine and crudely constructed mannequin, the shaman can cut off the head of a pack-leader zombie at a distance, causing those who follow it to turn and wander back into the desert.'
 'Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!': 'To prepare for any eventuality, it is sometimes necessary to build emergency defences which are not destined to last more than one attack. The Emergency Supplies system fulfils this need. Be sure not to waste resources hastily building temporary structures all over the camp!'
-'Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.': 'A fairground shooting alley, not the most mobile of affairs, it always goes down a storm on the ramparts, guaranteed to put a smile on a watchmans face. It gives a +20% bonus to all water weapons used in a nights watch.'
-'Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.': 'This beast-launcher lets you catapult your animal companions a considerable distance so that they can cause even more distress to the attacking horde. Furthermore, the noises made by wingless animals flying at speed is highly entertaining, which will help your fellow watchmen to relax a little.'
+'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!': 'This upgrade improves the catapult by reducing the number of action points needed to launch items into the World Beyond.'
+'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).': 'The catapult is a special machine which allows you fire all kinds of things into the World Beyond: very useful for preparing the ground for faraway expeditions!'
 'Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.': 'This armory is a genuine top trump for watchmen. By building it, every weapon used during the night''s watch will have its effectiveness boosted by 20%!'
 'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!': 'This small store allows all furniture being used on the night''s watch to become 20% more effective. Ah the Swedes... DIY masters of the universe!'
+'Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.': 'A fairground shooting alley, not the most mobile of affairs, it always goes down a storm on the ramparts, guaranteed to put a smile on a watchmans face. It gives a +20% bonus to all water weapons used in a nights watch.'
+'Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.': 'This beast-launcher lets you catapult your animal companions a considerable distance so that they can cause even more distress to the attacking horde. Furthermore, the noises made by wingless animals flying at speed is highly entertaining, which will help your fellow watchmen to relax a little.'
 'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'Building a big, beautiful tower and walkway really makes Hero guardians happy. This construction gives +10 defence points per Guardian in town and allows them to earn even more defence points by exchanging them for AP.'
 'Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).': 'Not so much a tower as a really really long pole of which scouts can climb to the top to discover a building in the World Beyond (Once per day, per Hero)..'
 'Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.': 'This tower, situated near the gates, gives an estimation of the magnitude of the forthcoming attack, allowing the citizens to be better prepared. It also unlocks all construction projects linked to emergency situations.'
-'Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!': 'This Extreme Project seeks to improve the towns defences by restructuring the entire town. Lock down the houses, block the roads, install turrets on all the roofs... Thats the Big Rebuild!'
 'Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.': 'An extreme project which allows large quantities of water to be extracted from the deepest groundwater! This project adds +50 water rations to the well.'
 'Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...': 'Its a well known fact that zombies are a bit simple. If you construct a false second town, some of the attacking horde will try to attack it...'
 'Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!': 'Thanks to this small tap fixed to the well, any water wasted by the filtration system can be recovered (doesnt require any additional water to be taken from the well). You can use this water to refill all water-based weapons (bombs, pistol, etc...) for FREE !'
+'Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!': 'This Extreme Project seeks to improve the towns defences by restructuring the entire town. Lock down the houses, block the roads, install turrets on all the roofs... Thats the Big Rebuild!'
 'Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.': 'This field of scarecrows would work even better with citizens clothing, but that would require turning your town into a nudist colony.'
+'Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.': 'Popular justice in all its glory! When a citizen is shunned they can be sent to the cage, which is judiciously located in plain sight, in front of the gates to the town. Their wailing and crying makes a great lure at midnight. Each shunned citizen sent to the cage earns temporary defence points for the town.'
+'Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.': 'Its a well known fact that Heroes are always correct. Furthermore, to further cement this truth, any complaints registered against other citizens will count twice.'
+'Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.': 'On the rare occasion a construction project benefits citizens directly, we wont complain. All citizens houses will gain +4 defence points.'
 'Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.': 'Allows the destruction of wood at the dump.'
 'Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.': 'Allows the destruction of metal at the dump.'
+'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.': 'Allows the massacre of innocent animals at the dump.'
+'Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...': 'Reduces the cost of using the dump to 0 AP. Make sure not to build this if you still have some potential scoundrels in town...'
 'Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.': 'Allows the destruction of weapons at the dump.'
 'Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.': 'Allows the destruction of food at the dump.'
 'Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.': 'Increases the yield of any defensive objects thrown in the dump.'
 'Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.': 'Increases the yield of any object thrown in the dump by +1 temporary defence point.'
-'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.': 'Allows the massacre of innocent animals at the dump.'
-'Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...': 'Reduces the cost of using the dump to 0 AP. Make sure not to build this if you still have some potential scoundrels in town...'
 'Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).': 'The cornerstone of every great town: a huge stinking dump all around the town. Admittedly, its not very aesthetically pleasing, but it allows you to convert everyday objects into effective temporary defences (for one night only).'
-'Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.': 'Popular justice in all its glory! When a citizen is shunned they can be sent to the cage, which is judiciously located in plain sight, in front of the gates to the town. Their wailing and crying makes a great lure at midnight. Each shunned citizen sent to the cage earns temporary defence points for the town.'
 'Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.': 'This beautiful big lighthouse will illuminate those long winter nights (is it any good in the summer?). All citizens will see their chances of surviving a camping trip improve.'
-'Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.': 'On the rare occasion a construction project benefits citizens directly, we wont complain. All citizens houses will gain +4 defence points.'
+'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.': 'Just because the Crow is good and just, this shrine in its honour liberates all citizens that have been shunned from the town.'
+'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'If theres one thing were not short of here, its sand. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
 'Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.': 'A large bonfire, set on the outskirts of the town to lead the zombies away from our flimsy houses.'
-'Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.': 'Its a well known fact that Heroes are always correct. Furthermore, to further cement this truth, any complaints registered against other citizens will count twice.'
 'Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).': 'The Ministry for Slavers have stated that shunned citizens are allowed to work on construction projects. Furthermore, each AP they invest will contribute an additional 50% bonus to the construction site (eg: 6 AP invested by a shunned citizen, 9 AP are invested in the project).'
-'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.': 'Because the drilling rig obviously cannot break though all rocks, it is sometimes necessary to send small animals strapped with dynamite down the holes. This project adds +150 water rations to the well.'
-'Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.': 'They''re showing Dawn of the Dead for the 636th time, you almost certainly missed the role played by one of the extras the last time you saw it, so watching it one more time wont hurt. With a little luck, it migth even make you laugh..'
-'Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.': 'A large, round balloon floating in the sky, but just for as long as it takes for a "volunteer" citizen to take a note of everything he sees around the town. This building allows you to reveal everything hidden in the World Beyond..'
+'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'This terrifying building came from a soviet submarine and sends powerful bolts of electricity arcing around the town with a deafening crackle. The only "hitch" is that it has to be repaired daily. If it is destroyed, the town and its surroundings are instantly vaporized, wiping everything off the map (where youll be). The label reads: soviet design, assembled in « вшивый ».'
 'Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.': 'It''s a well known fact that zombies are a bit simple. So what better than a maze in front of the gates to lose a few of the horde during the attack? Its really effective, but from now on, any citizen wishing to enter the town will need 1 AP to do so..'
 'Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.': 'Welcome to the last chance saloon! All objects in the bank will be destroyed and each one will provide 1 defence point..'
-'Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.': 'Four magnificent rockets are launched at key targets around the town (north, south, east and west), killing all zombies found nearby in the World Beyond!.'
-'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.': 'There''s nothing quite like a solid firework display to pass the long nights in the desert. This miniature version basically involves pointing the firing tubes at the areas surrounding the town and launching fireworks into the horde at midnight.'
-'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.': 'Just because the Crow is good and just, this shrine in its honour liberates all citizens that have been shunned from the town.'
 'Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'An frighteningly BRD on which the names of all the town residents are engraved. Pointing majestically towards the sky like... euh... A BRD. Nobody knows why, but someone has engraved, "Propriété de la Nuit Profonde" on the base. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town..'
-'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Glory to the Crow! Glory be to their lenience and benevolence! Deliver us from spam and pardon our trolling as we forgive those who have trolled against us. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
 'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'It is indeed a vast and beautiful creation, youve also sunk the best part of our resources into the damn thing, but for some reason youre proud of it. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
-'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'If theres one thing were not short of here, its sand. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
-'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'This terrifying building came from a soviet submarine and sends powerful bolts of electricity arcing around the town with a deafening crackle. The only "hitch" is that it has to be repaired daily. If it is destroyed, the town and its surroundings are instantly vaporized, wiping everything off the map (where youll be). The label reads: soviet design, assembled in « вшивый ».'
+'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.': 'There''s nothing quite like a solid firework display to pass the long nights in the desert. This miniature version basically involves pointing the firing tubes at the areas surrounding the town and launching fireworks into the horde at midnight.'
+'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Glory to the Crow! Glory be to their lenience and benevolence! Deliver us from spam and pardon our trolling as we forgive those who have trolled against us. This wonder shines by the light of its uselessness alone: its construction earns a rare distinction for all the citizens still in town.'
+'Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.': 'They''re showing Dawn of the Dead for the 636th time, you almost certainly missed the role played by one of the extras the last time you saw it, so watching it one more time wont hurt. With a little luck, it migth even make you laugh..'
+'Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.': 'Four magnificent rockets are launched at key targets around the town (north, south, east and west), killing all zombies found nearby in the World Beyond!.'
+'Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.': 'A large, round balloon floating in the sky, but just for as long as it takes for a "volunteer" citizen to take a note of everything he sees around the town. This building allows you to reveal everything hidden in the World Beyond..'
+'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.': 'Because the drilling rig obviously cannot break though all rocks, it is sometimes necessary to send small animals strapped with dynamite down the holes. This project adds +150 water rations to the well.'
 'Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).': 'Foundations allow "Extreme Projects" to be completed (projects which take a long time to complete, but which have very powerful results).'
+'Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.': 'Heavy steel plate fixed to the town gates to add extra zombie-proofing!'
 'Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.': 'The gates close automatically at 22h59 instead of 22h30..'
 'Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.': 'This system uses powerful motorised pistons to automatically close the gates and prevent them from opening again half an hour before the attack.'
-'Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.': 'Heavy steel plate fixed to the town gates to add extra zombie-proofing!'
 'Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!': 'This secret passage allows Heroes to enter and leave the town without using the gates!!'
 'Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.': 'A somewhat old-fashioned device which stops the gates being opened during the 20 minutes immediately before the attack. The gates still have to be closed manually.'
+'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': 'Are you sick of standing in the dust drenched in zombie guts? Tired of tripping over the severed limbs of the zeds you took out? Maybe it''s time to rise above the apocalypse and survey the hordes from on high. The construction of the Battlements will allow you to stand watch over the town at night, while getting a little closer to heaven.'
 'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.': 'Constructed and available for use — A place of relaxation and contemplation perfectly suited for the transition of lost souls to the other side.'
 'Die Verteidigung der Stadt wird um 12% erhöht.': 'The total defence of the town is permanently increased by 12%.'
 'Die Verteidigung der Stadt wird um 14% erhöht.': 'The total defence of the town is permanently increased by 14%.'
-'Zaun (Baustellen)': Wooden Fencing
+'Zaun (Baustellen)': 'Wooden Fencing'
 'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.': 'The building cost (AP) of all construction projects is reduced by 24%.'
 'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.': 'The building cost (AP) of all construction projects is reduced by 28%.'
 'Zaun (Haus)': Fence
-Schokoladenkreuz: Chocolate Cross
+Schokoladenkreuz: 'Chocolate Cross'
 'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...': 'A beautiful cross made of chocolate to place unwanted citizens there rather than just banning them from the community...'
-Straßenbeleuchtung: Public lights
+Straßenbeleuchtung: 'Public lights'
 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.': 'When deep night has come, the dim gleam of lampposts will allow you to continue your desert excavations. No more excuses for going to bed!'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'The reduction in the chance of searchs at night is canceled within a 6 km radius of town, 1 battery is consumed per day.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'The reduction in the chance of searchs at night is canceled within a 10 km radius of town, 1 battery is consumed per day.'

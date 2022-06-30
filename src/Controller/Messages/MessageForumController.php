@@ -313,7 +313,7 @@ class MessageForumController extends MessageController
                                             ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
                                             ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
                                             ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-                , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
+                , $town_citizen->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
 
         if ( !$this->isGranted('ROLE_ELEVATED') && !$forumThreadCreationLimiter->create( $user->getId() )->consume( $forum->getTown() ? 1 : 2 )->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited );
@@ -673,7 +673,7 @@ class MessageForumController extends MessageController
                                                        ($this->citizen_handler->hasStatusEffect($town_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
                                                        ($this->citizen_handler->hasStatusEffect($town_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
                                                        ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-                        , $town_citizen->getTown()->getRealLanguage() ?? $this->getUserLanguage(), $d );
+                        , $town_citizen->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
 
                 $thread->setTitle($title)->setTag($tag);
                 $this->entity_manager->persist($thread);
@@ -867,7 +867,7 @@ class MessageForumController extends MessageController
         $other_forums_raw = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? array_filter($this->perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionModerate), fn(Forum $f) => $f !== $forum ) : [];
         $other_forums = [];
 
-        foreach ( array_merge( [$user->getLanguage()], array_filter(['de','en','es','fr'], function(string $s) use ($user) { return $s !== $user->getLanguage(); }) ) as $lang )
+        foreach ( array_merge( [$user->getLanguage()], array_filter($this->generatedLangsCodes, function(string $s) use ($user) { return $s !== $user->getLanguage(); }) ) as $lang )
             $other_forums[ $this->translator->trans('Weltforum', [], 'global', $lang) . " [$lang]"] = array_filter( $other_forums_raw, function(Forum $f) use($lang) { return $f->getTown() === null && $f->getWorldForumLanguage() === $lang; } );
 
         $other_forums[ $this->translator->trans('Weltforen', [], 'global') ] = array_filter( $other_forums_raw, fn(Forum $f) => $f->getTown() === null && $f->getWorldForumLanguage() === null );
@@ -935,7 +935,8 @@ class MessageForumController extends MessageController
             'username' => $username,
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
-            'tags' => $tags
+            'tags' => $tags,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 
@@ -1181,7 +1182,8 @@ class MessageForumController extends MessageController
             'forum' => true,
             'town_controls' => $thread->getForum()->getTown() !== null,
             'tags' => $tags,
-            'current_tag' => $thread->getTag()
+            'current_tag' => $thread->getTag(),
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 

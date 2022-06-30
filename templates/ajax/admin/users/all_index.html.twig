@@ -57,13 +57,7 @@
                                 ['pre-del', 'Zur Löschung vorgemerkt'|trans({}, 'admin')],
                                 ['del',     'Gelöscht'|trans({}, 'admin')],
                             ], filters ) }}
-                            {{ _self.selectFilter( 'lang', 'Sprache'|trans({},'admin'), [
-                                ['de', 'de' ],
-                                ['en', 'en' ],
-                                ['fr', 'fr' ],
-                                ['es', 'es' ],
-                                ['null', 'null' ],
-                            ], filters ) }}
+                            {{ _self.selectFilter( 'lang', 'Sprache'|trans({},'admin'), langFilter, filters ) }}
                             {{ _self.selectFilter( 'game', 'Inkarnation'|trans({},'admin'), [
                                 ['1', 'Ja'|trans({},'global') ],
                                 ['0', 'Nein'|trans({},'global') ],

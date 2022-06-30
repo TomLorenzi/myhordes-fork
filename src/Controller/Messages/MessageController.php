@@ -83,7 +83,7 @@ class MessageController extends CustomAbstractController
                     ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
                     ($this->citizen_handler->hasStatusEffect($citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
                     ($this->citizen_handler->hasStatusEffect($citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-                , $town->getRealLanguage() ?? $this->getUserLanguage(), $d );
+                , $town->getRealLanguage( $this->generatedLangsCodes ) ?? $this->getUserLanguage(  ), $d );
 
             if ($d) $editable = false;
         }
@@ -170,7 +170,8 @@ class MessageController extends CustomAbstractController
             'type' => 'numb',
             'username' => $user->getName(),
             'target_url' => '',
-            'town_controls' => false
+            'town_controls' => false,
+            'langsCodes' => $this->generatedLangsCodes
         ] );
     }
 }

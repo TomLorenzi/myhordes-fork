@@ -968,7 +968,7 @@ class InventoryAwareController extends CustomAbstractController
         $citizen_zone_cache = [];
         foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone() !== null) {
-                if (!isset($citizen_zone_cache[$citizen->getZone()->getId()])) $citizen_zone_cache = [$citizen];
+                if (!isset($citizen_zone_cache[$citizen->getZone()->getId()])) $citizen_zone_cache[$citizen->getZone()->getId()] = [$citizen];
                 else $citizen_zone_cache[$citizen->getZone()->getId()][] = $citizen;
             }
 

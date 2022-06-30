@@ -106,7 +106,8 @@ class WebController extends CustomAbstractController
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
             'supporters' => $supporters,
-            'ajax_landing' => $ajax_landing
+            'ajax_landing' => $ajax_landing,
+            'langs' => $this->allLangs
         ] );
     }
 
@@ -143,7 +144,28 @@ class WebController extends CustomAbstractController
         if (!$this->isGranted('ROLE_USER'))
             return $this->redirect($this->generateUrl('home'));
 
-        return $this->render( 'web/pm-host.html.twig', $com ? ['command' => $com] : [] );
+        return $this->render( 'web/pm-host.html.twig', $com ? ['command' => $com, 'langs' => $this->allLangs] : ['langs' => $this->allLangs] );
+    }
+
+    /**
+     * @Route("/r/ach", name="revert_ach_language")
+     * @GateKeeperProfile("skip")
+     * @return Response
+     */
+    public function rescue_mode_lang_ach( ): Response
+    {
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+
+        if (!($user = $this->getUser())) return $this->redirect($this->generateUrl('home'));
+        
+        if ($user->getLanguage() === 'ach')
+            $user->setLanguage( $this->getUserLanguage( true ) );
+
+        $this->entity_manager->persist( $user );
+        $this->entity_manager->flush();
+
+        return $this->redirect($this->generateUrl('home'));
     }
 
     /**

@@ -136,6 +136,7 @@ parameters:
         give_all_pictos: true
         give_soulpoints: true
         last_death: ['r_surlst_#00']
+        last_death_day: 5
         survival_picto: null
         free_for_all: false
 
@@ -230,6 +231,7 @@ parameters:
       features:
         last_death:
           merge: ['r_suhard_#00']
+        last_death_day: 6
         survival_picto: 'r_pande_#00'
 
       explorable_ruins: 2
