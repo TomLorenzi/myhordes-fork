@@ -1,7 +1,8 @@
+---
 'Die gewählte Stadt ist bereits voll.': 'Cette ville est déjà pleine.'
 'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'Vous ne pouvez pas rejoindre plus d''une ville à la fois.'
 'Du bist dieser Stadt bereits beigetreten.': 'Vous avez déjà rejoint cette ville.'
-Stadtname: 'Nouvelles villes disponibles'
+Stadtname: Nouvelles villes disponibles
 Aktionen: Action
 'Aktuell gibt es keine Stadt diesen Typs.': 'Aucune ville de ce type n''est actuellement disponible.'
 'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.': 'Les joueurs de cette ville parlent {lang_town}. Vous jouez actuellement en {lang_user}.'
@@ -13,28 +14,32 @@ Aktionen: Action
 'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!': 'Le site MyHordes est actuellement submergé de zombies ! C''est l''assaut quotidien !'
 'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.': 'Impossible de se connecter ou même de s''inscrire... Le site devrait ré-ouvrir d''ici quelques dizaines de minutes.'
 'Und ja, es wird Tote geben...': 'Avec quelques cadavres en plus...'
+'Worauf warten Sie noch?': 'Qu''attendez-vous ?'
 'Privatstadt gründen': 'Créer une ville privée'
-Zugangscode: 'Code d''accès'
-Stadttyp: 'Type de ville'
-Ghule: 'Type de goule'
+'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'Les villes privées vous permettent de jouer facilement entre amis, ou dans le cadre de villes "à thèmes".'
+'Name der Stadt': 'Nom de la ville'
+Zugangscode: Code d'accès
+Stadttyp: Type de ville
+Ghule: Type de goule
 'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'Selon le type de ville sélectionné, les goules apparaissent selon les règles habituelles.'
 Normal: Normal
 'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'Le rythme d''apparition est inchangé mais une goule ne pourra réduire sa voracité qu''en dévorant un citoyen.'
-Blutdurst: 'Soif de sang'
+Blutdurst: Soif de sang
 'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.': 'Les goules n''apparaissent pas automatiquement, mais d''autres choses peuvent transformer les gens en goules.'
 'Stadt der Kuscheltiere': 'Ville de bisounours'
+Wasservorrat: Réserve d'eau
 'Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300': 'Valeur normale comprise entre 100 et 180. Valeur réduite d''un tiers si ville Pandémonium. Valeur maximale à 300.'
 Einstellungen: Réglages
 'XML Feed für diese Stadt deaktivieren': 'Désactiver le flux XML pour cette ville'
-Event-Stadt: 'Ville événement'
-Spezialregeln: 'Règles spéciales'
+Event-Stadt: Ville événement
+Spezialregeln: Règles spéciales
 'Keine Spezialregeln': 'Aucune règle spéciale'
 Keine: Aucune
 'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!': 'Aucun chantier n''est préalablement débloqué, tout est à trouver dans le désert !'
 'Keine Startgebäude': 'Aucun chantier de départ'
 'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.': 'Chaque nourriture ou drogue avalée a une petite chance de provoquer une infection.'
 'Kontaminierte Zone': 'Zone contaminée'
-Stadtmodifikationen: 'Modifications de la ville'
+Stadtmodifikationen: Modifications de la ville
 'Exploration:': 'Exploration :'
 'Begehbare Ruinen aktivieren': 'Active les explorations de bâtiments avancées.'
 'Seelen & Schamane:': 'Âmes & chamans :'
@@ -51,28 +56,21 @@ Stadtmodifikationen: 'Modifications de la ville'
 'Verbesserte Müllhalde:': 'Décharge améliorée :'
 'Verbesserte Müllhalde aktivieren': 'Active la décharge améliorée.'
 'Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt': 'Activer/désactiver des mods de jeu spécifiquement sur cette ville.'
-Angriffe: 'Les attaques'
+Angriffe: Les attaques
 'Stärke der Angriffe': 'Gestion des attaques'
 'Leiche Angriffe': 'Attaques douces'
 'Schwere Angriffe': 'Attaques violentes'
-Achtung!: 'Attention !'
-'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.': 'Si la ville n''est pas remplie dans moins de 2 jours, elle sera annulée.'
-'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?': 'Vous pouvez dès à présent vous incarner dans le monde de MyHordes pour tenter de survivre à nouveau. Qui sait ce qui vous attend dans cette nouvelle vie ?'
-'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'Les villes privées vous permettent de jouer facilement entre amis, ou dans le cadre de villes "à thèmes".'
-Wasservorrat: 'Réserve d''eau'
-'Diese Stadt gründen': 'Créer cette ville'
-Platzreservierung: 'Réserver les places'
-'Worauf warten Sie noch?': 'Qu''attendez-vous ?'
-'Name der Stadt': 'Nom de la ville'
-Spiel-Optionen: 'Options de jeu'
+Spiel-Optionen: Options de jeu
 'Abstimmung aller Piktogramme:': 'Accorder tous les pictos :'
 'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.': 'Accorder l''intégralité des pictos obtenus durant la ville, au lieu d''un tiers.'
 'Seelenpunkte vergeben:': 'Accorder les points d''âme :'
 'Gibt Ihnen Seelenpunkte.': 'Donne les points d''âme obtenus pendant la ville.'
-'Bitte gib das Stadtpasswort ein :': 'Veuillez entrer le mot de passe de la ville :'
-Karten-Seed: 'Seed de la carte'
-'Verkörperung in der Stadt:': 'S''incarner dans la ville :'
-'Verkörpert dich in der Stadt bei ihrer Entstehung': 'S''incarner en ville lors de sa création'
+Achtung!: Attention !
+'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.': 'Si la ville n''est pas remplie dans moins de 2 jours, elle sera annulée.'
+'Diese Stadt gründen': 'Créer cette ville'
+Platzreservierung: Réserver les places
+'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?': 'Vous pouvez dès à présent vous incarner dans le monde de MyHordes pour tenter de survivre à nouveau. Qui sait ce qui vous attend dans cette nouvelle vie ?'
+Karten-Seed: Seed de la carte
 'Der Schamane wird gewählt und die Seelen werden gequält.': 'Le chaman est élu et les âmes deviennent torturées.'
 'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.': 'Le chaman est un métier, les âmes sont transformées à l''atelier.'
 Job: Métier
@@ -82,11 +80,14 @@ Deaktiviert: Désactivé
 'Die Nachtwache ist von Anfang an verfügbar.': 'La veille de nuit est disponible dès le départ.'
 Sofort: Immédiatement
 'Die Nachtwache ist deaktiviert.': 'La veille de nuit est désactivée.'
+'Verkörperung in der Stadt:': 'S''incarner dans la ville :'
+'Verkörpert dich in der Stadt bei ihrer Entstehung': 'S''incarner en ville lors de sa création'
 'Verfügbare Berufe': 'Métiers disponibles'
+'Bitte gib das Stadtpasswort ein :': 'Veuillez entrer le mot de passe de la ville :'
 'Nicht als Privatstadt erstellen:': 'Ne pas créer en tant que ville privée :'
 'Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!': 'La ville n''apparaîtra pas dans la liste des villes privées, mais dans le groupe sélectionné ci-dessus. Cette option n''a aucun effet sur les règles du jeu ou l''attribution de récompenses et de points d''âme !'
 'Kein XML Feed:': 'Pas de flux XML :'
-"Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.\n                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.\n                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !": 'Seed qui permet une génération de map maitrisée. Permet en cas d''events de générer des maps similaires. Mettre un entier positif pour l''activer. PENSER À CHANGER CET ENTIER D''UN EVENT À L''AUTRE !'
+"Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.\n                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.\n                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !": "Seed qui permet une génération de map maitrisée. Permet en cas d'events de générer des maps similaires. Mettre un entier positif pour l'activer. PENSER À CHANGER CET ENTIER D'UN EVENT À L'AUTRE !"
 'Strikte Vergabe von Auszeichnungen:': 'Attribution stricte de récompenses :'
 'Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.': 'L''attribution des prix suit les règles des Régions Non-Éloignées.'
 'Nach 2 Tagen negieren:': 'Annuler après 2 jours :'
@@ -99,7 +100,7 @@ Sofort: Immédiatement
 'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.': 'Vous n''avez pas été actif durant cette partie et avez par conséquent pénalisé les joueurs de votre ville. Attention, si cela se reproduit, vous ne pourrez plus rejoindre de ville pendant plusieurs jours.'
 'Wiedergeburt: Privatstadt gründen': 'Incarnation : Créer une ville privée'
 'Wiedergeburt: Wahl der Partie': 'Incarnation : Choisir une partie'
-Kartengröße: 'Taille de la carte'
+Kartengröße: Taille de la carte
 Automatisch: Automatique
 'Kleine Karte': 'Petite Carte'
 'Normale Karte': 'Carte normale'
@@ -112,8 +113,8 @@ Automatisch: Automatique
 'Eher Zentral': 'Plutôt centrée'
 Zentral: Centrée
 'Spielmodifikationen:': 'Modifications du jeu:'
-Raben-Optionen: 'Options de Corbeau'
-Events: Events
+Raben-Optionen: Options de Corbeau
+Events: Événements
 'Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.': 'Le mode nuit est activé et l''Éclairage public est disponible.'
 Erweitert: Étendu
 'Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.': 'Le mode nuit est activé. L''Éclairage public n''est pas disponible.'
@@ -148,9 +149,9 @@ Einwohnerzahl: Population
 'Zeitzone:': 'Zone de temps :'
 'Die eingestellte Zeit gibt die Dauer des Tages an.': 'L’heure donnée contrôle la durée de la journée.'
 'Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.': 'Si le mode nuit est désactivé, ce paramètre est purement cosmétique.'
-Tagesphase: 'Période de la journée'
+Tagesphase: Période de la journée
 'Die eingestellte Zeit gibt die Dauer der Nacht an.': 'L’heure donnée contrôle la durée de la nuit.'
-Nachtphase: 'Phase nocturne'
+Nachtphase: Phase nocturne
 'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?': 'Cette ville a une restriction d’accès. Les membres de votre coalition ne peuvent pas vous suivre automatiquement si vous entrez dans cette ville. Continuer ?'
 'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?': 'Les membres suivants de votre coalition ne sont pas en mesure de vous suivre dans cette ville. Continuer ?'
 'Spielhilfe ansehen': 'Consulter le guide du jeu !'
@@ -173,7 +174,7 @@ Nachtphase: 'Phase nocturne'
 'Zur Partieauswahl zurückkehren': 'Revenir au choix des parties'
 'Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).': 'Les deux modes chaman sont activés en même temps (expérimental !).'
 Kombiniert: Combiné
-'Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.': "Permet aux joueurs de trouver l’objet «\_Pansement ensanglanté\_» dans des ruines, qui peut être utilisé pour créer des toxines."
+'Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.': 'Permet aux joueurs de trouver l’objet «\_Pansement ensanglanté\_» dans des ruines, qui peut être utilisé pour créer des toxines.'
 'Toxin aktivieren': 'Activer la toxine'
 'Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.': 'Si cette option est activée, les goules nouvellement transformées commencent avec un peu de voracité...'
 'Hungrige Ghule': 'Goules affamées'
