@@ -306,7 +306,8 @@ class TownAddonsController extends TownController
             return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#03', true) ? 5 : 0 );
 
         // Defense
-        if ($proto->hasProperty('defence') && $proto->getName() !== 'tekel_#00' && $proto->getName() !== 'pet_dog_#00' && $proto->getName() !== 'concrete_wall_#00')
+        if ($proto->hasProperty('defence') && $proto->getName() !== 'tekel_#00' && $proto->getName() !== 'pet_dog_#00'
+            && $proto->getName() !== 'concrete_wall_#00' && $proto->getName() !== 'table_#00')
             return ($improved ? 5 : 4) + ( $th->getBuilding($town, 'small_trash_#05', true) ? 2 : 0 );
 
         // Food
