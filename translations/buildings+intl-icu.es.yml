@@ -1,20 +1,21 @@
-Wassergraben: 'Gran charco'
+---
+Wassergraben: Gran charco
 'Großer Graben': 'Zanja periférica'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'La zanja periférica aporta 23 puntos de defensa.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'La zanja periférica aporta 44 puntos de defensa.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.': 'La zanja periférica aporta 76 puntos de defensa.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'La zanja periférica aporta 109 puntos de defensa.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'La zanja periférica aporta 160 puntos de defensa.'
-Rasierklingenmauer: 'Muro de faquir'
-Pfahlgraben: 'Zanja trampa'
+Rasierklingenmauer: Muro de faquir
+Pfahlgraben: Zanja trampa
 Köder: Cebo
-Stacheldraht: 'Alambre de púas'
+Stacheldraht: Alambre de púas
 'Weiterentwickelte Stadtmauer': 'Muralla mejorada'
-'Groooße Mauer': Murazo
-Zackenmauer: 'Muralla con púas'
+'Groooße Mauer': 'Murazo'
+Zackenmauer: Muralla con púas
 'Dritte Schicht': 'Tercera capa'
 'Zweite Schicht': 'Segunda capa'
-Betonschicht: 'Capa de hormigón'
+Betonschicht: Capa de hormigón
 'Entwicklungsfähige Stadtmauer': 'Muralla evolutiva'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'La muralla aporta 85 puntos de defensa.'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'La muralla aporta 120 puntos de defensa.'
@@ -23,81 +24,81 @@ Betonschicht: 'Capa de hormigón'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'La muralla aporta 315 puntos de defensa.'
 'Verstärkende Balken': 'Parches de metal'
 Zombiereibe: Raspa-Zombies
-Fallgruben: 'Trampas clásicas'
+Fallgruben: Trampas clásicas
 Holzzaun: Empalizadas
 Sperrholz: Contrachapado
 'Rüstungsplatten 3.0': 'Tabique grueso'
-Extramauer: 'Muro extra'
-Rüstungsplatten: 'Tabique de madera'
+Extramauer: Muro extra
+Rüstungsplatten: Tabique de madera
 'Rüstungsplatten 2.0': 'Tabique de metal'
-Einseifer: 'Muralla enjabonada'
-Spraykanone: 'Cañón aspirina'
-Säurespray: 'Pulverizador de ácido'
+Einseifer: Muralla enjabonada
+Spraykanone: Cañón aspirina
+Säurespray: Pulverizador de ácido
 Zerstäuber: Vaporizador
-'Verstärkte Stadtmauer': Muralla
-Minen: 'Minas de agua'
-Wasserfilter: 'Filtro de agua'
-Wasserreiniger: 'Purificador de agua'
+'Verstärkte Stadtmauer': 'Muralla'
+Minen: Minas de agua
+Wasserfilter: Filtro de agua
+Wasserreiniger: Purificador de agua
 Dünger: Fertilizante
-Granatapfel: 'Pomelo explosivo'
+Granatapfel: Pomelo explosivo
 Gemüsebeet: Huerta
 'Projekt Eden': 'Proyecto Edén'
 Brunnenbohrer: Taladro
-Kärcher: 'Vaporizador pro'
-'Kreischender Rotor': Prensadora
-Sprinkleranlage: 'Regaderas automáticas'
+Kärcher: Vaporizador pro
+'Kreischender Rotor': 'Prensadora'
+Sprinkleranlage: Regaderas automáticas
 Dusche: Duchas
-Wasserleitungsnetz: 'Red hidráulica'
-Wasserturm: 'Sistema de riego'
+Wasserleitungsnetz: Red hidráulica
+Wasserturm: Sistema de riego
 'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'La defensa de los sistemas de riego se multiplica por 1.8 (126 pts) pero consumen 2 raciones del pozo cada noche.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'La defensa de los sistemas de riego se multiplica por 2.6 (182 pts) pero consumen 4 raciones del pozo cada noche.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'La defensa de los sistemas de riego se multiplica por 3.4 (238 pts) pero consumen 5 raciones del pozo cada noche.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'La defensa de los sistemas de riego se multiplica por 4.2 (294 pts) pero consumen 9 raciones del pozo cada noche.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'La defensa de los sistemas de riego se multiplica por 5 (350 pts) pero consumen 12 raciones del pozo cada noche.'
-Wasserfänger: 'Perforador tectónico'
+Wasserfänger: Perforador tectónico
 Wasserkanone: Manguerazo
 Schleuse: Arroyos
-Wasserfall: 'Cortina de agua'
+Wasserfall: Cortina de agua
 Wünschelrakete: Lanza-cohetes
-Wünschelrute: 'Detector de agua'
+Wünschelrute: Detector de agua
 Apfelbaum: Manzano
-Pumpe: 'Bomba de agua'
+Pumpe: Bomba de agua
 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'Añade 20 raciones de agua al pozo (una sola vez).'
 'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'Añade 30 raciones de agua al pozo (una sola vez).'
 'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'Añade 40 raciones de agua al pozo (una sola vez).'
-Kremato-Cue: 'Cremato bar'
+Kremato-Cue: Cremato bar
 Metzgerei: Carnicería
-Verteidigungsanlage: 'Defensas Max'
+Verteidigungsanlage: Defensas Max
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'Cada objeto de defensa en el Almacén aporta 2 puntos de defensa al pueblo.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'Cada objeto de defensa en el Almacén aporta 2.5 puntos de defensa al pueblo.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'Cada objeto de defensa en el Almacén aporta 3 puntos de defensa al pueblo.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'Cada objeto de defensa en el Almacén aporta 3.5 puntos de defensa al pueblo.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Cada objeto de defensa en el Almacén aporta 4 puntos de defensa al pueblo.'
-Steinkanone: 'Cañón de rocas'
-'Selbstgebaute Railgun': Perforador
-Blechplattenwerfer: 'Lanza láminas'
+Steinkanone: Cañón de rocas
+'Selbstgebaute Railgun': 'Perforador'
+Blechplattenwerfer: Lanza láminas
 'Brutale Kanone': 'Cañón brutal'
 Kanonenhügel: Montículos
 Holzbalkendrehkreuz: Torniquete
 Manufaktur: Fábrica
 'Kreischende Sägen': 'Sierra aulladora'
-Bauhaus: 'Estudio de arquitectos'
+Bauhaus: Estudio de arquitectos
 'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'El pueblo recibirá 4 planos comunes después del ataque (¿y una sorpresa quizás?)'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'El pueblo recibirá 2 planos comunes y 2 inusuales después del ataque (¿y una sorpresa quizás?)'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'El pueblo recibirá 2 planos inusuales y 2 raros después del ataque (¿y una sorpresa quizás?)'
-Baustellenbuch: 'Registro de obras'
+Baustellenbuch: Registro de obras
 Galgen: Horca
-'Kleines Cafe': Cafetería
-Sarg-Katapult: 'Lanza Muertos'
+'Kleines Cafe': 'Cafetería'
+Sarg-Katapult: Lanza Muertos
 'Kleiner Friedhof': 'Defensa post-mortem'
 Hühnerstall: Gallinero
 Schlachthof: Matadero
-Pentagon: 'Soporte de defensas'
-Kantine: 'Cafetería central'
-Bollwerk: 'Protección civil'
-Baumarkt: 'Despacho de vivienda'
+Pentagon: Soporte de defensas
+Kantine: Cafetería central
+Bollwerk: Protección civil
+Baumarkt: Despacho de vivienda
 Krankenstation: Enfermería
-Labor: 'Laboratorio central'
+Labor: Laboratorio central
 Werkstatt: Taller
 'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'Los costos en PA de todas las obras se reducen en 6%.'
 'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'Los costos en PA de todas las obras se reducen en 12%.'
@@ -112,50 +113,50 @@ Forschungsturm: Barómetro
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'Las posibilidades de regeneración de una zona del desierto pasan a 73%.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'Las posibilidades de regeneración de una zona del desierto pasan a 85%.'
 Verteidigungspfähle: Estacas
-Notfallabstützung: 'Barreras de madera'
-Guerilla: 'Trampas de guerrilla'
-Trümmerberg: 'Montículo espinado'
-Abfallberg: 'Montaña de basura'
+Notfallabstützung: Barreras de madera
+Guerilla: Trampas de guerrilla
+Trümmerberg: Montículo espinado
+Abfallberg: Montaña de basura
 Wolfsfalle: Obstáculos
 Sprengfalle: Polvorín
 'Nackte Panik': 'Ataque de pánico'
-Dollhouse: 'Fiesta en casa'
+Dollhouse: Fiesta en casa
 'Heiliger Regen': 'Chaparrón bendito'
-Voodoo-Puppe: 'Muñecaza de vudú'
+Voodoo-Puppe: Muñecaza de vudú
 'Spirituelles Wunder': 'Espejismo místico'
 'Bokors Guillotine': 'Muerte a la Bokor'
-Notfallkonstruktion: 'Defensas de urgencia'
+Notfallkonstruktion: Defensas de urgencia
 'Verbesserter Katapult': 'Catapulta mejorada'
 Katapult: Catapulta
-'Kleine Waffenschmiede': Armería
+'Kleine Waffenschmiede': 'Armería'
 'Schwedische Schreinerei': 'Taller sueco'
-Schießstand: 'Torre de tiro'
-'Kleiner Tribok': Lanza-mascotas
-Wächter-Turm: 'Torre de guardia'
-Krähennest: 'Torre de exploración'
-Wachturm: 'Torre de vigilancia'
+Schießstand: Torre de tiro
+'Kleiner Tribok': 'Lanza-mascotas'
+Wächter-Turm: Torre de guardia
+Krähennest: Torre de exploración
+Wachturm: Torre de vigilancia
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'Cada mañana, revela todas las zonas a 3 km del pueblo.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'Cada mañana, revela todas las zonas a 6 km del pueblo.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'Cada mañana, revela todas las zonas a 10 km del pueblo.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 1km del pueblo.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Revela las zonas a 10 km y además permite ingresar gratuitamente a los habitantes que se encuentren a 2km del pueblo.'
-Bohrturm: 'Extractor mecánico'
+Bohrturm: Extractor mecánico
 'Falsche Stadt': 'Pueblo falso'
 Wasserhahn: Grifería
 'Großer Umbau': 'Mudanza general'
-Vogelscheuche: 'Campo de espantapájaros'
-Fleischkäfig: 'Cajita feliz'
-Bürgergericht: 'Dictadura del héroe'
+Vogelscheuche: Campo de espantapájaros
+Fleischkäfig: Cajita feliz
+Bürgergericht: Dictadura del héroe
 Befestigungen: Fortificaciones
-Holzabfall: 'Vertedero de madera'
-Metallabfall: 'Vertedero de metal'
-Tierabfälle: 'Vertedero de animales'
+Holzabfall: Vertedero de madera
+Metallabfall: Vertedero de metal
+Tierabfälle: Vertedero de animales
 'Müll für Alle': 'Vertedero gratuito'
-Waffenabfall: 'Vertedero de armas'
-Biomüll: 'Vertedero de comida'
-Rüstungsabfall: 'Vertedero de defensas'
+Waffenabfall: Vertedero de armas
+Biomüll: Vertedero de comida
+Rüstungsabfall: Vertedero de defensas
 'Verbesserte Müllhalde': 'Vertedero mejorado'
-Müllhalde: 'Vertedero público'
+Müllhalde: Vertedero público
 Leuchtturm: Faro
 Altar: Altar
 'Riesige Sandburg': 'Gran Castillo de Arena'
@@ -165,37 +166,37 @@ Reaktor: Reactor
 Labyrinth: Laberinto
 'Alles oder nichts': 'Todo o nada'
 'Riesiger KVF': 'Gran COSA'
-Riesenrad: 'Gran noria de Znarf'
-Feuerwerk: 'Fuegos artificiales'
-Krähenstatue: 'Estatua del cuervo'
+Riesenrad: Gran noria de Znarf
+Feuerwerk: Fuegos artificiales
+Krähenstatue: Estatua del cuervo
 Kino: Cine
-Luftschlag: 'Ataque aéreo'
-Heißluftballon: 'Globo aerostático'
-Tunnelratte: 'Extractor con poder animal'
+Luftschlag: Ataque aéreo
+Heißluftballon: Globo aerostático
+Tunnelratte: Extractor con poder animal
 Fundament: Cimientos
-Torpanzerung: 'Refuerzos metálicos'
-Automatiktür: 'Cierre de último minuto'
-Kolbenschließmechanismus: 'Cierre automático'
-Ventilationssystem: 'Conducto de ventilación'
-Portal: 'Seguro para puerta'
+Torpanzerung: Refuerzos metálicos
+Automatiktür: Cierre de último minuto
+Kolbenschließmechanismus: Cierre automático
+Ventilationssystem: Conducto de ventilación
+Portal: Seguro para puerta
 Feldbett: Camastro
 Zelt: Tienda
 Baracke: Cuchitril
 Hütte: Barraca
 Haus: Casa
 'Umzäuntes Haus': 'Casa enrejada'
-'Befestigte Unterkunft': Fuerte
-Bunker: 'Bunker nuclear'
+'Befestigte Unterkunft': 'Fuerte'
+Bunker: Bunker nuclear
 Schloss: Castillo
 'Großer Vorhang': 'Gran cortina'
 'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'Un viejo pedazo de tela manchada. Nada más práctico para ocultar tus objetos de las miradas entrometidas de tus vecinos.'
-Hobbylabor: 'Sótano laboratorio'
+Hobbylabor: Sótano laboratorio
 'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'Un minúsculo agujero que apesta a gato muerto en medio de tu ''sala'', pero donde puedes llevar a cabo tus experimentos científicos (cada nivel aumenta en 25% las posibilidades de obtener una buena sustancia estimulante)...'
 Küche: Cocina
 'In dieser notdürftig zusammengeschraubten Küche können schmackhafte und ''gesunde'' Speisen zubereitet werden.': 'La cocina está equipada con lo más mínimo para preparar raciones de calidad (cada nivel aumenta en 33% las posibilidades de obtener un buen platillo).'
 'Primitives Alarmsystem': 'Alarma rudimentaria'
 'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'Es un sistema muy simple: chatarra y latas unidas por un hilo, pero su eficacia despertando a los demás durante un intento de robo es indiscutible...'
-Ruheecke: 'Rincón para siesta'
+Ruheecke: Rincón para siesta
 'Was hier als ''Ruhe-Ecke'' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.': 'Solo se trata de un hoyo en el suelo cubierto por cartones, pero es muy útil para echarse una siestecilla cuando es necesario (cada nivel aumenta en 33% las posibilidades de dormir bien).'
 Türschloss: Cerrojo
 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.': 'Este sistema rudimentario pero eficaz impedirá que te roben un objeto.'
@@ -222,26 +223,27 @@ Hammam: Hammam
 'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.': 'Hierros puntiagudos colocados sobre las murallas esperando encontrar unas bonitas brochetas de zombies por la mañana.'
 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.': 'Con una tercera capa de materiales, la muralla será mucho más resistente...'
 'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.': 'Una segunda capa de materiales en la muralla mejorará su resistencia a los ataques de esos monstruos.'
-'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.': 'Una capa de hormigón le dará una gran resistencia a la muralla.'
 'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!': 'Colocándole una estructura de metal, podremos mejorar la muralla cada día sin mucho esfuerzo.'
+'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.': 'Una capa de hormigón le dará una gran resistencia a la muralla.'
 'Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.': 'Placas de metal para reforzar las partes débiles de la muralla.'
 'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.': 'Cubriendo el terreno con un montón de trozos de metal afilado construirás el mayor rallador de zombies del mundo.'
 'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.': 'Un montón de hoyos disimulados con telas y tierra. Esperemos a que algún zombie caiga en ellos...'
 'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.': 'Colocadas alrededor del pueblo deberían (en teoría) detener el paso de los zombies durante el ataque.'
+'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': '¿Por qué a nadie se le ocurrió antes? En vez de perder el tiempo lavándose con un jabón, ¿no sería mejor frotarlo contra las paredes del pueblo para que los zombies resbalen al intentar trepar? Eso junto con el raspa-zombies sería muy divertido.'
+'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.': 'Esto no hará que los zombies se vean mejor al entrar al pueblo.'
+'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'Muchos no lo saben pero los zombies tienen un cerebro, y eso es bueno. Este simpático cañón está hecho para hacérselos explotar.'
 'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..': 'Puede parecer muy simple pero estarás contento de tener uno cuando BOSSU, tu antiguo vecino, venga para comerte los sesos.'
 'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.': 'No tiene nada de tecnología, pero te ayudará a seguir vivo.'
 'Simpel aber stabil: Was will man mehr?': 'Más simple, imposible. Pero que protege... protege.'
 'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...': 'Lo colocaste porque no tenías nada mejor que hacer, sabiendo que será inútil, pero insistes. Bueno pues, adelante...'
 'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.': 'Quien tuvo la idea no es precisamente un genio, pero todo el mundo piensa que un muro más no está mal.'
-'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': '¿Por qué a nadie se le ocurrió antes? En vez de perder el tiempo lavándose con un jabón, ¿no sería mejor frotarlo contra las paredes del pueblo para que los zombies resbalen al intentar trepar? Eso junto con el raspa-zombies sería muy divertido.'
-'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'Muchos no lo saben pero los zombies tienen un cerebro, y eso es bueno. Este simpático cañón está hecho para hacérselos explotar.'
-'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.': 'Esto no hará que los zombies se vean mejor al entrar al pueblo.'
 'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).': 'Un pequeño sistema hidráulico concebido para lanzar vapor de agua (y otros productos químicos en él).'
+'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': '¿Te enferma la idea de estar varado en la arena rodeado de zombies? ¿Cansado de viajar entre costillas, carne y puros huesos de zombie? ¡Quizás sea hora de saltar y sobrevivir al apocalipsis desde arriba! La construcción Almenas te permitirá pasar las noches de vigilia como centinela, un poco más cerca del cielo que del infierno.'
 'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.': 'Mezcla pólvora, dispositivos detonadores y agua pura para obtener una enorme sopa de cuerpos putrefactos esta noche. Una defensa potente pero de un solo uso.'
 'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).': 'Aumenta considerablemente la eficacia del purificador. (Producción elevada).'
 'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.': 'Convierte el agua de los bidones encontrados en el desierto en raciones de agua potable. (Producción media).'
-'Verbessert die Ausbeute des Gemüsebeets erheblich.': 'Aumenta considerablemente la producción de tu huerta.'
 'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!': 'La naturaleza nos da sorpresas, a veces explosivas.'
+'Verbessert die Ausbeute des Gemüsebeets erheblich.': 'Aumenta considerablemente la producción de tu huerta.'
 'Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.': 'Cultiva vegetales con aspecto poco comestible y llenos de gusanos. Un manjar.'
 'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.': 'Una solución radical cuando no queda agua: Perforar la capa freática con dinamita para extraer agua del subsuelo.'
 'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.': 'Un taladro artesanal que permitirá encontrar agua más profundo en el suelo y así aumentar las reservas de agua disponibles.'
@@ -253,11 +255,11 @@ Hammam: Hammam
 'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.': 'Este revolucionario sistema proyecta poderosos chorros de vapor de agua sobre las turbas de zombies que se acerquen a tus murallas. ¡Con algunos ajustes adicionales, será una defensa excepcional!'
 'Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.': 'Cuando se trata de agua cada gota cuenta. Esta construcción extrae agua de las profundidades y aporta +2 raciones al pozo y puede ser reconstruido cada día.'
 'Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.': 'Esos hediondos zombies necesitan un chorrito de agua.'
+'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'El pobre árbol está muy seco pero produce unas bonitas manzanas azules... Ehh... ¡¿Azules?!'
 'Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?': 'Las aguas residuales del pueblo pueden servir aún. Basta con conectar los inodoros de cada habitante a un ingenioso sistema de tubos y abrir las válvulas durante el ataque. Por favor, no tirar el papel en el inodoro, puede tapar las canalizaciones y causar una explosión.'
 'Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.': 'Era usado como decoración en algún restaurante japonés, pero aquí sirve para hacer mucho daño a los amigos zombies.'
 'Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.': 'La innovación: apunta hacia el suelo. Surgió como muchos inventos de un error. Alguien quiso salir del pueblo propulsado por un cohete, la máquina giró hacia abajo y terminó con la cabeza metida en un río subterráneo.'
 'Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.': 'Añade +100 raciones de agua al pozo.'
-'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'El pobre árbol está muy seco pero produce unas bonitas manzanas azules... Ehh... ¡¿Azules?!'
 'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.': 'No, no es de las que explotan, sino de las que bombean. Este dispositivo libera todas las construcciones relacionadas con agua. También aumenta las reservas subterráneas del pozo.'
 'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...': 'Bueno, todos sabemos lo que es un crematorio, todos sabemos lo que es una barbacoa. Entonces es fácil adivinar la función de este lugar. Ahora dejadnos comer...'
 'In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...': 'Permite transformar a tus fieles amigos (gatos, perros, serpientes...) en raciones. Y pensar que algunos prefieren ser vegetarianos...'
@@ -273,24 +275,26 @@ Hammam: Hammam
 'Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.': 'Cuando los habitantes más inteligentes se reúnen grandes ideas surgen. Para eso es necesario una oficina. Este lugar le permite al pueblo recibir un plano de construcción (simple) cada día en el Almacén.'
 'Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.': 'Organización y una buena mesa bastan para tener un registro preciso de todo lo que sucede en las obras.'
 'An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...': '¿Para qué contentarse con desterrar a los habitantes indeseables si podemos darnos el gusto de colgarlos? Dijo alguien por ahí. Fue así que se construyó esta bonita horca. Atención: Dado que la estructura no es muy estable, solo puede ser usada UNA VEZ y para UNA PERSONA. Después habrá que construir otra de nuevo.'
+'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.': 'Un matadero instalado junto al portal y cuya entrada da hacia el Ultramundo. El inconveniente es siempre encontrar alguien que se atreva a atraer a los zombies agitando los brazos.'
+'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).': 'Una estructura mejorada para aumentar la eficacia de las defensas (las defensas totales del pueblo aumentan +10%).'
 'Das Mittagessen liegt schon lange zurück... Was gibt''s da besseres als eine solide Holzplanke und altbackenes Brot.': 'Nada mejor que una tabla de madera para comer un trozo de pan seco, imaginando que es uno de esos buenos restaurantes que solías frecuentar.'
 'Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.': 'Sirve para lanzar un montón de cosas al Ultramundo. Ideal para abastecer las expediciones en el desierto.'
 'Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.': '¡Traed aquí todos vuestros muertos! Usad sus cuerpos para reforzar las defensas. Cada cadáver da +10 puntos de defensa al pueblo. ¡Ja! Algunos compañeros son más útiles muertos que vivos.'
-'Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.': 'Si extrañas el sabor de las buenas tortillas con champiñones, tocino y tomates, esta construcción no te servirá. Bueno, los huevos sí tendrás. Si quieres hongos, será mejor pedírselos a los zombies allá afuera.'
-'Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.': 'Un matadero instalado junto al portal y cuya entrada da hacia el Ultramundo. El inconveniente es siempre encontrar alguien que se atreva a atraer a los zombies agitando los brazos.'
-'Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).': 'Una estructura mejorada para aumentar la eficacia de las defensas (las defensas totales del pueblo aumentan +10%).'
 'Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.': 'Mejora la producción de las "cocinas personales" construidas por los Héroes de tu pueblo.'
+'Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.': 'Mejora la producción de los "laboratorios personales" construidos por los Héroes de tu pueblo.'
+'Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.': 'Si extrañas el sabor de las buenas tortillas con champiñones, tocino y tomates, esta construcción no te servirá. Bueno, los huevos sí tendrás. Si quieres hongos, será mejor pedírselos a los zombies allá afuera.'
+'Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.': 'En caso de pequeñas heridas o los traumatismos irreparables, podrás acudir aquí. Pero tendrás que coserte para cerrar tus heridas tú mismo porque el personal no está incluido.'
 'Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.': 'Te provee las estructuras necesarias para construir casas individuales más avanzadas.'
 'Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.': 'Este ambicioso proyecto tiene por objetivo reforzar nuestras defensas ubicando mejor las viviendas de los habitantes. Con esta construcción, 80% de las defensas personales cuentan para el pueblo, en lugar del 40% habitual.'
-'Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.': 'En caso de pequeñas heridas o los traumatismos irreparables, podrás acudir aquí. Pero tendrás que coserte para cerrar tus heridas tú mismo porque el personal no está incluido.'
-'Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.': 'Mejora la producción de los "laboratorios personales" construidos por los Héroes de tu pueblo.'
 'Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.': 'El progreso de tu pueblo depende de la construcción de un sucio y desordenado taller. Es indispensable para construir los edificios avanzados.'
+'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!': 'Algunas mejoras técnicas reducen el costo en PA para lanzar un objeto.'
+'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).': 'Sirve para lanzar un montón de cosas al Ultramundo. Ideal para abastecer las expediciones en el desierto.'
 'Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.': 'Este radar casero (si es bien utilizado) permite reducir a la mitad la dificultad de calcular el ataque nocturno. Se requieren 2 veces menos habitantes para obtener un pronóstico. ¡Muy útil!'
 'Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...': 'Estos ajustes electrónicos mejoran la lectura del mapa del Ultramundo. La cantidad exacta de zombies en cada zona es visible más claramente. Indispensable para no hacerse atrapar tontamente.'
 'Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!': 'Es una maquinita muy especial que te brinda una estimación más o menos acertada de los ataques... del DÍA SIGUIENTE.'
 'Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.': 'Detecta los fenómenos meteorológicos anormales que sacuden el desierto y en la noche indica en el boletín la región del desierto afectada. Así, te ayudará cada día a encontrar objetos en zonas consideradas como "agotadas".'
-'Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.': 'Plantar estacas de madera afiladas alrededor del pueblo es una alternativa de bajo coste, pero que puede ser decisiva como defensa, a veces...'
 'Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.': 'En caso de peligro siempre es bueno colocar algunas barreras de madera en varios lugares.'
+'Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.': 'Plantar estacas de madera afiladas alrededor del pueblo es una alternativa de bajo coste, pero que puede ser decisiva como defensa, a veces...'
 'Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.': 'Colocar una variedad de trampas en varios lugares es una buena manera de diezmar el ataque de los zombies.'
 'Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!': 'Cuando tienes un montículo formado, es fácil colocarle puntas tan oxidadas como mortales.'
 'Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.': 'Cuando todo parece estar perdido, forma una barrera con todo lo que encuentres y cruza los dedos para que detenga a los zombies. También te da la ventaja de poder colocar trampas dentro de ella.'
@@ -298,70 +302,67 @@ Hammam: Hammam
 'Dynamit, Zombies, Blut.': 'Dinamita, zombies, sangre.'
 'Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.': 'En una situación realmente desesperada, puedes por supuesto chillar como un loco. Lo bueno es que si todos hacen lo mismo, los zombies quedarán desconcertados y ganaréis algunos puntos de defensa... Una vergonzosa manera de defenderse, ¿no crees?'
 'Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.': 'Armar una buena parranda es una buena manera de olvidar lo que sucede afuera. Afortunadamente los zombies no tardarán en llegar para poner un poco de orden.'
-'Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.': 'Un ritual que consiste en una danza alrededor de un fuego encendido. Solo el chamán conoce su secreto. Crea una nube que flota en el aire y hace que una lluvia de agua bendita caiga sobre la horda de zombis.'
 'Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.': 'Una estructura de lana mohosa de más de 2 metros de altura, cubierto con cuerdas y agujas. En las manos del chamán, este muñeco XXL derriba a varios zombis antes de convertirse en una masa inmóvil de nuevo.'
-'Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.': 'El Chamán crea una ilusión del pueblo. Como resultado, un gran número de zombis irán hacia allá.'
 'Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.': 'Con la ayuda de una Guillotina diabólica y un maniquí provisional, el Chamán puede cortar la cabeza del líder de la horda de los zombis a distancia. Todos los zombis que lo siguen no sabrán continuar el camino y se quedarán vagando por el desierto.'
+'Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.': 'El Chamán crea una ilusión del pueblo. Como resultado, un gran número de zombis irán hacia allá.'
+'Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.': 'Un ritual que consiste en una danza alrededor de un fuego encendido. Solo el chamán conoce su secreto. Crea una nube que flota en el aire y hace que una lluvia de agua bendita caiga sobre la horda de zombis.'
 'Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!': 'Cuando el peligro es inminente, a veces es necesario construir defensas capaces de resistir solo una noche. ¡Pero evita despilfarrar recursos del pueblo construyendo obras temporales por doquier!'
-'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!': 'Algunas mejoras técnicas reducen el costo en PA para lanzar un objeto.'
-'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).': 'Sirve para lanzar un montón de cosas al Ultramundo. Ideal para abastecer las expediciones en el desierto.'
-'Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.': 'Esta armería será de gran utilidad para los centinelas, construyendo esto, cada arma utilizada por ellos recibirá una eficacia adicional de 20%'
-'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!': 'Esta tienda hará que todos tus materiales ganen 20% de eficacia. ¡Los suecos son unos genios!'''
 'Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.': 'Una torre de tiro de globos de agua en la muralla será la parte más divertida de ser centinela.'
 'Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.': 'Con este lanzador podrás utilizar a tus amigos animales como proyectiles para distraer a las hordas de zombies. Además, el ruido que hacen los animales volando por los aires servirá para animar a todo el pueblo.'
+'Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.': 'Esta armería será de gran utilidad para los centinelas, construyendo esto, cada arma utilizada por ellos recibirá una eficacia adicional de 20%'
+'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!': 'Esta tienda hará que todos tus materiales ganen 20% de eficacia. ¡Los suecos son unos genios!'''
 'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'La instalación de una gran y bella torre central hará muy felices a los Héroes Guardianes. Esta construcción da +10 puntos de defensa por guardián en el pueblo y les permite aportar aún más defensas a cambio de PA.'
 'Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).': 'No es realmente una torre, es más bien un gran poste, a cuya cima todo Explorador puede trepar para detectar un edificio en el Ultramundo (1 vez por día y por Héroe).'
 'Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.': 'Situada cerca de la entrada permite tener una estimación del ataque de los zombies para que los habitantes estén mejor preparados. Libera igualmente todas las construcciones relacionadas a situaciones de urgencia.'
+'Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!': 'Este proyecto delirante pretende reestructurar el pueblo entero: juntar las casas, desaparecer las calles, instalar torres sobre los techos... ¡Qué genios!'
 'Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.': 'Permite extraer una gran cantidad de agua de las capas freáticas más profundas. Aporta 50 de raciones de agua al pozo.'
 'Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...': 'Los zombies pueden ser a veces tan tontos... Si construyes un pueblo falso en otro lugar, desviarás una buena parte del ataque hacia allá.'
 'Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!': 'Con esta válvula unida al pozo, podrás recuperar el agua desperdiciada por el sistema de filtrado (sin extraer agua potable) y usarla para llenar GRATUITAMENTE todas tus armas de agua.'
-'Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!': 'Este proyecto delirante pretende reestructurar el pueblo entero: juntar las casas, desaparecer las calles, instalar torres sobre los techos... ¡Qué genios!'
 'Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.': 'Todos esos espantapájaros funcionarían mejor si llevaran la ropa de los habitantes, pero eso sería convertir al pueblo en un campo de nudistas.'
-'Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.': 'La justicia popular es el pilar de la democracia en tu pueblo. Cuando un compañero es desterrado, es enviado a una jaula situada estratégicamente a la vista de todos en la entrada del pueblo. Sus gritos servirán para atraer a los zombies. Cada desterrado colocado ahí aumenta la defensa temporal del pueblo.'
-'Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.': 'El Héroe siempre tiene la razón, eso todos lo saben. Para que quede claro, las denuncias que ellos hacen contra otros habitantes cuentan doble.'
-'Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.': '¡Por fin! Una construcción que beneficia directamente a los habitantes. Todas las viviendas reciben +4 de defensa.'
 'Ermöglicht die fachgerechte Entsorgung von Holz auf der Müllhalde.': 'Permite la destrucción de madera en el vertedero.'
 'Ermöglicht die fachgerechte Entsorgung von Metall auf der Müllhalde.': 'Permite la destrucción de metal en el vertedero.'
-'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.': 'Permite sacrificar animales inocentes en el vertedero.'
-'Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...': 'Reduce el coste del uso del vertedero a 0 PA. Cuidado con construir esto en tu pueblo si hay canallas en él, podrían arruinar vuestras... bueno, ya lo veréis.'
 'Ermöglicht die fachgerechte Entsorgung von Waffen auf der Müllhalde.': 'Permite la destrucción de armas en el vertedero.'
 'Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.': 'Permite la destrucción de comida en el vertedero.'
 'Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.': 'Aumenta el rendimiento de los objetos de defensa tirados al vertedero.'
 'Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.': 'Aumenta el rendimiento de todos los objetos tirados al vertedero en +1 puntos de defensa temporal.'
+'Ermöglicht das fachgerechte Massakrieren unschuldiger Tiere auf der Müllhalde.': 'Permite sacrificar animales inocentes en el vertedero.'
+'Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...': 'Reduce el coste del uso del vertedero a 0 PA. Cuidado con construir esto en tu pueblo si hay canallas en él, podrían arruinar vuestras... bueno, ya lo veréis.'
 'Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).': 'Montañas y montañas de desechos alrededor del pueblo. No será muy agradable para los turistas, pero te permite transformar objetos simples en defensas temporales (válidas por una sola noche).'
+'Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.': 'La justicia popular es el pilar de la democracia en tu pueblo. Cuando un compañero es desterrado, es enviado a una jaula situada estratégicamente a la vista de todos en la entrada del pueblo. Sus gritos servirán para atraer a los zombies. Cada desterrado colocado ahí aumenta la defensa temporal del pueblo.'
 'Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.': 'Este magnífico faro iluminará tus largas noches de angustia. Las probabilidades de sobrevivir aumentan para todos los habitantes campistas.'
-'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.': 'El Cuervo estará tan complacido con este altar en su honor que liberará de su condena a todos los habitantes desterrados del pueblo.'
-'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
+'Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.': '¡Por fin! Una construcción que beneficia directamente a los habitantes. Todas las viviendas reciben +4 de defensa.'
 'Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.': 'Una gran fogata lejos del pueblo para despistar a los zombies de nuestras humildes casas.'
+'Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.': 'El Héroe siempre tiene la razón, eso todos lo saben. Para que quede claro, las denuncias que ellos hacen contra otros habitantes cuentan doble.'
 'Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).': 'Desde aquí es posible hacer que los desterrados trabajen en las construcciones. Los PA que ellos invierten hacen ganar +50% de PA adicionales a las obras. Por ejemplo: Por 6 PA invertidos, el proyecto gana 9.'
-'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'Esta horrenda máquina proviene de un submarino de la Guerra Fría y lanza poderosos rayos eléctricos alrededor del pueblo con un ruido ensordecedor. El único inconveniente es que debe ser reparado diariamente. Si es destruido, todo el pueblo y sus alrededores quedarán hechos polvo, matando a todos estén donde estén. La etiqueta dice: Diseñado en la Unión Soviética, armado en « вшивый ».'
+'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.': 'Porque el extractor de agua no puede atravesar algunas rocas, es a veces útil enviar pequeños animales con dinamita por los conductos. Esta construcción aporta +150 raciones de agua al pozo.'
+'Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.': 'Proyectamos por milésima vez "Down of the Dead" por si no viste algunos detalles. Con un poco de suerte hasta te hará reír.'
+'Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.': 'Un inmenso globo que se eleva hasta el cielo, el tiempo suficiente para que un "voluntario" pueda observar y anotar todo lo que hay alrededor del pueblo. Esta construcción permite revelar la totalidad del Ultramundo.'
 'Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.': 'Los zombies son malos pero también un poco tontos a veces. ¿Qué tal si hacemos un pequeño laberinto en la entrada del pueblo para que se pierdan durante el ataque? Es muy eficaz, pero cada habitante que desee entrar al pueblo deberá gastar 1 PA desde ese momento.'
 'Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.': 'Es el colmo de la desesperación. Todos los objetos del Almacén serán destruidos y cada uno dará +1 punto de defensa temporal.'
-'Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Una inmensa construcción en la que están grabados todos los nombres de los habitantes del pueblo. Sus iniciales C.O.S.A son un misterio. Tampoco nadie puede explicar la frase que figura en su base: ''''Antro de la Noche Profunda''''. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
-'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
-'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.': 'Nada más bello que un buen espectáculo de fuegos artificiales en el desierto. La variación que aplicamos es que orientamos los tubos hacia el exterior del pueblo, más precisamente hacia las turbas de zombies.'
-'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': '¡Gloria al Cuervo! Gloria a su benevolencia. Líbranos del spam y perdona a los trolls como nosotros perdonamos a quienes nos han trolleado. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
-'Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.': 'Proyectamos por milésima vez "Down of the Dead" por si no viste algunos detalles. Con un poco de suerte hasta te hará reír.'
 'Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.': 'Cuatro cohetes serán lanzados hacia los cuatro puntos cardinales alrededor del pueblo (norte, sur, este y oeste) masacrando a todos los zombies que se encuentren ahí.'
-'Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.': 'Un inmenso globo que se eleva hasta el cielo, el tiempo suficiente para que un "voluntario" pueda observar y anotar todo lo que hay alrededor del pueblo. Esta construcción permite revelar la totalidad del Ultramundo.'
-'Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.': 'Porque el extractor de agua no puede atravesar algunas rocas, es a veces útil enviar pequeños animales con dinamita por los conductos. Esta construcción aporta +150 raciones de agua al pozo.'
+'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.': 'Nada más bello que un buen espectáculo de fuegos artificiales en el desierto. La variación que aplicamos es que orientamos los tubos hacia el exterior del pueblo, más precisamente hacia las turbas de zombies.'
+'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.': 'El Cuervo estará tan complacido con este altar en su honor que liberará de su condena a todos los habitantes desterrados del pueblo.'
+'Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Una inmensa construcción en la que están grabados todos los nombres de los habitantes del pueblo. Sus iniciales C.O.S.A son un misterio. Tampoco nadie puede explicar la frase que figura en su base: ''''Antro de la Noche Profunda''''. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
+'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': '¡Gloria al Cuervo! Gloria a su benevolencia. Líbranos del spam y perdona a los trolls como nosotros perdonamos a quienes nos han trolleado. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
+'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
+'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.': 'Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una Distinción rarísima a todos los habitantes del pueblo.'
+'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».': 'Esta horrenda máquina proviene de un submarino de la Guerra Fría y lanza poderosos rayos eléctricos alrededor del pueblo con un ruido ensordecedor. El único inconveniente es que debe ser reparado diariamente. Si es destruido, todo el pueblo y sus alrededores quedarán hechos polvo, matando a todos estén donde estén. La etiqueta dice: Diseñado en la Unión Soviética, armado en « вшивый ».'
 'Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).': 'Los cimientos permiten la construcción de Proyectos Delirantes (aquellos que exigen mucho trabajo pero que resultan ser muy poderosos).'
-'Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.': 'Placas de metal clavadas sobre el Portal para mejorar su resistencia.'
 'Das Stadttor schließt sich selbsttätig um 23:59 anstatt 23:30.': 'El Portal se cierra automáticamente un minuto antes del ataque.'
 'Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.': 'Gracias a un sistema de pistones, este sistema cierra automáticamente el Portal y bloquea su apertura media hora antes del ataque.'
+'Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.': 'Placas de metal clavadas sobre el Portal para mejorar su resistencia.'
 'Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!': 'Un pasaje secreto permite a los Héroes entrar y salir del pueblo sin pasar por el Portal.'
 'Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.': 'Un sistema muy rústico que impide la apertura del Portal 20 minutos antes del ataque zombie. El Portal deberá sin embargo ser cerrado manualmente.'
-'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': '¿Te enferma la idea de estar varado en la arena rodeado de zombies? ¿Cansado de viajar entre costillas, carne y puros huesos de zombie? ¡Quizás sea hora de saltar y sobrevivir al apocalipsis desde arriba! La construcción Almenas te permitirá pasar las noches de vigilia como centinela, un poco más cerca del cielo que del infierno.'
 'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.': 'Un lugar de calma y relajación, especialmente preparado para favorecer la transición de las almas hacia el otro lado.'
 'Die Verteidigung der Stadt wird um 12% erhöht.': 'Las defensas del pueblo aumentan en 12% (+2%)'
 'Die Verteidigung der Stadt wird um 14% erhöht.': 'Las defensas del pueblo aumentan en 14% (+2%)'
-'Zaun (Baustellen)': 'Valla de madera'
+'Zaun (Baustellen)': Valla de madera
 'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.': 'Los costos en PA de todas las obras se reducen en 24%. Aumenta la efectividad de las reparaciones en un punto.'
 'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.': 'Los costos en PA de todas las obras se reducen en 28%. Aumenta la efectividad de las reparaciones en dos puntos.'
 'Zaun (Haus)': Valla
-Schokoladenkreuz: 'Cruz de chocolate'
+Schokoladenkreuz: Cruz de chocolate
 'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...': 'Una hermosa cruz hecha de chocolate para colocar a los habitantes no deseados allí en lugar de simplemente desterrarlos de la comunidad...'
-Straßenbeleuchtung: 'Alumbrado público'
+Straßenbeleuchtung: Alumbrado público
 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.': 'Cuando llegue la oscuridad de la noche, los pálidos destellos de las farolas te permitirán continuar tus excavaciones en el desierto. No más excusas para irse a la cama.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 6 km alrededor del pueblo, se consume 1 batería por día.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'La reducción de las posibilidades de búsqueda nocturna se anula en un radio de 10 km alrededor del pueblo, se consume 1 batería por día.'
