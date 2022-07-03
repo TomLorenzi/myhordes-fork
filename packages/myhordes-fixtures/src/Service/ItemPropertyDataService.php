@@ -88,7 +88,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'drug_random_#00'            => [ 'drug' ],
             'beta_drug_bad_#00'          => [ 'impoundable', 'drug' ],
             'beta_drug_#00'              => [ 'impoundable', 'drug' ],
-            'xanax_#00'                  => [ 'impoundable', 'drug', 'hero_find_lucky' ],
+            'xanax_#00'                  => [ 'drug', 'hero_find_lucky' ],
             'drug_water_#00'             => [ 'drug' ],
             'bandage_#00'                => [ 'impoundable', 'drug' ],
             'pharma_#00'                 => [ 'impoundable', 'drug' ],
