@@ -588,7 +588,7 @@
                         <div class="padded cell rw-4">{{ 'Kosten'|trans({},'game') }}</div>
                     {% endif %}
                 </div>
-                {% for id,upgrade in upgrades %}
+                {% for id,upgrade in upgrades|sort((a,b) => a.label|trans({},'buildings') <=> b.label|trans({},'buildings')) %}
                     {# @var upgrade \App\Entity\CitizenHomeUpgradePrototype #}
                     <div class="row {% if upgrade_levels[id] != 0 %}highlight{% endif %}">
                         <div class="padded cell {% if home.citizen.profession.heroic %}rw-8{% else %}rw-12{% endif %}">
@@ -606,11 +606,13 @@
                                         <span class="small">{% trans from 'game' %}Erfordert{% endtrans %}:</span><br/>
                                         {% if costs.ap > 0 %}
                                             <div class="ap">{{ costs.ap }}</div>
+                                            {% if costs.resources %}<b class="small">+</b>{% endif %}
                                         {% endif %}
                                         {% if costs.resources %}
                                             {% for res in costs.resources.entries %}
                                                 {# @var res \App\Entity\ItemGroupEntry #}
                                                 <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif') }}" />
+                                                {% if not loop.last %}<b class="small">+</b>{% endif %}
                                             {% endfor %}
                                         {% endif %}
                                         <p><button x-upgrade-id="{{ id }}" {% if devastated %}disabled{% endif %}>

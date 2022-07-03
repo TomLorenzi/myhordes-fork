@@ -630,7 +630,7 @@
                                     document.getElementById('pm-selected-users').append(li)
                                     document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]>span').addEventListener('click', () => li.remove());
                                 }
-
+                                document.getElementById('pm-users-list').innerHTML = ''
                                 searchBox.value = '';
                             });
                             if (enterPressed) document.querySelector( '#pm-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );

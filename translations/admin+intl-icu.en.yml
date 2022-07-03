@@ -1,5 +1,4 @@
-Verbannung: Banishment
-Bürger: Citizen
+'Diesen Bürger töten?': 'Kill this citizen?'
 Status: Status
 Dauer: Duration
 Grund: Reason
@@ -13,7 +12,8 @@ Forum: Forum
 Autor: Author
 'gemeldet von': 'reported by'
 Gesehen: Seen
-'Diesen Bürger töten?': 'Kill this citizen?'
+Verbannung: Banishment
+Bürger: Citizen
 'Suche:': 'Search:'
 Account: Account
 Benutzername: Username
@@ -40,7 +40,12 @@ Ausführen: Execute
 Übersicht: Overview
 'Posts mit nur einer Meldung werden ausgeblendet.': 'Posts with only one message are hidden.'
 'Alle anzeigen': 'View all'
+Users: Users
+Städte: Towns
+Zukunft: Updates
+Auszeichnungen: Distinctions
 Admin-Wachturm: 'Admin Watchtower'
+Ruinenscanner: 'Ruin scanner'
 ID: ID
 Stadtname: 'Town''s name'
 Sprache: Language
@@ -56,21 +61,6 @@ Brunnen: 'Well rations'
 Angriff: Attack
 'Bereich Min': Minimum
 'Bereich Max': Maximum
-Stadtübersicht: 'Town Overview'
-'Liste aller Städte': 'Towns'' list'
-Pop.: Pop.
-Aktionen: Actions
-Tot: Deaths
-Getrennt: Headshotted
-Details: Details
-Users: Users
-Städte: Towns
-Zukunft: Updates
-Titel: Title
-Version: Update
-'Neue Update': 'New Update'
-Auszeichnungen: Distinctions
-Ruinenscanner: 'Ruin scanner'
 Position: Position
 Distanz: Distance
 Zombies: Zombies
@@ -82,8 +72,18 @@ Flucht: Escape
 Raum: Room
 Zeit: Time
 'Alle Sitzungen': 'All sessions'
-'Admin Dashboard': 'Admin dashboard'
+Stadtübersicht: 'Town Overview'
+'Liste aller Städte': 'Towns'' list'
+Pop.: Pop.
+Aktionen: Actions
+Tot: Deaths
+Getrennt: Headshotted
+Details: Details
+Titel: Title
+Version: Update
+'Neue Update': 'New Update'
 'Dieser Login ist ausschließlich für Administratoren gedacht.': 'This login is only for Administrators!'
+'Admin Dashboard': 'Admin dashboard'
 'Geplante Angriffe': 'Planned attacks'
 'Überfällig seit {s} Sekunden!': 'Overdue for {s} seconds!'
 'Soldatenberuf freischalten': 'Unlock military profession'
@@ -93,12 +93,12 @@ Zeit: Time
 '+ 9999 Seelenpunkte': '+ 9999 soul points'
 'Geheime Saison freischalten': 'Unlock Secret Season'
 'Computer sagt nein.': 'You shall not PASS !!'
-Stadtregister: 'Town registry'
 'Du hast dich umgebracht.': 'You terminated your miserable existence.'
 'Du gehörst keiner Stadt an.': 'You do not belong to a town.'
 'Selbstmord begehen': 'Commit Suicide'
-'Rundmail als Rabe': 'Global message as Crow'
 'PM vom Raben': 'PM from The Crow'
+Stadtregister: 'Town registry'
+'Rundmail als Rabe': 'Global message as Crow'
 'Stadt administrieren': 'Town administration'
 'Nächtlicher Angriff': 'Night attack'
 'Quarantäne aufheben': 'Remove quarantine'
@@ -122,16 +122,16 @@ Berechtigungen: Permissions
 Verdacht: Suspicion
 'Andere Accounts': 'Other accounts'
 Bann: Ban
+Verwaltung: Administration
+Annulieren: 'Abort town'
 Verschüttet: Buried
 'Multi-Account Whitelist': 'Multi-account whitelist'
 Spieler-ID: 'Player ID'
 'Multi-Account Whitelist-Eintrag hinzufügen': 'Add multi-account whitelist entry'
+'Verwende folgende Syntax, um deine Suche zu spezifizieren:': 'Use the following syntax to specify your search:'
 'Klick, um Profil in neuem Tab zu öffnen': 'Click to open profile in new tab'
 'STRG+Klick, um zur Whitelist hinzuzufügen': 'CTRL + Click to add to the whitelist'
 Whitelist: Whitelist
-Verwaltung: Administration
-Annulieren: 'Abort town'
-'Verwende folgende Syntax, um deine Suche zu spezifizieren:': 'Use the following syntax to specify your search:'
 'E-Mail eingeben.': 'E-mail eingeben.'
 'E-Mail ändern': 'Change e-mail'
 'Neues Passwort eingeben.': 'Enter new password.'
@@ -189,7 +189,6 @@ Kurztexte: 'Short texts'
 Inhalt: Content
 'Neuen Kurztext anlegen': 'Create new short text'
 'ID eingeben': 'Enter ID'
-'Eine Auszeichnungen auswählen:': 'Select distinction:'
 'Anzahl der Auszeichnungen:': 'Amount:'
 Vergeben!: Grant!
 'Aktuelle Städte': 'Current towns'
@@ -202,6 +201,7 @@ Anzeigen: Show
 Anwendungen: Applications
 'Neue Anwendung': 'New application'
 'Anwendung "{external_app}"': 'Application "{external_app}"'
+'Eine Auszeichnungen auswählen:': 'Select distinction:'
 'Einen Status auswählen:': 'Select status:'
 Saisons: Seasons
 'Neue Saison': 'New Season'
@@ -233,33 +233,21 @@ Konstruktionen: 'Construction sites'
 Stimmen: Votes
 'Für {target}': 'For {target}'
 Ersteller: Creator
-'Stadt ansehen': 'See the town'
 'Existierende Beschränkungen': 'Existing sanctions'
 'Dieser Spieler hat eine weiße Weste.': 'This player doesn''t have any existing sanctions.'
-Info: Info
 'Bestätigt von': 'Confirmed by'
 Datum: Date
 Endet: Ends
-'Nicht bestätigt!': 'Not confirmed!'
-Abgelaufen: Expired
-Deaktiviert: Deactivated
-'Interner Vermerk': 'Internal note'
-Art: Art
-Sozial: Social
-Stadt-Kom.: 'Town com.'
-'Globale Kom.': 'Global com.'
-Kommentare: Comment
-Org.: Org.
-Spiel: Game
-Bestätigen: Confirm
-'{d} Tage': '{d} Day(s)'
+Info: Info
 'Neue Beschränkung hinzufügen': 'Add a sanction'
 '24 Stunden': '24 Hours'
+'{d} Tage': '{d} Day(s)'
 'Bestätigung erforderlich': 'Confirmation required'
 '1 Jahr': '1 Year'
 'Admin-Bestätigung erforderlich': 'Admin confirmation required'
 '2 Jahre': '2 Years'
 Dauerhaft: Permanent
+'Interner Vermerk': 'Internal note'
 'Art der Beschränkung': 'Restriction type'
 'Soziale Interaktion verbieten': 'Prevent social interactions'
 'Posten in Foren verbieten': 'Post on forums'
@@ -271,6 +259,18 @@ Dauerhaft: Permanent
 'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': 'This account restriction must be confirmed by another moderator before it becomes active.'
 'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': 'The duration of the restriction only counts from the moment it is activated.'
 'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': 'This account restriction must be confirmed by an administrator before it becomes active.'
+'Stadt ansehen': 'See the town'
+'Nicht bestätigt!': 'Not confirmed!'
+Abgelaufen: Expired
+Deaktiviert: Deactivated
+Art: Art
+Sozial: Social
+Stadt-Kom.: 'Town com.'
+'Globale Kom.': 'Global com.'
+Kommentare: Comment
+Org.: Org.
+Spiel: Game
+Bestätigen: Confirm
 'Schwarzes Brett': 'Black Board'
 'Stadt füllen': 'Fill town'
 'Bank füllen': 'Fill bank'
@@ -288,7 +288,7 @@ Rollen: Roles
 'Versteckt:': 'Hidden:'
 'Kein Bürger ausgewählt!': 'No citizen selected!'
 BP: CP
-MP: MP
+MP: PM
 'Einen Beruf auswählen:': 'Choose Profession:'
 'Stadt anlegen': 'Create Town'
 Avatar: Avatar

@@ -7,6 +7,7 @@ class Config {
     private client: Client;
 
     public showShortConstrList:   conf<boolean>;
+    public showBankCategories:    conf<boolean>;
     public notificationAsPopup:   conf<boolean>;
     public advancedPMEditor:      conf<boolean>;
     public usePostBackup:         conf<boolean>;
@@ -25,6 +26,7 @@ class Config {
         this.client = c;
 
         this.showShortConstrList   = this.makeConf<boolean>('showShortConstrList', false);
+        this.showBankCategories    = this.makeConf<boolean>('showBankCategories', true);
         this.notificationAsPopup   = this.makeConf<boolean>('notifAsPopup', false);
         this.advancedPMEditor      = this.makeConf<boolean>('advancedPMEditor', false);
         this.usePostBackup         = this.makeConf<boolean>('useEditorCache', true);

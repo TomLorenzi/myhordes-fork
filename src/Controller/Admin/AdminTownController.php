@@ -178,7 +178,7 @@ class AdminTownController extends AdminActionController
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if ($town === null) $this->redirect($this->generateUrl('admin_town_list'));
+        if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
 
         $explorables = [];
 

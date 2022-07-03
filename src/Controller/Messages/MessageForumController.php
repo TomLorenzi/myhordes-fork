@@ -1539,7 +1539,7 @@ class MessageForumController extends MessageController
         $post->addAdminReport(
             $newReport = (new AdminReport())
                 ->setSourceUser($user)
-                ->setReason( $parser->get_int('reason', 0, 0, 10) )
+                ->setReason( $parser->get_int('reason', 0, 0, 13) )
                 ->setDetails( $details ?: null )
                 ->setTs(new DateTime('now'))
         );

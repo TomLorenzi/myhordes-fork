@@ -26,7 +26,7 @@ Spielername: Username
 'E-Mail Adresse': 'E-Mail address'
 wiederholen: repeat
 Passwort: Password
-"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "To complete the registration and activate your account, \n\t\t\t\t\t\tyou must click on the activation link that will be sent to your specified email address."
+"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "To complete the registration and activate your account, \n\\t\\t\\t\\t\\t\\tyou must click on the activation link that will be sent to your specified email address."
 'Du hast schon einen Account?': 'Do you have an account yet?'
 Einloggen: 'Log in'
 'Bitte gib deinen Spielernamen und dein Passwort ein.': 'Please enter your username and password.'

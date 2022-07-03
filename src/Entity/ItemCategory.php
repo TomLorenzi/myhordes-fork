@@ -176,4 +176,9 @@ class ItemCategory implements NamedEntity
 
         return $this;
     }
+
+    public static function getTranslationDomain(): ?string
+    {
+        return 'items';
+    }
 }

@@ -165,7 +165,7 @@
 
   .spoiler {
     background-image: linear-gradient(-45deg, #0006 25%, #fff0 25%, #fff0 50%, #0006 50%, #0006 75%, #fff0 75%, #fff0 100%);
-    background-size: 12.63px 12.63px;
+    background-size: 12.63px 12.63px; margin: 0 5px;
     &:not(:hover) { color: transparent; &>* { visibility: hidden; } }
     &:hover {
       background-image: linear-gradient(-45deg, #0003 25%, #fff0 25%, #fff0 50%, #0003 50%, #0003 75%, #fff0 75%, #fff0 100%);
@@ -905,7 +905,7 @@ ul.subscriptions {
 
       margin: 10px;
       &>li {
-        position: relative; min-height: 30px; list-style-image: url(../../img/icons/small_dot.gif);
+        position: relative; min-height: 30px; list-style: none;
         &+li { margin-top: 20px; }
         div.pm-avatar, div.pm-avatar-crow {
           position: absolute; height: 40px; width: 40px; border-radius: 100%; top: 0; left: -40px;
@@ -969,6 +969,8 @@ ul.subscriptions {
             h1 { color: @myhordes-smalltext; margin: 0 0 5px 0; padding: 0 0 5px 0; border-bottom: 1px solid rgba(0,0,0,0.2); }
 
             &>p:only-child { margin: 5px 0 10px 0; font-size: 1.5rem; }
+
+            ul>li { list-style-image: url(../../img/icons/small_dot.gif); }
           }
 
           &>div.pm-message-footer {

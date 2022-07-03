@@ -8,6 +8,7 @@ Kommunikationsfehler.: 'Error de comunicación.'
 'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.': 'Se produjo un error interno al ejecutar esta acción. Por favor intente nuevamente más tarde.'
 'Für diese Aktion hast du nicht genug AP.': 'No tienes suficientes PA para esta acción.'
 'Diese Aktion steht dir aktuell nicht zur Verfügung.': 'Esta acción no está disponible.'
+'Hierfür fehlen dir notwendige Gegenstände.': 'Necesitas los objetos necesarios para esto.'
 'Diese Aktion steht nur Helden zur Verfügung.': 'Esta acción solo está disponible para héroes.'
 'Neuer Thread': 'Nuevo tema'
 'Neuer Post': 'Nuevo mensaje'
@@ -42,6 +43,7 @@ Englisch: Inglés
 Französisch: Francés
 Spanisch: Español
 Bearbeiten: Editar
+Hinweis: Aviso
 Spiel: Juego
 Statistiken: Estadísticas
 '{points} Punkte': '{points} Puntos'
@@ -62,24 +64,23 @@ Punkte: Puntos
 Verzeichnis: Anuario
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'Los siguientes enlaces dirigen hacia sitios web elaborados por la comunidad. Proponen información y herramientas complementarias al juego:'
 'Dazu hast Du kein Recht.': 'No tienes derecho a hacer esto.'
-Öffnen: Desbloquear
 Moderation: Moderación
+Online: Conectado
+Offline: Desconectado
+Sticky: Destacado
+Dev: Desarrollador
+Löschen: Eliminar
+Öffnen: Desbloquear
+Anpinnen: Destacar
+Loslösen: Desprender
+'Du wurdest aus dem Forum verbannt.': 'Has sido baneado.'
 Schere: Tijera
 Stein: Piedra
 Papier: Papel
 Kopf: Cara
 Zahl: Cruz
 '{color} {value}': '{value} de {color}'
-'Du wurdest aus dem Forum verbannt.': 'Has sido baneado.'
-'Hierfür fehlen dir notwendige Gegenstände.': 'Necesitas los objetos necesarios para esto.'
 Vorschau: 'Vista previa'
-Dev: Desarrollador
-Sticky: Destacado
-Löschen: Eliminar
-Anpinnen: Destacar
-Loslösen: Desprender
-Online: Conectado
-Offline: Desconectado
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Cuando llega el momento de hacerlo, tu dolor te hace gritar y te detiene en tu camino. Tienes que curarte antes de poder hacerlo...'
 Autor: Autor
 Datum: Fecha
@@ -114,21 +115,22 @@ Bild-URL: 'Url de imagen'
 'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'Este tema contiene {count} anuncio(s) oficial(es) de la Administración de MyHordes :'
 'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'Este tema tiene {count} anuncio(s) de representantes de la comunidad :'
 Zitieren: Citar
-'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'Si se da el caso de que esto no cambie para la media noche, no habrá ningún ataque Zombi. El día se extenderá artificialmente.'
-Bestätigen: Confirmar
 Version: Versión
 Sprache: Idioma
-'Num. Listenpunkt': 'Enúmerar elemento'
 Vertraulich: Confidencial
-'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'Si no tienes nada a mano para aliviar tu cansancio, entonces pide un poco de ayuda en el foro...'
-'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'El marcador es visible en el mapa por TODOS los habitantes. Úsalo para compartir información sobre esta zona con toda la comunidad.'
-'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'Nota: los mensajes escritos aquí se perderán si todos los habitantes abandonan la zona.'
 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'Este identificador debe proporcionarse a todos los sitios a los que desee permitir el acceso (solo lectura) a la información del juego guardada en su cuenta MyHordes: información sobre su ciudad, lista de ciudadanos, mapa del mundo, etc.'
 'Diese Punkte werden für die Seelenrangliste verwendet.': 'Estos puntos son tomados en cuenta para la Escala de Almas.'
 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.': 'Ganarás puntos al final de cada partida en función de la cantidad de días sobrevividos.'
+'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'Si se da el caso de que esto no cambie para la media noche, no habrá ningún ataque Zombi. El día se extenderá artificialmente.'
+Bestätigen: Confirmar
+'Num. Listenpunkt': 'Enúmerar elemento'
+'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'Si no tienes nada a mano para aliviar tu cansancio, entonces pide un poco de ayuda en el foro...'
+'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'El marcador es visible en el mapa por TODOS los habitantes. Úsalo para compartir información sobre esta zona con toda la comunidad.'
+'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'Nota: los mensajes escritos aquí se perderán si todos los habitantes abandonan la zona.'
 'Unangemessene Nachricht blockieren': 'Bloquear un mensaje inapropiado'
 Link: Enlace
 'Permanenter Link zu diesem Post:': 'Enlace permanente a esta publicación:'
+'Mehr anzeigen': 'Mostrar más'
 'Deinen Rucksack umklammern': '¡Tengo esposa e hijos!'
 Schreien: ¡Nooooooo!
 'Rotz und Wasser heulen': '¡Me muero!'
@@ -148,7 +150,6 @@ Schreien: ¡Nooooooo!
 'Alleine laut singen': '¡Maaadre mía!'
 'Um dein Leben beten': '¡Soy demasiado joven!'
 'Die Backen halten': 'Apretar el puño'
-'Mehr anzeigen': 'Mostrar más'
 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?': '¿Estás seguro de que quieres informar de esta publicación a los moderadores?'
 'Schön hier im Warmen bleiben': 'Quedarse en MyHordes'
 'Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.': 'Protección anti-spam: Debes esperar un rato para poder volver a escribir.'
@@ -192,6 +193,7 @@ Entwickler-Einstellungen: 'Opciones de desarrollador'
 'Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.': 'No debes distribuirlo ni hacerlo público, por ejemplo, en un repositorio de claves.'
 'Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.': 'Si sospechas que tu clave ha sido comprometida, puedes pedir una nueva.'
 'Alle Foren': Foros
+'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...': 'Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.'
 'Die Seite wird von Horden von Zombies belagert!': '¡El sitio está siendo asediado por hordas de zombis!'
 'Spielhilfe:': 'Guía:'
 'Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:': 'Esta página está conectada al juego mediante una conexión encriptada:'
@@ -240,13 +242,16 @@ Ankündigung: Anuncio
 'Fehler beim Laden des Posteingangs.': 'Error al cargar la bandeja de entrada.'
 Heute: Hoy
 Gestern: Ayer
-'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...': 'Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.'
 Abonniert: 'Dejar de seguir'
 Abonnieren: Seguir
 und: 'y'
 'HINWEIS: Diese Aktion ist nur in der Stadt möglich.': 'NOTA: Esta acción sólo está disponible en el pueblo.'
 'HINWEIS: Diese Aktion ist nur in Übersee möglich.': 'NOTA: Esta acción sólo está disponible en el ultramundo.'
 'Neuer Beitrag in': 'Nueva publicación en'
+'Diese Diskussion ist beendet.': 'Este tema ha terminado.'
+'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'Este score es la suma de días sobrevividos por todos los habitantes del pueblo. Representa por lo tanto su capacidad de organizarse para sobrevivir colectivamente.'
+'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Sabrás si hay nuevas respuestas en este tema.'
+'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Dejarás de ser informado si hay nuevas respuestas.'
 'Nachrichten suchen': 'Buscar un mensaje'
 Suchbegriff: 'Palabras clave'
 'Suchbegriffe eingeben': 'Ingresa las palabras clave'
@@ -264,10 +269,6 @@ Suchen: Buscar
 'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.': 'Su búsqueda ha dado más resultados de los que se pueden mostrar aquí. Intente afinar su consulta si no ha encontrado lo que buscaba.'
 'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!': 'Si fuerza su escape, ¡inevitablemente resultará herido!'
 'Diese Aktion kostet dich 1 AP!': '¡Esta acción te cuesta 1 PA!'
-'Diese Diskussion ist beendet.': 'Este tema ha terminado.'
-'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'Este score es la suma de días sobrevividos por todos los habitantes del pueblo. Representa por lo tanto su capacidad de organizarse para sobrevivir colectivamente.'
-'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Sabrás si hay nuevas respuestas en este tema.'
-'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Dejarás de ser informado si hay nuevas respuestas.'
 'Es wurde noch keine Stadt in die Rangliste aufgenommen!': '¡Todavía no hay ningún pueblo en la clasificación!'
 'Bitte wähle die Art der Beschränkung.': 'Seleccione el tipo de restricción.'
 'Wer?': '¿Quién?'
@@ -310,8 +311,8 @@ Einblenden: Mostrar
 Männlich: Masculino
 Weiblich: Femenino
 'Keine Präferenz': 'Sin preferencia'
-Kopieren: Copiar
 'E-Mail konnte nicht gesendet werden.': 'El correo electrónico no pudo ser enviado.'
+Kopieren: Copiar
 'Wenn möglich gib bitte einen Grund für deine Meldung an:': 'Si es posible, proporcione la razón de su denuncia:'
 'Keinen Grund angeben': 'No dar una razón'
 Cheating: Trampas
@@ -415,7 +416,6 @@ Offiziell: Oficial
 'Deine Platzierung': 'Tu posición'
 '{num} Seelenpunkte, Platz {rank}': '{num} puntos de alma, posición: <b>{rank}°</b>'
 'Zu meinem Eintrag springen': 'Ir a mi posición'
-Hinweis: Aviso
 'Diskussion aktualisieren': 'Actualizar la conversación'
 Support-Postfach: 'Contacto con el Soporte'
 'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.': 'Estás intentando volver a hacer esto demasiado pronto. Inténtalo de nuevo en unos minutos.'
@@ -430,8 +430,12 @@ STRG: CTRL
 'Umfrage starten': 'Ver encuesta actual'
 'Alles als gelesen markieren': 'Marcar todo como leído'
 Weltforum: 'Foro Mundial'
-'im-Kontext Übersetzung': 'im-Kontext Übersetzung'
+'im-Kontext Übersetzung': 'Traducir MyHordes'
 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.'
 'Spieler melden': 'Spieler melden'
 'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?': 'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?'
 'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.': 'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.'
+'Unangemessene Profilbeschreibung': 'Unangemessene Profilbeschreibung'
+'Unangemessener Avatar': 'Unangemessener Avatar'
+'Unangemessener Name': 'Unangemessener Name'
+'Liste der Foren aktualisieren': 'Liste der Foren aktualisieren'
