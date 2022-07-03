@@ -87,6 +87,8 @@ class MessageTownMessageController extends MessageController
                 $valid = false;
                 $item = $em->getRepository(Item::class)->find($item_id);
 
+                if (!$item) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
                 if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00']))
                     // We cannot send bag expansion
                     return AjaxResponse::errorMessage( $this->translator->trans('Du kannst kein(en) {item} per Post versenden.',
