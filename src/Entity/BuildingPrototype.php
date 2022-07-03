@@ -343,4 +343,9 @@ class BuildingPrototype implements NamedEntity
 
         return $this;
     }
+
+    public static function getTranslationDomain(): ?string
+    {
+        return 'buildings';
+    }
 }
