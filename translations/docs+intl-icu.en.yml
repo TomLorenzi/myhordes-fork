@@ -42,36 +42,36 @@ Spielername: Username
 'So verkörpert die ID seiner Stadt': 'So verkörpert die ID seiner Stadt'
 'Wenn verkörpert, eine Instanz von Map': 'Wenn verkörpert, eine Instanz von Map'
 'Persönlicher Text (über die Seele)': 'Personal text (from the soul)'
-Spieler-Avatar-URL: Spieler-Avatar-URL
+Spieler-Avatar-URL: Player avatar URL
 'Liste der alten Inkarnationen': 'Liste der alten Inkarnationen'
-ID-MyHordes: ID-MyHordes
+ID-MyHordes: MyHordes ID
 'universelle ID (zB: basic = Einwohner)': 'universelle ID (zB: basic = Einwohner)'
-'Der Name des Berufs': 'Der Name des Berufs'
-'Die Beschreibung': 'Die Beschreibung'
-'Name der Stadt': 'Name der Stadt'
-'Anzahl der verfügbaren Wasserrationen': 'Anzahl der verfügbaren Wasserrationen'
-Stadtposition: Stadtposition
-'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist': 'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist'
+'Der Name des Berufs': 'Profession name'
+'Die Beschreibung': 'Description'
+'Name der Stadt': 'Town name'
+'Anzahl der verfügbaren Wasserrationen': 'Number of available water rations'
+Stadtposition: Town position
+'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist': 'Boolean which indicates whether the town door is open or not'
 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet': 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet'
 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist': 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist'
 'Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist': 'Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist'
-'Vollständige Liste der verfügbaren Websites': 'Vollständige Liste der verfügbaren Websites'
-'Liste der Baustellen': 'Liste der Baustellen'
-'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung': 'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung'
-'Informationen zur Verteidigung der Stadt': 'Informationen zur Verteidigung der Stadt'
-'Liste der verfügbaren Verbesserungen (Pumpe usw.)': 'Liste der verfügbaren Verbesserungen (Pumpe usw.)'
+'Vollständige Liste der verfügbaren Websites': 'Complete list of available constructions'
+'Liste der Baustellen': 'List of construction sites'
+'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung': 'Latest newspaper with information about defense and attack strength'
+'Informationen zur Verteidigung der Stadt': 'Information about the town defense'
+'Liste der verfügbaren Verbesserungen (Pumpe usw.)': 'List of available upgrades (eg. the pump)'
 'Schätzung für den Abendangriff': 'Schätzung für den Abendangriff'
 'Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer': 'Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer'
-'Objekte in der Bank': 'Objekte in der Bank'
+'Objekte in der Bank': 'Items in the bank'
 'Die Tage der Schätzung': 'Die Tage der Schätzung'
 'Der minimale Angriff': 'Der minimale Angriff'
-'Maximaler Angriff': 'Maximaler Angriff'
+'Maximaler Angriff': 'Maximum Attack'
 'totale Verteidigung': 'totale Verteidigung'
-'Grundverteidigung (10)': 'Grundverteidigung (10)'
-'Verteidigung durch Konstruktionen': 'Verteidigung durch Konstruktionen'
-'Verteidigung durch Entwicklungen': 'Verteidigung durch Entwicklungen'
-'Anzahl der Verteidigungsobjekte': 'Anzahl der Verteidigungsobjekte'
-'Verteidigung durch Verteidigungsobjekte': 'Verteidigung durch Verteidigungsobjekte'
+'Grundverteidigung (10)': 'Base defense (10)'
+'Verteidigung durch Konstruktionen': 'Defense by constructions'
+'Verteidigung durch Entwicklungen': 'Defense by upgrades'
+'Anzahl der Verteidigungsobjekte': 'Number of defensive objects'
+'Verteidigung durch Verteidigungsobjekte': 'Defense by defensive objects'
 'Verteidigung durch Häuser gebracht': 'Verteidigung durch Häuser gebracht'
 'Verteidigung durch die Wachen (oder Anzahl der Wachen)': 'Verteidigung durch die Wachen (oder Anzahl der Wachen)'
 'Verteidigung von den Wächtern gebracht': 'Verteidigung von den Wächtern gebracht'
@@ -79,47 +79,47 @@ Stadtposition: Stadtposition
 'Vorübergehende Verteidigung': 'Vorübergehende Verteidigung'
 'Verteidigung durch Leichen gebracht': 'Verteidigung durch Leichen gebracht'
 'Anzahl der Wachen': 'Anzahl der Wachen'
-'Verteidigung durch die Wächter': 'Verteidigung durch die Wächter'
+'Verteidigung durch die Wächter': 'Defense by guardians'
 'Anzahl der angegriffenen Zombies': 'Anzahl der angegriffenen Zombies'
-'Anzahl der Verteidigungspunkte': 'Anzahl der Verteidigungspunkte'
+'Anzahl der Verteidigungspunkte': 'Number of defense points'
 Gazette-Text: Gazette-Text
 'Richtung der Regeneration des stellvertretenden Rückkehrers?': Richtung der Regeneration des stellvertretenden Rückkehrers?
-'Anzahl der im Brunnen verbleibenden Rationen?': 'Anzahl der im Brunnen verbleibenden Rationen?'
+'Anzahl der im Brunnen verbleibenden Rationen?': 'Number of water rations in the well?'
 'ID der Site': 'ID der Site'
-'Anzahl der für den Bau benötigten AP': 'Anzahl der für den Bau benötigten AP'
+'Anzahl der für den Bau benötigten AP': 'Number of AP required for the construction'
 'aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)': 'aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)'
 'Stimmen für diese Seite gesammelt': 'Stimmen für diese Seite gesammelt'
 'ob dieses Gebäude nach dem Angriff zerstört werden kann': 'ob dieses Gebäude nach dem Angriff zerstört werden kann'
 'Verteidigung dieses Gebäudes': 'Verteidigung dieses Gebäudes'
 'Wenn sich dieses Gebäude weiterentwickeln kann': 'Wenn sich dieses Gebäude weiterentwickeln kann'
-'Seltenheit des Plans': 'Seltenheit des Plans'
+'Seltenheit des Plans': 'Plan rarity'
 'Temporäres Gebäude': 'Temporäres Gebäude'
 'Gebäude-ID des vorherigen Zweigs': 'Gebäude-ID des vorherigen Zweigs'
-'Anzahl der benötigten Ressourcen': 'Anzahl der benötigten Ressourcen'
-'Objekte benötigt': 'Objekte benötigt'
-'Spieler ID': 'Spieler ID'
-'Twinoid-ID des Spielers': 'Twinoid-ID des Spielers'
-Karten-ID: Karten-ID
-'Anzahl der Tage überlebt': 'Anzahl der Tage überlebt'
-Kartentag: Kartentag
-'Spieler Avatar': 'Spieler Avatar'
-'Name der Karte': 'Name der Karte'
-Saisonnummer: Saisonnummer
-'"true" wenn diese Leiche aus dem Spiel V1 stammt': '"true" wenn diese Leiche aus dem Spiel V1 stammt'
-Ergebnis: Ergebnis
-'relevante Spielzeit': 'relevante Spielzeit'
-'Kennung des Todestyps': 'Kennung des Todestyps'
-Todesnachricht: Todesnachricht
-Kommentar: Kommentar
-'Name des Spielers, der den Körper entsorgt hat': 'Name des Spielers, der den Körper entsorgt hat'
+'Anzahl der benötigten Ressourcen': 'Required resources'
+'Objekte benötigt': 'Required objects'
+'Spieler ID': 'Player ID'
+'Twinoid-ID des Spielers': 'Player''s Twinoid ID'
+Karten-ID: Map ID
+'Anzahl der Tage überlebt': 'Number of survived days'
+Kartentag: Map day
+'Spieler Avatar': 'Player avatar'
+'Name der Karte': 'Map name'
+Saisonnummer: Season number
+'"true" wenn diese Leiche aus dem Spiel V1 stammt': '"true" if this body comes from V1'
+Ergebnis: Result
+'relevante Spielzeit': 'Relevant game time'
+'Kennung des Todestyps': 'Death type ID'
+Todesnachricht: Death message
+Kommentar: Comment
+'Name des Spielers, der den Körper entsorgt hat': 'Name of the player who disposed the body'
 'Methode : garbage, water, cook order ghoul': 'Methode : garbage, water, cook order ghoul'
-Expeditionsname: Expeditionsname
-'der Autor': 'der Autor'
-Versandlänge: Versandlänge
-'Punkte, die den Kurs definieren': 'Punkte, die den Kurs definieren'
-'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen': 'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "languages" eingetragen'
-'zB :': 'zB :'
-Beispiel: Beispiel
+Expeditionsname: Expedition name
+'der Autor': 'Author'
+Versandlänge: Expedition length
+'Punkte, die den Kurs definieren': 'Points of the route'
+'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen': 'All ISO 3166-1 alpha-2 country codes are filled into the field "languages"'
+'zB :': 'eg.:'
+Beispiel: Example
 'Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.': 'Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.'
 'Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:': 'Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:'
 'Es wird angezeigt :': 'Es wird angezeigt :'
