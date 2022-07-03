@@ -97,6 +97,7 @@
         </div>
         <div class="cell padded header rw-4 rw-lg-12">
             <h5>{% trans from 'global' %}Aktionen{% endtrans %}</h5>
+            <button x-ajax-href="{{ path('forum_list') }}"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}"> {{ 'Liste der Foren aktualisieren'|trans({},'global') }}</button>
             <button x-ajax-href="{{ path('forum_search_wrapper_controller') }}"><img alt="" src="{{ asset('build/images/forum/search.png') }}"> {{ 'Foren durchsuchen'|trans({},'global') }}</button>
             <button id="forum_all_read_btn"><img alt="" src="{{ asset('build/images/forum/done.png') }}"> {{ 'Alles als gelesen markieren'|trans({},'global') }}</button>
             <h5>{% trans from 'welcome' %}Abonnierte Themen{% endtrans %}</h5>
