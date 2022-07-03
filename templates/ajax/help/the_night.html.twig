@@ -9,7 +9,7 @@
 </p>
 {% if timezone is defined %}
     <p>
-        {{ 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.'|trans({time0: '<i class="bold" data-time="' ~ '18:00'|to_date|date('c')  ~ '">[localTime]</i>', time1: '<i class="bold" data-time="' ~ '7:00'|to_date|date('c')  ~ '">[localTime]</i>'},'help')|raw }}
+        {{ 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.'|trans({time0: '<i class="bold" data-time="' ~ '19:00'|to_date|date('c')  ~ '">[localTime]</i>', time1: '<i class="bold" data-time="' ~ '7:00'|to_date|date('c')  ~ '">[localTime]</i>'},'help')|raw }}
     </p>
 {% endif %}
 <div class="clear"></div>
