@@ -1,18 +1,19 @@
-'URL anfordern': 'Request URL'
-Rückgabetyp: 'Return type'
+---
+'URL anfordern': Request URL
+Rückgabetyp: Return type
 '"true", wenn der Angriff ausgeführt wird': '"true'', when the attack is in progress'
 '"true", wenn das Spiel gewartet wird': '"true", when the game is under maintenance'
-Spielkarten-ID: 'Game card ID'
-Serverzeit: 'Server time'
-Kartenbreite: 'Map width'
-Kartenhöhe: 'Map height'
+Spielkarten-ID: Game card ID
+Serverzeit: Server time
+Kartenbreite: Map width
+Kartenhöhe: Map height
 'Wenn es einen Aufstand gibt': 'If there is an insurrection'
-Bonuspunkte: 'Bonus points'
-Stadttag: 'Town day'
+Bonuspunkte: Bonus points
+Stadttag: Town day
 'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht': 'Boolean which indicates whether the town is private or not'
 'Liste bekannter Zonen': 'List of known areas'
 'Liste der Bürger': 'List of citizens'
-Stadtinformationen: 'Town informations'
+Stadtinformationen: Town informations
 'Liste der Leichen': 'List of corpses'
 'Liste der Expeditionen': 'List of expeditions'
 'City Creation Season ID': 'City Creation Season ID'
@@ -21,26 +22,26 @@ Stadtinformationen: 'Town informations'
 'X von der oberen linken Ecke': 'X related the top left corner'
 'Y von der oberen linken Ecke': 'Y related the top left corner'
 'Heute nicht besucht': 'Not visited today'
-Zonen-Tag: 'Zone tag'
+Zonen-Tag: Zone tag
 'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau': 'Danger level 0 = green, 1 = green-yellow, 2 = orange, 3 = red, 4 = blue'
-Bereichsdetails: 'Zone details'
+Bereichsdetails: Zone details
 'Liste der Objekte in diesem Bereich': 'List of objects in this area'
 'Informationen zum Gebäude in der Umgebung': 'Information about the building present in the area'
 'Die Gebäude-ID': 'Building ID'
 'Die Anzahl der Sandhaufen auf dem Gebäude': 'Die Anzahl der Sandhaufen auf dem Gebäude'
-'Der Name des Gebäudes': 'Der Name des Gebäudes'
-'Beschreibung des Gebäudes': 'Beschreibung des Gebäudes'
+'Der Name des Gebäudes': 'Building name'
+'Beschreibung des Gebäudes': 'Building description'
 'Wenn das Gebäude gelagert wurde': 'Wenn das Gebäude gelagert wurde'
 'Das Gebäude trocknen': 'Das Gebäude trocknen'
-'Die Anzahl der Zombies': 'Die Anzahl der Zombies'
-'Die Anzahl der Menschen': 'Die Anzahl der Menschen'
+'Die Anzahl der Zombies': 'Zombies count'
+'Die Anzahl der Menschen': 'Human count'
 'Den Bereich austrocknen': 'Den Bereich austrocknen'
-Spielername: Spielername
+Spielername: Username
 'ob der Spieler verkörpert ist (false) oder nicht (true)': 'ob der Spieler verkörpert ist (false) oder nicht (true)'
-'Die Twinoid-ID, wenn er sein Konto verknüpft hat': 'Die Twinoid-ID, wenn er sein Konto verknüpft hat'
+'Die Twinoid-ID, wenn er sein Konto verknüpft hat': 'The Twinoid ID, if the user has linked his account'
 'So verkörpert die ID seiner Stadt': 'So verkörpert die ID seiner Stadt'
 'Wenn verkörpert, eine Instanz von Map': 'Wenn verkörpert, eine Instanz von Map'
-'Persönlicher Text (über die Seele)': 'Persönlicher Text (über die Seele)'
+'Persönlicher Text (über die Seele)': 'Personal text (from the soul)'
 Spieler-Avatar-URL: Spieler-Avatar-URL
 'Liste der alten Inkarnationen': 'Liste der alten Inkarnationen'
 ID-MyHordes: ID-MyHordes
@@ -82,7 +83,7 @@ Stadtposition: Stadtposition
 'Anzahl der angegriffenen Zombies': 'Anzahl der angegriffenen Zombies'
 'Anzahl der Verteidigungspunkte': 'Anzahl der Verteidigungspunkte'
 Gazette-Text: Gazette-Text
-'Richtung der Regeneration des stellvertretenden Rückkehrers?': 'Richtung der Regeneration des stellvertretenden Rückkehrers?'
+'Richtung der Regeneration des stellvertretenden Rückkehrers?': Richtung der Regeneration des stellvertretenden Rückkehrers?
 'Anzahl der im Brunnen verbleibenden Rationen?': 'Anzahl der im Brunnen verbleibenden Rationen?'
 'ID der Site': 'ID der Site'
 'Anzahl der für den Bau benötigten AP': 'Anzahl der für den Bau benötigten AP'

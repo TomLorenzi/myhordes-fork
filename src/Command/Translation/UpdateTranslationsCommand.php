@@ -93,7 +93,7 @@ class UpdateTranslationsCommand extends Command
                 if ($input->getOption('disable-db')) $com .= " --disable-db";
                 if ($input->getOption('disable-php')) $com .= " --disable-php";
                 if ($input->getOption('disable-twig')) $com .= " --disable-twig";
-                if ($input->getOption('disable-config')) $com .= "--disable-config";
+                if ($input->getOption('disable-config')) $com .= " --disable-config";
 
                 foreach ($input->getOption('file') as $file_name)
                     $com .= " --file $file_name";
@@ -122,7 +122,7 @@ class UpdateTranslationsCommand extends Command
             if ($input->getOption('disable-db')) $com .= " --disable-db";
             if ($input->getOption('disable-php')) $com .= " --disable-php";
             if ($input->getOption('disable-twig')) $com .= " --disable-twig";
-            if ($input->getOption('disable-config')) $com .= "--disable-config";
+            if ($input->getOption('disable-config')) $com .= " --disable-config";
             foreach ($input->getOption('file') as $file_name)
                 $com .= " --file $file_name";
 

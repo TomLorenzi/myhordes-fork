@@ -203,6 +203,16 @@ class Town
      * @ORM\Column(type="boolean")
      */
     private $forceStartAhead = false;
+    
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $tempDefenseBonus = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $baseDefense = 10;
 
     public function __construct()
     {
@@ -870,6 +880,30 @@ class Town
     public function setForceStartAhead(bool $forceStartAhead): self
     {
         $this->forceStartAhead = $forceStartAhead;
+
+        return $this;
+    }
+
+    public function getTempDefenseBonus(): ?int
+    {
+        return $this->tempDefenseBonus;
+    }
+
+    public function setTempDefenseBonus(int $tempDefenseBonus): self
+    {
+        $this->tempDefenseBonus = $tempDefenseBonus;
+
+        return $this;
+    }
+
+    public function getBaseDefense(): ?int
+    {
+        return $this->baseDefense;
+    }
+
+    public function setBaseDefense(int $baseDefense): self
+    {
+        $this->baseDefense = $baseDefense;
 
         return $this;
     }

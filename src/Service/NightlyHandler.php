@@ -1189,6 +1189,8 @@ class NightlyHandler
             }
             $b->setTempDefenseBonus(0);
         }
+
+        $town->setTempDefenseBonus(0);
     }
 
     private function stage3_status(Town $town) {

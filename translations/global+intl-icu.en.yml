@@ -1,8 +1,9 @@
+---
 'Allgemeiner Fehler.': 'Common error.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'The selected forum doesn''t exist or you are lacking the permission to view it.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Your text has to be at least 2 characters long.'
 'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.': 'The title must contain between 3 and 64 characters.'
-Kommunikationsfehler.: 'Communication error.'
+Kommunikationsfehler.: Communication error.
 'Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.': 'This action can not be performed because it is either incomplete or contains errors.'
 'Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.': 'While executing the action a database error occurred. Please try again later.'
 'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.': 'While executing the action an internal error occurred. Please try again later.'
@@ -43,11 +44,12 @@ Englisch: English
 Französisch: French
 Spanisch: Spanish
 Bearbeiten: Edit
+Hinweis: Notice
 Spiel: Game
 Statistiken: Statistics
 '{points} Punkte': '{points} Points'
 'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'This player didn''t win any Distinctions yet...'
-Seelenpunktzahl: 'Soul points'
+Seelenpunktzahl: Soul points
 'Aktuelles Leben': 'Current incarnation'
 Saison: Season
 Tage: Day
@@ -63,23 +65,23 @@ Punkte: Points
 Verzeichnis: Directory
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'The following links lead to sites created by players from the MyHordes community. They offer tools or supplementary information relating to the game :'
 'Dazu hast Du kein Recht.': 'You have no right to do this.'
-Öffnen: Unlock
 Moderation: Moderation
+Online: Online
+Offline: Offline
+Sticky: Sticky
+Dev: Dev
 Löschen: Delete
-Loslösen: Unstick
+Öffnen: Unlock
 Anpinnen: Stick
-Vorschau: Preview
+Loslösen: Unstick
+'Du wurdest aus dem Forum verbannt.': 'You have been banned from the forum.'
 Schere: Scissors
 Stein: Rock
 Papier: Paper
 Kopf: Head
 Zahl: Tails
 '{color} {value}': '{value} of {color}'
-'Du wurdest aus dem Forum verbannt.': 'You have been banned from the forum.'
-Dev: Dev
-Sticky: Sticky
-Online: Online
-Offline: Offline
+Vorschau: Preview
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'When it''s time to do something, your injury will make you scream and keep you still on the spot. You have to heal yourself first before you can do that ...'
 Autor: Author
 Datum: Date
@@ -89,46 +91,47 @@ Fett: Bold
 Kursiv: Italic
 Unterstreichen: Underlined
 Durchstreichen: Striked
-Listenpunkt: 'Element list'
+Listenpunkt: Element list
 Spoiler: Spoiler
 Zitat: Quote
 Ruhm: Glory
 Linie: Line
 Entstauben: Unarchive
+Einfügen: Confirm
+'Du kannst keine weiteren Gegenstände senden.': 'You cannot send any more items.'
+Verräter: Traitor
 'Link einfügen': 'Insert a link'
 'Bild einfügen': 'Insert an image'
-Link-Text: 'Link text'
-Link-URL: 'Link URL'
-Bildtitel: 'Image title'
-Bild-URL: 'Image URL'
-Einfügen: Confirm
 'Admin Ankündigung': 'Admin Announcement'
 'Mod Ankündigung': 'Mod Announcement'
 'Orakel Ankündigung': 'Oracle Announcement'
-'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'This thread contains {count} official announcement(s) from MyHordes Administrators :'
-'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'This thread contains {count} Announcement(s) from community representatives:'
+Rollenspiel: Roleplay
+Link-Text: Link text
+Link-URL: Link URL
+Bildtitel: Image title
+Bild-URL: Image URL
+'Liste der Themen aktualisieren': 'Refresh list of Threads'
 'Dieses Thema enthält offizielle Ansagen der Website Administratoren.': 'This thread contains announcements from MyHordes Administrators.'
 'Dieses Thema enthält Ansagen von Community-Vertretern.': 'This thread contains announcements from community representatives.'
-'Du kannst keine weiteren Gegenstände senden.': 'You cannot send any more items.'
-Verräter: Traitor
-Rollenspiel: Roleplay
+'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'This thread contains {count} official announcement(s) from MyHordes Administrators :'
+'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'This thread contains {count} Announcement(s) from community representatives:'
 Zitieren: Quote
-'Liste der Themen aktualisieren': 'Refresh list of Threads'
-Version: Version
+Version: Update
 Sprache: Language
-Vertraulich: 'Side Note'
+Vertraulich: Side Note
 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'This identifier must be supplied to any sites which you wish to allow to access (read-only) to game information held in your MyHordes account : Information on your town, list of citizens, map of the world, etc...'
 'Diese Punkte werden für die Seelenrangliste verwendet.': 'These points decide your classification in the Soul Rankings.'
 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.': 'You gain points at the end of each game depending on the number of days you survived for.'
-'Num. Listenpunkt': 'Numbered List'
-Bestätigen: Confirm
 'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'If, by midnight, this condition has not been satisfied, the attack will not take place and the day will be artificially prolonged.'
+Bestätigen: Confirm
+'Num. Listenpunkt': 'Numbered List'
 'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'If you can''t do anything to recover from your tiredness, you can always call for help on the forum...'
 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'The marker is visible on EVERY citizen''s map. Use it to share information on the zone with the community.'
 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'Note: Messages written here will be lost if all the citizens leave the zone.'
 'Unangemessene Nachricht blockieren': 'Block an inappropriate Message'
 Link: Link
 'Permanenter Link zu diesem Post:': 'Permanent Link to this Post:'
+'Mehr anzeigen': 'Show more'
 'Deinen Rucksack umklammern': 'Hug your rucksack'
 Schreien: Scream
 'Rotz und Wasser heulen': 'Wail like a banshee'
@@ -148,7 +151,6 @@ Schreien: Scream
 'Alleine laut singen': 'Sing at the top of your voice, alone'
 'Um dein Leben beten': 'Pray for your life'
 'Die Backen halten': 'Clench your cheeks'
-'Mehr anzeigen': 'Show more'
 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?': 'Are you sure you want to report this post to the Moderators ?'
 'Schön hier im Warmen bleiben': 'Stay in the warmth'
 'Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.': 'Spam protection: You have to wait a while before you can write again.'
@@ -158,8 +160,8 @@ Mehrsprachig: Multilingual
 'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)': 'Don''t know what to do? Follow the recommendations below :)'
 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.': 'This bonus is only available if the guardians are in the town during the attack.'
 'Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..': 'Some of your items are <strong>usable</strong>. Just click on a link below to use the item in question. Other items, such as weapons, can only be used <strong>outside of town</strong> ..'
-Stadtforum: 'Town Forum'
-Weltforen: 'World Forums'
+Stadtforum: Town Forum
+Weltforen: World Forums
 'Andere Foren': 'Other Forums'
 'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.': 'At least one post on this Topic has been reported to the Moderators.'
 'Dieses Thema enthält {count} gemeldete Posts:': 'This Topic contains {count} reported posts:'
@@ -181,10 +183,10 @@ Kein: None
 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'This bonus is only available if the watchmen are in the town during the attack.'
 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'This cost can be reduced by building an <strong>Free dump</strong>.'
 Ausblenden: Hide
-Nachricht: 'Your message'
-Ausb.+Nachr.: 'Hide + Message'
+Nachricht: Your message
+Ausb.+Nachr.: Hide + Message
 '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': '<strong>The town is in total chaos!</strong></p>Laws are no longer enforced... You will have to close ranks and work together with the other remaining survivors!<p><em>... Or kill each other. As you like...</em>'
-Entwickler-Einstellungen: 'Developer settings'
+Entwickler-Einstellungen: Developer settings
 'Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.': 'As developer of this website, you can adjust some settings here.'
 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.': 'This email address will be displayed as the contact address.'
 'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.': 'This is the URL to which players will be directed when they click on the link.'
@@ -220,7 +222,7 @@ Dauerhaft: Permanent
 'Ausgeschlossene Teilnehmer': 'Excluded participants'
 'Ausschluss annulieren': 'Cancel exclusion'
 'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.': 'The player''s exclusion will be canceled and he will regain full access to the group.'
-'Wird geladen...': Loading...
+'Wird geladen...': 'Loading...'
 'Bitte wähle eine Konversation auf der linken Seite.': 'Please select a conversation on the left.'
 'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.': 'Spam protection: You have already contacted a large number of players today; you have to wait a while before you can compose a new message.'
 'Weitere Einträge werden geladen...': 'Loading more entries...'
@@ -247,6 +249,10 @@ und: and
 'HINWEIS: Diese Aktion ist nur in der Stadt möglich.': 'NOTE: This action is only possible in the town.'
 'HINWEIS: Diese Aktion ist nur in Übersee möglich.': 'NOTE: This action is only possible in the World Beyond.'
 'Neuer Beitrag in': 'New answer in'
+'Diese Diskussion ist beendet.': 'This discussion is closed.'
+'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'This score represents the total number of days survived by all the citizens in the town. It represents therefore the town''s ability to organise itself to survive.'
+'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Click to be informed of any replies in this discussion.'
+'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Click to no longer be informed of new replies.'
 'Nachrichten suchen': 'Search for a message'
 Suchbegriff: Keywords
 'Suchbegriffe eingeben': 'Enter keywords'
@@ -264,10 +270,6 @@ Suchen: Search
 'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.': 'Your search query returned more results than can be displayed here. Try to be more precise with your query if you did not find what you are looking for.'
 'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!': 'You will be wounded if you try to force your way past the zombies!'
 'Diese Aktion kostet dich 1 AP!': 'This will cost you 1 AP.'
-'Diese Diskussion ist beendet.': 'This discussion is closed.'
-'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'This score represents the total number of days survived by all the citizens in the town. It represents therefore the town''s ability to organise itself to survive.'
-'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'Click to be informed of any replies in this discussion.'
-'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'Click to no longer be informed of new replies.'
 'Es wurde noch keine Stadt in die Rangliste aufgenommen!': 'No town is in the ranking yet !'
 'Bitte wähle die Art der Beschränkung.': 'Please choose the type of restriction.'
 'Wer?': 'Who?'
@@ -284,10 +286,10 @@ Groß: Big
 'Eine offizielle Gruppe kontaktieren': 'Contact an official group'
 'via {group_inbox}': 'via {group_inbox}'
 'Überlebte Tage': 'Days survived'
-Abschiedsworte: 'Personal message'
+Abschiedsworte: Personal message
 'Zum Wechsein der Seite hier klicken': 'Click to change page'
 'Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.': 'You do not have the right to send an object to a citizen out of the town in chaos mode.'
-'Pin entfernen': Unpin
+'Pin entfernen': 'Unpin'
 'Angepinnte Nachricht': 'Pinned Message'
 Einblenden: Show
 'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.': 'Hidden message from {user}. Click to show.'
@@ -297,7 +299,7 @@ Einblenden: Show
 'Du hast diesen Spieler auf deine Blacklist gesetzt.': 'This user has been blacklisted.'
 'Du hast diesen Spieler von deiner Blacklist genommen.': 'This user has been removed from your blacklist.'
 'Du hast {user} blockiert.': 'You''ve blacklisted {user}.'
-'Blockade aufheben': Unblock
+'Blockade aufheben': 'Unblock'
 'Spieler blockieren': 'Block player'
 '{user} blockieren': 'Block {user}'
 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'If you block this player, he will not be able to send you new messages. If you are both added to a group message by a third person, posts from the blocked player will be hidden from you by default.'
@@ -310,8 +312,8 @@ Einblenden: Show
 Männlich: Male
 Weiblich: Female
 'Keine Präferenz': 'No preference'
-Kopieren: Copy
 'E-Mail konnte nicht gesendet werden.': 'The E-Mail cannot be sent.'
+Kopieren: Copy
 'Wenn möglich gib bitte einen Grund für deine Meldung an:': 'If possible, please specify your complaint:'
 'Keinen Grund angeben': 'Don''t specify'
 Cheating: Cheating
@@ -319,7 +321,7 @@ Cheating: Cheating
 'Verwendung einer anderen als der Forensprache': 'Using a language that is not the forum language'
 'Beleidigungen / Unangemessener Ausdruck': 'Insults / Inappropriate language'
 Pornographie: Pornography
-Hassrede: 'Incitation to hatred'
+Hassrede: Incitation to hatred
 'Verbreitung persönlicher Informationen': 'Sharing of sensitive personal information'
 'Verletzung von Copyright': 'Breach of copyright/author''s rights'
 'Aufruf zu Gesetzesverstößen': 'Call for violations of law'
@@ -344,9 +346,9 @@ Info-Text: Description
 'Spielernamen einfügen': Player
 'Umfrage schließen': 'Close poll'
 'Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?': 'This cannot be undone. Are you sure?'
-Animateur-Team: 'AnimACTION team'
+Animateur-Team: AnimACTION team
 Entwickler: Devs
-Community-Tools: 'Community Tools'
+Community-Tools: Community Tools
 Posteingang: Inbox
 Archiv: Archive
 'Nachricht suchen...': 'Search message...'
@@ -360,7 +362,7 @@ Archiv: Archive
 'Dieser Spieler ist ein Animateur auf MyHordes.': 'This player is an Animactor on MyHordes.'
 'Dieser Spieler ist ein Orakel auf MyHordes.': 'This player is an Oracle on MyHordes.'
 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.': 'This player has contributed to the development of MyHordes.'
-"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": 'The number of mounds of earth and debris show that there is doubtless not much left here to find. <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>'
+"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "The number of mounds of earth and debris show that there is doubtless not much left here to find. <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>"
 'Das Zombie Survival Game!': 'THE Zombie Survival Game!'
 Details: Details
 'Zusätzliche Informationen zu deiner Meldung (optional):': 'Additional notes regarding your report (optional):'
@@ -383,8 +385,8 @@ Icons: Icons
 'Einzigartige Icons': 'Unique icons'
 Ergebnisse: Results
 'Ergebnisse pro Seite': 'Results per page'
-Ja: 'Yes'
-Nein: 'No'
+Ja: "Yes"
+Nein: "No"
 Anwenden: Apply
 'Keine Ergebnisse': 'No results'
 'Deine Nachricht benötigt einen Titel sowie Inhalt.': 'Your message must have content and a title.'
@@ -403,7 +405,7 @@ Vorschlag: Idea
 SALC: SALC
 Projekt: Project
 'Tag hinzufügen (optional)': 'Add a tag (optional)'
-Tag: Tag
+Tag: Day
 'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'A script on this page has crashed; details have been sent to the web console. The page may no longer work properly. Please report this issue:'
 'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'An error occurred. No further details are available.'
 'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'Did you know? Many actions will display a help text when they are first tapped. To perform the action, simply tap them again. If you''re in a hurry and prefer to not see these help texts, disable the setting "Single tap to show tooltips" within your soul settings.'
@@ -415,21 +417,20 @@ Offiziell: Official
 'Deine Platzierung': 'Your placement'
 '{num} Seelenpunkte, Platz {rank}': '{num} soul points, rank <b>{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}</b>'
 'Zu meinem Eintrag springen': 'Jump to my entry'
-Hinweis: Notice
 'Diskussion aktualisieren': 'Refresh the discussion'
-Support-Postfach: 'Support Inbox'
+Support-Postfach: Support Inbox
 'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.': 'You''ve performed this action too often. Wait for a bit and then try again.'
 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.': 'You are moderating this forum, but you do not have reading rights. You will only see threads where at least one post has been reported.'
 'Für diese Aktion hast du nicht genug MP.': 'You do not have sufficient MP for this action.'
 Ankündigungen: Announcements
 Foren: Forum
-Kontaktliste: 'Contact list'
+Kontaktliste: Contact list
 STRG: CTRL
 'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.': 'No documents were found that match your search query.'
 'Schon gewusst?': 'Did you know?'
 'Umfrage starten': 'Take the survey'
 'Alles als gelesen markieren': 'Mark all as read'
-Weltforum: 'World Forum'
+Weltforum: World Forum
 'im-Kontext Übersetzung': 'In-Context Translation'
 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'This particular language enable Crowdin''s In-Context translation. You will be able to translate MyHordes directly from the game itself.'
 'Spieler melden': 'Report Player'
