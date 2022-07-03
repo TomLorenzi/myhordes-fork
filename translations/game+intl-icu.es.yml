@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Tu ruta ha sido guardada.'
 'Du hast deine Beschreibung geändert.': 'Has cambiado tu anuncio personal.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} ha añadido <strong>{item}</strong>, y con ello obtuvimos <strong>{num} Raciones de Agua.</strong>'
@@ -54,7 +53,7 @@ verlassen: 'ha salido del'
 Zone: Zona
 Entfernung: Distancia
 Routen: Expedición
-Stadttor: Gran Portal
+Stadttor: 'Gran Portal'
 Karte: Mapa
 'Bitte wähle einen Gegenstand:': 'Selecciona un objeto:'
 'Du verfügst über keine geeigneten Gegenstände': 'No tienes ningún item adecuado para esto.'
@@ -68,7 +67,7 @@ Kombinieren: Combinar
 'Tor öffnen': 'Abrir el portal'
 'Route planen...': 'Preparar una expedición'
 'Stadt verlassen': 'Salir al Ultramundo'
-Stadttor-Register: Portal del pueblo
+Stadttor-Register: 'Portal del pueblo'
 'Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.': 'La torre de vigilancia construida en el pueblo permite obtener una estimación del ataque de esta noche. <strong>La calidad del pronóstico depende directamente de la cantidad de habitantes que participen en él</strong>.'
 'Heutige Abschätzung': 'Si nuestros cálculos no fallan, en el ataque participarán entre'
 Zombies: Zombies
@@ -82,7 +81,7 @@ Truhe: Baúl
 'Truhe und Aktionen': 'Baúl y Acciones'
 Bauarbeiten: Obras
 'Dein Beschreibungstext': 'Descripción personal'
-Speichern: Publicar mi anuncio
+Speichern: 'Publicar mi anuncio'
 'Du hast {num} anonyme Anzeige(n).': 'Has recibido <strong>{num} denuncia(s)</strong> anónima(s). ¡Si acumulas 8 denuncias, serás desterrado!'
 'Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...': 'Las denuncias pueden acabar en un destierro o incluso en una ejecución. Tal vez deberías mejorar tus relaciones con el resto del pueblo...'
 'Meine Spezialaktionen': 'Mis acciones especiales'
@@ -90,7 +89,7 @@ Speichern: Publicar mi anuncio
 'Mein Register': 'Mi registro'
 Verteidigung: Defensas
 Dekoration: Decoración
-Gegenstände: Objetos de defensa
+Gegenstände: 'Objetos de defensa'
 'Mein Haus ausbauen': 'Mejora tu casa (opcional)'
 'Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.': 'Mejorando tu casa, ¡aumentarás sus defensas para resistir a los ataques nocturnos!'
 'Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.': 'El primer nivel de mejoras te da también acceso a otras obras individuales.'
@@ -105,7 +104,7 @@ Einbauen: Instalar
 'Upgrade auf St. {level}': 'Mejorar al nivel {level}'
 'Kein weiterer Ausbau möglich': 'Ya tienes todas las mejoras de esta obra'
 'Leiche nicht beseitigt!': '¡Cuerpo no deshecho!'
-Tot!: '¡Muerto!'
+Tot!: ¡Muerto!
 'In der Stadt': 'En el pueblo'
 'Am Stadttor': 'En El Gran Portal'
 'Neue einfache Route': 'Nueva expedición simple'
@@ -117,8 +116,8 @@ Tot!: '¡Muerto!'
 '{citizen}s Truhe': 'Inventario de {citizen}'
 Tot: Muertos
 Haus: Casa
-Todesursache: Causa de la muerte
-Gemeinschaft: Espionaje y chismes del vecindario
+Todesursache: 'Causa de la muerte'
+Gemeinschaft: 'Espionaje y chismes del vecindario'
 '{citizen} hat bereits {num} Anzeige(n).': '{citizen} ya tiene  {num} denuncia(s) registrada(s).'
 Verbannung: Desterrado
 Todesstrafe: Ejecutado
@@ -144,7 +143,7 @@ Abstimmen: Votar
 'Du trägst eine Säge bei dir.': 'Llevas una Sierra de Metal en el inventario.'
 'Die Stadt verfügt über eine Manufaktur.': 'El pueblo cuenta con una Fábrica.'
 Vorrat: Stock
-Umwandlung: Objeto obtenido
+Umwandlung: 'Objeto obtenido'
 Anzahl: Stock
 'Zufälliger Gegenstand': 'Objeto aleatorio'
 Werkstatt-Register: Taller
@@ -163,8 +162,8 @@ Baustellenregister: Construcciones
 Brunnenregister: Pozo
 Stadt: Pueblo
 'Mein Haus': 'Mi Casa'
-Brunnen: El Pozo
-Bank: El Almacén
+Brunnen: 'El Pozo'
+Bank: 'El Almacén'
 Bürger: Habitantes
 Konstruktionen: Construcciones
 'Kaum erforschte Zone': 'Zona apenas explorada'
@@ -191,7 +190,7 @@ Ruine: Ruina
 'Zone freiräumen': 'Despejar la zona'
 'Müll durchwühlen': 'Buscar en los deshechos'
 'Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!': 'Si recoges o sueltas un objeto en el suelo, perderás tu camuflaje!'
-Zonenregister: Registro de la Zona
+Zonenregister: 'Registro de la Zona'
 'Das Stadtregister steht nicht zur Verfügung.': 'El Registro del Pueblo (donde todas las acciones de los habitantes quedan registradas) no es accesible cuando estás en el Ultramundo...'
 'Herzlichen Glückwunsch, du bist TOT!': '¡Felicidades, HAS MUERTO!'
 'Du hast {sp} Seelenpunkte gewonnen!': '¡Has ganado {sp} Puntos de Alma!'
@@ -201,8 +200,8 @@ Zonenregister: Registro de la Zona
 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!': 'Puedes reencarnarte en otro pueblo Leyenda cuantas veces quieras ¡Usa diferentes estrategias, experimenta!'
 'Wiedergeboren werden': 'Confirmar muerte y reencarnar para volver a jugar'
 Zeitung: Boletín
-Aktionspunkte: Puntos de Acción
-Baupunkte: Puntos de Construcción
+Aktionspunkte: 'Puntos de Acción'
+Baupunkte: 'Puntos de Construcción'
 Verbannt: Desterrado
 'Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.': 'Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.'
 'Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.': 'Según el oficio que hayas elegido tendrás diferentes acciones y estilos de juego disponibles durante este pueblo.'
@@ -212,17 +211,17 @@ Einwohner: Habitante
 'Alle Einträge anzeigen': 'Mostrar todas las entradas'
 Tag: Día
 Clean: Limpio
-Getrunken: Sin sed
-Satt: Sin hambre
+Getrunken: 'Sin sed'
+Satt: 'Sin hambre'
 'Umsichtiger Camper': 'Campista astuto'
 Immunisiert: Inmunizado
 'Den Tod besiegen': 'Vencer a la muerte'
 Erschöpfung: Cansado
 Angststarre: Terror
 Durst: Sediento
-Dehydriert: '¡Deshidratado!'
+Dehydriert: ¡Deshidratado!
 Rauschzustand: Drogado
-Drogenabhängig: '¡Adicto!'
+Drogenabhängig: ¡Adicto!
 Infektion: Infectado
 Trunkenheit: Ebrio
 Kater: Resaca
@@ -232,52 +231,52 @@ Kater: Resaca
 'Verwundung - Bein': 'Herido: Pierna'
 'Verwundung - Auge': 'Herido: Ojo'
 'Verwundung - Fuß': 'Herido: Pie'
-Ghul: '¡Mutante!'
+Ghul: ¡Mutante!
 Bandagiert: Convaleciente
 'Abgelegenes Haus': 'Casa de un habitante'
 'Albi Supermarkt': 'Tienda Don Chicho'
-'Alte Höhle': 'Cueva'
+'Alte Höhle': Cueva
 'Alte Hydraulikpumpe': 'Vieja Bomba hidráulica'
 'Alter Fahrradverleih': 'Taller de bicicletas'
 'Alter Rangierbahnhof': 'Plataforma ferroviaria'
 'Altes Feldkrankenhaus': 'Hospital de campaña'
 'Altes Flugfeld': 'Antiguo aeródromo'
 'Altes Polizeipräsidium': 'Antigua comisaría'
-Atombunker: Refugio Anti-atómico
+Atombunker: 'Refugio Anti-atómico'
 'Atomic Cafe': 'Atomic Café'
-Autobahnraststätte: Restaurante de autopista
-Autowracks: Carrocerías de autos
+Autobahnraststätte: 'Restaurante de autopista'
+Autowracks: 'Carrocerías de autos'
 'Bar der verlorenen Hoffnungen': 'El bar de las ilusiones perdidas'
-Baumarkt: La casa del constructor
-Baustellencontainer: Refugio en construcción
+Baumarkt: 'La casa del constructor'
+Baustellencontainer: 'Refugio en construcción'
 'Dönerbude Utsel-Brutzel': 'Sándwiches «San Guchito»'
 'Dukes Villa': 'Mansión de Duke'
 'Dunkler Hain': 'Bosque oscuro'
 'Eingestürzte Mine': 'Mina colapsada'
 'Eingestürzter Steinbruch': 'Cantera derrumbada'
 'Ein seltsames kreisförmiges Gerät': 'Un extraño aparato circular'
-E-KEA: Muebles Kiela
-Familiengrab: Cripta familiar
+E-KEA: 'Muebles Kiela'
+Familiengrab: 'Cripta familiar'
 'Fast Food Restaurant': 'Restaurante «Burger Twin»'
-Flugzeugwrack: Fuselaje de avión
-Gartenhaus: Cabaña de jardín
+Flugzeugwrack: 'Fuselaje de avión'
+Gartenhaus: 'Cabaña de jardín'
 'Geplünderte Mall': 'Supermercado saqueado'
 Höhle: Caverna
-Indianerfriedhof: Cementerio indio
-Jahrmarktstand: Stand de feria de atracciones
-'Kleines Haus': 'Casita'
-Kleinwasserkraftwerk: Central hidráulica
-Kosmetiklabor: Laboratorio de cosméticos
+Indianerfriedhof: 'Cementerio indio'
+Jahrmarktstand: 'Stand de feria de atracciones'
+'Kleines Haus': Casita
+Kleinwasserkraftwerk: 'Central hidráulica'
+Kosmetiklabor: 'Laboratorio de cosméticos'
 Krankenwagen: Ambulancia
 Lagerhalle: Hangares
 'Leeres Parkhaus': 'Parqueadero abandonado'
 'Liegengebliebener Kampfpanzer': 'Tanque averiado'
 'Motel ''Dusk''': 'Hostal «Hollywood Inn»'
 'Militärischer Wachposten': 'Puesto militar'
-Postfiliale: Oficina de correos
-Räuberhöhle: Escondite de contrabandistas
-Schützengraben: Trincheras militares
-Stadtbücherei: Biblioteca de barrio
+Postfiliale: 'Oficina de correos'
+Räuberhöhle: 'Escondite de contrabandistas'
+Schützengraben: 'Trincheras militares'
+Stadtbücherei: 'Biblioteca de barrio'
 'Tante Emma Laden': 'Minimercado «Ocxo»'
 'Truck ''Rathaus auf Rädern''': 'Bus turístico'
 'Umgekippter Laster': 'Camión averiado'
@@ -290,7 +289,7 @@ Stadtbücherei: Biblioteca de barrio
 'Versperrte Straße': 'Pista bloqueada'
 'Verwilderter Park': 'Parque abandonado'
 'Waffengeschäft Guns''n''Zombies': 'Armería «Guns''n''Zombies»'
-Warenlager: Depósito abandonado
+Warenlager: 'Depósito abandonado'
 'Zelt eines Bürgers': 'Tienda de un habitante'
 'Zerstörte Apotheke': 'Farmatodito destruido'
 'ZomBIER Bar': 'Bar de mala muerte'
@@ -305,7 +304,7 @@ Warenlager: Depósito abandonado
 '{citizen} hat eine Ration Wasser genommen.': '{citizen} ha tomado una ración de agua.'
 'Es wurde ein neues Gebäude gebaut: {plan}. Der Bau hat folgende Ressourcen verbraucht: {list}': 'Un nuevo edificio ha sido construido: {plan}. Para esta construcción se utilizaron: {list}.'
 'Es wurde ein neues Gebäude gebaut: {plan}.': 'Un nuevo edificio ha sido construido: {plan}.'
-'Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...': "¿Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido..."
+'Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...': '¿Alguien ha oído algo de {citizen} recientemente? Parece como si hubiera desaparecido...'
 '{citizen} hat dem Druck nicht länger standgehalten und sein Leben beendet: {cod}.': '{citizen} ha sido débil y ha decidido terminar su miserable existencia: {cod}.'
 'Verrat! {citizen} ist gestorben: {cod}.': '{citizen} ha muerto aquí ({cod}).'
 '{citizen} hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: {cod}.': '{citizen} derramó la última gota del vaso. El pueblo ha decidido su ejecución: {cod}.'
@@ -331,8 +330,8 @@ Warenlager: Depósito abandonado
 'HALTET DEN DIEB! {actor} ist bei {victim} eingebrochen und hat {item} gestohlen!': '¡{actor} ha sido visto robando {item} a {victim}!'
 'VERDAMMT! Es scheint, jemand ist bei {victim} eingebrochen und hat {item} gestohlen...': '¡MALDICIÓN! Parece que alguien se ha metido en la casa de {victim} y ha robado {item}...'
 'Es scheint, jemand ist bei {victim} eingebrochen und hat {item} hinterlassen...': 'Parece que alguien se ha metido en la casa de {victim} y ha dejado {item}...'
-'Kleine Stadt': 'Amateur'
-'Entfernte Regionen': 'Leyenda'
+'Kleine Stadt': Amateur
+'Entfernte Regionen': Leyenda
 Pandämonium: Pandemonio
 'Private Stadt': 'Pueblo privado'
 '{citizen} hat dem Brunnen {num} Rationen Wasser hinzugefügt.': '{citizen} ha añadido {num} Ración/es de Agua al pozo.'
@@ -347,15 +346,15 @@ Westen: Oeste
 'Bitte wähle einen Bürger:': 'Por favor elige un Habitante:'
 'Es ist kein Bürger in der Nähe...': 'No hay ningún habitante cerca...'
 'Rucksack in der Bank ausleeren': 'Vaciar tu mochila en el Almacén'
-'Meine objekte': 'Objetos'
-Gammler: "Indeciso"
-Buddler: "Excavador"
-Wächter: "Guardián"
-Aufklärer: "Explorador"
-Dompteur: "Domador"
-Techniker: "Técnico"
-Schamane: "Chamán"
-Einsiedler: "Ermitaño"
+'Meine objekte': Objetos
+Gammler: Indeciso
+Buddler: Excavador
+Wächter: Guardián
+Aufklärer: Explorador
+Dompteur: Domador
+Techniker: Técnico
+Schamane: Chamán
+Einsiedler: Ermitaño
 'Verbesserung des Tages': 'Mejora del día'
 Wachturm: Torre
 Werkstatt: Taller
@@ -366,7 +365,7 @@ Werkstatt: Taller
 'Leere Truhe': 'Baúl vacío...'
 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:': 'Echando un vistazo por la ventana, encuentras los siguientes objetos en su vivienda:'
 'Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.': 'El Pozo es el lugar en el que los habitantes pueden recoger diariamente su ración de agua.'
-Übersicht: Vista general del pueblo
+Übersicht: 'Vista general del pueblo'
 'Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.': 'Te encuentras ante un vasto horizonte desolado. El Ultramundo. Hay otros condenados como tú recorriendo el desierto, escarbando en sus ruinas. Muchos de ellos no volverán jamás.'
 'Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...': '¿Decidirás seguir adelante o esconderte detrás de las murallas fortificadas? Algunos creen que es mejor ser cauteloso y considerar todas las opciones, otros sostienen que el corazón débil nunca ganó a la doncella justa... Quizás la verdad esté en algún lugar entre los dos...'
 'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'Las noches son heladas en el desierto... Una densa nube de polvo lo envuelve todo y se oyen gemidos apesadumbrados a tu alrededor. De vez en cuando distingue una figura borrosa moviéndose en las sombras. Esperemos que sea solo tu imaginación...'
@@ -386,10 +385,10 @@ Dehydration: Deshidratación
 'Dehydratation ist wirklich was Übles. Muskelspasmen, Atemprobleme und unaushaltbare Gliederschmerzen treten in der finalen Phase auf. Du hast nach etwas Trinkbarem gesucht - überall.... Vergeblich. Deine Mitbürger behaupten sogar, dich dabei gesehen zu haben, wie du in den letzten Minuten schaufelweise Sand in dich geschüttet hättest... Herrje...': 'Morir de sed es atroz. En las últimas horas, tu piel ha comenzado a secarse y a quebrarse, tu lengua se ha hinchado. Algunos dicen haberte visto tragando arena a manos llenas, hasta atragantarte...'
 Verhungert: Inanición
 'Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.': 'Acosado por los dolores del hambre, anduviste a trompicones por el pueblo todo el día... siempre buscando un bocado de carne... pero en vano. Al final del día, finalmente se te acabaron las fuerzas. Lentamente, muy lentamente, te hundiste en el suelo. Incluso tus últimos alientos fueron un dolor... Lo último que el mundo escuchó de ti fue un grito inhumano y penetrante en el cielo y estabas muerto.'
-Drogenabhängigkeit: Falta de estimulantes
+Drogenabhängigkeit: 'Falta de estimulantes'
 'Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht''s schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.': 'Las drogas son excelentes siempre que tengas suficiente. Pero si te quedas sin ellas, las cosas dejan de ser tan alegres... Empiezas a sudar, te dan escalofríos, ataques de pánico... corres al baño cada diez minutos a vomitar. Al final, cuando ya te has vuelto completamente loco, terminas tragando unas piedritas que confundiste con esteroides.'
 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.': 'Poco a poco la enfermedad te devoraba por dentro... Los síntomas de la infección ya no podían pasarse por alto: heridas supurantes, hematomas, carne podrida... Después de varias horas de sufrimiento, finalmente sentiste la muerte como un alivio.'
-Zyanid: Suicidio por ingestión de cianuro
+Zyanid: 'Suicidio por ingestión de cianuro'
 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll''s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...': 'En vez de seguir viviendo con esa banda de "losers", preferiste simplificarte la vida... acortándola un poco. Al fin y al cabo, un día más, un día menos... '
 'Ermordung durch Gift': 'Asesinato por veneno'
 'Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!': 'Tragaste este producto sin cuidado... El veneno que contenía solo tardó unos segundos en llegar al corazón a través de su sistema circulatorio. Has perdido la conciencia. El paro respiratorio y la insuficiencia cardíaca hicieron el resto. ¡¡Has sido envenenado!! ¡Qué astuto!'
@@ -402,7 +401,7 @@ Erhängt: Colgado
 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.': 'Obviamente, a algunas personas del pueblo no les agradaste, incluidos varios de tus vecinos, ¡incluso algunos de tus amigos! Debido a esto, te arrastraron hasta la muralla del pueblo, te metieron en una jaula y la empujaron por el borde. Todo fue rápido. Ahora probablemente seas comida de zombies... Después de un breve aplauso, el grupo se disolvió y todos volvieron a su trabajo.'
 Strangulation: Estrangulado
 'Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.': 'Saludos de Brainbox del pasado, que está sentado frente a su PC el 22 de febrero de 2020 y está escribiendo este texto.'
-Kopfschuss: Tiro en la cabeza
+Kopfschuss: 'Tiro en la cabeza'
 'Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.': 'Aquí vivió un habitante que se instaló en el desierto, pensando empezar una nueva vida, lejos de la traición y de las intrigas de sus compañeros. <strong>La mitad de su cuerpo aún está tirado en un rincón</strong>.'
 'Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!': 'Ahí se encuentran muchos productos de limpieza. Los más desfavorecidos encontrarán algo de comer...'
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'El típico caso de un hombre que se mete en una cueva huyendo de una turba de zombies. Todo bien hasta allí, hasta que el hombre recuerda que tenía 2 zombies abrazados a su espalda. El pobre gritó de todo menos «Por favor».'
@@ -485,7 +484,7 @@ Katapult: Catapulta
 'Du kannst nur einen Behälter auf einmal tragen.': 'Solo puedes llevar contigo un contenedor a la vez.'
 'Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?': 'El desierto parece infinito... ¿Cuántos habrán perdido la vida en ese mar de arena? ¿Tendrás tú el mismo destino?'
 'Sie sind allein in dieser Gegend...': 'Estás solo en esta zona.'
-Nachricht: Anuncio personal
+Nachricht: 'Anuncio personal'
 'Draußen?': '¿Afuera?'
 Ja: Si
 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was {citizen} bei sich aufbewahrt...': 'El contenido de esta vivienda está escondido por cortinas en las ventanas...'
@@ -501,18 +500,18 @@ Unbekannt: Desconocido
 'An der Angriffsabschätzung teilnehmen': 'Participa en el pronóstico del ataque'
 'Für ein Tagesprojekt abstimmen.': 'Vota por el proyecto del día'
 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).': 'Trabaja en una construcción o sal a buscar materiales en el desierto. Los vagos son más apetitosos para los zombies'
-Heldentafel: La voz de los héroes
+Heldentafel: 'La voz de los héroes'
 'Unsere Situation': 'Nuestra situación'
 'Stadttyp:': 'Tipo de pueblo:'
 'Stadttor:': 'El portal:'
-Offen!: '¡Abierto!'
+Offen!: ¡Abierto!
 Geschlossen: Cerrado
 'Wasservorräte:': 'Reservas de agua:'
 'Einwohner am Leben:': 'Habitantes vivos:'
 'Lesen Sie das Mitteilungsblatt': 'Leer El Cadáver Matutino'
 'Unsere Verteidigungen': 'Informe de defensa detallado'
-Grundbefestigungsmauer: Muralla de base
-Verteidigungsgegenstände: Objetos de defensa
+Grundbefestigungsmauer: 'Muralla de base'
+Verteidigungsgegenstände: 'Objetos de defensa'
 Nachtwächter: Centinelas
 'Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.': 'Recuerda: Los objetos de defensa (planchas de madera, etc.) deben encontrarse en el Almacén.'
 'Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.': 'En el Vertedero Público puedes arrojar objetos del almacén para aumentar las defensas temporalmente ¡Con suerte te hará sobrevivir otra noche!.'
@@ -530,21 +529,21 @@ Installieren: Instalar
 Gefahr: Peligro
 'Tod durch Radioaktivität': 'Muerte por radioactividad'
 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.': 'Resulta que has sido bendecido con un poco... pero sólo un poquito de radiocatividad.'
-Heldentaten: Acciones heroicas
+Heldentaten: 'Acciones heroicas'
 'Anzahl deiner wirklich außergewöhnlichen Heldentaten.': 'Cantidad de acciones extraordinarias que has realizado.'
 Alkohol: Alcoholes
 'Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.': 'Litros de bebidas alcohólicas artesanales que has ingerido.'
-Hausverbesserung: Mejoras en casa
+Hausverbesserung: 'Mejoras en casa'
 'Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.': 'Cantidad de mejoras hechas a tu vivienda.'
 Handwerk: Artesano
 'Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.': 'Cantidad de cachivaches armados o destruidos en el taller.'
-Leichenwäscher: Mojador de muertos
+Leichenwäscher: 'Mojador de muertos'
 'Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.': 'Veces que has regado con agua los cadáveres del pueblo.'
 'Autarker Verbannter': 'Desterrado emancipado'
 'Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.': 'Cantidad de objetos de fortuna fabricado con desechos encontrados en la basura del pueblo. Solo los desterrados pueden recibir este reconocimiento.'
 Verbannungen: Destierros
 'Anzahl der Stadtverbannungen.': 'Cantidad de veces que fuiste expulsado de la comunidad.'
-'Schwere Verletzungen': 'Magulladuras'
+'Schwere Verletzungen': Magulladuras
 'Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.': 'Cantidad de mutilaciones o desarticulaciones que no te quitaron la vida.'
 Hausmannskost: Delicias
 'Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.': 'Platillos preparados con ingredientes de procedencia dudosa.'
@@ -556,20 +555,20 @@ Metzger: Carnicería
 'Anzahl der Nächte, die du draußen geschlafen und überlebt hast.': 'Cantidad de noches pasadas fuera del pueblo y que has sobrevivido.'
 Kannibalismus: Canibalismo
 'Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...': 'Cantidad de veces que tragaste carne humana...'
-Wasserkanonen: Cañones de agua
+Wasserkanonen: 'Cañones de agua'
 'Anzahl an großen Wasserwaffen, die du gebaut hast.': 'Cantidad de grandes juguetes de agua que has fabricado.'
 Glückspilz: Suertudo
 'Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.': 'Cantidad de grandes cofres de metal que has encontrado en el Ultramundo.'
 Baustellen: Construcciones
 'Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.': 'Puntos de acción o de construcción invertidos en el avance de una obra en el pueblo.'
 'Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.': 'Capacidad de rechazar el consumo de todo estimulante en tu vida.'
-Kernsammler: Purificador de almas
+Kernsammler: 'Purificador de almas'
 'Anzahl der im Ausland gesammelten Seelen verstorbener Bürger': 'Cantidad de almas recolectadas que has purificado.'
 'Kämpfe um Leben und Tod': 'Combates mortales'
 'Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!': 'Zombies que mataste con tus propias manos, sin armas ni competencias especiales. ¡Eso macho!'
-Wunderwerke: Construcción de Maravillas
+Wunderwerke: 'Construcción de Maravillas'
 'Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.': 'Cantidad de maravillas que has logrado construir.'
-Grillmeister: Cocina exótica
+Grillmeister: 'Cocina exótica'
 'Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.': 'Viejos amigos a los que has cocinado en el Cremato-bar.'
 Ausgrabungsarbeiten: Desmonte
 'Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.': 'Puntos de acción invertidos en despejar un edificio en el Ultramundo.'
@@ -585,7 +584,7 @@ Drogenerfahrungen: Experimentaciones
 'Anzahl der verlassenen Gebäude, die du untersucht hast.': 'Cantidad de veces que has osado entrar en una ruina abandonada'
 'Komplexe Expeditionen': 'Exploraciones avanzadas'
 'Anzahl der entfernten Gebäude, die von dir erkundet wurden.': 'Cantidad de edificios en zonas alejadas que has explorado.'
-Expertenexpeditionen: Exploraciones muy lejanas
+Expertenexpeditionen: 'Exploraciones muy lejanas'
 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Cantidad de edificios que has explorado en zonas REALMENTE muy alejadas.'
 Großzügigkeit: Generosidad
 'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Cantidad de días de Modo Héroe que regalaste a otro habitante necesitado.'
@@ -599,7 +598,7 @@ Schusseligkeiten: Torpezas
 'Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.': 'Cantidad de objetos que has roto en tus experiencias fallidas.'
 Masochismus: Masoquismo
 'Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.': 'Momentos de felicidad en el sufrimiento más profundo.'
-Event-Auszeichnungen: Reconocimiento de la Comunidad
+Event-Auszeichnungen: 'Reconocimiento de la Comunidad'
 'Auszeichnung für die Teilnahme an Events bei ''Die Verdammten''.': 'Recompensa obtenida por trabajar con la comunidad.'
 'Wunderwerk: Sandschloss': 'Maravilla: Castillo de arena'
 'Das hast du nicht wirklich gebaut?': '¿Realmente has construido eso?'
@@ -619,7 +618,7 @@ Nachrichten: Mensajes
 'Anzahl der Tage, die du als Techniker gespielt hast.': 'Días pasados jugando con herramientas.'
 'In deinem Bett gestorben': '¡Si me muero, mejor que sea cómodamente!'
 'Großmutter, was hast du für große Zähne... Grrrooooaaar!': '¡Si me muero, mejor que sea cómodamente!'
-Dehydrationstode: Muertes por deshidratación
+Dehydrationstode: 'Muertes por deshidratación'
 'Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !': 'Cantidad de muertes por deshidratación terminal. Sí, el agua es importante.'
 'Tödliche Infektionen': 'Muertes por infección'
 'Anzahl der Infektionen, die dich das Leben gekostet haben.': 'Cantidad de fallecimientos por infecciones.'
@@ -629,33 +628,33 @@ Dehydrationstode: Muertes por deshidratación
 'Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.': 'Fuiste el último en morir en tu pueblo. ¡Muy pocos jugadores han logrado esta hazaña!'
 'Letzter Toter in einer Pandämoniumstadt': 'El Último Superviviente en Pandemonio'
 'Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!': '¡Fuiste el último en morir en un pueblo del Pandemonio!'
-Mystic: Puntos de Misticismo
+Mystic: 'Puntos de Misticismo'
 'Wie viele Seelen hat Ihre Stadt befreien können.': 'Cantidad de almas que tu pueblo pudo reciclar en las construcciones'
-Wüstenausflüge: Noches en el desierto
+Wüstenausflüge: 'Noches en el desierto'
 'Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.': 'Veces en las que saliste a pasear fuera del pueblo y nunca más volviste.'
 'Geöffnete Tür': 'Apertura de puertas'
 'Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.': 'Cantidad de puertas abiertas en las ruinas.'
 Hängend: Horcas
 'Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.': 'Cantidad de pueblos en los que fuiste considerado indeseable.'
-Häuserplünderungen: Saqueos en casas
+Häuserplünderungen: 'Saqueos en casas'
 'Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.': 'Objetos arrancados del cuerpo aún tibio de tus vecinos.'
 'Absurde Projekte': 'Proyectos delirantes'
 'Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.': 'Cantidad de proyectos delirantes terminados durante tu triste vida.'
 Reparaturen: Reparaciones
 'Anzahl kaputter Gegenstände, die du wieder repariert hast.': 'Objetos rotos que has reparado.'
-Gebäudereparaturen: Reparación de construcciones
+Gebäudereparaturen: 'Reparación de construcciones'
 'Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.': 'Puntos de acción invertidos en reparaciones interminables.'
 Textsammler: Rolista
 'Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.': 'Documentos y otros descubrimientos en el juego de rol.'
 Leichenentsorger: Lanzamuertos
 'Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.': 'Cantidad de amigos muertos que has tirado fuera del pueblo.'
-Batteriewerferfabrikant: Super lanzapilas
+Batteriewerferfabrikant: 'Super lanzapilas'
 'Anzahl der Batteriewerfer, die du gebaut hast.': 'Cantidad de lanza-pilas que has fabricado.'
 'Überlebende der Hölle!': 'Superviviente del Infierno'
 'Sie sind ein wahrer Überlebenskünstler der Hölle.': 'Eres un verdadero superviviente del infierno'
-Hausarbeiten: Trabajador hogareño
+Hausarbeiten: 'Trabajador hogareño'
 'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.': 'Cantidad de pequeños trabajos hechos en casa.'
-Kettensägen: Sierras elécticas
+Kettensägen: 'Sierras elécticas'
 'Anzahl an Kettensägen, die du gebaut hast.': 'Cantidad de sierras eléctricas que has armado.'
 Stadtwächter: Centinela
 'Anzahl der Nächte, die du als Stadtwächter überlebt hast.': 'Cantidad de noches que sobreviviste como Centinela.'
@@ -667,7 +666,7 @@ Stadtwächter: Centinela
 'Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.': 'Cantidad de pueblos representadas en las primeras 35 clasificaciones de la temporada pasada'
 'Getötete Zombies': 'Zombies eliminados'
 'Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.': 'Total de muertos vivientes que volviste a enviar bajo tierra de cualquier manera.'
-'Ehemaliger Beta-Tester': 'Beta-tester'
+'Ehemaliger Beta-Tester': Beta-tester
 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist.': 'Distinción rarísima otorgada a quienes participaron en la fase Beta, los primeros jugadores de Zombinoia.'
 'Sandbälle! Yeah!': 'Bolas de arena'
 'Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...': 'Cantidad de bolas de arena lanzadas a la cara de otros jugadores.'
@@ -690,21 +689,21 @@ Sekunde(n): Segundo(s)
 'Mein Rucksack': 'Mi Mochila'
 'Dieser Bürger wurde noch nie gesehen...': 'No ha sido visto últimamente...'
 'Der Bürger wurde zuletzt {time} gesehen.': 'ha sido visto por última vez <strong>{time}</strong>.'
-'Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.': "ha sido visto en el pozo cogiendo <strong>{ration} racion(es) de agua</strong> hoy."
+'Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.': 'ha sido visto en el pozo cogiendo <strong>{ration} racion(es) de agua</strong> hoy.'
 'Dieser Bürger ist ernsthaft verletzt.': '¡Ha sido <strong>gravemente herido</strong>!'
 'Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.': 'ha estado tosiendo sangre últimamente... Algunos hablan de una <strong>Infección</strong>.'
-'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?': "habría estado mendigando por agua en todo el pueblo..."
-'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...': "estaría en un grave estado de dependencia... Se dice incluso que se habría vuelto muy violento, y hasta \"anti-comunitario\" por momentos."
-'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...': "no lograría dormir y diría frases incoherentes, hablando de muerte, sombras a su alrededor, voces en su cabeza..."
+'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?': 'habría estado mendigando por agua en todo el pueblo...'
+'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...': 'estaría en un grave estado de dependencia... Se dice incluso que se habría vuelto muy violento, y hasta "anti-comunitario" por momentos.'
+'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...': 'no lograría dormir y diría frases incoherentes, hablando de muerte, sombras a su alrededor, voces en su cabeza...'
 'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!': 'no sería capaz de elegir su oficio. A este paso no sobreviviremos.'
-'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?': "parece ser alguien importante. ¿Tal vez uno de los creadores?"
+'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?': 'parece ser alguien importante. ¿Tal vez uno de los creadores?'
 'Gereinigte Seelen': 'Almas Purificadas'
 '"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.': '"Un paso más..." se paró en el felpudo de {víctima}. Su explosión te dejó una impresión duradera. Si aún puede caminar, será mejor que busque un médico.'
 'Du kannst diesen Gegenstand nicht stehlen.': 'No puedes robar este objeto'
 '{username} wurde standrechtlich erschossen.': '{username} ha sido asesinado de un balazo.'
 'Dieser Bürger gehört keiner Stadt an.': 'Este habitante no pertenece a ningún pueblo.'
 '{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!': '{citizen} ha sido asesinado de un balazo. ¡Viva la dictadura!'
-Headshot: Tiro en la Cabeza
+Headshot: 'Tiro en la Cabeza'
 'Du hast noch keine Drogen genommen.': 'Nunca consumiste estimulantes.'
 'Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.': 'Has bebido hoy. Una nueva ración de agua no te hará recuperar más PA este día.'
 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.': 'Has comido hoy. Una nueva ración de alimentos no te hará recuperar más PA este día.'
@@ -722,7 +721,7 @@ Headshot: Tiro en la Cabeza
 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.': 'Te duele la cabeza... No puedes beber ni una gota de alcohol hasta mañana.'
 'Endlich kannst du deine Schwiegermutter loswerden!': '¡Finalmente puedes deshacerte de tu madrastra!'
 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.': 'Tu herida ha sido curada recientemente. No puedes volver a ser curado este día.'
-'Reiseleiter in der Außenwelt': "Guía del Ultramundo"
+'Reiseleiter in der Außenwelt': 'Guía del Ultramundo'
 'Den {rolename} wählen': 'Seleccionar {rolename}'
 'Dazu hast Du kein Recht.': 'Tú no tienes derecho de hacer eso.'
 'Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?': 'Realmente no esperabas eso... ¿Qué tal si la próxima vez te apegas a las reglas?'
@@ -761,11 +760,11 @@ Headshot: Tiro en la Cabeza
 'Dieser Bürger hat keine letzten Worte hinterlassen ...': 'Este habitante no ha dejado últimas palabras ...'
 'Letzte Worte:': 'Últimas palabras:'
 'Deine letzten Worte:': 'Tus últimas palabras:'
-Mystic-Punkte: Puntos chamánicos
+Mystic-Punkte: 'Puntos chamánicos'
 'Diese Punkte sind exklusiv für den Schamanen reserviert.': 'Estos puntos están reservados exclusivamente para el Chamán'
 'Du bist der {rolename} dieser Stadt.': 'Eres el {rolename} del pueblo.'
 'Du folgst aktuell {citizen}.': 'Actualmente estás siguiendo a {citizen}.'
-"Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.\n                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.": "Todas las funciones en el exterior están desactivadas mientras estés siguiendo a un héroe."
+"Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.\n                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.": 'Todas las funciones en el exterior están desactivadas mientras estés siguiendo a un héroe.'
 'Zone reinigen': 'Purifica la zona'
 Aktualisierung: Actualizar
 'Deine Eskorte': 'Tu escolta'
@@ -855,21 +854,21 @@ Zusammenbauen: Ensamblar
 'Das kannst du mit einem Berufsgegenstand nicht tun.': 'No puedes hacer eso si tienes un Oficio.'
 'Aus der Stadt schleichen': 'Escabullirse por el portal'
 'Nutze deine heilenden Hände': '¡Intentar una curación!'
-'Diesen Bürger angreifen!': "¡Atacarlo!"
-'Diesen Bürger verspeisen!': '¡Devorarlo!'
+'Diesen Bürger angreifen!': ¡Atacarlo!
+'Diesen Bürger verspeisen!': ¡Devorarlo!
 'Die Leiche verspeisen!': '¡Devorar su cadáver!'
 'In die Stadt schleichen': 'Escabullirse en el pueblo'
 'Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.': 'Este habitante ya ha escarbado aquí. Mañana podrá hacerlo nuevamente.'
 'Dieser Bürger wird aktuell von {leader} eskortiert.': 'Éste habitante está siendo escoltado por {leader}.'
 'Tote in der Stadt': 'Muertos en el pueblo'
-Niemand!: '¡Ninguno!'
+Niemand!: ¡Ninguno!
 'Sonstige Opfer': 'Otras víctimas'
 Opfer: Vícitma
 'Keine Opfer': 'Ningún muerto'
 Umdrehen: Voltear
-'Der {rolename} der Stadt ist {username}': "{username} ha sido escogido como el {rolename} del pueblo"
+'Der {rolename} der Stadt ist {username}': '{username} ha sido escogido como el {rolename} del pueblo'
 Status: Estados
-Notruf: Pedido de ayuda
+Notruf: 'Pedido de ayuda'
 'Rohstoff am Boden (Holz, Metall...)': 'Recursos en el suelo (madera, metal, etc.)'
 'Verschiedene Gegenstände am Boden': 'Objetos diversos en el suelo'
 'Wichtige(r) Gegenstand/-ände!': '¡Objeto(s) importante(s)!'
@@ -902,10 +901,10 @@ Archiv: Archivos
 'Zustand:': 'Estado:'
 'Jeder {divap}, der in die Reparatur investiert wird, beseitigt {hprepair} Schadenspunkte an einem Bauwerk.': 'Cada {divap} invertido en las reparaciones, elimina {hprepair} puntos de daño en un edificio.'
 'Die Reparatur verbraucht keine Ressourcen.': 'La reparación no consume recursos.'
-Zonenmarkierer: Marcador de zona
+Zonenmarkierer: 'Marcador de zona'
 'Tor ist offen!': '¡El portal está abierto!'
 'Zombies sind eingedrungen.': 'Zombies han entrado...'
-'vor Angst erstarrt': 'Aterrorizado(s)'
+'vor Angst erstarrt': Aterrorizado(s)
 'Du wirst heute Nacht sterben!': '¡Morirás esta noche!'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen.': 'El edificio {plan} ha sufrido {damage} punto(s) de daño'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.': 'El edificio {plan} sufrió {damage} punto(s) de daño y fue completamente destruída por los zombies.'
@@ -918,7 +917,7 @@ Zonenmarkierer: Marcador de zona
 'Verlassenes Hospital': 'Hospital Abandonado'
 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...': 'Este edificio en ruinas parece haber sido un hospital. Descubres una entrada al edificio, te golpea un olor a humedad. Haces una mueca, pero es casi seguro que encontrarás algo útil aquí...'
 '[nichts]': '[ninguno]'
-Seelenpunkte: Puntos de Alma
+Seelenpunkte: 'Puntos de Alma'
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'Cantidad de Puntos de Alma que has ganado en tus reencarnaciones.'
 'Und wieder ''ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!': '¡Uno menos! El cadáver de † {disposed} ha sido echado fuera por {citizen}.'
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': '{citizen} ha usado agua para quemar el cuerpo de † {disposed}.'
@@ -959,7 +958,7 @@ Hinterhältigkeit: Perfidia
 'Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).': 'Te protege de morir durante un ataque zombie por infección, sed o adicción.'
 'Süße Rache': 'Venganza sórdida'
 'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!': 'Si eres desterrado el día 3 o posteriores automáticamente recibes dos frasco veneno (puede usarse para envenenar la comida y el agua).'
-Proficamper: Campista Experto
+Proficamper: 'Campista Experto'
 'Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.': 'Reduce las penalidades por acampar repetidamente.'
 'Erfahrener Junkie': 'Medicina Preventiva'
 'Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.': 'Comienzas la partida con un Paracetoid 7g.'
@@ -967,7 +966,7 @@ Bürgermeister: Alcalde
 'Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").': 'Te da la capacidad de crear pueblos privados.'
 Architekt: Arquitecto
 'Du beginnst jede Stadt mit einem Gebäudeplan.': 'Comienzas cada partida con un plano común en tu poder.'
-Profiwächter: Centinela Experto
+Profiwächter: 'Centinela Experto'
 'Du hast permanent um 5% bessere Chancen auf der Nachtwache.': 'Siempre tienes un 5% mejores posibilidades de sobrevivir como centinela a la noche.'
 'Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.': 'Dedicas un buen rato a esconder todos los objetos que tienes contigo... Jejeje. Has utilizado 2 Puntos de Acción.'
 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!': 'Tomas una impresión de la cerradura de la puerta y obtienes {item}'
@@ -977,7 +976,7 @@ Draußen: Fuera
 'Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.': 'Tu mensaje ha sido enviado con los objetos que has elegido.'
 'Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...': '¡Cuando comenzabas tu búsqueda, descubriste una espcie de... escondite que contiene: {items}! Hmmm... Seguramente fue hecho por otro desterrado...'
 Sauerstoff: Oxígeno
-Stadtverteidigung: Defensas del pueblo
+Stadtverteidigung: 'Defensas del pueblo'
 'Details ansehen': 'Ver el detalle'
 Lage: Estado
 'Stadttor geöffnet': 'Portal abierto'
@@ -990,11 +989,11 @@ Teilnehmen: Participar
 'Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:': 'Selecciona los objetos que deseas enviar con este mensaje:'
 'Folgende Gegenstände werden mitgesendet:': 'Los siguientes objetos serán enviados:'
 'Kein Gegenstand beigefügt...': 'Ningun objeto adjunto.'
-Basisverteidigung: Defensa base
+Basisverteidigung: 'Defensa base'
 'Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!': '¡Existe la posibilidad de que el objeto se rompa durante el ataque!'
 'Es besteht die Chance das Objekt während des Angriffs zu verlieren!': '¡Existe la posibilidad de que el objeto se pierda durante el ataque!'
 'Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).': 'Los siguientes objetos han sido enviados con el mensaje. Deberían estar ahora en tu baúl (si nadie pasó por ahí antes que tú...).'
-'Seine Seele ansehen': "Ver su Alma"
+'Seine Seele ansehen': 'Ver su Alma'
 'Eine Nachricht hinterlassen': 'Dejar un mensajito en la puerta'
 'Nicht ganz ekelfrei hat {disposing_citizen} den leblosen Körper von {citizen} entsorgt.': 'Con mucho esfuerzo {disposing_citizen} se deshizo del cuerpo de {citizen}.'
 'Dank {disposing_citizen} hat sich der Körper von {citizen} in verfaultes Wasser verwandelt.': 'Gracias a los esfuerzos de {disposing_citizen}, el cuerpo de {citizen} ha sido reducido a un charco putrefacto.'
@@ -1023,14 +1022,14 @@ Beschreibung: Detalles
 'Nächste:': 'Siguiente :'
 'Diese Fähigkeit wurde noch nicht freigeschaltet...': 'Habilidad no desbloqueada...'
 'Du benötigst {item}, um diese Tür zu öffnen.': 'Para abrir esta puerta necesitas algo que se parece mucho a un {item}.'
-'Verbesserung des Tages (building)': 'Obras'
+'Verbesserung des Tages (building)': Obras
 'Werkstatt (building)': 'Taller (building)'
 'Von einem Ghul gefressen': 'Devorado por un mutante'
 '{actor} hat bei der Plünderung von † {victim} Haus diesen Gegenstand gestohlen: {item}': '{actor} ha sustraído {item} durante el saqueo a la casa de † {victim}'
 'Zum Forum': 'Ir al Foro'
 'Isolierte Zombies': 'Zombies sueltos'
-'Die Zombies verstümmeln': Banda de Zombies
-'Horde der Zombies': Turba de Zombies
+'Die Zombies verstümmeln': 'Banda de Zombies'
+'Horde der Zombies': 'Turba de Zombies'
 Mark.: Marca.
 'Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.': 'Estás en un pueblo privado. Algunas reglas especiales se aplican a este tipo de pueblos. '
 Einrichtung: Instalaciones
@@ -1047,14 +1046,14 @@ Quarantäne: Cuarentena
 'Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.': 'Todavía no hay suficientes habitantes en el pueblo. El ataque zombie y la restauración de PAs se han pospuesto hasta mañana.'
 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"': 'Has recibido una nueva denuncia anónima: "{reason}"'
 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "{reason}"': '¡Buenas Noticias! La siguiente denuncia ha sido retirada: "{reason}"'
-'Du bist vor Angst erstarrt!!': '¡¡Aterrorizado!!'
+'Du bist vor Angst erstarrt!!': ¡¡Aterrorizado!!
 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den {num} Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...': 'Tenemos dos noticias para ti. La buena es que, a pesar de los intentos de {num} de zombie(s) por devorarte, ¡sobreviviste! Lo malo es que la experiencia fue espantosa y ahora estás aterrorizado a la idea de tener que pasar por ella una segunda vez...'
-'Haltet den Dieb!': '¡Robo!'
+'Haltet den Dieb!': ¡Robo!
 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: {icon} {item}': 'Aparentemente, a uno de tus compañeros del pueblo realmente le gustó tu baúl... alguien ha robado tu: {icon} {item}'
 'Zufälliger Bürger': 'Habitante Aleatorio'
 'Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:': 'Si deseas usar el mismo habitante elegido al azar más de una vez en tu texto, puedes asignarle un número, por ejemplo:'
 'Du hast dich soeben in einen Ghul verandelt!': '¡Te has convertido en un Mutante!'
-"Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!\n            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach\n            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!": "La aparición de manchas oscuras en tu cuerpo debieron alarmarte, pero creíste inocentemente que se trataba de una alergia o una quemadura solar. Te preocupaste cuando de pronto sentiste unas ganas incontrolables de probar el sabor de la carne humana... Es una espantosa necesidad que debes satisfacer RÁPIDAMENTE, o morirás."
+"Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!\n            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach\n            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!": 'La aparición de manchas oscuras en tu cuerpo debieron alarmarte, pero creíste inocentemente que se trataba de una alergia o una quemadura solar. Te preocupaste cuando de pronto sentiste unas ganas incontrolables de probar el sabor de la carne humana... Es una espantosa necesidad que debes satisfacer RÁPIDAMENTE, o morirás.'
 'Du bist ab sofort ein Ghul!': '¡Ahora eres en un Mutante!'
 'Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.': 'Desde hoy todo es distinto, eres un mutante. Tus vecinos y aliados ahora son tus presas que debes cazar mediante astucia y engaños.'
 'Hier noch ein paar wichtige Überlebenstipps:': 'Algunos consejos importantes para sobrevivir:'
@@ -1076,11 +1075,11 @@ Quarantäne: Cuarentena
 'Starten Sie eine Stadt': 'Ingresa a un pueblo'
 'Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!': '¡Tu misión: Ser el último superviviente!'
 "Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.\n                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.": "Puedes utilizar esta opción para agregar el nombre de un habitante al azar en tu mensaje.\n                                                    Si es necesario, puedes limitar la selección a ciertas profesiones, héroes o habitantes que ya estén muertos."
-'Du bist': 'Estás'
+'Du bist': Estás
 Erschöpft: Cansado
-Spielzeit: Tiempo de juego
-"Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte\n                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt\n                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!": "Estos puntos sirven exclusivamente para la construcción de obras en el pueblo."
-Stadtrat: Ayuntamiento del pueblo
+Spielzeit: 'Tiempo de juego'
+"Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte\n                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt\n                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!": 'Estos puntos sirven exclusivamente para la construcción de obras en el pueblo.'
+Stadtrat: 'Ayuntamiento del pueblo'
 'Anzahl der Tage, die du als Schamane gespielt hast.': 'Días pasados jugando con almas de muertos como Chamán.'
 'Reicher Guru': 'Gurú Rico'
 'Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.': 'Número de nuevos habitantes a los que convenció para morir Y pagar por ello.'
@@ -1090,11 +1089,11 @@ Stadtrat: Ayuntamiento del pueblo
 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!': 'Estuviste presente en el Festival de Videojuegos de París en 2010: ¡gracias!'
 'FJV''08 Kanonenfutter': 'Carne de cañón FJV''08'
 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.': 'El portador de esta marca participó en la gran caza organizada en el Festival de Videojuegos 2008.'
-Community-Auszeichnung: Organización de Choque
+Community-Auszeichnung: 'Organización de Choque'
 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.': '¡Tu organización impecable durante el Choque de Héroes creó un evento del que se hablará durante mucho tiempo!'
 'Clash CEO': 'Director ejecutivo de Clash'
 'Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!': 'Otorgado por ser uno de los organizadores o desarrolladores de la comunidad en Choque de Héroes. ¡Nuestra comunidad te lo agradece!'
-Schlachtenbummler: Titán de choque
+Schlachtenbummler: 'Titán de choque'
 'Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.': 'Una Distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.'
 'Shock of heroes': 'Choque de héroes'
 'Ehrenpreis für die Teilname am Shock of Heroes Event!': '¡Recompensa honorífica por participar en Choque de Héroes!'
@@ -1106,7 +1105,7 @@ Schlachtenbummler: Titán de choque
 'Sieg für die Wächter beim Shock of Heroes Event!': '¡Victoria como Guardián durante el Choque de Héroes!'
 'Bewohner Koh-Lambdas': 'Habitante Koh-Lambdais'
 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!': '¡Este habitante estuvo presente durante la Reunificación (última ronda) de Koh-Lambda!'
-'Der Kobold hat dich erwischt': 'Duendecillo'
+'Der Kobold hat dich erwischt': Duendecillo
 'Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast': 'Parece que le has robado algo a un amigo.'
 'Netter Kerl': 'Buen chico'
 'Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.': 'Eres uno de los jugadores más integrados en Zombinoia, el juego limpio es más que un principio, es un estado de ánimo.'
@@ -1136,7 +1135,7 @@ Schlachtenbummler: Titán de choque
 'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)': 'Si esta opción está marcada, un héroe que acepte desplazarte podrá obligarte a sacar o colocar un objeto. NOTA: Algunos objetos "personales" no podraán ser retirados de ninguna manera (por ejemplo: las armas)'
 Explosion: Explosión
 '???': '???'
-Schokoladenkreuz: Cruz de chocolate
+Schokoladenkreuz: 'Cruz de chocolate'
 'Regentanz ausführen': 'Haz caer la lluvia'
 'Einsiedler - Gewinner des SoH': 'Ganador Ermitaño del CDH'
 'Buddler - Gewinner des SoH': 'Ganador Excavador del CDH'
@@ -1151,134 +1150,134 @@ Schokoladenkreuz: Cruz de chocolate
 'Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...': 'Cuando estás rodeado de zombis en el desierto, te congelas de miedo y no puedes hacer nada... Tienes que encontrar drogas o algo más para <strong>calmar tus nervios</strong> y escapar de este infierno... al menos todavía puedes buscar ayuda en el foro...'
 'Das Passwort ist falsch.': 'La contraseña es incorrecta.'
 Pfadfinder: Furtivo
-Ninja: Maestro de la oscuridad
+Ninja: 'Maestro de la oscuridad'
 'Green Beret': 'Amante del riesgo'
-Schattenmann: Fantasma de arena
-Wüstenphantom: Más fuerte que Sam Fisher
+Schattenmann: 'Fantasma de arena'
+Wüstenphantom: 'Más fuerte que Sam Fisher'
 'Solid Snake war gestern...': 'Ayer fue Serpiente Sólida...'
 Sandarbeiter: Husmeador
 Wüstenspringmaus: Descubridor
 'Großer Ameisenbär': 'Jefe Excavador'
-Wüstenfuchs: Maestro Excavador
+Wüstenfuchs: 'Maestro Excavador'
 'Ich sehe Alles!': 'Nada se me escapa'
-Tierliebhaber: Amigo de los Animales
-Malteserzüchter: Maestro Domador
+Tierliebhaber: 'Amigo de los Animales'
+Malteserzüchter: 'Maestro Domador'
 'Ich bändige Bestien': 'Domador de Bestias'
-'Nie ohne meinen Hund!': 'Manimal'
+'Nie ohne meinen Hund!': Manimal
 'Hundewurst schmeckt gar nicht schlecht!': 'La comida para perros no sabe tan mal'
 Wurmfresser: Comegusanos
-'Meister im Würmerfinden': 'Degustador'
+'Meister im Würmerfinden': Degustador
 'Gefräßiger Bürger': 'Paladar insaciable'
-Wüstenwurmzüchter: Devorador de insectos
-'Ich brauche niemanden!': 'Omnívoro'
+Wüstenwurmzüchter: 'Devorador de insectos'
+'Ich brauche niemanden!': Omnívoro
 'Heraklit der Außenwelt': 'Solo... estoy tan solo'
 'Diplomierter Scharlatan': 'Aborigen curioso'
 'Schlimmer Finger': 'Charlatán Amateur'
-Seelenverwerter: Charlatán Profesional
+Seelenverwerter: 'Charlatán Profesional'
 'Mystischer Seher': 'Reciclador de almas'
 'Voodoo Sorceror': 'Hechicero vudú'
-'Yo, wir schaffen das!': 'Bricoloco'
+'Yo, wir schaffen das!': Bricoloco
 'Kleiner Schraubendreher': 'Destornillador Humano'
-'Schweizer Taschenmesser': 'Mascafierros'
+'Schweizer Taschenmesser': Mascafierros
 'Unermüdlicher Schrauber': 'Técnico Inagotable'
-'Seele des Handwerks': 'TecnicoMecanoMegalomano'
-'Die Mauer': 'Defensor'
-Höllenwächter: Gran Guardián
+'Seele des Handwerks': TecnicoMecanoMegalomano
+'Die Mauer': Defensor
+Höllenwächter: 'Gran Guardián'
 Kerberos: Paladín
 'Die letzte Verteidigungslinie': 'Último escudero'
 'Du kommst hier NICHT durch!': '¡Usted no entra!'
-Hekatoncheir: Habitante insuperable
-Kantinenkoch: Ayudante de cocina
-'Kleiner Küchenchef': 'Cocinerillo'
+Hekatoncheir: 'Habitante insuperable'
+Kantinenkoch: 'Ayudante de cocina'
+'Kleiner Küchenchef': Cocinerillo
 'Meister Eintopf': 'Cordon bleu del barrio'
 'Großer Wüstenkonditor': 'Cordon bleu del pueblo'
-'Begnadeter Wüstenkonditor': 'Cuchara-brava'
+'Begnadeter Wüstenkonditor': Cuchara-brava
 'Cooking Mama': 'Cooking Mama'
 'Meisterhafter Kochlöffelschwinger': 'Maestro Cocinero'
-Amateur-Laborratte: Laboratorista amateur
+Amateur-Laborratte: 'Laboratorista amateur'
 'Kleiner Präparator': 'Laboratorista autodidacta'
 'Chemiker von um die Ecke': 'Químico de barrio'
-Produkttester: Catador de productos
-Wüstenstadt-Dealer: Distribuidor local
+Produkttester: 'Catador de productos'
+Wüstenstadt-Dealer: 'Distribuidor local'
 'X-Men Leser': 'Fan de X-Men'
 'Aussergewöhnlicher Bürger': 'Habitante fuera de serie'
 Wunder: Prodigio
 'Werdender Superheld': 'Aspirante a superhéroe'
-Volksheld: Héroe popular
-Neo: Soy una leyenda
+Volksheld: 'Héroe popular'
+Neo: 'Soy una leyenda'
 'Erlöser der Menschheit': 'Salvador de la humanidad'
 Außenweltlegende: Superhéroe
 Abstauber: Abstauber
-Müllkind: Recolector de basura
+Müllkind: 'Recolector de basura'
 Maulheld: Cleptómano
 Lump: Bandido
 Schaumschläger: Pillo
 Dieb: Ratero
-Fantomas: Amante de lo ajeno
+Fantomas: 'Amante de lo ajeno'
 'Ali Baba': 'Chorizo temible'
 Meisterdieb: Caco
 Kleptomane: Saqueador
 'Dein Haus ist mein Haus': 'Tu casa es mi casa'
 Ästhet: Detallista
-Schaufenstergestalter: Habitante con buen gusto
-Innenarchitekt: Decorador de interiores
-Möbelgourmet: Decorador con estilo
+Schaufenstergestalter: 'Habitante con buen gusto'
+Innenarchitekt: 'Decorador de interiores'
+Möbelgourmet: 'Decorador con estilo'
 'Ordnung muss sein!': 'Maestro de la estética'
 Plünderer: Robamuertos
 Aasgeier: Buitre
 Hyäne: Carroñero
 'Wegelagerer post mortem': 'Ladrón post-mortem'
-'Hungriger Schakal': 'Chacal'
-'Kojote der kargen Steppen': 'Canalla'
-Fingerschmied: Rata Infame
+'Hungriger Schakal': Chacal
+'Kojote der kargen Steppen': Canalla
+Fingerschmied: 'Rata Infame'
 'Nein, das Ding fasse ich nicht an.': 'Regador Ocasional'
 Leichenhygieniker: '¿Un chorrito más señor?'
 'Ich liebe den Geruch von gewaschenen Leichen am Morgen.': 'Amo el olor a Cadaver remojado por la mañana'
 Müllmann: Basurero
 'Erfahrener Müllmann': 'Lanzador de cadáveres'
-Entsorgungsfachmann: Cañón lanzamuertos
+Entsorgungsfachmann: 'Cañón lanzamuertos'
 'SM Anhänger': 'Adepto del SM'
 'SM Spezialist': 'Amo de la COSA'
 'Nenn mich Herrin': 'Aprietame las esposas'
 'Ich möchte dein Objekt sein.': 'Quiero ser un objeto'
-Stadtmetzger: Amigo de los animales
+Stadtmetzger: 'Amigo de los animales'
 'Spezialität: Hundesteaks': 'Encargado de extinciones'
 'Miezi? Jaaaa, komm her...': 'Amenaza del mundo animal'
 'Fleisch ist mein Gemüse': 'Especialidad: Puré de gato'
 'Immer ein Auge offen': 'Un ojo abierto'
 'Mit offenen Augen schlafen? Kein Problem!': 'Dos ojos abiertos'
-'Immer alles im Blick': 'Largavista'
+'Immer alles im Blick': Largavista
 'Großer Baumeister': 'Constructor idealista'
 'Großer Architekt': 'Constructor visionario'
-Freimauer: Arquitecto estrambótico
-Terraformingspezialist: Gaudí de Zombinoia
+Freimauer: 'Arquitecto estrambótico'
+Terraformingspezialist: 'Gaudí de Zombinoia'
 'Allmächtiger Schöpfer': 'Albañil Dominguero'
 'Bauherr ohne Sinn und Verstand': 'Obrero Amateur'
 'Erbauer der verlorenen Zeit': 'Obrero Iluminado'
 'Erleuchteter Baumeister': 'Obrero Optimista'
 'Maurer aus Leidenschaft': 'Top Chef'
 'Huldigt den riesigen KVF!': '¡Gloria a la COSA!'
-Durazell: Lanzador de Pilas
+Durazell: 'Lanzador de Pilas'
 'Hüter der Heiligen Batterie': 'Cañón de Pilas'
 Maurerlehrling: Obrero
 Maurer: Urbanista
-Polier: Jefe de construcción
-Baustellenleiter: Maestro constructor
-Meisterarchitekt: Magnate del ladrillo
+Polier: 'Jefe de construcción'
+Baustellenleiter: 'Maestro constructor'
+Meisterarchitekt: 'Magnate del ladrillo'
 'Oscar Niemeyer': 'Ramsés del siglo XXI'
-Spachtler: Manitas hábiles
+Spachtler: 'Manitas hábiles'
 'Gewissenhafter Maurer': 'Reparador aficionado'
 'Meisterwerke in Gefahr': 'Reparador arriesgado'
 'Ein Flicken und alles ist wie neu': 'Ponga cinta adhesiva allí.'
-Kettensägenmassaker: Masacre de la motosierra
-Hobby-Heimwerker: Reparador Dominguero
+Kettensägenmassaker: 'Masacre de la motosierra'
+Hobby-Heimwerker: 'Reparador Dominguero'
 'Meisterbastler ': 'Manitas hábiles'
 'Sowas wirft man doch nicht weg!': 'Ingeniero Espacial'
 'Mac Gyver der Außenwelt': 'Reparador Supremo'
 'Super Soaker': 'Pistolero de agua'
-Archäologielehrling: Fuerzudo del desierto
-Archäologe: Conan de las arenas
-Grabungsleiter: Hombre Caterpillar
+Archäologielehrling: 'Fuerzudo del desierto'
+Archäologe: 'Conan de las arenas'
+Grabungsleiter: 'Hombre Caterpillar'
 'Furchtloser Camper': 'Campista inquebrantable'
 'Waisenkind der Wüste': 'Huérfano del desierto'
 'Unglaubliche Entschlossenheit': 'Increíble determinación'
@@ -1290,15 +1289,15 @@ Nervenkitzelsucher: Expedicionario
 'Neil Armstrong der Außenwelt': 'Neil Armstrong del Ultramundo'
 'Wenn ich das nur vorher gewusst hätte...': '¡Mamá, no me dejes aquí!'
 'Verwegener Wanderer': 'Explorador por accidente'
-Tunnelblicker: Explorador de ruinas
+Tunnelblicker: 'Explorador de ruinas'
 'Im Irrgarten': 'Ruina Man'
 'Inklusive Kompass': 'Brújula andante'
-'Wo klemmt''s?': 'Ganzúa'
-Dietrich: Hijo de cerrajero
+'Wo klemmt''s?': Ganzúa
+Dietrich: 'Hijo de cerrajero'
 'Sesam, öffne dich...': 'Con o sin llaves, yo entro'
-Türöffner: Ábrete Sésamo
-Gentleman-Einbrecher: Abridor de puertas
-Schlüsseldienst: Terror de las puertas
+Türöffner: 'Ábrete Sésamo'
+Gentleman-Einbrecher: 'Abridor de puertas'
+Schlüsseldienst: 'Terror de las puertas'
 Zerberus: Cerbero
 Brutalo: Brutal
 Verstümmler: Mutilador
@@ -1315,41 +1314,41 @@ Fortuna: Afortunado
 'Stürmischer Kundschafter': 'Explorador Impetuoso'
 'Furchtloser Abenteurer': 'Viajero sin miedo'
 'Wagemutiger Trapper': 'Guía del Ultramundo'
-Wikinger: Aventurero Temerario
-Außenweltreiseführer: Dora la Exploradora
-Außenweltschläfer: Campista suicida
+Wikinger: 'Aventurero Temerario'
+Außenweltreiseführer: 'Dora la Exploradora'
+Außenweltschläfer: 'Campista suicida'
 'Allein in dieser Welt': 'Carpa diem'
 'Der mit den Zombies tanzt': 'Carnada para zombies'
 'Ich sehe überall Tote!': '¡Desafío aceptado!'
 'Ich komme heute Nacht nicht heim...': 'Todo terreno'
 'Ein Mann gegen die Außenwelt': '¡Fuera de mi camino!'
 'Neugieriger Leser': 'Lector curioso'
-'Eifriger Leser': 'Cuentacuentos'
-Wüstenhistoriker: Historiador del desierto
-Bibliothekar: Guardián de los archivos
-Archivar: Maestro Rolista
+'Eifriger Leser': Cuentacuentos
+Wüstenhistoriker: 'Historiador del desierto'
+Bibliothekar: 'Guardián de los archivos'
+Archivar: 'Maestro Rolista'
 'Twinoid ist tabu': 'Me siento bien'
 'Keine Macht den Drogen': 'Me basto y me sobro'
 'Sowas fasse ICH nicht an': 'Limpio de polvo y paja'
 'Vorbild für die Jugend': 'Yo sé cuidar mi cuerpo'
 'Champions nehmen keine Drogen!': 'Ejemplo para los jóvenes'
-Medikamentetester: Conejillo de Indias
-Laborratte: Rata de laboratorio
+Medikamentetester: 'Conejillo de Indias'
+Laborratte: 'Rata de laboratorio'
 'Pille palle, 3 Tage wach!': '¡Probador de productos!'
 'Timothy Leary': '¿Qué quieres decir con que estos no son caramelos?'
-Menschenfleischliebhaber: Devorador de hombres
-Hannibalfan: Fan de Hannibal
-Totmacher: Creador de la muerte
+Menschenfleischliebhaber: 'Devorador de hombres'
+Hannibalfan: 'Fan de Hannibal'
+Totmacher: 'Creador de la muerte'
 'Jeffrey Dahmer': 'Jeffrey Dahmer'
 'Fast schon ein Zombie...': 'Aspirante a zombi...'
 'Schmeckt am besten wenn''s noch schreit!': 'Es mejor cuando gritan.'
 'Die Macht der Proteine': 'Lleno de proteínas.'
-Zombieliebling: Favorito de los zombies
+Zombieliebling: 'Favorito de los zombies'
 'Ich bin in der Hölle aufgewachsen.': 'Crecí en el infierno'
 'Teilweise verrottet': 'Parcialmente putrefacto'
-Virenschleuder: Esparcidor de virus
-Gedärmeauskotzer: Escupidor de sangre y bilis
-Seuchenherd: Foco Epidémico
+Virenschleuder: 'Esparcidor de virus'
+Gedärmeauskotzer: 'Escupidor de sangre y bilis'
+Seuchenherd: 'Foco Epidémico'
 'Verirrter Ausflügler': 'Caminante perdido'
 'Nächtlicher Spaziergänger': 'Holgazan Nocturno'
 'Vertrauenswürdiger Bürger': 'Compañero de confianza'
@@ -1362,7 +1361,7 @@ Seuchenherd: Foco Epidémico
 'Hör auf mich, wenn du überleben möchtest': 'Sígueme si quieres sobrevivir'
 'Alter Hase': 'Probador beta'
 'Jedes Los gewinnt': 'Compañero de comunidad'
-Zinker: Espíritu de la comunidad
+Zinker: 'Espíritu de la comunidad'
 Bingo: Bingo
 'Sudoku ist anders': 'Cadáver animado'
 'Siebenseitiger Würfel': 'Hiperactivista comunitario'
@@ -1370,11 +1369,11 @@ Bingo: Bingo
 'Motivierter Messebesucher': 'Aficionado motivado al festival de las hordas'
 'Kleiner Guru': 'Especialista en reasignación de fondos'
 'Überzeugender Guru': 'Traficante de habitantes'
-Frischfleischhändler: Comerciante de carne fresca
+Frischfleischhändler: 'Comerciante de carne fresca'
 'Held der Community!': '¡En el fondo!'
 'Nobler Spender': 'Alma noble'
 'Immer zur Stelle': 'Alma caritativa'
-Samariter: Apoyo social
+Samariter: 'Apoyo social'
 'Der Weihnachtsmann ist ein Schlawiner': 'Santa es un pillo'
 'Treffen der 4. Art': 'Encuentros de otro mundo'
 'Hast Du mal Feuer?': '¿Tienes fuego?'
@@ -1387,29 +1386,29 @@ Samariter: Apoyo social
 'Für immer und seelich': 'Simple Mortal'
 'Noble Seele': 'Alma digna'
 Beseelt: Inspirado
-Reinkarnator: Reencarnator X
+Reinkarnator: 'Reencarnator X'
 'Göttliche Seele': 'Alma Divina'
 Open-chakra: Chakra-Man
-Tausend-und-ein-Leben: Mil y Una Vidas
-Buddha: El Inmortal
+Tausend-und-ein-Leben: 'Mil y Una Vidas'
+Buddha: 'El Inmortal'
 'Messie der verlorenen Welt': 'Mesías del Mundo Perdido'
 'Ich bin ein Gott! Ich werde ewig leben!': '¡Soy un dios! ¡Viviré por siempre!'
 'Eine Stadt sie zu knechten!': '¡Un pueblo para gobernarlos!'
 'Der unsichtbare Mann': 'El hombre invisible'
 'Ein BMW? Kein Problem!': '¿Un BMW? ¡No hay problema!'
 'Où est Larchi ?': '¿Dónde está Larchi?'
-'Meser (halb Mensch, halb Malteser)': 'Cinocéfalo'
+'Meser (halb Mensch, halb Malteser)': Cinocéfalo
 'Personalisierter Titel - Dompteur (T-ID: 1725642)': 'Maestria en Labradoodles'
 'Gepanzerter Fakir': 'Ermitaño Experimentado'
 'Seele eines Profis': 'Alma de un profesional'
 'Personalisierter Titel - Techniker (T-ID: 631944)': 'Nunca camines sin tus llaves'
 'Holy F***ing Iceberg': '¡Maldita sea, un Iceberg!'
-'Verrückter Skeptiker': 'Capataz'
-Seelenknipser: Capataz Espiritista
+'Verrückter Skeptiker': Capataz
+Seelenknipser: 'Capataz Espiritista'
 'Wächter der Seelen': 'Guardian de las Almas'
 'Die Wahrheit ist irgendwo da draußen': 'La verdad está ahí fuera en algún lugar'
 'Ich glaube!': '¡Yo Creo!'
-Sektenmitglied: Miembro de la secta
+Sektenmitglied: 'Miembro de la secta'
 'Kosmischer Anführer': 'Lider cósmico'
 'Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.': 'El Gran Portal protege al pueblo de los zombies que proliferan alrededor. Si por descuido, queda abierto durante el ataque, vivirás la peor pesadilla que jamás hayas imaginado.'
 'Der Batterienator': 'El generador de batería'
@@ -1421,9 +1420,9 @@ Sektenmitglied: Miembro de la secta
 'Ich fresse Nägel und scheiße Kugeln!': '¡Como clavos y cago balas!'
 'Pandämonium? Hah. Einfach.': '¿Pandemonio? Ahh, Facil'
 'Rauch? Welcher Rauch?': '¿Humo? ¿Qué humo?'
-Leckstopper: Taponador de fugas
+Leckstopper: 'Taponador de fugas'
 'Licht in der Nacht': 'Luz en la noche'
-RadioactiveMan: Hombre radiactivo
+RadioactiveMan: 'Hombre radiactivo'
 'Strahlender Bürger': 'Habitante radiante'
 'Hölle, das esse ich jeden Morgen.': '¿Infierno? Desayuno esto todas las mañanas'
 'Abonnent der Pandämoniumsauna': 'Suscriptor en el Sauna Pandemonio'
@@ -1436,9 +1435,9 @@ RadioactiveMan: Hombre radiactivo
 'Verbrennt ihn! Sieh nach ob seine Asche grün wird!': '¡Quémalo, mira si sus cenizas se vuelven verdes!'
 'Ein Wohnwagen ohne Räder???': '¿¿¿Una caravana sin ruedas???'
 'Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.': 'Toda la zona está cubierta por una <strong>vegetación putrefacta</strong>, con <strong>arena</strong> y <strong>chatarra</strong> de todo tipo. Estás seguro de que algo se esconde aquí, pero habría que despejar todo el terreno para empezar una veradera búsqueda...'
-HAZ-Gewinner: Ganador del CTP
+HAZ-Gewinner: 'Ganador del CTP'
 'Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.': '¡Premio honorario dado al ganador de "Curando tu Pictofilia"!'
-'Kernsammler (job)': Recolector de Almas
+'Kernsammler (job)': 'Recolector de Almas'
 'Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)': 'Cantidad de almas recolectadas de habitantes fallecidos en el Ultramundo'
 'Mystic (job)': 'Transformación Mística'
 'Wie viele Seelen hat Ihre Stadt befreien können. (job)': 'Cantidad de almas que has transformado en el Taller'
@@ -1455,7 +1454,7 @@ HAZ-Gewinner: Ganador del CTP
 'im Süden': 'al Sur'
 'im Südosten': 'al Sudeste'
 'Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>{sector} der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>': 'Por efecto de misteriosos fenómenos meteorológicos que tuvieron lugar esta noche, algunas zonas <strong>{sector} del desierto</strong> pueden haberse regenerado.<p><em>Ahora podrías encontrar objetos allí, ¡incluso si la zona estaba agotada!</em></p>'
-'Verlorenes Brunnenwasser: {count} Einhet(en)': "Raciones de agua del pozo perdidas: {count} Unidad(es)"
+'Verlorenes Brunnenwasser: {count} Einhet(en)': 'Raciones de agua del pozo perdidas: {count} Unidad(es)'
 'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.': 'Puedes recomendar el inicio de una construcción en particular a los habitantes. Selecciona una con el cursor y presiona en <strong>Votar</strong>.'
 Beruf: Oficio
 Anwesenheit: Presencia
@@ -1463,7 +1462,7 @@ Anwesenheit: Presencia
 Aktivität: Actividad
 'Häuser der Bürger': 'Casas de los habitantes'
 'Temporäre Verteidigung': 'Defensas temporales'
-Leichen-Bonus: Bonus de cadáveres
+Leichen-Bonus: 'Bonus de cadáveres'
 Bonus: Bonus
 UFC: UFC
 'Ehrenpreis für die Teilnahme am UFC!': '¡Premio honorífico por participación en el UFC!'
@@ -1483,13 +1482,13 @@ UFC: UFC
 'Das Stadttor von "{townname}"': 'El Gran Portal'
 'Gesamtansicht der Stadt': 'Vista general del pueblo'
 'Mein Zuhause (Truhe)': 'Mi Casa (Cofre)'
-'Die Bürger': 'Habitantes'
+'Die Bürger': Habitantes
 Wätcher: Centinelas
-'Diese Bürger is der {role} der Stadt': "Este habitante es el {role} del pueblo"
+'Diese Bürger is der {role} der Stadt': 'Este habitante es el {role} del pueblo'
 Expeditionen: Expediciones
 'Verbessrung des Tages': 'Mejora del día'
 'Die Bank': 'El almacén'
-'Bauprojekte der Stadt': 'Construcciones'
+'Bauprojekte der Stadt': Construcciones
 'Der Brunnen': 'El pozo'
 'Ein neuer Tag bricht an': 'Un nuevo dia esta amaneciendo'
 'An einem kalten Morgen': 'En una mañana fría'
@@ -1513,7 +1512,7 @@ Einstellungen: Opciones
 'Die Zukunft': 'El Futuro'
 'Die verfluchten Schriften': 'Las escrituras malditas'
 'Meine Seele': 'Mi Alma'
-'Kleine Koalitionen': 'Alianza'
+'Kleine Koalitionen': Alianza
 'Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.': 'La catapulta es una herramienta realmente poderosa para enviar cualquier objeto a una zona en el desierto.'
 'Praktisch zur Versorgung aus der Ferne.': 'Práctico para suministros a distancia.'
 'Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...': 'Tenga en cuenta que a veces la catapulta fallará su objetivo y enviará el objeto a una zona adyacente...'
@@ -1527,11 +1526,11 @@ Einstellungen: Opciones
 'Zu verschickender Gegenstand:': 'Objeto a enviar:'
 'Gegenstand auswählen': 'Seleccione un objeto'
 'Gegenstand katapultieren': 'Catapultar el objeto'
-Katapultregister: Registro de catapulta
+Katapultregister: 'Registro de catapulta'
 'Bitte wähle einen Gegenstand.': 'Por favor, elija el objeto.'
 'Bitte gib die Zielkoordinaten ein.': 'Por favor, introduzca la zona de destino.'
 'Sorgfältig verpackt hast du {item} in das Katapult gelegt. Der Gegenstand wurde auf {zone} geschleudert.': 'Colocas cuidadosamente {item} en la catapulta. El objeto ha sido lanzado a {zone}.'
-Katapult-Bediener: Operador de la Catapulta
+Katapult-Bediener: 'Operador de la Catapulta'
 'Du bist für das Katapult verantwortlich': 'Usted es el responsable de la catapulta.'
 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.': 'Has sido nombrado el operador oficial de la Catapulta del pueblo. Este nombramiento se hizo por sorteo; ¡felicidades! Preséntate en la Catapulta del pueblo lo antes posible.'
 'Einen zufälligen Bürger als Katapult-Bediener auslosen': 'Elige un habitante al azar como operador de la Catapulta'
@@ -1546,10 +1545,10 @@ Katapult-Bediener: Operador de la Catapulta
 'Verbraucht zuviel Wasser': 'Consume demasiada agua'
 'Beleidigendes Verhalten': 'Insultos o mal comportamiento'
 'Blockiert die Baustelle': 'Bloquea las construcciones'
-Expeditionssaboteur: Sabotaje a la expedición
+Expeditionssaboteur: 'Sabotaje a la expedición'
 'Geht kein Risiko ein': 'Siempre se queda en casa'
 'Handelt zu egoistisch': 'Juega siempre solo'
-Gemeinschaftsfreak: Extremista comunitario
+Gemeinschaftsfreak: 'Extremista comunitario'
 'Bringt sich nicht genug ein': 'No participa casi nunca'
 'Hortet zu viele Gegenstände': 'Guarda todo para sí mismo'
 'Aggressiver Mitbürger': '¡Habitante agresivo!'
@@ -1572,7 +1571,7 @@ Wählen: Elegir
 'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.': 'Elige <strong>el objeto que deseas robar</strong>. <strong>¡Pero cuidado!</strong> Podrías ser descubierto y deberás asumir todas las consecuencias...'
 'Einen Gegenstand stehlen': 'Entrar para robar un objeto'
 'Einen Gegenstand hinterlassen': 'Colocar un objeto discretamente'
-'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...': "No puedes robarle nada a {citizen} porque está en el pueblo."
+'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...': 'No puedes robarle nada a {citizen} porque está en el pueblo.'
 '{disposing_citizen} hat {citizen} ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.': 'Agradezcamos a {disposing_citizen} por haber cocinado a fuego lento el cadáver de {citizen}, convirtiéndolo así en una nutritiva fuente de proteínas...'
 '{attacker} hat {defender} mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!': '{attacker} hirió a {defender} con un desagradable lanzamiento de bola de arena. Ay, eso seguro duele...!'
 '{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!': '{attacker} le lanzó a {defender} una bola de arena justo en la cara!'
@@ -1587,7 +1586,7 @@ Wählen: Elegir
 'Wir machen Fortschritte.': 'Estamos progresando.'
 'Das Ende ist nah.': 'El Fin se acerca.'
 'Die Revolte steht bevor!': '¡La insurrección está a punto de ocurrir!'
-'Meisterkoch der Sterne': 'MasterChef'
+'Meisterkoch der Sterne': MasterChef
 'Ich koste alle meine Produkte': 'Pruebo todos mis productos'
 'Rauchts? Dann ist es meins.': '¿Fumas? Este va por mi cuenta'
 'Mein Name ist Nobody': 'Mi nombre es ninguno'
@@ -1600,7 +1599,7 @@ Wählen: Elegir
 'Che Guevara der Wüste': 'Che Guevara del Ultramundo'
 'Ein schöneres Leben': 'El estilo es eterno...'
 'Großer E-KEA Katalog': 'Bienvenidos al palacio. '
-Maccabees-Vertreiber: Repelente de Macchabees
+Maccabees-Vertreiber: 'Repelente de Macchabees'
 Wachsam: Consciente
 Paranoid: Paranoico
 'Fels in der Brandung': 'La roca!'
@@ -1625,19 +1624,19 @@ Paranoid: Paranoico
 'Es ist kleiner als im Katalog': 'Era más pequeño en el catálogo.'
 'Freude der Stärke 8': 'Felicidad de magnitud 8'
 'Bewahrer der Freuden': 'Guardián de los placeres'
-Eimerhalter: Guardia de las focas
-Sandverkäufer: Vendedor de Arena
+Eimerhalter: 'Guardia de las focas'
+Sandverkäufer: 'Vendedor de Arena'
 'Martinet am Strand': 'Martini en la playa'
 'Ein Spiel für echte Kinder': '¡Un verdadero juego de niños!'
 'Dauermitglied in Micky''s Club': 'Miembro permanente del Club de Mickey'
 'Niemals ohne meinen Eimer': 'Nunca sin mi cubo'
 'Ein Korn fehlt noch': 'Todavia falta un grano'
 'Taube aus der Unterwelt': 'Paloma del Inframundo'
-Corvid-Spezialist: Especialista en córvidos
+Corvid-Spezialist: 'Especialista en córvidos'
 'Phoenix des Unterholzes': 'Fénix del Ultramundo'
 'Edit Piaf': 'Edit Piaf'
 'Vogel der schlechten Vorzeichen': 'Ave de mal augurio'
-Kraaaah!: '¡Wraaaaahh!'
+Kraaaah!: ¡Wraaaaahh!
 'Er war Leber ...': 'Era una calavera...'
 'Hey wir können die Zombies von hier oben sehen': '¡Puedo ver a los zombies desde aquí arriba!'
 'Fröhlicher Hamster': 'Hampster feliz'
@@ -1653,7 +1652,7 @@ Kraaaah!: '¡Wraaaaahh!'
 'Arbeiterhelm und Kupferstiefel': '¿La Gran Muralla de qué?'
 'Arbeit ist Gesundheit': 'El trabajo es salud'
 'Bob der Baumeister': 'Bob el constructor'
-Pisa-Geraderichter: El reparador
+Pisa-Geraderichter: 'El reparador'
 'Großer Renovator': 'Gran Renovador'
 'Ein Patch, kein Spiel': 'Especialista en parches'
 'Ein Riss? Welcher Riss?': '¿Una grieta? ¿Qué grieta?'
@@ -1666,19 +1665,19 @@ hoch: importantes
 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?': 'No tenemos ni idea. <strong>El cuerpo ha desaperecido sin dejar rastro...</strong> Puede ser que haya sido arrojado fuerta del pueblo y que una de estas noches regrese para visitamos.'
 'Legendärer Dompteur': 'Domador legendario'
 'Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!': 'Distinción entregada a los miembros del pueblo domador que ganó el Choque de Héroes.'
-Fleisch-Schuldner: No hay nada a lo que no me pueda llevar esta motosierra...
+Fleisch-Schuldner: 'No hay nada a lo que no me pueda llevar esta motosierra...'
 'Bruce Campbell': 'Bruce Campbell'
-Wasserwaffen-Spezialist: Especialista con armas de agua
-Hydraulik-Engineering: Ingeniero Hidráulico
+Wasserwaffen-Spezialist: 'Especialista con armas de agua'
+Hydraulik-Engineering: 'Ingeniero Hidráulico'
 'Abstieg der Atlanteaner': 'Descendiente de los Atlantes'
 'Großer Löcherbuddler': 'Excavadora de agujeros grandes'
-Riesenmaulwurf: Rata del desierto
+Riesenmaulwurf: 'Rata del desierto'
 'Ich gehe alleine.': 'Voy solo.'
 'Bis zur Unendlichkeit... und noch viel weiter!': '¡Hasta el infinito y más allá!'
 'Indiana Jones und die Ruinen der Aussenwelt': 'Indiana Jones y las ruinas del Ultramundo'
 'Begrabener Freiwilliger': 'Voluntario enterrado'
 'Tomb Raider': 'Tomb Raider'
-Labyrinth-Gollum: Master del Laberinto
+Labyrinth-Gollum: 'Master del Laberinto'
 'Labyrinth-Meister MB': 'No me llames junior'
 'Gontran Happiness': 'Bestia salvaje'
 'Lucky 7': '7 de la Suerte'
@@ -1690,11 +1689,11 @@ Labyrinth-Gollum: Master del Laberinto
 'Internet Explorer': 'Internet Explorer'
 'Ich hab sogar das Klo abgesucht!': '¡Incluso busqué en el baño!'
 'Sind wir schon da?': '¿Ya llegamos?'
-Stadtallergie: Soy alérgico a algo en el pueblo.
+Stadtallergie: 'Soy alérgico a algo en el pueblo.'
 'Wo ich hinguck, seh ich Gegend.': '¿Entonces supongo que no estamos esperando a Bob?'
 'Runaway Michael': 'Sin techo ni dientes'
 'Ohne Dach oder Leber': 'Sin techo ni hígado'
-Erinnerungsträger: Coleccionista de Recuerdos
+Erinnerungsträger: 'Coleccionista de Recuerdos'
 'Erinnerungen an die Zivilisation': 'Memoria de la civilización'
 'Ich sehe ein Blauuuuuuues Tal': '¡¡¡El cielo se está cayendo!!!'
 'Nackt und Zerfleischt': 'Caníbal del Holocausto'
@@ -1704,26 +1703,26 @@ Unzerstörbar: Indestructible
 'Chuck Norris'' Ebenbild': 'Igual a Chuck Norris'
 'Ich habe Magenschmerzen...': 'Tengo dolor de estómago...'
 'Mir ist kalt hier draußen...': 'Tengo frio aquí...'
-Anfängerleiche: Cadáver de principiante
-Rabenfreund: Amigo de los cuervos
-Dehydrationskollege: Colega de la deshidratacion
-Seelenhändler: Vendedor de almas
+Anfängerleiche: 'Cadáver de principiante'
+Rabenfreund: 'Amigo de los cuervos'
+Dehydrationskollege: 'Colega de la deshidratacion'
+Seelenhändler: 'Vendedor de almas'
 'Sehr überzeugender Pate': 'Patrocinador muy convincente'
-Wüstenspekulant: Especulador del Ultramundo
+Wüstenspekulant: 'Especulador del Ultramundo'
 'Bringt Sachen ins Rollen!': '¡Hacer que las cosas sucedan!'
-'Freigiebiger Bürger': 'Samaritano'
+'Freigiebiger Bürger': Samaritano
 Messias: Mesías
 'Santa Klaus ist ein Schummler': 'Santa es un ladrón'
 'Santa Klaus ist Abfall': 'Santa es basura'
 'Santa Klaus ist Abschaum': 'Santa es Escoria'
 'Hängt Santa Klaus!': 'Preparen la horca, ¡vamos a colgar a Santa!'
-Lebenssammler: No cruces los arroyos
+Lebenssammler: 'No cruces los arroyos'
 'Schnitter der Aussenwelt': 'No le tengo miedo a ningún fantasma'
 'Mitglied des Roten Kreuzes': 'Miembro de la Cruz Roja'
 'Es ist der Tod der mich fürchten sollte!': '¡Es la muerte la que debería tenerme miedo!'
-Sandmann: Hombre de la arena
+Sandmann: 'Hombre de la arena'
 'Sandy Maverick': 'Sandy Maverick'
-Wegweiser: Linterna de luz diurna
+Wegweiser: 'Linterna de luz diurna'
 'Praktischer Begleiter': 'Compañero de bolsillo'
 'Erleuchteter Anführer': 'Guía iluminado'
 'Erleuchteter Prediger': 'Predicador iluminado'
@@ -1799,7 +1798,7 @@ Baustelle: Construcciones
 'Den Lernmodus ausschalten': 'Desactivar el Modo Aprendizaje'
 'Wie gebraucht man diese Karte?': '¿Cómo funciona este mapa?'
 'Brauchst du Hilfe? Benutze den {modelink}!': '¿Eres nuevo en el juego? ¿Te sientes perdido? ¡Utiliza el {modelink}!'
-Anfängermodus: Modo Aprendizaje
+Anfängermodus: 'Modo Aprendizaje'
 'Handbuch zur Aussenwelt': 'Guía del Ultramundo'
 "Wenn du \"MyHordes\" zum ersten Mal spielst, empfehlen wir dir den Links <strong>Wie soll ich spielen?</strong> zu folgen,\n                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.": "Si estás jugando a \"MyHordes\" por primera vez, te recomendamos que sigas los enlaces bajo <strong>¿Cómo jugar?</strong> ubicados\n                en la izquierda superior del sitio web. Las instrucciones interactivas te explicarán paso a paso los conceptos básicos del juego en menos de 5 minutos."
 'Du kannst jederzeit die {helplink} im oberen Abschnitt der Seite aufsuchen.': 'Recuerda que siempre puedes visitar la {helplink} en la parte superior de la página.'
@@ -1819,7 +1818,7 @@ Anfängermodus: Modo Aprendizaje
 'An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!': '¡Invocar lluvia a las puertas del pueblo o en el ultramundo!'
 'Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...': 'Curar a tus vecinos sin matarlos si es posible...'
 'Schau dir am besten gleich den {shaman_help} an.': 'Lo mejor que puede hacer es echar un vistazo a la {shaman_help}.'
-Schamanen-Ratgeber: Guía del Chamán
+Schamanen-Ratgeber: 'Guía del Chamán'
 'Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...': 'Contiene toda la información esencial para que finalmente tu estatus superior sea reconocido a los ojos de todos...'
 'Du hast aktuell keine Themen abonniert.': 'Actualmente no estás suscrito a ningún tema.'
 'Du wurdest zum Reiseleiter in der Außenwelt gewählt!': '¡Has sido elegido para ser el guía del ultramundo!'
@@ -1828,7 +1827,7 @@ Schamanen-Ratgeber: Guía del Chamán
 'Du bist nun der Reiseleiter in der Außenwelt.': 'Ahora eres el guía del ultramundo.'
 'Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!': 'Se abre un nuevo horizonte para ti: ¡ya no eres un habitante común, sino un líder!'
 'Schau dir am besten gleich den {guide_help} an.': 'Lo mejor que puede hacer es echar un vistazo a la {guide_help}.'
-Reiseleiter-Ratgeber: Guía del Guía del Ultramundo
+Reiseleiter-Ratgeber: 'Guía del Guía del Ultramundo'
 'Alle als gelesen markieren': 'Marcar todo como leído'
 'Alle archivieren': 'Archivar todo'
 'Mit Hilfe seiner übermenschlichen Heldenkräfte hat {citizen} {kills} Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!': '¡Utilizando sus poderes de Héroe, {citizen} ha exterminado {kills} zombie(s) con sus propias manos gritando como un salvaje!'
@@ -1857,8 +1856,8 @@ Reiseleiter-Ratgeber: Guía del Guía del Ultramundo
 'Das Haus': 'Su vivienda'
 'Der Ort (kann man überhaupt von Zuhause reden?), an dem {citizen} lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.': 'Su... ¿se le puede llamar casa?, en fin, el lugar donde vivía {citizen} no merece ni ser visitado. No hay nada que recuperar, ni como chatarra.'
 'Inventar: {citizen}': 'Inventario de {citizen}'
-'Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...': "Ahora que {citizen} está muerto, puedes <strong>robarle un objeto</strong>, solo si lo deseas... claro está."
-'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:': "Hurgando en las pertenencias del difunto, encuentras:"
+'Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...': 'Ahora que {citizen} está muerto, puedes <strong>robarle un objeto</strong>, solo si lo deseas... claro está.'
+'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:': 'Hurgando en las pertenencias del difunto, encuentras:'
 'Als du ins Fenster schaust, bemerkst du, dass {citizen}s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...': 'Cuando miras por la ventana, notas que la casa de {citizen} ya no contiene ningún artículo de valor. Es probable que otros habitantes ya se hayan llevado todo lo que no estaba clavado...'
 '<strong>Achtung:</strong> Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!': '<strong>Atención:</strong> ¡Sin agua, algunas mejoras (como el sistema de riego) no funcionarán durante el ataque!'
 'Du kannst heute keinen weiteren Gegenstand stehlen.': 'No puedes robar otro artículo hoy.'
@@ -1881,7 +1880,7 @@ Reiseleiter-Ratgeber: Guía del Guía del Ultramundo
 'Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!': 'Los intentos de robo solo se pueden realizar <strong>durante la noche</strong>: sus probabilidades de éxito son reducidas ¡y todo caso descubierto aparecerá en el Registro!'
 'Achtung! Deinen Mitbürgern wird das gar nicht gefallen.': '¡Cuidado, a tus vecinos no les va a gustar eso!'
 'Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!': '¡Tu intento de robo ha fallado! ¡Has sido visto!'
-'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': "Al estar muerto, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas de <em>{townname}</em>. Hay que empaparlo o arrojarlo lejos, esperando que no vuelva a ponerse de pie para atacar a sus antiguos compañeros..."
+'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': 'Al estar muerto, es muy probable que el cuerpo de {citizen} haya sido contaminado con bacterias infecciosas de <em>{townname}</em>. Hay que empaparlo o arrojarlo lejos, esperando que no vuelva a ponerse de pie para atacar a sus antiguos compañeros...'
 'Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!': 'Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!'
 'Die Bürger der Stadt haben entschieden, {citizen} zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!': '¡Los habitantes han decidido <strong>CRUCIFICAR a {citizen}</strong>! ¡La cruz de chocolate fue comida durante este trágico evento!'
 'Hängt {user}!': '¡Cuelga a {user}!'
@@ -1906,7 +1905,7 @@ Weihnachten: Navidad
 '{building} hat {num} Batterien verbraucht.': '{building} ha usado {num} batería.'
 '{watchers} Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.': '¡{watchers} centinelas se han ubicado en los extremos del pueblo para contener los ataques zombies!'
 'Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.': 'Purifica la zona regándola con lluvia. Esta lluvia puede llenar un poco el pozo del pueblo o hasta tener un efecto devastador en los zombies que se encuentren cerca.'
-'Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!': "Puedes intentar curar a este habitante, no te aseguramos nada.. ¡pero ten cuidado con los efectos secundarios!"
+'Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!': 'Puedes intentar curar a este habitante, no te aseguramos nada.. ¡pero ten cuidado con los efectos secundarios!'
 'Du hast nichts, womit du {poison} kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />{list_head} oder {list_tail}.': 'No puedes combinar {poison} con esto. Puedes hacerlo con uno de estos objetos:<br />{list_head} o {list_tail}.'
 'Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...': 'No puedes ocultar objetos mientras alguien está mirando...'
 'Du hast keine Gegenstände, die du verstecken könntest.': 'No tienes elementos que esconder.'
@@ -1936,10 +1935,10 @@ Dialyse: Diálisis
 '{citizen} hat die Zombies mit dem Gegenstand {item} <strong>{duration}</strong> abgelenkt!': '{citizen} a distraido a los zombies por <strong>{duration}</strong> con {item}!'
 Behausung: Vivienda
 '+{def} Punkt(e)': '+{def} punto(s)'
-Heldenbonus: Bonus de Héroe
+Heldenbonus: 'Bonus de Héroe'
 Total: Total
 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.': 'Los objetos de defensa (láminas de metal, etc.) deben encontrarse en el Baúl.'
-Wächterbonus: Bonus de guardián
+Wächterbonus: 'Bonus de guardián'
 'Einzigartige Errungenschaften': 'Logros únicos'
 'Besondere Errungenschaften': 'Logros especiales'
 'Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.': 'Este es un logro especial otorgado durante un evento.'
@@ -1994,7 +1993,7 @@ Kosten: Coste
 'Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, <strong>hast du die Möglichkeit einen weiteren Gegenstand zu finden</strong>!<br /><br />Du kannst so lange bleiben wie du möchtest.': 'Estás escarbando la zona. ¡Si te quedas aquí hasta que termine el tiempo indicado, <strong>tal vez obtengas un objeto</strong>!<br /><br />Puedes quedarte todo el tiempo que quieras.'
 'Spiritueller Rucksack': 'Mochila espiritual'
 'Freigeschaltet:': 'Desbloqueado:'
-Dauerhaft!: '¡Permanente!'
+Dauerhaft!: ¡Permanente!
 'Für diese Saison': 'Para esta Temporada'
 'Bis {date}': 'Hasta el {date}'
 'Für {num} weitere Städte': 'Para {num} pueblo(s) más'
@@ -2004,7 +2003,7 @@ Dauerhaft!: '¡Permanente!'
 'Das Stadttor ist zerstört!': '¡El portal del pueblo está destruido!'
 'Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.': 'El pueblo ha sido destruido por zombies: no se pueden realizar mejoras.'
 'Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.': '¡El pueblo está devastado! Ya no puedes mejorar tu casa porque también se quemó.'
-ZERSTÖRT!!: '¡¡DESTRUIDO!!'
+ZERSTÖRT!!: ¡¡DESTRUIDO!!
 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.': 'Esconde todos los objetos de tu mochila en esta zona. <strong>Solo los demás jugadores desterrados podrán verlos.</strong><hr />Sin embargo, un habitante normal podría encontrarlos con un poco de suerte.'
 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...': 'Los jugadores desterrados de un pueblo pueden hurgar en la basura tirada por los habitantes del pueblo en busca de objetos que les puedan ser útiles.'
 'Mangels Diskretion konnte jeder sehen, wie {citizen} versuchte {item} in dieser Zone zu verstecken.': 'Debido a la falta de discreción, todo el mundo pudo ver cómo {citizen} trató de ocultar {item} en esta zona.'
@@ -2026,12 +2025,12 @@ ZERSTÖRT!!: '¡¡DESTRUIDO!!'
 '{deads} Tot': '{deads} muertos'
 'Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner <strong>Truhe</strong> abgelegt werden, um verwendet werden zu können.': 'Los objetos a continuación son utilizados automáticamente en tu <strong>casa</strong> para darte diversas ventajas.'
 Zuhause: Vivienda
-Hausverteidigung: Defensas de la casa
+Hausverteidigung: 'Defensas de la casa'
 'kein Verteidigungsbonus': 'ningún bonus de defensa'
 'Stufe {lvl}': 'Nivel {lvl}'
 Keine: Ninguna
 'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?': '¿Cómo, aún no has decorado tu hogar? ¡En el desierto puedes hallar encantadores detalles! Un magnífico sillón de piel de zombie, un exótico pie fresco...'
-Deko-Punkte: puntos de decoración
+Deko-Punkte: 'puntos de decoración'
 'Komiteenote:': 'Nota del comité:'
 'Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt {townname}</strong> vergeben.': 'Esta nota es otorgada por el <strong>Comité del Buen Gusto de {townname}</strong>.'
 'Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!': '¡Nuestra torre de vigilancia mejorada permite el regreso sin obstáculos de cualquier habitante que se encuentre cerca del pueblo!'
@@ -2053,7 +2052,7 @@ Deko-Punkte: puntos de decoración
 'Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...': 'Tu denuncia ha sido retirada. Piénsalo mejor la próxima vez.'
 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.': 'Atención, los jugadores fuera del pueblo no podrán entrar.'
 'Es wurde eine Rauchbombe eingesetzt!': '¡Una bomba de gas ha sido lanzada!'
-'Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).': "Un nuevo habitante ha llegado: {citizen} ({profession})."
+'Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).': 'Un nuevo habitante ha llegado: {citizen} ({profession}).'
 'Unser {plan} hat beim Angriff {damage} Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!': 'Nuestro {plan} sufrió {damage} puntos durante el ataque: ¡debería ser reparado urgentemente, de lo contrario arriesgamos nuestras vidas esta noche!'
 'Die gesamte Region wurde durch die <strong>Explosion des {plan}</strong> verstrahlt!': '¡Toda la región fue contaminada por la <strong>explosión del {plan}</strong>!'
 'Immerhin wurden alle Bürger aus der Stadt geschleudert...': 'Después de todo, todos los habitantes fueron desterrados ​​del pueblo...'
@@ -2068,7 +2067,7 @@ Global: Global
 'Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.': 'La pizarra permite a los héroes veteranos dar instrucciones a toda la comunidad.'
 'Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.': 'La ves porque has desbloqueado la ventaja llamada Dictador en tu sección de Alma.'
 'Mehr darüber erfahren...': 'Saber más...'
-'Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!': "¡Después de solo unos metros, {citizen} se derrumba gritando en el suelo! ¡Su lesión en la pierna finalmente le impide salir de la zona!"
+'Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!': '¡Después de solo unos metros, {citizen} se derrumba gritando en el suelo! ¡Su lesión en la pierna finalmente le impide salir de la zona!'
 'Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!': 'No puedes entrar en el edificio, ¡tu herida abierta se infectaría inmediatamente!'
 'Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!': 'No puedes entrar en el edificio, ¡no hay suficiente oxígeno para más de una persona!'
 'Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!': 'No puedes volver a entrar al edificio hoy, ¡tu cuerpo no podría soportarlo!'
@@ -2091,7 +2090,7 @@ Global: Global
 '<strong>Du bist erschöpft</strong>, du kannst deshalb weder <strong>in die Außenwelt gehen</strong>, noch <strong>das Stadttor öffnen</strong>, noch <strong>es schließen</strong>.': '<strong>Estás cansado</strong>. No tienes fuerzas para <strong>salir al Ultramundo</strong> ni para <strong>abrir el Gran Portal</strong>, y mucho menos para <strong>cerrarlo</strong>.'
 'Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!': '¡Bebe, come, haz algo si deseas recuperar energías!'
 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag fälschen</strong> möchtest...': 'Clic para utilizar tu capacidad de héroe y <strong>adulterar esta información en el Registro</strong>...'
-Ranking-Ausschluss: Exclusión de clasificación
+Ranking-Ausschluss: 'Exclusión de clasificación'
 'Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.': 'Esta vida se borra de los anales de la historia. No recibe puntos de alma ni Distinciones.'
 'Das wird dir in Zukunft schlaflose Nächte bereiten!': '¡Esto le provocará noches de insomnio en el futuro!'
 'Erkunde die Außenwelt:': 'Explore el mundo exterior:'
@@ -2120,8 +2119,8 @@ Ranking-Ausschluss: Exclusión de clasificación
 'Durch die Lüftungsschächte klettern (in)': 'Trepar por la aeración'
 'Durch die Lüftungsschächte klettern (out)': 'Trepar por la aeración'
 'Höchstens {nw_defense}': "\n              {nw_defense, plural,\n                =0 {¡Ninguno!}\n                other {Por lo menos #}\n              }\n          "
-'Dieser Bürger': "Según las malas lenguas, el habitante {citizen}:"
-'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...': "no está en el pueblo y <strong>no ha protegido su vivienda contra los ladrones</strong>..."
+'Dieser Bürger': 'Según las malas lenguas, el habitante {citizen}:'
+'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...': 'no está en el pueblo y <strong>no ha protegido su vivienda contra los ladrones</strong>...'
 'In der (<strong>leeren</strong>) Zone graben': 'Escarbar (<strong>zona agotada</strong>)'
 'Tod durch die Apokalypse': 'Muerte por el apocalipsis'
 'Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.': 'Una catástrofe de proporciones apocalípticas te ha arrasado a ti, a tu pueblo y a todo lo que te rodea. Es como si alguien hubiera... limpiado el mundo entero.'
@@ -2132,10 +2131,10 @@ Ranking-Ausschluss: Exclusión de clasificación
 'Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.': 'Eso no se ve bien... Los zombies no serán nuestro mayor problema esta noche.'
 Beten: Rezar
 'Es gibt keine Hoffnung!': '¡No hay esperanza!'
-Auszeichnungsdetails: Detalles de la Distinción
+Auszeichnungsdetails: 'Detalles de la Distinción'
 'Trinken (Oder du stirbst heute Nacht)': 'Bebe (o muere esta noche)'
 'Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!': 'Lograste salir de este peligro, pero los zombies ahora te miran hambrientos y te gruñen peligrosamente... ¡HUYE!'
-Profi-Fotograph: Fotógrafo profesional
+Profi-Fotograph: 'Fotógrafo profesional'
 'Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.': 'Empiezas cada pueblo nuevo con una cámara de la post-guerra (3 cargas).'
 Kopf: Cabeza
 Hand: Mano
@@ -2236,7 +2235,7 @@ Löschen: Borrar
 'Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.': 'A {citizen} le ha dado un ataque de pánico, ha dado vueltas en círculos y <strong>no ha sido capaz de avanzar</strong>. Han perdido <strong>1PA</strong>.'
 '{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!': '¡{shaman} ha curado a {citizen} utilizando sus poderes chamánicos!'
 'Wir werden alle sterben: Sag es weiter!': 'Todos vamos a morir: ¡corre la voz!'
-Revolution!: '¡Insurrección!'
+Revolution!: ¡Insurrección!
 'Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.': 'Ante ti yacen los restos humeantes de una barricada. A lo lejos, resuenan los festejos y llamados de sirenas.'
 'Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.': '¡Los desterrados del pueblo ya no querían ser oprimidos y han empezado una insurrección! Los líderes anteriores del pueblo han sido expulsados y los desterrados han tomado el control.'
 'Du bist nun frei.': 'Ahora eres libre.'
@@ -2244,7 +2243,7 @@ Revolution!: '¡Insurrección!'
 'Du bist nun verbannt.': 'Has sido desterrado.'
 'Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.': 'Los desterrados han tomado el control del pueblo y los habitantes previamente libres ahora están experimentando el amargo destino del destierro.'
 'Schau dir am besten gleich den {revolution_help} an.': 'Lo mejor será echarle un ojo a la {revolution_help} ahora mismo.'
-Verbannten-Ratgeber: Guía de los desterrados
+Verbannten-Ratgeber: 'Guía de los desterrados'
 'Dort findest du alle Informationen über den Aufstand und dessen Folgen.': 'Allí encontrarás toda la información sobre esta insurrección y sus consecuencias.'
 'Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.': 'Un pequeño edificio que servía de biblioteca para los vecinos. Hoy la mayoría de libros están quemados o rotos, el piso está lleno de hojas arrancadas y estanterías caídas.'
 'Diskussionen rund um die Bank': 'Charlas sobre el Almacén'
@@ -2297,7 +2296,7 @@ Verbannten-Ratgeber: Guía de los desterrados
 'Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.': 'Hoy son las elecciones para el {rolename} del pueblo. Recuerda {vote_link}.'
 'im Wahlbüro abzustimmen': 'Votar por tu candidato'
 'Anzahl der Tage, die du als Einwohner gespielt hast.': 'Días pasados ​​como un simple habitante.'
-Standarteinstellung: Configuración predeterminada
+Standarteinstellung: 'Configuración predeterminada'
 Wählbar: Elegible
 'Nicht wählbar': 'No elegible'
 Gebaut: Construcciones
@@ -2317,7 +2316,7 @@ Aktionen: Acciones
 'Buddler - Gewinner des DdA': 'DdO - Ganador Excavador'
 'Auszeichnung für die Mitglieder der Buddler-Liga, die beim Duell der Achter gewonnen haben!': 'Distinción entregada a los miembros del pueblo Excavador que ganó el Duelo de Ocho.'
 'Chef der Mauer': 'Jefe de muralla'
-Schaufelführer: Pala de cabeza
+Schaufelführer: 'Pala de cabeza'
 'Ich bin ein Biest!': '¡Soy una fiera!'
 'DdA Beste Buddler': 'DdO Mejor Excavador'
 Stadt/Stadttor: Stadt/Stadttor

@@ -1878,7 +1878,7 @@ class SoulController extends CustomAbstractController
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setReason( $parser->get_int('reason', 0, 0, 13) )
             ->setDetails( $details ?: null )
             ->setTs(new \DateTime('now'))
             ->setCitizen( $proxy )
@@ -1924,7 +1924,7 @@ class SoulController extends CustomAbstractController
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setReason( $parser->get_int('reason', 0, 0, 13) )
             ->setDetails( $details ?: null )
             ->setTs(new \DateTime('now'))
             ->setUser( $reportedUser );

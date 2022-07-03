@@ -1,19 +1,18 @@
----
-'URL anfordern': Solicitar URL
-Rückgabetyp: Tipo de retorno
+'URL anfordern': 'Solicitar URL'
+Rückgabetyp: 'Tipo de retorno'
 '"true", wenn der Angriff ausgeführt wird': '"true" si el ataque está en curso'
 '"true", wenn das Spiel gewartet wird': '"true" si el juego está en mantenimiento'
-Spielkarten-ID: ID de tarjeta de juego
-Serverzeit: Hora del Servidor
-Kartenbreite: Anchura del mapa
-Kartenhöhe: Altura del mapa
+Spielkarten-ID: 'ID de tarjeta de juego'
+Serverzeit: 'Hora del Servidor'
+Kartenbreite: 'Anchura del mapa'
+Kartenhöhe: 'Altura del mapa'
 'Wenn es einen Aufstand gibt': 'Valor booleano que indica si hubo una insurrección (true) o no (false)'
-Bonuspunkte: Puntos extra
-Stadttag: Día del pueblo
+Bonuspunkte: 'Puntos extra'
+Stadttag: 'Día del pueblo'
 'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht': 'Valor booleano que indica si el pueblo es privado(true) o no(false)'
 'Liste bekannter Zonen': 'Lista de zonas conocidas'
 'Liste der Bürger': 'Lista de habitantes'
-Stadtinformationen: Información del pueblo
+Stadtinformationen: 'Información del pueblo'
 'Liste der Leichen': 'Lista de cadáveres'
 'Liste der Expeditionen': 'Lista de expediciones'
 'City Creation Season ID': 'ID de temporada de creación de pueblo'
@@ -22,9 +21,9 @@ Stadtinformationen: Información del pueblo
 'X von der oberen linken Ecke': 'X desde la esquina superior izquierda'
 'Y von der oberen linken Ecke': 'Y desde la esquina superior izquierda'
 'Heute nicht besucht': 'No visitado hoy'
-Zonen-Tag: Etiqueta de zona
+Zonen-Tag: 'Etiqueta de zona'
 'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau': 'Nivel de peligro 0 = verde, 1 = verde-amarillo, 2 = naranja, 3 = rojo, 4 = azul'
-Bereichsdetails: Detalles de la zona
+Bereichsdetails: 'Detalles de la zona'
 'Liste der Objekte in diesem Bereich': 'Lista de objetos en esta zona'
 'Informationen zum Gebäude in der Umgebung': 'Información sobre el edificio de la zona'
 'Die Gebäude-ID': 'La ID del edificio'
@@ -36,21 +35,21 @@ Bereichsdetails: Detalles de la zona
 'Die Anzahl der Zombies': 'La cantidad de zombies'
 'Die Anzahl der Menschen': 'La cantidad de habitantes'
 'Den Bereich austrocknen': 'Indica si la zona está agotada (true) o no (false)'
-Spielername: Nombre del jugador
+Spielername: 'Nombre del jugador'
 'ob der Spieler verkörpert ist (false) oder nicht (true)': 'Si el jugador está vivo (false) o no (true)'
 'Die Twinoid-ID, wenn er sein Konto verknüpft hat': 'El ID de Twinoid, si ha vinculado su cuenta'
 'So verkörpert die ID seiner Stadt': 'Así es como la ID incorpora su pueblo'
 'Wenn verkörpert, eine Instanz von Map': 'Cuando se incorpora, una instancia de Mapa'
 'Persönlicher Text (über die Seele)': 'Anuncio personal (sobre el alma)'
-Spieler-Avatar-URL: URL del avatar del jugador
+Spieler-Avatar-URL: 'URL del avatar del jugador'
 'Liste der alten Inkarnationen': 'Lista de encarnaciones antiguas'
-ID-MyHordes: ID de MyHordes
+ID-MyHordes: 'ID de MyHordes'
 'universelle ID (zB: basic = Einwohner)': 'ID universal (Ej: basic = Habitante)'
 'Der Name des Berufs': 'El nombre del oficio'
 'Die Beschreibung': 'La descripción'
 'Name der Stadt': 'nombre del pueblo'
 'Anzahl der verfügbaren Wasserrationen': 'Cantidad de raciones de agua disponibles'
-Stadtposition: Posición del pueblo
+Stadtposition: 'Posición del pueblo'
 'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist': 'Valor booleano que indica si el portal del pueblo está abierto (true) o cerrado (false)'
 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet': 'Valor booleano que indica si el pueblo está sumido en el caos (true) o no (false).'
 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist': 'Valor booleano que indica si el pueblo es un pandemonio (true) o no (false)'
@@ -82,8 +81,8 @@ Stadtposition: Posición del pueblo
 'Verteidigung durch die Wächter': 'Defensa de los guardianes'
 'Anzahl der angegriffenen Zombies': 'Cantidad de zombies atacantes'
 'Anzahl der Verteidigungspunkte': 'Cantidad de puntos de defensa del pueblo'
-Gazette-Text: Texto del boletin
-'Richtung der Regeneration des stellvertretenden Rückkehrers?': Dirección de las zonas regeneradas (Barómetro)
+Gazette-Text: 'Texto del boletin'
+'Richtung der Regeneration des stellvertretenden Rückkehrers?': 'Dirección de las zonas regeneradas (Barómetro)'
 'Anzahl der im Brunnen verbleibenden Rationen?': 'Cantidad de raciones restantes del pozo'
 'ID der Site': 'ID de la construcción'
 'Anzahl der für den Bau benötigten AP': 'Cantidad de PA necesarios para la construcción'
@@ -99,23 +98,23 @@ Gazette-Text: Texto del boletin
 'Objekte benötigt': 'Recursos necesarios'
 'Spieler ID': 'ID de jugador'
 'Twinoid-ID des Spielers': 'ID de Twinoid del jugador'
-Karten-ID: ID del mapa
+Karten-ID: 'ID del mapa'
 'Anzahl der Tage überlebt': 'Cantidad de días sobrevividos'
-Kartentag: Día del pueblo
+Kartentag: 'Día del pueblo'
 'Spieler Avatar': 'Avatar del jugador'
 'Name der Karte': 'Nombre del pueblo'
-Saisonnummer: Número de temporada
+Saisonnummer: 'Número de temporada'
 '"true" wenn diese Leiche aus dem Spiel V1 stammt': '"true" si este cadáver proviene del juego V1'
-Ergebnis: Puntos de alma obtenidos
+Ergebnis: 'Puntos de alma obtenidos'
 'relevante Spielzeit': 'Temporada de juego'
 'Kennung des Todestyps': 'ID del tipo de muerte'
-Todesnachricht: Últimas palabras
+Todesnachricht: 'Últimas palabras'
 Kommentar: comentario
 'Name des Spielers, der den Körper entsorgt hat': 'Nombre del jugador que se deshizo del cuerpo'
 'Methode : garbage, water, cook order ghoul': 'Método: garbage (arrojado fuera), water (rociado con agua), cook (Cremato-bar) o ghoul (devorado por un mutante)'
-Expeditionsname: Nombre de la expedición
+Expeditionsname: 'Nombre de la expedición'
 'der Autor': 'Autor de la expedición'
-Versandlänge: Longitud de la expedición
+Versandlänge: 'Longitud de la expedición'
 'Punkte, die den Kurs definieren': 'Puntos que definen el curso'
 'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen': 'Todos los códigos de idioma ISO 3166-1 alpha-2 se ingresan en el campo "langues".'
 'zB :': 'Ej :'
