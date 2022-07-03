@@ -1,4 +1,3 @@
----
 TDG_PRE_00_: Birupe
 TDG_PRE_10_: Chitabo
 TDG_PRE_20_: Critozé
@@ -120,16 +119,16 @@ TDG_SUF_39: ''
 TDG_SUF_49: ''
 TDG_SUF_59: ''
 'Krankenhaus Beinapp': 'Hospital Matasanos'
-Aesthetyxiations-Abteilung: Clínica El Serrucho
+Aesthetyxiations-Abteilung: 'Clínica El Serrucho'
 'Krankenhaus Krankenstedt': 'Hospital Privado'
 'Waldorf Klinik': 'Hospital del Rey'
 'STD Behandlungszentrum Bohlen': 'Clínica de Miércoles'
 'Bill S. Preston Memorial Hospital': 'Hospital Sangriento'
 'Klinik von Dr. Quack Salber': 'Hospital Bar Discoteca'
-Wasserallergie-Behandlungszentrum: Hospital Cementerio
+Wasserallergie-Behandlungszentrum: 'Hospital Cementerio'
 'Klinikum Altenburg': 'Hospital Dolores'
 'Stadtkrankenhaus am Dorfplatz': 'Hospital Milagros'
-Blanko-Penisverkleinerungsklinik: Clínica del Dr. Cuervo
+Blanko-Penisverkleinerungsklinik: 'Clínica del Dr. Cuervo'
 'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'Hospital Nocturno'
 'Bordeaux Grace': 'Hospital del Estado'
 'George und Ralph Kinderkrankenhaus': 'Hospital Madre Mía'
@@ -151,20 +150,20 @@ Blanko-Penisverkleinerungsklinik: Clínica del Dr. Cuervo
 'Vajazzl Inn': 'Hostal El Cielo I'
 'Hotel Venga': 'Hostal El Cielo III'
 'Verlassener Bunker': 'Bunker Abandonado'
-Thermonuklear-Bunker: Bunker termonuclear
-Garrison-Haus: Bunker de políticos
+Thermonuklear-Bunker: 'Bunker termonuclear'
+Garrison-Haus: 'Bunker de políticos'
 'Bastion der Angst': 'Bunker del terror'
 'Bunker der Wut': 'Bunker de los prófugos'
 'Fallout Shelter': 'Guarida insalubre'
 'Keine Hoffnung ohne Öffnung!': 'Refugio Fin del Mundo'
-Schattenfort: Bunker rockero
+Schattenfort: 'Bunker rockero'
 'Verlassene Trooper-Station': 'Bunker graffitero'
-Verwesungsversteck: Bunker lleno de huesos
-Knochenkeller: Bunker del rey
+Verwesungsversteck: 'Bunker lleno de huesos'
+Knochenkeller: 'Bunker del rey'
 'Geheimes Testlabor': 'Centro de experimentos'
 'Area 52.1 Bunker': 'Bunker zona 52.1'
 'Area 33 Bunker': 'Bunker zona 33'
-Quarantäne-Zone: Viejo bunker
+Quarantäne-Zone: 'Viejo bunker'
 'Zum Schlafen Reichts Motel': 'Zum Schlafen Reichts Motel'
 Psychose: Psicosis
 Demenz: Demencia
@@ -175,7 +174,7 @@ Blut: Sangre
 Wut: Rabia
 Hass: Odio
 Töte: Matar
-'Töte sie': 'Mátalos'
+'Töte sie': Mátalos
 Mord: Asesinato
 Drogen: Drogas
 'Der Tod wartet': 'La muerte te espera'
@@ -202,17 +201,17 @@ Verstümmelung: Mutilaciones
 'Koste ihr Fleisch': 'Prueba la carne'
 'Iss ihn': 'Cómete a alguien'
 'Töte ihn': 'Mata a alguien'
-'Lass ihn zahlen': 'Dolor'
-'Räche dich': 'Véngate'
-'Verrate sie': 'Traiciónales'
+'Lass ihn zahlen': Dolor
+'Räche dich': Véngate
+'Verrate sie': Traiciónales
 'Ohne Gnade': 'Sin piedad'
 'Ich bin nicht verrückt': 'No estoy loco'
 'Ich sehe nichts': 'Veo gente muerta'
 'Sie sind wahnsinnig': 'Perdieron la razón'
 'Bis zum Tod': '¿Tienes miedo?'
 'Töte sie alle': 'Mátalos a todos'
-'Sie werden sterben': 'Morirán'
+'Sie werden sterben': Morirán
 'Lass sie sterben': 'Que se mueran todos'
-'Verschlinge sie': 'Atento'
+'Verschlinge sie': Atento
 'Gib auf': 'Nada será igual'
 'Alles... ist ... OK …': 'Estás muerto'

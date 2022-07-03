@@ -450,7 +450,7 @@ class MessageTownMessageController extends MessageController
         $newReport = (new AdminReport())
             ->setSourceUser($user)
             ->setTs(new DateTime('now'))
-            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setReason( $parser->get_int('reason', 0, 0, 13) )
             ->setDetails( $details ?: null )
             ->setPm($post);
 

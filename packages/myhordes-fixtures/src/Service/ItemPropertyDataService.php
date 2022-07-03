@@ -171,7 +171,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'distri_#00'                 => [ 'nw_ikea' ],
             'guitar_#00'                 => [ 'nw_ikea' ],
             'bureau_#00'                 => [ 'nw_ikea' ],
-            'rlaunc_#00'                 => [ 'nw_armory' ],
+            'rlaunc_#00'                 => [ 'nw_armory', 'weapon' ],
             'repair_one_#00'             => [ 'hero_find_lucky' ],
             'electro_box_#00'            => [ 'hero_find_lucky' ],
             'christmas_candy_#00'        => [ 'food', 'can_cook' ],

@@ -32,7 +32,8 @@
                         {% set complaint_list = [
                             'Keinen Grund angeben','Cheating','Flooding oder Spam','Verwendung einer anderen als der Forensprache',
                             'Beleidigungen / Unangemessener Ausdruck','Pornographie','Hassrede','Verbreitung persönlicher Informationen',
-                            'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung'
+                            'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung',
+                            'Unangemessene Profilbeschreibung', 'Unangemessener Avatar', 'Unangemessener Name'
                         ] %}
                         {% for report in post.adminReports(true) %}
                             <div>

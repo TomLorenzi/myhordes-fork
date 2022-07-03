@@ -329,7 +329,8 @@ class CrowService {
             $complaint_list = [
                 'Keinen Grund angeben','Cheating','Flooding oder Spam','Verwendung einer anderen als der Stadtsprache',
                 'Beleidigungen / Unangemessener Ausdruck','Pornographie','Hassrede','Verbreitung persönlicher Informationen',
-                'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung'
+                'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung',
+                'Unangemessene Profilbeschreibung', 'Unangemessener Avatar', 'Unangemessener Name'
             ];
 
             if (!file_exists($report_path)) {

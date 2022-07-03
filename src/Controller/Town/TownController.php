@@ -1951,7 +1951,7 @@ class TownController extends InventoryAwareController
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 10) )
+            ->setReason( $parser->get_int('reason', 0, 0, 13) )
             ->setDetails( $details ?: null )
             ->setTs(new DateTime('now'))
             ->setBlackBoard( $blackBoardEdit );

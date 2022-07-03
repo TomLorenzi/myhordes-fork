@@ -269,8 +269,8 @@ class GhostController extends CustomAbstractController
 
         if(!empty($well) && is_numeric($well) && $well <= ($crow_permissions ? 9999 : 300)){
             $customConf['well'] = [
-                'min' => round($well * ($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1),
-                'max' => round($well * ($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1)
+                'min' => round(intval($well) * (($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1)),
+                'max' => round(intval($well) * (($type === 'panda' && !$crow_permissions) ? (2.0/3.0) : 1))
             ];
         }
 
