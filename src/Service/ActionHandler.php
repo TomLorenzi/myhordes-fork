@@ -1362,10 +1362,8 @@ class ActionHandler
                             $this->entity_manager->persist( $dig_timer );
                         }
 
-                        if ($result->getCustom() === 8){
-                            foreach ($citizen->getValidLeadingEscorts() as $escort)
-                                $escort->getCitizen()->getEscortSettings()->setLeader(null);
-                        }
+                        foreach ($jumper->getValidLeadingEscorts() as $escort)
+                            $escort->getCitizen()->getEscortSettings()->setLeader(null);
 
                         if ($jumper->getEscortSettings()) {
                             $remove[] = $jumper->getEscortSettings();
