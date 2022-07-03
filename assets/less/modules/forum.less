@@ -905,7 +905,7 @@ ul.subscriptions {
 
       margin: 10px;
       &>li {
-        position: relative; min-height: 30px; list-style-image: url(../../img/icons/small_dot.gif);
+        position: relative; min-height: 30px; list-style: none;
         &+li { margin-top: 20px; }
         div.pm-avatar, div.pm-avatar-crow {
           position: absolute; height: 40px; width: 40px; border-radius: 100%; top: 0; left: -40px;
@@ -969,6 +969,8 @@ ul.subscriptions {
             h1 { color: @myhordes-smalltext; margin: 0 0 5px 0; padding: 0 0 5px 0; border-bottom: 1px solid rgba(0,0,0,0.2); }
 
             &>p:only-child { margin: 5px 0 10px 0; font-size: 1.5rem; }
+
+            ul>li { list-style-image: url(../../img/icons/small_dot.gif); }
           }
 
           &>div.pm-message-footer {
