@@ -3,45 +3,29 @@
 
 namespace App\Command\Info;
 
-
-use App\Entity\BuildingPrototype;
-use App\Entity\Citizen;
+use App\Command\LanguageCommand;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
-use App\Entity\PictoPrototype;
-use App\Entity\Town;
-use App\Entity\User;
 use App\Entity\ZonePrototype;
-use App\Interfaces\NamedEntity;
-use App\Service\CommandHelper;
 use App\Service\RandomGenerator;
-use App\Structures\IdentifierSemantic;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
-class BalancingCommand extends Command
+class BalancingCommand extends LanguageCommand
 {
     protected static $defaultName = 'app:info:balancing';
 
-    private CommandHelper $helper;
     private EntityManagerInterface $em;
     private RandomGenerator $rand;
-    private TranslatorInterface $translator;
 
-
-    public function __construct(CommandHelper $h, EntityManagerInterface $em, RandomGenerator $rand, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, RandomGenerator $rand)
     {
-        $this->helper = $h;
         $this->em = $em;
         $this->rand = $rand;
-        $this->translator = $translator;
-        $this->translator->setLocale("en");
         parent::__construct();
     }
 
@@ -54,6 +38,7 @@ class BalancingCommand extends Command
 
             ->addOption('named-drop', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Adds a named drop overwrite to the resolver.')
         ;
+        parent::configure();
     }
 
     protected function executeItemDroprate(ItemPrototype $itemPrototype, array $named, SymfonyStyle $io): int {
@@ -66,7 +51,7 @@ class BalancingCommand extends Command
         };
 
         $fun_by_ruin = function (ZonePrototype $z) use ($named, $itemPrototype) {
-            return [$z->getLabel(),$this->rand->resolveChance( $z->getDropByNames($named), $itemPrototype )];
+            return [ $this->translate($z->getLabel(), 'game' ), $this->rand->resolveChance( $z->getDropByNames($named), $itemPrototype )];
         };
 
         $io->title("Item Drop Rates for <info>{$itemPrototype->getLabel()}</info>");
@@ -108,7 +93,7 @@ class BalancingCommand extends Command
         $io->title("Item Drop Rates for <info>{$itemGroup->getName()}</info>");
 
         $fun_by_proto = function ($itemPrototype) use ($itemGroup) {
-            return [$this->translator->trans($itemPrototype->getLabel(), [], 'items'), $this->rand->resolveChance( $itemGroup ,$itemPrototype )];
+            return [$this->translate($itemPrototype->getLabel(), 'items'), $this->rand->resolveChance( $itemGroup ,$itemPrototype )];
         };
 
         $data = [];
@@ -125,6 +110,8 @@ class BalancingCommand extends Command
 
         return 0;
     }
+
+
 
     protected function getPrincipal( string $class, string $label, InputInterface $input, OutputInterface $output ): object {
         if (!$input->hasArgument('for')) throw new \Exception('Subject required.');

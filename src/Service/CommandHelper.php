@@ -9,6 +9,7 @@ use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\Inventory;
 use App\Entity\ItemGroup;
+use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
@@ -19,6 +20,7 @@ use App\Entity\ZonePrototype;
 use App\Interfaces\NamedEntity;
 use App\Structures\IdentifierSemantic;
 use DirectoryIterator;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\QuestionHelper;
@@ -26,16 +28,25 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CommandHelper
 {
     private EntityManagerInterface $entity_manager;
     private KernelInterface $app;
     private $_db = null;
+    private TranslatorInterface $trans;
 
-    public function __construct(EntityManagerInterface $em, KernelInterface $kernel) {
+    private $language = 'en';
+
+    public function __construct(EntityManagerInterface $em, KernelInterface $kernel, TranslatorInterface $trans) {
         $this->entity_manager = $em;
         $this->app = $kernel;
+        $this->trans = $trans;
+    }
+
+    public function setLanguage(string $language): void {
+        $this->language = $language;
     }
 
     public function leChunk( OutputInterface $output, string $repository, int $chunkSize, array $filter, bool $manualChain, bool $alwaysPersist, callable $handler, bool $clearEM = false, ?callable $revitalize = null) {
@@ -131,13 +142,16 @@ class CommandHelper
                 return "Citizen #{$e->getId()} <comment>{$e->getUser()->getUsername()}</comment> ({$e->getProfession()->getLabel()} in {$e->getTown()->getName()})";
             case ItemPrototype::class:
                 /** @var ItemPrototype $e */
-                return "Item Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+                return "Item Type #{$e->getId()} <comment>{$this->trans->trans($e->getLabel(), [], $e::getTranslationDomain(), $this->language)}</comment> ({$e->getName()})";
+            case ItemProperty::class:
+                /** @var ItemProperty $e */
+                return "Item Property #{$e->getId()} <comment>{$e->getName()}</comment>";
             case PictoPrototype::class:
                 /** @var PictoPrototype $e */
-                return "Picto Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+                return "Picto Type #{$e->getId()} <comment>{$this->trans->trans($e->getLabel(), [], $e::getTranslationDomain(), $this->language)}</comment> ({$e->getName()})";
             case BuildingPrototype::class:
                 /** @var BuildingPrototype $e */
-                return "Building Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+                return "Building Type #{$e->getId()} <comment>{$this->trans->trans($e->getLabel(), [], $e::getTranslationDomain(), $this->language)}</comment> ({$e->getName()})";
             case Town::class:
                 /** @var Town $e */
                 return "Town #{$e->getId()} <comment>{$e->getName()}</comment> ({$e->getLanguage()}, Day {$e->getDay()})";
@@ -169,7 +183,7 @@ class CommandHelper
                 $niceName =  preg_replace('/(\w)([ABCDEFGHIJKLMNOPQRSTUVWXYZ\d])/', '$1 $2', array_pop($cls_ex));
                 $niceName = get_class($e);
                 if (is_a($e, NamedEntity::class))
-                    return "$niceName #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+                    return "$niceName #{$e->getId()} <comment>{$this->trans->trans($e->getLabel(), [], $e::getTranslationDomain(), $this->language)}</comment> ({$e->getName()})";
                 else return "$niceName #{$e->getId()}";
         }
     }
@@ -190,9 +204,9 @@ class CommandHelper
             ];
 
             if (is_a($class, NamedEntity::class, true)) {
-                $this->_db[$class][IdentifierSemantic::PerfectMatch][] = 'label';
+                $this->_db[$class][IdentifierSemantic::PerfectMatch][] = ":{$class::getTranslationDomain()}:label";
                 $this->_db[$class][IdentifierSemantic::PerfectMatch][] = 'name';
-                $this->_db[$class][IdentifierSemantic::GuessMatch][] = '%label';
+                $this->_db[$class][IdentifierSemantic::GuessMatch][] = ":{$class::getTranslationDomain()}:%label";
                 $this->_db[$class][IdentifierSemantic::GuessMatch][] = '%name';
             }
         }
@@ -202,7 +216,7 @@ class CommandHelper
         $this->_db[Town::class][IdentifierSemantic::LikelyMatch] = ['#id','name'];
         $this->_db[Town::class][IdentifierSemantic::GuessMatch] =  ['%name'];
         foreach ([ItemPrototype::class,BuildingPrototype::class,PictoPrototype::class] as $c) {
-            $this->_db[$c][IdentifierSemantic::LikelyMatch][] = 'label';
+            $this->_db[$c][IdentifierSemantic::LikelyMatch][] = ":{$c::getTranslationDomain()}:label";
             $this->_db[$c][IdentifierSemantic::LikelyMatch][] = 'name';
         }
 
@@ -225,6 +239,10 @@ class CommandHelper
         $this->_db[ZonePrototype::class][IdentifierSemantic::PerfectMatch] = ['#id'];
         $this->_db[ZonePrototype::class][IdentifierSemantic::LikelyMatch]  = ['label', 'icon'];
         $this->_db[ZonePrototype::class][IdentifierSemantic::GuessMatch]   = ['%label', '%icon'];
+
+        $this->_db[ItemProperty::class][IdentifierSemantic::PerfectMatch] = ['#id'];
+        $this->_db[ItemProperty::class][IdentifierSemantic::LikelyMatch]  = ['name'];
+        $this->_db[ItemProperty::class][IdentifierSemantic::GuessMatch]   = ['%name'];
         return $this->_db;
     }
 
@@ -237,6 +255,9 @@ class CommandHelper
                 foreach ($prop_list as &$prop) {
                     $e = null;
 
+                    $sys_trans = false;
+                    if ($prop[0] === ':') list( $sys_trans, $prop ) = explode(':', substr($prop, 1));
+
                     $mod = '';
                     if (in_array($prop[0], ['#','%'])) {
                         $mod = $prop[0];
@@ -245,6 +266,12 @@ class CommandHelper
 
                     if ($mod === '#' && is_numeric($id))
                         $e = $repo->findBy([$prop => (int)$id]);
+                    elseif ( $sys_trans ) {
+                        $e = $repo->findBy(['id' => array_map( fn(array $entity) => $entity['id'] ,array_filter( $repo->createQueryBuilder('e')->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY), function( array $entity ) use ($mod, $id, $prop, $sys_trans) {
+                            $field = $this->trans->trans( $entity[$prop], [], $sys_trans, $this->language );
+                            return $mod === '%' ? str_contains( mb_strtolower($field), mb_strtolower($id) ) : (mb_strtolower($field) === mb_strtolower($id));
+                        } ))]);
+                    }
                     elseif ($mod === '%')
                         $e = $repo->createQueryBuilder('e')
                             ->where("e.{$prop} LIKE :param")->setParameter('param', "%{$id}%")
@@ -317,10 +344,10 @@ class CommandHelper
         }
     }
 
-    public function resolve_as(string $id, string $class, ?string $hint = null) {
+    public function resolve_as(string $id, string $class, ?string $hint = null, ?IdentifierSemantic &$final = null) {
 
         $base = $this->resolve($id);
-        $final = new IdentifierSemantic();
+        if (!$final) $final = new IdentifierSemantic();
         foreach ($this->resolve($id)->getMatches() as $match) {
 
             if (is_a($e = $base->getMatchedObject($match), $class))
@@ -338,14 +365,15 @@ class CommandHelper
 
     /**
      * @param string $id
-     * @param string $class
+     * @param string|array $class
      * @param string $label
      * @param QuestionHelper|null $qh
      * @param InputInterface|null $in
      * @param OutputInterface|null $out
+     * @param TranslatorInterface|null $trans
      * @return object|null
      */
-    public function resolve_string(string $id, string $class, string $label = 'Principal Object', ?QuestionHelper $qh = null, ?InputInterface $in = null, ?OutputInterface $out = null): ?object {
+    public function resolve_string(string $id, string|array $class, string $label = 'Principal Object', ?QuestionHelper $qh = null, ?InputInterface $in = null, ?OutputInterface $out = null, ?TranslatorInterface $trans = null): ?object {
 
         $sem = explode(':', $id);
         $hint = null;
@@ -358,7 +386,11 @@ class CommandHelper
             if ($hint === 'auto') $hint = null;
         }
 
-        $sem = $this->resolve_as($id, $class, $hint);
+        if (!is_array( $class )) $class = [$class];
+
+        $sem = null;
+        foreach ($class as $subclass)
+            $sem = $this->resolve_as($id, $subclass, $hint, $sem);
 
         if (count($sem->getMatches(IdentifierSemantic::LikelyMatch)) === 1)
             return $sem->getMatchedObject(array_values($sem->getMatches(IdentifierSemantic::LikelyMatch))[0]);

@@ -4,32 +4,16 @@
 namespace App\Command\Info;
 
 
-use App\Entity\BuildingPrototype;
-use App\Entity\Citizen;
-use App\Entity\ItemPrototype;
-use App\Entity\PictoPrototype;
-use App\Entity\Town;
-use App\Entity\User;
-use App\Interfaces\NamedEntity;
-use App\Service\CommandHelper;
+use App\Command\LanguageCommand;
 use App\Structures\IdentifierSemantic;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ResolveCommand extends Command
+class ResolveCommand extends LanguageCommand
 {
     protected static $defaultName = 'app:info:resolve';
-
-    private $helper;
-
-    public function __construct(CommandHelper $h)
-    {
-        $this->helper = $h;
-        parent::__construct();
-    }
 
     protected function configure()
     {
@@ -40,8 +24,9 @@ class ResolveCommand extends Command
 
             ->addOption('as',   null, InputOption::VALUE_REQUIRED, 'Expected class')
             ->addOption('hint', null, InputOption::VALUE_REQUIRED, 'Expected class')
-
         ;
+
+        parent::configure();
     }
 
 
