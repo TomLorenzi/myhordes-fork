@@ -25,7 +25,7 @@ class PictoHandler
         $this->conf = $conf;
     }
 
-    public function give_picto(Citizen $citizen, $pictoPrototype, $count = 1){
+    public function give_picto(Citizen $citizen, $pictoPrototype, $count = 1): void{
         if($count == 0) return;
 
         if(is_string($pictoPrototype)){
@@ -60,7 +60,7 @@ class PictoHandler
 
     }
 
-    public function give_validated_picto(Citizen $citizen, $pictoPrototype, $count = 1){
+    public function give_validated_picto(Citizen $citizen, $pictoPrototype, $count = 1): void{
         if($count <= 0) return;
         
         if(is_string($pictoPrototype)){
@@ -89,7 +89,7 @@ class PictoHandler
         $this->entity_manager->persist($picto);
     }
 
-    public function nightly_validate_picto(Citizen $citizen) {
+    public function nightly_validate_picto(Citizen $citizen):void {
         // Also, the RP, Sandball, ban, theft and soul collector pictos are always validated
         // In small town, we add the Guide and Nightwatch pictos
         $pictoAlwaysPersisted = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_INSTANT_PICTOS, []);
