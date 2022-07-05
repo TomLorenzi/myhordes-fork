@@ -1002,7 +1002,7 @@ class SoulController extends CustomAbstractController
 
         $comment = $parser->get("comment");
         $citizenProxy->setComment($comment);
-        if ($citizenProxy->getCitizen()) $citizenProxy->getCitizen()->setComment($comment);
+        $citizenProxy->getCitizen()?->setComment($comment ?? '');
 
         $this->entity_manager->persist($citizenProxy);
         $this->entity_manager->flush();
