@@ -96,9 +96,9 @@
                 if (comment === null) valid = false;
                 /*else {
                     valid = !(comment === "")
-                }
+                }*/
 
-                if (!valid) return;*/
+                if (!valid) return;
 
                 $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment: comment},
                     function () {
