@@ -1821,9 +1821,12 @@ div.daily-attack {
     outline: 1px solid white; background: rgba(255,255,255,0.1); cursor: nwse-resize;
   }
   &.raw { outline: none; box-shadow: none; padding: 0; margin: 0; border: 1px solid transparent; }
+  &>img { backdrop-filter: blur(15px) contrast(95%) brightness(110%); background: url("../img/noise.png")  }
 }
 &.avatar { border: 1px solid @myhordes-cell-header-background-color; }
 &.avatarcrow { border: 1px solid #cc3300; }
+
+.tab-floater .avatar>img { backdrop-filter: none; background: transparent }
 
 select {
   font-size: 1.2rem;

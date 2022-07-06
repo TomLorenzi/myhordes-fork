@@ -667,6 +667,12 @@ class PictoDataService implements FixtureProcessorInterface {
                 'icon' => 'r_scaddh',
                 'rare' => true
             ],
+            [
+                'label' => 'Duell der Achter',
+                'description' => 'Ehrenpreis für die Teilname am Duell der Achter Event!',
+                'icon' => 'r_ddh',
+                'rare' => false
+            ],
         ]);
     }
 }

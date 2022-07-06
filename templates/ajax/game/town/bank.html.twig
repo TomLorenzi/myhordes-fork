@@ -48,6 +48,8 @@
                 {% block class %}bank{% endblock %}
                 {% block title %}{% endblock %}
             {% endembed %}
+
+            <label class="small"><input type="checkbox" id="toggle_bank_cats" /> {{ 'Kategorien anzeigen'|trans({},'game') }}</label>
         </div>
 
         <div class="padded cell rw-6 rw-lg-12">
@@ -114,5 +116,19 @@
                 $.html.forEach('.inventory.bank .item[x-item-id]', element => element.setAttribute('x-theft',null));
             });
         {% endif %}
+
+        const update_view_mode = () => {
+            const show = $.client.config.showBankCategories.get();
+            $.html.forEach('ul#bank-inventory li.category', elem => elem.classList.toggle( 'hidden', !show ));
+        }
+
+        document.getElementById('toggle_bank_cats').checked = $.client.config.showBankCategories.get();
+        update_view_mode();
+
+        $.html.addEventListenerAll('#toggle_bank_cats', 'change', e => {
+            e.preventDefault();
+            $.client.config.showBankCategories.set(e.target.checked);
+            update_view_mode();
+        });
     </script>
 {% endblock %}

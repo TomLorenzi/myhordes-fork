@@ -94,11 +94,11 @@
                 let valid = false;
                 comment = window.prompt("{{ 'Was sagst du dazu?'|trans({},'game')|e('js') }}", "");
                 if (comment === null) valid = false;
-                else {
+                /*else {
                     valid = !(comment === "")
                 }
 
-                if (!valid) return;
+                if (!valid) return;*/
 
                 $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment: comment},
                     function () {

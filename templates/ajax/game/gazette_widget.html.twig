@@ -27,12 +27,12 @@
                     {% else %}
                         {% for citizen in gazette.death_inside %}
                             <span>
-                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
-                                        <div class="tooltip normal">
-                                            <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
-                                            {{citizen.causeOfDeath.label|trans({}, 'game')}}
-                                        </div>
-                                    </span>
+                                <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>{% if not loop.last  %}, {% endif %}
+                                <div class="tooltip normal">
+                                    <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
+                                    {{citizen.causeOfDeath.label|trans({}, 'game')}}
+                                </div>
+                            </span>
                         {% endfor %}
                     {% endif %}
                 </div>
@@ -152,3 +152,10 @@
         </div>
     </div>
 {% endif %}
+<script>
+    (()=>{
+        const headline = document.getElementById('gazette-headline');
+        if (headline && headline.clientWidth > 370)
+            headline.style.transform = 'scaleX(' + (370/headline.clientWidth) + ')'
+    })();
+</script>

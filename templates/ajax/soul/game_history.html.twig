@@ -71,9 +71,6 @@
         (function() {
             const add_comment = function(id) {
                 let comment = document.querySelector("[x-comment-town-id='" + id + "']").value;
-                let valid = (comment !== "")
-
-                if (!valid) return;
 
                 $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment: comment},
                     function () {

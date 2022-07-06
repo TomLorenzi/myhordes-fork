@@ -653,8 +653,9 @@
                 if (elem.closest('[disabled]')) return;
 
                 if (typeof value === "undefined") {
-                    if (elem.value === 'on') value = true;
-                    else if (elem.value === 'off') value = false;
+                    if(elem.type === "checkbox") value = elem.checked;
+                    else if(elem.value === 'on') value = true;
+                    else if(elem.value === 'off') value = false;
                     else value = elem.value;
                 }
 

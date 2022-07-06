@@ -39,6 +39,7 @@
         </div>
         <div class="padded cell rw-6 rw-lg-12">
             <div id="preview-map" x-react-mount="map" x-react-data="{{ map_public_json }}"></div>
+            {{ help_lnk('Wie gebraucht man diese Karte?'|trans({},'game'), 'help', {'name': 'map'}) }}
         </div>
     </div>
 {% endblock %}

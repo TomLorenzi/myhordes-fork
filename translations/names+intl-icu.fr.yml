@@ -1,4 +1,3 @@
----
 TDG_PRE_00_: Ami
 TDG_PRE_10_: Bicho
 TDG_PRE_20_: Bouti
@@ -120,17 +119,17 @@ TDG_SUF_39: ''
 TDG_SUF_49: ''
 TDG_SUF_59: ''
 'Krankenhaus Beinapp': 'Hôpital Velpo'
-Aesthetyxiations-Abteilung: Clinique esthétruique
+Aesthetyxiations-Abteilung: 'Clinique esthétruique'
 'Krankenhaus Krankenstedt': 'Hôpital malade'
 'Waldorf Klinik': 'L''Hôpital du régal'
 'STD Behandlungszentrum Bohlen': 'L''hospice du vice'
 'Bill S. Preston Memorial Hospital': 'L''hôpital du mal'
 'Klinik von Dr. Quack Salber': 'Clinique du couic !'
-Wasserallergie-Behandlungszentrum: Clinique aux allergiques
+Wasserallergie-Behandlungszentrum: 'Clinique aux allergiques'
 'Klinikum Altenburg': 'Pelle grain'
 'Stadtkrankenhaus am Dorfplatz': 'Sale pré-trier'
-Blanko-Penisverkleinerungsklinik: White et Necker
-'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'C.H.UT'
+Blanko-Penisverkleinerungsklinik: 'White et Necker'
+'Chronische Erschöpfungsheilanstalt Dr. Sloth': C.H.UT
 'Bordeaux Grace': 'Bordeaux grace'
 'George und Ralph Kinderkrankenhaus': 'Georges XXXII'
 'Charlton Eston Hotel': 'Hôtel charlton eston'
@@ -151,20 +150,20 @@ Blanko-Penisverkleinerungsklinik: White et Necker
 'Vajazzl Inn': 'Hôtel Beverly colline'
 'Hotel Venga': 'Palace Gonzalez'
 'Verlassener Bunker': 'Bunker abandonné'
-Thermonuklear-Bunker: Bunker thermonucléaire
-Garrison-Haus: Bunker maginot
+Thermonuklear-Bunker: 'Bunker thermonucléaire'
+Garrison-Haus: 'Bunker maginot'
 'Bastion der Angst': 'Bunker de la peur'
 'Bunker der Wut': 'Bunker de la fureur'
 'Fallout Shelter': 'Abri atomique'
 'Keine Hoffnung ohne Öffnung!': 'Pas d''abri, t''es pris !'
-Schattenfort: Blockhaus glauque
+Schattenfort: 'Blockhaus glauque'
 'Verlassene Trooper-Station': 'Blockhaus abandonné'
-Verwesungsversteck: Blockhaus plein d'os
-Knochenkeller: Blockhaus à l'os
+Verwesungsversteck: 'Blockhaus plein d''os'
+Knochenkeller: 'Blockhaus à l''os'
 'Geheimes Testlabor': 'Centre d''expérimentation'
 'Area 52.1 Bunker': 'Bunker zone 52.1'
 'Area 33 Bunker': 'Bunker zone 33'
-Quarantäne-Zone: Étude des quarantaines
+Quarantäne-Zone: 'Étude des quarantaines'
 'Zum Schlafen Reichts Motel': 'Hôtel de passe'
 Psychose: Psychoses
 Demenz: Démence
@@ -175,7 +174,7 @@ Blut: Sang
 Wut: Rage
 Hass: Haine
 Töte: Tuer
-'Töte sie': 'Tues-les'
+'Töte sie': Tues-les
 Mord: Meurtre
 Drogen: Drogues
 'Der Tod wartet': 'La mort t''attend'
@@ -203,8 +202,8 @@ Verstümmelung: Mutilations
 'Iss ihn': 'Manges en un'
 'Töte ihn': 'Tues en un'
 'Lass ihn zahlen': 'Fais lui payer'
-'Räche dich': 'Venge-toi'
-'Verrate sie': 'Trahis-les'
+'Räche dich': Venge-toi
+'Verrate sie': Trahis-les
 'Ohne Gnade': 'Sans pitié'
 'Ich bin nicht verrückt': 'Je ne suis pas fou'
 'Ich sehe nichts': 'Je ne vois rien'
@@ -213,6 +212,6 @@ Verstümmelung: Mutilations
 'Töte sie alle': 'Tue les tous'
 'Sie werden sterben': 'Ils mourront'
 'Lass sie sterben': 'Qu''ils meurent'
-'Verschlinge sie': 'Dévore-les'
-'Gib auf': 'Abandonne'
+'Verschlinge sie': Dévore-les
+'Gib auf': Abandonne
 'Alles... ist ... OK …': 'Tout … va … bien …'
