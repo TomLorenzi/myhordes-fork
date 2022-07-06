@@ -58,8 +58,8 @@ Stadttor: Grande Porte
 Karte: Carte
 'Bitte wähle einen Gegenstand:': 'Choisissez un objet :'
 'Du verfügst über keine geeigneten Gegenstände': 'Vous n''avez pas d''objet pour cette action'
-Herstellen: Assembler 
-aus: Nécessite 
+Herstellen: Assembler
+aus: Nécessite
 Kombinieren: Combiner 
 'Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!': 'Vous pouvez sortir de la ville et explorer l''Outre-Monde depuis ici. N''oubliez pas de garder la <strong>Grande Porte</strong> fermée lors de l''attaque à minuit !'
 'Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.': 'Vous avez été banni et ne pouvez donc ni ouvrir ni fermer la porte de la ville.'
@@ -94,13 +94,13 @@ Gegenstände: objets
 'Mein Haus ausbauen': 'Améliorer ma maison'
 'Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.': 'En améliorant votre maison, vous augmentez la défense qu''elle vous procurera pendant l''attaque de minuit !'
 'Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.': 'Le premier niveau d''amélioration vous donne aussi accès aux travaux personnels.'
-Bauen: Construire 
+Bauen: Construire
 'Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:': 'Pour améliorer votre maison, la ville a besoin du chantier suivant :'
 'Für diesen Ausbau benötigst du folgende Gegenstände:': 'Cette amélioration nécessite les ressources suivantes :'
 'Für diesen Ausbau werden keine Gegenstände benötigt.': 'Ne nécessite pas de matériel pour être construit(e).'
 'Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.': 'Voici la liste des travaux que vous pouvez effectuer chez vous. Chaque amélioration apporte des avantages spécifiques, mais attention, tout a un coût !'
 'Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.': 'Vous devez être un Héros pour effectuer les améliorations suivantes.'
-Erfordert: Nécessite 
+Erfordert: Nécessite
 Einbauen: Installer
 'Upgrade auf St. {level}': 'Améliorer au niv. {level}'
 'Kein weiterer Ausbau möglich': 'Aucune amélioration possible'
@@ -802,7 +802,7 @@ Senden: Écrire
 'Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?': 'Vous avez amené le corps de {disposed} au Crémato-Cue. Vous en tirez {ration} rations... mais à quel prix ?'
 '{citizen} starb, als er auf lächerliche Weise von der Mauer fiel!': '{citizen} est mort en tombant ridiculement du haut de la muraille !'
 'Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : {citizens}': 'De valeureux citoyens se sont postés ce soir sur les remparts de la ville : {citizens} ! Souhaitons leur une mort paisible... à moins qu''ils ne survivent ?'
-Zusammenbauen: Assembler 
+Zusammenbauen: Assembler
 'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:': 'Finalement être veilleur vous effraie ? Alors n''hésitez pas un seul instant :'
 'Ich habe doch zu große Angst...': 'Finalement j''ai trop peur...'
 'Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:': 'Vous aussi, défendez la ville ce soir ! Rejoignez <strong>l''équipe des Veilleurs</strong> !<br /><br />Vous souhaitez faire partie des <strong>citoyens</strong> les plus suicid... <strong>courageux</strong> ? Alors n''hésitez pas un seul instant :'
