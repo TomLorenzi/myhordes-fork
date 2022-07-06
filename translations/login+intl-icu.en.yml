@@ -1,3 +1,4 @@
+---
 'Dein Name muss mindestens { limit } Zeichen umfassen.': 'Your name must be at least { limit } characters long.'
 'Dein Name kann höchstens { limit } Zeichen umfassen.': 'Your name may only have { limit } characters at most.'
 'Die eingegebene E-Mail Adresse ist nicht gültig.': 'The entered e-mail address is invalid.'
@@ -12,13 +13,13 @@
 'Hallo {name}!': 'Hello {name}!'
 'Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.': 'Before you continue, you need to validate your e-mail address.'
 'Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.': 'Please enter the validation code that was sent to your e-mail address.'
-Validierungscode: 'Validation code'
+Validierungscode: Validation code
 Prüfen: Check
 Ausloggen: Logout
 'Du hast noch keinen Account?': 'You are not yet registered?'
 Registrieren!: Register!
 'Du hast deine E-Mail Adresse schon validiert?': 'Did you validate your e-mail address yet?'
-Einloggen!: 'Log in!'
+Einloggen!: Log in!
 'Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.': 'Validation fails, please check your input.'
 'Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.': 'Some fields are not yet filled in correctly. Please check your input.'
 Registrieren: Register
@@ -28,7 +29,7 @@ wiederholen: repeat
 Passwort: Password
 "Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "To complete the registration and activate your account, \n\\t\\t\\t\\t\\t\\tyou must click on the activation link that will be sent to your specified email address."
 'Du hast schon einen Account?': 'Do you have an account yet?'
-Einloggen: 'Log in'
+Einloggen: Log in
 'Bitte gib deinen Spielernamen und dein Passwort ein.': 'Please enter your username and password.'
 'Login fehlgeschlagen. Bitte prüfe deine Eingaben.': 'Login failed. Please check your input.'
 'Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.': 'Your password was successfully changed. Please login with your new password.'
@@ -60,7 +61,7 @@ Abbrechen: Cancel
 'Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!': 'Thank you for linking your MyHordes account {namecheck_mh} to your Eternaltwin account {namecheck_et}!'
 'Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.': 'After linking you can only log in to MyHordes via Eternaltwin. Your old login data will become invalid.'
 'Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".': 'If you want to continue, please enter your MyHordes password one last time and click "Link accounts".'
-Verknüpfen: 'Link accounts'
+Verknüpfen: Link accounts
 'Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.': 'Welcome back! Your account is no longer marked for deletion.'
 'Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.': 'Too many users from your network have registered with MyHordes. Further registrations from your network will not be possible for a while.'
 'Du wurdest erfolgreich von allen Geräten abgemeldet.': 'You have been successfully logged out from all devices.'
