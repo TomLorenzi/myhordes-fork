@@ -350,9 +350,14 @@ class CrowService {
                         default => 'untitled'
                     },
                     'description' => match ( $class ) {
-                        Post::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
-                        PrivateMessage::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
-                        GlobalPrivateMessage::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $object->getText() ) ) ),
+                        Post::class, PrivateMessage::class, GlobalPrivateMessage::class =>
+                            strip_tags(
+                                preg_replace(
+                                    ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/'],
+                                    ["\n", '${1}:', '[**', '**]'],
+                                    $html->prepareEmotes( $object->getText())
+                                )
+                            ),
                         BlackboardEdit::class => $object->getText(),
                         CitizenRankingProxy::class => match ($report->getSpecification()) {
                             AdminReportSpecification::None => 'no content',
@@ -360,7 +365,7 @@ class CrowService {
                             AdminReportSpecification::CitizenLastWords => $object->getLastWords(),
                             AdminReportSpecification::CitizenTownComment => $object->getComment(),
                         },
-                        User::class => strip_tags( str_replace(' <br/>', "\n", $html->prepareEmotes( $this->em->getRepository(UserDescription::class)->findOneBy(['user' => $user])?->getText() ?? '[no description]' ) ) ),
+                        User::class => strip_tags( preg_replace('/<br ?\/?>/', "\n", $html->prepareEmotes( $this->em->getRepository(UserDescription::class)->findOneBy(['user' => $user])?->getText() ?? '[no description]' ) ) ),
                         default => 'no content'
                     },
                     'url' => match ( $class ) {
