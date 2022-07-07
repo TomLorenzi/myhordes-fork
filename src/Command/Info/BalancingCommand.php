@@ -54,7 +54,7 @@ class BalancingCommand extends LanguageCommand
             return [ $this->translate($z->getLabel(), 'game' ), $this->rand->resolveChance( $z->getDropByNames($named), $itemPrototype )];
         };
 
-        $io->title("Item Drop Rates for <info>{$itemPrototype->getLabel()}</info>");
+        $io->title("Item Drop Rates for <info>" . $this->translate($itemPrototype->getLabel(), "items") . "</info>");
 
         $data = array_map( $fun_beautify, array_filter( array_map($fun_by_name, ['empty_dig','base_dig']), $fun_filter));
         if (!empty($data)) {
