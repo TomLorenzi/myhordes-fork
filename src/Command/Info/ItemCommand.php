@@ -37,6 +37,7 @@ class ItemCommand extends LanguageCommand
         $this
             ->setDescription('Dumps balancing information')
             ->addArgument('item',  InputArgument::OPTIONAL, 'What item would you like to know about?')
+            ->addOption('not', null, InputOption::VALUE_NONE, 'If we want items NOT matching the argument (only for item properties)')
         ;
         parent::configure();
     }
@@ -84,13 +85,17 @@ class ItemCommand extends LanguageCommand
         return 0;
     }
 
-    protected function printItemPropertyInfo( ItemProperty $item, OutputInterface $output ): int {
-        $output->writeln("<comment>{$item->getName()}</comment> [{$item->getId()}]");
+    protected function printItemPropertyInfo( ItemProperty $item, OutputInterface $output, bool $not = false ): int {
+        $output->writeln(($not ? "<fg=red;options=bold>NOT</> " : "") . "<comment>{$item->getName()}</comment> [{$item->getId()}]");
         $output->writeln('');
 
         if (!$item->getItemPrototypes()->isEmpty()) {
+            $prototypes = $not ? array_udiff($this->em->getRepository(ItemPrototype::class)->findAll(), $item->getItemPrototypes()->toArray(), function($a, $b) {
+                return $a->getId() <=> $b->getId();
+            }) : $item->getItemPrototypes();
             $output->writeln('Items:');
-            foreach ($item->getItemPrototypes() as $prototype)
+
+            foreach ($prototypes as $prototype)
                 $output->writeln( "\t<comment>{$this->translate($prototype->getLabel(), 'items')}</comment> [{$prototype->getName()}]" );
             $output->writeln('');
         }
@@ -107,7 +112,7 @@ class ItemCommand extends LanguageCommand
 
         return match( $item::class ) {
             ItemPrototype::class => $this->printItemInfo( $item, $output ),
-            ItemProperty::class => $this->printItemPropertyInfo( $item, $output ),
+            ItemProperty::class => $this->printItemPropertyInfo( $item, $output, $input->getOption("not") ),
             default => -1
         };
     }
