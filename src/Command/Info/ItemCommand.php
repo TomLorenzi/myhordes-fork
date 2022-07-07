@@ -37,7 +37,7 @@ class ItemCommand extends LanguageCommand
         $this
             ->setDescription('Dumps balancing information')
             ->addArgument('item',  InputArgument::OPTIONAL, 'What item would you like to know about?')
-            ->addOption('not', null, InputOption::VALUE_NONE, 'If we want items NOT matching the argument')
+            ->addOption('not', null, InputOption::VALUE_NONE, 'If we want items NOT matching the argument (only for item properties)')
         ;
         parent::configure();
     }
