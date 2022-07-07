@@ -86,7 +86,7 @@ class ItemCommand extends LanguageCommand
     }
 
     protected function printItemPropertyInfo( ItemProperty $item, OutputInterface $output, bool $not = false ): int {
-        $output->writeln("<comment>{$item->getName()}</comment> [{$item->getId()}]");
+        $output->writeln(($not ? "<fg=red;options=bold>NOT</> " : "") . "<comment>{$item->getName()}</comment> [{$item->getId()}]");
         $output->writeln('');
 
         if (!$item->getItemPrototypes()->isEmpty()) {
@@ -94,7 +94,7 @@ class ItemCommand extends LanguageCommand
                 return $a->getId() <=> $b->getId();
             }) : $item->getItemPrototypes();
             $output->writeln('Items:');
-            
+
             foreach ($prototypes as $prototype)
                 $output->writeln( "\t<comment>{$this->translate($prototype->getLabel(), 'items')}</comment> [{$prototype->getName()}]" );
             $output->writeln('');
