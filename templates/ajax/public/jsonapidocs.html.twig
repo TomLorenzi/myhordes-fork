@@ -12,22 +12,22 @@
                     <tr><th>{{ 'URL anfordern'|trans({},'docs') }}</th><th>{{ 'Rückgabetyp'|trans({},'docs') }}</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>{{ url('ext_json', {type: 'status'}) }}</td><td><a>Status</a></td></tr>
-                    <tr><td>{{ url('ext_json', {type: 'items'})  }}</td><td><a>Array&lt;Item&gt;</a></td></tr>
-                    <tr><td>{{ url('ext_json', {type: 'buildings'})  }}</td><td><a>Array&lt;Building&gt;</a></td></tr>
-                    <tr><td>{{ url('ext_json', {type: 'pictos'})  }}</td><td><a>Array&lt;Picto&gt;</a></td></tr>
-                    <tr><td>{{ url('ext_json', {type: 'ruins'})  }}</td><td><a>Array&lt;RuinDetail&gt;</a></td></tr>
-                    <tr><td>{{ url('ext_json', {type: 'me'})     }}</td><td><a>User</a></td></tr>
-                    <tr><td>{{ url('ext_json', {type: 'user'})   }}?id=$user_id</td><td><a>User</a></td></tr>
-                    <tr><td>{{ url('ext_json', {type: 'map'})    }}?mapId=$map_id</td><td><a>Map</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'status'}) }}</td><td><a href="#status" target="_self">Status</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'items'})  }}</td><td><a href="#item" target="_self">Array&lt;Item&gt;</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'buildings'})  }}</td><td><a href="#building" target="_self">Array&lt;Building&gt;</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'pictos'})  }}</td><td><a href="#picto" target="_self">Array&lt;Picto&gt;</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'ruins'})  }}</td><td><a href="#ruindetail" target="_self">Array&lt;RuinDetail&gt;</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'me'})     }}</td><td><a href="#user" target="_self">User</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'user'})   }}?id=$user_id</td><td><a href="#user" target="_self">User</a></td></tr>
+                    <tr><td>{{ url('ext_json', {type: 'map'})    }}?mapId=$map_id</td><td><a href="#map" target="_self">Map</a></td></tr>
                 </tbody>
             </table>
-<pre><a class="entity">&lt;Status&gt;</a> {
+<pre><a class="entity" id="status">&lt;Status&gt;</a> {
    attack: <span class="bool">Bool</span>,                   // {{ '"true", wenn der Angriff ausgeführt wird'|trans({},'docs') }}
    maintain: <span class="bool">Bool</span>                  // {{ '"true", wenn das Spiel gewartet wird'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;Map&gt;</a> {
+<a class="entity" id="map">&lt;Map&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'Spielkarten-ID'|trans({},'docs') }}
    date: <span class="string">String</span>,                   // {{ 'Serverzeit'|trans({},'docs') }}
    wid: <span class="int">Int</span>,                       // {{ 'Kartenbreite'|trans({},'docs') }}
@@ -36,11 +36,11 @@
    bonusPts: <span class="int">Int</span>,                  // {{ 'Bonuspunkte'|trans({},'docs') }}
    days: <span class="int">Int</span>,                      // {{ 'Stadttag'|trans({},'docs') }}
    custom: <span class="bool">Bool</span>,                   // {{ 'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht'|trans({},'docs') }}
-   zones: Array<a class="custom">&lt;Zone&gt;</a>,             // {{ 'Liste bekannter Zonen'|trans({},'docs') }}
-   citizens: Array<a class="custom">&lt;User&gt;</a>,          // {{ 'Liste der Bürger'|trans({},'docs') }}
-   city: <a class="custom">&lt;City&gt;</a>,                   // {{ 'Stadtinformationen'|trans({},'docs') }}
-   cadavers: Array<a class="custom">&lt;Cadaver&gt;</a>,       // {{ 'Liste der Leichen'|trans({},'docs') }}
-   expeditions: Array<a class="custom">&lt;Expedition&gt;</a>, // {{ 'Liste der Expeditionen'|trans({},'docs') }}
+   zones: Array<a href="#zone" target="_self" class="custom">&lt;Zone&gt;</a>,             // {{ 'Liste bekannter Zonen'|trans({},'docs') }}
+   citizens: Array<a href="#user" target="_self" class="custom">&lt;User&gt;</a>,          // {{ 'Liste der Bürger'|trans({},'docs') }}
+   city: <a href="#city" target="_self" class="custom">&lt;City&gt;</a>,                   // {{ 'Stadtinformationen'|trans({},'docs') }}
+   cadavers: Array<a href="#cadaver" target="_self" class="custom">&lt;Cadaver&gt;</a>,       // {{ 'Liste der Leichen'|trans({},'docs') }}
+   expeditions: Array<a href="#expedition" target="_self" class="custom">&lt;Expedition&gt;</a>, // {{ 'Liste der Expeditionen'|trans({},'docs') }}
    season: <span class="int">Int</span>,                    // {{ 'City Creation Season ID'|trans({},'docs') }}
    phase: <span class="string">String</span>,                  // {{ 'Phase der Stadt; entweder "alpha", "beta", "import" oder "native"'|trans({},'docs') }}
    source: <span class="string">String</span>,                 // {{ 'Herkunfts-Server der Stadt'|trans({},'docs') }}
@@ -48,60 +48,70 @@
    guide: <span class="int">Int</span>                      // {{ 'UID des Spielers, der Reiseleiter in der Außenwel ist'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;Zone&gt;</a> {
+<a class="entity" id="zone">&lt;Zone&gt;</a> {
    x: <span class="int">Int</span>,                         // {{ 'X von der oberen linken Ecke'|trans({},'docs') }}
    y: <span class="int">Int</span>,                         // {{ 'Y von der oberen linken Ecke'|trans({},'docs') }}
    nvt: <span class="bool">Bool</span>,                      // {{ 'Heute nicht besucht'|trans({},'docs') }}
    tag: null,                      // {{ 'Zonen-Tag'|trans({},'docs') }}
    danger: <span class="int">Int</span>,                    // {{ 'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau'|trans({},'docs') }}
-   details: <a class="custom">&lt;ZoneInfo&gt;</a>,            // {{ 'Bereichsdetails'|trans({},'docs') }}
-   items: Array<a class="custom">&lt;Item&gt;</a>,             // {{ 'Liste der Objekte in diesem Bereich'|trans({},'docs') }}
-   building: <a class="custom">&lt;RuinInfo&gt;</a>           // {{ 'Informationen zum Gebäude in der Umgebung'|trans({},'docs') }}
+   details: <a href="#zoneinfo" target="_self" class="custom">&lt;ZoneInfo&gt;</a>,            // {{ 'Bereichsdetails'|trans({},'docs') }}
+   items: Array<a href="#item" target="_self" class="custom">&lt;Item&gt;</a>,             // {{ 'Liste der Objekte in diesem Bereich'|trans({},'docs') }}
+   building: <a href="#ruininfo" target="_self" class="custom">&lt;RuinInfo&gt;</a>            // {{ 'Informationen zum Gebäude in der Umgebung'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;RuinInfo&gt;</a> {
+<a class="entity" id="ruininfo">&lt;RuinInfo&gt;</a> {
    type: <span class="int">Int</span>,                      // {{ 'Die Gebäude-ID'|trans({},'docs') }}
    dig: <span class="int">Int</span>,                       // {{ 'Die Anzahl der Sandhaufen auf dem Gebäude'|trans({},'docs') }}
-   name: <a class="custom">&lt;LangString&gt;</a>,             // {{ 'Der Name des Gebäudes'|trans({},'docs') }}
-   desc: <a class="custom">&lt;LangString&gt;</a>,             // {{ 'Beschreibung des Gebäudes'|trans({},'docs') }}
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,             // {{ 'Der Name des Gebäudes'|trans({},'docs') }}
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,             // {{ 'Beschreibung des Gebäudes'|trans({},'docs') }}
    camped: <span class="bool">Bool</span>,                   // {{ 'Wenn das Gebäude gelagert wurde'|trans({},'docs') }}
    dried: <span class="bool">Bool</span>                     // {{ 'Das Gebäude trocknen'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;ZoneInfo&gt;</a> {
+<a class="entity" id="zoneinfo">&lt;ZoneInfo&gt;</a> {
    z: <span class="int">Int</span>,                         // {{ 'Die Anzahl der Zombies'|trans({},'docs') }}
    h: <span class="int">Int</span>,                         // {{ 'Die Anzahl der Menschen'|trans({},'docs') }}
    dried: <span class="bool">Bool</span>                     // {{ 'Den Bereich austrocknen'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;User&gt;</a> {
+<a class="entity" id="user">&lt;User&gt;</a> {
    name: <span class="string">String</span>,                   // {{ 'Spielername'|trans({},'docs') }}
    isGhost: <span class="bool">Bool</span>,                  // {{ 'ob der Spieler verkörpert ist (false) oder nicht (true)'|trans({},'docs') }}
    twinId: <span class="int">Int</span>,                    // {{ 'Die Twinoid-ID, wenn er sein Konto verknüpft hat'|trans({},'docs') }}
    etwinId: <span class="int">Int</span>,                   // {{ 'Die Eternaltwin-ID, wenn er sein Konto verknüpft hat'|trans({},'docs') }}
    mapId: <span class="int">Int</span>,                     // {{ 'So verkörpert die ID seiner Stadt'|trans({},'docs') }}
-   map: <a class="custom">&lt;Map&gt;</a>,                     // {{ 'Wenn verkörpert, eine Instanz von Map'|trans({},'docs') }}
+   map: <a href="#map" target="_self" class="custom">&lt;Map&gt;</a>,                     // {{ 'Wenn verkörpert, eine Instanz von Map'|trans({},'docs') }}
    homeMessage: <span class="string">String</span>,            // {{ 'Persönlicher Text (über die Seele)'|trans({},'docs') }}
    avatar: <span class="string">String</span>,                 // {{ 'Spieler-Avatar-URL'|trans({},'docs') }}
+   rewards: Array<a href="#reward" target="_self" class="custom">&lt;Reward&gt;</a>
    hero: <span class="bool">Bool</span>,
-   job: <a class="custom">&lt;Job&gt;</a>,
+   job: <a href="#job" target="_self" class="custom">&lt;Job&gt;</a>,
    dead: <span class="bool">Bool</span>,
    out: <span class="bool">Bool</span>,
    baseDef: <span class="int">Int</span>,
    ban: <span class="bool">Bool</span>,
    x: <span class="int">Int</span>,
    y: <span class="int">Int</span>,
-   playedMaps: Array<a class="custom">&lt;Cadaver&gt;</a>      // {{ 'Liste der alten Inkarnationen'|trans({},'docs') }}
+   playedMaps: Array<a href="#cadaver" target="_self" class="custom">&lt;Cadaver&gt;</a>      // {{ 'Liste der alten Inkarnationen'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;Job&gt;</a> {
+<a class="entity" id="reward">&lt;Reward&gt;</a> {
+   id: <span class="int">Int</span>,                        // {{ 'ID-MyHordes'|trans({},'docs') }}
+   rare: <span class="string">String</span>,                   // {{ 'Boolescher Wert, der angibt, ob der Auszeichnung selten ist'|trans({},'docs') }}
+   number: <a class="int">Int</a>,                    // {{ 'Anzahl der erhaltenen Auszeichnungen'|trans({},'docs') }}
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>              // {{ 'Der Name der Auszeichnung'|trans({},'docs') }}
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>              // {{ 'Die Beschreibung'|trans({},'docs') }}
+   titles: Array<a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>       // {{ 'Liste der Titeltext'|trans({},'docs') }}
+}
+
+<a class="entity" id="job">&lt;Job&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'ID-MyHordes'|trans({},'docs') }}
    uid: <span class="string">String</span>,                    // {{ 'universelle ID (zB: basic = Einwohner)'|trans({},'docs') }}
-   name: <a class="custom">&lt;LangString&gt;</a>,             // {{ 'Der Name des Berufs'|trans({},'docs') }}
-   desc: <a class="custom">&lt;LangString&gt;</a>              // {{ 'Die Beschreibung'|trans({},'docs') }}
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,             // {{ 'Der Name des Berufs'|trans({},'docs') }}
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>              // {{ 'Die Beschreibung'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;City&gt;</a> {
+<a class="entity" id="city">&lt;City&gt;</a> {
    name: <span class="string">String</span>,                   // {{ 'Name der Stadt'|trans({},'docs') }}
    water: <span class="int">Int</span>,                     // {{ 'Anzahl der verfügbaren Wasserrationen'|trans({},'docs') }}
    x: <span class="int">Int</span>,                         // {{ 'Stadtposition'|trans({},'docs') }}
@@ -110,36 +120,36 @@
    chaos: <span class="bool">Bool</span>,                    // {{ 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet'|trans({},'docs') }}
    hard: <span class="bool">Bool</span>,                     // {{ 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist'|trans({},'docs') }}
    devast: <span class="bool">Bool</span>,                   // {{ 'Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist'|trans({},'docs') }}
-   chantiers: Array<a class="custom">&lt;Chantier&gt;</a>,     // {{ 'Vollständige Liste der verfügbaren Websites'|trans({},'docs') }}
-   buildings: Array<a class="custom">&lt;Chantier&gt;</a>,     // {{ 'Liste der Baustellen'|trans({},'docs') }}
-   news: <a class="custom">&lt;News&gt;</a>,                   // {{ 'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung'|trans({},'docs') }}
-   defense: <a class="custom">&lt;Defense&gt;</a>,             // {{ 'Informationen zur Verteidigung der Stadt'|trans({},'docs') }}
-   upgrades: <a class="custom">&lt;Upgrades&gt;</a>,           // {{ 'Liste der verfügbaren Verbesserungen (Pumpe usw.)'|trans({},'docs') }}
-   estimations: <a class="custom">&lt;Estimations&gt;</a>,     // {{ 'Schätzung für den Abendangriff'|trans({},'docs') }}
-   estimationsNext: <a class="custom">&lt;Estimations&gt;</a>, // {{ 'Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer'|trans({},'docs') }}
-   bank: Array<a class="custom">&lt;Item&gt;</a>               // {{ 'Objekte in der Bank'|trans({},'docs') }}
+   chantiers: Array<a href="#chantier" target="_self" class="custom">&lt;Chantier&gt;</a>,     // {{ 'Vollständige Liste der verfügbaren Websites'|trans({},'docs') }}
+   buildings: Array<a href="#chantier" target="_self" class="custom">&lt;Chantier&gt;</a>,     // {{ 'Liste der Baustellen'|trans({},'docs') }}
+   news: <a href="#news" target="_self" class="custom">&lt;News&gt;</a>,                   // {{ 'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung'|trans({},'docs') }}
+   defense: <a href="#defense" target="_self" class="custom">&lt;Defense&gt;</a>,             // {{ 'Informationen zur Verteidigung der Stadt'|trans({},'docs') }}
+   upgrades: <a href="#upgrades" target="_self" class="custom">&lt;Upgrades&gt;</a>,           // {{ 'Liste der verfügbaren Verbesserungen (Pumpe usw.)'|trans({},'docs') }}
+   estimations: <a href="#estimations" target="_self" class="custom">&lt;Estimations&gt;</a>,     // {{ 'Schätzung für den Abendangriff'|trans({},'docs') }}
+   estimationsNext: <a href="#estimations" target="_self" class="custom">&lt;Estimations&gt;</a>, // {{ 'Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer'|trans({},'docs') }}
+   bank: Array<a href="#item" target="_self" class="custom">&lt;Item&gt;</a>               // {{ 'Objekte in der Bank'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;Estimations&gt;</a> {
+<a class="entity" id="estimations">&lt;Estimations&gt;</a> {
    days: <span class="int">Int</span>,                      // {{ 'Die Tage der Schätzung'|trans({},'docs') }}
    min: <span class="int">Int</span>,                       // {{ 'Der minimale Angriff'|trans({},'docs') }}
    max: <span class="int">Int</span>,                       // {{ 'Maximaler Angriff'|trans({},'docs') }}
    maxed: <span class="bool">Bool</span>
 }
 
-<a class="entity">&lt;Upgrades&gt;</a> {
+<a class="entity" id="upgrades">&lt;Upgrades&gt;</a> {
    total: <span class="int">Int</span>,
-   list: Array<a class="custom">&lt;CityUpgrade&gt;</a>
+   list: Array<a href="#cityupgrade" target="_self" class="custom">&lt;CityUpgrade&gt;</a>
 }
 
-<a class="entity">&lt;CityUpgrade&gt;</a> {
-   name: <a class="custom">&lt;LangString&gt;</a>,
+<a class="entity" id="cityupgrade">&lt;CityUpgrade&gt;</a> {
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
    level: <span class="int">Int</span>,
    update: <span class="string">String</span>,
    buildingId: <span class="int">Int</span>
 }
 
-<a class="entity">&lt;Defense&gt;</a> {
+<a class="entity" id="defense">&lt;Defense&gt;</a> {
    total: <span class="int">Int</span>,                     // {{ 'totale Verteidigung'|trans({},'docs') }}
    base: <span class="int">Int</span>,                      // {{ 'Grundverteidigung (10)'|trans({},'docs') }}
    buildings: <span class="int">Int</span>,                 // {{ 'Verteidigung durch Konstruktionen'|trans({},'docs') }}
@@ -152,16 +162,16 @@
    souls: <span class="int">Int</span>,                     // {{ 'Verteidigung durch Seelen gebracht'|trans({},'docs') }}
    temp: <span class="int">Int</span>,                      // {{ 'Vorübergehende Verteidigung'|trans({},'docs') }}
    cadavers: <span class="int">Int</span>,                  // {{ 'Verteidigung durch Leichen gebracht'|trans({},'docs') }}
-   guardiansInfos: <a class="custom">&lt;Guardians&gt;</a>,
+   guardiansInfos: <a href="#guardians" target="_self" class="custom">&lt;Guardians&gt;</a>,
    bonus: <span class="int">Int</span>
 }
 
-<a class="entity">&lt;Guardians&gt;</a> {
+<a class="entity" id="guardian">&lt;Guardians&gt;</a> {
    guardians: <span class="int">Int</span>,                 // {{ 'Anzahl der Wachen'|trans({},'docs') }}
    def: <span class="int">Int</span>                        // {{ 'Verteidigung durch die Wächter'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;News&gt;</a> {
+<a class="entity" id="news">&lt;News&gt;</a> {
    z: <span class="int">Int</span>,                         // {{ 'Anzahl der angegriffenen Zombies'|trans({},'docs') }}
    def: <span class="int">Int</span>,                       // {{ 'Anzahl der Verteidigungspunkte'|trans({},'docs') }}
    content: <span class="string">String</span>,                // {{ 'Gazette-Text'|trans({},'docs') }}
@@ -169,11 +179,11 @@
    water: <span class="int">Int</span>                      // {{ 'Anzahl der im Brunnen verbleibenden Rationen?'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;Chantiers&gt;</a> {
+<a class="entity" id="chantier">&lt;Chantiers&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'ID der Site'|trans({},'docs') }}
    icon: <span class="string">String</span>,
-   name: <a class="custom">&lt;LangString&gt;</a>,
-   desc: <a class="custom">&lt;LangString&gt;</a>,
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
    pa: <span class="int">Int</span>,                        // {{ 'Anzahl der für den Bau benötigten AP'|trans({},'docs') }}
    life: <span class="int">Int</span>,                      // {{ 'aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)'|trans({},'docs') }}
    maxLife: <span class="int">Int</span>,   
@@ -184,30 +194,30 @@
    rarity:  <span class="string">String</span>,                // {{ 'Seltenheit des Plans'|trans({},'docs') }}
    temporary: <span class="bool">Bool</span>,                // {{ 'Temporäres Gebäude'|trans({},'docs') }}
    parent: <span class="int">Int</span>,                    // {{ 'Gebäude-ID des vorherigen Zweigs'|trans({},'docs') }}
-   resources: array<a class="custom">&lt;Resources&gt;</a>,
+   resources: array<a href="#resources" target="_self" class="custom">&lt;Resources&gt;</a>,
    actions: <span class="int">Int</span>,
    hasLevels: <span class="bool">Bool</span>
 }
 
-<a class="entity">&lt;Resources&gt;</a> {
+<a class="entity" id="resource">&lt;Resources&gt;</a> {
    amount: <span class="int">Int</span>,                    // {{ 'Anzahl der benötigten Ressourcen'|trans({},'docs') }}
-   rsc: <a class="custom">&lt;Item&gt;</a>                     // {{ 'Objekte benötigt'|trans({},'docs') }}
+   rsc: <a href="#item" target="_self" class="custom">&lt;Item&gt;</a>                     // {{ 'Objekte benötigt'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;Item&gt;</a> {
+<a class="entity" id="item">&lt;Item&gt;</a> {
    id: <span class="int">Int</span>, 
-   name: <a class="custom">&lt;LangString&gt;</a>,
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
    count: <span class="int">Int</span>,
    broken: <span class="bool">Bool</span>,
    img: <span class="string">String</span>,
-   cat: <a class="custom">&lt;LangString&gt;</a>,
+   cat: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
    heavy: <span class="bool">Bool</span>,
    deco: <span class="int">Int</span>,
    guard: <span class="int">Int</span>,
-   desc: <a class="custom">&lt;LangString&gt;</a>
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>
 }
 
-<a class="entity">&lt;Cadaver&gt;</a> {
+<a class="entity" id="cadaver">&lt;Cadaver&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'Spieler ID'|trans({},'docs') }}
    twinId: <span class="int">Int</span>,                    // {{ 'Twinoid-ID des Spielers'|trans({},'docs') }}
    etwinId: <span class="int">Int</span>,                   // {{ 'Eternaltwin-ID des Spielers'|trans({},'docs') }}
@@ -225,22 +235,22 @@
    dtype: <span class="int">Int</span>,                     // {{ 'Kennung des Todestyps'|trans({},'docs') }}
    msg: <span class="string">String</span>,                    // {{ 'Todesnachricht'|trans({},'docs') }}
    comment: <span class="string">String</span>,                // {{ 'Kommentar'|trans({},'docs') }}
-   cleanup : <a class="custom">&lt;CadaverCleanupInfo&gt;</a>
+   cleanup : <a href="#cadavercleanupinfo" target="_self" class="custom">&lt;CadaverCleanupInfo&gt;</a>
 }
 
-<a class="entity">&lt;CadaverCleanupInfo&gt;</a> {
+<a class="entity" id="cadavercleanupinfo">&lt;CadaverCleanupInfo&gt;</a> {
    user: <span class="string">String</span>,                   // {{ 'Name des Spielers, der den Körper entsorgt hat'|trans({},'docs') }}
    type: <span class="string">String</span>                    // {{ 'Methode : garbage, water, cook order ghoul'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;Expedition&gt;</a> {
+<a class="entity" id="expedition">&lt;Expedition&gt;</a> {
    name: <span class="string">String</span>,                   // {{ 'Expeditionsname'|trans({},'docs') }}
-   author: <a class="custom">&lt;User&gt;</a>,                 // {{ 'der Autor'|trans({},'docs') }}
+   author: <a href="#user" target="_self" class="custom">&lt;User&gt;</a>,                 // {{ 'der Autor'|trans({},'docs') }}
    length: <span class="int">Int</span>,                    // {{ 'Versandlänge'|trans({},'docs') }}
-   points: Array<a class="custom">&lt;ExpeditionPoints&gt;</a> // {{ 'Punkte, die den Kurs definieren'|trans({},'docs') }}
+   points: Array<a href="#expeditionpoints" target="_self" class="custom">&lt;ExpeditionPoints&gt;</a> // {{ 'Punkte, die den Kurs definieren'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;ExpeditionPoints&gt;</a> {
+<a class="entity" id="expeditionpoints">&lt;ExpeditionPoints&gt;</a> {
    x: <span class="int">Int</span>,
    y: <span class="int">Int</span>
 }
@@ -248,8 +258,8 @@
 <a class="entity" id="building">&lt;Building&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'ID der Site'|trans({},'docs') }}
    img: <span class="string">String</span>,
-   name: <a class="custom">&lt;LangString&gt;</a>,
-   desc: <a class="custom">&lt;LangString&gt;</a>,
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
    pa: <span class="int">Int</span>,                        // {{ 'Anzahl der für den Bau benötigten AP'|trans({},'docs') }}
    maxLife: <span class="int">Int</span>,
    breakable: <span class="bool">Bool</span>,                // {{ 'ob dieses Gebäude nach dem Angriff zerstört werden kann'|trans({},'docs') }}
@@ -258,27 +268,27 @@
    rarity:  <span class="string">String</span>,                // {{ 'Seltenheit des Plans'|trans({},'docs') }}
    temporary: <span class="bool">Bool</span>,                // {{ 'Temporäres Gebäude'|trans({},'docs') }}
    parent: <span class="int">Int</span>,                    // {{ 'Gebäude-ID des vorherigen Zweigs'|trans({},'docs') }}
-   resources: array<a class="custom">&lt;Resources&gt;</a>
+   resources: array<a href="#resources" target="_self" class="custom">&lt;Resources&gt;</a>
 }
 
-<a class="entity" id="building">&lt;Picto&gt;</a> {
+<a class="entity" id="picto">&lt;Picto&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'ID der Picto'|trans({},'docs') }}
    img: <span class="string">String</span>,
-   name: <a class="custom">&lt;LangString&gt;</a>,
-   desc: <a class="custom">&lt;LangString&gt;</a>,
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
    rare:  <span class="string">String</span>,                  // {{ 'Wenn dieses Picto selten ist'|trans({},'docs') }}
    community:  <span class="string">String</span>,             // {{ 'Wenn dieses Picto eine Gemeinschaftsauszeichnung ist'|trans({},'docs') }}
 }
 
-<a class="entity" id="building">&lt;RuinDetail&gt;</a> {
+<a class="entity" id="ruindetail">&lt;RuinDetail&gt;</a> {
    id: <span class="int">Int</span>,                        // {{ 'ID der Ruine'|trans({},'docs') }}
    img: <span class="string">String</span>,
-   name: <a class="custom">&lt;LangString&gt;</a>,
-   desc: <a class="custom">&lt;LangString&gt;</a>,
+   name: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
+   desc: <a href="#langstring" target="_self" class="custom">&lt;LangString&gt;</a>,
    explorable:  <span class="string">String</span>,            // {{ 'Erforschbare Ruine'|trans({},'docs') }}
 }
 
-<a class="entity">&lt;LangString&gt;</a> {
+<a class="entity" id="langstring">&lt;LangString&gt;</a> {
    // {{ 'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen'|trans({},'docs') }}
    // {{ 'zB :'|trans({},'docs') }}
    fr: <span class="string">String</span>,

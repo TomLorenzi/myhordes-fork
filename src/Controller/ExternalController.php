@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AwardPrototype;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
@@ -13,6 +14,7 @@ use App\Entity\ExternalApp;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\ItemPrototype;
+use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinZonePrototype;
 use App\Entity\Town;
@@ -41,6 +43,7 @@ use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
@@ -1630,6 +1633,9 @@ class ExternalController extends InventoryAwareController {
                         $user_data[$field] = $friends;
                     }
                     break;
+                case "rewards":
+                    $user_data[$field] = $this->getRewardsData();
+                    break;
             }
             if ($current_citizen) {
 
@@ -1704,16 +1710,70 @@ class ExternalController extends InventoryAwareController {
                                 break;
                         }
                     }
-                    if ($fieldName === "playedMaps") {
-                        $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields']);;
+                    switch($fieldName){
+                        case "playedMaps":
+                            $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields']);
+                            break;
+                        case "rewards":
+                            $user_data[$fieldName] = $this->getRewardsData($fieldValues['fields']);
+                            break;
                     }
-
                 }
-
             }
         }
 
         return $user_data;
+    }
+
+    private function getRewardsData(array $fields = []): array {
+        $data = [];
+
+        if(empty($fields)) {
+            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc'];
+        }
+
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
+        foreach ($pictos as $picto) {
+            $picto_data = [];
+            foreach ($fields as $field) {
+                switch ($field) {
+                    case "rare":
+                        $picto_data[$field] = intval($picto['rare']);
+                        break;
+                    case "number":
+                        $picto_data[$field] = intval($picto['c']);
+                        break;
+                    case "id":
+                        $picto_data[$field] = $picto['id'];
+                        break;
+                    case "img":
+                        $picto_data[$field] = $picto['icon'];
+                        break;
+                    case "name":
+                        $picto_data[$field] = $this->getTranslate($picto['label'], 'game');
+                        break;
+                    case "desc":
+                        $picto_data[$field] = $this->getTranslate($picto['description'], 'game');
+                        break;
+                    case "titles":
+                        $criteria = new Criteria();
+                        $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto['c']));
+                        $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+                        $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
+                        $titles_data = [];
+                        /** @var AwardPrototype $title */
+                        foreach ($titles as $title) {
+                            if ($title->getTitle() === null) continue;
+                            $titles_data[] = $this->getTranslate($title->getTitle(), "game");
+                        }
+                        $picto_data[$field] = $titles_data;
+                        break;
+                    }
+            }
+            $data[] = $picto_data;
+        }
+
+        return $data;
     }
 
     private function getZonesData(array $fields = []): array {
