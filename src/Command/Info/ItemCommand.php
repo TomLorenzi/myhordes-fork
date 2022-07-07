@@ -91,13 +91,10 @@ class ItemCommand extends LanguageCommand
 
         if (!$item->getItemPrototypes()->isEmpty()) {
             $prototypes = $not ? array_udiff($this->em->getRepository(ItemPrototype::class)->findAll(), $item->getItemPrototypes()->toArray(), function($a, $b) {
-                if ($a->getId() === $b->getId())
-                    return 0;
-                if ($a->getId() > $b->getId())
-                    return 1;
-                return -1;
+                return $a->getId() <=> $b->getId();
             }) : $item->getItemPrototypes();
             $output->writeln('Items:');
+            
             foreach ($prototypes as $prototype)
                 $output->writeln( "\t<comment>{$this->translate($prototype->getLabel(), 'items')}</comment> [{$prototype->getName()}]" );
             $output->writeln('');
