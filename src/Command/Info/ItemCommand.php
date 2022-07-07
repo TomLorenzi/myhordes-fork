@@ -93,7 +93,9 @@ class ItemCommand extends LanguageCommand
             $prototypes = $not ? array_udiff($this->em->getRepository(ItemPrototype::class)->findAll(), $item->getItemPrototypes()->toArray(), function($a, $b) {
                 if ($a->getId() === $b->getId())
                     return 0;
-                return 1;
+                if ($a->getId() > $b->getId())
+                    return 1;
+                return -1;
             }) : $item->getItemPrototypes();
             $output->writeln('Items:');
             foreach ($prototypes as $prototype)
