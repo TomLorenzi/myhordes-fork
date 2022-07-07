@@ -84,6 +84,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'watergun_3_#00'             => [ 'weapon', 'nw_shooting', 'nw_armory' ],
             'watergun_2_#00'             => [ 'impoundable', 'weapon', 'nw_shooting', 'nw_armory' ],
             'watergun_1_#00'             => [ 'impoundable', 'weapon', 'nw_shooting', 'nw_armory' ],
+            'watergun_empty_#00'         => [ 'impoundable' ],
             'jerrygun_#00'               => [ 'impoundable', 'weapon', 'esc_fixed' ],
             'jerrycan_#00'               => [ 'hero_find_lucky' ],
             'knife_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
