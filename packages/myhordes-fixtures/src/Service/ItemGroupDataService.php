@@ -152,12 +152,12 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 //array('item' => 'vodka_de_#00', 'count' => '6'),
             ),
             'christmas_dig' => [
-                array('item' => 'renne_#00', 'count' => '8'),
-                array('item' => 'sand_ball_#00', 'count' => '14'),
-                array('item' => 'christmas_suit_3_#00', 'count' => '4'),
-                array('item' => 'christmas_suit_1_#00', 'count' => '3'),
-                array('item' => 'christmas_suit_2_#00', 'count' => '1'),
-                array('item' => 'food_xmas_#00', 'count' => '2'),
+                array('item' => 'renne_#00', 'count' => '10'),
+                array('item' => 'sand_ball_#00', 'count' => '2'),
+                array('item' => 'christmas_suit_3_#00', 'count' => '8'),
+                array('item' => 'christmas_suit_1_#00', 'count' => '8'),
+                array('item' => 'christmas_suit_2_#00', 'count' => '8'),
+                array('item' => 'food_xmas_#00', 'count' => '6'),
             ],
             'christmas_dig_post' => [
                 array('item' => 'postal_box_#01', 'count' => '3'),
