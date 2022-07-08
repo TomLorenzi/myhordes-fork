@@ -167,8 +167,8 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 array('item' => 'paques_#00', 'count' => '207'),
             ],
             'stpatrick_dig' => [
-                array('item' => 'leprechaun_suit_#00', 'count' => '4'),
-                array('item' => 'guiness_#00', 'count' => '25'),
+                array('item' => 'leprechaun_suit_#00', 'count' => '7'),
+                array('item' => 'guiness_#00', 'count' => '20'),
                 array('item' => 'hurling_stick_#00', 'count' => '25'),
             ],
             'stpatrick_dig_fair' => [
