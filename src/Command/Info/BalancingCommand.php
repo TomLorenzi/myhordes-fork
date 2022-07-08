@@ -33,7 +33,7 @@ class BalancingCommand extends LanguageCommand
     {
         $this
             ->setDescription('Dumps balancing information')
-            ->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate]')
+            ->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate, group-spawnrate, ruin-pawnrate]')
             ->addArgument('for',  InputArgument::OPTIONAL, 'What object would you like to know about?')
 
             ->addOption('named-drop', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Adds a named drop overwrite to the resolver.')
