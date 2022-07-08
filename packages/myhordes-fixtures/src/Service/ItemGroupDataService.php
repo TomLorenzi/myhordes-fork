@@ -14,8 +14,8 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 array('item' => 'metal_bad_#00', 'count' => '22856'),
             ),
             'base_dig' => array(
-                array('item' => 'wood2_#00', 'count' => '16764'),
-                array('item' => 'metal_#00', 'count' => '10124'),
+                array('item' => 'wood2_#00', 'count' => '17300'), //Pop'Hordes stats 08.07.22 ; 15,2%
+                array('item' => 'metal_#00', 'count' => '9875'), //Pop'Hordes stats 08.07.22 ; 8,7%
                 array('item' => 'grenade_empty_#00', 'count' => '6915'),
                 array('item' => 'food_bag_#00', 'count' => '4845'),
                 array('item' => 'pile_#00', 'count' => '4766'),
