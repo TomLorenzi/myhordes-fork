@@ -35,8 +35,10 @@ class GameFactoryTest extends KernelTestCase
 
             if ($type !== "invalid")
                 $this->assertNotNull($town);
-            else
+            else {
                 $this->assertNull($town);
+                continue;
+            }
 
             self::assertEquals(40, $town->getPopulation());
             self::assertEquals($lang, $town->getLanguage());
