@@ -27,13 +27,19 @@ class GameFactoryTest extends KernelTestCase
 
         // We try to create a 100 towns
         for ($i = 0; $i < 100 ; $i++) {
-            // Let's try to create a french remote town with a generated name and 40 citizens in it
-            $town = $gameFactory->createTown(null, $random->pick(['en', 'fr', 'de', 'es', 'multi']), 40, $random->pick(['small', 'remote', 'panda']));
 
-            $this->assertNotNull($town);
+            $lang =  $random->pick(['en', 'fr', 'de', 'es', 'multi']);
+            $type = $random->pick(['small', 'remote', 'panda', 'invalid']);
+            // Let's try to create a french remote town with a generated name and 40 citizens in it
+            $town = $gameFactory->createTown(null, $lang, 40, $type);
+
+            if ($type !== "invalid")
+                $this->assertNotNull($town);
+            else
+                $this->assertNull($town);
 
             self::assertEquals(40, $town->getPopulation());
-            self::assertEquals("fr", $town->getLanguage());
+            self::assertEquals($lang, $town->getLanguage());
 
             foreach ($town->getZones() as $zone) {
                 if ($zone->getPrototype() === null) continue;
