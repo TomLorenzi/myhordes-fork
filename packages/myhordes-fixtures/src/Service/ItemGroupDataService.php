@@ -10,13 +10,13 @@ class ItemGroupDataService implements FixtureProcessorInterface {
     {
         $data = array_merge_recursive($data, [
             'empty_dig' => array(
-                array('item' => 'wood_bad_#00', 'count' => '41306'),
-                array('item' => 'metal_bad_#00', 'count' => '22856'),
+                array('item' => 'wood_bad_#00', 'count' => '43250'), //Pop'Hordes stats 08.07.22 ; 66,3%
+                array('item' => 'metal_bad_#00', 'count' => '22000'), //Pop'Hordes stats 08.07.22 ; 33,7%
             ),
             'base_dig' => array(
                 array('item' => 'wood2_#00', 'count' => '17300'), //Pop'Hordes stats 08.07.22 ; 15,2%
                 array('item' => 'metal_#00', 'count' => '9875'), //Pop'Hordes stats 08.07.22 ; 8,7%
-                array('item' => 'grenade_empty_#00', 'count' => '6915'),
+                array('item' => 'grenade_empty_#00', 'count' => '6915'), //Pop'Hordes stats 08.07.22 ; 6,1%
                 array('item' => 'food_bag_#00', 'count' => '4845'),
                 array('item' => 'pile_#00', 'count' => '4766'),
                 array('item' => 'pharma_#00', 'count' => '3935'),
