@@ -66,7 +66,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'chainsaw_empty_#00'         => [ 'impoundable' ],
             'chainsaw_part_#00'          => [ 'impoundable' ],
             'taser_#00'                  => [ 'impoundable', 'weapon', 'nw_armory' ],
-            'taser_empty_#00'            => [ 'impoundable' ]
+            'taser_empty_#00'            => [ 'impoundable' ],
             'lpoint4_#00'                => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
             'lpoint3_#00'                => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
             'lpoint2_#00'                => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
