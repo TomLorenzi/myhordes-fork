@@ -3,6 +3,7 @@ namespace App\Tests\Service;
 
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
+use App\Service\RandomGenerator;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Translation\Translator;
 
@@ -21,11 +22,13 @@ class GameFactoryTest extends KernelTestCase
         // (3) run some service & test the result
         /** @var GameFactory $gameFactory */
         $gameFactory = $container->get(GameFactory::class);
+        $random = $container->get(RandomGenerator::class);
+
 
         // We try to create a 100 towns
         for ($i = 0; $i < 100 ; $i++) {
             // Let's try to create a french remote town with a generated name and 40 citizens in it
-            $town = $gameFactory->createTown(null, "fr", 40, "remote");
+            $town = $gameFactory->createTown(null, $random->pick(['en', 'fr', 'de', 'es', 'multi']), 40, $random->pick(['small', 'remote', 'panda']));
 
             $this->assertNotNull($town);
 
