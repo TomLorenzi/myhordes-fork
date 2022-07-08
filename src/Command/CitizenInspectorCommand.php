@@ -22,7 +22,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
-class CitizenInspectorCommand extends Command
+class CitizenInspectorCommand extends LanguageCommand
 {
     protected static $defaultName = 'app:citizen';
 
@@ -32,7 +32,6 @@ class CitizenInspectorCommand extends Command
     private $inventoryHandler;
     private $citizenHandler;
     private $userHandler;
-    private $helper;
 
     public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch, CommandHelper $comh, UserHandler $uh)
     {
@@ -67,6 +66,7 @@ class CitizenInspectorCommand extends Command
 
             ->addOption('set-hunger', null, InputOption::VALUE_REQUIRED, 'Sets the ghoul hunger.', '')
         ;
+        parent::configure();
     }
 
     protected function info(Citizen &$citizen, OutputInterface $output): int {
@@ -208,7 +208,7 @@ class CitizenInspectorCommand extends Command
                 return 1;
             }
 
-            $output->writeln( "Removing role '<info>{$role->getName()}</info>'.\n" );
+            $output->writeln( "Removing role '<info>" .$this->translate($role->getName(), "game") . "</info>'.\n" );
             $citizen->removeRole( $role );
 
             if($role->getName() === 'shaman') {
