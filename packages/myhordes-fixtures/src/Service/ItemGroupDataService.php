@@ -10,13 +10,13 @@ class ItemGroupDataService implements FixtureProcessorInterface {
     {
         $data = array_merge_recursive($data, [
             'empty_dig' => array(
-                array('item' => 'wood_bad_#00', 'count' => '41306'),
-                array('item' => 'metal_bad_#00', 'count' => '22856'),
+                array('item' => 'wood_bad_#00', 'count' => '43250'), //Pop'Hordes stats 08.07.22 ; 66,3%
+                array('item' => 'metal_bad_#00', 'count' => '22000'), //Pop'Hordes stats 08.07.22 ; 33,7%
             ),
             'base_dig' => array(
-                array('item' => 'wood2_#00', 'count' => '16764'),
-                array('item' => 'metal_#00', 'count' => '10124'),
-                array('item' => 'grenade_empty_#00', 'count' => '6915'),
+                array('item' => 'wood2_#00', 'count' => '17300'), //Pop'Hordes stats 08.07.22 ; 15,2%
+                array('item' => 'metal_#00', 'count' => '9875'), //Pop'Hordes stats 08.07.22 ; 8,7%
+                array('item' => 'grenade_empty_#00', 'count' => '6915'), //Pop'Hordes stats 08.07.22 ; 6,1%
                 array('item' => 'food_bag_#00', 'count' => '4845'),
                 array('item' => 'pile_#00', 'count' => '4766'),
                 array('item' => 'pharma_#00', 'count' => '3935'),
@@ -152,12 +152,12 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 //array('item' => 'vodka_de_#00', 'count' => '6'),
             ),
             'christmas_dig' => [
-                array('item' => 'renne_#00', 'count' => '8'),
-                array('item' => 'sand_ball_#00', 'count' => '14'),
-                array('item' => 'christmas_suit_3_#00', 'count' => '4'),
-                array('item' => 'christmas_suit_1_#00', 'count' => '3'),
-                array('item' => 'christmas_suit_2_#00', 'count' => '1'),
-                array('item' => 'food_xmas_#00', 'count' => '2'),
+                array('item' => 'renne_#00', 'count' => '10'),
+                array('item' => 'sand_ball_#00', 'count' => '2'),
+                array('item' => 'christmas_suit_3_#00', 'count' => '8'),
+                array('item' => 'christmas_suit_1_#00', 'count' => '8'),
+                array('item' => 'christmas_suit_2_#00', 'count' => '8'),
+                array('item' => 'food_xmas_#00', 'count' => '6'),
             ],
             'christmas_dig_post' => [
                 array('item' => 'postal_box_#01', 'count' => '3'),
@@ -167,8 +167,8 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 array('item' => 'paques_#00', 'count' => '207'),
             ],
             'stpatrick_dig' => [
-                array('item' => 'leprechaun_suit_#00', 'count' => '4'),
-                array('item' => 'guiness_#00', 'count' => '25'),
+                array('item' => 'leprechaun_suit_#00', 'count' => '7'),
+                array('item' => 'guiness_#00', 'count' => '20'),
                 array('item' => 'hurling_stick_#00', 'count' => '25'),
             ],
             'stpatrick_dig_fair' => [
