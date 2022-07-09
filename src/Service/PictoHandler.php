@@ -94,7 +94,9 @@ class PictoHandler
         // In small town, we add the Guide and Nightwatch pictos
         $pictoAlwaysPersisted = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_INSTANT_PICTOS, []);
 
-        foreach ($citizen->getUser()->getPictos() as $picto) {
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findBy(['user' => $citizen->getUser(), 'town' => $citizen->getTown(), "persisted" => 0]);
+
+        foreach ($pictos as $picto) {
             /** @var Picto $picto */
 
             if ($picto->getPersisted() !== 0 || $picto->getTown() !== $citizen->getTown())
@@ -105,12 +107,13 @@ class PictoHandler
             // To show "You could have earn those if you survived X more days"
             // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
             // to validate the picto (set them as persisted)
+
             if(in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted)){
                 $persistPicto = true;
             } else if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) {
-                if ($citizen->getSurvivedDays() < 7 && $citizen->getAlive())
+                /*if ($citizen->getSurvivedDays() < 7 && $citizen->getAlive())
                     $persistPicto = true;
-                else if($citizen->getSurvivedDays() === 7 && $citizen->getCauseOfDeath()?->getRef() === CauseOfDeath::NightlyAttack)
+                else */if($citizen->getSurvivedDays() === 7 && $citizen->getCauseOfDeath()?->getRef() === CauseOfDeath::NightlyAttack)
                     $persistPicto = true;
                 else if ($citizen->getSurvivedDays() > 7)
                     $persistPicto = true;
