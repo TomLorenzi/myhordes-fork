@@ -107,6 +107,7 @@ class MigrateCommand extends Command
         'd6819ff2d1671db91d2089234309e7c9cc439d0e' => [ ['app:migrate', ['--set-town-base-def' => true] ] ],
         'bb5d05f81955f14432569cec8cb893febbbbd5b7' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
         'b8d85ce69e76afe3b7cf2343ad45caca2646593d' => [ ['app:migrate', ['--update-user-settings' => true] ] ],
+        '16cc0d24c7c9c3e92666695c8734338b7e840151' => [ ['app:migrate', ['--adjust-sandball-pictos2' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -198,6 +199,7 @@ class MigrateCommand extends Command
             ->addOption('set-old-flag', null, InputOption::VALUE_NONE, 'Sets the MH-OLD flag on Pictos')
             ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
             ->addOption('adjust-sandball-pictos', null, InputOption::VALUE_NONE, '')
+            ->addOption('adjust-sandball-pictos2', null, InputOption::VALUE_NONE, '')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
@@ -981,6 +983,19 @@ class MigrateCommand extends Command
                 $this->helper->leChunk($output, Picto::class, 250, ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto ], true, false, function(Picto $picto) {
                     if ($picto->getCount() > 6) {
                         $picto->setCount( 5 + ceil(( $picto->getCount() - 5 ) / 10) );
+                        return true;
+                    } else return false;
+                }, false );
+
+            return 0;
+        }
+
+        if ($input->getOption('adjust-sandball-pictos2')) {
+            $sandball_picto_proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_sandb_#00');
+            if ($sandball_picto_proto)
+                $this->helper->leChunk($output, Picto::class, 250, ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto ], true, false, function(Picto $picto) {
+                    if ($picto->getCount() > 1) {
+                        $picto->setCount( max(1, $picto->getCount() - 4 ) );
                         return true;
                     } else return false;
                 }, false );
