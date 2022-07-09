@@ -660,7 +660,7 @@ class ExternalXML2Controller extends ExternalController {
                             'name' => $citizen->getUser()->getName(),
                             'dtype' => $citizen->getCauseOfDeath()->getRef(),
                             'id' => $citizen->getUser()->getId(),
-                            'day' => $citizen->getDayOfDeath() <= 0 ? '1' : $citizen->getDayOfDeath(),
+                            'day' => $citizen->getDayOfDeath() <= 0 ? '1' : $citizen->getSurvivedDays(),
                         ]
 
                     ];
