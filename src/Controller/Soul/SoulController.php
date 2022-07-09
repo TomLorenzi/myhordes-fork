@@ -38,6 +38,7 @@ use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Enum\AdminReportSpecification;
+use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
@@ -1111,6 +1112,7 @@ class SoulController extends CustomAbstractController
         $user->setUseICU( (bool)$parser->get('useicu', false) );
         $user->setNoAutoFollowThreads( !$parser->get('autofollow', true) );
         $user->setClassicBankSort( (bool)$parser->get('clasort', false) );
+        $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
@@ -1643,7 +1645,7 @@ class SoulController extends CustomAbstractController
 
         $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['id' => $season_id]);
 
-        $limit = (bool)$parser->get('limit10', true);
+        $limit = (bool)$parser->get('limit10', $user->getSetting( UserSetting::LimitTownListSize ));
 
         $commonTowns = [];
         $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true);

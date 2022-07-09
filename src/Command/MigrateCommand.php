@@ -27,6 +27,7 @@ use App\Entity\UserGroup;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Enum\UserSetting;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
@@ -104,6 +105,7 @@ class MigrateCommand extends Command
         '22b1072473d9ec5881f70702b85674ca4b39af9d' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
         '16cc0d24c7c9c3e92666695c8734338b7e840151' => [ ['app:migrate', ['--adjust-sandball-pictos' => true] ] ],
         'd6819ff2d1671db91d2089234309e7c9cc439d0e' => [ ['app:migrate', ['--set-town-base-def' => true] ] ],
+        'bb5d05f81955f14432569cec8cb893febbbbd5b7' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -198,6 +200,7 @@ class MigrateCommand extends Command
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
+            ->addOption('update-user-settings', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -1069,6 +1072,15 @@ class MigrateCommand extends Command
 
             $this->entity_manager->flush();
 
+        }
+
+        if ($input->getOption('update-user-settings')) {
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $user) {
+
+                foreach (UserSetting::migrateCases() as $setting)
+                    $user->setSetting( $setting, $user->getSetting( $setting ) );
+
+            }, true);
         }
 
         if ($input->getOption('prune-rp-texts')) {
