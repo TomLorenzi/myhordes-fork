@@ -284,6 +284,7 @@ class ZoneHandler
                 if(!$executable_timer->getCitizen()->getBanished() && $this->hasHiddenItem($executable_timer->getZone()) && $this->random_generator->chance(0.05)){
                     $items = $executable_timer->getZone()->getFloor()->getItems();
                     $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
+                    $executable_timer->getZone()->setItemsHiddenAt(null);
                     if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
                         $ret_str[] = $this->trans->trans('Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto), '{citizen}' => $current_citizen ], 'game');
                     elseif ($active && $current_citizen === $active)
@@ -613,7 +614,11 @@ class ZoneHandler
         return $query->getSingleScalarResult() > 0;
     }
 
-    public function getZoneWithHiddenItems( Town $town ) {
+    /**
+     * @param Town $town
+     * @return Zone[]
+     */
+    public function getZoneWithHiddenItems( Town $town ): array {
         // Get all zone inventory IDs
         // We're just getting IDs, because we don't want to actually hydrate the inventory instances
         $zone_invs = array_column($this->entity_manager->createQueryBuilder()

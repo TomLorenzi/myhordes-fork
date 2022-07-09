@@ -640,6 +640,7 @@ class InventoryAwareController extends CustomAbstractController
             $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
 
             $has_hidden = false;
+            /** @var Item $current_item */
             foreach ($items as $current_item){
                 if($floor_up && ($this->citizen_handler->hasStatusEffect($target_citizen, 'tg_tomb') || $this->citizen_handler->hasStatusEffect($target_citizen, 'tg_hide'))) {
                     $errors[] = InventoryHandler::ErrorTransferBlocked;
@@ -815,6 +816,7 @@ class InventoryAwareController extends CustomAbstractController
 
             if ($has_hidden) {
                 $this->citizen_handler->setAP($citizen, true, -2);
+                $citizen->getZone()?->setItemsHiddenAt( new \DateTimeImmutable() );
                 $this->entity_manager->persist($citizen);
             }
 

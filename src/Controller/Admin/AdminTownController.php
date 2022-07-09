@@ -1164,11 +1164,13 @@ class AdminTownController extends AdminActionController
 
         foreach ($inventories as $inventory) {
             for ($i = 0; $i < $number; $i++) {
+                if ($hidden && $inventory->getZone()) $inventory->getZone()->setItemsHiddenAt( new \DateTimeImmutable() );
                 foreach ($itemPrototype as $proto) {
                     $handler->forceMoveItem($inventory, $itemFactory->createItem($proto->getName(), $broken, $poison)->setEssential($essential)->setHidden($hidden && $inventory->getZone()));
                 }
 
             }
+            if ($hidden && $inventory->getZone()) $this->entity_manager->persist($inventory->getZone());
             $this->entity_manager->persist($inventory);
         }
 

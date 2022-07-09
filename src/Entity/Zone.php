@@ -175,6 +175,11 @@ class Zone
      */
     private $startZombies = 0;
 
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $itemsHiddenAt;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -706,6 +711,18 @@ class Zone
     public function setStartZombies(int $startZombies): self
     {
         $this->startZombies = $startZombies;
+
+        return $this;
+    }
+
+    public function getItemsHiddenAt(): ?\DateTimeImmutable
+    {
+        return $this->itemsHiddenAt;
+    }
+
+    public function setItemsHiddenAt(?\DateTimeImmutable $itemsHiddenAt): self
+    {
+        $this->itemsHiddenAt = $itemsHiddenAt;
 
         return $this;
     }
