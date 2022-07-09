@@ -318,10 +318,11 @@ class GameController extends CustomAbstractController
         }
 
         $this->citizen_handler->applyProfession( $citizen, $new_profession );
+        $inventory = $citizen->getInventory();
 
         if($new_profession->getHeroic()) {
             $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent());
-            $inventory = $citizen->getInventory();
+
             $null = null;
 
             if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {
