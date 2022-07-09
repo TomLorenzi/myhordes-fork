@@ -107,7 +107,7 @@ class MigrateCommand extends Command
         'd6819ff2d1671db91d2089234309e7c9cc439d0e' => [ ['app:migrate', ['--set-town-base-def' => true] ] ],
         'bb5d05f81955f14432569cec8cb893febbbbd5b7' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
         'b8d85ce69e76afe3b7cf2343ad45caca2646593d' => [ ['app:migrate', ['--update-user-settings' => true] ] ],
-        '16cc0d24c7c9c3e92666695c8734338b7e840151' => [ ['app:migrate', ['--adjust-sandball-pictos2' => true] ] ],
+        'd3b4c979af675d4c861a5525c61d46bf72df3503' => [ ['app:migrate', ['--adjust-sandball-pictos2' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
