@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Votre expédition a été sauvegardée.'
 'Du hast deine Beschreibung geändert.': 'Vous avez modifié votre annonce personnelle. Elle est visible dans l''annuaire des Citoyens.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} a versé {item} dans le puits et a ajouté {num} ration(s) d''eau.'
@@ -54,13 +53,13 @@ verlassen: 'a quitté la ville'
 Zone: Zone
 Entfernung: Distance
 Routen: Expéditions
-Stadttor: Grande Porte
+Stadttor: 'Grande Porte'
 Karte: Carte
 'Bitte wähle einen Gegenstand:': 'Choisissez un objet :'
 'Du verfügst über keine geeigneten Gegenstände': 'Vous n''avez pas d''objet pour cette action'
 Herstellen: Assembler
 aus: Nécessite
-Kombinieren: Combiner 
+Kombinieren: Combiner
 'Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!': 'Vous pouvez sortir de la ville et explorer l''Outre-Monde depuis ici. N''oubliez pas de garder la <strong>Grande Porte</strong> fermée lors de l''attaque à minuit !'
 'Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.': 'Vous avez été banni et ne pouvez donc ni ouvrir ni fermer la porte de la ville.'
 'Meine Aktionen': 'Mes Actions'
@@ -68,7 +67,7 @@ Kombinieren: Combiner
 'Tor öffnen': 'Ouvrir les portes'
 'Route planen...': 'Préparer une expédition'
 'Stadt verlassen': 'Sortir dans l''Outre-Monde...'
-Stadttor-Register: Porte de la ville
+Stadttor-Register: 'Porte de la ville'
 'Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.': 'La tour de guet construite en ville permet d''obtenir une estimation de l''attaque de ce soir. <strong>La qualité de l''estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici</strong>.'
 'Heutige Abschätzung': 'Si nos estimations tombent juste, nous devrions être attaqués par environ :'
 Zombies: Zombies
@@ -77,12 +76,12 @@ Zombies: Zombies
 'Morgige Abschätzung': 'Attaque du lendemain'
 'Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses ''alles'' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.': 'Woaw ! Vous pouvez voir pratiquement tout d''ici ! C''est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville.'
 'Tag {day}': 'Jour {day}'
-Rucksack: Sac à dos
+Rucksack: 'Sac à dos'
 Truhe: Coffre
 'Truhe und Aktionen': 'Coffre et Actions'
 Bauarbeiten: Travaux
 'Dein Beschreibungstext': 'Votre message personnel'
-Speichern: Inscrire mon annonce
+Speichern: 'Inscrire mon annonce'
 'Du hast {num} anonyme Anzeige(n).': 'Vous avez reçu {num} plainte(s) anonyme(s).'
 'Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...': 'Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville...'
 'Meine Spezialaktionen': 'Mes actions spéciales'
@@ -105,7 +104,7 @@ Einbauen: Installer
 'Upgrade auf St. {level}': 'Améliorer au niv. {level}'
 'Kein weiterer Ausbau möglich': 'Aucune amélioration possible'
 'Leiche nicht beseitigt!': 'Corps non retiré !'
-Tot!: Mort !
+Tot!: 'Mort !'
 'In der Stadt': '--'
 'Am Stadttor': '[0,0]'
 'Neue einfache Route': 'Nouvelle expédition simple'
@@ -117,11 +116,11 @@ Tot!: Mort !
 '{citizen}s Truhe': 'Coffre de {citizen}'
 Tot: Mort
 Haus: Habitation
-Todesursache: Cause du décès
-Gemeinschaft: Espionnage et ragots de voisinage
+Todesursache: 'Cause du décès'
+Gemeinschaft: 'Espionnage et ragots de voisinage'
 '{citizen} hat bereits {num} Anzeige(n).': '{citizen} a reçu {num} plainte(s).'
-Verbannung: un bannissement
-Todesstrafe: la peine de mort
+Verbannung: 'un bannissement'
+Todesstrafe: 'la peine de mort'
 'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L''une d''entre elle est la vôtre. Vous avez demandé {punishment}.'
 'Anzeige erstatten': 'Envoyer une dénonciation'
 'Anzeige zurückziehen': 'Retirer ma plainte'
@@ -144,7 +143,7 @@ Abstimmen: Voter
 'Du trägst eine Säge bei dir.': 'Vous avez une scie.'
 'Die Stadt verfügt über eine Manufaktur.': 'La ville possède une manufacture.'
 Vorrat: Stock
-Umwandlung: Objet obtenu
+Umwandlung: 'Objet obtenu'
 Anzahl: Stock
 'Zufälliger Gegenstand': 'Objet aléatoire'
 Werkstatt-Register: Atelier
@@ -201,8 +200,8 @@ Zonenregister: Discussions
 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!': 'Vous pouvez vous incarner dans une nouvelle ville aussi souvent que vous le désirez. Jouez selon votre style, expérimentez, soyez imaginatif !'
 'Wiedergeboren werden': 'Valider pour vous réincarner immédiatement...'
 Zeitung: Gazette
-Aktionspunkte: Points d'action
-Baupunkte: Points de Chantiers
+Aktionspunkte: 'Points d''action'
+Baupunkte: 'Points de Chantiers'
 Verbannt: Banni
 'Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur Verfügung.': 'Votre ville a décidé de vous bannir. Certaines actions ne sont plus disponibles pour vous.'
 'Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in dieser Stadt zur Verfügung.': 'Selon la profession que vous choisissez, différentes actions et styles de jeu sont disponibles dans cette ville.'
@@ -225,7 +224,7 @@ Rauschzustand: Drogué(e)
 Drogenabhängig: Dépendant(e)
 Infektion: Infecté(e)
 Trunkenheit: Ivre
-Kater: Gueule de bois
+Kater: 'Gueule de bois'
 'Verwundung - Kopf': 'Blessure - Tête'
 'Verwundung - Hände': 'Blessure - Main'
 'Verwundung - Arme': 'Blessure - Bras'
@@ -243,42 +242,42 @@ Bandagiert: Convalescent(e)
 'Altes Feldkrankenhaus': 'Vieil hôpital de campagne'
 'Altes Flugfeld': 'Ancien aérodrome'
 'Altes Polizeipräsidium': 'Ancien commissariat'
-Atombunker: Abri anti-atomique
+Atombunker: 'Abri anti-atomique'
 'Atomic Cafe': 'Atomic'' Café'
-Autobahnraststätte: Relais autoroutier
-Autowracks: Carcasses de voitures
+Autobahnraststätte: 'Relais autoroutier'
+Autowracks: 'Carcasses de voitures'
 'Bar der verlorenen Hoffnungen': 'Le bar des illusions perdues'
 Baumarkt: Bricotout
-Baustellencontainer: Abri de chantier
+Baustellencontainer: 'Abri de chantier'
 'Dönerbude Utsel-Brutzel': 'Kebab « Chez Coluche »'
 'Dukes Villa': 'Villa de Duke'
 'Dunkler Hain': 'Petit bois obscur'
 'Eingestürzte Mine': 'Mine effondrée'
 'Eingestürzter Steinbruch': 'Carrière effondrée'
 'Ein seltsames kreisförmiges Gerät': 'Un étrange appareil circulaire'
-E-KEA: Meubles Kiela
-Familiengrab: Caveau familial
-'Fast Food Restaurant': 'Fast-Food'
-Flugzeugwrack: Carlingue d'avion
-Gartenhaus: Cabane de jardin
+E-KEA: 'Meubles Kiela'
+Familiengrab: 'Caveau familial'
+'Fast Food Restaurant': Fast-Food
+Flugzeugwrack: 'Carlingue d''avion'
+Gartenhaus: 'Cabane de jardin'
 'Geplünderte Mall': 'Supermarché pillé'
 Höhle: Caverne
-Indianerfriedhof: Cimetière indien
-Jahrmarktstand: Stand de fête foraine
+Indianerfriedhof: 'Cimetière indien'
+Jahrmarktstand: 'Stand de fête foraine'
 'Kleines Haus': 'Petite maison'
-Kleinwasserkraftwerk: Centrale hydraulique
-Kosmetiklabor: Laboratoire cosmétique
+Kleinwasserkraftwerk: 'Centrale hydraulique'
+Kosmetiklabor: 'Laboratoire cosmétique'
 Krankenwagen: Ambulance
-Lagerhalle: Hangars de stockage
+Lagerhalle: 'Hangars de stockage'
 'Leeres Parkhaus': 'Parking désaffecté'
 'Liegengebliebener Kampfpanzer': 'Char d''assaut en panne'
 'Motel ''Dusk''': 'Motel « Dusk »'
 'Militärischer Wachposten': 'Avant-poste militaire'
-Postfiliale: Bureau de poste
-Räuberhöhle: Cache de contrebandiers
-Schützengraben: Tranchée aménagée
-Stadtbücherei: Bibliothèque de quartier
-'Tante Emma Laden': 'Mini-market'
+Postfiliale: 'Bureau de poste'
+Räuberhöhle: 'Cache de contrebandiers'
+Schützengraben: 'Tranchée aménagée'
+Stadtbücherei: 'Bibliothèque de quartier'
+'Tante Emma Laden': Mini-market
 'Truck ''Rathaus auf Rädern''': 'Camion « Mairie-mobile »'
 'Umgekippter Laster': 'Camion en panne'
 'Verbrannte Grundschule': 'Ecole maternelle brûlée'
@@ -290,7 +289,7 @@ Stadtbücherei: Bibliothèque de quartier
 'Versperrte Straße': 'Route barrée'
 'Verwilderter Park': 'Parc à l''abandon'
 'Waffengeschäft Guns''n''Zombies': 'Armurerie Guns''n''Zombies'
-Warenlager: Entrepôt désaffecté
+Warenlager: 'Entrepôt désaffecté'
 'Zelt eines Bürgers': 'Tente d''un citoyen'
 'Zerstörte Apotheke': 'Pharmacie détruite'
 'ZomBIER Bar': 'Bar miteux'
@@ -305,7 +304,7 @@ Warenlager: Entrepôt désaffecté
 '{citizen} hat eine Ration Wasser genommen.': '{citizen} a pris une ration d''eau.'
 'Es wurde ein neues Gebäude gebaut: {plan}. Der Bau hat folgende Ressourcen verbraucht: {list}': 'La construction de {plan} a utilisé : {list}'
 'Es wurde ein neues Gebäude gebaut: {plan}.': 'Un nouveau bâtiment a été construit : {plan}.'
-'Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...': "Quelqu'un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu..."
+'Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...': 'Quelqu''un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu...'
 '{citizen} hat dem Druck nicht länger standgehalten und sein Leben beendet: {cod}.': '{citizen} n''a plus résisté à la pression et a mis fin à ses jours : {cod}.'
 'Verrat! {citizen} ist gestorben: {cod}.': '{citizen} nous a quittés : {cod}.'
 '{citizen} hat das Fass zum Überlaufen gebracht. Die Stadt hat seinen Tod entschieden: {cod}.': '{citizen} a fait déborder le vase. La ville a décidé de sa mort : {cod}.'
@@ -336,29 +335,29 @@ Warenlager: Entrepôt désaffecté
 Pandämonium: Pandémonium
 'Private Stadt': 'Ville privée'
 '{citizen} hat dem Brunnen {num} Rationen Wasser hinzugefügt.': '{citizen} a ajouté {num} rations d''eau au puits.'
-Nordosten: le nord-est
-Nordwesten: le nord-ouest
-Norden: le nord
-Südosten: le sud-est
-Südwesten: le sud-ouest
-Süden: le sud
-Osten: l'est
-Westen: l'ouest
+Nordosten: 'le nord-est'
+Nordwesten: 'le nord-ouest'
+Norden: 'le nord'
+Südosten: 'le sud-est'
+Südwesten: 'le sud-ouest'
+Süden: 'le sud'
+Osten: 'l''est'
+Westen: 'l''ouest'
 'Bitte wähle einen Bürger:': 'Veuillez choisir un citoyen :'
 'Es ist kein Bürger in der Nähe...': 'Il n''y a pas de citoyen à proximité...'
 'Rucksack in der Bank ausleeren': 'Vider son sac dans la banque'
-'Meine objekte': 'Objets'
-Gammler: "Indécis"
-Buddler: "Fouineur"
-Wächter: "Gardien"
-Aufklärer: "Éclaireur"
-Dompteur: "Apprivoiseur"
-Techniker: "Technicien"
-Schamane: "Chaman"
-Einsiedler: "Ermite"
+'Meine objekte': Objets
+Gammler: Indécis
+Buddler: Fouineur
+Wächter: Gardien
+Aufklärer: Éclaireur
+Dompteur: Apprivoiseur
+Techniker: Technicien
+Schamane: Chaman
+Einsiedler: Ermite
 'Verbesserung des Tages': 'Les évolutions du jour'
 Wachturm: Tour
-Werkstatt: L'atelier
+Werkstatt: 'L''atelier'
 'Jemand hat eine anonyme Anzeige gegen {citizen} vorgebracht!': 'Une plainte anonyme a été envoyée contre {citizen} !'
 'Jemand hat seine anonyme Anzeige gegen {citizen} zurückgezogen.': 'Quelqu''un a retiré sa plainte contre {citizen}.'
 'Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.': 'Nous ne disposons pas de la technologie suffisante pour évaluer l''attaque du lendemain.'
@@ -366,7 +365,7 @@ Werkstatt: L'atelier
 'Leere Truhe': 'Coffre vide...'
 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:': 'En jetant un oeil par la fenêtre, vous pouvez apercevoir les choses suivantes dans la maison :'
 'Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.': 'Le Puits est l''endroit où chaque jour les citoyens viennent récupérer leur ration d''eau.'
-Übersicht: Vue d'ensemble de la ville
+Übersicht: 'Vue d''ensemble de la ville'
 'Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.': 'Devant vous s''offre à perte de vue le paysage désolé de l''Outre-Monde. Vous imaginez les autres colons qui l''explorent à ce moment précis, qui fouillent les ruines. Vous imaginez les souffrances de ceux qui ne reviendront pas.'
 'Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...': 'Déciderez-vous de vous avancer ou de rester derrière les enceintes fortifiées ? Certains pensent qu''il faut être fou, d''autres qu''il faut être malin. Peut-être faut-il être un peu des deux...'
 'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'Les nuits sont glaciales dans le désert... Une brume de poussière épaisse enveloppe tout et vous entendez des grincements lugubres tout autour de vous. Parfois, vous apercevez une forme indistincte qui se déplace dans les ombres. Pourvu que ce soit votre imagination...'
@@ -378,31 +377,31 @@ Werkstatt: L'atelier
 'Heute ist nichts Erwähnenswertes passiert...': 'Rien de notable pour cette journée...'
 'Unbekannte Todesursache': 'Raison inconnue'
 'Du weist nicht, was gerade geschehen ist... plötzlich warst du einfach nicht mehr am leben.': 'Vous n''avez aucune idée de ce qui vient de se passer... soudain, vous n''étiez plus en vie.'
-Zombieangriff: Lacéré(e)… Dévoré(e)… pendant l'attaque de la nuit
+Zombieangriff: 'Lacéré(e)… Dévoré(e)… pendant l''attaque de la nuit'
 'Du hattest dich daheim eingebunkert und dachtest so überleben zu können... Als sie vor deiner Türe grunzten und schnüffelten, warst du dann mucksmäuschenstill. Leider hattest du ein Fenster nicht ausreichend vernagelt, sodass sie schließlich in dein Wohnzimmer stolperten. Vor Angst erstarrt hast du dann keinen Ton mehr rausgebracht und musstest ansehen, wie sie dich ins Schlafzimmer zerrten, um sich an deinen inneren Organen zu laben und dich langsam zu verspeisen.': 'Cloîtré dans votre maison, vous espériez qu''ils ne passeraient pas… Vous les avez entendus grogner, renifler à votre porte… puis plus rien. Une fenêtre proche a alors brusquement volé en éclats. Mal barricadée sûrement… Vous avez hurlé, ils vous ont laissé vous débattre puis vous ont plaqué contre votre lit. Lentement, ils vous ont dévoré. Aucun citoyen n''est venu à votre aide. Personne.'
 'Außerhalb der Stadt verschwunden': 'Disparu(e) dans l''Outre-Monde pendant la nuit'
 'Kurz nach Mitternacht wurde es unheimlich still... so, als ob jegliches Leben mit einem Schlag ausgelöscht worden wäre. Die Nacht kam dir noch eisiger als sonst vor... und plötzlich sahst du sie: Dutzende, hunderte, und alle schwankten auf dich zu! Ihre Hände reckten sich nach dir. Sie ergriffen, zogen und rissen dich auseinander... Dann haben sie dich mitgenommmen und sich an dir bis zum frühen Morgen gütlich getan.': 'Peu après minuit, un silence pesant s''est abattu tout autour de vous, comme si toute vie venait de s''éteindre brusquement. La nuit s''est faite glaciale… Puis vous les avez vus, des dizaines… des centaines titubant vers vous.. Leurs mains vous saisissant, agrippant, tirant, arrachant… Puis ils vous ont traîné avec eux toute la nuit, pour vous dévorer encore vivant au petit matin.'
 Dehydration: Déshydratation
 'Dehydratation ist wirklich was Übles. Muskelspasmen, Atemprobleme und unaushaltbare Gliederschmerzen treten in der finalen Phase auf. Du hast nach etwas Trinkbarem gesucht - überall.... Vergeblich. Deine Mitbürger behaupten sogar, dich dabei gesehen zu haben, wie du in den letzten Minuten schaufelweise Sand in dich geschüttet hättest... Herrje...': 'Le manque d''eau est réellement quelque chose de sale. Durant vos dernières heures, votre peau a commencé à se dessécher et à se craqueler, puis votre langue a gonflé. vous avez bien essayé de trouver n''importe quoi à boire. Sans succès. Certains disent même vous avoir vu en train d''avaler du sable à pleines poignées avant de vous effondrer, raide mort(e).'
-Verhungert: Goule affamée
+Verhungert: 'Goule affamée'
 'Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.': 'Vous avez agonisé toute la journée, errant, cherchant une victime à vous mettre sous la dent… Mais les heures ont passé et aucune opportunité ne s''est présentée. Finalement, vous avez perdu vos forces lentement. Très lentement. Jusqu''à ce que même respirer devienne une souffrance… Puis dans un ultime sursaut, vous avez poussé un hurlement effroyable, inhumain, désespéré.'
-Drogenabhängigkeit: Pénurie de drogue
+Drogenabhängigkeit: 'Pénurie de drogue'
 'Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht''s schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.': 'Les drogues c''est agréable quand on en a. Dès qu''on a épuisé ses réserves, c''est une autre histoire… D''abord on tremble, puis on commence à se vider de son contenu toutes les dix minutes. Quand la situation de manque empire, on finit par perdre totalement la raison. C''est comme ça qu''on se retrouve à avaler des cailloux en pensant avoir trouvé des stéroïdes.'
 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.': 'Petit à petit, l''horrible maladie vous a rongé de l''intérieur… Rapidement, des signes de l''infection sont apparus sur votre corps : plaies, hématomes, chairs qui se décomposent… Jusqu''à l''agonie finale qui aura duré plusieurs heures cette nuit. La mort en est presque un soulagement.'
-Zyanid: Suicide par ingestion de Cyanure
+Zyanid: 'Suicide par ingestion de Cyanure'
 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll''s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...': 'Plutôt que continuer à vivre avec cette bande de losers, vous avez fait le choix de vous simplifier la vie… En l''écourtant un peu. Bof, après tout, une journée de plus ou de moins...'
 'Ermordung durch Gift': 'Meurtre par empoisonnement'
 'Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!': 'Vous avez avalé ce produit sans même vous poser de question… Il n''a pas fallu quelques secondes avant que le poison qu''il contenait ne passe dans votre sang, provoquant quasi immédiatement une dilatation de vos vaisseaux sanguins. Vous avez d''abord perdu connaissance, tandis que votre corps s''agitait de spasmes nerveux. Puis votre cœur a lâché. Vous avez été assassiné(e) !'
 'Argh!! Es scheint, als ob sich ein Ghul unter die Einwohner gemischt hätte! Völlig ahnungs- und wehrlos wurdest du von etwas oder jemandem angefallen und übel vermöbelt. Als er dann seine fauligen Zähne in deinen Hals schlug warst du noch bei Bewusstsein... Doch du hattest nur noch einen Gedanken: Wer war das?': 'Argh ! On dirait bien qu''une goule s''était glissée parmi les citoyens ! Sans avoir eu le temps de réagir, quelqu''un, ou quelque chose s''est jeté sur vous, vous a roué de coups avant de vous dévorer alors que vous étiez encore conscient(e). Avant de sombrer dans la mort, une question vous a assailli : quel goût pouvez-vous bien avoir ?'
-Aggression: Goule abattue au cours d'une agression
+Aggression: 'Goule abattue au cours d''une agression'
 'Du wurdest übel zusammengeschlagen und bist an deinen inneren Verletzungen gestorben... Dir gings eh nicht mehr so gut, dein Immunsystem war bereits geschwächt, da steckt man Schläge nicht mehr so einfach weg. So ein Mist aber auch, mit deiner besonderen Fähigkeit hättest du in deiner Stadt noch ein Weilchen Furcht und Schrecken verbreiten können...': 'Vous avez subi une blessure qui vous a été fatale… Votre constitution n''était plus ce qu''elle était et votre état de goule vous laissait dans un état de grande vulnérabilité. Dommage, vous auriez pû atteindre des sommets avec ce pouvoir (ou malédiction) qui était le votre.'
-Erhängt: Justice populaire (mort par Pendaison)
+Erhängt: 'Justice populaire (mort par Pendaison)'
 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zu einer Baustelle geschleppt und dir einen Strick um den Hals gelegt. Das ganze ging ruck zuck. Innerhalb weniger Sekunden bist du einen Meter über den Boden geschwebt. Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.': 'Certains ne vous aimaient pas en ville… Plusieurs citoyens, vos voisins, parfois même certains de vos amis vous ont trainé dans un chantier, puis vous ont passé une corde au cou. Deux d''entre eux ont tiré violemment dessus, vous hissant à un mètre du sol, Vous vous êtes débattu(e), ils ont applaudi, puis chacun est reparti vaquer à ses occupations, sans vous regarder mourir.'
 'Im Fleischkäfig geendet': 'Cage à viande'
 'Ein paar Leute in der Stadt mochten dich ganz offensichtlich nicht, darunter befanden sich mehrere Mitbürger, deine Nachbarn - ja sogar ein paar von deinen Freunden! Aus diesem Grund haben sie dich zur Stadtmauer geschleppt, dich in einen Käfig gesteckt und diesen über den Rand gestoßen. Das ganze ging ruck zuck. Jetzt bist du wohl Zombiefutter... Nach einem kurzen Applaus löste sich die Gruppe auf und jeder kehrte zu seiner Arbeit zurück.': 'Certains ne vous aimaient pas en ville… Plusieurs citoyens, vos voisins, parfois même certains de vos amis vous ont traîné aux portes de la ville… Vers la “cage à viande”. Sans ménagement, il vous y ont enfermé, puis quelqu''un a proposé de vous jeter des pierres, pour le spectacle. Une aubaine pour vous ! Vous n''étiez presque pas conscient(e) lorsque les zombies vous ont trouvé le soir venu.'
 Strangulation: Strangulation
 'Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.': 'Salutations de Brainbox, Shaïtan, Kitsune et Dylan du passé qui sont devant leur PC en Février 2020 et Mai 2020 et qui ont écrit ce texte.'
-Kopfschuss: Balle dans la tête
+Kopfschuss: 'Balle dans la tête'
 'Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.': 'Ici vivait un Citoyen qui avait décidé de s''installer hors de la ville, pensant survivre plus longtemps, loin des querelles et des trahisons. <strong>La moitié de son corps est toujours dans le salon</strong>.'
 'Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!': 'Une enseigne de la chaîne de magasins Brian Fargo. On y trouve généralement tout ce qu''il faut pour nettoyer et entretenir sa maison. Les plus démunis y trouveront de quoi manger...'
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'Il y a des réflexes qui ne pardonnent pas. Prenez par exemple le coup de la caverne : vous êtes poursuivi(e) et vous vous engouffrez bêtement dans une caverne pour vous mettre à l''abri. Le problème qui se pose alors : maintenant que vous êtes dans une impasse, combien de temps allez-vous pouvoir hurler en attendant que vos poursuivants vous rattrapent ? Le type au fond, à qui il manque la moitié du visage, n''a pas dû crier bien longtemps.'
@@ -501,18 +500,18 @@ Unbekannt: Inconnue
 'An der Angriffsabschätzung teilnehmen': 'Participer à l''estimation de l''attaque'
 'Für ein Tagesprojekt abstimmen.': 'Voter pour un projet du jour'
 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).': 'Travailler au chantier, à l''atelier ou sortir (au choix)'
-Heldentafel: Le mot des héros
+Heldentafel: 'Le mot des héros'
 'Unsere Situation': 'Notre situation'
 'Stadttyp:': 'Type de ville :'
 'Stadttor:': 'Portes :'
-Offen!: Ouvertes !
+Offen!: 'Ouvertes !'
 Geschlossen: Fermées
 'Wasservorräte:': 'Réserves d''eau :'
 'Einwohner am Leben:': 'Habitants en vie :'
 'Lesen Sie das Mitteilungsblatt': 'Lire la gazette'
 'Unsere Verteidigungen': 'Nos défenses en détail'
-Grundbefestigungsmauer: Muraille de base
-Verteidigungsgegenstände: Objets de défense
+Grundbefestigungsmauer: 'Muraille de base'
+Verteidigungsgegenstände: 'Objets de défense'
 Nachtwächter: Veilleur
 'Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.': 'Note : les objets de défense (plaques de bois, etc.) sont à poser dans la Banque.'
 'Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.': 'Dans la Décharge, vous pouvez y jeter les objets de la banque pour améliorer temporairement les défenses de la ville.'
@@ -530,11 +529,11 @@ Installieren: Jeter
 Gefahr: Danger
 'Tod durch Radioaktivität': 'Mort par l''atome'
 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.': 'Nombre d''existences vaporisées par la toute puissance de l''atome.'
-Heldentaten: Actions héroïques
+Heldentaten: 'Actions héroïques'
 'Anzahl deiner wirklich außergewöhnlichen Heldentaten.': 'Nombre de choses vraiment hors du commun que vous avez faites.'
 Alkohol: Alcools
 'Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.': 'Litres de substances alcoolisées artisanales que vous avez avalés.'
-Hausverbesserung: Améliorations de maison
+Hausverbesserung: 'Améliorations de maison'
 'Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.': 'Nombre d''améliorations générales apportées à votre maison.'
 Handwerk: Artisanat
 'Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.': 'Nombre de petits objets bricolés ou démolis à l''atelier.'
@@ -544,9 +543,9 @@ Leichenwäscher: Arroseur
 'Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.': 'Nombre d''objets de fortune confectionnés à partir de débris trouvés dans les poubelles de la ville. Il faut être banni(e) pour recevoir cette distinction.'
 Verbannungen: Bannissements
 'Anzahl der Stadtverbannungen.': 'Nombre d''exclusions définitives de la communauté.'
-'Schwere Verletzungen': 'Blessures'
+'Schwere Verletzungen': Blessures
 'Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.': 'Nombre de mutilations ou démembrements qui ne vous ont pas coûté la vie.'
-Hausmannskost: Bons p'tits plats
+Hausmannskost: 'Bons p''tits plats'
 'Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.': 'Délicieux mets que vous avez concoctés avec des ingrédients douteux.'
 Metzger: Boucherie
 'Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).': 'Nombre d''animaux que vous avez exterminés (à la main, au mixer, au sani-broyeur...).'
@@ -556,20 +555,20 @@ Metzger: Boucherie
 'Anzahl der Nächte, die du draußen geschlafen und überlebt hast.': 'Nombre de nuits passées dehors et auxquelles vous avez survécu.'
 Kannibalismus: Cannibalisme
 'Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...': 'Nombre de repas à base de viande humaine...'
-Wasserkanonen: Canons à eau
+Wasserkanonen: 'Canons à eau'
 'Anzahl an großen Wasserwaffen, die du gebaut hast.': 'Nombre de gros jouets à base d''eau que vous avez fabriqués.'
 Glückspilz: Chanceux
 'Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.': 'Nombre de gros coffres en métal que vous avez dégotés dans l''Outre-Monde.'
 Baustellen: Chantiers
 'Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.': 'Points d''action et/ou de chantier investis dans l''avancement d''un chantier en ville.'
 'Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.': 'Capacité à rester Clair(e) (aucune drogue consommée) au cours de toute une vie.'
-Kernsammler: Purificateur d'âmes
+Kernsammler: 'Purificateur d''âmes'
 'Anzahl der im Ausland gesammelten Seelen verstorbener Bürger': 'Nombre d''âmes de citoyens décédés que vous avez purifiées.'
 'Kämpfe um Leben und Tod': 'Combats désespérés'
 'Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!': 'Zombies éliminés de vos propres mains, sans arme ni capacité spéciale. Wahou.'
-Wunderwerke: Construction de Merveilles
+Wunderwerke: 'Construction de Merveilles'
 'Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.': 'Nombre de Merveilles que vous avez réussi à construire.'
-Grillmeister: Cuisine exotique
+Grillmeister: 'Cuisine exotique'
 'Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.': 'Anciens amis que vous avez cuisinés au Cremato-cue.'
 Ausgrabungsarbeiten: Déblaiement
 'Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.': 'Points d''action investis dans le déblaiement d''un bâtiment dans l''Outre-Monde.'
@@ -585,7 +584,7 @@ Drogenerfahrungen: Expérimentations
 'Anzahl der verlassenen Gebäude, die du untersucht hast.': 'Nombre de fois où vous avez osé pénétrer dans une ruine abandonnée.'
 'Komplexe Expeditionen': 'Explorations avancées'
 'Anzahl der entfernten Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones éloignées que vous avez explorés.'
-Expertenexpeditionen: Explorations très lointaines
+Expertenexpeditionen: 'Explorations très lointaines'
 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones éloignées que vous avez explorés.'
 Großzügigkeit: Générosité
 'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros que vous avez offert à un autre citoyen dans le besoin.'
@@ -599,7 +598,7 @@ Schusseligkeiten: Maladresses
 'Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.': 'Nombre d''objets que vous avez cassés au cours de vos expériences maladroites.'
 Masochismus: Masochisme
 'Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.': 'Moments de bonheur dans la souffrance la plus totale.'
-Event-Auszeichnungen: Médailles communautaires
+Event-Auszeichnungen: 'Médailles communautaires'
 'Auszeichnung für die Teilnahme an Events bei ''Die Verdammten''.': 'Récompenses obtenues dans le cadre d''animations communautaires.'
 'Wunderwerk: Sandschloss': 'Merveille : Château de sable'
 'Das hast du nicht wirklich gebaut?': 'Vous avez vraiment construit ça ?'
@@ -619,7 +618,7 @@ Nachrichten: Messages
 'Anzahl der Tage, die du als Techniker gespielt hast.': 'Jours passés à jouer avec des outils pointus.'
 'In deinem Bett gestorben': 'Morts dans votre lit'
 'Großmutter, was hast du für große Zähne... Grrrooooaaar!': 'Mère-grand, comme vous avez de grandes dents... GROAR !'
-Dehydrationstode: Morts par Déshydratation
+Dehydrationstode: 'Morts par Déshydratation'
 'Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !': 'Nombre de morts par déshydratation terminale. Oui oui, l''eau, c''est important.'
 'Tödliche Infektionen': 'Morts par Infection'
 'Anzahl der Infektionen, die dich das Leben gekostet haben.': 'Nombre d''extinctions des suites d''une infection virulente.'
@@ -631,29 +630,29 @@ Dehydrationstode: Morts par Déshydratation
 'Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!': 'Vous êtes le ou la dernière à mourir au cours d''une ville du Pandémonium !'
 Mystic: Mysticisme
 'Wie viele Seelen hat Ihre Stadt befreien können.': 'Nombre d''âmes que votre ville a pu libérer.'
-Wüstenausflüge: Nuits dans le désert
+Wüstenausflüge: 'Nuits dans le désert'
 'Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.': 'Petites promenades dehors dont vous n''êtes jamais revenu(e).'
 'Geöffnete Tür': 'Ouverture de porte'
 'Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.': 'Nombre de portes déverrouillées par vos soins dans les ruines.'
 Hängend: Pendaisons
 'Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.': 'Nombre de villes au cours desquelles on ne pouvait plus vous supporter.'
-Häuserplünderungen: Pillages de maison
+Häuserplünderungen: 'Pillages de maison'
 'Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.': 'Objets arrachés au corps encore chaud de vos anciens amis.'
 'Absurde Projekte': 'Projets insensés'
 'Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.': 'Nombre de projets insensés achevés de votre vivant.'
 Reparaturen: Réparations
 'Anzahl kaputter Gegenstände, die du wieder repariert hast.': 'Objets cassés que vous avez remis en état de marche.'
-Gebäudereparaturen: Réparations de chantiers
+Gebäudereparaturen: 'Réparations de chantiers'
 'Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.': 'Points d''action investis dans les réparations sans fin des chantiers.'
 Textsammler: Rôliste
 'Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.': 'Documents et autres découvertes ''roleplay''.'
 Leichenentsorger: Sorteur
 'Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.': 'Nombre d''amis morts que vous avez tirés hors de la ville.'
-Batteriewerferfabrikant: Super lance-piles
+Batteriewerferfabrikant: 'Super lance-piles'
 'Anzahl der Batteriewerfer, die du gebaut hast.': 'Nombre de puissants lance-piles que vous avez fabriqués.'
 'Überlebende der Hölle!': 'Survivant de l''enfer !'
 'Sie sind ein wahrer Überlebenskünstler der Hölle.': 'Vous êtes un vrai survivant de l''enfer.'
-Hausarbeiten: Travaux chez soi
+Hausarbeiten: 'Travaux chez soi'
 'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.': 'Nombre de petits travaux effectués dans votre maison.'
 Kettensägen: Tronçonneuses
 'Anzahl an Kettensägen, die du gebaut hast.': 'Nombre de tronçonneuses que vous avez assemblées.'
@@ -690,21 +689,21 @@ Sekunde(n): seconde(s)
 'Mein Rucksack': 'Mon sac à dos'
 'Dieser Bürger wurde noch nie gesehen...': 'n''a jamais été vu...'
 'Der Bürger wurde zuletzt {time} gesehen.': 'a été aperçu pour la dernière fois <strong>{time}</strong>.'
-'Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.': "a été vu au puits prenant <strong>{ration} ration(s) d'eau</strong> aujourd'hui."
+'Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.': 'a été vu au puits prenant <strong>{ration} ration(s) d''eau</strong> aujourd''hui.'
 'Dieser Bürger ist ernsthaft verletzt.': 'a été gravement blessé.'
 'Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.': 'cracherait du sang depuis un petit moment déjà… Certains parlent d''une infection.'
-'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?': "aurait mendié pour de l'eau dans tout le village ce matin… Une petite soif ?"
-'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...': "serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment."
-'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...': "n'arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d'ombres qui parlent, de voix dans sa tête..."
+'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?': 'aurait mendié pour de l''eau dans tout le village ce matin… Une petite soif ?'
+'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...': 'serait dans un grave état de dépendance… On dit même que son comportement deviendrait violent voire “anti-citoyen” par moment.'
+'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...': 'n''arriverait plus à dormir et tiendrait des propos incohérents, parlant de mort, d''ombres qui parlent, de voix dans sa tête...'
 'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!': 'ne serait même pas capable de choisir son occupation ! On est pas sorti, moi j''vous l''dis.'
-'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?': "serait quelqu'un de haut-placé… Un fondateur peut-être ?"
+'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?': 'serait quelqu''un de haut-placé… Un fondateur peut-être ?'
 'Gereinigte Seelen': 'Âmes purifiées'
 '"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.': 'Oulàlà, un de vos concitoyens ne veut visiblement pas que l''on fouille dans ses affaires. Un petit gadget explosif vient de se déclencher sous vos pieds et vous voilà projeté contre un mur... blessé !'
 'Du kannst diesen Gegenstand nicht stehlen.': 'Vous ne pouvez pas voler cet objet.'
 '{username} wurde standrechtlich erschossen.': '{username} a été abattu.'
 'Dieser Bürger gehört keiner Stadt an.': 'Ce citoyen n''appartient pas à une ville.'
 '{citizen} wurde standrechtlich erschossen. Lang lebe das Diktat!': '{citizen} a été abattu. Vive la dictature !'
-Headshot: Balle dans la tête
+Headshot: 'Balle dans la tête'
 'Du hast noch keine Drogen genommen.': 'Vous n''avez jamais consommé de drogue.'
 'Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.': 'Vous avez bu une fois aujourd''hui. Vous ne pourrez donc pas récupérer vos PA à nouveau avec de l''eau pour la journée.'
 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.': 'Vous avez mangé aujourd''hui. Une nouvelle ration de nourriture ne vous permettra pas de récupérer plus de PA pour cette journée.'
@@ -722,7 +721,7 @@ Headshot: Balle dans la tête
 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.': 'Vous avez mal au crâne… Impossible d''avaler une goutte d''alcool jusqu''à demain.'
 'Endlich kannst du deine Schwiegermutter loswerden!': 'Enfin, vous pouvez embrasser votre belle-mère !'
 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.': 'Vous avez été soigné(e) d''une blessure récemment. Vous ne pouvez pas être soigné(e) à nouveau pour la journée.'
-'Reiseleiter in der Außenwelt': "Guide de l'outre-monde"
+'Reiseleiter in der Außenwelt': 'Guide de l''outre-monde'
 'Den {rolename} wählen': 'Voter pour le {rolename}'
 'Dazu hast Du kein Recht.': 'Tu n''as pas le droit de faire ça.'
 'Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?': 'Vous ne vous attendiez probablement pas à ça... Et la prochaine fois, vous respecterez les règles ?'
@@ -761,7 +760,7 @@ Headshot: Balle dans la tête
 'Dieser Bürger hat keine letzten Worte hinterlassen ...': 'Ce citoyen n''a pas laissé de dernier message...'
 'Letzte Worte:': 'Dernières paroles :'
 'Deine letzten Worte:': 'Vos derniers mots :'
-Mystic-Punkte: Points de charlatanisme
+Mystic-Punkte: 'Points de charlatanisme'
 'Diese Punkte sind exklusiv für den Schamanen reserviert.': 'Ces points sont exclusivement réservés au Chaman.'
 'Du bist der {rolename} dieser Stadt.': 'Vous êtes le {rolename} de la ville.'
 'Du folgst aktuell {citizen}.': 'Vous suivez actuellement {citizen}.'
@@ -855,21 +854,21 @@ Zusammenbauen: Assembler
 'Das kannst du mit einem Berufsgegenstand nicht tun.': 'Vous ne pouvez pas faire cela avec votre objet de métier.'
 'Aus der Stadt schleichen': 'Sortir discrètement'
 'Nutze deine heilenden Hände': 'Réaliser un soin curatif'
-'Diesen Bürger angreifen!': "Agresser ce citoyen !"
+'Diesen Bürger angreifen!': 'Agresser ce citoyen !'
 'Diesen Bürger verspeisen!': 'Dévorer ce citoyen !'
 'Die Leiche verspeisen!': 'Dévorer le cadavre !'
 'In die Stadt schleichen': 'Entrer en ville furtivement'
 'Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.': 'Ce citoyen a creusé ici récemment. La prochaine fouille ne sera possible que demain.'
 'Dieser Bürger wird aktuell von {leader} eskortiert.': 'Ce citoyen est actuellement escorté par {leader}.'
 'Tote in der Stadt': 'Mort en ville'
-Niemand!: Aucun !
+Niemand!: 'Aucun !'
 'Sonstige Opfer': 'Autres victimes'
 Opfer: Mort(s)
 'Keine Opfer': 'Aucun mort !'
 Umdrehen: Retourner
-'Der {rolename} der Stadt ist {username}': "Le {rolename} de la ville est {username}"
+'Der {rolename} der Stadt ist {username}': 'Le {rolename} de la ville est {username}'
 Status: États
-Notruf: Appel à l'aide
+Notruf: 'Appel à l''aide'
 'Rohstoff am Boden (Holz, Metall...)': 'Ressources par terre (bois, métal...)'
 'Verschiedene Gegenstände am Boden': 'Objets divers par terre'
 'Wichtige(r) Gegenstand/-ände!': 'Objet(s) important(s) !'
@@ -890,7 +889,7 @@ Notruf: Appel à l'aide
 'Du kannst nicht mehr als eine Seele tragen.': 'Vous ne pouvez pas porter plus d''une âme.'
 'Erhaltene Nachrichten': 'Messages reçus'
 Archiv: Archives
-'Eine Nachricht schreiben': 'Échanges'
+'Eine Nachricht schreiben': Échanges
 'Schreiben Sie an alle': 'Écrire à tout le monde'
 'Keine Nachricht gespeichert.': 'Aucun message archivé.'
 'Empfänger:': 'Citoyen :'
@@ -902,10 +901,10 @@ Archiv: Archives
 'Zustand:': 'Statut :'
 'Jeder {divap}, der in die Reparatur investiert wird, beseitigt {hprepair} Schadenspunkte an einem Bauwerk.': 'Chaque 1 {divap} investi en réparation réparera {hprepair} points de dégâts sur ce chantier.'
 'Die Reparatur verbraucht keine Ressourcen.': 'Les réparations ne consomment pas de ressources.'
-Zonenmarkierer: Marqueur de zone
+Zonenmarkierer: 'Marqueur de zone'
 'Tor ist offen!': 'La porte est ouverte !'
 'Zombies sind eingedrungen.': 'zombies sont entrés.'
-'vor Angst erstarrt': 'Terrorisés'
+'vor Angst erstarrt': Terrorisés
 'Du wirst heute Nacht sterben!': 'Vous mourrez ce soir !'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen.': 'Le bâtiment {plan} a subi {damage} points de dégâts.'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.': 'Le bâtiment {plan} a subi {damage} points de dégâts et a été totalement dévasté par les zombies !.'
@@ -918,7 +917,7 @@ Zonenmarkierer: Marqueur de zone
 'Verlassenes Hospital': 'Hôpital abandonné'
 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...': 'Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d''utile ici...'
 '[nichts]': '[ aucun ]'
-Seelenpunkte: Valeur de l'âme
+Seelenpunkte: 'Valeur de l''âme'
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'Nombre de points d''âme que vous avez obtenu au cours de vos incarnations.'
 'Und wieder ''ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!': 'Et un cadavre de moins ! † {disposed} a été jeté dehors par {citizen} !'
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': '{citizen} a utilisé de l''eau pour brûler le corps de † {disposed}.'
@@ -928,7 +927,7 @@ Tipp-Ex: Manipulateur
 'Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)': 'Vous pouvez, 2 fois par partie, raturer une entrée du registre de votre ville (cliquez sur l''icone Falsifier en face de la ligne du registre qui vous gêne...).'
 Hellseherei: Clairvoyance
 'Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...': 'Vous pouvez savoir dans quelle mesure un citoyen est actif ou présent en jeu, simplement en se rendant dans sa maison.'
-Rundbrief: Scribe motivé
+Rundbrief: 'Scribe motivé'
 'Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).': 'Vous pouvez maintenant envoyer des Messages privés à tous les citoyens de la ville d''un seul coup (depuis la section Message dans votre maison). Vous pouvez également ouvrir des sujets "RP" sur les forums (merci de ne pas en abuser !).'
 Freundschaft: Camaraderie
 'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'Vous pouvez, 1 fois par partie, offrir un de vos jours de mode héros à un autre citoyen ! Attendez-vous à devenir un véritable messie pour beaucoup de monde... NB : les jours de héros ainsi transmis vous seront retirés, rendez-vous sur la page d''un citoyen pour lui offrir une journée.'
@@ -952,14 +951,14 @@ Einfallsreichtum: Débrouillardise
 'Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.': 'Vous disposez maintenant d''un puissant pouvoir de héros qui vous permet de régénérer à 6 PA et de retirer l''état de Fatigue.'
 Weitsichtig: Prévoyant
 'Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.': 'Vous commencez toutes vos villes avec une ration supplémentaire de nourriture.'
-Panzerschrank: Armoire à glace
+Panzerschrank: 'Armoire à glace'
 'Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.': 'Votre grande expérience de l''Outre-Monde vous permet de bénéficier à tout moment d''un point de contrôle supplémentaire en extérieur.'
 Hinterhältigkeit: Perfidie
 'Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.': 'Votre pouvoir "Manipulateur" est amélioré : vous pouvez l''utiliser un plus grand nombre de fois par partie !'
 'Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).': 'Lorsque vous l''activez, ce nouveau pouvoir de héros permet de ne pas subir les effets de la Soif, de l''Infection (transformation en goule comprise) et de l''Addiction lors de l''attaque suivante. Ce pouvoir n''est valable qu''une seule nuit.'
 'Süße Rache': 'Vengeance sordide'
 'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!': 'Si vous êtes banni(e) au jour 3 ou après, vous recevez automatiquement du poison pour vous donner l''opportunité de vous venger... Et oui, il ne fallait pas vous embêter !'
-Proficamper: Campeur professionnel
+Proficamper: 'Campeur professionnel'
 'Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.': 'La pénalité due aux campings répétés est réduite pour vous : vous pouvez donc camper plus souvent au cours d''une même ville.'
 'Erfahrener Junkie': 'Camé prévoyant'
 'Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.': 'Vous démarrez toutes vos villes avec une dose de Paracétoïde dans votre coffre.'
@@ -967,7 +966,7 @@ Bürgermeister: Maire
 'Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").': 'Vous pouvez créer des villes privées depuis la page "Jouer", lorsque vous êtes mort(e).'
 Architekt: Architecte
 'Du beginnst jede Stadt mit einem Gebäudeplan.': 'Vous commencez chaque ville avec un plan de bâtiment.'
-Profiwächter: Veilleur Pro
+Profiwächter: 'Veilleur Pro'
 'Du hast permanent um 5% bessere Chancen auf der Nachtwache.': 'Vous réduisez votre fatigue lors des veilles successives.'
 'Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.': 'Vous passez un peu de temps à cacher les objets que vous avez dans votre sac... Ha Ha... Vous avez utilisé 2 points d''action.'
 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!': 'Vous prenez une empreinte de la serrure de cette porte et obtenez {item} !'
@@ -977,7 +976,7 @@ Draußen: Dehors
 'Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.': 'Votre message a bien été envoyé avec les objets que vous avez choisis.'
 'Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...': 'Alors que vous commenciez votre fouille, vous avez remarqué une sorte de... cache contenant : {items} ! Hmmm... Ça a probablement été dissimulé là par un **citoyen banni**...'
 Sauerstoff: Oxygène
-Stadtverteidigung: Défenses ville
+Stadtverteidigung: 'Défenses ville'
 'Details ansehen': 'Voir le détail'
 Lage: État
 'Stadttor geöffnet': 'Portes ouvertes'
@@ -990,18 +989,18 @@ Teilnehmen: Participer
 'Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:': 'Cliquez sur les objets que vous souhaitez envoyer avec ce message :'
 'Folgende Gegenstände werden mitgesendet:': 'Les objets suivants seront envoyés :'
 'Kein Gegenstand beigefügt...': 'Aucun objet attaché...'
-Basisverteidigung: Défense de base
+Basisverteidigung: 'Défense de base'
 'Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!': 'Cet objet cassera après votre veille !'
 'Es besteht die Chance das Objekt während des Angriffs zu verlieren!': 'Cet objet disparaîtra après votre veille !'
 'Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).': 'Les objets suivants ont été envoyés avec ce message. Ils devraient être dans votre coffre ( si personne n''est passé par là entre-temps... ).'
-'Seine Seele ansehen': "Voir son âme"
+'Seine Seele ansehen': 'Voir son âme'
 'Eine Nachricht hinterlassen': 'Laisser un mot sur la porte'
 'Nicht ganz ekelfrei hat {disposing_citizen} den leblosen Körper von {citizen} entsorgt.': 'C''est non sans dégoût que {disposing_citizen} s''est débarrassé(e) du corps inanimé de {citizen}.'
 'Dank {disposing_citizen} hat sich der Körper von {citizen} in verfaultes Wasser verwandelt.': 'Grâce aux efforts de {disposing_citizen}, le corps de {citizen} a été réduit en liquide putride.'
 'Behausung wiederverwerten': 'Recycler la maison'
 '{z} Zombies blockieren den Weg!': '{z} zombies bloquent le chemin !'
 'Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...': 'Vous avez été surpris et êtes maintenant entouré de zombies ! Vous pouvez vous échapper, mais vous utiliserez de l''oxygène supplémentaire...'
-Flüchten: S'enfuir
+Flüchten: 'S''enfuir'
 'Gebäude verlassen': 'Quitter le bâtiment'
 'Raum durchsuchen': 'Chercher dans la pièce'
 'Raum verlassen': 'Quitter la pièce'
@@ -1023,14 +1022,14 @@ Beschreibung: Description
 'Nächste:': 'Prochaine :'
 'Diese Fähigkeit wurde noch nicht freigeschaltet...': 'Capacité non débloquée...'
 'Du benötigst {item}, um diese Tür zu öffnen.': 'Pour ouvrir cette porte il vous faudrait quelque chose ressemblant à un(e) {item}.'
-'Verbesserung des Tages (building)': 'Projet'
-'Werkstatt (building)': 'Atelier'
+'Verbesserung des Tages (building)': Projet
+'Werkstatt (building)': Atelier
 'Von einem Ghul gefressen': 'Dévoré(e) par une goule !'
 '{actor} hat bei der Plünderung von † {victim} Haus diesen Gegenstand gestohlen: {item}': '{actor} a subtilisé {item} pendant le pillage de la maison de † {victim} !'
 'Zum Forum': 'Vers le forum'
 'Isolierte Zombies': 'Zombies isolés'
-'Die Zombies verstümmeln': Meute de zombies
-'Horde der Zombies': Horde de zombies
+'Die Zombies verstümmeln': 'Meute de zombies'
+'Horde der Zombies': 'Horde de zombies'
 Mark.: Marqu.
 'Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.': 'Vous êtes dans une ville privée. Il existe des règles spéciales pour ce type de ville.'
 Einrichtung: Aménagements
@@ -1054,7 +1053,7 @@ Quarantäne: Quarantaine
 'Zufälliger Bürger': 'Citoyen aléatoire'
 'Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:': 'Si vous souhaitez utiliser le même citoyen choisi au hasard plus d''une fois dans votre texte, vous pouvez lui attribuer un numéro, par exemple :'
 'Du hast dich soeben in einen Ghul verandelt!': 'Vous avez été transformé(e) en Goule !'
-"Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!\n            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach\n            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!": "L'apparition de petites tâches brunâtres sur votre corps aurait dû vous alarmer, mais vous avez naïvement supposé qu'il s'agissait d'une petite infection bénigne due au soleil. Les doutes ont étés balayés lorsqu'un désir incontrôlable de goûter la chair humaine a pris le pas dans votre esprit... Un besoin effroyable qu'il vous faut assouvir RAPIDEMENT. Ou mourir."
+"Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!\n            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach\n            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!": 'L''apparition de petites tâches brunâtres sur votre corps aurait dû vous alarmer, mais vous avez naïvement supposé qu''il s''agissait d''une petite infection bénigne due au soleil. Les doutes ont étés balayés lorsqu''un désir incontrôlable de goûter la chair humaine a pris le pas dans votre esprit... Un besoin effroyable qu''il vous faut assouvir RAPIDEMENT. Ou mourir.'
 'Du bist ab sofort ein Ghul!': 'Vous êtes maintenant une goule.'
 'Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.': 'Un nouvel horizon s''ouvre à vous : vos voisins et alliés de naguère sont maintenant vos proies.'
 'Hier noch ein paar wichtige Überlebenstipps:': 'Quelques conseils pour survivre :'
@@ -1078,9 +1077,9 @@ Quarantäne: Quarantaine
 "Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.\n                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.": "Vous pouvez l'utiliser pour ajouter le nom d'un citoyen aléatoire à votre message.\n                                                    Si nécessaire, vous pouvez limiter la sélection à certaines professions, héros ou citoyens déjà décédés."
 'Du bist': 'Vous êtes'
 Erschöpft: Fatigué(e)
-Spielzeit: Heure du jeu
-"Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte\n                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt\n                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!": "Ces points sont exclusivement destinés à la construction des chantiers dans la ville."
-Stadtrat: Conseil de Ville
+Spielzeit: 'Heure du jeu'
+"Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte\n                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt\n                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!": 'Ces points sont exclusivement destinés à la construction des chantiers dans la ville.'
+Stadtrat: 'Conseil de Ville'
 'Anzahl der Tage, die du als Schamane gespielt hast.': 'Jours passés à trafiquer l''âme des morts.'
 'Reicher Guru': 'Riche gourou'
 'Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.': 'Nombre de nouveaux citoyens que vous avez convaincu de mourir ET de payer pour ça.'
@@ -1090,11 +1089,11 @@ Stadtrat: Conseil de Ville
 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!': 'Vous étiez présent(e) au Festival du Jeu Vidéo à Paris en 2010 : merci !'
 'FJV''08 Kanonenfutter': 'Chair à canon du FJV''08'
 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.': 'Le porteur de cette marque a participé à la grande chasse organisée au Festival du Jeu Vidéo 2008.'
-Community-Auszeichnung: Organisation du Choc
+Community-Auszeichnung: 'Organisation du Choc'
 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.': 'Votre organisation sans faille lors du choc des héros a permis de créer un évènement dont on parlera encore longtemps !'
 'Clash CEO': 'PDG du Choc'
 'Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!': 'Décerné pour être l''un des organisateurs ou développeurs de la communauté dans le choc des héros. Notre communauté vous remercie !'
-Schlachtenbummler: Titan du Choc
+Schlachtenbummler: 'Titan du Choc'
 'Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.': 'Une distinction très rare, décernée uniquement aux quelques intrépides qui ont participé au tout premier Choc des Héros.'
 'Shock of heroes': 'Choc des héros'
 'Ehrenpreis für die Teilname am Shock of Heroes Event!': 'Récompense honorifique pour une participation au Choc des Héros !'
@@ -1134,9 +1133,9 @@ Schlachtenbummler: Titan du Choc
 'In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du <strong>mit deinen Gegenständen ausführen kannst</strong>. In der rechten Spalte kannst du den <strong>Inhalt deines Rucksacks</strong> und <strong>deiner Truhe</strong> ansehen.': 'La colonne de gauche présente les <strong>actions permises par vos objets</strong>. Celle de droite montre le <strong>contenu de votre sac à dos</strong> et <strong>de votre coffre de maison</strong>.'
 'Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.': 'Lorsque cette option est activée, un autre citoyen ne peut pas vous éloigner de la ville. Dans ce cas, il ne peut que vous rapprocher.'
 'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)': 'Lorsque cette option est activée, un autre joueur peut vous ordonner de collecter ou de déposer des objets. REMARQUE: certains objets «personnels» ne peuvent en aucun cas être déposés (écrits, armes, etc.)'
-Explosion: Pulvérisé un peu partout
+Explosion: 'Pulvérisé un peu partout'
 '???': '???'
-Schokoladenkreuz: Croix en chocolat
+Schokoladenkreuz: 'Croix en chocolat'
 'Regentanz ausführen': 'Faire tomber la pluie'
 'Einsiedler - Gewinner des SoH': 'Ermite gagnant du CDH'
 'Buddler - Gewinner des SoH': 'Fouineur gagnant du CDH'
@@ -1151,78 +1150,78 @@ Schokoladenkreuz: Croix en chocolat
 'Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...': 'Il est impossible d''agir dans le désert sous l''état de terreur au milieu des zombies... Il va falloir trouver une drogue ou autre pour se <strong>calmer les nerfs</strong> et quitter cet enfer... Au pire, il est encore possible d''appeler à l''aide sur le forum...'
 'Das Passwort ist falsch.': 'Le mot de passe est incorrect.'
 Pfadfinder: Furtif
-Ninja: Maître des ombres
+Ninja: 'Maître des ombres'
 'Green Beret': 'Ranger du risque'
-Schattenmann: Fantôme des sables
-Wüstenphantom: Plus fort que Sam Fisher
+Schattenmann: 'Fantôme des sables'
+Wüstenphantom: 'Plus fort que Sam Fisher'
 'Solid Snake war gestern...': 'Disciple de Garrett'
 Sandarbeiter: Trouveur
-Wüstenspringmaus: Maître Dénicheur
+Wüstenspringmaus: 'Maître Dénicheur'
 'Großer Ameisenbär': 'Exhumeur de babioles'
-Wüstenfuchs: Trouveur en chef
+Wüstenfuchs: 'Trouveur en chef'
 'Ich sehe Alles!': 'Rien ne m''échappe.'
-Tierliebhaber: Ami des bêtes
+Tierliebhaber: 'Ami des bêtes'
 Malteserzüchter: Maître-bichon
 'Ich bändige Bestien': 'Dresseur de bêtes sauvages'
 'Nie ohne meinen Hund!': 'Jamais sans mon chien !'
 'Hundewurst schmeckt gar nicht schlecht!': 'La patée, c''est pas si mauvais'
-Wurmfresser: Dégoteur de vers
+Wurmfresser: 'Dégoteur de vers'
 'Meister im Würmerfinden': 'Maître dégoteur'
 'Gefräßiger Bürger': 'Insatiable citoyen'
-Wüstenwurmzüchter: Grand Mange-vermines
-'Ich brauche niemanden!': 'Hermitamor'
+Wüstenwurmzüchter: 'Grand Mange-vermines'
+'Ich brauche niemanden!': Hermitamor
 'Heraklit der Außenwelt': 'I''m a poor lonesome hermit...'
 'Diplomierter Scharlatan': 'Aborigène curieux'
 'Schlimmer Finger': 'Charlatan diplômé'
-Seelenverwerter: Aruspice maudit
+Seelenverwerter: 'Aruspice maudit'
 'Mystischer Seher': 'Recycleur d''âmes'
 'Voodoo Sorceror': 'Sorcier vaudou'
 'Yo, wir schaffen das!': 'Bricol'' girl travesti'
 'Kleiner Schraubendreher': 'Amateur du PMV tournevis'
 'Schweizer Taschenmesser': 'Nuchuk à molette'
 'Unermüdlicher Schrauber': 'Constructeur increvable'
-'Seele des Handwerks': 'TechnicoMecanoMegalo'
-'Die Mauer': 'Défenseur'
-Höllenwächter: Maître gardien
+'Seele des Handwerks': TechnicoMecanoMegalo
+'Die Mauer': Défenseur
+Höllenwächter: 'Maître gardien'
 Kerberos: Paladin
 'Die letzte Verteidigungslinie': 'Dernier rempart'
 'Du kommst hier NICHT durch!': 'Vous.. ne.. passerez.. PAS !'
-Hekatoncheir: Citoyen infranchissable
-Kantinenkoch: Cuistot de cantine
+Hekatoncheir: 'Citoyen infranchissable'
+Kantinenkoch: 'Cuistot de cantine'
 'Kleiner Küchenchef': 'Petit chef cuistot'
 'Meister Eintopf': 'Cordon bleu du village'
 'Großer Wüstenkonditor': 'Grand pâtissier du désert'
 'Begnadeter Wüstenkonditor': 'Maître pâtissier du désert'
-'Cooking Mama': 'Cooking-mama'
+'Cooking Mama': Cooking-mama
 'Meisterhafter Kochlöffelschwinger': 'Expert de la cuillère'
-Amateur-Laborratte: Laborantin amateur
+Amateur-Laborratte: 'Laborantin amateur'
 'Kleiner Präparator': 'Petit préparateur'
 'Chemiker von um die Ecke': 'Chimiste du coin'
-Produkttester: Orfèvre gobeur
-Wüstenstadt-Dealer: Dealer du village
+Produkttester: 'Orfèvre gobeur'
+Wüstenstadt-Dealer: 'Dealer du village'
 'X-Men Leser': 'Fan des X-men'
 'Aussergewöhnlicher Bürger': 'Citoyen hors-norme'
 Wunder: Prodige
 'Werdender Superheld': 'Super-Héros en devenir'
-Volksheld: Héros du peuple
-Neo: L'incroyable citoyen
+Volksheld: 'Héros du peuple'
+Neo: 'L''incroyable citoyen'
 'Erlöser der Menschheit': 'Sauveur de l''humanité'
-Außenweltlegende: Légende de l'Outre-Monde
-Abstauber: Fouineur de décharge
-Müllkind: Enquiquineur débrouillard
-Maulheld: Petite frappe
+Außenweltlegende: 'Légende de l''Outre-Monde'
+Abstauber: 'Fouineur de décharge'
+Müllkind: 'Enquiquineur débrouillard'
+Maulheld: 'Petite frappe'
 Lump: Fripouille
 Schaumschläger: Crapule
-Dieb: Monte-en-l'air
+Dieb: 'Monte-en-l''air'
 Fantomas: Voleur
 'Ali Baba': 'Maître cambrioleur'
 Meisterdieb: Passe-muraille
-Kleptomane: Arsène Lupin du désert
+Kleptomane: 'Arsène Lupin du désert'
 'Dein Haus ist mein Haus': 'Ta maison est ma maison'
 Ästhet: Coquet
-Schaufenstergestalter: Citoyen de bon goût
-Innenarchitekt: Architecte d'intérieur
-Möbelgourmet: Maître-décorateur de tentes
+Schaufenstergestalter: 'Citoyen de bon goût'
+Innenarchitekt: 'Architecte d''intérieur'
+Möbelgourmet: 'Maître-décorateur de tentes'
 'Ordnung muss sein!': 'Maître Es-thète'
 Plünderer: Pillard
 Aasgeier: Vautour
@@ -1230,18 +1229,18 @@ Hyäne: Charognard
 'Wegelagerer post mortem': 'Ecumeur post-mortem'
 'Hungriger Schakal': 'Chacal affamé'
 'Kojote der kargen Steppen': 'Coyote des steppes arides'
-Fingerschmied: Notaire de l'outre-monde
+Fingerschmied: 'Notaire de l''outre-monde'
 'Nein, das Ding fasse ich nicht an.': 'Grand arroseur'
-Leichenhygieniker: Mouilleur de cadavres
+Leichenhygieniker: 'Mouilleur de cadavres'
 'Ich liebe den Geruch von gewaschenen Leichen am Morgen.': 'Pasteur du village'
 Müllmann: Eboueur
 'Erfahrener Müllmann': 'Sorteur en chef'
-Entsorgungsfachmann: Expulseur de cadavres
+Entsorgungsfachmann: 'Expulseur de cadavres'
 'SM Anhänger': 'Adepte SM'
 'SM Spezialist': 'Maître du PMV'
 'Nenn mich Herrin': 'Appelez-moi Maîtresse'
 'Ich möchte dein Objekt sein.': 'Fais de moi ton objet'
-Stadtmetzger: 30 millions d'ennemis
+Stadtmetzger: '30 millions d''ennemis'
 'Spezialität: Hundesteaks': 'Responsable d''extinctions'
 'Miezi? Jaaaa, komm her...': 'Fléau du monde animal'
 'Fleisch ist mein Gemüse': 'Spécialité : steak de chaton'
@@ -1251,73 +1250,73 @@ Stadtmetzger: 30 millions d'ennemis
 'Großer Baumeister': 'Grand bâtisseur'
 'Großer Architekt': 'Grand architecte'
 Freimauer: Franc-maçon
-Terraformingspezialist: Spécialiste en terraformation
+Terraformingspezialist: 'Spécialiste en terraformation'
 'Allmächtiger Schöpfer': 'Grand créateur tout-puissant'
 'Bauherr ohne Sinn und Verstand': 'Bâtisseur du non-sens'
 'Erbauer der verlorenen Zeit': 'Fondateur du temps perdu'
 'Erleuchteter Baumeister': 'Édificateur illuminé'
 'Maurer aus Leidenschaft': 'Maçon du coeur'
 'Huldigt den riesigen KVF!': 'Gloire au PMV !'
-Durazell: Gardien de la Pile
+Durazell: 'Gardien de la Pile'
 'Hüter der Heiligen Batterie': 'Détenteur de la Pile Sacrée'
 Maurerlehrling: Ouvrier
 Maurer: Bâtisseur
-Polier: Chef de chantier
+Polier: 'Chef de chantier'
 Baustellenleiter: Architecte
-Meisterarchitekt: Créateur de villes
+Meisterarchitekt: 'Créateur de villes'
 'Oscar Niemeyer': 'Captain Parpaing'
-Spachtler: Plâtrier de la ville
+Spachtler: 'Plâtrier de la ville'
 'Gewissenhafter Maurer': 'Briqueteur conscienceux'
 'Meisterwerke in Gefahr': 'Chef d''oeuvre en péril'
 'Ein Flicken und alles ist wie neu': 'Une rustine et ça repart.'
-Kettensägenmassaker: Massacre à la tronçonneuse
-Hobby-Heimwerker: Bricoleur du dimanche
+Kettensägenmassaker: 'Massacre à la tronçonneuse'
+Hobby-Heimwerker: 'Bricoleur du dimanche'
 'Meisterbastler ': 'Maître ingénieur'
 'Sowas wirft man doch nicht weg!': 'Ré-assembleur de choses'
 'Mac Gyver der Außenwelt': 'Mac Gyver de l''Outre-Monde'
-'Super Soaker': 'Pistolereau'
-Archäologielehrling: Forçat du désert
-Archäologe: Ouvrier des sables
-Grabungsleiter: Découvreur de bâtiments
+'Super Soaker': Pistolereau
+Archäologielehrling: 'Forçat du désert'
+Archäologe: 'Ouvrier des sables'
+Grabungsleiter: 'Découvreur de bâtiments'
 'Furchtloser Camper': 'Campeur inébranlable'
 'Waisenkind der Wüste': 'Orphelin du désert'
 'Unglaubliche Entschlossenheit': 'Incroyable détermination'
 'Der letzte Überlebende': 'Le dernier survivant'
 'Lebensmüder Kundschafter': 'Explorateur vraiment impétueux'
 'Draufgängerischer Expeditionsreisender': 'Expéditionnaire au long cours'
-Nervenkitzelsucher: Au-delà du réel
+Nervenkitzelsucher: 'Au-delà du réel'
 'Christopher Kolumbus': 'Champollion du désert'
 'Neil Armstrong der Außenwelt': 'Neil Armstrong de l''Outre Monde'
 'Wenn ich das nur vorher gewusst hätte...': 'Si j''aurais su, j''aurais po v''nu'
 'Verwegener Wanderer': 'Voyageur téméraire'
-Tunnelblicker: Apnéiste confirmé
+Tunnelblicker: 'Apnéiste confirmé'
 'Im Irrgarten': 'J''ai la dé-dale !'
 'Inklusive Kompass': 'Boussole sur patte'
 'Wo klemmt''s?': 'Un p''tit Bricard ?'
-Dietrich: Une petite tranche de Vachette ?
+Dietrich: 'Une petite tranche de Vachette ?'
 'Sesam, öffne dich...': 'Sésame, bouge ton c...'
-Türöffner: Dentiste serrurier
-Gentleman-Einbrecher: Gentleman Cambrioleur
-Schlüsseldienst: Capitaine Crochet
-Zerberus: Cerbère de la porte
-Brutalo: Grosse brute
+Türöffner: 'Dentiste serrurier'
+Gentleman-Einbrecher: 'Gentleman Cambrioleur'
+Schlüsseldienst: 'Capitaine Crochet'
+Zerberus: 'Cerbère de la porte'
+Brutalo: 'Grosse brute'
 Verstümmler: Mutilateur
 Killer: Exterminateur
-Kadaverentsorger: Broyeur de cadavres
-Vernichter: Total annihilation
-Schlächter: Le Tueur
-Friedensstifter: Le Pacificateur
+Kadaverentsorger: 'Broyeur de cadavres'
+Vernichter: 'Total annihilation'
+Schlächter: 'Le Tueur'
+Friedensstifter: 'Le Pacificateur'
 'Alptraum der Traumlosen': 'J''aime les bandes décimées'
 'Hans im Glück': 'Spécialiste en aubaine'
 'Vierklettriges Kleeblatt': 'Maître du coup de bol'
-Fortuna: Grand Veinard en chef
+Fortuna: 'Grand Veinard en chef'
 'Ultimate Fighter': 'Promeneur désespéré'
 'Stürmischer Kundschafter': 'Explorateur impétueux'
 'Furchtloser Abenteurer': 'Aventurier sans peur'
 'Wagemutiger Trapper': 'Guide de l''Outre-Monde'
-Wikinger: Prospecteur courageux
-Außenweltreiseführer: L'outre-monde est mon bac à sable
-Außenweltschläfer: Dormeur suicidaire
+Wikinger: 'Prospecteur courageux'
+Außenweltreiseführer: 'L''outre-monde est mon bac à sable'
+Außenweltschläfer: 'Dormeur suicidaire'
 'Allein in dieser Welt': 'Seul(e) au monde'
 'Der mit den Zombies tanzt': 'Danse avec les zombies'
 'Ich sehe überall Tote!': 'Je vois des morts partout'
@@ -1325,31 +1324,31 @@ Außenweltschläfer: Dormeur suicidaire
 'Ein Mann gegen die Außenwelt': 'Une fois, au stage d''été...'
 'Neugieriger Leser': 'Lecteur curieux'
 'Eifriger Leser': 'Conteur d''histoires'
-Wüstenhistoriker: Historien du désert
-Bibliothekar: Gardien des archives
-Archivar: Maitre rôliste
+Wüstenhistoriker: 'Historien du désert'
+Bibliothekar: 'Gardien des archives'
+Archivar: 'Maitre rôliste'
 'Twinoid ist tabu': 'La twinoïde, c''est tabou'
 'Keine Macht den Drogen': 'Bien dans sa peau'
 'Sowas fasse ICH nicht an': 'Je touche pas à ça, MOI.'
 'Vorbild für die Jugend': 'Exemple pour la jeunesse'
 'Champions nehmen keine Drogen!': 'Winners don''t use drugs !'
-Medikamentetester: Cobaye de laboratoire
-Laborratte: Expérience dangereuse
+Medikamentetester: 'Cobaye de laboratoire'
+Laborratte: 'Expérience dangereuse'
 'Pille palle, 3 Tage wach!': 'Testeur de produits'
 'Timothy Leary': 'Je n''aurais pas dû gober ça.'
-Menschenfleischliebhaber: Amateur de viande humaine
-Hannibalfan: Fan d'Hannibal
-Totmacher: Dévoreur de citoyens
+Menschenfleischliebhaber: 'Amateur de viande humaine'
+Hannibalfan: 'Fan d''Hannibal'
+Totmacher: 'Dévoreur de citoyens'
 'Jeffrey Dahmer': 'Croque morts'
 'Fast schon ein Zombie...': 'Zombie en devenir'
 'Schmeckt am besten wenn''s noch schreit!': 'C''est meilleur si ça hurle.'
 'Die Macht der Proteine': 'Le plein de Protéines.'
-Zombieliebling: Favori des zombies
+Zombieliebling: 'Favori des zombies'
 'Ich bin in der Hölle aufgewachsen.': 'L''enfer, c''est mon quotidien.'
 'Teilweise verrottet': 'Partiellement putréfié'
-Virenschleuder: Porteur de la 'Maladie'
-Gedärmeauskotzer: Vomisseur de tripes
-Seuchenherd: Annonciateur du fléau
+Virenschleuder: 'Porteur de la ''Maladie'''
+Gedärmeauskotzer: 'Vomisseur de tripes'
+Seuchenherd: 'Annonciateur du fléau'
 'Verirrter Ausflügler': 'Randonneur égaré'
 'Nächtlicher Spaziergänger': 'Flâneur nocturne'
 'Vertrauenswürdiger Bürger': 'Concitoyen de confiance'
@@ -1362,19 +1361,19 @@ Seuchenherd: Annonciateur du fléau
 'Hör auf mich, wenn du überleben möchtest': 'Suis-moi si tu veux vivre'
 'Alter Hase': 'Grand ancien'
 'Jedes Los gewinnt': 'Compagnon de la communauté'
-Zinker: Animé de bonnes intentions
-Bingo: Animal social
+Zinker: 'Animé de bonnes intentions'
+Bingo: 'Animal social'
 'Sudoku ist anders': 'Défunt animé'
 'Siebenseitiger Würfel': 'Hyper-activiste communautaire'
 'Einarmiger Bandit': 'Gagnant dans l''âme !'
 'Motivierter Messebesucher': 'Festivalier hordien motivé'
 'Kleiner Guru': 'Détourneur de fonds'
 'Überzeugender Guru': 'Trafiquant de citoyens'
-Frischfleischhändler: Négociant en chair fraîche
+Frischfleischhändler: 'Négociant en chair fraîche'
 'Held der Community!': 'Dedans jusqu''au cou !'
 'Nobler Spender': 'Âme noble'
 'Immer zur Stelle': 'Donateur universel'
-Samariter: Assistant social
+Samariter: 'Assistant social'
 'Der Weihnachtsmann ist ein Schlawiner': 'Le Père Noël est un coquin'
 'Treffen der 4. Art': 'Rencontre du 4ème type'
 'Hast Du mal Feuer?': 'Vous avez du feu ?'
@@ -1382,7 +1381,7 @@ Samariter: Assistant social
 'Amophilis Psychotropes': 'Amophilis psychotropes'
 'Blauer Feuerspucker': 'Cracheur de flamme bleue'
 'I see dead people 0_0': 'I see dead people 0_0'
-'Soul Man': 'Aspi-rituel'
+'Soul Man': Aspi-rituel
 'Bei meiner Seel': 'Leerd''âmeur nauséabond'
 'Für immer und seelich': 'Fan-tomme rapé'
 'Noble Seele': 'Âme digne'
@@ -1390,10 +1389,10 @@ Beseelt: Spider-Ame
 Reinkarnator: Réincarnator
 'Göttliche Seele': 'Âme divine'
 Open-chakra: Open-chakra
-Tausend-und-ein-Leben: Mille et une vie
+Tausend-und-ein-Leben: 'Mille et une vie'
 Buddha: Bouddha
 'Messie der verlorenen Welt': 'Messie du monde perdu'
-'Ich bin ein Gott! Ich werde ewig leben!': 'Chef-Ascète'
+'Ich bin ein Gott! Ich werde ewig leben!': Chef-Ascète
 'Eine Stadt sie zu knechten!': 'Une ville pour les gouverner tous!'
 'Der unsichtbare Mann': 'Lady in Red'
 'Ein BMW? Kein Problem!': 'Une BMW ? Pas de p''oblème !'
@@ -1409,7 +1408,7 @@ Seelenknipser: Agnos-tic
 'Wächter der Seelen': 'Veille avec les Scouts'
 'Die Wahrheit ist irgendwo da draußen': 'La vérité est ailleurs'
 'Ich glaube!': 'I''m a believer'
-Sektenmitglied: Membre de la secte
+Sektenmitglied: 'Membre de la secte'
 'Kosmischer Anführer': 'Parrain cosmique'
 'Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.': 'La Grande Porte de la ville est un rempart contre une bonne partie des Hordes qui sévissent à l''extérieur de la ville. Oubliez de la verrouiller le soir et vous découvrirez des souffrances allant bien au-delà de vos pires cauchemars.'
 'Der Batterienator': 'C''était pas ma guerre'
@@ -1421,7 +1420,7 @@ Sektenmitglied: Membre de la secte
 'Ich fresse Nägel und scheiße Kugeln!': 'Je mâche le silex !'
 'Pandämonium? Hah. Einfach.': 'Le Pandémonium ? Pff. Easy.'
 'Rauch? Welcher Rauch?': 'De la fumée ? Quelle fumée ?'
-Leckstopper: Colmateur de fuite
+Leckstopper: 'Colmateur de fuite'
 'Licht in der Nacht': 'Lumière dans la nuit'
 RadioactiveMan: RadioactiveMan
 'Strahlender Bürger': 'Citoyen rayonnant'
@@ -1436,9 +1435,9 @@ RadioactiveMan: RadioactiveMan
 'Verbrennt ihn! Sieh nach ob seine Asche grün wird!': 'Brûlez-le, voyez si ses cendres deviennent vertes!'
 'Ein Wohnwagen ohne Räder???': 'Une caravane sans roues ???'
 'Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.': 'Toute la zone est envahie par une <strong>végétation pourrissante</strong>, du <strong>sable</strong> et des <strong>débris</strong> de toutes sortes. Vous êtes sûr(e) que quelque chose se cache ici, mais il faudrait déblayer tout le secteur pour commencer les fouilles à proprement parler...'
-HAZ-Gewinner: Gagnant de GSP
+HAZ-Gewinner: 'Gagnant de GSP'
 'Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.': 'Récompense honorique décernée au gagnant de Guérir sa Pictophilie !'
-'Kernsammler (job)': Collecteur d'âmes
+'Kernsammler (job)': 'Collecteur d''âmes'
 'Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)': 'Nombres d''âmes de citoyens décédés collectées dans l''outre-monde'
 'Mystic (job)': 'Transformation mystique'
 'Wie viele Seelen hat Ihre Stadt befreien können. (job)': 'Nombre d''âmes trafiquées par vos soins à l''Atelier.'
@@ -1455,7 +1454,7 @@ HAZ-Gewinner: Gagnant de GSP
 'im Süden': 'au Sud'
 'im Südosten': 'au Sud-Est'
 'Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>{sector} der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>': 'Sous l''influence des mystérieux phénomènes météorologiques qui surviennent à minuit, certaines zones <strong>{sector} de la ville</strong> se sont peut-être regénérées.<p><em>Il est alors possible d''y trouver à nouveau des objets lors de fouilles, même si la zone était déjà épuisée !</em></p>'
-'Verlorenes Brunnenwasser: {count} Einhet(en)': "Eau du puits perdue : {count} unité(s)"
+'Verlorenes Brunnenwasser: {count} Einhet(en)': 'Eau du puits perdue : {count} unité(s)'
 'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.': 'Vous pouvez recommander la construction d''un chantier en particulier aux citoyens. Placez votre curseur sur la ligne du chantier à recommander, puis cliquez sur le lien <strong>Voter</strong> qui apparaît.'
 Beruf: Métier
 Anwesenheit: Statut
@@ -1463,7 +1462,7 @@ Anwesenheit: Statut
 Aktivität: Activité
 'Häuser der Bürger': 'Maisons citoyens'
 'Temporäre Verteidigung': 'Apports temporaires'
-Leichen-Bonus: Bonus cadavres
+Leichen-Bonus: 'Bonus cadavres'
 Bonus: Bonus
 UFC: UFC
 'Ehrenpreis für die Teilnahme am UFC!': 'Prix d''honneur pour la participation à l''UFC!'
@@ -1485,7 +1484,7 @@ UFC: UFC
 'Mein Zuhause (Truhe)': 'Ma maison (Coffre)'
 'Die Bürger': 'Les citoyens'
 Wätcher: Veilleurs
-'Diese Bürger is der {role} der Stadt': "Ce citoyen est le {role} de la ville"
+'Diese Bürger is der {role} der Stadt': 'Ce citoyen est le {role} de la ville'
 Expeditionen: Expéditions
 'Verbessrung des Tages': 'Évolutions du jour'
 'Die Bank': 'La banque'
@@ -1531,7 +1530,7 @@ Katapultregister: Catapulte
 'Bitte wähle einen Gegenstand.': 'Veuillez sélectionner un objet.'
 'Bitte gib die Zielkoordinaten ein.': 'Veuillez entrer les coordonnées de la cible.'
 'Sorgfältig verpackt hast du {item} in das Katapult gelegt. Der Gegenstand wurde auf {zone} geschleudert.': 'Vous emballez soigneusement, lestez puis placez {item} dans la catapulte. L''objet a été projeté en {zone}.'
-Katapult-Bediener: Responsable de la catapulte
+Katapult-Bediener: 'Responsable de la catapulte'
 'Du bist für das Katapult verantwortlich': 'Vous êtes responsable de la catapulte !'
 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.': 'Vous avez été désigné(e) comme citoyen officiel responsable de la Catapulte de la ville ! Cette nomination s''est déroulée par tirage au sort, félicitations. Rendez-vous dans la section Catapulte de votre ville.'
 'Einen zufälligen Bürger als Katapult-Bediener auslosen': 'Designer un citoyen au hasard en tant que responsable de la catapulte'
@@ -1546,10 +1545,10 @@ Katapult-Bediener: Responsable de la catapulte
 'Verbraucht zuviel Wasser': 'Consomme trop d''eau'
 'Beleidigendes Verhalten': 'Insulte ou comportement'
 'Blockiert die Baustelle': 'Bloque les chantiers'
-Expeditionssaboteur: Sabotage d'expéditions
+Expeditionssaboteur: 'Sabotage d''expéditions'
 'Geht kein Risiko ein': 'Reste toujours au chaud'
 'Handelt zu egoistisch': 'Joue trop perso'
-Gemeinschaftsfreak: Extrémiste communautaire
+Gemeinschaftsfreak: 'Extrémiste communautaire'
 'Bringt sich nicht genug ein': 'Ne participe quasiment pas'
 'Hortet zu viele Gegenstände': 'Garde trop de choses pour lui'
 'Aggressiver Mitbürger': 'Citoyen agressif !'
@@ -1572,7 +1571,7 @@ Wählen: Sélectionner
 'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.': 'Choisissez <strong>l''objet à voler</strong> ci-dessus. <strong>Attention !</strong> Vous risquez d''être repéré(e) et vous devrez alors en assumer toutes les conséquences.'
 'Einen Gegenstand stehlen': 'Entrer pour voler un objet'
 'Einen Gegenstand hinterlassen': 'Déposer un objet discrètement'
-'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...': "Impossible de voler quoique ce soit à {citizen} tant <strong>qu'il(elle) est en ville</strong>..."
+'Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...': 'Impossible de voler quoique ce soit à {citizen} tant <strong>qu''il(elle) est en ville</strong>...'
 '{disposing_citizen} hat {citizen} ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.': '{disposing_citizen} a mis {citizen}, son pote, au feu. Vous vous disiez bien que ça sentait bon...'
 '{attacker} hat {defender} mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!': '{attacker} a blessé {defender} avec sa sale boule de sable. Aïe ça fait mal... !'
 '{attacker} hat {defender} einen Sandball direkt ins Gesicht geworfen!': '{attacker} a jeté une boule de sable directement dans le visage de {defender} !'
@@ -1600,7 +1599,7 @@ Wählen: Sélectionner
 'Che Guevara der Wüste': 'Che Guevara du désert'
 'Ein schöneres Leben': 'Plus belle la vie !'
 'Großer E-KEA Katalog': 'Grand Catalogue Kiela'
-Maccabees-Vertreiber: Refouleur de macchabées
+Maccabees-Vertreiber: 'Refouleur de macchabées'
 Wachsam: Aware
 Paranoid: Parano
 'Fels in der Brandung': 'Le Roc !'
@@ -1625,26 +1624,26 @@ Paranoid: Parano
 'Es ist kleiner als im Katalog': 'Ça faisait plus petit sur le catalogue'
 'Freude der Stärke 8': 'Bonheur de magnitude 8'
 'Bewahrer der Freuden': 'Gardien des plaisirs'
-Eimerhalter: Garde des seaux
-Sandverkäufer: Marchand de sable
+Eimerhalter: 'Garde des seaux'
+Sandverkäufer: 'Marchand de sable'
 'Martinet am Strand': 'Martine à la plage'
 'Ein Spiel für echte Kinder': 'Un vrai jeu d''enfants !'
 'Dauermitglied in Micky''s Club': 'Membre permanent du club mickey'
 'Niemals ohne meinen Eimer': 'Jamais sans mon seau'
 'Ein Korn fehlt noch': 'Je sais, j''ai un grain'
 'Taube aus der Unterwelt': 'Pigeon de l''Outre-Monde'
-Corvid-Spezialist: Spécialiste ès corvidés
+Corvid-Spezialist: 'Spécialiste ès corvidés'
 'Phoenix des Unterholzes': 'Phoenix des hôtes de ces bois'
 'Edit Piaf': 'Edit Piaf'
 'Vogel der schlechten Vorzeichen': 'Oiseau de mauvais augure'
-Kraaaah!: Crôôôaa !
+Kraaaah!: 'Crôôôaa !'
 'Er war Leber ...': 'Il était un foie...'
 'Hey wir können die Zombies von hier oben sehen': 'Oh on voit les zombies d''ici'
 'Fröhlicher Hamster': 'Hamster jovial'
 'Showman aus der Anderen Welt!': 'Forain de l''Outre Monde !'
 '5. Rad am Wagen': '5e roue du carrosse'
 'Mir ist schwindelig': 'J''ai le vertige'
-'Hier oben': 'Là-haut'
+'Hier oben': Là-haut
 'Auge der Wüste': 'L''œil du désert'
 '4000 Zombies starren uns an': '4000 zombies nous contemplent'
 'Huldigt den Raben!': 'Gloire au Corbeau !'
@@ -1653,7 +1652,7 @@ Kraaaah!: Crôôôaa !
 'Arbeiterhelm und Kupferstiefel': 'Chapeau moellon et bottes de cuivre'
 'Arbeit ist Gesundheit': 'Le travail, c''est la santé'
 'Bob der Baumeister': 'L''abbé Tonière'
-Pisa-Geraderichter: Redresseur de Pise
+Pisa-Geraderichter: 'Redresseur de Pise'
 'Großer Renovator': 'Grand rénovateur'
 'Ein Patch, kein Spiel': 'Patch-day, no-play'
 'Ein Riss? Welcher Riss?': 'Une fissure ? Quelle fissure ?'
@@ -1666,19 +1665,19 @@ hoch: importantes
 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?': 'Aucune idée. <strong>Le corps a disparu sans laisser de trace...</strong> Peut-être qu''il a été jeté dehors et qu''il se lèvera ce soir pour vous rendre visite dans la nuit.'
 'Legendärer Dompteur': 'Apprivoiseur légendaire'
 'Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!': 'Victoire en tant qu''Apprivoiseur lors du Choc des Héros !'
-Fleisch-Schuldner: Débiteur de viande
+Fleisch-Schuldner: 'Débiteur de viande'
 'Bruce Campbell': 'Bruce Campbell'
-Wasserwaffen-Spezialist: Spécialiste en pistolets à eau
-Hydraulik-Engineering: Ingénierie hydraulique
+Wasserwaffen-Spezialist: 'Spécialiste en pistolets à eau'
+Hydraulik-Engineering: 'Ingénierie hydraulique'
 'Abstieg der Atlanteaner': 'Descendant des atlantes'
 'Großer Löcherbuddler': 'Creuseur de grands trous'
-Riesenmaulwurf: Taupe géante
+Riesenmaulwurf: 'Taupe géante'
 'Ich gehe alleine.': 'Je marche seul.'
 'Bis zur Unendlichkeit... und noch viel weiter!': 'Vers l''infini et au-delà !'
 'Indiana Jones und die Ruinen der Aussenwelt': 'Indiana jones et les ruines de l''outre-monde'
 'Begrabener Freiwilliger': 'Enterré volontaire'
 'Tomb Raider': 'Pilleur de tombeau'
-Labyrinth-Gollum: Gollum des labyrinthes
+Labyrinth-Gollum: 'Gollum des labyrinthes'
 'Labyrinth-Meister MB': 'Labyrinthe master MB'
 'Gontran Happiness': 'Gontran Bonheur'
 'Lucky 7': 'Lucky 7'
@@ -1690,11 +1689,11 @@ Labyrinth-Gollum: Gollum des labyrinthes
 'Internet Explorer': 'Internet Explorer'
 'Ich hab sogar das Klo abgesucht!': 'J''ai même fouillé les WC !'
 'Sind wir schon da?': 'Quand est ce qu''on arrive ?'
-Stadtallergie: Allergique à la ville
+Stadtallergie: 'Allergique à la ville'
 'Wo ich hinguck, seh ich Gegend.': 'Bah alors on n''attend pas Patrick ?'
 'Runaway Michael': 'Michel Fugueur'
 'Ohne Dach oder Leber': 'Sans toit ni foie'
-Erinnerungsträger: Porteur du Souvenir
+Erinnerungsträger: 'Porteur du Souvenir'
 'Erinnerungen an die Zivilisation': 'Mémoire de la civilisation'
 'Ich sehe ein Blauuuuuuues Tal': 'Je vois une Vallée Bleuûuue !'
 'Nackt und Zerfleischt': 'Cannibales Holocauste'
@@ -1704,12 +1703,12 @@ Unzerstörbar: Increvable
 'Chuck Norris'' Ebenbild': 'Égal de Chuck Norris'
 'Ich habe Magenschmerzen...': 'J''ai mal au ventre...'
 'Mir ist kalt hier draußen...': 'J''ai froid, dehors...'
-Anfängerleiche: Cadavre débutant
-Rabenfreund: Copain des corbeaux
-Dehydrationskollege: Concitoyen déshydraté
-Seelenhändler: Marchand d'âmes
+Anfängerleiche: 'Cadavre débutant'
+Rabenfreund: 'Copain des corbeaux'
+Dehydrationskollege: 'Concitoyen déshydraté'
+Seelenhändler: 'Marchand d''âmes'
 'Sehr überzeugender Pate': 'Parrain très convaincant'
-Wüstenspekulant: Spéculateur du désert
+Wüstenspekulant: 'Spéculateur du désert'
 'Bringt Sachen ins Rollen!': 'Fais bouger les choses!'
 'Freigiebiger Bürger': 'Citoyen qui tombe à pic'
 Messias: Messie
@@ -1717,13 +1716,13 @@ Messias: Messie
 'Santa Klaus ist Abfall': 'Le Père Noël est une ordure'
 'Santa Klaus ist Abschaum': 'Le Père Noël est une raclure'
 'Hängt Santa Klaus!': 'Pendez le Père Noël !'
-Lebenssammler: Collectionneur de vie
+Lebenssammler: 'Collectionneur de vie'
 'Schnitter der Aussenwelt': 'Faucheur de l''outre-monde'
 'Mitglied des Roten Kreuzes': 'Membre de la Croix Rouge'
 'Es ist der Tod der mich fürchten sollte!': 'La mort a peur de moi !'
 Sandmann: Ensableur
 'Sandy Maverick': 'Franc-tireur sablonneux'
-Wegweiser: Lanterne de jour
+Wegweiser: 'Lanterne de jour'
 'Praktischer Begleiter': 'Compagnon de poche'
 'Erleuchteter Anführer': 'Guide éclairé'
 'Erleuchteter Prediger': 'Prêcheur illuminé'
@@ -1792,22 +1791,22 @@ Ansehen: Voir
 'Bürger:': 'Citoyen :'
 'Alles sehen': 'Tout voir'
 'Kategorie:': 'Catégorie :'
-Verbrechen: Vols et agressions
+Verbrechen: 'Vols et agressions'
 Baustelle: Constructions
 'Neue und Tote': 'Arrivées et morts'
 'Zombieangriff (newspaper)': 'L''attaque de la nuit'
 'Den Lernmodus ausschalten': 'Désactiver le mode Apprentissage'
 'Wie gebraucht man diese Karte?': 'Comment marche cette carte ?'
 'Brauchst du Hilfe? Benutze den {modelink}!': 'Besoin d''aide ? Utilisez le {modelink} !'
-Anfängermodus: mode apprentissage
+Anfängermodus: 'mode apprentissage'
 'Handbuch zur Aussenwelt': 'Manuel pour le monde extérieur'
-"Wenn du \"MyHordes\" zum ersten Mal spielst, empfehlen wir dir den Links <strong>Wie soll ich spielen?</strong> zu folgen,\n                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.": "Si vous débutez sur \"MyHordes\", nous vous recommandons d'utiliser les liens <strong>Comment Jouer ?</strong> situés à gauche du site. Ils proposent des guides interactifs pour comprendre en 5 minutes les bases du jeu !"
+"Wenn du \"MyHordes\" zum ersten Mal spielst, empfehlen wir dir den Links <strong>Wie soll ich spielen?</strong> zu folgen,\n                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.": 'Si vous débutez sur "MyHordes", nous vous recommandons d''utiliser les liens <strong>Comment Jouer ?</strong> situés à gauche du site. Ils proposent des guides interactifs pour comprendre en 5 minutes les bases du jeu !'
 'Du kannst jederzeit die {helplink} im oberen Abschnitt der Seite aufsuchen.': 'Vous pouvez consulter à tout moment {helplink} du jeu en haut du site.'
 'komplette Spielhilfe': 'l''aide complète'
 'Zum Anfängermodus zurückkehren': 'Revenir à l''interface d''apprentissage'
 '(Du bist gerade im <strong>Expertenmodus</strong>)': '(vous utilisez l''interface de jeu <strong>Expert</strong>)'
 'Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!': 'Vous disposez d''une <strong>carte</strong>. Utilisez le bouton ci-dessus pour ne pas vous perdre !'
-"Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,\n                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem\n                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu\n                                auffüllen.": "Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville..."
+"Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,\n                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem\n                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu\n                                auffüllen.": 'Ces points sont notamment utilisés pour vos déplacements dans l''Outre-Monde, le désert entourant la ville...'
 'Du wurdest zum Schamanen gewählt!': 'Vous avez été élu(e) Chaman !'
 'Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.': 'Vous vous réveillez ce matin avec une horrible migraine et vous avez des difficultés à voir... Vous décidez de sortir de votre tente. Les voisins que vous croisez vous font la révérence.'
 'Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.': 'Que s''est-t''il passé hier soir ? Vous avez trop fait la fête. Arrivé aux remparts vous distinguez de petites lueurs bleues... Oui oui, c''est vous qui avez été désigné. Le doute disparaît lorsque vous portez la main à votre tête : un masque ridicule vous colle au visage et réduit considérablement votre vue.'
@@ -1819,7 +1818,7 @@ Anfängermodus: mode apprentissage
 'An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!': 'Faites pleuvoir aux portes ou dans l''Outre-Monde !'
 'Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...': 'Prodiguez des soins curatifs à vos voisins sans les tuer...'
 'Schau dir am besten gleich den {shaman_help} an.': 'Consultez dès maintenant {shaman_help} !'
-Schamanen-Ratgeber: le guide de jeu des Chamans
+Schamanen-Ratgeber: 'le guide de jeu des Chamans'
 'Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...': 'Il contient toutes les informations essentielles pour faire enfin reconnaître aux yeux de tous la supériorité de votre statut...'
 'Du hast aktuell keine Themen abonniert.': 'Vous n''êtes actuellement abonné à aucun sujet.'
 'Du wurdest zum Reiseleiter in der Außenwelt gewählt!': 'Vous avez été élu comme Guide de l''Outre-Monde !'
@@ -1828,7 +1827,7 @@ Schamanen-Ratgeber: le guide de jeu des Chamans
 'Du bist nun der Reiseleiter in der Außenwelt.': 'Vous êtes maintenant le Guide de l''Outre-Monde.'
 'Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!': 'De nouveaux horizons s''ouvrent devant vous, vous n''êtes plus un simple citoyen, mais un leader, un pionnier...'
 'Schau dir am besten gleich den {guide_help} an.': 'Jetez un œil au {guide_help}.'
-Reiseleiter-Ratgeber: guide du jeu pour les Guides de l'Outre-Monde
+Reiseleiter-Ratgeber: 'guide du jeu pour les Guides de l''Outre-Monde'
 'Alle als gelesen markieren': 'Marquer tous comme lus'
 'Alle archivieren': 'Tout archiver'
 'Mit Hilfe seiner übermenschlichen Heldenkräfte hat {citizen} {kills} Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!': 'Utilisant ses pouvoirs de Héros, {citizen} a exterminé {kills} zombie(s) à mains nues en hurlant comme un forcené !'
@@ -1857,8 +1856,8 @@ Reiseleiter-Ratgeber: guide du jeu pour les Guides de l'Outre-Monde
 'Das Haus': 'Son habitat'
 'Der Ort (kann man überhaupt von Zuhause reden?), an dem {citizen} lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.': 'L''endroit (peut-on parler de maison ?) où vivait {citizen} ne vaut même pas le coup d''oeil. Rien à récupérer, même en démontant tout.'
 'Inventar: {citizen}': 'Inventaire de {citizen}'
-'Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...': "Maintenant que {citizen} est mort, vous pouvez <strong>voler un objet</strong> si vous le souhaitez..."
-'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:': "En fouillant la baraque du mort vous apercevez les choses suivantes :"
+'Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...': 'Maintenant que {citizen} est mort, vous pouvez <strong>voler un objet</strong> si vous le souhaitez...'
+'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:': 'En fouillant la baraque du mort vous apercevez les choses suivantes :'
 'Als du ins Fenster schaust, bemerkst du, dass {citizen}s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...': 'En regardant par la fenêtre, vous constatez que la maison de {citizen} semble être vide de tout objet intéressant. Sans doute d''autres citoyens ont-ils déjà tout récupéré ?'
 '<strong>Achtung:</strong> Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!': '<strong>Attention :</strong> sans eau, certaines évolutions (comme les aqua-tourelles) ne fonctionneront pas lors de l''attaque !'
 'Du kannst heute keinen weiteren Gegenstand stehlen.': 'Vous ne pouvez rien voler d''autre aujourd''hui.'
@@ -1881,7 +1880,7 @@ Reiseleiter-Ratgeber: guide du jeu pour les Guides de l'Outre-Monde
 'Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!': 'Les tentatives de vol ne peuvent s''effectuer que <strong>pendant la nuit</strong> : elles ont une chance réduite de réussir et tout échec sera consigné au Registre !'
 'Achtung! Deinen Mitbürgern wird das gar nicht gefallen.': 'Attention ! Vos voisins ne vont pas du tout aimer ça !'
 'Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!': 'Votre tentative de vol a échoué ! Vous avez été découvert !'
-'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': "{citizen} étant mort(e), il y a de fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même..."
+'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': '{citizen} étant mort(e), il y a de fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l''arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même...'
 'Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!': 'Cette action est interdite en <strong>période de chaos</strong> !'
 'Die Bürger der Stadt haben entschieden, {citizen} zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!': 'Les citoyens ont décidé de crucifier {citizen} ! La croix en chocolat a été mangée par les citoyens au cours de ce tragique évènement !'
 'Hängt {user}!': 'Pendez {user}!'
@@ -1906,7 +1905,7 @@ Weihnachten: Noël
 '{building} hat {num} Batterien verbraucht.': '{building} a utilisé {num} Pile(s).'
 '{watchers} Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.': '{watchers} veilleurs se sont postés aux extrémités de la ville pour contenir les attaques de la Horde !'
 'Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.': 'Cette action permet de purifier la zone en faisant tomber de la pluie. Cette pluie peut remplir un peu le puits en ville ou encore avoir un effet dévastateur sur les zombies environnants.'
-'Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!': "Vous pouvez essayer de soigner ce citoyen, mais rien n'est garanti... et attention aux effets secondaires !"
+'Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!': 'Vous pouvez essayer de soigner ce citoyen, mais rien n''est garanti... et attention aux effets secondaires !'
 'Du hast nichts, womit du {poison} kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />{list_head} oder {list_tail}.': 'Vous ne pouvez pas combiner {poison} avec ceci. Vous pouvez le faire avec un des objets suivants :<br />{list_head} ou {list_tail}.'
 'Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...': 'Vous ne pouvez pas cacher d''objets pendant que quelqu’un regarde...'
 'Du hast keine Gegenstände, die du verstecken könntest.': 'Vous n''avez pas besoin de cela pour le moment...'
@@ -1932,14 +1931,14 @@ Weihnachten: Noël
 'Fass das Saufen lieber sein': 'Absinthe toi la prochaine fois'
 'Gib mir was zu saufen oder es knallt!': 'A boire ou j''tue le chien !'
 'Alles unter 55% ist Wasser': 'Avant 55°, c''est de l''eau'
-Dialyse: Sans Foie ni Loi
+Dialyse: 'Sans Foie ni Loi'
 '{citizen} hat die Zombies mit dem Gegenstand {item} <strong>{duration}</strong> abgelenkt!': '{citizen} a distrait les zombies pour <strong>{duration}</strong> avec {item}!'
 Behausung: Habitation
 '+{def} Punkt(e)': '+{def} point(s)'
-Heldenbonus: Bonus héros
+Heldenbonus: 'Bonus héros'
 Total: Total
 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.': 'Les objets de défense (plaques de tôle, etc.) sont à poser dans le Coffre.'
-Wächterbonus: Bonus Gardien
+Wächterbonus: 'Bonus Gardien'
 'Einzigartige Errungenschaften': 'Récompenses uniques'
 'Besondere Errungenschaften': 'Récompenses spéciales'
 'Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.': 'Il s’agit d’une récompense spéciale qui a été décernée dans le cadre d’un événement.'
@@ -1994,7 +1993,7 @@ Kosten: Coût
 'Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, <strong>hast du die Möglichkeit einen weiteren Gegenstand zu finden</strong>!<br /><br />Du kannst so lange bleiben wie du möchtest.': 'Vous êtes en train de fouiller la zone. Si vous restez sur place jusqu''à la fin du temps indiqué, <strong>vous obtiendrez peut-être un autre objet</strong> !<br /><br />Vous pouvez rester autant de temps que vous le souhaitez.'
 'Spiritueller Rucksack': 'Sac à dos spirituel'
 'Freigeschaltet:': 'Déverrouillé :'
-Dauerhaft!: Permanent !
+Dauerhaft!: 'Permanent !'
 'Für diese Saison': 'Pour cette saison'
 'Bis {date}': 'Jusqu''au {date}'
 'Für {num} weitere Städte': 'Pour {num} ville(s) supplémentaire(s)'
@@ -2004,7 +2003,7 @@ Dauerhaft!: Permanent !
 'Das Stadttor ist zerstört!': 'Les portes de la ville ont été détruites.'
 'Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.': 'La ville a été ravagée par les zombies : aucune évolution ne peut plus être réalisée.'
 'Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.': 'La ville a été dévastée ! Vous ne pouvez plus améliorer votre maison car elle a été, elle aussi, réduite en cendres.'
-ZERSTÖRT!!: DÉTRUITES !!
+ZERSTÖRT!!: 'DÉTRUITES !!'
 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.': 'Cette action vous permet de cacher l''ensemble des objets de votre sac dans la zone. <strong>Ils ne seront visibles que pour les autres citoyens bannis.</strong> Toutefois, un non-banni a une petite chance de les trouver lors d''une fouille.'
 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...': 'Les citoyens bannis d''une ville ont le droit de fouiller les ordures rejetées par la ville pour y puiser des objets qui pourraient leur être utiles...'
 'Mangels Diskretion konnte jeder sehen, wie {citizen} versuchte {item} in dieser Zone zu verstecken.': 'Manquant de discrétion, tout le monde a pu apercevoir {citizen} tenter de dissimuler {item} dans le secteur...'
@@ -2026,12 +2025,12 @@ ZERSTÖRT!!: DÉTRUITES !!
 '{deads} Tot': '{deads, plural, one {1 mort} other {# morts}}'
 'Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner <strong>Truhe</strong> abgelegt werden, um verwendet werden zu können.': 'Le mobilier vous apporte des avantages divers et variés. Ils doivent simplement être présents dans votre <strong>Coffre</strong> pour fonctionner.'
 Zuhause: Habitation
-Hausverteidigung: Défenses maison
+Hausverteidigung: 'Défenses maison'
 'kein Verteidigungsbonus': 'aucun bonus de défense'
 'Stufe {lvl}': 'Niveau {lvl}'
 Keine: Aucun.
 'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?': 'Comment ! vous n''avez pas encore de déco dans votre humble demeure ? Qu''attendez-vous pour fouiller le désert et ramener de magnifiques canapés en peau de zombie ? Ou encore un de ces adorables grigris un peu mous : une main ou un pied encore frais.'
-Deko-Punkte: points déco
+Deko-Punkte: 'points déco'
 'Komiteenote:': 'Note du comité :'
 'Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt {townname}</strong> vergeben.': 'Cette note est attribuée par le <strong>Comité du Bon Goût de {townname}</strong>.'
 'Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!': 'Notre tour de guet améliorée permet le rapatriement gratuit de n''importe quel citoyen qui se trouve à proximité de la ville !'
@@ -2053,7 +2052,7 @@ Deko-Punkte: points déco
 'Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...': 'Votre plainte a été retirée... Réfléchissez plus la prochaine fois...'
 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.': 'Attention, les joueurs hors de la ville ne pourront plus rentrer.'
 'Es wurde eine Rauchbombe eingesetzt!': 'Un fumigène a été utilisé !'
-'Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).': "Un nouveau citoyen est arrivé : {citizen} ({profession})."
+'Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).': 'Un nouveau citoyen est arrivé : {citizen} ({profession}).'
 'Unser {plan} hat beim Angriff {damage} Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!': 'Notre {plan} a subi {damage} points de dégâts structurels internes cette nuit : nous devons le réparer ou risquer de mourir ce soir !'
 'Die gesamte Region wurde durch die <strong>Explosion des {plan}</strong> verstrahlt!': 'Toute la région a été irradiée par la <strong>destruction de {plan}</strong> !'
 'Immerhin wurden alle Bürger aus der Stadt geschleudert...': 'Après tout, tous les citoyens de la ville ont été vaporisés...'
@@ -2068,7 +2067,7 @@ Global: Global
 'Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.': 'Le tableau noir permet aux héros vétérans de donner des instructions à toute la communauté.'
 'Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.': 'Il vous est accessible car vous avez débloqué l''avantage Dictateur sur votre page d''âme.'
 'Mehr darüber erfahren...': 'En savoir plus...'
-'Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!': "Après quelques mètres seulement, {citizen} s'est effondré(e) par terre en hurlant ! Sa blessure à la jambe l'empêche finalement de quitter le secteur !"
+'Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!': 'Après quelques mètres seulement, {citizen} s''est effondré(e) par terre en hurlant ! Sa blessure à la jambe l''empêche finalement de quitter le secteur !'
 'Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!': 'Vous ne pouvez pas rentrer dans ce bâtiment, vos blessures s''y infecteraient bien trop vite !'
 'Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!': 'Vous ne pouvez pas rentrer dans ce bâtiment, il n''y a pas assez d''oxygène pour plus d''une personne !'
 'Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!': 'Vous ne pouvez pas y retourner aujourd''hui, votre organisme ne pourrait le supporter.'
@@ -2091,7 +2090,7 @@ Global: Global
 '<strong>Du bist erschöpft</strong>, du kannst deshalb weder <strong>in die Außenwelt gehen</strong>, noch <strong>das Stadttor öffnen</strong>, noch <strong>es schließen</strong>.': '<strong>Vous êtes fatigué(e)</strong>, vous ne pouvez donc ni <strong>sortir dans l''Outre-Monde</strong>, ni <strong>ouvrir la Grande Porte</strong>, ni <strong>la fermer</strong>.'
 'Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!': 'Buvez, mangez, faites quelque chose si vous voulez de nouveau vous sentir en forme !'
 'Klick hier, wenn du mit deiner Heldenfähigkeit <strong>diesen Registereintrag fälschen</strong> möchtest...': 'Cliquez pour utiliser votre capacité de héros et <strong>falsifier cette entrée du registre</strong>...'
-Ranking-Ausschluss: Exclusion du classement
+Ranking-Ausschluss: 'Exclusion du classement'
 'Dieses Leben wird aus den Annalen der Geschichte getilgt. Du erhälst weder Seelenpunkte noch Auszeichnungen.': 'Cette existance est effacée des annales de l’histoire. Vous n’avez pas obtenu de points d’âme ou de récompenses pour celle-ci.'
 'Das wird dir in Zukunft schlaflose Nächte bereiten!': 'Voilà ce qui s''offre maintenant à vous !'
 'Erkunde die Außenwelt:': 'Explorez l’outre-monde :'
@@ -2120,8 +2119,8 @@ Ranking-Ausschluss: Exclusion du classement
 'Durch die Lüftungsschächte klettern (in)': 'Entrer par l''aération'
 'Durch die Lüftungsschächte klettern (out)': 'Sortir par l''aération'
 'Höchstens {nw_defense}': "\n              {nw_defense, plural,\n                =0 {Aucun !!}\n                other {Au maximum #}\n              }\n          "
-'Dieser Bürger': "Selon les rumeurs, le citoyen {citizen} :"
-'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...': "n'est pas en ville et <strong>n'a pas protégé sa maison contre les voleurs</strong>..."
+'Dieser Bürger': 'Selon les rumeurs, le citoyen {citizen} :'
+'Dieser Bürger ist nicht in der Stadt sei und hat <strong>sein Haus nicht gegen Einbrecher geschützt</strong>...': 'n''est pas en ville et <strong>n''a pas protégé sa maison contre les voleurs</strong>...'
 'In der (<strong>leeren</strong>) Zone graben': 'Fouiller (<strong>zone épuisée</strong>)'
 'Tod durch die Apokalypse': 'Mort de l''Apocalypse'
 'Eine Katastrophe apokalyptischen Ausmaßes hat dich, deine Stadt und alles in der Umgebung hinweggefegt. Es ist, als hätte jemand die gesamte Welt... gereinigt.': 'Un désastre aux proportions apocalyptiques vous a anéanti, vous, votre ville et tout ce qui se trouve dans les environs. C’est comme si ce monde avait été... purgé.'
@@ -2132,10 +2131,10 @@ Ranking-Ausschluss: Exclusion du classement
 'Das sieht nicht gut aus... Die Zombies werden heute Nacht nicht unser größtes Problem sein.': 'Ça n’a pas l’air bon... Les zombies ne seront pas notre plus gros problème ce soir.'
 Beten: Prier
 'Es gibt keine Hoffnung!': 'Il n''y a pas d''espoir !'
-Auszeichnungsdetails: Détail des distinctions
+Auszeichnungsdetails: 'Détail des distinctions'
 'Trinken (Oder du stirbst heute Nacht)': 'Boire (ou mourir ce soir)'
 'Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!': 'Vous avez réussi à vous extirper de ce danger, mais les zombies vous regardent maintenant avec envie et s''approchent dangereusement en grognant... FUYEZ !'
-Profi-Fotograph: Photographe de guerre
+Profi-Fotograph: 'Photographe de guerre'
 'Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.': 'Vous commencez toutes vos villes avec un appareil photo d''avant-guerre.'
 Kopf: Tête
 Hand: Main
@@ -2151,7 +2150,7 @@ Fuß: Pied
 'Dieser Bürger gestattet dir nicht auf seine Gegenstände zuzugreifen.': 'Ce citoyen refuse que vous touchiez à ses objets.'
 '{attacker} hat {defender} gewalttätig angegriffen! Der Kampf ist eskaliert und {attacker} verletzte {defender} schlussendlich schwer!': '{attacker} a violemment agressé {defender} ! La bagarre a rapidement dégénéré et {attacker} a fini par <strong>blesser gravement</strong> {defender} !'
 'Tag {d} {today}': 'Jour {d} {today}'
-heute: aujourd'hui
+heute: 'aujourd''hui'
 'Dieser Bürger wurde aus der Gemeinschaft verbannt; er hat nicht länger Zugang zu den Gebäuden der Stadt, mit Ausnahme des Brunnens (wobei er auf eine Ration pro Tag eingeschränkt ist).': 'Ce citoyen a été banni de la communauté : il ne pourra plus avoir accès aux dispositifs de la ville, à l''exception du puits (limité toutefois à la ration quotidienne, sans prise supplémentaire).'
 'Die Ratten haben das Schiff schon vor Tagen verlassen... Diese Stadt ist nur noch ein Schatten ihrer selbst.': 'De toute manière, tous les rats ont déjà abandonné le navire depuis des jours... Cette ville n''est plus que l''ombre d''elle-même.'
 'Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!': 'Mourir assassiné(e) est un moment dur à passer (si, si). Mais nous vous recommandons très fortement <u>de ne pas divulguer l''identité de votre meurtrier à vos anciens concitoyens</u>... Laissez-leur le plaisir de mener l''enquête !'
@@ -2236,7 +2235,7 @@ Löschen: Effacer
 'Als du dich umschaust, <strong>überfällt dich eine plötzliche, unkontrollierbare Panik</strong>! Es ist unmöglich, auch nur einen Schritt weiterzugehen.<hr/>Deine Bewegung wurde <strong>unterbrochen</strong> und du hast <strong>1 AP</strong> verloren.': 'En regardant autour de vous, <strong>vous êtes pris(e) d''une soudaine et incontrôlable panique</strong> ! Impossible de faire un pas de plus...  Votre déplacement a été <strong>interrompu</strong> et vous avez perdu<strong>1 AP</strong>.'
 '{shaman} hat {citizen} soeben mit seinen mystischen Schamanenkräften geheilt!': '{shaman} vient de soigner {citizen} grâce à ses pouvoirs de chaman !'
 'Wir werden alle sterben: Sag es weiter!': 'Nous allons tous mourir : passez le mot !'
-Revolution!: Insurrection !
+Revolution!: 'Insurrection !'
 'Vor dir siehst du die glimmenden Überreste einer Barrikade. In der Ferne ertöhnen Jubelschreie und Sirenenrufe.': 'Devant vous, vous pouvez voir les restes fumants d’une barricade. Au loin, des cris de jubilation et des sirènes rugissent.'
 'Die Verbannten der Stadt wollten sich nicht länger unterdrücken lassen und haben eine Revolution angezettelt! Die bisherigen Anführer der Stadt wurden entmachtet und die Revolutionäre haben die Kontrolle übernommen.': 'Les bannis de la ville ne voulaient plus être opprimés et ont commencé une révolution ! Les anciens dirigeants de la ville ont été évincés et les révolutionnaires ont pris le contrôle.'
 'Du bist nun frei.': 'Vous êtes maintenant libre.'
@@ -2244,7 +2243,7 @@ Revolution!: Insurrection !
 'Du bist nun verbannt.': 'Vous êtes maintenant banni.'
 'Die Revolutionäre haben die Führung in der Stadt übernommen und die vormals freien Bürger erfahren nun selbst das bittere Schicksal der Verbannung.': 'Les révolutionnaires ont pris le contrôle de la ville et les citoyens autrefois libres connaissent maintenant le destin amer du bannissement eux-mêmes.'
 'Schau dir am besten gleich den {revolution_help} an.': 'Il est préférable de jeter un coup d’oeil au {revolution_help} dès maintenant.'
-Verbannten-Ratgeber: Guide du bannissement
+Verbannten-Ratgeber: 'Guide du bannissement'
 'Dort findest du alle Informationen über den Aufstand und dessen Folgen.': 'Vous y trouverez toutes les informations sur cette insurrection et ses conséquences.'
 'Was einst die örtliche Bibliothek war, ist heute eine Ansammlung von mehreren kleinen Häusern. Heute sind die Bücher größtenteils zerrissen oder verbrannt, der Boden ist mit zerrissenen Seiten übersät und die Regale sind umgestoßen worden.': 'Un ensemble de plusieurs petites maisons qui constituaient autrefois une bibliothèque de quartier. Aujourd''hui, les livres sont, pour la plupart, déchirés ou brûlés, le sol est jonché de pages arrachées et les étagères sont renversées.'
 'Diskussionen rund um die Bank': 'Discussions sur la banque'
@@ -2297,7 +2296,7 @@ Verbannten-Ratgeber: Guide du bannissement
 'Heute Nacht wird eine Wahl für den {rolename} der Stadt abgehalten. Denke daran, rechtzeititg {vote_link}.': 'Ce soir, il y aura une élection pour le poste de {rolename}. N''oubliez pas {vote_link}.'
 'im Wahlbüro abzustimmen': 'de voter au bureau électoral'
 'Anzahl der Tage, die du als Einwohner gespielt hast.': 'Jours passés en tant qu''Habitant.'
-Standarteinstellung: Paramètre par défaut
+Standarteinstellung: 'Paramètre par défaut'
 Wählbar: Sélectionnable
 'Nicht wählbar': 'Non sélectionnable'
 Gebaut: Construit
@@ -2316,7 +2315,7 @@ Aktionen: Actions
 'Du hast {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...': 'Vous avez signalé le message de {username} aux Corbeaux. Qui sait, peut-être que {username} va mourir ce soâââr...'
 'Buddler - Gewinner des DdA': 'Fouineur gagnant du DDH'
 'Auszeichnung für die Mitglieder der Buddler-Liga, die beim Duell der Achter gewonnen haben!': 'Victoire en tant que Fouineur lors du Duel des Huit !'
-'Chef der Mauer': 'Chef-Rempart'
+'Chef der Mauer': Chef-Rempart
 Schaufelführer: Chef-Pelleteur
 'Ich bin ein Biest!': 'Je suis une bête !'
 'DdA Beste Buddler': 'Fwinneur du DDH'
@@ -2324,3 +2323,5 @@ Stadt/Stadttor: Ville/Portes
 'Duell der Achter': 'Duel des Huit'
 'Ehrenpreis für die Teilname am Duell der Achter Event!': 'Récompense honorifique pour une participation au Duel des Huit !'
 'Kategorien anzeigen': 'Afficher les catégories d''objets'
+'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}'
+'Das Neuste aus aller Welt: {announcement}, {date}': 'Das Neuste aus aller Welt: {announcement}, {date}'

@@ -1,4 +1,3 @@
----
 TDG_PRE_00_: Ev
 TDG_PRE_10_: Hunn
 TDG_PRE_20_: Itch
@@ -120,16 +119,16 @@ TDG_SUF_39: ''
 TDG_SUF_49: ''
 TDG_SUF_59: ''
 'Krankenhaus Beinapp': 'Cash Ulty Hospital'
-Aesthetyxiations-Abteilung: Aesthetyxiation Unit
+Aesthetyxiations-Abteilung: 'Aesthetyxiation Unit'
 'Krankenhaus Krankenstedt': 'Syck Niss Hospital'
 'Waldorf Klinik': 'Royal Troon Hospital'
 'STD Behandlungszentrum Bohlen': 'The Munro Chronic STI Treatment Unit'
 'Bill S. Preston Memorial Hospital': 'Bill S. Preston Memorial Hospital'
 'Klinik von Dr. Quack Salber': 'Dr Kwak''s Clinic!'
-Wasserallergie-Behandlungszentrum: The Mererid Allergy Clinic
+Wasserallergie-Behandlungszentrum: 'The Mererid Allergy Clinic'
 'Klinikum Altenburg': 'Pelle Grain Hospital'
 'Stadtkrankenhaus am Dorfplatz': 'Osmond St Hospital'
-Blanko-Penisverkleinerungsklinik: The Chapman Penis Reduction Clinic
+Blanko-Penisverkleinerungsklinik: 'The Chapman Penis Reduction Clinic'
 'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'The Brunting Daily Exhaustion Center'
 'Bordeaux Grace': 'Bordeaux Grace'
 'George und Ralph Kinderkrankenhaus': 'George and Ralph Children''s Hospital'
@@ -151,20 +150,20 @@ Blanko-Penisverkleinerungsklinik: The Chapman Penis Reduction Clinic
 'Vajazzl Inn': 'The Vajazzl Inn'
 'Hotel Venga': 'Hotel Venga'
 'Verlassener Bunker': 'Abandonned Bunker'
-Thermonuklear-Bunker: Thermonuclear Bunker
-Garrison-Haus: Garrison House
+Thermonuklear-Bunker: 'Thermonuclear Bunker'
+Garrison-Haus: 'Garrison House'
 'Bastion der Angst': 'Bastion of Fear'
 'Bunker der Wut': 'Bunker of Fury'
 'Fallout Shelter': 'Fallout Shelter'
 'Keine Hoffnung ohne Öffnung!': 'Nowhere to hide'
-Schattenfort: even inside!
+Schattenfort: 'even inside!'
 'Verlassene Trooper-Station': 'Shady Fort'
-Verwesungsversteck: Abandoned Troop Station
-Knochenkeller: Bone-filled Bunker
+Verwesungsversteck: 'Abandoned Troop Station'
+Knochenkeller: 'Bone-filled Bunker'
 'Geheimes Testlabor': 'Bone Blockhouse'
 'Area 52.1 Bunker': 'Secret Testing Center'
 'Area 33 Bunker': 'Area 52.1 Shelter'
-Quarantäne-Zone: Area 33 Bunker
+Quarantäne-Zone: 'Area 33 Bunker'
 'Zum Schlafen Reichts Motel': 'Zum Schlafen Reichts Motel'
 Psychose: Psychosis
 Demenz: Dementia
@@ -209,10 +208,10 @@ Verstümmelung: Mutilations
 'Ich bin nicht verrückt': 'I''m not crazy'
 'Ich sehe nichts': 'I don''t see anything'
 'Sie sind wahnsinnig': 'They are mad'
-'Bis zum Tod': 'Die'
+'Bis zum Tod': Die
 'Töte sie alle': 'Kill them all'
 'Sie werden sterben': 'They will die'
 'Lass sie sterben': 'Hope for their death'
 'Verschlinge sie': 'Devour them'
-'Gib auf': 'Abandon'
+'Gib auf': Abandon
 'Alles... ist ... OK …': 'Everything ... is ... fine …'

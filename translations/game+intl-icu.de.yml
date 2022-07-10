@@ -2323,3 +2323,5 @@ Stadt/Stadttor: Stadt/Stadttor
 'Duell der Achter': 'Duell der Achter'
 'Ehrenpreis für die Teilname am Duell der Achter Event!': 'Ehrenpreis für die Teilname am Duell der Achter Event!'
 'Kategorien anzeigen': 'Kategorien anzeigen'
+'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}'
+'Das Neuste aus aller Welt: {announcement}, {date}': 'Das Neuste aus aller Welt: {announcement}, {date}'

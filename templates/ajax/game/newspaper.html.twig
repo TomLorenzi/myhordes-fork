@@ -9,7 +9,21 @@
     <div>
         <div>
             <input type="checkbox" name="gazette-switch" id="gazette-switch" />
-            
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                {% if announcement is not null %}
+                    <div class="note small">
+                        {{ 'Das Neuste aus aller Welt: {announcement}, {date}'|trans({ announcement: '<b class="pointer" x-ajax-href="' ~ url('soul_news') ~ '">' ~ announcement.title ~ '</b>', date: '<span>' ~ announcement.timestamp|format_datetime('medium', 'none') ~ '</span>' },'game')|raw }}
+                    </div>
+                {% endif %}
+                <div class="small right">
+                    <b x-ajax-href="{{ url('soul_future') }}" class="pointer">{{ season is not null and season.number == 0 ? "Beta-Saison"|trans({},'soul') : "Saison {season}"|trans({"{season}": season is not null ? season.number : 0}, 'soul') }}</b>
+                </div>
+            </div>
+
+
+
+
             {% include 'ajax/game/gazette_widget.html.twig' with { gazette: gazette, council: council } %}
 
             {% if citizensWithRole|length > 0 or votesNeeded|length > 0 %}
