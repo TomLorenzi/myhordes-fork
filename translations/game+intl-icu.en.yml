@@ -335,7 +335,7 @@ Warenlager: Warehouse
 'Entfernte Regionen': 'Distant Region'
 Pandämonium: Pandemonium
 'Private Stadt': 'Private Town'
-'{citizen} hat dem Brunnen {num} Rationen Wasser hinzugefügt.': '{citizen} hat dem Brunnen {num} Rationen Wasser hinzugefügt.'
+'{citizen} hat dem Brunnen {num} Rationen Wasser hinzugefügt.': '{citizen} has added {num} water rations to the well.'
 Nordosten: North-East
 Nordwesten: North-West
 Norden: North
@@ -1469,7 +1469,7 @@ UFC: UFC
 'Ehrenpreis für die Teilnahme am UFC!': 'Honorary prize for participation in the UFC!'
 'Seelenführer der Gemeinschaft': 'Community Soul Guide'
 'Charismatischer Prophet': 'Charismatic prophet'
-'Der Rabe hat diese Nachricht zerrissen.': 'Der Rabe hat diese Nachricht zerrissen.'
+'Der Rabe hat diese Nachricht zerrissen.': 'The Crow has ripped this message apart.'
 'Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.': 'This defensive bonus disappears at midnight, after the attack.'
 'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.': 'The resident is basically a normal citizen, with no remarkable abilities to speak of...'
 'Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.': 'Scavengers are much quicker than any other citizen when it comes to looking for objects in the desert. Furthermore, their chances of finding something are significantly higher.'
@@ -1976,8 +1976,8 @@ Material: Use
 'Die blau markierten Felder sind Städte, in denen du mitgespielt hast!': 'Lines with a blue background correspond to towns in which you participated!'
 'Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.': 'Rankings are updated after the midnight attack.'
 'Deine Identität': 'Deine Identität'
-'Diese Stadt erlaubt es, einen Spitznamen zu tragen.': 'Diese Stadt erlaubt es, einen Spitznamen zu tragen.'
-'Freilassen, um normalen Spielernamen zu verwenden.': 'Freilassen, um normalen Spielernamen zu verwenden.'
+'Diese Stadt erlaubt es, einen Spitznamen zu tragen.': 'This town allows you to choose a nickname.'
+'Freilassen, um normalen Spielernamen zu verwenden.': 'Leave empty to use your normal name.'
 'Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:': 'We reckon that tomorrow''s attack will involve somewhere between :'
 'Erforschung einer beengten Ruine in erstickender Atmosphäre': 'Exploring the maze of a ruin, in a cramped and suffocating environment'
 'Diskussionen rund um Bauprojekte': 'Discussions about construction sites'
