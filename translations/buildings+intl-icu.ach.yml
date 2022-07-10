@@ -376,3 +376,4 @@ Straßenbeleuchtung: crwdns61172:0crwdne61172:0
 'Jeder in der Bank abgelegte Verteidigungsgegenstand bringt der Stadt 1.5 Verteidigungspunkte zusätzlich ein.': 'crwdns61194:0crwdne61194:0'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.': 'crwdns61196:0crwdne61196:0'
 'Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.': 'crwdns61198:0crwdne61198:0'
+'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'crwdns74802:0crwdne74802:0'
