@@ -148,6 +148,54 @@ class WebController extends CustomAbstractController
     }
 
     /**
+     * @Route("/pm/group/{id<\d+>}", name="home_pm_group_id", priority=1)
+     * @param int $id
+     * @return Response
+     */
+    public function standalone_pm_gid(int $id): Response
+    {
+        if ($r = $this->handleDomainRedirection()) return $r;
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+
+        $group = $this->entity_manager->getRepository(OfficialGroup::class)->find( $id );
+        if (!$group) return $this->redirect($this->generateUrl('home'));
+
+        return $this->render( 'web/pm-host.html.twig', ['command' => "oglink_$id", 'langs' => $this->allLangs] );
+    }
+
+    /**
+     * @Route("/pm/group/{semantic}", name="home_pm_group_sem")
+     * @Route("/pm/group/{lang}/{semantic}", name="home_pm_group_sem_lang")
+     * @param string|null $lang
+     * @param string $semantic
+     * @return Response
+     */
+    public function standalone_pm_sem(string $semantic, string $lang = null): Response
+    {
+        if ($r = $this->handleDomainRedirection()) return $r;
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+
+        $lang = $lang ?? $this->getUserLanguage();
+        if (!in_array( $lang, $this->allLangsCodes ))
+            return $this->redirect($this->generateUrl('home'));
+
+        $group = null;
+        switch ($semantic) {
+            case 'support':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
+                break;
+            case 'moderation':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_MODERATION]);
+                break;
+        }
+        if (!$group) return $this->redirect($this->generateUrl('home'));
+
+        return $this->render( 'web/pm-host.html.twig', ['command' => "oglink_{$group->getId()}", 'langs' => $this->allLangs] );
+    }
+
+    /**
      * @Route("/r/ach", name="revert_ach_language")
      * @GateKeeperProfile("skip")
      * @return Response
