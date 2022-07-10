@@ -295,7 +295,7 @@ class ExternalXML2Controller extends ExternalController {
                         : '',
                     'phase' => $phase
                 ],
-                'cdata_value' => html_entity_decode(str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $pastLife->getLastWords()))
+                'cdata_value' => html_entity_decode(str_replace('{gotKilled}', $this->translator->trans('...der Mörder .. ist.. IST.. AAARGHhh..', [], 'game'), $pastLife->getLastWords() ?? ''))
             ];
         }
 

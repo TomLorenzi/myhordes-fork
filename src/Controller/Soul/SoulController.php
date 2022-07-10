@@ -801,9 +801,12 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/ranking/soul/{page}/{season<\d+|c|all|myh|a>}", name="soul_season_solo")
+     * @param JSONRequestParser $parser
+     * @param int $page
+     * @param null $season
      * @return Response
      */
-    public function soul_season_solo(JSONRequestParser $parser, $page = 1, $season = null): Response
+    public function soul_season_solo(JSONRequestParser $parser, int $page = 1, $season = null): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);

@@ -67,7 +67,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
                     CURLOPT_URL => $this->discordEndpoint,
                     CURLOPT_TIMEOUT => 5,
                     CURLOPT_POSTFIELDS => [
-                        'payload_json' => new \CURLStringFile( json_encode( $payload, JSON_FORCE_OBJECT ), null, 'application/json' ),
+                        'payload_json' => new \CURLStringFile( json_encode( $payload, JSON_FORCE_OBJECT ), '', 'application/json' ),
                         'files[0]'  => new \CURLStringFile( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ),
                     ],
                 ]);
