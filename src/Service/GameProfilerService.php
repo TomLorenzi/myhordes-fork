@@ -120,7 +120,7 @@ class GameProfilerService {
 
     public function recordBuildingConstructed( BuildingPrototype $building, Town $town, ?Citizen $citizen = null, string $method = 'default' ): void {
         $this->maybe_persist(
-            $this->init( GameProfileEntryType::BuildingDiscovered, $town, $citizen )
+            $this->init( GameProfileEntryType::BuildingConstructed, $town, $citizen )
                 ?->setForeign1( $building->getId() )
                 ?->setData( [ 'by' => $method ])
         );
