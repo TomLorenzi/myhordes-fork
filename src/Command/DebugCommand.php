@@ -50,7 +50,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Constraints\Date;
 
 
-class DebugCommand extends Command
+class DebugCommand extends LanguageCommand
 {
     protected static $defaultName = 'app:debug';
 
@@ -66,7 +66,6 @@ class DebugCommand extends Command
     private UserPasswordHasherInterface $encoder;
     private ConfMaster $conf;
     private TownHandler $townHandler;
-    private CommandHelper $helper;
     private TwinoidHandler $twin;
     private UserHandler $user_handler;
     private GameProfilerService $gps;
@@ -130,6 +129,7 @@ class DebugCommand extends Command
             ->addOption('test-estim', null, InputOption::VALUE_REQUIRED, 'Takes all the citizens in the town and make them go into the watchtower', false)
             ->addOption('keep-estims', null, InputOption::VALUE_NONE, 'If set, leaves the estimations in the DB')
         ;
+        parent::configure();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

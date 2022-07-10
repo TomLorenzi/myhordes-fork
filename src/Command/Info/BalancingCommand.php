@@ -33,7 +33,7 @@ class BalancingCommand extends LanguageCommand
     {
         $this
             ->setDescription('Dumps balancing information')
-            ->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate]')
+            ->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate, group-spawnrate, ruin-pawnrate]')
             ->addArgument('for',  InputArgument::OPTIONAL, 'What object would you like to know about?')
 
             ->addOption('named-drop', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Adds a named drop overwrite to the resolver.')
@@ -54,7 +54,7 @@ class BalancingCommand extends LanguageCommand
             return [ $this->translate($z->getLabel(), 'game' ), $this->rand->resolveChance( $z->getDropByNames($named), $itemPrototype )];
         };
 
-        $io->title("Item Drop Rates for <info>{$itemPrototype->getLabel()}</info>");
+        $io->title("Item Drop Rates for <info>" . $this->translate($itemPrototype->getLabel(), "items") . "</info>");
 
         $data = array_map( $fun_beautify, array_filter( array_map($fun_by_name, ['empty_dig','base_dig']), $fun_filter));
         if (!empty($data)) {

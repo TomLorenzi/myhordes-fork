@@ -1486,8 +1486,9 @@ class ActionHandler
                     // Banned citizen note
                     case 15: {
                         $zones = $this->zone_handler->getZoneWithHiddenItems($citizen->getTown());
+                        usort( $zones, fn(Zone $a, Zone $b) => $b->getItemsHiddenAt() <=> $a->getItemsHiddenAt() );
                         if(count($zones) > 0) {
-                            $zone = $this->random_generator->pick($zones);
+                            $zone = $zones[0];
                             $tags[] = 'bannote_ok';
                             $execute_info_cache['zone'] = $zone;
                         } else {

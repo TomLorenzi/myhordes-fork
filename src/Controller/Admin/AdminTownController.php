@@ -1164,11 +1164,13 @@ class AdminTownController extends AdminActionController
 
         foreach ($inventories as $inventory) {
             for ($i = 0; $i < $number; $i++) {
+                if ($hidden && $inventory->getZone()) $inventory->getZone()->setItemsHiddenAt( new \DateTimeImmutable() );
                 foreach ($itemPrototype as $proto) {
                     $handler->forceMoveItem($inventory, $itemFactory->createItem($proto->getName(), $broken, $poison)->setEssential($essential)->setHidden($hidden && $inventory->getZone()));
                 }
 
             }
+            if ($hidden && $inventory->getZone()) $this->entity_manager->persist($inventory->getZone());
             $this->entity_manager->persist($inventory);
         }
 
@@ -1605,7 +1607,7 @@ class AdminTownController extends AdminActionController
                 if (is_a($town, Town::class))
                     $picto->setOld($town->getSeason() === null)->setTown($town)->setDisabled( $town->getRankingEntry()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) || $citizen->getRankingEntry()->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) );
                 else
-                    $picto->setTownEntry($town)->setDisabled( $town->getRankingEntry()->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->getRankingEntry()->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) );
+                    $picto->setTownEntry($town)->setDisabled($town->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS));
                 $citizen->getUser()->addPicto($picto);
                 $this->entity_manager->persist($citizen->getUser());
             }

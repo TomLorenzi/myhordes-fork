@@ -509,6 +509,11 @@
                                     {{help_btn("Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden."|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::LimitTownListSize") ) %}checked{% endif%} type="checkbox" id="setting_limit_town_size">&nbsp;<label for="setting_limit_town_size">{{'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen'|trans({}, 'soul')}}</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -604,7 +609,7 @@
                     <div class="row">
                         <div class="padded cell rw-12">
                             <div class="note note-lightest">
-                                <input x-open-mod-tools-window {% if app.user.openModToolsSameWindow %}checked{% endif%} type="checkbox" id="setting_open_same_window">&nbsp;<label for="setting_open_same_window">{{ 'Moderationslinks in neuem Fenster öffnen'|trans({}, 'soul') }}</label>
+                                <input x-open-mod-tools-window {% if app.user.openModToolsSameWindow %}checked{% endif%} type="checkbox" id="setting_open_same_window">&nbsp;<label for="setting_open_same_window">{{ 'Moderationslinks im selben Fenster öffnen'|trans({}, 'soul') }}</label>
                             </div>
                         </div>
                     </div>
@@ -757,6 +762,7 @@
                     useicu: document.getElementById('setting_use_icu').checked,
                     autofollow: document.getElementById('setting_auto_follow').checked,
                     clasort: document.getElementById('setting_classic_bank_sort').checked,
+                    town10: document.getElementById('setting_limit_town_size').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

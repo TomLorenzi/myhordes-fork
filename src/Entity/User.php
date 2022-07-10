@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\UserSetting;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -117,11 +118,13 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $preferSmallAvatars = false;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @deprecated
      */
     private $postAsDefault;
 
@@ -218,11 +221,13 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $disableFx = false;
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $expert = false;
 
@@ -255,16 +260,19 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $UseICU = false;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @deprecated
      */
     private $preferredPronoun;
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $open_mod_tools_same_window = false;
 
@@ -280,6 +288,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $noAutoFollowThreads = false;
 
@@ -290,18 +299,26 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $classicBankSort = false;
 
     /**
      * @ORM\Column(type="boolean")
+     * @deprecated
      */
     private $noAutomaticNameManagement = false;
 
     /**
      * @ORM\Column(type="string", length=5, nullable=true)
+     * @deprecated
      */
     private $flag;
+
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $settings = [];
 
     public function __construct()
     {
@@ -687,26 +704,22 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function getPreferSmallAvatars(): ?bool
     {
-        return $this->preferSmallAvatars;
+        return $this->getSetting( UserSetting::PreferSmallAvatars );
     }
 
     public function setPreferSmallAvatars(bool $preferSmallAvatars): self
     {
-        $this->preferSmallAvatars = $preferSmallAvatars;
-
-        return $this;
+        return $this->setSetting( UserSetting::PreferSmallAvatars, $preferSmallAvatars );
     }
 
     public function getPostAsDefault(): ?string
     {
-        return $this->postAsDefault;
+        return $this->getSetting( UserSetting::PostAs );
     }
 
     public function setPostAsDefault(?string $postAsDefault): self
     {
-        $this->postAsDefault = $postAsDefault;
-
-        return $this;
+        return $this->setSetting( UserSetting::PostAs, $postAsDefault );
     }
 
     public function getLanguage(): ?string
@@ -981,26 +994,22 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function getDisableFx(): ?bool
     {
-        return $this->disableFx;
+        return $this->getSetting( UserSetting::DisableEffects );
     }
 
     public function setDisableFx(bool $disableFx): self
     {
-        $this->disableFx = $disableFx;
-
-        return $this;
+        return $this->setSetting( UserSetting::DisableEffects, $disableFx );
     }
 
     public function getExpert(): ?bool
     {
-        return $this->expert;
+        return $this->getSetting( UserSetting::UseExpertMode );
     }
 
     public function setExpert(bool $expert): self
     {
-        $this->expert = $expert;
-
-        return $this;
+        return $this->setSetting( UserSetting::UseExpertMode, $expert );
     }
 
     /**
@@ -1083,38 +1092,32 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function getUseICU(): ?bool
     {
-        return $this->UseICU;
+        return $this->getSetting( UserSetting::UseICU );
     }
 
     public function setUseICU(bool $UseICU): self
     {
-        $this->UseICU = $UseICU;
-
-        return $this;
+        return $this->setSetting( UserSetting::UseICU, $UseICU );
     }
 
     public function getPreferredPronoun(): ?int
     {
-        return $this->preferredPronoun;
+        return $this->getSetting( UserSetting::PreferredPronoun );
     }
 
     public function setPreferredPronoun(?int $preferredPronoun): self
     {
-        $this->preferredPronoun = $preferredPronoun;
-
-        return $this;
+        return $this->setSetting( UserSetting::PreferredPronoun, $preferredPronoun );
     }
 
     public function getOpenModToolsSameWindow(): ?bool
     {
-        return $this->open_mod_tools_same_window;
+        return $this->getSetting( UserSetting::OpenDashboardInSameWindow );
     }
 
     public function setOpenModToolsSameWindow(bool $open_mod_tools_same_window): self
     {
-        $this->open_mod_tools_same_window = $open_mod_tools_same_window;
-
-        return $this;
+        return $this->setSetting( UserSetting::OpenDashboardInSameWindow, $open_mod_tools_same_window );
     }
 
     public function getPendingEmail(): ?string
@@ -1157,14 +1160,12 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function getNoAutoFollowThreads(): ?bool
     {
-        return $this->noAutoFollowThreads;
+        return $this->getSetting( UserSetting::NoAutomaticThreadSubscription );
     }
 
     public function setNoAutoFollowThreads(bool $noAutoFollowThreads): self
     {
-        $this->noAutoFollowThreads = $noAutoFollowThreads;
-
-        return $this;
+        return $this->setSetting( UserSetting::NoAutomaticThreadSubscription, $noAutoFollowThreads );
     }
 
     /**
@@ -1193,36 +1194,65 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function getClassicBankSort(): ?bool
     {
-        return $this->classicBankSort;
+        return $this->getSetting( UserSetting::ClassicBankSort );
     }
 
     public function setClassicBankSort(bool $classicBankSort): self
     {
-        $this->classicBankSort = $classicBankSort;
-
-        return $this;
+        return $this->setSetting( UserSetting::ClassicBankSort, $classicBankSort );
     }
 
     public function getNoAutomaticNameManagement(): ?bool
     {
-        return $this->noAutomaticNameManagement;
+        return $this->getSetting( UserSetting::NoAutomaticNameManagement );
     }
 
     public function setNoAutomaticNameManagement(bool $noAutomaticNameManagement): self
     {
-        $this->noAutomaticNameManagement = $noAutomaticNameManagement;
-
-        return $this;
+        return $this->setSetting( UserSetting::NoAutomaticNameManagement, $noAutomaticNameManagement );
     }
 
     public function getFlag(): ?string
     {
-        return $this->flag;
+        return $this->getSetting( UserSetting::Flag );
     }
 
     public function setFlag(?string $flag): self
     {
-        $this->flag = $flag;
+        return $this->setSetting( UserSetting::Flag, $flag );
+    }
+
+    public function getSetting( UserSetting $setting ) {
+        return ($this->getSettings() ?? [])[ $setting->value ] ?? match ($setting) {
+            UserSetting::Flag                          => $this->flag ??                       $setting->defaultValue(),
+            UserSetting::NoAutomaticNameManagement     => $this->noAutomaticNameManagement ??  $setting->defaultValue(),
+            UserSetting::ClassicBankSort               => $this->classicBankSort ??            $setting->defaultValue(),
+            UserSetting::NoAutomaticThreadSubscription => $this->noAutoFollowThreads ??        $setting->defaultValue(),
+            UserSetting::OpenDashboardInSameWindow     => $this->open_mod_tools_same_window ?? $setting->defaultValue(),
+            UserSetting::PreferredPronoun              => $this->preferredPronoun ??           $setting->defaultValue(),
+            UserSetting::UseICU                        => $this->UseICU ??                     $setting->defaultValue(),
+            UserSetting::UseExpertMode                 => $this->expert ??                     $setting->defaultValue(),
+            UserSetting::DisableEffects                => $this->disableFx ??                  $setting->defaultValue(),
+            UserSetting::PostAs                        => $this->postAsDefault ??              $setting->defaultValue(),
+            UserSetting::PreferSmallAvatars            => $this->preferSmallAvatars ??         $setting->defaultValue(),
+            default => $setting->defaultValue()
+        };
+    }
+
+    public function setSetting( UserSetting $setting, $value ): self {
+        $settings = $this->getSettings() ?? [];
+        $settings[ $setting->value ] = $value;
+        return $this->setSettings( $settings );
+    }
+
+    protected function getSettings(): ?array
+    {
+        return $this->settings;
+    }
+
+    protected function setSettings(?array $settings): self
+    {
+        $this->settings = $settings;
 
         return $this;
     }
