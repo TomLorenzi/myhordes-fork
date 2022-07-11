@@ -1397,6 +1397,7 @@ class BeyondController extends InventoryAwareController
                     : $zone->getPrototype()->getDropByNames( $named_groups );
 
                 $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
+                $gps->recordDigResult($prototype, $citizen, $zone->getPrototype(), 'ruin_scavenge', $group->getName() == $event_conf['group']);
                 if ($prototype) {
                     $item = $this->item_factory->createItem( $prototype );
                     $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );
@@ -1440,6 +1441,7 @@ class BeyondController extends InventoryAwareController
             } else {
                 // Nothing found.
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
+                $gps->recordDigResult(null, $citizen, $zone->getPrototype(), 'ruin_scavenge');
             }
         } else {
             $this->addFlash( 'notice', $this->translator->trans( 'Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...', [], 'game' ));

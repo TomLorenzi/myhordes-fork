@@ -173,4 +173,20 @@ class GameProfilerService {
                 ?->setData( [ 'by' => $method ])
         );
     }
+
+    public function recordDigResult(?ItemPrototype $item, Citizen $citizen, ?ZonePrototype $ruin = null, $method = 'scavenge', $event = false): void {
+        $type = 0;
+        if ($item === null)
+            $type = GameProfileEntryType::DigFailed;
+        else if ($event)
+            $type = GameProfileEntryType::EventItemFound;
+        else
+            $type = GameProfileEntryType::RegularItemFound;
+        $this->maybe_persist(
+            $this->init( $item, $citizen->getTown(), $citizen )
+                ?->setForeign1( $item?->getId() )
+                ?->setForeign2( $ruin?->getId() )
+                ?->setData( [ 'by' => $method ])
+        );
+    }
 }
