@@ -183,10 +183,14 @@ class GameProfilerService {
         else
             $type = GameProfileEntryType::RegularItemFound;
         $this->maybe_persist(
-            $this->init( $item, $citizen->getTown(), $citizen )
+            $this->init( $type, $citizen->getTown(), $citizen )
                 ?->setForeign1( $item?->getId() )
                 ?->setForeign2( $ruin?->getId() )
-                ?->setData( [ 'by' => $method ])
+                ?->setData( [
+                    'by' => $method,
+                    'isNight' => $this->confMaster->getTownConfiguration($citizen->getTown())->isNightMode(),
+                    'job' => $citizen->getProfession()->getName()
+                ])
         );
     }
 }

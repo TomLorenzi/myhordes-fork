@@ -257,7 +257,7 @@ class ZoneHandler
 
                 $this->gps->recordDigResult($item_prototype, $current_citizen, null, 'scavenge', match ($mode) {
                     -1, 0, 1 => false,
-                    2 => $event_group ? true : false
+                    2 => (bool)$event_group
                 });
 
                 if ($item_prototype) {
