@@ -77,13 +77,13 @@ class ActionCommand extends LanguageCommand
                 $io->writeln("Unlock building of type <info>{$result->getBlueprint()->getType()}</info>");
                 $list = $this->em->getRepository(BuildingPrototype::class)->findBy(['blueprint' =>$result->getBlueprint()->getType()]);
                 foreach ($list as $proto) {
-                    $protos[] = "Unlock building <info>" . $this->translate($proto->getLabel(), 'buildings') . "</info>";
+                    $protos[] = "Unlock building <info>" . $this->translate($proto->getLabel(), 'buildings') . "</info> (<info>{$proto->getName()}</info>)";
                 }
             }
 
             if (count($result->getBlueprint()->getList()) > 0) {
                 foreach ($result->getBlueprint()->getList() as $proto) {
-                    $protos[] = "Unlock building <info>" . $this->translate($proto->getLabel(), 'buildings') . "</info>";
+                    $protos[] = "Unlock building <info>" . $this->translate($proto->getLabel(), 'buildings') . "</info> (<info>{$proto->getName()}</info>)";
                 }
             }
 
