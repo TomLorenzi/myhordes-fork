@@ -81,7 +81,12 @@ class UserHandler
         $p_soul = ['www.hordes.fr' => 'fr', 'www.die2nite.com' => 'en', 'www.dieverdammten.de' => 'de', 'www.zombinoia.com' => 'es'][$p_soul->getScope()] ?? 'none';
         return array_reduce( array_filter(
             $this->entity_manager->getRepository(CitizenRankingProxy::class)->findBy(['user' => $user, 'confirmed' => true]),
-            function(CitizenRankingProxy $c) use ($p_soul) { return !$c->hasDisableFlag(CitizenRankingProxy::DISABLE_SOULPOINTS) && $c->getTown() && !$c->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_SOULPOINTS) && $c->getImportLang() === $p_soul; }
+            function(CitizenRankingProxy $c) use ($p_soul) { return
+                !$c->hasDisableFlag(CitizenRankingProxy::DISABLE_SOULPOINTS) &&
+                !$c->getLimitedImport() &&
+                $c->getTown() && !$c->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_SOULPOINTS) &&
+                $c->getImportLang() === $p_soul;
+            }
         ), fn(int $carry, CitizenRankingProxy $next) => $carry + ($next->getPoints() ?? 0), 0 );
     }
 

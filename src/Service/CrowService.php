@@ -50,6 +50,7 @@ class CrowService {
     const ModerationActionMove = 5;
     const ModerationActionClose = 6;
     const ModerationActionSolve = 7;
+    const ModerationActionOpen = 8;
 
     private EntityManagerInterface $em;
     private UrlGeneratorInterface $url_generator;
@@ -208,6 +209,7 @@ class CrowService {
                     case self::ModerationActionTargetThread .'.'. self::ModerationActionMove:   $name = 'gpm_mod_threadMoved'; break;
                     case self::ModerationActionTargetThread .'.'. self::ModerationActionClose:  $name = 'gpm_mod_threadClosed'; break;
                     case self::ModerationActionTargetThread .'.'. self::ModerationActionSolve:  $name = 'gpm_mod_threadSolved'; break;
+                    case self::ModerationActionTargetThread .'.'. self::ModerationActionOpen:   $name = 'gpm_mod_threadReopened'; break;
                     case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:     $name = 'gpm_mod_postEdited'; break;
                     case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_postDeleted'; break;
                     default: return null;

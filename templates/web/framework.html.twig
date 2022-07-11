@@ -207,6 +207,7 @@
         $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
             let post = document.getElementById('post-office');
             if (post) {
+                $.html.clearTooltips( post );
                 post.classList.remove('visible');
                 document.body.style.overflow = null;
                 $.msg.togglePing(true);

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionCounter;
+use App\Entity\Announcement;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
@@ -13,6 +14,7 @@ use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
+use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
@@ -200,6 +202,8 @@ class GameController extends CustomAbstractController
             }
         }
 
+        $latest_announcement = $this->entity_manager->getRepository(Announcement::class)->findLatestByLang( $this->getUserLanguage() );
+
         return $this->render( 'ajax/game/newspaper.html.twig', $this->addDefaultTwigArgs(null, [
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
@@ -209,6 +213,8 @@ class GameController extends CustomAbstractController
             'citizensWithRole' => $citizenRoleList,
             'votesNeeded' => $votesNeeded,
             'town' => $town,
+            'announcement' => $latest_announcement?->getTimestamp() < new \DateTime('-4weeks') ? null : $latest_announcement,
+            'season' => $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]),
             'council' => array_map( fn(CouncilEntry $c) => [$this->gazette_service->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
             ))
@@ -318,10 +324,11 @@ class GameController extends CustomAbstractController
         }
 
         $this->citizen_handler->applyProfession( $citizen, $new_profession );
+        $inventory = $citizen->getInventory();
 
         if($new_profession->getHeroic()) {
             $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent());
-            $inventory = $citizen->getInventory();
+
             $null = null;
 
             if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {

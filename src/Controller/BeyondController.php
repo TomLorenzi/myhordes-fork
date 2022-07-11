@@ -933,7 +933,8 @@ class BeyondController extends InventoryAwareController
             // Banished citizen's stash check
             if(!$mover->getBanished() && $this->zone_handler->hasHiddenItem($new_zone) && $this->random_generator->chance(0.05)){
                 $itemsForLog = [];
-                foreach ($new_zone->getFloor()->getItems() as $item) {
+                $zone->setItemsHiddenAt(null);
+                foreach ($new_zone->getFloor()->getItems() as $item) if ($item->getHidden()) {
                     /** @var Item $item */
                     if(isset($itemsForLog[$item->getPrototype()->getId()])) {
                         $itemsForLog[$item->getPrototype()->getId()]['count'] += 1;

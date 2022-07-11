@@ -38,6 +38,7 @@ use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Enum\AdminReportSpecification;
+use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
@@ -800,9 +801,12 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/ranking/soul/{page}/{season<\d+|c|all|myh|a>}", name="soul_season_solo")
+     * @param JSONRequestParser $parser
+     * @param int $page
+     * @param null $season
      * @return Response
      */
-    public function soul_season_solo(JSONRequestParser $parser, $page = 1, $season = null): Response
+    public function soul_season_solo(JSONRequestParser $parser, int $page = 1, $season = null): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);
@@ -1111,6 +1115,7 @@ class SoulController extends CustomAbstractController
         $user->setUseICU( (bool)$parser->get('useicu', false) );
         $user->setNoAutoFollowThreads( !$parser->get('autofollow', true) );
         $user->setClassicBankSort( (bool)$parser->get('clasort', false) );
+        $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
@@ -1643,7 +1648,7 @@ class SoulController extends CustomAbstractController
 
         $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['id' => $season_id]);
 
-        $limit = (bool)$parser->get('limit10', true);
+        $limit = (bool)$parser->get('limit10', $user->getSetting( UserSetting::LimitTownListSize ));
 
         $commonTowns = [];
         $citizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit, true);

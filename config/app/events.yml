@@ -39,7 +39,7 @@ parameters:
             group: 'christmas_dig'
             chance: 0.05
           ruins:
-            - {name: 'post', group: 'christmas_dig_post', chance: 0.5}
+            - { name: 'post', group: 'christmas_dig_post', chance: 0.25 }
         hooks:
           night_after: 'App\Structures\Hook::night_xmas'
           night_none: 'App\Structures\Hook::night_xmas'
@@ -57,7 +57,7 @@ parameters:
             group: 'stpatrick_dig'
             chance: 0.15
           ruins:
-            - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.5 }
+            - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.25 }
     easter:
       trigger:
         type: easter

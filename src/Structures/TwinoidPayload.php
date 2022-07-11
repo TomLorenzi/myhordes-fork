@@ -7,18 +7,20 @@ use App\Entity\CauseOfDeath;
 use App\Entity\PictoPrototype;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
-use \DateTime;
+use DateTime;
+use Iterator;
 
 class TwinoidPayload
 {
 
-    private $_data;
+    private array $_data;
 
-    private $em;
+    private EntityManagerInterface $em;
 
     /**
      * TwinoidPayload constructor.
      * @param array $data
+     * @param EntityManagerInterface $em
      */
     public function __construct(array $data, EntityManagerInterface $em)
     {
@@ -27,12 +29,12 @@ class TwinoidPayload
     }
 
 
-    private $_cache_cod = [];
+    private array $_cache_cod = [];
     public function internal_fetch_cod(int $cod): ?CauseOfDeath {
         return $this->_cache_cod[$cod] ?? ($this->_cache_cod[$cod] = $this->em->getRepository(CauseOfDeath::class)->findOneByRef( $cod ));
     }
 
-    private $_cache_picto = [];
+    private array $_cache_picto = [];
     public function internal_fetch_picto(string $p): ?PictoPrototype {
         return $this->_cache_picto[$p] ?? ($this->_cache_picto[$p] = $this->em->getRepository(PictoPrototype::class)->findOneBy( ['name' => $p] ));
     }
@@ -49,8 +51,8 @@ class TwinoidPayload
         return $this->_data['id'];
     }
 
-    private $_cache_sp = null;
-    public function getSummarySoulPoints() {
+    private ?int $_cache_sp = null;
+    public function getSummarySoulPoints(): int {
         if ($this->_cache_sp !== null) return $this->_cache_sp;
         $s1 = 0; $s2 = 0;
         foreach ($this->getPastTowns() as $town) $s1 += $town->getScore();
@@ -59,8 +61,8 @@ class TwinoidPayload
         return ($this->_cache_sp = max($s1,$s2));
     }
 
-    private $_cache_hd = null;
-    public function getSummaryHeroDays() {
+    private ?int $_cache_hd = null;
+    public function getSummaryHeroDays(): int {
         if ($this->_cache_hd !== null) return $this->_cache_hd;
         $h = 0; $d = 0; $c = 0; $rd = 0;
         foreach ($this->getPictos() as $picto) {
@@ -78,12 +80,12 @@ class TwinoidPayload
         return ($this->_cache_hd = floor($h + ($loss * $hd_rate)));
     }
 
-    public function getPastTowns() {
-
-        return new class($this->_data['playedMaps'] ?? $this->_data['cadavers'], $this) implements \Iterator {
-            private $_towns;
-            private $_pos = 0;
-            private $_parent;
+    public function getPastTowns(): Iterator
+    {
+        return new class($this->_data['playedMaps'] ?? $this->_data['cadavers'], $this) implements Iterator {
+            private array $_towns;
+            private int $_pos = 0;
+            private TwinoidPayload $_parent;
 
             public function __construct(array $towns, TwinoidPayload $parent)
             {
@@ -98,12 +100,12 @@ class TwinoidPayload
                 });
             }
 
-            public function current()
+            public function current(): object
             {
                 return new class($this->_towns[$this->_pos], $this->_parent) {
 
-                    private $_town;
-                    private $_parent;
+                    private array $_town;
+                    private TwinoidPayload $_parent;
 
                     public function __construct(array $town, TwinoidPayload $parent)
                     {
@@ -126,43 +128,44 @@ class TwinoidPayload
                     public function isOld(): bool { return $this->_town['v1']; }
 
                     public function convertDeath(): CauseOfDeath {
-                        switch ($this->getDeath()) {
-                            case  1: return $this->_parent->internal_fetch_cod( CauseOfDeath::Dehydration );
-                            case  2: return $this->_parent->internal_fetch_cod( CauseOfDeath::Strangulation );
-                            case  3: return $this->_parent->internal_fetch_cod( CauseOfDeath::Cyanide );
-                            case  4: return $this->_parent->internal_fetch_cod( CauseOfDeath::Hanging );
-                            case  5: return $this->_parent->internal_fetch_cod( CauseOfDeath::Vanished );
-                            case  6: return $this->_parent->internal_fetch_cod( CauseOfDeath::NightlyAttack );
-                            case  7: return $this->_parent->internal_fetch_cod( CauseOfDeath::Addiction );
-                            case  8: return $this->_parent->internal_fetch_cod( CauseOfDeath::Infection );
-                            case  9:case 10: return $this->_parent->internal_fetch_cod( CauseOfDeath::Headshot );
-                            case 11: return $this->_parent->internal_fetch_cod( CauseOfDeath::Poison );
-                            case 12: return $this->_parent->internal_fetch_cod( CauseOfDeath::GhulEaten );
-                            case 13: return $this->_parent->internal_fetch_cod( CauseOfDeath::GhulBeaten );
-                            case 14: return $this->_parent->internal_fetch_cod( CauseOfDeath::GhulStarved );
-                            case 15: return $this->_parent->internal_fetch_cod( CauseOfDeath::FleshCage );
-                            case 16: return $this->_parent->internal_fetch_cod( CauseOfDeath::ChocolateCross );
-                            case 17: return $this->_parent->internal_fetch_cod( CauseOfDeath::ExplosiveDoormat );
-                            default: return $this->_parent->internal_fetch_cod( CauseOfDeath::Unknown );
-                        }
+                        return match ($this->getDeath()) {
+                            1 => $this->_parent->internal_fetch_cod(CauseOfDeath::Dehydration),
+                            2 => $this->_parent->internal_fetch_cod(CauseOfDeath::Strangulation),
+                            3 => $this->_parent->internal_fetch_cod(CauseOfDeath::Cyanide),
+                            4 => $this->_parent->internal_fetch_cod(CauseOfDeath::Hanging),
+                            5 => $this->_parent->internal_fetch_cod(CauseOfDeath::Vanished),
+                            6 => $this->_parent->internal_fetch_cod(CauseOfDeath::NightlyAttack),
+                            7 => $this->_parent->internal_fetch_cod(CauseOfDeath::Addiction),
+                            8 => $this->_parent->internal_fetch_cod(CauseOfDeath::Infection),
+                            9, 10 => $this->_parent->internal_fetch_cod(CauseOfDeath::Headshot),
+                            11 => $this->_parent->internal_fetch_cod(CauseOfDeath::Poison),
+                            12 => $this->_parent->internal_fetch_cod(CauseOfDeath::GhulEaten),
+                            13 => $this->_parent->internal_fetch_cod(CauseOfDeath::GhulBeaten),
+                            14 => $this->_parent->internal_fetch_cod(CauseOfDeath::GhulStarved),
+                            15 => $this->_parent->internal_fetch_cod(CauseOfDeath::FleshCage),
+                            16 => $this->_parent->internal_fetch_cod(CauseOfDeath::ChocolateCross),
+                            17 => $this->_parent->internal_fetch_cod(CauseOfDeath::ExplosiveDoormat),
+                            default => $this->_parent->internal_fetch_cod(CauseOfDeath::Unknown),
+                        };
                     }
 
                 };
             }
 
-            public function next() { $this->_pos++; }
+            public function next(): void { $this->_pos++; }
             public function key(): int { return $this->_pos; }
             public function valid(): bool { return $this->_pos < count($this->_towns); }
-            public function rewind() { $this->_pos = 0; }
+            public function rewind(): void { $this->_pos = 0; }
         };
     }
 
-    public function getPictos() {
+    public function getPictos(): Iterator
+    {
 
-        return new class($this->_data['stats'], $this) implements \Iterator {
-            private $_stats;
-            private $_pos = 0;
-            private $_parent;
+        return new class($this->_data['stats'], $this) implements Iterator {
+            private array $_stats;
+            private int $_pos = 0;
+            private TwinoidPayload $_parent;
 
             public function __construct(array $stats, TwinoidPayload $parent)
             {
@@ -177,12 +180,12 @@ class TwinoidPayload
                 });
             }
 
-            public function current()
+            public function current(): object
             {
                 return new class($this->_stats[$this->_pos], $this->_parent) {
 
-                    private $_stat;
-                    private $_parent;
+                    private array $_stat;
+                    private TwinoidPayload $_parent;
 
                     public function __construct(array $stat, TwinoidPayload $parent)
                     {
@@ -205,19 +208,20 @@ class TwinoidPayload
                 };
             }
 
-            public function next() { $this->_pos++; }
+            public function next(): void { $this->_pos++; }
             public function key(): int { return $this->_pos; }
             public function valid(): bool { return $this->_pos < count($this->_stats); }
-            public function rewind() { $this->_pos = 0; }
+            public function rewind(): void { $this->_pos = 0; }
         };
     }
 
-    public function getUnlockables() {
+    public function getUnlockables(): Iterator
+    {
 
-        return new class($this->_data['achievements'], $this) implements \Iterator {
-            private $_achs;
-            private $_pos = 0;
-            private $_parent;
+        return new class($this->_data['achievements'], $this) implements Iterator {
+            private array $_achs;
+            private int $_pos = 0;
+            private TwinoidPayload $_parent;
 
             public function __construct(array $achs, TwinoidPayload $parent)
             {
@@ -231,12 +235,12 @@ class TwinoidPayload
                 });
             }
 
-            public function current()
+            public function current(): object
             {
                 return new class($this->_achs[$this->_pos], $this->_parent) {
 
-                    private $_ach;
-                    private $_parent;
+                    private array $_ach;
+                    private TwinoidPayload $_parent;
 
                     public function __construct(array $stat, TwinoidPayload $parent)
                     {
@@ -247,18 +251,18 @@ class TwinoidPayload
                     public function getName(): string { return $this->_ach['name']; }
                     public function getType(): string { return $this->_ach['data']['type']; }
                     public function getNiceType(): string {
-                        switch ($this->getType()) {
-                            case 'title': return T::__('Titel','soul');
-                            case 'icon' : return T::__('Icon','soul');
-                            default: return $this->getType();
-                        }
+                        return match ($this->getType()) {
+                            'title' => T::__('Titel', 'soul'),
+                            'icon' => T::__('Icon', 'soul'),
+                            default => $this->getType(),
+                        };
                     }
                     public function getData(): string {
-                        switch ($this->getType()) {
-                            case 'title': return $this->_ach['data']['title'];
-                            case 'icon' : return $this->_ach['data']['url'];
-                            default: return '';
-                        }
+                        return match ($this->getType()) {
+                            'title' => $this->_ach['data']['title'],
+                            'icon' => $this->_ach['data']['url'],
+                            default => '',
+                        };
                     }
                     public function getDate(): DateTime { return new DateTime($this->_ach['date']); }
 
@@ -272,10 +276,10 @@ class TwinoidPayload
                 };
             }
 
-            public function next() { $this->_pos++; }
+            public function next(): void { $this->_pos++; }
             public function key(): int { return $this->_pos; }
             public function valid(): bool { return $this->_pos < count($this->_achs); }
-            public function rewind() { $this->_pos = 0; }
+            public function rewind(): void { $this->_pos = 0; }
         };
     }
 }

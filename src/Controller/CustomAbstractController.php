@@ -17,6 +17,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use PHPUnit\Util\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 use Symfony\Component\HttpFoundation\Response;

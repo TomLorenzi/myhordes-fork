@@ -76,7 +76,7 @@
                             </div>
                         </div>
                     {% endif %}
-                    {% if permission.help() and not locked %}
+                    {% if permission.help() and (not locked or solved) %}
                         <div tabindex="0" class="forum-button button-dropdown-button" style="padding: 4px;">
                             <img alt="" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
                             <div class="button-dropdown">
@@ -84,6 +84,11 @@
                                     <div tabindex="0" x-forum-moderator-action="solve" class="forum-button">
                                         <img alt="" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
                                         <span>{{ 'Gelöst'|trans({},'global') }}</span>
+                                    </div>
+                                {% elseif locked and solved %}
+                                    <div tabindex="0" x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button">
+                                        <img alt="" src="{{ asset('build/images/icons/icon_mh_orac.gif') }}" />
+                                        <span>{{ 'Öffnen'|trans({},'global') }}</span>
                                     </div>
                                 {% endif %}
                             </div>

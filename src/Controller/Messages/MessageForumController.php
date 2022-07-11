@@ -1331,10 +1331,19 @@ class MessageForumController extends MessageController
                 }
 
             case 'unlock':
-                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
+                if (!$this->perm->checkAnyEffectivePermissions($this->getUser(), $forum, $thread->getSolved() ? [ForumUsagePermissions::PermissionModerate,ForumUsagePermissions::PermissionHelp] : [ForumUsagePermissions::PermissionModerate]))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
                 $thread->setLocked(false)->setSolved(false);
+
+                if ($thread->getOwner() !== $this->getUser()) {
+                    $notification = $crow->createPM_moderation( $thread->getOwner(),
+                                                                CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionOpen,
+                                                                $thread->firstPost(true)
+                    );
+                    if ($notification) $this->entity_manager->persist($notification);
+                }
+
                 try {
                     $this->entity_manager->persist($thread);
                     $this->entity_manager->flush();
