@@ -1,18 +1,19 @@
-'URL anfordern': 'Request URL'
-Rückgabetyp: 'Return type'
+---
+'URL anfordern': Request URL
+Rückgabetyp: Return type
 '"true", wenn der Angriff ausgeführt wird': '"true'', when the attack is in progress'
 '"true", wenn das Spiel gewartet wird': '"true", when the game is under maintenance'
-Spielkarten-ID: 'Game card ID'
-Serverzeit: 'Server time'
-Kartenbreite: 'Map width'
-Kartenhöhe: 'Map height'
+Spielkarten-ID: Game card ID
+Serverzeit: Server time
+Kartenbreite: Map width
+Kartenhöhe: Map height
 'Wenn es einen Aufstand gibt': 'If there is an insurrection'
-Bonuspunkte: 'Bonus points'
-Stadttag: 'Town day'
+Bonuspunkte: Bonus points
+Stadttag: Town day
 'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht': 'Boolean which indicates whether the town is private or not'
 'Liste bekannter Zonen': 'List of known areas'
 'Liste der Bürger': 'List of citizens'
-Stadtinformationen: 'Town informations'
+Stadtinformationen: Town informations
 'Liste der Leichen': 'List of corpses'
 'Liste der Expeditionen': 'List of expeditions'
 'City Creation Season ID': 'City Creation Season ID'
@@ -21,9 +22,9 @@ Stadtinformationen: 'Town informations'
 'X von der oberen linken Ecke': 'X related the top left corner'
 'Y von der oberen linken Ecke': 'Y related the top left corner'
 'Heute nicht besucht': 'Not visited today'
-Zonen-Tag: 'Zone tag'
+Zonen-Tag: Zone tag
 'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau': 'Danger level 0 = green, 1 = green-yellow, 2 = orange, 3 = red, 4 = blue'
-Bereichsdetails: 'Zone details'
+Bereichsdetails: Zone details
 'Liste der Objekte in diesem Bereich': 'List of objects in this area'
 'Informationen zum Gebäude in der Umgebung': 'Information about the building present in the area'
 'Die Gebäude-ID': 'Building ID'
@@ -41,15 +42,15 @@ Spielername: Username
 'So verkörpert die ID seiner Stadt': 'So verkörpert die ID seiner Stadt'
 'Wenn verkörpert, eine Instanz von Map': 'Wenn verkörpert, eine Instanz von Map'
 'Persönlicher Text (über die Seele)': 'Personal text (from the soul)'
-Spieler-Avatar-URL: 'Player avatar URL'
+Spieler-Avatar-URL: Player avatar URL
 'Liste der alten Inkarnationen': 'Liste der alten Inkarnationen'
-ID-MyHordes: 'MyHordes ID'
+ID-MyHordes: MyHordes ID
 'universelle ID (zB: basic = Einwohner)': 'universelle ID (zB: basic = Einwohner)'
 'Der Name des Berufs': 'Profession name'
-'Die Beschreibung': Description
+'Die Beschreibung': 'Description'
 'Name der Stadt': 'Town name'
 'Anzahl der verfügbaren Wasserrationen': 'Number of available water rations'
-Stadtposition: 'Town position'
+Stadtposition: Town position
 'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist': 'Boolean which indicates whether the town door is open or not'
 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet': 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet'
 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist': 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist'
@@ -82,7 +83,7 @@ Stadtposition: 'Town position'
 'Anzahl der angegriffenen Zombies': 'Anzahl der angegriffenen Zombies'
 'Anzahl der Verteidigungspunkte': 'Number of defense points'
 Gazette-Text: Gazette-Text
-'Richtung der Regeneration des stellvertretenden Rückkehrers?': 'Richtung der Regeneration des stellvertretenden Rückkehrers?'
+'Richtung der Regeneration des stellvertretenden Rückkehrers?': Richtung der Regeneration des stellvertretenden Rückkehrers?
 'Anzahl der im Brunnen verbleibenden Rationen?': 'Number of water rations in the well?'
 'ID der Site': 'ID der Site'
 'Anzahl der für den Bau benötigten AP': 'Number of AP required for the construction'
@@ -98,23 +99,23 @@ Gazette-Text: Gazette-Text
 'Objekte benötigt': 'Required objects'
 'Spieler ID': 'Player ID'
 'Twinoid-ID des Spielers': 'Player''s Twinoid ID'
-Karten-ID: 'Map ID'
+Karten-ID: Map ID
 'Anzahl der Tage überlebt': 'Number of survived days'
-Kartentag: 'Map day'
+Kartentag: Map day
 'Spieler Avatar': 'Player avatar'
 'Name der Karte': 'Map name'
-Saisonnummer: 'Season number'
+Saisonnummer: Season number
 '"true" wenn diese Leiche aus dem Spiel V1 stammt': '"true" if this body comes from V1'
 Ergebnis: Result
 'relevante Spielzeit': 'Relevant game time'
 'Kennung des Todestyps': 'Death type ID'
-Todesnachricht: 'Death message'
+Todesnachricht: Death message
 Kommentar: Comment
 'Name des Spielers, der den Körper entsorgt hat': 'Name of the player who disposed the body'
 'Methode : garbage, water, cook order ghoul': 'Methode : garbage, water, cook order ghoul'
-Expeditionsname: 'Expedition name'
-'der Autor': Author
-Versandlänge: 'Expedition length'
+Expeditionsname: Expedition name
+'der Autor': 'Author'
+Versandlänge: Expedition length
 'Punkte, die den Kurs definieren': 'Points of the route'
 'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen': 'All ISO 3166-1 alpha-2 country codes are filled into the field "languages"'
 'zB :': 'eg.:'
