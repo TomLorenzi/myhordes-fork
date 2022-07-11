@@ -110,7 +110,10 @@ class ActionCommand extends LanguageCommand
             $io->writeln("Execute custom action N. <info>{$result->getCustom()}</info>");
 
         if ($result->getGlobalPicto())
-            $io->writeln("Give picto <info>" . $this->translate($result->getGlobalPicto()->getPrototype()->getLabel(), "game"). "</info> to the entire town");
+            $io->writeln("Give picto <info>" . $this->translate($result->getGlobalPicto()->getPrototype()->getLabel(), "game"). "</info> (<info>{$result->getGlobalPicto()->getPrototype()->getName()}</info>) to the entire town");
+
+        if ($result->getPicto())
+            $io->writeln("Give picto <info>" . $this->translate($result->getPicto()->getPrototype()->getLabel(), "game"). "</info> (<info>{$result->getPicto()->getPrototype()->getName()}</info>) to the citizen");
 
         if ($result->getHome()) {
             if($result->getHome()->getAdditionalDefense())
@@ -128,11 +131,8 @@ class ActionCommand extends LanguageCommand
                 $io->writeln("Breaks the items");
 
             if ($result->getItem()->getMorph())
-                $io->writeln("Change the item info <info>" . $this->translate($result->getItem()->getMorph()->getLabel(), "items") . "</info>");
+                $io->writeln("Change the item into <info>" . $this->translate($result->getItem()->getMorph()->getLabel(), "items") . "</info>  (<info>{$result->getItem()->getMorph()->getName()}</info>)");
         }
-
-        if ($result->getPicto())
-            $io->writeln("Give picto <info>" . $this->translate($result->getPicto()->getPrototype()->getLabel(), "game"). "</info> to the citizen");
 
         if ($result->getRolePlayText())
             $io->writeln("Unlock a Role Play text");
@@ -145,7 +145,7 @@ class ActionCommand extends LanguageCommand
 
         if ($result->getSpawn()) {
             if ($result->getSpawn()->getPrototype())
-                $io->writeln("Spawn item <info>" . $this->translate($result->getSpawn()->getPrototype()->getLabel(), "items") . "</info> x<info>{$result->getSpawn()->getCount()}</info>");
+                $io->writeln("Spawn item <info>" . $this->translate($result->getSpawn()->getPrototype()->getLabel(), "items") . "</info>  (<info>{$result->getSpawn()->getPrototype()->getName()}</info>) x<info>{$result->getSpawn()->getCount()}</info>");
             else {
                 $protos = [];
                 if ($result->getSpawn()->getItemGroup()) {
@@ -156,7 +156,10 @@ class ActionCommand extends LanguageCommand
                     $io->listing($protos);
                 }
             }
+        }
 
+        if ($result->getZombies()) {
+            $io->writeln("Remove <info>{$result->getZombies()->getMin()}</info>-<info>{$result->getZombies()->getMax()}</info> zombies from the current zone");
         }
 
         if ($result->getResultGroup()) {
