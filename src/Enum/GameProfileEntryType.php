@@ -27,13 +27,15 @@ enum GameProfileEntryType: int {
     case EventItemFound = 17;
     case RegularItemFound = 18;
 
+    case BeyondLostHood = 19;
+
     public static function latest_version(): int {
         return 2;
     }
 
     public function version(): int {
         if ( $this->value <= 15 ) return 1;
-        else if ($this->value <= 18) return 2;
+        else if ($this->value <= 19) return 2;
         else return PHP_INT_MAX;
     }
 

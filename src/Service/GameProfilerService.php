@@ -11,6 +11,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Recipe;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\GameProfileEntryType;
 use DateTime;
@@ -190,6 +191,18 @@ class GameProfilerService {
                     'by' => $method,
                     'isNight' => $this->confMaster->getTownConfiguration($citizen->getTown())->isNightMode(),
                     'job' => $citizen->getProfession()->getName()
+                ])
+        );
+    }
+
+    public function recordlostHood(Citizen $citizen, Zone $zone, $action): void {
+        $this->maybe_persist(
+            $this->init( GameProfileEntryType::BeyondLostHood, $citizen->getTown(), $citizen )
+                ?->setForeign1( $citizen->getId() )
+                ?->setForeign2( $$zone->getId() )
+                ?->setData( [
+                    'by' => $action,
+                    'isNight' => $this->confMaster->getTownConfiguration($citizen->getTown())->isNightMode(),
                 ])
         );
     }
