@@ -1400,7 +1400,7 @@ class BeyondController extends InventoryAwareController
                     : $zone->getPrototype()->getDropByNames( $named_groups );
 
                 $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
-                $gps->recordDigResult($prototype, $citizen, $zone->getPrototype(), 'ruin_scavenge', $event_conf ? $group->getName() == $event_conf['group'] : false);
+                $gps->recordDigResult($prototype, $citizen, $zone->getPrototype(), 'ruin_scavenge', $event_conf && $group->getName() == $event_conf['group']);
                 if ($prototype) {
                     $item = $this->item_factory->createItem( $prototype );
                     $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );

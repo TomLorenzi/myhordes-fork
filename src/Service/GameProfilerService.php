@@ -203,6 +203,7 @@ class GameProfilerService {
                 ?->setData( [
                     'by' => $action,
                     'isNight' => $this->confMaster->getTownConfiguration($citizen->getTown())->isNightMode(),
+                    'zombies' => $zone->getZombies(),
                 ])
         );
     }
