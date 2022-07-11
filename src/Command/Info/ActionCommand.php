@@ -61,9 +61,6 @@ class ActionCommand extends LanguageCommand
     protected function displayActions(Result $result, SymfonyStyle $io) {
         $io->section("Action name: <info>{$result->getName()}</info>");
 
-        if ($result->getTown())
-            $io->writeln("Adds <info>{$result->getTown()->getAdditionalDefense()}</info> defense to the town");
-
         if ($result->getAp()) {
             if ($result->getAp()->getMax())
                 $io->writeln("Set APs to <info>max value</info>");
@@ -94,7 +91,7 @@ class ActionCommand extends LanguageCommand
         }
 
         if ($result->getConsume())
-            $io->writeln("Consume <info>{$result->getConsume()->getCount()}x <info>" . $this->translate($result->getConsume()->getPrototype()->getLabel(), "items") . "</info>");
+            $io->writeln("Consume <info>{$result->getConsume()->getCount()}</info>x <info>" . $this->translate($result->getConsume()->getPrototype()->getLabel(), "items") . "</info>");
 
         if ($result->getCp()) {
             if ($result->getCp()->getMax())
@@ -103,17 +100,14 @@ class ActionCommand extends LanguageCommand
                 $io->writeln("Change CPs by <info>{$result->getCp()->getCp()}</info>, setting the bonus to <info>{$result->getCp()->getBonus()}</info>");
         }
 
-        if ($result->getDeath())
-            $io->writeln("Kills the citizen with CauseOfDeath <info>" . $this->translate($result->getDeath()->getCause()->getLabel(), "game") . "</info>");
-
         if ($result->getCustom())
             $io->writeln("Execute custom action N. <info>{$result->getCustom()}</info>");
 
+        if ($result->getDeath())
+            $io->writeln("Kills the citizen with CauseOfDeath <info>" . $this->translate($result->getDeath()->getCause()->getLabel(), "game") . "</info>");
+
         if ($result->getGlobalPicto())
             $io->writeln("Give picto <info>" . $this->translate($result->getGlobalPicto()->getPrototype()->getLabel(), "game"). "</info> (<info>{$result->getGlobalPicto()->getPrototype()->getName()}</info>) to the entire town");
-
-        if ($result->getPicto())
-            $io->writeln("Give picto <info>" . $this->translate($result->getPicto()->getPrototype()->getLabel(), "game"). "</info> (<info>{$result->getPicto()->getPrototype()->getName()}</info>) to the citizen");
 
         if ($result->getHome()) {
             if($result->getHome()->getAdditionalDefense())
@@ -134,14 +128,17 @@ class ActionCommand extends LanguageCommand
                 $io->writeln("Change the item into <info>" . $this->translate($result->getItem()->getMorph()->getLabel(), "items") . "</info>  (<info>{$result->getItem()->getMorph()->getName()}</info>)");
         }
 
-        if ($result->getRolePlayText())
-            $io->writeln("Unlock a Role Play text");
+        if ($result->getPicto())
+            $io->writeln("Give picto <info>" . $this->translate($result->getPicto()->getPrototype()->getLabel(), "game"). "</info> (<info>{$result->getPicto()->getPrototype()->getName()}</info>) to the citizen");
 
         if ($result->getPm())
             if ($result->getPm()->getMax())
                 $io->writeln("Set PMs to <info>max value</info>");
             else
                 $io->writeln("Change PMs by <info>{$result->getPm()->getPm()}</info>, setting the bonus to <info>{$result->getPm()->getBonus()}</info>");
+
+        if ($result->getRolePlayText())
+            $io->writeln("Unlock a Role Play text");
 
         if ($result->getSpawn()) {
             if ($result->getSpawn()->getPrototype())
@@ -158,8 +155,61 @@ class ActionCommand extends LanguageCommand
             }
         }
 
+        if ($result->getStatus()) {
+            if ($result->getStatus()->getCitizenHunger())
+                $io->writeln("Change citizen hunger by <info>{$result->getStatus()->getCitizenHunger()}</info>");
+
+            if ($result->getStatus()->getResetThirstCounter())
+                $io->writeln("Reset thirst counter");
+
+            if ($result->getStatus()->getCounter() !== null)
+                $io->writeln("Increment action counter <info>{$result->getStatus()->getCounter()}</info>");
+
+            if ($result->getStatus()->getRole() !== null && $result->getStatus()->getRoleAdd() !== null) {
+                if ($result->getStatus()->getRoleAdd()) {
+                    $io->writeln("Add new role <info>" . $this->translate($result->getStatus()->getRole()->getLabel(), "game") . "</info>");
+                } else {
+                    $io->writeln("Remove role <info>" . $this->translate($result->getStatus()->getRole()->getLabel(), "game") . "</info>");
+                }
+            }
+
+            if ($result->getStatus()->getInitial() && $result->getStatus()->getResult()) {
+                $io->writeln("Replace status <info>" . $this->translate($result->getStatus()->getInitial()->getLabel(), "game") . "</info> by <info>" . $this->translate($result->getStatus()->getResult()->getLabel(), "game") . "</info>");
+            }
+            elseif ($result->getStatus()->getInitial()) {
+                $io->writeln("Remove status <info>" . $this->translate($result->getStatus()->getInitial()->getLabel(), "game") . "</info>");
+            }
+            elseif ($result->getStatus()->getResult()) {
+                $io->writeln("Add status <info>" . $this->translate($result->getStatus()->getResult()->getLabel(), "game") . "</info>");
+            }
+        }
+
+
+        if ($result->getTown())
+            $io->writeln("Adds <info>{$result->getTown()->getAdditionalDefense()}</info> defense to the town");
+
+        if ($result->getWell())
+            $io->writeln("Change well level by <info>{$result->getWell()->getFillMin()}</info>-<info>{$result->getWell()->getFillMax()}</info>");
+
         if ($result->getZombies()) {
             $io->writeln("Remove <info>{$result->getZombies()->getMin()}</info>-<info>{$result->getZombies()->getMax()}</info> zombies from the current zone");
+        }
+
+        if ($result->getZone()) {
+            if ($result->getZone()->getChatSilence())
+                $io->writeln("Hide chat messages for <info>{$result->getZone()->getChatSilence()} sec</info>");
+
+            if ($result->getZone()->getEscape())
+                $io->writeln("Allow citizen to escape for <info>{$result->getZone()->getEscape()} sec</info>");
+
+            if ($result->getZone()->getImproveLevel())
+                $io->writeln("Improve camping level by <info>{$result->getZone()->getImproveLevel()}</info>");
+
+            if ($result->getZone()->getUncoverRuin())
+                $io->writeln("Reduce necessary AP to uncover ruin");
+
+            if ($result->getZone()->getUncoverZones())
+                $io->writeln("Uncover surrounding zones");
         }
 
         if ($result->getResultGroup()) {
