@@ -50,6 +50,7 @@ class ActionCommand extends LanguageCommand
         foreach ($item->getActions() as $action) {
             $io->section('Actions');
             $io->writeln("Action label: " . $this->translate($action->getLabel(), "items"));
+
             foreach ($action->getResults() as $result) {
                 $this->displayActions($result, $io);
             }
@@ -89,7 +90,6 @@ class ActionCommand extends LanguageCommand
                 $io->listing($protos);
             }
         }
-
         if ($result->getConsume())
             $io->writeln("Consume <info>{$result->getConsume()->getCount()}</info>x <info>" . $this->translate($result->getConsume()->getPrototype()->getLabel(), "items") . "</info>");
 
@@ -126,6 +126,13 @@ class ActionCommand extends LanguageCommand
 
             if ($result->getItem()->getMorph())
                 $io->writeln("Change the item into <info>" . $this->translate($result->getItem()->getMorph()->getLabel(), "items") . "</info>  (<info>{$result->getItem()->getMorph()->getName()}</info>)");
+
+            if ($result->getItem()->getPoison())
+                $io->writeln("Set the item to be poisoned");
+        }
+
+        if ($result->getMessage()) {
+            $io->writeln("Display message <info>" . $this->translate($result->getMessage()->getText(), "game") . "</info> if escort mode is set to <info>" . intval($result->getMessage()->getEscort()) . "</info>. Its ordering value is <info>{$result->getMessage()->getOrdering()}</info>");
         }
 
         if ($result->getPicto())
@@ -142,7 +149,7 @@ class ActionCommand extends LanguageCommand
 
         if ($result->getSpawn()) {
             if ($result->getSpawn()->getPrototype())
-                $io->writeln("Spawn item <info>" . $this->translate($result->getSpawn()->getPrototype()->getLabel(), "items") . "</info>  (<info>{$result->getSpawn()->getPrototype()->getName()}</info>) x<info>{$result->getSpawn()->getCount()}</info>");
+                $io->writeln("Spawn item <info>" . $this->translate($result->getSpawn()->getPrototype()->getLabel(), "items") . "</info> (<info>{$result->getSpawn()->getPrototype()->getName()}</info>) x<info>{$result->getSpawn()->getCount()}</info>");
             else {
                 $protos = [];
                 if ($result->getSpawn()->getItemGroup()) {
@@ -150,6 +157,7 @@ class ActionCommand extends LanguageCommand
                     foreach ($list->getEntries() as $entry) {
                         $protos[] = "<info>" . $this->translate($entry->getPrototype()->getLabel(), 'buildings') . "</info> (" . round($this->rand->resolveChance( $list, $entry->getPrototype() ) * 100, 2) . "%)";
                     }
+                    $io->writeln("Unlock one of those item:");
                     $io->listing($protos);
                 }
             }
@@ -184,9 +192,22 @@ class ActionCommand extends LanguageCommand
             }
         }
 
-
         if ($result->getTown())
             $io->writeln("Adds <info>{$result->getTown()->getAdditionalDefense()}</info> defense to the town");
+
+        if ($result->getTarget()) {
+            if ($result->getTarget()->getConsume())
+                $io->writeln("Consume the targeted item (disappear from the inventory)");
+
+            if ($result->getTarget()->getBreak())
+                $io->writeln("Breaks targeted the item");
+
+            if ($result->getTarget()->getMorph())
+                $io->writeln("Change the targetted item into <info>" . $this->translate($result->getItem()->getMorph()->getLabel(), "items") . "</info> (<info>{$result->getItem()->getMorph()->getName()}</info>)");
+
+            if ($result->getTarget()->getPoison())
+                $io->writeln("Set the targeted item to be poisoned");
+        }
 
         if ($result->getWell())
             $io->writeln("Change well level by <info>{$result->getWell()->getFillMin()}</info>-<info>{$result->getWell()->getFillMax()}</info>");
