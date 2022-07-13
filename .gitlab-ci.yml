@@ -21,7 +21,7 @@ variables:
 
 stages:
   - build
-  - test&translate
+  - test-translate
   - deploy
 
 build:
@@ -51,7 +51,7 @@ build:
       - public/build
 
 translate:
-  stage: test&translate
+  stage: test-translate
   dependencies:
     - build
   script:
@@ -62,7 +62,7 @@ translate:
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
-  stage: test&translate
+  stage: test-translate
   dependencies:
     - build
   script:
