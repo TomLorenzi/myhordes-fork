@@ -55,7 +55,8 @@ translate:
   dependencies:
     - build
   script:
-    - apt install jre-default -yqq
+    - apt update
+    - apt install default-jre -yqq
     - wget https://artifacts.crowdin.com/repo/deb/crowdin3.deb -O /root/crowdin.deb
     - dpkg -i ~/crowdin.deb
 
