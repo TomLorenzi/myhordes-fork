@@ -255,6 +255,11 @@ class ZoneHandler
                         $found_by_escorts[] = $item_prototype;
                 }
 
+                $this->gps->recordDigResult($item_prototype, $current_citizen, null, 'scavenge', match ($mode) {
+                    -1, 0, 1 => false,
+                    2 => (bool)$event_group
+                });
+
                 if ($item_prototype) {
                     // If we get a Chest XL, we earn a picto
                     if ($item_prototype->getName() == 'chest_xl_#00') {

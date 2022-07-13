@@ -325,6 +325,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
+        $gps->recordDigResult($prototype, $citizen, $ruinZone->getZone()->getPrototype(), 'eruin_scavenge');
         if ($prototype) {
             $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") && $this->random_generator->chance(0.90));
             $gps->recordItemFound( $prototype, $citizen, $ruinZone->getZone()->getPrototype() );

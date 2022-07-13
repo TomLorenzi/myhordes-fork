@@ -67,7 +67,7 @@ parameters:
       limits:
         remote: 100
         panda: 500
-        return_small: 500
+        return_small: 0
         custom: 1000
     langs:
       - code: fr

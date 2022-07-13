@@ -533,7 +533,7 @@ class BeyondController extends InventoryAwareController
                 $hide_success = false;
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
+            $this->addFlash('collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
         $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items, $processed);
         if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
             if (!$hide_success)
@@ -760,9 +760,10 @@ class BeyondController extends InventoryAwareController
     /**
      * @Route("api/beyond/desert/move", name="beyond_desert_move_controller")
      * @param JSONRequestParser $parser
+     * @param GameProfilerService $gps
      * @return Response
      */
-    public function desert_move_api(JSONRequestParser $parser): Response {
+    public function desert_move_api(JSONRequestParser $parser, GameProfilerService $gps): Response {
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
 
@@ -894,9 +895,10 @@ class BeyondController extends InventoryAwareController
 
                     if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
                         if ($mover->getId() === $citizen->getId())
-                            $this->addFlash( 'notice', $this->translator->trans('Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!', [], 'game' ));
-                        else 
-                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['{name}' => $mover->getName()], 'game' ));
+                            $this->addFlash('notice', $this->translator->trans('Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!', [], 'game'));
+                        else
+                            $this->addFlash('notice', $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['{name}' => $mover->getName()], 'game'));
+                        $gps->recordlostHood($mover, $new_zone, "outsideMove");
                     }
                 }
             }
@@ -1398,6 +1400,7 @@ class BeyondController extends InventoryAwareController
                     : $zone->getPrototype()->getDropByNames( $named_groups );
 
                 $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
+                $gps->recordDigResult($prototype, $citizen, $zone->getPrototype(), 'ruin_scavenge', $event_conf && $group->getName() == $event_conf['group']);
                 if ($prototype) {
                     $item = $this->item_factory->createItem( $prototype );
                     $gps->recordItemFound( $prototype, $citizen, $zone->getPrototype() );
@@ -1441,6 +1444,7 @@ class BeyondController extends InventoryAwareController
             } else {
                 // Nothing found.
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
+                $gps->recordDigResult(null, $citizen, $zone->getPrototype(), 'ruin_scavenge');
             }
         } else {
             $this->addFlash( 'notice', $this->translator->trans( 'Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...', [], 'game' ));

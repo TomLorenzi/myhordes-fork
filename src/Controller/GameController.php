@@ -213,7 +213,7 @@ class GameController extends CustomAbstractController
             'citizensWithRole' => $citizenRoleList,
             'votesNeeded' => $votesNeeded,
             'town' => $town,
-            'announcement' => $latest_announcement?->getTimestamp() < new \DateTime('-40weeks') ? null : $latest_announcement,
+            'announcement' => $latest_announcement?->getTimestamp() < new \DateTime('-4weeks') ? null : $latest_announcement,
             'season' => $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]),
             'council' => array_map( fn(CouncilEntry $c) => [$this->gazette_service->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
