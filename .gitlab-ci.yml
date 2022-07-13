@@ -64,6 +64,13 @@ translate:
     - bin/console app:translation:update de
     # And we send it to Crowdin
     - crowdin upload sources -b translation-main
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - vendor
+      - node_modules
+      - public/build
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
