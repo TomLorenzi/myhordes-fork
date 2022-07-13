@@ -1,3 +1,4 @@
+---
 Wassergraben: Douves
 'Großer Graben': 'Grand Fossé'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'Le Grand fossé apporte 23 points de défense.'
@@ -5,13 +6,13 @@ Wassergraben: Douves
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.': 'Le Grand fossé apporte 76 points de défense.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'Le Grand fossé apporte 109 points de défense.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'Le Grand fossé apporte 160 points de défense.'
-Rasierklingenmauer: 'Muraille rasoir'
-Pfahlgraben: 'Fosse à Pieux'
+Rasierklingenmauer: Muraille rasoir
+Pfahlgraben: Fosse à Pieux
 Köder: Appâts
 Stacheldraht: Barbelés
 'Weiterentwickelte Stadtmauer': 'Remparts avancés'
 'Groooße Mauer': 'Grogro mur'
-Zackenmauer: 'Muraille à pointes'
+Zackenmauer: Muraille à pointes
 'Dritte Schicht': 'Troisième couche'
 'Zweite Schicht': 'Seconde couche'
 Betonschicht: Bétonnade
@@ -22,33 +23,33 @@ Betonschicht: Bétonnade
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'La Muraille évolutive apporte 235 points de défense.'
 'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'La Muraille évolutive apporte 315 points de défense.'
 'Verstärkende Balken': 'Poutres renfort'
-Zombiereibe: 'Râpe à zombies'
+Zombiereibe: Râpe à zombies
 Fallgruben: Oubliettes
 Holzzaun: Palissade
 Sperrholz: Contre-plaqué
 'Rüstungsplatten 3.0': 'Cloison épaisse'
 Extramauer: Bastion
-Rüstungsplatten: 'Cloison en bois'
+Rüstungsplatten: Cloison en bois
 'Rüstungsplatten 2.0': 'Cloison métallique'
-Einseifer: 'Mur Savonné'
+Einseifer: Mur Savonné
 Spraykanone: Neurotoxine
-Säurespray: 'Projection acide'
+Säurespray: Projection acide
 Zerstäuber: Pulvérisateur
-'Verstärkte Stadtmauer': Muraille
-Minen: 'Champ mines eau'
+'Verstärkte Stadtmauer': 'Muraille'
+Minen: Champ mines eau
 Wasserfilter: Filtre
 Wasserreiniger: Purificateur
-Dünger: 'Fertilisation sauvage'
-Granatapfel: 'Pamplemousses explosifs'
+Dünger: Fertilisation sauvage
+Granatapfel: Pamplemousses explosifs
 Gemüsebeet: Potager
 'Projekt Eden': 'Projet Eden'
-Brunnenbohrer: 'Foreuse puits'
+Brunnenbohrer: Foreuse puits
 Kärcher: Vaporisateur
-'Kreischender Rotor': Sanibroyeur
-Sprinkleranlage: 'Arroseurs auto'
+'Kreischender Rotor': 'Sanibroyeur'
+Sprinkleranlage: Arroseurs auto
 Dusche: Douches
-Wasserleitungsnetz: 'Réseau hydraulique'
-Wasserturm: 'Aqua tourelles'
+Wasserleitungsnetz: Réseau hydraulique
+Wasserturm: Aqua tourelles
 'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'La défense des aqua-tourelles est multipliée par 1.8 (126 points de défense), mais coûte 2 rations d''eau par nuit.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'La défense des aqua-tourelles est multipliée par 2.6 (182 points de défense), mais coûte 4 rations d''eau par nuit.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'La défense des aqua-tourelles est multipliée par 3.4 (238 points de défense), mais coûte 6 rations d''eau par nuit.'
@@ -57,27 +58,27 @@ Wasserturm: 'Aqua tourelles'
 Wasserfänger: Percée
 Wasserkanone: Pluvio-canons
 Schleuse: Caniveaux
-Wasserfall: 'Rid''eau'
-Wünschelrakete: 'Roquette Foreuse'
-Wünschelrute: 'Détecteur à eau'
-Apfelbaum: 'Pommier de l''Outre-Monde'
+Wasserfall: Rid'eau
+Wünschelrakete: Roquette Foreuse
+Wünschelrute: Détecteur à eau
+Apfelbaum: Pommier de l'Outre-Monde
 Pumpe: Pompe
 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'Ajoute 20 Rations d''eau dans le puits (une seule fois).'
 'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'Ajoute 30 Rations d''eau dans le puits (une seule fois).'
 'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'Ajoute 40 Rations d''eau dans le puits (une seule fois).'
 Kremato-Cue: Crémato-Cue
 Metzgerei: Boucherie
-Verteidigungsanlage: 'Fixations de défenses'
+Verteidigungsanlage: Fixations de défenses
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'Chaque objet de défense en banque apporte 2 points de défense à la ville.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'Chaque objet de défense en banque apporte 2.5 points de défense à la ville.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'Chaque objet de défense en banque apporte 3 points de défense à la ville.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'Chaque objet de défense en banque apporte 3.5 points de défense à la ville.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Chaque objet de défense en banque apporte 4 points de défense à la ville.'
-Steinkanone: 'Canon à briques'
-'Selbstgebaute Railgun': Perforeuse
+Steinkanone: Canon à briques
+'Selbstgebaute Railgun': 'Perforeuse'
 Blechplattenwerfer: Lance-Grenailles
 'Brutale Kanone': 'Canon brutal'
-Kanonenhügel: 'Monticules canons'
+Kanonenhügel: Monticules canons
 Holzbalkendrehkreuz: Tourniquet
 Manufaktur: Manufacture
 'Kreischende Sägen': 'Scies hurlantes'
@@ -85,19 +86,19 @@ Bauhaus: Architectoire
 'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 4 plans communs après l''attaque.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans communs, 2 plans inhabituels après l''attaque (et une surprise?)'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans inhabituels, 2 plans rares après l''attaque (et une surprise?)'
-Baustellenbuch: 'Registre chantier'
+Baustellenbuch: Registre chantier
 Galgen: Potence
 'Kleines Cafe': 'Cantine à bois'
-Sarg-Katapult: 'Cercueils sur ressort'
+Sarg-Katapult: Cercueils sur ressort
 'Kleiner Friedhof': 'Cimetière cadenassé'
 Hühnerstall: Poulailler
 Schlachthof: Abattoir
-Pentagon: 'Supports défensifs'
-Kantine: 'Cantine centrale'
-Bollwerk: 'Quartiers circulaires'
-Baumarkt: 'Stratégies citoyennes'
+Pentagon: Supports défensifs
+Kantine: Cantine centrale
+Bollwerk: Quartiers circulaires
+Baumarkt: Stratégies citoyennes
 Krankenstation: Infirmerie
-Labor: 'Laboratoire central'
+Labor: Laboratoire central
 Werkstatt: Atelier
 'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 6%.'
 'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 12%.'
@@ -111,29 +112,29 @@ Forschungsturm: Scrutateur
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.': 'Les chances de régénération d''une case du désert passent à 61%.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'Les chances de régénération d''une case du désert passent à 73%.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'Les chances de régénération d''une case du désert passent à 85%.'
-Verteidigungspfähle: 'Champs piégés'
-Notfallabstützung: 'Renforts d''urgence'
+Verteidigungspfähle: Champs piégés
+Notfallabstützung: Renforts d'urgence
 Guerilla: Guérilla
-Trümmerberg: 'Mont pointu'
-Abfallberg: 'Tas détritus'
-Wolfsfalle: 'Piège à loups'
+Trümmerberg: Mont pointu
+Abfallberg: Tas détritus
+Wolfsfalle: Piège à loups
 Sprengfalle: Dynamitage
-'Nackte Panik': Panique
-Dollhouse: 'La Bamba'
+'Nackte Panik': 'Panique'
+Dollhouse: La Bamba
 'Heiliger Regen': 'Pluie bénite'
-Voodoo-Puppe: 'Poupée Vaudou XXL'
+Voodoo-Puppe: Poupée Vaudou XXL
 'Spirituelles Wunder': 'Mirage Spirituel'
 'Bokors Guillotine': 'Guillotine à Bokor'
-Notfallkonstruktion: 'Dispositifs d''urgence'
+Notfallkonstruktion: Dispositifs d'urgence
 'Verbesserter Katapult': 'Catapulte calibrée'
-Katapult: 'Catapulte Primitive'
-'Kleine Waffenschmiede': Armurerie
+Katapult: Catapulte Primitive
+'Kleine Waffenschmiede': 'Armurerie'
 'Schwedische Schreinerei': 'Magasin suédois'
-Schießstand: 'Tourelle lance-eau'
-'Kleiner Tribok': Lance-bête
-Wächter-Turm: 'Tour des gardiens'
-Krähennest: 'Tour des éclaireurs'
-Wachturm: 'Tour de guet'
+Schießstand: Tourelle lance-eau
+'Kleiner Tribok': 'Lance-bête'
+Wächter-Turm: Tour des gardiens
+Krähennest: Tour des éclaireurs
+Wachturm: Tour de guet
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 3 km de la ville.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 6 km de la ville.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 10 km de la ville.'
@@ -143,42 +144,42 @@ Bohrturm: Derrick
 'Falsche Stadt': 'Fausse Ville'
 Wasserhahn: Robinetterie
 'Großer Umbau': 'Grand déménagement'
-Vogelscheuche: 'Champs d''épouvantails'
-Fleischkäfig: 'Cage à viande'
-Bürgergericht: 'Dictature des héros'
-Befestigungen: 'Habitations fortifiées'
-Holzabfall: 'Déchardes de bois'
+Vogelscheuche: Champs d'épouvantails
+Fleischkäfig: Cage à viande
+Bürgergericht: Dictature des héros
+Befestigungen: Habitations fortifiées
+Holzabfall: Déchardes de bois
 Metallabfall: Ferraillerie
 Tierabfälle: Enclos
 'Müll für Alle': 'Décharge organisée'
-Waffenabfall: 'Décharge piégée'
-Biomüll: 'Appâts odorants'
-Rüstungsabfall: 'Décharge blindée'
+Waffenabfall: Décharge piégée
+Biomüll: Appâts odorants
+Rüstungsabfall: Décharge blindée
 'Verbesserte Müllhalde': 'Décharge humidifiée'
-Müllhalde: 'Décharge publique'
+Müllhalde: Décharge publique
 Leuchtturm: Phare
-Altar: 'Autel de la rédemption'
+Altar: Autel de la rédemption
 'Riesige Sandburg': 'Château de sable'
-Leuchtfeuer: 'Feu de joie'
+Leuchtfeuer: Feu de joie
 'Ministerium für Sklaverei': 'Bureau des esclavagistes'
-Reaktor: 'Réacteur soviétique'
+Reaktor: Réacteur soviétique
 Labyrinth: Labyrinthe
 'Alles oder nichts': 'Dernière chance'
 'Riesiger KVF': 'PMV géant'
-Riesenrad: 'Grande roue de Grostas'
-Feuerwerk: 'Feux d''artifices'
-Krähenstatue: 'Statue du Corbeau'
+Riesenrad: Grande roue de Grostas
+Feuerwerk: Feux d'artifices
+Krähenstatue: Statue du Corbeau
 Kino: Cinéma
 Luftschlag: Roquettes
 Heißluftballon: Montgolfière
-Tunnelratte: 'Foreuse améliorée'
+Tunnelratte: Foreuse améliorée
 Fundament: Fondations
-Torpanzerung: 'Blindage d''entrée'
-Automatiktür: 'Piston calibré'
-Kolbenschließmechanismus: 'Piston verrou'
-Ventilationssystem: 'Conduite d''aération'
+Torpanzerung: Blindage d'entrée
+Automatiktür: Piston calibré
+Kolbenschließmechanismus: Piston verrou
+Ventilationssystem: Conduite d'aération
 Portal: Portail
-Feldbett: 'Lit de camp'
+Feldbett: Lit de camp
 Zelt: Tente
 Baracke: Taudis
 Hütte: Baraque
@@ -189,23 +190,23 @@ Bunker: Bunker
 Schloss: Château
 'Großer Vorhang': 'Gros rideau'
 'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'Un vieux morceau de toile de jute taché qui permet de cacher aux yeux de vos voisins vos possessions.'
-Hobbylabor: 'Cave laboratoire'
+Hobbylabor: Cave laboratoire
 'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'Un minuscule trou qui sent fort le camphre et la mort, creusé au milieu de votre ''salon''. Mais vous pouvez y mener vos expériences pharmaceutiques tranquillement (chaque niveau augmente de 25% les chances d''obtenir une puissante drogue)…'
 Küche: Cuisine
 'In dieser notdürftig zusammengeschraubten Küche können schmackhafte und ''gesunde'' Speisen zubereitet werden.': 'La cuisine est un coin aménagé de manière très sommaire pour y préparer des rations de meilleure qualité (chaque niveau augmente de 33% les chances d''obtenir un bon plat).'
 'Primitives Alarmsystem': 'Alarme rudimentaire'
 'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'C''est un système un peu simpliste de ferrailles fixées par un fil, mais ça marchera bien pour rameuter tout le monde si quelqu''un entre chez vous...'
-Ruheecke: 'Coin sieste'
+Ruheecke: Coin sieste
 'Was hier als ''Ruhe-Ecke'' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.': 'Il s''agit juste d''un trou dans le sol couvert par quelques cartons. Mais c''est bien utile pour se faire une petite sieste quand l''envie s''en fait sentir (chaque niveau augmente de 33% les chances de bien dormir).'
 Türschloss: Verrou
 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.': 'Ce système rudimentaire mais efficace empêchera quiconque de vous voler un objet.'
 'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.': 'Quand les murs ne suffisent plus, une vraie clôture n''est jamais un luxe. Une défense de bonne qualité.'
 Stauraum: Rangements
 'Deine persönliche Truhe vergrößert sich. ': 'Ajoute une place dans votre coffre personnel. '
-Verstärkungen: Renforts
+Verstärkungen: Renforts 
 'Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.': 'Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie... un peu (chaque niveau ajoute 1 pt de défense)..'
-Verteidigung: 'en défense'
-Brustwehr: 'Chemin de ronde'
+Verteidigung: en défense
+Brustwehr: Chemin de ronde
 Hammam: Hamâme
 'Temporäre Konstruktion!': 'Construction temporaire !'
 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.': 'Cette construction est <strong>à usage unique</strong>. Elle sera détruite ce soir, après l''attaque de la Horde.'
@@ -359,9 +360,9 @@ Hammam: Hamâme
 'Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.': 'Le coût en PA de tous les chantiers est réduit de 24%. Augmente le rendement de réparation de un point.'
 'Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.': 'Le coût en PA de tous les chantiers est réduit de 28%. Augmente le rendement de réparation de deux points.'
 'Zaun (Haus)': Clôture
-Schokoladenkreuz: 'Croix en Chocolat'
+Schokoladenkreuz: Croix en Chocolat
 'Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...': 'Une belle croix réalisée en chocolat pour y placer les citoyens indésirables plutôt que de se contenter de les bannir de la communauté...'
-Straßenbeleuchtung: 'Éclairage public'
+Straßenbeleuchtung: Éclairage public
 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.': 'Quand la nuit profonde sera venue, la lueur blafarde des lampadaires vous permettra de poursuivre vos fouilles du désert. Plus d''excuses pour aller au lit.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'La réduction des chances de fouilles la nuit est annulée dans un rayon de 6 km autour de la ville, 1 pile est consommée par jour.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'La réduction des chances de fouilles la nuit est annulée dans un rayon de 10 km autour de la ville, 1 pile est consommée par jour.'
