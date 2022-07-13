@@ -60,6 +60,11 @@ translate:
     - apt install default-jre -yqq
     - curl https://artifacts.crowdin.com/repo/deb/crowdin3.deb -o /root/crowdin.deb
     - dpkg -i ~/crowdin.deb
+    # Changing php's maximum memory to 256M
+    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
+    # Install a DB
+    - php bin/console app:migrate -i -vvv
     # Let's generate source strings
     - bin/console app:translation:update de
     # And we send it to Crowdin
