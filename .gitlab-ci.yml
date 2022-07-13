@@ -59,7 +59,7 @@ translate:
     - apt install default-jre -yqq
     - curl https://artifacts.crowdin.com/repo/deb/crowdin3.deb -o /root/crowdin.deb
     - dpkg -i ~/crowdin.deb
-    - crowdin upload sources -b translation-maindin
+    - crowdin upload sources -b translation-main
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
