@@ -55,10 +55,14 @@ translate:
   dependencies:
     - build
   script:
+    # We install crowdin CLI
     - apt update
     - apt install default-jre -yqq
     - curl https://artifacts.crowdin.com/repo/deb/crowdin3.deb -o /root/crowdin.deb
     - dpkg -i ~/crowdin.deb
+    # Let's generate source strings
+    - bin/console app:translation:update de
+    # And we send it to Crowdin
     - crowdin upload sources -b translation-main
 
 # Run our tests
