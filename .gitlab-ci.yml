@@ -21,7 +21,7 @@ variables:
 
 stages:
   - build
-  - test
+  - test-translate
   - deploy
 
 build:
@@ -51,7 +51,7 @@ build:
       - public/build
 
 translate:
-  stage: build
+  stage: test-translate
   dependencies:
     - build
   script:
