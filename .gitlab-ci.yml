@@ -57,7 +57,7 @@ translate:
   script:
     - apt update
     - apt install default-jre -yqq
-    - wget https://artifacts.crowdin.com/repo/deb/crowdin3.deb -O /root/crowdin.deb
+    - curl https://artifacts.crowdin.com/repo/deb/crowdin3.deb -o /root/crowdin.deb
     - dpkg -i ~/crowdin.deb
 
 # Run our tests
