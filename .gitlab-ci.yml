@@ -64,7 +64,7 @@ translate:
     - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
     # Install a DB
-    - php bin/console app:migrate -i -vvv
+    - php bin/console app:migrate -i -vvv --skip-optional
     # Let's generate source strings
     - bin/console app:translation:update de
     # And we send it to Crowdin
