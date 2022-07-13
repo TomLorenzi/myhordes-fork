@@ -52,7 +52,7 @@ build:
       - public/build
 
 translate:
-  stage: translate
+  stage: test
   dependencies:
     - build
   script:
