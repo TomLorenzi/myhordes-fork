@@ -76,6 +76,9 @@ translate:
       - vendor
       - node_modules
       - public/build
+  except:
+    - translation-main
+    - i18n_translation-main
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
