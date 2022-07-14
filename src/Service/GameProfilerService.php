@@ -83,7 +83,7 @@ class GameProfilerService {
 
     public function recordCitizenProfessionSelected( Citizen $citizen ): void {
         $this->maybe_persist(
-            $this->init( GameProfileEntryType::CitizenJoined, $citizen->getTown(), $citizen )
+            $this->init( GameProfileEntryType::CitizenProfessionSelected, $citizen->getTown(), $citizen )
                 ?->setForeign1( $citizen->getProfession()->getId() )
         );
     }
