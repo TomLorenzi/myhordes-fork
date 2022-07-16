@@ -1729,7 +1729,7 @@ class ExternalController extends InventoryAwareController {
         $data = [];
 
         if(empty($fields)) {
-            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc'];
+            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
         }
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->user);
