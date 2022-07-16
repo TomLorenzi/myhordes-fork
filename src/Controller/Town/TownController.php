@@ -2225,10 +2225,10 @@ class TownController extends InventoryAwareController
         $non_shunned = 0;
 
         //TODO: This needs huuuuge statistics
-        //foreach ($town->getCitizens() as $foreinCitizen)
-        //    if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
+        foreach ($town->getCitizens() as $foreinCitizen)
+            if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
 
-        $insurrectionProgress = 2; //intval(round(100 / $non_shunned));
+        $insurrectionProgress = intval(round(50 / $non_shunned));
 
         $gps->recordInsurrectionProgress($town, $citizen, $insurrectionProgress, $non_shunned);
 
