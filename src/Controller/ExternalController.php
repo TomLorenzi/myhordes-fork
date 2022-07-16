@@ -1732,7 +1732,7 @@ class ExternalController extends InventoryAwareController {
             $fields = ['id', 'rare', 'number', 'img', 'name', 'desc'];
         }
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->user);
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
