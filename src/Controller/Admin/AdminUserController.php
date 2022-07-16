@@ -248,6 +248,43 @@ class AdminUserController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/users/{id}/account/do/overwrite_pw/{param}", name="admin_users_account_manage_pw", requirements={"id"="\d+"}, priority=1)
+     * @AdminLogProfile(enabled=true, mask={"param", "$.param"})
+     * @param int $id
+     * @param JSONRequestParser $parser
+     * @param UserHandler $userHandler
+     * @param UserPasswordHasherInterface $passwordEncoder
+     * @param string $param
+     * @return Response
+     */
+    public function user_account_manager_pw(int $id, JSONRequestParser $parser, UserHandler $userHandler,
+                                         UserPasswordHasherInterface $passwordEncoder, string $param = ''): Response
+    {
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if (!$user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if (empty($param)) $param = $parser->get('param', '');
+
+        if (!$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if (!$userHandler->admin_canAdminister( $this->getUser(), $user )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $user->setPassword( $passwordEncoder->hashPassword( $user, $param ) );
+        $this->entity_manager->persist($user);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/admin/users/{id}/account/do/{action}/{param}", name="admin_users_account_manage", requirements={"id"="\d+"})
      * @AdminLogProfile(enabled=true)
      * @param int $id
@@ -257,7 +294,6 @@ class AdminUserController extends AdminActionController
      * @param TwinoidHandler $twin
      * @param UserHandler $userHandler
      * @param PermissionHandler $perm
-     * @param UserPasswordHasherInterface $passwordEncoder
      * @param CrowService $crow
      * @param KernelInterface $kernel
      * @param string $param
@@ -265,7 +301,7 @@ class AdminUserController extends AdminActionController
      */
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         UserPasswordHasherInterface $passwordEncoder, CrowService $crow, KernelInterface $kernel,
+                                         CrowService $crow, KernelInterface $kernel,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -275,10 +311,10 @@ class AdminUserController extends AdminActionController
         if (empty($param)) $param = $parser->get('param', '');
 
         if (in_array($action, [
-            'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-            'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset', 'name_manual', 'name_auto',
-            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history'
-        ]) && !$this->isGranted('ROLE_ADMIN'))
+                'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
+                'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'initiate_pw_reset', 'name_manual', 'name_auto',
+                'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history'
+            ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (str_starts_with($action, 'dbg_') && (!$this->isGranted('ROLE_ADMIN') || $kernel->getEnvironment() !== 'dev') )
@@ -294,24 +330,24 @@ class AdminUserController extends AdminActionController
 
         switch ($action) {
             case 'permit_town_forum_access': case 'unpermit_town_forum_access':
-                if (!is_numeric($param) || !$userHandler->hasRole($user, 'ROLE_ANIMAC'))
+            if (!is_numeric($param) || !$userHandler->hasRole($user, 'ROLE_ANIMAC'))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $town = $this->entity_manager->getRepository(Town::class)->find( $param );
+            if ($town === null || $town->getForum() === null)
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            foreach ($town->getCitizens() as $citizen)
+                if ($citizen->getAlive() && $citizen->getUser() === $user)
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                $town = $this->entity_manager->getRepository(Town::class)->find( $param );
-                if ($town === null || $town->getForum() === null)
-                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $town->getId()] );
+            if ($town_group === null)
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                foreach ($town->getCitizens() as $citizen)
-                    if ($citizen->getAlive() && $citizen->getUser() === $user)
-                        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-                $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $town->getId()] );
-                if ($town_group === null)
-                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-                if ($action === 'permit_town_forum_access') $perm->associate( $user, $town_group );
-                else $perm->disassociate( $user, $town_group );
-                break;
+            if ($action === 'permit_town_forum_access') $perm->associate( $user, $town_group );
+            else $perm->disassociate( $user, $town_group );
+            break;
 
             case 'validate':
                 if ($user->getValidated())
@@ -336,26 +372,20 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'refresh_tokens': case 'regen_tokens':
-                foreach ($this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) as $pf) {
-                    /** @var $pf UserPendingValidation */
-                    if ($action === 'regen_tokens') $pf->generatePKey();
-                    $uf->announceValidationToken( $pf );
-                    $this->entity_manager->persist( $pf );
-                }
-                break;
+            foreach ($this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) as $pf) {
+                /** @var $pf UserPendingValidation */
+                if ($action === 'regen_tokens') $pf->generatePKey();
+                $uf->announceValidationToken( $pf );
+                $this->entity_manager->persist( $pf );
+            }
+            break;
 
             case 'initiate_pw_reset':case 'enforce_pw_reset':
-                if ($action === 'enforce_pw_reset')
-                    $user->setPassword(null);
-                $uf->announceValidationToken( $uf->ensureValidation( $user, UserPendingValidation::ResetValidation ) );
-                $this->entity_manager->persist($user);
-                break;
-
-            case 'overwrite_pw':
-                if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                $user->setPassword( $passwordEncoder->hashPassword( $user, $param ) );
-                $this->entity_manager->persist($user);
-                break;
+            if ($action === 'enforce_pw_reset')
+                $user->setPassword(null);
+            $uf->announceValidationToken( $uf->ensureValidation( $user, UserPendingValidation::ResetValidation ) );
+            $this->entity_manager->persist($user);
+            break;
 
             case 'change_mail':
                 $user->setEmail( $param ?? null );
@@ -556,19 +586,19 @@ class AdminUserController extends AdminActionController
                 }
                 break;
 
-                //'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
+            //'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
             case 'ref_rename':case 'ref_disable':case 'ref_enable':
 
-                $existing_ref = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]);
-                if (!$existing_ref && $action === 'ref_rename')
-                    $existing_ref = (new UserReferLink())->setUser($user)->setActive(true);
-                elseif (!$existing_ref) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            $existing_ref = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]);
+            if (!$existing_ref && $action === 'ref_rename')
+                $existing_ref = (new UserReferLink())->setUser($user)->setActive(true);
+            elseif (!$existing_ref) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                if ($action === 'ref_rename') $existing_ref->setName( $param );
-                else $existing_ref->setActive($action !== 'ref_disable');
+            if ($action === 'ref_rename') $existing_ref->setName( $param );
+            else $existing_ref->setActive($action !== 'ref_disable');
 
-                $this->entity_manager->persist($existing_ref);
-                break;
+            $this->entity_manager->persist($existing_ref);
+            break;
 
             case 'set_sponsor':
 
@@ -640,14 +670,14 @@ class AdminUserController extends AdminActionController
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_ADMIN': case 'ROLE_SUPER':
-                        $user->setRightsElevation( max($user->getRightsElevation(), $param === 'ROLE_ADMIN' ? User::USER_LEVEL_ADMIN : User::USER_LEVEL_SUPER) );
+                    $user->setRightsElevation( max($user->getRightsElevation(), $param === 'ROLE_ADMIN' ? User::USER_LEVEL_ADMIN : User::USER_LEVEL_SUPER) );
 
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
-                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
-                        break;
+                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup ) );
+                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                    $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+                    break;
 
                     case 'FLAG_TEAM':
                         $user->addRoleFlag( User::USER_ROLE_TEAM );
