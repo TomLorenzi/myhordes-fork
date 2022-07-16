@@ -7,11 +7,12 @@
       "name": "AGPL3",
       "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
     },
-    "version": "1.0.42"
+    "version": "1.0.0.42"
   },
   "servers": [
     {
-      "url": "/api/x/"
+      "url": "/api/x/",
+      "description": "MyHordes API Server"
     }
   ],
   "tags": [
@@ -61,7 +62,7 @@
             "content": {
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                  "$ref": "#/components/schemas/XMLUserResponse"
                 }
               }
             }
@@ -210,34 +211,489 @@
         "properties": {
           "user": {
             "type": "string",
-            "default": "https:/myhordes.de/api/x/v2/xml/user"
+            "example": "https:/myhordes.de/api/x/v2/xml/user"
           },
           "items": {
             "type": "string",
-            "default": "https:/myhordes.de/api/x/v2/xml/items"
+            "example": "https:/myhordes.de/api/x/v2/xml/items"
           },
           "buildings": {
             "type": "string",
-            "default": "https:/myhordes.de/api/x/v2/xml/buildings"
+            "example": "https:/myhordes.de/api/x/v2/xml/buildings"
           },
           "ruins": {
             "type": "string",
-            "default": "https:/myhordes.de/api/x/v2/xml/ruins"
+            "example": "https:/myhordes.de/api/x/v2/xml/ruins"
           },
           "pictos": {
             "type": "string",
-            "default": "https:/myhordes.de/api/x/v2/xml/pictos"
+            "example": "https:/myhordes.de/api/x/v2/xml/pictos"
           },
           "town": {
             "type": "string",
-            "default": "https:/myhordes.de/api/x/v2/xml/town"
+            "example": "https:/myhordes.de/api/x/v2/xml/town"
           }
         },
         "xml": {
           "name": "hordes"
         }
-      }
+      },
+      "XMLUserResponse": {
+        "description": "Contains information regarding the current user.",
+        "type": "object",
+        "properties": {
+          "headers": {
+            "$ref": "#/components/schemas/XMLHeaderObject"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "cache-date": {
+                "type": "string",
+                "format": "datetime",
+                "description": "Date at which this object was generated",
+                "example": "2022-07-16 20:00:00",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "cache-fast": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 0,
+                "example": 0,
+                "description": "Will usually be 0.",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "rewards": {
+                "$ref": "#/components/schemas/XMLRewardListObject"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "hordes"
+        }
+      },
 
+      "XMLCitizenObject": {
+        "description": "Describes a citizen.",
+        "type": "object",
+        "properties": {
+          "dead": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is this citizen dead (1) or alive (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "hero": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Does this citizen play with a heroic profession (1) or not (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Player name",
+            "example": "Dayan",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "avatar": {
+            "type": "string",
+            "description": "Avatar URL",
+            "example": "42/e8b3ac08be0c72dba1a9731fc48c4eff.jpeg",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique user ID",
+            "example": 42,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "ban": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is this citizen shunned (1) or not (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "job": {
+            "type": "string",
+            "description": "Job identifier",
+            "example": "collec",
+            "enum": ["none", "basic", "collec", "guardian", "hunter", "tamer", "tech", "shaman", "survivalist"],
+            "xml": {
+              "attribute": true
+            }
+          },
+          "out": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is this citizen outside (1) or in town (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "x": {
+            "type": "integer",
+            "description": "X Position on the map (when outside)",
+            "example": 5,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "y": {
+            "type": "integer",
+            "description": "Y Position on the map (when outside)",
+            "example": -2,
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "citizen"
+        }
+      },
+      "XMLOwnerObject": {
+        "description": "Describes the current user.",
+        "type": "object",
+        "properties": {
+          "citizen": {
+            "$ref": "#/components/schemas/XMLCitizenObject"
+          },
+          "myZone": {
+            "$ref": "#/components/schemas/XMLMyZoneObject"
+          }
+        },
+        "xml": {
+          "name": "owner"
+        }
+      },
+      "XMLItemObject": {
+        "description": "An item",
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Number of items in this stack.",
+            "example": 1,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "id": {
+            "type": "integer",
+            "description": "Item type ID",
+            "example": 2,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "cat": {
+            "type": "string",
+            "description": "Item category",
+            "example": "Rsc",
+            "enum": ["Armor","Box","Drug","Food","Furniture","Misc","Rsc","Weapon"],
+            "xml": {
+              "attribute": true
+            }
+          },
+          "broken": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is this item broken (1) or not (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Item name (depends on language)",
+            "example": "Batterie",
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "item"
+        }
+      },
+      "XMLMyZoneObject": {
+        "description": "An item",
+        "type": "object",
+        "properties": {
+          "dried": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is this zone dried (1) or not (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "h": {
+            "type": "integer",
+            "description": "Human control points",
+            "example": 2,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "z": {
+            "type": "integer",
+            "description": "Number of zombies",
+            "example": 1,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XMLItemObject"
+            },
+            "xml": {
+              "wrapped": false
+            }
+          }
+        },
+        "xml": {
+          "name": "myZone"
+        }
+      },
+      "XMLShortGameObject": {
+        "description": "Information about the current town.",
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "example": 4,
+            "description": "Current day",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "quarantine": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Will usually be 0. In case of a game error, this may be set to 1. We recommend to cease further processing of this stream in case this property is set to 1.",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "datetime": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Current date",
+            "example": "2022-07-16 20:00:00",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique town ID",
+            "example": 1467,
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "game"
+        }
+      },
+      "XMLHeaderObject": {
+        "description": "Common information about the API and the current user",
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "The current API endpoint",
+            "example": "https:///myhordes.localhost/api/x/v2/xml/user",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "iconurl": {
+            "type": "string",
+            "description": "Prefix for icon URLs",
+            "example": "https:///myhordes.localhost/build/images"
+          },
+          "avatarurl": {
+            "type": "string",
+            "description": "Prefix for avatar URLs",
+            "example": "https:///myhordes.localhost/build/images",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "secure": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 1,
+            "description": "Is this API call authorized (1) or not (0). For non-authorized requests, the amount of available information is limited.",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "author": {
+            "type": "string",
+            "description": "Name of the API generator",
+            "example": "MyHordes",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "language": {
+            "type": "string",
+            "description": "Current language",
+            "example": "de",
+            "enum": ["de","en","fr","es"],
+            "xml": {
+              "attribute": true
+            }
+          },
+          "version": {
+            "type": "string",
+            "description": "API version",
+            "example": "0.1",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "generator": {
+            "type": "string",
+            "description": "API framework",
+            "example": "symfony",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "owner": {
+            "$ref": "#/components/schemas/XMLOwnerObject"
+          },
+          "game": {
+            "$ref": "#/components/schemas/XMLShortGameObject"
+          }
+        },
+        "xml": {
+          "name": "headers"
+        }
+      },
+      "XMLRewardObject": {
+        "description": "Earned reward",
+        "type": "object",
+        "properties": {
+          "rare": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is this reward rare (1) or not (0).",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "n": {
+            "type": "integer",
+            "example": 10,
+            "description": "Picto count",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "img": {
+            "type": "string",
+            "description": "Picto URL",
+            "example": "pictos/r_pande.gif",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Picto name (depends on language)",
+            "example": "Überlebende der Hölle!",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "desc": {
+            "type": "string",
+            "description": "Picto description (depends on language)",
+            "example": "Sie sind ein wahrer Überlebenskünstler der Hölle.",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "title": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Title name (depends on language)",
+                  "example": "Hölle, das esse ich jeden Morgen.",
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              }
+            },
+            "xml": {
+              "name": "title",
+              "wrapped": false
+            }
+          }
+        },
+        "xml": {
+          "name": "r"
+        }
+      },
+      "XMLRewardListObject": {
+        "description": "List of pictos",
+        "type": "object",
+        "properties": {
+          "r": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLRewardObject"}
+          }
+        },
+        "xml": {
+          "name": "rewards"
+        }
+      }
     },
     "requestBodies": {
     },
