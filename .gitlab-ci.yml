@@ -21,7 +21,7 @@ variables:
 
 stages:
   - build
-  - test
+  - test-translate
   - deploy
 
 build:
@@ -50,10 +50,40 @@ build:
       - node_modules
       - public/build
 
+translate:
+  stage: test-translate
+  dependencies:
+    - build
+  script:
+    # We install crowdin CLI
+    - apt update
+    - apt install default-jre -yqq
+    - curl https://artifacts.crowdin.com/repo/deb/crowdin3.deb -o /root/crowdin.deb
+    - dpkg -i ~/crowdin.deb
+    # Changing php's maximum memory to 256M
+    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
+    # Install a DB
+    - php bin/console app:migrate -i -vvv --skip-optional
+    # Let's generate source strings
+    - bin/console app:translation:update de
+    # And we send it to Crowdin
+    - crowdin upload sources -b translation-main
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - vendor
+      - node_modules
+      - public/build
+  except:
+    - translation-main
+    - i18n_translation-main
+
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
-  stage: test
+  stage: test-translate
   dependencies:
     - build
   script:

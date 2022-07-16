@@ -199,11 +199,25 @@ class GameProfilerService {
         $this->maybe_persist(
             $this->init( GameProfileEntryType::BeyondLostHood, $citizen->getTown(), $citizen )
                 ?->setForeign1( $citizen->getId() )
-                ?->setForeign2( $$zone->getId() )
+                ?->setForeign2( $zone->getId() )
                 ?->setData( [
                     'by' => $action,
                     'isNight' => $this->confMaster->getTownConfiguration($citizen->getTown())->isNightMode(),
                     'zombies' => $zone->getZombies(),
+                ])
+        );
+    }
+
+    public function recordInsurrectionProgress(Town $town, Citizen $citizen, int $progress, int $nonShunned): void {
+        $this->maybe_persist(
+            $this->init( GameProfileEntryType::InsurrectProgress, $citizen->getTown(), $citizen )
+                ?->setForeign1( $citizen->getId() )
+                ?->setForeign2( $town->getId() )
+                ?->setData( [
+                    'aliveCitizenCount' => $town->getAliveCitizenCount(),
+                    'nonShunnedCount' => $nonShunned,
+                    'shunnedCount' => $town->getAliveCitizenCount() - $nonShunned,
+                    'progress' => $progress,
                 ])
         );
     }
