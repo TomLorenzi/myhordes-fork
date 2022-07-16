@@ -634,27 +634,27 @@ class ExternalXML2Controller extends ExternalController {
             // Citizens
             foreach($town->getCitizens() as $citizen){
                 /** @var Citizen $citizen */
-                if($citizen->getAlive()){
-                    $citizenNode = [
-                        'attributes' => [
-                            'dead' => '0',
-                            'hero' => intval($citizen->getProfession()->getHeroic()),
-                            'name' => $citizen->getUser()->getName(),
-                            'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
-                            'id' => $citizen->getUser()->getId(),
-                            'ban' => intval($citizen->getBanished()),
-                            'job' => $citizen->getProfession()->getName() !== 'none' ? $citizen->getProfession()->getName() : '',
-                            'out' => intval($citizen->getZone() !== null),
-                            'baseDef' => $citizen->getHome()->getPrototype()->getDefense()
-                        ],
-                        'cdata_value' => $citizen->getHome()->getDescription()
-                    ];
-                    if (!$citizen->getTown()->getChaos()){
-                        $citizenNode['attributes']['x'] = $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'];
-                        $citizenNode['attributes']['y'] = $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'];
-                    }
-                    $data['data']['citizens']['list']['items'][] = $citizenNode;
-                } else {
+                $citizenNode = [
+                    'attributes' => [
+                        'dead' => (int)!$citizen->getAlive(),
+                        'hero' => intval($citizen->getProfession()->getHeroic()),
+                        'name' => $citizen->getUser()->getName(),
+                        'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
+                        'id' => $citizen->getUser()->getId(),
+                        'ban' => intval($citizen->getBanished()),
+                        'job' => $citizen->getProfession()->getName() !== 'none' ? $citizen->getProfession()->getName() : '',
+                        'out' => intval($citizen->getZone() !== null),
+                        'baseDef' => $citizen->getAlive() ? $citizen->getHome()->getPrototype()->getDefense() : 0,
+                    ],
+                    'cdata_value' => $citizen->getHome()->getDescription()
+                ];
+                if (!$citizen->getTown()->getChaos()){
+                    $citizenNode['attributes']['x'] = $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'];
+                    $citizenNode['attributes']['y'] = $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'];
+                }
+                $data['data']['citizens']['list']['items'][] = $citizenNode;
+
+                if (!$citizen->getAlive()) {
                     $cadaver = [
                         'attributes' => [
                             'name' => $citizen->getUser()->getName(),
