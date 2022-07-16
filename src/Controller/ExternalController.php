@@ -1730,10 +1730,10 @@ class ExternalController extends InventoryAwareController {
         $data = [];
 
         if(empty($fields)) {
-            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc'];
+            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
         }
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->user);
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
@@ -1748,7 +1748,7 @@ class ExternalController extends InventoryAwareController {
                         $picto_data[$field] = $picto['id'];
                         break;
                     case "img":
-                        $picto_data[$field] = $picto['icon'];
+                        $picto_data[$field] = $this->getIconPath($this->asset->getUrl("build/images/pictos/{$picto['icon']}.gif"));
                         break;
                     case "name":
                         $picto_data[$field] = $this->getTranslate($picto['label'], 'game');
