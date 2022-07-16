@@ -546,7 +546,10 @@
           "iconurl": {
             "type": "string",
             "description": "Prefix for icon URLs",
-            "example": "https:///myhordes.localhost/build/images"
+            "example": "https:///myhordes.localhost/build/images",
+            "xml": {
+              "attribute": true
+            }
           },
           "avatarurl": {
             "type": "string",
