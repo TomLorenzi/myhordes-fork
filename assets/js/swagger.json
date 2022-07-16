@@ -1,0 +1,257 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "MyHordes External API",
+    "description": "This documentation describes the MyHordes external API. It is currently work-in-progress.",
+    "license": {
+      "name": "AGPL3",
+      "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
+    },
+    "version": "1.0.42"
+  },
+  "servers": [
+    {
+      "url": "/api/x/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "XML API",
+      "description": "Implements the older XML API"
+    },
+    {
+      "name": "JSON API",
+      "description": "Implements the newer Twinoid JSON API"
+    }
+  ],
+  "paths": {
+    "/v2/xml": {
+      "get": {
+        "tags": [
+          "XML API"
+        ],
+        "summary": "Returns a list of available endpoints",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XMLEndpointList"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/v2/xml/user": {
+      "get": {
+        "tags": [
+          "XML API"
+        ],
+        "summary": "User information.",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/v2/xml/items": {
+      "get": {
+        "tags": [
+          "XML API"
+        ],
+        "summary": "Item information.",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/v2/xml/buildings": {
+      "get": {
+        "tags": [
+          "XML API"
+        ],
+        "summary": "Building information.",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/v2/xml/ruins": {
+      "get": {
+        "tags": [
+          "XML API"
+        ],
+        "summary": "Ruin information.",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/v2/xml/pictos": {
+      "get": {
+        "tags": [
+          "XML API"
+        ],
+        "summary": "Picto information.",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/v2/xml/town": {
+      "get": {
+        "tags": [
+          "XML API"
+        ],
+        "summary": "Town information.",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "XMLGeneralResponse": {
+        "description": "This schema has not been defined yet.",
+        "type": "object",
+        "properties": {},
+        "xml": {
+          "name": "hordes"
+        }
+      },
+      "XMLEndpointList": {
+        "description": "List of available endpoints",
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "default": "https:/myhordes.de/api/x/v2/xml/user"
+          },
+          "items": {
+            "type": "string",
+            "default": "https:/myhordes.de/api/x/v2/xml/items"
+          },
+          "buildings": {
+            "type": "string",
+            "default": "https:/myhordes.de/api/x/v2/xml/buildings"
+          },
+          "ruins": {
+            "type": "string",
+            "default": "https:/myhordes.de/api/x/v2/xml/ruins"
+          },
+          "pictos": {
+            "type": "string",
+            "default": "https:/myhordes.de/api/x/v2/xml/pictos"
+          },
+          "town": {
+            "type": "string",
+            "default": "https:/myhordes.de/api/x/v2/xml/town"
+          }
+        },
+        "xml": {
+          "name": "hordes"
+        }
+      }
+
+    },
+    "requestBodies": {
+    },
+    "securitySchemes": {
+      "secret_key": {
+        "type": "apiKey",
+        "name": "appkey",
+        "in": "query"
+      },
+      "user_key": {
+        "type": "apiKey",
+        "name": "userkey",
+        "in": "query"
+      }
+    }
+  }
+}

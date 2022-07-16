@@ -266,8 +266,8 @@ const MapOverviewParent = ( props: MapOverviewParentProps ) => {
             />
             <MapOverviewGrid map={props.map} settings={props.settings} strings={props.strings} marking={props.marking}
                              wrapDispatcher={props.wrapDispatcher} routeEditor={props.routeEditor} etag={props.etag}
-                             zoom={props.zoom}
-            />
+                             zoom={props.zoom} routeViewer={props.routeViewer} scrollAreaRef={props.scrollAreaRef}
+                             zoomChanged={props.zoomChanged}/>
         </div>
     )
 }

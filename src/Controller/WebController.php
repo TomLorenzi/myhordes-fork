@@ -121,6 +121,15 @@ class WebController extends CustomAbstractController
     }
 
     /**
+     * @Route("/swagger", name="swagger")
+     * @return Response
+     */
+    public function swagger(): Response
+    {
+        return $this->render('web/swagger.html.twig');
+    }
+
+    /**
      * @Route("/ref/{name}")
      * @param string $name
      * @param SessionInterface $s
