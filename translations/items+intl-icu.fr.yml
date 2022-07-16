@@ -1,3 +1,4 @@
+---
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'Vous lancez les dés, vous obtenez {dc1}, {dc2} et {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Bravo, vous obtenez un <strong>triplet</strong> ! Qu''est-ce qu''on s''amuse !<hr />Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Vous formez une suite ! C''est toujours sympa pour le moral. <hr />Et ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.'
@@ -11,18 +12,18 @@
 'Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.': 'Une petite chansonnette permet de séduire les femmes et donner de l''énergie... mais il va falloir vous contenter de ce 2ème effet. Vous apportez {ap} points d''actions partagés entre vos concitoyens.'
 'Ration Wasser': 'Ration d''eau'
 Batterie: Pile
-Konservendose: 'Boîte de conserve'
+Konservendose: Boîte de conserve
 'Offene Konservendose': 'Boîte de conserve ouverte'
 'Batteriewerfer 1-PDTG (geladen)': 'Lance-Pile 1-PDTG (chargé)'
-Taser: 'Taser d''auto-défense'
+Taser: Taser d'auto-défense
 'Aqua-Splash (leer)': 'Aqua-Splash (vide)'
 'Handmixer (geladen)': 'Batteur électrique (chargé)'
-'Kettensäge (geladen)': Tronçonneuse
-Rasenmäher: 'Tondeuse à gazon'
+'Kettensäge (geladen)': 'Tronçonneuse'
+Rasenmäher: Tondeuse à gazon
 'Verstellbarer Schraubenschlüssel': 'Clé à Molette'
 Schraubenzieher: Tournevis
 'Großer trockener Stock': 'Grand Bâton Sec'
-Jagdmesser: 'Couteau à dents'
+Jagdmesser: Couteau à dents
 Machete: Coupe-Coupe
 'Lächerliches Taschenmesser': 'Canif dérisoire'
 'Schweizer Taschenmesser': 'Couteau suisse'
@@ -30,17 +31,17 @@ Teppichmesser: Cutter
 Einkaufswagen: Caddie
 Dosenöffner: Ouvre-boîtes
 'Extra Tasche': 'Sac supplémentaire'
-Streichholzschachtel: 'Boîte d''allumettes'
-Beruhigungsspritze: 'Piqure de calmant'
-Schaukelstuhl: 'Rocking Chair'
+Streichholzschachtel: Boîte d'allumettes
+Beruhigungsspritze: Piqure de calmant
+Schaukelstuhl: Rocking Chair
 'Staubiges Buch': 'Livre poussiéreux'
 Matratze: Matelas
 'Ausgeschaltete Nachttischlampe': 'Lampe de chevet éteinte'
-Perser: 'Tapis persan'
+Perser: Tapis persan
 'Mini Hi-Fi Anlage (defekt)': 'Petite chaîne Hi-Fi en panne'
 'Kette + Vorhängeschloss': 'Chaîne de Porte + cadenas'
 Fußabstreifer: Paillasson
-'Ein paar Würfel': Dés
+'Ein paar Würfel': 'Dés'
 Motor: Moteur
 Riemen: Courroie
 'Handvoll Schrauben und Muttern': 'Poignée de vis et écrous'
@@ -54,34 +55,34 @@ Huhn: Poule
 'Anaboles Steroid': 'Stéroïdes Anabolisants'
 'Leckeres Steak': 'Steak appétissant'
 'Undefinierbares Fleisch': 'Viande indéfinissable'
-Zeltplane: 'Toile de tente'
+Zeltplane: Toile de tente
 'Superpraktischer Rucksack': 'Sac super-pratique'
 Kanister: Jerrycan
 'Krummes Holzbrett': 'Planche tordue'
 Alteisen: Ferraille
-Wasserbombe: 'Bombe à eau'
-Blechplatte: 'Plaque de tôle'
+Wasserbombe: Bombe à eau
+Blechplatte: Plaque de tôle
 'Kanisterpumpe (zerlegt)': 'Pompe à Jerrycan (démontée)'
-Bandage: 'Bandage rudimentaire'
-'Grüne Bierflasche': Bière
+Bandage: Bandage rudimentaire
+'Grüne Bierflasche': 'Bière'
 'Kanisterpumpe (leer)': 'Pompe à Jerrycan (vide)'
 Videoprojektor: Vidéoprojecteur
-Sprengstoff: 'Explosifs bruts'
-Menschenfleisch: 'Viande humaine'
-Plastiktüte: 'Sac plastique'
+Sprengstoff: Explosifs bruts
+Menschenfleisch: Viande humaine
+Plastiktüte: Sac plastique
 'Explodierende Wasserbombe': 'Bombe à eau explosive'
 'Plastiktüte mit Sprengstoff': 'Sac plastique + explosif'
 'Unvollständige Kettensäge': 'Tronçonneuse incomplète'
 'Unvollständiger Handmixer': 'Batteur électrique incomplet'
 Klebeband: Rustine
 'Zerlegter Rasenmäher': 'Tondeuse démontée'
-Kupferrohr: 'Tube de cuivre'
+Kupferrohr: Tube de cuivre
 'Wackliger Einkaufswagen': 'Caddie bancal'
 'Gürtel mit Tasche': 'Ceinture à poches'
 'Twinoid 500mg': 'Twinoïde 500mg'
-Metallkiste: 'Boîte en métal'
+Metallkiste: Boîte en métal
 'Großer Metallkoffer': 'Gros coffre en métal'
-Werkzeugkiste: 'Caisse de matériel'
+Werkzeugkiste: Caisse de matériel
 'Nachttischlampe (an)': 'Lampe de chevet (Allumée)'
 'Mini Hi-Fi Anlage (an)': 'Petite chaîne HiFi (Allumée)'
 'Pharmazeutische Substanz': 'Produits Pharmaceutiques'
@@ -94,12 +95,12 @@ Kaffeekocher: Cafetière
 'Habseligkeiten eines Bürgers': 'Affaires d''un citoyen'
 'Hydraton 100mg': 'Hydratone 100mg'
 'Kassettenradio (ohne Strom)': 'Radio K7 (éteint)'
-Kassettenradio: 'Radio K7'
+Kassettenradio: Radio K7
 Zyanid: Cyanure
 'Alte Tür': 'Vieille porte'
 'Verdächtiges Gemüse': 'Légume suspect'
 'Reparaturset (kaputt)': 'Kit de bricolage (abimé)'
-Reparaturset: 'Kit de bricolage'
+Reparaturset: Kit de bricolage
 'Wasserpistole (leer)': 'Pistolet à eau (vide)'
 'Aqua-Splash (3 Ladungen)': 'Aqua-Splash (3 charges)'
 'Aqua-Splash (2 Ladungen)': 'Aqua-Splash (2 charges)'
@@ -114,18 +115,18 @@ Reparaturset: 'Kit de bricolage'
 'Zerstörer (geladen)': 'Devastator (chargé)'
 'Unvollständiger Zerstörer': 'Devastator incomplet'
 'Zonenmarker ''Radius''': 'Balise « Radius »'
-Leuchtrakete: 'Fusée éclairante'
+Leuchtrakete: Fusée éclairante
 'Kanisterpumpe (einsatzbereit)': 'Pompe à jerrycan (prête)'
 'Ektorp-Gluten Stuhl': 'Chaise Ektörp-Gluten'
 'Revolver (entladen)': 'Revolver (vide)'
 'Sturmgewehr (entladen)': 'Fusil d''assault (vide)'
-Zünder: 'Détonateur compact'
-Zementsack: 'Sac de ciment'
+Zünder: Détonateur compact
+Zementsack: Sac de ciment
 'Unförmige Zementblöcke': 'Pavés de béton informes'
 'Etikettenloses Medikament': 'Médicament sans étiquette'
 'Paracetoid 7g': 'Paracétoïde 7g'
 'Unkrautbekämpfungsmittel Ness-Quick': 'Désherbant Ness-Quick'
-Nahrungsmittelkiste: 'Caisse de nourriture'
+Nahrungsmittelkiste: Caisse de nourriture
 Doggybag: Doggy-bag
 'Tüte mit labbrigen Chips': 'Paquet de chips molles'
 'Verschimmelte Waffeln': 'Napolitains moisis'
@@ -139,31 +140,31 @@ Doggybag: Doggy-bag
 'Starke Gewürze': 'Epices fortes'
 'Gewürzte chinesische Nudeln': 'Nouilles chinoises épicées'
 'Unvollständiges Kartenspiel': 'Jeu de cartes incomplet'
-Gesellschaftsspiel: 'Boîte de jeu'
+Gesellschaftsspiel: Boîte de jeu
 'Aqua-Splash (zerlegt)': 'Aqua-Splash (démonté)'
 'Vibrator (entladen)': 'Petit manche vibrant (déchargé)'
 'Knochen mit Fleisch': 'Os charnu'
 'Angeknackster menschlicher Knochen': 'Os humain fêlé'
 'Zusammengeschusterter Holzbalken': 'Poutre rafistolée'
-Metallstruktur: 'Structures métalliques'
-Metalltrümmer: 'Débris métalliques'
+Metallstruktur: Structures métalliques
+Metalltrümmer: Débris métalliques
 'Verrotteter Baumstumpf': 'Souche de bois pourrie'
-Metallsäge: 'Scie à métaux'
+Metallsäge: Scie à métaux
 'Gut erhaltener Holzscheit': 'Buche en bon état'
 'Defektes Elektrogerät': 'Appareil électronique en panne'
-Möbelpackung: 'Meuble en kit'
+Möbelpackung: Meuble en kit
 'Beschädigte Metallsäge': 'Scie à métaux abimée'
 Getriebe: Mécanisme
 Holzbock: Tréteau
-Järpen-Tisch: 'Table Järpen'
+Järpen-Tisch: Table Järpen
 'Micropur Brausetablette': 'Micropur effervescent'
-Darmmelone: 'Melon d''intestin'
-Raketenpulver: 'Poudre-comète brute'
-Schießpulverbombe: 'Bombe Pulvérine'
-Teddybär: 'Teddy n''Ours'
-Holzkistendeckel: 'Morceau de caisse'
+Darmmelone: Melon d'intestin
+Raketenpulver: Poudre-comète brute
+Schießpulverbombe: Bombe Pulvérine
+Teddybär: Teddy n'Ours
+Holzkistendeckel: Morceau de caisse
 'Solide Holzplatte': 'Plaque de bois solide'
-Geldbündel: 'Liasse de billets'
+Geldbündel: Liasse de billets
 'Loses Werkzeug': 'Outils en vrac'
 'Radius Mark II (entladen)': 'Balise Radius Mark II (déchargé)'
 'Radius Mark II': 'Balise Radius Mark II'
@@ -171,22 +172,22 @@ Geldbündel: 'Liasse de billets'
 'Unvollständiger Motor': 'Moteur incomplet'
 'Alte Waschmaschine': 'Vieille machine à laver'
 'Krebserregender Ofen': 'Four cancérigène'
-Minibar: 'Réfrigérateur d''étudiant'
+Minibar: Réfrigérateur d'étudiant
 'Ein Brief ohne Adresse': 'Une lettre sans adresse'
 'Aufgewelltes Blatt': 'Feuille raccornie'
-Betriebsanleitung: 'Manuel d''instructions'
+Betriebsanleitung: Manuel d'instructions
 'Unleserliches Notizbuch': 'Carnet illisible'
-Fotoalbum: 'Album photo'
-Blätterstapel: 'Pile de feuilles'
+Fotoalbum: Album photo
+Blätterstapel: Pile de feuilles
 'Große rostige Kette': 'Grosse chaîne rouillée'
 'Verdächtige Speise': 'Plat fait-maison douteux'
 'Leckere Speise': 'Bon plat fait-maison'
-Schrankkoffer: 'Cantine en fer'
+Schrankkoffer: Cantine en fer
 Kartons: Cartons
 'Nagelbare Barrikade': 'Barricades à clouer'
 'Ein Briefumschlag': 'Une enveloppe'
 'Ein Paket': 'Un colis'
-Maschendrahtzaunstück: 'Morceau de grillage'
+Maschendrahtzaunstück: Morceau de grillage
 'Wasserpistole (3 Ladungen)': 'Pistolet à eau (3 charges)'
 'Wasserpistole (2 Ladungen)': 'Pistolet à eau (2 charges)'
 'Wasserpistole (1 Ladung)': 'Pistolet à eau (1 charge)'
@@ -200,20 +201,20 @@ Maschendrahtzaunstück: 'Morceau de grillage'
 'Kiste mit Materialien (3)': 'Carton de matériaux (3)'
 'Kiste mit Materialien (2)': 'Carton de matériaux (2)'
 'Kiste mit Materialien (1)': 'Carton de matériaux (1)'
-Autotür: 'Portière de voiture'
+Autotür: Portière de voiture
 'Beschädigte Autotür': 'Portière de voiture incomplète'
-Giftfläschchen: 'Fiole de poison'
-Ätzmittel: 'Produit corrosif'
+Giftfläschchen: Fiole de poison
+Ätzmittel: Produit corrosif
 'Vorräte eines umsichtigen Bürgers': 'Réserves d''un citoyen avisé'
-Postpaket: 'Colis postal'
+Postpaket: Colis postal
 Lunch-Box: Boîte-déjeuner
 'Eine Handvoll Bonbons': 'Poignée de bonbons'
-Sperrholzstück: 'Morceau de contreplaqué'
+Sperrholzstück: Morceau de contreplaqué
 Fackel: Torche
 'Verbrauchte Fackel': 'Torche consumée'
 'Getrocknete Marshmallows': 'Chamallows séchés'
 'Geröstete Marshmallows': 'Chamallows calcinés'
-PC-Gehäuse: 'Unité centrale'
+PC-Gehäuse: Unité centrale
 Safe: Coffre-fort
 'Eine Enzyklopädie': 'Une encyclopédie'
 'Wasserspender (leer)': 'Bonbonne d''eau (vide)'
@@ -224,21 +225,21 @@ Safe: Coffre-fort
 'Betapropin-Tablette 5mg': 'Betapropine 5mg'
 Aasbeeren: Charognardes
 'Schleimige Kugel': 'Boule de pâtes visqueuse'
-Fleischfetzen: 'Lambeau de chair'
+Fleischfetzen: Lambeau de chair
 'Makabre Bombe': 'Bombe macabre'
 'Dickflüssige Substanz': 'Substance épaisse'
-Aasbeerenbrei: 'Purée de charognardes'
+Aasbeerenbrei: Purée de charognardes
 'Eisengefäß mit modrigem Wasser': 'Eau croupie'
 'Gereinigtes modriges Wasser': 'Eau croupie purifiée'
 'Notizzettel eines Verbannten': 'Note d''un citoyen banni'
 'Blutdurchtränkter Verband': 'Pansement ensanglanté'
 'Verfluchter Teddybär': 'Teddy n''Ours maudit'
-Sägemehlsteak: 'Steak de sciure'
+Sägemehlsteak: Steak de sciure
 'Abgetragene rote Jacke': 'Veste rouge usée'
 'Zerrissene rote Hose': 'Pantalon rouge déchiré'
 'Schweißtriefende rote Mütze': 'Bonnet rouge malodorant'
 'Übelriechender Anzug aus einer anderen Zeit': 'Costume malodorant d''une autre époque'
-Mobiltelefon: 'Téléphone portable'
+Mobiltelefon: Téléphone portable
 'Ekliger Hautfetzen': 'Pelures de peau'
 'MagLite Kinderlampe (aus)': 'Maglite Pif''Gadget (éteinte)'
 'MagLite Kinderlampe (1 Ladung)': 'Maglite Pif''Gadget (1 charge)'
@@ -246,23 +247,23 @@ Mobiltelefon: 'Téléphone portable'
 'Leiche eines Reisenden': 'Cadavre d''un voyageur'
 'Angenagte Leiche': 'Cadavre rongé'
 'Rauchgranate ''Tannenduft''': 'Fumigène « Senteur Sapin »'
-Sandball: 'Boule de sable'
+Sandball: Boule de sable
 'Normaler Bauplan (gewöhnlich)': 'Plan de chantier (commun)'
 'Normaler Bauplan (ungewöhnlich)': 'Plan de chantier (inhabituel)'
 'Normaler Bauplan (selten)': 'Plan de chantier (rare)'
 'Normaler Bauplan (sehr selten!)': 'Plan de chantier (très rare !)'
-Architektenkoffer: 'Coffre d''architecte'
+Architektenkoffer: Coffre d'architecte
 'Versiegelter Architektenkoffer': 'Coffre d''architecte scellé'
 Ei: Œuf
 Apfel: Pomme
 'Explosive Pampelmuse': 'Pamplemousse explosif'
 'Abgenutzte Kuriertasche': 'Sacoche usée'
-Magnet-Schlüssel: 'Clé magnétique'
-Schlagschlüssel: 'Clé à percussion'
+Magnet-Schlüssel: Clé magnétique
+Schlagschlüssel: Clé à percussion
 Flaschenöffner: Décapsuleur
 'Abdruck vom Magnet-Schlüssel': 'Empreinte de clé magnétique'
 'Abdruck vom Schlagschlüssel': 'Empreinte de clé à percussion'
-Ghul-Serum: 'Sérum pour Goule'
+Ghul-Serum: Sérum pour Goule
 'Hotel-Bauplan (ungewöhnlich)': 'Plan de chantier (inhabituel)'
 'Hotel-Bauplan (selten)': 'Plan de chantier (rare)'
 'Hotel-Bauplan (sehr selten!)': 'Plan de chantier (très rare !)'
@@ -275,23 +276,23 @@ Ghul-Serum: 'Sérum pour Goule'
 'Verirrte Seele': 'Âme errante'
 'Starke Seele': 'Âme forte'
 'Schwache Seele': 'Âme faible'
-Bierkrug: 'Chope de bière'
+Bierkrug: Chope de bière
 Brezel: Bretzel
 Dackel: Teckel
 Pfahlwerfer: Lance-pieu
-Kalaschni-Splash: 'Kalachnik''eau'
+Kalaschni-Splash: Kalachnik'eau
 'Schnellgebauter Tisch': 'Bureau monté à la rache'
 'Leerer Automat': 'Distributeur vide'
 'Santas Rentier': 'Renne du papa noyel'
-Osterei: 'Oeuf de Pâques'
+Osterei: Oeuf de Pâques
 'ANZAC Badge': 'Badge de Shérif'
 'Kalaschni-Splash (leer)': 'Kalachnik''eau (vide)'
-Drahtspule: 'Bobine de fil de fer'
-Ölkännchen: 'Bidon d''huile vide'
-Konvexlinse: 'Lentille convexe'
+Drahtspule: Bobine de fil de fer
+Ölkännchen: Bidon d'huile vide
+Konvexlinse: Lentille convexe
 'Wütende Mieze (halb verdaut)': 'Petit chaton furieux (partiellement digéré)'
-Tretmine: 'Mine Antipersonnelle'
-Laserdiode: 'Diode laser'
+Tretmine: Mine Antipersonnelle
+Laserdiode: Diode laser
 'Selbstgebaute Gitarre': 'Guitare artisanale'
 LSD: LSD
 'Starker Laserpointer (4 Schuss)': 'Pointeur laser brûlant (4 charges)'
@@ -301,14 +302,14 @@ LSD: LSD
 'Starker Laserpointer (Leer)': 'Pointeur laser brûlant déchargé'
 Teleskop: Téléscope
 'Unpersönliche Explodierende Fußmatte': 'Paillasson piégé'
-Chuck-Figur: 'Figurine de Chuck'
+Chuck-Figur: Figurine de Chuck
 'Kleine Zen-Fibel': 'Livre zen miniature'
 'Trockene Kräuter': 'Sac d''herbe fraîche'
-Mutterkorn: 'Claviceps Purpurea'
-Korn-Bräu: 'Cidre Claviceps Artisanal'
+Mutterkorn: Claviceps Purpurea
+Korn-Bräu: Cidre Claviceps Artisanal
 'Verfluchte HiFi': 'Chaine Hifi maudite'
 'Phil Collins CD': 'CD de Phil Collins'
-Ohrstöpsel: 'Boules Quies'
+Ohrstöpsel: Boules Quies
 'Kaputter Stock': 'Bâton cassé'
 'Britney Spears CD': 'CD de Britney Spears'
 'Best of The King CD': 'Compilation du King'
@@ -322,18 +323,18 @@ Ohrstöpsel: 'Boules Quies'
 'Überraschungskiste (1 Geschenk)': 'Caisse surprise (1)'
 'Verdächtiger Traubensaft': 'Jus de mirabelle suspect'
 'Ein Etikett': 'Une étiquette'
-Bürgerbekleidung: 'Uniforme de citoyen'
+Bürgerbekleidung: Uniforme de citoyen
 'Dreckige Bürgerbekleidung': 'Uniforme de citoyen sale'
-Tarnanzug: 'Tenue de camouflage'
+Tarnanzug: Tenue de camouflage
 'Tarnkleidung (nicht wirksam!)': 'Camouflage (inactif !)'
 'Kleine Schaufel': 'Petite Pelle'
 'Dreibeiniger Malteser': 'Bichon maltais à 3 pattes'
 'Malteser Hündchen auf Droge': 'Bichon maltais shooté'
 'Müdes Malteser Hündchen': 'Bichon maltais fatigué'
-Survivalbuch: 'Livre de survie'
-Schraubenschlüssel: 'Clé à molette de compet'''
-Schutzschild: 'Bouclier Anti-émeutes'
-Voodoo-Maske: 'Masque Voodoo'
+Survivalbuch: Livre de survie
+Schraubenschlüssel: Clé à molette de compet'
+Schutzschild: Bouclier Anti-émeutes
+Voodoo-Maske: Masque Voodoo
 Trinken: Boire
 Befüllen: Remplir
 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!': 'Vous avez obtenu {item_to} en combinant {items_consume} et {item_from}.'
@@ -352,7 +353,7 @@ Lesen: Lire
 'Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>': 'Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...{hr}<t-rp_ok><strong>Un nouveau document a été ajouté à vos écrits !</strong></t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc <strong>pas de distinction supplémentaire</strong>.</t-rp_fail>'
 Werfen: Lancer
 '{casino}': '{casino}'
-'Karte ziehen': Piocher
+'Karte ziehen': 'Piocher'
 Spielen: Jouer
 Verwenden: Utiliser
 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.': 'Vous vous installez confortablement chez vous et vous vous laissez aller... Mauvaise surprise : l''outil se révèle <strong>effroyablement douloureux</strong> à l''usage ! Néanmoins, vous finissez par y prendre goût. Et au bout de quelques instants, l''effet est radical : vous êtes en sueur, mais vous vous sentez plus... "zen".{hr}La pile à l''intérieur a été entièrement utilisée.'
@@ -372,9 +373,9 @@ Knuddeln: Étreindre
 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>': 'Vous serrez {item} très fort contre vous... <t-stat-down-terror>Rapidement, les larmes vous viennent aux yeux. Les nerfs... Vous éclatez en sanglot tandis que vous prenez conscience de l''enfer dans lequel vous vivez...<hr />Après quelques minutes vous vous sentez un peu mieux... </t-stat-down-terror><nt-stat-down-terror><strong>Mais rien ne vient.</strong> Vous vous sentez même encore plus triste qu''avant. A quoi bon continuer à "vivre" après tout?</nt-stat-down-terror>'
 'Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>': 'Vous serrez {item} très fort contre vous... <t-stat-up-terror>La panique surgit en vous !<hr />Vous êtes devenu <strong>terrorisé(e)</strong> !</t-stat-up-terror><nt-stat-up-terror>Mais rien ne se passe!</nt-stat-up-terror>'
 Rauchen: Fumer
-Dopen: 'Lui donner un stéroïde'
-'Wasser suchen': 'Chercher de l''eau'
-'Essen suchen': 'Chercher de la nourriture'
+Dopen: Lui donner un stéroïde
+'Wasser suchen': Chercher de l'eau
+'Essen suchen': Chercher de la nourriture
 Tarnen: Remettre
 'Du bist nun getarnt.': 'Vous êtes maintenant camouflé.'
 'Du ziehst eine Karte... es ist: {color} {value}.': 'Vous tirez la carte {value} de {color}.'
@@ -668,23 +669,23 @@ Rettung: Sauvetage
 'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.': 'Indispensable pour pulvériser les records de construction de chantier, le kit complet du bricoleur est accompagné d''une clé à molette de compétition !'
 ' Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.': 'Dans le désert, il retient 4 zombies au lieu de 2 (pour un citoyen normal)'
 'Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.': 'Masque ultra-antique, bénéficiant du savoir-faire millénaire des anciens sorciers vaudou, permettra au Chaman de connaître l''emplacement des âmes de citoyens fraîchement décédés se promenant dans l''Outre-monde.'
-Heldentaten: 'Actions héroïques'
-Berufsgegenstand: 'Objet de métier (ne peut être posé)'
+Heldentaten: Actions héroïques
+Berufsgegenstand: Objet de métier (ne peut être posé)
 'Schwerer Gegenstand': 'Objet encombrant'
-Einrichtungsgegenstand: 'Aménagement de maison'
-Verteidigungsgegenstand: 'Objet de défense'
+Einrichtungsgegenstand: Aménagement de maison
+Verteidigungsgegenstand: Objet de défense
 Waffe: Arme
-Super-Flaum-Pulver: 'Poudre Super-Fuzz'
+Super-Flaum-Pulver: Poudre Super-Fuzz
 'Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.': 'Selon les époques, cette poudre a tour à tour servi de détonateur pour divers pièces d''artillerie, puis comme drogue bas de gamme pour citoyen en manque avant d''être utilisée comme ingrédient principal dans les feux d''artifice. Dans les 3 cas, beaucoup de gens n''y ont pas survécu.'
-Flush-Abschussrohr: 'Tube de lancement Floush'
+Flush-Abschussrohr: Tube de lancement Floush
 'Mehrere lange Plastikschläuche ohne großes Interesse.': 'Plusieurs longs tubes en plastique sans grand intérêt.'
-Feuerwerkskiste: 'Caisse de feux d''artifice'
+Feuerwerkskiste: Caisse de feux d'artifice
 'Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.': 'Cette boite contient tout un attirail de produits chimiques hautement toxiques aux noms évocateurs, tels que : Sodium-Fuzz, Carbopotassium Bling Bling ou Rainbow Lithium Cyanurisé.'
 'Leuchtender Kürbis': 'Citrouille allumée'
 'Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?': 'Une sorte de gros légume orange malodorant, comme vous n''en avez jamais vu auparavant. Un visage grimaçant a été taillé dans sa chair : quel genre de tradition barbare se cache derrière ce rituel ?'
 'Ausgeschnitzter weicher Kürbis': 'Citrouille molle sculptée'
 'Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... ': 'En voila une idée saugrenue : ce gros légume bizarre a été vidé de sa chair, sculpté et il y a une bougie allumée à l''intérieur...'
-Krähengirlande: 'Guirlande de Corbeaux'
+Krähengirlande: Guirlande de Corbeaux
 'Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.': 'Une guirlande de ce qui semblait être une ancienne tradition. Il est recommandé de l''accrocher chez soi en guise de décoration, ce pourrait faire du bien au moral de la ville.'
 '<t-bp_ok>Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...</t-bp_fail>': '<t-bp_ok>Après examen du plan, vous découvrez qu''il décrit précisément la construction de {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}Ce projet nécessite la construction préalable de : {bp_parent}.</t-bp_parent><t-bp_fail><strong>Votre ville a déjà débloqué l''ensemble des chantiers de cette catégorie !</strong>{hr}Ce plan est donc inutile : vous décidez de le jeter.</t-bp_fail>'
 Aufbauen: Installer
@@ -702,7 +703,7 @@ Wandeln: Transformer
 Zerlegen: Démonter
 Baustoffe: Ressources
 Grundnahrungsmittel: Provisions
-'Apotheke und Labor': Pharmacie
+'Apotheke und Labor': 'Pharmacie'
 Expedition: Expédition
 Sonstiges: Divers
 Einrichtungen: Aménagements
@@ -713,7 +714,7 @@ Kaputt: Cassé
 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.': 'Vous ne pensez pas pouvoir améliorer le campement mieux que ça, vous avez fait de votre mieux.'
 'Haus aufräumen und putzen': 'Ranger mon habitat'
 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn''s ne Bruchbude ist, es ist DEIN Zuhause...': 'Vous ramassez les débris qui traînent, rangez le peu que vous possédez et tachez de donner un air un peu moins glauque à ce qui vous sert d''habitation...'
-Duschen: 'Se doucher'
+Duschen: Se doucher
 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.': 'Vous sautez sous la douche maison sans y penser. L''eau glacée vous fait peur, mais vous restez sous le jet d''eau faible pendant quelques instants. En l''absence de savon, vous vous frottez avec une pierre lisse et essayez de laver la boue et les taches de sang. Vous essayez de vous convaincre que cela fait du bien.'
 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!': 'Le boucher a pris grand soin de {item}... Vous en tirez {items_spawn}. Adieu pépète.'
 'Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.': 'Vous faites le tour de la ville pour vérifier l''existence de failles et donnez quelques coups de pied dans des bricoles mal placées. La ville a gagné +10 points de défense temporaires.'
@@ -746,9 +747,9 @@ Bube: Valet
 Dame: Dame
 König: Roi
 Ass: As
-Nachtwache-Waffen: 'Arme de veille'
+Nachtwache-Waffen: Arme de veille
 Pkte: Pts
-Heilen: 'Se soigner'
+Heilen: Se soigner
 'Verteidigung organisieren': 'Organiser les défenses'
 'Reinigen (Wasser)': Purifier
 'Reinigen (Kleidung)': Nettoyer
@@ -775,15 +776,15 @@ Benutzen: Utiliser
 'Öffnen (1 BP)': 'Ouvrir (1 PC)'
 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...': 'Ça a un goût vraiment bizarre, difficile à définir. Mais ça remplit son rôle : remplir votre estomac. Par contre ça ne vous donne pas de bonus d''énergie pour agir...'
 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>': 'Une fois n''est pas coutume, vous vous faîtes plaisir en avalant <span class="tool">{item}</span>. Ça change des rations quotidiennes infectes... Vous reprenez du poil de la bête.{hr}Vous recevez <strong>un bonus de 1 PA</strong>!'
-Krähenelfe: 'Elfe corbeau'
+Krähenelfe: Elfe corbeau
 'Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...': 'C''est une petite bête à l''apparence étrange... Ça ressemble à un corbeau... Mais en vert et il a un chapeau étrange...'
-'Logbuch Schokolade': 'Bûche de Noël'
+'Logbuch Schokolade': Bûche de Noël
 'Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...': 'Soit un vieux gâteau de Noël ratatiné, soit quelque chose d''un peu moins appétissant, fait le jour de Noël tout de même ! Quoi qu''il en soit, profitez de ce... gâteau ?'
 'Grüner Kobold-Anzug': 'Costume de Lutin Vert'
 'In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?': 'Avec ce déguisement, vous êtes tellement voyant que personne ne vous remarquera, ou ils penseront qu''ils l''ont imaginé ! Vous n''en abuseriez pas, n''est-ce pas ?'
 'Unidentifizierbare Trümmerstücke': 'Débris méconnaissables'
 'Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...': 'Ces débris sont ceux d''un objet non-identifiable qui semble avoir été projeté à grande vitesse contre le sol.'
-Munitionsgriff: 'Poignée de cartouches'
+Munitionsgriff: Poignée de cartouches
 'Eine Handvoll Munition. Aber was hat das für einen Sinn?': 'Une poignée de munitions. Mais à quoi cela peut-il bien servir ?'
 'Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).': 'Vous avez partiellement nettoyé la zone grâce à votre {item} (<strong>{bury_count} points</strong> déblayés)...'
 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.': 'Vous jetez votre fumigène dans la zone, semant la plus grande confusion !{hr}Votre <strong>prochain déplacement</strong> ne sera pas consigné au registre s''il est effectué <strong>d''ici 1 minute au plus tard</strong>.'
@@ -795,9 +796,9 @@ Munitionsgriff: 'Poignée de cartouches'
 'Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.': 'On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.'
 'Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!': 'Vous frappez un zombie de toutes vos forces, plusieurs fois, mais <strong>celui-ci ne s''effrondre pas sous vos coups !</strong>'
 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...': 'Toutefois, votre arme s''est <strong>cassée</strong> sous le choc...'
-Weihnachts-Süßigkeiten: 'Bonbon de Noël'
+Weihnachts-Süßigkeiten: Bonbon de Noël
 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...': 'Ça ressemble à un genre de petit bonbon au chocolat, qui contient de la liqueur alcoolisée. Ou un quelconque autre produit...'
-Geschenkpaket: 'Colis de Noël'
+Geschenkpaket: Colis de Noël
 'Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!': 'Un colis dont l''adresse est aujourd''hui illisible. Et on dirait bien qu''il y a quelque chose à l''intérieur... C''est Noël.'
 'Großes Geschenkpaket': 'Gros colis postal'
 'Du hast {item} getrunken, aber scheinbar geschieht nichts...': 'Vous avez bu {item} mais rien ne semble se passer...'
@@ -833,7 +834,7 @@ Geschenkpaket: 'Colis de Noël'
 'Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.': 'Maintenant qu''il est sous stéroïde, votre bichon peut ramener un objet encombrant en ville. Vous remarquez qu''il bave maintenant en continu et TRÈS abondamment. Il semble être à deux doigts d''avoir une attaque.'
 'Weicher Kürbis': 'Citrouille molle'
 'Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...': 'Une sorte de gros légume orange malodorant, comme vous n''en avez jamais vu auparavant. Une soudaine envie de le sculpter vous prend, sans que vous sachiez pourquoi...'
-Hurlingstock: 'Crosse de Hockey'
+Hurlingstock: Crosse de Hockey
 'Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.': 'Un petit conseil. Si vous choisissez le mauvais combat... Au moins, choisissez la bonne arme.'
 Guiness: Guiness
 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen': 'Rien de mieux qu’une pinte d''un breuvage noir pour inspirer la poésie, le rire et le combat contre les zombies... *Approuvé par Charlie Sheen'
@@ -892,7 +893,7 @@ Guiness: Guiness
 'Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.': 'En tant que témoin de l’Armageddon, vous pouvez fuir les situations sans issue.'
 Ruhm: Gloire
 'Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.': 'En tant que champion, vous pouvez ajouter du pouvoir à vos messages sur le forum.'
-'Kreischender Wecker': Réveil-Hurleur
+'Kreischender Wecker': 'Réveil-Hurleur'
 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?': 'Vous n''en revenez pas ! Toute la voracité qui vous rongeait de l''intérieur disparaît petit à petit. Est-ce vraiment possible que vous soyez redevenu humain ?'
 'Du hast {items_consume_1} verwendet, um das Wasser in {item_from} zu reinigen. Du hast {items_spawn} erhalten...': 'Vous avez utilisé {items_consume_1} pour purifier l''eau contenue dans {item_from}. Vous avez obtenu {items_spawn}...'
 'Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!': 'Vous attaquez un zombie avec votre {item}, mais <strong>celui-ci ne réagit même pas</strong> et continue à avancer !'

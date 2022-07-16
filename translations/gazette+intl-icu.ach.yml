@@ -308,3 +308,4 @@ Kätzchen: crwdns66840:0crwdne66840:0
 'Mal was anderes:': 'crwdns67036:0crwdne67036:0'
 'Das neueste Geschwätz:': 'crwdns67038:0crwdne67038:0'
 'Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...': 'crwdns67040:0crwdne67040:0'
+'<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...': 'crwdns136060:0{citizen1}crwdnd136060:0{cadaver1}crwdnd136060:0{citizen1}crwdne136060:0'
