@@ -52,7 +52,7 @@ class ExternalXML2Controller extends ExternalController {
      * @param bool $must_be_secure If the request must have an app_key
      * @return Response|User Error or the user linked to the user_key
      */
-    private function check_keys($must_be_secure = false) {
+    private function check_keys(bool $must_be_secure = false) {
         /** @var Request $request */
         $request = $this->container->get('request_stack')->getCurrentRequest();
 
@@ -91,19 +91,25 @@ class ExternalXML2Controller extends ExternalController {
                 return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
             }
 
-            // Get the app.
-            /** @var ExternalApp $app */
-            $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-            if (!$app) {
-                $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
-                $data['status']['attributes'] = ['open' => "1", "msg" => ""];
-                return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            // fefe0000fefe0000fefe0000fefe0000 is a default key that is valid for the currently logged in user
+            if ($app_key !== 'fefe0000fefe0000fefe0000fefe0000' || $user_key !== 'fefe0000fefe0000fefe0000fefe0000') {
+                // Get the app.
+                /** @var ExternalApp $app */
+                $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
+                if (!$app) {
+                    $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
+                    $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                    return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+                }
             }
         }
 
         // Get the user.
         /** @var User $user */
-        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
+        if ($user_key !== 'fefe0000fefe0000fefe0000fefe0000')
+            $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
+        else $user = $this->getUser();
+
         if (!$user) {
             $data['error']['attributes'] = ['code' => "user_not_found"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];

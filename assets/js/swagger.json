@@ -245,12 +245,14 @@
       "secret_key": {
         "type": "apiKey",
         "name": "appkey",
-        "in": "query"
+        "in": "query",
+        "description": "Application key. You can obtain this key by contacting the Technical Support. For testing purposes, you may use the following key: <code>fefe0000fefe0000fefe0000fefe0000</code>. This key is only valid in combination with a test user key."
       },
       "user_key": {
         "type": "apiKey",
         "name": "userkey",
-        "in": "query"
+        "in": "query",
+        "description": "User key. This key is transmitted to your application when users visit it over the Application Directory. For testing purposes, you may use the following key: <code>fefe0000fefe0000fefe0000fefe0000</code>. This key is only valid when you're actively logged into MyHordes and will resolve to your own user account. Together with the secret test key, it can be used to test the API without the need of registering for a secret key."
       }
     }
   }

@@ -70,6 +70,7 @@ class ExternalController extends InventoryAwareController {
     private array                    $fields          = [];
     private Town                     $town;
     private User                     $user;
+    private bool                     $selfAuth        = false;
     private int                      $xTown           = 0;
     private int                      $yTown           = 0;
     private int                      $mapIdUser       = 0;
@@ -2228,7 +2229,10 @@ class ExternalController extends InventoryAwareController {
         if ($user_key === false) {
             return ["error" => "invalid_userkey"];
         } else {
-            $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
+            if ($user_key === 'fefe0000fefe0000fefe0000fefe0000') {
+                $user = $this->getUser();
+                $this->selfAuth = !!$user;
+            } else $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
             if (!$user) {
                 return ["error" => "invalid_userkey"];
             } else {
@@ -2278,6 +2282,11 @@ class ExternalController extends InventoryAwareController {
 
         if ($app_key == '') {
             return false;
+        }
+
+        if ($app_key === 'fefe0000fefe0000fefe0000fefe0000') {
+            $this->getUserKey();
+            return $this->selfAuth;
         }
 
         // Get the app.
