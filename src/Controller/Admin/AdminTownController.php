@@ -1412,7 +1412,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/event-tag/{act}", name="admin_town_event_tag_control", requirements={"tid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param int $act
      * @return Response
@@ -1432,7 +1432,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/unrank/{act}", name="admin_town_town_ranking_control", requirements={"tid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param int $act
      * @return Response
@@ -1475,7 +1475,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/relang", name="admin_town_town_lang_control", requirements={"tid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param GameFactory $gameFactory
@@ -1518,10 +1518,11 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/unrank_single/{cid}/{act}", name="admin_town_citizen_ranking_control", requirements={"tid"="\d+","cid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param int $cid
      * @param int $act
+     * @param JSONRequestParser $parser
      * @return Response
      */
     public function ranking_toggle_citizen(int $tid, int $cid, int $act, JSONRequestParser $parser): Response
