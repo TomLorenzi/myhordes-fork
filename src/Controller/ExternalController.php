@@ -139,7 +139,7 @@ class ExternalController extends InventoryAwareController {
      * @return Response
      */
     public function api_json_status(): Response {
-        return $this->api_json( 'status' );
+        return $this->api_json( null,'status' );
     }
 
     /**
