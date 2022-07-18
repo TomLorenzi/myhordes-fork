@@ -49,6 +49,12 @@ build:
       - vendor
       - node_modules
       - public/build
+  rules:
+    - changes:
+        - composer.json
+        - package.json
+        - composer.lock
+        - yarn.lock
 
 translate:
   stage: test-translate
