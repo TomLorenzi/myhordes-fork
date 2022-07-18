@@ -151,7 +151,7 @@ class ExternalController extends InventoryAwareController {
     public function api_json(?User $user, string $type = ''): Response {
 
         $data = [];
-        $this->user = $user;
+        if ($user) $this->user = $user;
 
         switch ($type) {
             case 'internalerror':
