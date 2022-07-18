@@ -2324,5 +2324,5 @@ Stadt/Stadttor: Town/Doors
 'Duell der Achter': 'Duel of Eights'
 'Ehrenpreis für die Teilname am Duell der Achter Event!': 'Honorary reward for participating in the Duel of Eights!'
 'Kategorien anzeigen': 'Show categories'
-'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}'
-'Das Neuste aus aller Welt: {announcement}, {date}': 'Das Neuste aus aller Welt: {announcement}, {date}'
+'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'A moderator has reopened your thread "{threadname}". Reason: {link_post}'
+'Das Neuste aus aller Welt: {announcement}, {date}': 'World activity: {announcement}, {date}'

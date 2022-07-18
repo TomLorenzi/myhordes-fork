@@ -4,15 +4,12 @@
 namespace App\Service;
 
 use App\Entity\Citizen;
-use App\Entity\CitizenRole;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
-use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
-use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;

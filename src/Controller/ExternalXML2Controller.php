@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AwardPrototype;
 use App\Entity\Building;
@@ -25,6 +26,7 @@ use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Enum\ExternalAPIError;
 use App\Structures\SimpleXMLExtended;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
@@ -34,8 +36,6 @@ use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\RateLimiter\Policy\Rate;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,85 +47,40 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ExternalXML2Controller extends ExternalController {
 
-    /**
-     * Check if the userkey and/or appkey has been given
-     * @param bool $must_be_secure If the request must have an app_key
-     * @return Response|User Error or the user linked to the user_key
-     */
-    private function check_keys($must_be_secure = false) {
-        /** @var Request $request */
-        $request = $this->container->get('request_stack')->getCurrentRequest();
-
-        // Try POST data
-        $app_key = $request->query->get('appkey') ?? '';
-        $user_key = $request->query->get('userkey') ?? '';
-
-        // Symfony 5 has a bug on treating request data.
-        // If POST didn't work, access GET data.
-        if (trim($app_key) == '') {
-            $app_key = $request->request->get('appkey');
-        }
-        if (trim($user_key) == '') {
-            $user_key = $request->request->get('userkey');
-        }
-
-        $data = $this->getHeaders(null, $this->getRequestLanguage($request));
-
-        if ($this->time_keeper->isDuringAttack()) {
-            $data['error']['attributes'] = ['code' => "horde_attacking"];
-            $data['status']['attributes'] = ['open' => "0", "msg" => $this->translator->trans("Die Seite wird von Horden von Zombies belagert!", [], 'global')];
-            return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-        }
-
-        if(trim($user_key) == '') {
-            $data['error']['attributes'] = ['code' => "missing_key"];
-            $data['status']['attributes'] = ['open' => "1", "msg" => ""];
-            return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-        }
-
-        // If still no key, none was sent correctly.
-        if ($must_be_secure) {
-            if(trim($app_key) == '') {
-                $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
+    public function on_error(ExternalAPIError $message, string $language): Response {
+        $data = $this->getHeaders(null, $language);
+        switch ($message) {
+            case ExternalAPIError::UserKeyNotFound:
+                $data['error']['attributes'] = ['code' => "missing_key"];
                 $data['status']['attributes'] = ['open' => "1", "msg" => ""];
-                return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-            }
-
-            // Get the app.
-            /** @var ExternalApp $app */
-            $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-            if (!$app) {
-                $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
+                break;
+            case ExternalAPIError::UserKeyInvalid:
+                $data['error']['attributes'] = ['code' => "user_not_found"];
                 $data['status']['attributes'] = ['open' => "1", "msg" => ""];
-                return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-            }
-        }
-
-        // Get the user.
-        /** @var User $user */
-        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
-        if (!$user) {
-            $data['error']['attributes'] = ['code' => "user_not_found"];
+                break;
+            case ExternalAPIError::AppKeyNotFound: case ExternalAPIError::AppKeyInvalid:
+            $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
-            return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            break;
+            case ExternalAPIError::HordeAttacking:
+                $data['error']['attributes'] = ['code' => "horde_attacking"];
+                $data['status']['attributes'] = ['open' => "0", "msg" => $this->translator->trans("Die Seite wird von Horden von Zombies belagert!", [], 'global')];
+                break;
         }
 
-        return $user;
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
     }
 
     /**
+     * @ExternalAPI(user=true, app=false)
      * @Route("api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response The XML that contains the list of accessible enpoints
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml(): Response {
-        $user = $this->check_keys(false);
-
-        if($user instanceof Response)
-            return $user;
-
+    public function api_xml(?User $user, ?string $app_key): Response {
         $endpoints = [];
-        if ($this->isSecureRequest()) {
+        if ($app_key) {
             $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['items']= $this->generateUrl('api_x2_xml_items', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['buildings']= $this->generateUrl('api_x2_xml_buildings', [], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -145,31 +100,24 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the soul of a user
-     * @param Request $request The current HTTP Request
      * @return Response Return the XML content for the soul of the user
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_user(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys(true);
-
-        if($user instanceof Response)
-            return $user;
-
+    public function api_xml_user(?User $user, string $language): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
 
-        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
         else $this->translator->setLocale('en');
 
         // Base data.
-        $data = $this->getHeaders($user, $language);
+        $data = $this->getHeaders($user, $language, true);
 
         $data['data'] = [
             'attributes' => [
@@ -305,30 +253,22 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
+     * @ExternalAPI(user=true, app=false)
      * @Route("api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the town of a user
-     * @param Request $request The current HTTP Request
+     * @param User|null $user
+     * @param string $language
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_town(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys(false);
-
-        if($user instanceof Response)
-            return $user;
-
+    public function api_xml_town(?User $user, string $language, ?string $app_key): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
 
-        $language = $this->getRequestLanguage($request, $user);
-        if ($language !== 'all')
-            $this->translator->setLocale($language);
-
         // Base data.
-        $data = $this->getHeaders($user, $language);
+        $data = $this->getHeaders($user, $language, !!$app_key);
 
         /** @var User $user */
         /** @var Citizen $citizen */
@@ -336,19 +276,18 @@ class ExternalXML2Controller extends ExternalController {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            if ($user->getRightsElevation() >= User::USER_LEVEL_ADMIN && $request->query->has('town')) {
-                $town = $this->entity_manager->getRepository(Town::class)->find($request->query->get('town'));
-                if ($town === null) {
-                    $data['error']['attributes'] = ['code' => "town_not_found"];
-                    $data['status']['attributes'] = ['open' => "1", "msg" => ""];
-                    $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-                    $response->headers->set('Content-Type', 'text/xml');
-                    return $response;
-                }
-
-            } else {
+            //if ($user->getRightsElevation() >= User::USER_LEVEL_ADMIN && $request->query->has('town')) {
+            //    $town = $this->entity_manager->getRepository(Town::class)->find($request->query->get('town'));
+            //    if ($town === null) {
+            //        $data['error']['attributes'] = ['code' => "town_not_found"];
+            //        $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+            //        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            //        $response->headers->set('Content-Type', 'text/xml');
+            //        return $response;
+            //    }
+            //} else {
                 $town = $user->getActiveCitizen()->getTown();
-            }
+            //}
 
             if (!$this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_XML, true)) {
                 $data['error']['attributes'] = ['code' => "disabled_feed"];
@@ -634,27 +573,27 @@ class ExternalXML2Controller extends ExternalController {
             // Citizens
             foreach($town->getCitizens() as $citizen){
                 /** @var Citizen $citizen */
-                if($citizen->getAlive()){
-                    $citizenNode = [
-                        'attributes' => [
-                            'dead' => '0',
-                            'hero' => intval($citizen->getProfession()->getHeroic()),
-                            'name' => $citizen->getUser()->getName(),
-                            'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
-                            'id' => $citizen->getUser()->getId(),
-                            'ban' => intval($citizen->getBanished()),
-                            'job' => $citizen->getProfession()->getName() !== 'none' ? $citizen->getProfession()->getName() : '',
-                            'out' => intval($citizen->getZone() !== null),
-                            'baseDef' => $citizen->getHome()->getPrototype()->getDefense()
-                        ],
-                        'cdata_value' => $citizen->getHome()->getDescription()
-                    ];
-                    if (!$citizen->getTown()->getChaos()){
-                        $citizenNode['attributes']['x'] = $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'];
-                        $citizenNode['attributes']['y'] = $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'];
-                    }
-                    $data['data']['citizens']['list']['items'][] = $citizenNode;
-                } else {
+                $citizenNode = [
+                    'attributes' => [
+                        'dead' => (int)!$citizen->getAlive(),
+                        'hero' => intval($citizen->getProfession()->getHeroic()),
+                        'name' => $citizen->getUser()->getName(),
+                        'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
+                        'id' => $citizen->getUser()->getId(),
+                        'ban' => intval($citizen->getBanished()),
+                        'job' => $citizen->getProfession()->getName() !== 'none' ? $citizen->getProfession()->getName() : '',
+                        'out' => intval($citizen->getZone() !== null),
+                        'baseDef' => $citizen->getAlive() ? $citizen->getHome()->getPrototype()->getDefense() : 0,
+                    ],
+                    'cdata_value' => $citizen->getHome()->getDescription()
+                ];
+                if (!$citizen->getTown()->getChaos()){
+                    $citizenNode['attributes']['x'] = $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'];
+                    $citizenNode['attributes']['y'] = $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'];
+                }
+                $data['data']['citizens']['list']['items'][] = $citizenNode;
+
+                if (!$citizen->getAlive()) {
                     $cadaver = [
                         'attributes' => [
                             'name' => $citizen->getUser()->getName(),
@@ -797,14 +736,14 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of items currently used in the game
-     * @param Request $request
+     * @param User|null $user
+     * @param string $language
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_items(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_items(?User $user, string $language): Response {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -812,15 +751,11 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        if ($user instanceof Response)
-            return $user;
-
-        $language = $this->getRequestLanguage($request,$user);
         if ($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user, $language);
+        $data = $this->getHeaders($user, $language, true);
 
         $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
 
@@ -873,14 +808,14 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of buildings currently used in the game
-     * @param Request $request
+     * @param User|null $user
+     * @param string $language
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_buildings(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_buildings(?User $user, string $language): Response {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -888,15 +823,11 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        if($user instanceof Response)
-            return $user;
-
-        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user, $language);
+        $data = $this->getHeaders($user, $language, true);
 
         $buildings = $this->entity_manager->getRepository(BuildingPrototype::class)->findAll();
 
@@ -946,30 +877,25 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of ruins currently used in the game
-     * @param Request $request
+     * @param User|null $user
+     * @param string $language
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_ruins(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys(true);
-
+    public function api_xml_ruins(?User $user, string $language): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
 
-        if($user instanceof Response)
-            return $user;
-
-        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user, $language);
+        $data = $this->getHeaders($user, $language, true);
 
         $ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
 
@@ -1014,14 +940,14 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of pictos currently used in the game
-     * @param Request $request
+     * @param User|null $user
+     * @param string $language
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_pictos(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_pictos(?User $user, string $language): Response {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -1029,15 +955,11 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        if($user instanceof Response)
-            return $user;
-
-        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user, $language);
+        $data = $this->getHeaders($user, $language, true);
 
         $pictos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
 
@@ -1081,14 +1003,14 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of titles currently used in the game
-     * @param Request $request
+     * @param User|null $user
+     * @param string $language
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated", "userkey": "anonymous"})
      */
-    public function api_xml_titles(Request $request, RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter): Response {
-        $user = $this->check_keys(true);
+    public function api_xml_titles(?User $user, string $language): Response {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
@@ -1096,15 +1018,11 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        if($user instanceof Response)
-            return $user;
-
-        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user, $language);
+        $data = $this->getHeaders($user, $language, true);
 
         $awards = $this->entity_manager->getRepository(AwardPrototype::class)->findAll();
 
@@ -1231,7 +1149,7 @@ class ExternalXML2Controller extends ExternalController {
         return $text;
     }
 
-    protected function getHeaders(?User $user = null, string $language = 'de'): array {
+    protected function getHeaders(?User $user = null, string $language = 'de', bool $secure = false): array {
         $base_url = Request::createFromGlobals()->getHost() . Request::createFromGlobals()->getBasePath();
         $icon_path = $base_url . '/build/images/';
 
@@ -1241,7 +1159,7 @@ class ExternalXML2Controller extends ExternalController {
                     'link' => "//" . $base_url . Request::createFromGlobals()->getPathInfo(),
                     'iconurl' => "//" . $icon_path,
                     'avatarurl' => "//" . $base_url . '/cdn/avatar/',
-                    'secure' => intval($this->isSecureRequest()),
+                    'secure' => intval($secure),
                     'author' => 'MyHordes',
                     'language' => $language,
                     'version' => '0.1',
@@ -1250,7 +1168,7 @@ class ExternalXML2Controller extends ExternalController {
             ]
         ];
 
-        if($user && $this->isSecureRequest()){
+        if($user && $secure){
             if ($citizen = $user->getActiveCitizen()) {
                 try {
                     $now = new \DateTime('now', new DateTimeZone('Europe/Paris'));

@@ -1,5 +1,5 @@
-"project_id": "520572"
-"api_token": "859b28f4c327ea78f6ef7526f1aa60b6ab343e22cd599f12dc6d02be86055877892fa2800f6af7d5"
+"project_id_env": "CROWDIN_PROJECT_ID"
+"api_token_env": "CROWDIN_API_TOKEN"
 "base_path": "./"
 "preserve_hierarchy": true
 "base_url": "https://api.crowdin.com"         # https://{organization-name}.crowdin.com for Crowdin Enterprise

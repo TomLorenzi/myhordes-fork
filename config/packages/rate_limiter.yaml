@@ -1,13 +1,21 @@
 framework:
   rate_limiter:
+    public_api:
+      policy: 'sliding_window'
+      limit: 600
+      interval: '60 minutes'
     anonymous_api:
       policy: 'sliding_window'
-      limit: 1000
+      limit: 60
       interval: '60 minutes'
+    authenticated_personal_api:
+      policy: 'sliding_window'
+      limit: 120
+      interval: '8 hours'
     authenticated_api:
       policy: 'token_bucket'
-      limit: 7500
-      rate: { interval: '15 minutes', amount: 750 }
+      limit: 10000
+      rate: { interval: '15 minutes', amount: 1000 }
     blackboard_edit_slide:
       policy: 'token_bucket'
       limit: 10

@@ -10,18 +10,20 @@ use Symfony\Component\RateLimiter\RateLimit;
  * @Annotation
  * @Target({"METHOD"})
  */
-class AdminLogProfile implements ConfigurationInterface
+class ExternalAPI implements ConfigurationInterface
 {
 
     public ?string $value = null;
-    public bool $enabled = false;
-    public array $mask = [];
+    public bool $user     = true;
+    public bool $app      = true;
+    public int  $cost     = 1;
+    public bool $fefe     = true;
 
     /**
      * @inheritDoc
      */
     public function getAliasName(): string {
-        return 'AdminLogProfile';
+        return 'ExternalAPI';
     }
 
     /**
@@ -31,12 +33,6 @@ class AdminLogProfile implements ConfigurationInterface
         return false;
     }
 
-    public function enableLogging(): bool {
-        return $this->enabled || strtolower($this->value ?? '') === "on";
-    }
 
-    public function isMasked( string $parameter ): bool {
-        return in_array( $parameter, $this->mask );
-    }
 
 }

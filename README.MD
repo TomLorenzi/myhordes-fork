@@ -491,6 +491,10 @@ Schedule an attack at the next midnight:
 bin/console app:schedule --add "tomorrow"
 ```
 Schedule the attack now:
+```
+bin/console app:schedule --add now
+bin/console app:cron
+```
 
 ## Administration
 

@@ -117,18 +117,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $avatar;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $preferSmallAvatars = false;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @deprecated
-     */
-    private $postAsDefault;
-
-    /**
      * @ORM\Column(type="string", length=128, nullable=true)
      */
     private $forumTitle;
@@ -220,18 +208,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $checkInt = 0;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $disableFx = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $expert = false;
-
-    /**
      * @ORM\OneToMany(targetEntity=ForumThreadSubscription::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
      */
     private $forumThreadSubscriptions;
@@ -259,24 +235,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $lastNameChange;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $UseICU = false;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @deprecated
-     */
-    private $preferredPronoun;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $open_mod_tools_same_window = false;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pendingEmail;
@@ -287,33 +245,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $roleFlag = 0;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $noAutoFollowThreads = false;
-
-    /**
      * @ORM\ManyToMany(targetEntity=User::class, fetch="EXTRA_LAZY")
      */
     private $friends;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $classicBankSort = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     * @deprecated
-     */
-    private $noAutomaticNameManagement = false;
-
-    /**
-     * @ORM\Column(type="string", length=5, nullable=true)
-     * @deprecated
-     */
-    private $flag;
 
     /**
      * @ORM\Column(type="json", nullable=true)
@@ -394,15 +328,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
     public function getSalt( ): string {
         return 'user_salt_myhordes_ffee45';
-    }
-
-    /**
-     * @return Collection|AdminBan[]
-     * @deprecated
-     */
-    public function getBannings(): Collection
-    {
-        return $this->bannings;
     }
 
     public function getValidated(): ?bool
@@ -1223,20 +1148,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     }
 
     public function getSetting( UserSetting $setting ) {
-        return ($this->getSettings() ?? [])[ $setting->value ] ?? match ($setting) {
-            UserSetting::Flag                          => $this->flag ??                       $setting->defaultValue(),
-            UserSetting::NoAutomaticNameManagement     => $this->noAutomaticNameManagement ??  $setting->defaultValue(),
-            UserSetting::ClassicBankSort               => $this->classicBankSort ??            $setting->defaultValue(),
-            UserSetting::NoAutomaticThreadSubscription => $this->noAutoFollowThreads ??        $setting->defaultValue(),
-            UserSetting::OpenDashboardInSameWindow     => $this->open_mod_tools_same_window ?? $setting->defaultValue(),
-            UserSetting::PreferredPronoun              => $this->preferredPronoun ??           $setting->defaultValue(),
-            UserSetting::UseICU                        => $this->UseICU ??                     $setting->defaultValue(),
-            UserSetting::UseExpertMode                 => $this->expert ??                     $setting->defaultValue(),
-            UserSetting::DisableEffects                => $this->disableFx ??                  $setting->defaultValue(),
-            UserSetting::PostAs                        => $this->postAsDefault ??              $setting->defaultValue(),
-            UserSetting::PreferSmallAvatars            => $this->preferSmallAvatars ??         $setting->defaultValue(),
-            default => $setting->defaultValue()
-        };
+        return ($this->getSettings() ?? [])[ $setting->value ] ?? $setting->defaultValue();
     }
 
     public function setSetting( UserSetting $setting, $value ): self {

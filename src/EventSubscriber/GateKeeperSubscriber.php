@@ -21,18 +21,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Lock\LockInterface;
-use Symfony\Component\RateLimiter\LimiterInterface;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Event\LogoutEvent;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 use App\Annotations\GateKeeperProfile;
-use function PHPUnit\Framework\throwException;
 
 class GateKeeperSubscriber implements EventSubscriberInterface
 {
@@ -46,16 +42,13 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private TranslatorInterface $translator;
     private UserHandler $userHandler;
     private CitizenHandler $citizenHandler;
-    private RateLimiterFactory $authenticated;
-    private RateLimiterFactory $anonymous;
 
     /** @var LockInterface|null  */
     private $current_lock = null;
 
     public function __construct(
         EntityManagerInterface $em, Locksmith $locksmith, Security $security, UserHandler $uh,
-        TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator, CitizenHandler $ch,
-        RateLimiterFactory $authenticatedApiLimiter, RateLimiterFactory $anonymousApiLimiter)
+        TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator, CitizenHandler $ch)
     {
         $this->em = $em;
         $this->locksmith = $locksmith;
@@ -67,8 +60,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $this->translator = $translator;
         $this->userHandler = $uh;
         $this->citizenHandler = $ch;
-        $this->authenticated = $authenticatedApiLimiter;
-        $this->anonymous = $anonymousApiLimiter;
     }
 
     public function holdTheDoor(ControllerEvent $event) {
@@ -94,35 +85,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
         if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
-
-        if ($gk_profile->rateLimited()) {
-            // Find a way to get the rate limiters here
-            $keys = $gk_profile->rateKeys();
-            $limiter = null;
-            foreach ($keys as $key => $authName) {
-                $value = $event->getRequest()->get($key);
-                if($value === "" or $value === null) continue;
-
-                $limiter = $this->$authName->create($value);
-                break;
-            }
-
-            if($limiter == null){
-                $limiter = $this->anonymous->create($event->getRequest()->getClientIp());
-            }
-
-            /** @var LimiterInterface $limiter */
-            $rate = $limiter->consume(1);
-            $gk_profile->rateLimit = [
-                'limit' => $rate->getLimit(),
-                'remaining' => $rate->getRemainingTokens(),
-                'retry_after' => $rate->getRetryAfter()->format('Y-m-d H:i:s')
-            ];
-
-            if(!$rate->isAccepted()){
-                throw new TooManyRequestsHttpException($rate->getRetryAfter()->format("Y-m-d H:i:s"), "Rate Limit Exceeded");
-            }
-        }
 
         if ($gk_profile->onlyWhenGhost() && (!$user || $user->getActiveCitizen()))
             // This is a ghost controller; it is not available to players in a game
@@ -193,13 +155,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     }
 
     public function releaseTheDoor(ResponseEvent $event) {
-        $gk_profile = $event->getRequest()->attributes->get('_GateKeeperProfile') ?? new GateKeeperProfile();
-        if($gk_profile->rateLimited())
-            $event->getResponse()->headers->add([
-                'X-RateLimit-Remaining' => $gk_profile->rateLimit()['remaining'],
-                'X-RateLimit-Retry-After' => $gk_profile->rateLimit()['retry_after'],
-                'X-RateLimit-Limit' => $gk_profile->rateLimit()['limit'],
-            ]);
         if ($this->current_lock) $this->current_lock->release();
     }
 
@@ -213,7 +168,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::CONTROLLER => ['holdTheDoor', -1],
+            KernelEvents::CONTROLLER => ['holdTheDoor', -5],
             KernelEvents::RESPONSE   => 'releaseTheDoor',
             LogoutEvent::class => ['removeRememberMeToken',-1],
         ];
