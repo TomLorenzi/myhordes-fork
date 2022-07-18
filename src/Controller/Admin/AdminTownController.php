@@ -1865,6 +1865,17 @@ class AdminTownController extends AdminActionController
                     }
 
                 break;
+            case '_dig_':
+                if ($control)
+                    foreach ($citizens as $citizen) {
+                        $dig = $citizen->getCurrentDigTimer();
+                        if ($dig) {
+                            $dig->setTimestamp(new \DateTime('now - 24hours'));
+                            $this->entity_manager->persist($dig);
+                        }
+
+                    }
+                break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         }
@@ -1888,7 +1899,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_','_wt_','_rst_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_','_wt_','_rst_', '_dig_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');

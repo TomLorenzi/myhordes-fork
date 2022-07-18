@@ -728,8 +728,10 @@ class AdminUserController extends AdminActionController
                 $user->setSoulPoints( max(0,$param) );
                 $this->entity_manager->persist($user);
                 break;
-
-
+            case "dbg_confirm_deaths":
+                while ( $this->user_handler->confirmNextDeath( $user, '' ) ) {}
+                $this->entity_manager->persist($user);
+                break;
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 
@@ -1157,19 +1159,6 @@ class AdminUserController extends AdminActionController
 
         $this->entity_manager->flush();
         return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/admin/users/{id}/citizen/confirm_death", name="admin_users_citizen_confirm_death", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
-     * @return Response
-     */
-    public function users_citizen_confirm_death(int $id, AdminHandler $admh): Response
-    {                
-        if ($admh->confirmDeath($this->getUser()->getId(), $id))
-            return AjaxResponse::success();
-
-        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
 
     /**

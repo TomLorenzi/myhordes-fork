@@ -1,9 +1,9 @@
 <?php
 namespace App\Controller;
 
+use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\Citizen;
-use App\Entity\ExternalApp;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -12,7 +12,6 @@ use DateTimeZone;
 use Exception;
 use SimpleXMLElement;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,48 +23,12 @@ use Symfony\Component\HttpFoundation\Request;
 class ExternalXMLController extends ExternalController {
 
     /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @param User|null $user
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated"})
      */
-    public function api_xml(): Response {
-        $request = Request::createFromGlobals();
-
-        // Try POST data
-        $app_key = $request->query->get('appkey');
-        $user_key = $request->query->get('userkey');
-
-        // Symfony 5 has a bug on treating request data.
-        // If POST didn't work, access GET data.
-        if (trim($app_key) == '') {
-            $app_key = $request->request->get('appkey');
-        }
-        if (trim($user_key) == '') {
-            $user_key = $request->request->get('userkey');
-        }
-
-        // If still no key, none was sent correctly.
-        if (trim($app_key) == '') {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No app key found in request.']);
-        }
-        if (trim($app_key) == '') {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No user key found in request.']);
-        }
-
-        // Get the app.
-        /** @var ExternalApp $app */
-        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-        if (!$app) {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
-        }
-
-        // Get the user.
-        /** @var User $user */
-        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
-        if (!$user) {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed by user.']);
-        }
-
+    public function api_xml(?User $user): Response {
         // All fine, let's populate the response.
         $data = $this->generateLegacyData($user);
         $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));

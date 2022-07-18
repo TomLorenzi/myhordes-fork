@@ -25,9 +25,6 @@ class GateKeeperProfile implements ConfigurationInterface
     public bool $only_in_town         = false;
     public bool $only_beyond          = false;
     public bool $only_in_ruin         = false;
-    public bool $rate_limited         = false;
-    public array $rate_keys           = [];
-    public array $rateLimit           = [];
 
     public bool $hook                 = true;
     /**
@@ -77,8 +74,5 @@ class GateKeeperProfile implements ConfigurationInterface
     public function onlyInTown(): bool { return $this->only_in_town; }
     public function onlyBeyond(): bool { return $this->only_beyond || $this->onlyInRuin(); }
     public function onlyInRuin(): bool { return $this->only_in_ruin; }
-    public function rateLimited(): bool { return $this->rate_limited; }
-    public function rateKeys(): array { return $this->rate_keys; }
-    public function rateLimit(): array { return $this->rateLimit; }
 
 }
