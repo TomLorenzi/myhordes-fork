@@ -559,6 +559,35 @@ ul.subscriptions {
   }
 }
 
+.forum-editor-send {
+
+  .forum-button {
+
+    &>span.forum-button-tooltip {
+      display: none;
+
+      div.keyboard {
+        display: flex; gap: 0 2px; align-items: center; padding: 2px 0;
+        kbd {
+          font-size: 0.75rem; line-height: 0.75rem; border-radius: 2px; border-bottom: 3px solid #AAAAAA; background: #dcdcdc; color: black;
+          font-weight: bold; padding: 2px 5px;
+        }
+      }
+    }
+    &:hover>span.forum-button-tooltip {
+      display: block; position: absolute; bottom: calc(100% + 8px);
+      z-index: 1; background-color: rgba(0, 0, 0, 0.75); padding: 2px 8px; border-radius: 8px;
+      white-space: nowrap;
+
+      &::after {
+        content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+        bottom: -6px; width: 0; height: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.75) transparent transparent;
+        border-width: 6px 6px 0 6px;
+      }
+    }
+  }
+}
+
 .forum-checkbox {
   display: inline-block; padding: 2px 5px; font-size: 1rem; background: @myhordes-forum-button-color;
   border: 1px solid @myhordes-forum-button-border;

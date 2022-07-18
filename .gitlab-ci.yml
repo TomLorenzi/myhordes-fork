@@ -49,6 +49,13 @@ build:
       - vendor
       - node_modules
       - public/build
+  rules:
+    - changes:
+        - composer.json
+        - package.json
+        - composer.lock
+        - yarn.lock
+        - assets/**/*
 
 translate:
   stage: test-translate
@@ -83,6 +90,9 @@ translate:
       - merge_requests
       - translation-main
       - i18n_translation-main
+  variables:
+    CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
+    CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.

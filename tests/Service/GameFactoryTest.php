@@ -117,9 +117,10 @@ class GameFactoryTest extends KernelTestCase
         // Creating basic stuff.
         $bplanBoxes = ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00'];
         $fireworkItems = ['firework_powder_#00', 'firework_tube_#00', 'firework_box_#00', 'firework_box_#00'];
+
         // We sort our arrays because assertEquals will also compare order.
         sort($bplanBoxes);
-        sort($fireworkItems)
+        sort($fireworkItems);
 
         $townBplanBoxes = array();
         $townFireworkItems = array();
@@ -136,7 +137,7 @@ class GameFactoryTest extends KernelTestCase
                     array_push($townFireworkItems, $item->getPrototype()->getName());
                 } else {
                     // New item ? Modify test...
-                    self::assertFalse(true, "Found ".$item->getPrototype()->getName()." on the map but this item is not tested. Please modify the test.");
+                    self::fail("Found " . $item->getPrototype()->getName() . " on the map but this item is not tested. Please modify the test.");
                 }
             }
         }
@@ -163,7 +164,7 @@ class GameFactoryTest extends KernelTestCase
                     array_push($townFireworkItems, $item->getPrototype()->getName());
                 } else {
                     // New item ? Modify test...
-                    self::assertFalse(true, "Found ".$item->getPrototype()->getName()." on the map but this item is not tested. Please modify the test.");
+                    self::fail("Found ".$item->getPrototype()->getName()." on the map but this item is not tested. Please modify the test.");
                 }
             }
         }
@@ -189,7 +190,7 @@ class GameFactoryTest extends KernelTestCase
                     array_push($townFireworkItems, $item->getPrototype()->getName());
                 } else {
                     // New item ? Modify test...
-                    self::assertFalse(true, "Found ".$item->getPrototype()->getName()." on the map but this item is not tested. Please modify the test.");
+                    self::fail("Found " . $item->getPrototype()->getName() . " on the map but this item is not tested. Please modify the test.");
                 }
             }
         }
