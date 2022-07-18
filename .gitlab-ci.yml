@@ -55,6 +55,7 @@ build:
         - package.json
         - composer.lock
         - yarn.lock
+        - assets/**/*
 
 translate:
   stage: test-translate
