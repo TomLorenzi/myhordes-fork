@@ -90,6 +90,9 @@ translate:
       - merge_requests
       - translation-main
       - i18n_translation-main
+  variables:
+    - CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
+    - CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
