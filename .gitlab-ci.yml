@@ -83,13 +83,18 @@ translate:
       - vendor
       - node_modules
       - public/build
-  except:
+  only:
     changes:
-      - "*.md"
+      - translations/*
+      - templates/**/*
+      - src/**/*
+      - packages/**/*
     refs:
-      - merge_requests
-      - translation-main
-      - i18n_translation-main
+      - master
+      - beta
+      - Dev-Ludofloria
+      - Nayr
+      - dylan57
   variables:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
     CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
