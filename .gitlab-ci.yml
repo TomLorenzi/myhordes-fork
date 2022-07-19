@@ -41,7 +41,7 @@ build:
     - yarn install
     - yarn encore dev
     # Install default DB
-    - php bin/console app:migrate -i -vvv
+    # - php bin/console app:migrate -i -vvv
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
