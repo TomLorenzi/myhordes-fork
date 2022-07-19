@@ -3,8 +3,7 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
 
-# Select image from https://hub.docker.com/_/php/
-image: chialab/php-dev:8.1
+image: registry.gitlab.com/eternaltwin/myhordes/myhordes:latest
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
@@ -27,14 +26,6 @@ stages:
 build:
   stage: build
   script:
-    # Add NodeJS repo
-    - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-    # Installing some dependancies
-    - apt install -yqq git imagemagick curl unzip nodejs
-    # Changing php's maximum memory to 256M
-    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
-    - npm install --global yarn
     # Run Composer
     - composer install
     # Install assets
@@ -62,14 +53,6 @@ translate:
   dependencies:
     - build
   script:
-    # We install crowdin CLI
-    - apt update
-    - apt install default-jre -yqq
-    - curl https://artifacts.crowdin.com/repo/deb/crowdin3.deb -o /root/crowdin.deb
-    - dpkg -i ~/crowdin.deb
-    # Changing php's maximum memory to 256M
-    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
     # Install a DB
     - php bin/console app:migrate -i -vvv --skip-optional
     # Let's generate source strings
@@ -106,9 +89,6 @@ test:
   dependencies:
     - build
   script:
-    # Changing php's maximum memory to 256M
-    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests
