@@ -3,7 +3,7 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
 
-image: registry.gitlab.com/eternaltwin/myhordes/myhordes:latest
+image: registry.gitlab.com/eternaltwin/myhordes/myhordes-registry:latest
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
