@@ -308,3 +308,4 @@ Kätzchen: le chaton
 'Mal was anderes:': 'Autre sujet,'
 'Das neueste Geschwätz:': 'A part ça,'
 'Unsere Späher berichten, dass sie einen Mysteriösen Fremden in der Umgebung der Stadt gesichtet haben...': 'Nos éclaireurs signalent avoir repéré un mystérieux étranger dans les environs de la ville...'
+'<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...': '<strong>{citizen1}</strong> soll heute Morgen die Leiche von <strong>† {cadaver1}</strong> inmitten einer Baustelle gefunden haben. Laut diesem Bürger handelte es sich um einen Selbstmord.... Nur konnte <strong>{citizen1}</strong> uns das Messer, das im Rücken der Leiche steckte, nicht erklären...'
