@@ -10,6 +10,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
     {
         $data = array_merge_recursive($data, [
             'saw_tool_#00'               => [ 'impoundable', 'can_opener', 'box_opener' ],
+            'saw_tool_part_#00'          => [ 'impoundable' ],
             'can_opener_#00'             => [ 'weapon', 'can_opener', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
             'screw_#00'                  => [ 'weapon', 'can_opener', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
             'swiss_knife_#00'            => [ 'impoundable', 'weapon', 'can_opener', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],
