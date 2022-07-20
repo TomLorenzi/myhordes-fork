@@ -1335,7 +1335,9 @@ class ExternalController extends InventoryAwareController {
                     case "expeditions":
                         $data[$field] = $this->getExpeditionsData();
                         break;
-
+                    case "language":
+                        $data[$field] = $this->town->getLanguage();
+                        break;
                 }
             }
         }
