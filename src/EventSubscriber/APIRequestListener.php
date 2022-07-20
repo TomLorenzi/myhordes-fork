@@ -112,11 +112,14 @@ class APIRequestListener implements EventSubscriberInterface
                 $r_app = $event->getRequest()->attributes->get( 'app_key',  null );
                 $r_usr = $event->getRequest()->attributes->get( 'user_key', null );
 
+                $upk = $user?->getId() ?? $r_usr;
+                $apk = $app?->getId() ?? $r_app;
+
                 $limiters = [];
                 if (!$r_usr && !$r_app) $limiters = [$this->rate_public->create('pbk')];
-                elseif ($r_usr && !$r_app) $limiters = [$this->rate_anon->create(  $user?->getId() ?? $r_usr )];
-                elseif (!$r_usr && $r_app) $limiters = [$this->rate_app->create( $app?->getId() ?? $r_app )];
-                elseif ($r_usr && $r_app) $limiters = [$this->rate_app->create( $app?->getId() ?? $r_app ), $this->rate_user->create( $user?->getId() ?? $r_usr )];
+                elseif ($r_usr && !$r_app) $limiters = [$this->rate_anon->create(  $upk )];
+                elseif (!$r_usr && $r_app) $limiters = [$this->rate_app->create( $apk )];
+                elseif ($r_usr && $r_app) $limiters = [$this->rate_app->create( $apk ), $this->rate_user->create( "{$upk}.{$apk}" )];
 
                 $this->headers = [
                     'X-RateLimit-Remaining' => PHP_INT_MAX,
