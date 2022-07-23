@@ -491,7 +491,7 @@ class HTMLConverterFromBlocks {
                 case 'div':
                     if (block.hasClass('cref')) {
                         let id = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
-                        ret += '@' + ( id ? block.nodeText.replace(/\W/,'') : block.nodeText) + ( id ? (':' + id) : '' );
+                        ret += '@' + ( id ? block.nodeText.replaceAll(/\W/g,'') : block.nodeText) + ( id ? (':' + id) : '' );
                     } else if (block.hasClass('spoiler'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
                     else if (block.hasClass('sideNote'))

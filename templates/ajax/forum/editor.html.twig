@@ -870,7 +870,7 @@
                                 const selected = node_transfer_source.value.substr( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd - node_transfer_source.selectionStart );
                                 const after = node_transfer_source.value.substr( node_transfer_source.selectionEnd );
 
-                                const node = '@' + elem.getAttribute('x-soul-name').replace(/\W+/,'') + ':' + elem.getAttribute('x-soul-id');
+                                const node = '@' + elem.getAttribute('x-soul-name').replaceAll(/\W+/g,'') + ':' + elem.getAttribute('x-soul-id');
 
                                 node_transfer_source.value = before + node + after;
                                 node_transfer_source.setSelectionRange( before.length + node.length, before.length + node.length );
