@@ -520,7 +520,7 @@ class HTMLConverterFromBlocks {
                     let href = block.getAttribute('href');
                     if (href) ret += HTMLConverterFromBlocks.wrapBlock( block, 'link', href );
                     break;
-                case 'p':
+                case 'p': case 'font':
                     ret += block.nodeText;
                     break;
                 default:
