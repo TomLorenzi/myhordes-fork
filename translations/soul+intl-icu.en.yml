@@ -170,7 +170,7 @@ Administrator: Administrator
 Orakel: Oracle
 'Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.': 'This profile belongs to an oracle. Oracles are links between the community and the developers. You can contact them with confidence if you have any questions or problems.'
 'Irgend etwas erscheint an dieser Karteikarte merkwürdig...': 'Something seems strange about this badge ...'
-'Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player imported at least one soul from Twinoid. We look forward to welcome him to MyHordes!'
+'Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player imported at least one soul from Twinoid.'
 Twinoid-Nutzer: Twinoid User
 'Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.': 'This town has been imported from {host}. The information on this page may be incomplete.'
 Tage: Days
@@ -182,7 +182,7 @@ Tage: Days
 'Folgende Begründung wurde für deine Sperre hinterlegt:': 'The following reason was given for your ban:'
 'Es wurde keine Begründung für diese Sperre hinterlegt.': 'No reason was given for this ban.'
 EternalTwin-Nutzer: Eternaltwin users
-'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player is using an Eternaltwin account. We look forward to welcome him to MyHordes!'
+'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player is using an Eternaltwin account.'
 'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.': 'The specified profile cannot be imported because it is already assigned to another MyHordes account.'
 'MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!': 'MyHordes is a proud part of the Eternaltwin network!'
 'Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.': 'In order to be able to continue playing MyHordes in the future, you have to link your old MyHordes account to an Eternaltwin account.'
