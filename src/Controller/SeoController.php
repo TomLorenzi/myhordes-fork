@@ -93,7 +93,7 @@ class SeoController extends CustomAbstractController
     public function seo_welcome_with_lang(Request $request): Response
     {
         return $this->renderWithLanguageLinks( $request, 'seo/welcome.html.twig', [
-            'devs' => WebController::$devs,
+            'devs' => array_map( fn($dev) => $dev[2], WebController::$devs),
             'supporters' => WebController::$supporters
         ] );
     }

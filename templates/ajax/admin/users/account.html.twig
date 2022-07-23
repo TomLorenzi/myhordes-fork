@@ -140,6 +140,7 @@
                                             <optgroup label="Debug">
                                                 <option value="{{ url('admin_users_account_manage', {action: 'dbg_herodays', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Heldentage setzen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_users_account_manage', {action: 'dbg_soulpoints', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Seelenpunkte setzen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_users_account_manage', {action: 'dbg_confirm_deaths', id: user.id}) }}">{{ 'Alle Tode bestätigen'|trans({},'admin') }}</option>
                                             </optgroup>
                                         {% endif %}
                                     {% endif %}

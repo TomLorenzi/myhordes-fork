@@ -85,12 +85,6 @@
                                         <div class="cell padded rw-12">{{ alias_control(user_citizen) }}</div>
                                     {% endif %}
                                 {% endif %}
-                            {% else %}
-                                {% if is_granted("ROLE_ADMIN") %}
-                                    <div class="cell padded rw-4">
-                                        <button id="x-confirm-death">{{ 'Tod bestätigen'|trans({}, 'admin') }}</button>
-                                    </div>
-                                {% endif %}
                             {% endif %}
                         {% endif %}
                     </div>
@@ -155,18 +149,7 @@
                     document.getElementById("forum-content").innerHTML = "";
                     $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'pm'}) }}', false )
                 });
-            {% elseif is_granted("ROLE_ADMIN") %}
-                document.getElementById('x-confirm-death').addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (confirm('{{ 'Tod dieses Bürgers zwangsweise bestätigen?'|trans({},'admin') }}'))
-                        $.ajax.easySend( '{{ path('admin_users_citizen_confirm_death', { 'id': user.Id }) }}', [],
-                            function () {
-                                $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
-                            } )
-                });
             {% endif %}
         {% endif %}
-
-
     </script>
 {% endblock %}

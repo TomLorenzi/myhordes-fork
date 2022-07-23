@@ -2324,3 +2324,6 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 'Duell der Achter': 'crwdns74788:0crwdne74788:0'
 'Ehrenpreis für die Teilname am Duell der Achter Event!': 'crwdns74790:0crwdne74790:0'
 'Kategorien anzeigen': 'crwdns74798:0crwdne74798:0'
+'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'crwdns106916:0{threadname}crwdnd106916:0{link_post}crwdne106916:0'
+'Das Neuste aus aller Welt: {announcement}, {date}': 'crwdns106918:0{announcement}crwdnd106918:0{date}crwdne106918:0'
+'24 Stunden buddeln': 'crwdns136068:0crwdne136068:0'

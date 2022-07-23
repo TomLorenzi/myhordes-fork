@@ -15,6 +15,7 @@ class AdminLogProfile implements ConfigurationInterface
 
     public ?string $value = null;
     public bool $enabled = false;
+    public array $mask = [];
 
     /**
      * @inheritDoc
@@ -32,6 +33,10 @@ class AdminLogProfile implements ConfigurationInterface
 
     public function enableLogging(): bool {
         return $this->enabled || strtolower($this->value ?? '') === "on";
+    }
+
+    public function isMasked( string $parameter ): bool {
+        return in_array( $parameter, $this->mask );
     }
 
 }

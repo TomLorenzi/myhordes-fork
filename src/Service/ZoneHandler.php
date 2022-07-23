@@ -4,15 +4,12 @@
 namespace App\Service;
 
 use App\Entity\Citizen;
-use App\Entity\CitizenRole;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
-use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
-use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;
@@ -254,6 +251,11 @@ class ZoneHandler
                     if ($item_prototype)
                         $found_by_escorts[] = $item_prototype;
                 }
+
+                $this->gps->recordDigResult($item_prototype, $current_citizen, null, 'scavenge', match ($mode) {
+                    -1, 0, 1 => false,
+                    2 => (bool)$event_group
+                });
 
                 if ($item_prototype) {
                     // If we get a Chest XL, we earn a picto

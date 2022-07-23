@@ -14,6 +14,7 @@ class OfficialGroup
 {
     const SEMANTIC_NONE = 0;
     const SEMANTIC_SUPPORT = 1;
+    const SEMANTIC_MODERATION = 2;
 
     /**
      * @ORM\Id

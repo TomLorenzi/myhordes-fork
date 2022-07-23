@@ -1,4 +1,5 @@
-E-Mail-Adresse: 'Email address'
+---
+E-Mail-Adresse: Email address
 'Externe ID für Apps': 'External ID for apps'
 'Neue ID generieren': 'Generate a new ID'
 'ID löschen': 'Delete ID'
@@ -33,7 +34,7 @@ Darstellung: Display
 'Überlebte Tage': 'Days survived'
 Ergebnis: Score
 Bürger: Citizen
-Todesursache: 'Cause of death'
+Todesursache: Cause of death
 Kommentar: Comments
 Schriften: Texts
 'Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...': 'This document contain many pages. Click here to go to the next page...'
@@ -52,13 +53,13 @@ Entdeckt: Discovered
 'Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.': 'Your password is incorrect. You must enter your current password to modify your account.'
 'Standardrolle im Forum': 'Forum default role'
 'Standardmäßig als dev posten': 'Post as a developer by default'
-Standardsprache: 'Default language'
+Standardsprache: Default language
 'Es sind in dieser Stadt noch ein paar Bürger übrig...': 'There''s still alive citizens in this town...'
 Version: Update
 'Hier findet ihr alle vorangegangenen Updates:': 'Access previous major updates:'
 Koalition: Coalition
 'Saison {season}': 'Season {season}'
-Browser-Einstellungen: 'Browser Settings'
+Browser-Einstellungen: Browser Settings
 'Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.': 'The following settings are saved in your browser and are therefore only valid for your current device and your current browser.'
 'Benachrichtigungen als Popups anzeigen': 'Show notifications as Popups'
 'Deine Einstellung wurde gespeichert.': 'Your settings have been saved.'
@@ -76,12 +77,12 @@ Browser-Einstellungen: 'Browser Settings'
 'Deine importierten Seelen': 'Your imported Souls'
 'Hurra, wir haben dein Profil heruntergeladen!': 'Hooray, we have downloaded your Profile!'
 'Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.': 'Please check the data below and confirm the import if everything is OK.'
-Twinoid-Profil: 'Twinoid Profile'
+Twinoid-Profil: Twinoid Profile
 'Profil ansehen': 'View profile'
 Seelen-ID: Soul-ID
 Saison: Season
 Tag: Day
-Stadtname: 'Town name'
+Stadtname: Town name
 Punkte: Points
 'Letzte Worte': 'Last Words'
 'Import bestätigen': 'Confirm import'
@@ -115,7 +116,7 @@ Zusammenfassung: Summary
 'Vergangene Städte': 'Past Towns'
 'Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.': 'This shows the Towns you have played in the past. If you are currently in a Town, it will not be shown here and will not be imported.'
 Infos: Infos
-Todesart: 'Cause of death'
+Todesart: Cause of death
 Überlebt: Survived
 '{d} Tage': '{d} Days'
 Auszeichnungen: Awards
@@ -169,8 +170,8 @@ Administrator: Administrator
 Orakel: Oracle
 'Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.': 'This profile belongs to an oracle. Oracles are links between the community and the developers. You can contact them with confidence if you have any questions or problems.'
 'Irgend etwas erscheint an dieser Karteikarte merkwürdig...': 'Something seems strange about this badge ...'
-'Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player imported at least one soul from Twinoid. We look forward to welcome him to MyHordes!'
-Twinoid-Nutzer: 'Twinoid User'
+'Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player imported at least one soul from Twinoid.'
+Twinoid-Nutzer: Twinoid User
 'Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.': 'This town has been imported from {host}. The information on this page may be incomplete.'
 Tage: Days
 'Dein Account wurde gesperrt.': 'Your account was blocked.'
@@ -180,8 +181,8 @@ Tage: Days
 'Du kannst auch keiner neuen Stadt mehr beitreten.': 'You can no longer join a new town.'
 'Folgende Begründung wurde für deine Sperre hinterlegt:': 'The following reason was given for your ban:'
 'Es wurde keine Begründung für diese Sperre hinterlegt.': 'No reason was given for this ban.'
-EternalTwin-Nutzer: 'Eternaltwin users'
-'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player is using an Eternaltwin account. We look forward to welcome him to MyHordes!'
+EternalTwin-Nutzer: Eternaltwin users
+'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'This player is using an Eternaltwin account.'
 'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.': 'The specified profile cannot be imported because it is already assigned to another MyHordes account.'
 'MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!': 'MyHordes is a proud part of the Eternaltwin network!'
 'Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.': 'In order to be able to continue playing MyHordes in the future, you have to link your old MyHordes account to an Eternaltwin account.'
@@ -204,7 +205,7 @@ Mitmachen!: Participate!
 'Die Einladung ablehnen.': 'Decline the invitation.'
 'Shoutbox der Koalition': 'Coalition shoutbox'
 'Verfügbare Mitglieder': 'Available members'
-'Nicht verfügbar': Unavailable
+'Nicht verfügbar': 'Unavailable'
 'Ausstehende Einladungen': 'Pending invitations'
 'Einen Freund einladen': 'Invite a friend'
 Optionen: Options
@@ -212,7 +213,7 @@ Optionen: Options
 'Du stehst <strong>nicht zur Verfügung</strong>.': 'You are : <strong>unavailable</strong>.'
 'Meinen Status ändern': 'Change my status'
 'Verlassen UND auflösen': 'Leave AND dissolve'
-Verlassen: 'Quit the coalition!'
+Verlassen: Quit the coalition!
 'Nicht in einer Stadt': 'Not in a town'
 'Diesen Spieler ausschließen?': 'Exclude this player?'
 'Diesen Spieler ausschließen.': 'Exclude this player.'
@@ -236,24 +237,24 @@ Absenden: Send
 'Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.': 'With this you can log out of all devices and browsers that you are currently logged in to. This also deactivates the "remember login" function on the affected devices.'
 'Animationen verringern': 'Reduce animations'
 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.': 'Check the box if you notice the game slowing down considerably when the game map is being displayed.<br /><em>This option will reduce the quality of the animations associated with the game map.</em>.'
-'Kleine Koalitionen': Coalitions
+'Kleine Koalitionen': 'Coalitions'
 'Saison {number}': 'Season {number}'
 Pos.: Pos.
 Score: Score
 'Vorangegangene Saisons:': 'Previous seasons:'
 Lang.: Lang.
-Pandämoniumsstadt: 'Hardcore Town'
-Privatstadt: 'Private town'
+Pandämoniumsstadt: Hardcore Town
+Privatstadt: Private town
 Zukunft: Future
 'Einen Empfänger hinzufügen': 'Add a recipient'
 'Draußen gestorben': 'Died outside'
 'In der Stadt gestorben': 'Died in town'
 'Kleine Stadt': 'Small Towns'
 'Entfernte Regionen': 'Normal Towns'
-Pandämonium: 'Hardcore Towns'
+Pandämonium: Hardcore Towns
 'Private Stadt': 'Private Towns'
-'ALLE SAISONS': SEASONS
-Seelenpunkte: 'Soul points'
+'ALLE SAISONS': 'SEASONS'
+Seelenpunkte: Soul points
 'Zugriff auf die Rangliste einer bestimmten Saison:': 'Access a particular season''s rankings:'
 'Alle Saisons': 'All Seasons'
 Spieler: Player
@@ -269,7 +270,7 @@ Spieler: Player
 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.': 'You cannot send messages through the message center.'
 Kommentare: Comments
 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.': 'You can''t write final words or comments about the city.'
-Gruppenorganisation: 'Group organization'
+Gruppenorganisation: Group organization
 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.': 'You can''t form or join coalitions.'
 Spielen: Play
 'Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.': 'You can''t join towns. If you are already in a town, you can no longer perform any actions or open a town''s page. You''ll also lose access to the Town Forum.'
@@ -300,13 +301,13 @@ Errungenschaften: Earnings
 'Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.': 'The game is completely free - there is no paid content, we don''t display ads, and we don''t perform user tracking.'
 'Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.': 'If you like MyHordes and want to support us, you can do so by donating to the Eternaltwin project.'
 'Geworbener Spieler': 'Sponsored Player'
-Heldenerfahrung: 'Heroic Experience'
+Heldenerfahrung: Heroic Experience
 'Du hast keine Koalition.': 'You don''t have a coalition.'
 'Kein freier Platz': 'No available spot'
-Koalitionsmitglied: 'Member of your coalition'
+Koalitionsmitglied: Member of your coalition
 'Noch nicht bestätigt...': 'No response yet...'
-Koalitionseinladung: 'Invitation to the coalition'
-'Die Freundschaftswerbung': Sponsorship
+Koalitionseinladung: Invitation to the coalition
+'Die Freundschaftswerbung': 'Sponsorship'
 'Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!': 'You can get some serious bonuses by sponsoring new players on "MyHordes"!'
 'Lass dich überraschen!': 'It''s a surprise!'
 'Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.': 'you can keep in touch with your friends easily by inviting them to join your coalition from this very page.'
@@ -354,12 +355,12 @@ Empfänger: Receiver
 'Bitte ändere deinen Anzeigenamen auf EternalTwin.': 'You must use your Eternaltwin account to change your username.'
 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.': 'You cannot change your username because you have linked an Eternaltwin account. You must go into your Eternaltwin account to change your username.'
 'Gib hier den Nickname des Spielers ein, den du einladen möchtest.<br />Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch <strong>{size} Plätze</strong> übrig.': "\n          \n            {ref__icu, select,\n                on {\n                    {size, select,\n                        0 {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there is <strong>no places</strong> left.}\n                        1 {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there is only <strong>{size} place</strong> left.}\n                        other {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there are only <strong>{size} places</strong> left.}\n                    }\n                }\n                other {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there are only <strong>{size} place(s)</strong> left.}\n            }\n        \n        "
-Moderationseinstellungen: 'Moderation settings'
+Moderationseinstellungen: Moderation settings
 'Moderationslinks in neuem Fenster öffnen': 'Open moderation links in the same window'
 'E-Mail-Adresse ändern': 'Change email address'
 'Neue E-Mail-Adresse': 'New email'
 'E-Mail-Adresse wiederholen': 'Confirm new email'
-Validierungs-Token: 'Validation token'
+Validierungs-Token: Validation token
 'Account-Infos aktualisieren': 'Save my account info'
 'Der Validierungs-Token ist ungültig.': 'The validation token is incorrect.'
 'Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.': 'You must validate your new email address before you can use it.'
@@ -371,7 +372,7 @@ Animateur: Animactor
 'Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.': 'This badge belongs to an animactor. The animcators organize and coordinate community events.'
 'Auf MyHordes erworbene Auszeichnungen': 'Distinctions earned on MyHordes'
 'Importierte Auszeichnungen': 'Imported Distinctions'
-Beta-Saison: 'Beta Season'
+Beta-Saison: Beta Season
 '<span class="number">Beta</span> Saison': '<span class="number">Beta</span> Season'
 'Diese Stadt stammt aus der Alpha-Phase von MyHordes. Die angezeigten Informationen sind daher möglicherweise unvollständig oder sehen nicht so aus, wie du es sonst erwarten würdest.': 'This town is from the alpha phase of MyHordes. Therefore, the information displayed may be incomplete or may not look as you would otherwise expect.'
 'Alte Auszeichnungen': 'Old Distinctions'
@@ -392,7 +393,7 @@ Beta-Saison: 'Beta Season'
 'nur Baseline-Format': 'baseline format only'
 'Texteditor-Inhalte zur Sicherheit zwischenspeichern': 'Automatic save of the forum text editor content'
 'Alle Saisons auf MyHordes': 'All MyHordes Seasons'
-Alpha-Seelen: 'Alpha Souls'
+Alpha-Seelen: Alpha Souls
 'Es sind keine Spieler aufgelistet!': 'No players are listed yet.'
 'Alte Seelen': 'Old Souls'
 Icon: Icon
@@ -410,7 +411,7 @@ Icon: Icon
 'Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt.': 'When activated, tapping an object will show its tooltip - to interact with it, you need to tap it again. When disabled, the first tap will execute the action right away. To only see the tooltip without performing the action, press the object for more than a second. This setting only affects pen or finger input. For mouse input, it has no effect.'
 'Profil und Avatar': 'Profile & Avatar'
 'Account und Sicherheit': 'Account & Security'
-Seelenimport: 'Soul Import'
+Seelenimport: Soul Import
 Allgemein: General
 Browser: Browser
 Erweitert: Advanced
@@ -425,15 +426,15 @@ Details: Details
 'Haus ansehen': 'See their house'
 'Profil auf MyHordes': 'MyHordes Profile'
 'Profil Eternal-Twin': 'Eternaltwin Profile'
-Schreiben: 'Send a message'
+Schreiben: Send a message
 'Kontakt hinzufügen': 'Add contact'
 'Kontakt löschen': 'Remove contact'
 'Dieser Spieler gehört nicht zu deinen Kontakten.': 'This player is not one of your contacts.'
 'Du hast {username} zu deinen Kontakten hinzugefügt!': 'You have added {username} to your contacts  !'
 'Du hast {username} aus deinen Kontakten gelöscht!': 'You have removed {username} from your contacts !'
 Sozial: Social
-Freundesliste: 'Friend List'
-'Spieler werben': Sponsorship
+Freundesliste: Friend List
+'Spieler werben': 'Sponsorship'
 'Wahrer Freund': 'True Friend'
 'Deine Freundesliste ist leer.': 'Your friend list is empty.'
 'Neue Freunde finden': 'Find new friends'
@@ -449,7 +450,7 @@ Blockierliste: Blocklist
 'Standartmäßig sortiert MyHordes Gegenstände in der Bank nach ihrem Typ. Aktiviere diese Option, wenn du die Sortierung von DieVerdammten bevorzugst, bei der Gegenstände primär nach ihrer Anzahl sortiert werden.': 'By default, the bank in MyHordes is sorted by item type. If you prefer the sorting that was used in Die2Nite, where items were primarily sorted by their count, activate this setting.'
 'Herzlichen Glückwunsch, du hast soeben eine Koalition erstellt!': 'Congratulations, you have successfully created a coalition!'
 'Du hast hiermit die Koalition verlassen.': 'You have left the coalition.'
-Koalitionseinladungen: 'my coalition invitations'
+Koalitionseinladungen: my coalition invitations
 'Standartmäßig die erweiterte Editor-Ansicht für PNs verwenden': 'Use the advanced editor view for PMs by default'
 'Deine MyHordes-Seele zurücksetzen': 'Reset your MyHordes soul'
 'Wenn du eine Seele trotz der Import-Einstränkungen vollständig importieren möchtest, hast du <b>einmalig</b> die Option, deine MyHordes-Seele zurückzusetzen.': 'If you want to fully import a soul despite the import restrictions, you have a <b>one-time</b> option to reset your MyHordes soul.'
@@ -490,5 +491,5 @@ Umfragen: Surveys
 'Du hast in dieser Stadt zusammen gespielt': 'You have played together in this town'
 'Ich habe keine besondere Meinung zu dieser Frage.': 'I don''t have any particular opinion on this topic.'
 'Du kannst nur eine Antwort auswählen.': 'You can only select a single answer.'
-'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen': 'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen'
-'Moderationslinks im selben Fenster öffnen': 'Moderationslinks im selben Fenster öffnen'
+'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen': 'Display only 10 towns by default in the soul page'
+'Moderationslinks im selben Fenster öffnen': 'Open moderation links in the same window'

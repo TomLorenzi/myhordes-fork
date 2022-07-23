@@ -108,6 +108,7 @@ class MigrateCommand extends Command
         'bb5d05f81955f14432569cec8cb893febbbbd5b7' => [ ['app:migrate', ['--update-world-forums' => true] ] ],
         'b8d85ce69e76afe3b7cf2343ad45caca2646593d' => [ ['app:migrate', ['--update-user-settings' => true] ] ],
         'd3b4c979af675d4c861a5525c61d46bf72df3503' => [ ['app:migrate', ['--adjust-sandball-pictos2' => true] ] ],
+        '8ce89ab055680dedf88da7ed2f8f711c29a07560' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -170,6 +171,7 @@ class MigrateCommand extends Command
             ->addOption('dbservice', null,InputOption::VALUE_REQUIRED, 'If the update is started by the root user, this option specifies the database service name (defaults to mysql)')
 
             ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
+            ->addOption("skip-optional", null, InputOption::VALUE_NONE, "When used with install-db, skip the optional steps")
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
             ->addOption('process-db-git', 'p',   InputOption::VALUE_NONE, 'Processes triggers for automated database actions')
@@ -341,84 +343,86 @@ class MigrateCommand extends Command
                 return 4;
             }
 
-            $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
+            if(!$input->getOption('skip-optional')){
+                $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
 
-            $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create world forums? (Y/n) ", true
-            ) );
-            if ($result) {
-                if (!$this->helper->capsule('app:forum:create "Weltforum" 0 --icon bannerForumDiscuss', $output)) {
-                    return 5;
-                }
-                if (!$this->helper->capsule('app:forum:create "Forum Monde" 0 --icon bannerForumDiscuss', $output)) {
-                    return 5;
-                }
-                if (!$this->helper->capsule('app:forum:create "World Forum" 0 --icon bannerForumDiscuss', $output)) {
-                    return 5;
-                }
-                if (!$this->helper->capsule('app:forum:create "Foro Mundial" 0 --icon bannerForumDiscuss', $output)) {
-                    return 5;
-                }
-            }
-
-            $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create a town? (Y/n) ", true
-            ) );
-
-            if ($result) {
-                if (!$this->helper->capsule('app:town:create remote 40 en', $output)) {
-                    $output->writeln("<error>Unable to create english town.</error>");
-                    return 5;
-                }
-
-                if (!$this->helper->capsule('app:town:create remote 40 fr', $output)) {
-                    $output->writeln("<error>Unable to create french town.</error>");
-                    return 5;
-                }
-
-                if (!$this->helper->capsule('app:town:create remote 40 de', $output)) {
-                    $output->writeln("<error>Unable to create german town.</error>");
-                    return 5;
-                }
-
-                if (!$this->helper->capsule('app:town:create remote 40 es', $output)) {
-                    $output->writeln("<error>Unable to create spanish town.</error>");
-                    return 5;
-                }
-            }
-
-            $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create an administrator account? (Y/n) ", true
-            ) );
-            if ($result) {
-                $name = $this->getHelper('question')->ask($input, $output, new Question(
-                    "Please enter the username (default: admin): ", 'admin'
+                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                    "Would you like to create world forums? (Y/n) ", true
                 ) );
-                $mail = $this->getHelper('question')->ask($input, $output, new Question(
-                    "Please enter the e-mail address (default: admin@localhost): ", 'admin@localhost'
+                if ($result) {
+                    if (!$this->helper->capsule('app:forum:create "Weltforum" 0 --icon bannerForumDiscuss', $output)) {
+                        return 5;
+                    }
+                    if (!$this->helper->capsule('app:forum:create "Forum Monde" 0 --icon bannerForumDiscuss', $output)) {
+                        return 5;
+                    }
+                    if (!$this->helper->capsule('app:forum:create "World Forum" 0 --icon bannerForumDiscuss', $output)) {
+                        return 5;
+                    }
+                    if (!$this->helper->capsule('app:forum:create "Foro Mundial" 0 --icon bannerForumDiscuss', $output)) {
+                        return 5;
+                    }
+                }
+
+                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                    "Would you like to create a town? (Y/n) ", true
                 ) );
 
-                $proceed = false;
-                while (!$proceed) {
-                    $q = new Question( "Please enter the account password (default: admin): ", 'admin' );
-                    $q->setHidden(true);
-                    $password1 = $this->getHelper('question')->ask($input, $output, $q );
+                if ($result) {
+                    if (!$this->helper->capsule('app:town:create remote 40 en', $output)) {
+                        $output->writeln("<error>Unable to create english town.</error>");
+                        return 5;
+                    }
 
-                    $q = new Question( "Please repeat the account password(default: admin): ", 'admin' );
-                    $q->setHidden(true);
-                    $password2 = $this->getHelper('question')->ask($input, $output, $q );
+                    if (!$this->helper->capsule('app:town:create remote 40 fr', $output)) {
+                        $output->writeln("<error>Unable to create french town.</error>");
+                        return 5;
+                    }
 
-                    $proceed = $password1 === $password2;
-                    if (!$proceed) $output->writeln('<error>The passwords did not match.</error> Please try again.');
+                    if (!$this->helper->capsule('app:town:create remote 40 de', $output)) {
+                        $output->writeln("<error>Unable to create german town.</error>");
+                        return 5;
+                    }
+
+                    if (!$this->helper->capsule('app:town:create remote 40 es', $output)) {
+                        $output->writeln("<error>Unable to create spanish town.</error>");
+                        return 5;
+                    }
                 }
 
-                $new_user = $this->user_factory->createUser( $name, $mail, $password1, true, $error );
-                if ($error !== UserFactory::ErrorNone) return -$error;
-                $new_user->setRightsElevation(User::USER_LEVEL_SUPER);
-                $this->entity_manager->persist($new_user);
-                $this->entity_manager->flush();
+                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                    "Would you like to create an administrator account? (Y/n) ", true
+                ) );
+                if ($result) {
+                    $name = $this->getHelper('question')->ask($input, $output, new Question(
+                        "Please enter the username (default: admin): ", 'admin'
+                    ) );
+                    $mail = $this->getHelper('question')->ask($input, $output, new Question(
+                        "Please enter the e-mail address (default: admin@localhost): ", 'admin@localhost'
+                    ) );
 
-                $output->writeln('Your user account <info>has been created</info>.');
+                    $proceed = false;
+                    while (!$proceed) {
+                        $q = new Question( "Please enter the account password (default: admin): ", 'admin' );
+                        $q->setHidden(true);
+                        $password1 = $this->getHelper('question')->ask($input, $output, $q );
+
+                        $q = new Question( "Please repeat the account password(default: admin): ", 'admin' );
+                        $q->setHidden(true);
+                        $password2 = $this->getHelper('question')->ask($input, $output, $q );
+
+                        $proceed = $password1 === $password2;
+                        if (!$proceed) $output->writeln('<error>The passwords did not match.</error> Please try again.');
+                    }
+
+                    $new_user = $this->user_factory->createUser( $name, $mail, $password1, true, $error );
+                    if ($error !== UserFactory::ErrorNone) return -$error;
+                    $new_user->setRightsElevation(User::USER_LEVEL_SUPER);
+                    $this->entity_manager->persist($new_user);
+                    $this->entity_manager->flush();
+
+                    $output->writeln('Your user account <info>has been created</info>.');
+                }
             }
 
             return 0;

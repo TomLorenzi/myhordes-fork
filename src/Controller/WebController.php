@@ -43,15 +43,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class WebController extends CustomAbstractController
 {
+    // Format:
+    // [ type, fa-icon, name ], with type: 0 => Current team, 1 => Support, 2 => Inactive
     public static array $devs = [
-        'Benjamin "<i>Brainbox</i>" Behrendt',
-        'Ludovic "<i>Cheh\'Tan</i>" Le Brech',
-        'Paul "<i>CountCount</i>" Bruhn',
-        'Adrien "<i>Adri</i>" Boitelle',
-        'Niklas "<i>Choreas</i>" Kosanke',
-        'Christopher "<i>Vander</i>" Chalfant',
-        'Connor "<i>Dylan57</i>" Ottermann',
-        'Ryan "<i>Nayr</i>" Nayrovic',
+        [0, 'code', 'Benjamin "<i>Brainbox</i>" Behrendt'],
+        [0, 'code', 'Ludovic "<i>Cheh\'Tan</i>" Le Brech'],
+        [0, 'code', 'Adrien "<i>Adri</i>" Boitelle'],
+        [0, 'users', 'Connor "<i>Dylan57</i>" Ottermann'],
+        [1, 'users', 'Ryan "<i>Nayr</i>" Nayrovic'],
+        [2, 'code', 'Paul "<i>CountCount</i>" Bruhn'],
+        [2, 'code', 'Niklas "<i>Choreas</i>" Kosanke'],
+        [2, 'code', 'Christopher "<i>Vander</i>" Chalfant'],
     ];
 
     public static array $supporters = [
@@ -104,7 +106,14 @@ class WebController extends CustomAbstractController
 
         return $this->render( ($this->getUser() || !$allow_attract_page) ? 'web/framework.html.twig' : 'web/attract.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
-            'devs' => $devs,
+            'devs' => array_map(function($dev) {
+                $dev[3] = match ($dev[1]) {
+                    'code' => T::__('Programmierung', 'global'),
+                    'users' => T::__('Community-Management', 'global'),
+                    default => '',
+                };
+                return $dev;
+            }, $devs),
             'supporters' => $supporters,
             'ajax_landing' => $ajax_landing,
             'langs' => $this->allLangs
@@ -118,6 +127,15 @@ class WebController extends CustomAbstractController
     public function framework(): Response
     {
         return $this->handleDomainRedirection() ?? $this->render_web_framework($this->generateUrl('initial_landing'), true);
+    }
+
+    /**
+     * @Route("/swagger", name="swagger")
+     * @return Response
+     */
+    public function swagger(): Response
+    {
+        return $this->render('web/swagger.html.twig');
     }
 
     /**
@@ -145,6 +163,54 @@ class WebController extends CustomAbstractController
             return $this->redirect($this->generateUrl('home'));
 
         return $this->render( 'web/pm-host.html.twig', $com ? ['command' => $com, 'langs' => $this->allLangs] : ['langs' => $this->allLangs] );
+    }
+
+    /**
+     * @Route("/pm/group/{id<\d+>}", name="home_pm_group_id", priority=1)
+     * @param int $id
+     * @return Response
+     */
+    public function standalone_pm_gid(int $id): Response
+    {
+        if ($r = $this->handleDomainRedirection()) return $r;
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+
+        $group = $this->entity_manager->getRepository(OfficialGroup::class)->find( $id );
+        if (!$group) return $this->redirect($this->generateUrl('home'));
+
+        return $this->render( 'web/pm-host.html.twig', ['command' => "oglink_$id", 'langs' => $this->allLangs] );
+    }
+
+    /**
+     * @Route("/pm/group/{semantic}", name="home_pm_group_sem")
+     * @Route("/pm/group/{lang}/{semantic}", name="home_pm_group_sem_lang")
+     * @param string|null $lang
+     * @param string $semantic
+     * @return Response
+     */
+    public function standalone_pm_sem(string $semantic, string $lang = null): Response
+    {
+        if ($r = $this->handleDomainRedirection()) return $r;
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+
+        $lang = $lang ?? $this->getUserLanguage();
+        if (!in_array( $lang, $this->allLangsCodes ))
+            return $this->redirect($this->generateUrl('home'));
+
+        $group = null;
+        switch ($semantic) {
+            case 'support':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
+                break;
+            case 'moderation':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_MODERATION]);
+                break;
+        }
+        if (!$group) return $this->redirect($this->generateUrl('home'));
+
+        return $this->render( 'web/pm-host.html.twig', ['command' => "oglink_{$group->getId()}", 'langs' => $this->allLangs] );
     }
 
     /**

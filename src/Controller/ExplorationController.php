@@ -317,6 +317,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         // Calculate chances
         $d = $ruinZone->getDigs() + 1;
         $chances = 1.0 / ( 1.0 + ( $d / max( 1, $this->getTownConf()->get(TownConf::CONF_EXPLORABLES_ITEM_RATE, 11) - ($d/3.0) ) ) );
+        if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $chances *= 0.8;
 
         if ($this->random_generator->chance( $chances )) {
             $group = $ruinZone->getZone()->getPrototype()->getDropByNames( $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] ) );
@@ -325,6 +326,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
+        $gps->recordDigResult($prototype, $citizen, $ruinZone->getZone()->getPrototype(), 'eruin_scavenge');
         if ($prototype) {
             $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") && $this->random_generator->chance(0.90));
             $gps->recordItemFound( $prototype, $citizen, $ruinZone->getZone()->getPrototype() );
@@ -342,7 +344,12 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             $this->addFlash( 'notice', $this->translator->trans( 'Du hast {item} gefunden, als du die schmutzigen Ecken dieses elenden Ortes durchsucht hast!', [
                     '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
                 ], 'game' ) . "$noPlaceLeftMsg");
-        } else $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
+        } else {
+            $messages = [ $this->translator->trans('Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game') ];
+            if ($this->citizen_handler->hasStatusEffect($citizen, "drunk"))
+                $messages[] = $this->translator->trans('Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.', [], 'game');
+            $this->addFlash('notice', implode('<hr/>', $messages) );
+        }
 
         $ex->getScavengedRooms()->add( $ruinZone );
         $this->entity_manager->persist($ex);

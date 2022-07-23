@@ -1,3 +1,5 @@
+import {LegacyRef} from "react";
+
 export type MapGeometry = {
     x0: number,
     x1: number,
@@ -133,7 +135,7 @@ export type MapOverviewParentProps = {
     routeViewer: MapCoordinate[],
     etag: number,
     zoom: number, zoomChanged: boolean,
-    scrollAreaRef:  {current?: HTMLDivElement}
+    scrollAreaRef:  {current: HTMLDivElement}
 }
 
 export interface MapOverviewGridProps extends MapOverviewParentProps {

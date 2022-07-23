@@ -1412,7 +1412,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/event-tag/{act}", name="admin_town_event_tag_control", requirements={"tid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param int $act
      * @return Response
@@ -1432,7 +1432,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/unrank/{act}", name="admin_town_town_ranking_control", requirements={"tid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param int $act
      * @return Response
@@ -1475,7 +1475,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/relang", name="admin_town_town_lang_control", requirements={"tid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param GameFactory $gameFactory
@@ -1518,10 +1518,11 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("api/admin/town/{tid}/unrank_single/{cid}/{act}", name="admin_town_citizen_ranking_control", requirements={"tid"="\d+","cid"="\d+","act"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $tid
      * @param int $cid
      * @param int $act
+     * @param JSONRequestParser $parser
      * @return Response
      */
     public function ranking_toggle_citizen(int $tid, int $cid, int $act, JSONRequestParser $parser): Response
@@ -1864,6 +1865,17 @@ class AdminTownController extends AdminActionController
                     }
 
                 break;
+            case '_dig_':
+                if ($control)
+                    foreach ($citizens as $citizen) {
+                        $dig = $citizen->getCurrentDigTimer();
+                        if ($dig) {
+                            $dig->setTimestamp(new \DateTime('now - 24hours'));
+                            $this->entity_manager->persist($dig);
+                        }
+
+                    }
+                break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         }
@@ -1887,7 +1899,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_','_wt_','_rst_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_','_wt_','_rst_', '_dig_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');

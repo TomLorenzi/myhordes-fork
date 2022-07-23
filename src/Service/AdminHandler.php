@@ -43,7 +43,6 @@ class AdminHandler
     private $requiredRole = [
         'headshot' => 'ROLE_ADMIN',
         'suicid' => 'ROLE_CROW',
-        'confirmDeath' => 'ROLE_ADMIN',
         'setDefaultRoleDev' => 'ROLE_ADMIN',
         'liftAllBans' => 'ROLE_CROW',
         'ban' => 'ROLE_CROW',
@@ -103,36 +102,6 @@ class AdminHandler
             $message = $this->translator->trans('Dieser Bürger gehört keiner Stadt an.', [], 'game');
         }
         return $message;
-    }
-
-    public function confirmDeath(int $sourceUser, int $targetUserId): bool {
-        if(!$this->hasRights($sourceUser, 'confirmDeath'))
-            return false;
-
-        /** @var User $targetUser */
-        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUserId);
-
-        $activeCitizen = $targetUser->getActiveCitizen();
-        if (!(isset($activeCitizen)))
-            return false;
-        if ($activeCitizen->getAlive())
-            return false;
-
-        $activeCitizen->setActive(false);
-
-        // Delete not validated picto from DB
-        // Here, every validated picto should have persisted to 2
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($targetUser, $activeCitizen->getTown());
-        foreach ($pendingPictosOfUser as $pendingPicto) {
-            $this->entity_manager->remove($pendingPicto);
-        }
-
-        CitizenRankingProxy::fromCitizen( $activeCitizen, true );
-
-        $this->entity_manager->persist( $activeCitizen );
-        $this->entity_manager->flush();
-
-        return true;
     }
 
     public function clearReports(int $sourceUser, int $postId): bool {

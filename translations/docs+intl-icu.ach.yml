@@ -133,3 +133,7 @@ Beispiel: crwdns61754:0crwdne61754:0
 'Erforschbare Ruine': 'crwdns61776:0crwdne61776:0'
 'Die Eternaltwin-ID, wenn er sein Konto verknüpft hat': 'crwdns61778:0crwdne61778:0'
 'Eternaltwin-ID des Spielers': 'crwdns61780:0crwdne61780:0'
+'Boolescher Wert, der angibt, ob der Auszeichnung selten ist': 'crwdns74804:0crwdne74804:0'
+'Anzahl der erhaltenen Auszeichnungen': 'crwdns74806:0crwdne74806:0'
+'Der Name der Auszeichnung': 'crwdns74808:0crwdne74808:0'
+'Liste der Titeltext': 'crwdns74810:0crwdne74810:0'

@@ -491,7 +491,7 @@ class HTMLConverterFromBlocks {
                 case 'div':
                     if (block.hasClass('cref')) {
                         let id = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
-                        ret += '@' + ( id ? block.nodeText.replace(/\W/,'') : block.nodeText) + ( id ? (':' + id) : '' );
+                        ret += '@' + ( id ? block.nodeText.replaceAll(/\W/g,'') : block.nodeText) + ( id ? (':' + id) : '' );
                     } else if (block.hasClass('spoiler'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
                     else if (block.hasClass('sideNote'))
@@ -520,7 +520,7 @@ class HTMLConverterFromBlocks {
                     let href = block.getAttribute('href');
                     if (href) ret += HTMLConverterFromBlocks.wrapBlock( block, 'link', href );
                     break;
-                case 'p':
+                case 'p': case 'font':
                     ret += block.nodeText;
                     break;
                 default:
@@ -759,6 +759,27 @@ export default class TwinoAlikeParser {
         return s;
     }
 
+    private static postprocessReverseText( s: string ): string {
+        // Wrapped in try because it may fail on ancient browsers
+        try { s = s
+            .replace(/(\[[uo]l\]|\[\/li\])/gu,"$1\n") // Add decorative line breaks into UL/OL lists
+            .replace(/(^\s+)|(\s+$)/g, '')            // Remove all space characters at the beginning and end
+            .replace( /\u{9}+/gu, ' ' )               // Replace tabs by whitespaces
+            .replace(/\p{Zs}{2,}/gu, ' ');            // Compact all whitespace sequences to a single space
+        }
+        catch(e) {}
+        return s;
+    }
+
+    private static postprocessReverseDOM( elem: HTMLElement ) {
+        // Add single linebreak right after block elements
+        if (elem.nodeType !== Node.TEXT_NODE ) {
+            if (elem.nextSibling && ['hr','div','blockquote','p','code'].indexOf(elem.tagName.toLowerCase()) >= 0)
+                elem.parentElement.insertBefore( document.createElement('br'), elem.nextSibling );
+            elem.childNodes.forEach( c => this.postprocessReverseDOM( c as HTMLElement ) );
+        }
+    }
+
     private static postprocessText( s: string ): string {
         // Remove single linebreak right after block elements
         // Wrapped in try because it may fail on ancient browsers
@@ -795,9 +816,7 @@ export default class TwinoAlikeParser {
             }
         } else {
             if (elem.hasAttribute( 'x-raw' )) return;
-            let children = elem.childNodes;
-            for (let i = 0; i < children.length; i++)
-                this.postprocessDOM( children[i] as HTMLElement, options )
+            elem.childNodes.forEach( c => this.postprocessDOM( c as HTMLElement ) );
         }
     }
 
@@ -981,14 +1000,8 @@ export default class TwinoAlikeParser {
         if (opmode & this.OpModeRaw)   container_node.classList.add('raw-fallback');
         container_node.innerHTML = htmlText;
 
-        let s = TwinoAlikeParser.parseNestedBlock( container_node );
-        // Wrapping this in a try, because it may fail on ancient browsers
-        try { s = s
-            .replace(/(^\s+)|(\s+$)/g, '')  // Remove all space characters at the beginning and end
-            .replace( /\u{9}+/gu, ' ' )     // Replace tabs by whitespaces
-            .replace(/\p{Zs}{2,}/gu, ' ');  // Compact all whitespace sequences to a single space
-        } catch (e) {}
-        return s;
+        TwinoAlikeParser.postprocessReverseDOM( container_node );
+        return TwinoAlikeParser.postprocessReverseText( TwinoAlikeParser.parseNestedBlock( container_node ) );
     }
 
 }
