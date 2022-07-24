@@ -269,6 +269,12 @@
               },
               "rewards": {
                 "$ref": "#/components/schemas/XMLRewardListObject"
+              },
+              "maps": {
+                "$ref": "#/components/schemas/XMLMapListObject"
+              },
+              "imported-maps": {
+                "$ref": "#/components/schemas/XMLImportedMapListObject"
               }
             }
           }
@@ -695,6 +701,113 @@
         },
         "xml": {
           "name": "rewards"
+        }
+      },
+      "XMLMapObject": {
+        "description": "Played map",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Town name",
+            "example": "Gespenstische Soldaten",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "season": {
+            "type": "integer",
+            "example": 15,
+            "minimum": 0,
+            "description": "Town season",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "score": {
+            "type": "integer",
+            "example": 21,
+            "minimum": 0,
+            "description": "Town score",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "d": {
+            "type": "integer",
+            "example": 6,
+            "minimum": 0,
+            "description": "Survived days",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "id": {
+            "type": "integer",
+            "example": 2,
+            "minimum": 0,
+            "description": "Unique Town ID",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "v1": {
+            "type": "integer",
+            "example": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Old town; can only be true for imported towns.",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "origin": {
+            "type": "string",
+            "description": "Origin of an imported town",
+            "example": "de",
+            "enum": ["de","en","fr","es"],
+            "xml": {
+              "attribute": true
+            }
+          },
+          "phase": {
+            "type": "string",
+            "description": "Describes the origin of the town.",
+            "example": "alpha",
+            "enum": ["alpha","beta","native","import"],
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "m"
+        }
+      },
+      "XMLMapListObject": {
+        "description": "List of maps",
+        "type": "object",
+        "properties": {
+          "m": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLMapObject"}
+          }
+        },
+        "xml": {
+          "name": "maps"
+        }
+      },
+      "XMLImportedMapListObject": {
+        "description": "List of imported maps (imported into MyHordes, but for the primary soul)",
+        "type": "object",
+        "properties": {
+          "m": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLMapObject"}
+          }
+        },
+        "xml": {
+          "name": "imported-maps"
         }
       }
     },
