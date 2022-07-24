@@ -182,7 +182,7 @@
             "content": {
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                  "$ref": "#/components/schemas/XMLTownResponse"
                 }
               }
             }
@@ -439,6 +439,60 @@
           "name": "hordes"
         }
       },
+      "XMLTownResponse": {
+        "description": "Contains information regarding the user's current town.",
+        "type": "object",
+        "properties": {
+          "headers": {
+            "$ref": "#/components/schemas/XMLHeaderObject"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "cache-date": {
+                "type": "string",
+                "format": "datetime",
+                "description": "Date at which this object was generated",
+                "example": "2022-07-16 20:00:00",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "cache-fast": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 0,
+                "example": 0,
+                "description": "Will usually be 0.",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "city": {
+                "$ref": "#/components/schemas/XMLCityObject"
+              },
+              "bank": {
+                "$ref": "#/components/schemas/XMLBankObject"
+              },
+              "expeditions": {
+                "$ref": "#/components/schemas/XMLExpeditionListObject"
+              },
+              "citizens": {
+                "$ref": "#/components/schemas/XMLCitizenListObject"
+              },
+              "cadavers": {
+                "$ref": "#/components/schemas/XMLCadaverListObject"
+              },
+              "map": {
+                "$ref": "#/components/schemas/XMLChartObject"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "hordes"
+        }
+      },
 
       "XMLCitizenObject": {
         "description": "Describes a citizen.",
@@ -614,7 +668,7 @@
         }
       },
       "XMLMyZoneObject": {
-        "description": "An item",
+        "description": "Current zone",
         "type": "object",
         "properties": {
           "dried": {
@@ -1203,6 +1257,405 @@
         },
         "xml": {
           "name": "pictos"
+        }
+      },
+      "XMLCityObject": {
+        "description": "City details",
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "City name",
+            "example": "Alberner Seelenfänger",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "door": {
+            "type": "integer",
+            "description": "Is the door open (1) or closed (0)",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "water": {
+            "type": "integer",
+            "description": "Amount of water rations in the well",
+            "minimum": 0,
+            "example": 120,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "chaos": {
+            "type": "integer",
+            "description": "Has chaos erupted in town (1) or not (0)",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "devast": {
+            "type": "integer",
+            "description": "Is the town destroyed (1) or not (0)",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "hard": {
+            "type": "integer",
+            "description": "Is this a pandemonium town (1) or not (0)",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "x": {
+            "type": "integer",
+            "description": "Town position on the map (x)",
+            "example": 16,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "y": {
+            "type": "integer",
+            "description": "Town position on the map (y)",
+            "example": 7,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "region": {
+            "type": "string",
+            "description": "City language",
+            "example": "de",
+            "enum": ["de","en","fr","es"],
+            "xml": {
+              "attribute": true
+            }
+          },
+          "defense": {
+            "description": "Town defense details",
+            "type": "object",
+            "properties": {
+              "base": {
+                "type": "integer",
+                "description": "Base defense",
+                "minimum": 0,
+                "example": 10,
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "items": {
+                "type": "integer",
+                "description": "Item defense",
+                "minimum": 0,
+                "example": 0,
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "guardian_citizens": {
+                "type": "integer",
+                "description": "Defense by guardians",
+                "minimum": 0,
+                "example": 30,
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "citizen_homes": {
+                "type": "integer",
+                "description": "Defense from homes",
+                "minimum": 0,
+                "example": 27,
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "upgrades": {
+                "type": "integer",
+                "description": "Upgrade defense",
+                "minimum": 0,
+                "example": 0,
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "buildings": {
+                "type": "integer",
+                "description": "Building defense",
+                "minimum": 0,
+                "example": 10,
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "total": {
+                "type": "integer",
+                "description": "Total defense",
+                "minimum": 0,
+                "example": 67,
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "itemsMul": {
+                "type": "number",
+                "description": "Item defense multiplier",
+                "minimum": 0,
+                "example": 1,
+                "xml": {
+                  "attribute": true
+                }
+              }
+            },
+            "xml": {
+              "name": "defense"
+            }
+          }
+        },
+        "xml": {
+          "name": "city"
+        }
+      },
+      "XMLBankObject": {
+        "description": "Town bank",
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XMLItemObject"
+            },
+            "xml": {
+              "wrapped": false
+            }
+          }
+        },
+        "xml": {
+          "name": "bank"
+        }
+      },
+      "XMLCitizenListObject": {
+        "description": "Lists all citizens of the town",
+        "type": "object",
+        "properties": {
+          "citizen": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLCitizenObject"}
+          }
+        },
+        "xml": {
+          "name": "citizens"
+        }
+      },
+      "XMLCadaverListObject": {
+        "description": "Lists all cadavers of the town",
+        "type": "object",
+        "properties": {
+          "cadaver": {
+            "type": "array",
+            "items": {
+              "description": "A cadaver",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Player name",
+                  "example": "Dayan",
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "id": {
+                  "type": "integer",
+                  "description": "Unique user ID",
+                  "example": 42,
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "dtype": {
+                  "type": "integer",
+                  "description": "ID of the death type",
+                  "example": 21,
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "day": {
+                  "type": "integer",
+                  "description": "Day of death",
+                  "example": 2,
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              },
+              "xml": {
+                "name": "cadaver"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "cadavers"
+        }
+      },
+      "XMLExpeditionObject": {
+        "description": "An expedition",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Expedition name",
+            "example": "Brain's schlimme Nachtwanderung",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "author": {
+            "type": "string",
+            "description": "Expedition creator name",
+            "example": "Brainbox",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "length": {
+            "type": "integer",
+            "description": "Length of the route in AP",
+            "example": 18,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "authorId": {
+            "type": "integer",
+            "description": "Expedition creator user ID",
+            "example": 94,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "point": {
+            "type": "array",
+            "items": {
+              "description": "A route point of the expedition",
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "description": "X position",
+                  "example": 16,
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "y": {
+                  "type": "integer",
+                  "description": "Y position",
+                  "example": 7,
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              },
+              "xml": {
+                "name": "point"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "expedition"
+        }
+      },
+      "XMLExpeditionListObject": {
+        "description": "List of current expeditions in this town",
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLExpeditionObject"}
+          }
+        },
+        "xml": {
+          "name": "expeditions"
+        }
+      },
+      "XMLChartObject": {
+        "description": "Town map",
+        "type": "object",
+        "properties": {
+          "hei": {
+            "type": "integer",
+            "description": "Map height",
+            "example": 25,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "wid": {
+            "type": "integer",
+            "description": "Map height",
+            "example": 25,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "zone": {
+            "type": "array",
+            "items": {
+              "description": "A cadaver",
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "description": "X position",
+                  "example": 16,
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "y": {
+                  "type": "integer",
+                  "description": "Y position",
+                  "example": 7,
+                  "xml": {
+                    "attribute": true
+                  }
+                },
+                "nvt": {
+                  "type": "integer",
+                  "description": "\"Not visited today\", 1 if the zone has been uncovered, but nobody has visited it on the current day",
+                  "example": 0,
+                  "xml": {
+                    "attribute": true
+                  }
+                }
+              },
+              "xml": {
+                "name": "zone"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "map"
         }
       }
     },
