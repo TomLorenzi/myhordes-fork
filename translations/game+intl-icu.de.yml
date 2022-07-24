@@ -2326,3 +2326,6 @@ Stadt/Stadttor: Stadt/Stadttor
 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}'
 'Das Neuste aus aller Welt: {announcement}, {date}': 'Das Neuste aus aller Welt: {announcement}, {date}'
 '24 Stunden buddeln': '24 Stunden buddeln'
+'Du wurdest verbannt': 'Du wurdest verbannt'
+'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.': 'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.'
+'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}': 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}'
