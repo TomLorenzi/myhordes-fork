@@ -2327,3 +2327,6 @@ Stadt/Stadttor: Ville/Portes
 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Un modérateur a rouvert votre sujet "{threadname}". {link_post}'
 'Das Neuste aus aller Welt: {announcement}, {date}': 'Actualité du monde : {announcement}, {date}'
 '24 Stunden buddeln': 'Fouille de 24 heures'
+'Du wurdest verbannt': 'Vous avez été banni(e) !'
+'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.': 'Trop de plaintes ont été accumulées contre vous, vous avez été banni(e) de la communauté.'
+'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}': 'Les objets suivants ont été retirés de votre inventaire : {item_list}'
