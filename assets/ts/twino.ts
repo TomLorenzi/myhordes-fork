@@ -877,6 +877,7 @@ export default class TwinoAlikeParser {
         changed = true;
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,true);
 
+        TwinoAlikeParser.collapseTextNodes( container_node );
         TwinoAlikeParser.parseEmotes(container_node, resolver);
 
         let c = null;
