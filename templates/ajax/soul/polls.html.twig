@@ -10,8 +10,9 @@
     {% else %}
     <div class="news">
         <div class="head">
-            <div class="title center"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.titleByLang( app.user.language )}}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
+            <div class="title center hide-lg hide-md hide-sm"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.titleByLang( app.user.language )}}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
         </div>
+        <div class="title center hide-desktop"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.titleByLang( app.user.language )}}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
         <div class="version">
             {% if selected.endDate < 'now'|to_date %}
                 {{"Umfrage beendet am {date}."|trans({date: selected.endDate|format_datetime('medium', 'short')}, 'soul')}}

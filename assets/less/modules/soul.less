@@ -425,19 +425,18 @@ div.tooltip.badge-tooltip {
         margin: 0 15px;
         .head {
             background: url('../../img/underDevBanner.gif') center/contain no-repeat;
-            height: 181px; position: relative;
+            width: 100%; max-width: 625px; aspect-ratio: 625/181; position: relative; margin: 0 auto;
 
-            .title {
-                padding-top: 150px; text-transform: uppercase; color: #fff595; font-weight: bold;
-                font-size: 2rem;
-                img {
-                    vertical-align: baseline;
-                    &:first-child { margin-right: 5px; }
-                    &:last-child { margin-left: 5px; }
-                }
-                &.old { color: #f1c872; }
-            }
+            .title { padding-top: 150px; }
 
+        }
+
+        .title {
+          text-transform: uppercase; color: #fff595; font-weight: bold; font-size: 2rem;
+          display: flex; align-items: center; column-gap: 4px; justify-content: center;
+          img { flex: 0; }
+          span { flex-shrink: 1; flex-grow: 0 }
+          &.old { color: #f1c872; }
         }
 
         .version {
