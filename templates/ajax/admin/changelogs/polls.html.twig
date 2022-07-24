@@ -40,7 +40,7 @@
                 </div>
             {% endmacro %}
 
-            {% macro poll_field(description,name,type,small=false) %}
+            {% macro poll_field(langsCodes,description,name,type,small=false) %}
                 <div class="row">
                     <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                         <div class="note note-lightest"><label>{{ description }}</label></div>
@@ -73,7 +73,7 @@
                 </div>
 
                 <h5>{{ 'Umfragedaten'|trans({},'admin') }}</h5>
-                {{ _self.poll_field( 'Titel der Umfrage'|trans({},'admin'), 'title', 'text' ) }}
+                {{ _self.poll_field( langsCodes, 'Titel der Umfrage'|trans({},'admin'), 'title', 'text' ) }}
 
                 <div class="row">
                     <div class="padded cell rw-3 rw-md-4 rw-sm-12">
@@ -102,8 +102,8 @@
                     </div>
                 </div>
 
-                {{ _self.poll_field( 'Kurzbeschreibung'|trans({},'admin'), 'preview', 'textarea', true ) }}
-                {{ _self.poll_field( 'Beschreibung der Umfrage'|trans({},'admin'), 'desc', 'textarea' ) }}
+                {{ _self.poll_field( langsCodes, 'Kurzbeschreibung'|trans({},'admin'), 'preview', 'textarea', true ) }}
+                {{ _self.poll_field( langsCodes, 'Beschreibung der Umfrage'|trans({},'admin'), 'desc', 'textarea' ) }}
 
                 <h5>{{ 'Antworten'|trans({},'admin') }}</h5>
                 <div class="row-table" id="answers-table">
@@ -128,8 +128,8 @@
                     </div>
                 </div>
 
-                {{ _self.poll_field( 'Antwortstext'|trans({},'admin'), 'answer_title', 'text' ) }}
-                {{ _self.poll_field( 'Beschreibung'|trans({},'admin'), 'answer_desc', 'textarea', true ) }}
+                {{ _self.poll_field( langsCodes, 'Antwortstext'|trans({},'admin'), 'answer_title', 'text' ) }}
+                {{ _self.poll_field( langsCodes, 'Beschreibung'|trans({},'admin'), 'answer_desc', 'textarea', true ) }}
                 <div class="row">
                     <div class="cell rw-4 ro-8 rw-md-6 ro-md-8 rw-sm-12 ro-sm-0"><button id="add_answer">{{ 'Antwort hinzufügen'|trans({},'admin') }}</button></div>
                 </div>
@@ -162,25 +162,22 @@
         });
 
         const get_all_field_values = name => { return {
-            de: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="de"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
-            en: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="en"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
-            fr: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="fr"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
-            es: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="es"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
+            {% for lang in langsCodes %}
+                {{ lang }}: (document.querySelector('[data-field-name="' + name + '"][data-field-lang="{{ lang }}"]')?.value ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])')?.value ?? '').trim(),
+            {% endfor %}
         } };
 
         const reset_field_values = name => {
-            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="de"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
-            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="en"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
-            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="fr"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
-            (document.querySelector('[data-field-name="' + name + '"][data-field-lang="es"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
+            {% for lang in langsCodes %}
+                (document.querySelector('[data-field-name="' + name + '"][data-field-lang="{{ lang }}"]') ?? document.querySelector('[data-field-name="' + name + '"]:not([data-field-lang])') ?? {value:''}).value = '';
+            {% endfor %}
             return true;
         };
 
         const get_missing_langs = set => [
-            ( !set.de?.length && 'de' ) || 'null',
-            ( !set.en?.length && 'en' ) || 'null',
-            ( !set.fr?.length && 'fr' ) || 'null',
-            ( !set.es?.length && 'es' ) || 'null',
+            {% for lang in langsCodes %}
+                ( !set.{{ lang }}?.length && '{{ lang }}' ) || 'null',
+            {% endfor %}
         ].filter(s => s !== 'null');
 
         const get_field = (name,nice=null,twinoid=false) => {
@@ -192,7 +189,7 @@
             }
             else {
                 if (twinoid)
-                    langsCodes.forEach(lang => {
+                  {{ langsCodes|json_encode()|raw }}.forEach(lang => {
                         values[lang] = $.html.twinoParser.parseToString( values[lang], emote_resolver, {autoLinks: $.client.config.autoParseLinks.get()});
                     });
                 return values;
@@ -224,7 +221,7 @@
             const div = document.createElement('div');
             div.classList.add('row');
             div.innerHTML = document.querySelector('#answers-table > .row.hidden').innerHTML;
-            langsCodes.forEach(lang => {
+            {{ langsCodes|json_encode()|raw }}.forEach(lang => {
                 div.querySelector('[data-field="title"][data-type="twino"][data-for="' + lang + '"]').value = title_set[lang];
                 div.querySelector('[data-field="desc"][data-type="twino"][data-for="' + lang + '"]').value = desc_set[lang];
                 let title_div = div.querySelector('[data-field="title"][data-type="html"][data-for="' + lang + '"]');
@@ -244,7 +241,7 @@
             div.querySelector('button[data-action="delete"]').addEventListener('click',e => e.target.closest('.row').remove());
             div.querySelector('button[data-action="copy"]').addEventListener('click',e => {
                 const me = e.target.closest('.row');
-                langsCodes.forEach(lang => {
+                {{ langsCodes|json_encode()|raw }}.forEach(lang => {
                     document.querySelector('[data-field-name="answer_title"][data-field-lang="' + lang + '"]').value = me.querySelector('[data-field="title"][data-type="twino"][data-for="' + lang + '"]').value
                     document.querySelector('[data-field-name="answer_desc"][data-field-lang="' + lang + '"]').value = me.querySelector('[data-field="desc"][data-type="twino"][data-for="' + lang + '"]').value
                 });
@@ -269,7 +266,7 @@
             let answers = [];
             $.html.forEach( '#answers-table > .row:not(.hidden)', row => {
                 const obj = { title: {}, desc: {} };
-                langsCodes.forEach(lang => {
+                {{ langsCodes|json_encode()|raw }}.forEach(lang => {
                     obj.title[lang] = row.querySelector('[data-field="title"][data-type="html"][data-for="' + lang + '"]').innerHTML;
                     obj.desc[lang] = row.querySelector('[data-field="desc"][data-type="html"][data-for="' + lang + '"]').innerHTML;
                 });

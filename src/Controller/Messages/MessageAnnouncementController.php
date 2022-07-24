@@ -47,6 +47,7 @@ class MessageAnnouncementController extends MessageController
     public function polls(  ): Response
     {
         return $this->render( 'ajax/admin/changelogs/polls.html.twig', $this->addDefaultTwigArgs(null, [
+            'langsCodes' => $this->allLangsCodes,
             'polls' => $this->entity_manager->getRepository(GlobalPoll::class)->findAll(),
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
         ]));
@@ -110,7 +111,7 @@ class MessageAnnouncementController extends MessageController
             $global_poll = (new GlobalPoll())
                 ->setPoll( $poll )->setStartDate( $start )->setEndDate( $end )->setShowResultsImmediately( $premature );
 
-            foreach ($langs as $lang) {
+            foreach ($this->allLangsCodes as $lang) if ($lang !== 'ach') {
                 $global_poll
                     ->setTitleByLang( $lang, $title[$lang] )
                     ->setDescriptionByLang( $lang, $desc[$lang] )

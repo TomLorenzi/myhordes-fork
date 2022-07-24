@@ -145,5 +145,39 @@
         {% else %}
             $.html.setTitleSegmentAddendum( null );
         {% endif %}
+
+        {# @var \App\Entity\GlobalPoll poll #}
+        {% if poll is defined and poll %}
+            const poll_ts = $.client.get( 'poll_{{ poll.id }}', 'polls', 0 );
+            if ((poll_ts + 43200000) < (new Date()).getTime()) {
+
+                const fun_finish_poll_popup = (b,elem) => {
+                    $.client.set( 'poll_{{ poll.id }}', 'polls', (new Date()).getTime(), false );
+                    $.html.triggerPopupPop( elem );
+                    if (b) $.ajax.load( null, '{{ url('soul_polls', {id: poll.id})|e('js') }}' );
+                }
+
+                $.html.popup(
+                    '{{ 'Aktuelle Umfrage'|trans({}, 'global')|e('js') }}: {{ poll.titleByLang( app.user.language )|e('js') }}',
+                    '<p><b>{{ 'Deine Meinung ist gefragt!'|trans({}, 'global')|e('js') }}</b></p>' +
+                    '<p>{{ poll.shortDescriptionByLang( app.user.language )|e('js') }}</p>',
+                    null,
+                    [
+                        [ '{{ 'Umfrage starten'|trans({}, 'global')|e('js') }}', [['click', (e,elem) => fun_finish_poll_popup(true,elem)]] ],
+                        [ '{{ 'Später erinnern'|trans({}, 'global')|e('js') }}', [['click', (e,elem) => fun_finish_poll_popup(false,elem)]] ],
+                    ]
+                )
+
+            }
+        //<li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
+        //    <button class="no-mobile-resize">
+        //        <span>{{ 'Umfrage starten'|trans({},'global') }}</span>
+        //        <div class="tooltip">
+        //            <b>{{ poll.titleByLang( app.user.language ) }}</b>
+        //            <div>{{ poll.shortDescriptionByLang( app.user.language ) }}</div>
+        //        </div>
+        //    </button>
+        //</li>
+        {% endif %}
     </script>
 {% endblock %}
