@@ -86,7 +86,7 @@
             "content": {
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                  "$ref": "#/components/schemas/XMLItemResponse"
                 }
               }
             }
@@ -275,6 +275,45 @@
               },
               "imported-maps": {
                 "$ref": "#/components/schemas/XMLImportedMapListObject"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "hordes"
+        }
+      },
+      "XMLItemResponse": {
+        "description": "Contains information about all available items on MyHordes",
+        "type": "object",
+        "properties": {
+          "headers": {
+            "$ref": "#/components/schemas/XMLHeaderObject"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "cache-date": {
+                "type": "string",
+                "format": "datetime",
+                "description": "Date at which this object was generated",
+                "example": "2022-07-16 20:00:00",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "cache-fast": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 0,
+                "example": 0,
+                "description": "Will usually be 0.",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "items": {
+                "$ref": "#/components/schemas/XMLItemPrototypeListObject"
               }
             }
           }
@@ -808,6 +847,79 @@
         },
         "xml": {
           "name": "imported-maps"
+        }
+      },
+      "XMLItemPrototypeObject": {
+        "description": "An item type",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Item type ID",
+            "example": 2,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "cat": {
+            "type": "string",
+            "description": "Item category",
+            "example": "Rsc",
+            "enum": ["Armor","Box","Drug","Food","Furniture","Misc","Rsc","Weapon"],
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Item name (depends on language)",
+            "example": "Batterie",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "deco": {
+            "type": "integer",
+            "description": "Items decoration value",
+            "example": 0,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "heavy": {
+            "type": "integer",
+            "description": "Is the item heavy (1) or not (0)",
+            "example": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "guard": {
+            "type": "integer",
+            "description": "Watchman defense",
+            "example": 0,
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "item"
+        }
+      },
+      "XMLItemPrototypeListObject": {
+        "description": "List of item types available on MyHordes",
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLItemPrototypeObject"}
+          }
+        },
+        "xml": {
+          "name": "items"
         }
       }
     },
