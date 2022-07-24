@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AwardPrototype;
 use App\Entity\BuildingPrototype;
@@ -22,6 +23,7 @@ use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Enum\ExternalAPIError;
 use App\Service\ActionHandler;
 use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
@@ -70,6 +72,7 @@ class ExternalController extends InventoryAwareController {
     private array                    $fields          = [];
     private Town                     $town;
     private User                     $user;
+    private bool                     $selfAuth        = false;
     private int                      $xTown           = 0;
     private int                      $yTown           = 0;
     private int                      $mapIdUser       = 0;
@@ -122,49 +125,33 @@ class ExternalController extends InventoryAwareController {
         $this->langue = $this->generatedLangsCodes;
     }
 
-    /**
-     * @Route("/api/x/json/status", priority=1, name="ext_json_status", methods={"GET", "POST"})
-     * @return Response
-     * @GateKeeperProfile(rate_limited=false)
-     */
-    public function api_json_status(): Response {
-        return $this->api_json( 'status' );
+    public function on_error( ExternalAPIError $message, string $language ) {
+        return match ($message) {
+            ExternalAPIError::UserKeyNotFound, ExternalAPIError::UserKeyInvalid => $this->json(["error" => "invalid_userkey"]),
+            ExternalAPIError::AppKeyNotFound, ExternalAPIError::AppKeyInvalid => $this->json(["error" => "invalid_appkey"]),
+            ExternalAPIError::HordeAttacking => $this->json(["error" => "nightly_attack"]),
+        };
     }
 
     /**
+     * @ExternalAPI(user=false, app=false)
+     * @Route("/api/x/json/status", priority=1, name="ext_json_status", methods={"GET", "POST"})
+     * @return Response
+     */
+    public function api_json_status(): Response {
+        return $this->api_json( null,'status' );
+    }
+
+    /**
+     * @ExternalAPI(user=true, app=true)
      * @Route("/api/x/json/{type}", name="ext_json", methods={"GET", "POST"})
      * @param string $type
      * @return Response
-     * @GateKeeperProfile(rate_limited=true, rate_keys={"appkey": "authenticated"})
      */
-    public function api_json($type = ''): Response {
+    public function api_json(?User $user, string $type = ''): Response {
 
         $data = [];
-
-        $APP_KEY = $this->getRequestParam('appkey');
-        $retourUserKey = $this->getUserKey();
-        if ($APP_KEY === false) {
-            $data = ["error" => "invalid_appkey"];
-            $type = 'internalerror';
-        }
-
-        if (!empty($retourUserKey)) {
-            $data = $retourUserKey;
-            $type = "internalerror";
-        }
-
-        /** @var ExternalApp $app */
-        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $APP_KEY]);
-
-        if (!$app) {
-            $data = ["error" => "invalid_appkey"];
-            $type = 'internalerror';
-        }
-
-        if ($this->time_keeper->isDuringAttack() && $type !== 'internalerror' && $type !== 'status') {
-            $data = ["error" => "nightly_attack"];
-            $type = 'internalerror';
-        }
+        if ($user) $this->user = $user;
 
         switch ($type) {
             case 'internalerror':
@@ -322,7 +309,7 @@ class ExternalController extends InventoryAwareController {
             case "ruins":
                 return $this->getRuinPrototypesData();
             default:
-                $data = [
+                return [
                     "error"             => "server_error",
                     "error_description" => "UnknownEntity($entity)"
                 ];
@@ -330,12 +317,6 @@ class ExternalController extends InventoryAwareController {
     }
 
     private function getMapAPI(): array {
-
-        $retourUserKey = $this->getUserKey();
-        if (!empty($retourUserKey)) {
-            return $retourUserKey;
-        }
-
         $map_id = intval($this->getRequestParam('mapId'));
         if ($map_id != false || $map_id > 0) {
 
@@ -364,11 +345,6 @@ class ExternalController extends InventoryAwareController {
     }
 
     private function getUsersAPI(): array {
-        $retourUserKey = $this->getUserKey();
-        if (!empty($retourUserKey)) {
-            return $retourUserKey;
-        }
-
         $user_ids = explode(",", $this->getRequestParam('ids'));
         if (count($user_ids) <= 0) {
             return ["error" => "invalid_userids"];
@@ -390,11 +366,6 @@ class ExternalController extends InventoryAwareController {
     }
 
     private function getUserAPI(string $type, int $id = -1): array {
-        $retourUserKey = $this->getUserKey();
-        if (!empty($retourUserKey)) {
-            return $retourUserKey;
-        }
-
         if ($type === "me") {
             $filters = [$this->user->getId()];
         } else {
@@ -1364,7 +1335,9 @@ class ExternalController extends InventoryAwareController {
                     case "expeditions":
                         $data[$field] = $this->getExpeditionsData();
                         break;
-
+                    case "language":
+                        $data[$field] = $this->town->getLanguage();
+                        break;
                 }
             }
         }
@@ -1729,10 +1702,10 @@ class ExternalController extends InventoryAwareController {
         $data = [];
 
         if(empty($fields)) {
-            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc'];
+            $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
         }
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->user);
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
@@ -1747,7 +1720,7 @@ class ExternalController extends InventoryAwareController {
                         $picto_data[$field] = $picto['id'];
                         break;
                     case "img":
-                        $picto_data[$field] = $picto['icon'];
+                        $picto_data[$field] = $this->getIconPath($this->asset->getUrl("build/images/pictos/{$picto['icon']}.gif"));
                         break;
                     case "name":
                         $picto_data[$field] = $this->getTranslate($picto['label'], 'game');
@@ -2222,27 +2195,6 @@ class ExternalController extends InventoryAwareController {
         }
     }
 
-    private function getUserKey(): array {
-        $user_key = $this->getRequestParam('userkey');
-        $user = null;
-        if ($user_key === false) {
-            return ["error" => "invalid_userkey"];
-        } else {
-            $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
-            if (!$user) {
-                return ["error" => "invalid_userkey"];
-            } else {
-                $this->user = $user;
-
-                $current_user = $this->user->getActiveCitizen();
-                if ($current_user) {
-                    $this->mapIdUser = $current_user->getTown()->getId() ?? 0;
-                }
-            }
-        }
-        return [];
-    }
-
     protected function getRequestLanguage(Request $request, ?User $user = null): string {
         $language =
             $request->query->get('lang') ??
@@ -2262,30 +2214,5 @@ class ExternalController extends InventoryAwareController {
     protected function getIconPath(string $fullPath): string {
         $list = explode('/build/images/', $fullPath, 2);
         return count($list) === 2 ? $list[1] : $fullPath;
-    }
-
-    protected function isSecureRequest(): bool {
-        $request = Request::createFromGlobals();
-
-        // Try POST data
-        $app_key = trim($request->query->get('appkey') ?? '');
-
-        // Symfony 5 has a bug on treating request data.
-        // If POST didn't work, access GET data.
-        if ($app_key == '') {
-            $app_key = trim($request->request->get('appkey') ?? '');
-        }
-
-        if ($app_key == '') {
-            return false;
-        }
-
-        // Get the app.
-        /** @var ExternalApp $app */
-        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-        if ($app === null) {
-            return false;
-        }
-        return true;
     }
 }

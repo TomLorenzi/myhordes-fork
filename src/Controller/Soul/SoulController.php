@@ -801,9 +801,12 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/ranking/soul/{page}/{season<\d+|c|all|myh|a>}", name="soul_season_solo")
+     * @param JSONRequestParser $parser
+     * @param int $page
+     * @param null $season
      * @return Response
      */
-    public function soul_season_solo(JSONRequestParser $parser, $page = 1, $season = null): Response
+    public function soul_season_solo(JSONRequestParser $parser, int $page = 1, $season = null): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);
@@ -1525,50 +1528,7 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session): Response {
-        $user = $this->getUser();
-
-        /** @var CitizenRankingProxy $nextDeath */
-        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
-        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
-            $last_words = str_replace(['{','}'], ['(',')'], $parser->get('lastwords'));
-        else $last_words = '{gotKilled}';
-
-        // Here, we delete picto with persisted = 0,
-        // and definitively validate picto with persisted = 1
-        /** @var Picto[] $pendingPictosOfUser */
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $nextDeath->getTown());
-        foreach ($pendingPictosOfUser as $pendingPicto) {
-            if($pendingPicto->getPersisted() == 0)
-                $this->entity_manager->remove($pendingPicto);
-            else {
-                $pendingPicto
-                    ->setPersisted(2)
-                    ->setDisabled( $nextDeath->hasDisableFlag(CitizenRankingProxy::DISABLE_PICTOS) || $nextDeath->getTown()->hasDisableFlag(TownRankingProxy::DISABLE_PICTOS) );
-                $this->entity_manager->persist($pendingPicto);
-            }
-        }
-        if ($active = $nextDeath->getCitizen()) {
-            $active->setActive(false);
-            $active->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words);
-            $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
-            $this->entity_manager->persist( $active );
-        }
-
-        $nextDeath->setConfirmed(true)->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words );
-
-        $this->entity_manager->persist( $nextDeath );
-        $this->entity_manager->flush();
-
-        $this->user_handler->computePictoUnlocks($user);
-        $this->entity_manager->flush();
-
-        // Update soul points
-        $user->setSoulPoints( $this->user_handler->fetchSoulPoints( $user, false ) );
-        $this->entity_manager->persist($user);
-        $this->entity_manager->flush();
+        $this->user_handler->confirmNextDeath( $this->getUser(), $parser->get('lastwords', '') );
 
         if ($session->has('_town_lang')) {
             $session->remove('_town_lang');

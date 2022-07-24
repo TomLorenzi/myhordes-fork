@@ -3,8 +3,7 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
 
-# Select image from https://hub.docker.com/_/php/
-image: chialab/php-dev:8.1
+image: registry.gitlab.com/eternaltwin/myhordes/myhordes-registry:latest
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
@@ -21,27 +20,19 @@ variables:
 
 stages:
   - build
-  - test
+  - test-translate
   - deploy
 
 build:
   stage: build
   script:
-    # Add NodeJS repo
-    - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-    # Installing some dependancies
-    - apt install -yqq git imagemagick curl unzip nodejs
-    # Changing php's maximum memory to 256M
-    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
-    - npm install --global yarn
     # Run Composer
     - composer install
     # Install assets
     - yarn install
     - yarn encore dev
     # Install default DB
-    - php bin/console app:migrate -i -vvv
+    # - php bin/console app:migrate -i -vvv
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
@@ -49,17 +40,55 @@ build:
       - vendor
       - node_modules
       - public/build
+  rules:
+    - changes:
+        - composer.json
+        - package.json
+        - composer.lock
+        - yarn.lock
+        - assets/**/*
+
+translate:
+  stage: test-translate
+  dependencies:
+    - build
+  script:
+    # Install a DB
+    - php bin/console app:migrate -i -vvv --skip-optional
+    # Let's generate source strings
+    - bin/console app:translation:update de
+    # And we send it to Crowdin
+    - crowdin upload sources -b translation-main
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - vendor
+      - node_modules
+      - public/build
+  only:
+    changes:
+      - translations/*
+      - templates/**/*
+      - src/**/*
+      - packages/**/*
+    refs:
+      - master
+      - beta
+      - Dev-Ludofloria
+      - Nayr
+      - dylan57
+  variables:
+    CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
+    CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
-  stage: test
+  stage: test-translate
   dependencies:
     - build
   script:
-    # Changing php's maximum memory to 256M
-    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests

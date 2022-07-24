@@ -1,14 +1,31 @@
 <?php
 namespace App\Tests\Service;
 
+use App\Entity\CitizenProfession;
+use App\Entity\User;
+use App\Service\CitizenHandler;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\RandomGenerator;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Translation\Translator;
 
 class GameFactoryTest extends KernelTestCase
 {
+    private EntityManagerInterface|null $entityManager;
+
+    protected function setUp(): void
+    {
+        $kernel = self::bootKernel([
+            'debug'       => false,
+        ]);
+
+        $this->entityManager = $kernel->getContainer()
+            ->get('doctrine')
+            ->getManager();
+    }
+
     public function testTownCreation()
     {
         // (1) boot the Symfony kernel
@@ -23,7 +40,6 @@ class GameFactoryTest extends KernelTestCase
         /** @var GameFactory $gameFactory */
         $gameFactory = $container->get(GameFactory::class);
         $random = $container->get(RandomGenerator::class);
-
 
         // We try to create a 100 towns
         for ($i = 0; $i < 100 ; $i++) {
@@ -51,4 +67,147 @@ class GameFactoryTest extends KernelTestCase
             }
         }
     }
+
+    public function testCitizenCreation() {
+        // (1) boot the Symfony kernel
+        self::bootKernel([
+            'debug'       => false,
+        ]);
+
+        // (2) use static::getContainer() to access the service container
+        $container = static::getContainer();
+
+        // (3) run some service & test the result
+        /** @var GameFactory $gameFactory */
+        $gameFactory = $container->get(GameFactory::class);
+        $citizenHandler = $container->get(CitizenHandler::class);
+        $random = $container->get(RandomGenerator::class);
+
+        // Let's create a small town
+        $town = $gameFactory->createTown(null, "en", 40, "small");
+        $users = $this->entityManager->getRepository(User::class)->findBy([], [], $town->getPopulation());
+
+        foreach ($users as $user) {
+            $errors = 0;
+            $citizen = $gameFactory->createCitizen($town, $user, $errors);
+
+            self::assertNotNull($citizen);
+            self::assertEquals(0, $errors);
+        }
+    }
+
+    public function testInitialDrops() {
+        // (1) boot the Symfony kernel
+        self::bootKernel([
+            'debug'       => false,
+        ]);
+
+        // (2) use static::getContainer() to access the service container
+        $container = static::getContainer();
+
+        // (3) run some service & test the result
+        /** @var GameFactory $gameFactory */
+        $gameFactory = $container->get(GameFactory::class);
+
+        // Let's create some towns.
+        $smallTown = $gameFactory->createTown(null, "en", 40, "small");
+        $pandaTown = $gameFactory->createTown(null, "fr", 40, "panda");
+        $remoteTown = $gameFactory->createTown(null, "de", 40, "remote");
+
+        // Creating basic stuff.
+        $bplanBoxes = ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00'];
+        $fireworkItems = ['firework_powder_#00', 'firework_tube_#00', 'firework_box_#00', 'firework_box_#00'];
+
+        // We sort our arrays because assertEquals will also compare order.
+        sort($bplanBoxes);
+        sort($fireworkItems);
+
+        $townBplanBoxes = array();
+        $townFireworkItems = array();
+
+        foreach ($smallTown->getZones() as $zone) {
+            $items = $zone->getFloor()->getItems()->toArray();
+
+            if (empty($items)) continue;
+
+            foreach ($items as $item) {
+                if (in_array($item->getPrototype()->getName(), $bplanBoxes)) {
+                    array_push($townBplanBoxes, $item->getPrototype()->getName());
+                } else if (in_array($item->getPrototype()->getName(), $fireworkItems)) {
+                    array_push($townFireworkItems, $item->getPrototype()->getName());
+                } else {
+                    // New item ? Modify test...
+                    self::fail("Found " . $item->getPrototype()->getName() . " on the map but this item is not tested. Please modify the test.");
+                }
+            }
+        }
+
+        // Check that everything is ok.
+        sort($townBplanBoxes);
+        sort($townFireworkItems);
+        self::assertEquals($bplanBoxes, $townBplanBoxes, "Wrong bplan boxes in small towns.");
+        self::assertEquals($fireworkItems, $townFireworkItems, "Wrong firework items in small towns.");
+
+        // Go to panda towns now.
+        $townBplanBoxes = array();
+        $townFireworkItems = array();
+
+        foreach ($pandaTown->getZones() as $zone) {
+            $items = $zone->getFloor()->getItems()->toArray();
+
+            if (empty($items)) continue;
+
+            foreach ($items as $item) {
+                if (in_array($item->getPrototype()->getName(), $bplanBoxes)) {
+                    array_push($townBplanBoxes, $item->getPrototype()->getName());
+                } else if (in_array($item->getPrototype()->getName(), $fireworkItems)) {
+                    array_push($townFireworkItems, $item->getPrototype()->getName());
+                } else {
+                    // New item ? Modify test...
+                    self::fail("Found ".$item->getPrototype()->getName()." on the map but this item is not tested. Please modify the test.");
+                }
+            }
+        }
+
+        sort($townBplanBoxes);
+        sort($townFireworkItems);
+        self::assertEquals($bplanBoxes, $townBplanBoxes, "Wrong bplan boxes in panda towns.");
+        self::assertEquals($fireworkItems, $townFireworkItems, "Wrong firework items in panda towns.");
+
+        // Go to remote towns now.
+        $townBplanBoxes = array();
+        $townFireworkItems = array();
+
+        foreach ($remoteTown->getZones() as $zone) {
+            $items = $zone->getFloor()->getItems()->toArray();
+
+            if (empty($items)) continue;
+
+            foreach ($items as $item) {
+                if (in_array($item->getPrototype()->getName(), $bplanBoxes)) {
+                    array_push($townBplanBoxes, $item->getPrototype()->getName());
+                } else if (in_array($item->getPrototype()->getName(), $fireworkItems)) {
+                    array_push($townFireworkItems, $item->getPrototype()->getName());
+                } else {
+                    // New item ? Modify test...
+                    self::fail("Found " . $item->getPrototype()->getName() . " on the map but this item is not tested. Please modify the test.");
+                }
+            }
+        }
+
+        sort($townBplanBoxes);
+        sort($townFireworkItems);
+        self::assertEquals($bplanBoxes, $townBplanBoxes, "Wrong bplan boxes in remote towns.");
+        self::assertEquals($fireworkItems, $townFireworkItems, "Wrong firework items in remote towns.");
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        // doing this is recommended to avoid memory leaks
+        $this->entityManager->close();
+        $this->entityManager = null;
+    }
+
 }

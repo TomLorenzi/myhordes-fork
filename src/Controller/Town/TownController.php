@@ -2211,7 +2211,7 @@ class TownController extends InventoryAwareController
      * @Route("api/town/insurrect", name="town_insurrect")
      * @return Response
      */
-    public function do_insurrection(): Response
+    public function do_insurrection(GameProfilerService $gps): Response
     {
         /** @var Citizen $citizen */
         $citizen = $this->getUser()->getActiveCitizen();
@@ -2225,11 +2225,14 @@ class TownController extends InventoryAwareController
         $non_shunned = 0;
 
         //TODO: This needs huuuuge statistics
-
         foreach ($town->getCitizens() as $foreinCitizen)
             if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
 
-        $town->setInsurrectionProgress($town->getInsurrectionProgress() + intval(round(100 / $non_shunned)));
+        $insurrectionProgress = intval(round(50 / $non_shunned));
+
+        $gps->recordInsurrectionProgress($town, $citizen, $insurrectionProgress, $non_shunned);
+
+        $town->setInsurrectionProgress($town->getInsurrectionProgress() + $insurrectionProgress);
 
         if ($town->getInsurrectionProgress() >= 100) {
             // Let's do the insurrection !

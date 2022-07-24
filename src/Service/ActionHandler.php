@@ -1819,7 +1819,7 @@ class ActionHandler
         $message = $this->translator->trans( $base, [
             '{item_list}' => $this->wrap_concat( $list ),
             '{item}' => $this->wrap( $new_item ),
-            '{ap}' => $used_ap,
+            '{ap}' => $used_ap == 0 ? "0" : 0,
         ], 'game' );
 
         return self::ErrorNone;

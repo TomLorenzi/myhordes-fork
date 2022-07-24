@@ -3,6 +3,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Annotations\AdminLogProfile;
 use App\Service\AdminLog;
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -14,6 +15,7 @@ class AdminLogGeneratorSubscriber implements EventSubscriberInterface
 {
     private ContainerInterface $container;
     private ?ControllerArgumentsEvent $event = null;
+    private ?AdminLogProfile $conf = null;
 
     public function __construct(ContainerInterface $container)
     {
@@ -21,9 +23,8 @@ class AdminLogGeneratorSubscriber implements EventSubscriberInterface
     }
 
     public function prepareLogging(ControllerArgumentsEvent $event) {
-        $this->event = ($event->getRequest()->attributes->get('_AdminLogProfile')?->enableLogging() ?? false)
-            ? $event
-            : null;
+        $this->conf = $event->getRequest()->attributes->get('_AdminLogProfile') ?? null;
+        $this->event = $this->conf?->enableLogging() ? $event: null;
     }
 
     private function flatten_array( array $data, array &$flat, ?string $prefix = null ): void {
@@ -55,12 +56,12 @@ class AdminLogGeneratorSubscriber implements EventSubscriberInterface
             if ($this->event->getRequest()->getContentType() === 'json') {
                 $json_params =  json_decode($this->event->getRequest()->getContent(), true, 512, JSON_INVALID_UTF8_IGNORE );
                 $this->flatten_array( $json_params, $flat_json_params );
-                $flat_json_params = array_map( fn($k,$v) => "[$k = <fg=#a8a8a8>$v</fg=#a8a8a8>]", array_keys( $flat_json_params ), $flat_json_params );
+                $flat_json_params = array_map( fn($k,$v) => $this->conf->isMasked("$.$k") ? "[$k = <fg=#a8a8c0>#MASKED</fg=#a8a8c0>]" : "[$k = <fg=#a8a8a8>$v</fg=#a8a8a8>]", array_keys( $flat_json_params ), $flat_json_params );
             }
 
             $query_params = $this->event->getRequest()->attributes->get('_route_params', []);
             $query_params = array_filter( $query_params, fn($v,$k) => !is_array($v) && !isset($json_params[$k]), ARRAY_FILTER_USE_BOTH );
-            $query_params = array_map( fn($k,$v) => "[$k = <fg=#a8a8a8>$v</fg=#a8a8a8>]", array_keys( $query_params ), $query_params );
+            $query_params = array_map( fn($k,$v) => $this->conf->isMasked($k) ? "[$k = <fg=#a8a8c0>#MASKED</fg=#a8a8c0>]" : "[$k = <fg=#a8a8a8>$v</fg=#a8a8a8>]", array_keys( $query_params ), $query_params );
 
             $logger->invoke(
                 "Invoked <comment>{$route_name}</comment> within <info>{$controller_name}</info>" .

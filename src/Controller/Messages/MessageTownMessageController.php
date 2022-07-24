@@ -377,6 +377,23 @@ class MessageTownMessageController extends MessageController
                     $thread->setTitle( $this->translator->trans("Alarm (Bürger {citizen})", ['citizen' =>  $intruder ?? '???'], 'game') );
                     $post->setText( $this->translator->trans( '{citizen} hat bei dir daheim den Alarm ausgelöst, als er (sie) um {time} versuchte bei dir einzubrechen!', ['citizen' => $intruder ?? '???', 'time' => date('H:i', $time)], 'game' ) );
                     break;
+                case PrivateMessage::TEMPLATE_CROW_BANISHMENT:
+                    /** @var ItemPrototype $item */
+                    $items = [];
+                    foreach ( $post->getAdditionalData() as $item_id) {
+                        if (!isset($items[$item_id]))
+                            $items[$item_id] = [0, $this->entity_manager->getRepository(ItemPrototype::class)->find( $item_id ) ];
+                        $items[$item_id][0]++;
+                    }
+
+                    $thread->setTitle( $this->translator->trans('Du wurdest verbannt', [], 'game') );
+                    $item_list = implode( ', ', array_map( fn( $entry ) => "<span class=\"tool\"><img src='{$this->asset->getUrl('build/images/item/item_' . ($entry[1]?->getIcon() ?? 'none') . '.gif')}' alt='' /> <strong>{$this->translator->trans( $entry[1]?->getLabel() ?? '', [], 'items' )}</strong> x {$entry[0]}</span>", $items ) );
+
+                    $messages = [ $this->translator->trans( 'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.', [], 'game' ) ];
+                    if (!empty($item_list)) $messages[] = $this->translator->trans( 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}', ['item_list' => $item_list], 'game' );
+
+                    $post->setText( $this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()) . implode(' ', $messages) );
+                    break;
                 default:
                     $post->setText($this->html->prepareEmotes($post->getText(), $this->getUser(), $citizen->getTown()));
             }

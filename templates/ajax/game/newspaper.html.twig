@@ -12,7 +12,7 @@
 
             <div style="max-width: 800px; margin: 0 auto;">
                 {% if announcement is not null %}
-                    <div class="note small">
+                    <div class="note newspaper-announcement">
                         {{ 'Das Neuste aus aller Welt: {announcement}, {date}'|trans({ announcement: '<b class="pointer" x-ajax-href="' ~ url('soul_news') ~ '">' ~ announcement.title ~ '</b>', date: '<span>' ~ announcement.timestamp|format_datetime('medium', 'none') ~ '</span>' },'game')|raw }}
                     </div>
                 {% endif %}

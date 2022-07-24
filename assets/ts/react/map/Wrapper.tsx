@@ -115,6 +115,7 @@ export const MapWrapper = ( props: ReactDataMapCore ) => {
         markEnabled: $.client.get('map', 'tags', 'hide', Client.DomainScavenger) === 'show',
         globalEnabled: $.client.get('map', 'global', 'hide', Client.DomainScavenger) === 'show' || props.data.displayType.split('-')[0] !== 'beyond',
         activeRoute: $.client.get('current','routes', null, Client.DomainDaily) ?? undefined,
+        zoomChanged: false,
         activeZone: mk,
 
         showPanel: false,

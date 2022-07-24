@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}">
+<head>
+    {% block html_head %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="UTF-8" />
+
+        <!-- Tell mobile devices not to perform desktop scaling -->
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+
+        <!-- Set the base URL to account for virtual mod_rewrite URLs -->
+        <base target="_blank" href="{{ app.request.getBaseURL() }}">
+
+        <!-- Set OG tags for Social Network Ads :] -->
+        <meta property="og:title" content="MyHordes">
+        <meta property="og:description" content="{{ 'Das Zombie Survival Game!'|trans({}, 'global')}}">
+        <meta property="og:image" content="{{ absolute_url(asset('build/images/favicon.ico')) }}">
+        <meta property="og:url" content="{{ app.request.uri }}">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="de_DE" />
+        <meta property="og:locale:alternate" content="fr_FR" />
+        <meta property="og:locale:alternate" content="es_ES" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:image" content="{{ absolute_url(asset('build/images/myhordes-og.png')) }}" />
+
+        <!-- Load CSS -->
+        {{ encore_entry_link_tags('swagger') }}
+
+
+        <!-- Set Favicon -->
+        <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
+
+        <!-- Set page title -->
+        {% if block('title') is defined %}
+        <title>MyHordes - {{ block('title') }}</title>
+        {% else %}
+        <title>MyHordes</title>
+        {% endif %}
+    {% endblock %}
+</head>
+<body>
+<div id="swagger">
+</div>
+
+<!-- Load JS -->
+{{ encore_entry_script_tags('swagger') }}
+
+</body>
+</html>

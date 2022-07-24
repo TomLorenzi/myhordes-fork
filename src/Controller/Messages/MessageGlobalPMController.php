@@ -1204,6 +1204,8 @@ class MessageGlobalPMController extends MessageController
 
         if (count($users) > 100) return AjaxResponse::error( self::ErrorGPMMemberLimitHit);
 
+        $self_pm = count($users) === 1 && $users[0] === $user;
+
         foreach ($users as $chk_user)
             if ($userHandler->hasRole($chk_user, 'ROLE_DUMMY')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1226,7 +1228,7 @@ class MessageGlobalPMController extends MessageController
 
         if ($valid_non_blocked === 0) return AjaxResponse::error(ErrorHelper::ErrorBlockedByUser);
 
-        if ($em->getRepository(UserGroupAssociation::class)->countRecentRecipients($user) > 100)
+        if (!$self_pm && $em->getRepository(UserGroupAssociation::class)->countRecentRecipients($user) > 100)
             return AjaxResponse::error( self::ErrorGPMThreadLimitHit);
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
@@ -1362,10 +1364,13 @@ class MessageGlobalPMController extends MessageController
 
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        $all_associations = $em->getRepository(UserGroupAssociation::class)->findBy(['association' => $group]);
+        $self_pm = count($all_associations) === 1 && $all_associations[0] = $group_association;
+
         // Check the last 4 posts; if they were all made by the same user, they must wait 5min before they can post again
         /** @var GlobalPrivateMessage[] $last_posts */
         $last_posts = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->findBy(['receiverGroup' => $group], ['timestamp' => 'DESC'], 4);
-        if (count($last_posts) === 4) {
+        if (!$self_pm && count($last_posts) === 4) {
             $all_by_user = true;
             foreach ($last_posts as $last_post) $all_by_user = $all_by_user && ($last_post->getSender() === $user);
             if ($all_by_user && $last_posts[0]->getTimestamp()->getTimestamp() > (time() - 300) )

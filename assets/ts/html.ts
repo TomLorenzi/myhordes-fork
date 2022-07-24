@@ -351,13 +351,13 @@ export default class HTML {
 
     clearTooltips( element: HTMLElement ): void {
         let container = document.getElementById('tooltip_container');
-        let active_tts = container.querySelectorAll('[x-tooltip]');
+        let active_tts = <NodeListOf<HTMLElement>>container.querySelectorAll('[data-tooltip]');
         for (let i = 0; i < active_tts.length; i++) {
-            let source = <HTMLElement>element.querySelector('[x-tooltip-source="' + active_tts[i].getAttribute('x-tooltip') + '"]');
+            let source = <HTMLElement>element.querySelector('[data-tooltip-source="' + active_tts[i].dataset.tooltip + '"]');
             if (source) {
                 source.append(active_tts[i]);
                 source.style.display = 'none';
-            }
+            } else active_tts[i].remove();
         }
     }
 
@@ -368,9 +368,7 @@ export default class HTML {
         let container = document.getElementById('tooltip_container');
         let current_id = ++this.tt_counter;
 
-        element.setAttribute('x-tooltip', '' + current_id);
-        parent.setAttribute('x-tooltip-source', '' + current_id);
-
+        parent.dataset.tooltipSource = element.dataset.tooltip = '' + current_id;
         parent.addEventListener('contextmenu', function(e) {
            e.preventDefault();
         }, false);
