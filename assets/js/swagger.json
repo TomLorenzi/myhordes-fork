@@ -7,7 +7,7 @@
       "name": "AGPL3",
       "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
     },
-    "version": "1.0.0.42"
+    "version": "1.0.0.43"
   },
   "servers": [
     {
@@ -158,7 +158,7 @@
             "content": {
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                  "$ref": "#/components/schemas/XMLPictoResponse"
                 }
               }
             }
@@ -392,6 +392,45 @@
               },
               "items": {
                 "$ref": "#/components/schemas/XMLRuinPrototypeListObject"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "hordes"
+        }
+      },
+      "XMLPictoResponse": {
+        "description": "Contains information about picto types on MyHordes",
+        "type": "object",
+        "properties": {
+          "headers": {
+            "$ref": "#/components/schemas/XMLHeaderObject"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "cache-date": {
+                "type": "string",
+                "format": "datetime",
+                "description": "Date at which this object was generated",
+                "example": "2022-07-16 20:00:00",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "cache-fast": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 0,
+                "example": 0,
+                "description": "Will usually be 0.",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "items": {
+                "$ref": "#/components/schemas/XMLPictoPrototypeListObject"
               }
             }
           }
@@ -1126,6 +1165,44 @@
         },
         "xml": {
           "name": "ruins"
+        }
+      },
+      "XMLPictoPrototypeObject": {
+        "description": "A picto",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Picto ID",
+            "example": 1,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Picto name (depends on language)",
+            "example": "Heldentaten",
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "picto"
+        }
+      },
+      "XMLPictoPrototypeListObject": {
+        "description": "List of pictos that can be obtained on MyHordes",
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLPictoPrototypeObject"}
+          }
+        },
+        "xml": {
+          "name": "pictos"
         }
       }
     },
