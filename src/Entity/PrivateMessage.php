@@ -24,6 +24,7 @@ class PrivateMessage
     const TEMPLATE_CROW_NIGHTWATCH_WOUND   = 9;
     const TEMPLATE_CROW_NIGHTWATCH_TERROR  = 10;
     const TEMPLATE_CROW_INTRUSION          = 11;
+    const TEMPLATE_CROW_BANISHMENT         = 12;
 
 
     /**

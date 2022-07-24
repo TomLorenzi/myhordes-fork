@@ -161,6 +161,9 @@ class TownHomeController extends TownController
                         $intruder = $this->entity_manager->getRepository(Citizen::class)->find( $thread->getMessages()[0]->getForeignID() );
                         $thread->setTitle( $this->translator->trans("Alarm (Bürger {citizen})", ['citizen' =>  $intruder ?? '???'], 'game') );
                         break;
+                    case PrivateMessage::TEMPLATE_CROW_BANISHMENT:
+                        $thread->setTitle( $this->translator->trans('Du wurdest verbannt', [], 'game') );
+                        break;
 
                     default: break;
                 }

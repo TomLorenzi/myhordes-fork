@@ -43,15 +43,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class WebController extends CustomAbstractController
 {
+    // Format:
+    // [ type, fa-icon, name ], with type: 0 => Current team, 1 => Support, 2 => Inactive
     public static array $devs = [
-        'Benjamin "<i>Brainbox</i>" Behrendt',
-        'Ludovic "<i>Cheh\'Tan</i>" Le Brech',
-        'Paul "<i>CountCount</i>" Bruhn',
-        'Adrien "<i>Adri</i>" Boitelle',
-        'Niklas "<i>Choreas</i>" Kosanke',
-        'Christopher "<i>Vander</i>" Chalfant',
-        'Connor "<i>Dylan57</i>" Ottermann',
-        'Ryan "<i>Nayr</i>" Nayrovic',
+        [0, 'code', 'Benjamin "<i>Brainbox</i>" Behrendt'],
+        [0, 'code', 'Ludovic "<i>Cheh\'Tan</i>" Le Brech'],
+        [0, 'code', 'Adrien "<i>Adri</i>" Boitelle'],
+        [0, 'users', 'Connor "<i>Dylan57</i>" Ottermann'],
+        [1, 'users', 'Ryan "<i>Nayr</i>" Nayrovic'],
+        [2, 'code', 'Paul "<i>CountCount</i>" Bruhn'],
+        [2, 'code', 'Niklas "<i>Choreas</i>" Kosanke'],
+        [2, 'code', 'Christopher "<i>Vander</i>" Chalfant'],
     ];
 
     public static array $supporters = [
@@ -104,7 +106,14 @@ class WebController extends CustomAbstractController
 
         return $this->render( ($this->getUser() || !$allow_attract_page) ? 'web/framework.html.twig' : 'web/attract.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
-            'devs' => $devs,
+            'devs' => array_map(function($dev) {
+                $dev[3] = match ($dev[1]) {
+                    'code' => T::__('Programmierung', 'global'),
+                    'users' => T::__('Community-Management', 'global'),
+                    default => '',
+                };
+                return $dev;
+            }, $devs),
             'supporters' => $supporters,
             'ajax_landing' => $ajax_landing,
             'langs' => $this->allLangs

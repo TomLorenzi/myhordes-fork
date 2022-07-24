@@ -20,6 +20,7 @@ use App\Entity\Item;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
 use App\Structures\ItemRequest;
@@ -40,10 +41,11 @@ class CitizenHandler
     private UserHandler $user_handler;
     private ConfMaster $conf;
     private GameProfilerService $gps;
+    private CrowService $crow;
 
     public function __construct(EntityManagerInterface $em, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf, GameProfilerService $gps )
+                                ConfMaster $conf, GameProfilerService $gps, CrowService $crow )
     {
         $this->entity_manager = $em;
         $this->random_generator = $g;
@@ -55,6 +57,7 @@ class CitizenHandler
         $this->user_handler = $uh;
         $this->conf = $conf;
         $this->gps = $gps;
+        $this->crow = $crow;
     }
 
     /**
@@ -240,6 +243,12 @@ class CitizenHandler
             }
 
             $itemsForLog = $this->recoverBanItems($citizen, $kill);
+            if (!$kill) {
+                $itemlist = [];
+                foreach ($itemsForLog as $id => ['count' => $count]) for ($i = 0; $i < $count; $i++)
+                    $itemlist[] = $id;
+                $this->crow->postAsPM( $citizen, '', '', PrivateMessage::TEMPLATE_CROW_BANISHMENT, null, $itemlist );
+            }
 
             // As he is shunned, we remove all the complaints
             $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
