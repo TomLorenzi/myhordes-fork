@@ -110,7 +110,7 @@
             "content": {
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                  "$ref": "#/components/schemas/XMLBuildingResponse"
                 }
               }
             }
@@ -134,7 +134,7 @@
             "content": {
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/XMLGeneralResponse"
+                  "$ref": "#/components/schemas/XMLRuinResponse"
                 }
               }
             }
@@ -322,6 +322,84 @@
           "name": "hordes"
         }
       },
+      "XMLBuildingResponse": {
+        "description": "Contains information about all available constructions on MyHordes",
+        "type": "object",
+        "properties": {
+          "headers": {
+            "$ref": "#/components/schemas/XMLHeaderObject"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "cache-date": {
+                "type": "string",
+                "format": "datetime",
+                "description": "Date at which this object was generated",
+                "example": "2022-07-16 20:00:00",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "cache-fast": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 0,
+                "example": 0,
+                "description": "Will usually be 0.",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "items": {
+                "$ref": "#/components/schemas/XMLBuildingPrototypeListObject"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "hordes"
+        }
+      },
+      "XMLRuinResponse": {
+        "description": "Contains information about all ruin types on MyHordes",
+        "type": "object",
+        "properties": {
+          "headers": {
+            "$ref": "#/components/schemas/XMLHeaderObject"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "cache-date": {
+                "type": "string",
+                "format": "datetime",
+                "description": "Date at which this object was generated",
+                "example": "2022-07-16 20:00:00",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "cache-fast": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 0,
+                "example": 0,
+                "description": "Will usually be 0.",
+                "xml": {
+                  "attribute": true
+                }
+              },
+              "items": {
+                "$ref": "#/components/schemas/XMLRuinPrototypeListObject"
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "hordes"
+        }
+      },
 
       "XMLCitizenObject": {
         "description": "Describes a citizen.",
@@ -461,6 +539,14 @@
             "description": "Item category",
             "example": "Rsc",
             "enum": ["Armor","Box","Drug","Food","Furniture","Misc","Rsc","Weapon"],
+            "xml": {
+              "attribute": true
+            }
+          },
+          "img": {
+            "type": "string",
+            "description": "Item icon",
+            "example": "item/item_pile.gif",
             "xml": {
               "attribute": true
             }
@@ -870,6 +956,14 @@
               "attribute": true
             }
           },
+          "img": {
+            "type": "string",
+            "description": "Item icon",
+            "example": "item/item_pile.gif",
+            "xml": {
+              "attribute": true
+            }
+          },
           "name": {
             "type": "string",
             "description": "Item name (depends on language)",
@@ -920,6 +1014,118 @@
         },
         "xml": {
           "name": "items"
+        }
+      },
+      "XMLBuildingPrototypeObject": {
+        "description": "A construction site",
+        "type": "object",
+        "properties": {
+          "temporary": {
+            "type": "integer",
+            "description": "Is the building temporary (1) or not (0)",
+            "example": 0,
+            "minimum": 0,
+            "maximum": 1,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "id": {
+            "type": "integer",
+            "description": "Construction type ID",
+            "example": 1,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "img": {
+            "type": "string",
+            "description": "Construction site icon",
+            "example": "building/small_waterhole.gif",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Construction name (depends on language)",
+            "example": "Wassergraben",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "parent": {
+            "type": "integer",
+            "description": "Parent construction type ID",
+            "example": 2,
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "building"
+        }
+      },
+      "XMLBuildingPrototypeListObject": {
+        "description": "List of construction sites available on MyHordes",
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLBuildingPrototypeObject"}
+          }
+        },
+        "xml": {
+          "name": "buildings"
+        }
+      },
+      "XMLRuinPrototypeObject": {
+        "description": "A ruin",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Ruin ID",
+            "example": 1,
+            "xml": {
+              "attribute": true
+            }
+          },
+          "explorable": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0,
+            "description": "Is it possible to enter the ruin (1) or not (0)",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Ruin name (depends on language)",
+            "example": "Abgelegenes Haus",
+            "xml": {
+              "attribute": true
+            }
+          }
+        },
+        "xml": {
+          "name": "ruin"
+        }
+      },
+      "XMLRuinPrototypeListObject": {
+        "description": "List of ruins that can spawn on MyHordes",
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/XMLRuinPrototypeObject"}
+          }
+        },
+        "xml": {
+          "name": "ruins"
         }
       }
     },
