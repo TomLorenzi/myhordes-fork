@@ -199,6 +199,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'wood_xmas_#00'              => [ 'food' ],
             'fence_#00'                  => [ 'impoundable' ],
             'engine_part_#00'            => [ 'impoundable' ],
+            'repair_kit_#00'             => [ 'impoundable' ],
             'repair_kit_part_#00'        => [ 'impoundable' ],
             'repair_kit_part_raw_#00'    => [ 'impoundable' ],
             'home_def_#00'               => [ 'impoundable' ],
