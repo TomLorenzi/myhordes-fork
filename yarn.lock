@@ -1036,10 +1036,10 @@
     error-stack-parser "^2.0.0"
     string-width "^4.2.3"
 
-"@ruffle-rs/ruffle@0.1.0-nightly.2022.3.27":
-  version "0.1.0-nightly.2022.3.27"
-  resolved "https://registry.yarnpkg.com/@ruffle-rs/ruffle/-/ruffle-0.1.0-nightly.2022.3.27.tgz#1e681ecd017611f089ff814e5143f93f64beb35a"
-  integrity sha512-nVUOw6GFMY+IuQTFyO6HpwR9Qh/rAk4WfR1x+08v82yi8Yz5BE9YOgCz6cwQyvktzy1kGaX5QetzRz+dZMlygA==
+"@ruffle-rs/ruffle@0.1.0-nightly.2022.7.25":
+  version "0.1.0-nightly.2022.7.25"
+  resolved "https://registry.yarnpkg.com/@ruffle-rs/ruffle/-/ruffle-0.1.0-nightly.2022.7.25.tgz#60897bac5796e95ef239588f1a2db1de9649b73a"
+  integrity sha512-i8w3+qr6siL4ZegNa4ULyz/0g7LYb/IAXXs9fpzRO/6mAsc2r9hG588WSq/uxXLcFqA1PQg+SBjc77PXP8f0zA==
 
 "@symfony/webpack-encore@1.8.2":
   version "1.8.2"
