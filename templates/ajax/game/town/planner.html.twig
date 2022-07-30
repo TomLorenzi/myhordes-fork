@@ -23,8 +23,9 @@
                 <button x-ajax-href="{{ path('town_routes') }}">{{ 'Schließen'|trans({},'global') }}</button>
             </div>
             <div id="route_dashboard" style="display: none">
-                <div class="row">
-                    <div class="padded cell rw-12"><input id="route_name" type="text" maxlength="32" placeholder="{{ 'Name der Route'|trans({},'game') }}" /></div>
+                <div class="row-flex v-center">
+                    <div class="padded cell grow-1 shrink-0"><label><input id="route_name" type="text" maxlength="32" placeholder="{{ 'Name der Route'|trans({},'game') }}" /></label></div>
+                    <div class="padded cell grow-0 shrink-0 hidden" data-route-ap-container><div class="ap">0</div></div>
                 </div>
                 <div class="row">
                     <div class="padded cell rw-6"><a id="route_undo" class="small" href="#"><i class="fa fa-undo"></i> {{ 'Rückgängig'|trans({},'global') }}</a></div>
@@ -63,7 +64,12 @@
 
         let edit_nodes = null;
         $.components.attachEventListener('planner-map', 'planner-step', e => {
-            edit_nodes = e.route;
+            const route_ap_container = document.querySelector('[data-route-ap-container]');
+            const [,,ap] = (edit_nodes = e.route).reduce( ([x0,y0,d], [x1,y1]) =>
+                d === null ? [x1,y1,0] : [ x1,y1,  Math.abs( x0-x1 ) + Math.abs( y0-y1 ) + d ], [null,null,null]
+            )
+            route_ap_container.classList.toggle('hidden', ap === 0);
+            route_ap_container.firstElementChild.innerText = ap;
             if (e.valid) document.getElementById('save_button').removeAttribute('disabled');
             else document.getElementById('save_button').setAttribute('disabled','disabled');
         });
