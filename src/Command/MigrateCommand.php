@@ -110,6 +110,7 @@ class MigrateCommand extends Command
         'd3b4c979af675d4c861a5525c61d46bf72df3503' => [ ['app:migrate', ['--adjust-sandball-pictos2' => true] ] ],
         '8ce89ab055680dedf88da7ed2f8f711c29a07560' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
         'b552fe4373171d16e7b7a700254f9c7ebafb0cff' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
+        '45c0b9f06dd82928e6d979229f9588a634d13828' => [ ['app:migrate', ['--adjust-sandball-pictos3' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
