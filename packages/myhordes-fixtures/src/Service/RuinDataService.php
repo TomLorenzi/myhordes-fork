@@ -674,6 +674,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'wood2_#00' => 3,
                 'game_box_#00' => 3,
                 'ryebag_#00' => 1,
+                'watergun_opt_part_#00' => 1,
                 'pet_pig_#00' => 1,
             ], 'desc' => 'Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.'],
             'guns' => ["label" => "Waffengeschäft Guns'n'Zombies",'icon' => 'guns',"camping" => 7,"min_dist" => 5, "max_dist" => 8, "chance" => 121, "drops" => [
