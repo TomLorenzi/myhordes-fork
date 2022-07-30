@@ -170,6 +170,14 @@
                         {% endfor %}
                     </div>
                 </div>
+
+                <div>
+                    <strong>{{ 'Rechtliche Informationen'|trans({}, 'global') }}</strong>
+                    <div class="content">
+                        <a href="{{ url('legal_doc_default', {document: 'privacy-policy'}) }}">{{ 'Datenschutzerklärung'|trans({}, 'global') }}</a><br/>
+                        <a href="{{ url('legal_doc_default', {document: 'imprint'}) }}">{{ 'Impressum'|trans({}, 'global') }}</a>
+                    </div>
+                </div>
             </div>
         </div>
     {% endblock %}

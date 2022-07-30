@@ -25,6 +25,7 @@ use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -129,6 +130,7 @@ class WebController extends CustomAbstractController
         return $this->handleDomainRedirection() ?? $this->render_web_framework($this->generateUrl('initial_landing'), true);
     }
 
+
     /**
      * @Route("/swagger", name="swagger")
      * @return Response
@@ -136,6 +138,43 @@ class WebController extends CustomAbstractController
     public function swagger(): Response
     {
         return $this->render('web/swagger.html.twig');
+    }
+
+    /**
+     * @Route("/legal/{document}", name="legal_doc_default")
+     * @Route("/legal/{lang}/{document}", name="legal_doc_lang")
+     * @param ParameterBagInterface $params
+     * @param string $document
+     * @param string|null $lang
+     * @return Response
+     */
+    public function legal(ParameterBagInterface $params, string $document, ?string $lang = null): Response
+    {
+        $lang = $lang ?? $this->getUserLanguage();
+
+        if (!in_array($document, ['imprint','privacy-policy'])) return $this->redirect($this->generateUrl('home'));
+        if (!in_array($lang, $this->generatedLangsCodes)) return $this->redirect($this->generateUrl('legal_doc_lang', [
+            'lang' => $this->getUserLanguage(),
+            'document' => $document
+        ]));
+
+        $doc_path = "{$params->get('kernel.project_dir')}/var/documents/$document";
+        $content = null;
+        if (file_exists( "$doc_path/$lang.html" )) $content = file_get_contents( "$doc_path/$lang.html" );
+        elseif (file_exists( "$doc_path/en.html" ))
+            $content = file_get_contents("$doc_path/en.html");
+        else foreach ( $this->generatedLangsCodes as $check_lang) {
+            if (file_exists( "$doc_path/$check_lang.html" )) {
+                $content = file_get_contents("$doc_path/$check_lang.html");
+                break;
+            }
+        }
+
+        return $this->render('web/legal.html.twig', [
+            'content' => $content,
+            'langs' => $this->generatedLangsCodes,
+            'document' => $document
+        ]);
     }
 
     /**
