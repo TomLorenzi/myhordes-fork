@@ -769,7 +769,10 @@ class MessageForumController extends MessageController
     public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, CitizenHandler $ch, int $pid = -1): Response {
         $user = $this->getUser();
 
-        $hydrate_post = fn(Post $post) => $post->getHydrated() ? $post : $post->setHydrated( $this->html->prepareEmotes( $post->getText(), $user, $post->getThread()->getForum()->getTown() ) );
+        $hydrate_post = fn(Post $post, bool $include_original = false) => $post->getHydrated() ? $post : $post->setHydrated(
+            $this->html->prepareEmotes( $post->getText(), $user, $post->getThread()->getForum()->getTown() ),
+            $include_original && $post->getOriginalText() ? $this->html->prepareEmotes( $post->getOriginalText(), $user, $post->getThread()->getForum()->getTown() ) : null
+        );
 
         /** @var Thread $thread */
         $thread = $em->getRepository(Thread::class)->find( $tid );
@@ -857,7 +860,7 @@ class MessageForumController extends MessageController
         if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
 
-        foreach ($posts as $post) $hydrate_post($post);
+        foreach ($posts as $post) $hydrate_post($post, $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ));
 
         // Check for paranoia
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())

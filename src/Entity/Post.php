@@ -82,6 +82,7 @@ class Post
     private bool $new = false;
     private bool $hydrated = false;
     private ?string $hydrated_text = null;
+    private ?string $hydrated_prev = null;
 
     /**
      * @ORM\Column(type="boolean")
@@ -283,10 +284,11 @@ class Post
         return $this->hydrated;
     }
 
-    public function setHydrated(string $text): self {
+    public function setHydrated(string $text, ?string $prev = null): self {
         if (!$this->hydrated) {
             $this->hydrated = true;
             $this->hydrated_text = $text;
+            $this->hydrated_prev = $prev;
         }
         return $this;
     }
@@ -338,7 +340,7 @@ class Post
 
     public function getOriginalText(): ?string
     {
-        return $this->originalText;
+        return $this->hydrated_prev ?? $this->originalText;
     }
 
     public function setOriginalText(?string $originalText): self
