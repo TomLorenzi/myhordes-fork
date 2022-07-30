@@ -21,16 +21,29 @@
                 {% if app.user %}
                     <p><a href="{{ path('home_pm') }}" target="_self"><button><img alt="" src="{{ asset('build/images/item/item_radio_on.gif') }}" /> {{ 'Funkgerät verwenden'|trans({}, 'game') }}</button></a></p>
                 {% endif %}
-            {% else %}
-                <p>{% trans from 'ghost' %}Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!{% endtrans %}</p>
-                <p>{% trans from 'ghost' %}Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...{% endtrans %}</p>
+            {% elseif app.user %}
+                {% if app.user.activeCitizen %}
+                    <p>{% trans from 'ghost' %}Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!{% endtrans %}</p>
+                    {% if app.user.activeCitizen.alive %}
+                        <p>{% trans from 'ghost' %}Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...{% endtrans %}</p>
+                    {% endif %}
+                {% endif %}
                 <p>
                     <button x-ajax-href="{{ path("game_landing") }}">
-                        {% if app.user and app.user.activeCitizen %}
+                        {% if app.user.activeCitizen and app.user.activeCitizen.alive %}
                             {{ 'Sein Zuhause verlassen...'|trans({}, 'ghost') }}
+                        {% elseif app.user.activeCitizen and not app.user.activeCitizen.alive %}
+                            {{ 'Fortsetzen...'|trans({}, 'ghost') }}
                         {% else %}
                             {{ 'Zur Partieauswahl zurückkehren'|trans({}, 'ghost') }}
                         {% endif %}
+                    </button>
+                </p>
+            {% else %}
+                <p>{% trans from 'ghost' %}Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...{% endtrans %}</p>
+                <p>
+                    <button x-ajax-href="{{ path("game_landing") }}">
+                        {{ 'Zum Login zurückkehren'|trans({}, 'ghost') }}
                     </button>
                 </p>
             {% endif %}
