@@ -37,7 +37,7 @@
                 <ul>
                     {% for adminId, adminAction in (is_granted('ROLE_CROW') ? adminActions : comActions) %}
                         {# @var adminAction \App\Entity\AdminAction #}
-                        <a class="link" {% if app.user.openModToolsSameWindow %}x-ajax-{% endif %}href="{{ path('admin_action', { 'id': adminId }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a><br>
+                        <li><a class="link" {% if app.user.openModToolsSameWindow %}x-ajax-{% endif %}href="{{ path('admin_action', { 'id': adminId }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a></li>
                     {% endfor %}
                 </ul>
             </div>
