@@ -673,6 +673,7 @@ class GameFactory
             $lastDay = max( $lastDay, $r_citizen->getDay());
         }
 
+        if (is_a( $town, Town::class )) $town->setDay( $lastDay );
         $this->entity_manager->persist( $tr->setDays($lastDay)->setScore($score) );
     }
 
