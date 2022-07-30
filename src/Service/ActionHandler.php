@@ -930,6 +930,10 @@ class ActionHandler
                             $target = [ $floor_inventory, $citizen->getInventory(), $floor_inventory ];
                             $force = true;
                             break;
+                        case AffectItemSpawn::DropTargetFloorOnly:
+                            $target = [ $floor_inventory ];
+                            $force = true;
+                            break;
                         case AffectItemSpawn::DropTargetRucksack:
                             $target = [ $citizen->getInventory() ];
                             $force = true;
