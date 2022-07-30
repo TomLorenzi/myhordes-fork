@@ -155,7 +155,10 @@
 <script>
     (()=>{
         const headline = document.getElementById('gazette-headline');
-        if (headline && headline.clientWidth > 370)
-            headline.style.transform = 'scaleX(' + (370/headline.clientWidth) + ')'
+        window.setTimeout( () => {
+            if (headline && headline.clientWidth > 370)
+                headline.style.transform = 'scaleX(' + (370/headline.clientWidth) + ')'
+        }, 1 )
+
     })();
 </script>
