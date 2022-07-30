@@ -14,7 +14,8 @@
       "php": ">=8.1",
       "symfony/framework-bundle": "6.0.*",
       "symfony/yaml": "6.0.*",
-      "etwin/myhordes": "@dev"
+      "etwin/myhordes": "@dev",
+      "myhordes/plugins": "@dev"
     },
     "autoload": {
       "psr-4": {

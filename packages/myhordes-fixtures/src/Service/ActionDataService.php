@@ -11,7 +11,7 @@ use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ActionDataService implements FixtureProcessorInterface {
 

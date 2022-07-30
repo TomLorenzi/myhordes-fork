@@ -13,11 +13,11 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use MyHordes\Fixtures\Fixtures\Building;
+use MyHordes\Plugins\Fixtures\Building;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
-use MyHordes\Fixtures\Fixtures\Recipe as RecipeFixturesData;
+use MyHordes\Plugins\Fixtures\Recipe as RecipeFixturesData;
 
 class RecipeFixtures extends Fixture implements DependentFixtureInterface
 {

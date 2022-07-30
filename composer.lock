@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "440b731267897c93c59b314f734055e8",
+    "content-hash": "bc31e713efcbafd4f7f5352fe9b2ce22",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2080,14 +2080,15 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-renovate/symfony",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
-                "reference": "04c7d24cb1f142f3f641443bb05d0f67a942da6a"
+                "reference": "933d36e17ad27612d0c8e92683ee70ae712e5037"
             },
             "require": {
                 "etwin/myhordes": "@dev",
+                "myhordes/plugins": "@dev",
                 "php": ">=8.1",
                 "symfony/framework-bundle": "6.0.*",
                 "symfony/yaml": "6.0.*"
@@ -2108,6 +2109,72 @@
                 }
             ],
             "description": "The base MyHordes fixture package.",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "myhordes/plugins",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/myhordes-plugins",
+                "reference": "205fbffd50156f302ba36d109e156c6e1c4ef226"
+            },
+            "require": {
+                "etwin/myhordes": "@dev",
+                "php": ">=8.1",
+                "symfony/framework-bundle": "6.0.*",
+                "symfony/yaml": "6.0.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "MyHordes\\Plugins\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Behrendt",
+                    "email": "wvsgnovize@gmail.com"
+                }
+            ],
+            "description": "MyHordes Plugin Handler",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "myhordes/prime",
+            "version": "0.0.1",
+            "dist": {
+                "type": "path",
+                "url": "packages/myhordes-prime-shim",
+                "reference": "47cff2a36a5f14cad857cb99a2e8a47f009dc927"
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/framework-bundle": "6.0.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "MyHordes\\Prime\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Behrendt",
+                    "email": "wvsgnovize@gmail.com"
+                }
+            ],
+            "description": "This package exists as a replacement for the closed-source game content provided by the real myhordes/prime package.",
             "transport-options": {
                 "relative": true
             }
@@ -2668,6 +2735,66 @@
                 "source": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/tree/v6.2.6"
             },
             "time": "2022-01-14T11:51:13+00:00"
+        },
+        {
+            "name": "shivas/versioning-bundle",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shivas/versioning-bundle.git",
+                "reference": "a1ff217ad231bd6984a2cc79b8ab6a095322b317"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shivas/versioning-bundle/zipball/a1ff217ad231bd6984a2cc79b8ab6a095322b317",
+                "reference": "a1ff217ad231bd6984a2cc79b8ab6a095322b317",
+                "shasum": ""
+            },
+            "require": {
+                "nikolaposa/version": "^4",
+                "php": "^7.2 || ^8",
+                "symfony/console": "^3.4 || ^4 || ^5 || ^6",
+                "symfony/framework-bundle": "^3.4 || ^4 || ^5 || ^6",
+                "symfony/process": "^3.4 || ^4 || ^5 || ^6"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^2",
+                "nyholm/symfony-bundle-test": "1.x-dev",
+                "phpunit/phpunit": "^7 || ^8",
+                "symfony/phpunit-bridge": "^5",
+                "twig/twig": "^2 || ^3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Shivas\\VersioningBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Audrius Karabanovas",
+                    "email": "audrius@karabanovas.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Symfony application versioning, simple console command to manage version (with providers e.g. git tag) of your application using Semantic Versioning 2.0.0 recommendations",
+            "homepage": "https://github.com/shivas/versioning-bundle",
+            "keywords": [
+                "semantic",
+                "semver",
+                "version",
+                "versioning"
+            ],
+            "support": {
+                "issues": "https://github.com/shivas/versioning-bundle/issues",
+                "source": "https://github.com/shivas/versioning-bundle/tree/4.0.1",
+                "wiki": "https://github.com/shivas/versioning-bundle/wiki"
+            },
+            "time": "2022-02-17T07:56:41+00:00"
         },
         {
             "name": "symfony/apache-pack",
@@ -8108,71 +8235,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
-        },
-        {
-            "name": "wvsgnovize01/versioning-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wvsgnovize01/versioning-bundle.git",
-                "reference": "e893bd71f6906cd10d0d1c88012ae314cf064e29"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wvsgnovize01/versioning-bundle/zipball/e893bd71f6906cd10d0d1c88012ae314cf064e29",
-                "reference": "e893bd71f6906cd10d0d1c88012ae314cf064e29",
-                "shasum": ""
-            },
-            "require": {
-                "nikolaposa/version": "^4",
-                "php": "^7.2 || ^8",
-                "symfony/console": "^3.4 || ^4 || ^5 || ^6",
-                "symfony/framework-bundle": "^3.4 || ^4 || ^5 || ^6",
-                "symfony/process": "^3.4 || ^4 || ^5 || ^6"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "^2",
-                "nyholm/symfony-bundle-test": "^1.7",
-                "phpunit/phpunit": "^7 || ^8",
-                "symfony/phpunit-bridge": "^5",
-                "twig/twig": "^2 || ^3"
-            },
-            "default-branch": true,
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Shivas\\VersioningBundle\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Shivas\\VersioningBundle\\Tests\\": "tests"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Audrius Karabanovas",
-                    "email": "audrius@karabanovas.net",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Symfony application versioning, simple console command to manage version (with providers e.g. git tag) of your application using Semantic Versioning 2.0.0 recommendations",
-            "homepage": "https://github.com/shivas/versioning-bundle",
-            "keywords": [
-                "semantic",
-                "semver",
-                "version",
-                "versioning"
-            ],
-            "support": {
-                "issues": "https://github.com/shivas/versioning-bundle/issues",
-                "wiki": "https://github.com/shivas/versioning-bundle/wiki",
-                "source": "https://github.com/wvsgnovize01/versioning-bundle/tree/master"
-            },
-            "time": "2022-01-22T15:11:42+00:00"
         }
     ],
     "packages-dev": [
@@ -10631,8 +10693,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "myhordes/plugins": 20,
         "myhordes/fixtures": 20,
-        "wvsgnovize01/versioning-bundle": 20
+        "myhordes/prime": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

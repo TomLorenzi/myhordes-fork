@@ -2,7 +2,6 @@
 
 namespace MyHordes\Fixtures;
 
-use MyHordes\Fixtures\DependencyInjection\Compiler\FixtureChain;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -14,7 +13,6 @@ class MyHordesFixturesBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass( new FixtureChain() );
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/Resources/config'));
         $loader->load('services.yaml');
 

@@ -135,6 +135,12 @@
     "myhordes/fixtures": {
         "version": "dev-override-item-groups"
     },
+    "myhordes/plugins": {
+        "version": "dev-master"
+    },
+    "myhordes/prime": {
+        "version": "1.0.0"
+    },
     "nikic/php-parser": {
         "version": "v4.5.0"
     },
@@ -268,6 +274,9 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "shivas/versioning-bundle": {
+        "version": "4.0.1"
     },
     "symfony/apache-pack": {
         "version": "1.0",
@@ -678,8 +687,5 @@
     },
     "webmozart/assert": {
         "version": "1.8.0"
-    },
-    "wvsgnovize01/versioning-bundle": {
-        "version": "dev-master"
     }
 }

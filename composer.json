@@ -24,7 +24,9 @@
         "doctrine/orm": "2.11.2",
         "graphp/algorithms": "0.8.2",
         "laminas/laminas-code": "4.5.1",
+        "myhordes/plugins": "@dev",
         "myhordes/fixtures": "@dev",
+        "myhordes/prime": "@dev",
         "phpdocumentor/reflection-docblock": "5.3.0",
         "sensio/framework-extra-bundle": "6.2.6",
         "symfony/apache-pack": "1.0.1",
@@ -58,7 +60,7 @@
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/intl-extra": "3.3.5",
         "twig/twig": "^2.12|^3.0",
-        "wvsgnovize01/versioning-bundle": "dev-master"
+        "shivas/versioning-bundle": "4.0.1"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "6.7.5",

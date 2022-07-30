@@ -8,14 +8,14 @@ use App\Entity\ItemPrototype;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\Fixtures\Item;
-use MyHordes\Fixtures\Fixtures\ItemGroup;
+use MyHordes\Plugins\Fixtures\Item;
+use MyHordes\Plugins\Fixtures\ItemGroup;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
-use MyHordes\Fixtures\Fixtures\ItemCategory as ItemCategoryFixtures;
-use MyHordes\Fixtures\Fixtures\ItemProperty as ItemPropertyFixtures;
+use MyHordes\Plugins\Fixtures\ItemCategory as ItemCategoryFixtures;
+use MyHordes\Plugins\Fixtures\ItemProperty as ItemPropertyFixtures;
 
 
 class ItemFixtures extends Fixture

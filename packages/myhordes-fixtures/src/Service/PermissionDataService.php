@@ -3,7 +3,7 @@
 namespace MyHordes\Fixtures\Service;
 
 use App\Entity\UserGroup;
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class PermissionDataService implements FixtureProcessorInterface {
 

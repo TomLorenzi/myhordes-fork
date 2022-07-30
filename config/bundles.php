@@ -16,5 +16,7 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Shivas\VersioningBundle\ShivasVersioningBundle::class => ['all' => true],
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
+    MyHordes\Plugins\MyHordesPluginsBundle::class => ['all' => true],
     MyHordes\Fixtures\MyHordesFixturesBundle::class => ['all' => true],
+    MyHordes\Prime\MyHordesPrimeBundle::class => ['all' => true],
 ];

@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
-use MyHordes\Fixtures\Fixtures\Picto;
+use MyHordes\Plugins\Fixtures\Picto;
 
 class PictoFixtures extends Fixture
 {

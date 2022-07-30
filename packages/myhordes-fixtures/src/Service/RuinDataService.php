@@ -3,7 +3,7 @@
 namespace MyHordes\Fixtures\Service;
 
 use App\Enum\ArrayMergeDirective;
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class RuinDataService implements FixtureProcessorInterface {
 
