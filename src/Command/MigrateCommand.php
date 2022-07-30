@@ -203,6 +203,7 @@ class MigrateCommand extends Command
             ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
             ->addOption('adjust-sandball-pictos', null, InputOption::VALUE_NONE, '')
             ->addOption('adjust-sandball-pictos2', null, InputOption::VALUE_NONE, '')
+            ->addOption('adjust-sandball-pictos3', null, InputOption::VALUE_NONE, '')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
@@ -1004,6 +1005,39 @@ class MigrateCommand extends Command
                         return true;
                     } else return false;
                 }, false );
+
+            return 0;
+        }
+
+        if ($input->getOption('adjust-sandball-pictos3')) {
+            $sandball_picto_proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_sandb_#00');
+            $sandball_pictos = $this->entity_manager->getRepository(Picto::class)->findBy( ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto ] );
+            $users_count = [];
+            foreach ($sandball_pictos as $picto)
+                if (!isset($users_count[ $picto->getUser()->getId() ]))
+                    $users_count[ $picto->getUser()->getId() ] = $picto->getCount();
+                else $users_count[ $picto->getUser()->getId() ] += $picto->getCount();
+
+            $users_count = array_filter( $users_count, fn($c) => $c > 2 );
+            foreach ($users_count as $id => $count) {
+                $output->write( "<comment>$id</comment> $count. " );
+                $pictos = $this->entity_manager->getRepository(Picto::class)->findBy( ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto, 'user' => $id ], ['count' => 'DESC'] );
+                $c = 0; $deleted = 0;
+                foreach ( $pictos as $picto ) {
+                    if ($picto->getCount() > 2) {
+                        $deleted += $picto->getCount() - 2;
+                        $c += 2;
+                        $picto->setCount(2);
+                        $this->entity_manager->persist($picto);
+                    } elseif ($c >= 1) {
+                        $deleted += $picto->getCount();
+                        $this->entity_manager->remove($picto);
+                    } else ($c += $picto->getCount());
+                }
+                $output->writeln( "Deleted <info>$deleted</info>, kept <info>$c</info>" );
+            }
+
+            $this->entity_manager->flush();
 
             return 0;
         }
