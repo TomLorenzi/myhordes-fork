@@ -26,6 +26,7 @@ use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
+use App\Service\PermissionHandler;
 use App\Service\PictoHandler;
 use App\Structures\HTMLParserInsight;
 use DateTime;
@@ -267,7 +268,7 @@ class MessageForumController extends MessageController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimiterFactory $forumThreadCreationLimiter): Response {
+    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimiterFactory $forumThreadCreationLimiter, CrowService $crow): Response {
 
         /** @var Forum $forum */
         $forum = $em->getRepository(Forum::class)->find($id);
@@ -353,6 +354,14 @@ class MessageForumController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        $has_notif = false;
+        foreach ( $insight->taggedUsers as $tagged_user )
+            if ( $tagged_user !== $user && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
+                $has_notif = true;
+            }
+        if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
     }
@@ -459,7 +468,7 @@ class MessageForumController extends MessageController
      * @param PictoHandler $ph
      * @return Response
      */
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, PictoHandler $ph): Response {
+    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, PictoHandler $ph, CrowService $crow): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
@@ -557,6 +566,14 @@ class MessageForumController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        $has_notif = false;
+        foreach ( $insight->taggedUsers as $tagged_user )
+            if ( $tagged_user !== $user && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
+                $has_notif = true;
+            }
+        if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
 
         return AjaxResponse::success( true, ['url' =>
             $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])

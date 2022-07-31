@@ -391,7 +391,7 @@ class HTMLService {
                 $d->nodeValue = $cc->getName();
             },
             // A citizen ref node
-            '//div[@class=\'cref\']|//span[@class=\'quoteauthor\']' => function (DOMElement $user_ref) use ($user) {
+            '//div[@class=\'cref\']|//span[@class=\'quoteauthor\']' => function (DOMElement $user_ref) use ($user, &$insight) {
                 $id = $user_ref->attributes->getNamedItem('x-a') ? $user_ref->attributes->getNamedItem('x-a')->nodeValue : null;
                 $user_ref->removeAttribute('x-a');
 
@@ -412,6 +412,7 @@ class HTMLService {
                     $user_ref->textContent = "@​::un:{$target_user->getId()}";
                     $user_ref->setAttribute('x-user-id', $target_user->getId());
                     $user_ref->setAttribute('class', $user_ref->getAttribute('class') . ' username');
+                    if (!in_array($target_user, $insight->taggedUsers)) $insight->taggedUsers[] = $target_user;
                 }
             },
 

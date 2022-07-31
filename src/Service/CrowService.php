@@ -196,6 +196,29 @@ class CrowService {
             ->setSeen( false );
     }
 
+    /**
+     * @param User $receiver
+     * @param Post $post
+     * @return GlobalPrivateMessage
+     */
+    public function createPM_mentionNotification(User $receiver, Post $post): GlobalPrivateMessage
+    {
+        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_post_notification']);
+
+        return (new GlobalPrivateMessage())
+            ->setTemplate( $template )
+            ->setData( [
+               'link_post' => $post->getId(),
+               'threadname' => $post->getThread()->getTitle(),
+               'forumname' => $post->getThread()->getForum()->getTitle(),
+               'player' => $post->getOwner()->getId() ]
+            )
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
+    }
+
     public function createPM_moderation( User $receiver, int $domain, int $target, int $action, $object = null, string $reason = ''): ?GlobalPrivateMessage {
 
         $name = null;
