@@ -27,6 +27,7 @@ use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
 use App\Service\PictoHandler;
+use App\Structures\HTMLParserInsight;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManager;
@@ -333,12 +334,12 @@ class MessageForumController extends MessageController
             ->setEditingMode( Post::EditorPerpetual )
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,$forum,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$edit) $post->setEditingMode( Post::EditorLocked );
+        if (!$insight->editable) $post->setEditingMode( Post::EditorLocked );
 
         $forum->addThread($thread);
         $thread->addPost($post)->setLastPost( $post->getDate() );
@@ -348,7 +349,7 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls ?? []);
+            $this->commit_post_with_polls($em,$post,$insight->polls ?? []);
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -519,13 +520,13 @@ class MessageForumController extends MessageController
             ->setEditingMode( $type !== "USER" ? Post::EditorPerpetual : Post::EditorTimed )
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,$forum,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$edit) $post->setEditingMode(Post::EditorLocked);
+        if (!$insight->editable) $post->setEditingMode(Post::EditorLocked);
 
         $thread->addPost($post)->setLastPost( $post->getDate() );
         if ($forum->getTown()) {
@@ -551,7 +552,7 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls ?? []);
+            $this->commit_post_with_polls($em,$post,$insight->polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -680,13 +681,13 @@ class MessageForumController extends MessageController
             }
         }
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,$forum,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$edit) $post->setEditingMode(Post::EditorLocked);
+        if (!$insight->editable) $post->setEditingMode(Post::EditorLocked);
 
         if ($user !== $post->getOwner()) {
             $post
@@ -704,7 +705,7 @@ class MessageForumController extends MessageController
 
         try {
 
-            $this->commit_post_with_polls($em,$post,$polls ?? []);
+            $this->commit_post_with_polls($em,$post,$insight->polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);

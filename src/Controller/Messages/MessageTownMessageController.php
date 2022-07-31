@@ -235,8 +235,7 @@ class MessageTownMessageController extends MessageController
 
             $post->setItems($items_prototype);
 
-            $tx_len = 0;
-            if (!$this->preparePost($this->getUser(),null,$post,$tx_len, $recipient->getTown()))
+            if (!$this->preparePost($this->getUser(),null,$post, $recipient->getTown()))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread
@@ -639,8 +638,7 @@ class MessageTownMessageController extends MessageController
                 ->setNew(true)
                 ->setRecipient($recipient);
 
-            $tx_len = 0;
-            if (!$this->preparePost($this->getUser(),null,$post,$tx_len, $recipient->getTown()))
+            if (!$this->preparePost($this->getUser(),null,$post, $recipient->getTown()))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread

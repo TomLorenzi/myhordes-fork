@@ -708,7 +708,7 @@ class SoulController extends CustomAbstractController
         $user->setFlag($flag === '' ? null : $flag);
 
         $desc_obj = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
-        if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $len) && $len > 0) {
+        if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $insight) && $insight->text_length > 0) {
             if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDescription)) {
                 if (!$desc_obj) $desc_obj = (new UserDescription())->setUser($user);
                 $desc_obj->setText($desc);

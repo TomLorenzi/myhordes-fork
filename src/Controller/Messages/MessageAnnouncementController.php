@@ -68,8 +68,8 @@ class MessageAnnouncementController extends MessageController
             foreach ($this->generatedLangsCodes as $lang) {
                 $str = trim($data[$lang]);
                 if (mb_strlen($str) < 3) return false;
-                if (!$html->htmlPrepare( $this->getUser(), $p, false, $data[$lang], null, $len  )) return false;
-                if ($len < 3) return false;
+                if (!$html->htmlPrepare( $this->getUser(), $p, false, $data[$lang], null, $insight  )) return false;
+                if ($insight->text_length < 3) return false;
             }
             return true;
         };
@@ -239,8 +239,7 @@ class MessageAnnouncementController extends MessageController
         $change = new Changelog();
         $change->setTitle($title)->setText($content)->setVersion($version)->setLang($lang)->setAuthor($author)->setDate(new DateTime());
 
-        $tx_len = 0;
-        if (!$this->preparePost($author,null,$change,$tx_len))
+        if (!$this->preparePost($author,null,$change))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $em->persist($change);
@@ -267,8 +266,7 @@ class MessageAnnouncementController extends MessageController
         $announcement = (new Announcement())
             ->setTitle($title)->setText($content)->setLang($lang)->setSender($author)->setTimestamp(new DateTime());
 
-        $tx_len = 0;
-        if (!$this->preparePost($author,null,$announcement,$tx_len))
+        if (!$this->preparePost($author,null,$announcement))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $em->persist($announcement);

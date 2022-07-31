@@ -9,6 +9,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\Post;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Structures\HTMLParserInsight;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
@@ -268,14 +269,13 @@ class HTMLService {
      * @param bool|array $extended
      * @param string $text
      * @param Town|null $town
-     * @param int|null $tx_len
-     * @param bool|null $editable
-     * @param array|null $polls
+     * @param HTMLParserInsight|null $insight
      * @return bool
      */
-    public function htmlPrepare(User $user, int $permissions, $extended, string &$text, ?Town $town = null, ?int &$tx_len = null, ?bool &$editable = null, ?array &$polls = []): bool {
+    public function htmlPrepare(User $user, int $permissions, bool|array $extended, string &$text, ?Town $town = null, ?HTMLParserInsight &$insight = null): bool {
 
-        $editable = true;
+        $insight = new HTMLParserInsight();
+        $insight->editable = true;
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
@@ -284,7 +284,7 @@ class HTMLService {
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
 
-        if (!$this->htmlValidator($this->getAllowedHTML($user, $permissions,is_bool($extended) ? $extended : false, is_array($extended) ? $extended : []), $body->item(0),$tx_len))
+        if (!$this->htmlValidator($this->getAllowedHTML($user, $permissions,is_bool($extended) ? $extended : false, is_array($extended) ? $extended : []), $body->item(0),$insight->text_length))
             return false;
 
         $emotes = array_keys($this->get_emotes(false, $user));
@@ -297,7 +297,7 @@ class HTMLService {
             $replace_urls[] = 'http://' . $url;
             $replace_urls[] = 'https://' . $url;
         }
-        $poll_cache = $polls = [];
+        $poll_cache = [];
 
         $handlers = [
             // This invalidates emote tags within code blocks to prevent them from being replaced when rendering the
@@ -325,26 +325,26 @@ class HTMLService {
                 if ($url !== $new_url) $d->attributes->getNamedItem('src')->nodeValue = $new_url;
             },
 
-            '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,4); },
-            '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,6); },
-            '//div[@class=\'dice-8\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,8); },
-            '//div[@class=\'dice-10\']'  => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,10); },
-            '//div[@class=\'dice-12\']'  => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,12); },
-            '//div[@class=\'dice-20\']'  => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,20); },
-            '//div[@class=\'dice-100\']' => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,100); },
-            '//div[@class=\'letter-a\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'letter-c\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'letter-v\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'rps\']'      => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Schere',[],'global'),$this->translator->trans('Stein',[],'global'),$this->translator->trans('Papier',[],'global')]); },
-            '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Kopf',[],'global'),$this->translator->trans('Zahl',[],'global')]); },
-            '//div[@class=\'card\']'     => function (DOMNode $d) use(&$editable) { $editable = false;
+            '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = mt_rand(1,4); },
+            '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = mt_rand(1,6); },
+            '//div[@class=\'dice-8\']'   => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = mt_rand(1,8); },
+            '//div[@class=\'dice-10\']'  => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = mt_rand(1,10); },
+            '//div[@class=\'dice-12\']'  => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = mt_rand(1,12); },
+            '//div[@class=\'dice-20\']'  => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = mt_rand(1,20); },
+            '//div[@class=\'dice-100\']' => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = mt_rand(1,100); },
+            '//div[@class=\'letter-a\']' => function (DOMNode $d) use(&$insight) { $insight->editable = false; $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-c\']' => function (DOMNode $d) use(&$insight) { $insight->editable = false; $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-v\']' => function (DOMNode $d) use(&$insight) { $insight->editable = false; $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'rps\']'      => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Schere',[],'global'),$this->translator->trans('Stein',[],'global'),$this->translator->trans('Papier',[],'global')]); },
+            '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$insight) { $insight->editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Kopf',[],'global'),$this->translator->trans('Zahl',[],'global')]); },
+            '//div[@class=\'card\']'     => function (DOMNode $d) use(&$insight) { $insight->editable = false;
                 $s_color = $this->rand->pick([$this->translator->trans('Kreuz',[],'items'),$this->translator->trans('Pik',[],'items'),$this->translator->trans('Herz',[],'items'),$this->translator->trans('Karo',[],'items')]);
                 $value = mt_rand(1,12);
                 $s_value = $value < 9 ? ('' . ($value+2)) : [$this->translator->trans('Bube',[],'items'),$this->translator->trans('Dame',[],'items'),$this->translator->trans('König',[],'items'),$this->translator->trans('Ass',[],'items')][$value-9];
                 $d->nodeValue = $this->translator->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
             },
-            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache,&$editable) {
-                $editable = false;
+            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache,&$insight) {
+                $insight->editable = false;
                 $profession = $d->attributes->getNamedItem('x-a') ? $d->attributes->getNamedItem('x-a')->nodeValue : null;
                 if ($profession === 'any') $profession = null;
                 $group      = is_numeric($d->attributes->getNamedItem('x-b')->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')->nodeValue : null;
@@ -416,8 +416,8 @@ class HTMLService {
             },
 
             // A poll node
-            '//ul[@class=\'poll\']'   => function (DOMElement $poll) use(&$editable, &$poll_cache, &$polls) {
-                $editable = false;
+            '//ul[@class=\'poll\']'   => function (DOMElement $poll) use(&$insight, &$poll_cache) {
+                $insight->editable = false;
                 $remove = [];
 
                 $answer_count = 0;
@@ -456,14 +456,14 @@ class HTMLService {
                 };
 
                 $poll_parent = $gen();
-                $polls[$poll_parent] = [];
+                $insight->polls[$poll_parent] = [];
                 $poll->setAttribute( 'x-poll-id', $poll_parent );
 
                 foreach ($poll->childNodes as $answer) {
                     /** @var DOMElement $answer */
                     if ($answer->getAttribute('class') !== '') continue;
                     $answer->setAttribute('x-poll-id', $poll_parent);
-                    $answer->setAttribute('x-answer-id', $polls[$poll_parent][] = $gen());
+                    $answer->setAttribute('x-answer-id', $insight->polls[$poll_parent][] = $gen());
                 }
             },
 

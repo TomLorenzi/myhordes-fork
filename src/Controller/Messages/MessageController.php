@@ -21,6 +21,7 @@ use App\Service\TimeKeeperService;
 use App\Service\ConfMaster;
 use App\Service\UserHandler;
 use App\Structures\ForumPermissionAccessor;
+use App\Structures\HTMLParserInsight;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
@@ -64,7 +65,7 @@ class MessageController extends CustomAbstractController
         $this->html = $html;
     }
 
-    protected function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null, ?bool &$editable = null, ?array &$polls = []): bool {
+    protected function preparePost(User $user, ?Forum $forum, $post, ?Town $town = null, ?HTMLParserInsight &$insight = null): bool {
         if (!$town && $forum && $forum->getTown())
             $town = $forum->getTown();
 
@@ -75,7 +76,7 @@ class MessageController extends CustomAbstractController
         );
 
         $tx = $post->getText();
-        $this->html->htmlPrepare($user, $p, true, $tx, $town, $tx_len, $editable, $polls);
+        $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight);
 
         if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
             $citizen = $user->getActiveCitizen();
