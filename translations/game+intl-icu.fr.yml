@@ -2330,4 +2330,5 @@ Stadt/Stadttor: Ville/Portes
 'Du wurdest verbannt': 'Vous avez été banni(e) !'
 'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.': 'Trop de plaintes ont été accumulées contre vous, vous avez été banni(e) de la communauté.'
 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}': 'Les objets suivants ont été retirés de votre inventaire : {item_list}'
-'{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}'
+'{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} vous a mentionné dans un post dans « {threadname} », dans le forum « {forumname} ». {link_post}'
+'{player} hat dich als "Freund" hinzugefügt.': '{player} vous a ajouté comme ami.'
