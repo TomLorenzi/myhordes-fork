@@ -254,6 +254,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
      */
     private $settings = [];
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Forum::class, fetch="EXTRA_LAZY")
+     */
+    private $mutedForums;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -266,6 +271,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->connectionWhitelists = new ArrayCollection();
         $this->forumThreadSubscriptions = new ArrayCollection();
         $this->friends = new ArrayCollection();
+        $this->mutedForums = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -1165,6 +1171,30 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     protected function setSettings(?array $settings): self
     {
         $this->settings = $settings;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Forum>
+     */
+    public function getMutedForums(): Collection
+    {
+        return $this->mutedForums;
+    }
+
+    public function addMutedForum(Forum $mutedForum): self
+    {
+        if (!$this->mutedForums->contains($mutedForum)) {
+            $this->mutedForums[] = $mutedForum;
+        }
+
+        return $this;
+    }
+
+    public function removeMutedForum(Forum $mutedForum): self
+    {
+        $this->mutedForums->removeElement($mutedForum);
 
         return $this;
     }

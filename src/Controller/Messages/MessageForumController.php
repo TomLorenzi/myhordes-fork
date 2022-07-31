@@ -222,7 +222,7 @@ class MessageForumController extends MessageController
         $forums_new = [];
         foreach ($forums as $forum) {
 
-            if (!$this->perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionListThreads )) {
+            if ( (!$forum->getTown() && $this->getUser()->getMutedForums()->contains( $forum )) || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionListThreads )) {
                 $forums_new[$forum->getId()] = false;
                 continue;
             }
@@ -1191,12 +1191,42 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/subscribe", name="forum_thread_subscribe_controller")
+     * @Route("api/forum/{fid<\d+>}/mute", name="forum_mute_controller", defaults={"mute": true})
+     * @Route("api/forum/{fid<\d+>}/unmute", name="forum_unmute_controller", defaults={"mute": false})
      * @param int $fid
-     * @param int $tid
+     * @param bool $mute
      * @return Response
      */
-    public function forum_thread_subscribe(int $fid, int $tid): Response {
+    public function forum_mute(int $fid, bool $mute): Response {
+        /** @var Forum $forum */
+        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
+
+        $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $forum );
+        if (($forum->getTown() && $mute) || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($mute) $this->getUser()->getMutedForums()->add( $forum );
+        else $this->getUser()->getMutedForums()->removeElement( $forum );
+
+        try {
+            $this->entity_manager->persist($this->getUser());
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/subscribe", name="forum_thread_subscribe_controller", defaults={"subscribe": true})
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unsubscribe", name="forum_thread_unsubscribe_controller", defaults={"subscribe": false})
+     * @param int $fid
+     * @param int $tid
+     * @param bool $subscribe
+     * @return Response
+     */
+    public function forum_thread_subscribe(int $fid, int $tid, bool $subscribe): Response {
         /** @var Forum $forum */
         $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
         /** @var Thread $thread */
@@ -1204,14 +1234,17 @@ class MessageForumController extends MessageController
 
         if ($thread->getForum() !== $forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $thread->getForum() );
-        if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ))
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
+        if ($subscribe)  {
+            $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $thread->getForum() );
+            if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ))
+                return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        }
 
         $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser(), 'thread' => $thread]);
-        if (!$existing) try {
-            $this->entity_manager->persist((new ForumThreadSubscription())->setThread($thread)->setUser($this->getUser()));
+        if ($existing && !$subscribe) $this->entity_manager->remove($existing);
+        elseif (!$existing && $subscribe) $this->entity_manager->persist((new ForumThreadSubscription())->setThread($thread)->setUser($this->getUser()));
+
+        try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
@@ -1236,31 +1269,6 @@ class MessageForumController extends MessageController
         try {
             $global_marker->setPost( $last_post[0] );
             $this->entity_manager->persist( $global_marker->setPost( $last_post[0] ) );
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unsubscribe", name="forum_thread_unsubscribe_controller")
-     * @param int $fid
-     * @param int $tid
-     * @return Response
-     */
-    public function forum_thread_unsubscribe(int $fid, int $tid): Response {
-        /** @var Forum $forum */
-        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
-        /** @var Thread $thread */
-        $thread = $this->entity_manager->getRepository(Thread::class)->find($tid);
-
-        if ($thread->getForum() !== $forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->findOneBy(['user' => $this->getUser(), 'thread' => $thread]);
-        if ($existing) try {
-            $this->entity_manager->remove($existing);
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
