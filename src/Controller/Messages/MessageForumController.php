@@ -15,10 +15,12 @@ use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\OfficialGroup;
 use App\Entity\Post;
+use App\Entity\SocialRelation;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\ThreadTag;
 use App\Entity\User;
+use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
@@ -261,6 +263,13 @@ class MessageForumController extends MessageController
         ] ));
     }
 
+    protected function should_notify( User $from, User $to ): bool {
+        if ($from === $to) return false;
+        if (!$to->getSetting( UserSetting::NotifyMeWhenMentioned )) return false;
+        if ($this->userHandler->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock)) return false;
+        return true;
+    }
+
     /**
      * @Route("api/forum/{id<\d+>}/post", name="forum_new_thread_controller")
      * @param int $id
@@ -357,7 +366,7 @@ class MessageForumController extends MessageController
 
         $has_notif = false;
         foreach ( $insight->taggedUsers as $tagged_user )
-            if ( $tagged_user !== $user && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+            if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
                 $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
                 $has_notif = true;
             }
@@ -569,7 +578,7 @@ class MessageForumController extends MessageController
 
         $has_notif = false;
         foreach ( $insight->taggedUsers as $tagged_user )
-            if ( $tagged_user !== $user && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+            if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
                 $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
                 $has_notif = true;
             }

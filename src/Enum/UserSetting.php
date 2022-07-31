@@ -15,6 +15,7 @@ enum UserSetting: string {
     case PostAs                         = 'mod-post-as';
     case PreferSmallAvatars             = 'prefer-small-avatars';
     case LimitTownListSize              = 'limit-town-lists';
+    case NotifyMeWhenMentioned          = 'notify-on-mention';
 
     /**
      * @return UserSetting[]
@@ -43,6 +44,7 @@ enum UserSetting: string {
             UserSetting::PostAs                        => null,
             UserSetting::PreferSmallAvatars            => false,
             UserSetting::LimitTownListSize             => true,
+            UserSetting::NotifyMeWhenMentioned         => true,
         };
     }
 }
