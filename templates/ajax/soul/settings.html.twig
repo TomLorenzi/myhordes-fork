@@ -516,6 +516,11 @@
                             </div>
                             <div class="padded cell rw-12">
                                 <div class="note note-lightest">
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeOnFriendRequest") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_friend">&nbsp;<label for="setting_notify_on_friend">{{'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt'|trans({}, 'soul')}}</label>
+                                </div>
+                            </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
                                     <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_mention">&nbsp;<label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>
                                 </div>
                             </div>
@@ -769,6 +774,7 @@
                     clasort: document.getElementById('setting_classic_bank_sort').checked,
                     town10: document.getElementById('setting_limit_town_size').checked,
                     notify: document.getElementById('setting_notify_on_mention').checked,
+                    notifyFriend: document.getElementById('setting_notify_on_friend').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

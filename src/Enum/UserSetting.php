@@ -16,6 +16,7 @@ enum UserSetting: string {
     case PreferSmallAvatars             = 'prefer-small-avatars';
     case LimitTownListSize              = 'limit-town-lists';
     case NotifyMeWhenMentioned          = 'notify-on-mention';
+    case NotifyMeOnFriendRequest        = 'notify-on-friend-request';
 
     /**
      * @return UserSetting[]
@@ -45,6 +46,7 @@ enum UserSetting: string {
             UserSetting::PreferSmallAvatars            => false,
             UserSetting::LimitTownListSize             => true,
             UserSetting::NotifyMeWhenMentioned         => true,
+            UserSetting::NotifyMeOnFriendRequest       => true,
         };
     }
 }

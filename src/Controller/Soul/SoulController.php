@@ -1117,6 +1117,7 @@ class SoulController extends CustomAbstractController
         $user->setClassicBankSort( (bool)$parser->get('clasort', false) );
         $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
         $user->setSetting( UserSetting::NotifyMeWhenMentioned, (bool)$parser->get('notify', true) );
+        $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
@@ -1771,6 +1772,11 @@ class SoulController extends CustomAbstractController
 
         $this->entity_manager->persist($this->getUser());
         $this->entity_manager->flush();
+
+        if ($action && $user->getSetting( UserSetting::NotifyMeOnFriendRequest )) {
+            $this->entity_manager->persist( $this->crow->createPM_friendNotification( $user, $this->getUser() ) );
+            try { $this->entity_manager->flush(); } catch (\Throwable) {}
+        }
 
         if($action){
             $this->addFlash("notice", $this->translator->trans("Du hast {username} zu deinen Kontakten hinzugefügt!", ['{username}' => $user], "soul"));

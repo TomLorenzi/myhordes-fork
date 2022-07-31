@@ -219,6 +219,23 @@ class CrowService {
             ->setSeen( false );
     }
 
+    /**
+     * @param User $receiver
+     * @return GlobalPrivateMessage
+     */
+    public function createPM_friendNotification(User $receiver, User $sender): GlobalPrivateMessage
+    {
+        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_friend_notification']);
+
+        return (new GlobalPrivateMessage())
+            ->setTemplate( $template )
+            ->setData( ['player' => $sender->getId() ])
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
+    }
+
     public function createPM_moderation( User $receiver, int $domain, int $target, int $action, $object = null, string $reason = ''): ?GlobalPrivateMessage {
 
         $name = null;
