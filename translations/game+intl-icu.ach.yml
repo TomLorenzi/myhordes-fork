@@ -2331,3 +2331,4 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.': 'crwdns136082:0crwdne136082:0'
 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}': 'crwdns136084:0{item_list}crwdne136084:0'
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': 'crwdns136120:0{player}crwdnd136120:0{threadname}crwdnd136120:0{forumname}crwdnd136120:0{link_post}crwdne136120:0'
+'{player} hat dich als "Freund" hinzugefügt.': 'crwdns136126:0{player}crwdne136126:0'
