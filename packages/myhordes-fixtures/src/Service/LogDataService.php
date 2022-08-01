@@ -230,6 +230,9 @@ class LogDataService implements FixtureProcessorInterface {
 
             ['text'=>'<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}', 'name'=>'gpm_unlock_titles', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"title-list",'name'=>'list_t'],['type'=>"title-icon-list",'name'=>'list_i'],['type'=>"title-custom-list",'name'=>'list_c'])],
             ['text'=>'<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}', 'name'=>'gpm_unlock_titles2', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"award-list",'name'=>'list'])],
+
+            ['text'=>'{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}', 'name'=>'gpm_post_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'],['type'=>"string",'name'=>'threadname'], ['type'=>"string",'name'=>'forumname'], ['type'=>"link_post",'name'=>'link_post'])],
+            ['text'=>'{player} hat dich als "Freund" hinzugefügt.', 'name'=>'gpm_friend_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'])],
         ]);
     }
 }

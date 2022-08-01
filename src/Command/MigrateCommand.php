@@ -290,14 +290,19 @@ class MigrateCommand extends Command
                 }
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
-            $version_lines = $this->helper->bin( 'git describe --tags' . ($input->getOption('release') ? ' --abbrev=0' : ''), $ret );
-            if (count($version_lines) >= 1) file_put_contents( 'VERSION', $version_lines[0] );
+            $version_lines = $this->helper->bin( 'git tag --list --sort=-version:refname "v*"', $ret );
+            $version = count($version_lines) >= 1 ? $version_lines[0] : null;
+            if ($version && !$input->getOption('release')) {
+                $diff = (int)$this->helper->bin( "git rev-list --count $version..HEAD", $ret )[0];
+                if ($diff > 0) $version = "$version-$diff-" . $this->helper->bin( 'git describe --always', $ret )[0];
+            }
+            if ($version) file_put_contents( 'VERSION', $version );
 
             if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true, $null, $php, false, 0, $as )) return 7;
             if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true, $null, $php, false, 0, $as )) return 8;
             if (!$this->helper->capsule( "app:migrate -p -v", $output, 'Running post-installation scripts... ', true, $null, $php, true, 0, $as )) return 9;
 
-            if (count($version_lines) >= 1) $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
+            if ($version) $output->writeln("Updated MyHordes to version <info>{$version}</info>");
 
             if (!$input->getOption('stay-offline')) {
                 for ($i = 3; $i > 0; --$i) {

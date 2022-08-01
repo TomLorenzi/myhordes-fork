@@ -15,10 +15,12 @@ use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\OfficialGroup;
 use App\Entity\Post;
+use App\Entity\SocialRelation;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\ThreadTag;
 use App\Entity\User;
+use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\CrowService;
@@ -26,7 +28,9 @@ use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
+use App\Service\PermissionHandler;
 use App\Service\PictoHandler;
+use App\Structures\HTMLParserInsight;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManager;
@@ -222,7 +226,7 @@ class MessageForumController extends MessageController
         $forums_new = [];
         foreach ($forums as $forum) {
 
-            if (!$this->perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionListThreads )) {
+            if ( (!$forum->getTown() && $this->getUser()->getMutedForums()->contains( $forum )) || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum, ForumUsagePermissions::PermissionListThreads )) {
                 $forums_new[$forum->getId()] = false;
                 continue;
             }
@@ -259,6 +263,13 @@ class MessageForumController extends MessageController
         ] ));
     }
 
+    protected function should_notify( User $from, User $to ): bool {
+        if ($from === $to) return false;
+        if (!$to->getSetting( UserSetting::NotifyMeWhenMentioned )) return false;
+        if ($this->userHandler->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock)) return false;
+        return true;
+    }
+
     /**
      * @Route("api/forum/{id<\d+>}/post", name="forum_new_thread_controller")
      * @param int $id
@@ -266,7 +277,7 @@ class MessageForumController extends MessageController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimiterFactory $forumThreadCreationLimiter): Response {
+    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimiterFactory $forumThreadCreationLimiter, CrowService $crow): Response {
 
         /** @var Forum $forum */
         $forum = $em->getRepository(Forum::class)->find($id);
@@ -333,12 +344,12 @@ class MessageForumController extends MessageController
             ->setEditingMode( Post::EditorPerpetual )
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,$forum,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$edit) $post->setEditingMode( Post::EditorLocked );
+        if (!$insight->editable) $post->setEditingMode( Post::EditorLocked );
 
         $forum->addThread($thread);
         $thread->addPost($post)->setLastPost( $post->getDate() );
@@ -348,10 +359,18 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls ?? []);
+            $this->commit_post_with_polls($em,$post,$insight->polls ?? []);
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        $has_notif = false;
+        foreach ( $insight->taggedUsers as $tagged_user )
+            if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
+                $has_notif = true;
+            }
+        if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
     }
@@ -458,7 +477,7 @@ class MessageForumController extends MessageController
      * @param PictoHandler $ph
      * @return Response
      */
-    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, PictoHandler $ph): Response {
+    public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, PictoHandler $ph, CrowService $crow): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
@@ -519,13 +538,13 @@ class MessageForumController extends MessageController
             ->setEditingMode( $type !== "USER" ? Post::EditorPerpetual : Post::EditorTimed )
             ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,$forum,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$edit) $post->setEditingMode(Post::EditorLocked);
+        if (!$insight->editable) $post->setEditingMode(Post::EditorLocked);
 
         $thread->addPost($post)->setLastPost( $post->getDate() );
         if ($forum->getTown()) {
@@ -551,11 +570,19 @@ class MessageForumController extends MessageController
             $em->persist($thread);
             $em->persist($forum);
 
-            $this->commit_post_with_polls($em,$post,$polls ?? []);
+            $this->commit_post_with_polls($em,$post,$insight->polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+
+        $has_notif = false;
+        foreach ( $insight->taggedUsers as $tagged_user )
+            if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
+                $has_notif = true;
+            }
+        if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
 
         return AjaxResponse::success( true, ['url' =>
             $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
@@ -680,13 +707,13 @@ class MessageForumController extends MessageController
             }
         }
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit, $polls))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,$forum,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$edit) $post->setEditingMode(Post::EditorLocked);
+        if (!$insight->editable) $post->setEditingMode(Post::EditorLocked);
 
         if ($user !== $post->getOwner()) {
             $post
@@ -704,7 +731,7 @@ class MessageForumController extends MessageController
 
         try {
 
-            $this->commit_post_with_polls($em,$post,$polls ?? []);
+            $this->commit_post_with_polls($em,$post,$insight->polls ?? []);
 
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -1191,12 +1218,42 @@ class MessageForumController extends MessageController
     }
 
     /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/subscribe", name="forum_thread_subscribe_controller")
+     * @Route("api/forum/{fid<\d+>}/mute", name="forum_mute_controller", defaults={"mute": true})
+     * @Route("api/forum/{fid<\d+>}/unmute", name="forum_unmute_controller", defaults={"mute": false})
      * @param int $fid
-     * @param int $tid
+     * @param bool $mute
      * @return Response
      */
-    public function forum_thread_subscribe(int $fid, int $tid): Response {
+    public function forum_mute(int $fid, bool $mute): Response {
+        /** @var Forum $forum */
+        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
+
+        $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $forum );
+        if (($forum->getTown() && $mute) || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($mute) $this->getUser()->getMutedForums()->add( $forum );
+        else $this->getUser()->getMutedForums()->removeElement( $forum );
+
+        try {
+            $this->entity_manager->persist($this->getUser());
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/subscribe", name="forum_thread_subscribe_controller", defaults={"subscribe": true})
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unsubscribe", name="forum_thread_unsubscribe_controller", defaults={"subscribe": false})
+     * @param int $fid
+     * @param int $tid
+     * @param bool $subscribe
+     * @return Response
+     */
+    public function forum_thread_subscribe(int $fid, int $tid, bool $subscribe): Response {
         /** @var Forum $forum */
         $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
         /** @var Thread $thread */
@@ -1204,14 +1261,17 @@ class MessageForumController extends MessageController
 
         if ($thread->getForum() !== $forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $thread->getForum() );
-        if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ))
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
+        if ($subscribe)  {
+            $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $thread->getForum() );
+            if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ))
+                return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        }
 
         $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser(), 'thread' => $thread]);
-        if (!$existing) try {
-            $this->entity_manager->persist((new ForumThreadSubscription())->setThread($thread)->setUser($this->getUser()));
+        if ($existing && !$subscribe) $this->entity_manager->remove($existing);
+        elseif (!$existing && $subscribe) $this->entity_manager->persist((new ForumThreadSubscription())->setThread($thread)->setUser($this->getUser()));
+
+        try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
@@ -1236,31 +1296,6 @@ class MessageForumController extends MessageController
         try {
             $global_marker->setPost( $last_post[0] );
             $this->entity_manager->persist( $global_marker->setPost( $last_post[0] ) );
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unsubscribe", name="forum_thread_unsubscribe_controller")
-     * @param int $fid
-     * @param int $tid
-     * @return Response
-     */
-    public function forum_thread_unsubscribe(int $fid, int $tid): Response {
-        /** @var Forum $forum */
-        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
-        /** @var Thread $thread */
-        $thread = $this->entity_manager->getRepository(Thread::class)->find($tid);
-
-        if ($thread->getForum() !== $forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->findOneBy(['user' => $this->getUser(), 'thread' => $thread]);
-        if ($existing) try {
-            $this->entity_manager->remove($existing);
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );

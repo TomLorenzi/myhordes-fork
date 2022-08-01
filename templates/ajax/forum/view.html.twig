@@ -211,6 +211,17 @@
                                 <li>{{ 'Werbung ist verboten (Links etc.)'|trans({},'global') }}</li>
                             </ul>
                         </div>
+                        {% if forum.town is null %}
+                            <br />
+                            <div class="forum-note">
+                                <b>{{ 'Optionen für dieses Forum'|trans({},'global') }}</b>
+                                <div class="row-flex v-center">
+                                    <div class="padded cell grow-0"><input type="checkbox" id="f_opt_mute" {% if app.user.mutedForums.contains(forum) %}checked{% endif %} /></div>
+                                    <div class="padded cell"><label for="f_opt_mute">{{ 'Forum stummschalten'|trans({},'forum') }}</label></div>
+                                    <div class="padded cell grow-0">{{ help_btn( 'Wenn diese Option aktiviert ist, werden dir neue Nachrichten in diesem Forum nicht auf der Forenübersicht angezeigt. Diese Option kann nicht für das Stadtforum aktiviert werden.'|trans({},'forum') ) }}</div>
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                     <div id="forum-forum-editor"></div>
                     <div id="forum-editor-anchor"></div>
@@ -224,6 +235,12 @@
 {% block js %}
     {{ parent() }}
     <script>
+
+        document.getElementById('f_opt_mute')?.addEventListener('click', e => {
+            $.ajax.easySend( e.target.checked ? '{{ path('forum_mute_controller', {fid: forum.id}) }}' : '{{ path('forum_unmute_controller', {fid: forum.id}) }}', {},
+                ()=>$.ajax.load(null, '{{ path('forum_view', {id: forum.id}) }}')
+            );
+        });
 
         function get_forum_editor() {
             let editor = document.getElementById('forum-forum-editor');

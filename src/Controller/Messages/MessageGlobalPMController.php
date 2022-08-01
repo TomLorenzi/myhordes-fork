@@ -24,6 +24,7 @@ use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\PermissionHandler;
 use App\Service\UserHandler;
+use App\Structures\HTMLParserInsight;
 use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
@@ -1246,10 +1247,10 @@ class MessageGlobalPMController extends MessageController
         $post = (new GlobalPrivateMessage())
             ->setSender($user)->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,null,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $this->entity_manager->persist( $post );
 
@@ -1311,10 +1312,10 @@ class MessageGlobalPMController extends MessageController
             ->setSender($this->getUser())->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
         if ($overwrite_og) $post->setSenderGroup($official_group);
 
-        $tx_len = 0;
-        if (!$this->preparePost($this->getUser(),null,$post,$tx_len, null, $edit))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($this->getUser(),null,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $this->entity_manager->persist( (new OfficialGroupMessageLink())->setMessageGroup( $pg )->setOfficialGroup( $official_group ) );
 
@@ -1387,10 +1388,10 @@ class MessageGlobalPMController extends MessageController
 
         $post = (new GlobalPrivateMessage())->setSender($user)->setTimestamp($ts)->setReceiverGroup($group)->setText($text);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,null,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
         if ($group_association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember && $official)
             $post->setSenderGroup($official->getOfficialGroup());

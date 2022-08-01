@@ -21,6 +21,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
+use App\Entity\User;
 use App\Entity\Zone;
 use App\Translation\T;
 use DateTime;
@@ -176,6 +177,11 @@ class LogTemplateHandler
                     if ($typeEntry['type'] === 'professionFull') $transParams["{$typeEntry['name']}__class"] = 'jobName';
                 }
                 // Non ICU-aware
+                elseif ($typeEntry['type'] === 'user') {
+                    $user = $this->entity_manager->getRepository(User::class)->find( $variables[$typeEntry['name']] );
+                    $transParams['{'.$typeEntry['name'].'}'] =
+                        $user ? "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$user->getName()}</span>" : '<span class="username">???</span>';
+                }
                 elseif ($typeEntry['type'] === 'itemGroup') {
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
                     $transParams['{'.$typeEntry['name'].'}'] = implode( ', ', array_map( function(ItemGroupEntry $e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
