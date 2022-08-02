@@ -659,7 +659,7 @@ class GameFactory
      * @param Town|TownRankingProxy $town
      * @return void
      */
-    public function updateTownScore(TownRankingProxy|Town $town): void {
+    public function updateTownScore(TownRankingProxy|Town $town, bool $resetDay = false): void {
         $score = 0;
         $lastDay = 0;
 
@@ -673,7 +673,7 @@ class GameFactory
             $lastDay = max( $lastDay, $r_citizen->getDay());
         }
 
-        if (is_a( $town, Town::class )) $town->setDay( $lastDay );
+        if ($resetDay && is_a( $town, Town::class )) $town->setDay( $lastDay );
         $this->entity_manager->persist( $tr->setDays($lastDay)->setScore($score) );
     }
 
@@ -682,7 +682,7 @@ class GameFactory
         foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive()) return false;
         if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
 
-        $this->updateTownScore($town);
+        $this->updateTownScore($town, true);
         $this->gps->recordTownEnded($town);
         $this->entity_manager->remove($town);
         return true;
