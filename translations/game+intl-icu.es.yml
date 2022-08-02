@@ -2330,3 +2330,5 @@ Stadt/Stadttor: Pueblo/Portal
 'Du wurdest verbannt': 'Du wurdest verbannt'
 'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.': 'Da sich zu viele Beschwerden gegen dich angesammelt haben, wurdest du aus der Gemeinschaft verbannt.'
 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}': 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}'
+'{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}'
+'{player} hat dich als "Freund" hinzugefügt.': '{player} hat dich als "Freund" hinzugefügt.'
