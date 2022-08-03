@@ -1580,7 +1580,7 @@ Wählen: Choose
 'Du hast dafür {count} Aktionspunkt(e) verbraucht.': "{ref__icu, select,\n            on {\n                {raw_count, plural,\n                    one {You have used {count} action point.}\n                    other {You have used {count} action points.}\n                }\n            }\n                other {You have used {count} action point(s).}\n            }"
 'Was für eine schreckliche Nacht!': 'A Frightful Night!'
 'Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.': 'You were really sweating last night! You heard them groaning, banging around and yelling outside. Eventually your door gave way and you took refuge under your bed, clutching your remaining possessions, trying not to think about the situation. Then they left... Shaking with fear you eventually came out of your hiding place, grateful that you survived.'
-'Du wurdest verbannt!': 'You''ve been banished!'
+'Du wurdest verbannt!': 'You''ve been shunned!'
 'Status:': 'Status:'
 'Eine Revolte liegt in weiter Ferne...': 'An uprising won''t happen over night.'
 'Erste Spannungen bilden sich.': 'The strains are starting to show.'
