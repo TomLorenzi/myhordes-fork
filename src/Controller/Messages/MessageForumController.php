@@ -224,7 +224,7 @@ class MessageForumController extends MessageController
         /** @var Forum[] $forums */
         $forums = array_filter($this->perm->getForumsWithPermission($this->getUser()), function ($f) {
             /** @var Forum $f */
-            return !$f->getTown() || ($f->getTown() && !$this->time_keeper->isDuringAttack()) || $this->isGranted("ROLE_CROW", $this->getUser());
+            return !$f->getTown() || (!$this->time_keeper->isDuringAttack()) || $this->isGranted("ROLE_CROW", $this->getUser());
         });
         $subscriptions = $this->getUser()->getForumThreadSubscriptions()->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
 
