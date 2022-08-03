@@ -2,6 +2,7 @@
 
 namespace App\Controller\Messages;
 
+use App\Annotations\GateKeeperProfile;
 use App\Command\Info\ResolveCommand;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
@@ -49,6 +50,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @IsGranted("ROLE_USER")
+ * @GateKeeperProfile(allow_during_attack=true)
  * @method User getUser
  */
 class MessageForumController extends MessageController
@@ -63,7 +65,7 @@ class MessageForumController extends MessageController
         $forum = $em->getRepository(Forum::class)->find($fid);
         $permissions = $this->perm->getEffectivePermissions( $user, $forum );
 
-        if (!$forum || !$this->perm->isAnyPermitted($permissions, [ ForumUsagePermissions::PermissionModerate, ForumUsagePermissions::PermissionListThreads, ForumUsagePermissions::PermissionReadThreads ]) )
+        if (!$forum || !$this->perm->isAnyPermitted($permissions, [ ForumUsagePermissions::PermissionModerate, ForumUsagePermissions::PermissionListThreads, ForumUsagePermissions::PermissionReadThreads ]) || ($forum->getTown() && $this->time_keeper->isDuringAttack() && !$this->isGranted("ROLE_CROW", $user) ) )
             return $this->redirect($this->generateUrl('forum_list'));
 
         $sel_post = $sel_thread = null;
@@ -164,7 +166,7 @@ class MessageForumController extends MessageController
         /** @var Citizen $citizen */
         $citizen = $em->getRepository(Citizen::class)->findActiveByUser( $user );
 
-        if ($citizen !== null && $citizen->getAlive() && $citizen->getTown()->getForum() && $this->perm->checkEffectivePermissions( $user, $citizen->getTown()->getForum(), ForumUsagePermissions::PermissionRead ))
+        if ($citizen !== null && $citizen->getAlive() && $citizen->getTown()->getForum() && $this->perm->checkEffectivePermissions( $user, $citizen->getTown()->getForum(), ForumUsagePermissions::PermissionRead ) && !$this->time_keeper->isDuringAttack())
             return $this->redirect($this->generateUrl('forum_view', ['id' => $citizen->getTown()->getForum()->getId()]));
         else return $this->redirect( $this->generateUrl( 'forum_list' ) );
     }
@@ -220,7 +222,10 @@ class MessageForumController extends MessageController
     public function forums(): Response
     {
         /** @var Forum[] $forums */
-        $forums = $this->perm->getForumsWithPermission($this->getUser());
+        $forums = array_filter($this->perm->getForumsWithPermission($this->getUser()), function ($f) {
+            /** @var Forum $f */
+            return !$f->getTown() || ($f->getTown() && !$this->time_keeper->isDuringAttack()) || $this->isGranted("ROLE_CROW", $this->getUser());
+        });
         $subscriptions = $this->getUser()->getForumThreadSubscriptions()->filter(fn(ForumThreadSubscription $s) => !$s->getThread()->getHidden() && in_array($s->getThread()->getForum(), $forums));
 
         $forums_new = [];
