@@ -1267,7 +1267,7 @@ class MessageForumController extends MessageController
                 return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         }
 
-        $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser(), 'thread' => $thread]);
+        $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->findOneBy(['user' => $this->getUser(), 'thread' => $thread]);
         if ($existing && !$subscribe) $this->entity_manager->remove($existing);
         elseif (!$existing && $subscribe) $this->entity_manager->persist((new ForumThreadSubscription())->setThread($thread)->setUser($this->getUser()));
 
