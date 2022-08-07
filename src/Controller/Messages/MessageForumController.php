@@ -1478,6 +1478,13 @@ class MessageForumController extends MessageController
                     $post->setHidden(false);
                     if ($ad = $this->entity_manager->getRepository(AdminDeletion::class)->findOneBy(['post' => $post]))
                         $this->entity_manager->remove($ad);
+
+                    if ($post === $thread->firstPost(true)) {
+                        $thread->setHidden(false)->setLocked(false);
+                        $this->entity_manager->persist($thread);
+
+                    }
+
                     $this->entity_manager->persist( $post );
                     $this->entity_manager->flush();
                     return AjaxResponse::success();
