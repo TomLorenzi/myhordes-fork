@@ -78,18 +78,18 @@ class MessageController extends CustomAbstractController
         $tx = $post->getText();
         $this->html->htmlPrepare($user, $p, true, $tx, $town, $insight);
 
+        $distorted = false;
         if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
             $citizen = $user->getActiveCitizen();
             $tx = $this->html->htmlDistort( $tx,
                     ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
                     ($this->citizen_handler->hasStatusEffect($citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
                     ($this->citizen_handler->hasStatusEffect($citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-                , $town->getRealLanguage( $this->generatedLangsCodes ) ?? $this->getUserLanguage(  ), $d );
-
-            if ($d) $editable = false;
+                , $town->getRealLanguage( $this->generatedLangsCodes ) ?? $this->getUserLanguage(  ), $distorted );
         }
 
         $post->setText($tx);
+        if ($distorted) $post->setEditingMode( Post::EditorLocked );
 
         if ($post instanceof Post) {
             $post->setSearchText( strip_tags( $tx ) );
