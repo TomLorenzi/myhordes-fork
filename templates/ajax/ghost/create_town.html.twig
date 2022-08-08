@@ -455,9 +455,9 @@
                                     </div>
                                     {% for profession in professions %}
                                         <div class="row-flex v-center">
-                                            <div class="cell grow-0"><label><input type="radio" x-payload="professions.{{ profession.name }}" name="professions.{{ profession.name }}" value="_discard" checked title="{{ 'Standarteinstellung'|trans({}, 'game') }}"></label></div>
-                                            <div class="cell grow-0"><label><input type="radio" x-payload="professions.{{ profession.name }}" name="professions.{{ profession.name }}" value="include" title="{{ 'Wählbar'|trans({}, 'game') }}"></label></div>
-                                            <div class="cell grow-0"><label><input type="radio" x-payload="professions.{{ profession.name }}" name="professions.{{ profession.name }}" value="lock" title="{{ 'Nicht wählbar'|trans({}, 'game') }}"></label></div>
+                                            <div class="cell grow-0"><label><input type="radio" x-payload="professions.{{ profession.name }}" name="professions.{{ profession.name }}" value="_discard" checked x-tooltip="title" title="{{ 'Standarteinstellung'|trans({}, 'game') }}"></label></div>
+                                            <div class="cell grow-0"><label><input type="radio" x-payload="professions.{{ profession.name }}" name="professions.{{ profession.name }}" value="include" x-tooltip="title" title="{{ 'Wählbar'|trans({}, 'game') }}"></label></div>
+                                            <div class="cell grow-0"><label><input type="radio" x-payload="professions.{{ profession.name }}" name="professions.{{ profession.name }}" value="lock" x-tooltip="title" title="{{ 'Nicht wählbar'|trans({}, 'game') }}"></label></div>
                                             <div class="cell grow-0 padded-small"><img alt="{{ profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ profession.icon ~ '.gif') }}" /></div>
                                             <div class="cell grow-1">{{ profession.label|trans({}, 'game') }}</div>
                                         </div>
@@ -489,11 +489,11 @@
                                         {% for construction in constructions|filter( c => (parent_id == 0 and c.parent is null) or (c.parent is not null and c.parent.id == parent_id) ) %}
                                             {% set last_child = loop.last %}
                                             <div class="row-flex v-center" data-building-parents="{{ parents|join(' ') }}">
-                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="_discard" checked title="{{ 'Standarteinstellung'|trans({}, 'game') }}"></label></div>
-                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="prebuild" title="{{ 'Gebaut'|trans({}, 'game') }}"></label></div>
-                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="prefound" title="{{ 'Baubar'|trans({}, 'game') }}"></label></div>
-                                                <div class="cell grow-0"><label {% if construction.blueprint <= 0 %}disabled{% endif %}><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="findable" title="{{ 'Findbar'|trans({}, 'game') }}"></label></div>
-                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="lock" data-disable-building="{{ construction.id }}" title="{{ 'Deaktiviert'|trans({}, 'game') }}"></label></div>
+                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="_discard" checked x-tooltip="title" title="{{ 'Standarteinstellung'|trans({}, 'game') }}"></label></div>
+                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="prebuild" x-tooltip="title" title="{{ 'Gebaut'|trans({}, 'game') }}"></label></div>
+                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="prefound" x-tooltip="title" title="{{ 'Baubar'|trans({}, 'game') }}"></label></div>
+                                                <div class="cell grow-0"><label {% if construction.blueprint <= 0 %}disabled{% endif %}><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="findable" x-tooltip="title" title="{{ 'Findbar'|trans({}, 'game') }}"></label></div>
+                                                <div class="cell grow-0"><label><input type="radio" x-payload="constructions.{{ construction.name }}" name="constructions.{{ construction.name }}" value="lock" data-disable-building="{{ construction.id }}" x-tooltip="title" title="{{ 'Deaktiviert'|trans({}, 'game') }}"></label></div>
                                                 {% if parents|length > 0 %}
                                                     {% for i in 1..parents|length %}
                                                         <div class="cell grow-0">

@@ -291,7 +291,7 @@ class MigrateCommand extends Command
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
             $version_lines = $this->helper->bin( 'git tag --list --sort=-version:refname "v*"', $ret );
-            $version = count($version_lines) >= 1 ? $version_lines[0] : null;
+            $version = count($version_lines) >= 1 ? trim($version_lines[0]) : null;
             if ($version && !$input->getOption('release')) {
                 $diff = (int)$this->helper->bin( "git rev-list --count $version..HEAD", $ret )[0];
                 if ($diff > 0) $version = "$version-$diff-" . $this->helper->bin( 'git describe --always', $ret )[0];

@@ -49,14 +49,12 @@
                 {% block text_menu_content %}
                 <ul class="text-menu">
                     <li class="burger-button"><i class="fa fa-bars"></i></li>
-                    {% if is_granted('ROLE_USER') and (clock is not defined or clock.attack != 0) %}
-                        <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">
-                        <div class="tooltip help">
-                    		<p>{% trans from 'game' %}Mit den anderen Bürgern reden... {% endtrans %}</p>
-                        	<p style="color: #f0d79e;"><em>{% trans from 'game' %}Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.{% endtrans %}</em></p>
-                		</div>
-						{{ 'Forum'|trans({},'global') }}</li>
-                    {% endif %}
+                    <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">
+                    <div class="tooltip help">
+                        <p>{% trans from 'game' %}Mit den anderen Bürgern reden... {% endtrans %}</p>
+                        <p style="color: #f0d79e;"><em>{% trans from 'game' %}Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.{% endtrans %}</em></p>
+                    </div>
+                    {{ 'Forum'|trans({},'global') }}</li>
                     {% block menu_text %}
                         {% if app.user and (clock is not defined or clock.attack != 0) %}
                             {% if app.user.activeCitizen %}
