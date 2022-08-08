@@ -365,11 +365,12 @@ class MessageForumController extends MessageController
         }
 
         $has_notif = false;
-        foreach ( $insight->taggedUsers as $tagged_user )
-            if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
-                $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
-                $has_notif = true;
-            }
+        if (count($insight->taggedUsers) <= $forum->getTown() ? 10 : 5 )
+            foreach ( $insight->taggedUsers as $tagged_user )
+                if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                    $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
+                    $has_notif = true;
+                }
         if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
@@ -577,11 +578,12 @@ class MessageForumController extends MessageController
         }
 
         $has_notif = false;
-        foreach ( $insight->taggedUsers as $tagged_user )
-            if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
-                $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
-                $has_notif = true;
-            }
+        if (count($insight->taggedUsers) <= $forum->getTown() ? 10 : 5 )
+            foreach ( $insight->taggedUsers as $tagged_user )
+                if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                    $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
+                    $has_notif = true;
+                }
         if ($has_notif) try { $this->entity_manager->flush(); } catch (\Throwable) {}
 
         return AjaxResponse::success( true, ['url' =>
