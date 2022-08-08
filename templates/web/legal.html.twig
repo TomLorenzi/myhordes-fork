@@ -59,6 +59,9 @@
 
     <div id="footer"></div>
 </div>
+<script>
+    document.getElementById('header-reload-area').addEventListener('click', ()=>window.location.href = '{{ url('home') }}');
+</script>
 </body>
 <footer>
     {% block footer %}
