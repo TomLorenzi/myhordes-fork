@@ -23,6 +23,7 @@ use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Enum\ExternalAPIError;
+use App\Enum\ExternalAPIInterface;
 use App\Structures\SimpleXMLExtended;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
@@ -70,7 +71,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=false)
+     * @ExternalAPI(user=true, app=false, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response The XML that contains the list of accessible endpoints
      */
@@ -96,7 +97,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the soul of a user
      * @return Response Return the XML content for the soul of the user
@@ -249,7 +250,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=false)
+     * @ExternalAPI(user=true, app=false, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the town of a user
      * @param User|null $user
@@ -732,7 +733,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of items currently used in the game
      * @param User|null $user
@@ -804,7 +805,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of buildings currently used in the game
      * @param User|null $user
@@ -873,7 +874,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of ruins currently used in the game
      * @param User|null $user
@@ -936,7 +937,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of pictos currently used in the game
      * @param User|null $user
@@ -999,7 +1000,7 @@ class XMLv2Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of titles currently used in the game
      * @param User|null $user

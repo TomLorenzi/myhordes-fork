@@ -8,6 +8,7 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Enum\ExternalAPIError;
+use App\Enum\ExternalAPIInterface;
 use DateTime;
 use DateTimeZone;
 use Exception;
@@ -24,7 +25,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class XMLv1Controller extends CoreController {
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv1)
      * @Route("api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @param User|null $user
      * @return Response

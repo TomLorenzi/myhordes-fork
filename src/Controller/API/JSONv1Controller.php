@@ -21,6 +21,7 @@ use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Enum\ExternalAPIError;
+use App\Enum\ExternalAPIInterface;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
 use DateTime;
@@ -58,7 +59,7 @@ class JSONv1Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=false, app=false)
+     * @ExternalAPI(user=false, app=false, api=ExternalAPIInterface::JSONv1)
      * @Route("/api/x/json/status", priority=1, name="ext_json_status", methods={"GET", "POST"})
      * @return Response
      */
@@ -67,7 +68,7 @@ class JSONv1Controller extends CoreController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::JSONv1)
      * @Route("/api/x/json/{type}", name="ext_json", methods={"GET", "POST"})
      * @param User|null $user
      * @param string $type
