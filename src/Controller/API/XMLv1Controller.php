@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\API;
 
 use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
@@ -7,20 +7,21 @@ use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
+use App\Enum\ExternalAPIError;
 use DateTime;
 use DateTimeZone;
 use Exception;
 use SimpleXMLElement;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class ExternalXMLController
+ * Class XMLv1Controller
  * @package App\Controller
  * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
  */
-class ExternalXMLController extends ExternalController {
+class XMLv1Controller extends CoreController {
 
     /**
      * @ExternalAPI(user=true, app=true)
@@ -40,7 +41,7 @@ class ExternalXMLController extends ExternalController {
     private function generateLegacyData(User $user): array {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -51,11 +52,6 @@ class ExternalXMLController extends ExternalController {
 
         /** @var Town $town */
         $town = $citizen->getTown();
-
-        /** @var Zone $citizen_zone */
-        $citizen_zone = $citizen->getZone();
-
-        $language = $town->getLanguage() ?? 'de';
 
         $x_min = $x_max = $y_min = $y_max = 0;
         foreach ( $town->getZones() as $zone ) {
@@ -314,5 +310,32 @@ class ExternalXMLController extends ExternalController {
             }
         }
         return $_xml->asXML();
+    }
+
+    public function on_error(ExternalAPIError $message, string $language): Response
+    {
+        $data = ['error' => [], 'status' => []];
+        switch ($message) {
+            case ExternalAPIError::UserKeyNotFound:
+                $data['error']['attributes'] = ['code' => "missing_key"];
+                $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                break;
+            case ExternalAPIError::UserKeyInvalid:
+                $data['error']['attributes'] = ['code' => "user_not_found"];
+                $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                break;
+            case ExternalAPIError::AppKeyNotFound: case ExternalAPIError::AppKeyInvalid:
+            $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
+            $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+            break;
+            case ExternalAPIError::HordeAttacking:
+                $data['error']['attributes'] = ['code' => "horde_attacking"];
+                $data['status']['attributes'] = ['open' => "0", "msg" => $this->translator->trans("Die Seite wird von Horden von Zombies belagert!", [], 'global')];
+                break;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
     }
 }
