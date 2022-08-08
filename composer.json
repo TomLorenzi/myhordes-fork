@@ -18,7 +18,7 @@
         "clue/graph": "0.9.3",
         "doctrine/annotations": "1.13.3",
         "doctrine/doctrine-bundle": "2.6.2",
-        "doctrine/doctrine-fixtures-bundle": "3.4.1",
+        "doctrine/doctrine-fixtures-bundle": "3.4.2",
         "doctrine/doctrine-migrations-bundle": "3.2.2",
         "doctrine/migrations": "3.5.0",
         "doctrine/orm": "2.11.2",
