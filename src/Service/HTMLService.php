@@ -395,6 +395,13 @@ class HTMLService {
                 $id = $user_ref->attributes->getNamedItem('x-a') ? $user_ref->attributes->getNamedItem('x-a')->nodeValue : null;
                 $user_ref->removeAttribute('x-a');
 
+                $within_quote = false;
+                $current_dom = $user_ref;
+                while (!$within_quote && $current_dom) {
+                    $within_quote = $current_dom->nodeName === 'blockquote';
+                    $current_dom = $current_dom->parentNode;
+                }
+
                 $target_user = null;
                 if ($id === 'auto') {
                     $name = $user_ref->textContent;
@@ -412,7 +419,7 @@ class HTMLService {
                     $user_ref->textContent = "@​::un:{$target_user->getId()}";
                     $user_ref->setAttribute('x-user-id', $target_user->getId());
                     $user_ref->setAttribute('class', $user_ref->getAttribute('class') . ' username');
-                    if (!in_array($target_user, $insight->taggedUsers)) $insight->taggedUsers[] = $target_user;
+                    if (!$within_quote && !in_array($target_user, $insight->taggedUsers)) $insight->taggedUsers[] = $target_user;
                 }
             },
 
