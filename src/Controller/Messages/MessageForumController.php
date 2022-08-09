@@ -19,6 +19,7 @@ use App\Entity\SocialRelation;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\ThreadTag;
+use App\Entity\Town;
 use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
@@ -263,9 +264,13 @@ class MessageForumController extends MessageController
         ] ));
     }
 
-    protected function should_notify( User $from, User $to ): bool {
+    protected function should_notify( User $from, User $to, ?Town $town ): bool {
         if ($from === $to) return false;
-        if (!$to->getSetting( UserSetting::NotifyMeWhenMentioned )) return false;
+        $setting = $to->getSetting( UserSetting::NotifyMeWhenMentioned );
+        switch ($setting) {
+            case 0: return false;
+            case 1: if (!$town) return false; break;
+        }
         if ($this->userHandler->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock)) return false;
         return true;
     }
@@ -365,9 +370,9 @@ class MessageForumController extends MessageController
         }
 
         $has_notif = false;
-        if (count($insight->taggedUsers) <= $forum->getTown() ? 10 : 5 )
+        if (count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
             foreach ( $insight->taggedUsers as $tagged_user )
-                if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
                     $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
                     $has_notif = true;
                 }
@@ -578,9 +583,9 @@ class MessageForumController extends MessageController
         }
 
         $has_notif = false;
-        if (count($insight->taggedUsers) <= $forum->getTown() ? 10 : 5 )
+        if (count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
             foreach ( $insight->taggedUsers as $tagged_user )
-                if ( $this->should_notify( $user, $tagged_user ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
+                if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
                     $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
                     $has_notif = true;
                 }

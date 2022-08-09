@@ -15,7 +15,7 @@ enum UserSetting: string {
     case PostAs                         = 'mod-post-as';
     case PreferSmallAvatars             = 'prefer-small-avatars';
     case LimitTownListSize              = 'limit-town-lists';
-    case NotifyMeWhenMentioned          = 'notify-on-mention';
+    case NotifyMeWhenMentioned          = 'notify-on-mention-mode';
     case NotifyMeOnFriendRequest        = 'notify-on-friend-request';
 
     /**
@@ -45,7 +45,7 @@ enum UserSetting: string {
             UserSetting::PostAs                        => null,
             UserSetting::PreferSmallAvatars            => false,
             UserSetting::LimitTownListSize             => true,
-            UserSetting::NotifyMeWhenMentioned         => true,
+            UserSetting::NotifyMeWhenMentioned         => 0, // 0 = Disabled, 1 = Towns Only, 2 = Everywhere
             UserSetting::NotifyMeOnFriendRequest       => true,
         };
     }
