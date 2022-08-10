@@ -495,3 +495,7 @@ Umfragen: Surveys
 'Moderationslinks im selben Fenster öffnen': 'Open moderation links in the same window'
 'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt': 'Notify me when someone adds me as a friend'
 'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde': 'Notify me when someone tags me in a forum post'
+'Deaktiviert': 'Disabled'
+'Nur in Stadtforen': 'Only within town forums'
+'In allen Foren': 'In all forums'
+'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'To protect you from spam, you will not receive notifications if more than 5 players (10 in town forums) are tagged within a post regardless of this setting.'

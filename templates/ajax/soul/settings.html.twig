@@ -521,7 +521,14 @@
                             </div>
                             <div class="padded cell rw-12">
                                 <div class="note note-lightest">
-                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_mention">&nbsp;<label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>
+                                    <label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>&nbsp;
+                                    <select class="small" x-setting id="setting_notify_on_mention">
+                                        <option value="0" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 0 %}selected{% endif%}>{{ 'Deaktiviert'|trans({}, 'soul') }}</option>
+                                        <option value="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 1 %}selected{% endif%}>{{ 'Nur in Stadtforen'|trans({}, 'soul') }}</option>
+                                        <option value="2" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 2 %}selected{% endif%}>{{ 'In allen Foren'|trans({}, 'soul') }}</option>
+                                    </select>
+                                    &nbsp;
+                                    {{help_btn('Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.'|trans({}, 'soul'))}}
                                 </div>
                             </div>
                         </div>
@@ -773,7 +780,7 @@
                     autofollow: document.getElementById('setting_auto_follow').checked,
                     clasort: document.getElementById('setting_classic_bank_sort').checked,
                     town10: document.getElementById('setting_limit_town_size').checked,
-                    notify: document.getElementById('setting_notify_on_mention').checked,
+                    notify: document.getElementById('setting_notify_on_mention').value,
                     notifyFriend: document.getElementById('setting_notify_on_friend').checked,
                 },
                 function () {
