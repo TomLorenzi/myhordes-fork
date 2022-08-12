@@ -58,7 +58,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'pumpkin_raw_#00'            => [ 'impoundable' ],
             'mecanism_#00'               => [ 'ressource', 'hero_find_lucky' ],
             'grenade_#00'                => [ 'weapon', 'hero_find', 'nw_armory', 'hero_find_lucky', 'nw_shooting' ],
-            'bgrenade_#00'               => [ 'weapon', 'esc_fixed', 'nw_armory', 'nw_shooting' ],
+            'bgrenade_#00'               => [ 'weapon', 'nw_armory', 'nw_shooting' ],
             'boomfruit_#00'              => [ 'weapon', 'nw_armory' ],
             'pilegun_#00'                => [ 'weapon', 'nw_armory' ],
             'pilegun_up_#00'             => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
