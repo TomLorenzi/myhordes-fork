@@ -5782,8 +5782,52 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "5",
             ],
+            "trai_es" => [
+                "title" => "Diario de un traicionado",
+                "author" => "crizzzr2d2",
+                "content" => [
+                    '<p>Nunca le he dado la espalda a quien me necesite, sin importar lo difícil que resulte darle la mano y confiar en alguien en este desierto atestado de criaturas ansiosas por probar tu carne. </p>
+                    <p>Hace tres días salvé a Juan de ser devorado por los zombies en el Ultramundo y logramos entrar al pueblo 5 minutos antes de que cerraran el portal. Y sobrevivimos... juntos. Me dijo que me devolvería el favor, que nunca me abandonaría cuando lo necesitara. </p>
+
+                    <p>Al día siguiente ya faltaba poco para el ataque de esas criaturas y nos dimos cuenta que Raúl no se encontraba en su casa, nadie sabia de él.</p>
+                    <p>Me aventuré a buscarlo, estaba en las cercanías del pueblo, estaba herido y acorralado en una casa abandonada, después de una desesperada lucha pudimos zafar de esas bestias pero aún así no le quedaban fuerzas para volver al pueblo, le di mi cantimplora... y ambos regresamos cansados, heridos, hambrientos, pero vivos. Me dijo que nunca lo olvidaría, que éramos amigos.</p>
+
+                    <p> Hoy salí a buscar recursos como de costumbre. Caminé más de lo habitual llegando a un bosque quemado, entre en él para buscar madera pero sin darme cuenta me vi rodeado de zombies... pude sobrevivir a la horrible emboscada pero estaba herido y demasiado cansado como para volver solo. </p>
+                    <p>Y aquí estoy abandonado en el bosque, ya es de noche y puedo sentir como esas criaturas se acercan. Esta es la hora que cierran el portal y de Juan y Raúl nada...</p>
+
+                    <h1>Si puedes leer esto es porque morí y quiero que sepas que en este mundo ¡estas solo!.</h1>'
+                ],
+                "lang" => "es",
+                "background" => "carton",
+                "design" => "typed",
+                "chance" => "1",
+            ],
+            "wintck_es" => [
+                "title" => "Etiqueta de cigarrillos",
+                "author" => "crizzzr2d2",
+                "content" => [
+                    '<h1><small>¡Hay mil maneras de </small> MORIR!</h1>
+                    <p>Esta es una patrocinada:</p>
+                    <blockquote>
+                    <h1><small>Consume calidad</small>
+                    <center>100% Nicotina</center>
+                    <small>El cigarrillo preferido por más de 3 millones de víctimas.
+                    </small>
+                    </blockquote>
+
+                    <center>Tose contento, muere feliz.</center>'
+                ],
+                "lang" => "es",
+                "background" => "tinystamp",
+                "design" => "classic",
+                "chance" => "1",
+            ],
+            /**
+            * ENGLISH ROLE PLAY TEXTS
+            */
             "afifr3" => [
                 "title" => "A Friend in Fur",
                 "author" => "Bugzilla",
