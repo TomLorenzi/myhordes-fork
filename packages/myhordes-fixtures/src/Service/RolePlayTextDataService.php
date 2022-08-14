@@ -19,6 +19,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'stamp',
                 'background' => 'stamp',
+                'chance' => '20',
             ],
             'crema1_de' => [
                 'title' => 'Auslosung',
@@ -29,6 +30,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'notepad',
+                'chance' => '7',
             ],
             'sbef' => [
                 'title' => 'Befehl',
@@ -39,6 +41,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'notepad',
+                'chance' => '4',
             ],
             'dv_004' => [
                 'title' => 'Bekanntmachung: Abtrünnige',
@@ -54,6 +57,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'carton',
+                'chance' => '4',
             ],
             'citya3_de' => [
                 'title' => 'Bekanntmachung: Bank',
@@ -66,6 +70,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'carton',
+                'chance' => '4',
             ],
             'bwas' => [
                 'title' => 'Bekanntmachung: Wasser',
@@ -76,6 +81,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'carton',
+                'chance' => '10',
             ],
             'noel_de' => [
                 'title' => 'Brief an den Weihnachtsmann',
@@ -87,6 +93,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '2',
             ],
             'lettr2_de' => [
                 'title' => 'Brief an Emily',
@@ -99,6 +106,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'noteup',
+                'chance' => '9',
             ],
             'sophie' => [
                 'title' => 'Brief nach Hause',
@@ -114,6 +122,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '7',
             ],
             'nancy' => [
                 'title' => 'Brief an Nancy',
@@ -124,6 +133,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'blood',
+                'chance' => '15',
             ],
             'dv_009' => [
                 'title' => 'Brief an Nelly',
@@ -140,6 +150,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '5',
             ],
             'brmu1' => [
                 'title' => 'Brief einer Mutter',
@@ -153,6 +164,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '9',
             ],
             'christ' => [
                 'title' => 'Christin',
@@ -165,6 +177,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '8',
             ],
             'coctl1_de' => [
                 'title' => 'Coctails Tagebuch Teil 1',
@@ -179,6 +192,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'notepad',
+                'chance' => '9',
             ],
             'dv_012' => [
                 'title' => 'Coctails Tagebuch Teil 2',
@@ -195,6 +209,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'notepad',
+                'chance' => '8',
             ],
             'coctl3_de' => [
                 'title' => 'Coctails Tagebuch Teil 3',
@@ -209,6 +224,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'notepad',
+                'chance' => '8',
             ],
             'chief_de' => [
                 'title' => 'Der Verrat',
@@ -220,6 +236,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'grid',
+                'chance' => '10',
             ],
             'bb' => [
                 'title' => 'Ein Briefbündel',
@@ -233,6 +250,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'grid',
+                'chance' => '10',
             ],
             'utpia1_de' => [
                 'title' => 'Ein Schmierzettel',
@@ -243,6 +261,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'secret',
+                'chance' => '4',
             ],
             'nails_de' => [
                 'title' => 'Ein paar Schrauben und Muttern',
@@ -253,6 +272,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'secret',
+                'chance' => '8',
             ],
             'letmys_de' => [
                 'title' => 'Ein seltsamer Brief',
@@ -281,6 +301,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typedsmall',
                 'background' => 'letter',
+                'chance' => '10',
             ],
             'ezet' => [
                 'title' => 'Einkaufszettel',
@@ -313,6 +334,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'postit',
+                'chance' => '3',
             ],
             'fpelze' => [
                 'title' => 'Faulpelze',
@@ -332,6 +354,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '10',
             ],
             'dv_017' => [
                 'title' => 'Frys Erlebnis',
@@ -343,6 +366,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typedsmall',
                 'background' => 'letter',
+                'chance' => '6',
             ],
             'todg' => [
                 'title' => 'Gedanken eines Togeweihten',
@@ -362,6 +386,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'secret',
+                'chance' => '6',
             ],
             'glager' => [
                 'title' => 'Gelbes Lager, Tag 14',
@@ -378,6 +403,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'secret',
+                'chance' => '10',
             ],
             'dv_018' => [
                 'title' => 'Gewinnlos',
@@ -386,8 +412,9 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                     '<p>Dieses Zigarettenpäckchen ist ein GEWINNLOS!</p><br /><p>Um ihren Preis zu erhalten müssen Sie dieses Etikett zusammen mit einer Zahlungsquittung an folgende Adresse senden:</p><br /><p>Klezma Cigarettenwerke GmbH,<br />Max-Bürger-Straße 44.<br />22760, Hamburg</p><br /><p>Hinweis: Mit diesem Gewinnetikett haben Sie zusätzlich Anspruch auf einen KOSTENLOSEN Rundum-Gesundheitscheck. Unser Kunde ist alles für uns - Klezma.</p>'
                 ],
                 'lang' => 'de',
-                'design' => 'typed',
-                'background' => 'letter',
+                'design' => 'classic',
+                'background' => 'tinystamp',
+                'chance' => '2',
             ],
             'ilh' => [
                 'title' => 'Ich liebe sie',
@@ -406,6 +433,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '6',
             ],
             'wratte' => [
                 'title' => 'In Bier geschmorte Ratte',
@@ -427,6 +455,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'grid',
+                'chance' => '9',
             ],
             'ketkat' => [
                 'title' => 'Kettensäge & Kater',
@@ -448,6 +477,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'carton',
+                'chance' => '8',
             ],
             'delir1_de' => [
                 'title' => 'Makabre Warnung',
@@ -459,6 +489,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'blood',
+                'chance' => '5',
             ],
             'raya' => [
                 'title' => 'Mein bester Freund KevKev',
@@ -479,6 +510,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'notepad',
+                'chance' => '10',
             ],
             'mertxt' => [
                 'title' => 'Merkwürdiger Text',
@@ -491,6 +523,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'notepad',
+                'chance' => '7',
             ],
             'dv_024' => [
                 'title' => 'Mitteilung: Diebe',
@@ -504,6 +537,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'carton',
+                'chance' => '10',
             ],
             'morse2' => [
                 'title' => 'Morsecode (21.Juni)',
@@ -517,6 +551,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'blood',
+                'chance' => '8',
             ],
             'news2' => [
                 'title' => 'Mysteriöse Befunde - Tote weisen menschliche Bissspuren auf',
@@ -533,6 +568,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'news',
                 'background' => 'news',
+                'chance' => '10',
             ],
             'cave1' => [
                 'title' => 'Papierfetzen',
@@ -546,6 +582,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'blood',
+                'chance' => '5',
             ],
             'dv_028' => [
                 'title' => 'Post-It',
@@ -556,6 +593,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'postit',
+                'chance' => '7',
             ],
             'profi1' => [
                 'title' => 'Profits Tagebuch',
@@ -576,6 +614,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'notepad',
+                'chance' => '5',
             ],
             'bilan_de' => [
                 'title' => 'Protokoll der Stadtratsitzung vom 7. November',
@@ -595,6 +634,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'white',
+                'chance' => '7',
             ],
             'rabs' => [
                 'title' => 'Rabe, schwarz',
@@ -617,6 +657,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'white',
+                'chance' => '20',
             ],
             'dv_030' => [
                 'title' => 'Richards Tagebuch',
@@ -630,6 +671,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'notepad',
+                'chance' => '8',
             ],
             'sos1_de' => [
                 'title' => 'S.O.S.',
@@ -641,6 +683,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'postit',
                 'background' => 'carton',
+                'chance' => '2',
             ],
             'dv_031' => [
                 'title' => 'Überlebensregeln',
@@ -671,6 +714,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'grid',
+                'chance' => '10',
             ],
             'dv_032' => [
                 'title' => 'Seite 134 - Sprinkleranlage im Eigenbau',
@@ -685,6 +729,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'classic',
                 'background' => 'old',
+                'chance' => '8',
             ],
             'death' => [
                 'title' => 'Spruch',
@@ -698,6 +743,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'blood',
+                'chance' => '2',
             ],
             'gbuch' => [
                 'title' => 'Seite aus einem alten Gesangsbuch',
@@ -739,6 +785,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'grid',
+                'chance' => '5',
             ],
             'dv_033' => [
                 'title' => 'Seite 62 eines Buches',
@@ -762,8 +809,9 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                     Rangordnung praktischer Waffen zum Töten von Zombies ein. [...]'
                 ],
                 'lang' => 'de',
-                'design' => 'typed',
-                'background' => 'white',
+                'design' => 'classic',
+                'background' => 'old',
+                'chance' => '10',
             ],
             'stxt' => [
                 'title' => 'Seltsamer Text',
@@ -809,6 +857,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'carton',
+                'chance' => '3',
             ],
             'refabr_de' => [
                 'title' => 'Sicherer Unterschlupf',
@@ -821,9 +870,10 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'notepad',
+                'chance' => '8',
             ],
             'polcor' => [
-                'title' => 'Sie nennen sie Zombies - Politisch korrekter Umgang mit Vermindert Lebenden',
+                'title' => 'Sie nennen sie Zombies',
                 'author' => 'accorexel',
                 'content' => [
                     '<div class="hr"></div>
@@ -847,6 +897,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'classic',
                 'background' => 'old',
+                'chance' => '10',
             ],
             'stafel' => [
                 'title' => 'Sprechtafel',
@@ -867,6 +918,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'printer',
+                'chance' => '3',
             ],
             'citsig_de' => [
                 'title' => 'Stadtschild',
@@ -882,6 +934,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'blood',
+                'chance' => '10',
             ],
             'necro_de' => [
                 'title' => 'Todesanzeigen',
@@ -896,6 +949,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'carton',
+                'chance' => '8',
             ],
             'dv_036' => [
                 'title' => 'Twinoidetikett',
@@ -919,6 +973,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'stamp',
                 'background' => 'stamp',
+                'chance' => '5',
             ],
             'santw' => [
                 'title' => 'Verstanden!',
@@ -930,6 +985,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'letter',
+                'chance' => '6',
             ],
             'crazy_de' => [
                 'title' => 'Wahn',
@@ -958,6 +1014,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'small',
                 'background' => 'blood',
+                'chance' => '4',
             ],
             'ie' => [
                 'title' => 'Warnhinweis an zukünftige Wanderer',
@@ -970,6 +1027,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'money',
+                'chance' => '8',
             ],
             'coloc_de' => [
                 'title' => 'WG',
@@ -984,6 +1042,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'written',
                 'background' => 'carton',
+                'chance' => '10',
             ],
             'dv_039' => [
                 'title' => 'Zahlen',
@@ -994,6 +1053,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'printer',
+                'chance' => '10',
             ],
             'binary' => [
                 'title' => 'Zerknitterter Programmausdruck',
@@ -1008,6 +1068,31 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'lang' => 'de',
                 'design' => 'typed',
                 'background' => 'printer',
+                'chance' => '2',
+            ],
+            'eilm' => [
+                'title' => 'Eilmeldung (News)',
+                'author' => "Dayan",
+                'content' => [
+                    '<p><strong>--EILMELDUNG--EILMELDUNG--EILMELDUNG--EILMELDUNG--</strong></p>
+                <p>Unbestätigten Gerüchten zufolge hätte das französische Entwicklerstudio Motion Twin eine Lösung für 
+                (fast) alle Probleme unserer postapokalyptischen Welt gefunden, darunter:</p>
+                <p>
+                <ul>
+                <li>Vorzeitiger Abbruch von Städten, wenn die Meta ruft!</li>
+                <li>Städte mit Ghulen und Städte ohne Ghule!</li>
+                <li>Die Organisation einer Stadt mit 40 Metaspielern!</li>
+                <li>Leistungsvergleich: 40 Unbekannte vs. 40 Metaspieler.</li>
+                <li>Stellenwert des Städterankings innerhalb der Spiels.</li>
+                <li>[...]</li>
+                </ul>
+                </p>
+                <p>Erfahren Sie in Kürze mehr dazu auf der Frequenz 102.4 MHz (Weltforum)...</p>'
+                ],
+                'lang' => 'de',
+                'design' => 'small',
+                'background' => 'noteup',
+                'chance' => '0',
             ],
             /**
              * FRENCH ROLE PLAY TEXTS
