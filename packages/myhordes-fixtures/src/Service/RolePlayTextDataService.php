@@ -5194,6 +5194,9 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 "background" => "carton",
                 "design" => "written"
             ],
+            /**
+            * SPANISH ROLE PLAY TEXTS
+            */
             "acorr_es" => [
                 "title" => "Acorralado",
                 "author" => "GeneralCross",
@@ -5206,7 +5209,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "carton",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "adio_es" => [
                 "title" => "Adiós",
@@ -5225,7 +5229,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "carton",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "bioz1_es" => [
                 "title" => "Biología de los Caminantes- Parte 1/4",
@@ -5243,7 +5248,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "6",
             ],
             "bioz2_es" => [
                 "title" => "Biología de los Caminantes- Parte 2/4",
@@ -5254,12 +5260,12 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 <p>A las 8 horas de contraer el síndrome, el 99,98% de los sujetos ha entrado en un coma irreversible y a muerto por necrosis cerebral e insuficiencia cardiorrespiratoria en menos de un minuto.</p>
                 <p>El proceso de reanimación se ha observado extraño y difícil de catalogar… En algún punto indeterminado, el agente activo del síndrome reacciona con la química de las neuronas motrices y sensoriales y las obliga a auto consumirse, generando calor y descargas eléctricas que despiertan el sistema nervioso motriz e hipotalámico.</p>',
                     '<p>La necrosis amaina repentinamente y el cadáver experimenta unos temblores violentos durante unos segundos de duración variable de caso a caso.</p>
-                <p>Al cabo de unos minutos el cadáver inexplicablemente recobra la consciencia y la autonomía motriz con acusada torpeza debido a la acelerada necrosis de los músculos y los huesos, con señaladas carencias de equilibrio y coordinación pero con un excelente y afinadísimo a la par que inexplicable sentido de la orientación, como si viera mejor a oscuras que con luz y todos sus sentidos estuvieran hipersensibilidades. </p>
-                <p><small>Autor: Dr. Arthail Thredaral </small></p>'
+                <p>Al cabo de unos minutos el cadáver inexplicablemente recobra la consciencia y la autonomía motriz con acusada torpeza debido a la acelerada necrosis de los músculos y los huesos, con señaladas carencias de equilibrio y coordinación pero con un excelente y afinadísimo a la par que inexplicable sentido de la orientación, como si viera mejor a oscuras que con luz y todos sus sentidos estuvieran hipersensibilidades. </p>'
                 ],
                 "lang" => "es",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "5",
             ],
             "bioz3_es" => [
                 "title" => "Biología de los Caminantes- Parte 3/4",
@@ -5273,7 +5279,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "bioz4_es" => [
                 "title" => "Biología de los Caminantes- Parte 4/4",
@@ -5288,35 +5295,35 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "dest" => [
                 "title" => "Diario de un desterrado",
                 "author" => "Mellaa",
                 "content" => [
                     '<p>Es el tercer día desde que volví infectado del Ultramundo y los aldeanos decidieron echarme... ¡Malditos desgraciados! (la escritura se vuelve ilegible...)</p>
-				<p>Si alguien lee esto seguramente ya seré uno de esos que arañan las murallas cada noche, o quizás lo que quede de mi cuerpo esté atrapado entre los alambre de púas... si todavía me quedan dedos, dale mi anillo a mi hija Ireth... (las lagrimas emborronan el resto del papel).</p>
-				<p><small>Autor: Mellaa</small></p>'
+				<p>Si alguien lee esto seguramente ya seré uno de esos que arañan las murallas cada noche, o quizás lo que quede de mi cuerpo esté atrapado entre los alambre de púas... si todavía me quedan dedos, dale mi anillo a mi hija Ireth... (las lagrimas emborronan el resto del papel).</p>'
                 ],
                 "lang" => "es",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "1",
             ],
             "divv1_es" => [
                 "title" => "Diario de un Moribundo",
-                "author" => "Arkham Stranger",
+                "author" => "Arkham_Stranger",
                 "content" => [
                     '<p>La mayoría de veces prefiero ocultarme en aquel cuchitril que construí hace un día, con ayuda de unas cosas que tomé del almacén del pueblo, que estaba ya construido antes de los atroces eventos que desencadenarían el fin de nuestra miserable existencia.</p>
                 <p>Ya han pasado 4 días desde que pude ver a Joaquín, un buen amigo mío que vivía en la casa de al lado, mientras construía mi cuchitril vi que salía del pueblo, pero ahora dudo que siga con vida, me entristece no haber podido despedirme de él.</p>
                 <p>Somos tan sólo un puñado de hombres, no quiero morir, quiero tener una familia, casarme, poder tener nietos, la vida de una persona normal... Ahora dudo que eso sea posible, el objetivo típico de una persona se ha vuelto un sueño utópico.</p>',
                     '<p>Organicé las porquerías que hay en mi pequeña vivienda, espero salir en unas horas con un grupo de vecinos a buscar recursos en el desierto, ahora he escuchado que le llaman Ultramundo, qué desidia...</p>
-                <p>Tenía el reloj de un tipo muerto, deben ser las seis de la tarde. Encontrarás mi cuerpo sin vida, a medio devorar, fui un idiota, y tu morirás también, tu familia. ¡Todos morirán, no habrá nadie más!</p><br>
-                <p><small>-Arkham<s>Stranger </s></small></p><s>
-                </s>'
+                <p>Tenía el reloj de un tipo muerto, deben ser las seis de la tarde. Encontrarás mi cuerpo sin vida, a medio devorar, fui un idiota, y tu morirás también, tu familia. ¡Todos morirán, no habrá nadie más!</p>'
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "d4deb_es" => [
                 "title" => "Día 4 tras la debacle",
@@ -5328,7 +5335,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "stamp",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "dia_es" => [
                 "title" => "Día 7",
@@ -5340,7 +5348,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "gritdk_es" => [
                 "title" => "El último grito",
@@ -5352,7 +5361,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "secret",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "8",
             ],
             "horos_es" => [
                 "title" => "Horóscopo",
@@ -5365,7 +5375,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "carton",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "slept_es" => [
                 "title" => "La agonía",
@@ -5377,28 +5388,27 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 <p>¿Por qué los zombies se van cada noche? ¿Por qué no vienen a matarnos a todos de una sola y buena vez? ¿Para qué hacernos sufrir tanto? A pesar de las apariencias, cuando los veo, esos monstruos están más conscientes de lo que parecen... ¡Eso los hace más crueles y abominables!</p>
                 <p>Tengo miedo.</p>',
                     '<p>Carlos, mi mejor amigo... había desaparecido y le había dado por muerto. ¡Pero está vivo! Le encontré caminando en el pueblo... Pero tal vez hubiese sido mejor no verle de nuevo, no en ese estado...</p>
-                <p>Preparaba sus cosas para volver a salir al Ultramundo... La próxima vez que salga... yo me iré con él... Para siempre.</p>
-                <p><small>Autor: Selene</small></p>'
+                <p>Preparaba sus cosas para volver a salir al Ultramundo... La próxima vez que salga... yo me iré con él... Para siempre.</p>'
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "1",
             ],
             "grit1_es" => [
                 "title" => "La espera",
-                "author" => "Camarada Ndomo",
+                "author" => "Camarada_Ndomo",
                 "content" => [
                     '<p>Hoy el sol ha aparecido de nuevo después de varios días nublados. Antes de salir a excavar, como todos los días, he limpiado un poco la casa y he tomado una ración de agua del pozo.
                 </p><p>Llevo ya aquí una semana, y aún no he sido herido en ninguna de mis salidas. Solo que la muerte ronda por aquí.</p>
                 <p>Nunca lo hubiera imaginado hace dos días, cuando regresé al pueblo después de haber encontrado en el desierto un plano poco común. Todos mis compañeros me felicitaron, en sus ojos brillaba la ilusión, y yo me sentí orgulloso de poder contribuir a lo que podría ser la salvación del pueblo.</p>',
                     '♠<p>Cuando se terminó la construcción, descubrimos que ese plano servía para crear un matadero con el que podríamos distraer a los zombies, a la vez que nos permitiría librarnos de los habitantes antisociales del pueblo. Estos, por venganza, me denunciaron, aunque entonces no le di importancia porque sabía que el resto de mis compañeros valoraba mi aportación y mi esfuerzo.</p>
-                <p>Pero hoy los zombies superarán nuestras defensas, y los constructores no tendrán tiempo de levantar otras nuevas antes del anochecer. Al salir de casa, mis camaradas evitaban mirarme a los ojos, y ni siquiera me he atrevido a despedirme. Tengo siete denuncias. Antes de que acabe el día, alguien no podrá resistirse al miedo y realizará la octava, la que me condenará a morir a las puertas del pueblo para que mis compañeros resistan al menos un día más.</p><br>
-                <p><small>-Camarada<s>Ndomo </s></small></p><s>
-                </s>'
+                <p>Pero hoy los zombies superarán nuestras defensas, y los constructores no tendrán tiempo de levantar otras nuevas antes del anochecer. Al salir de casa, mis camaradas evitaban mirarme a los ojos, y ni siquiera me he atrevido a despedirme. Tengo siete denuncias. Antes de que acabe el día, alguien no podrá resistirse al miedo y realizará la octava, la que me condenará a morir a las puertas del pueblo para que mis compañeros resistan al menos un día más.</p>'
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "navid5_es" => [
                 "title" => "La noche cada vez más negra",
@@ -5415,7 +5425,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "poem1_es" => [
                 "title" => "Los Días en Zombinoia",
@@ -5433,7 +5444,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "secret",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "6",
             ],
             "malasu_es" => [
                 "title" => "Mala Suerte",
@@ -5449,7 +5461,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "printer",
-                "design" => "ad"
+                "design" => "ad",
+                "chance" => "5",
             ],
             "mens_es" => [
                 "title" => "Mensaje perdido",
@@ -5462,7 +5475,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "secret",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "5",
             ],
             "minfec_es" => [
                 "title" => "Mi infección",
@@ -5473,7 +5487,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "secret",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "4",
             ],
             "neul_es" => [
                 "title" => "Nota en la hoja de un libro",
@@ -5486,7 +5501,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "stamp",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "papa_es" => [
                 "title" => "Papá, ¿entrarán esta noche?, ¿me dolerá?",
@@ -5499,7 +5515,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "grid",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "umn" => [
                 "title" => "Una mala noche",
@@ -5511,7 +5528,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "secret",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "4",
             ],
             "nightm_es" => [
                 "title" => "Una noche corta",
@@ -5523,7 +5541,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "grid",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "vag1_es" => [
                 "title" => "Vagando",
@@ -5535,7 +5554,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "stamp",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "1",
             ],
             "explut_es" => [
                 "title" => "Vaya suerte",
@@ -5548,7 +5568,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "postit",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "4",
             ],
             "cuidad_es" => [
                 "title" => "¡Cuidado!",
@@ -5560,7 +5581,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "postit",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "4",
             ],
             "billie_es" => [
                 "title" => "¡Felicidad!",
@@ -5572,7 +5594,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "postit",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "5",
             ],
             "aullid_es" => [
                 "title" => "¿Oyes eso?",
@@ -5587,7 +5610,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "6",
             ],
             "navid4_es" => [
                 "title" => "Aquel día, ya no es hoy...",
@@ -5600,7 +5624,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "arrep_es" => [
                 "title" => "Arrepentido",
@@ -5618,7 +5643,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "old",
-                "design" => "poem"
+                "design" => "poem",
+                "chance" => "4",
             ],
             "avisc_es" => [
                 "title" => "Aviso a la colectividad",
@@ -5634,7 +5660,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "gryl_es" => [
                 "title" => "Caos y falsa acusación",
@@ -5648,7 +5675,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "desesp_es" => [
                 "title" => "Desesperación en la noche",
@@ -5662,7 +5690,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "jps_es" => [
                 "title" => "Juntos por siempre",
@@ -5676,7 +5705,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "wintk2_es" => [
                 "title" => "La suerte de z0rrox",
@@ -5693,7 +5723,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "1",
             ],
             "navid2_es" => [
                 "title" => "Masacre después de Navidad",
@@ -5708,7 +5739,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "mvet_es" => [
                 "title" => "Mi vida te la entrego a ti...",
@@ -5720,7 +5752,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "stamp",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "1",
             ],
             "miul_es" => [
                 "title" => "Mi último dia",
@@ -5734,7 +5767,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "carton",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "1",
             ],
             "lostck_es" => [
                 "title" => "Ticket perdedor",
@@ -7197,7 +7231,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
             ],
             "letann_es" => [
                 "title" => "Cartas para Ana",
-                "author" => null,
+                "author" => "Desconocido",
                 "content" => [
                     '<p>Ana,</p>
                 <p>Siempre me dijiste de no correr riesgos, que no me separe de ti. Pero ya ves, terco como soy y queriéndome hacer siempre el valiente para nunca perderte. Te llevo conmigo, no temas. Ayuda en lo que puedas a los demás. Ahora debo esconderme de nuevo, una tormenta de arena azota el Ultramundo y la carpa no es tan fuerte como creí.</p>
@@ -7214,7 +7248,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "letter",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "monsmc_es" => [
                 "title" => "El Monstruo Manos de Cuchilla",
@@ -7227,7 +7262,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "letter",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "miamiz_es" => [
                 "title" => "Mi amigo, el zombie",
@@ -7244,7 +7280,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "navid1_es" => [
                 "title" => "Navidad en medio de este desastre",
@@ -7258,7 +7295,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "grid",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "soled1_es" => [
                 "title" => "Soledad",
@@ -7269,20 +7307,21 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "grid",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "navid3_es" => [
                 "title" => "Viejos recuerdos",
-                "author" => null,
+                "author" => "1_Shadow_1",
                 "content" => [
                     '<p>Mis recuerdos son borrosos, tanto tiempo vagando sin conocimiento. Pasando de un pueblo a otro… en cada pueblo, mis mejores amigos mueren. Mientras los vagos sin oficio solo esperan la muerte, recuerdo esta época hace tantos años atrás… donde todo era felicidad con la familia.</p>
                 <p>Nos sentábamos a hablar a medianoche, con comida en la mesa, contar nuestros pequeños logros de ese año… reír a carcajadas cuando todos estábamos ebrios, y finalmente dormir esperando un día mejor… ahora, en este mundo tan corrompido por la oscuridad… se siente como si no fuéramos a ningún lado. </p>',
-                    '<p>Aun así, seguimos moviéndonos. Mi muerte está tocando la puerta, aquel que encuentre esto… y recuerden esos momentos alegres. Feliz Navidad.</p>
-                <p>1<s>Shadow</s>1</p>'
+                    '<p>Aun así, seguimos moviéndonos. Mi muerte está tocando la puerta, aquel que encuentre esto… y recuerden esos momentos alegres. Feliz Navidad.</p>'
                 ],
                 "lang" => "es",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "wintk1_es" => [
                 "title" => "El suertudo Juan",
@@ -7297,7 +7336,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "1",
             ],
             "herr_es" => [
                 "title" => "Pueblo Herrero: Relato de Ryan",
@@ -7320,7 +7360,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "es",
                 "background" => "stamp",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "1",
             ],
             "wstal1" => [
                 "title" => "Workshop's Tale - Part 1",
