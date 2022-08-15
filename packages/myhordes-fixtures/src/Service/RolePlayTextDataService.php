@@ -5857,7 +5857,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "sprfen" => [
                 "title" => "Advert",
@@ -5888,7 +5889,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "modern"
+                "design" => "modern",
+                "chance" => "3",
             ],
             "dead1_en" => [
                 "title" => "Alfred's Epitaph",
@@ -5901,7 +5903,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "stval2_en" => [
                 "title" => "Alt. Valentines Day",
@@ -5915,7 +5918,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
             ],
             "ruoutt_en" => [
                 "title" => "Are you out there?",
@@ -5933,7 +5937,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "news2_en" => [
                 "title" => "Article - Vicious Killing",
@@ -5946,7 +5951,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "news",
-                "design" => "news"
+                "design" => "news",
+                "chance" => "2",
             ],
             "docgsw" => [
                 "title" => "Based on a true story",
@@ -5962,7 +5968,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "tstpa2" => [
                 "title" => "Black Velvet Band",
@@ -6060,7 +6067,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "poem"
+                "design" => "poem",
+                "chance" => "1",
             ],
             "bopkn1" => [
                 "title" => "Book of Poetry. Page 5.",
@@ -6104,7 +6112,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "poem"
+                "design" => "poem",
+                "chance" => "3",
             ],
             "cwom13" => [
                 "title" => "Cannibal Woman of Mars Flyer",
@@ -6114,7 +6123,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "blood",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "cptlog" => [
                 "title" => "Carpenter's Log",
@@ -6129,7 +6139,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "binary_en" => [
                 "title" => "Crumpled printout",
@@ -6149,7 +6160,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "4",
             ],
             "stval3_en" => [
                 "title" => "D2N Valentines Day",
@@ -6163,7 +6175,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
             ],
             "rasln1" => [
                 "title" => "Day 22",
@@ -6178,7 +6191,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "rescl1" => [
                 "title" => "Day 3 - Part 1",
@@ -6195,7 +6209,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "rescl2_en" => [
                 "title" => "Day 3 - Part 2",
@@ -6211,7 +6226,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "rescl3" => [
                 "title" => "Day 3 - Part 3",
@@ -6230,7 +6246,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "drdiar" => [
                 "title" => "Dear Diary",
@@ -6249,7 +6266,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "desktp" => [
                 "title" => "Desktop Factoids",
@@ -6275,7 +6293,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "postit",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "1",
             ],
             "slber1" => [
                 "title" => "Diplomatic Invitation",
@@ -6291,7 +6310,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "slber2" => [
                 "title" => "Diplomatic Retraction",
@@ -6307,7 +6327,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "swefae_en" => [
                 "title" => "Eulogy for an Empire",
@@ -6348,7 +6369,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "burns1" => [
                 "title" => "Happy Burns' Day",
@@ -6367,7 +6389,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "stpat2" => [
                 "title" => "Happy for you, blind man !",
@@ -6386,7 +6409,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "citya1_en" => [
                 "title" => "Happy Harry's Horoscope: 1",
@@ -6398,7 +6422,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "citya2_en" => [
                 "title" => "Happy Harry's Horoscope: 2",
@@ -6410,7 +6435,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "citya3_en" => [
                 "title" => "Happy Harry's Horoscope: 3",
@@ -6422,7 +6448,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "citya4_en" => [
                 "title" => "Happy Harry's Horoscope: 4",
@@ -6434,7 +6461,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "citya5_en" => [
                 "title" => "Happy Harry's Horoscope: 5",
@@ -6447,7 +6475,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "cityb1_en" => [
                 "title" => "Happy Harry's Horoscope: 6",
@@ -6459,7 +6488,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "code1_en" => [
                 "title" => "Illegible Note",
@@ -6474,7 +6504,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "tstpa1" => [
                 "title" => "Irish Anthem",
@@ -6518,7 +6549,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "notepad",
-                "design" => "poem"
+                "design" => "poem",
+                "chance" => "1",
             ],
             "stpat4" => [
                 "title" => "Irish Blessing",
@@ -6537,7 +6569,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "stpat5_en" => [
                 "title" => "Irish Proverbs",
@@ -6557,7 +6590,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "nwyrjk_en" => [
                 "title" => "January 1",
@@ -6570,7 +6604,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "letter"
+                "design" => "letter",
+                "chance" => "4",
             ],
             "biebs1" => [
                 "title" => "Justin Time",
@@ -6581,7 +6616,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "noel_en" => [
                 "title" => "Letter To Father Christmas",
@@ -6598,7 +6634,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "nelly_en" => [
                 "title" => "Letter to Nelly",
@@ -6612,7 +6649,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "gbhor1" => [
                 "title" => "Lost Horizons",
@@ -6629,7 +6667,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "poem"
+                "design" => "poem",
+                "chance" => "3",
             ],
             "crema1_en" => [
                 "title" => "Luck of the draw",
@@ -6643,7 +6682,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "notepad",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "bilan_en" => [
                 "title" => "Minutes of the meeting of 24th August",
@@ -6658,7 +6698,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "mjtjrs_en" => [
                 "title" => "Miserable Junctions Journal",
@@ -6676,8 +6717,9 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 <p>-Rassalon</p>'
                 ],
                 "lang" => "en",
-                "background" => "letter",
-                "design" => "written"
+                "background" => "old",
+                "design" => "written",
+                "chance" => "4",
             ],
             "stpmm1" => [
                 "title" => "Molly Malone",
@@ -6710,7 +6752,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "motran" => [
                 "title" => "Motherhood - Part 1",
@@ -6725,7 +6768,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "5",
             ],
             "motrao" => [
                 "title" => "Motherhood - Part 2",
@@ -6743,7 +6787,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "4",
             ],
             "motrap" => [
                 "title" => "Motherhood - Part 3",
@@ -6760,7 +6805,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "motraq" => [
                 "title" => "Motherhood - Part 4",
@@ -6777,10 +6823,11 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "jgoul1" => [
-                "title" => "My friend the Gouhl - Part 1",
+                "title" => "My friend the Ghoul - Part 1",
                 "author" => "ninjaja",
                 "content" => [
                     '<h2>My friend the ghoul, part one</h2>
@@ -6795,7 +6842,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "secret",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "jgoul2" => [
                 "title" => "My friend the Gouhl - Part 2",
@@ -6817,7 +6865,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "secret",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "4",
             ],
             "nicev2" => [
                 "title" => "Natural Selection",
@@ -6832,7 +6881,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "notepad",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "1",
             ],
             "nitemr" => [
                 "title" => "On Nightmares",
@@ -6850,7 +6900,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "notepad",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "4",
             ],
             "oathlb" => [
                 "title" => "Oath of the Live2nite Brotherhood",
@@ -6880,7 +6931,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "grid",
-                "design" => "modern"
+                "design" => "modern",
+                "chance" => "3",
             ],
             "pcrsh1_en" => [
                 "title" => "Polycarbonate Riot Shield",
@@ -6899,7 +6951,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "ad"
+                "design" => "ad",
+                "chance" => "3",
             ],
             "granma_en" => [
                 "title" => "Post-it",
@@ -6911,7 +6964,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "postit",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "3",
             ],
             "qwp1jl" => [
                 "title" => "Quark and the Watchtower - Part 1",
@@ -6926,7 +6980,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "4",
             ],
             "qwp2jl" => [
                 "title" => "Quark and the Watchtower - Part 2",
@@ -6941,7 +6996,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "printer",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "utpia1_en" => [
                 "title" => "Rough Draft",
@@ -6963,7 +7019,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "secret",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "2",
             ],
             "shbpap" => [
                 "title" => "Shabby piece of paper",
@@ -6981,7 +7038,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "sos1_en" => [
                 "title" => "S.O.S.",
@@ -7003,7 +7061,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "notepad",
-                "design" => "poem"
+                "design" => "poem",
+                "chance" => "1",
             ],
             "coloc_en" => [
                 "title" => "Small Ad",
@@ -7017,7 +7076,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "sbwse1" => [
                 "title" => "Stopping By Woods on a Snowy Evening",
@@ -7029,7 +7089,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "old",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "sn1fap" => [
                 "title" => "Suicide Note",
@@ -7040,7 +7101,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "stpmk3" => [
                 "title" => "The 1st Limerick",
@@ -7055,7 +7117,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
             ],
             "stprd3" => [
                 "title" => "The 2nd Limerick",
@@ -7070,7 +7133,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
             ],
             "stprd5_en" => [
                 "title" => "The 3rd Limerick",
@@ -7085,10 +7149,11 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
             ],
             "stprd4" => [
-                "title" => "The 4rd Limerick",
+                "title" => "The 4th Limerick",
                 "author" => null,
                 "content" => [
                     '<p></p><center><br><br>There was a young lady named Wright,<br><br>
@@ -7113,7 +7178,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
             ],
             "tddidc" => [
                 "title" => "The Dangerous Dunes",
@@ -7128,7 +7194,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "3",
             ],
             "pswed1" => [
                 "title" => "THE HANDFASTING OF APRIL 5, 2013",
@@ -7142,7 +7209,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "noteup",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "stpwg1" => [
                 "title" => "The Wearin' O' The Green",
@@ -7155,7 +7223,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "letter",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "2",
             ],
             "bsptr1" => [
                 "title" => "Thunder Road",
@@ -7177,7 +7246,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "noteup",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
             ],
             "cave1_en" => [
                 "title" => "Torn Note",
@@ -7190,7 +7260,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "blood",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "1",
             ],
             "stpat1" => [
                 "title" => "Treachery",
@@ -7203,7 +7274,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "grid",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "4",
             ],
             "chief_en" => [
                 "title" => "Two Women or Twelve Men",
@@ -7219,7 +7291,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "notepad",
-                "design" => "small"
+                "design" => "small",
+                "chance" => "1",
             ],
             "recip1_en" => [
                 "title" => "Twinoid Label",
@@ -7242,7 +7315,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "stamp",
-                "design" => "stamp"
+                "design" => "stamp",
+                "chance" => "4",
             ],
             "bjhtcx_en" => [
                 "title" => "Unlucky this time...",
@@ -7257,7 +7331,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "5",
             ],
             "stval1" => [
                 "title" => "Valentines Day Card",
@@ -7271,7 +7346,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
             ],
             "letann_es" => [
                 "title" => "Cartas para Ana",
@@ -7437,7 +7513,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "4",
             ],
             "wstal2" => [
                 "title" => "Workshop's Tale - Part 2",
@@ -7471,7 +7548,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "white",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
             "morse2_en" => [
                 "title" => "Communication in morse code (dated 31 August)",
@@ -7484,7 +7562,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "blood",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "3",
             ],
         ]);
     }
