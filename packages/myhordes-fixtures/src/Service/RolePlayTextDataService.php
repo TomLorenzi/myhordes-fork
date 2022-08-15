@@ -47,7 +47,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'title' => 'Bekanntmachung: Abtrünnige',
                 'author' => 'Sigma',
                 'content' => [
-                    '<br/><br/><br/><b>ÖFFENTLICHE BEKANNTMACHUNG</b><br /><br />
+                    '<br><br><br><b>ÖFFENTLICHE BEKANNTMACHUNG</b><br /><br />
                 Ein Gruppe Abtrünniger hat vor zwei Tagen die
                 Stadt verlassen, um sich in der Höhle südlich
                 der Stadt zu verstecken. Ein Aufklärer meinte,
