@@ -156,7 +156,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
             'egg_#00'                    => [ 'food', 'esc_fixed' ],
             'apple_#00'                  => [ 'food', 'esc_fixed' ],
             'angryc_#00'                 => [ 'pet', 'weapon' ],
-            'pet_cat_#00'                => [ 'pet', 'esc_fixed', 'nw_trebuchet' ],
+            'pet_cat_#00'                => [ 'pet', 'nw_trebuchet' ],
             'pet_chick_#00'              => [ 'pet', 'nw_trebuchet' ],
             'pet_pig_#00'                => [ 'pet', 'nw_trebuchet' ],
             'pet_rat_#00'                => [ 'pet', 'nw_trebuchet' ],
