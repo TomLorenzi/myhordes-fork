@@ -1207,7 +1207,22 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "fr",
                 "background" => "carton",
-                "design" => "typed"
+                "design" => "typed",
+                "chance" => "4",
+            ],
+            "news1_fr" => [
+                "title" => "Article - Explosion près de Bordeaux",
+                "author" => "lordsolvine",
+                "content" => [
+                    '<h1>Explosion près de Bordeaux, la population s\'affole</h1>
+                    <p>En effet, les évènements récents qui se déroulent dans le monde entier laissent à penser que la fin du monde est proche. Le vandalisme se multiplie, les villes sont évacuées. Les autorités ont déclaré ne plus exister aux yeux des citoyens.</p>
+                    <p>Le virus non-identifié par les scientifiques du monde entier continue de faire rage et malgré la mise en quarantaine, les morts qui marchent se multiplient dévastant tout sur leur chemin...</p>
+                    <small>Suite en page 5</small>'
+                ],
+                "lang" => "fr",
+                "background" => "news",
+                "design" => "news",
+                "chance" => "0",
             ],
             "news2_fr" => [
                 "title" => "Article - Meurtre sauvage",
@@ -5192,7 +5207,93 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "fr",
                 "background" => "carton",
-                "design" => "written"
+                "design" => "written",
+                "chance" => "2",
+            ],
+            "meteo1" => [
+                "title" => "Rapport météo d'Oraefajökull",
+                "author" => null,
+                "content" => [
+                    '<h2>Rapport de la station météorologique d\'Oraefajökull (Islande), 3 décembre :</h2>
+                    <p>Depuis maintenant plus de 3 semaines nous n\'observons plus aucunes précipitations dans la région, chose fortement inhabituelle en cette période de l\'année.</p>
+                    <p>La station, qui tous les ans est dans la liste des plus touchées par les intempéries d\'hiver, n\'est survolée que par de rares cumulus fractus (premier stade de la formation des cumulus), censés annoncer une pluie prochaine...</p>',
+                    '<p>L\'épaisseur de la couche d\'ozone se rétracte de jours en jours et les effets du réchauffement climatique sur les cultures et la population de l\'île commencent à se faire sentir. Le bétail commence à présenter des signes de faiblesse et la prolifération des rats au sein des villes devient inquiétante.</p>
+                    <p>Nos anémomètres couplés aux thermomètres mettent en évidence un courant d\'air chaud venu du Nord de l\'Afrique ayant pour conséquences la dispersion des nuages ainsi qu\'un impact non négligeable sur la faune et la flore de l\'île.</p>'
+                ],
+                "lang" => "fr",
+                "background" => "secret",
+                "design" => "typed",
+                "chance" => "1",
+            ],
+            "fleur" => [
+                "title" => "Petite fleur démembrée",
+                "author" => "ninjaja",
+                "content" => [
+                    '<p>Ci-gît Marguerite.<br>
+                    Les zombies l\'ont aimée, un peu, beaucoup, passionnément, ...<br>
+                    Mort digne d\'une passionnée de puzzles.<br>
+                    </p>'
+                ],
+                "lang" => "fr",
+                "background" => "notepad",
+                "design" => "poem",
+                "chance" => "2",
+            ],
+            "Epita" => [
+                "title" => "Épitaphe",
+                "author" => "Panda",
+                "content" => [
+                    '<p>Il est mort comme il a vécu, en râlant et errant.</p>'
+                ],
+                "lang" => "fr",
+                "background" => "carton",
+                "design" => "typed",
+                "chance" => "2",
+            ],
+            "Epitb" => [
+                "title" => "Ci-git un sacré Bonhomme...",
+                "author" => "Wolverikkk",
+                "content" => [
+                    '<p>Furie61, reposes ici en paix !<br>
+                    Ta longue errance est final\'ment terminée.<br>
+                    Au cours de ta vie tu auras tout essayé...<br>
+                    Quand t\'etais eclaireur, ta capuche sautait.<br>
+                    T\'as dressé un bichon, Il t\'a mordu le pied.<br>
+                    T\'as pris un bouclier, et oublié d\'veiller.<br>
+                    Technicien dans les ruines, tu ressortais blessé.<br>
+                    T\'as meme bu de la flotte en etant goulifié !<br>
+                    T\'as fini comme ermite... ton bouquin a foiré...<br>
+                    Moi j\'crois bien que fouineur... ta pelle aurait pété...<br>
+                    </p>'
+                ],
+                "lang" => "fr",
+                "background" => "carton",
+                "design" => "poem",
+                "chance" => "2",
+            ],
+            "Epitc" => [
+                "title" => "L'expédition de Noël",
+                "author" => "Faucha",
+                "content" => [
+                    '<p>C\'était il y a bien longtemps, un peu après l’Épiphanie, alors que quarante survivants s\'apprêtaient à faire une grande fête et à admirer de grands feux d’artifice, un grand corbeau vint se poser au sommet de la tour de guet et laissa tomber une missive.</p>
+                    <p>La petite Manech s\'approcha, ramassa la lettre et la lut. C\'était un message de Deepnight et de kiroukou. Ils annonçaient la chute imminente de la ville.<br>
+                    C\'est alors que tous les chantiers disparurent, il ne restait plus que des plans parsemés dans les quatre directions du scrutateur.<br>
+                    Les survivants demeurèrent de glace au milieu du désert. On entendit soudain les cris de Callypige, tout le monde crut qu\'il lançait une malédiction.<br>
+                    En réalité, il venait juste de se coincer le pouce entre deux planches tordues alors qu\'il consolidait le grand fossé.<br>
+                    La petite Manech comprit que la situation était grave, la ville allait droit à sa perte. <br>
+                    Elle prit une ration d\'eau, un paquet de chips molles, un coupe-coupe et se dirigea, seule, à l\'ouest de la ville. Elle entra dans un supermarché qui avait déjà été pillé, elle n\'y trouva qu\'une liasse de billets.<br>
+                    Après avoir parcouru un long chemin, elle croisa la route de deux Oracles. Elle leur demanda leur aide pour savoir comment se défendre contre les zombies, le premier lui répondit « lol », le second lui remit en échange de sa liasse de billets un ouvre-boite. Manech continua son tracé. Elle dut affronter une meute de zombies qu\'elle massacra, deux par deux à l\'aide de son coupe-coupe. Elle arriva enfin à l\'entrée d\'un bunker abandonné, obstruée par une table Järpen sur laquelle était assis un gardien fondant comme neige au soleil. Il s\'était perdu dans l\'immense désert.<br>
+                    La petite Manech lui proposa aussitôt de le raccompagner en ville, il leur suffisait de suivre le tracé en vert du Grand Frère.<br>
+                    En chemin, ils rencontrèrent Bistouflex qui mourrait de soif, ils lui offrirent un café, trouvé en route, malheureusement, la caféine ne remplace pas l\'eau, Bistouflex n\'arriva jamais à bon port.<br></p>
+                    Les deux expéditionnaires furent acclamés par les autres habitants à leur retour : après la lecture de quelques plans déterrés aux alentours, le technicien Xemaro était formel, la table Järpen qu\'ils venaient de rapporter leur permettrait d\'améliorer leurs défenses.<br>
+                    Les citoyens voulaient fêter la bonne nouvelle, c\'est alors que le fouineur basstien revint avec le sac de feu Bistouflex et proposa pour célébrer Noël Oublié une partie de boules de sable. <br>
+                    Tout le monde participa et découvrit bien vite que les défenses ne pansent pas les blessures.<br>
+                    Le fouineur, quant à lui, commençait déjà à se barricader dans sa maison après avoir dérobé les paracétoïdes de la pharmacie commune...<br></p>'
+                ],
+                "lang" => "fr",
+                "background" => "notepad",
+                "design" => "written",
+                "chance" => "2",
             ],
             /**
             * SPANISH ROLE PLAY TEXTS
