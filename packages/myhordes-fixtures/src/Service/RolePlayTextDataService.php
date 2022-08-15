@@ -7165,7 +7165,88 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "tinystamp",
-                "design" => "classic"
+                "design" => "classic",
+                "chance" => "3",
+            ],
+            "stprd6" => [
+                "title" => "The 5th Limerick",
+                "author" => null,
+                "content" => [
+                    '<p><center><br><br>It filled Galileo with mirth,<br><br>
+                    To watch his two rocks fall to Earth,<br><br>
+                    He gladly proclaimed<br><br>
+                    "Their rates are the same<br><br>
+                    And quite independent of girth"!<br><br><br><br>
+                    Science limerick #1!</center>'
+                ],
+                "lang" => "en",
+                "background" => "tinystamp",
+                "design" => "classic",
+                "chance" => "3",
+            ],
+            "stprd7" => [
+                "title" => "The 6th Limerick",
+                "author" => null,
+                "content" => [
+                    '<p><center><br><br>Then Newton announced in due course,<br><br>
+                    His own law of gravity\'s force,<br><br>
+                    "It goes, I declare,<br><br>
+                    as the inverted square,<br><br>
+                    Of the distance from object to source"!<br><br><br><br>
+                    Science limerick #2!</center>'
+                ],
+                "lang" => "en",
+                "background" => "tinystamp",
+                "design" => "classic",
+                "chance" => "3",
+            ],
+            "stprd8" => [
+                "title" => "The 7th Limerick",
+                "author" => null,
+                "content" => [
+                    '<p><center><br><br>But remarkably Einstein\'s equation,<br><br>
+                    Succeeds to describe gravitation,<br><br>
+                    As spacetime that\'s curved<br><br>
+                    And it\'s this that will serve<br><br>
+                    As the planet\'s unique motivation"!<br><br><br><br>
+                    Science limerick #3!</center>'
+                ],
+                "lang" => "en",
+                "background" => "tinystamp",
+                "design" => "classic",
+                "chance" => "3",
+            ],
+            "stprd9" => [
+                "title" => "The 8th Limerick",
+                "author" => null,
+                "content" => [
+                    '<p><center><br><br>Yet the end of the story\'s not written,<br><br>
+                    By a new way of thinking we\'re smitten,<br><br>
+                    We twist and we turn<br><br>
+                    Attempting to learn<br><br>
+                    The Superstring Theory of Witten"!<br><br><br><br>
+                    Science limerick #4!</center>'
+                ],
+                "lang" => "en",
+                "background" => "tinystamp",
+                "design" => "classic",
+                "chance" => "3",
+            ],
+            "stpr10" => [
+                "title" => "The 9th Limerick",
+                "author" => null,
+                "content" => [
+                    '<p><center><br><br>A gentleman dining at Crewe,<br><br>
+                    Found a rather large mouse in his stew,<br><br>
+                    Said the waiter, "Don\'t shout,<br><br>
+                    or wave it about,<br><br>
+                    or the rest will be wanting one too"!<br><br><br><br>
+                    Nonsense Limerick #74!</center>'
+                ],
+                "lang" => "en",
+                "background" => "tinystamp",
+                "design" => "classic",
+                "chance" => "3",
             ],
             "stpr11" => [
                 "title" => "The 10th Limerick",
