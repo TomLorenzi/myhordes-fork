@@ -7050,7 +7050,8 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 ],
                 "lang" => "en",
                 "background" => "carton",
-                "design" => "postit"
+                "design" => "postit",
+                "chance" => "2",
             ],
             "stpat3" => [
                 "title" => "She’s the White Flower of the Blackberry",
