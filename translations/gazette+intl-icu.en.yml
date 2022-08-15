@@ -159,30 +159,30 @@ Pfff...: Pfff...
 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.': 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.'
 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...': 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...'
 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...': 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...'
-Arsen: Arsen
-Cyanolin: Cyanolin
-Neurotwinin: Neurotwinin
-Rizin: Rizin
-Botulinumtoxin: Botulinumtoxin
-Virunoir: Virunoir
-Chlorotwinat: Chlorotwinat
-Kaliumchlorid: Kaliumchlorid
-Kurare: Kurare
+Arsen: arsenic
+Cyanolin: cyanide
+Neurotwinin: strychnine
+Rizin: ricin
+Botulinumtoxin: botulinum toxin
+Virunoir: anthrax
+Chlorotwinat: chlorotwin
+Kaliumchlorid: sarin
+Kurare: curare
 'Zyanid (poison)': Zyanid (poison)
-Phenol: Phenol
-Ponasulfat: Ponasulfat
+Phenol: tetradoxin
+Ponasulfat: mercury
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.'
 'in der Nähe des Gemüsegartens': 'in der Nähe des Gemüsegartens'
 'in der Nähe der südlichen Stadtmauer': 'in der Nähe der südlichen Stadtmauer'
-'am Stadttor': 'am Stadttor'
-'am Aussichtsturm': 'am Aussichtsturm'
-'am westlichen Flügel der Stadt': 'am westlichen Flügel der Stadt'
-'an der nördlichen Stadtmauer': 'an der nördlichen Stadtmauer'
-'an unserer schwach gesicherten Flanke': 'an unserer schwach gesicherten Flanke'
-'in der Nähe des Brunnens': 'in der Nähe des Brunnens'
-'an der östlichen Stadtmauer': 'an der östlichen Stadtmauer'
-'in der Stadtmauer am Stadttor': 'in der Stadtmauer am Stadttor'
+'am Stadttor': 'at the town gates'
+'am Aussichtsturm': 'at the western wall'
+'am westlichen Flügel der Stadt': 'near the western quarter'
+'an der nördlichen Stadtmauer': 'at the northern wall'
+'an unserer schwach gesicherten Flanke': 'on our weakly secured flank'
+'in der Nähe des Brunnens': 'near the well'
+'an der östlichen Stadtmauer': 'at the eastern wall'
+'in der Stadtmauer am Stadttor': 'near the wall'
 Drops: Toast
 Whitie: Ernie
 Fettwanst: Click
@@ -208,16 +208,16 @@ Erdmännchen: capybara
 Wasserschwein: meerkat
 Sumpfschildkröte: toyger
 Kätzchen: kitten
-'einen Haufen Gerümpel ': 'einen Haufen Gerümpel '
-'einen Holzstapel ': 'einen Holzstapel '
-'einen Haufen Schrott': 'einen Haufen Schrott'
+'einen Haufen Gerümpel ': 'a load of garbage'
+'einen Holzstapel ': 'a pile of wood'
+'einen Haufen Schrott': 'a mound of rubbish'
 'einen toter Baumstamm': 'einen toter Baumstamm'
-'eine vergessene Leiter': 'eine vergessene Leiter'
-'einen Berg von Kisten': 'einen Berg von Kisten'
-'einen Turm aus Trümmern': 'einen Turm aus Trümmern'
-'einen Haufen Plunder': 'einen Haufen Plunder'
-'einen Steinhaufen': 'einen Steinhaufen'
-'einen Haufen Ramsch': 'einen Haufen Ramsch'
+'eine vergessene Leiter': 'a misplaced ladder'
+'einen Berg von Kisten': 'a stack of crates'
+'einen Turm aus Trümmern': 'some scaffolding'
+'einen Haufen Plunder': 'a pile of rubbish'
+'einen Steinhaufen': 'a pile of rocks'
+'einen Haufen Ramsch': 'a scrapheap'
 '<strong>{citizen1}s</strong> {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...': 'The {animal} which was christened {mascot} by someone or other was found cut in half this morning. One half was found in the well, which explains the strange-tasting rations today...'
 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.': 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.'
 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...': 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...'
