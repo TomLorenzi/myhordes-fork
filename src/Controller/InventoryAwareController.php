@@ -670,7 +670,7 @@ class InventoryAwareController extends CustomAbstractController
 
                             if ($bank_theft) {
 
-                                if ($this->random_generator->chance(0.6667)) {
+                                if ($this->random_generator->chance(0.6)) {
                                     $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
                                     $this->addFlash('error',$this->translator->trans('Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!', [], "game"));
                                 } else {
