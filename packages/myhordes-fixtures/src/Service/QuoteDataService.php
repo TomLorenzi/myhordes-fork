@@ -233,6 +233,13 @@ class QuoteDataService implements FixtureProcessorInterface {
             ['name' => 'de_071', 'content' => 'Was sind das für Knochen? Es ist Jochen!', 'author' => '', 'lang' => 'de'],
             ['name' => 'de_072', 'content' => 'Es gibt nur die Moral, die du selbst wählst.', 'author' => '', 'lang' => 'de'],
             ['name' => 'de_073', 'content' => 'Wenn die Seele frei ist, gibt es nichts mehr, das uns an diese Welt bindet...', 'author' => '', 'lang' => 'de'],
+            ['name' => 'de_074', 'content' => 'Moral ist, wonach man sich gut fühlt. Unmoral, wonach man sich schlecht fühlt.', 'author' => '', 'lang' => 'de'],
+            ['name' => 'de_075', 'content' => 'Wenn jemand sein Unglück vergißt, wird er dreist.', 'author' => '', 'lang' => 'de'],
+            ['name' => 'de_076', 'content' => 'Über seinen Schatten springen kann keiner; aber von ihm wegsehen jeder.', 'author' => '', 'lang' => 'de'],
+            ['name' => 'de_077', 'content' => 'Sehen ist anders als erzählt bekommen.', 'author' => '', 'lang' => 'de'],
+            ['name' => 'de_078', 'content' => 'Moral ist das Rückgrat der Schwachsinnigen.', 'author' => '', 'lang' => 'de'],
+            ['name' => 'de_079', 'content' => 'Eile: die Tüchtigkeit von Stümpern.', 'author' => '', 'lang' => 'de'],
+            ['name' => 'de_080', 'content' => 'Im Augenblick des Treffens beginnt bereits die Trennung.', 'author' => '', 'lang' => 'de'],
 
             // Spanish quotes
             ['name' => 'es_001', 'content' => 'A través de la ventana veo sombras pasar. Me da tanto miedo...', 'author' => '', 'lang' => 'es'],
