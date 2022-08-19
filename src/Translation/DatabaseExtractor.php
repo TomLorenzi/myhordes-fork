@@ -101,10 +101,15 @@ class DatabaseExtractor implements ExtractorInterface
             $this->insert($c, $escort_action->getTooltip(), 'items', EscortActionGroup::class);
         }
 
-        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
+        foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe) {
             /** @var Recipe $recipe */
             if ($recipe->getAction())
-                $this->insert( $c, $recipe->getAction(), 'items', Recipe::class );
+                $this->insert($c, $recipe->getAction(), 'items', Recipe::class);
+
+            if (!empty($recipe->getTooltipString()))
+                $this->insert($c, $recipe->getAction(), 'game', Recipe::class);
+        }
+
 
         foreach ($this->em->getRepository(ItemCategory::class)->findRootCategories() as $itemCategory)
             /** @var ItemCategory $itemCategory */
