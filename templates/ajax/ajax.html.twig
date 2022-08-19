@@ -8,7 +8,7 @@
                 <div id="apps-list">
                     <p>{{ 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:'|trans({}, 'global') }}</p>
                     <ul>
-                        {% for ex in apps %}
+                        {% for ex in apps|sort((a, b) => a.name <=> b.name) %}
                             {# @var ex \App\Entity\ExternalApp #}
                             {% if not ex.testing or ex.owner == app.user %}
                                 <li class="app-external" data-id="{{ ex.id }}">
