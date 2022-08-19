@@ -2331,3 +2331,4 @@ Stadt/Stadttor: Stadt/Stadttor
 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}': 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}'
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}'
 '{player} hat dich als "Freund" hinzugefügt.': '{player} hat dich als "Freund" hinzugefügt.'
+'Du hast {item_list} in {item} verwandelt.': 'Du hast {item_list} in {item} verwandelt.'
