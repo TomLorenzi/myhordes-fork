@@ -72,8 +72,8 @@
 'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.': 'Great job last night, the shaman and the guide of the world beyond are both dead so today might get a little monotonous. Tonight there will be a new election from among the survivors.'
 'Wir haben geahnt, dass dies passieren würde. <i class="dagger">†</i> {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.': 'We never thought we''d see the day : <i class="dagger">†</i> {cadaver1} killed themselves yesterday. They had been banging their head off walls and eating sand for days rather than drinking their ration of water...'
 'Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.': 'We''ll never hear from <i class="dagger">†</i> {cadaver1} again, as he decided to escape the zombie hordes by <strong>committing suicide</strong>.'
-'Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?': 'Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?'
-'Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...': 'Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...'
+'Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?': 'Further news: <strong>{cadavers} citizens committed suicide yesterday</strong>. Nice place to live, isn''t it?'
+'Nette Welle von Selbstmorden gestern, {cadavers} Kandidaten, von denen nicht einer versagt hat. Wenigstens das haben sie geschafft...': 'Nice wave of suicides yesterday, {cadavers} candidates, and none failed. At least they did that...'
 'Der Gerechtigkeit ist Genüge getan, ihr habt gestern dafür gestimmt, <i class="dagger">†</i> {cadaver1} zu hängen. Hat doch Spaß gemacht, nicht wahr?': 'Justice has been served, yesterday you voted to hang <i class="dagger">†</i> {cadaver1}. Well we need some kind of entertainment now there''s no X-Factor...'
 'Amüsant, <i class="dagger">†</i> {cadaver1} hat es nicht lange in der Stadt ausgehalt. Hängen auf dem öffentlichen Platz und Steinigung. Zivilisation ist schön!': '<i class="dagger">†</i> {cadaver1} didn''t last long in town. Hanged in the town square and stoned to death. No half-measures here! Isn''t civilisation grand?'
 '<i class="dagger">†</i> {cadaver1} wird niemanden mehr belästigen, da er mittlerweile an einem Seil schwingt... Die Gesetze der Stadt sind kein Witz!': '<i class="dagger">†</i> {cadaver1} won''t annoy anyone anymore, especially when he''s currently dangling from the end of a rope... We don''t mess around here!'
@@ -100,15 +100,15 @@
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': 'Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the southern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': 'Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the western wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': 'Forgetting how for a moment, but one of the [#] citizens missing outside last night found his way back to the town. They were seen near the eastern wall ! That said, they were missing both legs and they were dead in the minutes that followed. Grim.'
-'Nun, das sage ich...': 'Nun, das sage ich...'
-'Das ist doch Unsinn...': 'Das ist doch Unsinn...'
-'Die einen sagen dies, die anderen das...': 'Die einen sagen dies, die anderen das...'
-'Ich sags ja nur...': 'Ich sags ja nur...'
-'Komm schon, glaub mir.': 'Komm schon, glaub mir.'
-'Was für eine Organisation...': 'Was für eine Organisation...'
-'Wir werden nicht lange durchhalten, das sage ich euch.': 'Wir werden nicht lange durchhalten, das sage ich euch.'
-'Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.': 'Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.'
-'Das war knapp.': 'Das war knapp.'
+'Nun, das sage ich...': 'Well I say that...'
+'Das ist doch Unsinn...': 'That''s nonsense...'
+'Die einen sagen dies, die anderen das...': 'Some say this, others say that...'
+'Ich sags ja nur...': 'I''m just saying...'
+'Komm schon, glaub mir.': 'Come on, believe me.'
+'Was für eine Organisation...': 'What an organisation...'
+'Wir werden nicht lange durchhalten, das sage ich euch.': 'We won''t last long, I tell you.'
+'Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.': 'Another night like that and we won''t be here to talk about this kind of thing.'
+'Das war knapp.': 'That was close.'
 Pfff...: Pfff...
 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...': 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...'
 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.': 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.'
@@ -159,30 +159,30 @@ Pfff...: Pfff...
 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.': 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.'
 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...': 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...'
 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...': 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...'
-Arsen: Arsen
-Cyanolin: Cyanolin
-Neurotwinin: Neurotwinin
-Rizin: Rizin
-Botulinumtoxin: Botulinumtoxin
-Virunoir: Virunoir
-Chlorotwinat: Chlorotwinat
-Kaliumchlorid: Kaliumchlorid
-Kurare: Kurare
+Arsen: arsenic
+Cyanolin: cyanide
+Neurotwinin: strychnine
+Rizin: ricin
+Botulinumtoxin: botulinum toxin
+Virunoir: anthrax
+Chlorotwinat: chlorotwin
+Kaliumchlorid: sarin
+Kurare: curare
 'Zyanid (poison)': Zyanid (poison)
-Phenol: Phenol
-Ponasulfat: Ponasulfat
+Phenol: tetradoxin
+Ponasulfat: mercury
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.'
 'in der Nähe des Gemüsegartens': 'in der Nähe des Gemüsegartens'
 'in der Nähe der südlichen Stadtmauer': 'in der Nähe der südlichen Stadtmauer'
-'am Stadttor': 'am Stadttor'
-'am Aussichtsturm': 'am Aussichtsturm'
-'am westlichen Flügel der Stadt': 'am westlichen Flügel der Stadt'
-'an der nördlichen Stadtmauer': 'an der nördlichen Stadtmauer'
-'an unserer schwach gesicherten Flanke': 'an unserer schwach gesicherten Flanke'
-'in der Nähe des Brunnens': 'in der Nähe des Brunnens'
-'an der östlichen Stadtmauer': 'an der östlichen Stadtmauer'
-'in der Stadtmauer am Stadttor': 'in der Stadtmauer am Stadttor'
+'am Stadttor': 'at the town gates'
+'am Aussichtsturm': 'at the western wall'
+'am westlichen Flügel der Stadt': 'near the western quarter'
+'an der nördlichen Stadtmauer': 'at the northern wall'
+'an unserer schwach gesicherten Flanke': 'on our weakly secured flank'
+'in der Nähe des Brunnens': 'near the well'
+'an der östlichen Stadtmauer': 'at the eastern wall'
+'in der Stadtmauer am Stadttor': 'near the wall'
 Drops: Toast
 Whitie: Ernie
 Fettwanst: Click
@@ -208,16 +208,16 @@ Erdmännchen: capybara
 Wasserschwein: meerkat
 Sumpfschildkröte: toyger
 Kätzchen: kitten
-'einen Haufen Gerümpel ': 'einen Haufen Gerümpel '
-'einen Holzstapel ': 'einen Holzstapel '
-'einen Haufen Schrott': 'einen Haufen Schrott'
+'einen Haufen Gerümpel ': 'a load of garbage'
+'einen Holzstapel ': 'a pile of wood'
+'einen Haufen Schrott': 'a mound of rubbish'
 'einen toter Baumstamm': 'einen toter Baumstamm'
-'eine vergessene Leiter': 'eine vergessene Leiter'
-'einen Berg von Kisten': 'einen Berg von Kisten'
-'einen Turm aus Trümmern': 'einen Turm aus Trümmern'
-'einen Haufen Plunder': 'einen Haufen Plunder'
-'einen Steinhaufen': 'einen Steinhaufen'
-'einen Haufen Ramsch': 'einen Haufen Ramsch'
+'eine vergessene Leiter': 'a misplaced ladder'
+'einen Berg von Kisten': 'a stack of crates'
+'einen Turm aus Trümmern': 'some scaffolding'
+'einen Haufen Plunder': 'a pile of rubbish'
+'einen Steinhaufen': 'a pile of rocks'
+'einen Haufen Ramsch': 'a scrapheap'
 '<strong>{citizen1}s</strong> {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...': 'The {animal} which was christened {mascot} by someone or other was found cut in half this morning. One half was found in the well, which explains the strange-tasting rations today...'
 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.': 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.'
 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...': 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...'
@@ -291,7 +291,7 @@ Kätzchen: kitten
 'Einige aus unserer Stadt haben die Nacht gestern draußen verbracht. Sie sind bis jetzt nicht zurückgekehrt. Ich glaube, es besteht nur noch wenig Hoffnung, dass wir sie lebend wiedersehen...': 'Einige aus unserer Stadt haben die Nacht gestern draußen verbracht. Sie sind bis jetzt nicht zurückgekehrt. Ich glaube, es besteht nur noch wenig Hoffnung, dass wir sie lebend wiedersehen...'
 'Laut <strong>{citizen1}</strong>, der letzte Nacht {location} Wache geschoben hat, sind die {cadavers} Ausflügler von gestern noch nicht zurück. Das ist schlecht.': 'Laut <strong>{citizen1}</strong>, der letzte Nacht {location} Wache geschoben hat, sind die {cadavers} Ausflügler von gestern noch nicht zurück. Das ist schlecht.'
 'Unsere Gemeinschaft ist ein wenig geschrumpft. {cadavers} Einwohner haben es gestern Nacht nicht mehr rechtzeitig heim geschafft.': 'Unsere Gemeinschaft ist ein wenig geschrumpft. {cadavers} Einwohner haben es gestern Nacht nicht mehr rechtzeitig heim geschafft.'
-'Eilmeldung:': 'Eilmeldung:'
+'Eilmeldung:': 'Breaking News:'
 'Liebe Bürgerinnen und Bürger,': 'Liebe Bürgerinnen und Bürger,'
 'Neue Nachrichten:': 'Neue Nachrichten:'
 'Eine kleine Anekdote:': 'Eine kleine Anekdote:'

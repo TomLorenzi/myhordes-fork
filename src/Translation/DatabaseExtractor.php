@@ -106,7 +106,7 @@ class DatabaseExtractor implements ExtractorInterface
             if ($recipe->getAction())
                 $this->insert($c, $recipe->getAction(), 'items', Recipe::class);
 
-            if (!empty($recipe->getTooltipString()))
+            if ($recipe->getTooltipString())
                 $this->insert($c, $recipe->getTooltipString(), 'game', Recipe::class);
         }
 
