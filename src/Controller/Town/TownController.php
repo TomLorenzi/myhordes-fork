@@ -1321,7 +1321,7 @@ class TownController extends InventoryAwareController
         // If slavery is allowed and the citizen is banished, permit slavery bonus
         if (!$slavery_allowed && $citizen->getBanished() && !$building->getComplete())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        $slave_bonus = $citizen->getBanished();
+        $slave_bonus = $citizen->getBanished() && !$building->getComplete();
 
         // Check if all parent buildings are completed
         $current = $building->getPrototype();
