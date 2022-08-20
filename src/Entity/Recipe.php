@@ -82,6 +82,11 @@ class Recipe
      */
     private $stealthy = false;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $tooltip_string;
+
     public function __construct()
     {
         $this->provoking = new ArrayCollection();
@@ -225,6 +230,18 @@ class Recipe
     public function setStealthy(bool $stealthy): self
     {
         $this->stealthy = $stealthy;
+
+        return $this;
+    }
+
+    public function getTooltipString(): ?string
+    {
+        return $this->tooltip_string;
+    }
+
+    public function setTooltipString(?string $tooltip_string): self
+    {
+        $this->tooltip_string = $tooltip_string;
 
         return $this;
     }

@@ -8,7 +8,7 @@
                 <div id="apps-list">
                     <p>{{ 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:'|trans({}, 'global') }}</p>
                     <ul>
-                        {% for ex in apps %}
+                        {% for ex in apps|sort((a, b) => a.name <=> b.name) %}
                             {# @var ex \App\Entity\ExternalApp #}
                             {% if not ex.testing or ex.owner == app.user %}
                                 <li class="app-external" data-id="{{ ex.id }}">
@@ -49,14 +49,12 @@
                 {% block text_menu_content %}
                 <ul class="text-menu">
                     <li class="burger-button"><i class="fa fa-bars"></i></li>
-                    {% if is_granted('ROLE_USER') and (clock is not defined or clock.attack != 0) %}
-                        <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">
-                        <div class="tooltip help">
-                    		<p>{% trans from 'game' %}Mit den anderen Bürgern reden... {% endtrans %}</p>
-                        	<p style="color: #f0d79e;"><em>{% trans from 'game' %}Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.{% endtrans %}</em></p>
-                		</div>
-						{{ 'Forum'|trans({},'global') }}</li>
-                    {% endif %}
+                    <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">
+                    <div class="tooltip help">
+                        <p>{% trans from 'game' %}Mit den anderen Bürgern reden... {% endtrans %}</p>
+                        <p style="color: #f0d79e;"><em>{% trans from 'game' %}Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.{% endtrans %}</em></p>
+                    </div>
+                    {{ 'Forum'|trans({},'global') }}</li>
                     {% block menu_text %}
                         {% if app.user and (clock is not defined or clock.attack != 0) %}
                             {% if app.user.activeCitizen %}

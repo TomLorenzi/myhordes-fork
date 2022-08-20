@@ -1,6 +1,5 @@
-MyHordes is an open implementation of the browser game "Hordes" and its other versions by Motion-Twin and developed by the community.
-All files into folder `assets/img` are the proprety of Motion-Twin, and are under [CC-BY-NC-SA-4.0 license](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html).
-The rest of the project, is under [AGPL3 license](https://spdx.org/licenses/AGPL-3.0-or-later.html).
+MyHordes is an open implementation developed by the community of the browser game "Hordes" and its other versions made by [Motion-Twin](https://motion-twin.com/fr/).
+The whole folder is under [CC-BY-NC-SA-4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/), some part of the code use [Hordes open-source code](https://github.com/motion-twin/WebGamesArchives/tree/main/Hordes).
 
 # Development Installation
 #### Tested on Debian 10, Ubuntu 19.04 

@@ -1812,7 +1812,7 @@ class ActionHandler
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
-                $base = T::__('Du hast {item_list} zu {item} umgewandelt.', 'game');
+                $base = (!empty($recipe->getTooltipString()) ? $recipe->getTooltipString() : T::__('Du hast {item_list} zu {item} umgewandelt.', 'game'));
                 break;
         }
 
