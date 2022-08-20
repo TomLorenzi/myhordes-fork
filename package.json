@@ -3,7 +3,7 @@
         "@babel/preset-react": "7.18.6",
         "@fortawesome/fontawesome-free": "6.1.2",
         "@symfony/webpack-encore": "3.0.0",
-        "core-js": "3.23.3",
+        "core-js": "3.24.1",
         "file-loader": "6.2.0",
         "less": "4.1.3",
         "less-loader": "11.0.0",
@@ -24,7 +24,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@ruffle-rs/ruffle": "0.1.0-nightly.2022.8.4",
+        "@ruffle-rs/ruffle": "0.1.0-nightly.2022.8.19",
         "buffer": "6.0.3",
         "latest-createjs": "1.0.24",
         "process": "0.11.10",
@@ -34,6 +34,6 @@
         "stream": "0.0.2",
         "stream-browserify": "3.0.0",
         "string.prototype.matchall": "4.0.7",
-        "swagger-ui": "4.12.0"
+        "swagger-ui": "4.14.0"
     }
 }

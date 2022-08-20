@@ -8,7 +8,7 @@ image: registry.gitlab.com/eternaltwin/myhordes/myhordes-registry:latest
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
 services:
-  - mariadb:10.7
+  - mariadb:10.8
 
 # Set any variables we need
 variables:
