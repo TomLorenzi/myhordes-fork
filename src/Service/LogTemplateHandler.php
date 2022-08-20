@@ -179,8 +179,13 @@ class LogTemplateHandler
                 // Non ICU-aware
                 elseif ($typeEntry['type'] === 'user') {
                     $user = $this->entity_manager->getRepository(User::class)->find( $variables[$typeEntry['name']] );
+                    $userName = match ($user->getId()) {
+                        66 => $this->trans->trans('Der Rabe', [], 'global'),
+                        67 => $this->trans->trans('Animateur-Team', [], 'global'),
+                        default => $user->getName()
+                    };
                     $transParams['{'.$typeEntry['name'].'}'] =
-                        $user ? "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$user->getName()}</span>" : '<span class="username">???</span>';
+                        $user ? "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$userName}</span>" : '<span class="username">???</span>';
                 }
                 elseif ($typeEntry['type'] === 'itemGroup') {
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
