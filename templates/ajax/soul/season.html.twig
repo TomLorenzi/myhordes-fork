@@ -205,7 +205,7 @@
                                 <b>{{ 'Deine Platzierung'|trans({},'global') }}</b><br/>
                                 <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': user_rank},'global')|raw }}</span>
                                 {% if page_size is defined %}
-                                    {% set link_page = (user_rank / page_size)|round(1,'ceil') %}
+                                    {% set link_page = (user_rank / page_size)|round(0,'ceil') %}
                                     {% if link_page != page %}
                                         <div><a href="#" x-ajax-href="{{ path('soul_season_solo', {page: link_page, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Zu meinem Eintrag springen'|trans({},'global') }}</a></div>
                                     {% endif %}
