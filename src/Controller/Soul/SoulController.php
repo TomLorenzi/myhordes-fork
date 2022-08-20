@@ -89,6 +89,7 @@ class SoulController extends CustomAbstractController
     const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
     const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
     const ErrorUserConfirmToken              = ErrorHelper::BaseSoulErrors + 11;
+    const ErrorUserEditUserNameTooLong       = ErrorHelper::BaseSoulErrors + 12;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
@@ -667,8 +668,8 @@ class SoulController extends CustomAbstractController
 
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
 
-        if ($name_change && !$this->user_handler->isNameValid($displayName))
-            return AjaxResponse::error(self::ErrorUserEditUserName);
+        if ($name_change && !$this->user_handler->isNameValid($displayName, $too_long))
+            return AjaxResponse::error(!$too_long ? self::ErrorUserEditUserName : self::ErrorUserEditUserNameTooLong);
 
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);

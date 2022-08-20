@@ -769,7 +769,7 @@ class UserHandler
      * @param string $name The username to test
      * @return bool The validity of the username
      */
-    public function isNameValid(string $name): bool {
+    public function isNameValid(string $name, ?bool &$too_long = null): bool {
         $invalidNames = [
             // The Crow
             'Der Rabe', 'Rabe', 'Le Corbeau', 'Corbeau', 'The Crow', 'Crow', 'El Cuervo', 'Cuervo',
@@ -789,7 +789,8 @@ class UserHandler
         foreach ($invalidNameStarters as $starter)
             if (str_starts_with($name, $starter)) return false;
 
-        return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && strlen($name) <= 16 && $closestDistance > 2;
+        $too_long = strlen($name) > 16;
+        return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && !$too_long && $closestDistance > 2;
     }
 
     public function getMaximumEntryHidden(User $user): int {
