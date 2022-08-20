@@ -699,11 +699,6 @@ class TownController extends InventoryAwareController
             $em->persist($existing_complaint);
             $em->flush();
 
-            if ($complaint_level != 0) {
-                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0, ['num' => $num_of_complaints] );
-                $em->flush();
-            }
-
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -718,6 +713,11 @@ class TownController extends InventoryAwareController
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
+
+        if (($complaint_level > 0 && !$banished) || $complaint_level < 0) {
+            $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0, ['num' => $num_of_complaints] );
+            $em->flush();
+        }
 
         if ($a !== null) {
             $m = [];
