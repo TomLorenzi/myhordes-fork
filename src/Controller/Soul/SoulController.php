@@ -1117,7 +1117,7 @@ class SoulController extends CustomAbstractController
         $user->setNoAutoFollowThreads( !$parser->get('autofollow', true) );
         $user->setClassicBankSort( (bool)$parser->get('clasort', false) );
         $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
-        $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', true) );
+        $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', 0) );
         $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();

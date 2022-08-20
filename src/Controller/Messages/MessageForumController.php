@@ -273,8 +273,9 @@ class MessageForumController extends MessageController
         if ($from === $to) return false;
         $setting = $to->getSetting( UserSetting::NotifyMeWhenMentioned );
         switch ($setting) {
-            case 0: return false;
-            case 1: if (!$town) return false; break;
+            case 0: return false;                       // Never
+            case 1: if (!$town) return false; break;    // Only town
+            case 3: if ($town)  return false; break;    // Only global
         }
         if ($this->userHandler->checkRelation($to,$from,SocialRelation::SocialRelationTypeBlock)) return false;
         return true;
