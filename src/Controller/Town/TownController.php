@@ -2051,7 +2051,7 @@ class TownController extends InventoryAwareController
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['{citizen}' => "<span>" . $c->getName() . "</span>"], 'game');
             $this->entity_manager->persist( $this->log->shamanHealLog( $this->getActiveCitizen(), $c ) );
 
-            $transfer = $this->random_generator->chance(0.1);
+            $transfer = $this->random_generator->chance(0.05); //same than Hordes
             if($transfer){
                 $do_transfer = true;
                 $witness = $this->citizen_handler->hasStatusEffect($citizen, 'tg_infect_wtns');
