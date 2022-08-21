@@ -709,7 +709,7 @@ class TownAddonsController extends TownController
         if ($citizen->getAp() < $ap || $ch->isTired($citizen)) return AjaxResponse::error(ErrorHelper::ErrorNoAP);
 
         // Different target zone
-        if ($this->random_generator->chance(0.15)) {
+        if ($this->random_generator->chance(0.10)) {
 
             $alt_zones = [];
 
