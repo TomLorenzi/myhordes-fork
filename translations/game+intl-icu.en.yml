@@ -75,7 +75,7 @@ Zombies: Zombies
 'Qualität der Abschätzung': 'Estimation quality:'
 'Abschätzung verbessern': 'Scan the surroundings'
 'Morgige Abschätzung': 'TOMORROW''S ATTACK'
-'Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses ''alles'' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.': 'Wow, you can see pretty much everything from here! It''s just a shame that this "everything" is limited to an empty sandy desert. However, if you take a closer look, you can count the zombies that are crawling towards the city.'
+"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen."
 'Tag {day}': 'Day {day}'
 Rucksack: Rucksack
 Truhe: Chest
@@ -272,14 +272,14 @@ Krankenwagen: Ambulance
 Lagerhalle: Warehouse
 'Leeres Parkhaus': 'Disused Car Park'
 'Liegengebliebener Kampfpanzer': 'Broken-down Tank'
-'Motel ''Dusk''': 'Motel 666 Dusk'
+"Motel 'Dusk'": "Motel 'Dusk'"
 'Militärischer Wachposten': 'Army Outpost'
 Postfiliale: Post Office
 Räuberhöhle: Once-inhabited Cave
 Schützengraben: Equipped Trench
 Stadtbücherei: Town Library
 'Tante Emma Laden': 'Mini-market'
-'Truck ''Rathaus auf Rädern''': 'The ''Mayor-Mobile'''
+"Truck 'Rathaus auf Rädern'": "Truck 'Rathaus auf Rädern'"
 'Umgekippter Laster': 'Wrecked Transporter'
 'Verbrannte Grundschule': 'Burnt School'
 'Verfallenes Bürogebäude': 'Dilapidated Building'
@@ -289,7 +289,7 @@ Stadtbücherei: Town Library
 'Verlassene Silos': 'Disused Silos'
 'Versperrte Straße': 'Blocked Road'
 'Verwilderter Park': 'Abandoned Park'
-'Waffengeschäft Guns''n''Zombies': 'Guns ''n'' Zombies Armoury'
+"Waffengeschäft Guns'n'Zombies": "Waffengeschäft Guns'n'Zombies"
 Warenlager: Warehouse
 'Zelt eines Bürgers': 'Citizen''s Tent'
 'Zerstörte Apotheke': 'Destroyed Pharmacy'
@@ -373,7 +373,7 @@ Werkstatt: Workshop
 'Die Zone untersuchen': 'Inspect the zone'
 'Du schaust dir die Gegend etwas genauer an...': 'You inspect the surroundings...'
 'Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.': 'Sleeping somewhere like this is basically a form of suicide, it''s that simple. You''ll see...'
-'Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich ''ne Zyanidkapsel schlucken.': 'You reckon your chances of surviving here are hee haw... Might as well take some cyanide now.'
+"Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.": "Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken."
 'Rucksack auf dem Boden ausleeren': 'Empty your Rucksack on the Ground'
 'Heute ist nichts Erwähnenswertes passiert...': 'Nothing exciting today...'
 'Unbekannte Todesursache': 'Unknown cause of death'
@@ -387,7 +387,7 @@ Dehydration: Terminal dehydration
 Verhungert: Ghoul died of starvation
 'Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.': 'You have been dying all day, wandering around, looking for a victim to put in your mouth... But the hours have passed and no opportunity has presented itself. Eventually, you lost your strength slowly. Very slowly. Until even breathing became a pain… Then in a final gasp, you let out a terrible, inhuman, desperate howl.'
 Drogenabhängigkeit: Withdrawal
-'Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht''s schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.': 'Drugs are fine when you''ve got some. When your stash runs out, it''s a whole other ball game... You start shaking, then your body empties its contents every ten minutes. When your dependance gets worse, you end up losing your mind. That''s when you see people swallowing pebbles, thinking they''ve found pills.'
+"Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.": "Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst."
 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.': 'Little by little, the illness spreads inside you... Quickly, the signs of the infection start to show on your body: wounds, bruising, decomposing flesh... Up until the final agony, which lasts several hours. Death is now almost a relief.'
 Zyanid: Suicide by ingestion of Cyanide
 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll''s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...': 'Rather than continue living with this band of losers, you decided to simplify your existence... by shortening it somewhat. In short, by a day or so...'
@@ -408,7 +408,7 @@ Kopfschuss: Shot in the head
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'Some actions cannot be forgiven. Take, for example, the case of the cavern: your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn''t have to cry for long...'
 'Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.': 'An old pump which is rusting away, but is nonetheless capable of drawing water in the desert... The only problem is that even if you manage to get it working, the water will gererally be undrinkable and will need to be purified in town with the appropriate equipment..'
 'Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.': 'An old bicycle hire warehouse, littered with pieces of metal, tools and all kinds of debris.'
-'Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das ''weitverzweigte Netzt'' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.': 'The turntable in the middle of this rail depot constantly dispatched and received merchandise from all over the world, 24 hours a day. Today, all that remains is a 150 metre long section, maybe a bit more if you include the remaining rails.'
+"Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.": "Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit."
 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?': 'The remains which litter the corridors of this improvised hospital must be what is left of the patients. It''s difficult to say how many must have died here on the night of the attack... Maybe if you count the number of arms on the ground and divide by two ?'
 'Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.': 'The only things taking off or landing at this crumbling aerodrome are the flies. Maybe if you forage around in the warehouses you will find something useful. Like, say, an A380 in working order.'
 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.': 'This imposing building stretches over several hundred metres. It is split into numerous rooms but many of them collapsed a long time ago. If you look at the number of bullet holes and improvised barricades, it seems that this police station was the scene of some particularly violent confrontations.'
@@ -417,12 +417,12 @@ Kopfschuss: Shot in the head
 'Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.': 'At one time, this would certainly have been one of the most trendy joints on the M25, with watered-down drinks, the aroma of stale piss and dead rats on the bar. You must be the first person to set foot in here in years.'
 'Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.': 'Looks like an altercation between a small van and a station wagon... This minor accident seems to have caused a substantial pile-up judging by the number of burnt corpses lying around.'
 'Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.': 'This bar is hidden behind a small hill in such a location that you could easily have walked straight past it without realising. The interior is decorated with countless black and white portraits and photos. There is often a guy in the pictures wearing some striped pyjama-type outfit standing next to various other people.'
-'Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: ''Plündern Sie uns bevor es andere tun!''': 'A veritable Mecca for the DIY enthusiast. A paradise full of invaluable treasures for a world like ours... Their advertising slogan is even more appropriate nowadays: Pillage our store before someone else beats you to it!'
+"Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'": "Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'"
 'Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät': 'A huge metal box-like creation stuck in the middle of nowhere. It would usually be found beside a building site, and once upon a time it probably was, but there is no sign of it today. Well, except this ''cabin''...'
 'Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.': 'If you''re a bit peckish, esurient or just plain hungry, whatever you do, don''t stop here! Here it''s the chef that wants to eat... you... after he cuts off your head with a circular saw.'
 'Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !': 'The home of a certain Duke R. Cooke, and if one is to believe the plaque on the door... a home for Heroes... this place is much bigger than a villa, it''s a fully equipped fortress!'
 'Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.': 'The burnt remains of a small forest. It was probably a nice area beforehand... Now you''re just hoping you won''t have to spend the night here.'
-'Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: ''Lecker, die esse ich doch mal gleich''': 'An old mine which has not resisted the ravages of time well. God knows what caprice could have led people to look so deep underground to find something useful. Especially when you only just have to scratch the surface to find some delicious cockroaches to crunch on! You start to feel hungry just thinking about it...'
+"Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'": "Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'"
 'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.': 'This mineral extraction zone bears all the hallmarks of a terrible accident: the hillside seems to have collapsed onto the workers, machins and buildings below.'
 'Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...': 'It looks like a large metal disk with what appears to be some kind of cockpit mounted on top. It could also be some type of high-tech combine harvester.'
 'E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...': 'PI-KEYA: These enormous stores used to be in every city (always rather annoyingly situated on the outskirts). They specialised in the manufacture and sale of cheap furniture, usually with one bolt / screw / fastener missing. It is said that the poor quality of their products was one of the reasons for society going to ruin...'
@@ -441,7 +441,7 @@ Kopfschuss: Shot in the head
 'Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.': 'This was the storage unit for a department store which went to the wall some time ago. So this would lead you to think that the thirty corpses hanging in stockroom 2 were the board of directors. Now you just need to work out if it was a mass suicide (the fact that they all have their hands tied together confuses you though...).'
 'Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...': 'An almost completely buried underground parking lot. An ideal venue to ''go quietly into the night'' as long as nobody hears you...'
 'Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...': 'This miltary vehicle is like the metaphorical food can. The soldier is inside, playing the role of a sardine, and a hundred zombies outside are playing the hungry citizen. The citizen wins...'
-'Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: ''Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...''.': 'You ask yourself what kind of person would enjoy spending a night in a shabby hole like this motel. No doubt some sleazy sales rep whose dodgy past will catch up with him sooner or later. I really must check out room 215, you think to yourself, without really knowing why''.'
+"Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.": "Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'."
 'Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !': 'The soldiers stationed here were prepared for anything: weapons, supplies, and a 150m security perimeter. Anything except their lieutenant eating them during the night. Joking aside, with a solid wall and a healthy dictatorship, (from a survival point of view) there''s nothing like it!'
 'Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...': 'This building seems to have resisted the ravages of time, a vestige of the postal service of years ago. It''s unlikely that you''ll find anything of great interest here, unless you like reading...'
 'Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...': 'A hole in the ground that has been somewhat concealed by some planks and some sand. It opens out into a large humid cavern filled with all kinds of debris, no doubt the result of pillaging by a neighbouring town. Who could say that your town wasn''t built using ill-gotten gains from such pillaging ? Perhaps the first citizens were responsible for these attacks...'
@@ -453,28 +453,28 @@ Kopfschuss: Shot in the head
 'In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.': 'A nice office building where people used to get on with their work, starting early in the morning, surrounded by anonymous colleagues, trying to finish who knows what project but with one clear goal: their own survival. You think to yourself that maybe things haven''t really changed all that much...'
 'Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.': 'Someone lived here a LONG time ago. Perhaps someone who was surrounded by a family who loved them and with whom they spent many happy hours together ? Today, all that remains is a little dust and utter desolation... and the occasional corpse who trudges towards you, gnashing its teeth.'
 'Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.': 'It''s impossible to guess what they were wanting to build here. It could have been a school, a car park, a department store... The rusting metal supports are the only remaining evidence of whatever mysterious project was underway here.'
-'Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: ''Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...''. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...': 'Wow - this is a bloody godsend! A well which still works! Completely lost in the middle of nowhere there is nobody here with their rulebook to tell you ''Don''t do this, don''t do that, don''t take too much water, blah blah blah...'' Go on, take a drink, it''ll be our little secret...'
+"Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...": "Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein..."
 'Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...': 'Originally constructed for storing grain, but as time passed and the grain ran out, the tanks filled with rainwater (and a dead rat). You''ll need the right kit to make use of it though...'
 'Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...': 'Something truly bizarre seems to have happened here: a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...Something truly bizarre seems to have happened here: a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...'
 'Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.': 'A place of peace and serenity... If you are armed and ready to fight for your life. The surrounding vegetation is sinister and smells strongly of death, unidentified creatures lurk in the shadows... You have the overwhelming feeling that some creature is going to burst out from a hedge and attack you.'
-'Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von ''Ereignissen'' sich hier abgespielt haben...': 'If you like to menace, maim or murder, you''ve hit the mother lode here... The shrapnel stuck in the walls, bullet holes and wreckage all around give you a good idea of what genre of ''events'' took place here...'
+"Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...": "Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben..."
 'Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...': 'The door to this supermarket stockroom has thus far resisted would-be pillagers... surely there must be something tasty inside worth having...'
-'Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: ''Shenji''': 'A good hideout, that''s for sure. Whoever put this up certainly knew how to keep his ass well away from zombie clutches: natural camouflage, good all-round visibility, multiple exits and even a hole to hide underground if need be. The name ''C. Norris'' has been written on the canvas in unicorn''s tears.'
+"Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'": "Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'"
 'Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.': 'A small local pharmacy... serving the erm... middle of the desert apparently. The unmentionable smells make you think of everything except medicines.'
 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...': 'It doesn''t really look like a bar any more, but the sign that is half-buried in the sand and the presence of some broken optics don''t leave you in much doubt. Most of the bottles are broken, but you can almost certainly find something useful here...'
 'Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...': 'There''s a distinct shortage of shelter here. You feel a little bit exposed.'
-'Außer ein paar ''natürlichen'' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.': 'This zone offers nothing more than minimal "natural" protection. You''ll just need to make do with what comes to hand.'
+"Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.": "Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln."
 'Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.': 'After a quick look around, it looks like you could find a good hiding place here.'
 'An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...': 'For those looking to spend the night, there are a few hideouts in this zone...'
 'In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.': 'If required, there are some top-notch hideouts here...'
 'Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.': 'This seems like the ideal place to spend the night, as it looks like there is no shortage of hiding places.'
 'Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...': 'The presence of several zombies in surrounding zones is particularly worrying...'
 'Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.': 'The large number of zombies roaming around is definitely not an advantage ...'
-'Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock ''ne Runde Kopf oder Zahl zu spielen?': 'You reckon your chances of surviving here are really poor. Maybe you should play heads or tails?'
+"Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?": "Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?"
 'Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.': 'You reckon your chances of surviving here are poor. Difficult to say.'
 'Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...': 'You reckon your chances of surviving here are limited, but tempting. However, accidents happen...'
 'Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.': 'You reckon your chances of surviving here are largely satisfactory, as long as nothing unforeseen happens.'
-'Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt''s nur noch Daumen drücken!': 'You reckon your chances of surviving here are decent: you just have to hope for the best!'
+"Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!": "Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!"
 'Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.': 'You reckon your chances of surviving here are good, you should be able to spend the night here.'
 'Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.': 'You reckon your chances of surviving here are optimal. Nobody would see you, even if they were looking straight at you.'
 Wächt: W-Men
@@ -576,7 +576,7 @@ Ausgrabungsarbeiten: Excavations
 Hauseinrichtung: Decoration
 'Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.': 'The number of decoration points you have taken the trouble to add to your dwelling place.'
 'Letzte Verteidigungslinie': 'Last line of defence'
-'Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde ''empfangen'' hat...': 'You were one of the last people to see the Hordes descend on the town...'
+"Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...": "Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat..."
 Drogen: Drugs
 'Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.': 'The number of funny little pills you have swallowed (or hidden elsewhere...)..'
 Drogenerfahrungen: Drug Tests
@@ -600,7 +600,7 @@ Schusseligkeiten: Breakages
 Masochismus: Masochism
 'Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.': 'The number of joyous moments in all this suffering.'
 Event-Auszeichnungen: Community Awards
-'Auszeichnung für die Teilnahme an Events bei ''Die Verdammten''.': 'Rewards earned through working with the community.'
+"Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.": "Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'."
 'Wunderwerk: Sandschloss': 'Wonder: Sandcastle'
 'Das hast du nicht wirklich gebaut?': 'You really built that?'
 'Wunderwerk: Riesiger KVF': 'Wonder: Giant BRD'
@@ -624,7 +624,7 @@ Dehydrationstode: Deaths by Dehydration
 'Tödliche Infektionen': 'Deaths by Infection'
 'Anzahl der Infektionen, die dich das Leben gekostet haben.': 'Number of deaths from generalised infection.'
 'Tod durch Entzug': 'Deaths from withdrawal'
-'Die Anzahl der Male, in denen dein unfreiwilliger ''cold turkey'' gescheitert ist...': 'Nights you didn''t see the other side of, due to lack of drugs.'
+"Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...": "Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist..."
 'Letzter Toter': 'Last Man Standing'
 'Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.': 'You were the last to die! Very few citizens have accomplished this feat!'
 'Letzter Toter in einer Pandämoniumstadt': 'Last Man Standing - Hardcore!'
@@ -668,7 +668,7 @@ Stadtwächter: Watchman
 'Getötete Zombies': 'Zombies eliminated'
 'Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.': 'Total number of the living-dead you have sent back underground by whatever means.'
 'Ehemaliger Beta-Tester': 'In with the bricks'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist.': 'An extremely rare distinction, awarded only to the very earliest citizens of ''Die2Nite''.'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.": "Dies ist eine äußerst seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist."
 'Sandbälle! Yeah!': 'Sand balls!'
 'Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...': 'Number of sandballs successfully thrown at another citizen''s chevy chase.'
 Kreuzigung: Crucifixion
@@ -837,7 +837,7 @@ Zusammenbauen: Assemble
 'Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.': 'It''s not as appetising as a nice, fresh, wriggling human, but it does the job and makes your voracity subside... a little. Fortunately, the meat way quite gamey, this meal would have been dreadful otherwise.'
 'Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.': 'You violently attacked {citizen}! The fight degenerated rapidly and resulted in you <strong>seriously wounding the other citizen!</strong><hr />The citizens have all been told...'
 'Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!': 'Unexpectedly, {citizen} collapsed with a ungodly gurgle, their eyes rolling back in their head... Their body is literally decomposing in places and the smell of death fills the air! The horrible truth slaps you in the face: <strong>{citizen} was a Ghoul!</strong>'
-'Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M''Kay?': 'Steady on there, by all accounts there are <strong>no ghouls in town</strong>, so there''s no need to go smacking people. Mmkay pumpkin?'
+"Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?": 'Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt <strong>noch keinen Ghul</strong> gibt.'
 '{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.': 'You can''t seriously want to attack someone who is already injured... can you?'
 'Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.': 'You violently attacked {citizen}! You exchange blows for a while, until you finally separate from each other mostly unharmed.<hr />The citizens have all been told...'
 'Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als {citizen} wieder erwacht, scheint er von seiner Angststarre befreit zu sein.': 'There''s nothing better than fear to vanquish terror. You remove your Shaman mask and gently blow a home-made hallucinogenic powder onto their face, to induce a sleep-walking state. Your tete-a-tete quickly provokes "pavor nocturnus". When they reawaken {citizen} seems to have been relieved from their terrorized state.'
@@ -920,7 +920,7 @@ Zonenmarkierer: Zone marker
 '[nichts]': '[ nothing ]'
 Seelenpunkte: Soul Value
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'The number of soul points you have accumulated in the course of your many lives.'
-'Und wieder ''ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!': 'That''s one body less! † {disposed} has been thrown out by {citizen}!'
+"Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!": "Und wieder 'ne Leiche weniger! {disposed} wurde von † {citizen} entsorgt!"
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': '{citizen} has used water to burn † {disposed}''s corpse.'
 '{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': '{citizen} made it rain and killed {kills} Zombies.'
 'Der Bürger {citizen} hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt {items}.': 'The citizen {citizen} found a secret hiding place (presumably that of an exiled fellow citizen)! It contained {items}..'
@@ -1067,7 +1067,7 @@ Quarantäne: Quarantine
 'Der letzte Tote in dieser Stadt!': 'The last dead man in this city!'
 'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.': 'The last dead person will only receive a reward if they have survived 5 full days.'
 'Mit den anderen Bürgern reden...': 'Speak to the other citizens in your town and get organized if you want to survive...'
-'Lesen und Nutzen des Forums sind in ''MyHordes'' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.': 'Reading and chatting on the forums is critical in ''MyHordes''! That''s where all the important decisions are made, by the community itself.'
+"Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.": "Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen."
 'Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...': 'Your personal story built from all your previous lives ...'
 'Spielhilfe aufrufen.': 'Check the online game guide for ''MyHordes''.'
 'Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.': 'Have you looked under "How to play"? You can find the link under the town map.'
@@ -1088,7 +1088,7 @@ Stadtrat: Town Council
 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011': 'Extremely rare brand reserved for animators present at the Motion Twin stand of the 2008 Video Game Festival in Paris!'
 'Video Game Festival 2010': 'Video Game Festival 2010'
 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!': 'You were present at the Video Game Festival in Paris in 2010: thank you!'
-'FJV''08 Kanonenfutter': 'FJV''08 cannon fodder'
+"FJV'08 Kanonenfutter": "FJV'08 Kanonenfutter"
 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.': 'The bearer of this brand participated in the big hunt organized at the 2008 Video Game Festival.'
 Community-Auszeichnung: Clash Team
 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.': 'Awarded for being part of the event team in the Clash of the Titans. Reporters, Video Makers, Town Leaders, we salute you.'
@@ -1125,7 +1125,7 @@ Schlachtenbummler: Clash Titan
 'Zuletzt bearbeitet: {date}': 'Last edited: {date}'
 'Von einem Moderator bearbeitet.': 'Edited by a Moderator.'
 'Nur altgediente Helden können auf die Wandtafel schreiben': 'Only veteran heroes can write on the chalkboard'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist. Drogen sind nicht gut.': 'An extremely rare distinction, awarded only to the very earliest citizens of ''MyHordes''. Drugs are not good.'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.": "Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut."
 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="{path}" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.': 'Constructions marked with this symbol "<img alt="(!)" src="{path}" />" are temporary: They will be destroyed at midnight, immediately AFTER the attack. To make use of it again tomorrow, it must be rebuilt again tomorrow.'
 'Du hast <strong>keine neue Privatnachricht</strong> erhalten. Eine Liste aller Bürger findest du im <span class="link" x-ajax-href="{path}">Verzeichnis der Stadt</span>.': 'You have <strong>not received any new private messages</strong>. You can find the list of citizens in the <span class="link" x-ajax-href="{path}">town directory</span>.'
 'In diesem Bereich kannst du an der <strong>Errichtung neuer Gebäude und Bauprojekte mitarbeiten</strong>. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.': 'This area allows you to <strong>participate in the construction of new buildings</strong>. Start by collecting materials in the desert (wood, metal...), then use your Action Points (AP) to help construct whichever building you choose.'
@@ -1293,7 +1293,7 @@ Nervenkitzelsucher: Horizon traveller
 Tunnelblicker: Regularly A-mazed!
 'Im Irrgarten': 'Compass Included'
 'Inklusive Kompass': 'Buried Voluntarily'
-'Wo klemmt''s?': 'Key hee hee!'
+"Wo klemmt's?": "Wo klemmt's?"
 Dietrich: How about some Chubb-ly?
 'Sesam, öffne dich...': 'Sesame, shift your A...'
 Türöffner: Deadbolt Dick
@@ -1342,7 +1342,7 @@ Hannibalfan: Dr Death's Dietician
 Totmacher: Check out my skin sombrero!
 'Jeffrey Dahmer': 'Lunches like Lecter'
 'Fast schon ein Zombie...': 'Wannabe Zombie...'
-'Schmeckt am besten wenn''s noch schreit!': 'It''s better when they scream.'
+"Schmeckt am besten wenn's noch schreit!": "Schmeckt am besten wenn's noch schreit!"
 'Die Macht der Proteine': 'Full of protein.'
 Zombieliebling: Zombie favourite
 'Ich bin in der Hölle aufgewachsen.': 'Hell is a walk in the park.'
@@ -1605,7 +1605,7 @@ Wachsam: Uber-Aware
 Paranoid: Paranoid and Proud
 'Fels in der Brandung': 'The Rock!'
 'Archi-Mädlicher Illustrator von Pi': 'I can recite pi to infinity!'
-'Muad''Dib': 'Three rivers dam... That''s adorable.'
+"Muad'Dib": "Muad'Dib"
 'Am 7. Tag erschuf er den Fleischkäfig': 'And on the 7th day, he did not rest!'
 'Das Unnütze mit dem Angenehmen verbinden': 'Chief DIY'
 'Verrückter Architekten-Visionär': 'Visionary Architect'
@@ -1629,7 +1629,7 @@ Eimerhalter: Guard of the seals
 Sandverkäufer: Snake oil salesman
 'Martinet am Strand': 'Martine at the beach'
 'Ein Spiel für echte Kinder': 'A real children''s game!'
-'Dauermitglied in Micky''s Club': 'Permanent member of the Mickey Club'
+"Dauermitglied in Micky's Club": "Dauermitglied in Micky's Club"
 'Niemals ohne meinen Eimer': 'Never without my bucket'
 'Ein Korn fehlt noch': 'I know I have a grain'
 'Taube aus der Unterwelt': 'Pigeon from the outer world.'
@@ -1701,7 +1701,7 @@ Erinnerungsträger: Souvenir Collector
 'Letzter Überlebender': 'Last Boy Scout'
 Unzerstörbar: Dances with Hordes
 'Allein gegen die Horde': 'Me vs. the Horde!'
-'Chuck Norris'' Ebenbild': 'Equal to Chuck Norris'
+"Chuck Norris' Ebenbild": "Chuck Norris' Ebenbild"
 'Ich habe Magenschmerzen...': 'I''ve got a sore tummy...'
 'Mir ist kalt hier draußen...': 'Baby it''s cold outside...'
 Anfängerleiche: Beginner Corpse
