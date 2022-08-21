@@ -1601,8 +1601,7 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $victim->getTown() )
             ->setDay( $victim->getTown()->getDay() )
-            ->setCitizen( $victim )
-            ->setSecondaryCitizen( $actor )
+            ->setCitizen( $actor )
             ->setTimestamp( new DateTime('now') );
     }
 
@@ -1867,8 +1866,7 @@ class LogTemplateHandler
             ->setDay( $attacker->getTown()->getDay() )
             ->setZone( $attacker->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $attacker )
-            ->setSecondaryCitizen( $defender );
+            ->setCitizen( $defender );
     }
 
     public function citizenHomeIntrusion( Citizen $intruder, Citizen $victim, bool $act ): TownLogEntry {
@@ -1882,8 +1880,7 @@ class LogTemplateHandler
             ->setDay( $intruder->getTown()->getDay() )
             ->setZone( $intruder->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $intruder )
-            ->setSecondaryCitizen( $victim );
+            ->setCitizen( $victim );
     }
 
 
@@ -1913,8 +1910,7 @@ class LogTemplateHandler
             ->setDay( $attacker->getTown()->getDay() )
             ->setZone( $attacker->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $attacker )
-            ->setSecondaryCitizen( $defender );
+            ->setCitizen( $defender );
     }
 
     public function citizenBeyondGhoulAttack( Citizen $attacker, Citizen $defender, bool $ambient  ): TownLogEntry {
