@@ -28,8 +28,8 @@ parameters:
     christmas:
       trigger:
         type: datetime
-        begin: 12-20 00:00
-        end: 01-07 00:00
+        begin: 12-23 00:00
+        end: 12-28 00:00
       conf:
         name: 'Weihnachten'
         priority: 101
