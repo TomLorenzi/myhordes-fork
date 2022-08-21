@@ -1648,6 +1648,7 @@ class NightlyHandler
 
         /** @var CitizenRole $role */
         $last_mc = null;
+        $all_winners = [];
         foreach ($roles as $role) {
             $this->log->info("Processing votes for role {$role->getLabel()}");
             if(!$this->town_handler->is_vote_needed($town, $role, true)) {
@@ -1685,7 +1686,7 @@ class NightlyHandler
 
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneBy(['autor' => $citizen, 'role' => $role]); //findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
-                if ($voted === null || !$voted->getVotedCitizen()->getAlive()) {
+                if ($voted === null || !$voted->getVotedCitizen()->getAlive() || in_array( $voted->getVotedCitizen(), $all_winners )) {
                     $this->log->debug("Citizen {$citizen->getName()} didn't vote, or voted for a dead citizen. We replace the vote.");
                     // He has not voted, or the citizen he voted for is now dead, let's give his vote to someone who has votes
                     $vote_for_id = $this->random->pick(array_keys($votes), 1);
@@ -1719,6 +1720,7 @@ class NightlyHandler
                 $this->entity_manager->persist($winningCitizen);
 
                 $partition['_winner'] = [$winningCitizen];
+                $all_winners[] = $winningCitizen;
 
                 $partition['_council?'] = array_diff( $partition['_council?'], array_slice($partition['voted'], 0, max(0,count($partition['_council?']) - 7)), $partition['_winner'] );
                 $partition['voted'] = array_diff( $partition['voted'], $partition['_winner'] );
