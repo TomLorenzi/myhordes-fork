@@ -1248,7 +1248,7 @@ class BeyondController extends InventoryAwareController
         $old_cp_ok = $this->zone_handler->check_cp($zone);
 
         $this->citizen_handler->setAP( $citizen, true, -1 );
-        $ratio = 0.1;
+        $ratio = 0.08;
         $messages = [];
         if ($this->citizen_handler->hasStatusEffect($citizen, "drunk"))
             $ratio /= 2;
