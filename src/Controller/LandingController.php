@@ -100,7 +100,7 @@ class LandingController extends CustomAbstractController
 
         $button_texts = $rand->pick($attack_messages, 2);
 
-        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts, 'attack_running' => $tk->isDuringAttack()] );
+        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts, 'attack_running' => $tk->isDuringAttack(), 'clock' => ['attack' => 0]] );
     }
 
 
