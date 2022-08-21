@@ -1,0 +1,70 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Die Zukunft'|trans({}, 'game')|raw}}{% endblock %}
+{% block menu_text %}
+    {{ parent() }}
+{% endblock %}
+{% block soul_content %}
+
+    {% include "ajax/soul/future_shell.html.twig" with { future_tab: "events" } %}
+
+    <h1 class="page-head">{{ 'Saisonale Events'|trans({}, 'soul') }}</h1>
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="help">
+                {{ 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.'|trans({},'soul') }}
+            </div>
+        </div>
+    </div>
+
+    {% if active_events is not empty %}
+        <div class="row">
+            <div class="padded cell rw-12">
+                <h5>{{ 'Laufende Events'|trans({}, 'soul') }}</h5>
+                {% for event in active_events %}
+                    <div class="note note-event-{{ event[0] }}">
+                        <b>{{ ('event_' ~ event[0] ~ '_title')|trans({year: event[1]|date("Y")}, 'events') }}</b><br />
+                        <span class="small">
+                            {{ ('event_' ~ event[0] ~ '_description')|trans({}, 'events') }}
+                        </span><br />
+                        <b class="small">
+                            {% if event[2] is not null %}
+                                {{ 'Endet in {days} Tagen, am {date}'|trans({days: ('now'|to_date).diff(event[2]).days, date: event[2]|format_datetime('long', 'long')}, 'soul') }}
+                            {% else %}
+                                {{ 'Wird durch einen Administrator beendet.'|trans({}, 'soul') }}
+                            {% endif %}
+                        </b>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="padded cell rw-12">
+            <h5>{{ 'Zukünftige Events'|trans({}, 'soul') }}</h5>
+            {% if future_events is empty %}
+                <div class="help">
+                    {{ 'In der unmittelbaren Zukunft sind keine Events geplant.'|trans({},'soul') }}
+                </div>
+            {% endif %}
+            {% for event in future_events %}
+                <div class="note note-event-{{ event[0] }}">
+                    <b>{{ ('event_' ~ event[0] ~ '_title')|trans({year: event[1]|date("Y")}, 'events') }}</b><br />
+                    <span class="small">
+                        {{ ('event_' ~ event[0] ~ '_description')|trans({}, 'events') }}
+                    </span><br />
+                    <b class="small">
+                        {{ 'Beginnt in {days} Tagen, am {date}'|trans({days: ('now'|to_date).diff(event[2]).days, date: event[1]|format_datetime('long', 'long')}, 'soul') }}
+                    </b><br />
+                    <b class="small">
+                        {{ 'Endet nach {days} Tagen, am {date}'|trans({days: event[1].diff(event[2]).days, date: event[2]|format_datetime('long', 'long')}, 'soul') }}
+                    </b>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{parent()}}
+{% endblock %}

@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="cell padded rw-12">
+        <ul class="tabs plain">
+            <li class="tab {% if future_tab is defined and future_tab == 'future' %}selected{% endif %}"><div class="tab-link" x-ajax-href="{{ path('soul_future') }}">
+                <img src="{{ asset('build/images/icons/small_world.gif') }}" alt=""/>
+                {{ 'Zukunft'|trans({},'soul') }}
+            </div></li>
+            <li class="tab {% if future_tab is defined and future_tab == 'events' %}selected{% endif %}"><div class="tab-link" x-ajax-href="{{ path('soul_events') }}">
+                <img src="{{ asset('build/images/icons/small_star.gif') }}" alt=""/>
+                {{ 'Events'|trans({},'soul') }}
+            </div></li>
+            <li class="tab {% if future_tab is defined and future_tab == 'polls' %}selected{% endif %}"><div class="tab-link" x-ajax-href="{{ path('soul_polls') }}">
+                <img src="{{ asset('build/images/icons/small_talk.gif') }}" alt=""/>
+                {{ 'Umfragen'|trans({},'soul') }}
+            </div></li>
+        </ul>
+    </div>
+</div>

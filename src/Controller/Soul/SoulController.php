@@ -526,6 +526,34 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("jx/soul/events", name="soul_events")
+     * @return Response
+     */
+    public function soul_events(): Response
+    {
+        $now = new DateTime();
+
+        $schedule =
+            array_filter(
+                array_map( function(string $name) use (&$now) {
+                    $enabled = $this->conf->getEventScheduleByName( $name, $now, $begin, $end, true );
+                    return [ $name, $begin, $end, $enabled ];
+                }, $this->conf->getAllEventNames() ),
+            function( array $event ) use (&$now) {
+                return $this->conf->eventIsPublic( $event[0] ) && ( $event[3] || $event[1] > $now || $event[2] > $now );
+            }
+        );
+
+        usort( $schedule, fn(array $a, array $b) => $a[1] <=> $b[1] );
+
+        return $this->render( 'ajax/soul/events.html.twig', $this->addDefaultTwigArgs("soul_future", [
+            'active_events' => array_filter( $schedule, fn($event) =>  $event[3] ),
+            'future_events' => array_filter( $schedule, fn($event) => !$event[3] ),
+        ]) );
+    }
+
+
+    /**
      * @Route("api/soul/polls/{id<\d+>}/{answer<\d+>}", name="soul_poll_participate")
      * @param int $id
      * @param int $answer

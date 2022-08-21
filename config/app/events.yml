@@ -43,6 +43,7 @@ parameters:
         hooks:
           night_after: 'App\Structures\Hook::night_xmas'
           night_none: 'App\Structures\Hook::night_xmas'
+      public: true
     stpatrick:
       trigger:
         type: datetime
@@ -58,6 +59,7 @@ parameters:
             chance: 0.15
           ruins:
             - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.25 }
+      public: true
     easter:
       trigger:
         type: easter
@@ -74,11 +76,12 @@ parameters:
         hooks:
           enable_town: 'App\Structures\Hook::enable_easter'
           disable_town: 'App\Structures\Hook::disable_easter'
+      public: true
     halloween:
       trigger:
         type: datetime
-        begin: 10-25 00:00
-        end: 11-01 00:00
+        begin: 02-25 00:00
+        end: 08-22 00:00
       conf:
         name: 'Halloween'
         priority: 104
@@ -87,6 +90,7 @@ parameters:
           desert:
             group: 'halloween_dig'
             chance: 0.4
+      public: true
     purge:
       trigger:
         type: datetime

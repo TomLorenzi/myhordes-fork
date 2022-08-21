@@ -32,6 +32,7 @@ use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
+use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
@@ -42,14 +43,16 @@ class DatabaseExtractor implements ExtractorInterface
     private TranslationConfigGlobal $config;
 
     protected $prefix;
-    protected $em;
+    protected EntityManagerInterface $em;
+    protected ConfMaster $conf;
 
     protected static $has_been_run = false;
 
-    public function __construct(EntityManagerInterface $em, TranslationConfigGlobal $config)
+    public function __construct(EntityManagerInterface $em, TranslationConfigGlobal $config, ConfMaster $conf)
     {
         $this->em = $em;
         $this->config = $config;
+        $this->conf = $conf;
     }
 
     private function insert(MessageCatalogue &$c, string $message, string $domain, string $class) {
@@ -278,6 +281,14 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var CouncilEntryTemplate $councilTemplate */
             if ($councilTemplate->getText())
                 $this->insert( $c, $councilTemplate->getText(), 'council', CouncilEntryTemplate::class );
+        //</editor-fold>
+
+        //<editor-fold desc="Event Domain">
+        foreach ($this->conf->getAllEventNames() as $event)
+            if ($this->conf->eventIsPublic($event)) {
+                $this->insert($c, "event_{$event}_title", 'events', EventConf::class);
+                $this->insert($c, "event_{$event}_description", 'events', EventConf::class);
+            }
         //</editor-fold>
     }
 
