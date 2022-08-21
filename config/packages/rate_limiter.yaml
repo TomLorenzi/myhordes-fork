@@ -11,7 +11,7 @@ framework:
     authenticated_personal_api:
       policy: 'sliding_window'
       limit: 120
-      interval: '8 hours'
+      interval: '2 hours'
     authenticated_api:
       policy: 'token_bucket'
       limit: 10000
