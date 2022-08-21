@@ -42,7 +42,7 @@
 'The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.': 'La largeur de l''image est trop petite ({{ width }}px). La largeur minimale attendue est de {{ min_width }}px.'
 'The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.': 'La hauteur de l''image est trop grande ({{ height }}px). La hauteur maximale autorisée est de {{ max_height }}px.'
 'The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.': 'La hauteur de l''image est trop petite ({{ height }}px). La hauteur minimale attendue est de {{ min_height }}px.'
-'This value should be the user''s current password.': 'Cette valeur doit être le mot de passe actuel de l''utilisateur.'
+"This value should be the user's current password.": 'Dieser Wert sollte dem aktuellen Benutzerpasswort entsprechen.'
 'This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.': 'Cette chaîne doit avoir exactement {{ limit }} caractère.|Cette chaîne doit avoir exactement {{ limit }} caractères.'
 'The file was only partially uploaded.': 'Le fichier a été partiellement transféré.'
 'No file was uploaded.': 'Aucun fichier n''a été transféré.'
