@@ -1731,7 +1731,7 @@ class BeyondController extends InventoryAwareController
         $str = [];
         $str[] = $this->translator->trans('Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.', [], 'game');
 
-        $success = $this->random_generator->chance(0.75);
+        $success = $this->random_generator->chance(0.75); //same than Hordes
 
         if (!$success) {
             $str[] = $this->translator->trans('Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...', [], 'game');
