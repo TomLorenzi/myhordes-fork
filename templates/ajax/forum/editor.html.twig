@@ -70,7 +70,7 @@
             <div class="row {% if current_tag is not defined or current_tag is empty %}hidden{% endif %}" id="{{ type }}-forum-editor-tag-row">
                 {% if type != 'global-pm' and type != 'numb' %}
                     <div class="cell rw-3 padded">
-                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'global') }}</label>
+                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'forum') }}</label>
                     </div>
                     <div class="cell rw-9 padded">
                         <select id="{{ type }}-forum-editor-tag">

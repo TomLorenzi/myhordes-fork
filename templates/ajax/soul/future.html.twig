@@ -4,6 +4,9 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
+
+    {% include "ajax/soul/future_shell.html.twig" with { future_tab: "future" } %}
+
     {% if selected is null %}
         COMING SOON
     {% else %}

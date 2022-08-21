@@ -525,6 +525,7 @@
                                     <select class="small" x-setting id="setting_notify_on_mention">
                                         <option value="0" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 0 %}selected{% endif%}>{{ 'Deaktiviert'|trans({}, 'soul') }}</option>
                                         <option value="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 1 %}selected{% endif%}>{{ 'Nur in Stadtforen'|trans({}, 'soul') }}</option>
+                                        <option value="3" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 3 %}selected{% endif%}>{{ 'Nur in Weltforen'|trans({}, 'soul') }}</option>
                                         <option value="2" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 2 %}selected{% endif%}>{{ 'In allen Foren'|trans({}, 'soul') }}</option>
                                     </select>
                                     &nbsp;

@@ -1105,20 +1105,6 @@ class BeyondController extends InventoryAwareController
      */
     public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         if (!$this->activeCitizenIsNotEscorted()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $citizen = $this->getActiveCitizen();
-
-        // Remove citizen from escort
-        foreach ($citizen->getLeadingEscorts() as $escorted_citizen) {
-            $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
-            $this->entity_manager->persist($escorted_citizen);
-        }
-
-        if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
-        $citizen->setEscortSettings(null);
-
-        $this->entity_manager->flush();
-
         return $this->generic_camping_action_api( $parser);
   }
 

@@ -1335,6 +1335,15 @@ class InventoryAwareController extends CustomAbstractController
                 break;
             case 'cm_campsite_hide':
             case 'cm_campsite_tomb':
+                // Remove citizen from escort
+                foreach ($citizen->getLeadingEscorts() as $escorted_citizen) {
+                    $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
+                    $this->entity_manager->persist($escorted_citizen);
+                }
+
+                if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
+                $citizen->setEscortSettings(null);
+
                 $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
                 break;
             case 'cm_campsite_unhide':

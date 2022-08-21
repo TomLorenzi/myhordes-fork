@@ -70,6 +70,8 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $controller = $event->getController();
         if (is_array($controller)) $controller = $controller[0];
 
+        if (!str_starts_with( get_class($controller) ?? '', 'App\\' )) return;
+
         // During the attack, only whitelisted controllers and functions are available
         // This is controlled by the allow_during_attack parameter of @GateKeeperProfile
         if (!$gk_profile->getAllowDuringAttack() && $this->timeKeeper->isDuringAttack())

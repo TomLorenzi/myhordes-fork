@@ -212,6 +212,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 foreach ($recipe_data['keep'] as $item)
                     $recipe->addKeep( $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $item]));
             }
+            $recipe->setTooltipString($recipe_data['tooltip'] ?? null);
             $manager->persist($recipe);
 
             $progress->advance();

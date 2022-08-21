@@ -901,7 +901,7 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
-                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
+                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory ], true)) {
                         if ($i !== $citizen->getInventory())
                             $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                         $execute_info_cache['items_spawn'][] = $target;
@@ -1812,7 +1812,7 @@ class ActionHandler
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
-                $base = T::__('Du hast {item_list} zu {item} umgewandelt.', 'game');
+                $base = (!empty($recipe->getTooltipString()) ? $recipe->getTooltipString() : T::__('Du hast {item_list} zu {item} umgewandelt.', 'game'));
                 break;
         }
 
