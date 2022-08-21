@@ -75,7 +75,7 @@ Zombies: Zombies
 'Qualität der Abschätzung': 'Calidad del pronóstico:'
 'Abschätzung verbessern': 'Observar el horizonte'
 'Morgige Abschätzung': 'Ataque de la noche siguiente'
-'Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses ''alles'' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.': '¡Genial, desde aquí puedes ver prácticamente todo! Una pena que ese "todo" se limite a un desierto arenoso y vacío. Si miras con suficiente cuidado, puedes contar a los zombies que se acercan lentamente al pueblo.'
+"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen."
 'Tag {day}': 'Día {day}'
 Rucksack: Mochila
 Truhe: Baúl
@@ -272,14 +272,14 @@ Krankenwagen: Ambulancia
 Lagerhalle: Hangares
 'Leeres Parkhaus': 'Parqueadero abandonado'
 'Liegengebliebener Kampfpanzer': 'Tanque averiado'
-'Motel ''Dusk''': 'Hostal «Hollywood Inn»'
+"Motel 'Dusk'": "Motel 'Dusk'"
 'Militärischer Wachposten': 'Puesto militar'
 Postfiliale: Oficina de correos
 Räuberhöhle: Escondite de contrabandistas
 Schützengraben: Trincheras militares
 Stadtbücherei: Biblioteca de barrio
 'Tante Emma Laden': 'Minimercado «Ocxo»'
-'Truck ''Rathaus auf Rädern''': 'Bus turístico'
+"Truck 'Rathaus auf Rädern'": "Truck 'Rathaus auf Rädern'"
 'Umgekippter Laster': 'Camión averiado'
 'Verbrannte Grundschule': 'Escuela quemada'
 'Verfallenes Bürogebäude': 'Edificio deteriorado'
@@ -289,7 +289,7 @@ Stadtbücherei: Biblioteca de barrio
 'Verlassene Silos': 'Silos abandonados'
 'Versperrte Straße': 'Pista bloqueada'
 'Verwilderter Park': 'Parque abandonado'
-'Waffengeschäft Guns''n''Zombies': 'Armería «Guns''n''Zombies»'
+"Waffengeschäft Guns'n'Zombies": "Waffengeschäft Guns'n'Zombies"
 Warenlager: Depósito abandonado
 'Zelt eines Bürgers': 'Tienda de un habitante'
 'Zerstörte Apotheke': 'Farmatodito destruido'
@@ -373,7 +373,7 @@ Werkstatt: Taller
 'Die Zone untersuchen': 'Inspecciona la zona'
 'Du schaust dir die Gegend etwas genauer an...': 'Inspecciona los alrededores...'
 'Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.': 'Dormir en un lugar semejante equivale a suicidarse, así de simple. Piénsalo.'
-'Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich ''ne Zyanidkapsel schlucken.': 'Crees que tus posibilidades de sobrevivir aquí son casi nulas... ¿Cianuro?'
+"Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.": "Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken."
 'Rucksack auf dem Boden ausleeren': 'Vaciar mochila en el suelo'
 'Heute ist nichts Erwähnenswertes passiert...': 'Nada particular el día de hoy.'
 'Unbekannte Todesursache': 'Causa de muerte desconocida...'
@@ -387,7 +387,7 @@ Dehydration: Deshidratación
 Verhungert: Inanición
 'Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.': 'Acosado por los dolores del hambre, anduviste a trompicones por el pueblo todo el día... siempre buscando un bocado de carne... pero en vano. Al final del día, finalmente se te acabaron las fuerzas. Lentamente, muy lentamente, te hundiste en el suelo. Incluso tus últimos alientos fueron un dolor... Lo último que el mundo escuchó de ti fue un grito inhumano y penetrante en el cielo y estabas muerto.'
 Drogenabhängigkeit: Falta de estimulantes
-'Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht''s schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.': 'Las drogas son excelentes siempre que tengas suficiente. Pero si te quedas sin ellas, las cosas dejan de ser tan alegres... Empiezas a sudar, te dan escalofríos, ataques de pánico... corres al baño cada diez minutos a vomitar. Al final, cuando ya te has vuelto completamente loco, terminas tragando unas piedritas que confundiste con esteroides.'
+"Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.": "Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst."
 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.': 'Poco a poco la enfermedad te devoraba por dentro... Los síntomas de la infección ya no podían pasarse por alto: heridas supurantes, hematomas, carne podrida... Después de varias horas de sufrimiento, finalmente sentiste la muerte como un alivio.'
 Zyanid: Suicidio por ingestión de cianuro
 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll''s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...': 'En vez de seguir viviendo con esa banda de "losers", preferiste simplificarte la vida... acortándola un poco. Al fin y al cabo, un día más, un día menos... '
@@ -408,7 +408,7 @@ Kopfschuss: Tiro en la cabeza
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'El típico caso de un hombre que se mete en una cueva huyendo de una turba de zombies. Todo bien hasta allí, hasta que el hombre recuerda que tenía 2 zombies abrazados a su espalda. El pobre gritó de todo menos «Por favor».'
 'Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.': 'Esta bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá ser <strong>purificada en el pueblo</strong> con los productos necesarios.'
 'Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.': 'Un antiguo taller de reparación de bicicletas repleta de herramientas y chatarra de todo tipo.'
-'Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das ''weitverzweigte Netzt'' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.': 'Esta plataforma ferroviaria se dedicaba a la distribución de mercancías. Ya que estás aquí, ¿por qué no echarle un vistazo?'
+"Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.": "Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit."
 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?': 'Entre los cuerpos regados en los pasillos de este hospital improvisado se encuentran pacientes, enfermeras y víctimas del ataque... Es difícil saber cuántos hay. ¿Tal vez contando la cantidad de brazos y dividiéndolas entre dos?'
 'Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.': 'Lo único que vuela en este lugar son las moscas. Tal vez hurgando en el depósito encuentres algo útil. Algo como un Boeing 747 que funcione.'
 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.': 'Este impresionante edificio se extiende por varios cientos de metros. Posee numerosas habitaciones, la mayoría de las cuales se han derrumbado casi por completo. La gran cantidad de agujeros de bala en las paredes y las barricadas improvisadas sugieren que el edificio fue escenario de feroces combates hace ya un tiempo.'
@@ -417,12 +417,12 @@ Kopfschuss: Tiro en la cabeza
 'Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.': 'En una época, fue una parada oblitoria en en la A-667. Apreciado por su variedad de carnes, a pesar de su olor a orina y las ratas muertas en los rincones. Es una pena que ya no haya restaurantes así...'
 'Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.': 'Un modelo común de <strong>automóvil familiar</strong> empotrado en otro modelo común de <strong>furgoneta</strong>... Este choque debió provocar un <strong>accidente</strong> de gran envergadura a juzgar por la cadena de coches semi-destruidos que se encuentran alrededor.'
 'Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.': 'Este extraño bar se encuentra detrás de una colina y nadie se había dado cuenta de su existencia. El interior está decorado con muchísimas fotos en blanco y negro, en todas ellas hay un hombre vestido con un traje a rayas junto a diversas personas.'
-'Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: ''Plündern Sie uns bevor es andere tun!''': 'Un paraíso para los amantes de las tuercas y destornilladores... Su eslogan sigue siendo vigente: « Más barato, imposible »'
+"Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'": "Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'"
 'Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät': 'Un gran container de metal en medio del desierto. Aquí debió haber gente tabajando, pero hoy no queda nada más que esta "cabaña".'
 'Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.': '¿Tienes ganas de comer algo rico? ¡Ni se te ocurra venir aquí! o será el propio cocinero quien saldrá a devorarte!'
 'Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !': 'El hogar de un tal Duke R. Cooke, y si puedes creer en la placa en la puerta... un hogar para héroes... ¡Este lugar es mucho más grande que una mansión, es una fortaleza completamente equipada!'
 'Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.': 'Los restos <strong>carbonizados</strong> de un bosque. Antes debió ser un lugar agradable... Hoy, sería una pesadilla perderse en él.'
-'Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: ''Lecker, die esse ich doch mal gleich''': 'Una antigua mina destruida seguramente por la avaricia de sus trabajadores. ¿Pero qué interés tendrían de excavar tan profundo? Sobre todo cuando escarbando en el suelo se encuentran deliciosas cucarachas. "Por cierto, ya es hora de la merienda" te dices...'
+"Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'": "Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'"
 'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.': 'Una <strong>zona de extracción de minerales</strong> que lleva las marcas de un <strong>terrible accidente</strong>: toda una ladera se <strong>derrumbó</strong> sobre la gente, las máquinas y los edificios.'
 'Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...': 'Parece un enorme disco metálico de lo que pudo haber sido una trilladora acgrícola...'
 'E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...': 'Estas enormes tiendas solían estar en todos los pueblos (siempre a las afueras, en el peor lugar posible). Se especializaron en la fabricación y venta de muebles baratos, que en su mayoría carecían de tornillos. Se dice que la mala calidad de sus productos fue una de las razones del declive de la sociedad...'
@@ -441,7 +441,7 @@ Kopfschuss: Tiro en la cabeza
 'Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.': 'El depósito de una gran tienda que quebró hace mucho tiempo. Es lo que hace pensar la cantidad de cuerpos colgados en el hangar número 2. Supones que fue un suicidio colectivo de los miembros del consejo de dirección, pero el hecho de que tengan las manos atadas te deja perplejo.'
 'Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...': 'Un estacionamiento subterráneo cubierto de arena. Ideal para <strong>morir en la oscuridad</strong>, sin que nadie te escuche...'
 'Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...': 'Metafóricamente sería: <strong>Una lata de sardinas</strong> en manos de una centena de zombies hambrientos. Y de la sardina no quedó nada...'
-'Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: ''Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...''.': 'Te preguntas a quién se le podría ocurrir venir a alojarse en un hostal tan lejano y miserable... Mirando el registro de huéspedes, sí hay alguien: Un tal Valedres, en la habitación 215. Tal vez valga la pena explorar...'
+"Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.": "Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'."
 'Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !': 'Soldados armados hasta los dientes, entrenamientos diarios, provisiones y perímetro de seguridad de 150m. Todo estaba bien preparado, solo que no contaban con que el general los devorase a todos una noche de abril...'
 'Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...': 'El edificio resistió bien el paso del tiempo. Además de reliquias del servicio postal, no crees encontrar nada interesante, a menos que te guste leer...'
 'Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...': 'Un hoyo <strong>se esconde</strong> en el suelo detrás de tablas y arena. Lleva a una caverna húmeda llena de <strong>cachivaches</strong> acumulados probablemente con los <strong>robos a un pueblo vecino</strong>. Quién sabe si <strong>tu pueblo</strong> se construyó con base en objetos robados. Puede ser que los <strong>primeros habitantes</strong> hayan sido los autores de todo esto...'
@@ -453,28 +453,28 @@ Kopfschuss: Tiro en la cabeza
 'In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.': 'El edificio de una gran empresa donde la gente venía a trabajar, con compañeros anónimos y con un solo objetivo: sobrevivir. Vaya, las cosas no han cambiado mucho...'
 'Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.': 'Alguien vivió aquí hace mucho tiempo. ¿Habrá tenido una familia que le amaba y un hogar feliz? Hoy no queda nada, solo polvo y una desolación total. De vez en cuando, un cadáver tiembla rechinando los dientes.'
 'Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.': 'Te cuesta imaginar lo que se quiso construir aquí. ¿Una escuela, una prisión?... Solo las estructuras metálicas fueron testigos de ese <strong>misterioso proyecto</strong>.'
-'Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: ''Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...''. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...': '¡Gracias Frocoa! <strong>Un pozo</strong> totalmente perdido en medio del desierto y que además se ve muy bien. Nadie con un Registro en mano que te diga «oye, ¿A dónde vás, qué llevas? no tomes mucha agua...». Pero, shhhh, no se lo digas a nadie.'
+"Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...": "Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein..."
 'Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...': 'Este lugar debió servir para almacenar los granos. Pero con el tiempo, los depósitos se llenaron con agua de lluvia. Aquí podrías abastecerte.'
 'Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...': 'Lo que sucedió aquí es <strong>incomprensible</strong>: una enorme <strong>roca</strong> cayó en medio de la pista, como <strong>caída del cielo</strong>...'
 'Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.': 'Un lugar de paz y serenidad... siempre y cuando estés armado para sobrevivir. La vegetación es <strong>siniestra</strong> y <strong>huele a muerte</strong>, <strong>criaturas</strong> indescriptibles se mueven entre las sombras... Sientes constantemente que algo horrible va a <strong>lanzarse sobre ti</strong> desde la maleza.'
-'Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von ''Ereignissen'' sich hier abgespielt haben...': 'Como un niño en una tienda de juguetes. Así se sienten los aficionados a los balazos en este lugar. Los agujeros en las paredes dicen mucho sobre el <strong>ambiente</strong> que se vivía aquí...'
+"Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...": "Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben..."
 'Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...': 'Servía para almacenar los productos de un antiguo supermercado y <strong>su puerta resistió a los saqueos</strong>. Debe contener <strong>algunas cosillas</strong> interesantes...'
-'Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: ''Shenji''': 'Un buen escondite. El tipo que construyó esto sabía esconder muy bien su trasero de los zombies: Camuflaje natural, buena visibilidad de los alrededores desde el interior, varias posibilidades de escape y de esconderse bajo la tierra si fuese necesario. El nombre «Shenji» está bordado en la tela.'
+"Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'": "Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'"
 'Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.': 'Una pequeña farmacia de barrio perdida en medio del desierto. Los <strong>olores innombrables</strong> hacen pensar que aquí no solo habían medicamentos.'
 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...': 'Lo único que indica que se trata de un bar es el panel con el logo de una cerveza y la gran cantidad de <strong>botellas rotas</strong>. Algo interesante podrías encontrar aquí...'
 'Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...': 'Nada aquí te sirve para esconderte. Te sientes más vulnerable que nunca...'
-'Außer ein paar ''natürlichen'' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.': 'Esta zona ofrece muy pocos refugios "naturales" para pasar la noche. Habrá que arreglárselas con lo que hay...'
+"Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.": "Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln."
 'Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.': 'Buscando un poco, debe haber un rincón para esconderse.'
 'An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...': 'El lugar tiene escondites interesantes.'
 'In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.': 'Esta zona ofrece buenos escondites en caso de peligro.'
 'Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.': 'Este es el lugar ideal para pasar la noche, no faltan los lugares donde protegerse.'
 'Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...': 'La presencia de algunos zombies en los alrededores es preocupante...'
 'Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.': 'La gran cantidad de zombies rondando por aquí no es nada buena. Esconderse será difícil.'
-'Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock ''ne Runde Kopf oder Zahl zu spielen?': 'Crees que tus posibilidades de sobrevivir aquí son muy pocas. ¿Apostamos?'
+"Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?": "Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?"
 'Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.': 'Crees que tus posibilidades de sobrevivir aquí son pocas. Quién sabe...'
 'Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...': 'Crees que tus posibilidades de sobrevivir aquí son reducidas, aunque se puede intentar. Tú sabes, podrías sufrir un accidente...'
 'Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.': 'Crees que tus posibilidades de sobrevivir aquí son aceptables, esperando que no suceda ningún imprevisto.'
-'Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt''s nur noch Daumen drücken!': 'Crees que tus posibilidades de sobrevivir aquí son buenas. ¡Cruza los dedos!'
+"Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!": "Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!"
 'Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.': 'Crees que tus posibilidades de sobrevivir aquí son altas. Podías pasar la noche aquí.'
 'Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.': 'Crees que tus posibilidades de sobrevivir aquí son óptimas. Nadie te verá, ni señalándote con el dedo'
 Wächt: Centinel.
@@ -576,7 +576,7 @@ Ausgrabungsarbeiten: Desmonte
 Hauseinrichtung: Decoración
 'Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.': 'Cantidad de puntos de decoración que has agregado a tu hogar.'
 'Letzte Verteidigungslinie': 'Última línea'
-'Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde ''empfangen'' hat...': 'Fuiste uno de los últimos en ver las hordas de zombies invadir el pueblo.'
+"Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...": "Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat..."
 Drogen: Estimulantes
 'Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.': 'Cantidad de pequeñas pildoritas de colores que has tragado (o colocado en otra parte...)'
 Drogenerfahrungen: Experimentaciones
@@ -600,7 +600,7 @@ Schusseligkeiten: Torpezas
 Masochismus: Masoquismo
 'Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.': 'Momentos de felicidad en el sufrimiento más profundo.'
 Event-Auszeichnungen: Reconocimiento de la Comunidad
-'Auszeichnung für die Teilnahme an Events bei ''Die Verdammten''.': 'Recompensa obtenida por trabajar con la comunidad.'
+"Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.": "Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'."
 'Wunderwerk: Sandschloss': 'Maravilla: Castillo de arena'
 'Das hast du nicht wirklich gebaut?': '¿Realmente has construido eso?'
 'Wunderwerk: Riesiger KVF': 'Maravilla: COSA gigante'
@@ -624,7 +624,7 @@ Dehydrationstode: Muertes por deshidratación
 'Tödliche Infektionen': 'Muertes por infección'
 'Anzahl der Infektionen, die dich das Leben gekostet haben.': 'Cantidad de fallecimientos por infecciones.'
 'Tod durch Entzug': 'Muertes por abstinencia'
-'Die Anzahl der Male, in denen dein unfreiwilliger ''cold turkey'' gescheitert ist...': 'Veces que has muerto por falta de estimulantes.'
+"Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...": "Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist..."
 'Letzter Toter': '¡El Último Habitante!'
 'Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.': 'Fuiste el último en morir en tu pueblo. ¡Muy pocos jugadores han logrado esta hazaña!'
 'Letzter Toter in einer Pandämoniumstadt': 'El Último Superviviente en Pandemonio'
@@ -668,7 +668,7 @@ Stadtwächter: Centinela
 'Getötete Zombies': 'Zombies eliminados'
 'Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.': 'Total de muertos vivientes que volviste a enviar bajo tierra de cualquier manera.'
 'Ehemaliger Beta-Tester': 'Beta-tester'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist.': 'Distinción rarísima otorgada a quienes participaron en la fase Beta, los primeros jugadores de Zombinoia.'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.": "Dies ist eine äußerst seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist."
 'Sandbälle! Yeah!': 'Bolas de arena'
 'Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...': 'Cantidad de bolas de arena lanzadas a la cara de otros jugadores.'
 Kreuzigung: Crucifixión
@@ -837,7 +837,7 @@ Zusammenbauen: Ensamblar
 'Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.': 'No es tan apetecible como un humano fresco y vigoroso, pero logra al menos calmar tu voracidad. Felizmente la carne estaba un poco sazonada...'
 'Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.': '¡Has atacado violentamente a {citizen}! La pelea fue tan brutal que heriste gravemente a ese pobre tipo!'
 'Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!': 'De repente, {citizen} se derrumba, sus ojos se ponen en blanco y, con un horrible gorgoteo, todo su cuerpo se disuelve ante tus ojos, ¡dejando atrás solo el pestilente olor a muerte y descomposición! Ya no hay ninguna duda: ¡{citizen} era un ghoul!!'
-'Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M''Kay?': '¡Cálmate un poco! En el pueblo no hay Mutantes aún, por lo que no es necesario andar por ahí hiriendo a la gente.'
+"Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?": 'Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt <strong>noch keinen Ghul</strong> gibt.'
 '{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.': '{citizen} ya está herido, no lograrás nada más volviéndolo a atacar.'
 'Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.': '¡Con todas tus fuerzas atacas a {citizen}! Por unos minutos ambos entran en una lucha, pero terminan agotados y lo abandonan, ambos quedan ilesos.'
 'Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als {citizen} wieder erwacht, scheint er von seiner Angststarre befreit zu sein.': 'No hay nada mejor que el miedo para curar el terror. Te quitas la máscara de chamán y soplas unos polvos alucinógenos hechos por tí mismo a la cara del paciente para inducir un estado de sonambulismo. Eso provoca rápidamente un pavor nocturno mientras duerme. Cuando {citizen} se despierta de nuevo, parece haber sido liberado de su estado.'
@@ -920,7 +920,7 @@ Zonenmarkierer: Marcador de zona
 '[nichts]': '[ninguno]'
 Seelenpunkte: Puntos de Alma
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'Cantidad de Puntos de Alma que has ganado en tus reencarnaciones.'
-'Und wieder ''ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!': '¡Uno menos! El cadáver de † {disposed} ha sido echado fuera por {citizen}.'
+"Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!": "Und wieder 'ne Leiche weniger! {disposed} wurde von † {citizen} entsorgt!"
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': '{citizen} ha usado agua para quemar el cuerpo de † {disposed}.'
 '{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': 'El habitante {citizen} ha hecho llover y ha matado a {kills} Zombies.'
 'Der Bürger {citizen} hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt {items}.': '¡El habitante {citizen} ha descubierto un escondite de objetos (tal vez de un desterrado)! Contenía: {items}.'
@@ -1067,7 +1067,7 @@ Quarantäne: Cuarentena
 'Der letzte Tote in dieser Stadt!': '¡El último habitante del pueblo!'
 'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.': 'El Último Habitante recibe su recompensa solo si ha sobrevivido 5 días.'
 'Mit den anderen Bürgern reden...': 'Habla con los demás habitantes del pueblo y organícense si quieren sobrevivir...'
-'Lesen und Nutzen des Forums sind in ''MyHordes'' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.': '¡Leer y escribir en los foros es importante en ''MyHordes''! Allí es donde la comunidad tomará todas las decisiones importantes.'
+"Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.": "Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen."
 'Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...': 'El reflejo de tus vidas anteriores.'
 'Spielhilfe aufrufen.': '¿Eres nuevo en MyHordes?'
 'Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.': '¿Ya has mirado debajo de "¿Cómo jugar?". Las guías interactivas pueden resultar muy útiles.'
@@ -1088,7 +1088,7 @@ Stadtrat: Ayuntamiento del pueblo
 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011': '¡Una marca extremadamente rara reservada para los animadores presentes en el stand Motion Twin del Video Game Festival 2008 en París!'
 'Video Game Festival 2010': 'Festival de Videojuegos 2010'
 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!': 'Estuviste presente en el Festival de Videojuegos de París en 2010: ¡gracias!'
-'FJV''08 Kanonenfutter': 'Carne de cañón FJV''08'
+"FJV'08 Kanonenfutter": "FJV'08 Kanonenfutter"
 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.': 'El portador de esta marca participó en la gran caza organizada en el Festival de Videojuegos 2008.'
 Community-Auszeichnung: Organización de Choque
 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.': '¡Tu organización impecable durante el Choque de Héroes creó un evento del que se hablará durante mucho tiempo!'
@@ -1125,7 +1125,7 @@ Schlachtenbummler: Titán de choque
 'Zuletzt bearbeitet: {date}': 'Última edición: {date}'
 'Von einem Moderator bearbeitet.': 'Editado por un moderador.'
 'Nur altgediente Helden können auf die Wandtafel schreiben': 'Solo los héroes pueden escribir en la Pizarra'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist. Drogen sind nicht gut.': 'Una Distinción extremadamente rara, otorgada solo a los primeros habitantes de ''MyHordes''. Las drogas no son buenas.'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.": "Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut."
 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="{path}" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.': 'Las construcciones con el símbolo "<img alt="(!)" src="{path}" />" son temporales: Se derrumban con el ataque nocturno. Si las necesitas de nuevo, deberéis volver a construirlas.'
 'Du hast <strong>keine neue Privatnachricht</strong> erhalten. Eine Liste aller Bürger findest du im <span class="link" x-ajax-href="{path}">Verzeichnis der Stadt</span>.': '<strong>No has recibido mensajes privados</strong>. Encontrarás la lista de los habitantes en <span class="link" x-ajax-href="{path}"> el Anuario del pueblo</span>.'
 'In diesem Bereich kannst du an der <strong>Errichtung neuer Gebäude und Bauprojekte mitarbeiten</strong>. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.': '<strong>Construid las defensas y diversas cosas</strong> que prolonguen la vida del pueblo. En el desierto encontrarás materiales (madera, metal...). Participa en las obras donando Puntos de Acción (PA) a la construcción más útil.'
@@ -1293,7 +1293,7 @@ Nervenkitzelsucher: Expedicionario
 Tunnelblicker: Explorador de ruinas
 'Im Irrgarten': 'Ruina Man'
 'Inklusive Kompass': 'Brújula andante'
-'Wo klemmt''s?': 'Ganzúa'
+"Wo klemmt's?": "Wo klemmt's?"
 Dietrich: Hijo de cerrajero
 'Sesam, öffne dich...': 'Con o sin llaves, yo entro'
 Türöffner: Ábrete Sésamo
@@ -1342,7 +1342,7 @@ Hannibalfan: Fan de Hannibal
 Totmacher: Creador de la muerte
 'Jeffrey Dahmer': 'Jeffrey Dahmer'
 'Fast schon ein Zombie...': 'Aspirante a zombi...'
-'Schmeckt am besten wenn''s noch schreit!': 'Es mejor cuando gritan.'
+"Schmeckt am besten wenn's noch schreit!": "Schmeckt am besten wenn's noch schreit!"
 'Die Macht der Proteine': 'Lleno de proteínas.'
 Zombieliebling: Favorito de los zombies
 'Ich bin in der Hölle aufgewachsen.': 'Crecí en el infierno'
@@ -1605,7 +1605,7 @@ Wachsam: Consciente
 Paranoid: Paranoico
 'Fels in der Brandung': 'La roca!'
 'Archi-Mädlicher Illustrator von Pi': 'Ilustradora archi-maid de Pi'
-'Muad''Dib': 'Muad''Dib'
+"Muad'Dib": "Muad'Dib"
 'Am 7. Tag erschuf er den Fleischkäfig': '¡Y al séptimo día, no descansó!'
 'Das Unnütze mit dem Angenehmen verbinden': 'Jefe de Manualidades'
 'Verrückter Architekten-Visionär': 'Arquitecto visionario'
@@ -1629,7 +1629,7 @@ Eimerhalter: Guardia de las focas
 Sandverkäufer: Vendedor de Arena
 'Martinet am Strand': 'Martini en la playa'
 'Ein Spiel für echte Kinder': '¡Un verdadero juego de niños!'
-'Dauermitglied in Micky''s Club': 'Miembro permanente del Club de Mickey'
+"Dauermitglied in Micky's Club": "Dauermitglied in Micky's Club"
 'Niemals ohne meinen Eimer': 'Nunca sin mi cubo'
 'Ein Korn fehlt noch': 'Todavia falta un grano'
 'Taube aus der Unterwelt': 'Paloma del Inframundo'
@@ -1701,7 +1701,7 @@ Erinnerungsträger: Coleccionista de Recuerdos
 'Letzter Überlebender': 'Último Superviviente'
 Unzerstörbar: Indestructible
 'Allein gegen die Horde': '¡Solo contra la Horda!'
-'Chuck Norris'' Ebenbild': 'Igual a Chuck Norris'
+"Chuck Norris' Ebenbild": "Chuck Norris' Ebenbild"
 'Ich habe Magenschmerzen...': 'Tengo dolor de estómago...'
 'Mir ist kalt hier draußen...': 'Tengo frio aquí...'
 Anfängerleiche: Cadáver de principiante
