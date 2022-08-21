@@ -2039,7 +2039,7 @@ class TownController extends InventoryAwareController
                 $status[] = $citizenStatus->getName();
         }
         $healedStatus = $this->random_generator->pick($status);
-        $healChances = $this->random_generator->chance(0.6);
+        $healChances = $this->random_generator->chance(0.65); //same than Hordes
         if($healChances) {
 
             $this->citizen_handler->removeStatus($c, $healedStatus);
