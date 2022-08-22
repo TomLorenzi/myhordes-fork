@@ -87,7 +87,7 @@ Werkzeugkiste: crwdns70130:0crwdne70130:0
 'Mini Hi-Fi Anlage (an)': 'crwdns70134:0crwdne70134:0'
 'Pharmazeutische Substanz': 'crwdns70136:0crwdne70136:0'
 'Unverarbeitete Blechplatten': 'crwdns70138:0crwdne70138:0'
-'''Wake The Dead''': 'crwdns70140:0crwdne70140:0'
+"'Wake The Dead'": "crwdns136228:0crwdne136228:0"
 'Heißer Kaffee': 'crwdns70142:0crwdne70142:0'
 Kaffeekocher: crwdns70144:0crwdne70144:0
 'Unvollständiger Kaffeekocher': 'crwdns70146:0crwdne70146:0'
@@ -114,7 +114,7 @@ Reparaturset: crwdns70166:0crwdne70166:0
 'Zerstörer (entladen)': 'crwdns70188:0crwdne70188:0'
 'Zerstörer (geladen)': 'crwdns70190:0crwdne70190:0'
 'Unvollständiger Zerstörer': 'crwdns70192:0crwdne70192:0'
-'Zonenmarker ''Radius''': 'crwdns70194:0crwdne70194:0'
+"Zonenmarker 'Radius'": "crwdns136230:0crwdne136230:0"
 Leuchtrakete: crwdns70196:0crwdne70196:0
 'Kanisterpumpe (einsatzbereit)': 'crwdns70198:0crwdne70198:0'
 'Ektorp-Gluten Stuhl': 'crwdns70200:0crwdne70200:0'
@@ -133,7 +133,7 @@ Doggybag: crwdns70220:0crwdne70220:0
 'Trockene Kaugummis': 'crwdns70226:0crwdne70226:0'
 'Ranzige Butterkekse': 'crwdns70228:0crwdne70228:0'
 'Angebissene Hähnchenflügel': 'crwdns70230:0crwdne70230:0'
-'Abgelaufene Pim''s Kekse': 'crwdns70232:0crwdne70232:0'
+"Abgelaufene Pim's Kekse": "crwdns136232:0crwdne136232:0"
 'Fades Gebäck': 'crwdns70234:0crwdne70234:0'
 'Verschimmelte Stulle': 'crwdns70236:0crwdne70236:0'
 'Chinesische Nudeln': 'crwdns70238:0crwdne70238:0'
@@ -246,7 +246,7 @@ Mobiltelefon: crwdns70444:0crwdne70444:0
 'MagLite Kinderlampe (2 Ladungen)': 'crwdns70452:0crwdne70452:0'
 'Leiche eines Reisenden': 'crwdns70454:0crwdne70454:0'
 'Angenagte Leiche': 'crwdns70456:0crwdne70456:0'
-'Rauchgranate ''Tannenduft''': 'crwdns70458:0crwdne70458:0'
+"Rauchgranate 'Tannenduft'": "crwdns136234:0crwdne136234:0"
 Sandball: crwdns70460:0crwdne70460:0
 'Normaler Bauplan (gewöhnlich)': 'crwdns70462:0crwdne70462:0'
 'Normaler Bauplan (ungewöhnlich)': 'crwdns70464:0crwdne70464:0'
@@ -396,7 +396,7 @@ Rettung: crwdns70738:0crwdne70738:0
 'Der Batteriewerfer 1-PDTG (geladen) wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.': 'crwdns70752:0crwdne70752:0'
 'Der Taser ist eine kleine technische Spielerei, mit der man grässliche Elektrostöße in dem Körper seines Opfers jagen kann. Allerdings ist er nicht sehr effektiv, wenn man bedennkt dass den Zombies Schmerzen nichts ausmachen. Vielleicht gelingt es dir ja mit einem Stromstoß ein wichtiges Körperglied oder Organ zum Platzen zu bringen?': 'crwdns70754:0crwdne70754:0'
 'Eine furchterregende Waffe, die nur noch etwas reines Wasser benötigt.': 'crwdns70756:0crwdne70756:0'
-'Rührt elektrisch und sehr schnell - was gibt''s sonst noch zu sagen? Er hat den Vorteil, dass er nur eine Batterie braucht, die sich mit 40% Wahrscheinlichkeit entlädt.': 'crwdns70758:0crwdne70758:0'
+"Rührt elektrisch und sehr schnell - was gibt's sonst noch zu sagen? Er hat den Vorteil, dass er nur eine Batterie braucht, die sich mit 40% Wahrscheinlichkeit entlädt.": "crwdns136238:0crwdne136238:0"
 'Damit richtest du ein wahres Massaker an. Ob du das aber zu 100% unversehrt überstehst ist eine andere Frage... Diese umgebaute Höllenmaschine funktioniert - man glaubt es kaum - mit einer gewöhnlichen Batterie!': 'crwdns70760:0crwdne70760:0'
 'Du magst es wenn es sauber ist und frisch nach Gras duftet? Vergiss das mal lieber ganz schnell. Wenn du ihn verwendest, wird es ganz anders riechen...': 'crwdns70762:0crwdne70762:0'
 'Mit einem verstellbaren Schraubenschlüssel kannst du wahlweise an einem Gegenstand herumbasteln oder etwas zerstören (muss nicht unbedingt ein Gegenstand sein...)': 'crwdns70764:0crwdne70764:0'
@@ -469,7 +469,7 @@ Rettung: crwdns70738:0crwdne70738:0
 'Das ultimative Gerät für den Abenteuerer, der in dir schlummert. Sein einzigartiges Filtersystem stellt den besten Kaffee her, den man mit den hier erhältlichen Zutaten brühen kann. Frag besser nicht nach....': 'crwdns70898:0crwdne70898:0'
 'Diese Kaffeemaschine könnte sehr nützlich sein, nur ist sie komplett zerlegt.': 'crwdns70900:0crwdne70900:0'
 'Eine alte elektronische Platine, die wahrscheinlich aus einem Radioempfänger oder aus einem sonstigen Gerät stammt.': 'crwdns70902:0crwdne70902:0'
-'Diese kleine Box enthält alles, was man so als neuer Bürger braucht! Sie ist wie eine Wundertüte oder eine Pralinenschachtel: Man weiß nie was man bekommt. Aber eigentlich ist sie''n Witz...': 'crwdns70904:0crwdne70904:0'
+"Diese kleine Box enthält alles, was man so als neuer Bürger braucht! Sie ist wie eine Wundertüte oder eine Pralinenschachtel: Man weiß nie was man bekommt. Aber eigentlich ist sie'n Witz...": "crwdns136240:0crwdne136240:0"
 'Eine äußerst praktische Tablette, die du überall einstecken kannst. Kurz nach ihrer Einnahme verschwindet dein Durst. Trotzdem kann sie WEDER deine Erschöpfung lindern, NOCH gibt sie dir Aktionspunkte zurück.': 'crwdns70906:0crwdne70906:0'
 'Ein altes Transistorradio mit Kassettenfach. Es ist ein Blues-Klasette drin. Mit dem Radio wirst du nicht viel anfangen können, da du hier sowieso nichts empfängst, aber du kannst ein bisschen Musik hören. Das übertönt das Geschrei deiner Nachbarn... Jetzt brauchst du nur noch eine Batterie.': 'crwdns70908:0crwdne70908:0'
 'Ein altes Transistorradio mit Kassettenfach. Es ist ein Blues-Klasette drin. Mit dem Radio wirst du nicht viel anfangen können, da du hier sowieso nichts empfängst, aber du kannst ein bisschen Musik hören. Das übertönt das Geschrei deiner Nachbarn...': 'crwdns70910:0crwdne70910:0'
@@ -481,10 +481,10 @@ Rettung: crwdns70738:0crwdne70738:0
 'Eine Wasserpistole ist gegen Zombies äußerst wirksam! Es sei denn sie ist leer.': 'crwdns70922:0crwdne70922:0'
 'Die Aqua-Splash-Kanone ist die Lieblingswaffe aller Wüstenwanderer! Nicht geeignet für Kinder unter 8 Jahren.': 'crwdns70924:0crwdne70924:0'
 'Der Batteriewerfer 1-PDTG wurde äußerst einfallsreich zusammengeschraubt. Dank einer virtuosen Recyclingprozedur ist er in der Lage, harmlose Batterien in mächtige Geschosse zu verwandeln.': 'crwdns70926:0crwdne70926:0'
-'Die militärische Ausführung eines ''body shapers'', der dazu dient, seinen Körper mittels schwacher Stromstöße zu stählen. Er regeneriert deine Erschöpfung und gibt dir deine Aktionspunkte wieder. Allerdings verursacht er auch schwere Verletzungen und du kannst unter Umständen sogar qualvoll sterben...': 'crwdns70928:0crwdne70928:0'
+"Die militärische Ausführung eines 'body shapers', der dazu dient, seinen Körper mittels schwacher Stromstöße zu stählen. Er regeneriert deine Erschöpfung und gibt dir deine Aktionspunkte wieder. Allerdings verursacht er auch schwere Verletzungen und du kannst unter Umständen sogar qualvoll sterben...": "crwdns136242:0crwdne136242:0"
 'Die militärische Ausführung des Batteriewerfers 1-PDTG. Sein übermächtiger Kolben ist in der Lage, eine Batterie derart schnell zu beschleunigen, dass sie fast jedes Material durchstößt. Das Gerät reißt faustgroße Löcher in bis zu zwei Zombies, vorausgesetzt sie stehen hintereinander.': 'crwdns70930:0crwdne70930:0'
 'Die militärische Ausführung des Batteriewerfers 1-PDGT. Sein übermächtiger Kolben ist in der Lage ein Batterie derart schnell zu beschleunigen, dass sie fast jedes Material durchstößt. Das Gerät reißt faustgroße Löcher in bis zu zwei Zombies, vorausgesetzt sie stehen hintereinander.': 'crwdns70932:0crwdne70932:0'
-'Der Zonenmarker ''Radius'' zeigt dir auf der Karte alle Zonen an, die an deine aktuelle Position angrenzen.': 'crwdns70934:0crwdne70934:0'
+"Der Zonenmarker 'Radius' zeigt dir auf der Karte alle Zonen an, die an deine aktuelle Position angrenzen.": "crwdns136244:0crwdne136244:0"
 'Die Leuchtrakete ermöglicht dir Informationen über weit entfernte Zonen zu bekommen. Sobald die Rakete am Boden aufschlägt, wird ein kleiner Sender freigesetzt, der Informationen über die Umgebung sendet.': 'crwdns70936:0crwdne70936:0'
 'Ein schlichter Stuhl mit lustigem Namen aus schwedischer Herstellung. Man kann damit Leute vermöbeln, aber besser du stellst ihn dir ins Wohnzimmer...': 'crwdns70938:0crwdne70938:0'
 'Eine Faustfeuerwaffe vom Modelltyp P-22. Sie ist für ihre Treffgenauigkeit und Zuverlässigkeit berühmt. Ohne Munition kannst du damit aber überhaupt nichts anfangen...': 'crwdns70940:0crwdne70940:0'
@@ -507,7 +507,7 @@ Rettung: crwdns70738:0crwdne70738:0
 'Der Rest eines Schinkenbrötchens. Die grünlich-weiß verschimmelten Schinkenecken lassen sich kurzerhand unter dem Brot verstecken und dann nichts wie runter damit...': 'crwdns70974:0crwdne70974:0'
 'Trotz all der Jahre, die sie wahrscheinlich schon in dieser Wüste liegen, haben diese Nudeln ihr Aussehen und ihren Geschmack behalten. Erstaunlich.': 'crwdns70976:0crwdne70976:0'
 'Ein Säckchen mit starken Gewürzen ...': 'crwdns70978:0crwdne70978:0'
-'Richtig gut gewürzte chinesische Nudeln! Das ist mal''ne Abwechslung von dem sonstigen verschimmelten Fraß.': 'crwdns70980:0crwdne70980:0'
+"Richtig gut gewürzte chinesische Nudeln! Das ist mal'ne Abwechslung von dem sonstigen verschimmelten Fraß.": "crwdns136246:0crwdne136246:0"
 'Ein Kartenset mit 54 abgegriffenen Karten, die ein paar Eselsohren haben... Du solltest gleich mal eine Runde zocken, denn oft wirst du hier nicht zum Spielen kommen.': 'crwdns70982:0crwdne70982:0'
 'Ein altes Spiel welches du noch nicht kennst. Wow!': 'crwdns70984:0crwdne70984:0'
 'Eine furchterregende Waffe, der nur ein paar Teile fehlen...': 'crwdns70986:0crwdne70986:0'
@@ -535,8 +535,8 @@ Rettung: crwdns70738:0crwdne70738:0
 'Dieser große Kistendeckel könnte dir gute Dienste leisten, um ein Fenster oder eine Tür bei dir daheim zu verriegeln...': 'crwdns71030:0crwdne71030:0'
 'Ein bedrucktes Bündel Papierscheine und ein paar Kupferstücke. Beides diente früher mal als Währung, doch hier ist es wertlos. Alles, was du nicht essen oder dir ins Blut spritzen kannst ist uninteressant...': 'crwdns71032:0crwdne71032:0'
 'Eine Tasche mit verschiedenen Werkzeugen, denen hier und da ein Griff oder eine Schraube fehlt. Du müsstest es reparieren, wenn du es ernsthaft gebrauchen willst.': 'crwdns71034:0crwdne71034:0'
-'Der Radar-Marker ''Radius Mark II'' ist ein fantasievoll zusammengeschraubtes Gerät, das dir ermöglicht, Lebewesen in deiner Umgebung ausfindig zu machen. Es wird behauptet, dass er Krebs verursache und Gehirnzellen irreparabel schädige, doch das kann dir egal sein, da du eh nicht lang genug leben wirst... und überhaupt: Um ihn zu benutzen brauchst du erstmal eine Batterie.': 'crwdns71036:0crwdne71036:0'
-'''Reparatur Fix'' ist ein kleines Reparaturkit für den einmaligen Gebrauch, mit dem du fast alles richten kannst. Es enthält das übliche Grundwerkzeug, ein paar Plastikersatzteile und eine Do-it-yourself-Anleitung in sieben Sprachen.': 'crwdns71038:0crwdne71038:0'
+"Der Radar-Marker 'Radius Mark II' ist ein fantasievoll zusammengeschraubtes Gerät, das dir ermöglicht, Lebewesen in deiner Umgebung ausfindig zu machen. Es wird behauptet, dass er Krebs verursache und Gehirnzellen irreparabel schädige, doch das kann dir egal sein, da du eh nicht lang genug leben wirst... und überhaupt: Um ihn zu benutzen brauchst du erstmal eine Batterie.": "crwdns136248:0crwdne136248:0"
+"'Reparatur Fix' ist ein kleines Reparaturkit für den einmaligen Gebrauch, mit dem du fast alles richten kannst. Es enthält das übliche Grundwerkzeug, ein paar Plastikersatzteile und eine Do-it-yourself-Anleitung in sieben Sprachen.": "crwdns136250:0crwdne136250:0"
 'Diese uralte Waschmaschine ist das Relikt einer Ära, in der die Menschen noch Wert auf Sauberkeit legten. Heute kannst du nur noch darüber lachen...': 'crwdns71040:0crwdne71040:0'
 'Legenden erzählen, dass die Mikrowellentechnologie einer der Gründe für den Untergang der menschlichen Zivilisation waren. Manche behaupten sogar, dass Mikrowellenöfen für das Auftauchen der Untoten verantwortlich seien...': 'crwdns71042:0crwdne71042:0'
 'Leider enthält dieser kleine Kühlschrank keinen Alkohol mehr. Zudem funktioniert er nicht mehr. Allerdings könnte er ein gutes Wurfgeschoss abgeben.': 'crwdns71044:0crwdne71044:0'
@@ -583,7 +583,7 @@ Rettung: crwdns70738:0crwdne70738:0
 'Aasbeeren sind Beeren, die auf verwesten Leichen wachsen. Man findet sie oft auf Zombies, aber erst recht auf Tierkadavern...Willst du sie wirklich essen?': 'crwdns71126:0crwdne71126:0'
 'Eine glitschige Kugel aus zusammengeklebten "Aasbeeren" "Aasbeeren" wachsen hauptsächtlich auf Kadavern.': 'crwdns71128:0crwdne71128:0'
 'Ein altes Hautstück oder irgend etwas anderes, das mal zu einem Lebewesen gehörte. Was willst du damit anstellen?': 'crwdns71130:0crwdne71130:0'
-'Das tolle an dieser unförmigen Fleischkugel ist, dass sie auf 10 Meter nach Aas stinkt. Damit kannst du die Zombies ''ne Zeit lang beschäftigen.': 'crwdns71132:0crwdne71132:0'
+"Das tolle an dieser unförmigen Fleischkugel ist, dass sie auf 10 Meter nach Aas stinkt. Damit kannst du die Zombies 'ne Zeit lang beschäftigen.": "crwdns136252:0crwdne136252:0"
 'Dieses kleine Fläschen enthält eine fluoresziernde Flüssigkeit. Erstaunlich! Vielleicht kannst du ja was Nützliches brauen, wenn du die Substanz mit etwas anderem mischst?': 'crwdns71134:0crwdne71134:0'
 'Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?': 'crwdns71136:0crwdne71136:0'
 'Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. ': 'crwdns71138:0crwdne71138:0'
@@ -601,14 +601,14 @@ Rettung: crwdns70738:0crwdne70738:0
 'Diese große Taschenlampe ist wirklich nützlich für die Suche in der Wüste, vor allem Nachts. Möglicherweise kan man noch eine andere Verwendung für sie finden, wenn sie angehen würde....': 'crwdns71162:0crwdne71162:0'
 'Diese große Taschenlampe ist wirklich nützlich für die Suche in der Wüste, vor allem Nachts. Möglicherweise kann man noch eine andere Verwendung für sie finden.': 'crwdns71164:0crwdne71164:0'
 'Diese Leiche liegt hier schon ein bisschen länger rum: Fliegenmaden haben sich schon an ihm zu schaffen gemacht und den größten Teil gegessen... Bist du sicher, dass du DIESES DING schultern möchtest?': 'crwdns71166:0crwdne71166:0'
-'Loses herumliegendes Gebein. Sieht aus, als ob es von einem ''wilden Tier'' angenagt worden wäre... Die Bissspuren sehen aber menschlich aus. Irgendetwas stimmt hier nicht...': 'crwdns71168:0crwdne71168:0'
+"Loses herumliegendes Gebein. Sieht aus, als ob es von einem 'wilden Tier' angenagt worden wäre... Die Bissspuren sehen aber menschlich aus. Irgendetwas stimmt hier nicht...": "crwdns136254:0crwdne136254:0"
 'Es handelt sich um eine bekannte Rauchgranatenmarke, die herzlich frisch nach Tannenzapfen riecht. BEACHTE: Dieser Gegenstand löscht drei Minuten lange alle Registereinträge. Die letzte Bewegungsaktion wird gelöscht, wenn sie spätestens eine Minute nach Benutzung der Rauchgranate erfolgt. ACHTUNG: Die Rauchgranate bitte erst NACH deiner Verheimlichungsaktion werfen.': 'crwdns71170:0crwdne71170:0'
-'Du hältst eine schlichte Sandkugel in der Hand, die du vorher mit ein paar fiesen Kieselsteinchen angereicherst hast. HeHe! Irgendwie verspürst du gerade eine unglaubliche Lust diesen Ball jemanden ins Gesicht zu werfen. Wenn schon kein Schnee, dann wenigstens ''ne Sandballschlacht!': 'crwdns71172:0crwdne71172:0'
+"Du hältst eine schlichte Sandkugel in der Hand, die du vorher mit ein paar fiesen Kieselsteinchen angereicherst hast. HeHe! Irgendwie verspürst du gerade eine unglaubliche Lust diesen Ball jemanden ins Gesicht zu werfen. Wenn schon kein Schnee, dann wenigstens 'ne Sandballschlacht!": "crwdns136256:0crwdne136256:0"
 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.': 'crwdns71174:0crwdne71174:0'
 'Dieser Koffer enthält mehrere Dokumente und obskure Gegenstände (Bleistift, Kompass, Plastiklineale,...). Nichts was dir irgendwie helfen würde, in der Wüste zu überleben. ...zumindest auf den ersten Blick.': 'crwdns71176:0crwdne71176:0'
 'Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...': 'crwdns71178:0crwdne71178:0'
 'Hier in dieser Einöde ein Ei zu finden, sollte dich eigentlich glücklich machen. Aber eine Frage lässt dir einfach keine Ruhe: Wo zum Teufel steckt das verdammte Huhn...': 'crwdns71180:0crwdne71180:0'
-'Als einer davon auf Sir Newton''s Kopf fiel dachte er mit Sicherheit nicht zuerst an das erste universelle Gesetz der Schwerkraft... aber es sollten immerhin ein paar Vitamine enthalten sein.': 'crwdns71182:0crwdne71182:0'
+"Als einer davon auf Sir Newton's Kopf fiel dachte er mit Sicherheit nicht zuerst an das erste universelle Gesetz der Schwerkraft... aber es sollten immerhin ein paar Vitamine enthalten sein.": "crwdns136258:0crwdne136258:0"
 'Sie ist sehr groß, fruchtig und macht "tick-tack".': 'crwdns71184:0crwdne71184:0'
 'Diese kleine Ledertasche scheint Unterlagen zu enthalten. Du betest inständig, dass es sich dabei um ein Männermagazin handelt, oder den Bauplan für ein neues, mächiges Gebäude. ...und nicht um die verblichenen Kopien einer Umsatzschätzung der Buchhaltung.': 'crwdns71186:0crwdne71186:0'
 'Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.': 'crwdns71188:0crwdne71188:0'
@@ -635,7 +635,7 @@ Rettung: crwdns70738:0crwdne70738:0
 'Das Kätzchen sieht ein wenig angefressen aus. Du solltest es besser nicht noch mehr reizen, es faucht ja jetzt schon.': 'crwdns71230:0crwdne71230:0'
 'Irgendwer hat sie mal in der Wüste vergraben, vermutlich um die Zombies aufzuhalten… Bisher haben sie sich nur als effektiv gegen unvorsichtige Mitbürger erwiesen.': 'crwdns71232:0crwdne71232:0'
 'Ein elektronisches Bauteil aus alter Zeit. Du hast nicht viel Ahnung von dem Zeug, aber es scheint noch zu funktionieren.': 'crwdns71234:0crwdne71234:0'
-'Früher konnte man damit die Damenwelt beeindrucken... Diese Zeiten sind vorbei, doch beliebt ist die Gitarre immer noch. Sie kommt zwar nicht an eine echte Les Paul ''58 heran, aber die Stadt kann ein wenig Auflockerung gebrauchen. Wer hätte denn keinen Spaß an ein bisschen Musik?': 'crwdns71236:0crwdne71236:0'
+"Früher konnte man damit die Damenwelt beeindrucken... Diese Zeiten sind vorbei, doch beliebt ist die Gitarre immer noch. Sie kommt zwar nicht an eine echte Les Paul '58 heran, aber die Stadt kann ein wenig Auflockerung gebrauchen. Wer hätte denn keinen Spaß an ein bisschen Musik?": "crwdns136260:0crwdne136260:0"
 'Keine Ahnung, wo dieses kleine, pinke Stück Papier herkommt, aber wenn Du es in den Mund nimmst kribbelt dein Gehirn!': 'crwdns71238:0crwdne71238:0'
 'In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden.': 'crwdns71240:0crwdne71240:0'
 'In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden. Jetzt brauchst du nur noch eine Batterie...': 'crwdns71242:0crwdne71242:0'
@@ -651,14 +651,14 @@ Rettung: crwdns70738:0crwdne70738:0
 'Hast du genug von dem Gequassel vor deiner Tür, den Streitereien nach zu viel Korn-Bräu oder Bürgern, die verzweifelt um ihr Leben schreien? Diese Ohrstöpsel sind genau das Richtige für dich!': 'crwdns71262:0crwdne71262:0'
 'Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...': 'crwdns71264:0crwdne71264:0'
 'Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....': 'crwdns71266:0crwdne71266:0'
-'Bereit deine Hüften zu ein wenig Rock ''n'' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.': 'crwdns71268:0crwdne71268:0'
+"Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.": "crwdns136262:0crwdne136262:0"
 'Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!': 'crwdns71270:0crwdne71270:0'
 'Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)': 'crwdns71272:0crwdne71272:0'
 'Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.': 'crwdns71274:0crwdne71274:0'
 'Keine Ahnung, ob es am LSD liegt oder daran, dass Chuck Norris so hart ist, er trinkt Napalm gegen Sodbrennen - aber diese Rede hat definitiv einen positiven Einfluss auf unsere Nachtwächter!': 'crwdns71276:0crwdne71276:0'
 'Diese riesige Schlange scheint Verdauungsprobleme zu haben... SO kannst du jedenfalls nichts mehr mit ihr anfangen.': 'crwdns71278:0crwdne71278:0'
 'Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.': 'crwdns71280:0crwdne71280:0'
-'Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: ''Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen''. Das willste doch nicht trinken? Oder etwa doch?!': 'crwdns71282:0crwdne71282:0'
+"Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: 'Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen'. Das willste doch nicht trinken? Oder etwa doch?!": "crwdns136264:0crwdne136264:0"
 'Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!': 'crwdns71284:0crwdne71284:0'
 'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.': 'crwdns71286:0crwdne71286:0'
 'Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!': 'crwdns71288:0crwdne71288:0'
@@ -713,7 +713,7 @@ Waffenarsenal: crwdns71382:0crwdne71382:0
 Kaputt: crwdns71386:0crwdne71386:0
 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.': 'crwdns71388:0crwdne71388:0'
 'Haus aufräumen und putzen': 'crwdns71390:0crwdne71390:0'
-'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn''s ne Bruchbude ist, es ist DEIN Zuhause...': 'crwdns71392:0crwdne71392:0'
+"Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...": "crwdns136266:0crwdne136266:0"
 Duschen: crwdns71394:0crwdne71394:0
 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.': 'crwdns71396:0crwdne71396:0'
 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!': 'crwdns71398:0{item}crwdnd71398:0{items_spawn}crwdne71398:0'
@@ -820,7 +820,7 @@ Geschenkpaket: crwdns71562:0crwdne71562:0
 'Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.<br /><em>Angesichts des <strong>Armageddon</strong> kannst du diese Spezialaktion <strong>einmal pro Spiel</strong> durchführen.</em>': 'crwdns71600:0crwdne71600:0'
 'So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!': 'crwdns71602:0{items_spawn}crwdnd71602:0{items_spawn}crwdne71602:0'
 'Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!': 'crwdns71604:0{kills}crwdne71604:0'
-'Du atmest tief durch und drückst den Rücken durch. Auf geht''s! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.': 'crwdns71606:0{hr}crwdnd71606:0{ap}crwdne71606:0'
+"Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>{ap} neue AP erhalten</strong>.": "crwdns136268:0{hr}crwdnd136268:0{ap}crwdne136268:0"
 'Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.': 'crwdns71608:0{hr}crwdne71608:0'
 'Du versuchst dich einem Zombie zu nähern, aber <strong>der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab</strong>! Unmöglich zu bestehen...': 'crwdns71610:0crwdne71610:0'
 'Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag <strong>schickst du ihn ein paar Meter weiter in den Staub</strong>...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!': 'crwdns71612:0{hr}crwdne71612:0'
@@ -869,7 +869,7 @@ Guiness: crwdns71638:0crwdne71638:0
 'Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.{hr}{item_from} ist <strong>leer</strong>.': 'crwdns71698:0{item_from}crwdnd71698:0{items_spawn}crwdnd71698:0{hr}crwdnd71698:0{item_from}crwdne71698:0'
 '<t-consumed>Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...</t-consumed><nt-consumed>Dein Tier <strong>geht einem Zombie sofort an die Gurgel</strong> und reißt sich ein paar schöne Happen! Bravo!</nt-consumed>': 'crwdns71700:0{item}crwdne71700:0'
 'Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen <strong>unglaublichen Kraftschub</strong>. Übertreibe es aber nicht!': 'crwdns71702:0crwdne71702:0'
-'So ''ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei ''ner normalen Droge (Du hast einen <strong>AP Bonus</strong> erhalten)... Übertreibe es aber nicht!': 'crwdns71704:0crwdne71704:0'
+"So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen <strong>AP Bonus</strong> erhalten)... Übertreibe es aber nicht!": "crwdns136270:0crwdne136270:0"
 'Deine Wunde wurde geheilt, zumindest oberflächlich...': 'crwdns71706:0crwdne71706:0'
 'Deine unselige Infektion wurde kuriert!': 'crwdns71708:0crwdne71708:0'
 'Du benötigst {items_required}.': 'crwdns71710:0{items_required}crwdne71710:0'
