@@ -508,6 +508,6 @@ Deaktiviert: Désactivé
 'Zukünftige Events': 'Événements à venir'
 'In der unmittelbaren Zukunft sind keine Events geplant.': 'Aucun événement n’est prévu dans un avenir proche.'
 'Beginnt in {days} Tagen, am {date}': 'Démarre {days, plural, =0 {bientôt} one {dans un jour} other {dans # jours} }, le {date}'
-'Endet nach {days} Tagen, am {date}': 'Se termine {days, plural, =0 {bientôt} one {dans un jour} other {dans # jours} }, le {date}'
+'Endet nach {days} Tagen, am {date}': 'Se termine {days, plural, =0 {bientôt} one {dans un jour} other {au bout de # jours} }, le {date}'
 Events: Événements
 'Nur in Weltforen': 'Seulement dans les forums mondiaux'
