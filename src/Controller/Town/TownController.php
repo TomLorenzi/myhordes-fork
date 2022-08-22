@@ -699,11 +699,6 @@ class TownController extends InventoryAwareController
             $em->persist($existing_complaint);
             $em->flush();
 
-            if ($complaint_level != 0) {
-                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0, ['num' => $num_of_complaints] );
-                $em->flush();
-            }
-
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -718,6 +713,11 @@ class TownController extends InventoryAwareController
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
+
+        if (($complaint_level > 0 && !$banished) || $complaint_level < 0) {
+            $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0, ['num' => $num_of_complaints] );
+            $em->flush();
+        }
 
         if ($a !== null) {
             $m = [];
@@ -1321,7 +1321,7 @@ class TownController extends InventoryAwareController
         // If slavery is allowed and the citizen is banished, permit slavery bonus
         if (!$slavery_allowed && $citizen->getBanished() && !$building->getComplete())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        $slave_bonus = $citizen->getBanished();
+        $slave_bonus = $citizen->getBanished() && !$building->getComplete();
 
         // Check if all parent buildings are completed
         $current = $building->getPrototype();
@@ -2039,7 +2039,7 @@ class TownController extends InventoryAwareController
                 $status[] = $citizenStatus->getName();
         }
         $healedStatus = $this->random_generator->pick($status);
-        $healChances = $this->random_generator->chance(0.6);
+        $healChances = $this->random_generator->chance(0.65); //same than Hordes
         if($healChances) {
 
             $this->citizen_handler->removeStatus($c, $healedStatus);
@@ -2051,7 +2051,7 @@ class TownController extends InventoryAwareController
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['{citizen}' => "<span>" . $c->getName() . "</span>"], 'game');
             $this->entity_manager->persist( $this->log->shamanHealLog( $this->getActiveCitizen(), $c ) );
 
-            $transfer = $this->random_generator->chance(0.1);
+            $transfer = $this->random_generator->chance(0.05); //same than Hordes
             if($transfer){
                 $do_transfer = true;
                 $witness = $this->citizen_handler->hasStatusEffect($citizen, 'tg_infect_wtns');

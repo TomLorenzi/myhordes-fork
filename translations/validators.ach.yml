@@ -42,7 +42,7 @@
 'The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.': 'crwdns73614:0{{ width }}crwdnd73614:0{{ min_width }}crwdne73614:0'
 'The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.': 'crwdns73616:0{{ height }}crwdnd73616:0{{ max_height }}crwdne73616:0'
 'The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.': 'crwdns73618:0{{ height }}crwdnd73618:0{{ min_height }}crwdne73618:0'
-'This value should be the user''s current password.': 'crwdns73620:0crwdne73620:0'
+"This value should be the user's current password.": 'crwdns136140:0crwdne136140:0'
 'This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.': 'crwdns73622:0{{ limit }}crwdnd73622:0{{ limit }}crwdne73622:0'
 'The file was only partially uploaded.': 'crwdns73624:0crwdne73624:0'
 'No file was uploaded.': 'crwdns73626:0crwdne73626:0'

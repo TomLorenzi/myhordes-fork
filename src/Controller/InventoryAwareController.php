@@ -670,7 +670,7 @@ class InventoryAwareController extends CustomAbstractController
 
                             if ($bank_theft) {
 
-                                if ($this->random_generator->chance(0.6667)) {
+                                if ($this->random_generator->chance(0.6)) {
                                     $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
                                     $this->addFlash('error',$this->translator->trans('Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!', [], "game"));
                                 } else {
@@ -1335,6 +1335,15 @@ class InventoryAwareController extends CustomAbstractController
                 break;
             case 'cm_campsite_hide':
             case 'cm_campsite_tomb':
+                // Remove citizen from escort
+                foreach ($citizen->getLeadingEscorts() as $escorted_citizen) {
+                    $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
+                    $this->entity_manager->persist($escorted_citizen);
+                }
+
+                if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
+                $citizen->setEscortSettings(null);
+
                 $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
                 break;
             case 'cm_campsite_unhide':

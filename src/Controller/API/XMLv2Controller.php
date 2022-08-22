@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\API;
 
 use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
@@ -10,14 +10,10 @@ use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\ExpeditionRoute;
-use App\Entity\ExternalApp;
 use App\Entity\Gazette;
-use App\Entity\GazetteEntryTemplate;
-use App\Entity\GazetteLogEntry;
 use App\Entity\Item;
 use App\Entity\ItemCategory;
 use App\Entity\ItemPrototype;
-use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
@@ -27,6 +23,7 @@ use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Enum\ExternalAPIError;
+use App\Enum\ExternalAPIInterface;
 use App\Structures\SimpleXMLExtended;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
@@ -35,17 +32,17 @@ use DateTimeZone;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\Config\Util\Exception\InvalidXmlException;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class ExternalXML2Controller
+ * Class XMLv2Controller
  * @package App\Controller
  * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
  */
-class ExternalXML2Controller extends ExternalController {
+class XMLv2Controller extends CoreController {
 
     public function on_error(ExternalAPIError $message, string $language): Response {
         $data = $this->getHeaders(null, $language);
@@ -74,9 +71,9 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=false)
+     * @ExternalAPI(user=true, app=false, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * @return Response The XML that contains the list of accessible enpoints
+     * @return Response The XML that contains the list of accessible endpoints
      */
     public function api_xml(?User $user, ?string $app_key): Response {
         $endpoints = [];
@@ -100,7 +97,7 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the soul of a user
      * @return Response Return the XML content for the soul of the user
@@ -108,7 +105,7 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_user(?User $user, string $language): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -163,7 +160,7 @@ class ExternalXML2Controller extends ExternalController {
                 $node['attributes']['name'] = $this->translator->trans($picto['label'], [], 'game');
                 $node['attributes']['desc'] = $this->translator->trans($picto['description'], [], 'game');
             } else {
-                foreach ($this->available_langs as $lang) {
+                foreach ($this->languages as $lang) {
                     $node['attributes']["name-$lang"] = $this->translator->trans($picto['label'], [], 'game', $lang);
                     $node['attributes']["desc-$lang"] = $this->translator->trans($picto['description'], [], 'game', $lang);
                 }
@@ -183,7 +180,7 @@ class ExternalXML2Controller extends ExternalController {
                 if($language !== 'all'){
                     $nodeTitle['attributes']["name"] = $this->translator->trans($title->getTitle(), [], 'game');
                 } else {
-                    foreach ($this->available_langs as $lang) {
+                    foreach ($this->languages as $lang) {
                         $nodeTitle['attributes']["name-$lang"] = $this->translator->trans($title->getTitle(), [], 'game', $lang);
                     }
                 }
@@ -253,17 +250,18 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=false)
+     * @ExternalAPI(user=true, app=false, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the town of a user
      * @param User|null $user
      * @param string $language
+     * @param string|null $app_key
      * @return Response
      */
     public function api_xml_town(?User $user, string $language, ?string $app_key): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -308,7 +306,6 @@ class ExternalXML2Controller extends ExternalController {
 
             $offset = $town->getMapOffset();
 
-            /** @var TownDefenseSummary $def */
             $def = new TownDefenseSummary();
             $this->town_handler->calculate_town_def($town, $def);
 
@@ -736,7 +733,7 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of items currently used in the game
      * @param User|null $user
@@ -747,7 +744,7 @@ class ExternalXML2Controller extends ExternalController {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -808,7 +805,7 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of buildings currently used in the game
      * @param User|null $user
@@ -819,7 +816,7 @@ class ExternalXML2Controller extends ExternalController {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -877,7 +874,7 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of ruins currently used in the game
      * @param User|null $user
@@ -887,7 +884,7 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_ruins(?User $user, string $language): Response {
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -940,7 +937,7 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of pictos currently used in the game
      * @param User|null $user
@@ -951,7 +948,7 @@ class ExternalXML2Controller extends ExternalController {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -1003,7 +1000,7 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @ExternalAPI(user=true, app=true)
+     * @ExternalAPI(user=true, app=true, api=ExternalAPIInterface::XMLv2)
      * @Route("api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Returns the lists of titles currently used in the game
      * @param User|null $user
@@ -1014,7 +1011,7 @@ class ExternalXML2Controller extends ExternalController {
 
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
+        } catch (Exception) {
             $now = date('Y-m-d H:i:s');
         }
 
@@ -1118,37 +1115,6 @@ class ExternalXML2Controller extends ExternalController {
         return $_xml->asXML();
     }
 
-    /**
-     * Returns the text corresponding to the entry
-     * @param GazetteLogEntry $gazetteLogEntry The gazette log entry to parse
-     * @param string|null $lang Lang to translate the text into (null to use the default)
-     * @return string The string corresponding to the GazetteLogEntry
-     */
-    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry, string $lang = null): string
-    {
-        return $this->parseLog($gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables(), $lang);
-    }
-
-    /**
-     * @param GazetteEntryTemplate|LogEntryTemplate $template
-     * @param array $variables
-     * @param string|null $lang
-     * @return string
-     */
-    protected function parseLog($template, array $variables, string $lang = null): string {
-        $variableTypes = $template->getVariableTypes();
-        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables);
-
-        try {
-            $text = $this->translator->trans($template->getText(), $transParams, 'game', $lang);
-        }
-        catch (Exception $e) {
-            $text = "null";
-        }
-
-        return $text;
-    }
-
     protected function getHeaders(?User $user = null, string $language = 'de', bool $secure = false): array {
         $base_url = Request::createFromGlobals()->getHost() . Request::createFromGlobals()->getBasePath();
         $icon_path = $base_url . '/build/images/';
@@ -1171,8 +1137,8 @@ class ExternalXML2Controller extends ExternalController {
         if($user && $secure){
             if ($citizen = $user->getActiveCitizen()) {
                 try {
-                    $now = new \DateTime('now', new DateTimeZone('Europe/Paris'));
-                } catch (Exception $e) {
+                    $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+                } catch (Exception) {
                     $now = date('Y-m-d H:i:s');
                 }
 

@@ -54,16 +54,24 @@ class ConfMaster
             : (new EventConf())->complete());
     }
 
-    public function getEventScheduleByName(string $name, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null): bool {
+    public function getEventScheduleByName(string $name, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null, bool $lookAhead = false): bool {
         if (!isset($this->events[$name]) || !isset($this->events[$name]['trigger'])) return false;
-        return $this->getEventSchedule( $this->events[$name]['trigger'], $curDate, $begin, $end );
+        return $this->getEventSchedule( $this->events[$name]['trigger'], $curDate, $begin, $end, $lookAhead );
+    }
+
+    public function eventIsPublic(string $name): bool {
+        return isset($this->events[$name]) && ($this->events[$name]['public'] ?? false);
     }
 
     public function getAllEvents(): array {
         return $this->events;
     }
 
-    public function getEventSchedule(array $trigger, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null): bool {
+    public function getAllEventNames(): array {
+        return array_keys($this->getAllEvents());
+    }
+
+    public function getEventSchedule(array $trigger, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null, bool $lookAhead = false): bool {
         $begin = $end = null;
         if (empty($trigger['type'])) return false;
 
@@ -89,6 +97,8 @@ class ConfMaster
                 $begin = (new DateTime())->setDate($beginDate[0], $beginDate[1], $beginDate[2])->setTime($beginTime[0], $beginTime[1], 0);
                 $end = (new DateTime())->setDate($endDate[0], $endDate[1], $endDate[2])->setTime($endTime[0], $endTime[1], 0);
 
+                if ($begin < $curDate && $end < $curDate && $lookAhead) return $this->getEventSchedule( $trigger, (new DateTime())->setDate((int)$curDate->format('Y') + 1, 1, 1), $begin, $end, false );
+
                 break;
             case 'easter':
                 $y = (int)$curDate->format('Y');
@@ -103,6 +113,8 @@ class ConfMaster
 
                 $begin = DateTime::createFromImmutable($origin->sub( new DateInterval("P{$trigger['before']}D") ));
                 $end = DateTime::createFromImmutable($origin->add( new DateInterval("P{$trigger['after']}D") ));
+
+                if ($begin < $curDate && $end < $curDate && $lookAhead) return $this->getEventSchedule( $trigger, (new DateTime())->setDate((int)$curDate->format('Y') + 1, 1, 1), $begin, $end, false );
 
                 break;
         }

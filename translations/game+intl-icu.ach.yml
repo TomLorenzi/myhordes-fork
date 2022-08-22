@@ -75,7 +75,7 @@ Zombies: crwdns61940:0crwdne61940:0
 'Qualität der Abschätzung': 'crwdns61942:0crwdne61942:0'
 'Abschätzung verbessern': 'crwdns61944:0crwdne61944:0'
 'Morgige Abschätzung': 'crwdns61946:0crwdne61946:0'
-'Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses ''alles'' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.': 'crwdns61948:0crwdne61948:0'
+"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "crwdns136158:0crwdne136158:0"
 'Tag {day}': 'crwdns61950:0{day}crwdne61950:0'
 Rucksack: crwdns61952:0crwdne61952:0
 Truhe: crwdns61954:0crwdne61954:0
@@ -272,14 +272,14 @@ Krankenwagen: crwdns62334:0crwdne62334:0
 Lagerhalle: crwdns62336:0crwdne62336:0
 'Leeres Parkhaus': 'crwdns62338:0crwdne62338:0'
 'Liegengebliebener Kampfpanzer': 'crwdns62340:0crwdne62340:0'
-'Motel ''Dusk''': 'crwdns62342:0crwdne62342:0'
+"Motel 'Dusk'": "crwdns136160:0crwdne136160:0"
 'Militärischer Wachposten': 'crwdns62344:0crwdne62344:0'
 Postfiliale: crwdns62346:0crwdne62346:0
 Räuberhöhle: crwdns62348:0crwdne62348:0
 Schützengraben: crwdns62350:0crwdne62350:0
 Stadtbücherei: crwdns62352:0crwdne62352:0
 'Tante Emma Laden': 'crwdns62354:0crwdne62354:0'
-'Truck ''Rathaus auf Rädern''': 'crwdns62356:0crwdne62356:0'
+"Truck 'Rathaus auf Rädern'": "crwdns136162:0crwdne136162:0"
 'Umgekippter Laster': 'crwdns62358:0crwdne62358:0'
 'Verbrannte Grundschule': 'crwdns62360:0crwdne62360:0'
 'Verfallenes Bürogebäude': 'crwdns62362:0crwdne62362:0'
@@ -289,7 +289,7 @@ Stadtbücherei: crwdns62352:0crwdne62352:0
 'Verlassene Silos': 'crwdns62370:0crwdne62370:0'
 'Versperrte Straße': 'crwdns62372:0crwdne62372:0'
 'Verwilderter Park': 'crwdns62374:0crwdne62374:0'
-'Waffengeschäft Guns''n''Zombies': 'crwdns62376:0crwdne62376:0'
+"Waffengeschäft Guns'n'Zombies": "crwdns136164:0crwdne136164:0"
 Warenlager: crwdns62378:0crwdne62378:0
 'Zelt eines Bürgers': 'crwdns62380:0crwdne62380:0'
 'Zerstörte Apotheke': 'crwdns62382:0crwdne62382:0'
@@ -373,7 +373,7 @@ Werkstatt: crwdns62514:0crwdne62514:0
 'Die Zone untersuchen': 'crwdns62538:0crwdne62538:0'
 'Du schaust dir die Gegend etwas genauer an...': 'crwdns62540:0crwdne62540:0'
 'Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.': 'crwdns62542:0crwdne62542:0'
-'Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich ''ne Zyanidkapsel schlucken.': 'crwdns62544:0crwdne62544:0'
+"Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.": "crwdns136166:0crwdne136166:0"
 'Rucksack auf dem Boden ausleeren': 'crwdns62546:0crwdne62546:0'
 'Heute ist nichts Erwähnenswertes passiert...': 'crwdns62548:0crwdne62548:0'
 'Unbekannte Todesursache': 'crwdns62550:0crwdne62550:0'
@@ -387,7 +387,7 @@ Dehydration: crwdns62562:0crwdne62562:0
 Verhungert: crwdns62566:0crwdne62566:0
 'Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.': 'crwdns62568:0crwdne62568:0'
 Drogenabhängigkeit: crwdns62570:0crwdne62570:0
-'Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht''s schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.': 'crwdns62572:0crwdne62572:0'
+"Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.": "crwdns136168:0crwdne136168:0"
 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.': 'crwdns62574:0crwdne62574:0'
 Zyanid: crwdns62576:0crwdne62576:0
 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll''s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...': 'crwdns62578:0crwdne62578:0'
@@ -408,7 +408,7 @@ Kopfschuss: crwdns62602:0crwdne62602:0
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'crwdns62608:0crwdne62608:0'
 'Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.': 'crwdns62610:0crwdne62610:0'
 'Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.': 'crwdns62612:0crwdne62612:0'
-'Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das ''weitverzweigte Netzt'' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.': 'crwdns62614:0crwdne62614:0'
+"Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.": "crwdns136170:0crwdne136170:0"
 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?': 'crwdns62616:0crwdne62616:0'
 'Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.': 'crwdns62618:0crwdne62618:0'
 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.': 'crwdns62620:0crwdne62620:0'
@@ -417,12 +417,12 @@ Kopfschuss: crwdns62602:0crwdne62602:0
 'Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.': 'crwdns62626:0crwdne62626:0'
 'Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.': 'crwdns62628:0crwdne62628:0'
 'Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.': 'crwdns62630:0crwdne62630:0'
-'Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: ''Plündern Sie uns bevor es andere tun!''': 'crwdns62632:0crwdne62632:0'
+"Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'": "crwdns136172:0crwdne136172:0"
 'Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät': 'crwdns62634:0crwdne62634:0'
 'Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.': 'crwdns62636:0crwdne62636:0'
 'Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !': 'crwdns62638:0crwdne62638:0'
 'Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.': 'crwdns62640:0crwdne62640:0'
-'Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: ''Lecker, die esse ich doch mal gleich''': 'crwdns62642:0crwdne62642:0'
+"Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'": "crwdns136174:0crwdne136174:0"
 'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.': 'crwdns62644:0crwdne62644:0'
 'Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...': 'crwdns62646:0crwdne62646:0'
 'E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...': 'crwdns62648:0crwdne62648:0'
@@ -441,7 +441,7 @@ Kopfschuss: crwdns62602:0crwdne62602:0
 'Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.': 'crwdns62674:0crwdne62674:0'
 'Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...': 'crwdns62676:0crwdne62676:0'
 'Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...': 'crwdns62678:0crwdne62678:0'
-'Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: ''Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...''.': 'crwdns62680:0crwdne62680:0'
+"Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.": "crwdns136176:0crwdne136176:0"
 'Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !': 'crwdns62682:0crwdne62682:0'
 'Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...': 'crwdns62684:0crwdne62684:0'
 'Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...': 'crwdns62686:0crwdne62686:0'
@@ -453,28 +453,28 @@ Kopfschuss: crwdns62602:0crwdne62602:0
 'In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.': 'crwdns62698:0crwdne62698:0'
 'Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.': 'crwdns62700:0crwdne62700:0'
 'Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.': 'crwdns62702:0crwdne62702:0'
-'Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: ''Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...''. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...': 'crwdns62704:0crwdne62704:0'
+"Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...": "crwdns136180:0crwdne136180:0"
 'Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...': 'crwdns62706:0crwdne62706:0'
 'Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...': 'crwdns62708:0crwdne62708:0'
 'Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.': 'crwdns62710:0crwdne62710:0'
-'Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von ''Ereignissen'' sich hier abgespielt haben...': 'crwdns62712:0crwdne62712:0'
+"Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...": "crwdns136182:0crwdne136182:0"
 'Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...': 'crwdns62714:0crwdne62714:0'
-'Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: ''Shenji''': 'crwdns62716:0crwdne62716:0'
+"Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'": "crwdns136186:0crwdne136186:0"
 'Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.': 'crwdns62718:0crwdne62718:0'
 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...': 'crwdns62720:0crwdne62720:0'
 'Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...': 'crwdns62722:0crwdne62722:0'
-'Außer ein paar ''natürlichen'' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.': 'crwdns62724:0crwdne62724:0'
+"Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.": "crwdns136188:0crwdne136188:0"
 'Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.': 'crwdns62726:0crwdne62726:0'
 'An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...': 'crwdns62728:0crwdne62728:0'
 'In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.': 'crwdns62730:0crwdne62730:0'
 'Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.': 'crwdns62732:0crwdne62732:0'
 'Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...': 'crwdns62734:0crwdne62734:0'
 'Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.': 'crwdns62736:0crwdne62736:0'
-'Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock ''ne Runde Kopf oder Zahl zu spielen?': 'crwdns62738:0crwdne62738:0'
+"Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?": "crwdns136190:0crwdne136190:0"
 'Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.': 'crwdns62740:0crwdne62740:0'
 'Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...': 'crwdns62742:0crwdne62742:0'
 'Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.': 'crwdns62744:0crwdne62744:0'
-'Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt''s nur noch Daumen drücken!': 'crwdns62746:0crwdne62746:0'
+"Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!": "crwdns136192:0crwdne136192:0"
 'Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.': 'crwdns62748:0crwdne62748:0'
 'Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.': 'crwdns62750:0crwdne62750:0'
 Wächt: crwdns62752:0crwdne62752:0
@@ -576,7 +576,7 @@ Ausgrabungsarbeiten: crwdns62940:0crwdne62940:0
 Hauseinrichtung: crwdns62944:0crwdne62944:0
 'Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.': 'crwdns62946:0crwdne62946:0'
 'Letzte Verteidigungslinie': 'crwdns62948:0crwdne62948:0'
-'Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde ''empfangen'' hat...': 'crwdns62950:0crwdne62950:0'
+"Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...": "crwdns136196:0crwdne136196:0"
 Drogen: crwdns62952:0crwdne62952:0
 'Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.': 'crwdns62954:0crwdne62954:0'
 Drogenerfahrungen: crwdns62956:0crwdne62956:0
@@ -600,7 +600,7 @@ Schusseligkeiten: crwdns62988:0crwdne62988:0
 Masochismus: crwdns62992:0crwdne62992:0
 'Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.': 'crwdns62994:0crwdne62994:0'
 Event-Auszeichnungen: crwdns62996:0crwdne62996:0
-'Auszeichnung für die Teilnahme an Events bei ''Die Verdammten''.': 'crwdns62998:0crwdne62998:0'
+"Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.": "crwdns136198:0crwdne136198:0"
 'Wunderwerk: Sandschloss': 'crwdns63000:0crwdne63000:0'
 'Das hast du nicht wirklich gebaut?': 'crwdns63002:0crwdne63002:0'
 'Wunderwerk: Riesiger KVF': 'crwdns63004:0crwdne63004:0'
@@ -624,7 +624,7 @@ Dehydrationstode: crwdns63036:0crwdne63036:0
 'Tödliche Infektionen': 'crwdns63040:0crwdne63040:0'
 'Anzahl der Infektionen, die dich das Leben gekostet haben.': 'crwdns63042:0crwdne63042:0'
 'Tod durch Entzug': 'crwdns63044:0crwdne63044:0'
-'Die Anzahl der Male, in denen dein unfreiwilliger ''cold turkey'' gescheitert ist...': 'crwdns63046:0crwdne63046:0'
+"Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...": "crwdns136200:0crwdne136200:0"
 'Letzter Toter': 'crwdns63048:0crwdne63048:0'
 'Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.': 'crwdns63050:0crwdne63050:0'
 'Letzter Toter in einer Pandämoniumstadt': 'crwdns63052:0crwdne63052:0'
@@ -668,7 +668,7 @@ Stadtwächter: crwdns63112:0crwdne63112:0
 'Getötete Zombies': 'crwdns63128:0crwdne63128:0'
 'Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.': 'crwdns63130:0crwdne63130:0'
 'Ehemaliger Beta-Tester': 'crwdns63132:0crwdne63132:0'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist.': 'crwdns63134:0crwdne63134:0'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.": "crwdns136204:0crwdne136204:0"
 'Sandbälle! Yeah!': 'crwdns63136:0crwdne63136:0'
 'Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...': 'crwdns63138:0crwdne63138:0'
 Kreuzigung: crwdns63140:0crwdne63140:0
@@ -837,7 +837,7 @@ Zusammenbauen: crwdns63402:0crwdne63402:0
 'Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.': 'crwdns63466:0crwdne63466:0'
 'Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.': 'crwdns63468:0{citizen}crwdnd63468:0{citizen}crwdne63468:0'
 'Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!': 'crwdns63470:0{citizen}crwdnd63470:0{citizen}crwdne63470:0'
-'Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M''Kay?': 'crwdns63472:0crwdne63472:0'
+"Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?": 'crwdns136206:0crwdne136206:0'
 '{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.': 'crwdns63474:0{citizen}crwdne63474:0'
 'Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.': 'crwdns63476:0{citizen}crwdne63476:0'
 'Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als {citizen} wieder erwacht, scheint er von seiner Angststarre befreit zu sein.': 'crwdns63478:0{citizen}crwdne63478:0'
@@ -920,7 +920,7 @@ Zonenmarkierer: crwdns63602:0crwdne63602:0
 '[nichts]': 'crwdns63632:0[nichts]crwdne63632:0'
 Seelenpunkte: crwdns63634:0crwdne63634:0
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'crwdns63636:0crwdne63636:0'
-'Und wieder ''ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!': 'crwdns63638:0{disposed}crwdnd63638:0{citizen}crwdne63638:0'
+"Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!": "crwdns136208:0{disposed}crwdnd136208:0{citizen}crwdne136208:0"
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': 'crwdns63640:0{citizen}crwdnd63640:0{disposed}crwdne63640:0'
 '{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': 'crwdns63642:0{citizen}crwdnd63642:0{kills}crwdne63642:0'
 'Der Bürger {citizen} hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt {items}.': 'crwdns63644:0{citizen}crwdnd63644:0{items}crwdne63644:0'
@@ -1067,7 +1067,7 @@ Quarantäne: crwdns63882:0crwdne63882:0
 'Der letzte Tote in dieser Stadt!': 'crwdns63926:0crwdne63926:0'
 'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.': 'crwdns63928:0crwdne63928:0'
 'Mit den anderen Bürgern reden...': 'crwdns63930:0crwdne63930:0'
-'Lesen und Nutzen des Forums sind in ''MyHordes'' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.': 'crwdns63932:0crwdne63932:0'
+"Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.": "crwdns136210:0crwdne136210:0"
 'Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...': 'crwdns63934:0crwdne63934:0'
 'Spielhilfe aufrufen.': 'crwdns63936:0crwdne63936:0'
 'Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.': 'crwdns63938:0crwdne63938:0'
@@ -1088,7 +1088,7 @@ Stadtrat: crwdns63958:0crwdne63958:0
 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011': 'crwdns63968:0crwdne63968:0'
 'Video Game Festival 2010': 'crwdns63970:0crwdne63970:0'
 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!': 'crwdns63972:0crwdne63972:0'
-'FJV''08 Kanonenfutter': 'crwdns63974:0crwdne63974:0'
+"FJV'08 Kanonenfutter": "crwdns136212:0crwdne136212:0"
 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.': 'crwdns63976:0crwdne63976:0'
 Community-Auszeichnung: crwdns63978:0crwdne63978:0
 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.': 'crwdns63980:0crwdne63980:0'
@@ -1125,7 +1125,7 @@ Schlachtenbummler: crwdns63986:0crwdne63986:0
 'Zuletzt bearbeitet: {date}': 'crwdns64042:0{date}crwdne64042:0'
 'Von einem Moderator bearbeitet.': 'crwdns64044:0crwdne64044:0'
 'Nur altgediente Helden können auf die Wandtafel schreiben': 'crwdns64046:0crwdne64046:0'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist. Drogen sind nicht gut.': 'crwdns64048:0crwdne64048:0'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.": "crwdns136214:0crwdne136214:0"
 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="{path}" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.': 'crwdns64050:0{path}crwdne64050:0'
 'Du hast <strong>keine neue Privatnachricht</strong> erhalten. Eine Liste aller Bürger findest du im <span class="link" x-ajax-href="{path}">Verzeichnis der Stadt</span>.': 'crwdns64052:0{path}crwdne64052:0'
 'In diesem Bereich kannst du an der <strong>Errichtung neuer Gebäude und Bauprojekte mitarbeiten</strong>. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.': 'crwdns64054:0crwdne64054:0'
@@ -1293,7 +1293,7 @@ Nervenkitzelsucher: crwdns64368:0crwdne64368:0
 Tunnelblicker: crwdns64378:0crwdne64378:0
 'Im Irrgarten': 'crwdns64380:0crwdne64380:0'
 'Inklusive Kompass': 'crwdns64382:0crwdne64382:0'
-'Wo klemmt''s?': 'crwdns64384:0crwdne64384:0'
+"Wo klemmt's?": "crwdns136216:0crwdne136216:0"
 Dietrich: crwdns64386:0crwdne64386:0
 'Sesam, öffne dich...': 'crwdns64388:0crwdne64388:0'
 Türöffner: crwdns64390:0crwdne64390:0
@@ -1342,7 +1342,7 @@ Hannibalfan: crwdns64474:0crwdne64474:0
 Totmacher: crwdns64476:0crwdne64476:0
 'Jeffrey Dahmer': 'crwdns64478:0crwdne64478:0'
 'Fast schon ein Zombie...': 'crwdns64480:0crwdne64480:0'
-'Schmeckt am besten wenn''s noch schreit!': 'crwdns64482:0crwdne64482:0'
+"Schmeckt am besten wenn's noch schreit!": "crwdns136218:0crwdne136218:0"
 'Die Macht der Proteine': 'crwdns64484:0crwdne64484:0'
 Zombieliebling: crwdns64486:0crwdne64486:0
 'Ich bin in der Hölle aufgewachsen.': 'crwdns64488:0crwdne64488:0'
@@ -1605,7 +1605,7 @@ Wachsam: crwdns65000:0crwdne65000:0
 Paranoid: crwdns65002:0crwdne65002:0
 'Fels in der Brandung': 'crwdns65004:0crwdne65004:0'
 'Archi-Mädlicher Illustrator von Pi': 'crwdns65006:0crwdne65006:0'
-'Muad''Dib': 'crwdns65008:0crwdne65008:0'
+"Muad'Dib": "crwdns136220:0crwdne136220:0"
 'Am 7. Tag erschuf er den Fleischkäfig': 'crwdns65010:0crwdne65010:0'
 'Das Unnütze mit dem Angenehmen verbinden': 'crwdns65012:0crwdne65012:0'
 'Verrückter Architekten-Visionär': 'crwdns65014:0crwdne65014:0'
@@ -1629,7 +1629,7 @@ Eimerhalter: crwdns65048:0crwdne65048:0
 Sandverkäufer: crwdns65050:0crwdne65050:0
 'Martinet am Strand': 'crwdns65052:0crwdne65052:0'
 'Ein Spiel für echte Kinder': 'crwdns65054:0crwdne65054:0'
-'Dauermitglied in Micky''s Club': 'crwdns65056:0crwdne65056:0'
+"Dauermitglied in Micky's Club": "crwdns136222:0crwdne136222:0"
 'Niemals ohne meinen Eimer': 'crwdns65058:0crwdne65058:0'
 'Ein Korn fehlt noch': 'crwdns65060:0crwdne65060:0'
 'Taube aus der Unterwelt': 'crwdns65062:0crwdne65062:0'
@@ -1701,7 +1701,7 @@ Erinnerungsträger: crwdns65186:0crwdne65186:0
 'Letzter Überlebender': 'crwdns65194:0crwdne65194:0'
 Unzerstörbar: crwdns65196:0crwdne65196:0
 'Allein gegen die Horde': 'crwdns65198:0crwdne65198:0'
-'Chuck Norris'' Ebenbild': 'crwdns65200:0crwdne65200:0'
+"Chuck Norris' Ebenbild": "crwdns136224:0crwdne136224:0"
 'Ich habe Magenschmerzen...': 'crwdns65202:0crwdne65202:0'
 'Mir ist kalt hier draußen...': 'crwdns65204:0crwdne65204:0'
 Anfängerleiche: crwdns65206:0crwdne65206:0
@@ -2332,3 +2332,4 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 'Die folgenden Gegenstände wurden aus deinem Inventar entfernt: {item_list}': 'crwdns136084:0{item_list}crwdne136084:0'
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': 'crwdns136120:0{player}crwdnd136120:0{threadname}crwdnd136120:0{forumname}crwdnd136120:0{link_post}crwdne136120:0'
 '{player} hat dich als "Freund" hinzugefügt.': 'crwdns136126:0{player}crwdne136126:0'
+'Du hast {item_list} in {item} verwandelt.': 'crwdns136138:0{item_list}crwdnd136138:0{item}crwdne136138:0'

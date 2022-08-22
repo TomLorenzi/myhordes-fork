@@ -5,6 +5,7 @@ namespace App\EventSubscriber;
 
 use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
+use App\Entity\ExternalAPIUsageRecord;
 use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Enum\ExternalAPIError;
@@ -60,7 +61,8 @@ class APIRequestListener implements EventSubscriberInterface
         return 0;
     }
 
-    public function process(ControllerEvent $event) {
+    public function process(ControllerEvent $event): int
+    {
         /** @var ?ExternalAPI $apiConf */
         if ($apiConf = $event->getRequest()->attributes->get('_ExternalAPI') ?? null) {
 
@@ -69,8 +71,6 @@ class APIRequestListener implements EventSubscriberInterface
                 $gk->value = 'skip';
                 $event->getRequest()->attributes->add( ['_GateKeeperProfile' => $gk] );
             }
-
-
 
             // Load params
             $app_key = trim($event->getRequest()->query->get('appkey') ?? $event->getRequest()->request->get('appkey') ?? '');
@@ -141,7 +141,16 @@ class APIRequestListener implements EventSubscriberInterface
                 }
             }
 
-            //var_dump( $event->getRequest()->attributes->keys() ); die;
+            try {
+                $this->entity_manager->persist( (new ExternalAPIUsageRecord())
+                    ->setApi( $apiConf->api )
+                    ->setApp( $app )
+                    ->setUser( $user )
+                    ->setTimestamp( new \DateTime() )
+                    ->setDebug( $app_key === 'fefe0000fefe0000fefe0000fefe0000' || $user_key === 'fefe0000fefe0000fefe0000fefe0000' )
+                );
+                $this->entity_manager->flush();
+            } catch (\Throwable) {}
         }
 
         return 0;

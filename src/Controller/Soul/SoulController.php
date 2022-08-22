@@ -89,6 +89,7 @@ class SoulController extends CustomAbstractController
     const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
     const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
     const ErrorUserConfirmToken              = ErrorHelper::BaseSoulErrors + 11;
+    const ErrorUserEditUserNameTooLong       = ErrorHelper::BaseSoulErrors + 12;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
@@ -525,6 +526,34 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("jx/soul/events", name="soul_events")
+     * @return Response
+     */
+    public function soul_events(): Response
+    {
+        $now = new DateTime();
+
+        $schedule =
+            array_filter(
+                array_map( function(string $name) use (&$now) {
+                    $enabled = $this->conf->getEventScheduleByName( $name, $now, $begin, $end, true );
+                    return [ $name, $begin, $end, $enabled ];
+                }, $this->conf->getAllEventNames() ),
+            function( array $event ) use (&$now) {
+                return $this->conf->eventIsPublic( $event[0] ) && ( $event[3] || $event[1] > $now || $event[2] > $now );
+            }
+        );
+
+        usort( $schedule, fn(array $a, array $b) => $a[1] <=> $b[1] );
+
+        return $this->render( 'ajax/soul/events.html.twig', $this->addDefaultTwigArgs("soul_future", [
+            'active_events' => array_filter( $schedule, fn($event) =>  $event[3] ),
+            'future_events' => array_filter( $schedule, fn($event) => !$event[3] ),
+        ]) );
+    }
+
+
+    /**
      * @Route("api/soul/polls/{id<\d+>}/{answer<\d+>}", name="soul_poll_participate")
      * @param int $id
      * @param int $answer
@@ -667,8 +696,8 @@ class SoulController extends CustomAbstractController
 
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
 
-        if ($name_change && !$this->user_handler->isNameValid($displayName))
-            return AjaxResponse::error(self::ErrorUserEditUserName);
+        if ($name_change && !$this->user_handler->isNameValid($displayName, $too_long))
+            return AjaxResponse::error(!$too_long ? self::ErrorUserEditUserName : self::ErrorUserEditUserNameTooLong);
 
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
@@ -1116,7 +1145,7 @@ class SoulController extends CustomAbstractController
         $user->setNoAutoFollowThreads( !$parser->get('autofollow', true) );
         $user->setClassicBankSort( (bool)$parser->get('clasort', false) );
         $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
-        $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', true) );
+        $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', 0) );
         $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();

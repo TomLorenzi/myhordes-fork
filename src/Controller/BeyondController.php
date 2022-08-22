@@ -1105,20 +1105,6 @@ class BeyondController extends InventoryAwareController
      */
     public function camping_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         if (!$this->activeCitizenIsNotEscorted()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $citizen = $this->getActiveCitizen();
-
-        // Remove citizen from escort
-        foreach ($citizen->getLeadingEscorts() as $escorted_citizen) {
-            $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
-            $this->entity_manager->persist($escorted_citizen);
-        }
-
-        if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
-        $citizen->setEscortSettings(null);
-
-        $this->entity_manager->flush();
-
         return $this->generic_camping_action_api( $parser);
   }
 
@@ -1248,7 +1234,7 @@ class BeyondController extends InventoryAwareController
         $old_cp_ok = $this->zone_handler->check_cp($zone);
 
         $this->citizen_handler->setAP( $citizen, true, -1 );
-        $ratio = 0.1;
+        $ratio = 0.08;
         $messages = [];
         if ($this->citizen_handler->hasStatusEffect($citizen, "drunk"))
             $ratio /= 2;
@@ -1731,7 +1717,7 @@ class BeyondController extends InventoryAwareController
         $str = [];
         $str[] = $this->translator->trans('Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.', [], 'game');
 
-        $success = $this->random_generator->chance(0.75);
+        $success = $this->random_generator->chance(0.75); //same than Hordes
 
         if (!$success) {
             $str[] = $this->translator->trans('Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...', [], 'game');

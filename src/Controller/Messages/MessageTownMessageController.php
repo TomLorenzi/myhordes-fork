@@ -161,7 +161,7 @@ class MessageTownMessageController extends MessageController
                 // Filter possible recipents. A sender can only send to someone who has the same banishment status.
                 $list = $sender->getTown()
                                ->getCitizens()
-                               ->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive() && $sender->getBanished() === $c->getBanished())
+                               ->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive() && ($sender->getBanished() === $c->getBanished() || empty($linked_items)))
                                ->getValues();
 
                 // If there's no recipient, we have to send an error. No MP will be sent.

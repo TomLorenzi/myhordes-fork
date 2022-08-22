@@ -45,7 +45,7 @@ enum UserSetting: string {
             UserSetting::PostAs                        => null,
             UserSetting::PreferSmallAvatars            => false,
             UserSetting::LimitTownListSize             => true,
-            UserSetting::NotifyMeWhenMentioned         => 0, // 0 = Disabled, 1 = Towns Only, 2 = Everywhere
+            UserSetting::NotifyMeWhenMentioned         => 0, // 0 = Disabled, 1 = Towns Only, 2 = Everywhere, 3 = Global Only
             UserSetting::NotifyMeOnFriendRequest       => true,
         };
     }
