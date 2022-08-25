@@ -504,7 +504,7 @@ Deaktiviert: Desactivado
 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Los eventos de temporada añaden nuevo contenido al juego en todas las ciudades por un tiempo limitado. Estos eventos son activados automáticamente y desactivados a la hora especificada.'
 'Laufende Events': 'Actualidades'
 'Endet in {days} Tagen, am {date}': 'Se termina {days, plural, =0 {pronto} one {dentro de un día} other {en # días} }, el {date}'
-'Wird durch einen Administrator beendet.': 'Wird durch einen Administrator beendet.'
+'Wird durch einen Administrator beendet.': 'Anulado por un Administrador.'
 'Zukünftige Events': 'Próximos Eventos'
 'In der unmittelbaren Zukunft sind keine Events geplant.': 'Ningún evento previsto en un futuro próximo.'
 'Beginnt in {days} Tagen, am {date}': 'Comienza {days, plural, =0 {pronto} one {dentro de un día} other {en # días} }, el {date}'
