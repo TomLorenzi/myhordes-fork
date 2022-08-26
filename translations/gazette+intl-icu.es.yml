@@ -100,15 +100,15 @@
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro sur</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro oeste</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro este</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
-'Nun, das sage ich...': 'Nun, das sage ich...'
-'Das ist doch Unsinn...': 'Das ist doch Unsinn...'
-'Die einen sagen dies, die anderen das...': 'Die einen sagen dies, die anderen das...'
-'Ich sags ja nur...': 'Ich sags ja nur...'
-'Komm schon, glaub mir.': 'Komm schon, glaub mir.'
-'Was für eine Organisation...': 'Was für eine Organisation...'
+'Nun, das sage ich...': 'Bueno yo lo que digo...'
+'Das ist doch Unsinn...': 'Tonterías...'
+'Die einen sagen dies, die anderen das...': 'No lo he dicho yo...'
+'Ich sags ja nur...': 'Solo digo...'
+'Komm schon, glaub mir.': 'Vamos, tengamos fe.'
+'Was für eine Organisation...': 'Vaya organización...'
 'Wir werden nicht lange durchhalten, das sage ich euch.': 'Así no llegaremos muy lejos.'
 'Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.': 'Una noche más como esta y no estaremos más aquí para contarlo.'
-'Das war knapp.': 'Das war knapp.'
+'Das war knapp.': 'Estuvo cerca.'
 Pfff...: Pfff...
 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...': 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...'
 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.': 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.'
@@ -131,7 +131,7 @@ Pfff...: Pfff...
 'Große Feier in der Stadt gestern, mit der <strong>Kreuzigung von </strong><strong>† {cadaver1}</strong>. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.': 'Große Feier in der Stadt gestern, mit der <strong>Kreuzigung von </strong><strong>† {cadaver1}</strong>. Da ist mal was los und ein Schokoladenkreuz kann sich als köstlich UND nützlich erweisen.'
 'Nette Aktion in der Stadt gestern mit der <strong>Festnahme</strong> und der <strong>Kreuzigung</strong> von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.': 'Nette Aktion in der Stadt gestern mit der <strong>Festnahme</strong> und der <strong>Kreuzigung</strong> von {cadavers} Bürgern. Gerichtsverfahren? Verhandlung? Nein, keine Zeit.'
 '{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale <strong>hypertone Dehydratation</strong> war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...': '{cadavers} Mitbürger sind gestern von uns geschieden. Eine letale <strong>hypertone Dehydratation</strong> war die Ursache. Jaja, die Schmerzensschreie gestern Nacht, das war sie, die Dehydratation...'
-'<strong>† {cadaver1} wurde ermordet</strong>. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war''s? Raus mit der Sprache!': '<strong>† {cadaver1} wurde ermordet</strong>. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war''s? Raus mit der Sprache!'
+"<strong>† {cadaver1} wurde ermordet</strong>. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!": "<strong>† {cadaver1} wurde ermordet</strong>. Ich war es nicht, obwohl ich schon Lust gehabt hätte... Also, wer war's? Raus mit der Sprache!"
 'Die Meinungen über die Ursache für <strong>† {cadaver1}</strong> plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass <strong>{citizen1}</strong> der Mörder ist. Ich persönlich neige eher zur <strong>zweiten Hypothese</strong>...': 'Die Meinungen über die Ursache für <strong>† {cadaver1}</strong> plötzlichen Tod gehen auseinander: Einige glauben, dass es sich um Selbstmord handelt, andere denken, dass <strong>{citizen1}</strong> der Mörder ist. Ich persönlich neige eher zur <strong>zweiten Hypothese</strong>...'
 'Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. <strong>† {cadaver1}</strong> wurde bereits ermordert.': 'Neben den Zombieangriffen, müssen wir uns ab sofort auch auf Morde und Mordversuche in unseren eigenen Reihen einstellen. <strong>† {cadaver1}</strong> wurde bereits ermordert.'
 'Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde <strong>† {cadaver1} ermordet</strong>. Vergiftung mit {poison}! Bürger, Zeit für Panik!': 'Gute Nachrichten, meine Freunde! Ein Verräter hat sich in unsere Reihen geschlichen. Als ob die Toten von Mitternacht nicht schon genug wären, müssen wir uns von nun an mit einer neuen Gefahr in unseren Mauern auseinandersetzen. Gestern wurde <strong>† {cadaver1} ermordet</strong>. Vergiftung mit {poison}! Bürger, Zeit für Panik!'
@@ -166,23 +166,23 @@ Rizin: Rizin
 Botulinumtoxin: Botulinumtoxin
 Virunoir: Virunoir
 Chlorotwinat: Chlorotwinat
-Kaliumchlorid: Kaliumchlorid
-Kurare: Kurare
+Kaliumchlorid: al cloro potásico
+Kurare: con curare
 'Zyanid (poison)': Zyanid (poison)
-Phenol: Phenol
+Phenol: con fenol
 Ponasulfat: Ponasulfat
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': 'Es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.'
-'in der Nähe des Gemüsegartens': 'in der Nähe des Gemüsegartens'
-'in der Nähe der südlichen Stadtmauer': 'in der Nähe der südlichen Stadtmauer'
-'am Stadttor': 'am Stadttor'
-'am Aussichtsturm': 'am Aussichtsturm'
-'am westlichen Flügel der Stadt': 'am westlichen Flügel der Stadt'
-'an der nördlichen Stadtmauer': 'an der nördlichen Stadtmauer'
-'an unserer schwach gesicherten Flanke': 'an unserer schwach gesicherten Flanke'
-'in der Nähe des Brunnens': 'in der Nähe des Brunnens'
-'an der östlichen Stadtmauer': 'an der östlichen Stadtmauer'
-'in der Stadtmauer am Stadttor': 'in der Stadtmauer am Stadttor'
+'in der Nähe des Gemüsegartens': 'en el flanco norte'
+'in der Nähe der südlichen Stadtmauer': 'cerca del muro sur'
+'am Stadttor': 'en el gran portal'
+'am Aussichtsturm': 'a la Torre de vigilancia'
+'am westlichen Flügel der Stadt': 'junto al ala Oeste'
+'an der nördlichen Stadtmauer': 'en el muro norte'
+'an unserer schwach gesicherten Flanke': 'en el flanco oeste'
+'in der Nähe des Brunnens': 'cerca del pozo'
+'an der östlichen Stadtmauer': 'en el muro este'
+'in der Stadtmauer am Stadttor': 'cerca de la muralla'
 Drops: Cachito
 Whitie: Comotú
 Fettwanst: Tifoidea
@@ -244,7 +244,7 @@ Kätzchen: el gato
 'Das war eine höllische Nacht. Unsere Verteidigung konnte nur einen Teil des Angriffs abwehren, sodass es mehreren Zombies gelang, {location} einzudringen. Das Ergebnis: <strong>{deaths} Tote</strong>.': 'Das war eine höllische Nacht. Unsere Verteidigung konnte nur einen Teil des Angriffs abwehren, sodass es mehreren Zombies gelang, {location} einzudringen. Das Ergebnis: <strong>{deaths} Tote</strong>.'
 '<strong>{citizen1}</strong> hat die Initiative ergriffen und das Tor um {randomHour} Uhr geöffnet, aber niemand hat daran gedacht, es auch wieder zu schließen. Gute Arbeit, echt...': '<strong>{citizen1}</strong> hat die Initiative ergriffen und das Tor um {randomHour} Uhr geöffnet, aber niemand hat daran gedacht, es auch wieder zu schließen. Gute Arbeit, echt...'
 '<strong>{citizen1}</strong> hat heute Nacht versucht, uns alle umzubringen. Glücklicherweise schlug sein Plan fehl, und unsere Verluste sind minimal. Ich schlage vor, wir werden ihn irgendwie los.': '<strong>{citizen1}</strong> hat heute Nacht versucht, uns alle umzubringen. Glücklicherweise schlug sein Plan fehl, und unsere Verluste sind minimal. Ich schlage vor, wir werden ihn irgendwie los.'
-'{mascot}, <strong>{citizen1}''s</strong> {animal} ist heute Nacht durch das offene Stadttor entkommen. Ach ja, und ein paar Bürger haben wir beim Angriff auch verloren. Das Tor schließen... schonmal gehört?': '{mascot}, <strong>{citizen1}''s</strong> {animal} ist heute Nacht durch das offene Stadttor entkommen. Ach ja, und ein paar Bürger haben wir beim Angriff auch verloren. Das Tor schließen... schonmal gehört?'
+"{mascot}, <strong>{citizen1}'s</strong> {animal} ist heute Nacht durch das offene Stadttor entkommen. Ach ja, und ein paar Bürger haben wir beim Angriff auch verloren. Das Tor schließen... schonmal gehört?": "{mascot}, <strong>{citizen1}'s</strong> {animal} ist heute Nacht durch das offene Stadttor entkommen. Ach ja, und ein paar Bürger haben wir beim Angriff auch verloren. Das Tor schließen... schonmal gehört?"
 'Es sieht so aus, als ob gestern Tag der offenen Tür in der Stadt war: <strong>{deaths} Tote</strong>! Ein großes Dankeschön an <strong>{citizen1}</strong>, der die Tore geöffnet hat, <strong>und dann vergessen hat, sie wieder zu schließen</strong>! Worauf wartet ihr noch, bevor ihr ihn verbannt?!': 'Es sieht so aus, als ob gestern Tag der offenen Tür in der Stadt war: <strong>{deaths} Tote</strong>! Ein großes Dankeschön an <strong>{citizen1}</strong>, der die Tore geöffnet hat, <strong>und dann vergessen hat, sie wieder zu schließen</strong>! Worauf wartet ihr noch, bevor ihr ihn verbannt?!'
 'Was bringen uns die ganzen Verteidigungsmaßnahmen, wenn dann das <strong>Stadttor offen</strong> steht? Wir danken <strong>{citizen1}</strong> für den Tod von {deaths} Bürgern... "vergessen"... tststs...': 'Was bringen uns die ganzen Verteidigungsmaßnahmen, wenn dann das <strong>Stadttor offen</strong> steht? Wir danken <strong>{citizen1}</strong> für den Tod von {deaths} Bürgern... "vergessen"... tststs...'
 'Nun denn. Lasst mich euch <strong>die Grundlagen</strong> erklären. Nach 23:30 Uhr schließen wir <strong>das Stadttor</strong>. Das ist keine Raketenwissenschaft! Zum Glück gab es gestern nur minimale Verluste...': 'Nun denn. Lasst mich euch <strong>die Grundlagen</strong> erklären. Nach 23:30 Uhr schließen wir <strong>das Stadttor</strong>. Das ist keine Raketenwissenschaft! Zum Glück gab es gestern nur minimale Verluste...'
@@ -262,7 +262,7 @@ Kätzchen: el gato
 'Die kalte Brise letzte Nacht kam durch das Stadttor... welches <strong>niemand</strong> geschlossen hatte. Der Geruch von verfaulendem Fleisch heute Morgen, der kommt von den Bürgern, die den <strong>ultimativen Preis</strong> für diese mangelnde Organisation bezahlt haben...': 'Die kalte Brise letzte Nacht kam durch das Stadttor... welches <strong>niemand</strong> geschlossen hatte. Der Geruch von verfaulendem Fleisch heute Morgen, der kommt von den Bürgern, die den <strong>ultimativen Preis</strong> für diese mangelnde Organisation bezahlt haben...'
 'Das Stadttor wurde heute Abend geöffnet, aber nicht wieder geschlossen... In diesem Fall hattet ihr Glück, denn wir haben nicht viele Leute verloren. Zumindest niemanden von Bedeutung.': 'Das Stadttor wurde heute Abend geöffnet, aber nicht wieder geschlossen... In diesem Fall hattet ihr Glück, denn wir haben nicht viele Leute verloren. Zumindest niemanden von Bedeutung.'
 'Besser hätten wir es nicht hinbekommen können! Das Stadttor wurde um {randomHour} Uhr geöffnet und blieb danach offen. Resultat: {deaths} Bürger endeten als Zombiemahlzeit.': 'Besser hätten wir es nicht hinbekommen können! Das Stadttor wurde um {randomHour} Uhr geöffnet und blieb danach offen. Resultat: {deaths} Bürger endeten als Zombiemahlzeit.'
-'Was zum Teufel macht eigentlich unsere Torwachmannschaft?! <strong>{citizen1}</strong> hat gestern, ohne zu fragen, das Tor geöffnet und dadurch für ein wahres Massaker gesorgt: {deaths} Tote! Geht''s noch?!': 'Was zum Teufel macht eigentlich unsere Torwachmannschaft?! <strong>{citizen1}</strong> hat gestern, ohne zu fragen, das Tor geöffnet und dadurch für ein wahres Massaker gesorgt: {deaths} Tote! Geht''s noch?!'
+"Was zum Teufel macht eigentlich unsere Torwachmannschaft?! <strong>{citizen1}</strong> hat gestern, ohne zu fragen, das Tor geöffnet und dadurch für ein wahres Massaker gesorgt: {deaths} Tote! Geht's noch?!": "Was zum Teufel macht eigentlich unsere Torwachmannschaft?! <strong>{citizen1}</strong> hat gestern, ohne zu fragen, das Tor geöffnet und dadurch für ein wahres Massaker gesorgt: {deaths} Tote! Geht's noch?!"
 'Ihr könnt euch alle bei <strong>{citizen1}</strong> bedanken! Er hat <strong>das Stadtor</strong> kurz vor dem Angriff geöffnet und uns die Viecher auf den Hals gehetzt! Glücklicherweise sind wir noch einmal glimpflich davongekommen. Und weil es so lustig war, schlage ich vor, das Gleiche heute Nacht zu wiederholen... ': 'Ihr könnt euch alle bei <strong>{citizen1}</strong> bedanken! Er hat <strong>das Stadtor</strong> kurz vor dem Angriff geöffnet und uns die Viecher auf den Hals gehetzt! Glücklicherweise sind wir noch einmal glimpflich davongekommen. Und weil es so lustig war, schlage ich vor, das Gleiche heute Nacht zu wiederholen... '
 'Man beachte die {deaths} unnötigen Tode, die man hätte vermeiden können, indem man gestern Abend <strong>das Stadttor wieder geschlossen</strong> hätte! Ist da jemand verantwortlich? <strong>{citizen1}</strong>?': 'Man beachte die {deaths} unnötigen Tode, die man hätte vermeiden können, indem man gestern Abend <strong>das Stadttor wieder geschlossen</strong> hätte! Ist da jemand verantwortlich? <strong>{citizen1}</strong>?'
 'Wenn es nach mir ginge, hätte ich mit <strong>{citizen1}</strong> abgerechnet, der "vergessen" hat, das Stadttor zu schließen, nachdem er es geöffnet hatte. Doch die Entscheidung liegt bei euch...': 'Wenn es nach mir ginge, hätte ich mit <strong>{citizen1}</strong> abgerechnet, der "vergessen" hat, das Stadttor zu schließen, nachdem er es geöffnet hatte. Doch die Entscheidung liegt bei euch...'
