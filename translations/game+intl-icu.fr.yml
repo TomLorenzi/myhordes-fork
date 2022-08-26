@@ -122,7 +122,7 @@ Gemeinschaft: Espionnage et ragots de voisinage
 '{citizen} hat bereits {num} Anzeige(n).': '{citizen} a reçu {num} plainte(s).'
 Verbannung: un bannissement
 Todesstrafe: la peine de mort
-'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L''une d''entre elle est la vôtre. Vous avez demandé {punishment}.'
+'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L''une d''entre elles est la vôtre. Vous avez demandé {punishment}.'
 'Anzeige erstatten': 'Envoyer une dénonciation'
 'Anzeige zurückziehen': 'Retirer ma plainte'
 'Anzeige: Todesstrafe fordern': 'Plainte : Exiger la peine de mort'
@@ -2030,7 +2030,7 @@ Hausverteidigung: Défenses maison
 'kein Verteidigungsbonus': 'aucun bonus de défense'
 'Stufe {lvl}': 'Niveau {lvl}'
 Keine: Aucun.
-'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?': 'Comment ! vous n''avez pas encore de déco dans votre humble demeure ? Qu''attendez-vous pour fouiller le désert et ramener de magnifiques canapés en peau de zombie ? Ou encore un de ces adorables grigris un peu mous : une main ou un pied encore frais.'
+'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?': 'Comment ! Vous n''avez pas encore de déco dans votre humble demeure ? Qu''attendez-vous pour fouiller le désert et ramener de magnifiques canapés en peau de zombie ? Ou encore un de ces adorables grigris un peu mous : une main ou un pied encore frais.'
 Deko-Punkte: points déco
 'Komiteenote:': 'Note du comité :'
 'Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt {townname}</strong> vergeben.': 'Cette note est attribuée par le <strong>Comité du Bon Goût de {townname}</strong>.'

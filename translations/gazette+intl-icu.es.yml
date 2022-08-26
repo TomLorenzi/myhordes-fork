@@ -100,15 +100,15 @@
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro sur</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro oeste</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro este</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
-'Nun, das sage ich...': 'Nun, das sage ich...'
-'Das ist doch Unsinn...': 'Das ist doch Unsinn...'
-'Die einen sagen dies, die anderen das...': 'Die einen sagen dies, die anderen das...'
-'Ich sags ja nur...': 'Ich sags ja nur...'
-'Komm schon, glaub mir.': 'Komm schon, glaub mir.'
-'Was für eine Organisation...': 'Was für eine Organisation...'
+'Nun, das sage ich...': 'Bueno yo lo que digo...'
+'Das ist doch Unsinn...': 'Tonterías...'
+'Die einen sagen dies, die anderen das...': 'No lo he dicho yo...'
+'Ich sags ja nur...': 'Solo digo...'
+'Komm schon, glaub mir.': 'Vamos, tengamos fe.'
+'Was für eine Organisation...': 'Vaya organización...'
 'Wir werden nicht lange durchhalten, das sage ich euch.': 'Así no llegaremos muy lejos.'
 'Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.': 'Una noche más como esta y no estaremos más aquí para contarlo.'
-'Das war knapp.': 'Das war knapp.'
+'Das war knapp.': 'Estuvo cerca.'
 Pfff...: Pfff...
 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...': 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...'
 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.': 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.'
@@ -166,23 +166,23 @@ Rizin: Rizin
 Botulinumtoxin: Botulinumtoxin
 Virunoir: Virunoir
 Chlorotwinat: Chlorotwinat
-Kaliumchlorid: Kaliumchlorid
-Kurare: Kurare
+Kaliumchlorid: al cloro potásico
+Kurare: con curare
 'Zyanid (poison)': Zyanid (poison)
-Phenol: Phenol
+Phenol: con fenol
 Ponasulfat: Ponasulfat
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': 'Es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.'
-'in der Nähe des Gemüsegartens': 'in der Nähe des Gemüsegartens'
-'in der Nähe der südlichen Stadtmauer': 'in der Nähe der südlichen Stadtmauer'
-'am Stadttor': 'am Stadttor'
-'am Aussichtsturm': 'am Aussichtsturm'
-'am westlichen Flügel der Stadt': 'am westlichen Flügel der Stadt'
-'an der nördlichen Stadtmauer': 'an der nördlichen Stadtmauer'
-'an unserer schwach gesicherten Flanke': 'an unserer schwach gesicherten Flanke'
-'in der Nähe des Brunnens': 'in der Nähe des Brunnens'
-'an der östlichen Stadtmauer': 'an der östlichen Stadtmauer'
-'in der Stadtmauer am Stadttor': 'in der Stadtmauer am Stadttor'
+'in der Nähe des Gemüsegartens': 'en el flanco norte'
+'in der Nähe der südlichen Stadtmauer': 'cerca del muro sur'
+'am Stadttor': 'en el gran portal'
+'am Aussichtsturm': 'a la Torre de vigilancia'
+'am westlichen Flügel der Stadt': 'junto al ala Oeste'
+'an der nördlichen Stadtmauer': 'en el muro norte'
+'an unserer schwach gesicherten Flanke': 'en el flanco oeste'
+'in der Nähe des Brunnens': 'cerca del pozo'
+'an der östlichen Stadtmauer': 'en el muro este'
+'in der Stadtmauer am Stadttor': 'cerca de la muralla'
 Drops: Cachito
 Whitie: Comotú
 Fettwanst: Tifoidea
