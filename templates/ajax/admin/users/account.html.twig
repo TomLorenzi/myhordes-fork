@@ -66,8 +66,8 @@
                                             <option value="{{ url('admin_users_account_manage', {action: 'rename_pseudo', id: user.id}) }}" x-confirm="REMOVE PSEUDO">{{ 'Anzeigenamen entfernen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         {% if is_granted("ROLE_ADMIN") %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
                                             {% if user.eternalID is null %}
-                                                <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
                                             {% endif %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>

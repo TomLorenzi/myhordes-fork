@@ -7,6 +7,7 @@ use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminReport;
 use App\Entity\Announcement;
+use App\Entity\AntiSpamDomains;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -38,6 +39,7 @@ use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Enum\AdminReportSpecification;
+use App\Enum\DomainBlacklistType;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
@@ -1335,9 +1337,12 @@ class SoulController extends CustomAbstractController
         }
 
         if (!empty($new_email)) {
-            if ($this->entity_manager->getRepository(User::class)->findOneByMail( $new_email )) {
+            if ($this->entity_manager->getRepository(User::class)->findOneByMail( $new_email ))
                 return AjaxResponse::error(UserFactory::ErrorMailExists);
-            }
+
+            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $new_email )] ))
+                return AjaxResponse::error(UserFactory::ErrorMailExists);
+
             $user->setPendingEmail($new_email);
             if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
                 return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
