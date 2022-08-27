@@ -482,7 +482,7 @@ class GameFactory
     }
 
     public function userCanEnterTown( Town &$town, User &$user, bool $whitelist_enabled = false, ?int &$error = null, bool $internal = false ): bool {
-        if (!$town->isOpen()) {
+        if (!$town->isOpen() || $town->getScheduledFor() > (new \DateTime())) {
             $error = self::ErrorTownClosed;
             return false;
         }

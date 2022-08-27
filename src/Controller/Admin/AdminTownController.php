@@ -867,6 +867,15 @@ class AdminTownController extends AdminActionController
         $town_name = $parser->get('name', null) ?: null;
         $town_type = $parser->get('type', '');
         $town_lang = $parser->get('lang', 'de');
+        $town_time = $parser->get('time', '');
+
+        try {
+            $town_time = empty($town_time) ? null : new \DateTime($town_time);
+            if ($town_time <= new \DateTime()) $town_time = null;
+        } catch (\Throwable) {
+            $town_time = null;
+        }
+
 
         if (!in_array($town_lang, array_merge($this->generatedLangsCodes, ['multi'])))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -878,6 +887,8 @@ class AdminTownController extends AdminActionController
             $this->logger->invoke("Town creation failed!");
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
         }
+
+        $town->setScheduledFor( $town_time );
 
         try {
             $this->entity_manager->persist( $town );

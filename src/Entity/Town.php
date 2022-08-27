@@ -6,6 +6,7 @@ use App\Enum\GameProfileEntryType;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
@@ -98,6 +99,9 @@ class Town
     private $tempDefenseBonus = 0;
     #[ORM\Column(type: 'integer')]
     private $baseDefense = 10;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $scheduledFor = null;
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -694,6 +698,18 @@ class Town
     public function setBaseDefense(int $baseDefense): self
     {
         $this->baseDefense = $baseDefense;
+
+        return $this;
+    }
+
+    public function getScheduledFor(): ?\DateTimeInterface
+    {
+        return $this->scheduledFor;
+    }
+
+    public function setScheduledFor(?\DateTimeInterface $scheduledFor): self
+    {
+        $this->scheduledFor = $scheduledFor;
 
         return $this;
     }

@@ -160,6 +160,7 @@ class CronCommand extends Command
                 ->from(Town::class, 't')
                 ->andWhere('(t.lastAttack != :last OR t.lastAttack IS NULL)')->setParameter('last', $s->getId())
                 ->andWhere('t.attackFails < :trylimit')->setParameter('trylimit', $try_limit)
+                ->andWhere('t.scheduledFor IS NULL OR t.scheduledFor < :now')->setParameter('now', new DateTime())
                 ->getQuery()
                 ->getScalarResult(), 'id');
 

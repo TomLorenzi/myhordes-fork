@@ -98,7 +98,7 @@
                                 {% set joinable = userCanJoin[townClass.name] %}
                                 {% set found = false %}
                                 {% for town in townClass.towns %}
-                                    {% if town.open %}{% set found = true %}{% endif %}
+                                    {% if town.open and town.scheduledFor < 'now'|to_date %}{% set found = true %}{% endif %}
                                 {% endfor %}
 
                                 <h5>{{ townClass.getLabel|trans({},'game') }} {% if townClass.help %}{{ help_btn( townClass.help|trans({splimit: sp_limits[townClass.name] ?? 0},'game') ) }}{% endif %}</h5>
@@ -116,7 +116,7 @@
                                         </div>
                                         {% for town in townClass.towns %}
                                             {# @var town \App\Entity\Town #}
-                                            {% if town.open and not town.userInTown(app.user) %}
+                                            {% if town.open and town.scheduledFor < 'now'|to_date and not town.userInTown(app.user) %}
                                                 {% set found = true %}
                                                 <div class="row-flex wrap town-row v-center">
                                                     <div class="padded cell rw-1 rw-sm-2"><span class="language"><img src="{{ asset("build/images/lang/" ~ town.getLanguage ~ ".png") }}" alt="{{ town.getLanguage }}" /></span></div>
