@@ -922,7 +922,7 @@ Ruhm: Fama
 'Du zündest eine Zigarette an. Der Rauch lässt dich kräftig Husten, vermutlich weil du daran nicht gewöhnt bist... Nach ein paar Minuten <strong>gelingt es dir dich zu beruhigen</strong>. Dieser Kurze Moment des Friedens ermöglicht lässt dich deinen Kummer vergessen und bringt dich zurück in die Wirklichkeit.<hr />Du drückst den Stummel auf dem Boden aus und bist bereit für einen weiteren Tag des Überlebens.!<t-consumed><hr />Dir fällt auf dass <strong>die Packung leer ist</strong>!</t-consumed><t-item-consumed>Das war dein <strong>letztes Streichholz</strong>... Es wird schwer sein, jetzt noch eine Zigarette anzuzünden.</t-item-consumed>': 'Enciendes un cigarrillo. El humo te hace toser intensamente, la falta de costumbre sin duda... Después de algunos minutos, <strong>logras respirar</strong>. Ese momento de alivio te da una visión diferente de tu suerte.<hr />Tiras la colilla al suelo, ¡y te armas de determinación!<t-consumed><hr />Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-consumed><t-item-consumed><hr/>Era tu <strong>última cerilla</strong>... Ahora será difícil encontrar otra.</t-item-consumed>'
 'Verbessert die Verteidigung': 'Aumenta la defensa'
 'Verhindert Diebstähle': 'Evita robos'
-'Sieht schön aus, wenn es zu einer Girlande gebunden wird.': 'Sieht schön aus, wenn es zu einer Girlande gebunden wird.'
+'Sieht schön aus, wenn es zu einer Girlande gebunden wird.': 'Es bonito, una vez que está atado en guirnalda.'
 'Sie ist beängstigend.': 'Da miedo.'
 'Macht Miau': 'Hace Miau'
 'Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:': 'Pedir a {dogname} que lleve el contenido de mi mochila a:'
