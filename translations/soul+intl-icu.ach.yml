@@ -499,7 +499,7 @@ Deaktiviert: crwdns136128:0crwdne136128:0
 'Nur in Stadtforen': 'crwdns136130:0crwdne136130:0'
 'In allen Foren': 'crwdns136132:0crwdne136132:0'
 'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'crwdns136136:0crwdne136136:0'
-'Der angegebene Spielername ist zu lang.': 'crwdns136276:0crwdne136276:0'
+'Der angegebene Spielername ist zu lang.': 'crwdns136338:0crwdne136338:0'
 'Saisonale Events': 'crwdns136278:0crwdne136278:0'
 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'crwdns136280:0crwdne136280:0'
 'Laufende Events': 'crwdns136282:0crwdne136282:0'
@@ -511,3 +511,4 @@ Deaktiviert: crwdns136128:0crwdne136128:0
 'Endet nach {days} Tagen, am {date}': 'crwdns136336:0days={days}crwdnd136336:0date={date}crwdne136336:0'
 Events: crwdns136296:0crwdne136296:0
 'Nur in Weltforen': 'crwdns136298:0crwdne136298:0'
+'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.': 'crwdns136340:0crwdne136340:0'
