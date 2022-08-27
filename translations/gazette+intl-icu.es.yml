@@ -68,8 +68,8 @@
 'Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.': 'Un punto importante: el portal se quedó abierto esta noche. Según los registros, le debemos el favor a {cadaver1}. Por suerte, ese ""pequeño error"" no causó muchas víctimas.'
 'Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.': 'Por lo que parece, el más puro y místico del lugar, el Chamán, murió anoche. Su alma se reencarnará en uno de los supervivientes.'
 'Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?': 'Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca, charlatán inútil!'
-'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.': 'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.'
-'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.': 'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.'
+'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.': 'Nuestro amado guía turístico en el mundo exterior falleció ayer. Esta noche se realizará una nueva votación para elegir un nuevo candidato entre los sobrevivientes.'
+'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.': 'Buen trabajo anoche, el chamán y el guía turístico del mundo exterior están muertos, por lo que hoy puede ser un poco monótono. Esta noche habrá una nueva elección entre los supervivientes.'
 'Wir haben geahnt, dass dies passieren würde. <i class="dagger">†</i> {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.': '<i class="dagger">†</i> {cadaver1} dio un paso al costado, mejor dicho al Más Allá. Al parecer no soportó la ineptitud de sus compañeros y no vio manera de sobrevivir... ¡Qué triste!'
 'Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.': '<i class="dagger">†</i> {cadaver1} ya no está entre nosotros, ayer tomó la decisión de <strong>suicidarse</strong> para no seguir teniendo pesadillas con los zombies.'
 'Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?': '{cadavers} <strong>personas se suicidaron</strong> ayer. Nuestro pueblo siempre tan acogedor, ¿eh?'
@@ -159,8 +159,8 @@ Pfff...: Pfff...
 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.': 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.'
 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...': 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...'
 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...': 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...'
-Arsen: Arsen
-Cyanolin: Cyanolin
+Arsen: Arsénico
+Cyanolin: Cianolina
 Neurotwinin: Neurotwinin
 Rizin: Rizin
 Botulinumtoxin: Botulinumtoxin
@@ -210,14 +210,14 @@ Sumpfschildkröte: el hurón
 Kätzchen: el gato
 'einen Haufen Gerümpel ': 'einen Haufen Gerümpel '
 'einen Holzstapel ': 'einen Holzstapel '
-'einen Haufen Schrott': 'einen Haufen Schrott'
+'einen Haufen Schrott': 'un montón de basura'
 'einen toter Baumstamm': 'einen toter Baumstamm'
-'eine vergessene Leiter': 'eine vergessene Leiter'
-'einen Berg von Kisten': 'einen Berg von Kisten'
-'einen Turm aus Trümmern': 'einen Turm aus Trümmern'
-'einen Haufen Plunder': 'einen Haufen Plunder'
-'einen Steinhaufen': 'einen Steinhaufen'
-'einen Haufen Ramsch': 'einen Haufen Ramsch'
+'eine vergessene Leiter': 'una escalera olvidada'
+'einen Berg von Kisten': 'una montaña de cajas'
+'einen Turm aus Trümmern': 'una torre de escombros'
+'einen Haufen Plunder': 'un montón de basura'
+'einen Steinhaufen': 'un montón de piedras'
+'einen Haufen Ramsch': 'un montón de basura'
 '<strong>{citizen1}s</strong> {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...': '{animal} conocido como {mascot} fue encontrado esta mañana partido en dos. Una parte fue hallada dentro del pozo. Eso debe explicar el sabor raro de las raciones de hoy...'
 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.': 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.'
 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...': 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...'
