@@ -8,69 +8,44 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\SeasonRepository")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="season_unique",columns={"number","sub_number"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\SeasonRepository')]
+#[Table]
+#[UniqueConstraint(name: 'season_unique', columns: ['number', 'sub_number'])]
 class Season
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $number;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Town", mappedBy="season")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Town', mappedBy: 'season')]
     private $towns;
-
-    /**
-     * @ORM\OneToMany(targetEntity=TownRankingProxy::class, mappedBy="season")
-     */
+    #[ORM\OneToMany(targetEntity: TownRankingProxy::class, mappedBy: 'season')]
     private $rankedTowns;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $current = false;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $subNumber;
-
     public function __construct()
     {
         $this->towns = new ArrayCollection();
         $this->rankedTowns = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getNumber(): ?int
     {
         return $this->number;
     }
-
     public function setNumber(int $number): self
     {
         $this->number = $number;
 
         return $this;
     }
-
     /**
      * @return Collection|Town[]
      */
@@ -78,7 +53,6 @@ class Season
     {
         return $this->towns;
     }
-
     public function addTown(Town $town): self
     {
         if (!$this->towns->contains($town)) {
@@ -88,7 +62,6 @@ class Season
 
         return $this;
     }
-
     public function removeTown(Town $town): self
     {
         if ($this->towns->contains($town)) {
@@ -101,7 +74,6 @@ class Season
 
         return $this;
     }
-
     /**
      * @return Collection|TownRankingProxy[]
      */
@@ -109,7 +81,6 @@ class Season
     {
         return $this->rankedTowns;
     }
-
     public function addRankedTown(TownRankingProxy $rankedTown): self
     {
         if (!$this->rankedTowns->contains($rankedTown)) {
@@ -119,7 +90,6 @@ class Season
 
         return $this;
     }
-
     public function removeRankedTown(TownRankingProxy $rankedTown): self
     {
         if ($this->rankedTowns->contains($rankedTown)) {
@@ -132,24 +102,20 @@ class Season
 
         return $this;
     }
-
     public function getCurrent(): ?bool
     {
         return $this->current;
     }
-
     public function setCurrent(bool $current): self
     {
         $this->current = $current;
 
         return $this;
     }
-
     public function getSubNumber(): ?int
     {
         return $this->subNumber;
     }
-
     public function setSubNumber(?int $subNumber): self
     {
         $this->subNumber = $subNumber;
