@@ -499,7 +499,7 @@ Umfragen: Surveys
 'Nur in Stadtforen': 'Only within town forums'
 'In allen Foren': 'In all forums'
 'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'To protect against spam, regardless of this setting, you will not receive a notification if more than 5 players (10 in city forums) are tagged in a post.'
-'Der angegebene Spielername ist zu lang.': 'The selected player name is too long.'
+'Der angegebene Spielername ist zu lang.': 'The selected player name is too long. Please choose a name with no more than 16 characters.'
 'Saisonale Events': 'Seasonal Events'
 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Seasonal events add new game content to all towns for a limited time. These events are automatically activated and deactivated at the specified times.'
 'Laufende Events': 'Current Events'
