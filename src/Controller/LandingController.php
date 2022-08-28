@@ -83,7 +83,7 @@ class LandingController extends CustomAbstractController
             'fr' => ['Tenir la porte', 'Hurler', 'Se cacher sous le lit', 'Serrer les fesses', 'Attendre sous les draps', 'Appeler à l\'aide', 'Se cramponner à un bout de bois', 'Prier pour sa vie', 'S\'égosiller tout seul chez soi', 'Brailler « au secours »', 'Pleurer en position foetale', 'Se cramponner à son sac à dos', 'Claquer des dents', 'Paniquer et hurler', 'Se planquer derrière des détritus', 'Ramper sous un carton', 'Attendre calmement...', 'Pleurer nerveusement', 'Vociférer comme un dément']
         ];
 
-        $button_texts = $rand->pick($attack_messages[ $this->getUser()->getLanguage() ?? 'en' ] ?? $attack_messages['en'], 2);
+        $button_texts = $rand->pick($attack_messages[ $this->getUserLanguage() ?? 'en' ] ?? $attack_messages['en'], 2);
 
         return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts, 'attack_running' => $tk->isDuringAttack(), 'clock' => ['attack' => 0]] );
     }
