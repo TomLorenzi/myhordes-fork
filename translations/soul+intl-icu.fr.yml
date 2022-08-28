@@ -511,3 +511,4 @@ Deaktiviert: Désactivé
 'Endet nach {days} Tagen, am {date}': 'Se termine {days, plural, =0 {bientôt} one {dans un jour} other {au bout de # jours} }, le {date}'
 Events: Événements
 'Nur in Weltforen': 'Seulement dans les forums mondiaux'
+'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.': 'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.'
