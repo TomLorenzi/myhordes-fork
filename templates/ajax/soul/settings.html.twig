@@ -85,7 +85,8 @@
                             {% if app.user.eternalID is null or app.user.noAutomaticNameManagement %}
                                 {{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}
                             {% else %}
-                                {{ 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.'|trans({}, 'soul') }}
+                                {{ 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.'|trans({}, 'soul') }}<br/><br/>
+                                {{ 'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.'|trans({}, 'soul') }}
                             {% endif %}
                         </div>
                     </div>

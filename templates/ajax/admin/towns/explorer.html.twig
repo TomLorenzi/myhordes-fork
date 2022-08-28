@@ -57,6 +57,7 @@
                         {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name) }}
                         {{ _self.valuelist('Typ'|trans({},'admin'),        town.type.label|trans({},'game')) }}
                         {{ _self.valuelist('Sprache'|trans({},'admin'),    '<img style="width: 24px" src="' ~ asset("build/images/lang/" ~ town.language ~ ".png") ~ '" alt="" />', true  ) }}
+                        {{ _self.valuelist('Geplant für'|trans({},'admin'),town.scheduledFor != null ? town.scheduledFor|format_datetime('short','short') : '--') }}
                         {{ _self.valuelist('Ersteller'|trans({},'admin'),  town.creator != null ? town.creator.name : '--') }}
                         {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
                         {{ _self.valuelist('Bürger'|trans({},'admin'),     town.citizens|length) }}

@@ -14,251 +14,117 @@ use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity("email")
- * @UniqueEntity("name")
- * @Table(
- *     name="`user`",
- *     uniqueConstraints={
- *         @UniqueConstraint(name="email_unique",columns={"email"}),
- *         @UniqueConstraint(name="user_name_unique",columns={"name"}),
- *         @UniqueConstraint(name="user_twinoid_unique",columns={"twinoid_id"}),
- *         @UniqueConstraint(name="user_etwin_unique",columns={"eternal_id"})
- *     }
- * )
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\UserRepository')]
+#[UniqueEntity('email')]
+#[UniqueEntity('name')]
+#[Table(name: '`user`')]
+#[UniqueConstraint(name: 'email_unique', columns: ['email'])]
+#[UniqueConstraint(name: 'user_name_unique', columns: ['name'])]
+#[UniqueConstraint(name: 'user_twinoid_unique', columns: ['twinoid_id'])]
+#[UniqueConstraint(name: 'user_etwin_unique', columns: ['eternal_id'])]
 class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUserInterface
 {
-
     const USER_LEVEL_BASIC  =  0;
     const USER_LEVEL_CROW   =  3;
     const USER_LEVEL_ADMIN  =  4;
     const USER_LEVEL_SUPER  =  5;
-
     const USER_ROLE_ORACLE = 1 << 0;
     const USER_ROLE_ANIMAC = 1 << 1;
     const USER_ROLE_TEAM   = 1 << 2;
-
     const PRONOUN_NONE = 0;
     const PRONOUN_MALE = 1;
     const PRONOUN_FEMALE = 2;
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=16)
-     */
+    #[ORM\Column(type: 'string', length: 16)]
     private $name;
-
-    /**
-     * @ORM\Column(type="string", length=190)
-     */
+    #[ORM\Column(type: 'string', length: 190)]
     private $email;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $pass;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $validated;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\UserPendingValidation", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\UserPendingValidation', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private $pendingValidation;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="user")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Citizen', mappedBy: 'user')]
     private $citizens;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\AdminBan", mappedBy="user")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\AdminBan', mappedBy: 'user')]
     private $bannings;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\FoundRolePlayText', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private $foundTexts;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $soulPoints = 0;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Picto', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private $pictos;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Award", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Award', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private $awards;
-
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
+    #[ORM\Column(type: 'string', length: 32)]
     private $externalId = '';
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Avatar", cascade={"persist", "remove"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Avatar', cascade: ['persist', 'remove'])]
     private $avatar;
-
-    /**
-     * @ORM\Column(type="string", length=128, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private $forumTitle;
-
     /**
      * This field matches to the filename of the picto
-     * @ORM\Column(type="string", length=64, nullable=true)
      */
+    #[ORM\Column(type: 'string', length: 64, nullable: true)]
     private $forumIcon;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $language = null;
-
-    /**
-     * @ORM\Column(type="smallint")
-     */
+    #[ORM\Column(type: 'smallint')]
     private $rightsElevation = 0;
-
-    /**
-     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToMany(targetEntity: CitizenRankingProxy::class, mappedBy: 'user', orphanRemoval: true, fetch: 'EXTRA_LAZY')]
     private $pastLifes;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $heroDaysSpent = 0;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $twinoidID;
-
-    /**
-     * @ORM\OneToMany(targetEntity=TwinoidImport::class, mappedBy="user", orphanRemoval=true, cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToMany(targetEntity: TwinoidImport::class, mappedBy: 'user', orphanRemoval: true, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private $twinoidImports;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $importedSoulPoints;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $importedHeroDaysSpent;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Changelog::class)
-     */
+    #[ORM\ManyToOne(targetEntity: Changelog::class)]
     private $latestChangelog;
-
-    /**
-     * @ORM\OneToMany(targetEntity=ConnectionIdentifier::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToMany(targetEntity: ConnectionIdentifier::class, mappedBy: 'user', orphanRemoval: true, fetch: 'EXTRA_LAZY')]
     private $connectionIdentifiers;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=ConnectionWhitelist::class, mappedBy="users", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
-     */
+    #[ORM\ManyToMany(targetEntity: ConnectionWhitelist::class, mappedBy: 'users', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private $connectionWhitelists;
-
-    /**
-     * @ORM\Column(type="string", length=190, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 190, nullable: true)]
     private $eternalID;
-
-    /**
-     * @ORM\Column(type="string", length=32, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 32, nullable: true)]
     private $displayName;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $lastActionTimestamp;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $deleteAfter;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $checkInt = 0;
-
-    /**
-     * @ORM\OneToMany(targetEntity=ForumThreadSubscription::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
-     */
+    #[ORM\OneToMany(targetEntity: ForumThreadSubscription::class, mappedBy: 'user', orphanRemoval: true, fetch: 'EXTRA_LAZY')]
     private $forumThreadSubscriptions;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Award::class, cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     */
+    #[ORM\OneToOne(targetEntity: Award::class, cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $activeTitle;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Award::class, cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     */
+    #[ORM\OneToOne(targetEntity: Award::class, cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $activeIcon;
-
-    /**
-     * @ORM\Column(type="array", nullable=true)
-     */
+    #[ORM\Column(type: 'array', nullable: true)]
     private $nameHistory = [];
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
+    #[ORM\Column(type: 'date', nullable: true)]
     private $lastNameChange;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $pendingEmail;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $roleFlag = 0;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, fetch="EXTRA_LAZY")
-     */
+    #[ORM\ManyToMany(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
     private $friends;
-
-    /**
-     * @ORM\Column(type="json", nullable=true)
-     */
+    #[ORM\Column(type: 'json', nullable: true)]
     private $settings = [];
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Forum::class, fetch="EXTRA_LAZY")
-     */
+    #[ORM\ManyToMany(targetEntity: Forum::class, fetch: 'EXTRA_LAZY')]
     private $mutedForums;
-
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -273,86 +139,70 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->friends = new ArrayCollection();
         $this->mutedForums = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getUsername(): ?string
     {
         return $this->name;
     }
-
     public function getUserIdentifier(): string {
         return $this->getUsername();
     }
-
     public function getName(): ?string
     {
         return $this->displayName ?? $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getForumIcon(): ?string {
         return $this->forumIcon;
     }
-
     public function setForumIcon(string $value): self {
         $this->forumIcon = $value;
 
         return $this;
     }
-
     public function getForumTitle(): ?string {
         return $this->forumTitle;
     }
-
     public function setForumTitle(string $value): self {
         $this->forumTitle = $value;
 
         return $this;
     }
-
     public function getEmail(): ?string
     {
         return $this->email;
     }
-
     public function setEmail(string $email): self
     {
         $this->email = $email;
 
         return $this;
     }
-
     public function getSalt( ): string {
         return 'user_salt_myhordes_ffee45';
     }
-
     public function getValidated(): ?bool
     {
         return $this->validated;
     }
-
     public function setValidated(bool $validated): self
     {
         $this->validated = $validated;
 
         return $this;
     }
-
     public function getPendingValidation(): ?UserPendingValidation
     {
         return $this->pendingValidation;
     }
-
     public function setPendingValidation(?UserPendingValidation $pendingValidation): self
     {
         $this->pendingValidation = $pendingValidation;
@@ -365,11 +215,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function isDisabled(): bool {
         return $this->pass === null && $this->getEternalID() === null;
     }
-
     /**
      * @inheritDoc
      */
@@ -397,7 +245,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return array_unique($roles);
     }
-
     /**
      * @inheritDoc
      */
@@ -405,17 +252,14 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->pass;
     }
-
     public function setPassword(?string $pass): self {
         $this->pass = $pass;
         return $this;
     }
-
     /**
      * @inheritDoc
      */
     public function eraseCredentials() {}
-
     /**
      * @inheritDoc
      */
@@ -436,29 +280,24 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
                 $this->getRightsElevation() === $user->getRightsElevation();
         } else return $b1;
     }
-
-
     public function getActiveCitizen(): ?Citizen {
         foreach ($this->getCitizens() as $c)
             if ($c->getActive())
                 return $c;
         return null;
     }
-
     public function getCitizenFor(Town $town): ?Citizen {
         foreach ($this->getCitizens() as $c)
             if ($c->getTown() === $town)
                 return $c;
         return null;
     }
-
     public function getAliveCitizen(): ?Citizen {
         foreach ($this->getCitizens() as $c)
             if ($c->getAlive())
                 return $c;
         return null;
     }
-
     /**
      * @return Collection|Citizen[]
      */
@@ -466,7 +305,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->citizens;
     }
-
     public function addCitizen(Citizen $citizen): self
     {
         if (!$this->citizens->contains($citizen)) {
@@ -476,7 +314,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeCitizen(Citizen $citizen): self
     {
         if ($this->citizens->contains($citizen)) {
@@ -489,7 +326,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     /**
      * @return Collection|FoundRolePlayText[]
      */
@@ -497,7 +333,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->foundTexts;
     }
-
     public function addFoundText(FoundRolePlayText $foundText): self
     {
         if (!$this->foundTexts->contains($foundText)) {
@@ -506,7 +341,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeFoundText(FoundRolePlayText $foundText): self
     {
         if ($this->foundTexts->contains($foundText)) {
@@ -515,42 +349,35 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function getAllSoulPoints(): int {
         return ($this->getSoulPoints() ?? 0) + ($this->getImportedSoulPoints() ?? 0);
     }
-
     public function getSoulPoints(): ?int
     {
         return $this->soulPoints;
     }
-
     public function setSoulPoints(int $soulPoints): self
     {
         $this->soulPoints = $soulPoints;
 
         return $this;
     }
-
     public function getExternalId(): ?string
     {
         return $this->externalId;
     }
-
     public function setExternalId(string $externalId): self
     {
         $this->externalId = $externalId;
 
         return $this;
     }
-
     /**
      * @return Collection|Awards[]
      */
     public function getAwards(): Collection {
         return $this->awards;
     }
-
     public function addAward(Award $award): self {
         if(!$this->awards->contains($award)) {
             $this->awards[] = $award;
@@ -559,7 +386,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeAward(Award $award): self {
         if ($this->awards->contains($award)) {
             $this->awards->removeElement($award);
@@ -571,7 +397,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     /**
      * @return Collection|Pictos[]
      */
@@ -579,7 +404,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->pictos;
     }
-
     public function addPicto(Picto $picto): self
     {
         if (!$this->pictos->contains($picto)) {
@@ -589,7 +413,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removePicto(Picto $picto): self
     {
         if ($this->pictos->contains($picto)) {
@@ -602,7 +425,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     /**
      * @param int $persisted
      * @param PictoPrototype $prototype
@@ -620,63 +442,52 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         }
         return null;
     }
-
     public function getAvatar(): ?Avatar
     {
         return $this->avatar;
     }
-
     public function setAvatar(?Avatar $avatar): self
     {
         $this->avatar = $avatar;
 
         return $this;
     }
-
     public function getPreferSmallAvatars(): ?bool
     {
         return $this->getSetting( UserSetting::PreferSmallAvatars );
     }
-
     public function setPreferSmallAvatars(bool $preferSmallAvatars): self
     {
         return $this->setSetting( UserSetting::PreferSmallAvatars, $preferSmallAvatars );
     }
-
     public function getPostAsDefault(): ?string
     {
         return $this->getSetting( UserSetting::PostAs );
     }
-
     public function setPostAsDefault(?string $postAsDefault): self
     {
         return $this->setSetting( UserSetting::PostAs, $postAsDefault );
     }
-
     public function getLanguage(): ?string
     {
         return $this->language;
     }
-
     public function setLanguage(string $language): self
     {
         $this->language = $language;
 
         return $this;
     }
-
     public function getRightsElevation(): ?int
     {
         return $this->rightsElevation;
     }
-
     public function setRightsElevation(int $rightsElevation): self
     {
         $this->rightsElevation = $rightsElevation;
 
         return $this;
     }
-
     /**
      * @return Collection|CitizenRankingProxy[]
      */
@@ -684,7 +495,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->pastLifes;
     }
-
     public function addPastLife(CitizenRankingProxy $pastLife): self
     {
         if (!$this->pastLifes->contains($pastLife)) {
@@ -694,7 +504,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removePastLife(CitizenRankingProxy $pastLife): self
     {
         if ($this->pastLifes->contains($pastLife)) {
@@ -707,36 +516,30 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function getAllHeroDaysSpent(): int
     {
         return ($this->getHeroDaysSpent() ?? 0) + ($this->getImportedHeroDaysSpent() ?? 0);
     }
-
     public function getHeroDaysSpent(): ?int
     {
         return $this->heroDaysSpent;
     }
-
     public function setHeroDaysSpent(int $heroDaysSpent): self
     {
         $this->heroDaysSpent = $heroDaysSpent;
 
         return $this;
     }
-
     public function getTwinoidID(): ?int
     {
         return $this->twinoidID;
     }
-
     public function setTwinoidID(?int $twinoidID): self
     {
         $this->twinoidID = $twinoidID;
 
         return $this;
     }
-
     /**
      * @return Collection|TwinoidImport[]
      */
@@ -744,7 +547,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->twinoidImports;
     }
-
     public function addTwinoidImport(TwinoidImport $twinoidImport): self
     {
         if (!$this->twinoidImports->contains($twinoidImport)) {
@@ -754,7 +556,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeTwinoidImport(TwinoidImport $twinoidImport): self
     {
         if ($this->twinoidImports->contains($twinoidImport)) {
@@ -767,43 +568,36 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function getImportedSoulPoints(): ?int
     {
         return $this->importedSoulPoints;
     }
-
     public function setImportedSoulPoints(?int $importedSoulPoints): self
     {
         $this->importedSoulPoints = $importedSoulPoints;
 
         return $this;
     }
-
     public function getImportedHeroDaysSpent(): ?int
     {
         return $this->importedHeroDaysSpent;
     }
-
     public function setImportedHeroDaysSpent(?int $importedHeroDaysSpent): self
     {
         $this->importedHeroDaysSpent = $importedHeroDaysSpent;
 
         return $this;
     }
-
     public function getLatestChangelog(): ?Changelog
     {
         return $this->latestChangelog;
     }
-
     public function setLatestChangelog(?Changelog $latestChangelog): self
     {
         $this->latestChangelog = $latestChangelog;
 
         return $this;
     }
-
     /**
      * @return Collection|ConnectionIdentifier[]
      */
@@ -811,7 +605,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->connectionIdentifiers;
     }
-
     public function addConnectionIdentifier(ConnectionIdentifier $connectionIdentifier): self
     {
         if (!$this->connectionIdentifiers->contains($connectionIdentifier)) {
@@ -821,7 +614,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeConnectionIdentifier(ConnectionIdentifier $connectionIdentifier): self
     {
         if ($this->connectionIdentifiers->contains($connectionIdentifier)) {
@@ -834,7 +626,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     /**
      * @return Collection|ConnectionWhitelist[]
      */
@@ -842,7 +633,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->connectionWhitelists;
     }
-
     public function addConnectionWhitelist(ConnectionWhitelist $connectionWhitelist): self
     {
         if (!$this->connectionWhitelists->contains($connectionWhitelist)) {
@@ -852,7 +642,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeConnectionWhitelist(ConnectionWhitelist $connectionWhitelist): self
     {
         if ($this->connectionWhitelists->contains($connectionWhitelist)) {
@@ -862,87 +651,72 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function getEternalID(): ?string
     {
         return $this->eternalID;
     }
-
     public function setEternalID(?string $eternalID): self
     {
         $this->eternalID = $eternalID;
 
         return $this;
     }
-
     public function getDisplayName(): ?string
     {
         return $this->displayName;
     }
-
     public function setDisplayName(?string $displayName): self
     {
         $this->displayName = $displayName;
 
         return $this;
     }
-
     public function getLastActionTimestamp(): ?DateTimeInterface
     {
         return $this->lastActionTimestamp;
     }
-
     public function setLastActionTimestamp(?DateTimeInterface $lastActionTimestamp): self
     {
         $this->lastActionTimestamp = $lastActionTimestamp;
 
         return $this;
     }
-
     public function getDeleteAfter(): ?DateTimeInterface
     {
         return $this->deleteAfter;
     }
-
     public function setDeleteAfter(?DateTimeInterface $deleteAfter): self
     {
         $this->deleteAfter = $deleteAfter;
 
         return $this;
     }
-
     public function getCheckInt(): ?int
     {
         return $this->checkInt;
     }
-
     public function setCheckInt(int $checkInt): self
     {
         $this->checkInt = $checkInt;
 
         return $this;
     }
-
     public function getDisableFx(): ?bool
     {
         return $this->getSetting( UserSetting::DisableEffects );
     }
-
     public function setDisableFx(bool $disableFx): self
     {
         return $this->setSetting( UserSetting::DisableEffects, $disableFx );
     }
-
     public function getExpert(): ?bool
     {
         return $this->getSetting( UserSetting::UseExpertMode );
     }
-
     public function setExpert(bool $expert): self
     {
         return $this->setSetting( UserSetting::UseExpertMode, $expert );
     }
-
     /**
      * @return Collection|ForumThreadSubscription[]
      */
@@ -950,7 +724,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->forumThreadSubscriptions;
     }
-
     public function addForumThreadSubscription(ForumThreadSubscription $forumTreadSubscription): self
     {
         if (!$this->forumThreadSubscriptions->contains($forumTreadSubscription)) {
@@ -960,7 +733,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeForumThreadSubscription(ForumThreadSubscription $forumThreadSubscription): self
     {
         if ($this->forumThreadSubscriptions->removeElement($forumThreadSubscription)) {
@@ -972,133 +744,109 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function getActiveTitle(): ?Award
     {
         return $this->activeTitle;
     }
-
     public function setActiveTitle(?Award $activeTitle): self
     {
         $this->activeTitle = $activeTitle;
 
         return $this;
     }
-
     public function getActiveIcon(): ?Award
     {
         return $this->activeIcon;
     }
-
     public function setActiveIcon(?Award $activeIcon): self
     {
         $this->activeIcon = $activeIcon;
 
         return $this;
     }
-
     public function getNameHistory(): ?array
     {
         return $this->nameHistory;
     }
-
     public function setNameHistory(?array $nameHistory): self
     {
         $this->nameHistory = $nameHistory;
 
         return $this;
     }
-
     public function getLastNameChange(): ?\DateTimeInterface
     {
         return $this->lastNameChange;
     }
-
     public function setLastNameChange(?\DateTimeInterface $lastNameChange): self
     {
         $this->lastNameChange = $lastNameChange;
 
         return $this;
     }
-
     public function getUseICU(): ?bool
     {
         return $this->getSetting( UserSetting::UseICU );
     }
-
     public function setUseICU(bool $UseICU): self
     {
         return $this->setSetting( UserSetting::UseICU, $UseICU );
     }
-
     public function getPreferredPronoun(): ?int
     {
         return $this->getSetting( UserSetting::PreferredPronoun );
     }
-
     public function setPreferredPronoun(?int $preferredPronoun): self
     {
         return $this->setSetting( UserSetting::PreferredPronoun, $preferredPronoun );
     }
-
     public function getOpenModToolsSameWindow(): ?bool
     {
         return $this->getSetting( UserSetting::OpenDashboardInSameWindow );
     }
-
     public function setOpenModToolsSameWindow(bool $open_mod_tools_same_window): self
     {
         return $this->setSetting( UserSetting::OpenDashboardInSameWindow, $open_mod_tools_same_window );
     }
-
     public function getPendingEmail(): ?string
     {
         return $this->pendingEmail;
     }
-
     public function setPendingEmail(?string $pendingEmail): self
     {
         $this->pendingEmail = $pendingEmail;
 
         return $this;
     }
-
     public function getRoleFlag(): ?int
     {
         return $this->roleFlag;
     }
-
     public function setRoleFlag(int $roleFlag): self
     {
         $this->roleFlag = $roleFlag;
 
         return $this;
     }
-
     public function addRoleFlag(int $roleFlag): self {
         $this->setRoleFlag( $this->getRoleFlag() | $roleFlag );
         return $this;
     }
-
     public function removeRoleFlag(int $roleFlag): self {
         $this->setRoleFlag( $this->getRoleFlag() & ~$roleFlag );
         return $this;
     }
-
     public function hasRoleFlag(int $roleFlag): bool {
         return ($this->getRoleFlag() & $roleFlag) === $roleFlag;
     }
-
     public function getNoAutoFollowThreads(): ?bool
     {
         return $this->getSetting( UserSetting::NoAutomaticThreadSubscription );
     }
-
     public function setNoAutoFollowThreads(bool $noAutoFollowThreads): self
     {
         return $this->setSetting( UserSetting::NoAutomaticThreadSubscription, $noAutoFollowThreads );
     }
-
     /**
      * @return Collection|self[]
      */
@@ -1106,7 +854,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->friends;
     }
-
     public function addFriend(self $friend): self
     {
         if (!$this->friends->contains($friend)) {
@@ -1115,66 +862,54 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeFriend(self $friend): self
     {
         $this->friends->removeElement($friend);
 
         return $this;
     }
-
     public function getClassicBankSort(): ?bool
     {
         return $this->getSetting( UserSetting::ClassicBankSort );
     }
-
     public function setClassicBankSort(bool $classicBankSort): self
     {
         return $this->setSetting( UserSetting::ClassicBankSort, $classicBankSort );
     }
-
     public function getNoAutomaticNameManagement(): ?bool
     {
         return $this->getSetting( UserSetting::NoAutomaticNameManagement );
     }
-
     public function setNoAutomaticNameManagement(bool $noAutomaticNameManagement): self
     {
         return $this->setSetting( UserSetting::NoAutomaticNameManagement, $noAutomaticNameManagement );
     }
-
     public function getFlag(): ?string
     {
         return $this->getSetting( UserSetting::Flag );
     }
-
     public function setFlag(?string $flag): self
     {
         return $this->setSetting( UserSetting::Flag, $flag );
     }
-
     public function getSetting( UserSetting $setting ) {
         return ($this->getSettings() ?? [])[ $setting->value ] ?? $setting->defaultValue();
     }
-
     public function setSetting( UserSetting $setting, $value ): self {
         $settings = $this->getSettings() ?? [];
         $settings[ $setting->value ] = $value;
         return $this->setSettings( $settings );
     }
-
     protected function getSettings(): ?array
     {
         return $this->settings;
     }
-
     protected function setSettings(?array $settings): self
     {
         $this->settings = $settings;
 
         return $this;
     }
-
     /**
      * @return Collection<int, Forum>
      */
@@ -1182,7 +917,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->mutedForums;
     }
-
     public function addMutedForum(Forum $mutedForum): self
     {
         if (!$this->mutedForums->contains($mutedForum)) {
@@ -1191,7 +925,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-
     public function removeMutedForum(Forum $mutedForum): self
     {
         $this->mutedForums->removeElement($mutedForum);

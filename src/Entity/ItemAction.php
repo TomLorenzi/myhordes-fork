@@ -10,141 +10,80 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\ItemActionRepository")
- * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="item_action_name_unique",columns={"name"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\ItemActionRepository')]
+#[UniqueEntity('name')]
+#[Table]
+#[UniqueConstraint(name: 'item_action_name_unique', columns: ['name'])]
 class ItemAction implements NamedEntity
 {
     const PoisonHandlerIgnore = 0;
     const PoisonHandlerTransgress = 1;
     const PoisonHandlerConsume = 2;
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
+    #[ORM\Column(type: 'string', length: 32)]
     private $name;
-
-    /**
-     * @ORM\Column(type="string", length=190)
-     */
+    #[ORM\Column(type: 'string', length: 190)]
     private $label;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Requirement")
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\Requirement')]
     private $requirements;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Result")
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\Result')]
     private $results;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $message;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ItemTargetDefinition", cascade={"persist", "remove"})
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemTargetDefinition', cascade: ['persist', 'remove'])]
     private $target;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $poisonHandler = self::PoisonHandlerIgnore;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $keepsCover;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $confirm;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $allowWhenTerrorized = false;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $tooltip;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $confirmMsg;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $escortMessage;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $allowedAtGate;
-
-    /**
-     * @ORM\Column(type="string", length=64, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 64, nullable: true)]
     private $renderer;
-
-    /**
-     * @ORM\Column(type="smallint")
-     */
+    #[ORM\Column(type: 'smallint')]
     private $priority = 0;
-
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
         $this->results = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getLabel(): ?string
     {
         return $this->label;
     }
-
     public function setLabel(string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
-
     /**
      * @return Collection|Requirement[]
      */
@@ -152,7 +91,6 @@ class ItemAction implements NamedEntity
     {
         return $this->requirements;
     }
-
     public function addRequirement(Requirement $requirement): self
     {
         if (!$this->requirements->contains($requirement)) {
@@ -161,7 +99,6 @@ class ItemAction implements NamedEntity
 
         return $this;
     }
-
     public function removeRequirement(Requirement $requirement): self
     {
         if ($this->requirements->contains($requirement)) {
@@ -170,13 +107,11 @@ class ItemAction implements NamedEntity
 
         return $this;
     }
-
     public function clearRequirements(): self
     {
         $this->requirements->clear();
         return $this;
     }
-
     /**
      * @return Collection|Result[]
      */
@@ -184,7 +119,6 @@ class ItemAction implements NamedEntity
     {
         return $this->results;
     }
-
     public function addResult(Result $result): self
     {
         if (!$this->results->contains($result)) {
@@ -193,7 +127,6 @@ class ItemAction implements NamedEntity
 
         return $this;
     }
-
     public function removeResult(Result $result): self
     {
         if ($this->results->contains($result)) {
@@ -202,157 +135,131 @@ class ItemAction implements NamedEntity
 
         return $this;
     }
-
     public function clearResults(): self
     {
         $this->results->clear();
         return $this;
     }
-
     public function getMessage(): ?string
     {
         return $this->message;
     }
-
     public function setMessage(?string $message): self
     {
         $this->message = $message;
 
         return $this;
     }
-
     public function getTarget(): ?ItemTargetDefinition
     {
         return $this->target;
     }
-
     public function setTarget(?ItemTargetDefinition $target): self
     {
         $this->target = $target;
 
         return $this;
     }
-
     public function getPoisonHandler(): ?int
     {
         return $this->poisonHandler;
     }
-
     public function setPoisonHandler(int $poisonHandler): self
     {
         $this->poisonHandler = $poisonHandler;
 
         return $this;
     }
-
     public function getKeepsCover(): ?bool
     {
         return $this->keepsCover;
     }
-
     public function setKeepsCover(bool $keepsCover): self
     {
         $this->keepsCover = $keepsCover;
 
         return $this;
     }
-
     public function getConfirm(): ?bool
     {
         return $this->confirm;
     }
-
     public function setConfirm(?bool $confirm): self
     {
         $this->confirm = $confirm;
 
         return $this;
     }
-
     public function getAllowWhenTerrorized(): ?bool
     {
         return $this->allowWhenTerrorized;
     }
-
     public function setAllowWhenTerrorized(?bool $allowWhenTerrorized): self
     {
         $this->allowWhenTerrorized = $allowWhenTerrorized;
 
         return $this;
     }
-
     public function getTooltip(): ?string
     {
         return $this->tooltip;
     }
-
     public function setTooltip(?string $tooltip): self
     {
         $this->tooltip = $tooltip;
 
         return $this;
     }
-
     public function getConfirmMsg(): ?string
     {
         return $this->confirmMsg;
     }
-
     public function setConfirmMsg(?string $confirmMsg): self
     {
         $this->confirmMsg = $confirmMsg;
 
         return $this;
     }
-
     public function getEscortMessage(): ?string
     {
         return $this->escortMessage;
     }
-
     public function setEscortMessage(?string $escortMessage): self
     {
         $this->escortMessage = $escortMessage;
 
         return $this;
     }
-
     public function getAllowedAtGate(): ?bool
     {
         return $this->allowedAtGate;
     }
-
     public function setAllowedAtGate(?bool $allowedAtGate): self
     {
         $this->allowedAtGate = $allowedAtGate;
 
         return $this;
     }
-
     public function getRenderer(): ?string
     {
         return $this->renderer;
     }
-
     public function setRenderer(?string $renderer): self
     {
         $this->renderer = $renderer;
 
         return $this;
     }
-
     public function getPriority(): ?int
     {
         return $this->priority;
     }
-
     public function setPriority(int $priority): self
     {
         $this->priority = $priority;
 
         return $this;
     }
-
     public static function getTranslationDomain(): ?string
     {
         return 'items';

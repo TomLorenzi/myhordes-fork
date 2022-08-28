@@ -7,64 +7,36 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\InventoryRepository")
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\InventoryRepository')]
 class Inventory
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Item", mappedBy="inventory", cascade={"persist", "remove"})
-     * @OrderBy({"essential" = "DESC","prototype" = "ASC"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Item', mappedBy: 'inventory', cascade: ['persist', 'remove'])]
+    #[OrderBy(['essential' => 'DESC', 'prototype' => 'ASC'])]
     private $items;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Citizen", mappedBy="inventory", cascade={"persist", "remove"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Citizen', mappedBy: 'inventory', cascade: ['persist', 'remove'])]
     private $citizen;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\CitizenHome", mappedBy="chest", cascade={"persist", "remove"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenHome', mappedBy: 'chest', cascade: ['persist', 'remove'])]
     private $home;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Town", mappedBy="bank", cascade={"persist"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Town', mappedBy: 'bank', cascade: ['persist'])]
     private $town;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Zone", mappedBy="floor", cascade={"persist"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Zone', mappedBy: 'floor', cascade: ['persist'])]
     private $zone;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\RuinZone", mappedBy="floor", cascade={"persist", "remove"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\RuinZone', mappedBy: 'floor', cascade: ['persist', 'remove'])]
     private $ruinZone;
-
-    /**
-     * @ORM\OneToOne(targetEntity=RuinZone::class, mappedBy="roomFloor", cascade={"persist", "remove"})
-     */
+    #[ORM\OneToOne(targetEntity: RuinZone::class, mappedBy: 'roomFloor', cascade: ['persist', 'remove'])]
     private $ruinZoneRoom;
-
     public function __construct()
     {
         $this->items = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     /**
      * @return Collection|Item[]
      */
@@ -72,7 +44,6 @@ class Inventory
     {
         return $this->items;
     }
-
     public function addItem(Item $item): self
     {
         if (!$this->items->contains($item)) {
@@ -82,7 +53,6 @@ class Inventory
 
         return $this;
     }
-
     public function removeItem(Item $item): self
     {
         if ($this->items->contains($item)) {
@@ -95,12 +65,10 @@ class Inventory
 
         return $this;
     }
-
     public function getCitizen(): ?Citizen
     {
         return $this->citizen;
     }
-
     public function setCitizen(Citizen $citizen): self
     {
         $this->citizen = $citizen;
@@ -112,12 +80,10 @@ class Inventory
 
         return $this;
     }
-
     public function getHome(): ?CitizenHome
     {
         return $this->home;
     }
-
     public function setHome(CitizenHome $home): self
     {
         $this->home = $home;
@@ -129,12 +95,10 @@ class Inventory
 
         return $this;
     }
-
     public function getTown(): ?Town
     {
         return $this->town;
     }
-
     public function setTown(Town $town): self
     {
         $this->town = $town;
@@ -146,12 +110,10 @@ class Inventory
 
         return $this;
     }
-
     public function getZone(): ?Zone
     {
         return $this->zone;
     }
-
     public function setZone(Zone $zone): self
     {
         $this->zone = $zone;
@@ -163,12 +125,10 @@ class Inventory
 
         return $this;
     }
-
     public function getRuinZone(): ?RuinZone
     {
         return $this->ruinZone;
     }
-
     public function setRuinZone(RuinZone $zone): self
     {
         $this->ruinZone = $zone;
@@ -180,12 +140,10 @@ class Inventory
 
         return $this;
     }
-
     public function getRuinZoneRoom(): ?RuinZone
     {
         return $this->ruinZoneRoom;
     }
-
     public function setRuinZoneRoom(?RuinZone $ruinZoneRoom): self
     {
         $this->ruinZoneRoom = $ruinZoneRoom;

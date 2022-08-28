@@ -1720,7 +1720,7 @@ class NightlyHandler
                 $this->entity_manager->persist($winningCitizen);
 
                 $partition['_winner'] = [$winningCitizen];
-                $all_winners[] = $winningCitizen;
+                if ($town->getDay() <= 2) $all_winners[] = $winningCitizen;
 
                 $partition['_council?'] = array_diff( $partition['_council?'], array_slice($partition['voted'], 0, max(0,count($partition['_council?']) - 7)), $partition['_winner'] );
                 $partition['voted'] = array_diff( $partition['voted'], $partition['_winner'] );

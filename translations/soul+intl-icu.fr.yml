@@ -499,7 +499,7 @@ Deaktiviert: Désactivé
 'Nur in Stadtforen': 'Seulement dans le forum de la ville'
 'In allen Foren': 'Dans tous les forums'
 'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'Pour vous protéger contre le spam, quel que soit ce paramètre, vous ne recevrez pas de notification si plus de 5 joueurs (10 dans les forums de ville) sont mentionnés dans un message.'
-'Der angegebene Spielername ist zu lang.': 'Le nom d''utilisateur sélectionné est trop long.'
+'Der angegebene Spielername ist zu lang.': 'Le nom d''utilisateur sélectionné est trop long. Veuillez choisir un nom de 16 caractères ou moins.'
 'Saisonale Events': 'Événements saisonniers'
 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Les événements saisonniers ajoutent du nouveau contenu dans le jeu à toutes les villes pour une durée limitée. Ces événements sont automatiquement activés et désactivés aux heures spécifiées.'
 'Laufende Events': 'Actualités'
@@ -511,3 +511,4 @@ Deaktiviert: Désactivé
 'Endet nach {days} Tagen, am {date}': 'Se termine {days, plural, =0 {bientôt} one {dans un jour} other {au bout de # jours} }, le {date}'
 Events: Événements
 'Nur in Weltforen': 'Seulement dans les forums mondiaux'
+'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.': 'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.'
