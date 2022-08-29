@@ -173,7 +173,7 @@ Phenol: tetradoxin
 Ponasulfat: mercury
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.'
-'in der Nähe des Gemüsegartens': 'in der Nähe des Gemüsegartens'
+'in der Nähe des Gemüsegartens': 'Nearby the vegetable garden'
 'in der Nähe der südlichen Stadtmauer': 'in der Nähe der südlichen Stadtmauer'
 'am Stadttor': 'at the town gates'
 'am Aussichtsturm': 'at the western wall'
