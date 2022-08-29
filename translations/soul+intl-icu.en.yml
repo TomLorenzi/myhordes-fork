@@ -495,11 +495,11 @@ Umfragen: Surveys
 'Moderationslinks im selben Fenster öffnen': 'Open moderation links in the same window'
 'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt': 'Notify me when someone adds me as a friend'
 'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde': 'Notify me when someone tags me in a forum post'
-'Deaktiviert': 'Disabled'
-'Nur in Stadtforen': 'Only within town forums'
+Deaktiviert: Disabled
+'Nur in Stadtforen': 'Only in the town forum'
 'In allen Foren': 'In all forums'
 'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'To protect against spam, regardless of this setting, you will not receive a notification if more than 5 players (10 in city forums) are tagged in a post.'
-'Der angegebene Spielername ist zu lang.': 'The selected player name is too long. Please choose a name with no more than 16 characters.'
+'Der angegebene Spielername ist zu lang.': 'The given username is too long. Please choose a username with 16 characters or less.'
 'Saisonale Events': 'Seasonal Events'
 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Seasonal events add new game content to all towns for a limited time. These events are automatically activated and deactivated at the specified times.'
 'Laufende Events': 'Current Events'
@@ -511,4 +511,4 @@ Umfragen: Surveys
 'Endet nach {days} Tagen, am {date}': 'Ends after {days, plural,=0 {less than one day} one {one day} other {# days}}, on {date}'
 Events: Events
 'Nur in Weltforen': 'Only in world forums'
-'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.': 'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.'
+'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.': 'Warning: The maximum length of a username on MyHordes is 16 characters. If you choose a longer name on Eternaltwin, you will not be able to transfer it to MyHordes.'
