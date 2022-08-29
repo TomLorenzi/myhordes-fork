@@ -63,7 +63,7 @@
         "shivas/versioning-bundle": "4.0.1"
     },
     "require-dev": {
-        "dama/doctrine-test-bundle": "6.7.5",
+        "dama/doctrine-test-bundle": "7.1.1",
         "phpunit/phpunit": "9.5.21",
         "rector/rector": "0.14.0",
         "symfony/browser-kit": "6.1.3",

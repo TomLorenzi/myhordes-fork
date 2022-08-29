@@ -24,9 +24,10 @@ matchAll.shim();
 require("@ruffle-rs/ruffle");
 window.RufflePlayer.config = {
     "publicPath": "/build/ruffle",
-    "contextMenu": "false",
+    "contextMenu": false,
     "autoplay": "on",
-    'unmuteOverlay': "hidden"
+    'unmuteOverlay': "hidden",
+    "preloader": false
 }
 /*window.RufflePlayer.config.publicPath = "/build/ruffle";
 window.RufflePlayer.config.contextMenu = false;*/

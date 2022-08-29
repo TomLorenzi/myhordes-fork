@@ -89,7 +89,7 @@ class MessageController extends CustomAbstractController
         }
 
         $post->setText($tx);
-        if ($distorted) $post->setEditingMode( Post::EditorLocked );
+        if ($distorted && is_a( $post, Post::class )) $post->setEditingMode( Post::EditorLocked );
 
         if ($post instanceof Post) {
             $post->setSearchText( strip_tags( $tx ) );

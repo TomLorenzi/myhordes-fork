@@ -6,9 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\ForumRepository")
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\ForumRepository')]
 class Forum
 {
     const ForumTypeDefault = 0;
@@ -17,94 +15,57 @@ class Forum
     const ForumTypeAdmins = 3;
     const ForumTypeCustom = 4;
     const ForumTypeAnimac = 5;
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Town", inversedBy="forum", cascade={"persist"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Town', inversedBy: 'forum', cascade: ['persist'])]
     private $town;
-
-    /**
-     * @ORM\Column(type="string", length=128)
-     */
+    #[ORM\Column(type: 'string', length: 128)]
     private $title;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Thread", mappedBy="forum", cascade={"persist", "remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Thread', mappedBy: 'forum', cascade: ['persist', 'remove'])]
     private $threads;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $type;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $description;
-
-    /**
-     * @ORM\Column(type="string", length=190, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 190, nullable: true)]
     private $icon;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=ThreadTag::class)
-     */
+    #[ORM\ManyToMany(targetEntity: ThreadTag::class)]
     private $allowedTags;
-
-    /**
-     * @ORM\Column(type="string", length=2, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 2, nullable: true)]
     private $worldForumLanguage;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $worldForumSorting;
-
     public function __construct()
     {
         $this->threads = new ArrayCollection();
         $this->allowedTags = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getTown(): ?Town
     {
         return $this->town;
     }
-
     public function setTown(?Town $town): self
     {
         $this->town = $town;
 
         return $this;
     }
-
     public function getTitle(): ?string
     {
         return $this->title;
     }
-
     public function setTitle(string $title): self
     {
         $this->title = $title;
 
         return $this;
     }
-
     /**
      * @return Collection|Thread[]
      */
@@ -112,7 +73,6 @@ class Forum
     {
         return $this->threads;
     }
-
     public function addThread(Thread $thread): self
     {
         if (!$this->threads->contains($thread)) {
@@ -122,7 +82,6 @@ class Forum
 
         return $this;
     }
-
     public function removeThread(Thread $thread): self
     {
         if ($this->threads->contains($thread)) {
@@ -135,43 +94,36 @@ class Forum
 
         return $this;
     }
-
     public function getType(): ?int
     {
         return $this->type;
     }
-
     public function setType(?int $type): self
     {
         $this->type = $type;
 
         return $this;
     }
-
     public function getDescription(): ?string
     {
         return $this->description;
     }
-
     public function setDescription(?string $description): self
     {
         $this->description = $description;
 
         return $this;
     }
-
     public function getIcon(): ?string
     {
         return $this->icon;
     }
-
     public function setIcon(?string $icon): self
     {
         $this->icon = $icon;
 
         return $this;
     }
-
     /**
      * @return Collection|ThreadTag[]
      */
@@ -179,7 +131,6 @@ class Forum
     {
         return $this->allowedTags;
     }
-
     public function addAllowedTag(ThreadTag $allowedTag): self
     {
         if (!$this->allowedTags->contains($allowedTag)) {
@@ -188,31 +139,26 @@ class Forum
 
         return $this;
     }
-
     public function removeAllowedTag(ThreadTag $allowedTag): self
     {
         $this->allowedTags->removeElement($allowedTag);
 
         return $this;
     }
-
     public function getWorldForumLanguage(): ?string
     {
         return $this->worldForumLanguage;
     }
-
     public function setWorldForumLanguage(?string $worldForumLanguage): self
     {
         $this->worldForumLanguage = $worldForumLanguage;
 
         return $this;
     }
-
     public function getWorldForumSorting(): ?int
     {
         return $this->worldForumSorting;
     }
-
     public function setWorldForumSorting(?int $worldForumSorting): self
     {
         $this->worldForumSorting = $worldForumSorting;

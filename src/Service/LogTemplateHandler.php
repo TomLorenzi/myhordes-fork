@@ -332,6 +332,13 @@ class LogTemplateHandler
         return $transParams;
     }
 
+    public function processAmendment(LogEntryTemplate $template, array $variables): string {
+        return match ($template->getName()) {
+            'gpm_friend_notification' => "<br/><a href=\"{$this->url->generate( 'soul_contacts' )}\">" . $this->trans->trans('Freundesliste öffnen', [], 'global') . "</a>",
+            default => ''
+        };
+    }
+
     public function bankItemLog( Citizen $citizen, ItemPrototype $item, bool $toBank, bool $broken = false ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken);
         if ($toBank)

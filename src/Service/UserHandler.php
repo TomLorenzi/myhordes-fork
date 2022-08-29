@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\AccountRestriction;
+use App\Entity\AntiSpamDomains;
 use App\Entity\Avatar;
 use App\Entity\Award;
 use App\Entity\AwardPrototype;
@@ -22,6 +23,7 @@ use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use App\Enum\DomainBlacklistType;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\QueryBuilder;
 use DateTime;
@@ -346,10 +348,26 @@ class UserHandler
         $this->entity_manager->persist($user);
     }
 
-    public function deleteUser(User $user) {
+    public function deleteUser(User $user): void
+    {
+        $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
+
+        if (!empty($user->getEmail()) && !$repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $user->getEmail() )] ))
+            $this->entity_manager->persist( (new AntiSpamDomains())
+                ->setType( DomainBlacklistType::EmailAddress )
+                ->setDomain( DomainBlacklistType::EmailAddress->convert( $user->getEmail() ) )
+            );
+
+        if (!empty($user->getEternalID()) && !$repo->findOneBy( ['type' => DomainBlacklistType::EternalTwinID, 'domain' => DomainBlacklistType::EternalTwinID->convert( $user->getEternalID() )] ))
+            $this->entity_manager->persist( (new AntiSpamDomains())
+                ->setType( DomainBlacklistType::EternalTwinID )
+                ->setDomain( DomainBlacklistType::EternalTwinID->convert( $user->getEternalID() ) )
+            );
+
         $user
             ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
             ->setName("$ deleted <{$user->getId()}>")
+            ->setEternalID(null)
             ->setDeleteAfter(null)
             ->setPassword(null)
             ->setLastActionTimestamp( null )

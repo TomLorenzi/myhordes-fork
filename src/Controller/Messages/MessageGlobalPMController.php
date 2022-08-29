@@ -736,7 +736,7 @@ class MessageGlobalPMController extends MessageController
                 try {
                     $tx .= $this->translator->trans(
                         $message->getTemplate()->getText(), $th->parseTransParams($message->getTemplate()->getVariableTypes(), $message->getData()), 'game'
-                    );
+                    ) . $th->processAmendment( $message->getTemplate(), $message->getData() );
                 }
                 catch (\Exception $e) { $tx .= '_TEMPLATE_ERROR_'; }
 

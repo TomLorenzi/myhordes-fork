@@ -68,8 +68,8 @@
 'Bemerkenswert: Die Tür wurde über Nacht offen gelassen. Den Aufzeichnungen zufolge ist es {cadaver1}, der dafür verantwortlich ist. Nun, es ist immer noch in Ordnung... Trotz dieses Fehlers gab es nicht allzu viele Opfer.': 'Un punto importante: el portal se quedó abierto esta noche. Según los registros, le debemos el favor a {cadaver1}. Por suerte, ese ""pequeño error"" no causó muchas víctimas.'
 'Außerdem wäre es gut, daran zu denken, dass der Schamane der Stadt letzte Nacht gestorben ist. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.': 'Por lo que parece, el más puro y místico del lugar, el Chamán, murió anoche. Su alma se reencarnará en uno de los supervivientes.'
 'Halten wir kurz inne und gedenken unserem verlorenen Schamanen. Auf Wiedersehen, nutzloser Scharlatan! Wer ist motiviert, ihn zu ersetzen?': 'Un minuto de silencio por nuestro Chamán caído. ¡Hasta nunca, charlatán inútil!'
-'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.': 'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.'
-'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.': 'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.'
+'Unser geliebter Reiseleiter in der Außenwelt ist gestern verstorben. Heute Abend findet eine Neuwahl statt, bei der ein neuer Kandidat aus den Reihen der Überlebenden gewählt wird.': 'Nuestro amado guía turístico en el mundo exterior falleció ayer. Esta noche se realizará una nueva votación para elegir un nuevo candidato entre los sobrevivientes.'
+'Tolle Leistung gestern Abend, der Schamane und der Reiseleiter in der Außenwelt sind beide tot, daher könnte der heutige Tag etwas eintönig werden. Heute Abend findet eine Neuwahl aus den Reihen der Überlebenden statt.': 'Buen trabajo anoche, el chamán y el guía turístico del mundo exterior están muertos, por lo que hoy puede ser un poco monótono. Esta noche habrá una nueva elección entre los supervivientes.'
 'Wir haben geahnt, dass dies passieren würde. <i class="dagger">†</i> {cadaver1} hat gestern Selbstmord begangen. Immerhin hatte dieser Bürger mehrere Tage lang seinen Kopf gegen die Wände geschlagen und Sand gegessen, anstatt seine Wasserrationen einzunehmen... Traurig.': '<i class="dagger">†</i> {cadaver1} dio un paso al costado, mejor dicho al Más Allá. Al parecer no soportó la ineptitud de sus compañeros y no vio manera de sobrevivir... ¡Qué triste!'
 'Wir werden nie wieder etwas von <i class="dagger">†</i> {cadaver1} hören, der sich entschlossen hat, dem Angriff der Zombies durch Selbstmord zu entkommen.': '<i class="dagger">†</i> {cadaver1} ya no está entre nosotros, ayer tomó la decisión de <strong>suicidarse</strong> para no seguir teniendo pesadillas con los zombies.'
 'Weitere Nachrichten: <strong>{cadavers} Bürger haben gestern Selbstmord begangen</strong>. Schöner Ort zum Leben, nicht wahr?': '{cadavers} <strong>personas se suicidaron</strong> ayer. Nuestro pueblo siempre tan acogedor, ¿eh?'
@@ -100,15 +100,15 @@
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der südlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro sur</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der westlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro oeste</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
 'Eine kleine Anekdote, wir wissen nicht wie, aber einer der {cadavers} Bürger, die in dieser Nacht draußen verschwanden, scheint seinen Weg zurück zur Stadt gefunden zu haben und wäre <strong>in der Nähe der östlichen Mauer</strong> gesehen worden! Allerdings fehlten ihm die Beine, und dieser Bürger sei innerhalb weniger Minuten gestorben. Igitt.': '¡Desde los techos, hemos visto a uno de los {cadavers} desaparecidos en el desierto volver hacia el pueblo <strong>cerca del muro este</strong>! Por desgracia, le faltaban las piernas y murió a varios metros del Portal. Puajjj.'
-'Nun, das sage ich...': 'Nun, das sage ich...'
-'Das ist doch Unsinn...': 'Das ist doch Unsinn...'
-'Die einen sagen dies, die anderen das...': 'Die einen sagen dies, die anderen das...'
-'Ich sags ja nur...': 'Ich sags ja nur...'
-'Komm schon, glaub mir.': 'Komm schon, glaub mir.'
-'Was für eine Organisation...': 'Was für eine Organisation...'
+'Nun, das sage ich...': 'Bueno yo lo que digo...'
+'Das ist doch Unsinn...': 'Tonterías...'
+'Die einen sagen dies, die anderen das...': 'No lo he dicho yo...'
+'Ich sags ja nur...': 'Solo digo...'
+'Komm schon, glaub mir.': 'Vamos, tengamos fe.'
+'Was für eine Organisation...': 'Vaya organización...'
 'Wir werden nicht lange durchhalten, das sage ich euch.': 'Así no llegaremos muy lejos.'
 'Noch so eine Nacht und wir werden nicht mehr hier sein, um über so etwas zu reden.': 'Una noche más como esta y no estaremos más aquí para contarlo.'
-'Das war knapp.': 'Das war knapp.'
+'Das war knapp.': 'Estuvo cerca.'
 Pfff...: Pfff...
 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...': 'Niemandem war es aufgefallen, wie schlecht es <strong>† {cadaver1}</strong> ging. Von Allen im Stich gelassen, hat er es vorgezogen, <strong>seinem Leben ein Ende zu setzten</strong>, anstatt weiter mit uns zu leben...'
 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.': 'Gestern ist einigen Bürgern aufgefallen, dass <strong>† {cadaver1}</strong> verdächtig still war. Anscheinend hat er es inzwischen vorgezogen, <strong>Selbstmord</strong> zu begehen.'
@@ -159,30 +159,30 @@ Pfff...: Pfff...
 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.': 'Angeblich wurden der Bank gestern einige verdächtige Entnahmen gemeldet. Die Zeugenaussagen deuten darauf hin, dass es sich um <strong>{citizen1}</strong> handeln soll, einige sprechen aber auch von <strong>{citizen2}</strong>.'
 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...': 'Mal was anderes: ein Blick ins Bankregisterbuch hat leider Unerfreuliches offenbart. <strong>{citizen1}</strong> hat sich <strong>in der Bank ausgetobt</strong> und so allerhand <strong>mitgehen lassen</strong>...'
 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...': 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...'
-Arsen: Arsen
-Cyanolin: Cyanolin
+Arsen: Arsénico
+Cyanolin: Cianolina
 Neurotwinin: Neurotwinin
 Rizin: Rizin
 Botulinumtoxin: Botulinumtoxin
 Virunoir: Virunoir
 Chlorotwinat: Chlorotwinat
-Kaliumchlorid: Kaliumchlorid
-Kurare: Kurare
+Kaliumchlorid: al cloro potásico
+Kurare: con curare
 'Zyanid (poison)': Zyanid (poison)
-Phenol: Phenol
+Phenol: con fenol
 Ponasulfat: Ponasulfat
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': 'Es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.'
-'in der Nähe des Gemüsegartens': 'in der Nähe des Gemüsegartens'
-'in der Nähe der südlichen Stadtmauer': 'in der Nähe der südlichen Stadtmauer'
-'am Stadttor': 'am Stadttor'
-'am Aussichtsturm': 'am Aussichtsturm'
-'am westlichen Flügel der Stadt': 'am westlichen Flügel der Stadt'
-'an der nördlichen Stadtmauer': 'an der nördlichen Stadtmauer'
-'an unserer schwach gesicherten Flanke': 'an unserer schwach gesicherten Flanke'
-'in der Nähe des Brunnens': 'in der Nähe des Brunnens'
-'an der östlichen Stadtmauer': 'an der östlichen Stadtmauer'
-'in der Stadtmauer am Stadttor': 'in der Stadtmauer am Stadttor'
+'in der Nähe des Gemüsegartens': 'en el flanco norte'
+'in der Nähe der südlichen Stadtmauer': 'cerca del muro sur'
+'am Stadttor': 'en el gran portal'
+'am Aussichtsturm': 'a la Torre de vigilancia'
+'am westlichen Flügel der Stadt': 'junto al ala Oeste'
+'an der nördlichen Stadtmauer': 'en el muro norte'
+'an unserer schwach gesicherten Flanke': 'en el flanco oeste'
+'in der Nähe des Brunnens': 'cerca del pozo'
+'an der östlichen Stadtmauer': 'en el muro este'
+'in der Stadtmauer am Stadttor': 'cerca de la muralla'
 Drops: Cachito
 Whitie: Comotú
 Fettwanst: Tifoidea
@@ -210,14 +210,14 @@ Sumpfschildkröte: el hurón
 Kätzchen: el gato
 'einen Haufen Gerümpel ': 'einen Haufen Gerümpel '
 'einen Holzstapel ': 'einen Holzstapel '
-'einen Haufen Schrott': 'einen Haufen Schrott'
+'einen Haufen Schrott': 'un montón de basura'
 'einen toter Baumstamm': 'einen toter Baumstamm'
-'eine vergessene Leiter': 'eine vergessene Leiter'
-'einen Berg von Kisten': 'einen Berg von Kisten'
-'einen Turm aus Trümmern': 'einen Turm aus Trümmern'
-'einen Haufen Plunder': 'einen Haufen Plunder'
-'einen Steinhaufen': 'einen Steinhaufen'
-'einen Haufen Ramsch': 'einen Haufen Ramsch'
+'eine vergessene Leiter': 'una escalera olvidada'
+'einen Berg von Kisten': 'una montaña de cajas'
+'einen Turm aus Trümmern': 'una torre de escombros'
+'einen Haufen Plunder': 'un montón de basura'
+'einen Steinhaufen': 'un montón de piedras'
+'einen Haufen Ramsch': 'un montón de basura'
 '<strong>{citizen1}s</strong> {animal} wurde heute Morgen in mehrere Stücke zerfetzt aufgefunden. Ein Stück wurde sogar aus dem Brunnen gefischt. Das erklärt auch den seltsamen Geschmack der Wasserrationen von heute Morgen...': '{animal} conocido como {mascot} fue encontrado esta mañana partido en dos. Una parte fue hallada dentro del pozo. Eso debe explicar el sabor raro de las raciones de hoy...'
 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.': 'Das mysteriöse Verschwinden unserer Stadtziege {mascot} hat heute morgen die Stadt in helle Aufruhr versetzt. Einige behaupten, dass es sich um einen Racheakt handle (der Name <strong>{citizen1}</strong> wurde öfters genannt). Wir bitten alle Einwohner, keine Gerüchte in die Welt zu setzen, solange die Untersuchungen nicht abgeschlossen sind.'
 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...': 'Die Zombieabwehr gestern war ein Kinderspiel. Heute wird das schon schwieriger werden, denn unsere "Freunde" werden noch hungriger sein...'

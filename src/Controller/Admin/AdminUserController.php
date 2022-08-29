@@ -495,8 +495,6 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'delete':
-                if ($user->getEternalID())
-                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $userHandler->deleteUser($user);
                 $this->entity_manager->persist($user);
                 break;

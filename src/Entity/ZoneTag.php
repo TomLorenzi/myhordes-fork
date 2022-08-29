@@ -6,9 +6,7 @@ use App\Interfaces\NamedEntity;
 use App\Repository\ZoneTagRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=ZoneTagRepository::class)
- */
+#[ORM\Entity(repositoryClass: ZoneTagRepository::class)]
 class ZoneTag implements NamedEntity
 {
     const TagNone           = 0;
@@ -24,104 +22,74 @@ class ZoneTag implements NamedEntity
     const TagCamping        = 10;
     const TagExploreRuin    = 11;
     const TagLostSoul       = 12;
-    
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
+    #[ORM\Column(type: 'string', length: 100)]
     private $label;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
+    #[ORM\Column(type: 'string', length: 100)]
     private $icon;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
+    #[ORM\Column(type: 'string', length: 100)]
     private $name;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $ref;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $temporary;
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getLabel(): ?string
     {
         return $this->label;
     }
-
     public function setLabel(string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
-
     public function getIcon(): ?string
     {
         return $this->icon;
     }
-
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
 
         return $this;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getRef(): ?int
     {
         return $this->ref;
     }
-
     public function setRef(int $ref): self
     {
         $this->ref = $ref;
 
         return $this;
     }
-
     public function getTemporary(): ?bool
     {
         return $this->temporary;
     }
-
     public function setTemporary(bool $temporary): self
     {
         $this->temporary = $temporary;
 
         return $this;
     }
-
     public static function getTranslationDomain(): ?string
     {
         return 'game';
