@@ -535,5 +535,5 @@ Antwortstext: Answer text
 'Neue temporäre Stadtverteidigung:': 'New temporary town defense:'
 'Temporäre Stadtverteidigung setzen': 'Set the town''s temporary defense'
 'Alle Tode bestätigen': 'Validate all deaths'
-'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.'
-'Geplant für': 'Geplant für'
+'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Specify a time when the town must be opened. Leave blank or specify a time in the past to open the town immediately.'
+'Geplant für': 'Scheduled for'
