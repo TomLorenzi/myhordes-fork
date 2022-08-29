@@ -511,4 +511,4 @@ Deaktiviert: Disabled
 'Endet nach {days} Tagen, am {date}': 'Ends after {days, plural,=0 {less than one day} one {one day} other {# days}}, on {date}'
 Events: Events
 'Nur in Weltforen': 'Only in world forums'
-'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.': 'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.'
+'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.': 'Warning: The maximum length of a username on MyHordes is 16 characters. If you choose a longer name on Eternaltwin, you will not be able to transfer it to MyHordes.'
