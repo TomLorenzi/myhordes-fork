@@ -762,9 +762,21 @@
                         <div class="row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
                             <div class="padded cell rw-5 rw-lg-12">
                                 {% if not fromTown is defined %}
-                                    <label><input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToTown" /></label>
+                                    <label style="margin-left: -{{ min(n,6) * 16 }}px;float: left;">
+                                        <input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToUnlockList" />
+                                        <div class="tooltip help">Cochez cette case pour ajouter ce chantier à la liste de ceux à débloquer dans la ville.</div>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToTown" />
+                                        <div class="tooltip help">Cochez cette case pour débloquer ce chantier.</div>
+                                    </label>
                                 {% else %}
-                                    <img class="link" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" x-prototype-id="{{ building.id }}" x-building-admin-action="removeFromTown" />
+                                    <div class="inline-block">
+                                        <img class="link" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" x-prototype-id="{{ building.id }}" x-building-admin-action="removeFromTown" />
+                                        <div class="tooltip help">
+                                            Cliquez ici pour supprimer ce chantier de la ville.
+                                        </div>
+                                    </div>
                                 {% endif %}
                                 {% if buildable %}
                                     <img alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" >
@@ -777,7 +789,7 @@
                                 <img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
                                 <div class="tooltip temp-building">
                                     <h1>{{ 'Temporäre Konstruktion!'|trans({}, 'buildings') }}</h1>
-                                    {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings') }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
+                                    {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings')|raw }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
                                 </div>
                             </span>
                                 {% endif %}
@@ -788,11 +800,11 @@
                                         {% endif %}
                                     </div>
                                 {% endif %}
-                                {% if building.description %}
+                                {#{% if building.description %}
                                     <div class="tooltip help">
                                         {{ building.description|trans({}, 'buildings') }}
                                     </div>
-                                {% endif %}
+                                {% endif %}#}
                             </div>
                             {% if fromTown is defined %}
                                 <div class="padded cell rw-3 rw-lg-5 rw-sm-12 no-ws">
@@ -830,6 +842,7 @@
 
                     {# @var rootBuildings \App\Entity\BuildingPrototype[] #}
                     <div>
+                        <button x-building-admin-action="unlockCheckedBuildings" class="inline"><i class="fa fa-unlock-alt"></i> Unlock checked buildings</button>
                         <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
                             <li class="tab" x-tab-id="all">
                                 <div class="tab-link">
@@ -852,6 +865,8 @@
                     {% for building in rootBuildings %}
                         <div x-tab-group="buildings" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings) }}</div>
                     {% endfor %}
+
+                    <button x-building-admin-action="unlockCheckedBuildings"><i class="fa fa-unlock-alt"></i> Unlock checked buildings</button>
                 </div>
 
             {% endif %}
@@ -1018,6 +1033,21 @@
                            $.ajax.easySend("{{ path('admin_town_add_building', {id: town.id }) }}", {
                                    'prototype_id': buildingBtns[i].getAttribute("x-prototype-id"),
                                    'act': 0
+                               },
+                               function () {
+                                   $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
+                               }
+                           );
+                           break;
+                       case "unlockCheckedBuildings":
+                           let protos = [];
+                           let checked = document.querySelectorAll('input[x-building-admin-action="addToUnlockList"]:checked');
+                           checked.forEach(function(c) {
+                               protos.push(c.getAttribute('x-prototype-id'));
+                           })
+                           $.ajax.easySend("{{ path('admin_town_add_building', {id: town.id }) }}", {
+                                   'prototype_id': protos,
+                                   'act': 1
                                },
                                function () {
                                    $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
