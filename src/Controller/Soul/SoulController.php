@@ -1138,7 +1138,7 @@ class SoulController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function soul_settings_common(JSONRequestParser $parser): Response {
+    public function soul_settings_common(JSONRequestParser $parser, SessionInterface $session): Response {
         $user = $this->getUser();
 
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
@@ -1150,6 +1150,7 @@ class SoulController extends CustomAbstractController
         $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', 0) );
         $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
         $user->setAdminLang($parser->get("adminLang", null));
+        $session->set('_admin_lang',$user->getAdminLang() ?? $user->getLanguage());
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 

@@ -46,9 +46,8 @@ class LanguageSubscriber implements EventSubscriberInterface
         }
 
         $path = $event->getRequest()->getPathInfo();
-        if (strstr($path, 'admin')) {
-            dump("in admin ! $path");
-            $event->getRequest()->setLocale("en");
+        if (strstr($path, 'admin') && $event->getRequest()->getSession()->has('_admin_lang')) {
+            $event->getRequest()->setLocale($event->getRequest()->getSession()->get('_admin_lang', null));
         }
     }
 
