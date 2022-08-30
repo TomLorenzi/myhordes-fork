@@ -435,7 +435,6 @@ class AdminTownController extends AdminActionController
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
-                'dbg_set_town_base_def', 'dbg_set_town_temp_def'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -771,10 +770,10 @@ class AdminTownController extends AdminActionController
                         $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 }
                 break;
-            case 'dbg_set_town_base_def':
+            case 'set_town_base_def':
                 $town->setBaseDefense($param);
                 break;
-            case 'dbg_set_town_temp_def':
+            case 'set_town_temp_def':
                 $town->setTempDefenseBonus($param);
                 break;
 
