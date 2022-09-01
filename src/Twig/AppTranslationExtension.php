@@ -3,13 +3,17 @@
 
 namespace App\Twig;
 
-use Symfony\Bridge\Twig\Extension\TranslationExtension;
-use Symfony\Bridge\Twig\NodeVisitor\TranslationNodeVisitor;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\DisallowedRawHtml\DisallowedRawHtmlExtension;
+use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+use League\CommonMark\Extension\TaskList\TaskListExtension;
+use League\CommonMark\MarkdownConverter;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Contracts\Translation\TranslatableInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
-use League\CommonMark\CommonMarkConverter;
 
 class AppTranslationExtension extends AbstractExtension {
     private TranslatorInterface $translator;
@@ -28,8 +32,16 @@ class AppTranslationExtension extends AbstractExtension {
 
     public function trans(string|\Stringable|TranslatableInterface|null $message, array|string $arguments = [], string $domain = null, string $locale = null, int $count = null): string {
         $string = $this->translator->trans($message, $arguments, $domain, $locale);
-        $parser = new CommonMarkConverter([]);
-        $string = preg_replace('#<p>(.*)</p>#i', '$1', $parser->convert($string));
+
+        $environment = new Environment([]);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new DisallowedRawHtmlExtension());
+        $environment->addExtension(new StrikethroughExtension());
+        $environment->addExtension(new TableExtension());
+        $environment->addExtension(new TaskListExtension());
+
+        $converter = new MarkdownConverter($environment);
+        $string = preg_replace('#<p>(.*)</p>#i', '$1', $converter->convert($string));
         return trim($string);
     }
 }
