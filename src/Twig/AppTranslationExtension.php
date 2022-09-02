@@ -33,7 +33,10 @@ class AppTranslationExtension extends AbstractExtension {
     public function trans(string|\Stringable|TranslatableInterface|null $message, array|string $arguments = [], string $domain = null, string $locale = null, int $count = null): string {
         $string = $this->translator->trans($message, $arguments, $domain, $locale);
 
-        $environment = new Environment([]);
+        $config = [
+            'html_input' => "allow"
+        ];
+        $environment = new Environment($config);
         $environment->addExtension(new CommonMarkCoreExtension());
         $environment->addExtension(new DisallowedRawHtmlExtension());
         $environment->addExtension(new StrikethroughExtension());
@@ -41,7 +44,9 @@ class AppTranslationExtension extends AbstractExtension {
         $environment->addExtension(new TaskListExtension());
 
         $converter = new MarkdownConverter($environment);
-        $string = preg_replace('#<p>(.*)</p>#i', '$1', $converter->convert($string));
+        $string = $converter->convert($string);
+        $string = preg_replace('#<p>(.*)</p>#i', '$1', $string);
+        $string = html_entity_decode($string);
         return trim($string);
     }
 }
