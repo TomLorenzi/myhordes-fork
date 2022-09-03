@@ -1,5 +1,7 @@
 import * as React from "react";
-import {ReactData} from "../index";
+import * as ReactDOM from "react-dom";
+
+import Components, {ReactData} from "../index";
 
 import {
     MapCoordinate,
@@ -55,7 +57,17 @@ const processRoute = (route: MapCoordinate[], complex: boolean) => {
     return routeCopy.map(c => [c.x,c.y]);
 }
 
-export const MapWrapper = ( props: ReactDataMapCore ) => {
+export class HordesMap {
+    public static mount(parent: HTMLElement, data: object): void {
+        ReactDOM.render(<MapWrapper {...$.components.kickstart(parent,data) as ReactData<MapCoreProps>} />, parent, () => Components.vitalize( parent ));
+    }
+
+    public static unmount(parent: HTMLElement): void {
+        if (ReactDOM.unmountComponentAtNode( parent )) $.components.degenerate(parent);
+    }
+}
+
+const MapWrapper = ( props: ReactDataMapCore ) => {
     let mk = $.client.get('marker','routes',null, Client.DomainScavenger);
     if (!mk) mk = undefined;
     else mk = {x: mk[0] ?? 0, y: mk[1] ?? 0}

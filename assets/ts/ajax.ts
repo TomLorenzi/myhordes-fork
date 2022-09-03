@@ -25,6 +25,8 @@ export default class Ajax {
     private render_block_stack: number = 0;
     private render_block_promises: Array<navigationPromiseCallback> = []
 
+    private known_dynamic_modules: Array<string> = []
+
     constructor(baseUrl: string) {
         if (baseUrl.length == 0 || baseUrl.slice(-1) != '/')
             baseUrl += '/';
@@ -131,9 +133,17 @@ export default class Ajax {
         let style_source = result_document.querySelectorAll('html>head>style');
         let script_source = result_document.querySelectorAll('script');
         let react_mounts = {}
-        $.html.forEach('[id][x-react-mount]', c => {
+        $.html.forEach('[id][data-react-mount]', c => {
             react_mounts[c.id] = c;
         }, result_document)
+
+        // Disable elements that are waiting for a custom element class to become available
+        result_document.querySelectorAll('[data-await-custom-element]').forEach( (e: HTMLElement) => {
+            if (!customElements.get( e.dataset.awaitCustomElement )) {
+                e.setAttribute('disabled','disabled');
+                customElements.whenDefined( e.dataset.awaitCustomElement ).then(() => e.removeAttribute('disabled'))
+            }
+        } );
 
         // Merge flash messages
         let message_stack_changed = true, flash_source = null;
@@ -169,14 +179,17 @@ export default class Ajax {
         $.html.clearTooltips( target );
 
         // Save react mounts
-        $.html.forEach( '[id][x-react-mount]', c => {
+        $.html.forEach( '[id][data-react-mount]', c => {
             if (react_mounts[c.id]) {
-                if (react_mounts[c.id].getAttribute('x-react-data'))
-                    c.setAttribute( 'x-react-data', react_mounts[c.id].getAttribute('x-react-data') )
+                for (const [key, value] of Object.entries(react_mounts[c.id].dataset))
+                    if (key !== 'react' && key !== 'reactMount')
+                        { // @ts-ignore
+                            c.dataset[key] = value;
+                        }
                 react_mounts[c.id].parentElement.insertBefore( c, react_mounts[c.id] );
                 react_mounts[c.id].remove();
                 react_mounts[c.id] = c;
-            } else $.components.degenerate( c );
+            } else c.dispatchEvent(new Event("x-react-degenerate", { bubbles: true, cancelable: false }));
         }, target );
 
         // Clear the target
@@ -292,16 +305,30 @@ export default class Ajax {
             content_source[i].querySelectorAll('.username')        .forEach( elem => $.html.handleUserPopup( <HTMLElement>elem ))
             target.appendChild( content_source[i] );
         }
-        Object.entries(react_mounts).forEach(entry => {
-            const component = <HTMLElement>entry[1];
-            let data = component.hasAttribute('x-react-data') ? JSON.parse(component.getAttribute('x-react-data')) : {};
-            component.removeAttribute('x-react-data');
-            $.components.generate( component, component.getAttribute('x-react-mount'), data );
-        });
 
         for (let i = 0; i < script_source.length; i++)
             try {
-                eval(script_source[i].innerText);
+                if (script_source[i].hasAttribute('src')) {
+                    const src = script_source[i].getAttribute('src');
+                    const existing = document.querySelector('head>script[src="' + src + '"]');
+                    if (!existing && !this.known_dynamic_modules.includes( src )) {
+                        this.known_dynamic_modules.push(src);
+                        console.info( 'Renderer requires additional js module: ' + src );
+                        script_source[i].dataset.firstRequestedFrom = url;
+                        fetch( src, {mode:"no-cors"} )
+                            .then( response => response.ok ? response.text() : new Promise(r=>r(null)) )
+                            .then( script => {
+                                if (!script) $.html.error(c.errors['dyn_script_no'] + '<br /><code>' + src + '</code>');
+                                else try {
+                                    eval?.(script as string);
+                                } catch (e) {
+                                    $.html.error(c.errors['dyn_script'] + '<br /><code>' + src + ': ' + e.message + '</code>');
+                                    console.error(e,script);
+                                }
+                            } )
+                    }
+                }
+                else eval(script_source[i].innerText);
             } catch (e) {
                 $.html.error(c.errors['script'] + '<br /><code>' + e.message + '</code>');
                 console.error(e,script_source[i].innerText);

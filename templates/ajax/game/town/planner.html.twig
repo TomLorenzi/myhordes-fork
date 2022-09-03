@@ -11,13 +11,14 @@
 
     <div class="row">
         <div class="padded cell rw-12">
-            <div id="planner-map" x-react-mount="map" x-react-data="{{ map_public_json }}"></div>
+            {{ encore_entry_script_tags('module-map') }}
+            <hordes-map id="planner-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
         </div>
     </div>
 
     <div class="row">
         <div class="padded cell rw-6 rw-md-12">
-            <div id="create_route_control">
+            <div id="create_route_control" data-await-custom-element="hordes-map">
                 <button id="create_route_1">{{ 'Neue einfache Route'|trans({},'game') }}</button>
                 <button {% if not allow_extended %}disabled{% endif %} id="create_route_2">{{ 'Neue komplexe Route'|trans({},'game') }}</button>
                 <button x-ajax-href="{{ path('town_routes') }}">{{ 'Schließen'|trans({},'global') }}</button>
