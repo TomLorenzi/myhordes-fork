@@ -81,6 +81,7 @@ class GhostController extends CustomAbstractController
             'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
+            'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
             'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
             'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW,
         ] ));
@@ -588,6 +589,15 @@ class GhostController extends CustomAbstractController
             'remote' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )),
             'panda' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )),
             'custom' => 'maybe',
+        ];
+    }
+
+    public function getUserTownClassAccessLimitReason(MyHordesConf $conf): array {
+        return [
+            'small' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )], 'ghost' ),
+            'remote' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )], 'ghost' ),
+            'panda' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )], 'ghost' ),
+            'custom' => null,
         ];
     }
 
