@@ -170,7 +170,7 @@ Außenweltgebäude: Les bâtiments extérieurs
 'Die Spezialfähigkeit <i>Durchbrechen</i> hat eine höhere Erfolgschance.': 'la capacité spéciale <i>Passage en force</i> a une chance de succès supérieure,'
 'Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.': 'pour les éclaireurs, les chances d''être repérés pendant un déplacement baissent significativement : la nuit est votre alliée,'
 'Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.': 'un citoyen peut tenter de voler un objet en banque : il a alors une chance de ne pas être identifié dans le Registre,'
-'Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).': 'les fouilles ont des chances de réussite plus faibles (fouilles de bâtiments non incluses). Toutefois, vous pouvez utiliser certains objets pour annuler cette pénalité (torches ou lampes notamment).'
+'Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).': 'les fouilles ont des chances de réussite plus faibles. Toutefois, vous pouvez utiliser certains objets pour annuler cette pénalité (torches ou lampes notamment).'
 'Diese Regeln gelten nicht in "Kleinstadt"-Karten.': 'ces règles ne s''appliquent pas dans les cartes "Région non éloignée".'
 'Camper haben eine bessere Chance, ein Versteck zu finden.': 'les campeurs ont de meilleures chances de trouver un endroit où se cacher,'
 'Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...': 'Au cours de votre vie dans MyHordes, vous accumulerez des trouvailles ramassées dans le désert, vous construirez des bâtiments, attraperez des maladies, consommerez des drogues...'
@@ -625,7 +625,7 @@ etc.: etc.
 'Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.': 'La voracité des goules augmente moins à minuit.'
 'Deine Tage sind gezählt... Wir geben dir folgenden Rat:': 'Vos jours sont comptés... Un seul conseil dans pareille situation :'
 'Meide diesen verfluchten Ort!': 'fuyez ce lieu maudit !'
-"Das Pandämonium ist der schwierige Modus in 'Die Verdammten'.": "Le Pandémonium est le mode Difficile de MyHordes."
+"Das Pandämonium ist der schwierige Modus in 'Die Verdammten'.": "Le Pandémonium est le mode Difficile de MyHordes. Vous devez avoir au minimum 500 points d'âme pour y accéder."
 'Im Pandämonium findet ihr ausschießlich Städte, die mit zusätzlichen Problemen zu kämpfen haben und in denen das Überleben außerordentlich schwierig ist.': 'Le Pandémonium regroupe les villes dans lesquelles la survie est particulièrement ardue : les citoyens doivent faire face à des difficultés supplémentaires !'
 'In diesen Städten gelten bestimmte Regeln:': 'Ces villes sont soumises à diverses règles spécifiques :'
 'Die mitternächtlichen Zombieangriffe richten Schäden an den gebauten Gebäuden und Konstruktionen an. Diese Schäden müssen repariert werden.': 'Les attaques de zombies de minuit endommagent les chantiers et les structures qui ont été construits, ces dommages doivent être réparés,'

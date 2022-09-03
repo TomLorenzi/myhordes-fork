@@ -461,6 +461,12 @@
                     {% set preferredLanguage = 'de' %}
                 {% endif %}
 
+                {% if app.user.adminLang is defined and not app.user.adminLang is null %}
+                    {% set preferredAdminLanguage = app.user.adminLang %}
+                {% else %}
+                    {% set preferredAdminLanguage = preferredLanguage %}
+                {% endif %}
+
                 <div class="row">
                     <div class="padded cell rw-12">
                         <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
@@ -478,6 +484,25 @@
                         </div>
                     </div>
                 </div>
+                {% if is_granted("ROLE_CROW") %}
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <h5>{{ 'Sprache der Admin-Oberfläche'|trans({},'soul') }}</h5>
+                        <div class="language-picker">
+                            {% for lang in langs %}
+                                <div class="note note-lightest">
+                                    <input x-setting {% if preferredAdminLanguage == lang['code'] %}checked{% endif%} value="{{ lang['code'] }}" type="radio" name="admin_setting_preferred_language" id="admin_setting_preferred_language_{{ lang['code'] }}">&nbsp;<label for="admin_setting_preferred_language_{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</label>
+                                    {% if lang["tooltip"] != '' and lang['tooltip'] != null %}
+                                        <div class="tooltip help">
+                                            {{ lang['tooltip']|trans({}, 'global') }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     <div class="cell rw-12">
                         <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
@@ -784,6 +809,9 @@
                     town10: document.getElementById('setting_limit_town_size').checked,
                     notify: document.getElementById('setting_notify_on_mention').value,
                     notifyFriend: document.getElementById('setting_notify_on_friend').checked,
+                    {% if is_granted("ROLE_CROW") %}
+                    adminLang: document.querySelector("input[name=admin_setting_preferred_language]:checked").value
+                    {% endif %}
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
