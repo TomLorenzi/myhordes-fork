@@ -592,14 +592,23 @@ class InventoryAwareController extends CustomAbstractController
         $carrier_items = ['bag_#00','bagxl_#00','cart_#00','pocket_belt_#00'];
 
         $drop_carriers = false;
+
+        if($citizen === null)
+            $citizen = $this->getActiveCitizen();
+
         if ($direction === 'down' && $allow_down_all && $item && in_array($item->getPrototype()->getName(), $carrier_items)) {
-            $direction = 'down-all';
-            $drop_carriers = true;
+
+            $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $item) {
+                return $i !== $item && in_array($i->getPrototype()->getName(), $carrier_items);
+            }));
+
+            if (!$has_other_carriers) {
+                $direction = 'down-all';
+                $drop_carriers = true;
+            }
         }
 
         if (in_array($direction, $allowed_directions)) {
-            if($citizen === null)
-                $citizen = $this->getActiveCitizen();
 
             $inv_source = $direction === 'up' ? $down_target : $up_target;
             $inv_target = $direction !== 'up' ? $down_target : $up_target;
