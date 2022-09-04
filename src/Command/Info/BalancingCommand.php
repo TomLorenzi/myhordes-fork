@@ -9,16 +9,19 @@ use App\Entity\ItemPrototype;
 use App\Entity\ZonePrototype;
 use App\Service\RandomGenerator;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+#[AsCommand(
+    name: 'app:info:balancing',
+    description: 'Dumps balancing information'
+)]
 class BalancingCommand extends LanguageCommand
 {
-    protected static $defaultName = 'app:info:balancing';
-
     private EntityManagerInterface $em;
     private RandomGenerator $rand;
 
@@ -32,7 +35,6 @@ class BalancingCommand extends LanguageCommand
     protected function configure()
     {
         $this
-            ->setDescription('Dumps balancing information')
             ->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate, group-spawnrate, ruin-pawnrate]')
             ->addArgument('for',  InputArgument::OPTIONAL, 'What object would you like to know about?')
 

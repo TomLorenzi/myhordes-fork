@@ -15,6 +15,7 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -22,14 +23,16 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
+#[AsCommand(
+    name: 'app:inventory',
+    description: 'Manipulates and lists information about a single inventory.'
+)]
 class InventoryInspectorCommand extends Command
 {
-    protected static $defaultName = 'app:inventory';
-
-    private $entityManager;
-    private $itemFactory;
-    private $inventoryHandler;
-    private $helper;
+    private EntityManagerInterface $entityManager;
+    private ItemFactory $itemFactory;
+    private InventoryHandler $inventoryHandler;
+    private CommandHelper $helper;
 
     public function __construct(EntityManagerInterface $em, ItemFactory $if, InventoryHandler $ih, CommandHelper $ch)
     {
@@ -43,7 +46,6 @@ class InventoryInspectorCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Manipulates and lists information about a single inventory.')
             ->setHelp('This command allows you work on single inventories.')
             ->addArgument('InventoryID', InputArgument::REQUIRED, 'The inventory ID')
 

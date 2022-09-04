@@ -20,6 +20,7 @@ use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use ReflectionClass;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -31,10 +32,12 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:forum:delete',
+    description: 'Allows deleting forums'
+)]
 class ForumDeleteCommand extends Command
 {
-    protected static $defaultName = 'app:forum:delete';
-
     private EntityManagerInterface $entityManager;
     private CommandHelper $helper;
     private KernelInterface $kernel;
@@ -50,7 +53,6 @@ class ForumDeleteCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Allows deleting forums')
             ->setHelp('This command allows deleting an existing forum.')
             ->addArgument('ForumID', InputArgument::REQUIRED, 'The Forum ID')
 

@@ -37,6 +37,7 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
@@ -49,11 +50,12 @@ use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Constraints\Date;
 
-
+#[AsCommand(
+    name: 'app:debug',
+    description: 'Debug options.'
+)]
 class DebugCommand extends LanguageCommand
 {
-    protected static $defaultName = 'app:debug';
-
     private KernelInterface $kernel;
 
     private GameFactory $game_factory;
@@ -98,7 +100,6 @@ class DebugCommand extends LanguageCommand
     protected function configure()
     {
         $this
-            ->setDescription('Debug options.')
             ->setHelp('Debug options.')
             
             ->addOption('everyone-drink', null, InputOption::VALUE_REQUIRED, 'Unset thirst status of all citizen.')

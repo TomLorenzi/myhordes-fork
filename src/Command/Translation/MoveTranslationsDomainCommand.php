@@ -8,6 +8,7 @@ use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
 use App\Structures\MyHordesConf;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -22,21 +23,22 @@ use Symfony\Component\Translation\Loader\FileLoader;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Component\Translation\MessageCatalogueInterface;
 
+#[AsCommand(
+    name: 'app:translation:move-domain',
+    description: 'Performs migrations to update content after a version update.'
+)]
 class MoveTranslationsDomainCommand extends Command
 {
     protected static $defaultName = 'app:translation:move-domain';
 
-    private CommandHelper $helper;
     private ConfMaster $confMaster;
 
     private ContainerInterface $container;
     private ParameterBagInterface $param;
 
-    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ParameterBagInterface $param, ContainerInterface $container, ConfMaster $confMaster)
+    public function __construct(ParameterBagInterface $param, ContainerInterface $container, ConfMaster $confMaster)
     {
-        $this->conf_trans = $conf_trans;
         $this->container = $container;
-        $this->helper = $helper;
         $this->param = $param;
         $this->confMaster = $confMaster;
 
@@ -46,7 +48,6 @@ class MoveTranslationsDomainCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Performs migrations to update content after a version update.')
             ->setHelp('Migrations.')
             ->addArgument('from', InputArgument::REQUIRED, 'Source domain')
             ->addArgument('to', InputArgument::REQUIRED, 'Target domain')

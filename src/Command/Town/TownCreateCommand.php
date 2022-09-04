@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -23,10 +24,12 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
+#[AsCommand(
+    name: 'app:town:create',
+    description: 'Creates a new town.'
+)]
 class TownCreateCommand extends Command
 {
-    protected static $defaultName = 'app:town:create';
-
     private EntityManagerInterface $entityManager;
     private GameFactory $gameFactory;
     private GameValidator $gameValidator;
@@ -52,7 +55,6 @@ class TownCreateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Creates a new town.')
             ->setHelp('This command allows you to create a new, empty town.')
 
             ->addArgument('townClass', InputArgument::REQUIRED, 'Town type [' . implode(', ', $this->gameValidator->getValidTownTypes()) . ']')

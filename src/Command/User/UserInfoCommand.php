@@ -17,6 +17,7 @@ use App\Service\CommandHelper;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Asset\Package;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -27,14 +28,16 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
+#[AsCommand(
+    name: 'app:user:list',
+    description: 'Lists information about users.'
+)]
 class UserInfoCommand extends Command
 {
-    protected static $defaultName = 'app:user:list';
-
-    private $entityManager;
-    private $user_handler;
-    private $pwenc;
-    private $helper;
+    private EntityManagerInterface $entityManager;
+    private UserHandler $user_handler;
+    private UserPasswordHasherInterface $pwenc;
+    private CommandHelper $helper;
     private UrlGeneratorInterface $router;
 
     public function __construct(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
@@ -51,7 +54,6 @@ class UserInfoCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Lists information about users.')
             ->setHelp('This command allows you list users, or get information about a specific user.')
 
             ->addArgument('UserID', InputArgument::OPTIONAL, 'The user ID')

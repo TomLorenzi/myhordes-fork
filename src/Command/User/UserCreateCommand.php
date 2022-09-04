@@ -36,7 +36,6 @@ class UserCreateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Creates a new user account.')
             ->setHelp('This command allows you to create new users.')
 
             ->addArgument('name',     InputArgument::REQUIRED, 'The user\'s name.')

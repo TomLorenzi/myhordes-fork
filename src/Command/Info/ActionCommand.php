@@ -14,16 +14,19 @@ use App\Entity\Result;
 use App\Entity\ZonePrototype;
 use App\Service\RandomGenerator;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+#[AsCommand(
+    name: 'app:info:actions',
+    description: 'Dumps action information'
+)]
 class ActionCommand extends LanguageCommand
 {
-    protected static $defaultName = 'app:info:actions';
-
     private EntityManagerInterface $em;
     private RandomGenerator $rand;
 
@@ -37,7 +40,6 @@ class ActionCommand extends LanguageCommand
     protected function configure()
     {
         $this
-            ->setDescription('Dumps actions information')
             ->addArgument('what', InputArgument::REQUIRED, 'What is the source of the action (item, workshop, home)')
             ->addArgument('for',  InputArgument::OPTIONAL, 'What object would you like to know about?')
         ;
