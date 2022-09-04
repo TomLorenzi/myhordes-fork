@@ -17,17 +17,6 @@ import Components from "../ts/react";
 const matchAll = require('string.prototype.matchall');
 matchAll.shim();
 
-require("@ruffle-rs/ruffle");
-window.RufflePlayer.config = {
-    "publicPath": "/build/ruffle",
-    "contextMenu": false,
-    "autoplay": "on",
-    'unmuteOverlay': "hidden",
-    "preloader": false
-}
-/*window.RufflePlayer.config.publicPath = "/build/ruffle";
-window.RufflePlayer.config.contextMenu = false;*/
-
 // Get the base URL
 const base_node = document.getElementsByTagName('base');
 const url = base_node.length === 0 ? '' : base_node[0].getAttribute('href');

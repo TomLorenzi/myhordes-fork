@@ -1,7 +1,7 @@
+"use strict";
+
 // This is a react shim
 // It's purpose is to map a react node to a custom web component
-
-"use strict";
 
 // Import the actual react code
 import {HordesMap} from "../../ts/react/map/Wrapper";

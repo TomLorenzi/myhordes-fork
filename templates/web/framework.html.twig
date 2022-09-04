@@ -37,7 +37,7 @@
 
         <!-- Load JS -->
         {{ encore_entry_script_tags('app') }}
-        {{ encore_entry_script_tags('fa') }}
+        {{ encore_entry_script_tags('fa', null, '_default', {'defer': true}) }}
 
         <!-- Set Favicon -->
         <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
