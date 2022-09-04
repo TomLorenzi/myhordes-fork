@@ -35,6 +35,8 @@ services:
     # Set Twig extensions
     App\Twig\Extensions:
       tags: ['twig.extension']
+    App\Twig\Encore:
+      tags: ['twig.extension']
 
     # Set some services to be public
     App\Service\CitizenHandler:

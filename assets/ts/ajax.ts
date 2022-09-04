@@ -104,6 +104,25 @@ export default class Ajax {
         return target;
     }
 
+    private fetch_module(src: string) {
+        const existing = document.querySelector('head>script[src="' + src + '"]');
+        if (!existing && !this.known_dynamic_modules.includes( src )) {
+            console.info( 'Loading dynamic JS module: ' + src );
+            this.known_dynamic_modules.push(src);
+            fetch( src, {mode:"no-cors"} )
+                .then( response => response.ok ? response.text() : new Promise(r=>r(null)) )
+                .then( script => {
+                    if (!script) $.html.error(c.errors['dyn_script_no'] + '<br /><code>' + src + '</code>');
+                    else try {
+                        eval(script as string);
+                    } catch (e) {
+                        $.html.error(c.errors['dyn_script'] + '<br /><code>' + src + ': ' + e.message + '</code>');
+                        console.error(e,script);
+                    }
+                } )
+        }
+    }
+
     private render( url: string, target: HTMLElement, result_document: Document, push_history: boolean, replace_history: boolean ) {
         // Get URL
         if (push_history) history.pushState( url, '', url );
@@ -122,6 +141,12 @@ export default class Ajax {
             }
             fragment.remove();
         }
+
+        // Check content source for non-defined nodes
+        result_document.querySelectorAll(':not(:defined)').forEach( e =>
+            // @ts-ignore
+            ((window.c?.modules ?? {})[e.localName] ?? []).forEach( src => this.fetch_module(src) )
+        );
 
         // Get content, style and script tags
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
@@ -291,26 +316,8 @@ export default class Ajax {
 
         for (let i = 0; i < script_source.length; i++)
             try {
-                if (script_source[i].hasAttribute('src')) {
-                    const src = script_source[i].getAttribute('src');
-                    const existing = document.querySelector('head>script[src="' + src + '"]');
-                    if (!existing && !this.known_dynamic_modules.includes( src )) {
-                        this.known_dynamic_modules.push(src);
-                        console.info( 'Renderer requires additional js module: ' + src );
-                        script_source[i].dataset.firstRequestedFrom = url;
-                        fetch( src, {mode:"no-cors"} )
-                            .then( response => response.ok ? response.text() : new Promise(r=>r(null)) )
-                            .then( script => {
-                                if (!script) $.html.error(c.errors['dyn_script_no'] + '<br /><code>' + src + '</code>');
-                                else try {
-                                    eval?.(script as string);
-                                } catch (e) {
-                                    $.html.error(c.errors['dyn_script'] + '<br /><code>' + src + ': ' + e.message + '</code>');
-                                    console.error(e,script);
-                                }
-                            } )
-                    }
-                }
+                if (script_source[i].hasAttribute('src'))
+                    this.fetch_module( script_source[i].getAttribute('src') );
                 else eval(script_source[i].innerText);
             } catch (e) {
                 $.html.error(c.errors['script'] + '<br /><code>' + e.message + '</code>');
@@ -335,6 +342,8 @@ export default class Ajax {
 
         $.components.prune();
         $.html.restoreTutorialStage();
+
+
     }
 
     push_history( url: string ) {

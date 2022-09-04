@@ -38,7 +38,6 @@
             {% endif %}
         </div>
         <div class="padded cell rw-6 rw-lg-12">
-            {{ encore_entry_script_tags('module-map') }}
             <hordes-map id="preview-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
             {{ help_lnk('Wie gebraucht man diese Karte?'|trans({},'game'), 'help', {'name': 'map'}) }}
         </div>

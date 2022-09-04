@@ -200,6 +200,7 @@
                 {{ include('scripts/errors/ghost.txt.twig') }}
                 {{ include('scripts/errors/messages.txt.twig') }}
             },
+            'modules': {{ include('scripts/modules.json.twig') }},
             'langs': {
                 {% for lang in langs %}
                 '{{ lang['code'] }}': '{{ lang["label"] |trans({},'global') }}',

@@ -68,7 +68,6 @@
                                 {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
                             </div>
                         {% endif %}
-                            {{ encore_entry_script_tags('module-map') }}
                             <hordes-map id="beyond-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
 
                             <div class="zone-info link" x-ajax-href="{{ path('help', {'name': 'control_points'}) }}">
