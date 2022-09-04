@@ -168,13 +168,14 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/town/{id<\d+>}/{tab?}", name="admin_town_explorer")
+     * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer")
      * @param int $id
      * @param string|null $tab The tab we want to display
+     * @param string|null $conf
      * @param GazetteService $gazetteService
      * @return Response
      */
-    public function town_explorer(int $id, ?string $tab, GazetteService $gazetteService): Response
+    public function town_explorer(int $id, ?string $tab, ?string $conf, GazetteService $gazetteService): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -292,9 +293,18 @@ class AdminTownController extends AdminActionController
             if ($citizen->getActive()) $langs_alive[$lang]++;
         }
 
+        $conf_self = $this->conf->getTownConfiguration($town);
+        $conf_compare = match($conf) {
+            'small', 'remote', 'panda', 'default' => $this->conf->getTownConfigurationByType($conf),
+            default => null,
+        };
+
         return $this->render('ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
-            'conf' => $this->conf->getTownConfiguration($town),
+            'opt_conf' => $conf,
+            'conf' => $conf_self,
+            'conf_compare' => $conf_compare,
+            'conf_keys' => array_unique( array_merge( array_keys( $conf_self->raw() ), array_keys( $conf_compare?->raw() ?? [] ) ) ),
             'explorables' => $explorables,
             'log' => $this->renderLog(-1, $town, false)->getContent(),
             'day' => $town->getDay(),

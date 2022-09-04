@@ -681,9 +681,20 @@
 
                 <div x-tab-group="admin-town" x-tab-id="config" x-tab-target>
                     <div class="row-table">
-                        <div class="row header">
+                        <div class="row-flex header">
                             <div class="cell rw-4 padded">{{ 'Regel'|trans({},'admin') }}</div>
-                            <div class="cell rw-8 padded">{{ 'Aktiver Wert'|trans({},'admin') }}</div>
+                            <div class="cell rw-4 padded">{{ 'Aktiver Wert'|trans({},'admin') }}</div>
+                            <div class="cell rw-4 padded">
+                                <label for="compare_conf_to">{{ 'Vergleichswert'|trans({},'admin') }}</label>
+                                <br />
+                                <select id="compare_conf_to">
+                                    <option {% if opt_conf == 'none' or opt_conf is null %}selected{% endif %} value="{{ path('admin_town_explorer', {id: town.id, tab: 'config', conf: 'none'}) }}">{{ 'Keiner'|trans({},'admin') }}</option>
+                                    <option {% if opt_conf == 'small' %}selected{% endif %} value="{{ path('admin_town_explorer', {id: town.id, tab: 'config', conf: 'small'}) }}">{{ 'Kleine Stadt'|trans({},'game') }}</option>
+                                    <option {% if opt_conf == 'remote' %}selected{% endif %} value="{{ path('admin_town_explorer', {id: town.id, tab: 'config', conf: 'remote'}) }}">{{ 'Entfernte Regionen'|trans({},'game') }}</option>
+                                    <option {% if opt_conf == 'panda' %}selected{% endif %} value="{{ path('admin_town_explorer', {id: town.id, tab: 'config', conf: 'panda'}) }}">{{ 'Pandämonium'|trans({},'game') }}</option>
+                                    <option {% if opt_conf == 'default' %}selected{% endif %} value="{{ path('admin_town_explorer', {id: town.id, tab: 'config', conf: 'default'}) }}">{{ 'Basiskonfiguration'|trans({},'admin') }}</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -691,7 +702,7 @@
                         </div>
 
                         {% set setting_keys_prev = [] %}
-                        {% for setting in conf.raw|keys|sort %}
+                        {% for setting in conf_keys|sort %}
 
                             {% set setting_keys = setting|split('.') %}
 
@@ -707,14 +718,20 @@
                                 {% endif %}
                             {% endfor %}
 
-                            {% set value = conf.raw[setting] %}
-                            {% if value is same as(true) %}
-                                {% set value = 'true' %}
-                            {% elseif value is same as(false)  %}
-                                {% set value = 'false' %}
-                            {% elseif value is iterable %}
-                                {% set value = value|json_encode(constant('JSON_PRETTY_PRINT')) %}
-                            {% endif %}
+                            {%- macro render_value( value ) -%}
+                                {%- if value is same as(true) -%}
+                                    {{- 'true' -}}
+                                {%- elseif value is same as(false) -%}
+                                    {{- 'false' -}}
+                                {%- elseif value is iterable -%}
+                                    {{- value|json_encode(constant('JSON_PRETTY_PRINT')) -}}
+                                {%- else -%}
+                                    {{- value -}}
+                                {%- endif -%}
+                            {%- endmacro -%}
+
+                            {% set value      = _self.render_value( conf.raw[setting] ) %}
+                            {% set value_comp = conf_compare is not null ? _self.render_value( conf_compare.raw[setting] ) : '' %}
 
                             {% for n,key in shown_keys %}
                                 {% if not loop.last %}
@@ -731,6 +748,7 @@
                                 {% endif %}
                             {% endfor %}
 
+
                             <div class="row">
                                 <div class="cell rw-4 padded">
                                     <code class="small">
@@ -738,12 +756,18 @@
                                             ―
                                         {% endfor %}
                                     </code>
-                                    {{ shown_keys|last }}
+                                    <span style="{{ conf_compare is not null and value_comp != value ? 'font-weight: bold; color: green;' : '' }}">{{ shown_keys|last }}</span>
                                     <div class="tooltip">{{ setting }}</div>
                                 </div>
-                                <div class="cell rw-8 padded">
+
+                                <div class="cell rw-{{ conf_compare is not null ? 4 : 8 }} padded small">
                                     <pre style="margin: 0">{{ value }}</pre>
                                 </div>
+                                {% if conf_compare is not null %}
+                                    <div class="cell rw-4 padded small">
+                                        <pre style="margin: 0; opacity: {{ value_comp == value ? 0.2 : 1 }}">{{ value_comp }}</pre>
+                                    </div>
+                                {% endif %}
                             </div>
 
                             {% set setting_keys_prev = setting_keys %}
@@ -931,6 +955,7 @@
             $.html.addEventListenerAll('[x-api-trigger]', 'click', function(e,elem) {
                 fun_api_call(elem.getAttribute('x-api-trigger'),elem);
             });
+            $.html.addEventListenerAll('#compare_conf_to', 'change', (e,elem) => $.ajax.load(null, elem.value, true))
 
             $.html.addEventListenerAll('[x-ex-action][x-ex-session]', 'click', function(e,elem) {
                 $.ajax.easySend( elem.getAttribute('x-ex-action'), {param: parseInt(elem.getAttribute('x-ex-session'))},

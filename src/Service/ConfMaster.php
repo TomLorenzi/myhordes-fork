@@ -6,6 +6,7 @@ namespace App\Service;
 use App\Entity\Citizen;
 use App\Entity\EventActivationMarker;
 use App\Entity\Town;
+use App\Entity\TownClass;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
@@ -43,9 +44,10 @@ class ConfMaster
         return $tc->complete();
     }
 
-    public function getTownConfigurationByType( string $type ): TownConf {
-        $tc = new TownConf( [$this->game_rules['default'], $this->game_rules[$type] ?? []] );
-        return $tc->complete();
+    public function getTownConfigurationByType( TownClass|string|null $town = null ): TownConf {
+        if (is_a( $town, TownClass::class )) $town = $town->getName();
+        else $town = $town ?? 'default';
+        return (new TownConf( [$this->game_rules['default'], $this->game_rules[$town] ?? [] ] ))->complete();
     }
 
     public function getEvent(string $name): EventConf {
