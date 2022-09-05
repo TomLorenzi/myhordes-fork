@@ -201,13 +201,13 @@ class LogTemplateHandler
                     else
                         $transParams['{'.$typeEntry['name'].'}'] = "null";
                 }
-                elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
+                elseif ($typeEntry['type'] === 'num' || ($typeEntry['type'] === 'string' && empty( $variables["{$typeEntry['name']}__translate"] ))) {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
                     if($typeEntry['type'] === 'num')
                         $transParams['{raw_'.$typeEntry['name'].'}'] = $variables[$typeEntry['name']];
                 }
-                elseif ($typeEntry['type'] === 'transString') {
-                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $typeEntry['from'] ?? 'game') );
+                elseif ($typeEntry['type'] === 'transString' || ($typeEntry['type'] === 'string' && !empty( $variables["{$typeEntry['name']}__translate"] ))) {
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $variables["{$typeEntry['name']}__translate"] ?? $typeEntry['from'] ?? 'game') );
                 }
                 elseif ($typeEntry['type'] === 'dogname') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( self::generateDogName((int)$variables[$typeEntry['name']], $this->trans) );

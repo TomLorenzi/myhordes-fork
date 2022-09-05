@@ -168,13 +168,14 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/town/{id<\d+>}/{tab?}", name="admin_town_explorer")
+     * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer")
      * @param int $id
      * @param string|null $tab The tab we want to display
+     * @param string|null $conf
      * @param GazetteService $gazetteService
      * @return Response
      */
-    public function town_explorer(int $id, ?string $tab, GazetteService $gazetteService): Response
+    public function town_explorer(int $id, ?string $tab, ?string $conf, GazetteService $gazetteService): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -292,9 +293,18 @@ class AdminTownController extends AdminActionController
             if ($citizen->getActive()) $langs_alive[$lang]++;
         }
 
+        $conf_self = $this->conf->getTownConfiguration($town);
+        $conf_compare = match($conf) {
+            'small', 'remote', 'panda', 'default' => $this->conf->getTownConfigurationByType($conf),
+            default => null,
+        };
+
         return $this->render('ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
-            'conf' => $this->conf->getTownConfiguration($town),
+            'opt_conf' => $conf,
+            'conf' => $conf_self,
+            'conf_compare' => $conf_compare,
+            'conf_keys' => array_unique( array_merge( array_keys( $conf_self->raw() ), array_keys( $conf_compare?->raw() ?? [] ) ) ),
             'explorables' => $explorables,
             'log' => $this->renderLog(-1, $town, false)->getContent(),
             'day' => $town->getDay(),
@@ -435,7 +445,6 @@ class AdminTownController extends AdminActionController
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
-                'dbg_set_town_base_def', 'dbg_set_town_temp_def'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -771,10 +780,10 @@ class AdminTownController extends AdminActionController
                         $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 }
                 break;
-            case 'dbg_set_town_base_def':
+            case 'set_town_base_def':
                 $town->setBaseDefense($param);
                 break;
-            case 'dbg_set_town_temp_def':
+            case 'set_town_temp_def':
                 $town->setTempDefenseBonus($param);
                 break;
 
@@ -2008,16 +2017,21 @@ class AdminTownController extends AdminActionController
 
         $proto_id = $parser->get("prototype_id");
         $act = $parser->get('act');
+        if(!is_array($proto_id)) {
+            $proto_id = [$proto_id];
+        }
 
-        $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($proto_id);
-        if (!$proto)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        foreach ($proto_id as $pid) {
+            $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($pid);
+            if (!$proto)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if($act) {
-            $th->addBuilding($town, $proto);
-            $gps->recordBuildingDiscovered($proto, $town, null, 'debug');
-        } else {
-            $th->removeBuilding($town, $proto);
+            if($act) {
+                $th->addBuilding($town, $proto);
+                $gps->recordBuildingDiscovered($proto, $town, null, 'debug');
+            } else {
+                $th->removeBuilding($town, $proto);
+            }
         }
 
         $this->entity_manager->persist($town);

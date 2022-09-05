@@ -125,6 +125,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private $settings = [];
     #[ORM\ManyToMany(targetEntity: Forum::class, fetch: 'EXTRA_LAZY')]
     private $mutedForums;
+
+    #[ORM\Column(length: 3, nullable: true)]
+    private ?string $adminLang = null;
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -928,6 +931,18 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function removeMutedForum(Forum $mutedForum): self
     {
         $this->mutedForums->removeElement($mutedForum);
+
+        return $this;
+    }
+
+    public function getAdminLang(): ?string
+    {
+        return $this->adminLang;
+    }
+
+    public function setAdminLang(?string $adminLang): self
+    {
+        $this->adminLang = $adminLang;
 
         return $this;
     }

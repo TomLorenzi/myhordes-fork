@@ -38,7 +38,11 @@ class PictoHandler
         if ($pictoPrototype->getName() === 'r_solban_#00' && !$citizen->getBanished())
             return;
 
-        $persistance = $citizen->getTown()->getDay() < 5 ? 0 : 1;
+        $pictoAlwaysPersisted = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_INSTANT_PICTOS, []);
+
+        $dayLimit = ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) ? 8 : 5;
+
+        $persistance = in_array($pictoPrototype->getName(), $pictoAlwaysPersisted)? 1 : ($citizen->getTown()->getDay() < $dayLimit ? 0 : 1);
 
         $is_new = false;
         $picto = $citizen->getUser()->findPicto( $persistance, $pictoPrototype, $citizen->getTown() );

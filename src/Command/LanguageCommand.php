@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Service\CommandHelper;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,10 +11,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Translation\Translator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+#[AsCommand(
+    name: 'app:language'
+)]
 class LanguageCommand extends Command
 {
-    protected static $defaultName = 'app:language';
-
     protected ?string $locale = null;
 
     protected ?TranslatorInterface $translator = null;

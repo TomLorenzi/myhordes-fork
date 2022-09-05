@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-
+{# @var user \App\Entity\User #}
 {% from "ajax/admin/widget/controls.twig" import widget_picto_creator as picto_creator, widget_picto_creator_js as picto_creator_js, widget_feature_creator as feature_creator, widget_feature_creator_js as feature_creator_js, widget_title_creator as title_creator, widget_title_creator_js as title_creator_js %}
 
 {% block title %}{% trans from 'admin' %}Auszeichnungen{% endtrans %} - {{ user.name }}{%  endblock %}
@@ -18,20 +18,30 @@
                         <li class="tab" x-tab-id="old"><div class="tab-link">{% trans from 'admin' %}Alt{% endtrans %}</div></li>
                     </ul>
                     <div x-tab-group="picto-listing" x-tab-id="native" x-tab-target>
+                        {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, user: user} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="cumulative" x-tab-target>
+                        {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_all, user: user, plain: true} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="mh" x-tab-target>
+                        {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.soulPoints }}<br />
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.heroDaysSpent }}
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_mh, user: user, plain: true} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="import" x-tab-target>
+                        {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.importedSoulPoints }}<br />
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.importedHeroDaysSpent }}
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_im, user: user, plain: true} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="old" x-tab-target>
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_old, user: user, plain: true} %}
                     </div>
+                </div>
+                <div class="cell rw-2 rw-sm-12">
                 </div>
                 <div class="cell rw-5 rw-lg-7 rw-sm-12">
                     {% if is_granted("ROLE_CROW") %}

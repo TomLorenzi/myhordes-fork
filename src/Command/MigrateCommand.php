@@ -40,6 +40,7 @@ use App\Structures\TownConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -50,10 +51,12 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:migrate',
+    description: 'Performs migrations to update content after a version update.'
+)]
 class MigrateCommand extends Command
 {
-    protected static $defaultName = 'app:migrate';
-
     private KernelInterface $kernel;
 
     private GameFactory $game_factory;
@@ -153,7 +156,6 @@ class MigrateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Performs migrations to update content after a version update.')
             ->setHelp('Migrations.')
 
             ->addOption('maintenance', 'm', InputOption::VALUE_REQUIRED, 'Enables (on) or disables (off) maintenance mode')

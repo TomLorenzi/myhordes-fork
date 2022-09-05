@@ -3,8 +3,9 @@
 
     <div class="daily-attack row">
         <div class="content" id="canvas_container" style="overflow: hidden;">
-
-            <div class="attack_swf" {% if attack_running %}data-ruffle-swf="{{ asset('build/flash/attack.swf') }}"{% else %}data-ruffle-swf="{{ asset('build/flash/desert.swf') }}"{% endif%} data-ruffle-vars="lang={{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}&amp;data=null"></div>
+            <hordes-flash class="attack_swf"
+                   data-src="{{ attack_running ? asset('build/flash/attack.swf') : asset('build/flash/desert.swf') }}"
+                   data-parameters="lang={{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}&amp;data=null"></hordes-flash>
             {% if attack_running %}
                 {% trans from 'ghost' %}
                     <p>

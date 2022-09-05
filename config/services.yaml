@@ -35,6 +35,8 @@ services:
     # Set Twig extensions
     App\Twig\Extensions:
       tags: ['twig.extension']
+    App\Twig\Encore:
+      tags: ['twig.extension']
 
     # Set some services to be public
     App\Service\CitizenHandler:
@@ -73,7 +75,7 @@ services:
         $translator: '@app.decoration.translator.inner'
         $db: '%env(url:DATABASE_URL)%'
 
-    # The NightlyHandler should have it's own log channel
+    # The NightlyHandler should have its own log channel
     App\Service\NightlyHandler:
         tags:
           - { name: monolog.logger, channel: night }

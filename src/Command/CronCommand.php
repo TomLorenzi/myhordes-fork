@@ -30,19 +30,21 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use SplFileInfo;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
 
+#[AsCommand(
+    name: 'app:cron',
+    description: 'Cron command'
+)]
 class CronCommand extends Command
 {
-    protected static $defaultName = 'app:cron';
-
     private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
     private NightlyHandler $night;
@@ -59,7 +61,6 @@ class CronCommand extends Command
     private CommandHelper $helper;
     private ParameterBagInterface $params;
     private GameProfilerService $gps;
-    private ContainerInterface $container;
     private Environment $twig;
     private AdminHandler $adminHandler;
 
@@ -69,7 +70,7 @@ class CronCommand extends Command
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps, ContainerInterface $container, AdminHandler $adminHandler)
+                                GameProfilerService $gps, AdminHandler $adminHandler)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -88,7 +89,6 @@ class CronCommand extends Command
         $this->helper = $helper;
         $this->params = $params;
         $this->gps = $gps;
-        $this->container = $container;
         $this->adminHandler = $adminHandler;
 
         $this->db = $db;
@@ -98,7 +98,6 @@ class CronCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Cron command')
             ->setHelp('This should be run on a regular basis.')
 
             ->addArgument('task',  InputArgument::OPTIONAL, 'The task to perform. Defaults to "host".', 'host')

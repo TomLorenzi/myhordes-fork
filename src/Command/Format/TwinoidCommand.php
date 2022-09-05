@@ -9,6 +9,7 @@ use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Service\CommandHelper;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
@@ -17,14 +18,15 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:format:twinoid',
+    description: 'Twinoid data collections.'
+)]
 class TwinoidCommand extends Command
 {
-    protected static $defaultName = 'app:format:twinoid';
-
     private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
     private CommandHelper $commandHelper;
-
 
     public function __construct(KernelInterface $kernel, EntityManagerInterface $em, CommandHelper $commandHelper)
     {
@@ -38,7 +40,6 @@ class TwinoidCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Twinoid data collections.')
             ->setHelp('Twinoid data.')
 
             ->addArgument('Format', InputArgument::OPTIONAL, 'Output Format', 'nice')
