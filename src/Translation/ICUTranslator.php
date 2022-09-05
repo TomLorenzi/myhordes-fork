@@ -78,6 +78,10 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         $environment->addExtension(new TableExtension());
         $environment->addExtension(new TaskListExtension());
 
+        # We put the string in 1 line and replace multiple spaces with only one
+        $string = preg_replace("#\n#mi", "", $string);
+        $string = preg_replace("# {2,}#mi", " ", $string);
+
         $converter = new MarkdownConverter($environment);
         $string = $converter->convert($string);
         $string = preg_replace('#<p>(.*)</p>#i', '$1', $string);
