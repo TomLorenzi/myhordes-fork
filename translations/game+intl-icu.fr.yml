@@ -2283,7 +2283,7 @@ Verbannten-Ratgeber: Guide du bannissement
 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!': 'Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victim} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !'
 'Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.': 'Il est impossible de faire cela en période de <strong>chaos</strong> !'
 'Du kannst keinen Bürger bestehlen, dem <strong>du heute einen Gegenstand per Post</strong> gesendet hast (Missbrauchschutz).': 'Vous ne pouvez pas cambrioler un citoyen <strong>à qui vous avez envoyé un objet par courrier aujourd''hui</strong> (mesure anti-abus).'
-'auf {coa_invite} antworten': 'répondre à {coa_invite} en coalition'
+'auf {coa_invite} antworten': 'Répondre à {coa_invite} en coalition'
 '<strong>Du brauchst für diese Aktion {ap} Aktionspunkt(e)</strong>. <hr />Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis <strong>morgen</strong> warten.': '<strong>Il vous faut {ap} point(s) d''action pour faire ceci</strong>. <hr />Buvez, mangez ou droguez-vous pour en récupérer, ou attendez <strong>demain</strong>.'
 'Was für eine Katastrophe! {num} Wasserrationnen fehlen!': 'Quel désastre ! {num} rations d''eau ont disparu !'
 'Neutraler Status': 'Statut neutre'
