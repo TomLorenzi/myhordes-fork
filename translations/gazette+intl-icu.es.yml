@@ -161,10 +161,10 @@ Pfff...: Pfff...
 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...': 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...'
 Arsen: Arsénico
 Cyanolin: Cianolina
-Neurotwinin: Neurotwinin
-Rizin: Rizin
-Botulinumtoxin: Botulinumtoxin
-Virunoir: Virunoir
+Neurotwinin: con curare
+Rizin: con ricina
+Botulinumtoxin: con toxina botulínica
+Virunoir: con ántrax
 Chlorotwinat: extracto de Jotux
 Kaliumchlorid: al cloro potásico
 Kurare: con curare
@@ -299,9 +299,9 @@ Kätzchen: el gato
 'Folgendes:': 'Folgendes:'
 'Das Neueste aus der Gerüchteküche:': 'Das Neueste aus der Gerüchteküche:'
 'Die Gerüchteküche brodelt mal wieder:': 'Die Gerüchteküche brodelt mal wieder:'
-'Klatsch und Tratsch:': 'Klatsch und Tratsch:'
-'Aktuelles in Kürze:': 'Aktuelles in Kürze:'
-'WICHTIG:': 'WICHTIG:'
+'Klatsch und Tratsch:': 'Por cierto,'
+'Aktuelles in Kürze:': 'Algo que destacar:'
+'WICHTIG:': 'Un punto importante:'
 'Hinweis an die Bevölkerung:': 'Hinweis an die Bevölkerung:'
 'Zur Aufheiterung:': 'Zur Aufheiterung:'
 'Gut zu wissen:': 'Gut zu wissen:'
