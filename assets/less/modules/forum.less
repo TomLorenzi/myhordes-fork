@@ -296,6 +296,27 @@
     &[x-a=shunned]     { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/icons/banished.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
 
   }
+
+  div.collapsor {
+
+    padding-left: 24px; position: relative; cursor: pointer; clear: left;
+    border-bottom: 1px solid white; margin-bottom: 4px;
+
+    &:before {
+      content: 'ᐅ'; position: absolute; left: 0; top: 0; width: 24px; transform: rotate(0); text-align: center;
+      transition: transform 0.1s ease-in-out; font-style: normal;
+    }
+
+    &+.collapsed { overflow: hidden; }
+
+    &[data-open="1"] {
+      &:before { transform: rotate(90deg); }
+    }
+
+    &[data-transition="1"]+.collapsed {
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+  }
 }
 
 .forum-control {

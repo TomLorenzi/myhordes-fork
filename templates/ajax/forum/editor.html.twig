@@ -137,6 +137,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="collapse" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Einklappen'|trans({},'global') }}</span></div>
                     {% if permission.format_oracle() and type == 'forum' %}
                         <div x-forum-action="modal" x-text-modal-node="poll" class="forum-button"><i class="fa fa-poll"></i><span class="forum-button-tooltip">{{ 'Umfrage einfügen'|trans({},'global') }}</span></div>
                     {% endif %}
@@ -370,6 +371,8 @@
                     let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
                     return [n ? n.getAttribute('x-text-emote') : null, s];
                 }, {autoLinks: $.client.config.autoParseLinks.get()} );
+
+                $.html.handleCollapseSection( get_preview() );
             }
 
             node_transfer_source.addEventListener('input', () => {
@@ -463,6 +466,12 @@
                     let label = $.html.createElement('<label for="rp-text">{{ 'Namen eingeben'|trans({},'global')|e('js') }}</label>');
                     let input = textInput = $.html.createElement('<input type="text" id="rp-text" />');
                     form.append(label,input);
+                } else if (tag === 'collapse') {
+                    title = "{{ 'Eingeklappte Sektion hinzufügen'|trans({},'global') }}";
+
+                    let label = $.html.createElement('<label for="collapse-title">{{ 'Kopfzeile'|trans({},'global')|e('js') }}</label>');
+                    let input = textInput = $.html.createElement('<input type="text" id="collapse-title" />');
+                    form.append(label,input);
                 } else if (tag === 'poll') {
                     title = "{{ 'Umfrage einfügen'|trans({},'global') }}";
 
@@ -530,6 +539,27 @@
 
                         let doc = new DOMParser().parseFromString(textInput.value ? textInput.value : '', 'text/html');
                         tagText = doc.body.textContent || "";
+
+                        $.html.triggerPopupPop(elem);
+
+                        node_transfer_source.value =
+                            before + '[' + tag + (tagText ? ('=' + tagText) : '') + ']' + selected + '[/' + tag + ']' + after;
+
+                        node_transfer_source.setSelectionRange(
+                            before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0),
+                            before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0) + selected.length);
+                        node_transfer_source.focus()
+                        transfer_to_preview();
+                    } else if (tag === 'collapse') {
+                        let tagText;
+
+                        let doc = new DOMParser().parseFromString(textInput.value ? textInput.value : '', 'text/html');
+                        tagText = doc.body.textContent || "";
+
+                        if (!tagText) {
+                            $.html.error('{{ 'Du musst eine Kopfzeile angeben.'|trans({},'global')|e('js') }}');
+                            return;
+                        }
 
                         $.html.triggerPopupPop(elem);
 

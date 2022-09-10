@@ -688,6 +688,7 @@ class MessageForumController extends MessageController
             ->setText( $text )
             ->setEdited( new DateTime() );
 
+        $title = null;
         if ($post === $thread->firstPost(true) && $parser->has('title',true) && !$thread->getTranslatable()) {
             $title = $parser->trimmed('title');
 
@@ -726,7 +727,7 @@ class MessageForumController extends MessageController
 
         if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$insight->editable || $title !== $parser->trimmed('title')) $post->setEditingMode(Post::EditorLocked);
+        if (!$insight->editable || ($title !== null && $title !== $parser->trimmed('title'))) $post->setEditingMode(Post::EditorLocked);
 
         if ($user !== $post->getOwner()) {
             $post

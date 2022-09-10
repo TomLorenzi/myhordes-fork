@@ -106,7 +106,8 @@ class HTMLService {
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
                     'rps', 'coin', 'card',
-                    'citizen', 'rpText', 'cref'
+                    'citizen', 'rpText', 'cref',
+                    'collapsor', 'collapsed'
                 ],
                 'span.class' => [
                     'quoteauthor','bad','big','rpauthor','inline-code','.'

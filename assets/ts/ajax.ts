@@ -307,6 +307,8 @@ export default class Ajax {
                 $.html.handleCountdown( countdowns[c] );
             }
 
+            $.html.handleCollapseSection( content_source[i] as HTMLElement );
+
             content_source[i].querySelectorAll('*[x-current-time]').forEach( elem => $.html.handleCurrentTime( <HTMLElement>elem, parseInt(elem.getAttribute('x-current-time')) ))
             content_source[i].querySelectorAll('div.tooltip')      .forEach( elem => $.html.handleTooltip( <HTMLElement>elem ))
             content_source[i].querySelectorAll('*[x-tooltip]')     .forEach( elem => $.html.createTooltip( <HTMLElement>elem ))
