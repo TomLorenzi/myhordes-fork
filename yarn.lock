@@ -1173,10 +1173,10 @@
     error-stack-parser "^2.0.0"
     string-width "^4.2.3"
 
-"@ruffle-rs/ruffle@0.1.0-nightly.2022.9.2":
-  version "0.1.0-nightly.2022.9.2"
-  resolved "https://registry.yarnpkg.com/@ruffle-rs/ruffle/-/ruffle-0.1.0-nightly.2022.9.2.tgz#52a19fce2e1dd9a4fdaf6aa47e1bb19de05c5f95"
-  integrity sha512-EgcvubDyW+Nl/KxGOnwO8dF3uVgqlQ1h09lumwQ0Ekslp1mrWK/Ke9STvzVpR+7sw8QwA0ZYQ4VKsZLngZgctw==
+"@ruffle-rs/ruffle@0.1.0-nightly.2022.9.9":
+  version "0.1.0-nightly.2022.9.9"
+  resolved "https://registry.yarnpkg.com/@ruffle-rs/ruffle/-/ruffle-0.1.0-nightly.2022.9.9.tgz#4e5b5d6b790474e34ac2538d963db5510f6c47c1"
+  integrity sha512-bbLA1re191AfslBMrXRs6C2qzRdYHSOgUNKdsYHZ/5lOghODSN1GzBEbUEVjOXSxSJV4CierGPutwejh53ic/Q==
 
 "@symfony/webpack-encore@3.1.0":
   version "3.1.0"
@@ -2109,10 +2109,10 @@ core-js-pure@^3.20.2:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.23.4.tgz#aba5c7fb297063444f6bf93afb0362151679a012"
   integrity sha512-lizxkcgj3XDmi7TUBFe+bQ1vNpD5E4t76BrBWI3HdUxdw/Mq1VF4CkiHzIKyieECKtcODK2asJttoofEeUKICQ==
 
-core-js@3.25.0:
-  version "3.25.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.0.tgz#be71d9e0dd648ffd70c44a7ec2319d039357eceb"
-  integrity sha512-CVU1xvJEfJGhyCpBrzzzU1kjCfgsGUxhEvwUV2e/cOedYWHdmluamx+knDnmhqALddMG16fZvIqvs9aijsHHaA==
+core-js@3.25.1:
+  version "3.25.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.1.tgz#5818e09de0db8956e16bf10e2a7141e931b7c69c"
+  integrity sha512-sr0FY4lnO1hkQ4gLDr24K0DGnweGO1QwSj5BpfQjpSJPdqWalja4cTps29Y/PJVG/P7FYlPDkH3hO+Tr0CvDgQ==
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -5212,10 +5212,10 @@ type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-typescript@4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.2.tgz#e3b33d5ccfb5914e4eeab6699cf208adee3fd790"
-  integrity sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==
+typescript@4.8.3:
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.3.tgz#d59344522c4bc464a65a730ac695007fdb66dd88"
+  integrity sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
