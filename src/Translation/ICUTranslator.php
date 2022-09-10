@@ -66,8 +66,6 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
             if (isset($parameters["{$key}__tag"])) $pass_trough[$key] = "<{$parameters["{$key}__tag"]} class=\"" . ($parameters["{$key}__class"] ?? '') . "\">{$pass_trough[$key]}</{$parameters["{$key}__tag"]}>";
         }
 
-        return $this->_decorated->trans($id,$pass_trough,$domain,$locale);
-        /*
         $string = $this->_decorated->trans($id,$pass_trough,$domain,$locale);
 
         $config = [
@@ -80,13 +78,17 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         $environment->addExtension(new TableExtension());
         $environment->addExtension(new TaskListExtension());
 
+        # We put the string in 1 line and replace multiple spaces with only one
+        $string = preg_replace("#\n#mi", "", $string);
+        $string = preg_replace("# {2,}#mi", " ", $string);
+
         $converter = new MarkdownConverter($environment);
         $string = $converter->convert($string);
         $string = preg_replace('#<p>(.*)</p>#i', '$1', $string);
         $string = html_entity_decode($string);
 
         return trim($string);
-        */
+
     }
 
     public function getCatalogue(string $locale = null): MessageCatalogueInterface
