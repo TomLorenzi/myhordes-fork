@@ -570,7 +570,7 @@ class XMLv2Controller extends CoreController {
             // Citizens
             foreach($town->getCitizens() as $citizen){
                 /** @var Citizen $citizen */
-                if ($citizen->getAlias()) {
+                if ($citizen->getAlive()) {
                     $citizenNode = [
                         'attributes' => [
                             'dead' => (int)!$citizen->getAlive(),
