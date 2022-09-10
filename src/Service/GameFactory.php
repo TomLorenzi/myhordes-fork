@@ -150,7 +150,7 @@ class GameFactory
         ],
         'fr' => [
             'mode' => 'gsas',
-            'opt' => 'fix-mid',
+            'opt' => 'opt-last',
             'genders' => ['f','m'],
             'sets' => [
                 [   // Subjects
