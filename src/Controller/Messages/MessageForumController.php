@@ -30,12 +30,11 @@ use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\Locksmith;
-use App\Service\PermissionHandler;
 use App\Service\PictoHandler;
+use App\Service\RateLimitingFactoryProvider;
 use App\Structures\HTMLParserInsight;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Exception;
@@ -44,7 +43,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -289,7 +287,7 @@ class MessageForumController extends MessageController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimiterFactory $forumThreadCreationLimiter, CrowService $crow): Response {
+    public function new_thread_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, RateLimitingFactoryProvider $rateLimiter, CrowService $crow): Response {
 
         /** @var Forum $forum */
         $forum = $em->getRepository(Forum::class)->find($id);
@@ -338,7 +336,7 @@ class MessageForumController extends MessageController
                                             ($this->citizen_handler->hasStatusEffect($town_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
                 , $town_citizen->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
 
-        if ( !$this->isGranted('ROLE_ELEVATED') && !$forumThreadCreationLimiter->create( $user->getId() )->consume( $forum->getTown() ? 1 : 2 )->isAccepted())
+        if ( !$this->isGranted('ROLE_ELEVATED') && !$rateLimiter->forumThreadCreation->create( $user->getId() )->consume( $forum->getTown() ? 1 : 2 )->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited );
 
         $thread = (new Thread())->setTitle( $title )->setTag($tag)->setOwner($user);
@@ -1578,7 +1576,7 @@ class MessageForumController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimiterFactory $reportToModerationLimiter): Response {
+    public function report_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
         if (!$parser->has('postId'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1604,7 +1602,7 @@ class MessageForumController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume($reports->isEmpty() ? 2 : 1)->isAccepted())
+        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume($reports->isEmpty() ? 2 : 1)->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         $details = $parser->trimmed('details');

@@ -21,12 +21,12 @@ use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
+use App\Service\RateLimitingFactoryProvider;
 use App\Service\UserHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -440,7 +440,7 @@ class MessageTownMessageController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimiterFactory $reportToModerationLimiter): Response {
+    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
         $user = $this->getUser();
 
         $id = $parser->get('pmid', null);
@@ -461,7 +461,7 @@ class MessageTownMessageController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume()->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         $details = $parser->trimmed('details');

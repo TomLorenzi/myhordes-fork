@@ -49,6 +49,7 @@ use App\Service\EternalTwinHandler;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
+use App\Service\RateLimitingFactoryProvider;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminHandler;
@@ -1051,10 +1052,10 @@ class SoulController extends CustomAbstractController
      * @Route("api/soul/{sid}/report", name="soul_report_user")
      * @param int $sid
      * @param JSONRequestParser $parser
-     * @param RateLimiterFactory $reportToModerationLimiter
+     * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
-    public function soul_report_user(int $sid, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter): Response
+    public function soul_report_user(int $sid, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
     {
         $user = $this->getUser();
         if ($sid === $user->getId())
@@ -1065,7 +1066,7 @@ class SoulController extends CustomAbstractController
         if (!$target_user)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        return $this->reportUser( $target_user, $parser, $reportToModerationLimiter );
+        return $this->reportUser( $target_user, $parser, $rateLimiter->reportLimiter( $user ) );
     }
 
     /**
@@ -1074,10 +1075,10 @@ class SoulController extends CustomAbstractController
      * @param int $idtown
      * @param string $topic
      * @param JSONRequestParser $parser
-     * @param RateLimiterFactory $reportToModerationLimiter
+     * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
-    public function soul_report_comment(int $sid, int $idtown, string $topic, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter): Response
+    public function soul_report_comment(int $sid, int $idtown, string $topic, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
     {
         if (!in_array( $topic, ['lw','com'] )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
@@ -1096,7 +1097,7 @@ class SoulController extends CustomAbstractController
         if (!$citizen)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        return $this->reportCitizen( $citizen, $topic === 'lw' ? AdminReportSpecification::CitizenLastWords : AdminReportSpecification::CitizenTownComment, $parser, $reportToModerationLimiter );
+        return $this->reportCitizen( $citizen, $topic === 'lw' ? AdminReportSpecification::CitizenLastWords : AdminReportSpecification::CitizenTownComment, $parser, $rateLimiter->reportLimiter( $user ) );
     }
 
     /**

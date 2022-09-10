@@ -677,6 +677,14 @@ class AdminUserController extends AdminActionController
                     $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                     break;
 
+                    case 'FLAG_RUFFIAN':
+                        $user->addRoleFlag( User::USER_ROLE_LIMIT_MODERATION );
+                        break;
+
+                    case '!FLAG_RUFFIAN':
+                        $user->removeRoleFlag( User::USER_ROLE_LIMIT_MODERATION );
+                        break;
+
                     case 'FLAG_TEAM':
                         $user->addRoleFlag( User::USER_ROLE_TEAM );
                         break;

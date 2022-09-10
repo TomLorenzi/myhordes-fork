@@ -28,9 +28,13 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     const USER_LEVEL_CROW   =  3;
     const USER_LEVEL_ADMIN  =  4;
     const USER_LEVEL_SUPER  =  5;
+
     const USER_ROLE_ORACLE = 1 << 0;
     const USER_ROLE_ANIMAC = 1 << 1;
     const USER_ROLE_TEAM   = 1 << 2;
+
+    const USER_ROLE_LIMIT_MODERATION = 1 << 10;
+
     const PRONOUN_NONE = 0;
     const PRONOUN_MALE = 1;
     const PRONOUN_FEMALE = 2;

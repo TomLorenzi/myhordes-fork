@@ -43,6 +43,7 @@ use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
+use App\Service\RateLimitingFactoryProvider;
 use App\Structures\CitizenInfo;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
@@ -58,9 +59,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -761,10 +760,10 @@ class TownController extends InventoryAwareController
      * @Route("api/town/visit/{id}/report", name="report_personal_desc")
      * @param int $id
      * @param JSONRequestParser $parser
-     * @param RateLimiterFactory $reportToModerationLimiter
+     * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
-    public function report_personal_desc_api(int $id, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
+    public function report_personal_desc_api(int $id, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
 
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
@@ -773,7 +772,7 @@ class TownController extends InventoryAwareController
         $citizen = $this->entity_manager->getRepository(Citizen::class)->find( $id );
         if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        return $this->reportCitizen( $citizen, AdminReportSpecification::CitizenAnnouncement, $parser, $reportToModerationLimiter );
+        return $this->reportCitizen( $citizen, AdminReportSpecification::CitizenAnnouncement, $parser, $rateLimiter->reportLimiter( $this->getUser() ) );
     }
 
     /**
@@ -1872,11 +1871,10 @@ class TownController extends InventoryAwareController
     /**
      * @Route("api/town/dashboard/wordofheroes", name="town_dashboard_save_woh")
      * @param JSONRequestParser $parser
-     * @param RateLimiterFactory $blackboardEditSlideLimiter
-     * @param RateLimiterFactory $blackboardEditFixedLimiter
+     * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
-    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, RateLimiterFactory $blackboardEditSlideLimiter, RateLimiterFactory $blackboardEditFixedLimiter ): Response {
+    public function dashboard_save_wordofheroes_api(JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
         if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_WORDS_OF_HEROS, false) || !$this->getActiveCitizen()->getProfession()->getHeroic())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
@@ -1893,8 +1891,8 @@ class TownController extends InventoryAwareController
 
         // Rate Limiting
         if (
-            !$blackboardEditFixedLimiter->create( $this->getActiveCitizen()->getId() )->consume(1)->isAccepted() ||
-            !$blackboardEditSlideLimiter->create( $this->getActiveCitizen()->getId() )->consume(1)->isAccepted() )
+            !$rateLimiter->blackboardEditFixed->create( $this->getActiveCitizen()->getId() )->consume(1)->isAccepted() ||
+            !$rateLimiter->blackboardEditSlide->create( $this->getActiveCitizen()->getId() )->consume(1)->isAccepted() )
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         // No need to update WoH is there is no change
@@ -1923,12 +1921,10 @@ class TownController extends InventoryAwareController
     /**
      * @Route("api/town/dashboard/wordofheroes/report", name="town_dashboard_report_woh")
      * @param JSONRequestParser $parser
-     * @param RateLimiterFactory $reportToModerationLimiter
+     * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
-    public function dashboard_report_wordofheroes_api(JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
-
-
+    public function dashboard_report_wordofheroes_api(JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
         $user = $this->getUser();
         $blackBoardEdit = $this->entity_manager->getRepository(BlackboardEdit::class)->find( $parser->get_int('bbe') );
 
@@ -1945,7 +1941,7 @@ class TownController extends InventoryAwareController
                 return AjaxResponse::success();
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume()->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         $details = $parser->trimmed('details');

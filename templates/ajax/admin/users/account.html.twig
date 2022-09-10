@@ -258,6 +258,12 @@
                             <div><label><input {% if user|is_granted('ROLE_ORACLE') %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_ORACLE" /> {{ 'Orakel'|trans({}, 'admin') }}</label></div>
                             <div><label><input {% if user|is_granted('ROLE_ANIMAC') %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_ANIMAC" /> {{ 'Animateur'|trans({}, 'admin') }}</label></div>
                         </div>
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ 'Sonstige Accountmarkierungen'|trans({}, 'admin') }}
+                        </div>
+                        <div class="cell padded rw-9 rw-sm-12">
+                            <div><label><input {% if user.roleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
+                        </div>
                     </div>
 
                     <h5>{{ 'Freundschaftswerbung'|trans({}, 'admin') }}</h5>
