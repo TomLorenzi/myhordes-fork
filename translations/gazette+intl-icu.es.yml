@@ -161,17 +161,17 @@ Pfff...: Pfff...
 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...': 'Einige Einwohner wundern sich, was <strong>{citizen1}</strong> gestern den ganzen Tag in der Bank getrieben hat... Er sollte wissen, dass sein <strong>ständiges Kommen und Gehen</strong> nicht unbemerkt geblieben ist...'
 Arsen: Arsénico
 Cyanolin: Cianolina
-Neurotwinin: Neurotwinin
-Rizin: Rizin
-Botulinumtoxin: Botulinumtoxin
-Virunoir: Virunoir
-Chlorotwinat: Chlorotwinat
+Neurotwinin: con curare
+Rizin: con ricina
+Botulinumtoxin: con toxina botulínica
+Virunoir: con ántrax
+Chlorotwinat: extracto de Jotux
 Kaliumchlorid: al cloro potásico
 Kurare: con curare
 'Zyanid (poison)': Zyanid (poison)
 Phenol: con fenol
-Ponasulfat: Ponasulfat
-'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.'
+Ponasulfat: veneno negro
+'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Alguien ha estado haciendo su agosto en el Almacén, por ejemplo <strong>{citizen1}</strong> que pasó {random} veces por ahí para llevarse algo... ¿No es así?'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': 'Es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.'
 'in der Nähe des Gemüsegartens': 'en el flanco norte'
 'in der Nähe der südlichen Stadtmauer': 'cerca del muro sur'
@@ -208,8 +208,8 @@ Erdmännchen: el conejo
 Wasserschwein: el loro
 Sumpfschildkröte: el hurón
 Kätzchen: el gato
-'einen Haufen Gerümpel ': 'einen Haufen Gerümpel '
-'einen Holzstapel ': 'einen Holzstapel '
+'einen Haufen Gerümpel ': 'un montículo de basura '
+'einen Holzstapel ': 'un montículo de madera '
 'einen Haufen Schrott': 'un montón de basura'
 'einen toter Baumstamm': 'einen toter Baumstamm'
 'eine vergessene Leiter': 'una escalera olvidada'
@@ -299,9 +299,9 @@ Kätzchen: el gato
 'Folgendes:': 'Folgendes:'
 'Das Neueste aus der Gerüchteküche:': 'Das Neueste aus der Gerüchteküche:'
 'Die Gerüchteküche brodelt mal wieder:': 'Die Gerüchteküche brodelt mal wieder:'
-'Klatsch und Tratsch:': 'Klatsch und Tratsch:'
-'Aktuelles in Kürze:': 'Aktuelles in Kürze:'
-'WICHTIG:': 'WICHTIG:'
+'Klatsch und Tratsch:': 'Por cierto,'
+'Aktuelles in Kürze:': 'Algo que destacar:'
+'WICHTIG:': 'Un punto importante:'
 'Hinweis an die Bevölkerung:': 'Hinweis an die Bevölkerung:'
 'Zur Aufheiterung:': 'Zur Aufheiterung:'
 'Gut zu wissen:': 'Gut zu wissen:'
