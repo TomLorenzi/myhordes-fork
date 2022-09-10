@@ -75,7 +75,7 @@
                                 </li>
                             {% endif %}
                             {# @var \App\Entity\GlobalPoll poll #}
-                            {% if poll is defined and poll %}
+                            {% if app.user and is_granted('ROLE_USER') and poll is defined and poll %}
                                 <li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
                                     <button class="no-mobile-resize">
                                         <span>{{ 'Umfrage starten'|trans({},'global') }}</span>
@@ -145,7 +145,7 @@
         {% endif %}
 
         {# @var \App\Entity\GlobalPoll poll #}
-        {% if poll is defined and poll %}
+        {% if app.user and is_granted('ROLE_USER') and poll is defined and poll %}
             const poll_ts = $.client.get( 'poll_{{ poll.id }}', 'polls', 0 );
             if ((poll_ts + 43200000) < (new Date()).getTime()) {
 
@@ -167,15 +167,6 @@
                 )
 
             }
-        //<li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
-        //    <button class="no-mobile-resize">
-        //        <span>{{ 'Umfrage starten'|trans({},'global') }}</span>
-        //        <div class="tooltip">
-        //            <b>{{ poll.titleByLang( app.user.language ) }}</b>
-        //            <div>{{ poll.shortDescriptionByLang( app.user.language ) }}</div>
-        //        </div>
-        //    </button>
-        //</li>
         {% endif %}
     </script>
 {% endblock %}
