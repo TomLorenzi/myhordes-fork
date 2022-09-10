@@ -171,7 +171,7 @@ Kurare: con curare
 'Zyanid (poison)': Zyanid (poison)
 Phenol: con fenol
 Ponasulfat: veneno negro
-'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Alguien ha estado haciendo su agosto en el Almacén, por ejemplo <strong>{ciudadano1}</strong> que pasó {random} veces por ahí para llevarse algo... ¿No es así?'
+'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Alguien ha estado haciendo su agosto en el Almacén, por ejemplo <strong>{citizen1}</strong> que pasó {random} veces por ahí para llevarse algo... ¿No es así?'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': 'Es alarmante la cantidad de veces que <strong>{citizen1}</strong> ha sido visto sacando cosas del Almacén. <strong>{random} veces</strong> solo ayer.'
 'in der Nähe des Gemüsegartens': 'en el flanco norte'
 'in der Nähe der südlichen Stadtmauer': 'cerca del muro sur'
@@ -208,8 +208,8 @@ Erdmännchen: el conejo
 Wasserschwein: el loro
 Sumpfschildkröte: el hurón
 Kätzchen: el gato
-'einen Haufen Gerümpel ': 'un montículo de basura'
-'einen Holzstapel ': 'un montículo de madera'
+'einen Haufen Gerümpel ': 'un montículo de basura '
+'einen Holzstapel ': 'un montículo de madera '
 'einen Haufen Schrott': 'un montón de basura'
 'einen toter Baumstamm': 'einen toter Baumstamm'
 'eine vergessene Leiter': 'una escalera olvidada'
