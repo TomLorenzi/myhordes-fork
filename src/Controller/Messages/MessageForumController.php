@@ -359,7 +359,7 @@ class MessageForumController extends MessageController
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$insight->editable) $post->setEditingMode( Post::EditorLocked );
+        if (!$insight->editable || $title !== $parser->trimmed('title')) $post->setEditingMode( Post::EditorLocked );
 
         $forum->addThread($thread);
         $thread->addPost($post)->setLastPost( $post->getDate() );
@@ -689,7 +689,7 @@ class MessageForumController extends MessageController
             ->setEdited( new DateTime() );
 
         if ($post === $thread->firstPost(true) && $parser->has('title',true) && !$thread->getTranslatable()) {
-            $title = $parser->get('title');
+            $title = $parser->trimmed('title');
 
             $town_citizen = $forum->getTown() ? $user->getCitizenFor( $forum->getTown() ) : null;
             $is_heroic = !$forum->getTown() || ( $town_citizen && $town_citizen->getAlive() && $town_citizen->getProfession()->getHeroic() );
@@ -726,7 +726,7 @@ class MessageForumController extends MessageController
 
         if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        if (!$insight->editable) $post->setEditingMode(Post::EditorLocked);
+        if (!$insight->editable || $title !== $parser->trimmed('title')) $post->setEditingMode(Post::EditorLocked);
 
         if ($user !== $post->getOwner()) {
             $post
