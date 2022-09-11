@@ -498,8 +498,8 @@ class AdminTownController extends AdminActionController
                 break;
             case 'dice_name':
                 $old_name = $town->getName();
-                $new_name = $gameFactory->createTownName( $town->getLanguage() );
-                $town->setName( $new_name );
+                $new_name = $gameFactory->createTownName( $town->getLanguage(), $schema );
+                $town->setName( $new_name )->setNameSchema( $schema );
                 $town->getRankingEntry()->setName( $new_name );
                 $this->entity_manager->persist($town);
                 $this->entity_manager->persist($town->getRankingEntry());
@@ -891,7 +891,12 @@ class AdminTownController extends AdminActionController
 
         $this->logger->invoke("[add_default_town] Admin <info>{$this->getUser()->getName()}</info> created a <info>$town_lang</info> town (custom name: '<info>$town_name</info>'), which is of type <info>$town_type</info>");
 
-        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type);
+        $current_events = $this->conf->getCurrentEvents();
+        $name_changers = array_values(
+            array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+        );
+
+        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type, [], -1, $name_changers[0] ?? null);
         if (!$town) {
             $this->logger->invoke("Town creation failed!");
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
@@ -908,7 +913,6 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $current_events = $this->conf->getCurrentEvents();
         $current_event_names = array_map(fn(EventConf $e) => $e->name(), array_filter($current_events, fn(EventConf $e) => $e->active()));
         if (!empty($current_event_names)) {
             if (!$townHandler->updateCurrentEvents($town, $current_events)) {
@@ -1520,9 +1524,9 @@ class AdminTownController extends AdminActionController
 
         if ($rename) {
             $old_name = $town_proxy->getName( );
-            $name = $gameFactory->createTownName( $lang );
+            $name = $gameFactory->createTownName( $lang, $schema );
             $town_proxy->setName( $name );
-            $town_proxy->getTown()?->setName($name);
+            $town_proxy->getTown()?->setName($name)?->setNameSchema($schema);
 
             foreach ($town_proxy->getCitizens() as $citizen)
                 $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town_proxy, $old_name ));

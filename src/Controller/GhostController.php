@@ -393,9 +393,25 @@ class GhostController extends CustomAbstractController
         $customConf['disabled_buildings']['replace'] = $disabled_builds;
         $customConf['disabled_roles']['replace']     = $disabled_roles;
 
+
+
+        $managed_events = ($crow_permissions && $parser->get('event-management', true));
+
+        $name_changers = [];
+
+        if ($managed_events) {
+            $event_conf = $this->conf->getEvent($parser->get('event-name', 'none'));
+            $name_changers = $event_conf->get(EventConf::EVENT_MUTATE_NAME) ? [$event_conf->get(EventConf::EVENT_MUTATE_NAME)] : [];
+        } else {
+            $current_events = $this->conf->getCurrentEvents();
+            $name_changers = array_values(
+                array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+            );
+        }
+
         if ($crow_permissions && $parser->get('unprivate', false))
-            $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed);
-        else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed))->setDeriveConfigFrom( $type );
+            $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed, $name_changers[0] ?? null);
+        else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed, $name_changers[0] ?? null))->setDeriveConfigFrom( $type );
 
         $town->setCreator($user);
         if(!empty($password)) $town->setPassword($password);
@@ -420,7 +436,7 @@ class GhostController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        if ($crow_permissions && $parser->get('event-management', true))
+        if ($managed_events)
             $town->setManagedEvents(true);
 
         if (!$town->getManagedEvents()) {

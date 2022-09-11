@@ -140,7 +140,7 @@ class GameFactory
             'opt' => 'opt-last',
             'sets' => [
                 [   // Adjective
-                    ['black', 'flaky', 'gangrenous', 'malodorous', 'sweaty', 'murky', 'multicoloured', 'bloody', 'dead', 'sorry', 'abandonned', 'amputated', 'putrid', 'itching', 'deserted', 'damned', 'glum', 'arcane', 'hidden', 'tarnished', 'voodoo', 'weird', 'crepuscular', 'miserable', 'buried', 'lost', 'disappeared', 'entombed', 'pallid', 'vengeful', 'dreaming', 'pale', 'morbid', 'tortuous', 'squalid', 'crazy', 'crowded', 'drab', 'isolated', 'clouded', 'cloudy', 'drab', 'murky', 'somber', 'morose', 'somber', 'dejected', 'vile', 'wicked', 'menacing', 'ominous', 'filthy', 'grotesque', 'misty', 'muddy', 'smoggy', 'stormy', 'strange', 'unsightly', 'crooked', 'alarming', 'fateful', 'macabre', 'plagued', 'screaming', 'crazy', 'appalling', 'ghastly', 'sad', 'devastated', 'distressed', 'hellraising', 'saddened', 'appalled', 'downhearted', 'disheartened', 'tearful', 'boiling', 'broken', 'deep', 'disturbed', 'dusty', 'empty', 'flat', 'gigantic', 'horrible', 'hot', 'mysterious', 'nasty', 'noisy', 'odd', 'old', 'quaint', 'rainy', 'watery', 'wet', 'icy', 'wicked', 'lonely', 'wooden', 'blackened', 'dull', 'melancholic', 'gloomy', 'morose', 'sinister', 'dark', 'taciturn', 'grave', 'bad', 'painful', 'strange', 'rough', 'dishonorable', 'honorable', 'menacing', 'eerie', 'chilling', 'intimidating', 'mediocre', 'infectious', 'endless', 'infernal', 'hellish', 'frightful', 'pitiful', 'ghastly', 'beastly', 'grubby', 'filthy', 'pitiless', 'insanitary', 'unsanitary', 'pathetic', 'monstrous', 'syphilitic', 'barbaric', 'brutal', 'hard', 'fierce', 'heartless', 'invisible', 'slimy', 'unrelenting', 'inflexible', 'inhuman', 'painful', 'bloody', 'savage', 'ignorant', 'uneducated', 'boorish', 'vandal', 'backward', 'noxious', 'dilapidated', 'fossilized', 'backward-looking', 'wrathful', 'wretched', 'reactionary', 'retrograde', 'antique', 'outdated', 'obsolete', 'passed', 'expired', 'dreary', 'nostalgic', 'depressing', 'perverted', 'infected', 'corrupted', 'bribed', 'cracked', 'contaminated', 'paralysed', 'macabre', 'horrifying', 'gruesome', 'vile', 'revolting', 'throbbing', 'dreadful', 'ominous', 'sinister', 'dark', 'rank', 'terrible', 'chilling', 'disgusting', 'eerie', 'ghoulish', 'nasty', 'spooky', 'decrepid', 'shadowy', 'grotesque', 'twisted', 'tempestuous', 'cold', 'hot', 'humid', 'weeping', 'oozing', 'pustulent', 'inferior', 'superior', 'archaic', 'tribal', 'irritable', 'interventionist', 'tormenting', 'tormented', 'totalitarian', 'despotic', 'tormented', 'pushy', 'unbalanced', 'anecdotal', 'pathetic', 'cryptic', 'paralysed', 'obsessed', 'sheltered', 'isolated', 'yellow', 'vengeful', 'fearsome', 'greenish', 'darkened', 'crimson', 'soulful', 'red', 'cursed', 'mouldy', 'uncontrollable', 'battered', 'assaulted', 'shattered', 'strange', 'strict', 'psychotic', 'tense', 'quivering', 'wedded', 'tumescent', 'Deepnight\'s'],
+                    ['black', 'flaky', 'gangrenous', 'malodorous', 'sweaty', 'murky', 'multicoloured', 'bloody', 'dead', 'sorry', 'abandoned', 'amputated', 'putrid', 'itching', 'deserted', 'damned', 'glum', 'arcane', 'hidden', 'tarnished', 'voodoo', 'weird', 'crepuscular', 'miserable', 'buried', 'lost', 'disappeared', 'entombed', 'pallid', 'vengeful', 'dreaming', 'pale', 'morbid', 'tortuous', 'squalid', 'crazy', 'crowded', 'drab', 'isolated', 'clouded', 'cloudy', 'drab', 'murky', 'somber', 'morose', 'somber', 'dejected', 'vile', 'wicked', 'menacing', 'ominous', 'filthy', 'grotesque', 'misty', 'muddy', 'smoggy', 'stormy', 'strange', 'unsightly', 'crooked', 'alarming', 'fateful', 'macabre', 'plagued', 'screaming', 'crazy', 'appalling', 'ghastly', 'sad', 'devastated', 'distressed', 'hellraising', 'saddened', 'appalled', 'downhearted', 'disheartened', 'tearful', 'boiling', 'broken', 'deep', 'disturbed', 'dusty', 'empty', 'flat', 'gigantic', 'horrible', 'hot', 'mysterious', 'nasty', 'noisy', 'odd', 'old', 'quaint', 'rainy', 'watery', 'wet', 'icy', 'wicked', 'lonely', 'wooden', 'blackened', 'dull', 'melancholic', 'gloomy', 'morose', 'sinister', 'dark', 'taciturn', 'grave', 'bad', 'painful', 'strange', 'rough', 'dishonorable', 'honorable', 'menacing', 'eerie', 'chilling', 'intimidating', 'mediocre', 'infectious', 'endless', 'infernal', 'hellish', 'frightful', 'pitiful', 'ghastly', 'beastly', 'grubby', 'filthy', 'pitiless', 'insanitary', 'unsanitary', 'pathetic', 'monstrous', 'syphilitic', 'barbaric', 'brutal', 'hard', 'fierce', 'heartless', 'invisible', 'slimy', 'unrelenting', 'inflexible', 'inhuman', 'painful', 'bloody', 'savage', 'ignorant', 'uneducated', 'boorish', 'vandal', 'backward', 'noxious', 'dilapidated', 'fossilized', 'backward-looking', 'wrathful', 'wretched', 'reactionary', 'retrograde', 'antique', 'outdated', 'obsolete', 'passed', 'expired', 'dreary', 'nostalgic', 'depressing', 'perverted', 'infected', 'corrupted', 'bribed', 'cracked', 'contaminated', 'paralysed', 'macabre', 'horrifying', 'gruesome', 'vile', 'revolting', 'throbbing', 'dreadful', 'ominous', 'sinister', 'dark', 'rank', 'terrible', 'chilling', 'disgusting', 'eerie', 'ghoulish', 'nasty', 'spooky', 'decrepit', 'shadowy', 'grotesque', 'twisted', 'tempestuous', 'cold', 'hot', 'humid', 'weeping', 'oozing', 'pustulent', 'inferior', 'superior', 'archaic', 'tribal', 'irritable', 'interventionist', 'tormenting', 'tormented', 'totalitarian', 'despotic', 'tormented', 'pushy', 'unbalanced', 'anecdotal', 'pathetic', 'cryptic', 'paralysed', 'obsessed', 'sheltered', 'isolated', 'yellow', 'vengeful', 'fearsome', 'greenish', 'darkened', 'crimson', 'soulful', 'red', 'cursed', 'mouldy', 'uncontrollable', 'battered', 'assaulted', 'shattered', 'strange', 'strict', 'psychotic', 'tense', 'quivering', 'wedded', 'tumescent', 'Deepnight\'s'],
                     // Subject
                     ['tundra', 'steppes', 'steppe', 'pampas', 'plaines', 'plaine', 'prairie', 'prairies', 'reservoir', 'reservoirs', 'trench', 'abyss', 'abysses', 'hole', 'holes', 'station', 'lagoon', 'marina', 'community', 'pit', 'corridor', 'corridors', 'graveyard', 'colony', 'colonies', 'pits', 'village', 'dungeon', 'holes', 'dune', 'dunes', 'mine', 'mines', 'headland', 'shore', 'pits', 'bay', 'beach', 'hamlet', 'hamlets', 'market', 'metropolis', 'parish', 'pueblo', 'pits', 'beaches', 'creeks', 'desert', 'sand', 'sands', 'lake', 'lakes', 'thatch', 'peak', 'peaks', 'plain', 'plains', 'crevice', 'crevasse', 'river', 'rivers', 'stream', 'waterfall', 'wood', 'precipice', 'palisades', 'mound', 'mounds', 'moors', 'cave', 'caves', 'chamber', 'chambers', 'downs', 'foothill', 'knoll', 'mesa', 'mount', 'foothills', 'fell', 'chasm', 'chasms', 'highlands', 'void', 'grave', 'graves', 'canyon', 'canyons', 'valley', 'valleys', 'mountaintop', 'space', 'spaces', 'island', 'islands', 'area', 'areas', 'mass', 'masses', 'arena', 'arenas', 'colossseum', 'colosseums', 'laziness', 'ignorance', 'hope', 'den', 'hill', 'hills', 'facility', 'facilities', 'promenade', 'promenades', 'ground', 'grounds', 'theatre', 'hospital', 'motel', 'hotel', 'inn', 'desert', 'theatres', 'hypogeum', 'roads', 'streets', 'basement', 'house', 'bunker', 'basements', 'cavern', 'caverns', 'theatre', 'tomb', 'tombs', 'mansion', 'district', 'forests', 'woods', 'forest', 'asylum', 'wood', 'shop', 'store', 'sanitorium', 'park', 'school', 'well', 'theatre', 'districts', 'highlands', 'region', 'jungle', 'regions', 'estate', 'lodge', 'cabin', 'ring', 'camp', 'lodge', 'centre', 'lighthouse', 'bay', 'barrack', 'barracks', 'echo', 'endurance', 'slum', 'cliff', 'cliffe', 'fault', 'plantation', 'sinkhole', 'dregs', 'cesspit', 'cove', 'hell', 'port', 'harbour', 'mountain', 'village', 'monolith', 'enclave', 'community', 'athenaeum', 'dam', 'cemetary', 'hall', 'theatre', 'citadel', 'citadelle', 'outpost', 'camp', 'refuge', 'cairn', 'plantation', 'hamlet', 'thoughts', 'tomb', 'frontier', 'frontiere', 'battlements', 'county', 'counties', 'gang', 'gangs', 'junction', 'junctions', 'hideaway', 'hideaways', 'hideout', 'hideouts', 'fort', 'forts', 'land', 'lands', 'crossroad', 'crossroads', 'circle', 'circles', 'structure', 'structures', 'hill', 'hills', 'coast', 'coasts', 'mound', 'mounds', 'hillside', 'hillsides', 'cartel', 'cartels', 'shaft', 'shafts', 'bliss'],
                     // Suffix
@@ -198,63 +198,196 @@ class GameFactory
         ],
     ];
 
-    public function createTownName($language): string {
+    private static array $town_mutator_snippets = [
+        'halloween' => [
+            'de' => [
+                2 => [
+                    // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    'n' => [ ],
+                    '*' => ['der Kürbisse', 'aus den Kürbissen', 'aus Kürbis', 'aus Kürbissen', 'an Halloween', 'aus dem Kessel', 'der Hexen', 'der Hexe', 'am Fest der Toten', 'der tanzenden Toten', 'aus dem hohlen Kürbis'],
+                ]
+            ],
+            'en' => [
+                [2 => [ 'of pumpkins', 'of Halloween', 'of the cauldron', 'of the witch', 'of the festival of the dead', 'of the dancing dead', 'of the hollow pumpkin' ]]
+            ],
+            'fr' => [
+                2 => [
+                    // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    '*' => ['des citrouilles', 'aux citrouilles', 'du potiron', 'aux potimarrons', 'd\'Halloween', 'du chaudron', 'aux sorcières', 'de la sorcière', 'de la fête des morts', 'des morts qui dansent', 'de la citrouille creuse'],
+                ]
+            ],
+            'es' => [],
+        ]
+    ];
+
+    private function pluralize(string $expression, bool $pluralize = true) {
+        if (!$pluralize) return explode( '|', $expression )[0];
+
+        [$word, $generator] = explode( '|', "$expression|" );
+        while (!empty($generator)) {
+            $char = mb_substr( $generator, 0, 1 );
+            $generator = mb_substr( $generator, 1 );
+
+            switch ($char) {
+                case '-': $word = mb_substr( $word, 0, -1 ); break;
+                case '<': $word = ''; break;
+                default: $word .= $char; break;
+            }
+        }
+
+        return $word;
+    }
+
+    private function getLangSelectionKeys(array $set, string $gender): array {
+        return array_merge(
+            array_map( fn(int $key) => "$gender.$key", array_keys( $set[$gender] ) ),
+            array_map( fn(int $key) => "*.$key", array_keys( $set['*'] ) ),
+        );
+    }
+
+    public function generateNameSchema(string $language, ?string $mutator = null): string {
+        $data = static::$town_name_snippets[$language];
+
+        if ($mutator && !isset( static::$town_mutator_snippets[$mutator] )) $mutator = null;
+        $mutator_data = $mutator ? (static::$town_mutator_snippets[$mutator][$language] ?? []) : [];
+
+        $conf_section = '?';
+
+        switch ( $data['mode'] ) {
+
+            case 'gsas':
+                $gender = $this->random_generator->pick( $data['genders'] );
+                $plural = $this->random_generator->chance( 0.5 );
+
+                $conf_section = $gender . ($plural ? 'p' : 's');
+
+                $mutator_keys = [];
+                foreach ($data['sets'] as $index => &$set)
+                    if (isset( $mutator_data[$index] )) {
+                        $set = $mutator_data[$index];
+                        $mutator_keys[] = $mutator;
+                    } else $mutator_keys[] = null;
+                unset ($set);
+
+                // Example: [ '0.f.3', '1.*.9', '2.f.1' ]
+                $name_set = array_map(
+                    fn(array $set, int $index, ?string $mutator_key) => "$index." . $this->random_generator->pick( array_merge(
+                        array_map( fn(int $key) => $mutator_key ? "$gender.$key!$mutator_key" : "$gender.$key", array_keys( $set[$gender] ) ),
+                        array_map( fn(int $key) => $mutator_key ? "*.$key!$mutator_key" : "*.$key", array_keys( $set['*'] ) ),
+                    ) ),
+                    $data['sets'], array_keys($data['sets']), $mutator_keys
+                );
+                break;
+
+            case 'combine':
+                $base_set = $this->random_generator->pick( array_keys($data['sets'] ) );
+
+                $conf_section = "$base_set";
+
+                $mutator_keys = [];
+                foreach ($data['sets'][$base_set] as $index => &$set)
+                    if (isset( $mutator_data[$base_set][$index] )) {
+                        $set = $mutator_data[$base_set][$index];
+                        $mutator_keys[] = $mutator;
+                    } else $mutator_keys[] = null;
+                unset($set);
+
+                // Example: [ '0.3', '1.9', '1.1' ]
+                $name_set = array_map(
+                    fn(array $set, int $index, ?string $mutator_key) => $mutator_key
+                        ? "$index.{$this->random_generator->pick( array_keys($set) )}!$mutator_key"
+                        : "$index.{$this->random_generator->pick( array_keys($set) )}"
+                    , $data['sets'][$base_set], array_keys( $data['sets'][$base_set] ), $mutator_keys );
+                break;
+
+            default:
+                $name_set = ['0'];
+                break;
+        }
+
+        $opt = $mutator ? 'all' : $data['opt'];
+        return "$language;{$data['mode']};$conf_section;" . match( $opt ) {
+            'opt-last'  => implode(",", array_slice( $name_set, 0, $this->random_generator->chance(0.8) ? 2 : 3 )),
+            'fix-first' => implode(",", $this->random_generator->chance(0.8) ? [ $name_set[0], $name_set[ $this->random_generator->pick([1,2]) ] ] : $name_set ),
+            'fix-mid'   => implode(",", $this->random_generator->chance(0.8) ? array_slice( $name_set, $this->random_generator->pick([0,1]), 2 ) : $name_set ),
+            'all'       => implode(",", $name_set),
+        };
+    }
+
+    public function evaluateNameSchema(string $schema, bool $as_array = false): string|array|null {
+        [$language,$mode,$config,$data] = explode( ';', $schema, 4 );
+        $sections = explode(',', $data);
+
+        if (!($data = static::$town_name_snippets[$language] ?? null)) return null;
+        if ($data['mode'] !== $mode) return null;
+
+        $name_sections = [];
+
+        switch ($mode) {
+            case 'gsas':
+                if (mb_strlen( $config ) !== 2) return null;
+                if (!in_array( mb_substr( $config, 1 ), ['p','s'] )) return null;
+
+                $plural = mb_substr( $config, 1 ) === 'p';
+
+                foreach ($sections as $section) {
+                    [$access,$mutator] = explode( '!', "$section!" );
+                    [$section_index,$key,$index] = explode( '.', $access, 3 );
+
+                    if ($mutator && !isset( static::$town_mutator_snippets[$mutator][$language][$section_index] )) return null;
+                    elseif ($mutator) $data['sets'][$section_index] = static::$town_mutator_snippets[$mutator][$language][$section_index];
+
+                    if (
+                        !isset( $data['sets'][$section_index] ) ||
+                        !isset( $data['sets'][$section_index][$key] ) ||
+                        !isset( $data['sets'][$section_index][$key][$index] )
+                    ) return null;
+
+                    $name_sections[] = $this->pluralize( $data['sets'][$section_index][$key][$index], $plural );
+                }
+                break;
+            case 'combine':
+                if (!is_numeric( $config )) return null;
+                $set = (int)$config;
+
+                if (!isset( $data['sets'][$set] )) return null;
+
+                foreach ($sections as $section) {
+                    [$access,$mutator] = explode( '!', "$section!" );
+                    [$section_index,$index] = explode( '.', $access, 2 );
+
+                    if ($mutator && !isset( static::$town_mutator_snippets[$mutator][$language][$set][$section_index] )) return null;
+                    elseif ($mutator) $data['sets'][$set][$section_index] = static::$town_mutator_snippets[$mutator][$language][$set][$section_index];
+
+                    if (
+                        !isset( $data['sets'][$set][$section_index] ) ||
+                        !isset( $data['sets'][$set][$section_index][$index] )
+                    ) return null;
+
+                    $name_sections[] = $data['sets'][$set][$section_index][$index];
+                }
+
+                break;
+            default:
+                return null;
+        }
+
+        return empty($name_sections) ? null : ($as_array ? $name_sections : ucfirst( implode( ' ', $name_sections ) ));
+    }
+
+    public function createTownName(string $language, ?string &$schema = null, ?string $mutator = null): string {
+
         $langList = array_keys(static::$town_name_snippets);
         if($language == 'multi') {
             $key = array_rand($langList);
             $language = $langList[$key];
         }
 
-        $data = static::$town_name_snippets[$language];
-        $name_set = [];
-
-        switch ( $data['mode'] ) {
-
-            case 'gsas':
-                $gender = $this->random_generator->pick( $data['genders'] );
-                $pluralize = $this->random_generator->chance( 0.5 ) ? function($expression) {
-                    [$word, $generator] = explode( '|', "$expression|" );
-                    while (!empty($generator)) {
-                        $char = mb_substr( $generator, 0, 1 );
-                        $generator = mb_substr( $generator, 1 );
-
-                        switch ($char) {
-                            case '-': $word = mb_substr( $word, 0, -1 ); break;
-                            case '<': $word = ''; break;
-                            default: $word .= $char; break;
-                        }
-                    }
-                    return $word;
-                } : fn($expression) => explode( '|', $expression )[0];
-
-
-                $name_set = array_map(
-                    fn(array $set) => $pluralize( $this->random_generator->pick( array_merge( $set[$gender], $set['*'] ?? []) ) ),
-                    $data['sets']
-                );
-                break;
-                //return implode(" ", array_map(
-                //    fn(array $set) => $pluralize( $this->random_generator->pick( array_merge( $set[$gender], $set['*'] ?? []) ) ),
-                //    array_slice( $data['sets'], 0, $this->random_generator->chance( 0.8 ) ? 2 : 3 )
-                //));
-
-            case 'combine':
-                $name_set = array_map(
-                    fn(array $set) => $this->random_generator->pick( $set )
-                , $this->random_generator->pick( $data['sets'] ));
-                break;
-
-            default:
-                $name_set = ["TOWN_NAME_GENERATOR_FAILED"];
-                break;
-        }
-
-        return ucfirst(match( $data['opt'] ) {
-            'opt-last'  => implode(" ", array_slice( $name_set, 0, $this->random_generator->chance(0.8) ? 2 : 3 )),
-            'fix-first' => implode(" ", $this->random_generator->chance(0.8) ? [ $name_set[0], $name_set[ $this->random_generator->pick([1,2]) ] ] : $name_set ),
-            'fix-mid'   => implode(" ", $this->random_generator->chance(0.8) ? array_slice( $name_set, $this->random_generator->pick([0,1]), 2 ) : $name_set ),
-            'all'       => implode(" ", $name_set),
-        });
+        return $this->evaluateNameSchema( $schema = $this->generateNameSchema( $language, $mutator ) ) ?? 'TOWN_NAME_GENERATOR_FAILED';
     }
 
     private function getDefaultZoneResolution( TownConf $conf, ?int &$offset_x, ?int &$offset_y ): int {
@@ -272,7 +405,7 @@ class GameFactory
         return $resolution;
     }
 
-    public function createTown( ?string $name, ?string $language, ?int $population, string $type, $customConf = [], int $seed = -1 ): ?Town {
+    public function createTown( ?string $name, ?string $language, ?int $population, string $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
         if (!$this->validator->validateTownType($type))
             return null;
 
@@ -299,9 +432,11 @@ class GameFactory
 
         $this->translator->setLocale($language ?? 'de');
 
+        $schema = null;
         $town
             ->setPopulation( $population )
-            ->setName( $name ?: $this->createTownName($language) )
+            ->setName( $name ?: $this->createTownName($language, $schema, $nameMutator) )
+            ->setNameSchema( $schema )
             ->setLanguage( $language )
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );

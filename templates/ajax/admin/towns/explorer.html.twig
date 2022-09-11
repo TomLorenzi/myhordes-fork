@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="cell padded rw-6 rw-sm-12">
                         {{ _self.valuelist('ID'|trans({},'admin'),         town.id) }}
-                        {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name) }}
+                        {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name ~ (town.nameSchema ? ('<br/><span class="small">' ~ town.nameSchema ~ '</span>') : ''), true) }}
                         {{ _self.valuelist('Typ'|trans({},'admin'),        town.type.label|trans({},'game')) }}
                         {{ _self.valuelist('Sprache'|trans({},'admin'),    '<img style="width: 24px" src="' ~ asset("build/images/lang/" ~ town.language ~ ".png") ~ '" alt="" />', true  ) }}
                         {{ _self.valuelist('Geplant für'|trans({},'admin'),town.scheduledFor != null ? town.scheduledFor|format_datetime('short','short') : '--') }}

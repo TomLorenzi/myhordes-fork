@@ -102,6 +102,9 @@ class Town
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $scheduledFor = null;
+
+    #[ORM\Column(length: 128, nullable: true)]
+    private ?string $nameSchema = null;
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -710,6 +713,18 @@ class Town
     public function setScheduledFor(?\DateTimeInterface $scheduledFor): self
     {
         $this->scheduledFor = $scheduledFor;
+
+        return $this;
+    }
+
+    public function getNameSchema(): ?string
+    {
+        return $this->nameSchema;
+    }
+
+    public function setNameSchema(?string $nameSchema): self
+    {
+        $this->nameSchema = $nameSchema;
 
         return $this;
     }

@@ -79,13 +79,14 @@ parameters:
       public: true
     halloween:
       trigger:
-        type: datetime
+        type: on
         begin: 10-25 00:00
         end: 11-01 00:00
       conf:
         name: 'Halloween'
         priority: 104
         css: 'halloween'
+        mutate_names: 'halloween'
         event_dig:
           desert:
             group: 'halloween_dig'

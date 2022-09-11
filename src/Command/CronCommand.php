@@ -324,13 +324,19 @@ class CronCommand extends Command
             foreach ($minOpenTown as $type => $min) {
                 $current = $count[$lang][$type] ?? 0;
                 while ($current < $min) {
-                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type));
+
+                    $current_events = $this->conf_master->getCurrentEvents();
+                    $name_changers = array_values(
+                        array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+                    );
+
+                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type, [], -1, $name_changers[0] ?? null ));
                     $this->entityManager->flush();
 
                     $this->gps->recordTownCreated( $newTown, null, 'cron' );
                     $this->entityManager->flush();
 
-                    $current_events = $this->conf_master->getCurrentEvents();
+
                     if (!empty(array_filter($current_events,fn(EventConf $e) => $e->active()))) {
                         if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
                             $this->entityManager->clear();

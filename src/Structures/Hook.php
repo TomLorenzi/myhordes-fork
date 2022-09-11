@@ -10,6 +10,7 @@ use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
+use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\TownHandler;
