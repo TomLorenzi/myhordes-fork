@@ -6,9 +6,12 @@ use App\Enum\UserSetting;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -41,97 +44,130 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id = null;
+
     #[ORM\Column(type: 'string', length: 16)]
-    private $name;
+    private ?string $name = null;
+
     #[ORM\Column(type: 'string', length: 190)]
-    private $email;
+    private ?string $email = null;
+
     #[ORM\Column(type: 'text', nullable: true)]
-    private $pass;
+    private ?string $pass = null;
+
     #[ORM\Column(type: 'boolean')]
-    private $validated;
-    #[ORM\OneToOne(targetEntity: 'App\Entity\UserPendingValidation', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
-    private $pendingValidation;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\Citizen', mappedBy: 'user')]
-    private $citizens;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\AdminBan', mappedBy: 'user')]
-    private $bannings;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\FoundRolePlayText', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
-    private $foundTexts;
+    private ?bool $validated = null;
+
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: 'App\Entity\UserPendingValidation', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
+    private ?UserPendingValidation $pendingValidation = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: 'App\Entity\Citizen')]
+    private Collection $citizens;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: 'App\Entity\AdminBan')]
+    private Collection $bannings;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: 'App\Entity\FoundRolePlayText', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
+    private Collection $foundTexts;
+
     #[ORM\Column(type: 'integer')]
-    private $soulPoints = 0;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\Picto', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
-    private $pictos;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\Award', mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
-    private $awards;
+    private int $soulPoints = 0;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: 'App\Entity\Picto', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
+    private Collection $pictos;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: 'App\Entity\Award', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
+    private Collection $awards;
+
     #[ORM\Column(type: 'string', length: 32)]
-    private $externalId = '';
+    private string $externalId = '';
+
     #[ORM\OneToOne(targetEntity: 'App\Entity\Avatar', cascade: ['persist', 'remove'])]
-    private $avatar;
-    #[ORM\Column(type: 'string', length: 128, nullable: true)]
-    private $forumTitle;
-    /**
-     * This field matches to the filename of the picto
-     */
-    #[ORM\Column(type: 'string', length: 64, nullable: true)]
-    private $forumIcon;
+    private ?Avatar $avatar = null;
+
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $language = null;
+    private ?string $language = null;
+
     #[ORM\Column(type: 'smallint')]
-    private $rightsElevation = 0;
-    #[ORM\OneToMany(targetEntity: CitizenRankingProxy::class, mappedBy: 'user', orphanRemoval: true, fetch: 'EXTRA_LAZY')]
-    private $pastLifes;
+    private int $rightsElevation = 0;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: CitizenRankingProxy::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $pastLifes;
+
     #[ORM\Column(type: 'integer')]
-    private $heroDaysSpent = 0;
+    private int $heroDaysSpent = 0;
+
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $twinoidID;
-    #[ORM\OneToMany(targetEntity: TwinoidImport::class, mappedBy: 'user', orphanRemoval: true, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
-    private $twinoidImports;
+    private ?int $twinoidID = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: TwinoidImport::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $twinoidImports;
+
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $importedSoulPoints;
+    private ?int $importedSoulPoints = null;
+
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $importedHeroDaysSpent;
+    private ?int $importedHeroDaysSpent = null;
+
     #[ORM\ManyToOne(targetEntity: Changelog::class)]
-    private $latestChangelog;
-    #[ORM\OneToMany(targetEntity: ConnectionIdentifier::class, mappedBy: 'user', orphanRemoval: true, fetch: 'EXTRA_LAZY')]
-    private $connectionIdentifiers;
+    private ?Changelog $latestChangelog = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ConnectionIdentifier::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $connectionIdentifiers;
+
     #[ORM\ManyToMany(targetEntity: ConnectionWhitelist::class, mappedBy: 'users', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
-    private $connectionWhitelists;
+    private Collection $connectionWhitelists;
+
     #[ORM\Column(type: 'string', length: 190, nullable: true)]
-    private $eternalID;
+    private ?string $eternalID = null;
+
     #[ORM\Column(type: 'string', length: 32, nullable: true)]
-    private $displayName;
+    private ?string $displayName = null;
+
     #[ORM\Column(type: 'datetime', nullable: true)]
-    private $lastActionTimestamp;
+    private ?DateTimeInterface $lastActionTimestamp = null;
+
     #[ORM\Column(type: 'datetime', nullable: true)]
-    private $deleteAfter;
+    private ?DateTimeInterface $deleteAfter = null;
+
     #[ORM\Column(type: 'integer')]
-    private $checkInt = 0;
-    #[ORM\OneToMany(targetEntity: ForumThreadSubscription::class, mappedBy: 'user', orphanRemoval: true, fetch: 'EXTRA_LAZY')]
-    private $forumThreadSubscriptions;
+    private int $checkInt = 0;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ForumThreadSubscription::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $forumThreadSubscriptions;
+
     #[ORM\OneToOne(targetEntity: Award::class, cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
-    private $activeTitle;
+    private ?Award $activeTitle = null;
+
     #[ORM\OneToOne(targetEntity: Award::class, cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
-    private $activeIcon;
+    private ?Award $activeIcon = null;
+
     #[ORM\Column(type: 'array', nullable: true)]
-    private $nameHistory = [];
+    private ?array $nameHistory = [];
+
     #[ORM\Column(type: 'date', nullable: true)]
-    private $lastNameChange;
+    private ?DateTimeInterface $lastNameChange = null;
+
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $pendingEmail;
+    private ?string $pendingEmail = null;
+
     #[ORM\Column(type: 'integer')]
-    private $roleFlag = 0;
+    private int $roleFlag = 0;
+
     #[ORM\ManyToMany(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
-    private $friends;
+    private Collection $friends;
+
     #[ORM\Column(type: 'json', nullable: true)]
-    private $settings = [];
+    private array $settings = [];
+
     #[ORM\ManyToMany(targetEntity: Forum::class, fetch: 'EXTRA_LAZY')]
-    private $mutedForums;
+    private Collection $mutedForums;
 
     #[ORM\Column(length: 3, nullable: true)]
     private ?string $adminLang = null;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -167,22 +203,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-    public function getForumIcon(): ?string {
-        return $this->forumIcon;
-    }
-    public function setForumIcon(string $value): self {
-        $this->forumIcon = $value;
-
-        return $this;
-    }
-    public function getForumTitle(): ?string {
-        return $this->forumTitle;
-    }
-    public function setForumTitle(string $value): self {
-        $this->forumTitle = $value;
-
-        return $this;
-    }
     public function getEmail(): ?string
     {
         return $this->email;
@@ -192,9 +212,6 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->email = $email;
 
         return $this;
-    }
-    public function getSalt( ): string {
-        return 'user_salt_myhordes_ffee45';
     }
     public function getValidated(): ?bool
     {
@@ -287,31 +304,27 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
                 $this->getRightsElevation() === $user->getRightsElevation();
         } else return $b1;
     }
+
     public function getActiveCitizen(): ?Citizen {
-        foreach ($this->getCitizens() as $c)
-            if ($c->getActive())
-                return $c;
-        return null;
+        return $this->getCitizens()->matching( (new Criteria())
+               ->where( new Comparison( 'active', Comparison::EQ, true )  )
+        )->first() ?: null;
     }
+
     public function getCitizenFor(Town $town): ?Citizen {
-        foreach ($this->getCitizens() as $c)
-            if ($c->getTown() === $town)
-                return $c;
-        return null;
+        return $this->getCitizens()->matching( (new Criteria())
+            ->where( new Comparison( 'town', Comparison::EQ, $town )  )
+        )->first() ?: null;
     }
-    public function getAliveCitizen(): ?Citizen {
-        foreach ($this->getCitizens() as $c)
-            if ($c->getAlive())
-                return $c;
-        return null;
-    }
+
     /**
-     * @return Collection|Citizen[]
+     * @return ArrayCollection<Citizen>|PersistentCollection<Citizen>
      */
-    public function getCitizens(): Collection
+    public function getCitizens(): ArrayCollection|PersistentCollection
     {
         return $this->citizens;
     }
+
     public function addCitizen(Citizen $citizen): self
     {
         if (!$this->citizens->contains($citizen)) {
@@ -334,7 +347,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
     /**
-     * @return Collection|FoundRolePlayText[]
+     * @return Collection<FoundRolePlayText>
      */
     public function getFoundTexts(): Collection
     {
@@ -380,7 +393,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
     /**
-     * @return Collection|Awards[]
+     * @return Collection<Award>
      */
     public function getAwards(): Collection {
         return $this->awards;
@@ -405,12 +418,13 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
     /**
-     * @return Collection|Pictos[]
+     * @return ArrayCollection<Picto>|PersistentCollection<Picto>
      */
-    public function getPictos(): Collection
+    public function getPictos(): ArrayCollection|PersistentCollection
     {
         return $this->pictos;
     }
+
     public function addPicto(Picto $picto): self
     {
         if (!$this->pictos->contains($picto)) {
@@ -435,20 +449,17 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     /**
      * @param int $persisted
      * @param PictoPrototype $prototype
-     * @param Town|TownLogEntry $town
+     * @param Town|TownRankingProxy $town
      * @return Picto|null
      */
-    public function findPicto( int $persisted, PictoPrototype $prototype, $town ): ?Picto {
-        foreach ($this->getPictos() as $picto) {
-            /** @var Picto $picto */
-            if (
-                $picto->getPersisted() === $persisted &&
-                $picto->getPrototype() === $prototype &&
-                (($town instanceof Town) ? ($picto->getTown() === $town) : ($picto->getTownEntry() === $town)))
-                return $picto;
-        }
-        return null;
+    public function findPicto( int $persisted, PictoPrototype $prototype, Town|TownRankingProxy $town ): ?Picto {
+        return $this->getPictos()->matching( (new Criteria())
+            ->where( new Comparison( 'persisted', Comparison::EQ, $persisted )  )
+            ->where( new Comparison( 'prototype', Comparison::EQ, $prototype )  )
+            ->where( new Comparison( is_a( $town, Town::class ) ? 'town' : 'townEntry', Comparison::EQ, $town )  )
+        )->first() ?: null;
     }
+
     public function getAvatar(): ?Avatar
     {
         return $this->avatar;
@@ -496,7 +507,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
     /**
-     * @return Collection|CitizenRankingProxy[]
+     * @return Collection<CitizenRankingProxy>
      */
     public function getPastLifes(): Collection
     {
@@ -548,7 +559,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
     /**
-     * @return Collection|TwinoidImport[]
+     * @return Collection<TwinoidImport>
      */
     public function getTwinoidImports(): Collection
     {
@@ -606,7 +617,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
     /**
-     * @return Collection|ConnectionIdentifier[]
+     * @return Collection<ConnectionIdentifier>
      */
     public function getConnectionIdentifiers(): Collection
     {
@@ -634,7 +645,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this;
     }
     /**
-     * @return Collection|ConnectionWhitelist[]
+     * @return Collection<ConnectionWhitelist>
      */
     public function getConnectionWhitelists(): Collection
     {
@@ -725,7 +736,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this->setSetting( UserSetting::UseExpertMode, $expert );
     }
     /**
-     * @return Collection|ForumThreadSubscription[]
+     * @return Collection<ForumThreadSubscription>
      */
     public function getForumThreadSubscriptions(): Collection
     {
@@ -781,11 +792,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
 
         return $this;
     }
-    public function getLastNameChange(): ?\DateTimeInterface
+    public function getLastNameChange(): ?DateTimeInterface
     {
         return $this->lastNameChange;
     }
-    public function setLastNameChange(?\DateTimeInterface $lastNameChange): self
+    public function setLastNameChange(?DateTimeInterface $lastNameChange): self
     {
         $this->lastNameChange = $lastNameChange;
 
@@ -855,7 +866,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this->setSetting( UserSetting::NoAutomaticThreadSubscription, $noAutoFollowThreads );
     }
     /**
-     * @return Collection|self[]
+     * @return Collection<Citizen>
      */
     public function getFriends(): Collection
     {

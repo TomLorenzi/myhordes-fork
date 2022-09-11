@@ -177,6 +177,7 @@ class CronCommand extends Command
                 if (!empty($failures)) {
                     // If we exceed the number of allowed processing tries, quarantine the town
                     if (count($failures) >= $try_limit) {
+                        /** @var Town $town */
                         $town = $this->entityManager->getRepository(Town::class)->find($town_id);
                         $town->setAttackFails( count($failures) );
                         foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive())
