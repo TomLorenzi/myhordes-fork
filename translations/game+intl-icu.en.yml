@@ -2057,7 +2057,7 @@ Deko-Punkte: points for decor
 'Unser {plan} hat beim Angriff {damage} Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!': 'Our {plan} has taken {damage} points of structural damage tonight: this has to be repaired or we all risk dying tonight!'
 'Die gesamte Region wurde durch die <strong>Explosion des {plan}</strong> verstrahlt!': 'The whole region has been irradiated by the <strong>destruction of the {plan}</strong>!'
 'Immerhin wurden alle Bürger aus der Stadt geschleudert...': 'After all, the citizens have been thrown out of town by the explosion...'
-'Du kannst nicht <strong>mehr als {max} Rationen Wasser pro Tag</strong> entnehmen.': 'You cannot take <strong>more than 2 rations of water per day</strong>.'
+'Du kannst nicht <strong>mehr als {max} Rationen Wasser pro Tag</strong> entnehmen.': 'You cannot take <strong>more than {max} rations of water per day</strong>.'
 'In der Horde der Zombies wurden {num} ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...': 'In last night''s horde, {num} former residents who died in the World Beyond came back, gnashing their teeth and looking famished...'
 'Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.': 'Stopped by the town''s defences, your ex-cohabitants left empty-handed and gnawing on each other''s putrified carcasses.'
 '{points} Punkt(e)': "{ref__icu, select,\n            on { {points, select, one {# point} other {{points} points}} }\n            other {{points} point(s)}\n            }"
