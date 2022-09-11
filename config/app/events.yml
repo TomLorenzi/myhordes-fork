@@ -79,7 +79,7 @@ parameters:
       public: true
     halloween:
       trigger:
-        type: on
+        type: datetime
         begin: 10-25 00:00
         end: 11-01 00:00
       conf:
