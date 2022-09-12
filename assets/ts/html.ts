@@ -224,7 +224,7 @@ export default class HTML {
             let first = true, i = 1;
             for (const button of buttons) {
                 let elem_button = document.createElement('div');
-                if (i < buttons.length)
+                if (i < buttons.length || !lastIsSmall)
                     elem_button.classList.add('modal-button', 'small', 'inline')
                 else elem_button.classList.add('small','inline','pointer')
                 elem_button.innerHTML = button[0];
@@ -236,7 +236,7 @@ export default class HTML {
                 if (!first) elem_actions.appendChild( document.createTextNode(' ') );
                 first = false;
 
-                if (i < buttons.length)
+                if (i < buttons.length || !lastIsSmall)
                     elem_actions.appendChild(elem_button);
                 else {
                     elem_actions.appendChild(document.createElement('br'))
