@@ -317,6 +317,12 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         )->first() ?: null;
     }
 
+    public function getAliveCitizen(): ?Citizen {
+        return $this->getCitizens()->matching( (new Criteria())
+                                                   ->where( new Comparison( 'alive', Comparison::EQ, true )  )
+        )->first() ?: null;
+    }
+
     /**
      * @return ArrayCollection<Citizen>|PersistentCollection<Citizen>
      */
