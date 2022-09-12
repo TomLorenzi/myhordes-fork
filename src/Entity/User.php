@@ -455,8 +455,8 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function findPicto( int $persisted, PictoPrototype $prototype, Town|TownRankingProxy $town ): ?Picto {
         return $this->getPictos()->matching( (new Criteria())
             ->where( new Comparison( 'persisted', Comparison::EQ, $persisted )  )
-            ->where( new Comparison( 'prototype', Comparison::EQ, $prototype )  )
-            ->where( new Comparison( is_a( $town, Town::class ) ? 'town' : 'townEntry', Comparison::EQ, $town )  )
+            ->andWhere( new Comparison( 'prototype', Comparison::EQ, $prototype )  )
+            ->andWhere( new Comparison( is_a( $town, Town::class ) ? 'town' : 'townEntry', Comparison::EQ, $town )  )
         )->first() ?: null;
     }
 
