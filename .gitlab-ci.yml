@@ -98,7 +98,7 @@ test:
       - /^l10n_.*/
 
 quodana:
-  stage: test-translation
+  stage: test-translate
   image:
     name: jetbrains/qodana-js:2022.2-eap
     entrypoint: [ "" ]
