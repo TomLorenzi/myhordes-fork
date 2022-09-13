@@ -14,6 +14,7 @@
         "ext-json": "*",
         "ext-libxml": "*",
         "ext-simplexml": "*",
+        "ext-mbstring": "*",
         "brainbox-et/etwin-api-client": "0.1.1",
         "clue/graph": "0.9.3",
         "doctrine/annotations": "1.13.3",
