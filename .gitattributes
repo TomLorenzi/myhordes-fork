@@ -1,0 +1,5 @@
+/.yarn/releases/** binary
+/.yarn/plugins/** binary
+/assets/img/** binary
+/assets/swf/** binary
+/assets/video/** binary

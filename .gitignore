@@ -19,13 +19,17 @@ symfony.lock
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/webpack-encore-bundle ###
-/.yarn/
 /node_modules/
 /public/build/
 /public/maintenance/.active
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+# yarn
+/.yarn/cache
+/.yarn/unplugged
+/.yarn/install-state.gz
 
 # Composer
 composer.phar
