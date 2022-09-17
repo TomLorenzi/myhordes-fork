@@ -214,7 +214,7 @@ class BuildingDataService implements FixtureProcessorInterface {
                 ["name" => "Straßenbeleuchtung","maxLevel" => 3,'desc' => 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.', "temporary" => 0,"img" => "small_novlamps","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"lens_#00" => 2,"diode_#00" => 2,"metal_beam_#00" => 10,"wire_#00" => 1, "pile_#00" => 5], "orderby" => 16,
                     "lv0text" => 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.',
                     "upgradeTexts" => [
-                        'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
+                        /* 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.', */
                         'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
                         'Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.',
                         /* 'Bei Nacht erhöhen sich die Fundchancen im Umkreis von 10km um die Stadt um 20%, pro Tag werden 2 Batterien verbraucht.', */
