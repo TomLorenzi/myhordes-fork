@@ -19,6 +19,7 @@ symfony.lock
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/webpack-encore-bundle ###
+/.yarn/
 /node_modules/
 /public/build/
 /public/maintenance/.active

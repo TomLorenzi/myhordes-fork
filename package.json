@@ -28,7 +28,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@ruffle-rs/ruffle": "0.1.0-nightly.2022.9.9",
+        "@ruffle-rs/ruffle": "0.1.0-nightly.2022.9.16",
         "buffer": "6.0.3",
         "latest-createjs": "1.0.24",
         "process": "0.11.10",
