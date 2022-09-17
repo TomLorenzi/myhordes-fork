@@ -27,7 +27,7 @@ use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-class Extensions extends AbstractExtension  implements GlobalsInterface
+class Extensions extends AbstractExtension implements GlobalsInterface
 {
     private TranslatorInterface $translator;
     private UrlGeneratorInterface $router;

@@ -9,18 +9,7 @@
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
-                        {% if app.user.avatar %}
-                            <div class="avatar small ua-{{ app.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
-                                <h4 class="soul-name">
-                                    <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a>
-                                </h4>
-                            </div>
-                        {% else %}
-                            <h4 class="soul-name">
-                                <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a>
-                            </h4>
-                        {% endif %}
-
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, small: true, fallback: false, with_player_name: true} only %}
                     </div>
                     <div class="tab tab-floater">
                         <div class="tab{% if soul_tab == "soul_settings" %} selected{% endif %}">

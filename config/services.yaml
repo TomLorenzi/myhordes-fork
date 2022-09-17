@@ -33,6 +33,8 @@ services:
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
     # Set Twig extensions
+    App\Twig\HTMLUtils:
+      tags: ['twig.extension']
     App\Twig\Extensions:
       tags: ['twig.extension']
     App\Twig\Encore:

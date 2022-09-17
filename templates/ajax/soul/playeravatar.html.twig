@@ -1,0 +1,75 @@
+{% apply spaceless %}
+    {#
+    supported parameters:
+        user <User>: The user instance to render the avatar for
+        small <bool>: Force the use of a small avatar (default: false)
+        no_distortion: <bool>: Disable distortion effects (default: false)
+        fallback: <bool> If the user avatar does not exist, display a fallback image; when disabled, no HTML output will be generated for users with no avatar (default: true)
+        classes: <array> Add additional classes to the output (default: [])
+        attributes: <array> Add additional attributes to the output (default: [])
+        background: <bool> Instead of using an img tag, render the avatar using a background style (default: false)
+        with_player_name: <bool> Includes the player name (default: false). Not allowed when using the background option
+        gpm: <bool> GPM-Mode (default: false)
+    #}
+    {% if user is defined %}
+
+        {% if gpm is not defined %}
+            {% set gpm = false %}
+        {% elseif gpm %}
+            {% set background = true %}
+        {% endif %}
+
+        {% set ua_code = 'ua-' ~ (user.id % 10) %}
+
+        {% set additional_attributes = attributes is defined and attributes is not empty ? attributes : {} %}
+        {% set additional_classes = classes is defined and classes is not empty ? classes : {} %}
+
+        {% if additional_attributes['class'] is defined %}
+            {% set additional_classes = additional_classes|merge( additional_attributes['class']|split(' ') ) %}
+            {% set additional_attributes = additional_attributes|merge({class: false}) %}
+        {% endif %}
+
+        {% if small is not defined %}
+            {% set small = app.user.preferSmallAvatars %}
+        {% endif %}
+
+        {% if user.id == 66 %}
+            {% set url = asset('build/images/forum/crow/crow.' ~ (small ? 'small.' : '') ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') %}
+        {% elseif user.avatar %}
+            {% set url = path('app_web_avatar', {'uid': user.id, 'name': small ? user.avatar.smallName : user.avatar.filename, 'ext': user.avatar.format}) %}
+        {% else %}
+            {% set url = asset('build/images/forum/empty_avatar.gif') %}
+        {% endif %}
+
+        {% if background is defined and background %}
+            {% set style = 'background: url("' ~ url ~ '") center/cover no-repeat;' %}
+            {% if additional_attributes['style'] is defined %}
+                {% set additional_attributes = additional_attributes|merge({style: additional_attributes['style'] ~ ';' ~ style}) %}
+            {% else %}
+                {% set additional_attributes = additional_attributes|merge({style: style}) %}
+            {% endif %}
+        {% endif %}
+
+        {% if user.id == 66 or user.avatar or fallback is not defined or fallback %}
+            <div {{ additional_attributes|attributes }} {{ {
+                'avatar': user.id != 66 and not gpm, 'avatarcrow': user.id == 66 and not gpm,
+                'pm-avatar': user.id != 66 and gpm, 'pm-avatar-crow': user.id == 66 and gpm,
+                'small': small and not gpm, 'no-arma': no_distortion is defined and no_distortion and not gpm,
+                (ua_code): (no_distortion is not defined or not no_distortion) and not gpm
+            }|merge(additional_classes)|classes }}>
+                {% if background is not defined or not background %}
+                    <img alt="" src="{{ url }}"/>
+                    {% if with_player_name is defined and with_player_name and not gpm %}
+                        <h4 class="soul-name">
+                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ user.name }}</a>
+                        </h4>
+                    {% endif %}
+                {% else %}&nbsp;{% endif %}
+            </div>
+        {% elseif (background is not defined or not background) and with_player_name is defined and with_player_name and not gpm %}
+            <h4 class="soul-name">
+                <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ user.name }}</a>
+            </h4>
+        {% endif %}
+    {% endif %}
+{% endapply %}

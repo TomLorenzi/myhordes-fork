@@ -45,15 +45,11 @@
         <div class="row">
             {% if (owner.user.avatar) %}
                 <div class="cell rw-12 hide-desktop hide-lg center">
-                    <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div><br />&nbsp;
+                    {% include "ajax/soul/playeravatar.html.twig" with {user: owner.user, small: true} only %}
                 </div>
 
                 <div class="cell rw-3 rw-lg-4 rw-md-0">
-                    {% if app.user.preferSmallAvatars %}
-                        <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div>
-                    {% else %}
-                        <div class="avatar ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.filename, 'ext': owner.user.avatar.format}) }}"></div>
-                    {% endif %}
+                    {% include "ajax/soul/playeravatar.html.twig" with {user: owner.user} only %}
                 </div>
             {% endif %}
 
