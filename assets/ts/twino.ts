@@ -341,7 +341,7 @@ class TwinoConverterToBlocks {
                 if ( match.nodeInfo() ) {
                     blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'div', 'collapsor', [['data-open', '1']]) );
                     blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'collapsed') );
-                } else blocks.push( new TwinoInterimBlock(match.raw()) );
+                } else blocks.push( new TwinoInterimBlock(nodeContent) );
                 changed = true; break;
             case 'html':
                 blocks.push( new TwinoInterimBlock(nodeContent, 'html') );
