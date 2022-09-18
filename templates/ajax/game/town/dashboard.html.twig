@@ -18,6 +18,7 @@
                 <em>{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</em><br />
                 <span class="counter">
                 {% if (zeds_today[3] >= wtt) and zeds_today[0] %}
+                    {{ '{est_min} - {est_max}'|trans({}, 'game') }}
                     {{ zeds_today[1] }} - {{ zeds_today[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
                 {% else %}
                     {{ 'Unbekannt'|trans({}, 'game')}} {{ help_btn(('Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global'))) }}
