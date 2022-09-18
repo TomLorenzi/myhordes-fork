@@ -60,6 +60,7 @@ class TextFixtures extends Fixture
                 ->setAuthor( $entry['author'] )
                 ->setTitle( $entry['title'] )
                 ->setLanguage($entry['lang'])
+                ->setChance( (int)$entry['chance'] )
                 ->setUnlockable($id_cache[$name] = ($entry['unlockable'] ?? true));
 
             if ($entity->getUnlockable())

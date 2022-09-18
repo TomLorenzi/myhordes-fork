@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Interfaces\RandomEntry;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[UniqueEntity('name')]
 #[Table]
 #[UniqueConstraint(name: 'role_play_text_name_unique', columns: ['name'])]
-class RolePlayText
+class RolePlayText implements RandomEntry
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -35,6 +36,9 @@ class RolePlayText
     private $design;
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $unlockable;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $chance = null;
     public function __construct(){
         $this->pages = new ArrayCollection();
     }
@@ -137,6 +141,18 @@ class RolePlayText
     public function setUnlockable(?bool $unlockable): self
     {
         $this->unlockable = $unlockable;
+
+        return $this;
+    }
+
+    public function getChance(): ?int
+    {
+        return $this->chance;
+    }
+
+    public function setChance(?int $chance): self
+    {
+        $this->chance = $chance;
 
         return $this;
     }
