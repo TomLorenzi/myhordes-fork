@@ -939,6 +939,17 @@ class AdminUserController extends AdminActionController
         if (!$parser->has_all(['reason','duration','restriction'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $edit_id = $parser->get_int('existing', 0);
+        if ($edit_id && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $edit = $edit_id ? $this->entity_manager->getRepository( AccountRestriction::class )->find( $edit_id ) : null;
+        if ($edit) {
+            if ($this->user_handler->hasRole( $edit->getModerator(), 'ROLE_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+            $edit->getConfirmedBy()->clear();
+        }
+
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -955,11 +966,10 @@ class AdminUserController extends AdminActionController
         if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile)))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $a = (new AccountRestriction())
+        $a = ($edit ?? ((new AccountRestriction())->setCreated( new \DateTime() )))
             ->setUser($user)
             ->setRestriction( $mask )
             ->setOriginalDuration( $duration )
-            ->setCreated( new \DateTime() )
             ->setActive( true )
             ->setConfirmed( false )
             ->setModerator( $this->getUser() )
