@@ -1,7 +1,7 @@
 {% apply spaceless %}
     {#
     supported parameters:
-        user <User>: The user instance to render the avatar for
+        user <User|OfficialGroup|int=66>: The user instance to render the avatar for
         small <bool>: Force the use of a small avatar (default: false)
         no_distortion: <bool>: Disable distortion effects (default: false)
         fallback: <bool> If the user avatar does not exist, display a fallback image; when disabled, no HTML output will be generated for users with no avatar (default: true)
@@ -10,13 +10,33 @@
         background: <bool> Instead of using an img tag, render the avatar using a background style (default: false)
         with_player_name: <bool> Includes the player name (default: false). Not allowed when using the background option
         gpm: <bool> GPM-Mode (default: false)
+        wrapper: <bool> Wrap the image in a div. When disabled, most other functionality will no longer work. (default: true)
+        whitespace: <bool> When background mode is enabled, places a whitespace within the surrounding div. (default: true)
     #}
+
+    {# If the user is an official group, restructure the object to fulfill the User interface #}
+    {% if user is defined and user|instance_of('App\\Entity\\OfficialGroup') %}
+        {% set url = path('app_web_group_icon', { gid: user.usergroup.id, name: user.avatarName, ext: user.avatarExt }) %}
+        {% set user = {
+            id: user.usergroup.id + 100, name: user.usergroup.name,
+            avatar: user.avatarName ? {
+                smallName: user.avatarName, filename: user.avatarName,
+                format: user.avatarExt
+            } : null
+        } %}
+    {% elseif user is defined and not user|instance_of('object') and user == 66 %}
+        {% set user = {
+            id: 66, avatar: null
+        } %}
+    {% endif %}
+
     {% if user is defined %}
 
         {% if gpm is not defined %}
             {% set gpm = false %}
         {% elseif gpm %}
             {% set background = true %}
+            {% set small = false %}
         {% endif %}
 
         {% set ua_code = 'ua-' ~ (user.id % 10) %}
@@ -33,12 +53,14 @@
             {% set small = app.user.preferSmallAvatars %}
         {% endif %}
 
-        {% if user.id == 66 %}
-            {% set url = asset('build/images/forum/crow/crow.' ~ (small ? 'small.' : '') ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') %}
-        {% elseif user.avatar %}
-            {% set url = path('app_web_avatar', {'uid': user.id, 'name': small ? user.avatar.smallName : user.avatar.filename, 'ext': user.avatar.format}) %}
-        {% else %}
-            {% set url = asset('build/images/forum/empty_avatar.gif') %}
+        {% if url is not defined %}
+            {% if user.id == 66 %}
+                {% set url = asset('build/images/forum/crow/crow.' ~ (small ? 'small.' : '') ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') %}
+            {% elseif user.avatar %}
+                {% set url = path('app_web_avatar', {'uid': user.id, 'name': small ? user.avatar.smallName : user.avatar.filename, 'ext': user.avatar.format}) %}
+            {% else %}
+                {% set url = asset('build/images/forum/empty_avatar.gif') %}
+            {% endif %}
         {% endif %}
 
         {% if background is defined and background %}
@@ -50,26 +72,36 @@
             {% endif %}
         {% endif %}
 
-        {% if user.id == 66 or user.avatar or fallback is not defined or fallback %}
-            <div {{ additional_attributes|attributes }} {{ {
-                'avatar': user.id != 66 and not gpm, 'avatarcrow': user.id == 66 and not gpm,
-                'pm-avatar': user.id != 66 and gpm, 'pm-avatar-crow': user.id == 66 and gpm,
-                'small': small and not gpm, 'no-arma': no_distortion is defined and no_distortion and not gpm,
-                (ua_code): (no_distortion is not defined or not no_distortion) and not gpm
-            }|merge(additional_classes)|classes }}>
-                {% if background is not defined or not background %}
-                    <img alt="" src="{{ url }}"/>
-                    {% if with_player_name is defined and with_player_name and not gpm %}
-                        <h4 class="soul-name">
-                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ user.name }}</a>
-                        </h4>
-                    {% endif %}
-                {% else %}&nbsp;{% endif %}
-            </div>
+        {% if user.id == 66 or user.avatar or ((fallback is not defined or fallback) and not gpm) %}
+
+            {% if wrapper is not defined or wrapper %}
+                <div {{ additional_attributes|attributes }} {{ {
+                    'avatar': user.id != 66 and not gpm, 'avatarcrow': user.id == 66 and not gpm,
+                    'pm-avatar': user.id != 66 and gpm, 'pm-avatar-crow': user.id == 66 and gpm,
+                    'small': small and not gpm, 'no-arma': no_distortion is defined and no_distortion and not gpm,
+                    (ua_code): (no_distortion is not defined or not no_distortion) and not gpm
+                }|merge(additional_classes)|classes }}>
+                    {% if background is not defined or not background %}
+                        <img alt="" src="{{ url }}"/>
+                        {% if with_player_name is defined and with_player_name and not gpm %}
+                            <h4 class="soul-name">
+                                <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ user.name }}</a>
+                            </h4>
+                        {% endif %}
+                    {% else %}{% if whitespace is not defined or whitespace %}&nbsp;{% endif %}{% endif %}
+                </div>
+            {% else %}
+                <img {{ additional_attributes|attributes }} {{ additional_classes|classes }} alt="" src="{{ url }}"/>
+            {% endif %}
+
         {% elseif (background is not defined or not background) and with_player_name is defined and with_player_name and not gpm %}
             <h4 class="soul-name">
                 <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ user.name }}</a>
             </h4>
+        {% elseif gpm and (fallback is not defined or fallback) %}
+            <div class="pm-avatar row-flex v-center">
+                <div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div>
+            </div>
         {% endif %}
     {% endif %}
 {% endapply %}

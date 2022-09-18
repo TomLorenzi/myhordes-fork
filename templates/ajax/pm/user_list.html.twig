@@ -8,11 +8,11 @@
             <div class="row-flex wrap">
                 {% for user in active %}
                     <div class="cell"><div class="pm-userbox" x-user-id="{{ user.id }}">
-                        {% if (user.avatar) %}
-                            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}) center/cover"></div>
-                        {% else %}
-                            <div class="pm-avatar empty"></div>
-                        {% endif %}
+                        {% include "ajax/soul/playeravatar.html.twig" with {
+                            user: user, background: true, whitespace: false,
+                            gpm: user.avatar is not empty, no_distortion: true,
+                            classes: { empty: user.avatar is empty }
+                        } only %}
                         {% if user == owning_user %}
                             <div class="pm-userbox-name"><i class="fa fa-crown"></i> <b>{{ user.name }}</b></div>
                         {% else %}

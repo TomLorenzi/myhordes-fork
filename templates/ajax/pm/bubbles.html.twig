@@ -90,31 +90,27 @@
         {% if message_show_ava %}
             <div class="pm-avatar-block">
                 {% if entry.system %}
-                    <div class="pm-avatar-crow"></div>
+                    {% include "ajax/soul/playeravatar.html.twig" with {user: 66, gpm: true} only %}
                 {% elseif entry.official is not null and app.user in entry.users %}
-                    <div class="pm-avatar" style="background: url({{ path('app_web_group_icon', { gid: entry.official.usergroup.id, name: entry.official.avatarName, ext: entry.official.avatarExt }) }}) center/cover"></div>
+                    {% include "ajax/soul/playeravatar.html.twig" with {user: entry.official, gpm: true} only %}
                 {% elseif entry.users|length > 1 or entry.official is not null %}
                     {% set i = 0 %}
                     {% for message_partner in entry.users %}
                         {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar %}
-                            {% include "ajax/soul/playeravatar.html.twig" with {user: message_partner, small: false, gpm: true} only %}
+                            {% include "ajax/soul/playeravatar.html.twig" with {user: message_partner, gpm: true} only %}
                             {% set i = i+1 %}
                         {% endif %}
                     {% endfor %}
                     {% if i < 4 %}
                         {% for message_partner in entry.users %}
                             {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar is empty %}
-                                <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message_partner.name|slice(0,2) }}</div></div>
+                                {% include "ajax/soul/playeravatar.html.twig" with {user: message_partner, gpm: true} only %}
                                 {% set i = i+1 %}
                             {% endif %}
                         {% endfor %}
                     {% endif %}
                     {% if entry.owner is not empty and entry.owner != app.user %}
-                        {% if entry.owner.avatar %}
-                            {% include "ajax/soul/playeravatar.html.twig" with {user: entry.owner, small: false, gpm: true, classes: ['owner']} only %}
-                        {% else %}
-                            <div class="pm-avatar owner row-flex v-center"><div class="cell rw-12 center">{{ entry.owner.name|slice(0,2) }}</div></div>
-                        {% endif %}
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: entry.owner, gpm: true, classes: ['owner']} only %}
                     {% endif %}
                 {% endif %}
             </div>
@@ -182,11 +178,7 @@
                 {{ announcement.text|replace({'{lang}': (app.request.locale|e('html_attr')|split('_', 2))[0] })|raw }}
             </div>
             <div class="pm-message-footer">
-                {% if (announcement.sender.avatar) %}
-                    <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': announcement.sender.id, 'name': announcement.sender.avatar.filename, 'ext': announcement.sender.avatar.format}) }}) center/cover"></div>
-                {% else %}
-                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ announcement.sender.name|slice(0,2) }}</div></div>
-                {% endif %}
+                {% include "ajax/soul/playeravatar.html.twig" with {user: announcement.sender, gpm: true} only %}
                 <span class="pm-announcement-sender"><span class="hide-md">{% include 'ajax/soul/playername.html.twig' with {user: announcement.sender, plain: true} only %}</span></span>
                 <span class="pm-announcement-date float-right">{% if announcement.timestamp >= "today"|to_date %}
                     {{ 'Heute um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
@@ -202,13 +194,7 @@
 {% macro bubble_dm(message, last) %}
     {# @var message App\Entity\GlobalPrivateMessage #}
     <li class="{% if not message.seen %}new{% endif %}" x-domain="m-g" x-identifier="{{ message.id }}">
-        {% if (message.sender.id == 66) %}
-            <div class="pm-avatar-crow"></div>
-        {% elseif (message.sender.avatar) %}
-            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
-        {% else %}
-            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
-        {% endif %}
+        {% include "ajax/soul/playeravatar.html.twig" with {user: message.sender, gpm: true} only %}
         <div class="pm-message">
             <div class="pm-message-header">
                 <img src="{{ asset('build/images/icons/small_user.gif') }}" alt="">
@@ -255,11 +241,7 @@
                 </div>
             </div>
             <div class="pm-message-footer">
-                {% if (message.sender.avatar) %}
-                    <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
-                {% else %}
-                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
-                {% endif %}
+                {% include "ajax/soul/playeravatar.html.twig" with {user: message.sender, gpm: true} only %}
                 <span class="pm-announcement-sender"><span class="hide-md">{{ message.sender.name }}</span></span>
                 <span class="pm-announcement-date right float-right">
                     <b>{{ 'Angepinnte Nachricht'|trans({},'global') }}</b><br />
@@ -279,16 +261,10 @@
     {# @var message App\Entity\GlobalPrivateMessage #}
     <li x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %} {% if message.collapsed or (message.senderGroup is empty and app.user|related(message.sender,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock'))) %}collapsed{% endif %}">
         <div x-unveil="{{ message.id }}" class="unveil pointer"><i class="fa fa-eye-slash"></i> {{ 'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.'|trans({'{user}': '<strong>' ~ message.sender.name ~ '</strong>'}, 'global')|raw }}</div>
-        {% if message.senderGroup and message.senderGroup.anon %}
-            <div class="pm-avatar" style="background: url({{ path('app_web_group_icon', { gid: message.senderGroup.usergroup.id, name: message.senderGroup.avatarName, ext: message.senderGroup.avatarExt }) }}) center/cover"></div>
-        {% else %}
-            {% if (message.sender.avatar) %}
-                <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
-            {% else %}
-                <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
-            {% endif %}
-        {% endif %}
-
+        {% include "ajax/soul/playeravatar.html.twig" with {
+            user: (message.senderGroup and message.senderGroup.anon) ? message.senderGroup : message.sender,
+            gpm: true
+        } only %}
         <div class="pm-message">
             <div class="pm-message-header">
                 {% if message.senderGroup and message.senderGroup.anon %}

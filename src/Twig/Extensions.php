@@ -90,8 +90,8 @@ class Extensions extends AbstractExtension implements GlobalsInterface
         return [];
     }
 
-    public function instance_of($object, $classname): bool {
-        return is_a($object, $classname);
+    public function instance_of($object, string $classname): bool {
+        return $classname === 'object' ? is_object($object) : is_a($object, $classname);
     }
 
     /**
