@@ -2333,3 +2333,4 @@ Stadt/Stadttor: Pueblo/Portal
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} le ha mencionado en un tema en «{threadname}» en el foro «{forumname}». {link_post}'
 '{player} hat dich als "Freund" hinzugefügt.': '{player} le ha agregado como amigo.'
 'Du hast {item_list} in {item} verwandelt.': 'Has transformado {item_list} en {item}.'
+'{est_min} - {est_max}': '{est_min} - {est_max}'
