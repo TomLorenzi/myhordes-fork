@@ -123,6 +123,7 @@ class MigrateCommand extends Command
         'b552fe4373171d16e7b7a700254f9c7ebafb0cff' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
         '45c0b9f06dd82928e6d979229f9588a634d13828' => [ ['app:migrate', ['--adjust-sandball-pictos3' => true] ] ],
         'a759042d47a803078d40cd650fbc96a9fc92737b' => [ ['app:migrate', ['--fix-soul-reset' => true] ] ],
+        '5cf60ef06e7e4ab2916af4f6da511cec34d17db3' => [ ['app:migrate', ['--upgrade-zone-activity-markers' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
