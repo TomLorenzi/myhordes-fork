@@ -134,6 +134,9 @@ class Citizen
     private $visitedZones;
     #[ORM\Column(type: 'boolean')]
     private $coalized = false;
+
+    #[ORM\OneToMany(mappedBy: 'citizen', targetEntity: ZoneActivityMarker::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $zoneActivityMarkers;
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -153,6 +156,7 @@ class Citizen
         $this->specialActions = new ArrayCollection();
         $this->usedHeroicActions = new ArrayCollection();
         $this->visitedZones = new ArrayCollection();
+        $this->zoneActivityMarkers = new ArrayCollection();
     }
     public function __toString()
     {
@@ -1038,6 +1042,36 @@ class Citizen
     public function setCoalized(bool $coalized): self
     {
         $this->coalized = $coalized;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ZoneActivityMarker>
+     */
+    public function getZoneActivityMarkers(): Collection
+    {
+        return $this->zoneActivityMarkers;
+    }
+
+    public function addZoneActivityMarker(ZoneActivityMarker $zoneActivityMarker): self
+    {
+        if (!$this->zoneActivityMarkers->contains($zoneActivityMarker)) {
+            $this->zoneActivityMarkers->add($zoneActivityMarker);
+            $zoneActivityMarker->setCitizen($this);
+        }
+
+        return $this;
+    }
+
+    public function removeZoneActivityMarker(ZoneActivityMarker $zoneActivityMarker): self
+    {
+        if ($this->zoneActivityMarkers->removeElement($zoneActivityMarker)) {
+            // set the owning side to null (unless already changed)
+            if ($zoneActivityMarker->getCitizen() === $this) {
+                $zoneActivityMarker->setCitizen(null);
+            }
+        }
 
         return $this;
     }

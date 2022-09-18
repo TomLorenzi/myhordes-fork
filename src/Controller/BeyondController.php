@@ -9,7 +9,6 @@ use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
 use App\Entity\CitizenStatus;
-use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
@@ -23,7 +22,9 @@ use App\Entity\Recipe;
 use App\Entity\RuinExplorerStats;
 use App\Entity\ScoutVisit;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\ZoneActivityMarkerType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -48,6 +49,7 @@ use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
+use Cassandra\Date;
 use DateInterval;
 use DateTime;
 use Doctrine\DBAL\Types\DateType;
@@ -398,7 +400,7 @@ class BeyondController extends InventoryAwareController
             'zone_escape' => $escape,
             'zone_escape_desperate' => $escape_desperate,
             'digging' => $this->getActiveCitizen()->isDigging(),
-            'dig_ruin' => empty($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $this->getActiveCitizen() )),
+            'dig_ruin' => $this->getActiveCitizen()->getZone()->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $this->getActiveCitizen() ) === null,
             'actions' => $this->getItemActions(),
             'floorItems' => $floorItems,
             'other_citizens' => $zone->getCitizens(),
@@ -880,8 +882,12 @@ class BeyondController extends InventoryAwareController
             $new_zone->addCitizen( $mover );
 
             // Scout check
-            if ($mover->getProfession()->getName() === 'hunter' && !$this->entity_manager->getRepository(ScoutVisit::class)->findByCitizenAndZone($mover,$new_zone)) {
-                $new_zone->addScoutVisit( (new ScoutVisit())->setScout( $mover ) );
+            if ($mover->getProfession()->getName() === 'hunter' && !$new_zone->getActivityMarkerFor(ZoneActivityMarkerType::ScoutVisit, $mover)) {
+                $new_zone->addActivityMarker( (new ZoneActivityMarker())
+                    ->setCitizen( $mover )
+                    ->setTimestamp( new DateTime() )
+                    ->setType(ZoneActivityMarkerType::ScoutVisit)
+                );
                 if ($scouts[$mover->getId()] && !$this->zone_handler->check_cp( $new_zone )) {
 
                     $new_zed_count = $new_zone->getZombies();
@@ -1352,7 +1358,7 @@ class BeyondController extends InventoryAwareController
         if ($zone->getX() === 0 && $zone->getY() === 0)
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        if ($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $citizen ))
+        if ($zone->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $citizen ))
             return AjaxResponse::error( self::ErrorNotDiggable );
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
@@ -1364,8 +1370,11 @@ class BeyondController extends InventoryAwareController
 
             $item_found = $this->random_generator->chance($total_dig_chance);
 
-            $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
-            $this->entity_manager->persist($dm);
+            $zone->addActivityMarker( (new ZoneActivityMarker())
+                                          ->setCitizen( $citizen )
+                                          ->setType( ZoneActivityMarkerType::RuinDig )
+                                          ->setTimestamp( new DateTime() )
+            );
 
             if ($item_found) {
                 $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
@@ -1714,6 +1723,11 @@ class BeyondController extends InventoryAwareController
 
         } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if (!$zone->getActivityMarkersFor( ZoneActivityMarkerType::ShamanRain )->isEmpty()) {
+            $this->addFlash('error', $this->translator->trans('Diese Aktion auszuführen ist sinnlos. Heute wurde schon versucht, diese Zone zu reinigen.', [], 'game'));
+            return AjaxResponse::success();
+        }
+
         $str = [];
         $str[] = $this->translator->trans('Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.', [], 'game');
 
@@ -1749,12 +1763,17 @@ class BeyondController extends InventoryAwareController
 
         } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        try {
+        //try {
             $this->entity_manager->persist( $citizen );
+            $this->entity_manager->persist( $zone->addActivityMarker( (new ZoneActivityMarker())
+                ->setType( ZoneActivityMarkerType::ShamanRain )
+                ->setCitizen( $citizen )
+                ->setTimestamp( new DateTime() )
+            ) );
             $this->entity_manager->flush();
-        } catch (\Throwable $t) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
+        //} catch (\Throwable $t) {
+        //    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        //}
 
         $this->addFlash('notice', implode("<hr />", $str));
 

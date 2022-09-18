@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\DigRuinMarker;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
@@ -17,6 +18,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Post;
 use App\Entity\RolePlayText;
+use App\Entity\ScoutVisit;
 use App\Entity\Season;
 use App\Entity\SoulResetMarker;
 use App\Entity\Thread;
@@ -28,8 +30,10 @@ use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Entity\ZonePrototype;
 use App\Enum\UserSetting;
+use App\Enum\ZoneActivityMarkerType;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
@@ -218,6 +222,8 @@ class MigrateCommand extends Command
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
             ->addOption('update-user-settings', null, InputOption::VALUE_NONE, '')
+
+            ->addOption('upgrade-zone-activity-markers', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -1187,6 +1193,34 @@ class MigrateCommand extends Command
 
                 foreach (UserSetting::migrateCases() as $setting)
                     $user->setSetting( $setting, $user->getSetting( $setting ) );
+
+            }, true);
+        }
+
+        if ($input->getOption('upgrade-zone-activity-markers')) {
+            $this->helper->leChunk($output, DigRuinMarker::class, 100, [], false, false, function(DigRuinMarker $marker) {
+
+                $marker->getZone()->addActivityMarker(
+                    (new ZoneActivityMarker())
+                        ->setCitizen( $marker->getCitizen() )
+                        ->setType( ZoneActivityMarkerType::RuinDig )
+                        ->setTimestamp( new \DateTime() )
+                );
+                $this->entity_manager->persist($marker->getZone());
+                $this->entity_manager->remove( $marker );
+
+            }, true);
+
+            $this->helper->leChunk($output, ScoutVisit::class, 100, [], false, false, function(ScoutVisit $marker) {
+
+                $marker->getZone()->addActivityMarker(
+                    (new ZoneActivityMarker())
+                        ->setCitizen( $marker->getScout() )
+                        ->setType( ZoneActivityMarkerType::ScoutVisit )
+                        ->setTimestamp( new \DateTime() )
+                );
+                $this->entity_manager->persist($marker->getZone());
+                $this->entity_manager->remove( $marker );
 
             }, true);
         }

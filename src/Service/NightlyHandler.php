@@ -10,7 +10,6 @@ use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
 use App\Entity\CouncilEntryTemplate;
-use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
 use App\Entity\GazetteEntryTemplate;
@@ -1240,6 +1239,12 @@ class NightlyHandler
             }
 
             $citizen->getExpeditionRoutes()->clear();
+            foreach ($citizen->getZoneActivityMarkers() as $marker)
+                if ($marker->getType()->daily()) {
+                    $marker->getZone()->removeActivityMarker($marker);
+                    $citizen->removeZoneActivityMarker($marker);
+                    $this->cleanup[] = $marker;
+                }
 
             if (!$citizen->getAlive()) continue;
 
@@ -1301,8 +1306,6 @@ class NightlyHandler
             
             foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
                 $this->cleanup[] = $et;
-            foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findAllByCitizen( $citizen ) as $drm)
-                $this->cleanup[] = $drm;
 
             $add_hangover = ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_no_hangover'));
             foreach ($citizen->getStatus() as $st)
