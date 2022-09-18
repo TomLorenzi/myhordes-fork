@@ -2333,4 +2333,7 @@ Stadt/Stadttor: Pueblo/Portal
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} le ha mencionado en un tema en «{threadname}» en el foro «{forumname}». {link_post}'
 '{player} hat dich als "Freund" hinzugefügt.': '{player} le ha agregado como amigo.'
 'Du hast {item_list} in {item} verwandelt.': 'Has transformado {item_list} en {item}.'
+'Diese Aktion auszuführen ist sinnlos. Heute wurde schon versucht, diese Zone zu reinigen.': 'Diese Aktion auszuführen ist sinnlos. Heute wurde schon versucht, diese Zone zu reinigen.'
+'Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!': 'Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!'
+'Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.': 'Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.'
 '{est_min} - {est_max}': '{est_min} - {est_max}'
