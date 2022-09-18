@@ -1127,7 +1127,10 @@ class ActionHandler
 
             if ($result->getRolePlayText()) {
                 /** @var RolePlayText|null $text */
-                $text = $this->random_generator->pick( ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null) ? $this->entity_manager->getRepository(RolePlayText::class)->findAll() : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
+                $text = $this->random_generator->pickEntryFromRandomArray(
+                    ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null)
+                        ? $this->entity_manager->getRepository(RolePlayText::class)->findAll()
+                        : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
                 $alreadyfound = !$text || $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
                 $execute_info_cache['rp_text'] = $text->getTitle();
                 if ($alreadyfound)

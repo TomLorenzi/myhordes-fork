@@ -22,7 +22,7 @@
                             {% endif %}
                         </div>
                         <div class="padded cell rw-2 rw-sm-0">
-                            <div class="avatar"><img alt="" src="{{ path('app_web_group_icon', { gid: group.usergroup.id, name: group.avatarName, ext: group.avatarExt }) }}" /></div>
+                            {% include "ajax/soul/playeravatar.html.twig" with {user: group} only %}
                         </div>
                         <div class="padded cell rw-4 rw-sm-6">
                             <div>

@@ -2,11 +2,15 @@
 
 namespace App\Entity;
 
+use App\Enum\ZoneActivityMarkerType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\ZoneRepository')]
@@ -91,6 +95,9 @@ class Zone
     private $startZombies = 0;
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $itemsHiddenAt;
+
+    #[ORM\OneToMany(mappedBy: 'zone', targetEntity: ZoneActivityMarker::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $activityMarkers;
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -101,6 +108,7 @@ class Zone
         $this->ruinZones = new ArrayCollection();
         $this->explorerStats = new ArrayCollection();
         $this->chatSilenceTimers = new ArrayCollection();
+        $this->activityMarkers = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -295,11 +303,18 @@ class Zone
     }
     /**
      * @return Collection|DigRuinMarker[]
+     * @deprecated
      */
     public function getDigRuinMarkers(): Collection
     {
         return $this->digRuinMarkers;
     }
+
+    /**
+     * @param DigRuinMarker $digRuinMarker
+     * @return $this
+     * @deprecated
+     */
     public function addDigRuinMarker(DigRuinMarker $digRuinMarker): self
     {
         if (!$this->digRuinMarkers->contains($digRuinMarker)) {
@@ -309,6 +324,12 @@ class Zone
 
         return $this;
     }
+
+    /**
+     * @param DigRuinMarker $digRuinMarker
+     * @return $this
+     * @deprecated
+     */
     public function removeDigRuinMarker(DigRuinMarker $digRuinMarker): self
     {
         if ($this->digRuinMarkers->contains($digRuinMarker)) {
@@ -379,11 +400,18 @@ class Zone
     }
     /**
      * @return Collection|ScoutVisit[]
+     * @deprecated
      */
     public function getScoutVisits(): Collection
     {
         return $this->scoutVisits;
     }
+
+    /**
+     * @param ScoutVisit $scoutVisit
+     * @return $this
+     * @deprecated
+     */
     public function addScoutVisit(ScoutVisit $scoutVisit): self
     {
         if (!$this->scoutVisits->contains($scoutVisit)) {
@@ -393,6 +421,12 @@ class Zone
 
         return $this;
     }
+
+    /**
+     * @param ScoutVisit $scoutVisit
+     * @return $this
+     * @deprecated
+     */
     public function removeScoutVisit(ScoutVisit $scoutVisit): self
     {
         if ($this->scoutVisits->contains($scoutVisit)) {
@@ -407,7 +441,7 @@ class Zone
     }
     public function getScoutLevel(): int
     {
-        return max(0,$this->getScoutVisits()->count() - 1);
+        return max(0,$this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count() - 1);
     }
     public function getScoutEstimationOffset(): ?int
     {
@@ -565,6 +599,62 @@ class Zone
     public function setItemsHiddenAt(?\DateTimeImmutable $itemsHiddenAt): self
     {
         $this->itemsHiddenAt = $itemsHiddenAt;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection<int, ZoneActivityMarker>|PersistentCollection<int, ZoneActivityMarker>
+     */
+    public function getActivityMarkers(): ArrayCollection|PersistentCollection
+    {
+        return $this->activityMarkers;
+    }
+
+    /**
+     * @param ZoneActivityMarkerType|null $type
+     * @param Citizen|null $citizen
+     * @return Collection
+     */
+    public function getActivityMarkersFor(?ZoneActivityMarkerType $type = null, ?Citizen $citizen = null): Collection
+    {
+        $criteria = new Criteria();
+        if ($type !== null)    $criteria->andWhere( new Comparison( 'type', Comparison::EQ, $type->value ) );
+        if ($citizen !== null) $criteria->andWhere( new Comparison( 'citizen', Comparison::EQ, $citizen ) );
+        return $this->getActivityMarkers()->matching( $criteria );
+    }
+
+    /**
+     * @param ZoneActivityMarkerType $type
+     * @param Citizen $citizen
+     * @return ?ZoneActivityMarker
+     */
+    public function getActivityMarkerFor(ZoneActivityMarkerType $type, Citizen $citizen): ?ZoneActivityMarker
+    {
+        return $this->getActivityMarkers()->matching( (new Criteria())
+                                                          ->andWhere( new Comparison( 'type', Comparison::EQ, $type->value ) )
+                                                          ->andWhere( new Comparison( 'citizen', Comparison::EQ, $citizen ) )
+        )->first() ?: null;
+    }
+
+    public function addActivityMarker(ZoneActivityMarker $activityMarker): self
+    {
+        if (!$this->activityMarkers->contains($activityMarker)) {
+            $this->activityMarkers->add($activityMarker);
+            $activityMarker->setZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActivityMarker(ZoneActivityMarker $activityMarker): self
+    {
+        if ($this->activityMarkers->removeElement($activityMarker)) {
+            // set the owning side to null (unless already changed)
+            if ($activityMarker->getZone() === $this) {
+                $activityMarker->setZone(null);
+            }
+        }
 
         return $this;
     }

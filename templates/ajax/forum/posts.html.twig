@@ -225,21 +225,7 @@
                                 {{ post.date|format_datetime('medium', 'short') }}
                             {% endif %}
                         </i>
-                        {% if post.owner.name == 'Der Rabe' %}
-                            {% if app.user.preferSmallAvatars %}
-                                <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
-                            {% else %}
-                                <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
-                            {% endif %}
-                        {% elseif (post.owner.avatar) %}
-                            {% if app.user.preferSmallAvatars %}
-                                <div class="avatar small ua-{{random(0,9)}}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
-                            {% else %}
-                                <div class="avatar ua-{{random(0,9)}}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
-                            {% endif %}
-                        {% else %}
-                            <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
-                        {% endif %}
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner} only %}
                         {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post))}}<br />
                         {% if post.owner.name == 'Der Rabe' %}
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>

@@ -251,9 +251,7 @@
                                         {% if not app.user.avatar.classic %}
                                             <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
                                         {% endif %}
-                                        <div class="avatar no-arma">
-                                            <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
-                                        </div>
+                                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, no_distortion: true} only %}
                                     </div>
                                 {% else %}
                                     <div class="help">
@@ -265,9 +263,7 @@
                                 {% if app.user.avatar is not null and not app.user.avatar.classic %}
                                     <div class="hide-md hide-sm">
                                         <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                                        <div class="avatar small no-arma">
-                                            <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
-                                        </div>
+                                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, small: true, no_distortion: true} only %}
                                     </div>
                                     <div class="hide-desktop hide-lg center">
                                         <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />

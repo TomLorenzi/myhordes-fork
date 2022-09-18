@@ -28,7 +28,7 @@
                                         <img alt="" src="{{ asset('build/images/professions/void.gif') }}"/>
                                     {% endif %}
                                 </div>
-                                <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
+                                {% include "ajax/soul/playeravatar.html.twig" with {user: entry, no_distortion: true, small: true, class: ['cell','factor-0','padded'], attributes: {style: 'flex-basis: 92px'}} only %}
                                 <div class="padded cell factor-1">{% include 'ajax/soul/playername.html.twig' with {user: entry} only %}</div>
                                 <div class="padded cell rw-5 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                             </div>
@@ -50,7 +50,8 @@
                             {% for entry in reverse_friends|sort((a, b) => a.name|lower <=> b.name|lower) %}
                                 <div class="row-flex wrap">
                                     <div class="padded cell rw-1">&nbsp;</div>
-                                    <div class="padded cell factor-0" style="flex-basis: 90px; background: url('{{ entry.avatar ? path('app_web_avatar', {'uid': entry.id, 'name': entry.avatar.smallName, 'ext': entry.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat"></div>
+
+                                    {% include "ajax/soul/playeravatar.html.twig" with {user: entry, no_distortion: true, small: true, class: ['cell','factor-0','padded'], attributes: {style: 'flex-basis: 92px'}} only %}
                                     <div class="padded cell factor-1">{{ entry.name }}</div>
                                     <div class="padded cell rw-5 hide-sm hide-md">{{ entry.allSoulPoints }}</div>
                                 </div>

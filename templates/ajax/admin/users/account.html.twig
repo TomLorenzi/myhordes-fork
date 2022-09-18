@@ -159,16 +159,11 @@
                         </div>
                         <div class="cell padded rw-3 rw-sm-12">
                             {% if user.avatar is not null %}
-                                <div class="avatar no-arma">
-                                    <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}">
-                                </div>
+                                {% include "ajax/soul/playeravatar.html.twig" with {user: user, no_distortion: true, small: false} only %}
                                 {% if not user.avatar.classic %}
                                     <br/><br />
-                                    <div class="avatar small no-arma">
-                                        <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}">
-                                    </div>
+                                    {% include "ajax/soul/playeravatar.html.twig" with {user: user, no_distortion: true, small: true} only %}
                                 {% endif %}
-
                             {% else %}
                                 ---
                             {% endif %}

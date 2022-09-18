@@ -6,16 +6,10 @@
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
-                        {% if user.avatar %}
-                            <div class="avatar small ua-{{ user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
-                        {% endif %}
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: user, small: true, fallback: false} only %}
                         <h4 class="soul-name">
                             <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" />
-                            <a class="username">
-                                {% if user.name == 'Der Rabe' %}{{ 'Der Rabe'|trans({},'global') }}
-                                {% elseif user.name == 'Animateur-Team' %}{{ 'Animateur-Team'|trans({},'global') }}
-                                {% else %}{{ user.name }}{% endif %}
-                            </a>
+                            {% include 'ajax/soul/playername.html.twig' with {user: user, tag: 'a'} only %}
                         </h4>
                     </div>
                     <div class="tab tab-floater">
