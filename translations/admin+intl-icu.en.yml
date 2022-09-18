@@ -544,4 +544,4 @@ Keiner: None
 Basiskonfiguration: Basic configuration
 'Sonstige Accountmarkierungen': 'Other account markers'
 'Strenges Report Rate Limiting': 'Strict report rate limiting'
-'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?'
+'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'You are about to edit an existing account restriction. The player will not be informed about the edit. Existing confirmations for this restriction will be removed. Continue?'
