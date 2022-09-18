@@ -2332,3 +2332,4 @@ Stadt/Stadttor: Stadt/Stadttor
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}'
 '{player} hat dich als "Freund" hinzugefügt.': '{player} hat dich als "Freund" hinzugefügt.'
 'Du hast {item_list} in {item} verwandelt.': 'Du hast {item_list} in {item} verwandelt.'
+'{est_min} - {est_max}': '{est_min} - {est_max}'
