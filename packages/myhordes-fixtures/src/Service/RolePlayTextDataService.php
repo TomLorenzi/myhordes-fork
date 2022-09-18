@@ -539,7 +539,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'background' => 'carton',
                 'chance' => '10',
             ],
-            'morse2' => [
+            'morse2_de' => [
                 'title' => 'Morsecode (21.Juni)',
                 'author' => 'zhack',
                 'content' => [
