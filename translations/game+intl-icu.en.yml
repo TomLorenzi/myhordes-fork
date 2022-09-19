@@ -2333,3 +2333,7 @@ Stadt/Stadttor: Town/Doors
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} has mentioned you in a post within "{threadname}", in the "{forumname}" forum. {link_post}'
 '{player} hat dich als "Freund" hinzugefügt.': '{player} added you as a friend.'
 'Du hast {item_list} in {item} verwandelt.': 'You have transformed the {item_list} into the {item}.'
+'Diese Aktion auszuführen ist sinnlos. Heute wurde schon versucht, diese Zone zu reinigen.': 'It would be pointless to attempt to carry out this action, as someone has already tried to purify this zone today.'
+'Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!': 'Oops! Looks like one of your fellow citizens didn''t want you going through their stuff. Some kind of IED just exploded under your feet and launched you against the wall. You''ve been hurt!'
+'Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.': 'Well there you go, that''s what happens when you mess with a paranoid explosives fan. You''re now splattered across the four walls of their house. It''s not all fun and games though, they''re going to have to clean you up.'
+'{est_min} - {est_max}': '{est_min} - {est_max}'
