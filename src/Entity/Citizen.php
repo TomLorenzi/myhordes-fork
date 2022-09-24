@@ -846,8 +846,8 @@ class Citizen
     #[ORM\PostPersist]
     public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args)
     {
-        $args->getEntityManager()->persist( CitizenRankingProxy::fromCitizen($this) );
-        $args->getEntityManager()->flush();
+        $args->getObjectManager()->persist( CitizenRankingProxy::fromCitizen($this) );
+        $args->getObjectManager()->flush();
     }
     /**
      * If the citizen is currently exploring a ruin or has explored a ruin at this location today, the relevant

@@ -708,11 +708,21 @@ class BeyondController extends InventoryAwareController
         if (!$citizen->getZone()?->getPrototype()?->getExplorable())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        // Make sure the citizen is not wounded, has not already explored the ruin today and no one else is exploring
-        // the ruin right now
-        if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['terror'] ) ||
-            $citizen->currentExplorerStats() || $citizen->getZone()->activeExplorerStats())
+        // Make sure the citizen is not wounded or terrorized
+        if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['terror'] ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        // Make sure the citizen has not already explored the ruin today
+        if ($citizen->currentExplorerStats()) {
+            $this->addFlash('error', $this->translator->trans('Du kannst heute nicht hierher zurückkehren... Dein Körper würde das nicht durchstehen.', [], 'game'));
+            return AjaxResponse::success();
+        }
+
+        // Make sure no one else is exploring the ruin right now
+        if ($citizen->getZone()->activeExplorerStats()) {
+            $this->addFlash('error', $this->translator->trans('Jemand anders untersucht gerade diesen Ort.', [], 'game'));
+            return AjaxResponse::success();
+        }
 
         // Block exploring if currently escorting citizens
         if (!empty($citizen->getValidLeadingEscorts()))
@@ -1718,8 +1728,10 @@ class BeyondController extends InventoryAwareController
 
             if( $citizen->getAp() < 1 )
                 return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-            else if ( $this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0 )
-                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+            else if ( $this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0 ) {
+                $this->addFlash('error', $this->translator->trans('Ohne die benötigten Elemente kannst du diesen Zauber nicht aussprechen.', [], 'game'));
+                return AjaxResponse::success();
+            }
 
         } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
