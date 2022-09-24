@@ -181,7 +181,7 @@ class ZoneHandler
                 if ($timer->getTimestamp() < $up_to) {
                     $factor = $this->getDigChanceFactor($timer->getCitizen(), $zone);
 
-                    $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )), 0.9);
+                    $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 )), 0.9);
 
                     $found_item = $this->random_generator->chance($total_dig_chance);
                     $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance) );
