@@ -269,7 +269,7 @@ class NightlyHandler
             $th = $town_conf->get(TownConf::CONF_GUIDE_SP_LIMIT, 100);
             if ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
                 return $this->user_handler->fetchSoulPoints( $c->getUser(), true, true ) < $th;
-            })->count() >= $town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 20))
+            })->count() >= ($town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 0.5) * $town->getPopulation()))
 
                 // Each citizen above the threshold gets assigned the potential guide status
                 foreach ($town->getCitizens()->filter(function (Citizen $c) use ($th) {

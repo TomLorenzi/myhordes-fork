@@ -167,7 +167,7 @@ parameters:
       spiritual_guide:
         enabled: true
         sp_limit: 100
-        citizen: 20
+        citizen: 0.5
 
       distribution_distance:
         replace:
