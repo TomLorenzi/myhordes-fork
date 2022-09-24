@@ -567,7 +567,7 @@ class GameFactory
 
                 $zone_list[$i+$o]
                     ->setPrototype( $target_ruin )
-                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 10), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 10) ) );
+                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 8), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 16) ) );
 
                 if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
                     $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);

@@ -20,8 +20,8 @@ parameters:
         fill_max: 30
         throttle_at: 12
       ruin_items:
-        min: 10
-        max: 10
+        min: 8
+        max: 16
 
       ruins: 20
       explorable_ruins: 1
