@@ -350,7 +350,7 @@ class ZoneHandler
         $time = new DateTime();
         $factor = 1.0;
         if ($citizen->getProfession()->getName() === 'collec') $factor += 0.2; // based on 769 search made as scavenger
-        if ($this->citizen_handler->hasStatusEffect( $citizen, 'camper' )) $factor += 0.1; // if we use gathered stats, this value should be around 0.15
+        if ($this->citizen_handler->hasStatusEffect( $citizen, 'camper' )) $factor += 0.2;
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $factor -= 0.5; // based on 30 searchs made with eye injury
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $factor -= 0.2; // based on 51 search made while being drunk
 
