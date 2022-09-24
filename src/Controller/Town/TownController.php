@@ -446,7 +446,7 @@ class TownController extends InventoryAwareController
             'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
-            'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 10 )->getContent() : '',
+            'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 5 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
@@ -907,7 +907,7 @@ class TownController extends InventoryAwareController
             'maximum' => $allow_take,
             'pump' => $pump,
 
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
     }
@@ -1061,7 +1061,7 @@ class TownController extends InventoryAwareController
             'item_def_factor' => $item_def_factor,
             'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeBank, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeBank, 5 )->getContent(),
             'day' => $town->getDay(),
         ]) );
     }
@@ -1525,7 +1525,7 @@ class TownController extends InventoryAwareController
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
             'workshopBonus' => $workshopBonus,
             'hpToAp' => $hpToAp,
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeConstruction, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeConstruction, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'canvote' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
@@ -1734,7 +1734,7 @@ class TownController extends InventoryAwareController
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
-            'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 10 )->getContent(),
+            'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 5 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
             'door_section'      => 'door',
             'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $time ) )
