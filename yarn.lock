@@ -31,7 +31,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.19.1":
+"@babel/core@npm:7.19.1":
   version: 7.19.1
   resolution: "@babel/core@npm:7.19.1"
   dependencies:
@@ -1165,7 +1165,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:^7.19.1":
+"@babel/preset-env@npm:7.19.1":
   version: 7.19.1
   resolution: "@babel/preset-env@npm:7.19.1"
   dependencies:
@@ -1471,10 +1471,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.9.16":
-  version: 0.1.0-nightly.2022.9.16
-  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.9.16"
-  checksum: 1eda7ab81d236bbecd128f04891f8f642d74e69a989451878d23c596b4ba87e27b6a7b26518e281e823c8c148fd231b4441f3f626b9c86c913d20742ea339a2e
+"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.9.23":
+  version: 0.1.0-nightly.2022.9.23
+  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.9.23"
+  checksum: 52934c20cc6b0ca00224171b6382570b4e54d9f97ec81cbb71fe7a93e40e6ed8a071eb45c9b63f2a395175ecac712626e34fac7f37e8ca596cb029cc32f0a4c1
   languageName: node
   linkType: hard
 
@@ -2928,10 +2928,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:3.25.1":
-  version: 3.25.1
-  resolution: "core-js@npm:3.25.1"
-  checksum: bfacb078e790913841e2d5008b9b6705ae56ed23f83c7f0ae08d330d874561012611089d53b71520105234ed0abba36f28d91b391514a16541a8c8d98c464239
+"core-js@npm:3.25.2":
+  version: 3.25.2
+  resolution: "core-js@npm:3.25.2"
+  checksum: e93c6c645d44d98973efb07750975552ad405f080f5a563a99972ff6b2c5c6ee25705f55accd363f5dccd51e9e5f56be25e2be6c14a7294da65763e0e5659c02
   languageName: node
   linkType: hard
 
@@ -6722,14 +6722,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@babel/core": ^7.19.1
-    "@babel/preset-env": ^7.19.1
+    "@babel/core": 7.19.1
+    "@babel/preset-env": 7.19.1
     "@babel/preset-react": 7.18.6
     "@fortawesome/fontawesome-free": 6.2.0
-    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.9.16
+    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.9.23
     "@symfony/webpack-encore": 4.0.0
     buffer: 6.0.3
-    core-js: 3.25.1
+    core-js: 3.25.2
     file-loader: 6.2.0
     latest-createjs: 1.0.24
     less: 4.1.3
@@ -6742,11 +6742,11 @@ __metadata:
     stream: 0.0.2
     stream-browserify: 3.0.0
     string.prototype.matchall: 4.0.7
-    swagger-ui: 4.14.0
-    ts-loader: 9.3.1
+    swagger-ui: 4.14.1
+    ts-loader: 9.4.1
     typescript: 4.8.3
-    webpack: ^5.74.0
-    webpack-cli: ^4.10.0
+    webpack: 5.74.0
+    webpack-cli: 4.10.0
     webpack-notifier: 1.15.0
   languageName: unknown
   linkType: soft
@@ -7362,9 +7362,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui@npm:4.14.0":
-  version: 4.14.0
-  resolution: "swagger-ui@npm:4.14.0"
+"swagger-ui@npm:4.14.1":
+  version: 4.14.1
+  resolution: "swagger-ui@npm:4.14.1"
   dependencies:
     "@babel/runtime-corejs3": ^7.18.9
     "@braintree/sanitize-url": =6.0.0
@@ -7401,7 +7401,7 @@ __metadata:
     xml: =1.0.1
     xml-but-prettier: ^1.0.1
     zenscroll: ^4.0.2
-  checksum: da65de3e319e21d3dd9687040dcc4735e5198eb5006cf7b32395db13b3f2ca3856e5134735ad7ef137a113e0ec1e571bf0b15371bde6293babad61b0a0dea821
+  checksum: 06f198c71d0c83748a2a40f8a30cec72d036fdc79238a297a1d0383cf94c45f84a1e9afd6628fb3a7c8731e1c6daee1e52cede1f9e906382ac865a14e412bd8e
   languageName: node
   linkType: hard
 
@@ -7531,9 +7531,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-loader@npm:9.3.1":
-  version: 9.3.1
-  resolution: "ts-loader@npm:9.3.1"
+"ts-loader@npm:9.4.1":
+  version: 9.4.1
+  resolution: "ts-loader@npm:9.4.1"
   dependencies:
     chalk: ^4.1.0
     enhanced-resolve: ^5.0.0
@@ -7542,7 +7542,7 @@ __metadata:
   peerDependencies:
     typescript: "*"
     webpack: ^5.0.0
-  checksum: 462a8ac315017cf4961dafd2be29d5abe7c3af63c4515e325269f79b9d0212b35c59184d7fd01fc378749c88454752e1599301d2190eb6844ea5fe332de5f695
+  checksum: b8947f6d396621cc3f6ba8d4c14fa09eba03c4b7eeabbc429481e923a973c244fb80feb44e900f03fc1010755a6bf14fc561c574fb79e324f39b5b6ef1dcca6c
   languageName: node
   linkType: hard
 
@@ -7771,7 +7771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:^4.10.0":
+"webpack-cli@npm:4.10.0":
   version: 4.10.0
   resolution: "webpack-cli@npm:4.10.0"
   dependencies:
@@ -7895,7 +7895,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.74.0":
+"webpack@npm:5.74.0":
   version: 5.74.0
   resolution: "webpack@npm:5.74.0"
   dependencies:
