@@ -774,13 +774,17 @@ class PublicController extends CustomAbstractController
      * @Route("jx/public/welcome", name="public_welcome")
      * @return Response
      */
-    public function welcome(): Response
+    public function welcome(HTMLService $html): Response
     {
         $lang = $this->getUserLanguage();
+
+        $lastNews = $this->entity_manager->getRepository(Announcement::class)->findLatestByLang( $lang );
+        if ($lastNews) $lastNews->setText( $html->prepareEmotes( $lastNews->getText(), $lastNews->getSender() ) );
+
         return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs(null, [
             'lang' => $lang,
             'lastChangelog' => $this->entity_manager->getRepository(Changelog::class)->findLatestByLang( $lang ),
-            'lastNews' => $this->entity_manager->getRepository(Announcement::class)->findLatestByLang( $lang )
+            'lastNews' => $lastNews
         ]));
     }
 
