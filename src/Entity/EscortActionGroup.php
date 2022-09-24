@@ -10,93 +10,64 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\EscortActionGroupRepository")
- * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="escort_action_group_name_unique",columns={"name"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\EscortActionGroupRepository')]
+#[UniqueEntity('name')]
+#[Table]
+#[UniqueConstraint(name: 'escort_action_group_name_unique', columns: ['name'])]
 class EscortActionGroup implements NamedEntity
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $name;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $icon;
-
-    /**
-     * @ORM\Column(type="string", length=190, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 190, nullable: true)]
     private $label;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\ItemAction")
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\ItemAction')]
     private $actions;
-
-    /**
-     * @ORM\Column(type="string", length=190, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 190, nullable: true)]
     private $tooltip;
-
     public function __construct()
     {
         $this->actions = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getIcon(): ?string
     {
         return $this->icon;
     }
-
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
 
         return $this;
     }
-
     public function getLabel(): ?string
     {
         return $this->label;
     }
-
     public function setLabel(?string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
-
     /**
      * @return Collection|ItemAction[]
      */
@@ -104,7 +75,6 @@ class EscortActionGroup implements NamedEntity
     {
         return $this->actions;
     }
-
     public function addAction(ItemAction $action): self
     {
         if (!$this->actions->contains($action)) {
@@ -113,7 +83,6 @@ class EscortActionGroup implements NamedEntity
 
         return $this;
     }
-
     public function removeAction(ItemAction $action): self
     {
         if ($this->actions->contains($action)) {
@@ -122,19 +91,16 @@ class EscortActionGroup implements NamedEntity
 
         return $this;
     }
-
     public function getTooltip(): ?string
     {
         return $this->tooltip;
     }
-
     public function setTooltip(?string $tooltip): self
     {
         $this->tooltip = $tooltip;
 
         return $this;
     }
-
     public static function getTranslationDomain(): ?string
     {
         return 'items';

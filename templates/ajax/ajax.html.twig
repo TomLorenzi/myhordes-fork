@@ -75,7 +75,7 @@
                                 </li>
                             {% endif %}
                             {# @var \App\Entity\GlobalPoll poll #}
-                            {% if poll is defined and poll %}
+                            {% if app.user and is_granted('ROLE_USER') and poll is defined and poll %}
                                 <li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
                                     <button class="no-mobile-resize">
                                         <span>{{ 'Umfrage starten'|trans({},'global') }}</span>
@@ -113,8 +113,8 @@
             </div>
         {% endblock %}
     </div>
-    {% if poll is defined and poll %}
-        <div style="height: 32px;"></div>
+    {% if app.user and is_granted('ROLE_USER') and poll is defined and poll %}
+        <div id="poll-spacer" style="height: 32px;"></div>
     {% endif %}
     {% block ajax %}
     {% endblock %}
@@ -145,12 +145,12 @@
         {% endif %}
 
         {# @var \App\Entity\GlobalPoll poll #}
-        {% if poll is defined and poll %}
+        {% if app.user and is_granted('ROLE_USER') and poll is defined and poll %}
             const poll_ts = $.client.get( 'poll_{{ poll.id }}', 'polls', 0 );
             if ((poll_ts + 43200000) < (new Date()).getTime()) {
 
-                const fun_finish_poll_popup = (b,elem) => {
-                    $.client.set( 'poll_{{ poll.id }}', 'polls', (new Date()).getTime(), false );
+                const fun_finish_poll_popup = (b,elem,d) => {
+                    $.client.set( 'poll_{{ poll.id }}', 'polls', d, false );
                     $.html.triggerPopupPop( elem );
                     if (b) $.ajax.load( null, '{{ url('soul_polls', {id: poll.id})|e('js') }}' );
                 }
@@ -161,21 +161,16 @@
                     '<p>{{ poll.shortDescriptionByLang( app.user.language )|e('js') }}</p>',
                     null,
                     [
-                        [ '{{ 'Umfrage starten'|trans({}, 'global')|e('js') }}', [['click', (e,elem) => fun_finish_poll_popup(true,elem)]] ],
-                        [ '{{ 'Später erinnern'|trans({}, 'global')|e('js') }}', [['click', (e,elem) => fun_finish_poll_popup(false,elem)]] ],
-                    ]
+                        [ '{{ 'Umfrage starten'|trans({}, 'global')|e('js') }}', [['click', (e,elem) => fun_finish_poll_popup(true,elem,(new Date()).getTime())]] ],
+                        [ '{{ 'Später erinnern'|trans({}, 'global')|e('js') }}', [['click', (e,elem) => fun_finish_poll_popup(false,elem,(new Date()).getTime())]] ],
+                        [ '{{ 'Kein Interesse'|trans({}, 'global')|e('js') }}',  [['click', (e,elem) => {
+                            if (confirm('{{ 'Bist du sicher? Wir würden wirklich gerne deine Meinung zu hören!'|trans({}, 'global')|e('js') }}'))
+                                fun_finish_poll_popup(false, elem, (new Date()).getTime() + 1000000000000)
+                        }]] ],
+                    ], true
                 )
 
             }
-        //<li class="poll-dash" x-ajax-href="{{ url('soul_polls', {id: poll.id}) }}">
-        //    <button class="no-mobile-resize">
-        //        <span>{{ 'Umfrage starten'|trans({},'global') }}</span>
-        //        <div class="tooltip">
-        //            <b>{{ poll.titleByLang( app.user.language ) }}</b>
-        //            <div>{{ poll.shortDescriptionByLang( app.user.language ) }}</div>
-        //        </div>
-        //    </button>
-        //</li>
         {% endif %}
     </script>
 {% endblock %}

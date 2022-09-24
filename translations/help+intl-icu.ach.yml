@@ -52,7 +52,7 @@ Support: crwdns68372:0crwdne68372:0
 'Wie wähle ich ein sicheres Passwort?': 'crwdns68376:0crwdne68376:0'
 'Stadt unter Quarantäne': 'crwdns68378:0crwdne68378:0'
 'Fehlverhalten melden': 'crwdns68380:0crwdne68380:0'
-'Zum Thema ''Sitting''...': 'crwdns68382:0crwdne68382:0'
+"Zum Thema 'Sitting'...": "crwdns136302:0crwdne136302:0"
 'Externe Webseiten und Anwendungen': 'crwdns68384:0crwdne68384:0'
 Spielanleitung: crwdns68386:0crwdne68386:0
 Nachts: crwdns68388:0crwdne68388:0
@@ -67,7 +67,7 @@ Shamane: crwdns68392:0crwdne68392:0
 'Ziel Nr.3: Sich gegenseitig helfen und überleben...': 'crwdns68406:0crwdne68406:0'
 'Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.': 'crwdns68408:0crwdne68408:0'
 'Welche Aufgaben muss ich tagtäglich erledigen?': 'crwdns68410:0crwdne68410:0'
-'In ''Die Verdammten'' musst du jeden Tag mehrere Aufgaben erledigen.': 'crwdns68412:0crwdne68412:0'
+"In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.": "crwdns136304:0crwdne136304:0"
 'Die Zeitung lesen': 'crwdns68414:0crwdne68414:0'
 'Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!': 'crwdns68416:0crwdne68416:0'
 'Wasser entnehmen': 'crwdns68418:0crwdne68418:0'
@@ -140,7 +140,7 @@ Außenweltgebäude: crwdns68504:0crwdne68504:0
 'wieder die Kontrolle zu erlangen.': 'crwdns68552:0crwdne68552:0'
 "Solange du genügend {img_ap} <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:\nPro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.": "crwdns68554:0{img_ap}crwdnd68554:0{img_tired}crwdne68554:0"
 'MyHordes?': 'crwdns68556:0crwdne68556:0'
-'''MyHordes'' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.': 'crwdns68558:0crwdne68558:0'
+"'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.": "crwdns136306:0crwdne136306:0"
 'Beteilige dich im Forum': 'crwdns68560:0crwdne68560:0'
 'Organisiert euch, um zu überleben.': 'crwdns68562:0crwdne68562:0'
 'Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine {img_wound} <span x-ajax-href={url_health}>schwere Verletzung</span>.': 'crwdns68564:0{img_wound}crwdnd68564:0{url_health}crwdne68564:0'
@@ -164,7 +164,7 @@ Außenweltgebäude: crwdns68504:0crwdne68504:0
 'Eine Wasserpistole! Die ist ideal!': 'crwdns68600:0crwdne68600:0'
 'Ein wohlerzogenes Haustier ;-)': 'crwdns68602:0crwdne68602:0'
 'Sonstiges nettes Spielzeug...': 'crwdns68604:0crwdne68604:0'
-'Wenn''s mal Probleme geben sollte, ist eine <span x-ajax-href={url_cp}>Flucht</span> nicht verkehrt...': 'crwdns68606:0{url_cp}crwdne68606:0'
+"Wenn's mal Probleme geben sollte, ist eine <span x-ajax-href={url_cp}>Flucht</span> nicht verkehrt...": "crwdns136308:0{url_cp}crwdne136308:0"
 'Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...': 'crwdns68608:0crwdne68608:0'
 'Die folgenden Änderungen gelten Nachts:': 'crwdns68610:0crwdne68610:0'
 'Die Spezialfähigkeit <i>Durchbrechen</i> hat eine höhere Erfolgschance.': 'crwdns68612:0crwdne68612:0'
@@ -283,7 +283,7 @@ Fuß: crwdns68792:0crwdne68792:0
 "Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch <strong>die Aktion \"Die Flucht wagen\" ausführen</strong>: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. \nSolltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.": "crwdns68838:0crwdne68838:0"
 'Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich <strong>immer einige Zombies in der Nähe</strong> der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.': 'crwdns68840:0crwdne68840:0'
 "Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. \nLeider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.": "crwdns68842:0crwdne68842:0"
-'Deine Existenz in ''MyHordes'' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.': 'crwdns68844:0crwdne68844:0'
+"Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.": "crwdns136310:0crwdne136310:0"
 'Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.': 'crwdns68846:0crwdne68846:0'
 'Die Auszeichnungen': 'crwdns68848:0crwdne68848:0'
 'Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...': 'crwdns68850:0crwdne68850:0'
@@ -300,7 +300,7 @@ Seelenrangliste: crwdns68866:0crwdne68866:0
 "<strong>Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen</strong>\n(so dass die besten Spieler unter sich bleiben).": "crwdns68872:0crwdne68872:0"
 'Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>{img_infect} Infektion</strong> (geht in der Regel tödlich aus...)!': 'crwdns68874:0{img_infect}crwdne68874:0'
 "Manche Gegenstände, wie zum Beispiel der <strong>{img_carpet} Teppich</strong>,\nwerden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)": "crwdns68876:0{img_carpet}crwdne68876:0"
-'Es gibt in ''MyHordes'' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>{img_addict} Abhängig</strong> werden.': 'crwdns68878:0{img_addict}crwdne68878:0'
+"Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>{img_addict} Abhängig</strong> werden.": "crwdns136312:0{img_addict}crwdne136312:0"
 'Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine {img_drunk} <strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen {img_hung} <strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.': 'crwdns68880:0{img_drunk}crwdnd68880:0{img_hung}crwdne68880:0'
 'Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.': 'crwdns68882:0crwdne68882:0'
 'Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines {img_meat} saftigen Steaks auf einer angerichteten Tafel!': 'crwdns68884:0{img_meat}crwdne68884:0'
@@ -334,7 +334,7 @@ Seelenrangliste: crwdns68866:0crwdne68866:0
 'Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.': 'crwdns68940:0crwdne68940:0'
 'Wechselst du wieder in den Heldenmodus, erhältst du alle Heldenvorteile und es wird da weitergezählt, wo du aufgehört hast.': 'crwdns68942:0crwdne68942:0'
 "Der Spielmodus <strong>Kleine Koalitionen</strong> ist sehr einfach und sehr effektiv.\nEs basiert auf folgenden zwei Konzepten:": "crwdns68944:0crwdne68944:0"
-'1 - Manche Spieler möchten ''MyHordes'' gerne mit ihren Freunden spielen und gemeinsam leiden.': 'crwdns68946:0crwdne68946:0'
+"1 - Manche Spieler möchten 'MyHordes' gerne mit ihren Freunden spielen und gemeinsam leiden.": "crwdns136314:0crwdne136314:0"
 '2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.': 'crwdns68948:0crwdne68948:0'
 'Wie funktionieren Kleine Koalitionen?': 'crwdns68950:0crwdne68950:0'
 'Ein Spieler erstellt auf seiner Seelenseite eine Koalition und versendet anschließend Einladungen an seine Freunde.': 'crwdns68952:0crwdne68952:0'
@@ -467,7 +467,7 @@ Schraubenschlüssel: crwdns69168:0crwdne69168:0
 'Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.': 'crwdns69206:0crwdne69206:0'
 'Doch manchmal greift das Schicksal ein und zerrt dich aus Ihrem kleinen Leben in große Abenteuer und kühne Taten.': 'crwdns69208:0crwdne69208:0'
 'Überleben durch Kommunikation und Kooperation': 'crwdns69210:0crwdne69210:0'
-'So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in ''MyHordes'' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.': 'crwdns69212:0crwdne69212:0'
+"So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in 'MyHordes' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.": "crwdns136316:0crwdne136316:0"
 'Die Bank': 'crwdns69214:0crwdne69214:0'
 'Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, <strong>sollten</strong> alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.': 'crwdns69216:0crwdne69216:0'
 '<strong>Beherzige das Sprichwort</strong>: Wer nichts gibt und nichts spendet, der verendet!': 'crwdns69218:0crwdne69218:0'
@@ -625,7 +625,7 @@ etc.: crwdns69508:0crwdne69508:0
 'Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.': 'crwdns69522:0crwdne69522:0'
 'Deine Tage sind gezählt... Wir geben dir folgenden Rat:': 'crwdns69524:0crwdne69524:0'
 'Meide diesen verfluchten Ort!': 'crwdns69526:0crwdne69526:0'
-'Das Pandämonium ist der schwierige Modus in ''Die Verdammten''.': 'crwdns69528:0crwdne69528:0'
+"Das Pandämonium ist der schwierige Modus in 'Die Verdammten'.": "crwdns136318:0crwdne136318:0"
 'Im Pandämonium findet ihr ausschießlich Städte, die mit zusätzlichen Problemen zu kämpfen haben und in denen das Überleben außerordentlich schwierig ist.': 'crwdns69530:0crwdne69530:0'
 'In diesen Städten gelten bestimmte Regeln:': 'crwdns69532:0crwdne69532:0'
 'Die mitternächtlichen Zombieangriffe richten Schäden an den gebauten Gebäuden und Konstruktionen an. Diese Schäden müssen repariert werden.': 'crwdns69534:0crwdne69534:0'
@@ -712,7 +712,7 @@ etc...: crwdns69670:0crwdne69670:0
 'Jedweder Beitrag, der zu einem Verbrechen oder zu Terrorismus aufruft oder der Kriegsverbrechen oder Verbrechen gegen die Menschheit verherrlicht.': 'crwdns69696:0crwdne69696:0'
 'Alle Hinweise und Links, die auf gecrackte Programme, Seriennummern, Dateitauschbörsen, Seiten mit pornographischem Inhalt, Cracktools, Warez verweisen.': 'crwdns69698:0crwdne69698:0'
 'Diese Liste ist nicht erschöpfend und keineswegs humoristisch gemeint.': 'crwdns69700:0crwdne69700:0'
-'Der Begriff "Sitting" bezeichnet das unerlaubte Verleihen eines Spielaccounts an einen anderen Spieler. Ein anderer Begriff dafür ist ''Accountvertretung''. Ziel des ''Sittings'' ist es, sich gegenüber anderen Spielern einen zeitlichen oder spielerischen Vorteil zu verschaffen.': 'crwdns69702:0crwdne69702:0'
+"Der Begriff \"Sitting\" bezeichnet das unerlaubte Verleihen eines Spielaccounts an einen anderen Spieler. Ein anderer Begriff dafür ist 'Accountvertretung'. Ziel des 'Sittings' ist es, sich gegenüber anderen Spielern einen zeitlichen oder spielerischen Vorteil zu verschaffen.": "crwdns136320:0crwdne136320:0"
 'Accountvertretungen bzw. Sitting sind bei "Die Verdammten" verboten!': 'crwdns69704:0crwdne69704:0'
 'Warum sind Accountvertretungen (Sitting) verboten?': 'crwdns69706:0crwdne69706:0'
 'Eine hohe Anzahl an Nachrichten, die unseren Technischen Support erreichen, drehen sich um Accountdiebstähle. Diese Diebstähle sind <strong>fast immer </strong> Folge von Accountvertretungen, die "dumm" gelaufen sind ;)': 'crwdns69708:0crwdne69708:0'
@@ -729,7 +729,7 @@ etc...: crwdns69670:0crwdne69670:0
 'Wie entdeckt ihr Sitter?': 'crwdns69730:0crwdne69730:0'
 'Es dürfte jedem einleuchten, dass wir unsere Tools und Methoden hier nicht bekannt geben können. Dennoch können wir euch sagen, dass :': 'crwdns69732:0crwdne69732:0'
 '<strong>Paare</strong> und <strong>Familien</strong> nichts zu befürchten haben. Unser System filtert "normale" Fälle von IP-Sharing und "sich einen PC teilen" heraus.': 'crwdns69734:0crwdne69734:0'
-'das Verleihen von Accounts und Accountpasswörtern strengstens verboten bleibt. Gebt euer Passwort nicht weiter und fragt auch nicht nach einem anderen Passwort (Don''t Ask, Don''t Tell).': 'crwdns69736:0crwdne69736:0'
+"das Verleihen von Accounts und Accountpasswörtern strengstens verboten bleibt. Gebt euer Passwort nicht weiter und fragt auch nicht nach einem anderen Passwort (Don't Ask, Don't Tell).": "crwdns136322:0crwdne136322:0"
 'ihr nichts zu befürchten habt, wenn ihr eine reine Seele habt': 'crwdns69738:0crwdne69738:0'
 'MyHordes bietet Entwicklern zusätzliche Informationen in Form von JSON- und XML-Feeds, die für die Erstellung zusätzlicher Anwendungen und anderer neuartiger Funktionen auf Basis des Spiels verwendet werden können.': 'crwdns69740:0crwdne69740:0'
 'Im Folgenden findet ihr weitere Informationen zur Konzeption und Funktion von Externen Anwendungen.': 'crwdns69742:0crwdne69742:0'
@@ -833,7 +833,7 @@ Automatisierung: crwdns69910:0crwdne69910:0
 'Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche <strong>nicht über die Externe API verfügbar sind</strong>, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, <strong>Informationen zu falsifizieren</strong>. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen <u>nicht</u> als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.': 'crwdns69938:0crwdne69938:0'
 'Weitere Richtlinien': 'crwdns69940:0crwdne69940:0'
 'Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.': 'crwdns69942:0crwdne69942:0'
-'Wortklauberei setzt die hier genannten Regeln nicht außer Kraft (''<i>die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!</i>'').': 'crwdns69944:0crwdne69944:0'
+"Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('<i>die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!</i>').": "crwdns136324:0crwdne136324:0"
 'Hast du Fragen oder bist unsicher, ob eine bestimmte Funktion nach diesen Regeln zulässig wäre, dann melde dich vertrauensvoll bei den Moderatoren oder Admins - idealerweise bevor du deine Idee tatsächlich implementierst.': 'crwdns69946:0crwdne69946:0'
 Gebäudeverbesserung: crwdns69948:0crwdne69948:0
 'Der Tod und die Berechnung der Seelepunkte': 'crwdns69950:0crwdne69950:0'

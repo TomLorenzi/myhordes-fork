@@ -5,10 +5,6 @@ require('../less/mixins.less');
 require('../less/mobile.less');
 require('../less/intl.less');
 
-// Packages - FontAwesome
-require('@fortawesome/fontawesome-free/less/fontawesome.less');
-require('@fortawesome/fontawesome-free/js/all.js');
-
 // CSS files
 require('../css/app.css');
 
@@ -20,16 +16,6 @@ import MessageAPI from '../ts/messages'
 import Components from "../ts/react";
 const matchAll = require('string.prototype.matchall');
 matchAll.shim();
-
-require("@ruffle-rs/ruffle");
-window.RufflePlayer.config = {
-    "publicPath": "/build/ruffle",
-    "contextMenu": "false",
-    "autoplay": "on",
-    'unmuteOverlay': "hidden"
-}
-/*window.RufflePlayer.config.publicPath = "/build/ruffle";
-window.RufflePlayer.config.contextMenu = false;*/
 
 // Get the base URL
 const base_node = document.getElementsByTagName('base');
@@ -64,7 +50,7 @@ const resize_game_menu = function() {
     let game_menu = document.querySelector('#gma');
     let game_menu_elems = document.querySelectorAll('#gma>div.game-bar>*:not(.clock)');
     let game_menu_burger = document.querySelector('#gma>div.game-bar>ul.text-menu>li.burger-button');
-    let game_menu_hide = document.querySelectorAll('#gma>div.game-bar>ul.text-menu>li:not(.burger-button)');
+    let game_menu_hide = document.querySelectorAll('#gma>div.game-bar>ul.text-menu>li:not(.burger-button),#poll-spacer');
 
     if (!game_menu) return;
 

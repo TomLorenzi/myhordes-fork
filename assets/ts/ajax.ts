@@ -8,11 +8,6 @@ interface navigationPromiseCallback { (any): void }
 declare var c: Const;
 declare var $: Global;
 
-declare global {
-    interface Window { RufflePlayer: any; }
-}
-window.RufflePlayer = window.RufflePlayer || {};
-
 export default class Ajax {
 
     private readonly base: string;
@@ -24,6 +19,8 @@ export default class Ajax {
     private render_queue: Array<ajaxStack> = [];
     private render_block_stack: number = 0;
     private render_block_promises: Array<navigationPromiseCallback> = []
+
+    private known_dynamic_modules: Array<string> = []
 
     constructor(baseUrl: string) {
         if (baseUrl.length == 0 || baseUrl.slice(-1) != '/')
@@ -107,6 +104,25 @@ export default class Ajax {
         return target;
     }
 
+    private fetch_module(src: string) {
+        const existing = document.querySelector('head>script[src="' + src + '"]');
+        if (!existing && !this.known_dynamic_modules.includes( src )) {
+            console.info( 'Loading dynamic JS module: ' + src );
+            this.known_dynamic_modules.push(src);
+            fetch( src, {mode:"no-cors"} )
+                .then( response => response.ok ? response.text() : new Promise(r=>r(null)) )
+                .then( script => {
+                    if (!script) $.html.error(c.errors['dyn_script_no'] + '<br /><code>' + src + '</code>');
+                    else try {
+                        eval(script as string);
+                    } catch (e) {
+                        $.html.error(c.errors['dyn_script'] + '<br /><code>' + src + ': ' + e.message + '</code>');
+                        console.error(e,script);
+                    }
+                } )
+        }
+    }
+
     private render( url: string, target: HTMLElement, result_document: Document, push_history: boolean, replace_history: boolean ) {
         // Get URL
         if (push_history) history.pushState( url, '', url );
@@ -126,14 +142,28 @@ export default class Ajax {
             fragment.remove();
         }
 
+        // Check content source for non-defined nodes
+        result_document.querySelectorAll(':not(:defined)').forEach( e =>
+            // @ts-ignore
+            ((window.c?.modules ?? {})[e.localName] ?? []).forEach( src => this.fetch_module(src) )
+        );
+
         // Get content, style and script tags
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
         let style_source = result_document.querySelectorAll('html>head>style');
         let script_source = result_document.querySelectorAll('script');
         let react_mounts = {}
-        $.html.forEach('[id][x-react-mount]', c => {
+        $.html.forEach('[id][data-react-mount]', c => {
             react_mounts[c.id] = c;
         }, result_document)
+
+        // Disable elements that are waiting for a custom element class to become available
+        result_document.querySelectorAll('[data-await-custom-element]').forEach( (e: HTMLElement) => {
+            if (!customElements.get( e.dataset.awaitCustomElement )) {
+                e.setAttribute('disabled','disabled');
+                customElements.whenDefined( e.dataset.awaitCustomElement ).then(() => e.removeAttribute('disabled'))
+            }
+        } );
 
         // Merge flash messages
         let message_stack_changed = true, flash_source = null;
@@ -169,14 +199,17 @@ export default class Ajax {
         $.html.clearTooltips( target );
 
         // Save react mounts
-        $.html.forEach( '[id][x-react-mount]', c => {
+        $.html.forEach( '[id][data-react-mount]', c => {
             if (react_mounts[c.id]) {
-                if (react_mounts[c.id].getAttribute('x-react-data'))
-                    c.setAttribute( 'x-react-data', react_mounts[c.id].getAttribute('x-react-data') )
+                for (const [key, value] of Object.entries(react_mounts[c.id].dataset))
+                    if (key !== 'react' && key !== 'reactMount')
+                        { // @ts-ignore
+                            c.dataset[key] = value;
+                        }
                 react_mounts[c.id].parentElement.insertBefore( c, react_mounts[c.id] );
                 react_mounts[c.id].remove();
                 react_mounts[c.id] = c;
-            } else $.components.degenerate( c );
+            } else c.dispatchEvent(new Event("x-react-degenerate", { bubbles: true, cancelable: false }));
         }, target );
 
         // Clear the target
@@ -274,17 +307,7 @@ export default class Ajax {
                 $.html.handleCountdown( countdowns[c] );
             }
 
-            let ruffle_targets = content_source[i].querySelectorAll('*[data-ruffle-swf]');
-            for (let c = 0; c < ruffle_targets.length; c++) {
-                let ruffle = window.RufflePlayer.newest();
-                let player = ruffle.createPlayer();
-                ruffle_targets[c].appendChild(player);
-                player.load({
-                        url: (ruffle_targets[c] as HTMLElement).dataset.ruffleSwf,
-                        parameters: (ruffle_targets[c] as HTMLElement).dataset.ruffleVars ?? ''
-                    }
-                );
-            }
+            $.html.handleCollapseSection( content_source[i] as HTMLElement );
 
             content_source[i].querySelectorAll('*[x-current-time]').forEach( elem => $.html.handleCurrentTime( <HTMLElement>elem, parseInt(elem.getAttribute('x-current-time')) ))
             content_source[i].querySelectorAll('div.tooltip')      .forEach( elem => $.html.handleTooltip( <HTMLElement>elem ))
@@ -292,16 +315,12 @@ export default class Ajax {
             content_source[i].querySelectorAll('.username')        .forEach( elem => $.html.handleUserPopup( <HTMLElement>elem ))
             target.appendChild( content_source[i] );
         }
-        Object.entries(react_mounts).forEach(entry => {
-            const component = <HTMLElement>entry[1];
-            let data = component.hasAttribute('x-react-data') ? JSON.parse(component.getAttribute('x-react-data')) : {};
-            component.removeAttribute('x-react-data');
-            $.components.generate( component, component.getAttribute('x-react-mount'), data );
-        });
 
         for (let i = 0; i < script_source.length; i++)
             try {
-                eval(script_source[i].innerText);
+                if (script_source[i].hasAttribute('src'))
+                    this.fetch_module( script_source[i].getAttribute('src') );
+                else eval(script_source[i].innerText);
             } catch (e) {
                 $.html.error(c.errors['script'] + '<br /><code>' + e.message + '</code>');
                 console.error(e,script_source[i].innerText);
@@ -325,6 +344,8 @@ export default class Ajax {
 
         $.components.prune();
         $.html.restoreTutorialStage();
+
+
     }
 
     push_history( url: string ) {

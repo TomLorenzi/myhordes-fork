@@ -186,7 +186,7 @@ export default class HTML {
         this.message('notice',msg);
     }
 
-    private popupStack: Array<[string,string|HTMLElement,string|null,Array<[string,Array<[string,eventListener]>]>]> = [];
+    private popupStack: Array<[string,string|HTMLElement,string|null,Array<[string,Array<[string,eventListener]>]>,boolean]> = [];
     private popupOpen: boolean = false;
 
 
@@ -211,8 +211,8 @@ export default class HTML {
             elem_backdrop.classList.add('active');
             this.popupOpen = true;
 
-            let title: string, msg: string|HTMLElement, css: string|null = null, buttons: Array<[string,Array<[string,eventListener]>]>;
-            [title,msg,css,buttons] = this.popupStack.shift();
+            let title: string, msg: string|HTMLElement, css: string|null = null, buttons: Array<[string,Array<[string,eventListener]>]>, lastIsSmall: boolean;
+            [title,msg,css,buttons,lastIsSmall] = this.popupStack.shift();
 
             elem_title.innerText = title;
             if (typeof msg === "string") elem_content.innerHTML = msg;
@@ -221,10 +221,12 @@ export default class HTML {
 
             if (css) elem_modal.classList.add(css);
 
-            let first = true;
+            let first = true, i = 1;
             for (const button of buttons) {
                 let elem_button = document.createElement('div');
-                elem_button.classList.add('modal-button', 'small', 'inline')
+                if (i < buttons.length || !lastIsSmall)
+                    elem_button.classList.add('modal-button', 'small', 'inline')
+                else elem_button.classList.add('small','inline','pointer')
                 elem_button.innerHTML = button[0];
 
                 let c = 0;
@@ -234,13 +236,24 @@ export default class HTML {
                 if (!first) elem_actions.appendChild( document.createTextNode(' ') );
                 first = false;
 
-                elem_actions.appendChild(elem_button);
+                if (i < buttons.length || !lastIsSmall)
+                    elem_actions.appendChild(elem_button);
+                else {
+                    elem_actions.appendChild(document.createElement('br'))
+                    elem_actions.appendChild(document.createElement('br'))
+                    let wrapper = document.createElement('div')
+                    wrapper.classList.add('right');
+                    elem_actions.appendChild(wrapper)
+                    wrapper.appendChild(elem_button)
+                }
+
+                i++;
             }
         }
     }
 
-    popup(title: string, msg: string|HTMLElement, css: string|null = null, buttons: Array<[string,Array<[string,eventListener]>]>): void {
-        this.popupStack.push( [title,msg,css,buttons] );
+    popup(title: string, msg: string|HTMLElement, css: string|null = null, buttons: Array<[string,Array<[string,eventListener]>]>, lastOptionSmall: boolean = false): void {
+        this.popupStack.push( [title,msg,css,buttons,lastOptionSmall] );
         if (!this.popupOpen) this.nextPopup();
     }
 
@@ -579,6 +592,55 @@ export default class HTML {
             }
 
         }
+    }
+
+    handleCollapseSection( element: HTMLElement): void {
+        element?.querySelectorAll('.collapsor:not([data-processed])+.collapsed').forEach( collapsed => {
+            const collapsor = collapsed.previousElementSibling as HTMLElement;
+            collapsor.dataset.processed = '1';
+
+            if (collapsor.dataset.open === '1') {
+                (collapsed as HTMLElement).style.maxHeight = null;
+                (collapsed as HTMLElement).style.opacity = '1';
+            } else {
+                (collapsed as HTMLElement).style.maxHeight = '0';
+                (collapsed as HTMLElement).style.opacity = '0';
+            }
+
+            const updateState = () => {
+                if (collapsor.dataset.open === '1') {
+                    collapsor.dataset.transition = '0';
+                    (collapsed as HTMLElement).style.maxHeight = null;
+                    const h = (collapsed as HTMLElement).offsetHeight;
+                    (collapsed as HTMLElement).style.maxHeight = '0';
+
+                    collapsor.dataset.transition = '1';
+                    window.setTimeout(() => {
+                        (collapsed as HTMLElement).style.maxHeight = `${h}px`;
+                        (collapsed as HTMLElement).style.opacity = '1';
+                        window.setTimeout( () => {
+                            if (collapsed as HTMLElement) (collapsed as HTMLElement).style.maxHeight = null;
+                        }, 300 );
+                    }, 1)
+
+                } else {
+                    collapsor.dataset.transition = '0';
+                    const h = (collapsed as HTMLElement).offsetHeight;
+                    (collapsed as HTMLElement).style.maxHeight = `${h}px`;
+                    (collapsed as HTMLElement).style.opacity = '1';
+
+                    collapsor.dataset.transition = '1';
+                    window.setTimeout(() => {
+                        (collapsed as HTMLElement).style.maxHeight = '0';
+                        (collapsed as HTMLElement).style.opacity = '0';
+                    }, 1)
+                }
+            }
+            collapsor.addEventListener('click', () => {
+                collapsor.dataset.open = collapsor.dataset.open === '1' ? '0' : '1';
+                updateState();
+            })
+        } )
     }
 
     setTutorialStage( tutorial: number, stage: string ): void {

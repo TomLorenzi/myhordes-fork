@@ -10,132 +10,90 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\PictoPrototypeRepository")
- * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="picto_prototype_name_unique",columns={"name"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\PictoPrototypeRepository')]
+#[UniqueEntity('name')]
+#[Table]
+#[UniqueConstraint(name: 'picto_prototype_name_unique', columns: ['name'])]
 class PictoPrototype implements NamedEntity
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $name;
-
-    /**
-     * @ORM\Column(type="string", length=190)
-     */
+    #[ORM\Column(type: 'string', length: 190)]
     private $label;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $description;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $icon;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $rare;
-
-    /**
-     * @ORM\OneToMany(targetEntity=AwardPrototype::class, mappedBy="associatedPicto", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: AwardPrototype::class, mappedBy: 'associatedPicto', orphanRemoval: true)]
     private $awards;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $community = false;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $priority = 0;
-
     public function __construct()
     {
         $this->awards = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getLabel(): ?string
     {
         return $this->label;
     }
-
     public function setLabel(string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
-
     public function getDescription(): ?string
     {
         return $this->description;
     }
-
     public function setDescription(string $description): self
     {
         $this->description = $description;
 
         return $this;
     }
-
     public function getIcon(): ?string
     {
         return $this->icon;
     }
-
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
 
         return $this;
     }
-
     public function getRare(): ?bool
     {
         return $this->rare;
     }
-
     public function setRare(bool $rare): self
     {
         $this->rare = $rare;
 
         return $this;
     }
-
     /**
      * @return Collection|AwardPrototype[]
      */
@@ -143,7 +101,6 @@ class PictoPrototype implements NamedEntity
     {
         return $this->awards;
     }
-
     public function addAward(AwardPrototype $award): self
     {
         if (!$this->awards->contains($award)) {
@@ -153,7 +110,6 @@ class PictoPrototype implements NamedEntity
 
         return $this;
     }
-
     public function removeAward(AwardPrototype $award): self
     {
         if ($this->awards->contains($award)) {
@@ -166,31 +122,26 @@ class PictoPrototype implements NamedEntity
 
         return $this;
     }
-
     public function getCommunity(): ?bool
     {
         return $this->community;
     }
-
     public function setCommunity(bool $community): self
     {
         $this->community = $community;
 
         return $this;
     }
-
     public function getPriority(): ?int
     {
         return $this->priority;
     }
-
     public function setPriority(int $priority): self
     {
         $this->priority = $priority;
 
         return $this;
     }
-
     public static function getTranslationDomain(): ?string
     {
         return 'game';

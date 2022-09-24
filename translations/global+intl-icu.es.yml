@@ -432,24 +432,34 @@ STRG: CTRL
 'Alles als gelesen markieren': 'Marcar todo como leído'
 Weltforum: Foro Mundial
 'im-Kontext Übersetzung': 'Traducir MyHordes'
-'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.'
-'Spieler melden': 'Spieler melden'
-'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?': 'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?'
-'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.': 'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.'
-'Unangemessene Profilbeschreibung': 'Unangemessene Profilbeschreibung'
-'Unangemessener Avatar': 'Unangemessener Avatar'
-'Unangemessener Name': 'Unangemessener Name'
-'Liste der Foren aktualisieren': 'Liste der Foren aktualisieren'
-Community-Management: Community-Management
-'Aktuelles Team': 'Aktuelles Team'
-Unterstützung: Unterstützung
-Inaktive: Inaktive
-'Rechtliche Informationen': 'Rechtliche Informationen'
-Datenschutzerklärung: Datenschutzerklärung
-Impressum: Impressum
-'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.': 'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.'
-'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:': 'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:'
-'Aktuelle Umfrage': 'Aktuelle Umfrage'
-'Deine Meinung ist gefragt!': 'Deine Meinung ist gefragt!'
-'Später erinnern': 'Später erinnern'
-'Optionen für dieses Forum': 'Optionen für dieses Forum'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'Este lenguaje en particular activa la traducción en contexto de Crowdin. Podrá traducir MyHordes directamente desde el juego.'
+'Spieler melden': 'Denunciar jugador'
+'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?': '¿Estás seguro de que quieres informar de esta publicación a los moderadores?'
+'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.': 'Si quieres denunciar un mensaje o una entrada del foro de este jugador, utiliza la función de denuncia del mensaje correspondiente.'
+'Unangemessene Profilbeschreibung': 'Descripción del perfil inapropiado'
+'Unangemessener Avatar': 'Avatar inapropiado'
+'Unangemessener Name': 'Nombre inapropiado'
+'Liste der Foren aktualisieren': 'Actualizar la lista de foros'
+Community-Management: Gestión de la comunidad
+'Aktuelles Team': 'Equipo Actual'
+Unterstützung: Soporte
+Inaktive: Inactivos
+'Rechtliche Informationen': 'Información legal'
+Datenschutzerklärung: Política de privacidad
+Impressum: Aviso legal
+'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.': 'La URL solicitada no se encuentra en este servidor.'
+'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:': 'Si usted es el administrador de este servidor, por favor proporcione el documento solicitado en la siguiente ubicación del sistema de archivos:'
+'Aktuelle Umfrage': 'Encuesta actual'
+'Deine Meinung ist gefragt!': '¡Danos tu opinión!'
+'Später erinnern': 'Recordármelo más tarde'
+'Optionen für dieses Forum': 'Opciones del foro'
+'Freundesliste öffnen': 'Mostrar la lista de amigos'
+'Du hast die Seiteneinstellungen geändert.': 'Ha cambiado la configuración de la página.'
+'Ein für die Darstellung dieser Seite erforderliches Script konnte nicht geladen werden. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'No se ha podido cargar un script necesario para visualizar esta página. Puede que la página deje de funcionar correctamente. Por favor, informe de este error:'
+'Ein für die Darstellung dieser Seite erforderliches Script ist abgestürzt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'Se ha producido un error al cargar un script necesario para visualizar esta página. Puede que la página deje de funcionar correctamente. Por favor, informe de este error:'
+'Kein Interesse': 'No interesado'
+'Bist du sicher? Wir würden wirklich gerne deine Meinung zu hören!': '¿Está seguro? ¡Realmente nos gustaría escuchar tu opinión!'
+Einklappen: Colapsar
+'Eingeklappte Sektion hinzufügen': 'Añadir una sección colapsable'
+Kopfzeile: Cabecera
+'Du musst eine Kopfzeile angeben.': 'Debe especificar una cabecera.'

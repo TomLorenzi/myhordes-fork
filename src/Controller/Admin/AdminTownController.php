@@ -168,13 +168,14 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/town/{id<\d+>}/{tab?}", name="admin_town_explorer")
+     * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer")
      * @param int $id
      * @param string|null $tab The tab we want to display
+     * @param string|null $conf
      * @param GazetteService $gazetteService
      * @return Response
      */
-    public function town_explorer(int $id, ?string $tab, GazetteService $gazetteService): Response
+    public function town_explorer(int $id, ?string $tab, ?string $conf, GazetteService $gazetteService): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -292,9 +293,18 @@ class AdminTownController extends AdminActionController
             if ($citizen->getActive()) $langs_alive[$lang]++;
         }
 
+        $conf_self = $this->conf->getTownConfiguration($town);
+        $conf_compare = match($conf) {
+            'small', 'remote', 'panda', 'default' => $this->conf->getTownConfigurationByType($conf),
+            default => null,
+        };
+
         return $this->render('ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
-            'conf' => $this->conf->getTownConfiguration($town),
+            'opt_conf' => $conf,
+            'conf' => $conf_self,
+            'conf_compare' => $conf_compare,
+            'conf_keys' => array_unique( array_merge( array_keys( $conf_self->raw() ), array_keys( $conf_compare?->raw() ?? [] ) ) ),
             'explorables' => $explorables,
             'log' => $this->renderLog(-1, $town, false)->getContent(),
             'day' => $town->getDay(),
@@ -435,7 +445,6 @@ class AdminTownController extends AdminActionController
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
-                'dbg_set_town_base_def', 'dbg_set_town_temp_def'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -489,8 +498,8 @@ class AdminTownController extends AdminActionController
                 break;
             case 'dice_name':
                 $old_name = $town->getName();
-                $new_name = $gameFactory->createTownName( $town->getLanguage() );
-                $town->setName( $new_name );
+                $new_name = $gameFactory->createTownName( $town->getLanguage(), $schema );
+                $town->setName( $new_name )->setNameSchema( $schema );
                 $town->getRankingEntry()->setName( $new_name );
                 $this->entity_manager->persist($town);
                 $this->entity_manager->persist($town->getRankingEntry());
@@ -771,10 +780,10 @@ class AdminTownController extends AdminActionController
                         $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 }
                 break;
-            case 'dbg_set_town_base_def':
+            case 'set_town_base_def':
                 $town->setBaseDefense($param);
                 break;
-            case 'dbg_set_town_temp_def':
+            case 'set_town_temp_def':
                 $town->setTempDefenseBonus($param);
                 break;
 
@@ -867,17 +876,33 @@ class AdminTownController extends AdminActionController
         $town_name = $parser->get('name', null) ?: null;
         $town_type = $parser->get('type', '');
         $town_lang = $parser->get('lang', 'de');
+        $town_time = $parser->get('time', '');
+
+        try {
+            $town_time = empty($town_time) ? null : new \DateTime($town_time);
+            if ($town_time <= new \DateTime()) $town_time = null;
+        } catch (\Throwable) {
+            $town_time = null;
+        }
+
 
         if (!in_array($town_lang, array_merge($this->generatedLangsCodes, ['multi'])))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $this->logger->invoke("[add_default_town] Admin <info>{$this->getUser()->getName()}</info> created a <info>$town_lang</info> town (custom name: '<info>$town_name</info>'), which is of type <info>$town_type</info>");
 
-        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type);
+        $current_events = $this->conf->getCurrentEvents();
+        $name_changers = array_values(
+            array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+        );
+
+        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type, [], -1, $name_changers[0] ?? null);
         if (!$town) {
             $this->logger->invoke("Town creation failed!");
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
         }
+
+        $town->setScheduledFor( $town_time );
 
         try {
             $this->entity_manager->persist( $town );
@@ -888,7 +913,6 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $current_events = $this->conf->getCurrentEvents();
         $current_event_names = array_map(fn(EventConf $e) => $e->name(), array_filter($current_events, fn(EventConf $e) => $e->active()));
         if (!empty($current_event_names)) {
             if (!$townHandler->updateCurrentEvents($town, $current_events)) {
@@ -1500,9 +1524,9 @@ class AdminTownController extends AdminActionController
 
         if ($rename) {
             $old_name = $town_proxy->getName( );
-            $name = $gameFactory->createTownName( $lang );
+            $name = $gameFactory->createTownName( $lang, $schema );
             $town_proxy->setName( $name );
-            $town_proxy->getTown()?->setName($name);
+            $town_proxy->getTown()?->setName($name)?->setNameSchema($schema);
 
             foreach ($town_proxy->getCitizens() as $citizen)
                 $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town_proxy, $old_name ));
@@ -1997,16 +2021,21 @@ class AdminTownController extends AdminActionController
 
         $proto_id = $parser->get("prototype_id");
         $act = $parser->get('act');
+        if(!is_array($proto_id)) {
+            $proto_id = [$proto_id];
+        }
 
-        $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($proto_id);
-        if (!$proto)
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        foreach ($proto_id as $pid) {
+            $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($pid);
+            if (!$proto)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if($act) {
-            $th->addBuilding($town, $proto);
-            $gps->recordBuildingDiscovered($proto, $town, null, 'debug');
-        } else {
-            $th->removeBuilding($town, $proto);
+            if($act) {
+                $th->addBuilding($town, $proto);
+                $gps->recordBuildingDiscovered($proto, $town, null, 'debug');
+            } else {
+                $th->removeBuilding($town, $proto);
+            }
         }
 
         $this->entity_manager->persist($town);

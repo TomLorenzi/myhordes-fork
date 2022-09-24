@@ -430,7 +430,7 @@ Rolle: Role
 'Zurzeit in der Stadt': 'Currently in town'
 'Eternal-Twin-Konto verlinkt': 'Linked Eternaltwin account'
 Gruppentyp: Group Type
-'Änderungen an ''{appname}'' speichern': 'Save changes to ''{appname}'''
+"Änderungen an '{appname}' speichern": "Save changes to '{appname}'"
 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'This picto won''t be earned if the citizen dies tonight.'
 'Diese Auszeichnung wurde verdient.': 'This picto has been earned.'
 Freundesliste: Friend list
@@ -535,3 +535,13 @@ Antwortstext: Answer text
 'Neue temporäre Stadtverteidigung:': 'New temporary town defense:'
 'Temporäre Stadtverteidigung setzen': 'Set the town''s temporary defense'
 'Alle Tode bestätigen': 'Validate all deaths'
+'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Specify a time when the town must be opened. Leave blank or specify a time in the past to open the town immediately.'
+'Geplant für': 'Scheduled for'
+'Seelenpunkte:': 'Soul points:'
+'Heldentage:': 'Hero days:'
+Vergleichswert: Reference value
+Keiner: None
+Basiskonfiguration: Basic configuration
+'Sonstige Accountmarkierungen': 'Other account markers'
+'Strenges Report Rate Limiting': 'Strict report rate limiting'
+'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'You are about to edit an existing account restriction. The player will not be informed about the edit. Existing confirmations for this restriction will be removed. Continue?'

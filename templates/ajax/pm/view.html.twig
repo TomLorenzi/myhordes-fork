@@ -223,11 +223,7 @@
 
 {% macro pm_preview(user) %}
     <li class="own" x-preview>
-        {% if (user.avatar) %}
-            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}) center/cover"></div>
-        {% else %}
-            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
-        {% endif %}
+        {% include "ajax/soul/playeravatar.html.twig" with {user: user, gpm: true} only %}
         <div class="pm-message">
             <div class="pm-message-header"><img src="{{ asset('build/images/icons/small_user.gif') }}" alt=""> {{ user.name }}</div>
             <div class="pm-message-content"><div translate="no" id="pm-editor-preview"></div></div>

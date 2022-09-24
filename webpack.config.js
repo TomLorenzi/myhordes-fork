@@ -76,7 +76,12 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry('fa', './assets/js/fa.js')
+
     .addEntry('swagger', './assets/js/swagger.js')
+
+    .addEntry('module-map', './assets/js/modules/map.js')
+    .addEntry('module-ruffle', './assets/js/modules/ruffle.js')
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

@@ -81,6 +81,7 @@ class GhostController extends CustomAbstractController
             'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
+            'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
             'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
             'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW,
         ] ));
@@ -392,9 +393,25 @@ class GhostController extends CustomAbstractController
         $customConf['disabled_buildings']['replace'] = $disabled_builds;
         $customConf['disabled_roles']['replace']     = $disabled_roles;
 
+
+
+        $managed_events = ($crow_permissions && $parser->get('event-management', true));
+
+        $name_changers = [];
+
+        if ($managed_events) {
+            $event_conf = $this->conf->getEvent($parser->get('event-name', 'none'));
+            $name_changers = $event_conf->get(EventConf::EVENT_MUTATE_NAME) ? [$event_conf->get(EventConf::EVENT_MUTATE_NAME)] : [];
+        } else {
+            $current_events = $this->conf->getCurrentEvents();
+            $name_changers = array_values(
+                array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+            );
+        }
+
         if ($crow_permissions && $parser->get('unprivate', false))
-            $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed);
-        else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed))->setDeriveConfigFrom( $type );
+            $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed, $name_changers[0] ?? null);
+        else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed, $name_changers[0] ?? null))->setDeriveConfigFrom( $type );
 
         $town->setCreator($user);
         if(!empty($password)) $town->setPassword($password);
@@ -419,7 +436,7 @@ class GhostController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        if ($crow_permissions && $parser->get('event-management', true))
+        if ($managed_events)
             $town->setManagedEvents(true);
 
         if (!$town->getManagedEvents()) {
@@ -588,6 +605,15 @@ class GhostController extends CustomAbstractController
             'remote' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )),
             'panda' => ($sp >= $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )),
             'custom' => 'maybe',
+        ];
+    }
+
+    public function getUserTownClassAccessLimitReason(MyHordesConf $conf): array {
+        return [
+            'small' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_BACK_TO_SMALL, 500 )], 'ghost' ),
+            'remote' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE, 100 )], 'ghost' ),
+            'panda' => $this->translator->trans( 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.', ['sp' => $conf->get( MyHordesConf::CONF_SOULPOINT_LIMIT_PANDA, 500 )], 'ghost' ),
+            'custom' => null,
         ];
     }
 

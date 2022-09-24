@@ -37,22 +37,26 @@ class TownRankingProxyRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param Season|null $season
+     * @param TownClass $class
      * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
-     * @param string $value Value to search for
      */
-    public function findTopOfSeason(?Season $season, TownClass $class)
+    public function findTopOfSeason(?Season $season, TownClass $class): array
     {
-            return $this->createQueryBuilder('t')
-                ->andWhere('BIT_AND(t.disableFlag, :flag) <> :flag')->setParameter('flag', TownRankingProxy::DISABLE_RANKING)
-                ->andWhere('t.event = false')
-                ->andWhere('t.season = :season')->setParameter('season', $season)
-                ->andWhere('t.type = :type')->setParameter('type', $class)
-                ->andWhere('t.end IS NOT NULL')
-                ->setMaxResults(35)
-                ->addOrderBy('t.score', 'desc')
-                ->addOrderBy('t.days', 'desc')
-                ->addOrderBy('t.end', 'asc')
-                ->addOrderBy('t.id', 'asc')
-                ->getQuery()->getResult();
+        $q = $this->createQueryBuilder('t')
+            ->andWhere('BIT_AND(t.disableFlag, :flag) <> :flag')->setParameter('flag', TownRankingProxy::DISABLE_RANKING)
+            ->andWhere('t.event = false');
+
+        if ($season === null) $q->andWhere('t.season IS NULL');
+        else $q->andWhere('t.season = :season')->setParameter('season', $season);
+
+        return $q->andWhere('t.type = :type')->setParameter('type', $class)
+            ->andWhere('t.end IS NOT NULL')
+            ->setMaxResults(35)
+            ->addOrderBy('t.score', 'desc')
+            ->addOrderBy('t.days', 'desc')
+            ->addOrderBy('t.end', 'asc')
+            ->addOrderBy('t.id', 'asc')
+            ->getQuery()->getResult();
     }
 }

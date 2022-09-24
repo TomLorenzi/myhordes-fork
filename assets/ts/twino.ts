@@ -337,6 +337,12 @@ class TwinoConverterToBlocks {
                     blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'rpText', [['x-nested','1']]) );
                 }
                 changed = true; break;
+            case 'collapse':
+                if ( match.nodeInfo() ) {
+                    blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'div', 'collapsor', [['data-open', '1']]) );
+                    blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'collapsed') );
+                } else blocks.push( new TwinoInterimBlock(nodeContent) );
+                changed = true; break;
             case 'html':
                 blocks.push( new TwinoInterimBlock(nodeContent, 'html') );
                 break;
@@ -507,6 +513,14 @@ class HTMLConverterFromBlocks {
                     else if (block.hasClass('glory'))
                         ret += HTMLConverterFromBlocks.wrapBlock(block, 'glory');
                     else if (block.hasClass('clear')) {/* Do nothing, as a clearfix tag should be ignored */}
+                    else if (block.hasClass('collapsor')) {
+                        if (peek && peek.hasClass('collapsed'))
+                            ret += HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'collapse', block.nodeText )
+                    } else if (block.hasClass('rpauthor')) {
+                        if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
+                            ret += HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'rp', block.nodeText )
+                        }
+                    }
                     else ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;
                     break;
                 case 'blockquote':

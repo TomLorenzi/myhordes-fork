@@ -592,14 +592,23 @@ class InventoryAwareController extends CustomAbstractController
         $carrier_items = ['bag_#00','bagxl_#00','cart_#00','pocket_belt_#00'];
 
         $drop_carriers = false;
+
+        if($citizen === null)
+            $citizen = $this->getActiveCitizen();
+
         if ($direction === 'down' && $allow_down_all && $item && in_array($item->getPrototype()->getName(), $carrier_items)) {
-            $direction = 'down-all';
-            $drop_carriers = true;
+
+            $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $item) {
+                return $i !== $item && in_array($i->getPrototype()->getName(), $carrier_items);
+            }));
+
+            if (!$has_other_carriers) {
+                $direction = 'down-all';
+                $drop_carriers = true;
+            }
         }
 
         if (in_array($direction, $allowed_directions)) {
-            if($citizen === null)
-                $citizen = $this->getActiveCitizen();
 
             $inv_source = $direction === 'up' ? $down_target : $up_target;
             $inv_target = $direction !== 'up' ? $down_target : $up_target;
@@ -751,11 +760,18 @@ class InventoryAwareController extends CustomAbstractController
                                     }
     
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    $this->addFlash( 'notice',
-                                                     $this->translator->trans('"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', ['victim' => $victim_home->getCitizen()->getName()], 'game') .
-                                                     "<hr/>" .
-                                                     $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game')
-                                    );
+                                    if ($citizen->getAlive()) {
+                                        $this->addFlash( 'notice',
+                                                         $this->translator->trans('Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!', ['victim' => $victim_home->getCitizen()->getName()], 'game') .
+                                                         "<hr/>" .
+                                                         $this->translator->trans('Der Diebstahl, den du gerade begangen hast, wurde bemerkt! Die Bürger werden gewarnt, dass du den(die,das) {item} bei {victim} gestohlen hast.', ['victim' => $victim_home->getCitizen()->getName(), '{item}' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>"], 'game')
+                                        );
+                                    } else {
+                                        $this->addFlash( 'notice',
+                                                         $this->translator->trans('Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.', ['victim' => $victim_home->getCitizen()->getName()], 'game')
+                                        );
+                                    }
+
                                 } elseif ($isSanta || $isLeprechaun) {
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken(), false )->setAdminOnly(true) );
@@ -1335,6 +1351,15 @@ class InventoryAwareController extends CustomAbstractController
                 break;
             case 'cm_campsite_hide':
             case 'cm_campsite_tomb':
+                // Remove citizen from escort
+                foreach ($citizen->getLeadingEscorts() as $escorted_citizen) {
+                    $escorted_citizen->getCitizen()->getEscortSettings()->setLeader( null );
+                    $this->entity_manager->persist($escorted_citizen);
+                }
+
+                if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
+                $citizen->setEscortSettings(null);
+
                 $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
                 break;
             case 'cm_campsite_unhide':

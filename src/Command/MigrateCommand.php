@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\DigRuinMarker;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
@@ -17,29 +18,36 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Post;
 use App\Entity\RolePlayText;
+use App\Entity\ScoutVisit;
 use App\Entity\Season;
+use App\Entity\SoulResetMarker;
 use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Entity\ZonePrototype;
 use App\Enum\UserSetting;
+use App\Enum\ZoneActivityMarkerType;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\MazeMaker;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
+use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -50,10 +58,12 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:migrate',
+    description: 'Performs migrations to update content after a version update.'
+)]
 class MigrateCommand extends Command
 {
-    protected static $defaultName = 'app:migrate';
-
     private KernelInterface $kernel;
 
     private GameFactory $game_factory;
@@ -66,6 +76,7 @@ class MigrateCommand extends Command
     private UserFactory $user_factory;
     private PermissionHandler $perm;
     private CommandHelper $helper;
+    private TwinoidHandler $twin;
 
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
@@ -111,12 +122,14 @@ class MigrateCommand extends Command
         '8ce89ab055680dedf88da7ed2f8f711c29a07560' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
         'b552fe4373171d16e7b7a700254f9c7ebafb0cff' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
         '45c0b9f06dd82928e6d979229f9588a634d13828' => [ ['app:migrate', ['--adjust-sandball-pictos3' => true] ] ],
+        'a759042d47a803078d40cd650fbc96a9fc92737b' => [ ['app:migrate', ['--fix-soul-reset' => true] ] ],
+        '5cf60ef06e7e4ab2916af4f6da511cec34d17db3' => [ ['app:migrate', ['--upgrade-zone-activity-markers' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf, CommandHelper $helper)
+                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin)
     {
         $this->kernel = $kernel;
 
@@ -131,6 +144,7 @@ class MigrateCommand extends Command
         $this->user_factory = $uf;
 
         $this->helper = $helper;
+        $this->twin = $twin;
 
         parent::__construct();
     }
@@ -153,7 +167,6 @@ class MigrateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Performs migrations to update content after a version update.')
             ->setHelp('Migrations.')
 
             ->addOption('maintenance', 'm', InputOption::VALUE_REQUIRED, 'Enables (on) or disables (off) maintenance mode')
@@ -205,10 +218,13 @@ class MigrateCommand extends Command
             ->addOption('adjust-sandball-pictos', null, InputOption::VALUE_NONE, '')
             ->addOption('adjust-sandball-pictos2', null, InputOption::VALUE_NONE, '')
             ->addOption('adjust-sandball-pictos3', null, InputOption::VALUE_NONE, '')
+            ->addOption('fix-soul-reset', null, InputOption::VALUE_NONE, '')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
             ->addOption('update-user-settings', null, InputOption::VALUE_NONE, '')
+
+            ->addOption('upgrade-zone-activity-markers', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -1048,6 +1064,44 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('fix-soul-reset')) {
+
+
+            $reset_markers = $this->entity_manager->getRepository(SoulResetMarker::class)->findAll();
+            $users = [];
+            foreach ($reset_markers as $reset_marker) {
+                $users[ $reset_marker->getUser()->getId() ] = $reset_marker->getUser();
+                if ($reset_marker->getRanking()->getTown()->getImported()) {
+                    $this->entity_manager->persist( $reset_marker->getRanking()->setDisableFlag( CitizenRankingProxy::DISABLE_NOTHING ) );
+                    $this->entity_manager->remove( $reset_marker );
+                }
+            }
+
+            foreach ($users as $user) {
+                $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+                if ($main) {
+                    $this->twin->importData($main->getUser(), $main->getScope(), $main->getData($this->entity_manager), true, false, true);
+                    $this->entity_manager->persist($user);
+                    foreach ($user->getPastLifes() as $pastLife)
+                        if ($pastLife->getLimitedImport())
+                            $this->entity_manager->persist($pastLife->setLimitedImport(false)->setDisabled(false));
+                    $this->entity_manager->flush();
+
+                    $user->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
+                    $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
+
+                    $this->user_handler->computePictoUnlocks($user);
+                    $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
+                }
+            }
+
+            $this->entity_manager->flush();
+
+            return 0;
+        }
+
         if ($input->getOption('fix-flag-setting')) {
             $flags = [];
             foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/lang/any") as $f)
@@ -1140,6 +1194,34 @@ class MigrateCommand extends Command
 
                 foreach (UserSetting::migrateCases() as $setting)
                     $user->setSetting( $setting, $user->getSetting( $setting ) );
+
+            }, true);
+        }
+
+        if ($input->getOption('upgrade-zone-activity-markers')) {
+            $this->helper->leChunk($output, DigRuinMarker::class, 100, [], false, false, function(DigRuinMarker $marker) {
+
+                $marker->getZone()->addActivityMarker(
+                    (new ZoneActivityMarker())
+                        ->setCitizen( $marker->getCitizen() )
+                        ->setType( ZoneActivityMarkerType::RuinDig )
+                        ->setTimestamp( new \DateTime() )
+                );
+                $this->entity_manager->persist($marker->getZone());
+                $this->entity_manager->remove( $marker );
+
+            }, true);
+
+            $this->helper->leChunk($output, ScoutVisit::class, 100, [], false, false, function(ScoutVisit $marker) {
+
+                $marker->getZone()->addActivityMarker(
+                    (new ZoneActivityMarker())
+                        ->setCitizen( $marker->getScout() )
+                        ->setType( ZoneActivityMarkerType::ScoutVisit )
+                        ->setTimestamp( new \DateTime() )
+                );
+                $this->entity_manager->persist($marker->getZone());
+                $this->entity_manager->remove( $marker );
 
             }, true);
         }

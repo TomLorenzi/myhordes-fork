@@ -430,7 +430,7 @@ Rolle: Rol
 'Zurzeit in der Stadt': 'Actualmente en pueblo'
 'Eternal-Twin-Konto verlinkt': 'Cuenta de Eternaltwin vinculada'
 Gruppentyp: Tipo de grupo
-'Änderungen an ''{appname}'' speichern': 'Guardar cambios en ''{appname}'''
+"Änderungen an '{appname}' speichern": "Guardar cambios en '{appname}'"
 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'Esta Distinción no se otorgará si el habitante muere esta noche.'
 'Diese Auszeichnung wurde verdient.': 'Se ha otorgado la Distinción.'
 Freundesliste: Lista de amigos
@@ -530,8 +530,18 @@ Antwortstext: Texto de respuesta
 'Verbietet die Bearbeitung von Stadtkommentaren sowie das Setzen der Letzten Worte.': 'Prohibe la edición de comentarios de pueblo así como dejar últimas palabras.'
 'Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.': 'Prohibe la formación de nuevas alianzas y la administración de membresías y chat de alianza de alianzas existentes.'
 'Fortschritt des Aufstands': 'Progreso de la insurrección'
-'Neue Basis-Stadtverteidigung:': 'Neue Basis-Stadtverteidigung:'
-'Basis-Stadtverteidigung setzen': 'Basis-Stadtverteidigung setzen'
-'Neue temporäre Stadtverteidigung:': 'Neue temporäre Stadtverteidigung:'
-'Temporäre Stadtverteidigung setzen': 'Temporäre Stadtverteidigung setzen'
-'Alle Tode bestätigen': 'Alle Tode bestätigen'
+'Neue Basis-Stadtverteidigung:': 'Nueva defensa base del pueblo:'
+'Basis-Stadtverteidigung setzen': 'Modificar la defensa base del pueblo'
+'Neue temporäre Stadtverteidigung:': 'Nueva defensa temporal del pueblo:'
+'Temporäre Stadtverteidigung setzen': 'Modificar la defensa temporal del pueblo'
+'Alle Tode bestätigen': 'Validar todas las muertes'
+'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Establezca la hora de apertura del pueblo. Déjelo en blanco o especifiqué una hora en el pasado para abrir la ciudad inmediatamente.'
+'Geplant für': 'Programado para'
+'Seelenpunkte:': 'Puntos de alma:'
+'Heldentage:': 'Días de héroe:'
+Vergleichswert: Valor de referencia
+Keiner: Ninguno
+Basiskonfiguration: Configuración básica
+'Sonstige Accountmarkierungen': 'Otros marcadores de cuenta'
+'Strenges Report Rate Limiting': 'Limitación estricta de la tasa de informes'
+'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'Está a punto de editar una restricción de cuenta existente. El jugador no será informado de la edición. Las confirmaciones existentes para esta restricción serán eliminadas. ¿Continuar?'

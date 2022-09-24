@@ -9,13 +9,10 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\CauseOfDeathRepository")
- * @UniqueEntity("ref")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="ref_unique",columns={"ref"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\CauseOfDeathRepository')]
+#[UniqueEntity('ref')]
+#[Table]
+#[UniqueConstraint(name: 'ref_unique', columns: ['ref'])]
 class CauseOfDeath
 {
     /*
@@ -39,118 +36,109 @@ class CauseOfDeath
         17 Pulvérisé un peu partout
         18 Possédé par une âme torturée
     */
-    const Dehydration      = 1;   // Old : 4;
-    const Strangulation    = 2;   // Old : 14;
-    const Cyanide          = 3;   // Old : 8;
-    const Hanging          = 4;   // Old : 12;
-    const Vanished         = 5;   // Old : 3;
-    const NightlyAttack    = 6;   // Old : 2;
-    const Addiction        = 7;   // Old : 6;
-    const Infection        = 8;   // Old : 7;
-    const Headshot         = 9;   // Old : 15;
-    const Unknown          = 10;  // Old : 1;
-    const Poison           = 11;  // Old : 9;
-    const GhulEaten        = 12;  // Old : 10;
-    const GhulBeaten       = 13;  // Old : 11;
-    const GhulStarved      = 14;  // Old : 5;
-    const FleshCage        = 15;  // Old : 13;
-    const ChocolateCross   = 16;  // Old : 19;
-    const ExplosiveDoormat = 17;  // Old : 18;
-    const Haunted          = 18;  // Old : 17;
-    const Radiations       = 19;  // Old : 16;
-    const Apocalypse       = 20;  // Old : --
+    const Dehydration      = 1;
+    // Old : 4;
+    const Strangulation    = 2;
+    // Old : 14;
+    const Cyanide          = 3;
+    // Old : 8;
+    const Hanging          = 4;
+    // Old : 12;
+    const Vanished         = 5;
+    // Old : 3;
+    const NightlyAttack    = 6;
+    // Old : 2;
+    const Addiction        = 7;
+    // Old : 6;
+    const Infection        = 8;
+    // Old : 7;
+    const Headshot         = 9;
+    // Old : 15;
+    const Unknown          = 10;
+    // Old : 1;
+    const Poison           = 11;
+    // Old : 9;
+    const GhulEaten        = 12;
+    // Old : 10;
+    const GhulBeaten       = 13;
+    // Old : 11;
+    const GhulStarved      = 14;
+    // Old : 5;
+    const FleshCage        = 15;
+    // Old : 13;
+    const ChocolateCross   = 16;
+    // Old : 19;
+    const ExplosiveDoormat = 17;
+    // Old : 18;
+    const Haunted          = 18;
+    // Old : 17;
+    const Radiations       = 19;
+    // Old : 16;
+    const Apocalypse       = 20;
+    // Old : --
     const LiverEaten       = 21;
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
+    #[ORM\Column(type: 'string', length: 32)]
     private $icon;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $label;
-
-    /**
-     * @ORM\Column(type="text")
-     */
+    #[ORM\Column(type: 'text')]
     private $description;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $ref;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=PictoPrototype::class)
-     */
+    #[ORM\ManyToMany(targetEntity: PictoPrototype::class)]
     private $pictos;
-
     public function __construct()
     {
         $this->pictos = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getIcon(): ?string
     {
         return $this->icon;
     }
-
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
 
         return $this;
     }
-
     public function getLabel(): ?string
     {
         return $this->label;
     }
-
     public function setLabel(string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
-
     public function getDescription(): ?string
     {
         return $this->description;
     }
-
     public function setDescription(string $description): self
     {
         $this->description = $description;
 
         return $this;
     }
-
     public function getRef(): ?int
     {
         return $this->ref;
     }
-
     public function setRef(int $ref): self
     {
         $this->ref = $ref;
 
         return $this;
     }
-
     /**
      * @return Collection|PictoPrototype[]
      */
@@ -158,7 +146,6 @@ class CauseOfDeath
     {
         return $this->pictos;
     }
-
     public function addPicto(PictoPrototype $picto): self
     {
         if (!$this->pictos->contains($picto)) {
@@ -167,7 +154,6 @@ class CauseOfDeath
 
         return $this;
     }
-
     public function removePicto(PictoPrototype $picto): self
     {
         $this->pictos->removeElement($picto);

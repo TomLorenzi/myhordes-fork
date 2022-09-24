@@ -14,16 +14,8 @@
                         {{ post.date|format_datetime('medium', 'short') }}
                     {% endif %}
                 </i>
-                {% if (post.owner.user.avatar) %}
-                    {% if app.user.preferSmallAvatars %}
-                        <div class="avatar small ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
-                    {% else %}
-                        <div class="avatar ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
-                    {% endif %}
-                {% else %}
-                    <div class="avatar small ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
-                {% endif %}
-                <b>{{ post.owner.name }}</b>
+                {% include 'ajax/soul/playeravatar.html.twig' with {user: post.owner, no_distortion: true} only %}
+                {% include 'ajax/soul/playername.html.twig' with {user: post.owner} %}
             </div>
             {% if post.adminReports(true)|length > 0 %}
                 <div class="modrev modWarnText pointer">

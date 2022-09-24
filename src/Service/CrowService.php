@@ -211,8 +211,9 @@ class CrowService {
                'link_post' => $post->getId(),
                'threadname' => $post->getThread()->getTitle(),
                'forumname' => $post->getThread()->getForum()->getTitle(),
-               'player' => $post->getOwner()->getId() ]
-            )
+               'player' => $post->getOwner()->getId(),
+               'threadname__translate' => $post->getThread()->getTranslatable() ? 'game' : null,
+            ] )
             ->setTimestamp( new DateTime('now') )
             ->setReceiverUser( $receiver )
             ->setSender( $this->getCrowAccount() )

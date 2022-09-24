@@ -430,7 +430,7 @@ Rolle: Rôle
 'Zurzeit in der Stadt': 'Actuellement en ville'
 'Eternal-Twin-Konto verlinkt': 'Compte Eternaltwin lié'
 Gruppentyp: Type de groupe
-'Änderungen an ''{appname}'' speichern': 'Enregistrer les modifications apportées à ''{appname}'''
+"Änderungen an '{appname}' speichern": "Enregistrer les modifications apportées à '{appname}'"
 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'Ce picto ne sera pas gagné si le citoyen meurt ce soir.'
 'Diese Auszeichnung wurde verdient.': 'Ce picto a été gagné.'
 Freundesliste: Liste d'amis
@@ -535,3 +535,13 @@ Antwortstext: Texte de la réponse
 'Neue temporäre Stadtverteidigung:': 'Nouvelle défense temporaire de la ville :'
 'Temporäre Stadtverteidigung setzen': 'Modifier la défense temporaire de la ville'
 'Alle Tode bestätigen': 'Valider toutes les morts'
+'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Fixez une heure à laquelle la ville doit être ouverte. Laissez vide ou spécifiez une heure dans le passé pour ouvrir la ville immédiatement.'
+'Geplant für': 'Programmé pour'
+'Seelenpunkte:': 'Points d''âme :'
+'Heldentage:': 'Jours héros :'
+Vergleichswert: Valeur de référence
+Keiner: Aucun
+Basiskonfiguration: Configuration de base
+'Sonstige Accountmarkierungen': 'Autres marqueurs de compte'
+'Strenges Report Rate Limiting': 'Limitation stricte des signalements'
+'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'Vous êtes sur le point de modifier une restriction de compte existante. Le joueur ne sera pas informé de cette modification. Les confirmations existantes pour cette restriction seront supprimées. Continuer ?'

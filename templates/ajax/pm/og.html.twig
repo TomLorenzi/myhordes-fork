@@ -1,7 +1,7 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
     <div x-og-resolved="{{ group.id }}">
-        <img style="max-height: 24px;" alt="" src="{{ path('app_web_group_icon', { gid: group.usergroup.id, name: group.avatarName, ext: group.avatarExt }) }}" />
+        {% include "ajax/soul/playeravatar.html.twig" with {user: group, wrapper: false, attributes: {style: 'max-height: 24px'}} only %}
         <b>{{ group.usergroup.name }}</b>
     </div>
 {% endblock %}

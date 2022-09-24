@@ -179,8 +179,13 @@ class LogTemplateHandler
                 // Non ICU-aware
                 elseif ($typeEntry['type'] === 'user') {
                     $user = $this->entity_manager->getRepository(User::class)->find( $variables[$typeEntry['name']] );
+                    $userName = match ($user->getId()) {
+                        66 => $this->trans->trans('Der Rabe', [], 'global'),
+                        67 => $this->trans->trans('Animateur-Team', [], 'global'),
+                        default => $user->getName()
+                    };
                     $transParams['{'.$typeEntry['name'].'}'] =
-                        $user ? "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$user->getName()}</span>" : '<span class="username">???</span>';
+                        $user ? "<span class=\"username\" x-user-id=\"{$user->getId()}\">{$userName}</span>" : '<span class="username">???</span>';
                 }
                 elseif ($typeEntry['type'] === 'itemGroup') {
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
@@ -196,13 +201,13 @@ class LogTemplateHandler
                     else
                         $transParams['{'.$typeEntry['name'].'}'] = "null";
                 }
-                elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
+                elseif ($typeEntry['type'] === 'num' || ($typeEntry['type'] === 'string' && empty( $variables["{$typeEntry['name']}__translate"] ))) {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
                     if($typeEntry['type'] === 'num')
                         $transParams['{raw_'.$typeEntry['name'].'}'] = $variables[$typeEntry['name']];
                 }
-                elseif ($typeEntry['type'] === 'transString') {
-                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $typeEntry['from'] ?? 'game') );
+                elseif ($typeEntry['type'] === 'transString' || ($typeEntry['type'] === 'string' && !empty( $variables["{$typeEntry['name']}__translate"] ))) {
+                    $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], $variables["{$typeEntry['name']}__translate"] ?? $typeEntry['from'] ?? 'game') );
                 }
                 elseif ($typeEntry['type'] === 'dogname') {
                     $transParams['{'.$typeEntry['name'].'}'] = $wrap_fun( self::generateDogName((int)$variables[$typeEntry['name']], $this->trans) );
@@ -325,6 +330,13 @@ class LogTemplateHandler
         }
 
         return $transParams;
+    }
+
+    public function processAmendment(LogEntryTemplate $template, array $variables): string {
+        return match ($template->getName()) {
+            'gpm_friend_notification' => "<br/><a href=\"{$this->url->generate( 'soul_contacts' )}\">" . $this->trans->trans('Freundesliste öffnen', [], 'global') . "</a>",
+            default => ''
+        };
     }
 
     public function bankItemLog( Citizen $citizen, ItemPrototype $item, bool $toBank, bool $broken = false ): TownLogEntry {
@@ -1596,8 +1608,7 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $victim->getTown() )
             ->setDay( $victim->getTown()->getDay() )
-            ->setCitizen( $victim )
-            ->setSecondaryCitizen( $actor )
+            ->setCitizen( $actor )
             ->setTimestamp( new DateTime('now') );
     }
 
@@ -1862,8 +1873,7 @@ class LogTemplateHandler
             ->setDay( $attacker->getTown()->getDay() )
             ->setZone( $attacker->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $attacker )
-            ->setSecondaryCitizen( $defender );
+            ->setCitizen( $attacker );
     }
 
     public function citizenHomeIntrusion( Citizen $intruder, Citizen $victim, bool $act ): TownLogEntry {
@@ -1877,8 +1887,7 @@ class LogTemplateHandler
             ->setDay( $intruder->getTown()->getDay() )
             ->setZone( $intruder->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $intruder )
-            ->setSecondaryCitizen( $victim );
+            ->setCitizen( $intruder );
     }
 
 
@@ -1908,8 +1917,7 @@ class LogTemplateHandler
             ->setDay( $attacker->getTown()->getDay() )
             ->setZone( $attacker->getZone() )
             ->setTimestamp( new DateTime('now') )
-            ->setCitizen( $attacker )
-            ->setSecondaryCitizen( $defender );
+            ->setCitizen( $attacker );
     }
 
     public function citizenBeyondGhoulAttack( Citizen $attacker, Citizen $defender, bool $ambient  ): TownLogEntry {

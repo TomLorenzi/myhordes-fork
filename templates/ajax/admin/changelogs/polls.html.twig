@@ -180,9 +180,9 @@
             {% endfor %}
         ].filter(s => s !== 'null');
 
-        const get_field = (name,nice=null,twinoid=false) => {
+        const get_field = (name,nice=null,twinoid=false,allow_empty=false) => {
             const values = get_all_field_values(name);
-            const missing = get_missing_langs( values );
+            const missing = allow_empty ? [] : get_missing_langs( values );
             if (missing.length > 0) {
                 $.html.error( '{{'Für das Feld "{field}" fehlen Eingaben in folgenden Sprachen: {langs}.'|trans({}, 'admin')|e('js') }}'.replace('{field}', nice ?? name).replace('{langs}', missing.join(', ')) );
                 return null;
@@ -211,7 +211,7 @@
 
         $.html.addEventListenerAll('#add_answer','click',() => {
             const title_set = get_field('answer_title', '{{ 'Antwortstext'|trans({},'admin')|e('js') }}');
-            const desc_set = get_field('answer_desc', '{{ 'Beschreibung'|trans({},'admin')|e('js') }}');
+            const desc_set = get_field('answer_desc', '{{ 'Beschreibung'|trans({},'admin')|e('js') }}', false, true);
 
             if (!title_set || !desc_set) return;
 

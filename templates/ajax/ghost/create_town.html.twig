@@ -11,9 +11,7 @@
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
-                        {% if app.user.avatar %}
-                            <div class="avatar small ua-{{ app.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}"></div>
-                        {% endif %}
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, small: true, fallback: false} only %}
                         <h4 class="soul-name">
                             <a class="username">{{ app.user.name }}</a>
                         </h4>

@@ -75,7 +75,7 @@ Zombies: Zombies
 'Qualität der Abschätzung': 'Qualité de l''estimation :'
 'Abschätzung verbessern': 'Scruter les environs'
 'Morgige Abschätzung': 'Attaque du lendemain'
-'Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses ''alles'' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.': 'Woaw ! Vous pouvez voir pratiquement tout d''ici ! C''est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville.'
+"Wow, von hier oben kannst du praktisch alles sehen! Schade nur, dass dieses 'alles' sich auf eine leere Sandwüste beschränkt. Wenn du ganz genau hinschaust, kannst du jedoch die Zombies zählen, die sich Richtung Stadt schleppen.": "Woaw ! Vous pouvez voir pratiquement tout d'ici ! C'est juste dommage que ce «tout» se limite à un désert de sable vide. Cependant, si vous y regardez de plus près, vous pouvez compter les zombies qui rampent vers la ville."
 'Tag {day}': 'Jour {day}'
 Rucksack: Sac à dos
 Truhe: Coffre
@@ -122,7 +122,7 @@ Gemeinschaft: Espionnage et ragots de voisinage
 '{citizen} hat bereits {num} Anzeige(n).': '{citizen} a reçu {num} plainte(s).'
 Verbannung: un bannissement
 Todesstrafe: la peine de mort
-'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L''une d''entre elle est la vôtre. Vous avez demandé {punishment}.'
+'Eine davon stammt von dir. Du hast {punishment} gefordert.': 'L''une d''entre elles est la vôtre. Vous avez demandé {punishment}.'
 'Anzeige erstatten': 'Envoyer une dénonciation'
 'Anzeige zurückziehen': 'Retirer ma plainte'
 'Anzeige: Todesstrafe fordern': 'Plainte : Exiger la peine de mort'
@@ -272,14 +272,14 @@ Krankenwagen: Ambulance
 Lagerhalle: Hangars de stockage
 'Leeres Parkhaus': 'Parking désaffecté'
 'Liegengebliebener Kampfpanzer': 'Char d''assaut en panne'
-'Motel ''Dusk''': 'Motel « Dusk »'
+"Motel 'Dusk'": "Motel « Dusk »"
 'Militärischer Wachposten': 'Avant-poste militaire'
 Postfiliale: Bureau de poste
 Räuberhöhle: Cache de contrebandiers
 Schützengraben: Tranchée aménagée
 Stadtbücherei: Bibliothèque de quartier
 'Tante Emma Laden': 'Mini-market'
-'Truck ''Rathaus auf Rädern''': 'Camion « Mairie-mobile »'
+"Truck 'Rathaus auf Rädern'": "Camion « Mairie-mobile »"
 'Umgekippter Laster': 'Camion en panne'
 'Verbrannte Grundschule': 'Ecole maternelle brûlée'
 'Verfallenes Bürogebäude': 'Immeuble délabré'
@@ -289,7 +289,7 @@ Stadtbücherei: Bibliothèque de quartier
 'Verlassene Silos': 'Silos à l''abandon'
 'Versperrte Straße': 'Route barrée'
 'Verwilderter Park': 'Parc à l''abandon'
-'Waffengeschäft Guns''n''Zombies': 'Armurerie Guns''n''Zombies'
+"Waffengeschäft Guns'n'Zombies": "Armurerie Guns'n'Zombies"
 Warenlager: Entrepôt désaffecté
 'Zelt eines Bürgers': 'Tente d''un citoyen'
 'Zerstörte Apotheke': 'Pharmacie détruite'
@@ -373,7 +373,7 @@ Werkstatt: L'atelier
 'Die Zone untersuchen': 'Inspecter le secteur'
 'Du schaust dir die Gegend etwas genauer an...': 'Vous inspectez les environs...'
 'Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.': 'Dormir dans un endroit pareil revient à se suicider, purement et simplement. À vous de voir.'
-'Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich ''ne Zyanidkapsel schlucken.': 'Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite.'
+"Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.": "Vous estimez que vos chances de survie ici sont quasi nulles… Autant gober du cyanure tout de suite."
 'Rucksack auf dem Boden ausleeren': 'Vider son sac à dos au sol'
 'Heute ist nichts Erwähnenswertes passiert...': 'Rien de notable pour cette journée...'
 'Unbekannte Todesursache': 'Raison inconnue'
@@ -387,7 +387,7 @@ Dehydration: Déshydratation
 Verhungert: Goule affamée
 'Von Hungerschmerzen geplagt bist du den ganzen Tag durch die Stadt getorkelt... immer auf der Suche nach einem Bissen Fleisch...doch vergebens. Am Ende des Tages haben dich deine Kräfte dann schließlich verlassen. Langsam, ganz langsam, bist du zu Boden gesunken. Selbst deine letzten Atemzüge waren eine Pein... Das Letzte was die Welt noch von dir vernahm war ein unmenschlicher, gellender Schrei gen Himmel und das warst du tot.': 'Vous avez agonisé toute la journée, errant, cherchant une victime à vous mettre sous la dent… Mais les heures ont passé et aucune opportunité ne s''est présentée. Finalement, vous avez perdu vos forces lentement. Très lentement. Jusqu''à ce que même respirer devienne une souffrance… Puis dans un ultime sursaut, vous avez poussé un hurlement effroyable, inhumain, désespéré.'
 Drogenabhängigkeit: Pénurie de drogue
-'Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht''s schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.': 'Les drogues c''est agréable quand on en a. Dès qu''on a épuisé ses réserves, c''est une autre histoire… D''abord on tremble, puis on commence à se vider de son contenu toutes les dix minutes. Quand la situation de manque empire, on finit par perdre totalement la raison. C''est comme ça qu''on se retrouve à avaler des cailloux en pensant avoir trouvé des stéroïdes.'
+"Drogen sind echt was Tolles, solange du genügend hast. Wenn sie dir aber ausgehen, sieht's schon anders aus... Schweißausbrüche, Panikattacken, Zittern... du rennst alle zehn Minuten aufs Klo, um dich zu übergeben. Am Ende, wenn du deinen Verstand bereits verloren hast, schluckst du dann Steine, weil du sie mit Steroiden verwechselst.": "Les drogues c'est agréable quand on en a. Dès qu'on a épuisé ses réserves, c'est une autre histoire… D'abord on tremble, puis on commence à se vider de son contenu toutes les dix minutes. Quand la situation de manque empire, on finit par perdre totalement la raison. C'est comme ça qu'on se retrouve à avaler des cailloux en pensant avoir trouvé des stéroïdes."
 'Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.': 'Petit à petit, l''horrible maladie vous a rongé de l''intérieur… Rapidement, des signes de l''infection sont apparus sur votre corps : plaies, hématomes, chairs qui se décomposent… Jusqu''à l''agonie finale qui aura duré plusieurs heures cette nuit. La mort en est presque un soulagement.'
 Zyanid: Suicide par ingestion de Cyanure
 'Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll''s? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...': 'Plutôt que continuer à vivre avec cette bande de losers, vous avez fait le choix de vous simplifier la vie… En l''écourtant un peu. Bof, après tout, une journée de plus ou de moins...'
@@ -408,7 +408,7 @@ Kopfschuss: Balle dans la tête
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'Il y a des réflexes qui ne pardonnent pas. Prenez par exemple le coup de la caverne : vous êtes poursuivi(e) et vous vous engouffrez bêtement dans une caverne pour vous mettre à l''abri. Le problème qui se pose alors : maintenant que vous êtes dans une impasse, combien de temps allez-vous pouvoir hurler en attendant que vos poursuivants vous rattrapent ? Le type au fond, à qui il manque la moitié du visage, n''a pas dû crier bien longtemps.'
 'Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.': 'Une antique pompe rongée par la rouille, capable de puiser de l''eau dans le désert... Le seul problème c''est que même si vous arrivez à la faire fonctionner, cette eau sera généralement <strong>non-potable</strong> et devra être <strong>purifiée en ville</strong> avec les produits adéquats.'
 'Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.': 'Une ancienne gare à vélo jonchée de pièces de ferrailles, d''outils et de débris en tous genres.'
-'Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das ''weitverzweigte Netzt'' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.': 'Cette plaque tournante centrale du réseau ferroviaire du pays dispatchait et aiguillait les marchandises venues de tous les horizons, sans interruption, 24h/24. Aujourd''hui, le ''vaste réseau'' en question mesure environ 150 mètres de long, si on compte les vestiges de rails, un peu plus loin.'
+"Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.": "Cette plaque tournante centrale du réseau ferroviaire du pays dispatchait et aiguillait les marchandises venues de tous les horizons, sans interruption, 24h/24. Aujourd'hui, le 'vaste réseau' en question mesure environ 150 mètres de long, si on compte les vestiges de rails, un peu plus loin."
 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?': 'Les restes qui jonchent les allées de cet hôpital improvisé devaient être des patients. Difficile de savoir combien ils avaient pu être à mourir ici, le soir de l''attaque… Peut-être qu''en comptant le nombre de bras et en divisant par deux ?'
 'Das Einzige, was auf diesem bröckelnden Flugplatz startet oder landet, sind die Fliegen. Vielleicht finden Sie etwas Nützliches, wenn Sie in den Lagerhallen herumstöbern. Zum Beispiel einen A380 in funktionstüchtigem Zustand.': 'Tout ce qui décolle de cet aérodrome pourrissant, ce sont les mouches. Peut-être qu''en fouinant dans les entrepôts, vous parviendrez à mettre la main sur un truc utile. Genre, un A360 en état de marche.'
 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.': 'L''imposant bâtiment s''étend sur plusieurs centaines de mètres. Il est divisé en nombreuses salles mais beaucoup se sont effondrées il y a bien longtemps. Si on en croit les nombreux impacts de balles et les barricades improvisées, <strong>ce commissariat a été le théâtre d''affrontements particulièrement violents</strong>.'
@@ -417,12 +417,12 @@ Kopfschuss: Balle dans la tête
 'Früher wäre dies sicherlich einer der trendigsten Joints auf der M25 gewesen, mit verwässerten Getränken, dem Aroma von abgestandener Pisse und toten Ratten auf der Bar. Sie müssen seit Jahren der erste Mensch sein, der hier einen Fuß hinein gesetzt hat.': 'À une certaine époque, c''était sûrement le coin le plus branché de toute l''autoroute A217, avec ses bières frelatées, son odeur d''urine et ses rats morts sur le comptoir. Personne avant vous ne semble s''y être arrêté depuis des lustres.'
 'Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.': 'Un modèle plutôt commun de <strong>break familial</strong> encastré dans un modèle tout aussi commun de <strong>fourgonnette</strong>... Ce petit accident semble avoir provoqué un <strong>carambolage</strong> de grande envergure si on en juge par l''amas de carcasses calcinées tout autour.'
 'Diese Bar ist hinter einem kleinen Hügel an einer solchen Stelle versteckt, dass man leicht direkt daran vorbeigehen könnte, ohne es zu merken. Der Innenraum ist mit unzähligen Schwarzweiß-Portraits und Fotos geschmückt. Auf den Bildern ist oft ein Typ in gestreifter Pyjama-Kleidung zu sehen, der neben verschiedenen anderen Personen steht.': 'Ce bar étrange se trouve caché derrière une petite colline et vous auriez tout aussi bien pu passer à côté sans le remarquer. L''intérieur est décoré d''innombrables portraits et photos en noir et blanc. On y retrouve souvent un type habillé dans une sorte de pyjama rayé sur les bords, debout aux côtés de diverses personnes.'
-'Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: ''Plündern Sie uns bevor es andere tun!''': 'Le relais des <strong>bricoleurs</strong>. Véritable petit paradis rempli de trésors inestimables pour un monde comme le nôtre... Leur slogan est tout à fait d''actualité : « Pillez-nous avant que d''autres ne s''en chargent pour vous ! »'
+"Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'": "Le relais des <strong>bricoleurs</strong>. Véritable petit paradis rempli de trésors inestimables pour un monde comme le nôtre... Leur slogan est tout à fait d'actualité : « Pillez-nous avant que d'autres ne s'en chargent pour vous ! »"
 'Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät': 'Un très grand container métallique posé au milieu de nulle part. Il devait se trouver à côté d''un chantier, à une époque, mais il n''en reste rien aujourd''hui. À part cette ''cabane''.'
 'Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.': 'Si vous avez un petit creux, ne vous arrêtez surtout pas ici ! Ou c''est le cuistot lui même qui viendra vous dévorer, après vous avoir découpé à la scie circulaire.'
 'Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !': 'La maison d''un certain « Duke » si on en croit la plaque d''entrée calcinée, ancien « Héros Pour Toujours » ... Plus qu''une villa, l''endroit semble être une vaste <strong>forteresse aménagée</strong>.'
 'Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.': 'Les restes <strong>calcinés</strong> d''une forêt. C''était probablement un endroit agréable avant... Aujourd''hui, on prie juste pour ne jamais s''y perdre la nuit.'
-'Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: ''Lecker, die esse ich doch mal gleich''': 'Une ancienne mine qui n''a pas résisté aux outrages du temps. Dieu sait quel genre de lubie pouvait pousser les gens de l''époque à creuser si profond pour trouver quelque chose d''utile. Surtout quand il suffit d''à peine gratter le sol pour dégoter un délicieux cafard à manger. « Tiens, j''ai faim », pensez-vous.'
+"Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'": "Une ancienne mine qui n'a pas résisté aux outrages du temps. Dieu sait quel genre de lubie pouvait pousser les gens de l'époque à creuser si profond pour trouver quelque chose d'utile. Surtout quand il suffit d'à peine gratter le sol pour dégoter un délicieux cafard à manger. « Tiens, j'ai faim », pensez-vous."
 'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.': 'Une <strong>zone d''extraction de minéraux</strong> qui porte les stigmates d''un <strong>terrible accident</strong> : tout un flanc semble s''être <strong>effondré</strong> sur les hommes, les machines et les bâtiments.'
 'Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...': 'Ça ressemble à un large disque métallique surmonté de ce qui devait être un poste de pilotage. Cela pourrait tout aussi bien être un genre de moissonneuse batteuse un peu high-tech.'
 'E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...': 'La chaîne de magasins Kiela était autrefois spécialisée dans la fabrication et la vente de meubles bons marchés. On dit que la piètre qualité de leurs produits serait l''une des raisons qui a poussé le monde à sa perte...'
@@ -441,7 +441,7 @@ Kopfschuss: Balle dans la tête
 'Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.': 'Le dépôt d''un grand magasin qui a certainement déposé son bilan il y a bien longtemps. Enfin, c''est ce que laisse supposer la présence d''une trentaine de corps pendus dans le hangar numéro 2. Vous supposez qu''il s''agit du conseil d''administration ; reste à savoir s''il s''agit d''un suicide collectif (le fait qu''ils aient les mains attachées vous laisse perplexe).'
 'Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...': 'Un parking souterrain presque entièrement enseveli. Idéal pour <strong>mourir dans le noir</strong>, sans que personne ne vous entende...'
 'Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...': 'Ce char militaire est un peu une métaphore de la <strong>boîte de conserve</strong>, avec le soldat dans le rôle de la sardine et la centaine de zombies dans le rôle du citoyen affamé. C''est le citoyen qui a gagné.'
-'Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: ''Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...''.': 'Vous vous demandez quel genre de personne pouvait bien venir passer sa nuit dans un trou aussi paumé que ce motel miteux. Sans doute le genre : représentant pour une obscure société de livraison fuyant un passé qui le rattrapera tôt ou tard. « Faudra que je pense à vérifier la chambre 215, au cas où », pensez-vous, sans trop savoir pourquoi.'
+"Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.": "Vous vous demandez quel genre de personne pouvait bien venir passer sa nuit dans un trou aussi paumé que ce motel miteux. Sans doute le genre : représentant pour une obscure société de livraison fuyant un passé qui le rattrapera tôt ou tard. « Faudra que je pense à vérifier la chambre 215, au cas où », pensez-vous, sans trop savoir pourquoi."
 'Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !': 'Ha ça, ils étaient sûrement préparés à tout, les soldats installés ici : armes, provisions et périmètre de sécurité de 150m. Sauf peut-être au fait que leur lieutenant comptait les dévorer pendant la nuit. Non franchement, un bon mur et une bonne dictature des familles, rien de tel pour survivre ici.'
 'Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...': 'Un bâtiment qui semble avoir résisté aux affres du temps, vestige d''un antique service postal. Peu de chances que vous y trouviez quoi que ce soit de grand intérêt, sauf si vous aimez la lecture...'
 'Der Zugang zu dieser Höhle ist ein notdürftig abgedecktes Loch in der Erde. Er führt in eine übergroße feuchte Grotte, die mit allerlei Trümmern und Gerümpel gefüllt ist. Höchstwahrscheinlich handelt es sich um Beutegut, das bei der Plünderung einer benachbarten Stadt eingesackt wurde. Vielleicht wurde deine Stadt mit diesem Raubgut errichtet? Und wer weiß: Womöglich haben die ersten Einwohner deiner Stadt an diesen Raubzügen teilgenommen...': 'Un trou dans le sol vaguement <strong>dissimulé</strong> par quelques planches et du sable. Il débouche sur une large caverne humide remplie de <strong>débris en tous genres</strong>, résultats de <strong>pillages dans une ville voisine</strong>, probablement. Qui sait si <strong>votre ville</strong> ne s''est pas construite sur ces pillages ? Peut-être que les <strong>premiers citoyens</strong> ont participé à ces attaques...'
@@ -453,28 +453,28 @@ Kopfschuss: Balle dans la tête
 'In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.': 'Un bel immeuble de bureau où il devait faire bon venir travailler au petit matin, entouré de ses collègues anonymes pour accomplir on ne sait trop quel but global et avec pour seule préoccupation : sa propre survie. Vous vous dites que les choses n''ont peut-être finalement pas tant changé que ça...'
 'Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.': 'Quelqu''un a vécu ici, il y a très longtemps. Peut-être même que cette personne était entourée d''une famille qui l''aimait et qu''ils y ont coulé des jours heureux tous ensemble ? Aujourd''hui il n''en reste rien ; un peu de poussière et la désolation la plus totale. Et parfois même un cadavre qui marche vers vous en grinçant des dents.'
 'Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.': 'Il est impossible de déterminer ce qu''ils voulaient bâtir ici. Une école, un parking, un grand magasin... Seules les structures métalliques rouillées témoignent encore du <strong>mystérieux projet</strong> qui se tramait ici.'
-'Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: ''Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...''. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...': 'En voilà, une sacré aubaine ! <strong>Un puits encore en état de marche</strong>, complètement perdu au milieu de nulle part. Et personne avec son Registre à la main pour vous dire « fais pas ci, fais pas ça, prends pas trop d''eau, gnagnagna... ». Allez, une petite rasade, ça sera notre petit secret.'
+"Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...": "En voilà, une sacré aubaine ! <strong>Un puits encore en état de marche</strong>, complètement perdu au milieu de nulle part. Et personne avec son Registre à la main pour vous dire « fais pas ci, fais pas ça, prends pas trop d'eau, gnagnagna... ». Allez, une petite rasade, ça sera notre petit secret."
 'Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...': 'Cet endroit devait servir de stockage pour le grain, mais avec le temps, les cuves ont fini par se remplir d''eau de pluie (c''était il y a bien longtemps...). Il doit il y avoir de quoi s''approvisionner par ici..'
 'Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...': 'Ce qui s''est déroulé ici est assez <strong>incompréhensible</strong> : un énorme <strong>rocher</strong> semble s''être écrasé en plein milieu d''une route, comme <strong>tombé de nulle part</strong>...'
 'Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.': 'Un lieu de recueillement et de sérénité... Pour peu que vous soyez armé(e) et prêt(e) à lutter pour votre survie. La végétation locale est <strong>sinistre</strong> et <strong>sent la mort</strong> à plein nez, des <strong>créatures</strong> indéfinissables se déplacent dans les ombres... Vous avez constamment la sensation qu''une saleté va vous <strong>bondir</strong> dessus depuis un fourré.'
-'Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von ''Ereignissen'' sich hier abgespielt haben...': 'Un filon d''armes pour qui aime bien tuer ou menacer. Les crevasses, impacts de balles et décombres en disent long sur les <strong>évènements</strong> qui sont survenus ici...'
+"Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von 'Ereignissen' sich hier abgespielt haben...": "Un filon d'armes pour qui aime bien tuer ou menacer. Les crevasses, impacts de balles et décombres en disent long sur les <strong>évènements</strong> qui sont survenus ici..."
 'Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...': 'L''entrepôt de stockage d''un ancien supermarché dont la <strong>porte a résisté aux tentatives de pillages</strong>. Il doit sûrement contenir <strong>diverses babioles</strong> intéressantes...'
-'Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: ''Shenji''': 'Une bonne planque, c''est certain. Le type qui a monté ce camp savait comment mettre ses fesses à l''abri des zombies : camouflage naturel, bonne visibilité alentours, plusieurs issues et même un trou pour se cacher sous terre au besoin. Le nom « Shenji » est brodé dans la toile de la tente.'
+"Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'": "Une bonne planque, c'est certain. Le type qui a monté ce camp savait comment mettre ses fesses à l'abri des zombies : camouflage naturel, bonne visibilité alentours, plusieurs issues et même un trou pour se cacher sous terre au besoin. Le nom « Shenji » est brodé dans la toile de la tente."
 'Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.': 'Une petite pharmacie de quartier... perdue au milieu du désert. Les <strong>odeurs innommables</strong> font penser à tout sauf à des médicaments.'
 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...': 'Ça ne ressemble plus vraiment à un bar, mais la présence d''une enseigne à demi enfouie dans le sable et d''un comptoir ne laisse pas trop planer le doute. La plupart des bouteilles sont <strong>cassées</strong>, mais on doit pouvoir y trouver des choses utiles...'
 'Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...': 'Rien de notable par ici pour se mettre à l''abri. Vous vous sentez un peu à découvert...'
-'Außer ein paar ''natürlichen'' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.': 'Cette zone semble n''offrir que quelques rares protections « naturelles » pour y passer la nuit. Il va falloir faire avec les moyens du bord.'
+"Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.": "Cette zone semble n'offrir que quelques rares protections « naturelles » pour y passer la nuit. Il va falloir faire avec les moyens du bord."
 'Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.': 'En cherchant un peu, on doit bien pouvoir se cacher quelque part.'
 'An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...': 'L''endroit offre des cachettes correctes pour qui voudrait y passer la nuit…'
 'In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.': 'Ce secteur offre de bonnes planques en cas de besoin.'
 'Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.': 'Ça semble être l''endroit idéal pour passer la nuit, les possibilités de cachettes ne manquent pas.'
 'Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...': 'La présence de quelques zombies dans les environs est notamment particulièrement inquiétante...'
 'Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.': 'Le grand nombre de zombies qui rôde un peu partout ne va rien arranger aux choses : se planquer promet d''être difficile.'
-'Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock ''ne Runde Kopf oder Zahl zu spielen?': 'Vous estimez que vos chances de survie ici sont très faibles. Peut-être que vous aimez jouer à pile ou face ?'
+"Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?": "Vous estimez que vos chances de survie ici sont très faibles. Peut-être que vous aimez jouer à pile ou face ?"
 'Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.': 'Vous estimez que vos chances de survie ici sont faibles. Difficile à dire.'
 'Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...': 'Vous estimez que vos chances de survie ici sont limitées, bien que ça puisse se tenter. Mais un accident est vite arrivé...'
 'Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.': 'Vous estimez que vos chances de survie ici sont à peu près satisfaisantes, pour peu qu''aucun imprévu ne vous tombe dessus.'
-'Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt''s nur noch Daumen drücken!': 'Vous estimez que vos chances de survie ici sont correctes : il ne vous reste plus qu''à croiser les doigts !'
+"Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!": "Vous estimez que vos chances de survie ici sont correctes : il ne vous reste plus qu'à croiser les doigts !"
 'Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.': 'Vous estimez que vos chances de survie ici sont élevées : vous devriez pouvoir passer la nuit ici.'
 'Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.': 'Vous estimez que vos chances de survie ici sont optimales : personne ne vous verrait même en vous pointant du doigt.'
 Wächt: Veille
@@ -576,7 +576,7 @@ Ausgrabungsarbeiten: Déblaiement
 Hauseinrichtung: Décoration
 'Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.': 'Nombre de points de décoration que vous avez pris la peine d''ajouter à votre habitat.'
 'Letzte Verteidigungslinie': 'Dernière ligne'
-'Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde ''empfangen'' hat...': 'Vous faites partie des derniers à avoir vu les Hordes déferler sur la ville...'
+"Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...": "Vous faites partie des derniers à avoir vu les Hordes déferler sur la ville..."
 Drogen: Drogues
 'Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.': 'Nombre de petits cachets rigolos que vous avez avalés (ou placés ailleurs...).'
 Drogenerfahrungen: Expérimentations
@@ -600,7 +600,7 @@ Schusseligkeiten: Maladresses
 Masochismus: Masochisme
 'Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.': 'Moments de bonheur dans la souffrance la plus totale.'
 Event-Auszeichnungen: Médailles communautaires
-'Auszeichnung für die Teilnahme an Events bei ''Die Verdammten''.': 'Récompenses obtenues dans le cadre d''animations communautaires.'
+"Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.": "Récompenses obtenues dans le cadre d'animations communautaires."
 'Wunderwerk: Sandschloss': 'Merveille : Château de sable'
 'Das hast du nicht wirklich gebaut?': 'Vous avez vraiment construit ça ?'
 'Wunderwerk: Riesiger KVF': 'Merveille : PMV géant'
@@ -624,7 +624,7 @@ Dehydrationstode: Morts par Déshydratation
 'Tödliche Infektionen': 'Morts par Infection'
 'Anzahl der Infektionen, die dich das Leben gekostet haben.': 'Nombre d''extinctions des suites d''une infection virulente.'
 'Tod durch Entzug': 'Morts par Manque'
-'Die Anzahl der Male, in denen dein unfreiwilliger ''cold turkey'' gescheitert ist...': 'Nuits que vous n''avez pas passées, par manque de drogue.'
+"Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...": "Nuits que vous n'avez pas passées, par manque de drogue."
 'Letzter Toter': 'Mort Ultime'
 'Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.': 'Vous êtes le ou la dernière à mourir ! Très peu de citoyens ont réalisé cet exploit !'
 'Letzter Toter in einer Pandämoniumstadt': 'Mort Ultime du Pandémonium !'
@@ -668,7 +668,7 @@ Stadtwächter: Veilleur
 'Getötete Zombies': 'Zombies éliminés'
 'Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.': 'Total de créatures mort-vivantes que vous avez renvoyées sous terre par n''importe quel moyen.'
 'Ehemaliger Beta-Tester': 'Ancien bêta-testeur'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist.': 'Distinction rarissime réservée aux tout premiers citoyens de ''Hordes''.'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.": "Distinction rarissime réservée aux tout premiers citoyens de 'Hordes'."
 'Sandbälle! Yeah!': 'Boules de sable !'
 'Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...': 'Nombre de boules de sable envoyées au visage d''autres joueurs.'
 Kreuzigung: Crucifixion
@@ -837,7 +837,7 @@ Zusammenbauen: Assembler
 'Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.': 'Un corps froid qui n''a même pas eu le temps de pourrir un minimum, c''est vraiment insipide. Votre voracité a pu être un peu calmée, mais vous n''avez rien tiré d''autre de bénéfique de ce "repas".'
 'Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.': 'Vous avez violemment attaqué <strong>{citizen}</strong> ! La bagarre a rapidement dégénéré et vous avez fini par <strong>blesser gravement ce citoyen</strong> !'
 'Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!': 'Contre toute attente, {citizen} s''effondre dans un gargouillis immonde, les yeux révulsés... <strong>Son corps se décompose littéralement par endroits et une odeur de putréfaction emplit l''air !</strong> L''horrible vérité vous saute alors au visage : <strong>{citizen} était une goule</strong> !!<hr />Toute la ville a été mise au courant.'
-'Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M''Kay?': 'Pas besoin de vous énerver pour le moment, tout porte à croire qu''il n''y a <strong>aucune goule en ville</strong> pour le moment.'
+"Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?": 'Pas besoin de vous énerver pour le moment, tout porte à croire qu''il n''y a <strong>aucune goule en ville</strong> pour le moment.'
 '{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.': 'Vous ne pouvez pas sérieusement vouloir agresser une personne déjà blessée... n''est-ce pas?'
 'Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.': 'De toutes vos forces, vous attaquez {citizen}! Vous échangez des coups pendant un certain temps, jusqu''à ce que vous vous sépariez enfin en grande partie indemne.'
 'Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als {citizen} wieder erwacht, scheint er von seiner Angststarre befreit zu sein.': 'Il n''y a rien de mieux que la peur pour vaincre la terreur. Vous retirez votre masque de chaman et soufflez doucement une poudre hallucinogène maison sur leur visage, pour provoquer un état de somnambulisme. Votre tête-à-tête provoque rapidement un "pavor nocturnus". Lorsqu''il se réveille, {citizen} semble avoir été libéré de son état de terreur.'
@@ -920,7 +920,7 @@ Zonenmarkierer: Marqueur de zone
 '[nichts]': '[ aucun ]'
 Seelenpunkte: Valeur de l'âme
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'Nombre de points d''âme que vous avez obtenu au cours de vos incarnations.'
-'Und wieder ''ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!': 'Et un cadavre de moins ! † {disposed} a été jeté dehors par {citizen} !'
+"Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!": "Et un cadavre de moins ! † {disposed} a été jeté dehors par {citizen} !"
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': '{citizen} a utilisé de l''eau pour brûler le corps de † {disposed}.'
 '{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': '{citizen} a fait tomber la pluie et a tué {kills} zombies.'
 'Der Bürger {citizen} hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt {items}.': 'Le citoyen {citizen} a découvert une cache d''objets (probablement celle d''un banni) ! Elle contenait : {items}.'
@@ -1067,7 +1067,7 @@ Quarantäne: Quarantaine
 'Der letzte Tote in dieser Stadt!': 'Mort ultime pour cette ville !'
 'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.': 'Cette mort ultime ne donne pas lieu à une récompense si ce joueur est mort au jour 5 ou moins, ou s''il n''est pas mort lors de l''attaque.'
 'Mit den anderen Bürgern reden...': 'Parlez aux autres citoyens de votre ville et organisez votre survie...'
-'Lesen und Nutzen des Forums sind in ''MyHordes'' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.': 'La lecture et l''usage du forum sont primordiaux sur MyHordes ! Les grandes décisions de la ville y sont prises en communauté.'
+"Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.": "La lecture et l'usage du forum sont primordiaux sur MyHordes ! Les grandes décisions de la ville y sont prises en communauté."
 'Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...': 'Votre histoire construite au fil de vos vies antérieures...'
 'Spielhilfe aufrufen.': 'Consulter l''aide en ligne de MyHordes.'
 'Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.': 'Avez-vous pensé à utiliser les guides « Comment Jouer » au-dessous de la carte de la ville ?'
@@ -1088,7 +1088,7 @@ Stadtrat: Conseil de Ville
 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011': 'Marque rarissime réservée aux animateurs présents au stand Motion Twin du Festival du Jeu Vidéo 2008 à Paris !'
 'Video Game Festival 2010': 'Festival du Jeu Vidéo 2010'
 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!': 'Vous étiez présent(e) au Festival du Jeu Vidéo à Paris en 2010 : merci !'
-'FJV''08 Kanonenfutter': 'Chair à canon du FJV''08'
+"FJV'08 Kanonenfutter": "Chair à canon du FJV'08"
 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.': 'Le porteur de cette marque a participé à la grande chasse organisée au Festival du Jeu Vidéo 2008.'
 Community-Auszeichnung: Organisation du Choc
 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.': 'Votre organisation sans faille lors du choc des héros a permis de créer un évènement dont on parlera encore longtemps !'
@@ -1125,7 +1125,7 @@ Schlachtenbummler: Titan du Choc
 'Zuletzt bearbeitet: {date}': 'Dernière édition : {date}'
 'Von einem Moderator bearbeitet.': 'Édité par un Modérateur.'
 'Nur altgediente Helden können auf die Wandtafel schreiben': 'Seuls les héros vétérans peuvent écrire sur le tableau noir.'
-'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von ''MyHordes'' vorbehalten ist. Drogen sind nicht gut.': 'Distinction rarissime réservée aux tout premiers citoyens de ''MyHordes''. Les drogues c''est pas bien.'
+"Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.": "Distinction rarissime réservée aux tout premiers citoyens de 'MyHordes'. Les drogues c'est pas bien."
 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="{path}" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.': 'Les chantiers marqués par le symbole "<img alt="(!)" src="{path}" />" sont temporaires : ils seront détruits à minuit, juste APRÈS l''attaque. Pour en bénéficier à nouveau, il faudra les reconstruire le lendemain.'
 'Du hast <strong>keine neue Privatnachricht</strong> erhalten. Eine Liste aller Bürger findest du im <span class="link" x-ajax-href="{path}">Verzeichnis der Stadt</span>.': 'Vous n''avez <strong>pas reçu de nouveau message privé</strong>. Vous trouverez la liste des citoyens dans <span class="link" x-ajax-href="{path}">l''annuaire de la ville</span>.'
 'In diesem Bereich kannst du an der <strong>Errichtung neuer Gebäude und Bauprojekte mitarbeiten</strong>. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.': 'Cette section permet de <strong>participer à la construction de nouveaux bâtiments</strong>. Commencez par récupérer des ressources dans le désert (bois, métal...), puis apportez des Points d''Action (PA) au bâtiment qui vous intéresse le plus.'
@@ -1293,7 +1293,7 @@ Nervenkitzelsucher: Au-delà du réel
 Tunnelblicker: Apnéiste confirmé
 'Im Irrgarten': 'J''ai la dé-dale !'
 'Inklusive Kompass': 'Boussole sur patte'
-'Wo klemmt''s?': 'Un p''tit Bricard ?'
+"Wo klemmt's?": "Un p'tit Bricard ?"
 Dietrich: Une petite tranche de Vachette ?
 'Sesam, öffne dich...': 'Sésame, bouge ton c...'
 Türöffner: Dentiste serrurier
@@ -1342,7 +1342,7 @@ Hannibalfan: Fan d'Hannibal
 Totmacher: Dévoreur de citoyens
 'Jeffrey Dahmer': 'Croque morts'
 'Fast schon ein Zombie...': 'Zombie en devenir'
-'Schmeckt am besten wenn''s noch schreit!': 'C''est meilleur si ça hurle.'
+"Schmeckt am besten wenn's noch schreit!": "C'est meilleur si ça hurle."
 'Die Macht der Proteine': 'Le plein de Protéines.'
 Zombieliebling: Favori des zombies
 'Ich bin in der Hölle aufgewachsen.': 'L''enfer, c''est mon quotidien.'
@@ -1605,7 +1605,7 @@ Wachsam: Aware
 Paranoid: Parano
 'Fels in der Brandung': 'Le Roc !'
 'Archi-Mädlicher Illustrator von Pi': 'Archi-maid illustrateur de Pi'
-'Muad''Dib': 'Muad''Dib'
+"Muad'Dib": "Muad'Dib"
 'Am 7. Tag erschuf er den Fleischkäfig': 'Le 7ème jour, il créa la cage à viande'
 'Das Unnütze mit dem Angenehmen verbinden': 'Joindre l''inutile à l''agréable'
 'Verrückter Architekten-Visionär': 'Architecte visionnaire fou'
@@ -1629,7 +1629,7 @@ Eimerhalter: Garde des seaux
 Sandverkäufer: Marchand de sable
 'Martinet am Strand': 'Martine à la plage'
 'Ein Spiel für echte Kinder': 'Un vrai jeu d''enfants !'
-'Dauermitglied in Micky''s Club': 'Membre permanent du club mickey'
+"Dauermitglied in Micky's Club": "Membre permanent du club Mickey"
 'Niemals ohne meinen Eimer': 'Jamais sans mon seau'
 'Ein Korn fehlt noch': 'Je sais, j''ai un grain'
 'Taube aus der Unterwelt': 'Pigeon de l''Outre-Monde'
@@ -1701,7 +1701,7 @@ Erinnerungsträger: Porteur du Souvenir
 'Letzter Überlebender': 'Last man standing'
 Unzerstörbar: Increvable
 'Allein gegen die Horde': 'Seul(e) contre les Hordes'
-'Chuck Norris'' Ebenbild': 'Égal de Chuck Norris'
+"Chuck Norris' Ebenbild": "Égal de Chuck Norris"
 'Ich habe Magenschmerzen...': 'J''ai mal au ventre...'
 'Mir ist kalt hier draußen...': 'J''ai froid, dehors...'
 Anfängerleiche: Cadavre débutant
@@ -1829,7 +1829,7 @@ Schamanen-Ratgeber: le guide de jeu des Chamans
 'Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!': 'De nouveaux horizons s''ouvrent devant vous, vous n''êtes plus un simple citoyen, mais un leader, un pionnier...'
 'Schau dir am besten gleich den {guide_help} an.': 'Jetez un œil au {guide_help}.'
 Reiseleiter-Ratgeber: guide du jeu pour les Guides de l'Outre-Monde
-'Alle als gelesen markieren': 'Marquer tous comme lus'
+'Alle als gelesen markieren': 'Marquer tout comme lu'
 'Alle archivieren': 'Tout archiver'
 'Mit Hilfe seiner übermenschlichen Heldenkräfte hat {citizen} {kills} Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!': 'Utilisant ses pouvoirs de Héros, {citizen} a exterminé {kills} zombie(s) à mains nues en hurlant comme un forcené !'
 'Du brauchst noch folgende Gegenstände: {list}.': 'Impossible, vous avez besoin de : {list}.'
@@ -2030,7 +2030,7 @@ Hausverteidigung: Défenses maison
 'kein Verteidigungsbonus': 'aucun bonus de défense'
 'Stufe {lvl}': 'Niveau {lvl}'
 Keine: Aucun.
-'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?': 'Comment ! vous n''avez pas encore de déco dans votre humble demeure ? Qu''attendez-vous pour fouiller le désert et ramener de magnifiques canapés en peau de zombie ? Ou encore un de ces adorables grigris un peu mous : une main ou un pied encore frais.'
+'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?': 'Comment ! Vous n''avez pas encore de déco dans votre humble demeure ? Qu''attendez-vous pour fouiller le désert et ramener de magnifiques canapés en peau de zombie ? Ou encore un de ces adorables grigris un peu mous : une main ou un pied encore frais.'
 Deko-Punkte: points déco
 'Komiteenote:': 'Note du comité :'
 'Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt {townname}</strong> vergeben.': 'Cette note est attribuée par le <strong>Comité du Bon Goût de {townname}</strong>.'
@@ -2283,7 +2283,7 @@ Verbannten-Ratgeber: Guide du bannissement
 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!': 'Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victim} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !'
 'Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.': 'Il est impossible de faire cela en période de <strong>chaos</strong> !'
 'Du kannst keinen Bürger bestehlen, dem <strong>du heute einen Gegenstand per Post</strong> gesendet hast (Missbrauchschutz).': 'Vous ne pouvez pas cambrioler un citoyen <strong>à qui vous avez envoyé un objet par courrier aujourd''hui</strong> (mesure anti-abus).'
-'auf {coa_invite} antworten': 'répondre à {coa_invite} en coalition'
+'auf {coa_invite} antworten': 'Répondre à {coa_invite} en coalition'
 '<strong>Du brauchst für diese Aktion {ap} Aktionspunkt(e)</strong>. <hr />Trink oder iss etwas, oder nimm eine Droge, ansonsten muss du bis <strong>morgen</strong> warten.': '<strong>Il vous faut {ap} point(s) d''action pour faire ceci</strong>. <hr />Buvez, mangez ou droguez-vous pour en récupérer, ou attendez <strong>demain</strong>.'
 'Was für eine Katastrophe! {num} Wasserrationnen fehlen!': 'Quel désastre ! {num} rations d''eau ont disparu !'
 'Neutraler Status': 'Statut neutre'
@@ -2333,3 +2333,7 @@ Stadt/Stadttor: Ville/Portes
 '{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}': '{player} vous a mentionné dans un post dans « {threadname} », dans le forum « {forumname} ». {link_post}'
 '{player} hat dich als "Freund" hinzugefügt.': '{player} vous a ajouté comme ami.'
 'Du hast {item_list} in {item} verwandelt.': 'Vous avez transformé {item_list} en {item}.'
+'Diese Aktion auszuführen ist sinnlos. Heute wurde schon versucht, diese Zone zu reinigen.': 'Il ne sert à rien de faire cette action, quelqu''un a déjà essayé de purifier cette zone aujourd''hui.'
+'Huch! Scheint, als würde dein Mitbürger nicht wollen, dass jemand seine Sachen durchstöbert. Unter deinen Füßen ist etwas explodiert und hat dich gegen die Wand geschleudert. Du wurdest verletzt!': 'Oulàlà, un de vos concitoyens ne veut visiblement pas que l''on fouille dans ses affaires. Un petit gadget explosif vient de se déclencher sous vos pieds et vous voilà projeté contre un mur... blessé !'
+'Tja, das hast du davon bei einem paranoiden Pyromanen einbrechen zu wollen. Deine Einzelteile besprenkeln nun seine vier Wände. Das ist lange nicht so spaßig, wie es klingt: Irgendjemand wird hier putzen müssen.': 'Voilà ce qui arrive quand on veut jouer avec un citoyen paranoïaque amateur de gadgets explosifs. Vous voilà maintenant éparpillé aux quatre coins de sa maison. Pas de petits plaisirs cependant, c''est lui qui va devoir se taper le ménage.'
+'{est_min} - {est_max}': '{est_min} à {est_max}'

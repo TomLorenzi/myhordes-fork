@@ -45,30 +45,32 @@
 
             <div class="row gazette-search">
                 {% if show_register %}
-                    <div class="note cell padded rw-3 rw-lg-4 rw-md-12">
-                        <h2 class="page-head">{{ 'Das Register filtern'|trans({}, 'game') }}</h2>
-                        <div class="row">
-                            <label for="citizen-filter" class="cell rw-4 rw-lg-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
-                            <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-lg-12" x-filter-name="citizen">
-                                <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
-                                {% for citizen in town.citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
-                                <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.name }}</option>
-                                {% endfor %}
-                            </select>
+                    <div class="cell padded rw-3 rw-lg-4 rw-md-12">
+                        <div class="note">
+                            <h2 class="page-head">{{ 'Das Register filtern'|trans({}, 'game') }}</h2>
+                            <div class="row">
+                                <label for="citizen-filter" class="cell rw-4 rw-lg-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
+                                <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-lg-12" x-filter-name="citizen">
+                                    <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
+                                    {% for citizen in town.citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
+                                        <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.name }}</option>
+                                    {% endfor %}
+                                </select>
 
-                            <label for="category-filter" class="cell rw-4 rw-lg-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
-                            <select id="category-filter" name="category-filter" class="cell rw-8 rw-lg-12" x-filter-name="category">
-                                <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCrimes') }}">{{ 'Verbrechen'|trans({}, 'game') }}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeBank') }}">{{ 'Bank'|trans({}, 'game') }}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDump') }}">{{ 'Müllhalde'|trans({}, 'game') }}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeConstruction') }}">{{'Baustelle'|trans({}, 'game')}}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWorkshop') }}">{{ 'Werkstatt'|trans({}, 'game') }}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDoor') }}">{{ 'Stadttor'|trans({}, 'game') }}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWell') }}">{{ 'Brunnen'|trans({}, 'game') }}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCitizens') }}">{{ 'Neue und Tote'|trans({}, 'game') }}</option>
-                                <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeNightly') }}">{{ 'Zombieangriff (newspaper)'|trans({}, 'game') }}</option>
-                            </select>
+                                <label for="category-filter" class="cell rw-4 rw-lg-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
+                                <select id="category-filter" name="category-filter" class="cell rw-8 rw-lg-12" x-filter-name="category">
+                                    <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCrimes') }}">{{ 'Verbrechen'|trans({}, 'game') }}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeBank') }}">{{ 'Bank'|trans({}, 'game') }}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDump') }}">{{ 'Müllhalde'|trans({}, 'game') }}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeConstruction') }}">{{'Baustelle'|trans({}, 'game')}}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWorkshop') }}">{{ 'Werkstatt'|trans({}, 'game') }}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDoor') }}">{{ 'Stadttor'|trans({}, 'game') }}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWell') }}">{{ 'Brunnen'|trans({}, 'game') }}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCitizens') }}">{{ 'Neue und Tote'|trans({}, 'game') }}</option>
+                                    <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeNightly') }}">{{ 'Zombieangriff (newspaper)'|trans({}, 'game') }}</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 {% endif %}
@@ -78,7 +80,7 @@
                         {% endembed %}
                     </div>
                 {% else %}
-                    <div class="cell padded rw-9 ro-3 rw-lg-8 ro-md-4 rw-md-12 ro-md-0">
+                    <div class="cell padded rw-9 ro-3 rw-lg-8 ro-lg-4 rw-md-12 ro-md-0">
                         <div class="note">{{ 'Das Stadtregister steht nicht zur Verfügung.'|trans({}, 'game') }}</div>
                     </div>
                 {% endif %}

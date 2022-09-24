@@ -184,6 +184,7 @@ Kombiniert: Combinados
 'Individuelle Konfiguration': 'Configuración individual'
 'Verfügbare Konstruktionen': 'Construcciones disponibles'
 'Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.': 'Normalmente, las construcciones disponibles para un pueblo se controlan desde otras opciones, como el tipo de Pueblo. Con esta opción puedes sobrescribir la configuración automática y configurar las construcciones manualmente.'
-Fortsetzen...: Fortsetzen...
-'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...'
-'Zum Login zurückkehren': 'Zum Login zurückkehren'
+Fortsetzen...: Continuar...
+'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'Parece que la <strong>Horda</strong> se haya retirado por el momento...'
+'Zum Login zurückkehren': 'Volver a la página de inicio de sesión'
+'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'Requiere por lo menos {sp} puntos de alma para unirse a este pueblo. Para obtener puntos de alma, sigua jugando en otros pueblos.'

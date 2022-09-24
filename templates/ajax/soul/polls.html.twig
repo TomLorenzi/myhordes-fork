@@ -4,6 +4,9 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
+
+    {% include "ajax/soul/future_shell.html.twig" with { future_tab: "polls" } %}
+
     {# @var \App\Entity\GlobalPoll selected #}
     {% if selected is null %}
         COMING SOON
@@ -111,7 +114,10 @@
                         {% set total = total + answer.tagNumber(group,tag) %}
                     {% endfor %}
                     {% for answer in selected.poll.answers %}
-                        <li class="desc">{{ selected.answerDescriptionByLang( answer, app.user.language )|raw }}</li>
+                        {% set desc = selected.answerDescriptionByLang( answer, app.user.language ) %}
+                        {% if desc is not empty %}
+                            <li class="desc">{{ desc|raw }}</li>
+                        {% endif %}
                         <li>
                             <div class="row-flex wrap">
                                 <div class="cell rw-9 rw-lg-8 rw-sm-12">{{ selected.answerTitleByLang( answer, app.user.language )|raw }}</div>

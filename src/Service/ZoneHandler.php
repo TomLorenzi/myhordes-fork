@@ -181,7 +181,7 @@ class ZoneHandler
                 if ($timer->getTimestamp() < $up_to) {
                     $factor = $this->getDigChanceFactor($timer->getCitizen(), $zone);
 
-                    $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )), 0.9);
+                    $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 )), 0.9);
 
                     $found_item = $this->random_generator->chance($total_dig_chance);
                     $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance) );
@@ -350,7 +350,7 @@ class ZoneHandler
         $time = new DateTime();
         $factor = 1.0;
         if ($citizen->getProfession()->getName() === 'collec') $factor += 0.2; // based on 769 search made as scavenger
-        if ($this->citizen_handler->hasStatusEffect( $citizen, 'camper' )) $factor += 0.1; // if we use gathered stats, this value should be around 0.15
+        if ($this->citizen_handler->hasStatusEffect( $citizen, 'camper' )) $factor += 0.2;
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $factor -= 0.5; // based on 30 searchs made with eye injury
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $factor -= 0.2; // based on 51 search made while being drunk
 
@@ -369,7 +369,7 @@ class ZoneHandler
                 elseif ($novelty_lamps->getLevel() === 0 && $zone->getDistance() > 2) $factor -= $night_mode_malue;
                 // Novelty Lamps are at lv1 and the zone distance is above 6km; apply malus
                 elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6) $factor -= $night_mode_malue;
-                // Novelty Lamps are at lv2 and the zone distance is above 10km; apply malus
+                // Novelty Lamps are at lv2; never apply malus
                 elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 999) $factor -= $night_mode_malue;
                 // Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
                 // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10) $factor += 0.2;

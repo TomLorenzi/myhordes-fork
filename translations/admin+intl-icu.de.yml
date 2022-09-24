@@ -429,7 +429,7 @@ Rolle: Rolle
 'Zurzeit in der Stadt': 'Zurzeit in der Stadt'
 'Eternal-Twin-Konto verlinkt': 'Eternaltwin-Konto verlinkt'
 Gruppentyp: Gruppentyp
-'Änderungen an ''{appname}'' speichern': 'Änderungen an ''{appname}'' speichern'
+"Änderungen an '{appname}' speichern": "Änderungen an '{appname}' speichern"
 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.': 'Diese Auszeichnung wird nicht verdient, wenn der Bürger heute Nacht stirbt.'
 'Diese Auszeichnung wurde verdient.': 'Diese Auszeichnung wurde verdient.'
 Freundesliste: Freundesliste
@@ -534,3 +534,13 @@ Antwortstext: Antwortstext
 'Neue temporäre Stadtverteidigung:': 'Neue temporäre Stadtverteidigung:'
 'Temporäre Stadtverteidigung setzen': 'Temporäre Stadtverteidigung setzen'
 'Alle Tode bestätigen': 'Alle Tode bestätigen'
+'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.': 'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.'
+'Geplant für': 'Geplant für'
+'Seelenpunkte:': 'Seelenpunkte:'
+'Heldentage:': 'Heldentage:'
+Vergleichswert: Vergleichswert
+Keiner: Keiner
+Basiskonfiguration: Basiskonfiguration
+'Sonstige Accountmarkierungen': 'Sonstige Accountmarkierungen'
+'Strenges Report Rate Limiting': 'Strenges Report Rate Limiting'
+'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?'

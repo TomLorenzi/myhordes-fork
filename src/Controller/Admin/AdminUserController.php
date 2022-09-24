@@ -495,8 +495,6 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'delete':
-                if ($user->getEternalID())
-                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $userHandler->deleteUser($user);
                 $this->entity_manager->persist($user);
                 break;
@@ -679,6 +677,14 @@ class AdminUserController extends AdminActionController
                     $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                     break;
 
+                    case 'FLAG_RUFFIAN':
+                        $user->addRoleFlag( User::USER_ROLE_LIMIT_MODERATION );
+                        break;
+
+                    case '!FLAG_RUFFIAN':
+                        $user->removeRoleFlag( User::USER_ROLE_LIMIT_MODERATION );
+                        break;
+
                     case 'FLAG_TEAM':
                         $user->addRoleFlag( User::USER_ROLE_TEAM );
                         break;
@@ -768,7 +774,7 @@ class AdminUserController extends AdminActionController
         return $a->getOriginalDuration() >= 31536000 || ($a->getRestriction() & AccountRestriction::RestrictionGameplay) === AccountRestriction::RestrictionGameplay;
     }
 
-    private function check_ban_confirmation(AccountRestriction $a): bool {
+    private function check_ban_confirmation(AccountRestriction $a, bool $notify = true): bool {
 
         if ($a->getConfirmed()) return true;
 
@@ -783,16 +789,21 @@ class AdminUserController extends AdminActionController
         }
 
         $a->setConfirmed(true)->setExpires( $a->getOriginalDuration() < 0 ? null : (new \DateTime())->setTimestamp( time() + $a->getOriginalDuration() ) );
-        if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
-            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
-        elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
-            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
-        else
-            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionImpose, [
-                'mask' => $a->getRestriction(),
-                'duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
-                'old_duration' => 0,
-            ], $a->getPublicReason() ));
+
+        if ($notify) {
+            if ($a->getRestriction() === AccountRestriction::RestrictionGameplay)
+                $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
+            elseif ($a->getRestriction() === AccountRestriction::RestrictionForum)
+                $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
+            else
+                $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetAnyBan, CrowService::ModerationActionImpose, [
+                    'mask' => $a->getRestriction(),
+                    'duration' => $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(),
+                    'old_duration' => 0,
+                ], $a->getPublicReason() ));
+        }
+
+
         return true;
     }
 
@@ -933,6 +944,17 @@ class AdminUserController extends AdminActionController
         if (!$parser->has_all(['reason','duration','restriction'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $edit_id = $parser->get_int('existing', 0);
+        if ($edit_id && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $edit = $edit_id ? $this->entity_manager->getRepository( AccountRestriction::class )->find( $edit_id ) : null;
+        if ($edit) {
+            if ($this->user_handler->hasRole( $edit->getModerator(), 'ROLE_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+            $edit->getConfirmedBy()->clear();
+        }
+
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -949,18 +971,17 @@ class AdminUserController extends AdminActionController
         if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile)))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $a = (new AccountRestriction())
+        $a = ($edit ?? ((new AccountRestriction())->setCreated( new \DateTime() )))
             ->setUser($user)
             ->setRestriction( $mask )
             ->setOriginalDuration( $duration )
-            ->setCreated( new \DateTime() )
             ->setActive( true )
             ->setConfirmed( false )
             ->setModerator( $this->getUser() )
             ->setPublicReason( $reason )
             ->setInternalReason( $note )
             ->addConfirmedBy( $this->getUser() );
-        $this->check_ban_confirmation($a);
+        $this->check_ban_confirmation($a, !$edit);
         $this->entity_manager->persist($a);
 
         try {
