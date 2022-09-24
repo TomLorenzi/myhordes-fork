@@ -800,6 +800,9 @@ class GameFactory
             (new Inventory())->setCitizen( $citizen );
             $this->citizen_handler->inflictStatus( $citizen, 'clean' );
 
+            if ($this->town_handler->getBuilding( $town, 'small_novlamps_#00' ))
+                $this->citizen_handler->inflictStatus( $citizen, 'tg_novlamps' );
+
             $this->citizen_handler->applyProfession( $citizen, $base_profession );
 
             $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'chest_citizen_#00' ) );
