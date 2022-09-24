@@ -486,7 +486,7 @@ class GameFactory
                 $zone
                     ->setX( $x - $ox )
                     ->setY( $y - $oy )
-                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 4), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
+                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
                     ->setFloor( new Inventory() )
                     ->setDiscoveryStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::DiscoveryStateCurrent : Zone::DiscoveryStateNone )
                     ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )
@@ -565,7 +565,10 @@ class GameFactory
                 if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
                 else $previous[$target_ruin->getId()]++;
 
-                $zone_list[$i+$o]->setPrototype( $target_ruin );
+                $zone_list[$i+$o]
+                    ->setPrototype( $target_ruin )
+                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 10), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 10) ) );
+
                 if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
                     $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
 

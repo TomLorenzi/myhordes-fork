@@ -30,6 +30,9 @@ class TownConf extends Conf
     const CONF_ZONE_ITEMS_TOTAL_MAX  = 'zone_items.fill_max';
     const CONF_ZONE_ITEMS_THROTTLE_AT= 'zone_items.throttle_at';
 
+    const CONF_RUIN_ITEMS_MIN        = 'ruin_items.min';
+    const CONF_RUIN_ITEMS_MAX        = 'ruin_items.max';
+
     const CONF_NUM_RUINS             = 'ruins';
     const CONF_NUM_EXPLORABLE_RUINS  = 'explorable_ruins';
     const CONF_BUILDINGS_CONSTRUCTED = 'initial_buildings';
