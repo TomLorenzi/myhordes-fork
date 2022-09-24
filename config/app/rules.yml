@@ -15,10 +15,10 @@ parameters:
       zone_items:
         min: 5
         max: 10
-        refresh_min: 1
-        refresh_max: 8
-        fill_max: 30
-        throttle_at: 12
+        refresh_min: 5
+        refresh_max: 5
+        fill_max: 10
+        throttle_at: 10
       ruin_items:
         min: 8
         max: 16
