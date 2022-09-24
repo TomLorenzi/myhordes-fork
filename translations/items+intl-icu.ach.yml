@@ -900,7 +900,7 @@ Ruhm: crwdns71748:0crwdne71748:0
 'Die Waffe hat <strong>keine Batterie mehr</strong>.': 'crwdns71760:0crwdne71760:0'
 '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>': 'crwdns71762:0crwdne71762:0'
 'Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!': 'crwdns71764:0crwdne71764:0'
-'{watchpoint} pkt attacke': "crwdns71766:0ref__icu={ref__icu}crwdnd71766:0watchpoint={watchpoint}crwdnd71766:0watchpoint__copy={watchpoint__copy}crwdne71766:0"
+'{watchpoint} pkt attacke': "crwdns71766:0{# Pkt. Angriff}crwdnd71766:0{# Pkt. Angriff}crwdnd71766:0{# Pkt. Angriff}crwdnd71766:0{# Pkte. Angriff}crwdnd71766:0{watchpoint__copy}crwdne71766:0"
 'Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.': 'crwdns71768:0crwdne71768:0'
 '<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>': 'crwdns71770:0{items_spawn}crwdne71770:0'
 'Diese Aktion wurde in dieser Partie schon ausgeführt.': 'crwdns71772:0crwdne71772:0'
@@ -943,3 +943,4 @@ Toxin: crwdns71844:0crwdne71844:0
 'Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.': 'crwdns71846:0crwdne71846:0'
 'So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.': 'crwdns71848:0crwdne71848:0'
 'Du hast <strong>heute bereits getrunken</strong>: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.': 'crwdns71850:0crwdne71850:0'
+'Du trinkst deine Wasserration in einem Zug aus. Ah! Das tut gut!': 'crwdns136404:0crwdne136404:0'
