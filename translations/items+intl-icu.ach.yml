@@ -941,9 +941,10 @@ Eintrittskarte: crwdns71838:0crwdne71838:0
 'Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.': 'crwdns71842:0{km_from_town}crwdne71842:0'
 Toxin: crwdns71844:0crwdne71844:0
 'Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.': 'crwdns71846:0crwdne71846:0'
-'So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.': 'crwdns71848:0crwdne71848:0'
+'So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.': 'crwdns136456:0crwdne136456:0'
 'Du hast <strong>heute bereits getrunken</strong>: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.': 'crwdns71850:0crwdne71850:0'
 'Du trinkst deine Wasserration in einem Zug aus. Ah! Das tut gut!': 'crwdns136404:0crwdne136404:0'
 '<t-flare_ok>Die Leuchtrakete hat neue Informationen zu folgender Zone geliefert: {zone}</t-flare_ok><t-flare_ok_ruin>Mit Hilfe der Leuchrakete wurde ein neues Gebäude entdeckt: {zone_ruin}. Seine Koordinaten lauten: {zone}</t-flare_ok_ruin><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>': 'crwdns136426:0{zone}crwdnd136426:0{zone_ruin}crwdnd136426:0{zone}crwdne136426:0'
 '<t-zone>Du hast ein neues Gebäude bei den Koordinaten {zone} entdeckt!</t-zone><nt-zone>Du suchst den gesamten Horizont mit deinen Adleraugen ab. Aber es scheint keine weiteren Gebäude zu entdecken zu geben.</nt-zone>': 'crwdns136428:0{zone}crwdne136428:0'
 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!': 'crwdns136430:0crwdne136430:0'
+'Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...': 'crwdns136458:0{num}crwdne136458:0'
