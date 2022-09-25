@@ -572,7 +572,7 @@ class GameFactory
                 if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
                     $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
 
-                if ($this->random_generator->chance(0.4)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
+                if ($this->random_generator->chance(0.5)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
             } else
                 if ($this->random_generator->chance(0.1))
                     $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 3);

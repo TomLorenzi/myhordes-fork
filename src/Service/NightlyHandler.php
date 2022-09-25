@@ -976,7 +976,7 @@ class NightlyHandler
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
             // Panda towns sees their defense object in the bank destroyed
-            $number = max(1, min(mt_rand($est->getZombies() * 0.01, $est->getZombies() * 0.2), 20));
+            $number = max(1, min(ceil($est->getZombies() - $def_summary->withoutItemDefense()) * 0.5, 20));
             $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
             $this->log->info("We destroy <info>$number</info> items");
             $this->log->info("We fetched <info>". count($items) . "</info> items");

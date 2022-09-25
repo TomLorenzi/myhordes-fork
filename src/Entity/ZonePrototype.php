@@ -22,31 +22,47 @@ class ZonePrototype implements RandomEntry
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
+
     #[ORM\Column(type: 'string', length: 190)]
-    private $label;
+    private ?string $label;
+
     #[ORM\Column(type: 'string', length: 500)]
-    private $description;
+    private ?string $description;
+
     #[ORM\Column(type: 'integer')]
-    private $campingLevel;
+    private ?int $campingLevel;
+
     #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', fetch: 'EXTRA_LAZY', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private $drops;
+    private ?ItemGroup $drops;
+
     #[ORM\Column(type: 'integer')]
-    private $minDistance;
+    private ?int $minDistance;
+
     #[ORM\Column(type: 'integer')]
-    private $maxDistance;
+    private ?int $maxDistance;
+
     #[ORM\Column(type: 'integer')]
-    private $chance;
+    private ?int $chance;
+
     #[ORM\Column(type: 'string', length: 32)]
-    private $icon;
+    private ?string $icon;
+
     #[ORM\Column(type: 'boolean')]
-    private $explorable = false;
+    private bool $explorable = false;
+
     #[ORM\Column(type: 'string', length: 32, nullable: true)]
-    private $explorableSkin;
+    private ?string $explorableSkin;
+
     #[ORM\Column(type: 'text', nullable: true)]
-    private $explorableDescription;
+    private ?string $explorableDescription;
+
     #[ORM\ManyToMany(targetEntity: NamedItemGroup::class, fetch: 'EXTRA_LAZY')]
-    private $namedDrops;
+    private Collection $namedDrops;
+
+    #[ORM\Column]
+    private ?float $emptyDropChance = null;
+
     public function __construct()
     {
         $this->namedDrops = new ArrayCollection();
@@ -206,5 +222,17 @@ class ZonePrototype implements RandomEntry
         foreach ( $live as $entry ) $return->addEntry( $entry );
 
         return $return;
+    }
+
+    public function getEmptyDropChance(): ?float
+    {
+        return $this->emptyDropChance;
+    }
+
+    public function setEmptyDropChance(float $emptyDropChance): self
+    {
+        $this->emptyDropChance = $emptyDropChance;
+
+        return $this;
     }
 }
