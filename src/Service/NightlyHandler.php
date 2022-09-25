@@ -1786,7 +1786,7 @@ class NightlyHandler
         $novelty_lamps = $this->town_handler->getBuilding( $town, 'small_novlamps_#00', true );
 
         if ($novelty_lamps) {
-            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() > 2 ? 2 : 1) : 0;
+            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() >= 2 ? 2 : 1) : 0;
 
             $ok = $bats === 0;
 
