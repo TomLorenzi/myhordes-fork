@@ -20,7 +20,6 @@ use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RuinExplorerStats;
-use App\Entity\ScoutVisit;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
