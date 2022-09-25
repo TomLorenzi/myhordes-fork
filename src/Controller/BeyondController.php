@@ -1378,6 +1378,7 @@ class BeyondController extends InventoryAwareController
             $factor = $this->zone_handler->getDigChanceFactor( $this->getActiveCitizen(), $zone );
 
             if ($zone->getPrototype()->getEmptyDropChance() >= 1) $total_dig_chance = 0;
+            elseif ($zone->getPrototype()->getEmptyDropChance() <= 0) $total_dig_chance = 1;
             else $total_dig_chance = min(max(0.1, $factor * (1.0 - $zone->getPrototype()->getEmptyDropChance())), 0.95);
 
             $item_found = $this->random_generator->chance($total_dig_chance);
