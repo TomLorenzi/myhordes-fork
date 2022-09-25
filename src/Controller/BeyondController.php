@@ -480,7 +480,7 @@ class BeyondController extends InventoryAwareController
         $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $good ? 'trash_good' : 'trash_bad']);
         $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group, $this->getTownConf() );
         if (!$proto)
-            return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+            return AjaxResponse::errorMessage( $this->translator->trans('Obwohl du minutenlang den Stadtmüll durchwühlst, findest du <strong>nichts Nützliches</strong>...', [], 'game') );
 
         $item = $this->item_factory->createItem($proto);
         $gps->recordItemFound( $proto, $citizen, null, 'trash' );

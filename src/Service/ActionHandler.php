@@ -368,6 +368,16 @@ class ActionHandler
                     case 69:
                         if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
                             $current_state = min($current_state, $this_state);
+                        break;
+
+                    // Camourflace for hunter
+                    case 100:
+                        if (!$citizen->getLeadingEscorts()->isEmpty()) {
+                            $current_state = min($current_state, $this_state);
+                            $messages[] = $this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items');
+                        }
+
+                        break;
                 }
 
 
