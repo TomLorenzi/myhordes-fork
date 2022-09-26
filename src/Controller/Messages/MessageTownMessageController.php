@@ -77,6 +77,9 @@ class MessageTownMessageController extends MessageController
         if ($type === "global" && !$sender->getProfession()->getHeroic() && !$userHandler->hasSkill($sender->getUser(), 'writer'))
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
 
+        if ($type === "global" && !$sender->getTown()->isOpen() && $sender->getTown()->getAliveCitizenCount() <= 1)
+            return AjaxResponse::errorMessage( $this->translator->trans('Du bist ganz allein. Niemand wird dir antworten, du kannst es also getrost sein lassen. Außerdem spielt das eh keine Rolle mehr, du wirst heute Nacht bestimmt sterben...', [], 'game') );
+
         if ($type === "global" && $sender->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 

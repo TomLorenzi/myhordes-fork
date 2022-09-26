@@ -418,8 +418,8 @@ class SoulController extends CustomAbstractController
         };
 
         foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name ) {
-
-            if (($count = $this->entity_manager->getRepository(User::class)->countByNameOrDisplayName( trim($name) )) < 2)
+            if ($name === 'me') $add( $this->getUser(), 'me', $this->getUser()->getId() );
+            elseif (($count = $this->entity_manager->getRepository(User::class)->countByNameOrDisplayName( trim($name) )) < 2)
                 $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
             else $addMultiple( $count, $name );
         }

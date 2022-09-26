@@ -1298,6 +1298,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
                 'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
                 'variableTypes'=>[
+                    ['type'=>"transString",'from'=>'gazette','name'=>'poison'],
                     ['type'=>"citizen",'name'=>'cadaver1'],
                 ],
             ],

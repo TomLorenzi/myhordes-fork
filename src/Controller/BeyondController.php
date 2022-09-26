@@ -20,7 +20,6 @@ use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RuinExplorerStats;
-use App\Entity\ScoutVisit;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
@@ -404,7 +403,7 @@ class BeyondController extends InventoryAwareController
             'actions' => $this->getItemActions(),
             'floorItems' => $floorItems,
             'other_citizens' => $zone->getCitizens(),
-            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10, true )->getContent(),
+            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 20, true )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',
@@ -481,7 +480,7 @@ class BeyondController extends InventoryAwareController
         $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $good ? 'trash_good' : 'trash_bad']);
         $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group, $this->getTownConf() );
         if (!$proto)
-            return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+            return AjaxResponse::errorMessage( $this->translator->trans('Obwohl du minutenlang den Stadtmüll durchwühlst, findest du <strong>nichts Nützliches</strong>...', [], 'game') );
 
         $item = $this->item_factory->createItem($proto);
         $gps->recordItemFound( $proto, $citizen, null, 'trash' );
@@ -708,11 +707,21 @@ class BeyondController extends InventoryAwareController
         if (!$citizen->getZone()?->getPrototype()?->getExplorable())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        // Make sure the citizen is not wounded, has not already explored the ruin today and no one else is exploring
-        // the ruin right now
-        if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['terror'] ) ||
-            $citizen->currentExplorerStats() || $citizen->getZone()->activeExplorerStats())
+        // Make sure the citizen is not wounded or terrorized
+        if ($this->citizen_handler->isWounded( $citizen ) || $this->citizen_handler->hasStatusEffect( $citizen, ['terror'] ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        // Make sure the citizen has not already explored the ruin today
+        if ($citizen->currentExplorerStats()) {
+            $this->addFlash('error', $this->translator->trans('Du kannst heute nicht hierher zurückkehren... Dein Körper würde das nicht durchstehen.', [], 'game'));
+            return AjaxResponse::success();
+        }
+
+        // Make sure no one else is exploring the ruin right now
+        if ($citizen->getZone()->activeExplorerStats()) {
+            $this->addFlash('error', $this->translator->trans('Jemand anders untersucht gerade diesen Ort.', [], 'game'));
+            return AjaxResponse::success();
+        }
 
         // Block exploring if currently escorting citizens
         if (!empty($citizen->getValidLeadingEscorts()))
@@ -1366,7 +1375,10 @@ class BeyondController extends InventoryAwareController
 
         if ($zone->getRuinDigs() > 0) {
             $factor = $this->zone_handler->getDigChanceFactor( $this->getActiveCitizen(), $zone );
-            $total_dig_chance = min(max(0.1, $factor * 0.75), 0.95);
+
+            if ($zone->getPrototype()->getEmptyDropChance() >= 1) $total_dig_chance = 0;
+            elseif ($zone->getPrototype()->getEmptyDropChance() <= 0) $total_dig_chance = 1;
+            else $total_dig_chance = min(max(0.1, $factor * (1.0 - $zone->getPrototype()->getEmptyDropChance())), 0.95);
 
             $item_found = $this->random_generator->chance($total_dig_chance);
 
@@ -1718,8 +1730,10 @@ class BeyondController extends InventoryAwareController
 
             if( $citizen->getAp() < 1 )
                 return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-            else if ( $this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0 )
-                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+            else if ( $this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0 ) {
+                $this->addFlash('error', $this->translator->trans('Ohne die benötigten Elemente kannst du diesen Zauber nicht aussprechen.', [], 'game'));
+                return AjaxResponse::success();
+            }
 
         } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 

@@ -65,8 +65,6 @@ class Zone
     private $digTimers;
     #[ORM\OneToMany(targetEntity: 'App\Entity\EscapeTimer', mappedBy: 'zone', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private $escapeTimers;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\DigRuinMarker', mappedBy: 'zone', orphanRemoval: true)]
-    private $digRuinMarkers;
     #[ORM\Column(type: 'integer')]
     private $ruinDigs = 10;
     #[ORM\Column(type: 'integer')]
@@ -75,8 +73,6 @@ class Zone
     private $zombieStatus = self::ZombieStateUnknown;
     #[ORM\Column(type: 'integer')]
     private $buryCount = 0;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\ScoutVisit', mappedBy: 'zone', cascade: ['persist', 'remove'], orphanRemoval: true)]
-    private $scoutVisits;
     #[ORM\Column(type: 'integer')]
     private $scoutEstimationOffset;
     #[ORM\Column(type: 'float')]
@@ -103,8 +99,6 @@ class Zone
         $this->citizens = new ArrayCollection();
         $this->digTimers = new ArrayCollection();
         $this->escapeTimers = new ArrayCollection();
-        $this->digRuinMarkers = new ArrayCollection();
-        $this->scoutVisits = new ArrayCollection();
         $this->ruinZones = new ArrayCollection();
         $this->explorerStats = new ArrayCollection();
         $this->chatSilenceTimers = new ArrayCollection();
@@ -301,47 +295,7 @@ class Zone
 
         return $this;
     }
-    /**
-     * @return Collection|DigRuinMarker[]
-     * @deprecated
-     */
-    public function getDigRuinMarkers(): Collection
-    {
-        return $this->digRuinMarkers;
-    }
 
-    /**
-     * @param DigRuinMarker $digRuinMarker
-     * @return $this
-     * @deprecated
-     */
-    public function addDigRuinMarker(DigRuinMarker $digRuinMarker): self
-    {
-        if (!$this->digRuinMarkers->contains($digRuinMarker)) {
-            $this->digRuinMarkers[] = $digRuinMarker;
-            $digRuinMarker->setZone($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param DigRuinMarker $digRuinMarker
-     * @return $this
-     * @deprecated
-     */
-    public function removeDigRuinMarker(DigRuinMarker $digRuinMarker): self
-    {
-        if ($this->digRuinMarkers->contains($digRuinMarker)) {
-            $this->digRuinMarkers->removeElement($digRuinMarker);
-            // set the owning side to null (unless already changed)
-            if ($digRuinMarker->getZone() === $this) {
-                $digRuinMarker->setZone(null);
-            }
-        }
-
-        return $this;
-    }
     public function getRuinDigs(): ?int
     {
         return $this->ruinDigs;
@@ -398,47 +352,7 @@ class Zone
 
         return $this;
     }
-    /**
-     * @return Collection|ScoutVisit[]
-     * @deprecated
-     */
-    public function getScoutVisits(): Collection
-    {
-        return $this->scoutVisits;
-    }
 
-    /**
-     * @param ScoutVisit $scoutVisit
-     * @return $this
-     * @deprecated
-     */
-    public function addScoutVisit(ScoutVisit $scoutVisit): self
-    {
-        if (!$this->scoutVisits->contains($scoutVisit)) {
-            $this->scoutVisits[] = $scoutVisit;
-            $scoutVisit->setZone($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param ScoutVisit $scoutVisit
-     * @return $this
-     * @deprecated
-     */
-    public function removeScoutVisit(ScoutVisit $scoutVisit): self
-    {
-        if ($this->scoutVisits->contains($scoutVisit)) {
-            $this->scoutVisits->removeElement($scoutVisit);
-            // set the owning side to null (unless already changed)
-            if ($scoutVisit->getZone() === $this) {
-                $scoutVisit->setZone(null);
-            }
-        }
-
-        return $this;
-    }
     public function getScoutLevel(): int
     {
         return max(0,$this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count() - 1);

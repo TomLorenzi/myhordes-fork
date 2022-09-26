@@ -486,7 +486,7 @@ class GameFactory
                 $zone
                     ->setX( $x - $ox )
                     ->setY( $y - $oy )
-                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 4), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
+                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
                     ->setFloor( new Inventory() )
                     ->setDiscoveryStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::DiscoveryStateCurrent : Zone::DiscoveryStateNone )
                     ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )
@@ -565,11 +565,14 @@ class GameFactory
                 if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
                 else $previous[$target_ruin->getId()]++;
 
-                $zone_list[$i+$o]->setPrototype( $target_ruin );
+                $zone_list[$i+$o]
+                    ->setPrototype( $target_ruin )
+                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 10), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 10) ) );
+
                 if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
                     $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
 
-                if ($this->random_generator->chance(0.4)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
+                if ($this->random_generator->chance(0.5)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
             } else
                 if ($this->random_generator->chance(0.1))
                     $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 3);
@@ -799,6 +802,9 @@ class GameFactory
 
             (new Inventory())->setCitizen( $citizen );
             $this->citizen_handler->inflictStatus( $citizen, 'clean' );
+
+            if ($this->town_handler->getBuilding( $town, 'small_novlamps_#00' ))
+                $this->citizen_handler->inflictStatus( $citizen, 'tg_novlamps' );
 
             $this->citizen_handler->applyProfession( $citizen, $base_profession );
 

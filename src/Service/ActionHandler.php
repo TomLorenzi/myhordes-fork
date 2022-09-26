@@ -39,6 +39,7 @@ use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Enum\ItemPoisonType;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
@@ -367,6 +368,16 @@ class ActionHandler
                     case 69:
                         if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
                             $current_state = min($current_state, $this_state);
+                        break;
+
+                    // Camourflace for hunter
+                    case 100:
+                        if (!$citizen->getLeadingEscorts()->isEmpty()) {
+                            $current_state = min($current_state, $this_state);
+                            $messages[] = $this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items');
+                        }
+
+                        break;
                 }
 
 
@@ -569,7 +580,7 @@ class ActionHandler
     }
 
     /**
-     * @param ItemPrototype|BuildingPrototype|Citizen|string $o
+     * @param ItemPrototype|BuildingPrototype|Citizen|ZonePrototype|string $o
      * @param int $c
      * @return string
      */
@@ -584,6 +595,8 @@ class ActionHandler
         } else if (is_a($o, Citizen::class)) {
             $s =  $o->getName();
             $i = 'build/images/professions/' . $o->getProfession()->getIcon() . '.gif';
+        } else if (is_a($o, ZonePrototype::class)) {
+            $s =  $this->translator->trans($o->getLabel(), [], 'game');
         }
         else if (is_string($o)) $s = $o;
         else if (is_null($o)) $s = 'NULL';
@@ -1586,13 +1599,14 @@ class ActionHandler
                         $criteria->andWhere($criteria->expr()->neq('discoveryStatus', Zone::DiscoveryStateCurrent));
                         $zones = $this->entity_manager->getRepository(Zone::class)->matching($criteria)->getValues();
                         if(count($zones) > 0) {
+                            /** @var Zone $zone */
                             $zone = $this->random_generator->pick($zones);
                             $zone->setDiscoveryStatus(Zone::DiscoveryStateCurrent);
                             $zone->setZombieStatus( max( $zone->getZombieStatus(), $this->town_handler->getBuilding($citizen->getTown(), 'item_electro_#00', true) ? Zone::ZombieStateExact : Zone::ZombieStateEstimate ) );
                             $this->entity_manager->persist($zone);
                             $this->inventory_handler->forceRemoveItem( $item );
                             $execute_info_cache['items_consume'][] = $item->getPrototype();
-                            $tags[] = 'flare_ok';
+                            $tags[] = $zone->getPrototype() ? 'flare_ok_ruin' : 'flare_ok';
                             $execute_info_cache['zone'] = $zone;
                         } else {
                             $tags[] = 'flare_fail';
@@ -1704,6 +1718,7 @@ class ActionHandler
 	                '{bp_parent}'     => $this->wrap_concat_hierarchy($execute_info_cache['bp_parent']),
 	                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
 	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
+	                '{zone_ruin}'     => ($execute_info_cache['zone'] && $execute_info_cache['zone']->getPrototype()) ? $this->wrap( $execute_info_cache['zone']->getPrototype() ) : '',
 	                '{casino}'        => $execute_info_cache['casino'],
 	                '{kills}'         => $execute_info_cache['kills'],
 	                '{bury_count}'    => $execute_info_cache['bury_count'],

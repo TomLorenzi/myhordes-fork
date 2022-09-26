@@ -65,6 +65,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setExplorable( $entry['explorable'] ?? 0 )
             ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
             ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
+            ->setEmptyDropChance( $entry['empty'] ?? 0.25 )
             ;
 
             foreach ($entity->getNamedDrops() as $existing_drop)

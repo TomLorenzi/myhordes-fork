@@ -269,7 +269,7 @@ class NightlyHandler
             $th = $town_conf->get(TownConf::CONF_GUIDE_SP_LIMIT, 100);
             if ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
                 return $this->user_handler->fetchSoulPoints( $c->getUser(), true, true ) < $th;
-            })->count() >= $town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 20))
+            })->count() >= ($town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 0.5) * $town->getPopulation()))
 
                 // Each citizen above the threshold gets assigned the potential guide status
                 foreach ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
@@ -976,7 +976,7 @@ class NightlyHandler
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
             // Panda towns sees their defense object in the bank destroyed
-            $number = max(1, min(mt_rand($est->getZombies() * 0.01, $est->getZombies() * 0.2), 20));
+            $number = max(1, min(ceil($est->getZombies() - $def_summary->withoutItemDefense()) * 0.5, 20));
             $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
             $this->log->info("We destroy <info>$number</info> items");
             $this->log->info("We fetched <info>". count($items) . "</info> items");
@@ -1786,7 +1786,7 @@ class NightlyHandler
         $novelty_lamps = $this->town_handler->getBuilding( $town, 'small_novlamps_#00', true );
 
         if ($novelty_lamps) {
-            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() > 2 ? 2 : 1) : 0;
+            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() >= 2 ? 2 : 1) : 0;
 
             $ok = $bats === 0;
 
