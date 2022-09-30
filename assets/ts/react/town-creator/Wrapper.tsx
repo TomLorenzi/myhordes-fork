@@ -65,6 +65,8 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
                 switch (element.type) {
                     case 'checkbox': case 'radio':
                         return element.checked;
+                    case 'number':
+                        return parseFloat( element.value )
                     default:
                         return element.value;
                 }

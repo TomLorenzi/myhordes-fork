@@ -6,9 +6,9 @@ export type ResponseIndex = {
 }
 
 export type ResponseTownList = {
-    id: number,
-    preset: boolean,
-    name: string,
+    id: number
+    preset: boolean
+    name: string
     help: string
 }[]
 
@@ -17,8 +17,17 @@ export type SysConfig = {
 }
 
 export type TownRules = {
-    wellPreset: string,
+    wellPreset: string
     well: { min: number|string, max: number|string }
+
+    mapPreset: string
+    map: { min: number|string, max: number|string, margin: number|string }
+    ruins: number|string
+    explorable_ruins: number|string
+
+    features: {
+        attacks: string
+    }
 }
 
 export type TownOptions = {

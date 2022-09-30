@@ -71,7 +71,25 @@ class TownCreatorController extends CustomAbstractCoreController
                         ['value' => 'low', 'label' => $this->translator->trans('Gering', [], 'ghost')],
                         ['value' => '_fixed', 'label' => $this->translator->trans('Eigener Wert', [], 'ghost')],
                         ['value' => '_range', 'label' => $this->translator->trans('Eigener Bereich', [], 'ghost')],
-                    ]
+                    ],
+
+                    'map' => $this->translator->trans('Kartengröße', [], 'ghost'),
+                    'map_presets' => [
+                        ['value' => 'small', 'label' => $this->translator->trans('Kleine Karte', [], 'ghost')],
+                        ['value' => 'normal', 'label' => $this->translator->trans('Normale Karte', [], 'ghost')],
+                        ['value' => 'large', 'label' => $this->translator->trans('Riesige Karte', [], 'ghost')],
+                        ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
+                    ],
+                    'map_exact' => $this->translator->trans('Exakte Kartengröße', [], 'ghost'),
+                    'map_ruins' => $this->translator->trans('Anzahl Ruinen', [], 'ghost'),
+                    'map_e_ruins' => $this->translator->trans('Anzahl Begehbare Ruinen', [], 'ghost'),
+
+                    'attacks' => $this->translator->trans('Stärke der Angriffe', [], 'ghost'),
+                    'attacks_presets' => [
+                        ['value' => 'easy',   'label' => $this->translator->trans('Leichte Angriffe', [], 'ghost')],
+                        ['value' => 'normal', 'label' => $this->translator->trans('Normal', [], 'ghost')],
+                        ['value' => 'hard',   'label' => $this->translator->trans('Schwere Angriffe', [], 'ghost')]
+                    ],
                 ]
             ],
             'config' => [
@@ -106,6 +124,16 @@ class TownCreatorController extends CustomAbstractCoreController
         );
     }
 
+    protected function sanitize_outgoing_config(array $conf): array {
+        static $unset_props = [
+            'well',
+            'map', 'ruins', 'explorable_ruins'
+        ];
+
+        foreach ($unset_props as $prop) unset ($conf[$prop]);
+        return $conf;
+    }
+
     /**
      * @Route("/town-rules/{id}", name="town-rules", methods={"GET"})
      * @param TownClass $townClass
@@ -117,9 +145,9 @@ class TownCreatorController extends CustomAbstractCoreController
             $preset = $this->conf->getTownConfigurationByType($townClass)->getData();
 
             $preset['wellPreset'] = $townClass->getName() === TownClass::HARD ? 'low' : 'normal';
-            unset( $preset['well'] );
+            $preset['mapPreset']  = $townClass->getName() === TownClass::EASY ? 'small' : 'normal';
 
-            return new JsonResponse( $preset );
+            return new JsonResponse( $this->sanitize_outgoing_config( $preset ) );
         }
 
         return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ChangeEventHandler, useContext} from "react";
+import {ChangeEventHandler, HTMLInputTypeAttribute, InputHTMLAttributes, useContext} from "react";
 import {Globals} from "./Wrapper";
 
 interface OptionTemplateArgs {
@@ -46,14 +46,14 @@ export const OptionCoreTemplate = (props: OptionCoreTemplateArgs) => (
 
 interface OptionFreeTextArgs extends OptionArgs {
     value: string|undefined,
-    'type'?: string,
+    'type'?: HTMLInputTypeAttribute,
+    inputArgs?: InputHTMLAttributes<HTMLInputElement>
 }
 export const OptionFreeText = (props: OptionFreeTextArgs) => {
     const globals = useContext(Globals)
     return (
         <OptionCoreTemplate {...props}>
-            <input type={props["type"] ?? 'text'} name={props.propName} value={props.value ?? ''} onChange={props.onChange ?? globals.setOption}
-            />
+            <input {...props.inputArgs ?? {}} type={props["type"] ?? 'text'} name={props.propName} value={props.value ?? ''} onChange={props.onChange ?? globals.setOption} />
         </OptionCoreTemplate>
     )
 }

@@ -37,6 +37,15 @@ export type TranslationStrings = {
 
         well: string,
         well_help: string,
-        well_presets: {value: string, label: string}[]
+        well_presets: {value: string, label: string}[],
+
+        map: string,
+        map_presets: {value: string, label: string}[],
+        map_exact: string,
+        map_ruins: string,
+        map_e_ruins: string,
+
+        attacks: string,
+        attacks_presets: {value: string, label: string}[],
     }
 }
