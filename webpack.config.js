@@ -82,6 +82,7 @@ Encore
 
     .addEntry('module-map', './assets/js/modules/map.js')
     .addEntry('module-ruffle', './assets/js/modules/ruffle.js')
+    .addEntry('module-town-creator', './assets/js/modules/town-creator.js')
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

@@ -120,11 +120,13 @@ class GhostController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/ghost/create_town", name="ghost_create_town")
+     * @Route("jx/ghost/create_town", name="ghost_create_town", defaults={"react"=0})
+     * @Route("jx/ghost/create_town_rc", name="ghost_create_town_rc", defaults={"react"=1})
+     * @param int $react
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function create_town(EntityManagerInterface $em): Response
+    public function create_town(int $react, EntityManagerInterface $em): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -137,7 +139,7 @@ class GhostController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
-        return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
+        return $this->render( $react ? 'ajax/ghost/create_town_rc.html.twig' : 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
             'professions' => array_filter( $em->getRepository(CitizenProfession::class)->findAll(), fn(CitizenProfession $pro) => $pro->getName() !== CitizenProfession::DEFAULT ),
             'constructions' => $em->getRepository(BuildingPrototype::class)->findAll(),
