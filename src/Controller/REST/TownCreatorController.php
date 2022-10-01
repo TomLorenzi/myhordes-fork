@@ -44,6 +44,12 @@ class TownCreatorController extends CustomAbstractCoreController
                         [ [ 'code' => 'multi', 'label' => $this->translator->trans('Mehrsprachig', [], 'global') ] ]
                     ),
 
+                    'citizens' => $this->translator->trans('Einwohnerzahl', [], 'ghost'),
+                    'citizens_help' => $this->translator->trans('Muss zwischen 10 und 80 liegen.', [], 'ghost'),
+
+                    'seed' => $this->translator->trans('Karten-Seed', [], 'ghost'),
+                    'seed_help' => $this->translator->trans('Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!', [], 'ghost'),
+
                     'type' => $this->translator->trans('Stadttyp', [], 'ghost'),
                     'base' => $this->translator->trans('Vorlage', [], 'ghost'),
 
@@ -89,6 +95,13 @@ class TownCreatorController extends CustomAbstractCoreController
                         ['value' => 'easy',   'label' => $this->translator->trans('Leichte Angriffe', [], 'ghost')],
                         ['value' => 'normal', 'label' => $this->translator->trans('Normal', [], 'ghost')],
                         ['value' => 'hard',   'label' => $this->translator->trans('Schwere Angriffe', [], 'ghost')]
+                    ],
+
+                    'position' => $this->translator->trans('Position der Stadt', [], 'ghost'),
+                    'position_presets' => [
+                        ['value' => 'normal',  'label' => $this->translator->trans('Normal', [], 'ghost')],
+                        ['value' => 'close',   'label' => $this->translator->trans('Eher Zentral', [], 'ghost')],
+                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')]
                     ],
                 ]
             ],

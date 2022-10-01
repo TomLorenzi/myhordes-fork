@@ -59,6 +59,17 @@ export const TownCreatorSectionHead = ( {townTypes}: {townTypes: ResponseTownLis
                       options={ head.langs.map( lang => ({ value: lang.code, title: lang.label }) ) }
         />
 
+        { /* Number of citizens */ }
+        <OptionFreeText type="number" propTitle={head.citizens} propHelp={head.citizens_help}
+                        inputArgs={{min: 10, max: 80}}
+                        value={(globals.options?.head?.townPop as string) ?? '40'} propName="townPop"
+        />
+
+        { /* Number of citizens */ }
+        <OptionFreeText type="number" propTitle={head.seed} propHelp={head.seed_help}
+                        value={(globals.options?.head?.townSeed as string) ?? '-1'} propName="townSeed"
+        />
+
         { /* Town Type */ }
         <OptionSelect propTitle={head['type']}
                       value={`${globals.options?.head?.townType ?? -1}`} propName="townType"

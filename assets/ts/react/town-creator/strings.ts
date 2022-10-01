@@ -15,6 +15,12 @@ export type TranslationStrings = {
             label: string,
         }[],
 
+        'citizens': string,
+        'citizens_help': string,
+
+        'seed': string,
+        'seed_help': string,
+
         'type': string,
         'base': string,
 
@@ -44,6 +50,9 @@ export type TranslationStrings = {
         map_exact: string,
         map_ruins: string,
         map_e_ruins: string,
+
+        position: string,
+        position_presets: {value: string, label: string}[],
 
         attacks: string,
         attacks_presets: {value: string, label: string}[],

@@ -34,6 +34,8 @@ export type TownOptions = {
     head: {
         townName: string,
         townLang: string,
+        townPop: number|string,
+        townSeed: number|string,
         townType: number|string,
         townBase: number|string,
         townOpts: {

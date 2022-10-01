@@ -68,9 +68,15 @@ export const TownCreatorSectionDifficulty = ( {rules}: {rules: TownRules} ) => {
             </>
         ) }
 
+        { /* Position Settings */ }
+        <OptionSelect value={ globals.options?.rules?.features.attacks } propName="rules.map.marginPreset" propTitle={ difficulty.position }
+                      options={ difficulty.position_presets.map( m => ({ value: m.value, title: m.label }) ) }
+        />
+
         { /* Attack Settings */ }
         <OptionSelect value={ globals.options?.rules?.features.attacks } propName="features.attacks" propTitle={ difficulty.attacks }
                       options={ difficulty.attacks_presets.map( m => ({ value: m.value, title: m.label }) ) }
         />
+
     </div>;
 };
