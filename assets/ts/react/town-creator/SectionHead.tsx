@@ -8,7 +8,7 @@ import {OptionFreeText, OptionSelect, OptionToggleMulti} from "./Input";
 
 declare var $: Global;
 
-export const TownCreatorSectionHead = ( {townTypes, setDefaultRules}: {townTypes: ResponseTownList, setDefaultRules: (rules: TownRules) => void} ) => {
+export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}: {townTypes: ResponseTownList, setDefaultRules: (rules: TownRules) => void, setBlocked: (block: boolean) => void} ) => {
     const globals = useContext(Globals)
 
     const head = globals.strings.head;
@@ -39,8 +39,11 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules}: {townTypes
                 : -1)
 
         if (id > 0) {
-            globals.setOption('rules', null);
-            globals.api.townRulesPreset(id).then(v => setDefaultRules(v));
+            setBlocked(true);
+            globals.api.townRulesPreset(id).then(v => {
+                setDefaultRules(v);
+                setBlocked(false)
+            });
         }
 
     }, [globals.options?.head?.townType, globals.options?.head?.townBase])

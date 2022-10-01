@@ -171,6 +171,27 @@ class TownCreatorController extends CustomAbstractCoreController
 
                         'improveddump' => $this->translator->trans('Verbesserte Müllhalde', [], 'ghost'),
                         'improveddump_help' => $this->translator->trans('Verbesserte Müllhalde aktivieren', [], 'ghost'),
+                        'improveddump_buildings' => ['small_trash_#01', 'small_trash_#02', 'small_trash_#03', 'small_trash_#04', 'small_trash_#05', 'small_trash_#06', 'small_howlingbait_#00', 'small_trashclean_#00' ]
+                    ],
+
+                    'special' => [
+                        'section' => $this->translator->trans('Spezialregeln', [], 'ghost'),
+
+                        'nobuilding' => $this->translator->trans('Keine Startgebäude', [], 'ghost'),
+                        'nobuilding_help' => $this->translator->trans('Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!', [], 'ghost'),
+
+                        'poison' => $this->translator->trans('Kontaminierte Zone', [], 'ghost'),
+                        'poison_help' => $this->translator->trans('Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.', [], 'ghost'),
+
+                        'beta' => $this->translator->trans('Beta-Funktionen aktivieren', [], 'ghost'),
+                        'beta_help' => $this->translator->trans('Jeder Spieler erhält 1x Betapropin beim Start der Stadt.', [], 'ghost'),
+                        'beta_items' => ['beta_drug_#00'],
+
+                        'with-toxin' => $this->translator->trans('Toxin aktivieren', [], 'ghost'),
+                        'with-toxin_help' => $this->translator->trans('Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.', [], 'ghost'),
+
+                        'hungry-ghouls' => $this->translator->trans('Hungrige Ghule', [], 'ghost'),
+                        'hungry-ghouls_help' => $this->translator->trans('Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.', [], 'ghost'),
                     ]
                 ]
             ],
@@ -209,7 +230,7 @@ class TownCreatorController extends CustomAbstractCoreController
     protected function sanitize_outgoing_config(array $conf): array {
         static $unset_props = [
             'well',
-            'map', 'ruins', 'explorable_ruins'
+            'map', 'ruins'
         ];
 
         foreach ($unset_props as $prop) unset ($conf[$prop]);

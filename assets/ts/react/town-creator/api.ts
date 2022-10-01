@@ -39,8 +39,9 @@ export type TownRules = {
             max: number|string
         }
         shun: boolean|string
-        camping: boolean|string,
-
+        camping: boolean|string
+        all_poison: boolean|string
+        'hungry_ghouls': boolean|string
     },
 
     modifiers: {
@@ -55,7 +56,16 @@ export type TownRules = {
 
     disabled_jobs: Set<string>|string[]
     disabled_roles: Set<string>|string[]
+
     disabled_buildings: Set<string>|string[]
+    unlocked_buildings: Set<string>|string[]
+    initial_buildings: Set<string>|string[]
+
+    initial_chest: Set<string>|string[]
+
+    overrides: {
+        named_drops: Set<string>|string[]
+    }
 }
 
 export type TownOptions = {

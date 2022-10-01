@@ -103,7 +103,28 @@ export type TranslationStrings = {
 
             improveddump: string,
             improveddump_help: string,
+            improveddump_buildings: string[],
 
+        }
+
+        special: {
+            section: string
+
+            nobuilding: string,
+            nobuilding_help: string,
+
+            poison: string,
+            poison_help: string,
+
+            beta: string,
+            beta_help: string,
+            beta_items: string[],
+
+            'with-toxin': string,
+            'with-toxin_help': string,
+
+            'hungry-ghouls': string,
+            'hungry-ghouls_help': string,
         }
     }
 }

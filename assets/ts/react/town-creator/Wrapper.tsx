@@ -45,6 +45,8 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
     const [options, setOptions] = useState<TownOptions|{}>({})
     const [defaultRules, setDefaultRules] = useState<TownRules|{}>({})
 
+    const [blocked, setBlocked] = useState<boolean>(false);
+
     useEffect( () => {
         apiRef.current = new TownCreatorAPI(api);
         apiRef.current.index().then( index => setIndex(index) );
@@ -57,12 +59,10 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
         }
     }, [api] )
 
-    console.log( options );
-
     const setOption = (dot: string|ChangeEvent, value: any|null = null) => {
 
         if (typeof dot !== "string") {
-            let dot_constructor = [];
+
             let target = ((dot as ChangeEvent).target as HTMLElement);
 
             const fun_extract_value = ( element: HTMLInputElement ): any => {
@@ -77,11 +77,20 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
             }
 
             const value = fun_extract_value((dot as ChangeEvent).target as HTMLInputElement);
+            let dot_constructor = [];
 
             while ( target ) {
-                const accessor = (target.dataset?.mapProperty ?? '*').replace( '*', target.dataset.propName ?? target.getAttribute('name') ?? target.getAttribute('id') ?? 'this' );
-                if (accessor) dot_constructor = [ accessor, ...dot_constructor ];
+                const accessor = (target.dataset?.mapProperty ?? '*').replace( '*', target.dataset.propName ?? target.getAttribute('name') ?? target.getAttribute('id') ?? 'this' ).split('.');
+                if (accessor) dot_constructor = [ ...accessor, ...dot_constructor ];
                 target = target.parentElement?.closest<HTMLElement>( '[data-map-property]' );
+            }
+
+            let search_index = dot_constructor.findIndex(v => v === '<');
+            while (search_index >= 0) {
+                dot_constructor = search_index === 0 ? dot_constructor.slice(1) : [
+                    ...dot_constructor.slice(0,search_index-1),...dot_constructor.slice(search_index+1)
+                ];
+                search_index = dot_constructor.findIndex(v => v === '<');
             }
 
             return setOption( dot_constructor.join('.'), value );
@@ -135,9 +144,9 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
     return (
         <Globals.Provider value={{ api: apiRef.current, options: options as TownOptions, default_rules: defaultRules as TownRules, strings: index?.strings, config: index?.config, setOption }}>
             { townTownTypeList && index && (
-                <form>
-                    <TownCreatorSectionHead townTypes={townTownTypeList}
-                                            setDefaultRules={v => { setDefaultRules(v); setOption('rules', v) }}/>
+                <form data-disabled={blocked ? 'disabled' : ''}>
+                    <TownCreatorSectionHead townTypes={townTownTypeList} setBlocked={setBlocked}
+                                            setDefaultRules={v => { setDefaultRules(v); setOption('rules', JSON.parse( JSON.stringify(v) )) }}/>
 
                     { (options as TownOptions).rules && <>
                         <TownCreatorSectionMods rules={(options as TownOptions).rules}/>

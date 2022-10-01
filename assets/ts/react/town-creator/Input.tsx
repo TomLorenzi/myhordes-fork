@@ -84,7 +84,7 @@ export const OptionSelect = (props: OptionSelectArgs) => {
 }
 
 interface OptionToggleMultiArgs extends OptionArgs {
-    options: { value: boolean, name: string, title: string, help?: string }[]
+    options: { value: boolean, name: string, title: string, help?: string, onChange?: ChangeEventHandler }[]
 }
 export const OptionToggleMulti = (props: OptionToggleMultiArgs) => {
     const globals = useContext(Globals)
@@ -92,7 +92,7 @@ export const OptionToggleMulti = (props: OptionToggleMultiArgs) => {
         <OptionCoreTemplate {...props} wide={true}>
             <div data-map-property={props.propName} className="mod">
                 { props.options.map( option => <React.Fragment key={option.name}>
-                    <div><input type="checkbox" data-prop-name={option.name} name={`${props.propName}-${option.name}`} checked={option.value} onChange={props.onChange ?? globals.setOption} />
+                    <div><input type="checkbox" data-prop-name={option.name} name={`${props.propName}-${option.name}`} checked={option.value} onChange={option.onChange ?? props.onChange ?? globals.setOption} />
                         <label htmlFor={`${props.propName}-${option.name}`}>
                             <strong>{option.title}{ option.help ? ':' : '' }</strong>
                             { option.help ? ' ' : '' }
