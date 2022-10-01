@@ -44,10 +44,10 @@ class ConfMaster
         return $tc->complete();
     }
 
-    public function getTownConfigurationByType( TownClass|string|null $town = null ): TownConf {
+    public function getTownConfigurationByType( TownClass|string|null $town = null, bool $asPrivate = false ): TownConf {
         if (is_a( $town, TownClass::class )) $town = $town->getName();
         else $town = $town ?? 'default';
-        return (new TownConf( [$this->game_rules['default'], $this->game_rules[$town] ?? [] ] ))->complete();
+        return (new TownConf( [$this->game_rules['default'], $this->game_rules[$town] ?? [], $asPrivate ? $this->game_rules['custom'] ?? [] : [] ] ))->complete();
     }
 
     public function getEvent(string $name): EventConf {

@@ -36,7 +36,7 @@ export type TranslationStrings = {
             ffa: string,
             ffa_help: string,
         }
-    },
+    }
 
     difficulty: {
         section: string,
@@ -125,6 +125,23 @@ export type TranslationStrings = {
 
             'hungry-ghouls': string,
             'hungry-ghouls_help': string,
+        }
+    }
+
+    animation: {
+        section: string
+
+        pictos: string
+        pictos_presets: {value: string, label: string, help: string}[]
+
+        sp: string
+        sp_presets: {value: string, label: string, help: string}[]
+
+        management: {
+            section: string
+
+            incarnate: string,
+            incarnate_help: string,
         }
     }
 }

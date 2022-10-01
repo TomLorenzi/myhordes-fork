@@ -42,6 +42,9 @@ export type TownRules = {
         camping: boolean|string
         all_poison: boolean|string
         'hungry_ghouls': boolean|string
+
+        give_all_pictos: boolean|string
+        give_soulpoints: boolean|string
     },
 
     modifiers: {
@@ -121,9 +124,9 @@ export class TownCreatorAPI {
         ) as Promise<ResponseTownList>;
     }
 
-    public async townRulesPreset(id: number): Promise<TownRules> {
+    public async townRulesPreset(id: number, privateTown: boolean = false): Promise<TownRules> {
         return await this.extract(
-            fetch( `${this.base}/town-rules/${id}`, this.fetch_config('GET') )
+            fetch( `${this.base}/town-rules/${privateTown ? 'private/' : ''}${id}`, this.fetch_config('GET') )
         ) as Promise<TownRules>;
     }
 

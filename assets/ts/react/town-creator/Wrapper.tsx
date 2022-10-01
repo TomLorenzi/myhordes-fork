@@ -10,6 +10,7 @@ import {TranslationStrings} from "./strings";
 import {element, string} from "prop-types";
 import {TownCreatorSectionDifficulty} from "./SectionDifficulty";
 import {TownCreatorSectionMods} from "./SectionMods";
+import {TownCreatorSectionAnimator} from "./SectionAnimator";
 
 declare var $: Global;
 
@@ -149,6 +150,7 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
                                             setDefaultRules={v => { setDefaultRules(v); setOption('rules', JSON.parse( JSON.stringify(v) )) }}/>
 
                     { (options as TownOptions).rules && <>
+                        <TownCreatorSectionAnimator rules={(options as TownOptions).rules}/>
                         <TownCreatorSectionMods rules={(options as TownOptions).rules}/>
                         <TownCreatorSectionDifficulty rules={(options as TownOptions).rules}/>
                     </> }

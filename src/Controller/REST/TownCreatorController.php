@@ -193,6 +193,29 @@ class TownCreatorController extends CustomAbstractCoreController
                         'hungry-ghouls' => $this->translator->trans('Hungrige Ghule', [], 'ghost'),
                         'hungry-ghouls_help' => $this->translator->trans('Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.', [], 'ghost'),
                     ]
+                ],
+
+                'animation' => [
+                    'section' => $this->translator->trans('Raben-Optionen', [], 'ghost'),
+
+                    'pictos' => $this->translator->trans('Vergabe von Auszeichnungen', [], 'ghost'),
+                    'pictos_presets' => [
+                        ['value' => 'all',     'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
+                        ['value' => 'reduced', 'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
+                    ],
+
+                    'sp' => $this->translator->trans('Vergabe von Seelenpunkten', [], 'ghost'),
+                    'sp_presets' => [
+                        ['value' => 'all',  'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.', [], 'ghost')],
+                        ['value' => 'none', 'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.', [], 'ghost')],
+                    ],
+
+                    'management' => [
+                        'section' => $this->translator->trans('Verwaltung', [], 'ghost'),
+
+                        'incarnate' => $this->translator->trans('', [], 'ghost'),
+                        'incarnate_help' => $this->translator->trans('', [], 'ghost'),
+                    ]
                 ]
             ],
             'config' => [
@@ -238,14 +261,16 @@ class TownCreatorController extends CustomAbstractCoreController
     }
 
     /**
-     * @Route("/town-rules/{id}", name="town-rules", methods={"GET"})
+     * @Route("/town-rules/{id}", name="town-rules", methods={"GET"}, defaults={"private"=false})
+     * @Route("/town-rules/private/{id}", name="private-town-rules", methods={"GET"}, defaults={"private"=true})
      * @param TownClass $townClass
+     * @param bool $private
      * @return JsonResponse
      */
-    public function town_type_rules(TownClass $townClass): JsonResponse {
+    public function town_type_rules(TownClass $townClass, bool $private): JsonResponse {
         if ($townClass->getHasPreset()) {
 
-            $preset = $this->conf->getTownConfigurationByType($townClass)->getData();
+            $preset = $this->conf->getTownConfigurationByType($townClass, $private)->getData();
 
             $preset['wellPreset'] = $townClass->getName() === TownClass::HARD ? 'low' : 'normal';
             $preset['mapPreset']  = $townClass->getName() === TownClass::EASY ? 'small' : 'normal';

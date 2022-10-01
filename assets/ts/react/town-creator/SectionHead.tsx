@@ -40,7 +40,7 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
 
         if (id > 0) {
             setBlocked(true);
-            globals.api.townRulesPreset(id).then(v => {
+            globals.api.townRulesPreset(id, !fun_typeHasPreset( type_id )).then(v => {
                 setDefaultRules(v);
                 setBlocked(false)
             });
