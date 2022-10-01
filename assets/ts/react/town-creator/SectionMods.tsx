@@ -158,6 +158,6 @@ export const TownCreatorSectionMods = ( {rules}: {rules: TownRules} ) => {
             } },
             { value: (new Set<string>(rules?.overrides?.named_drops as string[] ?? [])).has('with-toxin'), name: '<.overrides.named_drops.<>.with-toxin', title: mods.special["with-toxin"], help: mods.special["with-toxin_help"] },
             { value: rules.features.hungry_ghouls as boolean, name: 'hungry_ghouls', title: mods.special["hungry-ghouls"], help: mods.special["hungry-ghouls_help"] },
-        ]} propTitle={mods.modules.section}/>
+        ]} propTitle={mods.special.section}/>
     </div>;
 };
