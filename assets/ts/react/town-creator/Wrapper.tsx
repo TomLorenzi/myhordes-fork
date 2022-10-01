@@ -3,12 +3,13 @@ import * as ReactDOM from "react-dom";
 
 import Components, {ReactData} from "../index";
 import {Global} from "../../defaults";
-import {ResponseIndex, ResponseTownList, SysConfig, TownCreatorAPI, TownOptions} from "./api";
+import {ResponseIndex, ResponseTownList, SysConfig, TownCreatorAPI, TownOptions, TownRules} from "./api";
 import {ChangeEvent, useEffect, useRef, useState} from "react";
 import {TownCreatorSectionHead} from "./SectionHead";
 import {TranslationStrings} from "./strings";
-import {element} from "prop-types";
+import {element, string} from "prop-types";
 import {TownCreatorSectionDifficulty} from "./SectionDifficulty";
+import {TownCreatorSectionMods} from "./SectionMods";
 
 declare var $: Global;
 
@@ -29,6 +30,7 @@ type TownCreatorGlobals = {
     config: SysConfig,
 
     options: TownOptions,
+    default_rules: TownRules,
     setOption: (dot: string|ChangeEvent, value?: any|null) => void
 }
 
@@ -41,6 +43,7 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
     const [index, setIndex] = useState<ResponseIndex>(null)
     const [townTownTypeList, setTownTypeList] = useState<ResponseTownList>()
     const [options, setOptions] = useState<TownOptions|{}>({})
+    const [defaultRules, setDefaultRules] = useState<TownRules|{}>({})
 
     useEffect( () => {
         apiRef.current = new TownCreatorAPI(api);
@@ -50,6 +53,7 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
             setIndex(null);
             setTownTypeList(null);
             setOptions(null);
+            setDefaultRules(null);
         }
     }, [api] )
 
@@ -86,11 +90,39 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
         const fun = (obj: object, dot: string[], value: any) => {
             if (dot.length === 0) return value;
             else if (dot.length === 1) {
-                const v = obj[dot[0]];
+                const v = typeof obj[dot[0]] === "object" ? JSON.parse( JSON.stringify( obj[dot[0]] ) ) : obj[dot[0]];
                 obj[dot[0]] = value;
                 return v;
             } else {
-                if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = {};
+                // Set access
+                if (dot.length === 3 && dot[1] === '<>') {
+                    if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = new Set<string>();
+                    else if (typeof obj[dot[0]] === "object") obj[dot[0]] = new Set<string>(obj[dot[0]]);
+
+                    const v = (obj[dot[0]] as Set<string>).has( dot[2] );
+                    if (value) (obj[dot[0]] as Set<string>).add( dot[2] );
+                    else (obj[dot[0]] as Set<string>).delete( dot[2] );
+                    return v;
+
+                // Array access
+                } else if (dot.length === 3 && dot[1] === '[]') {
+                    if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = [];
+                    else if (typeof obj[dot[0]] === "object") obj[dot[0]] = Array.from( obj[dot[0]] );
+
+                    if (value) {
+                        (obj[dot[0]] as string[]).push(dot[2]);
+                        return false;
+                    }
+                    else {
+                        const index = (obj[dot[0]] as string[]).findIndex(v => v === dot[2]);
+                        if (index < 0) return false;
+
+                        (obj[dot[0]] as string[]).splice( index, 1 );
+                        return true;
+                    }
+                }
+
+                else if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = {};
                 return fun(obj[dot[0]], dot.slice(1), value);
             }
         }
@@ -101,12 +133,14 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
     }
 
     return (
-        <Globals.Provider value={{ api: apiRef.current, options: options as TownOptions, strings: index?.strings, config: index?.config, setOption }}>
+        <Globals.Provider value={{ api: apiRef.current, options: options as TownOptions, default_rules: defaultRules as TownRules, strings: index?.strings, config: index?.config, setOption }}>
             { townTownTypeList && index && (
                 <form>
-                    <TownCreatorSectionHead townTypes={townTownTypeList}></TownCreatorSectionHead>
+                    <TownCreatorSectionHead townTypes={townTownTypeList}
+                                            setDefaultRules={v => { setDefaultRules(v); setOption('rules', v) }}/>
 
                     { (options as TownOptions).rules && <>
+                        <TownCreatorSectionMods rules={(options as TownOptions).rules}/>
                         <TownCreatorSectionDifficulty rules={(options as TownOptions).rules}/>
                     </> }
                 </form>

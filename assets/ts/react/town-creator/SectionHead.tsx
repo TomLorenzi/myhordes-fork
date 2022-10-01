@@ -1,14 +1,14 @@
 import * as React from "react";
 
 import {Global} from "../../defaults";
-import {ResponseTownList} from "./api";
+import {ResponseTownList, TownRules} from "./api";
 import {useContext, useEffect, useRef} from "react";
 import {Globals} from "./Wrapper";
 import {OptionFreeText, OptionSelect, OptionToggleMulti} from "./Input";
 
 declare var $: Global;
 
-export const TownCreatorSectionHead = ( {townTypes}: {townTypes: ResponseTownList} ) => {
+export const TownCreatorSectionHead = ( {townTypes, setDefaultRules}: {townTypes: ResponseTownList, setDefaultRules: (rules: TownRules) => void} ) => {
     const globals = useContext(Globals)
 
     const head = globals.strings.head;
@@ -40,7 +40,7 @@ export const TownCreatorSectionHead = ( {townTypes}: {townTypes: ResponseTownLis
 
         if (id > 0) {
             globals.setOption('rules', null);
-            globals.api.townRulesPreset(id).then(v => globals.setOption('rules', v));
+            globals.api.townRulesPreset(id).then(v => setDefaultRules(v));
         }
 
     }, [globals.options?.head?.townType, globals.options?.head?.townBase])

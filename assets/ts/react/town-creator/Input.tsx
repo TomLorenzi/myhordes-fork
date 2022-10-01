@@ -61,15 +61,22 @@ export const OptionFreeText = (props: OptionFreeTextArgs) => {
 interface OptionSelectArgs extends OptionArgs {
     value: string|undefined,
     multi?: boolean
-    options: { value: string, title: string }[]
+    options: { value: string, title: string, help?: string }[]
 }
 export const OptionSelect = (props: OptionSelectArgs) => {
     const globals = useContext(Globals)
+
+    const selection = props.options?.filter( option => option.value === props.value )?.pop();
+    const combined_help = [
+        ...(props.propHelp ? [props.propHelp] : []),
+        ...(selection?.help ? [`<strong>${selection.title}:</strong> ${selection?.help}`] : [])
+    ].filter( v=>v ).join('<br/>');
+
     return (
-        <OptionCoreTemplate {...props}>
+        <OptionCoreTemplate {...props} propHelp={combined_help}>
             <select name={props.propName} value={props.value ?? ''} onChange={props.onChange ?? globals.setOption} multiple={props.multi ?? false}>
                 { props.options.map( option => <React.Fragment key={option.value}>
-                    <option value={option.value}>{ option.title }</option>
+                    <option value={option.value} title={ option.help ?? '' }>{ option.title }</option>
                 </React.Fragment> ) }
             </select>
         </OptionCoreTemplate>

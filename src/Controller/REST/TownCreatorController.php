@@ -103,6 +103,75 @@ class TownCreatorController extends CustomAbstractCoreController
                         ['value' => 'close',   'label' => $this->translator->trans('Eher Zentral', [], 'ghost')],
                         ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')]
                     ],
+                ],
+
+                'mods' => [
+                    'section' => $this->translator->trans('Stadtmodifikationen', [], 'ghost'),
+
+                    'ghouls' => $this->translator->trans('Ghule', [], 'ghost'),
+                    'ghouls_presets' => [
+                        ['value' => 'normal',      'label' => $this->translator->trans('Normal', [], 'ghost'), 'help' => $this->translator->trans('Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.', [], 'ghost')],
+                        ['value' => 'childtown',   'label' => $this->translator->trans('Stadt der Kuscheltiere', [], 'ghost'), 'help' => $this->translator->trans('Ghule sind deaktiviert.', [], 'ghost')],
+                        ['value' => 'bloodthirst', 'label' => $this->translator->trans('Blutdurst', [], 'ghost'), 'help' => $this->translator->trans('Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.', [], 'ghost')],
+                        ['value' => 'airborne',    'label' => $this->translator->trans('Aerogen', [], 'ghost'), 'help' => $this->translator->trans('Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.', [], 'ghost')],
+                        ['value' => 'airbnb',      'label' => $this->translator->trans('Blutdurst und Aerogen', [], 'ghost'), 'help' => $this->translator->trans('Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.', [], 'ghost')],
+                    ],
+
+                    'shamans' => $this->translator->trans('Seelen & Schamane', [], 'ghost'),
+                    'shamans_presets' => [
+                        ['value' => 'normal', 'label' => $this->translator->trans('Normal', [], 'ghost'), 'help' => $this->translator->trans('Der Schamane wird gewählt und die Seelen werden gequält.', [], 'ghost')],
+                        ['value' => 'job',    'label' => $this->translator->trans('Job', [], 'ghost'), 'help' => $this->translator->trans('Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.', [], 'ghost')],
+                        ['value' => 'both',   'label' => $this->translator->trans('Kombiniert', [], 'ghost'), 'help' => $this->translator->trans('Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).', [], 'ghost')],
+                        ['value' => 'none',   'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Der Schamane und die Seelen werden deaktiviert.', [], 'ghost')],
+                    ],
+                    'shaman_buildings' => [
+                        'normal' => ['small_spa4souls_#00'],
+                        'job' => ['small_vaudoudoll_#00','small_bokorsword_#00','small_spiritmirage_#00','small_holyrain_#00'],
+                    ],
+
+                    'watch' => $this->translator->trans('Nachtwache', [], 'ghost'),
+                    'watch_presets' => [
+                        ['value' => 'normal',  'label' => $this->translator->trans('Normal', [], 'ghost'), 'help' => $this->translator->trans('Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.', [], 'ghost')],
+                        ['value' => 'instant', 'label' => $this->translator->trans('Sofort', [], 'ghost'), 'help' => $this->translator->trans('Die Nachtwache ist von Anfang an verfügbar.', [], 'ghost')],
+                        ['value' => 'none',    'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Die Nachtwache ist deaktiviert.', [], 'ghost')],
+                    ],
+                    'watch_buildings' => [ 'small_round_path_#00' ],
+
+                    'nightmode' => $this->translator->trans('Nachtmodus', [], 'ghost'),
+                    'nightmode_presets' => [
+                        ['value' => 'myhordes', 'label' => $this->translator->trans('Erweitert', [], 'ghost'), 'help' => $this->translator->trans('Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.', [], 'ghost')],
+                        ['value' => 'hordes',   'label' => $this->translator->trans('Normal', [], 'ghost'), 'help' => $this->translator->trans('Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.', [], 'ghost')],
+                        ['value' => 'none',     'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Der Nachtmodus ist deaktiviert.', [], 'ghost')],
+                    ],
+                    'nightmode_buildings' => [ 'small_novlamps_#00' ],
+
+                    'timezone' => $this->translator->trans('Zeitzone', [], 'ghost'),
+                    'timezone_presets' => [
+                        ['value' => 'day',   'label' => $this->translator->trans('Tagesphase', [], 'ghost'), 'help' => $this->translator->trans('Die eingestellte Zeit gibt die Dauer des Tages an.', [], 'ghost') . ' ' . $this->translator->trans('Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.', [], 'ghost')],
+                        ['value' => 'night', 'label' => $this->translator->trans('Nachtphase', [], 'ghost'), 'help' => $this->translator->trans('Die eingestellte Zeit gibt die Dauer der Nacht an.', [], 'ghost') . ' ' . $this->translator->trans('Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.', [], 'ghost')],
+                    ],
+
+                    'modules' => [
+                        'section' => $this->translator->trans('Spielmodifikationen', [], 'ghost'),
+
+                        'e_ruins' => $this->translator->trans('Exploration', [], 'ghost'),
+                        'e_ruins_help' => $this->translator->trans('Begehbare Ruinen aktivieren', [], 'ghost'),
+
+                        'escorts' => $this->translator->trans('Eskorte', [], 'ghost'),
+                        'escorts_help' => $this->translator->trans('Eskorten aktivieren', [], 'ghost'),
+
+                        'shun' => $this->translator->trans('Verbannung', [], 'ghost'),
+                        'shun_help' => $this->translator->trans('Verbannung aktivieren', [], 'ghost'),
+
+                        'camp' => $this->translator->trans('Camping', [], 'ghost'),
+                        'camp_help' => $this->translator->trans('Camping in der Wildnis aktivieren', [], 'ghost'),
+
+                        'buildingdamages' => $this->translator->trans('Gebäudeschaden', [], 'ghost'),
+                        'buildingdamages_help' => $this->translator->trans('Gebäudeschaden aktivieren', [], 'ghost'),
+
+                        'improveddump' => $this->translator->trans('Verbesserte Müllhalde', [], 'ghost'),
+                        'improveddump_help' => $this->translator->trans('Verbesserte Müllhalde aktivieren', [], 'ghost'),
+                    ]
                 ]
             ],
             'config' => [

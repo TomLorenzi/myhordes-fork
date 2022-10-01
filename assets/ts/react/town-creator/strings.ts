@@ -57,4 +57,53 @@ export type TranslationStrings = {
         attacks: string,
         attacks_presets: {value: string, label: string}[],
     }
+
+    mods: {
+        section: string,
+
+        ghouls: string,
+        ghouls_presets: {value: string, label: string, help: string}[]
+
+        shamans: string,
+        shamans_presets: {value: string, label: string, help: string}[]
+        shaman_buildings: {
+            job: string[]
+            normal: string[]
+        }
+
+        watch: string,
+        watch_presets: {value: string, label: string, help: string}[]
+        watch_buildings: string[]
+
+        nightmode: string,
+        nightmode_presets: {value: string, label: string, help: string}[]
+        nightmode_buildings: string[]
+
+        timezone: string,
+        timezone_presets: {value: string, label: string, help: string}[]
+
+        modules: {
+
+            section: string,
+
+            e_ruins: string,
+            e_ruins_help: string,
+
+            escorts: string,
+            escorts_help: string,
+
+            shun: string,
+            shun_help: string,
+
+            camp: string,
+            camp_help: string,
+
+            buildingdamages: string,
+            buildingdamages_help: string,
+
+            improveddump: string,
+            improveddump_help: string,
+
+        }
+    }
 }

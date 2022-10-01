@@ -27,7 +27,35 @@ export type TownRules = {
 
     features: {
         attacks: string
+        ghoul_mode: string
+        shaman: string
+        nightwatch: {
+            enabled: boolean|string
+            instant: boolean|string
+        },
+        nightmode: boolean|string
+        escort: {
+            enabled: boolean|string
+            max: number|string
+        }
+        shun: boolean|string
+        camping: boolean|string,
+
+    },
+
+    modifiers: {
+
+        building_attack_damage: boolean|string
+
+        daytime: {
+            range: (number|string)[]
+            invert: boolean|string
+        }
     }
+
+    disabled_jobs: Set<string>|string[]
+    disabled_roles: Set<string>|string[]
+    disabled_buildings: Set<string>|string[]
 }
 
 export type TownOptions = {
