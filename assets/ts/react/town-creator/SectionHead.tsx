@@ -5,6 +5,7 @@ import {ResponseTownList, TownRules} from "./api";
 import {useContext, useEffect, useRef} from "react";
 import {Globals} from "./Wrapper";
 import {OptionFreeText, OptionSelect, OptionToggleMulti} from "./Input";
+import {number} from "prop-types";
 
 declare var $: Global;
 
@@ -13,10 +14,10 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
 
     const head = globals.strings.head;
 
-    const appliedDefaults: {prop: string|any, dot: string, default: string}[] = [
+    const appliedDefaults: {prop: string|any, dot: string, default: any|string}[] = [
         { prop: globals.options?.head?.townLang, dot: 'head.townLang', default: globals.config.default_lang },
-        { prop: globals.options?.head?.townType, dot: 'head.townType', default: '-1'},
-        { prop: globals.options?.head?.townBase, dot: 'head.townBase', default: '-1'},
+        { prop: globals.options?.head?.townType, dot: 'head.townType', default: -1},
+        { prop: globals.options?.head?.townBase, dot: 'head.townBase', default: -1},
     ];
 
     useEffect(() =>
@@ -74,20 +75,20 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
         />
 
         { /* Town Type */ }
-        <OptionSelect propTitle={head['type']}
+        <OptionSelect propTitle={head['type']} type="number"
                       value={`${globals.options?.head?.townType ?? -1}`} propName="townType"
                       options={ [
-                          ...( globals.options?.head?.townType === '-1' ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
+                          ...( globals.options?.head?.townType == -1 ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
                           ...townTypes.map( town => ({ value: `${town.id}`, title: town.name }) )
                       ] }
         />
 
         { /* Town Preset */ }
         { !fun_typeHasPreset( globals.options?.head?.townType, true ) && (
-            <OptionSelect propTitle={head.base}
+            <OptionSelect propTitle={head.base} type="number"
                           value={`${globals.options?.head?.townBase ?? -1}`} propName="townBase"
                           options={ [
-                              ...( globals.options?.head?.townBase === '-1' ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
+                              ...( globals.options?.head?.townBase == -1 ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
                               ...townTypes.filter(town => town.preset).map( town => ({ value: `${town.id}`, title: town.name }) )
                           ] }
             />

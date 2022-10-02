@@ -60,7 +60,7 @@ export const OptionFreeText = (props: OptionFreeTextArgs) => {
 
 interface OptionSelectArgs extends OptionArgs {
     value: string|undefined,
-    multi?: boolean
+    multi?: boolean, 'type'?: HTMLInputTypeAttribute,
     options: { value: string, title: string, help?: string }[]
 }
 export const OptionSelect = (props: OptionSelectArgs) => {
@@ -74,7 +74,7 @@ export const OptionSelect = (props: OptionSelectArgs) => {
 
     return (
         <OptionCoreTemplate {...props} propHelp={combined_help}>
-            <select name={props.propName} value={props.value ?? ''} onChange={props.onChange ?? globals.setOption} multiple={props.multi ?? false}>
+            <select name={props.propName} value={props.value ?? ''} data-value-type={props.type ?? 'text'} onChange={props.onChange ?? globals.setOption} multiple={props.multi ?? false}>
                 { props.options.map( option => <React.Fragment key={option.value}>
                     <option value={option.value} title={ option.help ?? '' }>{ option.title }</option>
                 </React.Fragment> ) }

@@ -204,17 +204,35 @@ class TownCreatorController extends CustomAbstractCoreController
                         ['value' => 'reduced', 'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
                     ],
 
+                    'picto_rules' => $this->translator->trans('Auszeichnungen beschränken', [], 'ghost'),
+                    'picto_rules_presets' => [
+                        ['value' => 'normal', 'label' => $this->translator->trans('Keine Beschränkung', [], 'ghost'), 'help' => $this->translator->trans('Vergabe von Auszeichnungen erfolgt nach normalen Regeln.', [], 'ghost')],
+                        ['value' => 'small',  'label' => $this->translator->trans('Strikte Vergabe', [], 'ghost'), 'help' => $this->translator->trans('Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.', [], 'ghost')],
+                    ],
+
                     'sp' => $this->translator->trans('Vergabe von Seelenpunkten', [], 'ghost'),
                     'sp_presets' => [
                         ['value' => 'all',  'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.', [], 'ghost')],
                         ['value' => 'none', 'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.', [], 'ghost')],
                     ],
 
+                    'participation' => $this->translator->trans('Teilnahme', [], 'ghost'),
+                    'participation_presets' => [
+                        ['value' => 'incarnate', 'label' => $this->translator->trans('Verkörperung in der Stadt', [], 'ghost'), 'help' => $this->translator->trans('Verkörpert dich in der Stadt bei ihrer Entstehung.', [], 'ghost')],
+                        ['value' => 'none',      'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.', [], 'ghost')],
+                    ],
+
                     'management' => [
                         'section' => $this->translator->trans('Verwaltung', [], 'ghost'),
 
-                        'incarnate' => $this->translator->trans('', [], 'ghost'),
-                        'incarnate_help' => $this->translator->trans('', [], 'ghost'),
+                        'event_tag' => $this->translator->trans('Als Event-Stadt markieren', [], 'ghost'),
+                        'event_tag_help' => $this->translator->trans('Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.', [], 'ghost'),
+
+                        'negate' => $this->translator->trans('Nach 2 Tagen negieren', [], 'ghost'),
+                        'negate_help' => $this->translator->trans('Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.', [], 'ghost'),
+
+                        'lock_door' => $this->translator->trans('Tor versperren', [], 'ghost'),
+                        'lock_door_help' => $this->translator->trans('Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.', [], 'ghost'),
                     ]
                 ]
             ],

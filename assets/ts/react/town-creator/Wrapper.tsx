@@ -67,7 +67,7 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
             let target = ((dot as ChangeEvent).target as HTMLElement);
 
             const fun_extract_value = ( element: HTMLInputElement ): any => {
-                switch (element.type) {
+                switch ( element.dataset.valueType || element.type ) {
                     case 'checkbox': case 'radio':
                         return element.checked;
                     case 'number':
@@ -83,7 +83,8 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
             while ( target ) {
                 const accessor = (target.dataset?.mapProperty ?? '*').replace( '*', target.dataset.propName ?? target.getAttribute('name') ?? target.getAttribute('id') ?? 'this' ).split('.');
                 if (accessor) dot_constructor = [ ...accessor, ...dot_constructor ];
-                target = target.parentElement?.closest<HTMLElement>( '[data-map-property]' );
+                target = target.parentElement?.closest<HTMLElement>( 'hordes-town-creator,[data-map-property]' );
+                if (target.tagName === 'HORDES-TOWN-CREATOR') target = null;        // Do not leave the base tag!
             }
 
             let search_index = dot_constructor.findIndex(v => v === '<');

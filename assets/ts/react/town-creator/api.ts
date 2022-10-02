@@ -55,6 +55,8 @@ export type TownRules = {
             range: (number|string)[]
             invert: boolean|string
         }
+
+        strict_picto_distribution: boolean|string
     }
 
     disabled_jobs: Set<string>|string[]
@@ -69,21 +71,26 @@ export type TownRules = {
     overrides: {
         named_drops: Set<string>|string[]
     }
+
+    open_town_limit: number|string
+    lock_door_until_full: boolean|string
 }
 
 export type TownOptions = {
     head: {
-        townName: string,
-        townLang: string,
-        townPop: number|string,
-        townSeed: number|string,
-        townType: number|string,
-        townBase: number|string,
+        townName: string
+        townLang: string
+        townPop: number|string
+        townSeed: number|string
+        townType: number|string
+        townBase: number|string
         townOpts: {
-            noApi: boolean|string,
-            alias: boolean|string,
+            noApi: boolean|string
+            alias: boolean|string
             ffa: boolean|string
-        }
+        },
+        townIncarnation: string
+        townEventTag: boolean|string
     },
     rules: TownRules
 }

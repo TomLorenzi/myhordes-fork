@@ -134,14 +134,26 @@ export type TranslationStrings = {
         pictos: string
         pictos_presets: {value: string, label: string, help: string}[]
 
+        picto_rules: string
+        picto_rules_presets: {value: string, label: string, help: string}[]
+
         sp: string
         sp_presets: {value: string, label: string, help: string}[]
+
+        participation: string,
+        participation_presets: {value: string, label: string, help: string}[]
 
         management: {
             section: string
 
-            incarnate: string,
-            incarnate_help: string,
+            event_tag: string
+            event_tag_help: string
+
+            negate: string
+            negate_help: string
+
+            lock_door: string
+            lock_door_help: string
         }
     }
 }
