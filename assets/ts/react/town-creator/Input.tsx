@@ -1,12 +1,22 @@
 import * as React from "react";
-import {ChangeEventHandler, HTMLInputTypeAttribute, InputHTMLAttributes, useContext} from "react";
+import {
+    ChangeEventHandler,
+    HTMLInputTypeAttribute,
+    InputHTMLAttributes,
+    useContext,
+    useLayoutEffect,
+    useRef
+} from "react";
 import {Globals} from "./Wrapper";
+import {Global} from "../../defaults";
+
+declare var $: Global;
 
 interface OptionTemplateArgs {
-    propName: string,
-    propTitle?: string,
-    propHelp?: string,
-    propTip?: [string,string]
+    propName: string
+    propTitle?: string
+    propHelp?: string
+    propTip?: string
 }
 
 interface OptionCoreTemplateArgs extends OptionTemplateArgs {
@@ -18,31 +28,43 @@ interface OptionArgs extends OptionTemplateArgs {
     onChange?: ChangeEventHandler
 }
 
-export const OptionCoreTemplate = (props: OptionCoreTemplateArgs) => (
-    <div className="row">
-        <div className={`cell padded rw-3 rw-md-6 rw-sm-12 ${ props.propTitle ? 'note note-lightest' : '' }`}>
-            { props.propTitle && (
-                <label htmlFor={props.propName}>
-                    { props.propTitle }
-                    { props.propTip && (
-                        <a className="help-button">
-                            { props.propTip[0] }
-                            <div className="tooltip help" dangerouslySetInnerHTML={{__html: props.propTip[1]}}/>
-                        </a>
-                    ) }
-                </label>
+export const OptionCoreTemplate = (props: OptionCoreTemplateArgs) => {
+    const globals = useContext(Globals)
+
+    const tooltip = useRef<HTMLDivElement>();
+    const tooltip_parent = useRef<HTMLDivElement>();
+
+    useLayoutEffect( () => {
+        if (tooltip.current) $.html.handleTooltip( tooltip.current );
+        return () => $.html.clearTooltips( tooltip_parent.current );
+    } );
+
+    return (
+        <div className="row">
+            <div ref={tooltip_parent} className={`cell padded rw-3 rw-md-6 rw-sm-12 ${ props.propTitle ? 'note note-lightest' : '' }`}>
+                { props.propTitle && (
+                    <label htmlFor={props.propName} style={{display: 'inline-flex', columnGap: '6px', alignItems: 'center' }}>
+                        { props.propTitle }
+                        { props.propTip && (
+                            <a className="help-button">
+                                { globals.strings.common.help }
+                                <div className="tooltip help" ref={tooltip} dangerouslySetInnerHTML={{__html: props.propTip}}/>
+                            </a>
+                        ) }
+                    </label>
+                ) }
+            </div>
+            <div className={`cell padded ${(props.wide ?? false) ? 'rw-9' : 'rw-3'} rw-md-6 rw-sm-12`}>
+                { props.children }
+            </div>
+            { props.propHelp && (
+                <div className={`cell padded ${(props.wide ?? false) ? 'rw-12' : 'rw-6'} rw-md-12`}>
+                    <div className="help" dangerouslySetInnerHTML={{__html: props.propHelp }}/>
+                </div>
             ) }
         </div>
-        <div className={`cell padded ${(props.wide ?? false) ? 'rw-9' : 'rw-3'} rw-md-6 rw-sm-12`}>
-            { props.children }
-        </div>
-        { props.propHelp && (
-            <div className={`cell padded ${(props.wide ?? false) ? 'rw-12' : 'rw-6'} rw-md-12`}>
-                <div className="help" dangerouslySetInnerHTML={{__html: props.propHelp }}/>
-            </div>
-        ) }
-    </div>
-);
+    )
+};
 
 interface OptionFreeTextArgs extends OptionArgs {
     value: string|undefined,

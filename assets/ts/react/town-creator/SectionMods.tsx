@@ -58,8 +58,16 @@ export const TownCreatorSectionMods = ( {rules}: {rules: TownRules} ) => {
                           globals.setOption('rules.features.shaman', v);
                           globals.setOption('rules.disabled_jobs.<>.shaman', v === "normal" || v === "none");
                           globals.setOption('rules.disabled_roles.<>.shaman', v === "job" || v === "none");
-                          mods.shaman_buildings.job.forEach( b => globals.setOption(`rules.disabled_buildings.<>.${b}`, v === "normal" || v === "none") )
-                          mods.shaman_buildings.normal.forEach( b => globals.setOption(`rules.disabled_buildings.<>.${b}`, v === "job" || v === "none") )
+                          mods.shaman_buildings.job.forEach( b => {
+                              globals.setOption(`rules.disabled_buildings.<>.${b}`, v === "normal" || v === "none");
+                              globals.setOption(`rules.unlocked_buildings.<>.${b}`, false );
+                              globals.setOption(`rules.initial_buildings.<>.${b}`, false );
+                          } )
+                          mods.shaman_buildings.normal.forEach( b => {
+                              globals.setOption(`rules.disabled_buildings.<>.${b}`, v === "job" || v === "none");
+                              globals.setOption(`rules.unlocked_buildings.<>.${b}`, false );
+                              globals.setOption(`rules.initial_buildings.<>.${b}`, false );
+                          } )
                       }}
         />
 
@@ -71,7 +79,11 @@ export const TownCreatorSectionMods = ( {rules}: {rules: TownRules} ) => {
                               const v = (e.target as HTMLInputElement).value;
                               globals.setOption('rules.features.nightwatch.enabled', v !== "none");
                               globals.setOption('rules.features.nightwatch.instant', v === "instant");
-                              mods.watch_buildings.forEach( b => globals.setOption(`rules.disabled_buildings.<>.${b}`, v !== "normal") )
+                              mods.watch_buildings.forEach( b => {
+                                  globals.setOption(`rules.disabled_buildings.<>.${b}`, v !== "normal");
+                                  globals.setOption(`rules.unlocked_buildings.<>.${b}`, false );
+                                  globals.setOption(`rules.initial_buildings.<>.${b}`, false );
+                              } )
                           }}
             />
         ) }
@@ -84,7 +96,11 @@ export const TownCreatorSectionMods = ( {rules}: {rules: TownRules} ) => {
                           onChange={e => {
                               const v = (e.target as HTMLInputElement).value;
                               globals.setOption('rules.features.nightmode', v !== "none");
-                              mods.nightmode_buildings.forEach( b => globals.setOption(`rules.disabled_buildings.<>.${b}`, v !== "myhordes") )
+                              mods.nightmode_buildings.forEach( b => {
+                                  globals.setOption(`rules.disabled_buildings.<>.${b}`, v !== "myhordes");
+                                  globals.setOption(`rules.unlocked_buildings.<>.${b}`, false );
+                                  globals.setOption(`rules.initial_buildings.<>.${b}`, false );
+                              } )
                           }}
             />
         ) }
@@ -143,7 +159,11 @@ export const TownCreatorSectionMods = ( {rules}: {rules: TownRules} ) => {
             { value: rules.features.camping as boolean, name: 'camping', title: mods.modules.camp, help: mods.modules.camp_help },
             { value: rules.modifiers.building_attack_damage as boolean, name: '<.modifiers.building_attack_damage', title: mods.modules.buildingdamages, help: mods.modules.buildingdamages_help },
             { value: !improved_dump_disabled, name: 'improved_dump', title: mods.modules.improveddump, help: mods.modules.improveddump_help, onChange: e => {
-                mods.modules.improveddump_buildings.forEach( b => globals.setOption(`rules.disabled_buildings.<>.${b}`, !(e.target as HTMLInputElement).checked ) );
+                mods.modules.improveddump_buildings.forEach( b => {
+                    globals.setOption(`rules.disabled_buildings.<>.${b}`, !(e.target as HTMLInputElement).checked);
+                    globals.setOption(`rules.unlocked_buildings.<>.${b}`, false );
+                    globals.setOption(`rules.initial_buildings.<>.${b}`, false );
+                } );
             } },
         ]} propTitle={mods.modules.section}/>
 

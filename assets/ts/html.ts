@@ -375,6 +375,8 @@ export default class HTML {
     }
 
     handleTooltip( element: HTMLElement): void {
+        if (element.dataset.tooltip) return;
+
         let parent = element.parentElement;
         if (!parent) return;
 

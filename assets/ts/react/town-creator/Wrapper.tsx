@@ -11,6 +11,7 @@ import {element, string} from "prop-types";
 import {TownCreatorSectionDifficulty} from "./SectionDifficulty";
 import {TownCreatorSectionMods} from "./SectionMods";
 import {TownCreatorSectionAnimator} from "./SectionAnimator";
+import {TownCreatorSectionAdvanced} from "./SectionAdvanced";
 
 declare var $: Global;
 
@@ -69,7 +70,7 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
             const fun_extract_value = ( element: HTMLInputElement ): any => {
                 switch ( element.dataset.valueType || element.type ) {
                     case 'checkbox': case 'radio':
-                        return element.checked;
+                        return element.dataset.invertValue ? !element.checked : element.checked;
                     case 'number':
                         return parseFloat( element.value )
                     default:
@@ -87,7 +88,13 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
                 if (target.tagName === 'HORDES-TOWN-CREATOR') target = null;        // Do not leave the base tag!
             }
 
-            let search_index = dot_constructor.findIndex(v => v === '<');
+            let search_index = dot_constructor.findIndex(v => v === '<<');
+            while (search_index >= 0) {
+                dot_constructor = dot_constructor.slice(search_index+1);
+                search_index = dot_constructor.findIndex(v => v === '<<');
+            }
+
+            search_index = dot_constructor.findIndex(v => v === '<');
             while (search_index >= 0) {
                 dot_constructor = search_index === 0 ? dot_constructor.slice(1) : [
                     ...dot_constructor.slice(0,search_index-1),...dot_constructor.slice(search_index+1)
@@ -154,6 +161,7 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
                         <TownCreatorSectionAnimator rules={(options as TownOptions).rules}/>
                         <TownCreatorSectionMods rules={(options as TownOptions).rules}/>
                         <TownCreatorSectionDifficulty rules={(options as TownOptions).rules}/>
+                        <TownCreatorSectionAdvanced rules={(options as TownOptions).rules}/>
                     </> }
                 </form>
             ) }

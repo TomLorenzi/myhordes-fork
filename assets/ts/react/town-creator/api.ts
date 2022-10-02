@@ -91,6 +91,9 @@ export type TownOptions = {
         },
         townIncarnation: string
         townEventTag: boolean|string
+
+        customJobs: boolean|string
+        customConstructions: boolean|string
     },
     rules: TownRules
 }

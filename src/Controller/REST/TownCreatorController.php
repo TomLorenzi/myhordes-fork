@@ -4,9 +4,12 @@ namespace App\Controller\REST;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
+use App\Entity\BuildingPrototype;
+use App\Entity\CitizenProfession;
 use App\Entity\TownClass;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,13 +25,16 @@ class TownCreatorController extends CustomAbstractCoreController
 
     /**
      * @Route("", name="base", methods={"GET"})
+     * @param EntityManagerInterface $em
+     * @param Packages $asset
      * @return JsonResponse
      */
-    public function index(): JsonResponse {
+    public function index(EntityManagerInterface $em, Packages $asset): JsonResponse {
 
         return new JsonResponse([
             'strings' => [
                 'common' => [
+                    'help' => $this->translator->trans('Hilfe', [], 'global'),
                     'need_selection' => "[ {$this->translator->trans('Bitte auswählen', [], 'global')} ]",
                 ],
 
@@ -233,7 +239,46 @@ class TownCreatorController extends CustomAbstractCoreController
 
                         'lock_door' => $this->translator->trans('Tor versperren', [], 'ghost'),
                         'lock_door_help' => $this->translator->trans('Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.', [], 'ghost'),
-                    ]
+                    ],
+                ],
+
+                'advanced' => [
+                    'section' => $this->translator->trans('Erweiterte Einstellungen', [], 'ghost'),
+                    'show_section' => $this->translator->trans('Individuelle Konfiguration', [], 'ghost'),
+
+                    'jobs'  => $this->translator->trans('Verfügbare Berufe', [], 'ghost'),
+                    'jobs_help'  => $this->translator->trans('Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.', [], 'ghost'),
+
+                    'buildings'  => $this->translator->trans('Verfügbare Konstruktionen', [], 'ghost'),
+                    'buildings_help'  => $this->translator->trans('Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.', [], 'ghost'),
+
+                    'events'  => $this->translator->trans('Manuelles Event-Management', [], 'ghost'),
+                    'events_help'  => $this->translator->trans('Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.', [], 'ghost'),
+
+                    'job_list' => array_map( function(CitizenProfession $job) use ($asset) {
+                        return [
+                            'icon' => $asset->getUrl( "build/images/professions/{$job->getIcon()}.gif" ),
+                            'label' => $this->translator->trans($job->getLabel(), [], 'game'),
+                            'name' => $job->getName()
+                        ];
+                    }, $em->getRepository( CitizenProfession::class )->findSelectable()),
+
+                    'building_props' => [
+                        $this->translator->trans('Gebaut', [], 'game'),
+                        $this->translator->trans('Baubar', [], 'game'),
+                        $this->translator->trans('Findbar', [], 'game'),
+                        $this->translator->trans('Deaktiviert', [], 'game')
+                    ],
+                    'buildings_list' => array_map( function(BuildingPrototype $building) use ($asset) {
+                        return [
+                            'icon' => $asset->getUrl( "build/images/building/{$building->getIcon()}.gif" ),
+                            'label' => $this->translator->trans($building->getLabel(), [], 'buildings'),
+                            'name' => $building->getName(),
+                            'id' => $building->getId(),
+                            'parent' => $building->getParent()?->getId() ?? null,
+                            'unlockable' => $building->getBlueprint() > 0
+                        ];
+                    }, $em->getRepository( BuildingPrototype::class )->findNonManual()),
                 ]
             ],
             'config' => [

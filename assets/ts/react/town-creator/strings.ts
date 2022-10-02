@@ -1,6 +1,16 @@
+export type BuildingListEntry = {
+    icon: string
+    label: string
+    name: string
+    id: number
+    parent: number|null
+    unlockable: boolean
+}
+
 export type TranslationStrings = {
     common: {
-        need_selection: string,
+        help: string
+        need_selection: string
     }
 
     head: {
@@ -155,5 +165,26 @@ export type TranslationStrings = {
             lock_door: string
             lock_door_help: string
         }
+    }
+
+    advanced: {
+        section: string
+        show_section: string
+
+        jobs: string
+        jobs_help: string
+        job_list: {
+            icon: string
+            label: string
+            name: string
+        }[]
+
+        buildings: string
+        buildings_help: string
+        buildings_list: BuildingListEntry[]
+        building_props: string[]
+
+        events: string
+        events_help: string
     }
 }
