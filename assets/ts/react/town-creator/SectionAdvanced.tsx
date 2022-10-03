@@ -20,12 +20,6 @@ const BuildingConfigSection = ( { buildings, disabled, unlocked, initial, parent
 } ) => {
     const globals = useContext(Globals)
 
-    /**
-     *     disabled_buildings: Set<string>|string[]
-     *     unlocked_buildings: Set<string>|string[]
-     *     initial_buildings: Set<string>|string[]
-     */
-
     return <>
         {buildings.filter(b => b.parent === parent_id).map( (building, index, all) => (
             <React.Fragment key={building.id}>
@@ -103,12 +97,12 @@ const BuildingConfigSection = ( { buildings, disabled, unlocked, initial, parent
     </>;
 }
 
-export const TownCreatorSectionAdvanced = ( {rules}: {rules: TownRules} ) => {
+export const TownCreatorSectionAdvanced = () => {
     const globals = useContext(Globals)
 
     const advanced = globals.strings.advanced;
 
-    const job_set = new Set<string>(rules.disabled_jobs ?? []);
+    const job_set = new Set<string>(globals.getOption( 'rules.disabled_jobs' ) ?? []);
     const jobs_left = advanced.job_list.reduce( (i, {name}) => i + (job_set.has(name) ? 0 : 1), 0 )
 
     return <div>
@@ -117,10 +111,10 @@ export const TownCreatorSectionAdvanced = ( {rules}: {rules: TownRules} ) => {
         { /* Job setting */ }
         <OptionCoreTemplate propName="head.customJobs" propTitle={advanced.jobs} wide={true} propTip={ advanced.jobs_help }>
             <label>
-                <input type="checkbox" name="head.customJobs" checked={globals.options.head.customJobs as boolean ?? false} onChange={globals.setOption}/>
+                <input type="checkbox" name="head.customJobs" checked={globals.getOption( 'head.customJobs' ) as boolean ?? false} onChange={globals.setOption}/>
                 { advanced.show_section }
             </label>
-            { globals.options.head.customJobs && (
+            { globals.getOption( 'head.customJobs' ) && (
                 <div className="row-table note">
                     { advanced.job_list.map( job => (
                         <div key={job.name} className="row-flex v-center mod" data-disabled={job.name === 'shaman' ? 'disabled' : ''}>
@@ -151,10 +145,10 @@ export const TownCreatorSectionAdvanced = ( {rules}: {rules: TownRules} ) => {
         { /* Building setting */ }
         <OptionCoreTemplate propName="head.customConstructions" propTitle={advanced.buildings} wide={true} propTip={ advanced.buildings_help }>
             <label>
-                <input type="checkbox" name="head.customConstructions" checked={globals.options.head.customConstructions as boolean ?? false} onChange={globals.setOption}/>
+                <input type="checkbox" name="head.customConstructions" checked={globals.getOption( 'head.customConstructions' ) as boolean ?? false} onChange={globals.setOption}/>
                 { advanced.show_section }
             </label>
-            { globals.options.head.customConstructions && (
+            { globals.getOption( 'head.customConstructions' ) && (
                 <div className="row-table note">
                     <div className="row mod">
                         <div className="cell rw-12 padded">
@@ -162,9 +156,9 @@ export const TownCreatorSectionAdvanced = ( {rules}: {rules: TownRules} ) => {
                         </div>
                     </div>
                     <BuildingConfigSection buildings={advanced.buildings_list} titles={advanced.building_props}
-                                           disabled={new Set<string>(rules.disabled_buildings ?? [])}
-                                           unlocked={new Set<string>(rules.unlocked_buildings ?? [])}
-                                           initial={new Set<string>(rules.initial_buildings ?? [])}
+                                           disabled={new Set<string>(globals.getOption( 'rules.disabled_buildings' ) ?? [])}
+                                           unlocked={new Set<string>(globals.getOption( 'rules.unlocked_buildings' ) ?? [])}
+                                           initial={new Set<string>(globals.getOption( 'rules.initial_buildings' ) ?? [])}
                                            parent_id={null} parent_disabled={false} level={0} />
                 </div>
             ) }

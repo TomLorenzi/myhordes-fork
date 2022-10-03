@@ -11,41 +11,34 @@ export type TranslationStrings = {
     common: {
         help: string
         need_selection: string
+
+        create: string
+        confirm: string
     }
 
     head: {
-        section: string,
+        section: string
 
-        town_name: string,
-        town_name_hint: string
+        town_name: string
+        town_name_help: string
 
-        lang: string,
+        lang: string
         langs: {
-            code: string,
-            label: string,
+            code: string
+            label: string
         }[],
 
-        'citizens': string,
-        'citizens_help': string,
+        code: string
+        code_help: string
 
-        'seed': string,
-        'seed_help': string,
+        'citizens': string
+        'citizens_help': string
 
-        'type': string,
-        'base': string,
+        'seed': string
+        'seed_help': string
 
-        settings: {
-            section: string,
-
-            disable_api: string,
-            disable_api_help: string,
-
-            alias: string,
-            alias_help: string,
-
-            ffa: string,
-            ffa_help: string,
-        }
+        'type': string
+        'base': string
     }
 
     difficulty: {
@@ -115,6 +108,14 @@ export type TranslationStrings = {
             improveddump_help: string,
             improveddump_buildings: string[],
 
+            alias: string
+            alias_help: string
+
+            api: string
+            api_help: string
+
+            ffa: string
+            ffa_help: string
         }
 
         special: {

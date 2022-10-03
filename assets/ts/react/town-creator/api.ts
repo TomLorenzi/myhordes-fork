@@ -25,6 +25,8 @@ export type TownRules = {
     ruins: number|string
     explorable_ruins: number|string
 
+    mapMarginPreset: string
+
     features: {
         attacks: string
         ghoul_mode: string
@@ -42,6 +44,9 @@ export type TownRules = {
         camping: boolean|string
         all_poison: boolean|string
         'hungry_ghouls': boolean|string
+        citizen_alias: boolean|string
+        xml_feed: boolean|string
+        free_for_all: boolean|string
 
         give_all_pictos: boolean|string
         give_soulpoints: boolean|string
@@ -80,13 +85,13 @@ export type TownOptions = {
     head: {
         townName: string
         townLang: string
+        townCode: string
         townPop: number|string
         townSeed: number|string
         townType: number|string
         townBase: number|string
         townOpts: {
             noApi: boolean|string
-            alias: boolean|string
             ffa: boolean|string
         },
         townIncarnation: string
@@ -109,9 +114,12 @@ export class TownCreatorAPI {
     private fetch_config( method: string ): RequestInit {
         return {
             method,
-            mode: "no-cors",
+            mode: "cors",
             credentials: 'same-origin',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             redirect: 'follow'
         }
     }
@@ -138,6 +146,15 @@ export class TownCreatorAPI {
         return await this.extract(
             fetch( `${this.base}/town-rules/${privateTown ? 'private/' : ''}${id}`, this.fetch_config('GET') )
         ) as Promise<TownRules>;
+    }
+
+    public async createTown(data: TownOptions): Promise<object> {
+        return await this.extract(
+            fetch( `${this.base}/create-town`, {
+                ...this.fetch_config('POST'),
+                body: JSON.stringify( data ),
+            } )
+        ) as Promise<object>;
     }
 
 }

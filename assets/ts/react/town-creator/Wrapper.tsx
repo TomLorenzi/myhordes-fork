@@ -31,9 +31,10 @@ type TownCreatorGlobals = {
     strings: TranslationStrings,
     config: SysConfig,
 
-    options: TownOptions,
     default_rules: TownRules,
     setOption: (dot: string|ChangeEvent, value?: any|null) => void
+    getOption: (dot: string) => any
+    removeOption: (dot: string) => any
 }
 
 export const Globals = React.createContext<TownCreatorGlobals>(null);
@@ -44,8 +45,8 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
 
     const [index, setIndex] = useState<ResponseIndex>(null)
     const [townTownTypeList, setTownTypeList] = useState<ResponseTownList>()
-    const [options, setOptions] = useState<TownOptions|{}>({})
-    const [defaultRules, setDefaultRules] = useState<TownRules|{}>({})
+    const [options, setOptions] = useState<TownOptions|{rules: {}}>({rules: {}})
+    const [defaultRules, setDefaultRules] = useState<TownRules|null>(null)
 
     const [blocked, setBlocked] = useState<boolean>(false);
 
@@ -60,6 +61,66 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
             setDefaultRules(null);
         }
     }, [api] )
+
+    const processDot = ( dot: string|string[] ) => {
+        if (typeof dot === "string") return processDot( dot.split('.') );
+
+        let search_index = dot.findIndex(v => v === '<<');
+        while (search_index >= 0) {
+            dot = dot.slice(search_index+1);
+            search_index = dot.findIndex(v => v === '<<');
+        }
+
+        search_index = dot.findIndex(v => v === '<');
+        while (search_index >= 0) {
+            dot = search_index === 0 ? dot.slice(1) : [
+                ...dot.slice(0,search_index-1),...dot.slice(search_index+1)
+            ];
+            search_index = dot.findIndex(v => v === '<');
+        }
+
+        return dot;
+    }
+
+    const getOptionFrom = (obj: object, dot: string[]) => {
+        const fun = (obj: object, dot: string[]) => {
+            if (dot.length === 0) return null;
+            else if ( typeof obj[dot[0]] === "undefined") return undefined;
+            else if (dot.length === 1)
+                return obj[dot[0]];
+            else {
+                // Set access
+                if (dot.length === 3 && dot[1] === '<>') {
+                    if (typeof obj[dot[0]] === "undefined") return false;
+                    else if (typeof obj[dot[0]] === "object") return (new Set<string>(obj[dot[0]])).has( dot[2] );
+                    else return false;
+
+                // Array access
+                } else if (dot.length === 3 && dot[1] === '[]') {
+                    if (typeof obj[dot[0]] === "undefined") return false;
+                    else if (typeof obj[dot[0]] === "object") return (Array.from( obj[dot[0]] )).findIndex(v=>v===dot[2]) >= 0;
+                    else return false;
+                }
+
+                return fun(obj[dot[0]], dot.slice(1));
+            }
+        }
+
+        const data = fun( obj, dot );
+        return typeof data === 'object' ? JSON.parse( JSON.stringify( data ) ) : data;
+    }
+
+    const getOption = (dot: string) => {
+        const dot_p = processDot(dot);
+
+        if (dot_p[0] === 'head') return getOptionFrom( options, dot_p );
+        if (dot_p[0] === 'rules') {
+
+            if (dot_p.findIndex(v => v === '<>' || v === '[]') >= 0)
+                return getOptionFrom( options, dot_p )
+            else return getOptionFrom(options, dot_p) ?? getOptionFrom(defaultRules, dot_p.slice(1));
+        }
+    }
 
     const setOption = (dot: string|ChangeEvent, value: any|null = null) => {
 
@@ -88,20 +149,6 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
                 if (target.tagName === 'HORDES-TOWN-CREATOR') target = null;        // Do not leave the base tag!
             }
 
-            let search_index = dot_constructor.findIndex(v => v === '<<');
-            while (search_index >= 0) {
-                dot_constructor = dot_constructor.slice(search_index+1);
-                search_index = dot_constructor.findIndex(v => v === '<<');
-            }
-
-            search_index = dot_constructor.findIndex(v => v === '<');
-            while (search_index >= 0) {
-                dot_constructor = search_index === 0 ? dot_constructor.slice(1) : [
-                    ...dot_constructor.slice(0,search_index-1),...dot_constructor.slice(search_index+1)
-                ];
-                search_index = dot_constructor.findIndex(v => v === '<');
-            }
-
             return setOption( dot_constructor.join('.'), value );
         }
 
@@ -120,6 +167,9 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
                     const v = (obj[dot[0]] as Set<string>).has( dot[2] );
                     if (value) (obj[dot[0]] as Set<string>).add( dot[2] );
                     else (obj[dot[0]] as Set<string>).delete( dot[2] );
+
+                    // Save set as array to allow serialization
+                    obj[dot[0]] = Array.from( obj[dot[0]] );
                     return v;
 
                 // Array access
@@ -145,23 +195,53 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
             }
         }
 
+        const dot_p = processDot(dot);
+
+        // Check if the value we set equals the default rule; if it does, remove the setting entirely
+        if (defaultRules && dot_p[0] === 'rules' && dot_p.length > 1 && dot_p.findIndex(v => v === '<>' || v === '[]') < 0 && value === getOptionFrom( defaultRules, dot_p.slice(1) )) {
+            removeOption( dot_p.join('.') );
+        } else {
+            const obj = { ...options };
+            if ( fun(obj, dot_p, value) !== value) setOptions( obj );
+        }
+    }
+
+    const removeOption = (dot: string) => {
+        const fun = (obj: object, dot: string[]) => {
+            if (dot.length === 0) return false;
+            else if ( typeof obj[dot[0]] === "undefined") return false;
+            else if (dot.length === 1) {
+                delete obj[dot[0]];
+                return true;
+            } else return fun(obj[dot[0]], dot.slice(1));
+        }
+
         const obj = { ...options };
-        if ( fun(obj, dot.split('.'), value) !== value )
-            setOptions( obj );
+        if ( fun(obj, processDot(dot)) ) setOptions( obj );
     }
 
     return (
-        <Globals.Provider value={{ api: apiRef.current, options: options as TownOptions, default_rules: defaultRules as TownRules, strings: index?.strings, config: index?.config, setOption }}>
+        <Globals.Provider value={{ api: apiRef.current, strings: index?.strings, config: index?.config,
+            default_rules: defaultRules as TownRules,
+            setOption, getOption, removeOption }}>
             { townTownTypeList && index && (
                 <form data-disabled={blocked ? 'disabled' : ''}>
                     <TownCreatorSectionHead townTypes={townTownTypeList} setBlocked={setBlocked}
-                                            setDefaultRules={v => { setDefaultRules(v); setOption('rules', JSON.parse( JSON.stringify(v) )) }}/>
+                                            setDefaultRules={v => setDefaultRules(v)}/>
 
-                    { (options as TownOptions).rules && <>
-                        <TownCreatorSectionAnimator rules={(options as TownOptions).rules}/>
-                        <TownCreatorSectionMods rules={(options as TownOptions).rules}/>
-                        <TownCreatorSectionDifficulty rules={(options as TownOptions).rules}/>
-                        <TownCreatorSectionAdvanced rules={(options as TownOptions).rules}/>
+                    { defaultRules as TownRules && <>
+                        <TownCreatorSectionAnimator/>
+                        <TownCreatorSectionMods/>
+                        <TownCreatorSectionDifficulty/>
+                        <TownCreatorSectionAdvanced/>
+                        <div className="row">
+                            <div className="cell padded rw-12">
+                                <button type="button" onClick={() => {
+                                    if (!confirm( index.strings.common.confirm )) return;
+                                    apiRef.current.createTown({...options} as TownOptions ).then(e => console.log(e));
+                                }}>{ index.strings.common.create }</button>
+                            </div>
+                        </div>
                     </> }
                 </form>
             ) }
