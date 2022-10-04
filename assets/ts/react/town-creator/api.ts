@@ -49,6 +49,7 @@ export type TownRules = {
         free_for_all: boolean|string
 
         give_all_pictos: boolean|string
+        enable_pictos: boolean|string
         give_soulpoints: boolean|string
     },
 

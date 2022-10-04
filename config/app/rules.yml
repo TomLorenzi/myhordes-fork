@@ -137,6 +137,7 @@ parameters:
           instant: false
         attacks: 'normal'
         give_all_pictos: true
+        enable_pictos: true
         give_soulpoints: true
         last_death: ['r_surlst_#00']
         last_death_day: 5

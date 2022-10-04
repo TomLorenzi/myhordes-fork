@@ -223,6 +223,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'pictos_presets' => [
                         ['value' => 'all',     'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
                         ['value' => 'reduced', 'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
+                        ['value' => 'none',    'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten keine Auszeichnungen für diese Stadt.', [], 'ghost')],
                     ],
 
                     'picto_rules' => $this->translator->trans('Auszeichnungen beschränken', [], 'ghost'),
@@ -576,6 +577,8 @@ class TownCreatorController extends CustomAbstractCoreController
         // Crow options
         if ($rules['features']['give_all_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_all_pictos']);
+        if ($rules['features']['enable_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['enable_pictos']);
         if ($rules['features']['give_soulpoints'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_soulpoints']);
         if ($rules['modifiers']['strict_picto_distribution'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
