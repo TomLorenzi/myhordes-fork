@@ -188,13 +188,13 @@ Fortsetzen...: Continuer...
 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'Il semble que la <strong>Horde</strong> se soit retirée pour l’instant...'
 'Zum Login zurückkehren': 'Retourner à la page de connexion'
 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'Il vous faut au moins {sp} points d''âme pour rejoindre cette ville. Obtenez des points d''âme en jouant dans d''autres villes.'
-'Grundlegende Einstellungen': 'Grundlegende Einstellungen'
-'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Leer lassen, um Stadtnamen automatisch zu generieren.'
-'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!'
-Vorlage: Vorlage
-Schwierigkeitslevel: Schwierigkeitslevel
-Gering: Gering
-'Eigener Wert': 'Eigener Wert'
+'Grundlegende Einstellungen': 'Paramètres de base'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Laissez le champ vide pour générer automatiquement le nom de la ville.'
+'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Seed qui permet une génération de carte maitrisée. Permet en cas d''event de générer des cartes similaires. Mettre un entier positif pour l''activer. PENSER À CHANGER CET ENTIER D''UN EVENT À L''AUTRE !'
+Vorlage: Modèle
+Schwierigkeitslevel: Niveau de difficulté
+Gering: Petit
+'Eigener Wert': 'Valeur propre'
 'Eigener Bereich': 'Eigener Bereich'
 'Leichte Angriffe': 'Leichte Angriffe'
 'Seelen & Schamane': 'Seelen & Schamane'
