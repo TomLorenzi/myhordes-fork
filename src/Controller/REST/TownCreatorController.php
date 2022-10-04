@@ -216,6 +216,9 @@ class TownCreatorController extends CustomAbstractCoreController
                 'animation' => [
                     'section' => $this->translator->trans('Raben-Optionen', [], 'ghost'),
 
+                    'schedule' => $this->translator->trans('Stadtstart planen', [], 'ghost'),
+                    'schedule_help' => $this->translator->trans('Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!', [], 'ghost'),
+
                     'pictos' => $this->translator->trans('Vergabe von Auszeichnungen', [], 'ghost'),
                     'pictos_presets' => [
                         ['value' => 'all',     'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
@@ -488,6 +491,16 @@ class TownCreatorController extends CustomAbstractCoreController
             unset($rules['disabled_buildings']);
         }
 
+        // Fix town schedule
+        if ( !empty($head['townSchedule'] ) ) {
+            try {
+                $head['townSchedule'] = new \DateTime($head['townSchedule']);
+                if ($head['townSchedule'] <= new \DateTime()) unset( $head['townSchedule'] );
+            } catch (\Throwable) {
+                unset( $head['townSchedule'] );
+            }
+        }
+
         // Town population
         if (!is_int( $head['townPop'] ?? 'x' )) unset( $head['townPop'] );
         if (isset($head['townPop'])) {
@@ -585,6 +598,10 @@ class TownCreatorController extends CustomAbstractCoreController
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['unlocked_buildings']);
         if (!empty($rules['disabled_buildings'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['disabled_buildings']);
+
+        // Using the town schedule setting requires CROW permissions
+        if (!empty($head['townSchedule'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset( $head['townSchedule'] );
 
         // Using any other than the "incarnate" setting requires CROW permissions
         if (!empty($head['townIncarnation']) && $head['townIncarnation'] !== 'incarnate') $elevation = max($elevation, User::USER_LEVEL_CROW);
@@ -752,6 +769,8 @@ class TownCreatorController extends CustomAbstractCoreController
         $town->setCreator($user);
         if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
         $em->persist($town);
+
+        if (!empty( $header['townSchedule'] )) $town->setScheduledFor( $header['townSchedule'] );
 
         try {
             $em->flush();

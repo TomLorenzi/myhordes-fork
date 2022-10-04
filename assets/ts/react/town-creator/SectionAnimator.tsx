@@ -17,6 +17,16 @@ export const TownCreatorSectionAnimator = () => {
     return <div data-map-property="rules">
         <h5>{ animation.section }</h5>
 
+        { /* Scheduler Settings */ }
+        <OptionFreeText propTitle={animation.schedule} type={ "datetime-local" } propHelp={animation.schedule_help}
+                      value={ globals.getOption( 'head.townSchedule' ) } propName="head.townSchedule"
+                      onChange={e => {
+                          globals.setOption('head.townSchedule', (e.target as HTMLInputElement).value);
+                          if ((globals.getOption( 'head.townIncarnation' ) ?? 'incarnate') === 'incarnate')
+                              globals.setOption( 'head.townIncarnation', 'none' );
+                      }}
+        />
+
         { /* SP Settings */ }
         <OptionSelect propTitle={animation.sp}
                       value={globals.getOption( 'rules.features.give_soulpoints' ) ? 'all' : 'none'} propName="features.give_soulpoints"
@@ -42,6 +52,11 @@ export const TownCreatorSectionAnimator = () => {
         <OptionSelect propTitle={animation.participation}
                       value={globals.getOption( 'head.townIncarnation' ) ?? 'incarnate'} propName="<.head.townIncarnation"
                       options={ animation.participation_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
+                      onChange={e => {
+                          const v = (e.target as HTMLSelectElement).value;
+                          globals.setOption('head.townIncarnation', v);
+                          if (v === 'incarnate') globals.removeOption( 'head.townSchedule' );
+                      }}
         />
 
         { /* Management Settings */ }

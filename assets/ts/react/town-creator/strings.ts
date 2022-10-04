@@ -142,6 +142,9 @@ export type TranslationStrings = {
     animation: {
         section: string
 
+        schedule: string
+        schedule_help: string
+
         pictos: string
         pictos_presets: {value: string, label: string, help: string}[]
 
