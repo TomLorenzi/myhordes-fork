@@ -136,6 +136,9 @@ export type TranslationStrings = {
 
             'hungry-ghouls': string,
             'hungry-ghouls_help': string,
+
+            super_poison: string
+            super_poison_help: string
         }
     }
 

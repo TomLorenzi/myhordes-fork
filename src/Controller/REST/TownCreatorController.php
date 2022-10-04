@@ -210,6 +210,9 @@ class TownCreatorController extends CustomAbstractCoreController
 
                         'hungry-ghouls' => $this->translator->trans('Hungrige Ghule', [], 'ghost'),
                         'hungry-ghouls_help' => $this->translator->trans('Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.', [], 'ghost'),
+
+                        'super_poison' => $this->translator->trans('Paradies der Giftmörder', [], 'ghost'),
+                        'super_poison_help' => $this->translator->trans('Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.', [], 'ghost'),
                     ]
                 ],
 
@@ -348,7 +351,7 @@ class TownCreatorController extends CustomAbstractCoreController
             'allow_redig', 'assemble_items_from_floor', 'carry_extra_bag', 'citizen_attack',
             'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'hide_home_upgrade',
             'infection_death_chance', 'massive_respawn_factor', 'meaty_bones_within_town',
-            'poison', 'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
+            'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
             'watchtower_estimation_offset', 'watchtower_estimation_threshold', 'wind_distance',
             'wound_terror_penalty', 'camping'
         ];
