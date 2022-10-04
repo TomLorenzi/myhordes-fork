@@ -1662,7 +1662,7 @@ class NightlyHandler
             // Getting vote per role per citizen
             $votes = array();
             foreach ($citizens as $citizen)
-                if($citizen->getAlive() && ($c = $this->entity_manager->getRepository(CitizenVote::class)->count( ['votedCitizen' => $citizen, 'role' => $role] )) > 0)
+                if($citizen->getAlive() && !in_array( $citizen, $all_winners ) && ($c = $this->entity_manager->getRepository(CitizenVote::class)->count( ['votedCitizen' => $citizen, 'role' => $role] )) > 0)
                     $votes[$citizen->getId()] = $c;  //  ->countCitizenVotesFor($citizen, $role);
 
             if (empty($votes)) {
