@@ -11,9 +11,14 @@ use App\Entity\TownClass;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
+use App\Service\GameFactory;
+use App\Service\GameProfilerService;
 use App\Service\JSONRequestParser;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\EventConf;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -472,6 +477,9 @@ class TownCreatorController extends CustomAbstractCoreController
         else $head['townBase'] = $em->getRepository( TownClass::class )->find( $head['townBase'] )?->getName() ?? TownClass::DEFAULT;
         if ($head['townBase'] === 'custom') $head['townBase'] = TownClass::DEFAULT;
 
+        $lang = $head['townLang'] ?? 'multi';
+        if ($lang !== 'multi' && !in_array( $lang, $this->generatedLangsCodes )) unset( $head['townLang'] );
+
         // Remove setting objects for custom constructions / jobs if the option to use them is disabled
         if (!isset($head['customJobs'])) unset($rules['disabled_jobs']);
         if (!isset($head['customConstructions'])) {
@@ -548,9 +556,27 @@ class TownCreatorController extends CustomAbstractCoreController
         if (isset($head['townSeed'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($head['townSeed']);
 
-        // Custom job settings require CROW permissions
-        if (!empty($rules['disabled_jobs'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        // Event tag needs CROW permissions
+        if ($head['townEventTag'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($head['townEventTag']);
+
+        // Crow options
+        if ($rules['features']['give_all_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_all_pictos']);
+        if ($rules['features']['give_soulpoints'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_soulpoints']);
+        if ($rules['modifiers']['strict_picto_distribution'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['modifiers']['strict_picto_distribution']);
+        if (!($rules['lock_door_until_full'] ?? true)) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['lock_door_until_full']);
+        if (isset($rules['open_town_limit'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['open_town_limit']);
+
+        // Custom job and role settings require CROW permissions
+        if (!empty($rules['disabled_jobs']) && $rules['disabled_jobs'] !== ['shaman']) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['disabled_jobs']);
+        if (!empty($rules['disabled_roles']) && $rules['disabled_roles'] !== ['shaman']) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['disabled_roles']);
 
         // Custom building settings require CROW permissions
         if (!empty($rules['initial_buildings'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
@@ -574,6 +600,12 @@ class TownCreatorController extends CustomAbstractCoreController
         if (max($rules['map']['min'] ?? 0, $rules['map']['max'] ?? 0) > 27) {
             $elevation = max($elevation, User::USER_LEVEL_CROW);
             if ($trimTo < User::USER_LEVEL_CROW) $rules['map']['min'] = $rules['map']['max'] = 27;
+        }
+
+        // Maps with non-standard town position need CROW permissions
+        if (($rules['map']['margin'] ?? 0.25) !== 0.25) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) $rules['map']['margin'] = 0.25;
         }
 
         // More than 3 explorable ruins need CROW permissions
@@ -600,7 +632,28 @@ class TownCreatorController extends CustomAbstractCoreController
             if ($trimTo < User::USER_LEVEL_CROW) unset($rules['open_town_limit']);
         }
 
+        // Citizen aliases require CROW permissions
+        if ( ($rules['features']['citizen_alias'] ?? false) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['citizen_alias']);
+        }
+
+        // FFA requires CROW permissions
+        if ( ($rules['features']['free_for_all'] ?? false) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_for_all']);
+        }
+
         return $elevation;
+    }
+
+    protected function move_lists( &$rules ) {
+
+        $lists = ['disabled_jobs', 'disabled_roles', 'initial_buildings', 'unlocked_buildings', 'disabled_buildings'];
+
+        foreach ($lists as $list)
+            if (isset( $rules[$list] ))
+                $rules[$list] = ['replace' => $rules[$list]];
     }
 
     protected function scrub_config( array &$subject, array $reference ) {
@@ -644,9 +697,17 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
+     * @param GameFactory $gameFactory
+     * @param GameProfilerService $profiler
+     * @param TownHandler $townHandler
      * @return JsonResponse
      */
-    public function create_town(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler): JsonResponse {
+    public function create_town(JSONRequestParser $parser,
+                                EntityManagerInterface $em,
+                                UserHandler $userHandler,
+                                GameFactory $gameFactory,
+                                GameProfilerService $profiler,
+                                TownHandler $townHandler): JsonResponse {
 
         $user = $this->getUser();
 
@@ -675,7 +736,69 @@ class TownCreatorController extends CustomAbstractCoreController
         $this->fix_rules( $header, $rules, $em );
         $this->elevation_needed( $header, $rules, $user->getRightsElevation() );
 
-        return new JsonResponse(['used' => $rules, 'template' => $template]);
+        $this->move_lists( $rules );
+
+        $seed = $header['townSeed'] ?? -1;
+
+        $town = $gameFactory->createTown(
+            $header['townName'] ?? null,
+            $header['townLang'] ?? 'multi',
+            null,
+            [$header['townType'], $header['townBase']],
+            $rules,
+            $seed,
+            null);
+
+        $town->setCreator($user);
+        if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
+        $em->persist($town);
+
+        try {
+            $em->flush();
+            $profiler->recordTownCreated( $town, $user, 'custom' );
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        if ($header['townEventTag'] ?? false) {
+            $em->persist($town->getRankingEntry()->setEvent(true));
+            $em->flush();
+        }
+
+        $current_events = $this->conf->getCurrentEvents();
+        if (!empty(array_filter($current_events, fn(EventConf $e) => $e->active()))) {
+            if (!$townHandler->updateCurrentEvents($town, $current_events)) {
+                $em->clear();
+            } else try {
+                $em->persist($town);
+                $em->flush();
+            } catch (Exception $e) {}
+        }
+
+        $incarnation = $header['townIncarnation'] ?? 'incarnate';
+        $incarnated = $incarnation === 'incarnate';
+
+        if ($incarnated) {
+            $citizen = $gameFactory->createCitizen($town, $user, $error, $all);
+            if (!$citizen) return AjaxResponse::error($error);
+            try {
+                $em->persist($citizen);
+                $em->flush();
+                foreach ($all as $new_citizen)
+                    $profiler->recordCitizenJoined( $new_citizen, $new_citizen === $citizen ? 'create' : 'follow' );
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+
+            try {
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+        }
+
+        return AjaxResponse::success( true, ['url' => $incarnated ? $this->generateUrl('game_jobs') : $this->generateUrl('ghost_welcome')] );
     }
 
 }

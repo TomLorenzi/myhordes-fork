@@ -12,12 +12,13 @@ import {TownCreatorSectionDifficulty} from "./SectionDifficulty";
 import {TownCreatorSectionMods} from "./SectionMods";
 import {TownCreatorSectionAnimator} from "./SectionAnimator";
 import {TownCreatorSectionAdvanced} from "./SectionAdvanced";
+import {AtLeast} from "./Permissions";
 
 declare var $: Global;
 
 export class HordesTownCreator {
-    public static mount(parent: HTMLElement, {api}): void {
-        ReactDOM.render(<TownCreatorWrapper api={api} />, parent, () => Components.vitalize( parent ));
+    public static mount(parent: HTMLElement, props: { api: string, elevation: number }): void {
+        ReactDOM.render(<TownCreatorWrapper {...props} />, parent, () => Components.vitalize( parent ));
     }
 
     public static unmount(parent: HTMLElement): void {
@@ -27,6 +28,7 @@ export class HordesTownCreator {
 
 type TownCreatorGlobals = {
     api: TownCreatorAPI,
+    elevation: number,
 
     strings: TranslationStrings,
     config: SysConfig,
@@ -39,13 +41,13 @@ type TownCreatorGlobals = {
 
 export const Globals = React.createContext<TownCreatorGlobals>(null);
 
-const TownCreatorWrapper = ( {api}: {api: string} ) => {
+const TownCreatorWrapper = ( {api,elevation}: {api: string, elevation: number} ) => {
 
     const apiRef = useRef<TownCreatorAPI>();
 
     const [index, setIndex] = useState<ResponseIndex>(null)
     const [townTownTypeList, setTownTypeList] = useState<ResponseTownList>()
-    const [options, setOptions] = useState<TownOptions|{rules: {}}>({rules: {}})
+    const [options, setOptions] = useState<TownOptions|object>({rules: {}, head: {}})
     const [defaultRules, setDefaultRules] = useState<TownRules|null>(null)
 
     const [blocked, setBlocked] = useState<boolean>(false);
@@ -222,7 +224,7 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
 
     return (
         <Globals.Provider value={{ api: apiRef.current, strings: index?.strings, config: index?.config,
-            default_rules: defaultRules as TownRules,
+            default_rules: defaultRules as TownRules, elevation,
             setOption, getOption, removeOption }}>
             { townTownTypeList && index && (
                 <form data-disabled={blocked ? 'disabled' : ''}>
@@ -230,22 +232,32 @@ const TownCreatorWrapper = ( {api}: {api: string} ) => {
                                             setDefaultRules={v => setDefaultRules(v)}/>
 
                     { defaultRules as TownRules && <>
-                        <TownCreatorSectionAnimator/>
+                        <AtLeast elevation="crow">
+                            <TownCreatorSectionAnimator/>
+                        </AtLeast>
                         <TownCreatorSectionMods/>
                         <TownCreatorSectionDifficulty/>
-                        <TownCreatorSectionAdvanced/>
+                        <AtLeast elevation="crow">
+                            <TownCreatorSectionAdvanced/>
+                        </AtLeast>
                         <div className="row">
                             <div className="cell padded rw-12">
                                 <button type="button" onClick={() => {
                                     if (!confirm( index.strings.common.confirm )) return;
-                                    apiRef.current.createTown({...options} as TownOptions ).then(e => console.log(e));
+
+                                    $.ajax.send( `${api}/create-town`, options,
+                                        function (data) {
+                                            $.ajax.load(null, (data as any).url, true);
+                                        } );
                                 }}>{ index.strings.common.create }</button>
                             </div>
                         </div>
                     </> }
                 </form>
             ) }
-            { !(townTownTypeList && index) && <div>...</div> }
+            { !(townTownTypeList && index) && <div className="center">
+                <i className="fa fa-spin fa-circle-notch"></i>
+            </div> }
         </Globals.Provider>
     )
 };

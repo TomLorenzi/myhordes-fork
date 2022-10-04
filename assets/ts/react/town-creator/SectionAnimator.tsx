@@ -35,7 +35,7 @@ export const TownCreatorSectionAnimator = () => {
         <OptionSelect propTitle={animation.picto_rules}
                       value={globals.getOption( 'rules.modifiers.strict_picto_distribution' ) ? 'small' : 'normal'} propName="modifiers.strict_picto_distribution"
                       options={ animation.picto_rules_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
-                      onChange={e => globals.setOption('modifiers.strict_picto_distribution', (e.target as HTMLInputElement).value === 'small')}
+                      onChange={e => globals.setOption('rules.modifiers.strict_picto_distribution', (e.target as HTMLInputElement).value === 'small')}
         />
 
         { /* Participation Settings */ }

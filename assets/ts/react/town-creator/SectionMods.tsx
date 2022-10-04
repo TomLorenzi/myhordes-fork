@@ -167,8 +167,8 @@ export const TownCreatorSectionMods = () => {
                 } );
             } },
             {value: globals.getOption( 'rules.features.xml_feed' ) as boolean, name: "xml_feed", title: mods.modules.api, help: mods.modules.api_help },
-            {value: globals.getOption( 'rules.features.free_for_all' ) as boolean, name: "free_for_all", title: mods.modules.ffa, help: mods.modules.ffa_help },
-        ]} propTitle={mods.modules.section}/>
+            {value: globals.getOption( 'rules.features.free_for_all' ) as boolean, name: "free_for_all", title: mods.modules.ffa, help: mods.modules.ffa_help }
+        ].filter( globals.elevation < 3 ? option=>!['citizen_alias','free_for_all'].includes(option.name) : ()=>true )} propTitle={mods.modules.section}/>
 
         { /* Special rules */ }
         <OptionToggleMulti propName="features" options={[

@@ -11,8 +11,11 @@ customElements.define('hordes-town-creator', class HordesTownCreatorElement exte
 
     #_initialized = false;
     #_base_api = null;
+    #_elevation = 0;
 
     #_extractData() {
+        if (this.dataset.elevation)
+            this.#_elevation = parseInt(this.dataset.elevation);
         if (this.dataset.api) {
             this.#_base_api = this.dataset.api;
             return true;
@@ -22,18 +25,18 @@ customElements.define('hordes-town-creator', class HordesTownCreatorElement exte
 
     #_initialize() {
         if (this.#_initialized || !this.isConnected) return;
-        if (this.#_extractData()) HordesTownCreator.mount( this, {api: this.#_base_api} );
+        if (this.#_extractData()) HordesTownCreator.mount( this, {api: this.#_base_api, elevation: this.#_elevation} );
         this.#_initialized = true;
     }
 
     adoptedCallback() {
         this.#_initialize();
-        if (this.#_extractData()) HordesTownCreator.mount( this, {api: this.#_base_api} );
+        if (this.#_extractData()) HordesTownCreator.mount( this, {api: this.#_base_api, elevation: this.#_elevation} );
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (name !== 'data-api' || oldValue === newValue) return;
-        if (this.#_extractData()) HordesTownCreator.mount( this, {api: this.#_base_api} );
+        if (this.#_extractData()) HordesTownCreator.mount( this, {api: this.#_base_api, elevation: this.#_elevation} );
     }
 
     constructor() {

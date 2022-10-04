@@ -6,6 +6,7 @@ import {useContext, useEffect, useRef} from "react";
 import {Globals} from "./Wrapper";
 import {OptionCoreTemplate, OptionFreeText, OptionSelect, OptionToggleMulti} from "./Input";
 import {number} from "prop-types";
+import {AtLeast} from "./Permissions";
 
 declare var $: Global;
 
@@ -46,10 +47,10 @@ export const TownCreatorSectionDifficulty = () => {
 
         { /* Map Settings */ }
         <OptionSelect value={ globals.getOption( 'rules.mapPreset' ) } propName="mapPreset" propTitle={ difficulty.map }
-                      options={ difficulty.map_presets.map( m => ({ value: m.value, title: m.label }) ) }
+                      options={ difficulty.map_presets.filter(globals.elevation < 3 ? v=> ['small','normal'].includes(v.value) : ()=>true).map( m => ({ value: m.value, title: m.label }) ) }
         />
         { globals.getOption( 'rules.mapPreset' ) === '_custom' && (
-            <>
+            <AtLeast elevation="crow">
                 <OptionFreeText type="number" value={ globals.getOption( 'rules.map.min' ) as string ?? '26' } propName="map"
                                 inputArgs={{min: 10, max: 35}} propTitle={ difficulty.map_exact }
                                 onChange={e => {
@@ -65,13 +66,15 @@ export const TownCreatorSectionDifficulty = () => {
                 <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruins' ) as string ?? '1' } propName="explorable_ruins"
                                 inputArgs={{min: 0, max: 3}} propTitle={ difficulty.map_e_ruins }
                 />
-            </>
+            </AtLeast>
         ) }
 
         { /* Position Settings */ }
-        <OptionSelect value={ globals.getOption( 'rules.mapMarginPreset' ) ?? 'normal' } propName="rules.mapMarginPreset" propTitle={ difficulty.position }
-                      options={ difficulty.position_presets.map( m => ({ value: m.value, title: m.label }) ) }
-        />
+        <AtLeast elevation="crow">
+            <OptionSelect value={ globals.getOption( 'rules.mapMarginPreset' ) ?? 'normal' } propName="rules.mapMarginPreset" propTitle={ difficulty.position }
+                          options={ difficulty.position_presets.map( m => ({ value: m.value, title: m.label }) ) }
+            />
+        </AtLeast>
 
         { /* Attack Settings */ }
         <OptionSelect value={ globals.getOption( 'rules.features.attacks' ) } propName="features.attacks" propTitle={ difficulty.attacks }
