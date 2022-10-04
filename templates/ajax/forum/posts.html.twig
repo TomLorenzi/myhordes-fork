@@ -35,6 +35,14 @@
                 </div>
             {% endif %}
         {% endif %}
+        {% if post.type == "USER" and post.thread.forum.town is not null %}
+            {% if user|is_granted('ROLE_CROW') and user|is_granted('ROLE_DUMMY') %}
+                <div class="inline-block mh-icon">
+                    <img alt="MOD" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% endif %}
+        {% endif %}
     {% endmacro %}
 
     {# @var posts \App\Entity\Post[] #}
