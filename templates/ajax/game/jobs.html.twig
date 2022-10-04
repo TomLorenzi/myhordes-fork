@@ -45,7 +45,7 @@
                         <div class="text center">
                             <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
                             <label for="jb_{{ job.name }}">
-                                <img src="{{ asset('build/images/professions/' ~ job.icon ~ '.gif') }}">
+                                <img alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ job.icon ~ '.gif') }}">
                                 {{ job.label|trans({}, 'game') }}
                             </label>
                         </div>

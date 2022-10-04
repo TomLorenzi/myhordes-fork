@@ -37,6 +37,21 @@ class BuildingPrototypeRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * @return BuildingPrototype[]
+     */
+    public function findNonManual()
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.blueprint < :val')
+            ->setParameter('val', 5)
+            ->orderBy("b.parent", "ASC")
+            ->addOrderBy("b.orderBy", "ASC")
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     public function findOneByName(string $value, bool $cache = true): ?BuildingPrototype
     {
         $local_cache = [];

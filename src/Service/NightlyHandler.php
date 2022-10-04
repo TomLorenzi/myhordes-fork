@@ -847,7 +847,7 @@ class NightlyHandler
 
                 // Remove all night watch items
                 foreach ($ctz->getInventory()->getItems() as $item)
-                    if ($item->getPrototype()->getWatchpoint() > 0) $this->inventory_handler->forceRemoveItem( $item );
+                    if ($item->getPrototype()->getWatchpoint() > 0 || $item->getPrototype()->getName() === 'chkspk_#00') $this->inventory_handler->forceRemoveItem( $item );
 
                 $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
 

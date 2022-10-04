@@ -1,0 +1,57 @@
+{% extends "ajax/game/game.html.twig" %}
+{% block title %}{{'Wiedergeburt: Privatstadt gründen'|trans({}, 'ghost')|raw}}{% endblock %}
+{% block menu_text %}
+    {{ parent() }}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+
+{% block ajax %}
+    <div class="row form soul">
+        <div class="cell-small header rw-18 ro-3 rw-lg-20 ro-lg-2 rw-md-24 ro-md-0 edge-top-left">
+            <div class="tabs">
+                <div class="tab-floater">
+                    <div class="tab left inline">
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, small: true, fallback: false} only %}
+                        <h4 class="soul-name">
+                            <a class="username">{{ app.user.name }}</a>
+                        </h4>
+                        <div class="town-join-rp hide-sm">
+                            <span class="town-join-rp-head">
+                                {% trans from 'ghost' %}
+                                    Ein neues Leben beginnen
+                                {% endtrans %}
+                            </span>
+                            <div class="town-join-rp-text">
+                                {% trans from 'ghost' %}
+                                    ...und mit 39 Mitbürgern in der Hölle schmoren
+                                {% endtrans %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab tab-floater">
+                        <div class="tab selected">
+                            <div class="tab-link"><img src="{{ asset('build/images/item/item_chair.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Privatstadt gründen{% endtrans %}</span></div>
+                        </div>
+                        <div class="tab">
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('ghost_welcome') }}"><img src="{{ asset('build/images/icons/small_world.gif') }}" alt="" /><span class="hide-md hide-sm"> {% trans from 'ghost' %}Einer Stadt beitreten{% endtrans %}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
+                    <hordes-town-creator data-elevation="{{ app.user.rightsElevation }}" data-api="{{ path('rest_town_creator_base') }}"></hordes-town-creator>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <div class="small"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?'|trans({}, 'ghost')}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
