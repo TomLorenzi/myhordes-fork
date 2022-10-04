@@ -135,7 +135,7 @@ class MessageTownMessageController extends MessageController
             $recipient = $global_recipient ?? $em->getRepository(Citizen::class)->find($recipient);
 
             if (count($linked_items) > 0) {
-                if ($recipient->getBanished() != $sender->getBanished())
+                if ($recipient->getBanished() != $sender->getBanished() && !$this->citizen_handler->hasStatusEffect($sender,'drunk'))
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 if ($sender->getTown()->getChaos()){
                     if($recipient->getZone())
