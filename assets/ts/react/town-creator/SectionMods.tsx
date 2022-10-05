@@ -181,6 +181,11 @@ export const TownCreatorSectionMods = () => {
             } },
             { value: (new Set<string>( globals.getOption( 'rules.overrides.named_drops' ) as string[] ?? [])).has('with-toxin'), name: '<.overrides.named_drops.<>.with-toxin', title: mods.special["with-toxin"], help: mods.special["with-toxin_help"] },
             { value: globals.getOption( 'rules.features.hungry_ghouls' ) as boolean, name: 'hungry_ghouls', title: mods.special["hungry-ghouls"], help: mods.special["hungry-ghouls_help"] },
+            { value: globals.getOption( 'rules.modifiers.poison.stack_poisoned_items' ) as boolean && globals.getOption( 'rules.modifiers.poison.transgress' ) as boolean, name: 'super_poison', title: mods.special.super_poison, help: mods.special.super_poison_help, onChange: e => {
+                const v = (e.target as HTMLInputElement).checked;
+                globals.setOption( 'rules.modifiers.poison.stack_poisoned_items', v );
+                globals.setOption( 'rules.modifiers.poison.transgress', v );
+            } },
         ]} propTitle={mods.special.section}/>
     </div>;
 };

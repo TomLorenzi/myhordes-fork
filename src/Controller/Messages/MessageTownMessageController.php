@@ -135,7 +135,7 @@ class MessageTownMessageController extends MessageController
             $recipient = $global_recipient ?? $em->getRepository(Citizen::class)->find($recipient);
 
             if (count($linked_items) > 0) {
-                if ($recipient->getBanished() != $sender->getBanished())
+                if ($recipient->getBanished() != $sender->getBanished() && !$this->citizen_handler->hasStatusEffect($sender,'drunk'))
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 if ($sender->getTown()->getChaos()){
                     if($recipient->getZone())
@@ -174,16 +174,19 @@ class MessageTownMessageController extends MessageController
 
                 shuffle($list);
 
-                if ($this->rand->chance(0.5))
-                    foreach ($list as $incorrect_receiver_candidate)
-                        if ($this->inventory_handler->getFreeSize($incorrect_receiver_candidate->getHome()->getChest()) >= count($linked_items)) {
-                            $correct_receiver = $recipient;
-                            $incorrect_receiver = $incorrect_receiver_candidate;
-                            $global_thread = null;
-                            break;
-                        }
+                foreach ($list as $incorrect_receiver_candidate)
+                    if ($this->inventory_handler->getFreeSize($incorrect_receiver_candidate->getHome()->getChest()) >= count($linked_items)) {
+                        $correct_receiver = $recipient;
+                        $incorrect_receiver = $incorrect_receiver_candidate;
+                        $global_thread = null;
+                        break;
+                    }
 
-                $recipients[] = $incorrect_receiver ?? $recipient;
+                // If there's no recipient, we have to send an error. No MP will be sent.
+                if (!$incorrect_receiver)
+                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+                $recipients[] = $incorrect_receiver;
             } else if ($recipient) $recipients[] = $recipient;
 
         } else {

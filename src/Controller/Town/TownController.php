@@ -18,6 +18,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
+use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
@@ -146,6 +147,7 @@ class TownController extends InventoryAwareController
         $data['can_do_insurrection'] = $this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection") && $town->getInsurrectionProgress() < 100;
         $data['has_insurrection_part'] = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection");
         $data['has_battlement']    = $this->town_handler->getBuilding($town, 'small_round_path_#00') && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true);
+        $data['act_as_battlement'] = $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true);
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -254,8 +256,14 @@ class TownController extends InventoryAwareController
             'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation
         ]);
 
+        $is_watcher = false;
+        foreach ($this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town) as $watcher)
+            if ($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
+                $is_watcher = true;
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
+            'is_watcher' => $is_watcher,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
             'zeds_today'    => $zeds_today,
             'zeds_tomorrow' => $zeds_tomorrow,

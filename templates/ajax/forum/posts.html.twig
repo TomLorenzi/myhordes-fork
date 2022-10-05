@@ -35,6 +35,14 @@
                 </div>
             {% endif %}
         {% endif %}
+        {% if post.type == "USER" and post.thread.forum.town is not null %}
+            {% if user|is_granted('ROLE_CROW') and user|is_granted('ROLE_DUMMY') %}
+                <div class="inline-block mh-icon">
+                    <img alt="MOD" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% endif %}
+        {% endif %}
     {% endmacro %}
 
     {# @var posts \App\Entity\Post[] #}
@@ -337,7 +345,7 @@
                                 [ <a class="action-button" id="copy_post" x-forum-action="copy-post" x-post-id={{ post.id }} >{{ 'Kopieren'|trans({},'global') }}</a> ]
                                 [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                             {% endif %}
-                            {% if not post.translate and app.user != post.owner and not permission.only_mod_access %}
+                            {% if not post.translate and app.user != post.owner and not permission.only_mod_access and not (post.owner|is_granted('ROLE_CROW') and post.owner|is_granted('ROLE_DUMMY')) %}
                                 [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
                             {% endif %}
                             <div class="small hidden" id="link-post-{{ post.id }}">

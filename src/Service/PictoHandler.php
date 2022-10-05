@@ -28,6 +28,9 @@ class PictoHandler
     public function give_picto(Citizen $citizen, $pictoPrototype, $count = 1): void{
         if($count == 0) return;
 
+        $conf = $this->conf->getTownConfiguration($citizen->getTown());
+        if (!$conf->get(TownConf::CONF_FEATURE_PICTOS, true)) return;
+
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
@@ -66,7 +69,10 @@ class PictoHandler
 
     public function give_validated_picto(Citizen $citizen, $pictoPrototype, $count = 1): void{
         if($count <= 0) return;
-        
+
+        $conf = $this->conf->getTownConfiguration($citizen->getTown());
+        if (!$conf->get(TownConf::CONF_FEATURE_PICTOS, true)) return;
+
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)

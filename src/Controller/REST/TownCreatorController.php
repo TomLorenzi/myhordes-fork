@@ -210,6 +210,9 @@ class TownCreatorController extends CustomAbstractCoreController
 
                         'hungry-ghouls' => $this->translator->trans('Hungrige Ghule', [], 'ghost'),
                         'hungry-ghouls_help' => $this->translator->trans('Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.', [], 'ghost'),
+
+                        'super_poison' => $this->translator->trans('Paradies der Giftmörder', [], 'ghost'),
+                        'super_poison_help' => $this->translator->trans('Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.', [], 'ghost'),
                     ]
                 ],
 
@@ -223,6 +226,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'pictos_presets' => [
                         ['value' => 'all',     'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
                         ['value' => 'reduced', 'label' => $this->translator->trans('Reduziert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
+                        ['value' => 'none',    'label' => $this->translator->trans('Deaktiviert', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten keine Auszeichnungen für diese Stadt.', [], 'ghost')],
                     ],
 
                     'picto_rules' => $this->translator->trans('Auszeichnungen beschränken', [], 'ghost'),
@@ -347,7 +351,7 @@ class TownCreatorController extends CustomAbstractCoreController
             'allow_redig', 'assemble_items_from_floor', 'carry_extra_bag', 'citizen_attack',
             'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'hide_home_upgrade',
             'infection_death_chance', 'massive_respawn_factor', 'meaty_bones_within_town',
-            'poison', 'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
+            'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
             'watchtower_estimation_offset', 'watchtower_estimation_threshold', 'wind_distance',
             'wound_terror_penalty', 'camping'
         ];
@@ -576,6 +580,8 @@ class TownCreatorController extends CustomAbstractCoreController
         // Crow options
         if ($rules['features']['give_all_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_all_pictos']);
+        if ($rules['features']['enable_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['enable_pictos']);
         if ($rules['features']['give_soulpoints'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_soulpoints']);
         if ($rules['modifiers']['strict_picto_distribution'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);

@@ -36,17 +36,27 @@ export const TownCreatorSectionAnimator = () => {
 
         { /* Picto Settings */ }
         <OptionSelect propTitle={animation.pictos}
-                      value={globals.getOption( 'rules.features.give_all_pictos' ) ? 'all' : 'reduced'} propName="features.give_all_pictos"
+                      value={
+                        globals.getOption( 'rules.features.enable_pictos' )
+                            ? (globals.getOption( 'rules.features.give_all_pictos' ) ? 'all' : 'reduced')
+                            : 'none'
+                      } propName="features.pictos"
                       options={ animation.pictos_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
-                      onChange={e => globals.setOption('rules.features.give_all_pictos', (e.target as HTMLInputElement).value === 'all')}
+                      onChange={e => {
+                          const v = (e.target as HTMLInputElement).value;
+                          globals.setOption('rules.features.enable_pictos', v !== 'none')
+                          if (v !== 'none') globals.setOption('rules.features.give_all_pictos', v === 'all')
+                      }}
         />
 
         { /* Picto Rule Settings */ }
-        <OptionSelect propTitle={animation.picto_rules}
-                      value={globals.getOption( 'rules.modifiers.strict_picto_distribution' ) ? 'small' : 'normal'} propName="modifiers.strict_picto_distribution"
-                      options={ animation.picto_rules_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
-                      onChange={e => globals.setOption('rules.modifiers.strict_picto_distribution', (e.target as HTMLInputElement).value === 'small')}
-        />
+        { globals.getOption( 'rules.features.enable_pictos' ) && (
+            <OptionSelect propTitle={animation.picto_rules}
+                          value={globals.getOption( 'rules.modifiers.strict_picto_distribution' ) ? 'small' : 'normal'} propName="modifiers.strict_picto_distribution"
+                          options={ animation.picto_rules_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
+                          onChange={e => globals.setOption('rules.modifiers.strict_picto_distribution', (e.target as HTMLInputElement).value === 'small')}
+            />
+        ) }
 
         { /* Participation Settings */ }
         <OptionSelect propTitle={animation.participation}
