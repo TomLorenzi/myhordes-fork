@@ -188,3 +188,57 @@ Fortsetzen...: Continuer...
 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'Il semble que la <strong>Horde</strong> se soit retirée pour l’instant...'
 'Zum Login zurückkehren': 'Retourner à la page de connexion'
 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'Il vous faut au moins {sp} points d''âme pour rejoindre cette ville. Obtenez des points d''âme en jouant dans d''autres villes.'
+'Grundlegende Einstellungen': 'Paramètres de base'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Laissez le champ vide pour générer automatiquement le nom de la ville.'
+'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Seed qui permet une génération de carte maitrisée. Permet en cas d''event de générer des cartes similaires. Mettre un entier positif pour l''activer. PENSER À CHANGER CET ENTIER D''UN EVENT À L''AUTRE !'
+Vorlage: Modèle
+Schwierigkeitslevel: Niveau de difficulté
+Gering: Petit
+'Eigener Wert': 'Valeur propre'
+'Eigener Bereich': 'Eigener Bereich'
+'Leichte Angriffe': 'Leichte Angriffe'
+'Seelen & Schamane': 'Seelen & Schamane'
+Nachtwache: Nachtwache
+Nachtmodus: Nachtmodus
+Zeitzone: Zeitzone
+Spielmodifikationen: Spielmodifikationen
+Bürger-Aliase: Bürger-Aliase
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.'
+Exploration: Exploration
+Eskorte: Eskorte
+Verbannung: Verbannung
+Camping: Camping
+Gebäudeschaden: Gebäudeschaden
+'Verbesserte Müllhalde': 'Verbesserte Müllhalde'
+'Externe APIs': 'Externe APIs'
+'Externe Anwendungen für diese Stadt aktivieren.': 'Externe Anwendungen für diese Stadt aktivieren.'
+'Seelenpunkt-Beschränkung deaktivieren': 'Seelenpunkt-Beschränkung deaktivieren'
+'Paradies der Giftmörder': 'Paradies der Giftmörder'
+'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.'
+'Stadtstart planen': 'Stadtstart planen'
+'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!'
+'Vergabe von Auszeichnungen': 'Vergabe von Auszeichnungen'
+Alle: Alle
+'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.'
+Reduziert: Reduziert
+'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.'
+'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'Spieler erhalten keine Auszeichnungen für diese Stadt.'
+'Auszeichnungen beschränken': 'Auszeichnungen beschränken'
+'Keine Beschränkung': 'Keine Beschränkung'
+'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.'
+'Strikte Vergabe': 'Strikte Vergabe'
+'Vergabe von Seelenpunkten': 'Vergabe von Seelenpunkten'
+'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.'
+'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.'
+Teilnahme: Teilnahme
+'Verkörperung in der Stadt': 'Verkörperung in der Stadt'
+'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Verkörpert dich in der Stadt bei ihrer Entstehung.'
+'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.'
+Verwaltung: Verwaltung
+'Nach 2 Tagen negieren': 'Nach 2 Tagen negieren'
+'Tor versperren': 'Tor versperren'
+'Erweiterte Einstellungen': 'Erweiterte Einstellungen'
+'Manuelles Event-Management': 'Manuelles Event-Management'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.'
+'Den neuen Generator ausprobieren': 'Den neuen Generator ausprobieren'
