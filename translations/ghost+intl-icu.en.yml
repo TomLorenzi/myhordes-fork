@@ -188,3 +188,57 @@ Fortsetzen...: Continue...
 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'It seems the <strong>Horde</strong> has retreated for now...'
 'Zum Login zurückkehren': 'Return to the login page'
 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'You need at least {sp} soul points to join this town. Collect soul points by playing in other towns.'
+'Grundlegende Einstellungen': 'Basic settings'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Leave the field empty to generate the town''s name automatically.'
+'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Seed that enables controlled map creation. Allows similar maps to be generated in case of events. Enter a positive integer to activate it. THINK ABOUT CHANGING THIS WHOLE NUMBER FROM ONE EVENT TO ANOTHER!'
+Vorlage: Template
+Schwierigkeitslevel: Difficulty level
+Gering: Low
+'Eigener Wert': 'Custom value'
+'Eigener Bereich': 'Custom range'
+'Leichte Angriffe': 'Light attacks'
+'Seelen & Schamane': 'Souls & Shamans'
+Nachtwache: Watchmen
+Nachtmodus: Night Mode
+Zeitzone: Timezone
+Spielmodifikationen: Game modifications
+Bürger-Aliase: Citizen Aliases
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Allows a citizen to select an alias instead of their usual name for this town.'
+Exploration: Exploration
+Eskorte: Escort
+Verbannung: Shunning
+Camping: Camping
+Gebäudeschaden: Construction damage
+'Verbesserte Müllhalde': 'Improved Dump'
+'Externe APIs': 'External APIs'
+'Externe Anwendungen für diese Stadt aktivieren.': 'Enable external applications for this town.'
+'Seelenpunkt-Beschränkung deaktivieren': 'Disable soul point limitations'
+'Paradies der Giftmörder': 'Poisoner''s paradise'
+'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'Changes how the game handles poisoned items to make their detection more difficult.'
+'Stadtstart planen': 'Schedule town start'
+'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'If you want to open the town at a future time, you can enter it here (in server time). Only when this time is reached, will the town be available. IMPORTANT: The option "Incarnation in town" disallows a planned start of the town!'
+'Vergabe von Auszeichnungen': 'Awards Management'
+Alle: All
+'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Players will receive all distinctions earned in this town.'
+Reduziert: Reduced
+'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Players will receive a third of the distinctions earned in this town.'
+'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'Players will receive no distinctions from this town.'
+'Auszeichnungen beschränken': 'Limit distinctions'
+'Keine Beschränkung': 'No limitation'
+'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'Distinctions are distributed according to normal rules.'
+'Strikte Vergabe': 'Strict distribution'
+'Vergabe von Seelenpunkten': 'Awarding soul points'
+'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Players receive soul points for participating in this town.'
+'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Players WON''T receive soul points for participating in this town.'
+Teilnahme: Participation
+'Verkörperung in der Stadt': 'Incarnate in the Town'
+'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Incarnate you in the Town when it comes into being.'
+'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'You are not incarnated and will not receive access to the town forum.'
+Verwaltung: Management
+'Nach 2 Tagen negieren': 'Cancel after 2 days'
+'Tor versperren': 'Block the gates'
+'Erweiterte Einstellungen': 'Advanced Settings'
+'Manuelles Event-Management': 'Manual Event Management'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Disables the town''s normal event management and instead manually determines which event content is available for the duration of the town.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'We''ve reworked our town editor to add some swanky new features. You can test the new editor if you like, or continue using the old one for the time being.'
+'Den neuen Generator ausprobieren': 'Try the new editor'
