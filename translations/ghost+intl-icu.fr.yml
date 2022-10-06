@@ -196,29 +196,29 @@ Schwierigkeitslevel: Niveau de difficulté
 Gering: Petit
 'Eigener Wert': 'Valeur propre'
 'Eigener Bereich': 'Eigener Bereich'
-'Leichte Angriffe': 'Leichte Angriffe'
-'Seelen & Schamane': 'Seelen & Schamane'
-Nachtwache: Nachtwache
-Nachtmodus: Nachtmodus
-Zeitzone: Zeitzone
-Spielmodifikationen: Spielmodifikationen
-Bürger-Aliase: Bürger-Aliase
-'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.'
+'Leichte Angriffe': 'Attaques douces'
+'Seelen & Schamane': 'Âmes & chamans'
+Nachtwache: Veille
+Nachtmodus: Mode nuit
+Zeitzone: Zone de temps
+Spielmodifikationen: Modifications du jeu
+Bürger-Aliase: Alias de citoyen
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Permet à un citoyen de sélectionner un alias au lieu de son nom habituel pour cette ville.'
 Exploration: Exploration
-Eskorte: Eskorte
-Verbannung: Verbannung
+Eskorte: Escortes
+Verbannung: Bannissements
 Camping: Camping
-Gebäudeschaden: Gebäudeschaden
-'Verbesserte Müllhalde': 'Verbesserte Müllhalde'
-'Externe APIs': 'Externe APIs'
+Gebäudeschaden: Usure des bâtiments
+'Verbesserte Müllhalde': 'Décharge améliorée'
+'Externe APIs': 'Apps externe'
 'Externe Anwendungen für diese Stadt aktivieren.': 'Externe Anwendungen für diese Stadt aktivieren.'
-'Seelenpunkt-Beschränkung deaktivieren': 'Seelenpunkt-Beschränkung deaktivieren'
+'Seelenpunkt-Beschränkung deaktivieren': 'Désactiver les limitations de points d''âme'
 'Paradies der Giftmörder': 'Paradies der Giftmörder'
 'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.'
 'Stadtstart planen': 'Stadtstart planen'
 'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!'
 'Vergabe von Auszeichnungen': 'Vergabe von Auszeichnungen'
-Alle: Alle
+Alle: Tout
 'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.'
 Reduziert: Reduziert
 'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.'
@@ -231,14 +231,14 @@ Reduziert: Reduziert
 'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.'
 'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.'
 Teilnahme: Teilnahme
-'Verkörperung in der Stadt': 'Verkörperung in der Stadt'
-'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Verkörpert dich in der Stadt bei ihrer Entstehung.'
+'Verkörperung in der Stadt': 'S''incarner dans la ville'
+'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'S''incarner en ville lors de sa création.'
 'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.'
-Verwaltung: Verwaltung
-'Nach 2 Tagen negieren': 'Nach 2 Tagen negieren'
-'Tor versperren': 'Tor versperren'
-'Erweiterte Einstellungen': 'Erweiterte Einstellungen'
-'Manuelles Event-Management': 'Manuelles Event-Management'
-'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.'
+Verwaltung: Administration
+'Nach 2 Tagen negieren': 'Annuler après 2 jours'
+'Tor versperren': 'Bloquer la porte'
+'Erweiterte Einstellungen': 'Paramètres avancés'
+'Manuelles Event-Management': 'Gestion manuelle des évènements'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Désactive la gestion normale des événements de la ville et détermine manuellement le contenu de l’événement disponible pour la durée de la ville.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.'
 'Den neuen Generator ausprobieren': 'Den neuen Generator ausprobieren'
