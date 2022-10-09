@@ -1,4 +1,5 @@
 import {TranslationStrings} from "./strings";
+import {AjaxV1Response, Fetch} from "../../v2/fetch";
 
 export type ResponseIndex = {
     strings: TranslationStrings,
@@ -104,58 +105,37 @@ export type TownOptions = {
     rules: TownRules
 }
 
+interface TownCreationResponse extends AjaxV1Response {
+    url?: string
+}
+
 export class TownCreatorAPI {
 
-    private readonly base: string = null;
+    private fetch: Fetch;
 
-    constructor(base: string) {
-        this.base = base;
+    constructor() {
+        this.fetch = new Fetch( 'town-creator' );
     }
 
-    private fetch_config( method: string ): RequestInit {
-        return {
-            method,
-            mode: "cors",
-            credentials: 'same-origin',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            redirect: 'follow'
-        }
+    public index(): Promise<ResponseIndex> {
+        return this.fetch.from('/')
+            .request().get() as Promise<ResponseIndex>;
     }
 
-    private async extract( promise: Promise<Response> ): Promise<any> {
-        const data = await promise;
-        if (data.ok) return data.json();
-        else throw `FETCH ERROR ${data.status} (${data.statusText}): (${(await data.text()) ?? 'no_data'})`;
+    public townList(): Promise<ResponseTownList> {
+        return this.fetch.from('town-types')
+            .request().get() as Promise<ResponseTownList>;
     }
 
-    public async index(): Promise<ResponseIndex> {
-        return await this.extract(
-            fetch( this.base, this.fetch_config('GET') )
-        ) as Promise<ResponseIndex>;
+    public townRulesPreset(id: number, privateTown: boolean = false): Promise<TownRules> {
+        return this.fetch.from(`town-rules/${privateTown ? 'private/' : ''}${id}`)
+            .request().get() as Promise<TownRules>;
     }
 
-    public async townList(): Promise<ResponseTownList> {
-        return await this.extract(
-            fetch( `${this.base}/town-types`, this.fetch_config('GET') )
-        ) as Promise<ResponseTownList>;
-    }
-
-    public async townRulesPreset(id: number, privateTown: boolean = false): Promise<TownRules> {
-        return await this.extract(
-            fetch( `${this.base}/town-rules/${privateTown ? 'private/' : ''}${id}`, this.fetch_config('GET') )
-        ) as Promise<TownRules>;
-    }
-
-    public async createTown(data: TownOptions): Promise<object> {
-        return await this.extract(
-            fetch( `${this.base}/create-town`, {
-                ...this.fetch_config('POST'),
-                body: JSON.stringify( data ),
-            } )
-        ) as Promise<object>;
+    public createTown(data: TownOptions): Promise<TownCreationResponse> {
+        return this.fetch.from('create-town')
+            .bodyDeterminesSuccess()
+            .request().post(data) as Promise<TownCreationResponse>;
     }
 
 }

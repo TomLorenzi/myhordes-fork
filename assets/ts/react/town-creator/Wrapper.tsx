@@ -7,7 +7,6 @@ import {ResponseIndex, ResponseTownList, SysConfig, TownCreatorAPI, TownOptions,
 import {ChangeEvent, useEffect, useRef, useState} from "react";
 import {TownCreatorSectionHead} from "./SectionHead";
 import {TranslationStrings} from "./strings";
-import {element, string} from "prop-types";
 import {TownCreatorSectionDifficulty} from "./SectionDifficulty";
 import {TownCreatorSectionMods} from "./SectionMods";
 import {TownCreatorSectionAnimator} from "./SectionAnimator";
@@ -17,7 +16,7 @@ import {AtLeast} from "./Permissions";
 declare var $: Global;
 
 export class HordesTownCreator {
-    public static mount(parent: HTMLElement, props: { api: string, elevation: number }): void {
+    public static mount(parent: HTMLElement, props: { elevation: number }): void {
         ReactDOM.render(<TownCreatorWrapper {...props} />, parent, () => Components.vitalize( parent ));
     }
 
@@ -41,7 +40,7 @@ type TownCreatorGlobals = {
 
 export const Globals = React.createContext<TownCreatorGlobals>(null);
 
-const TownCreatorWrapper = ( {api,elevation}: {api: string, elevation: number} ) => {
+const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
 
     const apiRef = useRef<TownCreatorAPI>();
 
@@ -53,7 +52,7 @@ const TownCreatorWrapper = ( {api,elevation}: {api: string, elevation: number} )
     const [blocked, setBlocked] = useState<boolean>(false);
 
     useEffect( () => {
-        apiRef.current = new TownCreatorAPI(api);
+        apiRef.current = new TownCreatorAPI();
         apiRef.current.index().then( index => setIndex(index) );
         apiRef.current.townList().then( list => setTownTypeList(list) );
         return () => {
@@ -62,7 +61,7 @@ const TownCreatorWrapper = ( {api,elevation}: {api: string, elevation: number} )
             setOptions(null);
             setDefaultRules(null);
         }
-    }, [api] )
+    }, [] )
 
     const processDot = ( dot: string|string[] ) => {
         if (typeof dot === "string") return processDot( dot.split('.') );
@@ -242,13 +241,21 @@ const TownCreatorWrapper = ( {api,elevation}: {api: string, elevation: number} )
                         </AtLeast>
                         <div className="row">
                             <div className="cell padded rw-12">
+                                { getOption('rules.open_town_limit') === 2 && (
+                                    <>
+                                        <div className="warning">
+                                            <strong>{ index.strings.common.notice } </strong>
+                                            { index.strings.common.negate }
+                                        </div>
+                                        <br/>
+                                    </>
+                                ) }
                                 <button type="button" onClick={() => {
                                     if (!confirm( index.strings.common.confirm )) return;
 
-                                    $.ajax.send( `${api}/create-town`, options,
-                                        function (data) {
-                                            $.ajax.load(null, (data as any).url, true);
-                                        } );
+                                    apiRef.current.createTown(options as TownOptions)
+                                        .then( r => $.ajax.load(null, r.url, true) )
+
                                 }}>{ index.strings.common.create }</button>
                             </div>
                         </div>

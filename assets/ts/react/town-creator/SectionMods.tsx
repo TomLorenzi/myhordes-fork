@@ -186,6 +186,8 @@ export const TownCreatorSectionMods = () => {
                 globals.setOption( 'rules.modifiers.poison.stack_poisoned_items', v );
                 globals.setOption( 'rules.modifiers.poison.transgress', v );
             } },
+            { value: globals.getOption( 'modifiers.allow_redig' ) as boolean, name: '<<.rules.modifiers.allow_redig', title: mods.special.redig, help: mods.special.redig_help },
+            { value: globals.getOption( 'modifiers.carry_extra_bag' ) as boolean, name: '<<.rules.modifiers.carry_extra_bag', title: mods.special.carry_bag, help: mods.special.carry_bag_help },
         ]} propTitle={mods.special.section}/>
     </div>;
 };

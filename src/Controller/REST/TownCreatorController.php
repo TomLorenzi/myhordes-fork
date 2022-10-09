@@ -8,6 +8,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\TownClass;
+use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
@@ -42,6 +43,23 @@ class TownCreatorController extends CustomAbstractCoreController
      */
     public function index(EntityManagerInterface $em, Packages $asset): JsonResponse {
 
+        $all_events = array_map(
+            function(string $name) {
+                $title_key = "event_{$name}_title";
+                $desc_key = "event_{$name}_description";
+
+                $title = $this->translator->trans($title_key, ['year' => ''], 'events');
+                $desc  = $this->translator->trans($desc_key, ['year' => ''], 'events');
+
+                return [
+                    'id' => $name,
+                    'label' => $title === $title_key ? "[ $name ]" : $title,
+                    'desc'  => $desc === $desc_key ? '' : $desc,
+                ];
+            },
+            array_filter( $this->conf->getAllEventNames(), fn(string $name) => $this->conf->eventIsPublic( $name ) || $this->getUser()->getRightsElevation() >= User::USER_LEVEL_CROW )
+        );
+
         return new JsonResponse([
             'strings' => [
                 'common' => [
@@ -49,6 +67,8 @@ class TownCreatorController extends CustomAbstractCoreController
                     'confirm' => $this->translator->trans('Bestätigen?', [], 'global'),
                     'help' => $this->translator->trans('Hilfe', [], 'global'),
                     'need_selection' => "[ {$this->translator->trans('Bitte auswählen', [], 'global')} ]",
+                    'notice' => $this->translator->trans('Achtung!', [], 'ghost'),
+                    'negate' => $this->translator->trans('Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.', [], 'ghost'),
                 ],
 
                 'head' => [
@@ -62,6 +82,18 @@ class TownCreatorController extends CustomAbstractCoreController
                         array_map(fn($lang) => ['code' => $lang['code'], 'label' => $this->translator->trans( $lang['label'], [], 'global' )], $this->generatedLangs),
                         [ [ 'code' => 'multi', 'label' => $this->translator->trans('Mehrsprachig', [], 'global') ] ]
                     ),
+
+                    'reserve' => $this->translator->trans('Platzreservierung', [], 'ghost'),
+                    'reserve_none' => $this->translator->trans('Du hast aktuell noch keine Plätze reserviert.', [], 'soul'),
+                    'reserve_num' => $this->translator->trans('Reservierte Plätze:', [], 'soul'),
+                    'reserve_add' => $this->translator->trans('Eine Reservierung hinzufügen', [], 'ghost'),
+                    'reserve_help' => implode( '', array_map( fn(string $s) => "<p>$s</p>", [
+                                                                                                $this->translator->trans('Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.', [], 'ghost'),
+                                                                                                $this->translator->trans('So geht\'s: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).', [], 'ghost'),
+                                                                                                $this->translator->trans('<strong>Hinweis:</strong> Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, <strong>mehr als nur 39 Spieler</strong> anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.', [], 'ghost'),
+                                                                                                $this->translator->trans('<strong>Hinweis:</strong> Wenn du <strong>weniger als 39 Spieler</strong> angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.', [], 'ghost'),
+                                                                                                $this->translator->trans('<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>', [], 'ghost'),
+                                                                                            ] ) ),
 
                     'code' => $this->translator->trans('Zugangscode', [], 'ghost'),
                     'code_help' => $this->translator->trans('Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>', [], 'global'),
@@ -213,6 +245,12 @@ class TownCreatorController extends CustomAbstractCoreController
 
                         'super_poison' => $this->translator->trans('Paradies der Giftmörder', [], 'ghost'),
                         'super_poison_help' => $this->translator->trans('Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.', [], 'ghost'),
+
+                        'redig' => $this->translator->trans('Erneutes Buddeln', [], 'ghost'),
+                        'redig_help' => $this->translator->trans('Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.', [], 'ghost'),
+
+                        'carry_bag' => $this->translator->trans('Matroschka-Taschen', [], 'ghost'),
+                        'carry_bag_help' => $this->translator->trans('Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.', [], 'ghost'),
                     ]
                 ],
 
@@ -298,6 +336,14 @@ class TownCreatorController extends CustomAbstractCoreController
                             'unlockable' => $building->getBlueprint() > 0
                         ];
                     }, $em->getRepository( BuildingPrototype::class )->findNonManual()),
+
+                    'event_management' => $this->translator->trans('Event-Management', [], 'ghost'),
+                    'event_list' => $all_events,
+                    'event_auto' => $this->translator->trans('Automatisch', [], 'ghost'),
+                    'event_auto_help' => $this->translator->trans('Verwendet die normale Event-Verwaltung der Stadt.', [], 'ghost'),
+                    'event_none' => $this->translator->trans('Deaktiviert', [], 'ghost'),
+                    'event_none_help' => $this->translator->trans('Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.', [], 'ghost'),
+                    'event_any_help'  => $this->translator->trans('Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.', [], 'ghost')
                 ]
             ],
             'config' => [
@@ -348,7 +394,7 @@ class TownCreatorController extends CustomAbstractCoreController
         ];
 
         static $unset_modules = [
-            'allow_redig', 'assemble_items_from_floor', 'carry_extra_bag', 'citizen_attack',
+            'assemble_items_from_floor', 'citizen_attack',
             'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'hide_home_upgrade',
             'infection_death_chance', 'massive_respawn_factor', 'meaty_bones_within_town',
             'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
@@ -487,6 +533,10 @@ class TownCreatorController extends CustomAbstractCoreController
         $lang = $head['townLang'] ?? 'multi';
         if ($lang !== 'multi' && !in_array( $lang, $this->generatedLangsCodes )) unset( $head['townLang'] );
 
+        // Make sure the event value is valid
+        if (($head['event'] ?? 'auto') === 'auto') unset( $head['event'] );
+        elseif ($head['event'] !== 'none' && !in_array( $head['event'], $this->conf->getAllEventNames() )) $head['event'] = 'none';
+
         // Remove setting objects for custom constructions / jobs if the option to use them is disabled
         if (!isset($head['customJobs'])) unset($rules['disabled_jobs']);
         if (!isset($head['customConstructions'])) {
@@ -576,6 +626,10 @@ class TownCreatorController extends CustomAbstractCoreController
         // Event tag needs CROW permissions
         if ($head['townEventTag'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
         if ($trimTo < User::USER_LEVEL_CROW) unset($head['townEventTag']);
+
+        // Custom event needs CROW permissions
+        if ($head['event'] ?? null) $elevation = max($elevation, User::USER_LEVEL_CROW);
+        if ($trimTo < User::USER_LEVEL_CROW) unset($head['event']);
 
         // Crow options
         if ($rules['features']['give_all_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
@@ -751,6 +805,13 @@ class TownCreatorController extends CustomAbstractCoreController
         $templateConf = $em->getRepository( TownClass::class )->find( $header['townBase'] ?? -1 );
         if (!$primaryConf->getHasPreset() && !$templateConf?->getHasPreset()) return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
 
+        $user_slots = array_filter($em->getRepository(User::class)->findBy(['id' => array_map(fn($a) => (int)$a, $header['reserve'] ?? [])]), function(User $u) {
+            return $u->getEmail() !== 'crow' && $u->getEmail() !== $u->getUsername() && !str_ends_with($u->getName(), '@localhost');
+        });
+
+        if (count($user_slots) !== count($header['reserve'] ?? []))
+            return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
+
         $base = $primaryConf->getHasPreset() ? $primaryConf : $templateConf;
         $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
 
@@ -763,6 +824,14 @@ class TownCreatorController extends CustomAbstractCoreController
 
         $seed = $header['townSeed'] ?? -1;
 
+        if ($header['event'] ?? null) {
+            $current_events = $header['event'] === 'none' ? [] : [ $this->conf->getEvent( $header['event'] ) ];
+        } else $current_events = $this->conf->getCurrentEvents();
+
+        $name_changers = array_values(
+            array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+        );
+
         $town = $gameFactory->createTown(
             $header['townName'] ?? null,
             $header['townLang'] ?? 'multi',
@@ -770,10 +839,15 @@ class TownCreatorController extends CustomAbstractCoreController
             [$header['townType'], $header['townBase']],
             $rules,
             $seed,
-            null);
+            $name_changers[0] ?? null);
 
         $town->setCreator($user);
         if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
+        if ($header['event'] ?? null) $town->setManagedEvents( true );
+
+        foreach ($user_slots as $user_slot)
+            $em->persist((new TownSlotReservation())->setTown($town)->setUser($user_slot));
+
         $em->persist($town);
 
         if (!empty( $header['townSchedule'] )) $town->setScheduledFor( $header['townSchedule'] );
@@ -791,7 +865,6 @@ class TownCreatorController extends CustomAbstractCoreController
             $em->flush();
         }
 
-        $current_events = $this->conf->getCurrentEvents();
         if (!empty(array_filter($current_events, fn(EventConf $e) => $e->active()))) {
             if (!$townHandler->updateCurrentEvents($town, $current_events)) {
                 $em->clear();

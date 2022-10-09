@@ -14,6 +14,9 @@ export type TranslationStrings = {
 
         create: string
         confirm: string
+
+        notice: string
+        negate: string
     }
 
     head: {
@@ -39,6 +42,12 @@ export type TranslationStrings = {
 
         'type': string
         'base': string
+
+        reserve: string
+        reserve_none: string
+        reserve_num: string
+        reserve_add: string
+        reserve_help: string
     }
 
     difficulty: {
@@ -139,6 +148,12 @@ export type TranslationStrings = {
 
             super_poison: string
             super_poison_help: string
+
+            redig: string
+            redig_help: string
+
+            carry_bag: string
+            carry_bag_help: string
         }
     }
 
@@ -193,5 +208,17 @@ export type TranslationStrings = {
 
         events: string
         events_help: string
+
+        event_management: string
+        event_list: {
+            id: string
+            label: string
+            desc: string
+        }[]
+        event_auto: string
+        event_auto_help: string
+        event_none: string
+        event_none_help: string
+        event_any_help: string
     }
 }

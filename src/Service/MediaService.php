@@ -54,7 +54,6 @@ class MediaService {
             if (!in_array($im_image->getImageFormat(), ['GIF', 'JPEG', 'BMP', 'PNG', 'WEBP']))
                 return self::ErrorInputUnsupported;
 
-            $im_image = $im_image->coalesceImages();
             $im_image->resetImagePage('0x0');
             $im_image->setFirstIterator();
 
@@ -68,13 +67,22 @@ class MediaService {
             $height = $h = $im_image->getImageHeight();
             $fit = true;
 
-            if (!$determine_dimensions($width, $height, $fit)) return self::ErrorDimensionMismatch;
+            if (!$determine_dimensions($width, $height, $fit, $im_image->getNumberImages())) return self::ErrorDimensionMismatch;
 
-            if ($width !== $w || $height !== $h)
+            $resized = false;
+            if ($width !== $w || $height !== $h) {
+
+                if ($im_image->getNumberImages() > 256)
+                    return self::ErrorProcessingFailed;
+
+                $im_image = $im_image->coalesceImages();
+                $resized = true;
+
                 foreach ($im_image as $frame) {
                     if (!$frame->resizeImage($width, $height, imagick::FILTER_SINC, 1, $fit))
-                        return self:: ErrorProcessingFailed;
+                        return self::ErrorProcessingFailed;
                 }
+            }
 
             $im_image->setFirstIterator();
 
@@ -94,6 +102,8 @@ class MediaService {
                         $im_image->setOption('png:compression-level', 9);
                         break;
                     case 'GIF':
+                        if ($resized)
+                            $im_image = $im_image->deconstructImages();
                         $im_image->setOption('optimize', true);
                         break;
                     default:
