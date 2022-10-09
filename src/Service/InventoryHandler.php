@@ -368,6 +368,7 @@ class InventoryHandler
     const ModalityImpound          = 2;
     const ModalityEnforcePlacement = 3;
     const ModalityBankTheft        = 4;
+    const ModalityAllowMultiHeavy  = 5;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone, $allow_extra_bag = false): int {
         // Block Transfer if citizen is hiding
@@ -403,7 +404,7 @@ class InventoryHandler
         }
 
         // Check Heavy item limit
-        if ($item->getPrototype()->getHeavy() &&
+        if ($modality !== self::ModalityAllowMultiHeavy && $item->getPrototype()->getHeavy() &&
             ($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
             $this->countHeavyItems($to)
         ) return self::ErrorHeavyLimitHit;

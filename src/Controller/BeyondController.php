@@ -487,7 +487,7 @@ class BeyondController extends InventoryAwareController
 
         if (($error = $handler->transferItem(
             $citizen,
-            $item,$inv_source, $inv_target
+            $item,$inv_source, $inv_target, InventoryHandler::ModalityAllowMultiHeavy
         )) === InventoryHandler::ErrorNone) {
 
             $trashlock->increment();
