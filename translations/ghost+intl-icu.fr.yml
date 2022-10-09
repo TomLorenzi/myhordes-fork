@@ -242,13 +242,13 @@ Verwaltung: Administration
 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Désactive la gestion normale des événements de la ville et détermine manuellement le contenu de l’événement disponible pour la durée de la ville.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Nous avons retravaillé notre éditeur de ville pour ajouter de nouvelles fonctionnalités. Vous pouvez tester le nouvel éditeur si vous le souhaitez, ou continuer à utiliser l’ancien pour le moment.'
 'Den neuen Generator ausprobieren': 'Essayer le nouvel éditeur'
-'Erneutes Buddeln': 'Erneutes Buddeln'
-'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.'
-Matroschka-Taschen: Matroschka-Taschen
-'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.'
-Event-Management: Event-Management
-'Verwendet die normale Event-Verwaltung der Stadt.': 'Verwendet die normale Event-Verwaltung der Stadt.'
-'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.'
-'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.'
-'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.'
-'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!'
+'Erneutes Buddeln': 'Fouilles répétées'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'Permet aux citoyens de fouiller à nouveau sur des zones qu''ils ont précédemment visitées.'
+Matroschka-Taschen: Sacs matriochka
+'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'Les joueurs peuvent transporter plusieurs extensions de sac en même temps, bien que le bonus d''extension ne soit accordé qu''une seule fois.'
+Event-Management: Gestion d'Event
+'Verwendet die normale Event-Verwaltung der Stadt.': 'Utilise le système de gestion d''Event par défaut.'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'Désactive le système de gestion d''Event par défaut, de sorte que la ville n''aura aucun événement.'
+'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Désactive le système de gestion d''Event par défaut, entraînant l''activation de l''événement sélectionné pour la durée de la ville.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Nous avons révisé le créateur de ville et y avons ajouté de nouvelles fonctionnalités. <strong>Vous utilisez actuellement l''ancienne version du créateur.</strong> Il est toujours disponible pour le moment, mais il ne recevra aucune mise à jour et ne prend pas en charge toutes les fonctionnalités du nouveau créateur.'
+'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Je suis confus et effrayé. Revenons à l''ancien créateur, s''il vous plaît !'
