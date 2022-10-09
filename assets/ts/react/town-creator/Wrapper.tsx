@@ -241,6 +241,15 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
                         </AtLeast>
                         <div className="row">
                             <div className="cell padded rw-12">
+                                { getOption('rules.open_town_limit') === 2 && (
+                                    <>
+                                        <div className="warning">
+                                            <strong>{ index.strings.common.notice } </strong>
+                                            { index.strings.common.negate }
+                                        </div>
+                                        <br/>
+                                    </>
+                                ) }
                                 <button type="button" onClick={() => {
                                     if (!confirm( index.strings.common.confirm )) return;
 

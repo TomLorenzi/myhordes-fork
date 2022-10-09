@@ -14,6 +14,9 @@ export type TranslationStrings = {
 
         create: string
         confirm: string
+
+        notice: string
+        negate: string
     }
 
     head: {
@@ -199,5 +202,17 @@ export type TranslationStrings = {
 
         events: string
         events_help: string
+
+        event_management: string
+        event_list: {
+            id: string
+            label: string
+            desc: string
+        }[]
+        event_auto: string
+        event_auto_help: string
+        event_none: string
+        event_none_help: string
+        event_any_help: string
     }
 }

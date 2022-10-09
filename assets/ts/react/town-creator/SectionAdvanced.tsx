@@ -108,6 +108,16 @@ export const TownCreatorSectionAdvanced = () => {
     return <div>
         <h5>{ advanced.section }</h5>
 
+        { /* Event setting */ }
+        <OptionSelect propTitle={advanced.event_management}
+                      value={globals.getOption( 'head.event' ) ?? 'auto'} propName="head.event"
+                      options={ [
+                          { value: 'auto', title: advanced.event_auto, help: advanced.event_auto_help },
+                          { value: 'none', title: advanced.event_none, help: advanced.event_none_help },
+                          ...advanced.event_list.map( preset => ({ value: preset.id, title: preset.label, help: advanced.event_any_help + ' ' + preset.desc }) )
+                      ] }
+        />
+
         { /* Job setting */ }
         <OptionCoreTemplate propName="head.customJobs" propTitle={advanced.jobs} wide={true} propTip={ advanced.jobs_help }>
             <label>
