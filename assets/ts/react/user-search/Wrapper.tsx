@@ -68,8 +68,7 @@ export const UserSearchBar = (
     const searchUserList = (s:string[], autoTrigger: boolean = false) => {
         if (!apiRef.current) return;
 
-        if (s.length < 3) setResult([]);
-        else apiRef.current.from('findList')
+        apiRef.current.from('findList')
             .withoutLoader()
             .request().before(()=>setSearching(true)).post(
                 {
