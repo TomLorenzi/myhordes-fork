@@ -245,6 +245,12 @@ class TownCreatorController extends CustomAbstractCoreController
 
                         'super_poison' => $this->translator->trans('Paradies der Giftmörder', [], 'ghost'),
                         'super_poison_help' => $this->translator->trans('Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.', [], 'ghost'),
+
+                        'redig' => $this->translator->trans('Erneutes Buddeln', [], 'ghost'),
+                        'redig_help' => $this->translator->trans('Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.', [], 'ghost'),
+
+                        'carry_bag' => $this->translator->trans('Matroschka-Taschen', [], 'ghost'),
+                        'carry_bag_help' => $this->translator->trans('Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.', [], 'ghost'),
                     ]
                 ],
 
@@ -388,7 +394,7 @@ class TownCreatorController extends CustomAbstractCoreController
         ];
 
         static $unset_modules = [
-            'allow_redig', 'assemble_items_from_floor', 'carry_extra_bag', 'citizen_attack',
+            'assemble_items_from_floor', 'citizen_attack',
             'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'hide_home_upgrade',
             'infection_death_chance', 'massive_respawn_factor', 'meaty_bones_within_town',
             'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
@@ -818,7 +824,7 @@ class TownCreatorController extends CustomAbstractCoreController
 
         $seed = $header['townSeed'] ?? -1;
 
-        if ($header['event']) {
+        if ($header['event'] ?? null) {
             $current_events = $header['event'] === 'none' ? [] : [ $this->conf->getEvent( $header['event'] ) ];
         } else $current_events = $this->conf->getCurrentEvents();
 
@@ -837,7 +843,7 @@ class TownCreatorController extends CustomAbstractCoreController
 
         $town->setCreator($user);
         if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
-        if ($header['event']) $town->setManagedEvents( true );
+        if ($header['event'] ?? null) $town->setManagedEvents( true );
 
         foreach ($user_slots as $user_slot)
             $em->persist((new TownSlotReservation())->setTown($town)->setUser($user_slot));

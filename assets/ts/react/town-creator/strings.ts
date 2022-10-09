@@ -148,6 +148,12 @@ export type TranslationStrings = {
 
             super_poison: string
             super_poison_help: string
+
+            redig: string
+            redig_help: string
+
+            carry_bag: string
+            carry_bag_help: string
         }
     }
 
