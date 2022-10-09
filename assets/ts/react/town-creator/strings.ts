@@ -39,6 +39,12 @@ export type TranslationStrings = {
 
         'type': string
         'base': string
+
+        reserve: string
+        reserve_none: string
+        reserve_num: string
+        reserve_add: string
+        reserve_help: string
     }
 
     difficulty: {

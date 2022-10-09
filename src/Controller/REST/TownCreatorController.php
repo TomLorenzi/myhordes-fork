@@ -8,6 +8,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\TownClass;
+use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
@@ -62,6 +63,18 @@ class TownCreatorController extends CustomAbstractCoreController
                         array_map(fn($lang) => ['code' => $lang['code'], 'label' => $this->translator->trans( $lang['label'], [], 'global' )], $this->generatedLangs),
                         [ [ 'code' => 'multi', 'label' => $this->translator->trans('Mehrsprachig', [], 'global') ] ]
                     ),
+
+                    'reserve' => $this->translator->trans('Platzreservierung', [], 'ghost'),
+                    'reserve_none' => $this->translator->trans('Du hast aktuell noch keine Plätze reserviert.', [], 'soul'),
+                    'reserve_num' => $this->translator->trans('Reservierte Plätze:', [], 'soul'),
+                    'reserve_add' => $this->translator->trans('Eine Reservierung hinzufügen', [], 'ghost'),
+                    'reserve_help' => implode( '', array_map( fn(string $s) => "<p>$s</p>", [
+                        $this->translator->trans('Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.', [], 'ghost'),
+                        $this->translator->trans('So geht\'s: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).', [], 'ghost'),
+                        $this->translator->trans('<strong>Hinweis:</strong> Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, <strong>mehr als nur 39 Spieler</strong> anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.', [], 'ghost'),
+                        $this->translator->trans('<strong>Hinweis:</strong> Wenn du <strong>weniger als 39 Spieler</strong> angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.', [], 'ghost'),
+                        $this->translator->trans('<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>', [], 'ghost'),
+                    ] ) ),
 
                     'code' => $this->translator->trans('Zugangscode', [], 'ghost'),
                     'code_help' => $this->translator->trans('Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>', [], 'global'),
@@ -751,6 +764,13 @@ class TownCreatorController extends CustomAbstractCoreController
         $templateConf = $em->getRepository( TownClass::class )->find( $header['townBase'] ?? -1 );
         if (!$primaryConf->getHasPreset() && !$templateConf?->getHasPreset()) return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
 
+        $user_slots = array_filter($em->getRepository(User::class)->findBy(['id' => array_map(fn($a) => (int)$a, $header['reserve'] ?? [])]), function(User $u) {
+            return $u->getEmail() !== 'crow' && $u->getEmail() !== $u->getUsername() && !str_ends_with($u->getName(), '@localhost');
+        });
+
+        if (count($user_slots) !== count($header['reserve']))
+            return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
+
         $base = $primaryConf->getHasPreset() ? $primaryConf : $templateConf;
         $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
 
@@ -774,6 +794,10 @@ class TownCreatorController extends CustomAbstractCoreController
 
         $town->setCreator($user);
         if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
+
+        foreach ($user_slots as $user_slot)
+            $em->persist((new TownSlotReservation())->setTown($town)->setUser($user_slot));
+
         $em->persist($town);
 
         if (!empty( $header['townSchedule'] )) $town->setScheduledFor( $header['townSchedule'] );

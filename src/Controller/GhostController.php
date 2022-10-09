@@ -419,7 +419,6 @@ class GhostController extends CustomAbstractController
         if(!empty($password)) $town->setPassword($password);
         $em->persist($town);
 
-
         $user_slots = array_filter($this->entity_manager->getRepository(User::class)->findBy(['id' => array_map(fn($a) => (int)$a, $parser->get_array('reserved_slots'))]), function(User $u) {
             return $u->getEmail() !== 'crow' && $u->getEmail() !== $u->getUsername() && !str_ends_with($u->getName(), '@localhost');
         });

@@ -17,6 +17,46 @@ div.tooltip.badge-tooltip {
   &>div:last-child>p, &>div:last-child { display: inline; margin: 0; word-wrap: break-word; }
 }
 
+.userSearchWrapper {
+  .userSearchInputContainer {
+    position: relative;
+
+    .userSearchLoadIndicator {
+      position: absolute; color: #000000; opacity: 0.5;
+      right: 5px; top: 2px;
+    }
+  }
+
+  .userSearchResultsContainer {
+    position: relative; overflow: visible;
+    &>div {
+      position: absolute; margin: 0; display: block; background: @myhordes-cell-header-background-color;
+      width: 100%; overflow: auto; z-index: 1; border: 1px solid @myhordes-smalltext;
+      outline: 1px solid black; box-shadow: 0 0 3px black;
+      &:empty { display: none; }
+
+      .users-list-entry, .users-list-group-entry {
+        cursor: pointer; overflow: hidden;
+        &:hover { background: rgba(255,255,255,0.2); }
+        &>span { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
+      }
+
+      .users-list-entry {
+        display: flex; column-gap: 10px; align-items: center;
+        &>span { flex-grow: 1 }
+        &>div { flex-basis: min-content; flex-grow: 0 }
+      }
+
+      .users-list-group-entry {
+        padding: 4px;
+        &>span>span:not(:last-child):after { content: ", " }
+      }
+    }
+  }
+}
+
+
+
 #users-list-soul, #pm-users-list-container, #pm-add-users-list-container, #town-add-users-list-container, .add-users-list-container {
     position: relative; overflow: visible;
     #users-list, #pm-users-list, #pm-add-users-list, #town-add-users-list, .add-users-list {
