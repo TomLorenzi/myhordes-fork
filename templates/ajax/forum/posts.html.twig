@@ -348,9 +348,12 @@
                             {% if not post.translate and app.user != post.owner and not permission.only_mod_access and not (post.owner|is_granted('ROLE_CROW') and post.owner|is_granted('ROLE_DUMMY')) %}
                                 [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
                             {% endif %}
+                        </div>
+                        <div class="clear">
                             <div class="small hidden" id="link-post-{{ post.id }}">
                                 <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
-                                <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
+                                <div data-copy="{{ url('forum_jump_view', {pid: post.id}) }}" class="float-right pointer">&nbsp;<i class="fa fa-clipboard"></i></div>
+                                <div class="float-right">&nbsp;{{ url('forum_jump_view', {pid: post.id}) }}</div>
                             </div>
                         </div>
                     </div>
@@ -543,6 +546,37 @@
         {% endif %}
         $.html.addEventListenerAll( '[x-forum-moderator-action][x-forum-api-endpoint]', 'click', function(e,elem) {
             $.ajax.easySend( elem.getAttribute('x-forum-api-endpoint'), {}, reloadPage );
+        } );
+
+        $.html.addEventListenerAll( '[data-copy]', 'click', (e,elem) => {
+
+            const fun_with_execCommand = str => {
+                const input = $.html.createElement('<input id="input" type="text" />');
+                input.value = str;
+                document.body.appendChild(input);
+                input.select();
+                try {
+                    if (document.execCommand("copy"))
+                        $.html.notice('{{ 'Link wurde in die Zwischenablage kopiert.'|trans({},'global') }}');
+                    else $.html.error('{{ 'Link konnte nicht kopiert werden.'|trans({},'global') }}');
+                } catch (_) {
+                    $.html.error('{{ 'Link konnte nicht kopiert werden.'|trans({},'global') }}');
+                } finally {
+                    input.remove();
+                }
+            }
+
+            try {
+                navigator.permissions.query({name: "clipboard-write"}).then((result) => {
+                    if (result.state === "granted" || result.state === "prompt") {
+                        navigator.clipboard.writeText(elem.dataset.copy).then(() => {
+                            $.html.notice('{{ 'Link wurde in die Zwischenablage kopiert.'|trans({},'global') }}')
+                        }, () => fun_with_execCommand( elem.dataset.copy ));
+                    } else fun_with_execCommand( elem.dataset.copy );
+                }).catch( () => fun_with_execCommand( elem.dataset.copy ) );
+            } catch (_) {
+                fun_with_execCommand( elem.dataset.copy )
+            }
         } );
 
         $.html.addEventListenerAll( '.announces li', 'click', function(e,elem) {
