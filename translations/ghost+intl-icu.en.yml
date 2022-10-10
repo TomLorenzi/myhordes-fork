@@ -242,3 +242,13 @@ Verwaltung: Management
 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Disables the town''s normal event management and instead manually determines which event content is available for the duration of the town.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'We''ve reworked our town editor to add some swanky new features. You can test the new editor if you like, or continue using the old one for the time being.'
 'Den neuen Generator ausprobieren': 'Try the new editor'
+'Erneutes Buddeln': 'Repeated digging'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'Enables citizens to dig again on zones they have previously visited.'
+Matroschka-Taschen: Matryoshka Bags
+'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'Players can carry multiple bag extensions at the same time, although the extension bonus is only granted once.'
+Event-Management: Event management
+'Verwendet die normale Event-Verwaltung der Stadt.': 'Uses the default event management system.'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'Disables the default event management system, so that the town will not have any events.'
+'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Disables the default event management system, causing the selected event to be enabled for the duration of the town.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'We have revised our town generator and added some new features to it. <strong>You are currently using the old version of the generator.</strong> It is still available for now, but it will not receive any updates and does not support all the features of the new generator.'
+'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'I am confused and scared. Back to the old generator, please!'
