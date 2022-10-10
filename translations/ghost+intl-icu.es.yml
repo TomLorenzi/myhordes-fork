@@ -188,57 +188,67 @@ Fortsetzen...: Continuar...
 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'Parece que la <strong>Horda</strong> se haya retirado por el momento...'
 'Zum Login zurückkehren': 'Volver a la página de inicio de sesión'
 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'Requiere por lo menos {sp} puntos de alma para unirse a este pueblo. Para obtener puntos de alma, sigua jugando en otros pueblos.'
-'Grundlegende Einstellungen': 'Grundlegende Einstellungen'
-'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Leer lassen, um Stadtnamen automatisch zu generieren.'
-'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!'
-Vorlage: Vorlage
-Schwierigkeitslevel: Schwierigkeitslevel
-Gering: Gering
-'Eigener Wert': 'Eigener Wert'
-'Eigener Bereich': 'Eigener Bereich'
-'Leichte Angriffe': 'Leichte Angriffe'
-'Seelen & Schamane': 'Seelen & Schamane'
-Nachtwache: Nachtwache
-Nachtmodus: Nachtmodus
-Zeitzone: Zeitzone
-Spielmodifikationen: Spielmodifikationen
-Bürger-Aliase: Bürger-Aliase
-'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.'
-Exploration: Exploration
-Eskorte: Eskorte
-Verbannung: Verbannung
-Camping: Camping
-Gebäudeschaden: Gebäudeschaden
-'Verbesserte Müllhalde': 'Verbesserte Müllhalde'
-'Externe APIs': 'Externe APIs'
-'Externe Anwendungen für diese Stadt aktivieren.': 'Externe Anwendungen für diese Stadt aktivieren.'
-'Seelenpunkt-Beschränkung deaktivieren': 'Seelenpunkt-Beschränkung deaktivieren'
-'Paradies der Giftmörder': 'Paradies der Giftmörder'
-'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.'
-'Stadtstart planen': 'Stadtstart planen'
-'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!'
-'Vergabe von Auszeichnungen': 'Vergabe von Auszeichnungen'
-Alle: Alle
-'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.'
-Reduziert: Reduziert
-'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.'
-'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'Spieler erhalten keine Auszeichnungen für diese Stadt.'
-'Auszeichnungen beschränken': 'Auszeichnungen beschränken'
-'Keine Beschränkung': 'Keine Beschränkung'
-'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.'
-'Strikte Vergabe': 'Strikte Vergabe'
-'Vergabe von Seelenpunkten': 'Vergabe von Seelenpunkten'
-'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.'
-'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.'
-Teilnahme: Teilnahme
-'Verkörperung in der Stadt': 'Verkörperung in der Stadt'
-'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Verkörpert dich in der Stadt bei ihrer Entstehung.'
-'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.'
-Verwaltung: Verwaltung
-'Nach 2 Tagen negieren': 'Nach 2 Tagen negieren'
-'Tor versperren': 'Tor versperren'
-'Erweiterte Einstellungen': 'Erweiterte Einstellungen'
-'Manuelles Event-Management': 'Manuelles Event-Management'
-'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.'
-'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.'
-'Den neuen Generator ausprobieren': 'Den neuen Generator ausprobieren'
+'Grundlegende Einstellungen': 'Ajustes básicos'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Deje el campo vacío para generar automáticamente el nombre de la ciudad.'
+'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Semilla que permite la generación de un mapa masterizado. Permite en caso de evento generar tarjetas similares. Ponga un entero positivo para activarlo. RECUERDEN CAMBIAR ESTE ENTERO DE UN EVENTO A OTRO!'
+Vorlage: Modelo
+Schwierigkeitslevel: Nivel de dificultad
+Gering: Pequeño
+'Eigener Wert': 'Valor personalizado'
+'Eigener Bereich': 'Rango personalizado'
+'Leichte Angriffe': 'Ataques leves'
+'Seelen & Schamane': 'Almas y Chamanes'
+Nachtwache: Vigilia
+Nachtmodus: Modo nocturno
+Zeitzone: Zona horaria
+Spielmodifikationen: Modificaciones del juego
+Bürger-Aliase: Alias ​​ciudadanos
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Permite a un ciudadano seleccionar un alias en lugar de su nombre habitual para esta ciudad.'
+Exploration: Exploración
+Eskorte: Escolta
+Verbannung: Destierros
+Camping: Acampada
+Gebäudeschaden: Desgaste de edificios
+'Verbesserte Müllhalde': 'Vertedero Mejorado'
+'Externe APIs': 'Aplicaciones externas'
+'Externe Anwendungen für diese Stadt aktivieren.': 'Habilitar aplicaciones externas para esta ciudad.'
+'Seelenpunkt-Beschränkung deaktivieren': 'Deshabilitar limitaciones de puntos de alma'
+'Paradies der Giftmörder': 'Paraíso de los envenenadores'
+'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'Cambió la forma en que el juego maneja los elementos envenenados para hacerlos más difíciles de detectar.'
+'Stadtstart planen': 'Programar el lanzamiento de la ciudad'
+'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'Si desea abrir la ciudad en un momento posterior, puede ingresarla aquí (en el horario del servidor). Solo cuando se alcance este tiempo, la ciudad estará disponible. IMPORTANTE: ¡La opción "Encarnado en la ciudad" impide una salida planificada de la ciudad!'
+'Vergabe von Auszeichnungen': 'Asignación estricta de recompensas'
+Alle: Todo
+'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Los jugadores recibirán todos los elogios ganados en esa ciudad.'
+Reduziert: Reducido
+'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Los jugadores recibirán un tercio de las distinciones ganados en esa ciudad.'
+'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'Los jugadores no recibirán ninguna distinción obtenida en esta ciudad.'
+'Auszeichnungen beschränken': 'Limitar las distinciones'
+'Keine Beschränkung': 'Sin restricciones'
+'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'Las distinciones se distribuyen de acuerdo con las reglas normales.'
+'Strikte Vergabe': 'Distribución estricta'
+'Vergabe von Seelenpunkten': 'Otorgar puntos de alma'
+'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Los jugadores reciben puntos de alma por participar en esta ciudad.'
+'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Los jugadores NO recibirán puntos de alma por participar en esta ciudad.'
+Teilnahme: Participación
+'Verkörperung in der Stadt': 'Encarnado en la ciudad'
+'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Encarnado en la ciudad durante su creación.'
+'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'No estás encarnado y no tendrás acceso al foro de la ciudad.'
+Verwaltung: Administración
+'Nach 2 Tagen negieren': 'Cancelar después de 2 días'
+'Tor versperren': 'Bloquear la puerta'
+'Erweiterte Einstellungen': 'Ajustes avanzados'
+'Manuelles Event-Management': 'Gestión manual de eventos'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deshabilita la gestión normal de eventos de la ciudad y, en su lugar, determina manualmente qué contenido de eventos está disponible durante la duración de la ciudad.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Hemos rediseñado nuestro creador de ciudades para agregar nuevas funciones. Puede probar el nuevo creador si lo desea, o continuar usando el antiguo por ahora.'
+'Den neuen Generator ausprobieren': 'Prueba el nuevo creador'
+'Erneutes Buddeln': 'Excavaciones repetidas'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'Permite a los ciudadanos excavar de nuevo en las zonas que han visitado anteriormente.'
+Matroschka-Taschen: Bolsas de Matroska
+'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'Los jugadores pueden llevar múltiples extensiones de bolsa al mismo tiempo, aunque la bonificación de extensión solo se otorga una vez.'
+Event-Management: Gestión de eventos
+'Verwendet die normale Event-Verwaltung der Stadt.': 'Utiliza el sistema de gestión de eventos predeterminado.'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'Desactiva el sistema de gestión de eventos predeterminado, de modo que la ciudad no tendrá ningún evento.'
+'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Deshabilita el sistema de gestión de eventos predeterminado, lo que hace que el evento seleccionado esté habilitado durante la duración de la ciudad.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Hemos revisado el constructor de ciudades y le hemos agregado nuevas características. <strong>Actualmente estás usando la versión anterior del creador.</strong> Todavía está disponible en este momento, pero no recibirá ninguna actualización y no es compatible con todas las funciones del nuevo creador.'
+'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Estoy confundido y asustado. ¡Volvamos al viejo generador, por favor!'
