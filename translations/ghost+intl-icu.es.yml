@@ -198,7 +198,7 @@ Gering: Pequeño
 'Eigener Bereich': 'Rango personalizado'
 'Leichte Angriffe': 'Ataques leves'
 'Seelen & Schamane': 'Almas y Chamanes'
-Nachtwache: Nachtwache
+Nachtwache: Vigilia
 Nachtmodus: Modo nocturno
 Zeitzone: Zona horaria
 Spielmodifikationen: Modificaciones del juego
@@ -206,10 +206,10 @@ Bürger-Aliase: Alias ​​ciudadanos
 'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Permite a un ciudadano seleccionar un alias en lugar de su nombre habitual para esta ciudad.'
 Exploration: Exploración
 Eskorte: Escolta
-Verbannung: Verbannung
-Camping: Camping
+Verbannung: Destierros
+Camping: Acampada
 Gebäudeschaden: Desgaste de edificios
-'Verbesserte Müllhalde': 'Verbesserte Müllhalde'
+'Verbesserte Müllhalde': 'Vertedero Mejorado'
 'Externe APIs': 'Aplicaciones externas'
 'Externe Anwendungen für diese Stadt aktivieren.': 'Habilitar aplicaciones externas para esta ciudad.'
 'Seelenpunkt-Beschränkung deaktivieren': 'Deshabilitar limitaciones de puntos de alma'
