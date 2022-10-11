@@ -463,4 +463,7 @@ Einklappen: Colapsar
 'Eingeklappte Sektion hinzufügen': 'Añadir una sección colapsable'
 Kopfzeile: Cabecera
 'Du musst eine Kopfzeile angeben.': 'Debe especificar una cabecera.'
-'Bitte auswählen': 'Bitte auswählen'
+'Bitte auswählen': 'Por favor selecciona'
+'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'Error de red. Por favor revise tu conexión a internet.'
+'Link wurde in die Zwischenablage kopiert.': 'El enlace se ha copiado en el portapapeles.'
+'Link konnte nicht kopiert werden.': 'No se pudo copiar el enlace.'

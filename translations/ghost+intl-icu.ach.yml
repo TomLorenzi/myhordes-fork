@@ -242,3 +242,13 @@ Verwaltung: crwdns136552:0crwdne136552:0
 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'crwdns136562:0crwdne136562:0'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'crwdns136564:0crwdne136564:0'
 'Den neuen Generator ausprobieren': 'crwdns136566:0crwdne136566:0'
+'Erneutes Buddeln': 'crwdns136570:0crwdne136570:0'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'crwdns136572:0crwdne136572:0'
+Matroschka-Taschen: crwdns136574:0crwdne136574:0
+'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'crwdns136576:0crwdne136576:0'
+Event-Management: crwdns136578:0crwdne136578:0
+'Verwendet die normale Event-Verwaltung der Stadt.': 'crwdns136580:0crwdne136580:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'crwdns136582:0crwdne136582:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'crwdns136584:0crwdne136584:0'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'crwdns136586:0crwdne136586:0'
+'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'crwdns136588:0crwdne136588:0'
