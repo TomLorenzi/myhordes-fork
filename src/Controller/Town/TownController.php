@@ -421,7 +421,8 @@ class TownController extends InventoryAwareController
         $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
         $criteria->andWhere($criteria->expr()->eq('culprit', $c));
 
-        $can_recycle = !$c->getAlive() && $c->getHome()->getPrototype()->getLevel() > 1 && $c->getHome()->getRecycling() < 15;
+        $recycleAP = $this->getTownConf()->get(TownConf::CONF_MODIFIER_RECYCLING_AP, 15);
+        $can_recycle = !$c->getAlive() && $c->getHome()->getPrototype()->getLevel() > 1 && $c->getHome()->getRecycling() < $recycleAP;
         $protected = $this->citizen_handler->houseIsProtected($c, true);
 
         $intrusion = $this->entity_manager->getRepository(HomeIntrusion::class)->findOneBy(['intruder' => $this->getActiveCitizen(), 'victim' => $c]);
@@ -469,7 +470,8 @@ class TownController extends InventoryAwareController
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_recycle' => $can_recycle,
             'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
-            'intruding' => $intrusion === null ? 0 : ( $intrusion->getSteal() ? 1 : -1 )
+            'intruding' => $intrusion === null ? 0 : ( $intrusion->getSteal() ? 1 : -1 ),
+            'recycle_ap' => $recycleAP
         ]) );
     }
 
