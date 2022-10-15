@@ -36,9 +36,9 @@ parameters:
         item_fillrate: 5
         max_distance: 10
         plan_limits:
-          unusual: -1
-          rare: -1
-          epic: -1
+          unusual: 8
+          rare: 4
+          epic: 2
         zombies:
           initial: 10
           daily: 5
