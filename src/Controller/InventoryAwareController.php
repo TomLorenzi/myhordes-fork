@@ -659,6 +659,10 @@ class InventoryAwareController extends CustomAbstractController
                     // We pick a read soul in the World Beyond
                     if ( $target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune") ) {
                         $dead = true;
+
+                        // Produce logs
+                        $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), false, $current_item->getBroken(), false ) );
+
                         // He is not immune, he dies.
                         $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted );
                         $this->entity_manager->persist( $this->log->citizenDeath( $target_citizen ) );
