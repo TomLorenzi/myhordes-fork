@@ -37,7 +37,7 @@ parameters:
         max_distance: 10
         zombies:
           initial: 10
-          daily: 3
+          daily: 5
 
       initial_buildings:  []
       unlocked_buildings: []
