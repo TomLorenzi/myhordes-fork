@@ -519,11 +519,11 @@ class UserHandler
 
         $e = $imagick_setting === self::ImageProcessingDisableImagick
             ? MediaService::ErrorBackendMissing
-            : $this->media->resizeImage( $payload, function(int &$w, int &$h, bool &$fit): bool {
+            : $this->media->resizeImage( $payload, function(int &$w, int &$h, bool &$fit, int $animated): bool {
             if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
                 return false;
 
-            if ( max($w,$h) > 200 || min($w,$h < 90) )
+                if ( max($w,$h) > 200 || (min($w,$h) < 90 && !$animated) )
                 $w = $h = min(200,max(90,$w,$h));
 
             return $fit = true;
@@ -547,8 +547,11 @@ class UserHandler
         }
 
         // Storage limit: 1MB
-        if (strlen($payload) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576))
+        if (strlen($payload) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576)) {
+            echo strlen($payload);
             return self::ErrorAvatarInsufficientCompression;
+        }
+
 
         $name = md5( $payload );
         if (!($avatar = $user->getAvatar())) {

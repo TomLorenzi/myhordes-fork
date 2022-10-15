@@ -43,6 +43,11 @@
                 <div class="cell padded rw-12">
                     <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
 
+                    <div class="note warning-box">
+                        {{ 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.'|trans({}, 'ghost')|raw }}
+                        <div class="right"><a href="#" x-ajax-href="{{ path('ghost_create_town_rc') }}">{{ 'Den neuen Generator ausprobieren'|trans({}, 'ghost') }}</a></div>
+                    </div>
+
                     {% if is_granted('ROLE_CROW') %}
                         <div class="row">
                             <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">

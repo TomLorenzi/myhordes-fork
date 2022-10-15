@@ -188,3 +188,67 @@ Fortsetzen...: crwdns136092:0crwdne136092:0
 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'crwdns136094:0crwdne136094:0'
 'Zum Login zurückkehren': 'crwdns136096:0crwdne136096:0'
 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'crwdns136362:0{sp}crwdne136362:0'
+'Grundlegende Einstellungen': 'crwdns136460:0crwdne136460:0'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'crwdns136462:0crwdne136462:0'
+'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'crwdns136464:0crwdne136464:0'
+Vorlage: crwdns136466:0crwdne136466:0
+Schwierigkeitslevel: crwdns136468:0crwdne136468:0
+Gering: crwdns136470:0crwdne136470:0
+'Eigener Wert': 'crwdns136472:0crwdne136472:0'
+'Eigener Bereich': 'crwdns136474:0crwdne136474:0'
+'Leichte Angriffe': 'crwdns136476:0crwdne136476:0'
+'Seelen & Schamane': 'crwdns136478:0crwdne136478:0'
+Nachtwache: crwdns136480:0crwdne136480:0
+Nachtmodus: crwdns136482:0crwdne136482:0
+Zeitzone: crwdns136484:0crwdne136484:0
+Spielmodifikationen: crwdns136486:0crwdne136486:0
+Bürger-Aliase: crwdns136488:0crwdne136488:0
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'crwdns136490:0crwdne136490:0'
+Exploration: crwdns136492:0crwdne136492:0
+Eskorte: crwdns136494:0crwdne136494:0
+Verbannung: crwdns136496:0crwdne136496:0
+Camping: crwdns136498:0crwdne136498:0
+Gebäudeschaden: crwdns136500:0crwdne136500:0
+'Verbesserte Müllhalde': 'crwdns136502:0crwdne136502:0'
+'Externe APIs': 'crwdns136504:0crwdne136504:0'
+'Externe Anwendungen für diese Stadt aktivieren.': 'crwdns136506:0crwdne136506:0'
+'Seelenpunkt-Beschränkung deaktivieren': 'crwdns136508:0crwdne136508:0'
+'Paradies der Giftmörder': 'crwdns136510:0crwdne136510:0'
+'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'crwdns136512:0crwdne136512:0'
+'Stadtstart planen': 'crwdns136514:0crwdne136514:0'
+'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'crwdns136516:0crwdne136516:0'
+'Vergabe von Auszeichnungen': 'crwdns136518:0crwdne136518:0'
+Alle: crwdns136520:0crwdne136520:0
+'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'crwdns136522:0crwdne136522:0'
+Reduziert: crwdns136524:0crwdne136524:0
+'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'crwdns136526:0crwdne136526:0'
+'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'crwdns136528:0crwdne136528:0'
+'Auszeichnungen beschränken': 'crwdns136530:0crwdne136530:0'
+'Keine Beschränkung': 'crwdns136532:0crwdne136532:0'
+'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'crwdns136534:0crwdne136534:0'
+'Strikte Vergabe': 'crwdns136536:0crwdne136536:0'
+'Vergabe von Seelenpunkten': 'crwdns136538:0crwdne136538:0'
+'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'crwdns136540:0crwdne136540:0'
+'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'crwdns136542:0crwdne136542:0'
+Teilnahme: crwdns136544:0crwdne136544:0
+'Verkörperung in der Stadt': 'crwdns136546:0crwdne136546:0'
+'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'crwdns136548:0crwdne136548:0'
+'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'crwdns136550:0crwdne136550:0'
+Verwaltung: crwdns136552:0crwdne136552:0
+'Nach 2 Tagen negieren': 'crwdns136554:0crwdne136554:0'
+'Tor versperren': 'crwdns136556:0crwdne136556:0'
+'Erweiterte Einstellungen': 'crwdns136558:0crwdne136558:0'
+'Manuelles Event-Management': 'crwdns136560:0crwdne136560:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'crwdns136562:0crwdne136562:0'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'crwdns136564:0crwdne136564:0'
+'Den neuen Generator ausprobieren': 'crwdns136566:0crwdne136566:0'
+'Erneutes Buddeln': 'crwdns136570:0crwdne136570:0'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'crwdns136572:0crwdne136572:0'
+Matroschka-Taschen: crwdns136574:0crwdne136574:0
+'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'crwdns136576:0crwdne136576:0'
+Event-Management: crwdns136578:0crwdne136578:0
+'Verwendet die normale Event-Verwaltung der Stadt.': 'crwdns136580:0crwdne136580:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'crwdns136582:0crwdne136582:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'crwdns136584:0crwdne136584:0'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'crwdns136586:0crwdne136586:0'
+'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'crwdns136588:0crwdne136588:0'

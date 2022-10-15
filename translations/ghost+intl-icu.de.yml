@@ -187,3 +187,67 @@ Fortsetzen...: Fortsetzen...
 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...'
 'Zum Login zurückkehren': 'Zum Login zurückkehren'
 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.'
+'Grundlegende Einstellungen': 'Grundlegende Einstellungen'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Leer lassen, um Stadtnamen automatisch zu generieren.'
+'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!'
+Vorlage: Vorlage
+Schwierigkeitslevel: Schwierigkeitslevel
+Gering: Gering
+'Eigener Wert': 'Eigener Wert'
+'Eigener Bereich': 'Eigener Bereich'
+'Leichte Angriffe': 'Leichte Angriffe'
+'Seelen & Schamane': 'Seelen & Schamane'
+Nachtwache: Nachtwache
+Nachtmodus: Nachtmodus
+Zeitzone: Zeitzone
+Spielmodifikationen: Spielmodifikationen
+Bürger-Aliase: Bürger-Aliase
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.'
+Exploration: Exploration
+Eskorte: Eskorte
+Verbannung: Verbannung
+Camping: Camping
+Gebäudeschaden: Gebäudeschaden
+'Verbesserte Müllhalde': 'Verbesserte Müllhalde'
+'Externe APIs': 'Externe APIs'
+'Externe Anwendungen für diese Stadt aktivieren.': 'Externe Anwendungen für diese Stadt aktivieren.'
+'Seelenpunkt-Beschränkung deaktivieren': 'Seelenpunkt-Beschränkung deaktivieren'
+'Paradies der Giftmörder': 'Paradies der Giftmörder'
+'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.'
+'Stadtstart planen': 'Stadtstart planen'
+'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!'
+'Vergabe von Auszeichnungen': 'Vergabe von Auszeichnungen'
+Alle: Alle
+'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.'
+Reduziert: Reduziert
+'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.'
+'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'Spieler erhalten keine Auszeichnungen für diese Stadt.'
+'Auszeichnungen beschränken': 'Auszeichnungen beschränken'
+'Keine Beschränkung': 'Keine Beschränkung'
+'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.'
+'Strikte Vergabe': 'Strikte Vergabe'
+'Vergabe von Seelenpunkten': 'Vergabe von Seelenpunkten'
+'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.'
+'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.'
+Teilnahme: Teilnahme
+'Verkörperung in der Stadt': 'Verkörperung in der Stadt'
+'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Verkörpert dich in der Stadt bei ihrer Entstehung.'
+'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.'
+Verwaltung: Verwaltung
+'Nach 2 Tagen negieren': 'Nach 2 Tagen negieren'
+'Tor versperren': 'Tor versperren'
+'Erweiterte Einstellungen': 'Erweiterte Einstellungen'
+'Manuelles Event-Management': 'Manuelles Event-Management'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.'
+'Den neuen Generator ausprobieren': 'Den neuen Generator ausprobieren'
+'Erneutes Buddeln': 'Erneutes Buddeln'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.'
+Matroschka-Taschen: Matroschka-Taschen
+'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.'
+Event-Management: Event-Management
+'Verwendet die normale Event-Verwaltung der Stadt.': 'Verwendet die normale Event-Verwaltung der Stadt.'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.'
+'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.'
+'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!'

@@ -463,3 +463,7 @@ Einklappen: Collapse
 'Eingeklappte Sektion hinzufügen': 'Add collapsed section'
 Kopfzeile: Header
 'Du musst eine Kopfzeile angeben.': 'You must specify a header.'
+'Bitte auswählen': 'Please select'
+'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'Network error. Please check your internet connection.'
+'Link wurde in die Zwischenablage kopiert.': 'Link has been copied to the clipboard.'
+'Link konnte nicht kopiert werden.': 'Link could not be copied.'

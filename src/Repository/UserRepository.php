@@ -142,7 +142,18 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         if (!empty($skip)) $qb->andWhere('u.id NOT IN (:skip)')->setParameter('skip', $skip);
         if ($limit > 0) $qb->setMaxResults($limit);
 
-        return $qb->getQuery()->getResult();
+        $results = $qb->getQuery()->getResult();
+        usort($results, function( User $a, User $b ) use ($name) {
+           $a_fits = str_starts_with( mb_strtolower($a->getName()), mb_strtolower( $name ) );
+           $b_fits = str_starts_with( mb_strtolower($b->getName()), mb_strtolower( $name ) );
+
+           if ($a_fits && !$b_fits) return -1;
+           elseif ($b_fits && !$a_fits) return 1;
+
+            return levenshtein( mb_strtolower($a->getName()), mb_strtolower( $name ) ) - levenshtein( mb_strtolower($b->getName()), mb_strtolower( $name ) );
+        });
+
+        return $results;
     }
 
     /**

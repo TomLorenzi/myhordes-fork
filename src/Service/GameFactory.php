@@ -405,12 +405,16 @@ class GameFactory
         return $resolution;
     }
 
-    public function createTown( ?string $name, ?string $language, ?int $population, string $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
+    public function createTown( ?string $name, ?string $language, ?int $population, string|array $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
+        if (is_array( $type )) {
+            $deriveFrom = $type[1] ?? $type[0];
+            $type = $type[0];
+        } else $deriveFrom = $type;
+
         if (!$this->validator->validateTownType($type))
             return null;
 
-        if ($seed > 0)
-            mt_srand($seed);
+        if ($seed > 0) mt_srand($seed);
 
         $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $type ]);
 
@@ -419,6 +423,9 @@ class GameFactory
         $town
             ->setType($townClass)
             ->setConf($customConf);
+
+        if ($deriveFrom !== $type)
+            $town->setDeriveConfigFrom( $deriveFrom );
 
         $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
 

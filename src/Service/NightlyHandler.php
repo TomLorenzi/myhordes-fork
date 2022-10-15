@@ -847,7 +847,7 @@ class NightlyHandler
 
                 // Remove all night watch items
                 foreach ($ctz->getInventory()->getItems() as $item)
-                    if ($item->getPrototype()->getWatchpoint() > 0) $this->inventory_handler->forceRemoveItem( $item );
+                    if ($item->getPrototype()->getWatchpoint() > 0 || $item->getPrototype()->getName() === 'chkspk_#00') $this->inventory_handler->forceRemoveItem( $item );
 
                 $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
 
@@ -1662,7 +1662,7 @@ class NightlyHandler
             // Getting vote per role per citizen
             $votes = array();
             foreach ($citizens as $citizen)
-                if($citizen->getAlive() && ($c = $this->entity_manager->getRepository(CitizenVote::class)->count( ['votedCitizen' => $citizen, 'role' => $role] )) > 0)
+                if($citizen->getAlive() && !in_array( $citizen, $all_winners ) && ($c = $this->entity_manager->getRepository(CitizenVote::class)->count( ['votedCitizen' => $citizen, 'role' => $role] )) > 0)
                     $votes[$citizen->getId()] = $c;  //  ->countCitizenVotesFor($citizen, $role);
 
             if (empty($votes)) {
@@ -1786,7 +1786,7 @@ class NightlyHandler
         $novelty_lamps = $this->town_handler->getBuilding( $town, 'small_novlamps_#00', true );
 
         if ($novelty_lamps) {
-            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() > 2 ? 2 : 1) : 0;
+            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() >= 2 ? 2 : 1) : 0;
 
             $ok = $bats === 0;
 

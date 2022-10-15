@@ -872,7 +872,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         return $this->setSetting( UserSetting::NoAutomaticThreadSubscription, $noAutoFollowThreads );
     }
     /**
-     * @return Collection<Citizen>
+     * @return Collection<User>
      */
     public function getFriends(): Collection
     {

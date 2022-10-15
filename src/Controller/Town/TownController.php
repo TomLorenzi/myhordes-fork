@@ -18,6 +18,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
+use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
@@ -146,6 +147,7 @@ class TownController extends InventoryAwareController
         $data['can_do_insurrection'] = $this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection") && $town->getInsurrectionProgress() < 100;
         $data['has_insurrection_part'] = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection");
         $data['has_battlement']    = $this->town_handler->getBuilding($town, 'small_round_path_#00') && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true);
+        $data['act_as_battlement'] = $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true);
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -254,8 +256,14 @@ class TownController extends InventoryAwareController
             'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation
         ]);
 
+        $is_watcher = false;
+        foreach ($this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town) as $watcher)
+            if ($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
+                $is_watcher = true;
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
+            'is_watcher' => $is_watcher,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
             'zeds_today'    => $zeds_today,
             'zeds_tomorrow' => $zeds_tomorrow,
@@ -2161,6 +2169,9 @@ class TownController extends InventoryAwareController
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        $recycleAP = $this->getTownConf()->get(TownConf::CONF_MODIFIER_RECYCLING_AP, 15);
+        $recycleReturn = $this->getTownConf()->get(TownConf::CONF_MODIFIER_RECYCLING_RETURN, 5);
+
         $citizen = $this->getActiveCitizen();
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
@@ -2170,7 +2181,7 @@ class TownController extends InventoryAwareController
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        if($c->getHome()->getRecycling() >= 15){
+        if($c->getHome()->getRecycling() >= $recycleAP){
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         }
 
@@ -2178,7 +2189,7 @@ class TownController extends InventoryAwareController
         $home = $c->getHome();
         $home->setRecycling($home->getRecycling() + 1);
 
-        if ($home->getRecycling() >= 15) {
+        if ($home->getRecycling() >= $recycleAP) {
             $resources = [];
             for ($l = $home->getPrototype()->getLevel(); $l >= 0; $l--) {
                 $prototype = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $l );
@@ -2192,8 +2203,10 @@ class TownController extends InventoryAwareController
             $item_list_p = [];
 
             $has_recycled = false;
+            shuffle($resources);
             foreach ($resources as $item_name => &$count) {
-                $count = (int)floor($count * 0.4);
+                $count = min($recycleReturn, (int)floor($count * 0.4));
+                $recycleReturn -= $count;
                 if ($count > 0) {
                     $has_recycled = true;
                     $p = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_name);

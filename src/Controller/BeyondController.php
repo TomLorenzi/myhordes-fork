@@ -20,7 +20,6 @@ use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RuinExplorerStats;
-use App\Entity\ScoutVisit;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
@@ -481,14 +480,14 @@ class BeyondController extends InventoryAwareController
         $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $good ? 'trash_good' : 'trash_bad']);
         $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group, $this->getTownConf() );
         if (!$proto)
-            return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+            return AjaxResponse::errorMessage( $this->translator->trans('Obwohl du minutenlang den Stadtmüll durchwühlst, findest du <strong>nichts Nützliches</strong>...', [], 'game') );
 
         $item = $this->item_factory->createItem($proto);
         $gps->recordItemFound( $proto, $citizen, null, 'trash' );
 
         if (($error = $handler->transferItem(
             $citizen,
-            $item,$inv_source, $inv_target
+            $item,$inv_source, $inv_target, InventoryHandler::ModalityAllowMultiHeavy
         )) === InventoryHandler::ErrorNone) {
 
             $trashlock->increment();
@@ -1378,6 +1377,7 @@ class BeyondController extends InventoryAwareController
             $factor = $this->zone_handler->getDigChanceFactor( $this->getActiveCitizen(), $zone );
 
             if ($zone->getPrototype()->getEmptyDropChance() >= 1) $total_dig_chance = 0;
+            elseif ($zone->getPrototype()->getEmptyDropChance() <= 0) $total_dig_chance = 1;
             else $total_dig_chance = min(max(0.1, $factor * (1.0 - $zone->getPrototype()->getEmptyDropChance())), 0.95);
 
             $item_found = $this->random_generator->chance($total_dig_chance);

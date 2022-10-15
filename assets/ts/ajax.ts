@@ -491,6 +491,7 @@ export default class Ajax {
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-Request-Intent', 'JSONDataExchange');
         request.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestHeader('Accept', 'application/json');
         request.send( JSON.stringify(data) );
     };
 

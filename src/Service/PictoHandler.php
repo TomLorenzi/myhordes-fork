@@ -28,6 +28,9 @@ class PictoHandler
     public function give_picto(Citizen $citizen, $pictoPrototype, $count = 1): void{
         if($count == 0) return;
 
+        $conf = $this->conf->getTownConfiguration($citizen->getTown());
+        if (!$conf->get(TownConf::CONF_FEATURE_PICTOS, true)) return;
+
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
@@ -39,10 +42,7 @@ class PictoHandler
             return;
 
         $pictoAlwaysPersisted = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_INSTANT_PICTOS, []);
-
-        $dayLimit = ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) ? 8 : 5;
-
-        $persistance = in_array($pictoPrototype->getName(), $pictoAlwaysPersisted)? 1 : ($citizen->getTown()->getDay() < $dayLimit ? 0 : 1);
+        $persistance = (in_array($pictoPrototype->getName(), $pictoAlwaysPersisted) || $this->citizenPassesPersistanceDayLimit( $citizen )) ? 1 : 0;
 
         $is_new = false;
         $picto = $citizen->getUser()->findPicto( $persistance, $pictoPrototype, $citizen->getTown() );
@@ -66,7 +66,10 @@ class PictoHandler
 
     public function give_validated_picto(Citizen $citizen, $pictoPrototype, $count = 1): void{
         if($count <= 0) return;
-        
+
+        $conf = $this->conf->getTownConfiguration($citizen->getTown());
+        if (!$conf->get(TownConf::CONF_FEATURE_PICTOS, true)) return;
+
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
@@ -93,6 +96,17 @@ class PictoHandler
         $this->entity_manager->persist($picto);
     }
 
+    protected function getPersistanceDayLimit( Citizen $citizen ): int {
+        return ($this->conf->getTownConfiguration(
+                $citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false
+            ) && $citizen->getUser()->getAllSoulPoints() >= 100) ? 8 : 5;
+    }
+
+    protected function citizenPassesPersistanceDayLimit( Citizen $citizen ): bool {
+        $dayLimit = $this->getPersistanceDayLimit( $citizen );
+        return ($citizen->getSurvivedDays() >= $dayLimit || ($citizen->getSurvivedDays() >= ($dayLimit-1) && $citizen->getCauseOfDeath()?->getRef() === CauseOfDeath::NightlyAttack) );
+    }
+
     public function nightly_validate_picto(Citizen $citizen):void {
         // Also, the RP, Sandball, ban, theft and soul collector pictos are always validated
         // In small town, we add the Guide and Nightwatch pictos
@@ -106,26 +120,11 @@ class PictoHandler
             if ($picto->getPersisted() !== 0 || $picto->getTown() !== $citizen->getTown())
                 continue;
 
-            $persistPicto = false;
             // We check the day 5 / 8 rule to persist the picto or not
             // To show "You could have earn those if you survived X more days"
             // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
             // to validate the picto (set them as persisted)
-
-            if(in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted)){
-                $persistPicto = true;
-            } else if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) {
-                /*if ($citizen->getSurvivedDays() < 7 && $citizen->getAlive())
-                    $persistPicto = true;
-                else */if($citizen->getSurvivedDays() === 7 && $citizen->getCauseOfDeath()?->getRef() === CauseOfDeath::NightlyAttack)
-                    $persistPicto = true;
-                else if ($citizen->getSurvivedDays() > 7)
-                    $persistPicto = true;
-            } else if ($citizen->getSurvivedDays() < 4 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown)) {
-                $persistPicto = true;
-            } else if ($citizen->getSurvivedDays() >= 4) {
-                $persistPicto = true;
-            }
+            $persistPicto = in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted) || $this->citizenPassesPersistanceDayLimit( $citizen );
 
             if (!$persistPicto) continue;
 

@@ -207,7 +207,7 @@ class ActionHandler
 
                 if ($count > 0) {
                     if (empty($this->inventory_handler->fetchSpecificItems( $source,
-                        [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
+                        [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
                     ))) {
                         if (!$is_prop) for ($i = 0; $i < $item_condition->getCount() ?? 1; $i++) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
                         $current_state = min($current_state, $this_state);
@@ -368,6 +368,16 @@ class ActionHandler
                     case 69:
                         if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
                             $current_state = min($current_state, $this_state);
+                        break;
+
+                    // Camourflace for hunter
+                    case 100:
+                        if (!$citizen->getLeadingEscorts()->isEmpty()) {
+                            $current_state = min($current_state, $this_state);
+                            $messages[] = $this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items');
+                        }
+
+                        break;
                 }
 
 
