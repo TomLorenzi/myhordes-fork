@@ -2169,6 +2169,9 @@ class TownController extends InventoryAwareController
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        $recycleAP = $this->getTownConf()->get(TownConf::CONF_MODIFIER_RECYCLING_AP, 15);
+        $recycleReturn = $this->getTownConf()->get(TownConf::CONF_MODIFIER_RECYCLING_RETURN, 5);
+
         $citizen = $this->getActiveCitizen();
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
@@ -2178,7 +2181,7 @@ class TownController extends InventoryAwareController
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        if($c->getHome()->getRecycling() >= 15){
+        if($c->getHome()->getRecycling() >= $recycleAP){
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         }
 
@@ -2186,7 +2189,7 @@ class TownController extends InventoryAwareController
         $home = $c->getHome();
         $home->setRecycling($home->getRecycling() + 1);
 
-        if ($home->getRecycling() >= 15) {
+        if ($home->getRecycling() >= $recycleAP) {
             $resources = [];
             for ($l = $home->getPrototype()->getLevel(); $l >= 0; $l--) {
                 $prototype = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $l );
@@ -2200,8 +2203,10 @@ class TownController extends InventoryAwareController
             $item_list_p = [];
 
             $has_recycled = false;
+            shuffle($resources);
             foreach ($resources as $item_name => &$count) {
-                $count = (int)floor($count * 0.4);
+                $count = min($recycleReturn, (int)floor($count * 0.4));
+                $recycleReturn -= $count;
                 if ($count > 0) {
                     $has_recycled = true;
                     $p = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_name);
