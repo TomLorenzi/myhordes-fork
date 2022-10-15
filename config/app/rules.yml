@@ -35,9 +35,13 @@ parameters:
         lock_distance: 10
         item_fillrate: 5
         max_distance: 10
+        plan_limits:
+          unusual: -1
+          rare: -1
+          epic: -1
         zombies:
           initial: 10
-          daily: 3
+          daily: 5
 
       initial_buildings:  []
       unlocked_buildings: []

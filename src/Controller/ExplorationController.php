@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\RuinZone;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Entity\ZonePrototype;
+use App\Enum\ZoneActivityMarkerType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -321,7 +323,27 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
         if ($this->random_generator->chance( $chances )) {
             $group = $ruinZone->getZone()->getPrototype()->getDropByNames( $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] ) );
-            $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
+
+            $redraw = false; $redraw_count = 0; $itemMarkerType = null;
+            do {
+                $redraw_count++;
+                $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
+
+                $itemMarkerType = $prototype ? ZoneActivityMarkerType::scavengedItemIncurs( $prototype ) : null;
+                $itemLimit = $itemMarkerType?->configuredLimit( $this->getTownConf() ) ?? -1;
+
+                if ($itemLimit >= 0 && $itemMarkerType)
+                    $redraw = $ruinZone->getZone()->getActivityMarkersFor( $itemMarkerType )->count() >= $itemLimit;
+
+                if ($redraw && $redraw_count >= 10) $prototype = null;
+
+            } while ($redraw && $redraw_count < 10);
+
+            if ($itemMarkerType && $prototype) $this->entity_manager->persist($ruinZone->getZone()->addActivityMarker( (new ZoneActivityMarker())
+                ->setCitizen( $citizen )
+                ->setTimestamp( new DateTime() )
+                ->setType( $itemMarkerType )
+            ));
         }
 
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
