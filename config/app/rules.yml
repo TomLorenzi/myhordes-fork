@@ -35,6 +35,10 @@ parameters:
         lock_distance: 10
         item_fillrate: 11
         max_distance: 10
+        plan_limits:
+          unusual: -1
+          rare: -1
+          epic: -1
         zombies:
           initial: 10
           daily: 5
