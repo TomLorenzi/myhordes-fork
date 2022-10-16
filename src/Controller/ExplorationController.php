@@ -95,7 +95,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     protected function getCurrentRuinZone(): RuinZone {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
-        return $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY());
+        return $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY(), $ex->getZ());
     }
 
     /**
@@ -112,6 +112,13 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         usort($floorItems, function ($a, $b) {
             return strcmp($this->translator->trans($a->getPrototype()->getLabel(), [], 'items'), $this->translator->trans($b->getPrototype()->getLabel(), [], 'items'));
         });
+
+        $exitZone =
+            $citizen->getProfession()->getName() === 'tamer'
+                ? $ex->getZ() === 0
+                    ? $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $ruinZone->getZone(), 'x' => 0, 'y' => 0, 'z' => 0])
+                    : $this->entity_manager->getRepository(RuinZone::class)->findOneBy(['zone' => $ruinZone->getZone(), 'z' => $ex->getZ(), 'connect' => -1])
+                : null;
 
         return $this->render( 'ajax/game/beyond/ruin.html.twig', $this->addDefaultTwigArgs(null, [
             'prototype' => $citizen->getZone()->getPrototype(),
@@ -130,7 +137,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'scavenge' => !$ex->getScavengedRooms()->contains($ruinZone),
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
-                'show_exit_direction' => $citizen->getProfession()->getName() === 'tamer',
+                'show_exit_direction' => $exitZone ? [$exitZone->getX() - $ruinZone->getX(), $exitZone->getY() - $ruinZone->getY()] : null,
                 'name' => $this->generateRuinName($citizen->getZone()),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,
@@ -147,7 +154,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $citizen = $this->getActiveCitizen();
 
         $ex = $citizen->activeExplorerStats();
-        if ($ex->getX() !== 0 || $ex->getY() !== 0)
+        if ($ex->getX() !== 0 || $ex->getY() !== 0 || $ex->getZ() !== 0)
             return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
 
         // End the exploration!
@@ -234,6 +241,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'dp' => $new_zone->getDoorPosition(),
             'l' => $new_zone->getLocked(),
             'd' => $new_zone->getUnifiedDecals(),
+            'c' => $new_zone->getPrototype()?->getLevel() ?? 0
         ]);
     }
 
@@ -251,10 +259,38 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         if (!$ruinZone->getPrototype() || $ruinZone->getLocked())
             return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
 
-        if ($ex->getInRoom())
+        if ($ex->getInRoom() || $ruinZone->getConnect() !== 0)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $ex->setInRoom( true );
+        $this->entity_manager->persist($ex);
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/beyond/explore/stairs", name="beyond_ruin_stairs_enter_controller")
+     * @return Response
+     */
+    public function ruin_stairs_enter_api() {
+        $ruinZone = $this->getCurrentRuinZone();
+        $ex = $this->getActiveCitizen()->activeExplorerStats();
+
+        if ($ruinZone->getZombies() > 0 && !$ex->getEscaping())
+            return AjaxResponse::error( BeyondController::ErrorZoneBlocked );
+
+        if (!$ruinZone->getPrototype() || $ruinZone->getLocked() || $ruinZone->getConnect() === 0)
+            return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
+
+        $targetRuinZone = $this->entity_manager->getRepository( RuinZone::class )->findOneByPosition( $ruinZone->getZone(), $ex->getX(), $ex->getY(), $ex->getZ() + $ruinZone->getConnect() );
+        if (!$targetRuinZone) return AjaxResponse::error( BeyondController::ErrorNotReachableFromHere );
+
+        $ex->setZ( $ex->getZ() + $ruinZone->getConnect() );
         $this->entity_manager->persist($ex);
         try {
             $this->entity_manager->flush();

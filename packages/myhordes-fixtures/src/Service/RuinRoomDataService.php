@@ -27,6 +27,14 @@ class RuinRoomDataService implements FixtureProcessorInterface {
                 "lock_mold" => 'prints_#00',
                 "lock_item" => 'magneticKey_#00',
             ],
+            [
+                "label" => "Treppenaufgang",
+                "level" => 1
+            ],
+            [
+                "label" => "Treppenabstieg",
+                "level" => -1
+            ],
         ]);
     }
 }

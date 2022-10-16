@@ -28,6 +28,8 @@ class RuinExplorerStats
     private $x = 0;
     #[ORM\Column(type: 'integer')]
     private $y = 0;
+    #[ORM\Column(type: 'integer')]
+    private $z = 0;
     #[ORM\Column(type: 'boolean')]
     private $active;
     #[ORM\Column(type: 'boolean')]
@@ -84,6 +86,16 @@ class RuinExplorerStats
     public function setY(int $y): self
     {
         $this->y = $y;
+
+        return $this;
+    }
+    public function getZ(): ?int
+    {
+        return $this->z;
+    }
+    public function setZ(int $z): self
+    {
+        $this->z = $z;
 
         return $this;
     }

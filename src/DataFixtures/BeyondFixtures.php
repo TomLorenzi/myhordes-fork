@@ -122,6 +122,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             // Set property
             $entity
                 ->setLabel( $entry['label'] )
+                ->setLevel( $entry['level'] ?? 0 )
                 ->setKeyImprint($lock_mold ?? null)
                 ->setKeyItem($lock_item ?? null)
             ;

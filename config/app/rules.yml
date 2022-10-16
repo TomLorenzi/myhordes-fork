@@ -36,6 +36,7 @@ parameters:
         lock_distance: 10
         item_fillrate: 11
         max_distance: 10
+        floors: 1
         plan_limits:
           unusual: -1
           rare: -1

@@ -57,6 +57,7 @@ class TownConf extends Conf
     const CONF_EXPLORABLES_PLAN_LIMIT_U = 'explorable_ruin_params.plan_limits.unusual';
     const CONF_EXPLORABLES_PLAN_LIMIT_R = 'explorable_ruin_params.plan_limits.rare';
     const CONF_EXPLORABLES_PLAN_LIMIT_E = 'explorable_ruin_params.plan_limits.epic';
+    const CONF_EXPLORABLES_FLOORS       = 'explorable_ruin_params.floors';
 
     const CONF_TIMES_DIG_NORMAL     = 'times.digging.normal';
     const CONF_TIMES_DIG_COLLEC     = 'times.digging.collec';

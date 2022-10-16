@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\Entity(repositoryClass: 'App\Repository\RuinZoneRepository')]
 #[UniqueEntity('gps')]
 #[Table]
-#[UniqueConstraint(name: 'gps_unique_ruin_zone', columns: ['x', 'y', 'zone_id'])]
+#[UniqueConstraint(name: 'gps_unique_ruin_zone', columns: ['x', 'y', 'z', 'zone_id'])]
 class RuinZone
 {
     const CORRIDOR_NONE =  0;
@@ -36,13 +36,15 @@ class RuinZone
     #[ORM\Column(type: 'integer')]
     private $id;
     #[ORM\Column(type: 'integer')]
-    private $x;
+    private ?int $x;
     #[ORM\Column(type: 'integer')]
-    private $y;
+    private ?int $y;
     #[ORM\Column(type: 'integer')]
-    private $corridor = 0;
+    private int $z = 0;
     #[ORM\Column(type: 'integer')]
-    private $zombies = 0;
+    private int $corridor = 0;
+    #[ORM\Column(type: 'integer')]
+    private int $zombies = 0;
     #[ORM\OneToOne(targetEntity: 'App\Entity\Inventory', inversedBy: 'ruinZone', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private $floor;
@@ -69,6 +71,10 @@ class RuinZone
     private $decalVariants = 0;
     #[ORM\Column(type: 'integer')]
     private $killedZombies = 0;
+
+    #[ORM\Column]
+    private int $connect = 0;
+
     public function __construct()
     {
     }
@@ -93,6 +99,16 @@ class RuinZone
     public function setY(int $y): self
     {
         $this->y = $y;
+
+        return $this;
+    }
+    public function getZ(): ?int
+    {
+        return $this->z;
+    }
+    public function setZ(int $z): self
+    {
+        $this->z = $z;
 
         return $this;
     }
@@ -275,6 +291,18 @@ class RuinZone
     public function setKilledZombies(int $killedZombies): self
     {
         $this->killedZombies = $killedZombies;
+
+        return $this;
+    }
+
+    public function getConnect(): ?int
+    {
+        return $this->connect;
+    }
+
+    public function setConnect(int $connect): self
+    {
+        $this->connect = $connect;
 
         return $this;
     }

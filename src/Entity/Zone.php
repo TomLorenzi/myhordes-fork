@@ -94,6 +94,10 @@ class Zone
 
     #[ORM\OneToMany(mappedBy: 'zone', targetEntity: ZoneActivityMarker::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
     private Collection $activityMarkers;
+
+    #[ORM\Column]
+    private int $explorableFloors = 1;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -402,12 +406,21 @@ class Zone
         return $this;
     }
     /**
-     * @return Collection|RuinZone[]
+     * @return ArrayCollection<int, RuinZone>|PersistentCollection<int, RuinZone>
      */
-    public function getRuinZones(): Collection
+    public function getRuinZones(): ArrayCollection|PersistentCollection
     {
         return $this->ruinZones;
     }
+
+    /**
+     * @return ArrayCollection<int, RuinZone>|PersistentCollection<int, RuinZone>
+     */
+    public function getRuinZonesOnLevel(int $level): ArrayCollection|PersistentCollection
+    {
+        return $this->getRuinZones()->matching( (new Criteria())->andWhere( new Comparison( 'z', Comparison::EQ, $level ) ) );
+    }
+
     public function addRuinZone(RuinZone $ruinZone): self
     {
         if (!$this->ruinZones->contains($ruinZone)) {
@@ -569,6 +582,18 @@ class Zone
                 $activityMarker->setZone(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getExplorableFloors(): ?int
+    {
+        return $this->explorableFloors;
+    }
+
+    public function setExplorableFloors(int $explorableFloors): self
+    {
+        $this->explorableFloors = $explorableFloors;
 
         return $this;
     }
