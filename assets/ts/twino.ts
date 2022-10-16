@@ -788,7 +788,10 @@ export default class TwinoAlikeParser {
     private static postprocessReverseDOM( elem: HTMLElement ) {
         // Add single linebreak right after block elements
         if (elem.nodeType !== Node.TEXT_NODE ) {
-            if (elem.nextSibling && ['hr','blockquote','p','code'].indexOf(elem.tagName.toLowerCase()) >= 0)
+            if (elem.nextSibling && (
+                (['hr','blockquote','p','code'].indexOf(elem.tagName.toLowerCase()) >= 0) ||
+                (['div'].indexOf(elem.tagName.toLowerCase()) >= 0 && elem.classList.contains('collapsed'))
+            ))
                 elem.parentElement.insertBefore( document.createElement('br'), elem.nextSibling );
             elem.childNodes.forEach( c => this.postprocessReverseDOM( c as HTMLElement ) );
         }
