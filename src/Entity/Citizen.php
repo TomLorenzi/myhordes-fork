@@ -705,6 +705,7 @@ class Citizen
             return $s->getCitizen()->getZone() !== null && $s->getCitizen()->getZone() === $s->getLeader()->getZone();
         } );
     }
+
     public function removeLeadingEscort(CitizenEscortSettings $leadingEscort): self
     {
         if ($this->leadingEscorts->contains($leadingEscort)) {

@@ -17,6 +17,9 @@ class RuinZonePrototype
     private $keyImprint;
     #[ORM\ManyToOne(targetEntity: ItemPrototype::class)]
     private $keyItem;
+
+    #[ORM\Column]
+    private ?int $level = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -48,6 +51,18 @@ class RuinZonePrototype
     public function setKeyItem(?ItemPrototype $keyItem): self
     {
         $this->keyItem = $keyItem;
+
+        return $this;
+    }
+
+    public function getLevel(): ?int
+    {
+        return $this->level;
+    }
+
+    public function setLevel(int $level): self
+    {
+        $this->level = $level;
 
         return $this;
     }

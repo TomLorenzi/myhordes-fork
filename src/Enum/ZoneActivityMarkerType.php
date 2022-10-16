@@ -2,16 +2,48 @@
 
 namespace App\Enum;
 
+use App\Entity\Item;
+use App\Entity\ItemPrototype;
+use App\Structures\TownConf;
+
 enum ZoneActivityMarkerType: int {
     case ShamanRain = 1;
     case RuinDig = 2;
     case ScoutVisit = 3;
 
+    case ExplorableBlueprintU = 101;
+    case ExplorableBlueprintR = 102;
+    case ExplorableBlueprintE = 103;
+
     public function daily(): bool {
-        return $this !== self::ScoutVisit;
+        return match($this) {
+            self::ScoutVisit, self::ExplorableBlueprintU, self::ExplorableBlueprintR, self::ExplorableBlueprintE => false,
+            default => true
+        };
     }
 
     public static function daylies(): array {
         return array_filter( self::cases(), fn(ZoneActivityMarkerType $t) => $t->daily() );
+    }
+
+    public static function scavengedItemIncurs(string|ItemPrototype|Item $item): ?ZoneActivityMarkerType {
+        if (is_a( $item, Item::class )) $item = $item->getPrototype()->getName();
+        elseif (is_a( $item, ItemPrototype::class )) $item = $item->getName();
+
+        return match ($item) {
+            'hbplan_u_#00', 'bbplan_u_#00', 'mbplan_u_#00' => self::ExplorableBlueprintU,
+            'hbplan_r_#00', 'bbplan_r_#00', 'mbplan_r_#00' => self::ExplorableBlueprintR,
+            'hbplan_e_#00', 'bbplan_e_#00', 'mbplan_e_#00' => self::ExplorableBlueprintE,
+            default => null
+        };
+    }
+
+    public function configuredLimit( TownConf $conf ): int {
+        return match($this) {
+            ZoneActivityMarkerType::ExplorableBlueprintU => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_U, -1 ),
+            ZoneActivityMarkerType::ExplorableBlueprintR => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_R, -1 ),
+            ZoneActivityMarkerType::ExplorableBlueprintE => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_E, -1 ),
+            default => -1
+        };
     }
 }

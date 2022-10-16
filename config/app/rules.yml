@@ -31,13 +31,19 @@ parameters:
         convolution: 0.2
         cruelty: 0.06
         rooms: 10
+        room_distance: 5
         room_spacing: 4
         lock_distance: 10
         item_fillrate: 11
         max_distance: 10
+        floors: 1
+        plan_limits:
+          unusual: -1
+          rare: -1
+          epic: -1
         zombies:
           initial: 10
-          daily: 3
+          daily: 5
 
       initial_buildings:  []
       unlocked_buildings: []
@@ -117,6 +123,9 @@ parameters:
           range: [7,18]
           invert: false
         hide_home_upgrade: false
+        home_recycling:
+          ap: 15
+          return: 5
 
       features:
         camping: true

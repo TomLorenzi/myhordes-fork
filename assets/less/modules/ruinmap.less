@@ -38,7 +38,9 @@
     &>* { position: absolute; }
     &>.decal-door {
       width: 10%; height: 10%;
-      &:hover { cursor: pointer; filter: drop-shadow(0 0 10px green) }
+      &.decal-door-connect-0:hover { cursor: pointer; filter: drop-shadow(0 0 10px green) }
+      &.decal-door-connect-1:hover { cursor: pointer; filter: drop-shadow(0 0 10px white) }
+      &.decal-door-connect--1:hover { cursor: pointer; filter: drop-shadow(0 0 10px white) }
       &.decal-door-1,&.decal-door-6 { left:  17% }
       &.decal-door-3,&.decal-door-8 { right: 17% }
       &.decal-door-4 { left:  34% }
@@ -52,15 +54,33 @@
     }
   }
 
-  &.plane-door-open>.decals>.decal-door-1 { background: url("../../img/explore/@{skin}/dtlo.png") center/cover no-repeat; }
-  &.plane-door-open>.decals>.decal-door-2 { background: url("../../img/explore/@{skin}/dto.png")  center/cover no-repeat; }
-  &.plane-door-open>.decals>.decal-door-3 { background: url("../../img/explore/@{skin}/dtro.png") center/cover no-repeat; }
-  &.plane-door-open>.decals>.decal-door-4 { background: url("../../img/explore/@{skin}/dlo.png")  center/cover no-repeat; }
-  &.plane-door-open>.decals>.decal-door-5 { background: url("../../img/explore/@{skin}/dro.png")  center/cover no-repeat; }
-  &.plane-door-open>.decals>.decal-door-6 { background: url("../../img/explore/@{skin}/dblo.png") center/cover no-repeat; }
-  &.plane-door-open>.decals>.decal-door-7 { background: url("../../img/explore/@{skin}/dbo.png")  center/cover no-repeat; }
-  &.plane-door-open>.decals>.decal-door-8 { background: url("../../img/explore/@{skin}/dbro.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-1 { background: url("../../img/explore/@{skin}/dtlo_b.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-2 { background: url("../../img/explore/@{skin}/dto_b.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-3 { background: url("../../img/explore/@{skin}/dtro_b.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-4 { background: url("../../img/explore/@{skin}/dlo_b.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-5 { background: url("../../img/explore/@{skin}/dro_b.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-6 { background: url("../../img/explore/@{skin}/dblo_b.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-7 { background: url("../../img/explore/@{skin}/dbo_b.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect--1.decal-door-8 { background: url("../../img/explore/@{skin}/dbro_b.png") center/cover no-repeat; }
+  
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-1 { background: url("../../img/explore/@{skin}/dtlo.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-2 { background: url("../../img/explore/@{skin}/dto.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-3 { background: url("../../img/explore/@{skin}/dtro.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-4 { background: url("../../img/explore/@{skin}/dlo.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-5 { background: url("../../img/explore/@{skin}/dro.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-6 { background: url("../../img/explore/@{skin}/dblo.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-7 { background: url("../../img/explore/@{skin}/dbo.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-0.decal-door-8 { background: url("../../img/explore/@{skin}/dbro.png") center/cover no-repeat; }
 
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-1 { background: url("../../img/explore/@{skin}/dtlo_r.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-2 { background: url("../../img/explore/@{skin}/dto_r.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-3 { background: url("../../img/explore/@{skin}/dtro_r.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-4 { background: url("../../img/explore/@{skin}/dlo_r.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-5 { background: url("../../img/explore/@{skin}/dro_r.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-6 { background: url("../../img/explore/@{skin}/dblo_r.png") center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-7 { background: url("../../img/explore/@{skin}/dbo_r.png")  center/cover no-repeat; }
+  &.plane-door-open>.decals>.decal-door-connect-1.decal-door-8 { background: url("../../img/explore/@{skin}/dbro_r.png") center/cover no-repeat; }
+  
   &.plane-door-closed>.decals>.decal-door-1 { background: url("../../img/explore/@{skin}/dtlc.png") center/cover no-repeat; }
   &.plane-door-closed>.decals>.decal-door-2 { background: url("../../img/explore/@{skin}/dtc.png")  center/cover no-repeat; }
   &.plane-door-closed>.decals>.decal-door-3 { background: url("../../img/explore/@{skin}/dtrc.png") center/cover no-repeat; }

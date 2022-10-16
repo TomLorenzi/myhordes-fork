@@ -45,7 +45,7 @@
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
                 <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                {% if zone.x == 0 and zone.y == 0 %}
+                {% if zone.x == 0 and zone.y == 0 and zone.z == 0 %}
                     <br />
                     <button id="exit_ruin_button"  >
                         <img class="icon left" alt="" src="{{ asset('build/images/icons/exit.gif') }}" />
@@ -68,20 +68,37 @@
                         </button>
                     {% endif %}
                     <br />
-                    <button {% if (zone_zombies > 0 and not escaping) or (zone.locked and not shifted) %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
-                        {% if ((zone_zombies <= 0 or escaping) and not zone.locked) or shifted %}
-                            <img class="icon left" alt="" src="{{ asset('build/images/icons/small_enter.gif') }}" />
-                        {% else %}
-                            <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                        {% endif %}
-                        {% if shifted %}
-                            {{ 'Raum verlassen'|trans({},'game') }}
-                            <div class="tooltip help">{{ 'Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.'|trans({},'game') }}</div>
-                        {% else %}
-                            {{ 'Raum betreten'|trans({},'game') }}
-                            <div class="tooltip help">{{ 'Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.'|trans({},'game') }}</div>
-                        {% endif %}
-                    </button>
+                    {% if zone.prototype.level != 0 %}
+                        <button {% if (zone_zombies > 0 and not escaping) or zone.locked %}disabled{% endif %} id="stairs_button"  >
+                            {% if ((zone_zombies <= 0 or escaping) and not zone.locked) or shifted %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/icons/small_enter.gif') }}" />
+                            {% else %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
+                            {% endif %}
+                            {% if zone.prototype.level > 0 %}
+                                {{ 'Treppe nach oben nehmen'|trans({},'game') }}
+                            {% else %}
+                                {{ 'Treppe nach unten nehmen'|trans({},'game') }}
+                            {% endif %}
+                            <div class="tooltip help">{{ 'Über dieses Treppenhaus kannst du ein anderes Stockwerk dieser Ruine betreten.'|trans({},'game') }}</div>
+                        </button>
+                    {% else %}
+                        <button {% if (zone_zombies > 0 and not escaping) or (zone.locked and not shifted) %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
+                            {% if ((zone_zombies <= 0 or escaping) and not zone.locked) or shifted %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/icons/small_enter.gif') }}" />
+                            {% else %}
+                                <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
+                            {% endif %}
+                            {% if shifted %}
+                                {{ 'Raum verlassen'|trans({},'game') }}
+                                <div class="tooltip help">{{ 'Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.'|trans({},'game') }}</div>
+                            {% else %}
+                                {{ 'Raum betreten'|trans({},'game') }}
+                                <div class="tooltip help">{{ 'Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.'|trans({},'game') }}</div>
+                            {% endif %}
+                        </button>
+                    {% endif %}
+
 
                     {% if zone.locked and not shifted and zone.prototype.keyImprint and zone.prototype.keyItem %}
                         {% if can_imprint %}
@@ -172,6 +189,12 @@
             {% if not zone.locked and not shifted %}
                 $.html.addEventListenerAll( '#shift_button', 'click', function() {
                     $.ajax.easySend( '{{ path('beyond_ruin_room_enter_controller') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                        } );
+                } );
+                $.html.addEventListenerAll( '#stairs_button', 'click', function() {
+                    $.ajax.easySend( '{{ path('beyond_ruin_stairs_enter_controller') }}', {},
                         function () {
                             $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                         } );
