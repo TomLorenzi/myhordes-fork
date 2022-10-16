@@ -318,21 +318,14 @@ class MazeMaker
                 $add($x,$y);
         }
 
-        // Room candidates
-        $room_candidates = [];
-
         // Build the actual map
         foreach ($cache as $x => $line)
             foreach ($line as $y => $ruinZone)
                 if ($corridor($x,$y)) {
-
-                    if ($x !== 0 && $y !== 0) $room_candidates[] = $ruinZone;
-
                     if ($corridor($x+1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_E );
                     if ($corridor($x-1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_W );
                     if ($corridor($x,$y+1)) $ruinZone->addCorridor( RuinZone::CORRIDOR_S );
                     if ($corridor($x,$y-1)) $ruinZone->addCorridor( RuinZone::CORRIDOR_N );
-
                 } else $ruinZone->setCorridor(RuinZone::CORRIDOR_NONE);
 
         // Calculate distances
@@ -343,9 +336,17 @@ class MazeMaker
         );
 
         // Let's add some rooms!
+        $room_distance = $conf->get(TownConf::CONF_EXPLORABLES_ROOMDIST,   5);
         $lock_distance = $conf->get(TownConf::CONF_EXPLORABLES_LOCKDIST,  10);
         $room_dist     = $conf->get(TownConf::CONF_EXPLORABLES_ROOM_DIST,  4);
         $room_count    = $conf->get(TownConf::CONF_EXPLORABLES_ROOMS,     10);
+
+        // Room candidates
+        $room_candidates = [];
+        foreach ($cache as $x => $line)
+            foreach ($line as $y => $ruinZone)
+                if ($corridor($x,$y) && ($x * $y !== 0) && $ruinZone->getDistance() > $room_distance)
+                    $room_candidates[] = $ruinZone;
 
         // Get room types
         $locked_room_types = $this->entity_manager->getRepository(RuinZonePrototype::class)->findLocked();
