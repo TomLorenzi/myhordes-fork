@@ -1489,7 +1489,7 @@ class NightlyHandler
                     $zone->removeChatSilenceTimer($timer);
                     $this->entity_manager->remove($timer);
                 }
-                $this->maze->populateMaze( $zone, $maze_zeds, true, true );
+                $this->maze->populateMaze( $zone, $maze_zeds * $zone->getExplorableFloorFactor(), true, true );
             }
 
             $distance = sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) );

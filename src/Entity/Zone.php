@@ -591,6 +591,11 @@ class Zone
         return $this->explorableFloors;
     }
 
+    public function getExplorableFloorFactor(): ?int
+    {
+        return min(1, $this->getExplorableFloors());
+    }
+
     public function setExplorableFloors(int $explorableFloors): self
     {
         $this->explorableFloors = $explorableFloors;

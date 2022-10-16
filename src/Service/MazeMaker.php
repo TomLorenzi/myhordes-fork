@@ -111,8 +111,8 @@ class MazeMaker
         $distance_stack = [ ];
 
         // Identify sinks
-        foreach ($cache as &$line)
-            foreach ($line as &$zone) {
+        foreach ($cache as $line)
+            foreach ($line as $zone) {
                 $dist = $get_dist($zone);
                 foreach ($get_neighbors($cache,$zone) as $n_zone)
                     if ($get_dist($n_zone) > ($dist+1)) {
@@ -138,21 +138,23 @@ class MazeMaker
 
     public function generateCompleteMaze( Zone $base ) {
 
-        $levels = $base->getExplorableFloors();
+        $levels = $base->getExplorableFloorFactor();
         $invert = $base->getPrototype()->getExplorableSkin() === 'bunker';
 
         $origin = [0,0];
         $originOffset = 0;
 
         for ($i = 0; $i < $levels; $i++) {
-            $origin = $this->generateMaze($base, $i, $origin, $originOffset, $i < ($levels-1), $invert);
-            if (!$origin) break;
+            $originZone = $this->generateMaze($base, $i, $origin, $originOffset, $i < ($levels-1), $invert);
+            if (!$originZone) break;
+            $origin = [ $originZone->getX(), $originZone->getY() ];
+            $originOffset += $originZone->getDistance() + 1;
         }
 
-        $this->populateMaze( $base, $this->conf->getTownConfiguration( $base->getTown() )->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) );
+        $this->populateMaze( $base,$this->conf->getTownConfiguration( $base->getTown() )->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) * $levels );
     }
 
-    protected function generateMaze( Zone $base, int $level = 0, $origin = [0,0], $offset_distance = 0, $go_up = false, $invertDirections = false ): ?array {
+    protected function generateMaze( Zone $base, int $level = 0, array $origin = [0,0], int $offset_distance = 0, bool $go_up = false, bool $invertDirections = false ): ?RuinZone {
 
         /** @var RuinZone[][] $cache */
         $cache = []; $binary = []; $n = 0;
@@ -426,7 +428,7 @@ class MazeMaker
                 function (RuinZone $r, int $i): void { $r->setRoomDistance( $i ); }
             );
 
-            if ($place_up) $up_position = [ $room_corridor->getX(), $room_corridor->getY() ];
+            if ($place_up) $up_position = $room_corridor;
 
             if ($place_down) $down_count--;
             elseif ($place_up) $up_count--;
