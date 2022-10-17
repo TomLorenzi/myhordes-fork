@@ -78,12 +78,12 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/eternal-twin/etwin-php-api-client.git",
+                "url": "https://gitlab.com/eternaltwin/etwin-php-api-client.git",
                 "reference": "328852bbac603e8f59faf92e09d8fcd43145b816"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/eternal-twin%2Fetwin-php-api-client/repository/archive.zip?sha=328852bbac603e8f59faf92e09d8fcd43145b816",
+                "url": "https://gitlab.com/api/v4/projects/eternaltwin%2Fetwin-php-api-client/repository/archive.zip?sha=328852bbac603e8f59faf92e09d8fcd43145b816",
                 "reference": "328852bbac603e8f59faf92e09d8fcd43145b816",
                 "shasum": ""
             },
