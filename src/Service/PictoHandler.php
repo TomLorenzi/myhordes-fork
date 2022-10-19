@@ -96,10 +96,14 @@ class PictoHandler
         $this->entity_manager->persist($picto);
     }
 
+    protected function getStrictPersistance( Citizen $citizen ): bool {
+        return $this->conf->getTownConfiguration(
+            $citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false
+        );
+    }
+
     protected function getPersistanceDayLimit( Citizen $citizen ): int {
-        return ($this->conf->getTownConfiguration(
-                $citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false
-            ) && $citizen->getUser()->getAllSoulPoints() >= 100) ? 8 : 5;
+        return ($this->getStrictPersistance( $citizen ) && $citizen->getUser()->getAllSoulPoints() >= 100) ? 8 : 5;
     }
 
     protected function citizenPassesPersistanceDayLimit( Citizen $citizen ): bool {
@@ -124,7 +128,7 @@ class PictoHandler
             // To show "You could have earn those if you survived X more days"
             // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
             // to validate the picto (set them as persisted)
-            $persistPicto = in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted) || $this->citizenPassesPersistanceDayLimit( $citizen );
+            $persistPicto = in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted) || !$this->getStrictPersistance($citizen) || $this->citizenPassesPersistanceDayLimit( $citizen );
 
             if (!$persistPicto) continue;
 
@@ -147,7 +151,7 @@ class PictoHandler
     }
 
     public function validate_picto(Citizen $citizen) {
-        $this->nightly_validate_picto($citizen);
+        //$this->nightly_validate_picto($citizen);
 
         $conf = $this->conf->getTownConfiguration($citizen->getTown());
 
