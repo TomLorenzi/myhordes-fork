@@ -1635,8 +1635,7 @@ class NightlyHandler
                 $this->picto_handler->give_picto($citizen, $picto_nightwatch);
             }
 
-            if ($citizen->getAlive())
-                $this->picto_handler->nightly_validate_picto( $citizen );
+            $this->picto_handler->nightly_validate_picto( $citizen );
         }
     }
 
