@@ -3,7 +3,7 @@
 namespace MyHordes\Fixtures\Service;
 
 use App\Entity\GazetteEntryTemplate;
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class GazetteDataService implements FixtureProcessorInterface {
 
@@ -1298,6 +1298,7 @@ class GazetteDataService implements FixtureProcessorInterface {
                 'requirement'=>GazetteEntryTemplate::RequiresOneCadaver,
                 'fot' => GazetteEntryTemplate::FollowUpTypeDoubt,
                 'variableTypes'=>[
+                    ['type'=>"transString",'from'=>'gazette','name'=>'poison'],
                     ['type'=>"citizen",'name'=>'cadaver1'],
                 ],
             ],

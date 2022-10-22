@@ -3,6 +3,7 @@
 
 namespace App\Annotations;
 
+use App\Enum\ExternalAPIInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
 use Symfony\Component\RateLimiter\RateLimit;
 
@@ -18,6 +19,8 @@ class ExternalAPI implements ConfigurationInterface
     public bool $app      = true;
     public int  $cost     = 1;
     public bool $fefe     = true;
+
+    public ExternalAPIInterface $api = ExternalAPIInterface::GENERIC;
 
     /**
      * @inheritDoc

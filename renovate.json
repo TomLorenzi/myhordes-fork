@@ -12,6 +12,8 @@
         "pin",
         "digest"
       ],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
       "automerge": true
     },
     {

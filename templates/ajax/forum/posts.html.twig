@@ -35,6 +35,14 @@
                 </div>
             {% endif %}
         {% endif %}
+        {% if post.type == "USER" and post.thread.forum.town is not null %}
+            {% if user|is_granted('ROLE_CROW') and user|is_granted('ROLE_DUMMY') %}
+                <div class="inline-block mh-icon">
+                    <img alt="MOD" src="{{ asset('build/images/icons/icon_mh_mod.gif') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein Moderator auf MyHordes.'|trans({},'global') }}</div>
+                </div>
+            {% endif %}
+        {% endif %}
     {% endmacro %}
 
     {# @var posts \App\Entity\Post[] #}
@@ -225,21 +233,7 @@
                                 {{ post.date|format_datetime('medium', 'short') }}
                             {% endif %}
                         </i>
-                        {% if post.owner.name == 'Der Rabe' %}
-                            {% if app.user.preferSmallAvatars %}
-                                <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
-                            {% else %}
-                                <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
-                            {% endif %}
-                        {% elseif (post.owner.avatar) %}
-                            {% if app.user.preferSmallAvatars %}
-                                <div class="avatar small ua-{{random(0,9)}}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
-                            {% else %}
-                                <div class="avatar ua-{{random(0,9)}}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
-                            {% endif %}
-                        {% else %}
-                            <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
-                        {% endif %}
+                        {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner} only %}
                         {% include 'ajax/soul/playername.html.twig' with {user: post.owner, globalSpace: post.thread.forum.town is null} only %}{{ post.translate ? ('') : (_self.icon_master(post))}}<br />
                         {% if post.owner.name == 'Der Rabe' %}
                             <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
@@ -351,12 +345,15 @@
                                 [ <a class="action-button" id="copy_post" x-forum-action="copy-post" x-post-id={{ post.id }} >{{ 'Kopieren'|trans({},'global') }}</a> ]
                                 [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                             {% endif %}
-                            {% if not post.translate and app.user != post.owner and not permission.only_mod_access %}
+                            {% if not post.translate and app.user != post.owner and not permission.only_mod_access and not (post.owner|is_granted('ROLE_CROW') and post.owner|is_granted('ROLE_DUMMY')) %}
                                 [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
                             {% endif %}
+                        </div>
+                        <div class="clear">
                             <div class="small hidden" id="link-post-{{ post.id }}">
                                 <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
-                                <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
+                                <div data-copy="{{ url('forum_jump_view', {pid: post.id}) }}" class="float-right pointer">&nbsp;<i class="fa fa-clipboard"></i></div>
+                                <div class="float-right">&nbsp;{{ url('forum_jump_view', {pid: post.id}) }}</div>
                             </div>
                         </div>
                     </div>
@@ -549,6 +546,37 @@
         {% endif %}
         $.html.addEventListenerAll( '[x-forum-moderator-action][x-forum-api-endpoint]', 'click', function(e,elem) {
             $.ajax.easySend( elem.getAttribute('x-forum-api-endpoint'), {}, reloadPage );
+        } );
+
+        $.html.addEventListenerAll( '[data-copy]', 'click', (e,elem) => {
+
+            const fun_with_execCommand = str => {
+                const input = $.html.createElement('<input id="input" type="text" />');
+                input.value = str;
+                document.body.appendChild(input);
+                input.select();
+                try {
+                    if (document.execCommand("copy"))
+                        $.html.notice('{{ 'Link wurde in die Zwischenablage kopiert.'|trans({},'global') }}');
+                    else $.html.error('{{ 'Link konnte nicht kopiert werden.'|trans({},'global') }}');
+                } catch (_) {
+                    $.html.error('{{ 'Link konnte nicht kopiert werden.'|trans({},'global') }}');
+                } finally {
+                    input.remove();
+                }
+            }
+
+            try {
+                navigator.permissions.query({name: "clipboard-write"}).then((result) => {
+                    if (result.state === "granted" || result.state === "prompt") {
+                        navigator.clipboard.writeText(elem.dataset.copy).then(() => {
+                            $.html.notice('{{ 'Link wurde in die Zwischenablage kopiert.'|trans({},'global') }}')
+                        }, () => fun_with_execCommand( elem.dataset.copy ));
+                    } else fun_with_execCommand( elem.dataset.copy );
+                }).catch( () => fun_with_execCommand( elem.dataset.copy ) );
+            } catch (_) {
+                fun_with_execCommand( elem.dataset.copy )
+            }
         } );
 
         $.html.addEventListenerAll( '.announces li', 'click', function(e,elem) {

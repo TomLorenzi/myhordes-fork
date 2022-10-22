@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AntiSpamDomains;
+use App\Enum\DomainBlacklistType;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -24,7 +25,7 @@ class AdminSpamController extends AdminActionController
     public function spam_view(): Response
     {
         $n = $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
-            ->select('count(a.id)')->getQuery()->getSingleScalarResult();
+            ->select('count(a.id)')->where('a.type = :type', )->setParameter('type', DomainBlacklistType::EmailDomain)->getQuery()->getSingleScalarResult();
 
         return $this->render( 'ajax/admin/spam/domains.html.twig', $this->addDefaultTwigArgs(null, ['n' => $n]));
     }
@@ -40,6 +41,7 @@ class AdminSpamController extends AdminActionController
         if (mb_strlen($query) < 3) $query = '';
         $results = empty($query) ? [] : $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
             ->andWhere('a.domain LIKE :val')->setParameter('val', "%{$query}%")
+            ->andWhere('a.type = :type', )->setParameter('type', DomainBlacklistType::EmailDomain)
             ->getQuery()->getResult();
 
         return $this->render( 'ajax/admin/spam/domain_list.html.twig', ['domains' => $results]);
@@ -67,8 +69,12 @@ class AdminSpamController extends AdminActionController
             if (empty($line)) continue;
             if ($line[0] === '@' || $line[0] === '.') $line = substr($line, 1);
 
-            if (!$repo->findOneBy(['domain' => $line]))
-                $this->entity_manager->persist((new AntiSpamDomains())->setDomain($line));
+            if (!$repo->findOneBy(['domain' => DomainBlacklistType::EmailDomain->convert( $line ), 'type' => DomainBlacklistType::EmailDomain]))
+                $this->entity_manager->persist(
+                    (new AntiSpamDomains())
+                        ->setDomain( DomainBlacklistType::EmailDomain->convert( $line ))
+                        ->setType( DomainBlacklistType::EmailDomain )
+                );
 
 
             $line = strtok( $separator );

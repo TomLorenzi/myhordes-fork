@@ -38,13 +38,14 @@ class RuinZoneRepository extends ServiceEntityRepository
         }
     }
 
-    public function findOneByPosition(Zone $zone, int $x, int $y): ?RuinZone
+    public function findOneByPosition(Zone $zone, int $x, int $y, int $z = 0): ?RuinZone
     {
         try {
             return $this->createQueryBuilder('rz')
                 ->andWhere('rz.zone = :z')->setParameter('z', $zone)
                 ->andWhere('rz.x = :px')->setParameter('px', $x)
                 ->andWhere('rz.y = :py')->setParameter('py', $y)
+                ->andWhere('rz.z = :pz')->setParameter('pz', $z)
                 ->getQuery()
                 ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {
@@ -54,7 +55,7 @@ class RuinZoneRepository extends ServiceEntityRepository
 
     public function findOneByExplorerStats(RuinExplorerStats $ex): ?RuinZone
     {
-        return $ex->getActive() ? $this->findOneByPosition( $ex->getZone(), $ex->getX(), $ex->getY() ) : null;
+        return $ex->getActive() ? $this->findOneByPosition( $ex->getZone(), $ex->getX(), $ex->getY(), $ex->getZ() ) : null;
     }
 
     // /**

@@ -206,7 +206,7 @@ class TwinoidHandler
         $user->setImportedHeroDaysSpent( 0 );
     }
 
-    function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary, bool $isLimited ): bool {
+    function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary, bool $isLimited, bool $forceResetDisableFlag = false ): bool {
         if (($lang = $this->getScopeLanguage($scope)) === null) return false;
 
         //<editor-fold desc="Town Import">
@@ -281,10 +281,14 @@ class TwinoidHandler
             /** @var CitizenRankingProxy $entry */
             $entry = $this->em->getRepository(CitizenRankingProxy::class)->findOneBy( ['user' => $user, 'importID' => $town->getID(), 'importLang' => $lang] );
             if ($entry) {
+
                 $entry
                     ->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() )->setCleanupUsername($town->getCleanup()['user'])
                     ->setCleanupType($town->getCleanup()['type'])
                     ->getTown()->setV1($town->isOld());
+
+                if (($entry->getLimitedImport() && !($isPrimary && $isLimited)) || $forceResetDisableFlag)
+                    $entry->setDisableFlag(CitizenRankingProxy::DISABLE_NOTHING);
                 $this->em->persist( $entry );
             }
         }

@@ -74,7 +74,7 @@
   }
 
   .gazette-search {
-    margin-left: 10px !important;
+    margin-left: 0 !important;
     h2 {
       overflow: hidden;
     }
@@ -116,6 +116,7 @@
     }
   }
 }
+
 @media (max-width: (@screen-medium-threshold - 1)) and (min-width: @screen-small-threshold) {
   .hide-@{screen-medium} {display: none !important;};
   .dashboard .attack-estimation, .dashboard .def-estimation { border-right: none; }
@@ -146,11 +147,16 @@
   .hide-@{screen-small} {display: none !important;};
   #notifications { width: 100%; left: 0; margin-left: 0; }
   #postbox {
-    img { height: 32px; width: 32px; }
+    img { height: 32px; width: 32px; image-rendering: pixelated }
     #postbox-new-msg-counter {
       position: absolute; background: darkred; padding: 2px; border-radius: 100px; bottom: -2px; right: -2px;
       display: block; width: 24px; height: 24px; font-size: 14px; text-align: center; box-shadow: 0 0 3px black;
     }
+  }
+  #apps h1 img { height: 32px; width: 32px; image-rendering: pixelated }
+  #modeCommand {
+    height: 36px !important;
+    h1 { margin: 12px 0 !important; }
   }
   #wrapper > #content #apps #apps-list ul li.app-external { width: 100% !important; }
   button:not(.no-mobile-resize), .button:not(.no-mobile-resize) { padding-top: 16px; padding-bottom: 16px; margin-top: 8px; margin-bottom: 8px; }
@@ -309,7 +315,7 @@
   }
 
   div[x-conditional-help="beyond_half_ap"] {
-    position: fixed; top: 50px; left: 10px; right: 10px; width: auto;
+    position: fixed; top: 210px; left: 10px; right: 10px; width: auto;
     &:before {display: none}
   }
 

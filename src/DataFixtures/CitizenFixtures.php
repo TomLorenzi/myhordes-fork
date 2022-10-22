@@ -22,17 +22,17 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use MyHordes\Fixtures\Fixtures\CitizenComplaint;
-use MyHordes\Fixtures\Fixtures\CitizenDeath;
-use MyHordes\Fixtures\Fixtures\CitizenHomeLevel;
-use MyHordes\Fixtures\Fixtures\CitizenHomeUpgrade;
-use MyHordes\Fixtures\Fixtures\CitizenNotificationMarker;
+use MyHordes\Plugins\Fixtures\CitizenComplaint;
+use MyHordes\Plugins\Fixtures\CitizenDeath;
+use MyHordes\Plugins\Fixtures\CitizenHomeLevel;
+use MyHordes\Plugins\Fixtures\CitizenHomeUpgrade;
+use MyHordes\Plugins\Fixtures\CitizenNotificationMarker;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
-use MyHordes\Fixtures\Fixtures\CitizenStatus as CitizenStatusFixtures;
-use MyHordes\Fixtures\Fixtures\CitizenProfession as CitizenProfessionFixtures;
-use MyHordes\Fixtures\Fixtures\CitizenRole as CitizenRoleFixtures;
+use MyHordes\Plugins\Fixtures\CitizenStatus as CitizenStatusFixtures;
+use MyHordes\Plugins\Fixtures\CitizenProfession as CitizenProfessionFixtures;
+use MyHordes\Plugins\Fixtures\CitizenRole as CitizenRoleFixtures;
 
 class CitizenFixtures extends Fixture implements DependentFixtureInterface
 {

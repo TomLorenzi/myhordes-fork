@@ -473,15 +473,12 @@ x-message {
 
       & h1 {
         margin: 0px;
-        padding: 0px;
         height: 12px;
-        border: 1px solid #ddab76;
-        padding-left: 5px;
+        padding: 0 0 0 5px;
         font-size: 7pt;
         line-height: 8pt;
         text-transform: uppercase;
-        letter-spacing: 0pt;
-        background: none;
+        letter-spacing: 0;
         background-color: #5c2b20;
         color: #f0d79e;
         cursor: pointer;
@@ -509,9 +506,9 @@ x-message {
           list-style: none;
           background-color: #3b3249;
 
-          & li.mod-actions {
+          & li {
             margin: 0 0 .5em;
-            padding: 0;
+            padding: 3px 6px;
             font-size: 1.3rem;
             color: #ddab76;
             cursor: pointer;
@@ -814,7 +811,7 @@ button, *.button, *.modal-button {
   }
 }
 
-input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],input[type='date'],textarea {
+input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],input[type='date'],input[type='datetime-local'],textarea {
   transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0); color: black;
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
@@ -1078,7 +1075,7 @@ div.game-menu-area {
       &.fix-left {
         position: absolute; top: 100%; left: 0; float: none; margin-top: 12px !important; margin-left: 10px;
         &>div { display: inline-block; &+div { margin-left: 4px; } }
-        z-index: 1;
+        z-index: 10;
       }
     }
 
@@ -1754,7 +1751,7 @@ div.daily-attack {
   max-width: 442px;
   div.content {
 
-    div[data-ruffle-swf] {
+    hordes-flash[data-src] {
       overflow: hidden;
       >* {
         width: 100% !important; height: auto !important;

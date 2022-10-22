@@ -15,6 +15,7 @@ use App\Service\ItemFactory;
 use App\Service\StatusFactory;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -22,21 +23,21 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
+#[AsCommand(
+    name: 'app:citizen',
+    description: 'Manipulates and lists information about a single citizen.'
+)]
 class CitizenInspectorCommand extends LanguageCommand
 {
-    protected static $defaultName = 'app:citizen';
+    private EntityManagerInterface $entityManager;
+    private ItemFactory $itemFactory;
+    private InventoryHandler $inventoryHandler;
+    private CitizenHandler $citizenHandler;
+    private UserHandler $userHandler;
 
-    private $entityManager;
-    private $statusFactory;
-    private $itemFactory;
-    private $inventoryHandler;
-    private $citizenHandler;
-    private $userHandler;
-
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch, CommandHelper $comh, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch, CommandHelper $comh, UserHandler $uh)
     {
         $this->entityManager = $em;
-        $this->statusFactory = $sf;
         $this->inventoryHandler = $ih;
         $this->itemFactory = $if;
         $this->citizenHandler = $ch;
@@ -48,7 +49,6 @@ class CitizenInspectorCommand extends LanguageCommand
     protected function configure()
     {
         $this
-            ->setDescription('Manipulates and lists information about a single citizen.')
             ->setHelp('This command allows you work on single citizen.')
             ->addArgument('CitizenID', InputArgument::REQUIRED, 'The citizen ID')
 

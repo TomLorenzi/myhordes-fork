@@ -14,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use ReflectionClass;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -22,22 +23,21 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:debug:council',
+    description: 'Debug command to test the council dialog generator.'
+)]
 class CouncilTestCommand extends Command
 {
-    protected static $defaultName = 'app:debug:council';
-
-    private KernelInterface $kernel;
     private CommandHelper $helper;
     private Translator $trans;
     private RandomGenerator $rand;
     private EntityManagerInterface $entity_manager;
     private GazetteService $gazette_service;
 
-    public function __construct(KernelInterface $kernel, Translator $translator, CommandHelper $helper,
+    public function __construct(Translator $translator, CommandHelper $helper,
                                 RandomGenerator $rand, GazetteService $gazetteService, EntityManagerInterface $em)
     {
-        $this->kernel = $kernel;
-
         $this->trans = $translator;
         $this->helper = $helper;
         $this->rand = $rand;
@@ -50,7 +50,6 @@ class CouncilTestCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Tests the city council')
             ->setHelp('Debug CityCouncil.')
 
             ->addArgument('TownID', InputArgument::REQUIRED, 'The town ID')

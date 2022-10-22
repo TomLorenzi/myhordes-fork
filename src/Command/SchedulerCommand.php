@@ -26,16 +26,19 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 
+#[AsCommand(
+    name: 'app:schedule',
+    description: 'Hook for a scheduler'
+)]
 class SchedulerCommand extends Command
 {
-    protected static $defaultName = 'app:schedule';
-
     private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $em)
@@ -47,7 +50,6 @@ class SchedulerCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Hook for a scheduler')
             ->setHelp('This command controls scheduled actions.')
 
             ->addOption('add',  null, InputOption::VALUE_REQUIRED, 'Adds a new schedule point at the given time.')

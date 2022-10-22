@@ -28,6 +28,7 @@ class RuinZonePrototypeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('z')
             ->andWhere('z.keyImprint IS NOT NULL')
+            ->andWhere('z.level = 0')
             ->getQuery()
             ->getResult()
             ;
@@ -40,6 +41,31 @@ class RuinZonePrototypeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('z')
             ->andWhere('z.keyImprint IS NULL')
+            ->andWhere('z.level = 0')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @return RuinZonePrototype[]
+     */
+    public function findUp()
+    {
+        return $this->createQueryBuilder('z')
+            ->andWhere('z.level = 1')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @return RuinZonePrototype[]
+     */
+    public function findDown()
+    {
+        return $this->createQueryBuilder('z')
+            ->andWhere('z.level = -1')
             ->getQuery()
             ->getResult()
             ;

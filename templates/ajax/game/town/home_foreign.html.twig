@@ -45,15 +45,11 @@
         <div class="row">
             {% if (owner.user.avatar) %}
                 <div class="cell rw-12 hide-desktop hide-lg center">
-                    <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div><br />&nbsp;
+                    {% include "ajax/soul/playeravatar.html.twig" with {user: owner.user, small: true} only %}
                 </div>
 
                 <div class="cell rw-3 rw-lg-4 rw-md-0">
-                    {% if app.user.preferSmallAvatars %}
-                        <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div>
-                    {% else %}
-                        <div class="avatar ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.filename, 'ext': owner.user.avatar.format}) }}"></div>
-                    {% endif %}
+                    {% include "ajax/soul/playeravatar.html.twig" with {user: owner.user} only %}
                 </div>
             {% endif %}
 
@@ -61,7 +57,7 @@
                 <div class="row">
                     <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
                     <div class="cell rw-7 rw-lg-6">
-                        {% if not owner.alive and owner.home.recycling >= 15 %}
+                        {% if not owner.alive and owner.home.recycling >= recycle_ap %}
                             <img alt="" src="{{ asset('build/images/icons/home_recycled.gif') }}" /> {{ 'vollständig demoliert und wiederverwertet...'|trans({},'game') }}
                         {% else %}
                             <img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}" /> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}" /> ]{% endif %}
@@ -204,9 +200,11 @@
                         <button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>
                     </div>
                     {% endif %}
-                    {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
                     <!--{% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}-->
                     <!--{% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}-->
+                {% endif %}
+                {% if can_undo_complain %}
+                    <button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>
                 {% endif %}
 
                 {% if complaints|length > 0 %}
@@ -303,16 +301,16 @@
                             {{ 'Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.'|trans({citizen: owner},'game') }}
                         </span><br />
                     {% endif %}
-                    {% if owner.home.recycling >= 15 %}
+                    {% if owner.home.recycling >= recycle_ap %}
                         <span class="disposal">
                             {{ 'Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.'|trans({},'game') }}
                         </span><br />
-                    {% elseif owner.home.recycling > 0 and owner.home.recycling < 15 %}
+                    {% elseif owner.home.recycling > 0 and owner.home.recycling < recycle_ap %}
                         <br /><div class="small"><b>{{ 'Wiederverwertung:'|trans({},'game') }}</b></div>
                         <div class="vote-bar">
-                            <div class="vote-progress" style="width: {{owner.home.recycling / 15 * 100}}%;"></div>
+                            <div class="vote-progress" style="width: {{owner.home.recycling / recycle_ap * 100}}%;"></div>
                             <div class="tooltip help">
-                                {{ 'Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP'|trans({progress: owner.home.recycling, total: 15},'game') }}
+                                {{ 'Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP'|trans({progress: owner.home.recycling, total: recycle_ap},'game') }}
                             </div>
                         </div>
                     {% endif %}
@@ -388,7 +386,7 @@
                         {% block class %}chest {% if already_stolen %}locked{% endif %}{% endblock %}
                         {% block title %}{% endblock %}
                     {% endembed %}
-                {% elseif owner.home.recycling >= 15 %}
+                {% elseif owner.home.recycling >= recycle_ap %}
                     <div class="disposal">{{ 'Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.'|trans({citizen: owner}, 'game') }}</div>
                 {% else %}
                     <div class="help">{{'Als du ins Fenster schaust, bemerkst du, dass {citizen}s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...'|trans({citizen: owner}, 'game')}}</div>

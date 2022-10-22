@@ -8,7 +8,7 @@ image: registry.gitlab.com/eternaltwin/myhordes/myhordes-registry:latest
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
 services:
-  - mariadb:10.7
+  - mariadb:10.9
 
 # Set any variables we need
 variables:
@@ -66,18 +66,11 @@ translate:
       - vendor
       - node_modules
       - public/build
-  only:
-    changes:
-      - translations/*
-      - templates/**/*
-      - src/**/*
-      - packages/**/*
-    refs:
-      - master
-      - beta
-      - Dev-Ludofloria
-      - Nayr
-      - dylan57
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "push"
+      when: never
+    - if: $CI_COMMIT_TAG =~ /^translate-\d+/
+      when: on_success
   variables:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
     CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
@@ -100,6 +93,9 @@ test:
       - vendor
       - node_modules
       - public/build
+  except:
+    refs:
+      - /^l10n_.*/
 
 deploy_staging:
   stage: deploy
@@ -109,7 +105,7 @@ deploy_staging:
     - apt-get update -yqq
     - apt-get install -yqq sshpass
     - export SSHPASS=$SSH_PASSWORD
-    - sshpass -e ssh -p 2244 -o stricthostkeychecking=no deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan.dev/myhordes/www && bin/console app:migrate -g --remote origin --branch Dev-Ludofloria --environment dev --phar'
+    - sshpass -e ssh -p 2244 -o stricthostkeychecking=no deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan.dev/myhordes/www && bin/console app:migrate -g --remote origin --branch Dev-Ludofloria --environment dev --phar --release'
     - unset SSHPASS
   only:
     - Dev-Ludofloria

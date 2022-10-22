@@ -18,28 +18,34 @@ use App\Entity\PictoPrototype;
 use App\Entity\Post;
 use App\Entity\RolePlayText;
 use App\Entity\Season;
+use App\Entity\SoulResetMarker;
 use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Entity\ZonePrototype;
 use App\Enum\UserSetting;
+use App\Enum\ZoneActivityMarkerType;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\MazeMaker;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
+use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -50,10 +56,12 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:migrate',
+    description: 'Performs migrations to update content after a version update.'
+)]
 class MigrateCommand extends Command
 {
-    protected static $defaultName = 'app:migrate';
-
     private KernelInterface $kernel;
 
     private GameFactory $game_factory;
@@ -66,6 +74,7 @@ class MigrateCommand extends Command
     private UserFactory $user_factory;
     private PermissionHandler $perm;
     private CommandHelper $helper;
+    private TwinoidHandler $twin;
 
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
@@ -109,12 +118,15 @@ class MigrateCommand extends Command
         'b8d85ce69e76afe3b7cf2343ad45caca2646593d' => [ ['app:migrate', ['--update-user-settings' => true] ] ],
         'd3b4c979af675d4c861a5525c61d46bf72df3503' => [ ['app:migrate', ['--adjust-sandball-pictos2' => true] ] ],
         '8ce89ab055680dedf88da7ed2f8f711c29a07560' => [ ['app:migrate', ['--update-all-sp' => true] ] ],
+        'b552fe4373171d16e7b7a700254f9c7ebafb0cff' => [ ['app:migrate', ['--fix-ranking-survived-days' => true] ] ],
+        '45c0b9f06dd82928e6d979229f9588a634d13828' => [ ['app:migrate', ['--adjust-sandball-pictos3' => true] ] ],
+        'a759042d47a803078d40cd650fbc96a9fc92737b' => [ ['app:migrate', ['--fix-soul-reset' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf, CommandHelper $helper)
+                                UserFactory $uf, CommandHelper $helper, TwinoidHandler $twin)
     {
         $this->kernel = $kernel;
 
@@ -129,6 +141,7 @@ class MigrateCommand extends Command
         $this->user_factory = $uf;
 
         $this->helper = $helper;
+        $this->twin = $twin;
 
         parent::__construct();
     }
@@ -151,7 +164,6 @@ class MigrateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Performs migrations to update content after a version update.')
             ->setHelp('Migrations.')
 
             ->addOption('maintenance', 'm', InputOption::VALUE_REQUIRED, 'Enables (on) or disables (off) maintenance mode')
@@ -202,6 +214,8 @@ class MigrateCommand extends Command
             ->addOption('fix-flag-setting', null, InputOption::VALUE_NONE, 'Removes invalid flags from user flag setting.')
             ->addOption('adjust-sandball-pictos', null, InputOption::VALUE_NONE, '')
             ->addOption('adjust-sandball-pictos2', null, InputOption::VALUE_NONE, '')
+            ->addOption('adjust-sandball-pictos3', null, InputOption::VALUE_NONE, '')
+            ->addOption('fix-soul-reset', null, InputOption::VALUE_NONE, '')
 
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
@@ -287,14 +301,19 @@ class MigrateCommand extends Command
                 }
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
-            $version_lines = $this->helper->bin( 'git describe --tags' . ($input->getOption('release') ? ' --abbrev=0' : ''), $ret );
-            if (count($version_lines) >= 1) file_put_contents( 'VERSION', $version_lines[0] );
+            $version_lines = $this->helper->bin( 'git tag --list --sort=-version:refname "v*"', $ret );
+            $version = count($version_lines) >= 1 ? trim($version_lines[0]) : null;
+            if ($version && !$input->getOption('release')) {
+                $diff = (int)$this->helper->bin( "git rev-list --count $version..HEAD", $ret )[0];
+                if ($diff > 0) $version = "$version-$diff-" . $this->helper->bin( 'git describe --always', $ret )[0];
+            }
+            if ($version) file_put_contents( 'VERSION', $version );
 
             if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true, $null, $php, false, 0, $as )) return 7;
             if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true, $null, $php, false, 0, $as )) return 8;
             if (!$this->helper->capsule( "app:migrate -p -v", $output, 'Running post-installation scripts... ', true, $null, $php, true, 0, $as )) return 9;
 
-            if (count($version_lines) >= 1) $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
+            if ($version) $output->writeln("Updated MyHordes to version <info>{$version}</info>");
 
             if (!$input->getOption('stay-offline')) {
                 for ($i = 3; $i > 0; --$i) {
@@ -856,8 +875,8 @@ class MigrateCommand extends Command
                     if ($spawn_zone) {
                         $output->writeln("Spawning <info>{$spawning_ruin->getLabel()}</info> at <info>{$spawn_zone->getX()} / {$spawn_zone->getY()}</info>");
                         $spawn_zone->setPrototype($spawning_ruin);
-                        $this->maze->createField( $spawn_zone );
-                        $this->maze->generateMaze( $spawn_zone );
+                        $this->maze->createField( $spawn_zone, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_FLOORS, 1) );
+                        $this->maze->generateCompleteMaze( $spawn_zone );
                     }
 
                     $ex++;
@@ -1003,6 +1022,77 @@ class MigrateCommand extends Command
                         return true;
                     } else return false;
                 }, false );
+
+            return 0;
+        }
+
+        if ($input->getOption('adjust-sandball-pictos3')) {
+            $sandball_picto_proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_sandb_#00');
+            $sandball_pictos = $this->entity_manager->getRepository(Picto::class)->findBy( ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto ] );
+            $users_count = [];
+            foreach ($sandball_pictos as $picto)
+                if (!isset($users_count[ $picto->getUser()->getId() ]))
+                    $users_count[ $picto->getUser()->getId() ] = $picto->getCount();
+                else $users_count[ $picto->getUser()->getId() ] += $picto->getCount();
+
+            $users_count = array_filter( $users_count, fn($c) => $c > 2 );
+            foreach ($users_count as $id => $count) {
+                $output->write( "<comment>$id</comment> $count. " );
+                $pictos = $this->entity_manager->getRepository(Picto::class)->findBy( ['imported' => false, 'old' => false, 'prototype' => $sandball_picto_proto, 'user' => $id ], ['count' => 'DESC'] );
+                $c = 0; $deleted = 0;
+                foreach ( $pictos as $picto ) {
+                    if ($picto->getCount() > 2) {
+                        $deleted += $picto->getCount() - 2;
+                        $c += 2;
+                        $picto->setCount(2);
+                        $this->entity_manager->persist($picto);
+                    } elseif ($c >= 1) {
+                        $deleted += $picto->getCount();
+                        $this->entity_manager->remove($picto);
+                    } else ($c += $picto->getCount());
+                }
+                $output->writeln( "Deleted <info>$deleted</info>, kept <info>$c</info>" );
+            }
+
+            $this->entity_manager->flush();
+
+            return 0;
+        }
+
+        if ($input->getOption('fix-soul-reset')) {
+
+
+            $reset_markers = $this->entity_manager->getRepository(SoulResetMarker::class)->findAll();
+            $users = [];
+            foreach ($reset_markers as $reset_marker) {
+                $users[ $reset_marker->getUser()->getId() ] = $reset_marker->getUser();
+                if ($reset_marker->getRanking()->getTown()->getImported()) {
+                    $this->entity_manager->persist( $reset_marker->getRanking()->setDisableFlag( CitizenRankingProxy::DISABLE_NOTHING ) );
+                    $this->entity_manager->remove( $reset_marker );
+                }
+            }
+
+            foreach ($users as $user) {
+                $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+                if ($main) {
+                    $this->twin->importData($main->getUser(), $main->getScope(), $main->getData($this->entity_manager), true, false, true);
+                    $this->entity_manager->persist($user);
+                    foreach ($user->getPastLifes() as $pastLife)
+                        if ($pastLife->getLimitedImport())
+                            $this->entity_manager->persist($pastLife->setLimitedImport(false)->setDisabled(false));
+                    $this->entity_manager->flush();
+
+                    $user->setImportedSoulPoints($this->user_handler->fetchImportedSoulPoints($user));
+                    $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
+
+                    $this->user_handler->computePictoUnlocks($user);
+                    $this->entity_manager->persist($user);
+                    $this->entity_manager->flush();
+                }
+            }
+
+            $this->entity_manager->flush();
 
             return 0;
         }

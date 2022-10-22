@@ -77,30 +77,15 @@ class LandingController extends CustomAbstractController
             return $this->redirect($this->generateUrl('initial_landing'));
 
         $attack_messages = [
-            $this->translator->trans('Deinen Rucksack umklammern', [], 'global'),
-            $this->translator->trans('Schreien', [], 'global'),
-            $this->translator->trans('Rotz und Wasser heulen', [], 'global'),
-            $this->translator->trans('Die Zähne zusammenbeißen', [], 'global'),
-            $this->translator->trans('Eine Gitarre umarmen', [], 'global'),
-            $this->translator->trans('Nervös weinen', [], 'global'),
-            $this->translator->trans('In Panik ausbrechen', [], 'global'),
-            $this->translator->trans('Hinter dem Wrack verstecken', [], 'global'),
-            $this->translator->trans('Die Tür zuhalten', [], 'global'),
-            $this->translator->trans('Unter der Decke verstecken', [], 'global'),
-            $this->translator->trans('Nach Hilfe schreien', [], 'global'),
-            $this->translator->trans('"Hilfe" schreien', [], 'global'),
-            $this->translator->trans('Unter einem Karton verstecken', [], 'global'),
-            $this->translator->trans('Unter dem Bett verstecken', [], 'global'),
-            $this->translator->trans('Ruhig bleiben...', [], 'global'),
-            $this->translator->trans('In die Fötusstellung zusammenrollen', [], 'global'),
-            $this->translator->trans('Alleine laut singen', [], 'global'),
-            $this->translator->trans('Um dein Leben beten', [], 'global'),
-            $this->translator->trans('Die Backen halten', [], 'global'),
+            'de' => ['Den Kater drücken', 'Einen "Wake the Dead" trinken', 'Schlafen gehen', 'Testament schreiben', 'Einen Strick knüpfen', 'Acco verfluchen', 'Mich übers Meta-Cap aufregen', 'Einfach mal 22 Minuten warten...', 'Kopf gegen Wand', 'Hoffen, nicht einzuschlafen', 'Alles verdrängen', 'Den Raben huldigen', 'Nach Drogen suchen', 'An den Fingernägeln knabbern', 'Gliedmaßen überprüfen', 'Die Sandburg höher bauen!', 'Leise meine letzten Worte murmeln', 'In Borderlands Boten blättern', 'Wüstenfunk abhören!', 'Mir vorstellen, wie ein Järpentisch aussehen könnte', 'Acco rupfen, teeren, federn, nochmal rupfen', 'Hektisch die Patronen suchen', 'Die Bibel in Blindenschrift lesen', '28 Tage warten', 'Däumchen drehen', 'Ins Nachbarzelt krabbeln', 'Auf Dayan warten', 'Das aktuelle Leichsblatt verfassen', 'Gemütlich die Camperstellung halten', 'Auf den kreischenden Wecker starren', 'Leichsblatt lesen', 'Einen Abendspaziergang unternehmen', 'Meinen knuddeligen Kater knuddeln', 'Meine Ratte füttern', 'Ein Bild vom Weltuntergang malen', 'Ein Ka-tet gründen', 'Den scharlachroten König verfluchen!', 'Leiche eines Reisenden anknabbern', 'Am Daumen lutschen', 'Einen Järpen-Tisch schnitzen', 'Den Järpen-Tisch in der Wüste verstecken', 'In der Nase bohren und "La Paloma" singen', 'Den ekligen Hautfetzen überziehen', 'Ein Rabenkostüm anziehen', 'Leute im Kostüm erschrecken', 'In Ruhe warten...', 'Das Licht löschen', 'Plüschtier knuddeln', 'Einen Tunnel weg von der Stadt graben', 'Einen Dieb in den Fleischkäfig stecken', 'Laut singen "Einer geht noch..."', 'Dem Hund das Sprechen beibringen', 'Den Schlaf in Empfang nehmen'],
+            'en' => ['Hold the door', 'Scream', 'Hide under the bed', 'Clench your cheeks', 'Wait under the sheets', 'Call for help', 'Hug a broken guitar', 'Pray for your life', 'Sing at the top of your voice, alone', 'Yell "help"', 'Curl up in the foetal position', 'Hug your rucksack', 'Grind your teeth', 'Scream and panic', 'Hide behind the wreckage', 'Hide in a box', 'Wait calmly...', 'Cry nervously', 'Wail like a banshee'],
+            'es' => ['¡Tengo esposa e hijos!', '¡Nooooooo!', 'Esconderse bajo la cama', 'Apretar el puño', '¡Maaadre mía!', '¡Auxiliooo!', '¡Que se coman a mis vecinos!', '¿Por qué a mí?', '¡Me muero!', 'Llorar en posición fetal', '¡Mi carne apesta!', '¡Yo solo pasaba por aquí!', '¡Adiós mundo cruel!', '¡No se lleven a mi amigo!', '¡Me vengaré!', '¡Malditos zombies!', '¡Soy demasiado joven!', '¡Ay que miedo!', '¡Esta vez no podrán conmigo!'],
+            'fr' => ['Tenir la porte', 'Hurler', 'Se cacher sous le lit', 'Serrer les fesses', 'Attendre sous les draps', 'Appeler à l\'aide', 'Se cramponner à un bout de bois', 'Prier pour sa vie', 'S\'égosiller tout seul chez soi', 'Brailler « au secours »', 'Pleurer en position foetale', 'Se cramponner à son sac à dos', 'Claquer des dents', 'Paniquer et hurler', 'Se planquer derrière des détritus', 'Ramper sous un carton', 'Attendre calmement...', 'Pleurer nerveusement', 'Vociférer comme un dément']
         ];
 
-        $button_texts = $rand->pick($attack_messages, 2);
+        $button_texts = $rand->pick($attack_messages[ $this->getUserLanguage() ?? 'en' ] ?? $attack_messages['en'], 2);
 
-        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts, 'attack_running' => $tk->isDuringAttack()] );
+        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts, 'attack_running' => $tk->isDuringAttack(), 'clock' => ['attack' => 0]] );
     }
 
 

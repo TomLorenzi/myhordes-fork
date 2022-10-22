@@ -3,7 +3,7 @@
 namespace MyHordes\Fixtures\Service;
 
 use App\Entity\LogEntryTemplate;
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class LogDataService implements FixtureProcessorInterface {
 
@@ -89,6 +89,7 @@ class LogDataService implements FixtureProcessorInterface {
             ['text'=>'Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.', 'name'=>'nightlyAttackDisappointed', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
             ['text'=>'Von der Stadtverteidigung aufgehalten, kehrte <i class="dagger">†</i> {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...', 'name'=>'nightlyAttackDisappointedCitizen', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'])],
             ['text'=>'... das OFFEN stand! {num} Zombies sind in die Stadt eingedrungen!', 'name'=>'nightlyAttackSummaryOpenDoor', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassDanger, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"num",'name'=>'num'])],
+            ['text'=>'Ein einzelner Zombie ist in die Stadt eingedrungen!', 'name'=>'nightlyAttackSummaryOneZombie', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
             ['text'=>'{num} Zombies sind durch unsere Verteidigung gebrochen!', 'name'=>'nightlyAttackSummarySomeZombies', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"num",'name'=>'num'])],
             ['text'=>'Nicht ein Zombie hat die Stadt betreten!', 'name'=>'nightlyAttackSummaryNoZombies', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
             ['text'=>'{num} Zombies attackieren die Stadtbewohner!', 'name'=>'nightlyAttackLazy', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"num",'name'=>'num'])],
@@ -230,6 +231,9 @@ class LogDataService implements FixtureProcessorInterface {
 
             ['text'=>'<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_c} {list_i} {list_t}', 'name'=>'gpm_unlock_titles', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"title-list",'name'=>'list_t'],['type'=>"title-icon-list",'name'=>'list_i'],['type'=>"title-custom-list",'name'=>'list_c'])],
             ['text'=>'<strong>Herzlichen Glückwunsch</strong>, du hast Folgendes freigeschaltet: {list}', 'name'=>'gpm_unlock_titles2', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"award-list",'name'=>'list'])],
+
+            ['text'=>'{player} hat dich in einem Post unter "{threadname}" im Forum "{forumname}" erwähnt. {link_post}', 'name'=>'gpm_post_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'],['type'=>"string",'name'=>'threadname'], ['type'=>"string",'name'=>'forumname'], ['type'=>"link_post",'name'=>'link_post'])],
+            ['text'=>'{player} hat dich als "Freund" hinzugefügt.', 'name'=>'gpm_friend_notification', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"user",'name'=>'player'])],
         ]);
     }
 }

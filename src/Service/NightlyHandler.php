@@ -10,7 +10,6 @@ use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
 use App\Entity\CouncilEntryTemplate;
-use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
 use App\Entity\GazetteEntryTemplate;
@@ -270,7 +269,7 @@ class NightlyHandler
             $th = $town_conf->get(TownConf::CONF_GUIDE_SP_LIMIT, 100);
             if ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
                 return $this->user_handler->fetchSoulPoints( $c->getUser(), true, true ) < $th;
-            })->count() >= $town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 20))
+            })->count() >= ($town_conf->get(TownConf::CONF_GUIDE_CTC_LIMIT, 0.5) * $town->getPopulation()))
 
                 // Each citizen above the threshold gets assigned the potential guide status
                 foreach ($town->getCitizens()->filter(function (Citizen $c) use ($th) {
@@ -848,7 +847,7 @@ class NightlyHandler
 
                 // Remove all night watch items
                 foreach ($ctz->getInventory()->getItems() as $item)
-                    if ($item->getPrototype()->getWatchpoint() > 0) $this->inventory_handler->forceRemoveItem( $item );
+                    if ($item->getPrototype()->getWatchpoint() > 0 || $item->getPrototype()->getName() === 'chkspk_#00') $this->inventory_handler->forceRemoveItem( $item );
 
                 $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
 
@@ -977,7 +976,7 @@ class NightlyHandler
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
             // Panda towns sees their defense object in the bank destroyed
-            $number = max(1, min(mt_rand($est->getZombies() * 0.01, $est->getZombies() * 0.2), 20));
+            $number = max(1, min(ceil($est->getZombies() - $def_summary->withoutItemDefense()) * 0.5, 20));
             $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
             $this->log->info("We destroy <info>$number</info> items");
             $this->log->info("We fetched <info>". count($items) . "</info> items");
@@ -1240,6 +1239,12 @@ class NightlyHandler
             }
 
             $citizen->getExpeditionRoutes()->clear();
+            foreach ($citizen->getZoneActivityMarkers() as $marker)
+                if ($marker->getType()->daily()) {
+                    $marker->getZone()->removeActivityMarker($marker);
+                    $citizen->removeZoneActivityMarker($marker);
+                    $this->cleanup[] = $marker;
+                }
 
             if (!$citizen->getAlive()) continue;
 
@@ -1301,8 +1306,6 @@ class NightlyHandler
             
             foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
                 $this->cleanup[] = $et;
-            foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findAllByCitizen( $citizen ) as $drm)
-                $this->cleanup[] = $drm;
 
             $add_hangover = ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_no_hangover'));
             foreach ($citizen->getStatus() as $st)
@@ -1486,7 +1489,7 @@ class NightlyHandler
                     $zone->removeChatSilenceTimer($timer);
                     $this->entity_manager->remove($timer);
                 }
-                $this->maze->populateMaze( $zone, $maze_zeds, true, true );
+                $this->maze->populateMaze( $zone, $maze_zeds * $zone->getExplorableFloorFactor(), true, true );
             }
 
             $distance = sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) );
@@ -1648,6 +1651,7 @@ class NightlyHandler
 
         /** @var CitizenRole $role */
         $last_mc = null;
+        $all_winners = [];
         foreach ($roles as $role) {
             $this->log->info("Processing votes for role {$role->getLabel()}");
             if(!$this->town_handler->is_vote_needed($town, $role, true)) {
@@ -1658,7 +1662,7 @@ class NightlyHandler
             // Getting vote per role per citizen
             $votes = array();
             foreach ($citizens as $citizen)
-                if($citizen->getAlive() && ($c = $this->entity_manager->getRepository(CitizenVote::class)->count( ['votedCitizen' => $citizen, 'role' => $role] )) > 0)
+                if($citizen->getAlive() && !in_array( $citizen, $all_winners ) && ($c = $this->entity_manager->getRepository(CitizenVote::class)->count( ['votedCitizen' => $citizen, 'role' => $role] )) > 0)
                     $votes[$citizen->getId()] = $c;  //  ->countCitizenVotesFor($citizen, $role);
 
             if (empty($votes)) {
@@ -1685,7 +1689,7 @@ class NightlyHandler
 
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneBy(['autor' => $citizen, 'role' => $role]); //findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
-                if ($voted === null || !$voted->getVotedCitizen()->getAlive()) {
+                if ($voted === null || !$voted->getVotedCitizen()->getAlive() || in_array( $voted->getVotedCitizen(), $all_winners )) {
                     $this->log->debug("Citizen {$citizen->getName()} didn't vote, or voted for a dead citizen. We replace the vote.");
                     // He has not voted, or the citizen he voted for is now dead, let's give his vote to someone who has votes
                     $vote_for_id = $this->random->pick(array_keys($votes), 1);
@@ -1719,6 +1723,7 @@ class NightlyHandler
                 $this->entity_manager->persist($winningCitizen);
 
                 $partition['_winner'] = [$winningCitizen];
+                if ($town->getDay() <= 2) $all_winners[] = $winningCitizen;
 
                 $partition['_council?'] = array_diff( $partition['_council?'], array_slice($partition['voted'], 0, max(0,count($partition['_council?']) - 7)), $partition['_winner'] );
                 $partition['voted'] = array_diff( $partition['voted'], $partition['_winner'] );
@@ -1781,7 +1786,7 @@ class NightlyHandler
         $novelty_lamps = $this->town_handler->getBuilding( $town, 'small_novlamps_#00', true );
 
         if ($novelty_lamps) {
-            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() > 2 ? 2 : 1) : 0;
+            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() >= 2 ? 2 : 1) : 0;
 
             $ok = $bats === 0;
 

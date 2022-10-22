@@ -5,9 +5,11 @@ namespace App\EventSubscriber;
 
 use App\Annotations\ExternalAPI;
 use App\Annotations\GateKeeperProfile;
+use App\Entity\ExternalAPIUsageRecord;
 use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Enum\ExternalAPIError;
+use App\Service\RateLimitingFactoryProvider;
 use App\Service\TimeKeeperService;
 use Doctrine\ORM\EntityManagerInterface;
 use JetBrains\PhpStorm\ArrayShape;
@@ -18,7 +20,6 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\RateLimiter\LimiterInterface;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Security\Core\Security;
 
 class APIRequestListener implements EventSubscriberInterface
@@ -27,30 +28,21 @@ class APIRequestListener implements EventSubscriberInterface
     private EntityManagerInterface $entity_manager;
     private Security $security;
     private TimeKeeperService $timeKeeper;
-
-    private RateLimiterFactory $rate_public;
-    private RateLimiterFactory $rate_anon;
-    private RateLimiterFactory $rate_app;
-    private RateLimiterFactory $rate_user;
+    private RateLimitingFactoryProvider $rate_limit;
 
     private $headers = [];
 
 
     public function __construct(
         ContainerInterface $container, EntityManagerInterface $em, Security $security, TimeKeeperService $tk,
-        RateLimiterFactory $authenticatedPersonalApiLimiter, RateLimiterFactory $authenticatedApiLimiter,
-        RateLimiterFactory $anonymousApiLimiter, RateLimiterFactory $publicApiLimiter,
+        RateLimitingFactoryProvider $rateLimiter
     )
     {
         $this->container = $container;
         $this->entity_manager = $em;
         $this->security = $security;
         $this->timeKeeper = $tk;
-
-        $this->rate_public = $publicApiLimiter;
-        $this->rate_anon = $anonymousApiLimiter;
-        $this->rate_app = $authenticatedApiLimiter;
-        $this->rate_user = $authenticatedPersonalApiLimiter;
+        $this->rate_limit = $rateLimiter;
     }
 
     public function redirectToErrorHandler(ControllerEvent $event, ExternalAPIError $message): int {
@@ -60,7 +52,8 @@ class APIRequestListener implements EventSubscriberInterface
         return 0;
     }
 
-    public function process(ControllerEvent $event) {
+    public function process(ControllerEvent $event): int
+    {
         /** @var ?ExternalAPI $apiConf */
         if ($apiConf = $event->getRequest()->attributes->get('_ExternalAPI') ?? null) {
 
@@ -69,8 +62,6 @@ class APIRequestListener implements EventSubscriberInterface
                 $gk->value = 'skip';
                 $event->getRequest()->attributes->add( ['_GateKeeperProfile' => $gk] );
             }
-
-
 
             // Load params
             $app_key = trim($event->getRequest()->query->get('appkey') ?? $event->getRequest()->request->get('appkey') ?? '');
@@ -116,10 +107,10 @@ class APIRequestListener implements EventSubscriberInterface
                 $apk = $app?->getId() ?? $r_app;
 
                 $limiters = [];
-                if (!$r_usr && !$r_app) $limiters = [$this->rate_public->create('pbk')];
-                elseif ($r_usr && !$r_app) $limiters = [$this->rate_anon->create(  $upk )];
-                elseif (!$r_usr && $r_app) $limiters = [$this->rate_app->create( $apk )];
-                elseif ($r_usr && $r_app) $limiters = [$this->rate_app->create( $apk ), $this->rate_user->create( "{$upk}.{$apk}" )];
+                if (!$r_usr && !$r_app) $limiters =    [$this->rate_limit->publicApi->create('pbk')];
+                elseif ($r_usr && !$r_app) $limiters = [$this->rate_limit->anonymousApi->create(  $upk )];
+                elseif (!$r_usr && $r_app) $limiters = [$this->rate_limit->authenticatedApi->create( $apk )];
+                elseif ($r_usr && $r_app) $limiters =  [$this->rate_limit->authenticatedApi->create( $apk ), $this->rate_limit->authenticatedPersonalApi->create( "{$upk}.{$apk}" )];
 
                 $this->headers = [
                     'X-RateLimit-Remaining' => PHP_INT_MAX,
@@ -141,7 +132,16 @@ class APIRequestListener implements EventSubscriberInterface
                 }
             }
 
-            //var_dump( $event->getRequest()->attributes->keys() ); die;
+            try {
+                $this->entity_manager->persist( (new ExternalAPIUsageRecord())
+                    ->setApi( $apiConf->api )
+                    ->setApp( $app )
+                    ->setUser( $user )
+                    ->setTimestamp( new \DateTime() )
+                    ->setDebug( $app_key === 'fefe0000fefe0000fefe0000fefe0000' || $user_key === 'fefe0000fefe0000fefe0000fefe0000' )
+                );
+                $this->entity_manager->flush();
+            } catch (\Throwable) {}
         }
 
         return 0;

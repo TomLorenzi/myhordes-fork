@@ -80,17 +80,7 @@
         {% if not is_deleted %}
         <div class="row">
             <div class="cell rw-4">
-                {% if crow and dummy %}
-                    <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
-                {% else %}
-                    <div class="avatar">
-                        {% if user.avatar is null %}
-                            <div class="no-avatar"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
-                        {% else %}
-                            <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}">
-                        {% endif %}
-                    </div>
-                {% endif %}
+                {% include "ajax/soul/playeravatar.html.twig" with {user: user} only %}
             </div>
             <div class="cell rw-8 row user-infos">
                 <div class="row-flex v-center gap">

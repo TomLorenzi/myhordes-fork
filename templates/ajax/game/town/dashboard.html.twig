@@ -18,7 +18,8 @@
                 <em>{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</em><br />
                 <span class="counter">
                 {% if (zeds_today[3] >= wtt) and zeds_today[0] %}
-                    {{ zeds_today[1] }} - {{ zeds_today[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                    {{ '{est_min} - {est_max}'|trans({est_min: zeds_today[1], est_max: zeds_today[2]}, 'game') }}
+                    <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
                 {% else %}
                     {{ 'Unbekannt'|trans({}, 'game')}} {{ help_btn(('Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global'))) }}
                 {% endif %}
@@ -27,7 +28,8 @@
                     <br /><em>{{ 'Morgiger Angriff :'|trans({},'game') }}</em><br />
                     <span class="counter">
                     {% if (zeds_today[3] >= 100) %}
-                        {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                        {{ '{est_min} - {est_max}'|trans({est_min: zeds_tomorrow[1], est_max: zeds_tomorrow[2]}, 'game') }}
+                        <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
                     {% else %}
                         {{ 'Unbekannt'|trans({}, 'game')}} {{ help_btn(('Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global'))) }}
                     {% endif %}
@@ -40,14 +42,14 @@
                     {% if def < zeds_today[1] %}
                          <span class="warning">
                             {{'Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
-                            {% if has_battlement %}
+                            {% if (has_battlement or act_as_battlement) and not is_watcher %}
                                 <div x-ajax-href="{{ path('town_nightwatch') }}" class="link">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}
                         </span>
                     {% elseif def >= zeds_today[1] and def < zeds_today[2] %}
                         <span class="warning">
                             {{'Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
-                            {% if has_battlement %}
+                            {% if (has_battlement or act_as_battlement) and not is_watcher %}
                                 <div x-ajax-href="{{ path('town_nightwatch') }}" class="link">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}
                         </span>
@@ -224,7 +226,7 @@
                 {% if def_summary.overall_scale > 1 %}
                 <li>{{'Bonus'|trans({}, 'game')}} : + {{ ((def_summary.overall_scale - 1) * 100)|round(2)}} % </li>
                 {% endif %}
-                {% if has_battlement and def_summary.nightwatch_defense > 0 %}
+                {% if (has_battlement or act_as_battlement) and def_summary.nightwatch_defense > 0 %}
                 <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
                 {% if def_summary.soul_defense > 0 %}

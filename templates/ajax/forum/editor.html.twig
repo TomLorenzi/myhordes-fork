@@ -70,7 +70,7 @@
             <div class="row {% if current_tag is not defined or current_tag is empty %}hidden{% endif %}" id="{{ type }}-forum-editor-tag-row">
                 {% if type != 'global-pm' and type != 'numb' %}
                     <div class="cell rw-3 padded">
-                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'global') }}</label>
+                        <label for="{{ type }}-forum-editor-tag">{{ 'Tag'|trans({},'forum') }}</label>
                     </div>
                     <div class="cell rw-9 padded">
                         <select id="{{ type }}-forum-editor-tag">
@@ -137,6 +137,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="collapse" class="forum-button"><i class="fas fa-square-caret-down"></i><span class="forum-button-tooltip">{{ 'Einklappen'|trans({},'global') }}</span></div>
                     {% if permission.format_oracle() and type == 'forum' %}
                         <div x-forum-action="modal" x-text-modal-node="poll" class="forum-button"><i class="fa fa-poll"></i><span class="forum-button-tooltip">{{ 'Umfrage einfügen'|trans({},'global') }}</span></div>
                     {% endif %}
@@ -370,6 +371,8 @@
                     let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
                     return [n ? n.getAttribute('x-text-emote') : null, s];
                 }, {autoLinks: $.client.config.autoParseLinks.get()} );
+
+                $.html.handleCollapseSection( get_preview() );
             }
 
             node_transfer_source.addEventListener('input', () => {
@@ -425,9 +428,9 @@
                 e.stopPropagation();
 
                 const tag = elem.getAttribute('x-text-modal-node');
-                const before = node_transfer_source.value.substr( 0, node_transfer_source.selectionStart );
-                const selected = node_transfer_source.value.substr( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd - node_transfer_source.selectionStart );
-                const after = node_transfer_source.value.substr( node_transfer_source.selectionEnd );
+                const before = node_transfer_source.value.substring( 0, node_transfer_source.selectionStart );
+                const selected = node_transfer_source.value.substring( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd );
+                const after = node_transfer_source.value.substring( node_transfer_source.selectionEnd );
                 let title;
 
                 let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
@@ -462,6 +465,12 @@
 
                     let label = $.html.createElement('<label for="rp-text">{{ 'Namen eingeben'|trans({},'global')|e('js') }}</label>');
                     let input = textInput = $.html.createElement('<input type="text" id="rp-text" />');
+                    form.append(label,input);
+                } else if (tag === 'collapse') {
+                    title = "{{ 'Eingeklappte Sektion hinzufügen'|trans({},'global') }}";
+
+                    let label = $.html.createElement('<label for="collapse-title">{{ 'Kopfzeile'|trans({},'global')|e('js') }}</label>');
+                    let input = textInput = $.html.createElement('<input type="text" id="collapse-title" />');
                     form.append(label,input);
                 } else if (tag === 'poll') {
                     title = "{{ 'Umfrage einfügen'|trans({},'global') }}";
@@ -541,6 +550,27 @@
                             before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0) + selected.length);
                         node_transfer_source.focus()
                         transfer_to_preview();
+                    } else if (tag === 'collapse') {
+                        let tagText;
+
+                        let doc = new DOMParser().parseFromString(textInput.value ? textInput.value : '', 'text/html');
+                        tagText = doc.body.textContent || "";
+
+                        if (!tagText) {
+                            $.html.error('{{ 'Du musst eine Kopfzeile angeben.'|trans({},'global')|e('js') }}');
+                            return;
+                        }
+
+                        $.html.triggerPopupPop(elem);
+
+                        node_transfer_source.value =
+                            before + '[' + tag + (tagText ? ('=' + tagText) : '') + ']' + selected + '[/' + tag + ']' + after;
+
+                        node_transfer_source.setSelectionRange(
+                            before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0),
+                            before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0) + selected.length);
+                        node_transfer_source.focus()
+                        transfer_to_preview();
                     } else if (tag === 'poll') {
 
                         let answers = form.querySelectorAll('[x-poll-model="answer"]');
@@ -607,11 +637,11 @@
                 let s_end = node_transfer_source.selectionEnd;
 
                 node_transfer_source.value =
-                    content.substr( 0, s_start ) +
+                    content.substring( 0, s_start ) +
                     '[' + tag + ']' +
-                    content.substr( s_start, s_end - s_start ) +
+                    content.substring( s_start, s_end ) +
                     '[/' + tag + ']' +
-                    content.substr( s_end );
+                    content.substring( s_end );
 
                 node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
                 node_transfer_source.focus();
@@ -627,9 +657,9 @@
                 let s_end = node_transfer_source.selectionEnd;
 
                 node_transfer_source.value =
-                    content.substr( 0, s_start ) +
+                    content.substring( 0, s_start ) +
                     '{' + tag + '}' +
-                    content.substr( s_start );
+                    content.substring( s_start );
 
                 node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
                 node_transfer_source.focus();
@@ -644,21 +674,28 @@
                 let s_start = node_transfer_source.selectionStart;
                 let s_end = node_transfer_source.selectionEnd;
 
-                let selection = content.substr( s_start, s_end - s_start );
-                
+                let selection = content.substring( s_start, s_end );
+                let beforeSelection = content.substring( 0, s_start ).split("\n").pop().replace(/\s*?/g, '');
+
+                if ( selection.includes('[*]') || selection.includes('[0]') || beforeSelection.includes('[*]') || beforeSelection.includes('[0]') ) {
+                    s_start = s_end;
+                    selection = '';
+                    beforeSelection = '-';
+                }
+
                 // Replace subsequent selected line returns to form a full list
-                selection = selection.replaceAll('\n',`\n[${tag}]`);   
+                selection = selection.replaceAll('\n',`\n[${tag}]`);
 
-                let result = `\n[${tag}]${selection}`;
-
+                let result = `[${tag}]${selection}`;
+                if (beforeSelection) result = "\n" + result;
 
                 node_transfer_source.value =
-                    content.substr( 0, s_start ) +
+                    content.substring( 0, s_start ) +
                     result +
-                    content.substr( s_end );
+                    content.substring( s_end );
 
-                // s_start + 1 -> ignore the added '\n' at the start
-                node_transfer_source.setSelectionRange( s_start + 1, s_start + result.length );
+                // s_start + 1 -> ignore the added '\n' at the start if it was added
+                node_transfer_source.setSelectionRange( s_start + (beforeSelection ? 1 : 0), s_start + result.length );
                 node_transfer_source.focus()
                 transfer_to_preview();
             } );
@@ -672,7 +709,7 @@
                 let s_end = node_transfer_source.selectionEnd;
 
                 node_transfer_source.value =
-                    content.substr( 0, s_start ) + tag + content.substr( s_start );
+                    content.substring( 0, s_start ) + tag + content.substring( s_start );
 
                 node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
                 node_transfer_source.focus()
@@ -687,7 +724,7 @@
                 let s_start = node_transfer_source.selectionStart;
                 let s_end = node_transfer_source.selectionEnd;
 
-                node_transfer_source.value = content.substr( 0, s_start ) + tag + content.substr( s_start );
+                node_transfer_source.value = content.substring( 0, s_start ) + tag + content.substring( s_start );
 
                 node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
                 node_transfer_source.focus()
@@ -866,9 +903,9 @@
                         function () {
                             $.html.addEventListenerAll('#{{ type }}-editor-add-users-list>.users-list-entry>div', 'click', function (e, elem) {
 
-                                const before = node_transfer_source.value.substr( 0, node_transfer_source.selectionStart );
-                                const selected = node_transfer_source.value.substr( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd - node_transfer_source.selectionStart );
-                                const after = node_transfer_source.value.substr( node_transfer_source.selectionEnd );
+                                const before = node_transfer_source.value.substring( 0, node_transfer_source.selectionStart );
+                                const selected = node_transfer_source.value.substring( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd );
+                                const after = node_transfer_source.value.substring( node_transfer_source.selectionEnd );
 
                                 const node = '@' + elem.getAttribute('x-soul-name').replaceAll(/\W+/g,'') + ':' + elem.getAttribute('x-soul-id');
 
@@ -917,9 +954,9 @@
             })
             $.html.addEventListenerAll('#{{ type }}-editor-add-friend-list>.users-list-entry>div', 'click', function (e, elem) {
 
-                const before = node_transfer_source.value.substr( 0, node_transfer_source.selectionStart );
-                const selected = node_transfer_source.value.substr( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd - node_transfer_source.selectionStart );
-                const after = node_transfer_source.value.substr( node_transfer_source.selectionEnd );
+                const before = node_transfer_source.value.substring( 0, node_transfer_source.selectionStart );
+                const selected = node_transfer_source.value.substring( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd );
+                const after = node_transfer_source.value.substring( node_transfer_source.selectionEnd );
 
                 const node = '@' + elem.getAttribute('x-soul-name').replace(/\W+/,'') + ':' + elem.getAttribute('x-soul-id') + " ";
 

@@ -1,6 +1,5 @@
-MyHordes is an open implementation of the browser game "Hordes" and its other versions by Motion-Twin and developed by the community.
-All files into folder `assets/img` are the proprety of Motion-Twin, and are under [CC-BY-NC-SA-4.0 license](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html).
-The rest of the project, is under [AGPL3 license](https://spdx.org/licenses/AGPL-3.0-or-later.html).
+MyHordes is an open implementation developed by the community of the browser game "Hordes" and its other versions made by [Motion-Twin](https://motion-twin.com/fr/).
+The whole folder is under [CC-BY-NC-SA-4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/), some part of the code use [Hordes open-source code](https://github.com/motion-twin/WebGamesArchives/tree/main/Hordes).
 
 # Development Installation
 #### Tested on Debian 10, Ubuntu 19.04 
@@ -305,15 +304,7 @@ sudo service mysql start
 ```
 
 ## Using Docker
-You can also setup a development environment using Docker:
-* Run *./docker/setup.sh* wait for completion.
-*yarn* can have hard times to install the packages on the container. Run *yarn install* host side to prevent any freeze (or uncomment the line in setup.sh).
-* Run *./docker/setup.sh* to setup the db / install PHP packages.
-* MyHordes will be accessible by default using the following addresses: *http://127.0.0.1/* - *http://localhost/*
-
-Note 1: If you are running Windows, execute the shell scripts through a proper terminal (Git bash, Windows 10 bash, Cmder, ...)
-
-Note 2: you can change the port by editing *docker/nginx/default.conf* and *docker-compose.yml*
+You can also setup a development environment using Docker. The detailed instructions and scripts could be found in the [MyHordes-Docker repository](https://gitlab.com/eternaltwin/myhordes/myhordes-docker)
 
 ## Tips and tricks
 

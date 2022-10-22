@@ -8,14 +8,14 @@ use App\Entity\RuinZonePrototype;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Enum\ArrayMergeDirective;
-use MyHordes\Fixtures\Fixtures\ZoneTag as ZoneTagFixture;
+use MyHordes\Plugins\Fixtures\ZoneTag as ZoneTagFixture;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use MyHordes\Fixtures\Fixtures\Ruin;
-use MyHordes\Fixtures\Fixtures\RuinRoom;
+use MyHordes\Plugins\Fixtures\Ruin;
+use MyHordes\Plugins\Fixtures\RuinRoom;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
@@ -65,6 +65,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setExplorable( $entry['explorable'] ?? 0 )
             ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
             ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
+            ->setEmptyDropChance( $entry['empty'] ?? 0.25 )
             ;
 
             foreach ($entity->getNamedDrops() as $existing_drop)
@@ -121,6 +122,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             // Set property
             $entity
                 ->setLabel( $entry['label'] )
+                ->setLevel( $entry['level'] ?? 0 )
                 ->setKeyImprint($lock_mold ?? null)
                 ->setKeyItem($lock_item ?? null)
             ;

@@ -9,286 +9,134 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\ORMException;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\CitizenRepository")
- * @ORM\HasLifecycleCallbacks()
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\CitizenRepository')]
+#[ORM\HasLifecycleCallbacks]
 class Citizen
 {
     const Thrown = 1;
     const Watered = 2;
     const Cooked = 3;
     const Ghoul = 4;
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $alive = true;
-
-    /**
-     * @ORM\Column(type="smallint")
-     */
+    #[ORM\Column(type: 'smallint')]
     private $ap = 6;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $active = true;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="citizens")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\User', inversedBy: 'citizens')]
+    #[ORM\JoinColumn(nullable: false)]
     private $user;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenStatus")
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenStatus')]
     private $status;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenProfession")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenProfession')]
+    #[ORM\JoinColumn(nullable: false)]
     private $profession;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenRole")
-     * @ORM\JoinColumn(nullable=true)
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenRole')]
     private $roles;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\CitizenVote", orphanRemoval=true, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\CitizenVote', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private $votes;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="citizen", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Inventory', inversedBy: 'citizen', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
     private $inventory;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Town", inversedBy="citizens")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: 'citizens')]
+    #[ORM\JoinColumn(nullable: false)]
     private $town;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\CitizenHome", inversedBy="citizen", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenHome', inversedBy: 'citizen', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
     private $home;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Zone", inversedBy="citizens")
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Zone', inversedBy: 'citizens')]
     private $zone;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\DigTimer", mappedBy="citizen", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\DigTimer', mappedBy: 'citizen', orphanRemoval: true)]
     private $digTimers;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\DailyUpgradeVote", mappedBy="citizen", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\DailyUpgradeVote', mappedBy: 'citizen', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $dailyUpgradeVote;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $walkingDistance = 0;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $survivedDays = 0;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CauseOfDeath")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\CauseOfDeath')]
+    #[ORM\JoinColumn(nullable: false)]
     private $causeOfDeath;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $Bp;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ExpeditionRoute", mappedBy="owner", orphanRemoval=true, cascade={"persist", "remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\ExpeditionRoute', mappedBy: 'owner', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private $expeditionRoutes;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $banished = false;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Complaint", mappedBy="culprit", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Complaint', mappedBy: 'culprit', orphanRemoval: true)]
     private $complaints;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\HeroicActionPrototype")
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\HeroicActionPrototype')]
     private $heroicActions;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $campingCounter = 0;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $campingTimestamp = 0;
-
-    /**
-     * @ORM\Column(type="float")
-     */
+    #[ORM\Column(type: 'float')]
     private $campingChance = 0;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ActionCounter", mappedBy="citizen", orphanRemoval=true, cascade={"persist", "remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\ActionCounter', mappedBy: 'citizen', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private $actionCounters;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $lastActionTimestamp = 0;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $pm;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenEscortSettings', inversedBy: 'citizen', cascade: ['persist', 'remove'], orphanRemoval: true)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $escortSettings;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\CitizenEscortSettings", mappedBy="leader")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\CitizenEscortSettings', mappedBy: 'leader')]
     private $leadingEscorts;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $lastWords;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $comment;
-
-    /**
-     * @ORM\Column(type="text", nullable=true, length=24)
-     */
+    #[ORM\Column(type: 'text', nullable: true, length: 24)]
     private $alias;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $disposed;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Citizen")
-     * @ORM\JoinTable(name="citizen_disposed",
-     *     joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id", unique=true)},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="disposed_by_id", referencedColumnName="id")})
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\Citizen')]
+    #[ORM\JoinTable(name: 'citizen_disposed')]
+    #[ORM\JoinColumn(name: 'id', referencedColumnName: 'id', unique: true)]
+    #[ORM\InverseJoinColumn(name: 'disposed_by_id', referencedColumnName: 'id')]
     private $disposedBy;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="citizen", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\CitizenWatch', mappedBy: 'citizen', orphanRemoval: true)]
     private $citizenWatch;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $ghulHunger = 0;
-
-    /**
-     * @ORM\OneToMany(targetEntity=PrivateMessageThread::class, mappedBy="recipient", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: PrivateMessageThread::class, mappedBy: 'recipient', orphanRemoval: true)]
     private $privateMessageThreads;
-
-    /**
-     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, mappedBy="citizen", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     */
+    #[ORM\OneToOne(targetEntity: CitizenRankingProxy::class, mappedBy: 'citizen', cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $rankingEntry;
-
-    /**
-     * @ORM\OneToMany(targetEntity=RuinExplorerStats::class, mappedBy="citizen", orphanRemoval=true, cascade={"persist", "remove"})
-     */
+    #[ORM\OneToMany(targetEntity: RuinExplorerStats::class, mappedBy: 'citizen', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private $explorerStats;
-
-    /**
-     * @ORM\OneToOne(targetEntity=BuildingVote::class, mappedBy="citizen", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     */
+    #[ORM\OneToOne(targetEntity: BuildingVote::class, mappedBy: 'citizen', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $buildingVote;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=HelpNotificationMarker::class)
-     */
+    #[ORM\ManyToMany(targetEntity: HelpNotificationMarker::class)]
     private $helpNotifications;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $hasSeenGazette = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $hasEaten = false;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=SpecialActionPrototype::class)
-     */
+    #[ORM\ManyToMany(targetEntity: SpecialActionPrototype::class)]
     private $specialActions;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $dayOfDeath = 1;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=HeroicActionPrototype::class)
-     * @ORM\JoinTable(name="citizen_used_heroic_action_prototype")
-     */
+    #[ORM\ManyToMany(targetEntity: HeroicActionPrototype::class)]
+    #[ORM\JoinTable(name: 'citizen_used_heroic_action_prototype')]
     private $usedHeroicActions;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Zone::class, orphanRemoval=true, cascade={"persist"})
-     * @ORM\JoinTable(name="citizen_visited_zones")
-     */
+    #[ORM\ManyToMany(targetEntity: Zone::class, orphanRemoval: true, cascade: ['persist'])]
+    #[ORM\JoinTable(name: 'citizen_visited_zones')]
     private $visitedZones;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $coalized = false;
 
+    #[ORM\OneToMany(mappedBy: 'citizen', targetEntity: ZoneActivityMarker::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $zoneActivityMarkers;
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -308,66 +156,56 @@ class Citizen
         $this->specialActions = new ArrayCollection();
         $this->usedHeroicActions = new ArrayCollection();
         $this->visitedZones = new ArrayCollection();
+        $this->zoneActivityMarkers = new ArrayCollection();
     }
-
     public function __toString()
     {
         return $this->getId() ? "Citizen#{$this->getId()}" : "Citizen##{$this->getUser()->getId()}#{$this->getTown()->getId()}";
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getAlive(): ?bool
     {
         return $this->alive;
     }
-
     public function setAlive(bool $alive): self
     {
         $this->alive = $alive;
 
         return $this;
     }
-
     public function getAp(): ?int
     {
         return $this->ap;
     }
-
     public function setAp(int $ap): self
     {
         $this->ap = $ap;
 
         return $this;
     }
-
     public function getActive(): ?bool
     {
         return $this->active;
     }
-
     public function setActive(bool $active): self
     {
         $this->active = $active;
 
         return $this;
     }
-
     public function getUser(): ?User
     {
         return $this->user;
     }
-
     public function setUser(?User $user): self
     {
         $this->user = $user;
 
         return $this;
     }
-
     /**
      * @return Collection|CitizenStatus[]
      */
@@ -375,7 +213,6 @@ class Citizen
     {
         return $this->status;
     }
-
     public function addStatus(CitizenStatus $status): self
     {
         if (!$this->status->contains($status)) {
@@ -384,7 +221,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeStatus(CitizenStatus $status): self
     {
         if ($this->status->contains($status)) {
@@ -393,26 +229,22 @@ class Citizen
 
         return $this;
     }
-
     public function hasStatus(string $status_name): bool
     {
         foreach ($this->getStatus() as $status)
             if ($status->getName() === $status_name) return true;
         return false;
     }
-
     public function getProfession(): ?CitizenProfession
     {
         return $this->profession;
     }
-
     public function setProfession(?CitizenProfession $profession): self
     {
         $this->profession = $profession;
 
         return $this;
     }
-
     /**
      * @return Collection|CitizenRole[]
      */
@@ -420,7 +252,6 @@ class Citizen
     {
         return $this->roles;
     }
-
     /**
      * @return Collection|CitizenRole[]
      */
@@ -428,7 +259,6 @@ class Citizen
     {
         return $this->getRoles()->filter(fn(CitizenRole $r) => !$r->getHidden());
     }
-
     public function addRole(CitizenRole $role): self
     {
         if (!$this->roles->contains($role)) {
@@ -437,7 +267,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeRole(CitizenRole $role): self
     {
         if ($this->roles->contains($role)) {
@@ -446,13 +275,11 @@ class Citizen
 
         return $this;
     }
-
     public function hasRole(string $name): bool {
         foreach ($this->getRoles() as $role)
             if ($role->getName() === $name) return true;
         return false;
     }
-
     /**
      * @return Collection|CitizenVote[]
      */
@@ -460,7 +287,6 @@ class Citizen
     {
         return $this->votes;
     }
-
     public function addVote(CitizenVote $vote): self
     {
         if (!$this->votes->contains($vote)) {
@@ -469,7 +295,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeVote(CitizenVote $vote): self
     {
         if ($this->votes->contains($vote)) {
@@ -478,65 +303,54 @@ class Citizen
 
         return $this;
     }
-
     public function getInventory(): ?Inventory
     {
         return $this->inventory;
     }
-
     public function setInventory(Inventory $inventory): self
     {
         $this->inventory = $inventory;
 
         return $this;
     }
-
     public function getTown(): ?Town
     {
         return $this->town;
     }
-
     public function setTown(?Town $town): self
     {
         $this->town = $town;
 
         return $this;
     }
-
     public function getAlias(): ?string
     {
         return $this->alias;
     }
-
     public function setAlias(?string $alias): self
     {
         $this->alias = $alias;
 
         return $this;
     }
-
     public function getName(): string
     {
         return $this->getAlias() ?? $this->getUser()->getName();
     }
-
     public function getHome(): ?CitizenHome
     {
         return $this->home;
     }
-
     public function setHome(CitizenHome $home): self
     {
         $this->home = $home;
 
         return $this;
     }
-
     public function getZone(): ?Zone
     {
         return $this->zone;
     }
-
     public function setZone(?Zone $zone): self
     {
         $this->zone = $zone;
@@ -544,7 +358,6 @@ class Citizen
 
         return $this;
     }
-
     /**
      * @return Collection|DigTimer[]
      */
@@ -552,7 +365,6 @@ class Citizen
     {
         return $this->digTimers;
     }
-
     public function addDigTimer(DigTimer $digTimer): self
     {
         if (!$this->digTimers->contains($digTimer)) {
@@ -562,7 +374,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeDigTimer(DigTimer $digTimer): self
     {
         if ($this->digTimers->contains($digTimer)) {
@@ -575,7 +386,6 @@ class Citizen
 
         return $this;
     }
-
     public function getCurrentDigTimer(): ?DigTimer {
         if (!$this->getZone()) return null;
         foreach ($this->getDigTimers() as $digTimer)
@@ -583,12 +393,10 @@ class Citizen
                 return $digTimer;
         return null;
     }
-
     public function getDailyUpgradeVote(): ?DailyUpgradeVote
     {
         return $this->dailyUpgradeVote;
     }
-
     public function setDailyUpgradeVote(?DailyUpgradeVote $dailyUpgradeVote): self
     {
         $this->dailyUpgradeVote = $dailyUpgradeVote;
@@ -600,55 +408,46 @@ class Citizen
 
         return $this;
     }
-
     public function getWalkingDistance(): ?int
     {
         return $this->walkingDistance;
     }
-
     public function setWalkingDistance(int $walkingDistance): self
     {
         $this->walkingDistance = $walkingDistance;
 
         return $this;
     }
-
     public function getSurvivedDays(): ?int
     {
         return $this->survivedDays;
     }
-
     public function setSurvivedDays(int $survivedDays): self
     {
         $this->survivedDays = $survivedDays;
 
         return $this;
     }
-
     public function getCauseOfDeath(): ?CauseOfDeath
     {
         return $this->causeOfDeath;
     }
-
     public function setCauseOfDeath(?CauseOfDeath $causeOfDeath): self
     {
         $this->causeOfDeath = $causeOfDeath;
 
         return $this;
     }
-
     public function getBp(): ?int
     {
         return $this->Bp;
     }
-
     public function setBp(int $Bp): self
     {
         $this->Bp = $Bp;
 
         return $this;
     }
-
     /**
      * @return Collection|ExpeditionRoute[]
      */
@@ -656,7 +455,6 @@ class Citizen
     {
         return $this->expeditionRoutes;
     }
-
     public function addExpeditionRoute(ExpeditionRoute $expeditionRoute): self
     {
         if (!$this->expeditionRoutes->contains($expeditionRoute)) {
@@ -666,7 +464,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeExpeditionRoute(ExpeditionRoute $expeditionRoute): self
     {
         if ($this->expeditionRoutes->contains($expeditionRoute)) {
@@ -679,19 +476,16 @@ class Citizen
 
         return $this;
     }
-
     public function getBanished(): ?bool
     {
         return $this->banished;
     }
-
     public function setBanished(bool $banished): self
     {
         $this->banished = $banished;
 
         return $this;
     }
-
     /**
      * @return Collection|Complaint[]
      */
@@ -699,7 +493,6 @@ class Citizen
     {
         return $this->complaints;
     }
-
     public function addComplaint(Complaint $complaint): self
     {
         if (!$this->complaints->contains($complaint)) {
@@ -709,7 +502,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeComplaint(Complaint $complaint): self
     {
         if ($this->complaints->contains($complaint)) {
@@ -722,7 +514,6 @@ class Citizen
 
         return $this;
     }
-
     /**
      * @return Collection|HeroicActionPrototype[]
      */
@@ -730,7 +521,6 @@ class Citizen
     {
         return $this->heroicActions;
     }
-
     public function addHeroicAction(HeroicActionPrototype $heroicAction): self
     {
         if (!$this->heroicActions->contains($heroicAction)) {
@@ -739,7 +529,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeHeroicAction(HeroicActionPrototype $heroicAction): self
     {
         if ($this->heroicActions->contains($heroicAction)) {
@@ -748,43 +537,36 @@ class Citizen
 
         return $this;
     }
-
     public function getCampingCounter(): int
     {
       return $this->campingCounter;
     }
-
     public function setCampingCounter(int $campingCounter): self
     {
       $this->campingCounter = $campingCounter;
 
       return $this;
     }
-
     public function getCampingTimestamp(): int
     {
         return $this->campingTimestamp;
     }
-
     public function setCampingTimestamp(int $campingTimestamp): self
     {
         $this->campingTimestamp = $campingTimestamp;
 
         return $this;
     }
-
     public function getCampingChance(): float
     {
         return $this->campingChance;
     }
-
     public function setCampingChance(float $campingChance): self
     {
         $this->campingChance = $campingChance;
 
         return $this;
     }
-
     /**
      * @return Collection|ActionCounter[]
      */
@@ -792,7 +574,6 @@ class Citizen
     {
         return $this->actionCounters;
     }
-
     public function addActionCounter(ActionCounter $actionCounter): self
     {
         if (!$this->actionCounters->contains($actionCounter)) {
@@ -802,7 +583,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeActionCounter(ActionCounter $actionCounter): self
     {
         if ($this->actionCounters->contains($actionCounter)) {
@@ -815,13 +595,11 @@ class Citizen
 
         return $this;
     }
-
     public function getSpecificActionCounterValue( int $type, ?int $ref = null ): int {
         foreach ($this->getActionCounters() as $c)
             if ($c->getType() === $type && ($ref === null || $c->getReferenceID() === $ref)) return $c->getCount();
         return 0;
     }
-
     public function getSpecificActionCounter( int $type, ?int $ref = null ): ActionCounter {
         foreach ($this->getActionCounters() as $c)
             if ($c->getType() === $type && ($ref === null || $c->getReferenceID() === $ref)) return $c;
@@ -831,12 +609,10 @@ class Citizen
         $this->addActionCounter($a);
         return $a;
     }
-
     public function isOnline(): bool {
         $ts = $this->getLastActionTimestamp();
         return $ts ? (time() - $ts) < 300 : false;
     }
-
     public function isDigging(): bool {
         $zone = $this->getZone();
         if (!$zone) return false;
@@ -845,7 +621,6 @@ class Citizen
                 return !$digTimer->getPassive();
         return false;
     }
-    
     public function hasDigTimer(): bool {
         $zone = $this->getZone();
         if (!$zone) return false;
@@ -854,7 +629,6 @@ class Citizen
                 return true;
         return false;
     }
-
     public function hasPassiveDigTimer(): bool {
         $zone = $this->getZone();
         if (!$zone) return false;
@@ -863,7 +637,6 @@ class Citizen
                 return $digTimer->getPassive();
         return false;
     }
-
     public function getDigTimeout(): int {
         $zone = $this->getZone();
         if (!$zone) return -1;
@@ -872,50 +645,42 @@ class Citizen
                 return $digTimer->getTimestamp()->getTimestamp() - (new DateTime())->getTimestamp();
         return -1;
     }
-
     public function isCamping(): bool {
         foreach ($this->getStatus() as $status)
             if (in_array( $status->getName(), ['tg_tomb','tg_hide'] ))
                 return true;
         return false;
     }
-
     public function getEscortSettings(): ?CitizenEscortSettings
     {
         return $this->escortSettings;
     }
-
     public function setEscortSettings(?CitizenEscortSettings $escortSettings): self
     {
         $this->escortSettings = $escortSettings;
 
         return $this;
     }
-
     public function getLastActionTimestamp(): int
     {
         return $this->lastActionTimestamp;
     }
-
     public function setLastActionTimestamp(int $lastActionTimestamp): self
     {
         $this->lastActionTimestamp = $lastActionTimestamp;
 
         return $this;
     }
-
     public function getPm(): ?int
     {
         return $this->pm;
     }
-
     public function setPm(int $pm): self
     {
         $this->pm = $pm;
 
         return $this;
     }
-
     /**
      * @return Collection|CitizenEscortSettings[]
      */
@@ -923,7 +688,6 @@ class Citizen
     {
         return $this->leadingEscorts;
     }
-
     public function addLeadingEscort(CitizenEscortSettings $leadingEscort): self
     {
         if (!$this->leadingEscorts->contains($leadingEscort)) {
@@ -933,7 +697,6 @@ class Citizen
 
         return $this;
     }
-
     /**
      * @return CitizenEscortSettings[]
      */
@@ -955,43 +718,36 @@ class Citizen
 
         return $this;
     }
-
     public function getLastWords(): ?string
     {
         return $this->lastWords;
     }
-
     public function setLastWords(string $lastWords): self
     {
         $this->lastWords = $lastWords;
 
         return $this;
     }
-
     public function getComment(): ?string
     {
         return $this->comment;
     }
-
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
 
         return $this;
     }
-
     public function getDisposed(): ?int
     {
         return $this->disposed;
     }
-
     public function setDisposed(int $disposed): self
     {
         $this->disposed = $disposed;
 
         return $this;
     }
-
     /**
      * @return Collection|Citizen[]
      */
@@ -999,7 +755,6 @@ class Citizen
     {
         return $this->disposedBy;
     }
-
     public function addDisposedBy(Citizen $citizen): self
     {
         if (!$this->disposedBy->contains($citizen)) {
@@ -1008,7 +763,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeDisposedBy(Citizen $citizen): self
     {
         if ($this->disposedBy->contains($citizen)) {
@@ -1017,7 +771,6 @@ class Citizen
 
         return $this;
     }
-
     /**
      * @return Collection|CitizenWatch[]
      */
@@ -1025,7 +778,6 @@ class Citizen
     {
         return $this->citizenWatch;
     }
-
     public function addCitizenWatch(?CitizenWatch $citizenWatch): self
     {
         if(!$this->citizenWatch->contains($citizenWatch))
@@ -1033,7 +785,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeCitizenWatch(?CitizenWatch $citizenWatch): self
     {
         if($this->citizenWatch->contains($citizenWatch))
@@ -1041,19 +792,16 @@ class Citizen
 
         return $this;
     }
-
     public function getGhulHunger(): ?int
     {
         return $this->ghulHunger;
     }
-
     public function setGhulHunger(int $ghulHunger): self
     {
         $this->ghulHunger = $ghulHunger;
 
         return $this;
     }
-
     /**
      * @return Collection|PrivateMessageThread[]
      */
@@ -1061,7 +809,6 @@ class Citizen
     {
         return $this->privateMessageThreads;
     }
-
     public function addPrivateMessageThread(PrivateMessageThread $privateMessageThread): self
     {
         if (!$this->privateMessageThreads->contains($privateMessageThread)) {
@@ -1071,7 +818,6 @@ class Citizen
 
         return $this;
     }
-
     public function removePrivateMessageThread(PrivateMessageThread $privateMessageThread): self
     {
         if ($this->privateMessageThreads->contains($privateMessageThread)) {
@@ -1084,29 +830,26 @@ class Citizen
 
         return $this;
     }
-
     public function getRankingEntry(): ?CitizenRankingProxy
     {
         return $this->rankingEntry;
     }
-
     public function setRankingEntry(?CitizenRankingProxy $rankingEntry): self
     {
         $this->rankingEntry = $rankingEntry;
 
         return $this;
     }
-
     /**
-     * @ORM\PostPersist()
      * @param LifecycleEventArgs $args
      * @throws ORMException
      */
-    public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args) {
-        $args->getEntityManager()->persist( CitizenRankingProxy::fromCitizen($this) );
-        $args->getEntityManager()->flush();
+    #[ORM\PostPersist]
+    public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args)
+    {
+        $args->getObjectManager()->persist( CitizenRankingProxy::fromCitizen($this) );
+        $args->getObjectManager()->flush();
     }
-
     /**
      * If the citizen is currently exploring a ruin or has explored a ruin at this location today, the relevant
      * RuinExplorerStats object will be returned. Otherwise, null is returned.
@@ -1119,7 +862,6 @@ class Citizen
                     return $explorerStat;
         return null;
     }
-
     /**
      * If the citizen is currently exploring a ruin, the relevant RuinExplorerStats object will be returned. Otherwise,
      * null is returned.
@@ -1128,7 +870,6 @@ class Citizen
     public function activeExplorerStats(): ?RuinExplorerStats {
         return (($ex = $this->currentExplorerStats()) && $ex->getActive()) ? $ex : null;
     }
-
     /**
      * @return Collection|RuinExplorerStats[]
      */
@@ -1136,7 +877,6 @@ class Citizen
     {
         return $this->explorerStats;
     }
-
     public function addExplorerStat(RuinExplorerStats $explorerStat): self
     {
         if (!$this->explorerStats->contains($explorerStat)) {
@@ -1146,7 +886,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeExplorerStat(RuinExplorerStats $explorerStat): self
     {
         if ($this->explorerStats->contains($explorerStat)) {
@@ -1161,12 +900,10 @@ class Citizen
 
         return $this;
     }
-
     public function getBuildingVote(): ?BuildingVote
     {
         return $this->buildingVote;
     }
-
     public function setBuildingVote(?BuildingVote $buildingVote): self
     {
         $this->buildingVote = $buildingVote;
@@ -1178,7 +915,6 @@ class Citizen
 
         return $this;
     }
-
     /**
      * @return Collection|HelpNotificationMarker[]
      */
@@ -1186,13 +922,11 @@ class Citizen
     {
         return $this->helpNotifications;
     }
-
     public function hasSeenHelpNotification(string $name): bool {
         foreach ($this->getHelpNotifications() as $notification)
             if ($notification->getName() === $name) return true;
         return false;
     }
-
     public function addHelpNotification(HelpNotificationMarker $helpNotification): self
     {
         if (!$this->helpNotifications->contains($helpNotification)) {
@@ -1201,7 +935,6 @@ class Citizen
 
         return $this;
     }
-
     public function removeHelpNotification(HelpNotificationMarker $helpNotification): self
     {
         if ($this->helpNotifications->contains($helpNotification)) {
@@ -1210,31 +943,26 @@ class Citizen
 
         return $this;
     }
-
     public function getHasSeenGazette(): ?bool
     {
         return $this->hasSeenGazette;
     }
-
     public function setHasSeenGazette(bool $hasSeenGazette): self
     {
         $this->hasSeenGazette = $hasSeenGazette;
 
         return $this;
     }
-
     public function getHasEaten(): ?bool
     {
         return $this->hasEaten;
     }
-
     public function setHasEaten(bool $hasEaten): self
     {
         $this->hasEaten = $hasEaten;
 
         return $this;
     }
-
     /**
      * @return Collection|SpecialActionPrototype[]
      */
@@ -1242,7 +970,6 @@ class Citizen
     {
         return $this->specialActions;
     }
-
     public function addSpecialAction(SpecialActionPrototype $specialAction): self
     {
         if (!$this->specialActions->contains($specialAction)) {
@@ -1251,26 +978,22 @@ class Citizen
 
         return $this;
     }
-
     public function removeSpecialAction(SpecialActionPrototype $specialAction): self
     {
         $this->specialActions->removeElement($specialAction);
 
         return $this;
     }
-
     public function getDayOfDeath(): ?int
     {
         return $this->dayOfDeath;
     }
-
     public function setDayOfDeath(int $dayOfDeath): self
     {
         $this->dayOfDeath = $dayOfDeath;
 
         return $this;
     }
-
     /**
      * @return Collection|HeroicActionPrototype[]
      */
@@ -1278,7 +1001,6 @@ class Citizen
     {
         return $this->usedHeroicActions;
     }
-
     public function addUsedHeroicAction(HeroicActionPrototype $usedHeroicAction): self
     {
         if (!$this->usedHeroicActions->contains($usedHeroicAction)) {
@@ -1287,14 +1009,12 @@ class Citizen
 
         return $this;
     }
-
     public function removeUsedHeroicAction(HeroicActionPrototype $usedHeroicAction): self
     {
         $this->usedHeroicActions->removeElement($usedHeroicAction);
 
         return $this;
     }
-
     /**
      * @return Collection|Zone[]
      */
@@ -1302,7 +1022,6 @@ class Citizen
     {
         return $this->visitedZones;
     }
-
     public function addVisitedZone(Zone $visitedZone): self
     {
         if (!$this->visitedZones->contains($visitedZone)) {
@@ -1311,22 +1030,49 @@ class Citizen
 
         return $this;
     }
-
     public function removeVisitedZone(Zone $visitedZone): self
     {
         $this->visitedZones->removeElement($visitedZone);
 
         return $this;
     }
-
     public function getCoalized(): ?bool
     {
         return $this->coalized;
     }
-
     public function setCoalized(bool $coalized): self
     {
         $this->coalized = $coalized;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ZoneActivityMarker>
+     */
+    public function getZoneActivityMarkers(): Collection
+    {
+        return $this->zoneActivityMarkers;
+    }
+
+    public function addZoneActivityMarker(ZoneActivityMarker $zoneActivityMarker): self
+    {
+        if (!$this->zoneActivityMarkers->contains($zoneActivityMarker)) {
+            $this->zoneActivityMarkers->add($zoneActivityMarker);
+            $zoneActivityMarker->setCitizen($this);
+        }
+
+        return $this;
+    }
+
+    public function removeZoneActivityMarker(ZoneActivityMarker $zoneActivityMarker): self
+    {
+        if ($this->zoneActivityMarkers->removeElement($zoneActivityMarker)) {
+            // set the owning side to null (unless already changed)
+            if ($zoneActivityMarker->getCitizen() === $this) {
+                $zoneActivityMarker->setCitizen(null);
+            }
+        }
 
         return $this;
     }

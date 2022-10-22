@@ -53,7 +53,7 @@
                     {% endif %}
                     {{ incarnation.town.name }}
                 </div>
-                <div x-town-id="{{ incarnation.id }}" class="comment {% if not editable or incarnation.commentLocked %}read-only{% else %}pointer{% endif %}"><em>{% if not incarnation.comment|trim is empty %}{{incarnation.comment}}{% elseif editable and not incarnation.commentLocked %}<span class="add-comment">{{'Einen Kommentar hinzufügen'|trans({}, 'soul')}}</span>{% endif %}</em></div>
+                <div data-town-id="{{ incarnation.id }}" data-previous-comment="{{incarnation.comment}}" class="comment {% if not editable or incarnation.commentLocked %}read-only{% else %}pointer{% endif %}"><em>{% if not incarnation.comment|trim is empty %}{{incarnation.comment}}{% elseif editable and not incarnation.commentLocked %}<span class="add-comment">{{'Einen Kommentar hinzufügen'|trans({}, 'soul')}}</span>{% endif %}</em></div>
             </div>
             <div class="cell padded rw-2 center town-days bold">
                 {{ incarnation.day }}
@@ -89,26 +89,23 @@
 <script>
     (function() {
         {% if editable %}
-            const add_comment = function(id) {
-                let comment = null;
+            const add_comment = function(id, previous) {
                 let valid = true;
-                comment = window.prompt("{{ 'Was sagst du dazu?'|trans({},'game')|e('js') }}", "");
+                let comment = window.prompt("{{ 'Was sagst du dazu?'|trans({},'game')|e('js') }}", previous ?? '');
                 if (comment === null) valid = false;
-                /*else {
-                    valid = !(comment === "")
-                }*/
-
                 if (!valid) return;
 
-                $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment: comment},
+                $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment},
                     function () {
                         $.ajax.load(null, '{{ path('soul_me') }}', true);
                     } );
             };
 
-            let buttons = document.querySelectorAll('[x-town-id]');
-            for (let i = 0; i < buttons.length; i++)
-                buttons[i].addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); add_comment( this.getAttribute('x-town-id') ); });
+            document.querySelectorAll('[data-town-id]').forEach(elem => elem.addEventListener( 'click', e => {
+                e.preventDefault();
+                e.stopPropagation();
+                add_comment( elem.dataset.townId, elem.dataset.previousComment );
+            } ))
         {% endif %}
     })();
 </script>

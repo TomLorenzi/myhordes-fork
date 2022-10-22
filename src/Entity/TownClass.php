@@ -10,102 +10,64 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\TownClassRepository")
- * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="town_class_name_unique",columns={"name"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\TownClassRepository')]
+#[UniqueEntity('name')]
+#[Table]
+#[UniqueConstraint(name: 'town_class_name_unique', columns: ['name'])]
 class TownClass implements NamedEntity
 {
-
     const EASY    = 'small';
     const DEFAULT = 'remote';
     const HARD    = 'panda';
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=16)
-     */
+    #[ORM\Column(type: 'string', length: 16)]
     private $name;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $label;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Town", mappedBy="type", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Town', mappedBy: 'type', orphanRemoval: true)]
     private $towns;
-
-    /**
-     * @ORM\OneToMany(targetEntity=TownRankingProxy::class, mappedBy="type", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: TownRankingProxy::class, mappedBy: 'type', orphanRemoval: true)]
     private $rankedTowns;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $hasPreset = true;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $ranked;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $orderBy;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $help;
-
     public function __construct()
     {
         $this->towns = new ArrayCollection();
         $this->rankedTowns = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getLabel(): ?string
     {
         return $this->label;
     }
-
     public function setLabel(string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
-
     /**
      * @return Collection|Town[]
      */
@@ -113,7 +75,6 @@ class TownClass implements NamedEntity
     {
         return $this->towns;
     }
-
     public function addTown(Town $town): self
     {
         if (!$this->towns->contains($town)) {
@@ -123,7 +84,6 @@ class TownClass implements NamedEntity
 
         return $this;
     }
-
     public function removeTown(Town $town): self
     {
         if ($this->towns->contains($town)) {
@@ -136,7 +96,6 @@ class TownClass implements NamedEntity
 
         return $this;
     }
-
     /**
      * @return Collection|TownRankingProxy[]
      */
@@ -144,7 +103,6 @@ class TownClass implements NamedEntity
     {
         return $this->rankedTowns;
     }
-
     public function addRankedTown(TownRankingProxy $rankedTown): self
     {
         if (!$this->rankedTowns->contains($rankedTown)) {
@@ -154,7 +112,6 @@ class TownClass implements NamedEntity
 
         return $this;
     }
-
     public function removeRankedTown(TownRankingProxy $rankedTown): self
     {
         if ($this->rankedTowns->contains($rankedTown)) {
@@ -167,55 +124,46 @@ class TownClass implements NamedEntity
 
         return $this;
     }
-
     public function getHasPreset(): ?bool
     {
         return $this->hasPreset;
     }
-
     public function setHasPreset(?bool $hasPreset): self
     {
         $this->hasPreset = $hasPreset;
 
         return $this;
     }
-
     public function getRanked(): ?bool
     {
         return $this->ranked;
     }
-
     public function setRanked(bool $ranked): self
     {
         $this->ranked = $ranked;
 
         return $this;
     }
-
     public function getOrderBy(): ?int
     {
         return $this->orderBy;
     }
-
     public function setOrderBy(int $orderBy): self
     {
         $this->orderBy = $orderBy;
 
         return $this;
     }
-
     public function getHelp(): ?string
     {
         return $this->help;
     }
-
     public function setHelp(?string $help): self
     {
         $this->help = $help;
 
         return $this;
     }
-
     public static function getTranslationDomain(): ?string
     {
         return 'game';

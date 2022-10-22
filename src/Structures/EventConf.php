@@ -13,6 +13,7 @@ class EventConf extends Conf
     const EVENT_PRIORITY = 'priority';
 
     const EVENT_CSS = 'css';
+    const EVENT_MUTATE_NAME = 'mutate_names';
 
     const EVENT_DIG_DESERT_GROUP  = 'event_dig.desert.group';
     const EVENT_DIG_DESERT_CHANCE = 'event_dig.desert.chance';
@@ -29,6 +30,8 @@ class EventConf extends Conf
     const EVENT_HOOK_DISABLE_TOWN    = 'hooks.disable_town';
     const EVENT_HOOK_ENABLE_CITIZEN  = 'hooks.enable_citizen';
     const EVENT_HOOK_DISABLE_CITIZEN = 'hooks.disable_citizen';
+
+
 
     private ?string $eventName;
 

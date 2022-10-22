@@ -66,8 +66,8 @@
                                             <option value="{{ url('admin_users_account_manage', {action: 'rename_pseudo', id: user.id}) }}" x-confirm="REMOVE PSEUDO">{{ 'Anzeigenamen entfernen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         {% if is_granted("ROLE_ADMIN") %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
                                             {% if user.eternalID is null %}
-                                                <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
                                             {% endif %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>
@@ -159,16 +159,11 @@
                         </div>
                         <div class="cell padded rw-3 rw-sm-12">
                             {% if user.avatar is not null %}
-                                <div class="avatar no-arma">
-                                    <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}">
-                                </div>
+                                {% include "ajax/soul/playeravatar.html.twig" with {user: user, no_distortion: true, small: false} only %}
                                 {% if not user.avatar.classic %}
                                     <br/><br />
-                                    <div class="avatar small no-arma">
-                                        <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}">
-                                    </div>
+                                    {% include "ajax/soul/playeravatar.html.twig" with {user: user, no_distortion: true, small: true} only %}
                                 {% endif %}
-
                             {% else %}
                                 ---
                             {% endif %}
@@ -257,6 +252,12 @@
                             <div><label><input {% if user|is_granted('ROLE_TEAM') %}checked{% endif %}   {% if user.rightsElevation >= 4 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_TEAM" />   {{ 'Team'|trans({}, 'admin') }}</label></div>
                             <div><label><input {% if user|is_granted('ROLE_ORACLE') %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_ORACLE" /> {{ 'Orakel'|trans({}, 'admin') }}</label></div>
                             <div><label><input {% if user|is_granted('ROLE_ANIMAC') %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_ANIMAC" /> {{ 'Animateur'|trans({}, 'admin') }}</label></div>
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ 'Sonstige Accountmarkierungen'|trans({}, 'admin') }}
+                        </div>
+                        <div class="cell padded rw-9 rw-sm-12">
+                            <div><label><input {% if user.roleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
                         </div>
                     </div>
 

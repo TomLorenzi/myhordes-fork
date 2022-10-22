@@ -28,8 +28,8 @@ parameters:
     christmas:
       trigger:
         type: datetime
-        begin: 12-20 00:00
-        end: 01-07 00:00
+        begin: 12-23 00:00
+        end: 12-28 00:00
       conf:
         name: 'Weihnachten'
         priority: 101
@@ -43,6 +43,7 @@ parameters:
         hooks:
           night_after: 'App\Structures\Hook::night_xmas'
           night_none: 'App\Structures\Hook::night_xmas'
+      public: true
     stpatrick:
       trigger:
         type: datetime
@@ -58,6 +59,7 @@ parameters:
             chance: 0.15
           ruins:
             - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.25 }
+      public: true
     easter:
       trigger:
         type: easter
@@ -74,6 +76,7 @@ parameters:
         hooks:
           enable_town: 'App\Structures\Hook::enable_easter'
           disable_town: 'App\Structures\Hook::disable_easter'
+      public: true
     halloween:
       trigger:
         type: datetime
@@ -83,14 +86,15 @@ parameters:
         name: 'Halloween'
         priority: 104
         css: 'halloween'
+        mutate_names: 'halloween'
         event_dig:
           desert:
             group: 'halloween_dig'
             chance: 0.4
+      public: true
     purge:
       trigger:
         type: datetime
-        # type: off
         begin: 2021-08-25 00:00
         end: 2021-09-01 00:00
       conf:

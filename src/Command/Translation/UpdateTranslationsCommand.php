@@ -8,6 +8,7 @@ use App\Service\ConfMaster;
 use App\Service\Globals\TranslationConfigGlobal;
 use App\Structures\MyHordesConf;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,10 +16,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'app:translation:update',
+    description: 'Updates translation files and adds missing translations'
+)]
 class UpdateTranslationsCommand extends Command
 {
-    protected static $defaultName = 'app:translation:update';
-
     private CommandHelper $helper;
 
     private TranslationConfigGlobal $conf_trans;
@@ -36,7 +39,6 @@ class UpdateTranslationsCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Updates translation files and adds missing translations')
             ->setHelp('Translation updater.')
             ->addArgument('lang', InputArgument::REQUIRED, 'Language to translate into.')
 

@@ -33,7 +33,11 @@ services:
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
     # Set Twig extensions
+    App\Twig\HTMLUtils:
+      tags: ['twig.extension']
     App\Twig\Extensions:
+      tags: ['twig.extension']
+    App\Twig\Encore:
       tags: ['twig.extension']
 
     # Set some services to be public
@@ -73,7 +77,7 @@ services:
         $translator: '@app.decoration.translator.inner'
         $db: '%env(url:DATABASE_URL)%'
 
-    # The NightlyHandler should have it's own log channel
+    # The NightlyHandler should have its own log channel
     App\Service\NightlyHandler:
         tags:
           - { name: monolog.logger, channel: night }

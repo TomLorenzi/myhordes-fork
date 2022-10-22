@@ -2,7 +2,7 @@
 
 namespace MyHordes\Fixtures\Service;
 
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class RuinRoomDataService implements FixtureProcessorInterface {
 
@@ -26,6 +26,14 @@ class RuinRoomDataService implements FixtureProcessorInterface {
                 "label" => "Verschlossene Tür (Magnetschlüssel)",
                 "lock_mold" => 'prints_#00',
                 "lock_item" => 'magneticKey_#00',
+            ],
+            [
+                "label" => "Treppenaufgang",
+                "level" => 1
+            ],
+            [
+                "label" => "Treppenabstieg",
+                "level" => -1
             ],
         ]);
     }

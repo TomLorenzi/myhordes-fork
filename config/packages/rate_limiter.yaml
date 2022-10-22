@@ -11,7 +11,7 @@ framework:
     authenticated_personal_api:
       policy: 'sliding_window'
       limit: 120
-      interval: '8 hours'
+      interval: '2 hours'
     authenticated_api:
       policy: 'token_bucket'
       limit: 10000
@@ -32,3 +32,7 @@ framework:
       policy: 'fixed_window'
       limit: 20
       interval: '12 hours'
+    report_to_moderation_limited:
+      policy: 'fixed_window'
+      limit: 2
+      interval: '60 hours'

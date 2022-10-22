@@ -378,7 +378,7 @@ class SoulImportController extends SoulController
 
         /** @var CitizenRankingProxy $ranking */
         foreach ($this->entity_manager->getRepository(CitizenRankingProxy::class)->getNonAlphaTowns($user, $town_cutoff, false) as $ranking)
-            if (!$ranking->hasDisableFlag(CitizenRankingProxy::DISABLE_ALL)) {
+            if (!$ranking->hasDisableFlag(CitizenRankingProxy::DISABLE_ALL) && !$ranking->getTown()->getImported()) {
                 $this->entity_manager->persist($ranking->addDisableFlag(CitizenRankingProxy::DISABLE_ALL));
                 foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['townEntry' => $ranking->getTown(), 'user' => $user]) as $picto)
                     $this->entity_manager->persist( $picto->setDisabled(true) );

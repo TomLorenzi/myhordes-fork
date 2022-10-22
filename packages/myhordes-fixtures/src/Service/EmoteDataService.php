@@ -2,7 +2,7 @@
 
 namespace MyHordes\Fixtures\Service;
 
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class EmoteDataService implements FixtureProcessorInterface {
 
