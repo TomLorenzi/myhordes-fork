@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\HordesFact;
-use MyHordes\Fixtures\Fixtures\HordesFact as HordesFactData;
+use MyHordes\Plugins\Fixtures\HordesFact as HordesFactData;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;

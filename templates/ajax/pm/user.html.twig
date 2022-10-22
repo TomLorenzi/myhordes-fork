@@ -1,9 +1,7 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
     <div x-user-resolved="{{ user.id }}">
-        {% if user.avatar %}
-            <img style="max-height: 24px;" alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}" />
-        {% endif %}
+        {% include "ajax/soul/playeravatar.html.twig" with {user: user, small: false, wrapper: false, fallback: false, attributes: {style: 'max-height: 24px'}} only %}
         <b>{{ user.name }}</b>
     </div>
 {% endblock %}

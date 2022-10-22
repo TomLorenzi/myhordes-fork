@@ -20,6 +20,7 @@ use App\Service\StatusFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use ReflectionClass;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -30,18 +31,18 @@ use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:forum:create',
+    description: 'Allows creation of new forums'
+)]
 class ForumCreatorCommand extends Command
 {
-    protected static $defaultName = 'app:forum:create';
-
     private EntityManagerInterface $entityManager;
-    private CommandHelper $helper;
     private KernelInterface $kernel;
 
-    public function __construct(EntityManagerInterface $em, CommandHelper $comh, KernelInterface $kernel)
+    public function __construct(EntityManagerInterface $em, KernelInterface $kernel)
     {
         $this->entityManager = $em;
-        $this->helper = $comh;
         $this->kernel = $kernel;
         parent::__construct();
     }
@@ -49,7 +50,6 @@ class ForumCreatorCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Allows creation of new forums')
             ->setHelp('This command allows creating a new forum.')
             ->addArgument('Name', InputArgument::REQUIRED, 'The Forum Name')
             ->addArgument('Type', InputArgument::REQUIRED, 'The Forum Type')

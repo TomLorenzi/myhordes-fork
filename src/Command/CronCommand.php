@@ -30,19 +30,21 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use SplFileInfo;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
 
+#[AsCommand(
+    name: 'app:cron',
+    description: 'Cron command'
+)]
 class CronCommand extends Command
 {
-    protected static $defaultName = 'app:cron';
-
     private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
     private NightlyHandler $night;
@@ -59,7 +61,6 @@ class CronCommand extends Command
     private CommandHelper $helper;
     private ParameterBagInterface $params;
     private GameProfilerService $gps;
-    private ContainerInterface $container;
     private Environment $twig;
     private AdminHandler $adminHandler;
 
@@ -69,7 +70,7 @@ class CronCommand extends Command
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps, ContainerInterface $container, AdminHandler $adminHandler)
+                                GameProfilerService $gps, AdminHandler $adminHandler)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -88,7 +89,6 @@ class CronCommand extends Command
         $this->helper = $helper;
         $this->params = $params;
         $this->gps = $gps;
-        $this->container = $container;
         $this->adminHandler = $adminHandler;
 
         $this->db = $db;
@@ -98,7 +98,6 @@ class CronCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Cron command')
             ->setHelp('This should be run on a regular basis.')
 
             ->addArgument('task',  InputArgument::OPTIONAL, 'The task to perform. Defaults to "host".', 'host')
@@ -160,6 +159,7 @@ class CronCommand extends Command
                 ->from(Town::class, 't')
                 ->andWhere('(t.lastAttack != :last OR t.lastAttack IS NULL)')->setParameter('last', $s->getId())
                 ->andWhere('t.attackFails < :trylimit')->setParameter('trylimit', $try_limit)
+                ->andWhere('t.scheduledFor IS NULL OR t.scheduledFor < :now')->setParameter('now', new DateTime())
                 ->getQuery()
                 ->getScalarResult(), 'id');
 
@@ -177,6 +177,7 @@ class CronCommand extends Command
                 if (!empty($failures)) {
                     // If we exceed the number of allowed processing tries, quarantine the town
                     if (count($failures) >= $try_limit) {
+                        /** @var Town $town */
                         $town = $this->entityManager->getRepository(Town::class)->find($town_id);
                         $town->setAttackFails( count($failures) );
                         foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive())
@@ -323,13 +324,19 @@ class CronCommand extends Command
             foreach ($minOpenTown as $type => $min) {
                 $current = $count[$lang][$type] ?? 0;
                 while ($current < $min) {
-                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type));
+
+                    $current_events = $this->conf_master->getCurrentEvents();
+                    $name_changers = array_values(
+                        array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+                    );
+
+                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type, [], -1, $name_changers[0] ?? null ));
                     $this->entityManager->flush();
 
                     $this->gps->recordTownCreated( $newTown, null, 'cron' );
                     $this->entityManager->flush();
 
-                    $current_events = $this->conf_master->getCurrentEvents();
+
                     if (!empty(array_filter($current_events,fn(EventConf $e) => $e->active()))) {
                         if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
                             $this->entityManager->clear();

@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Quote;
-use MyHordes\Fixtures\Fixtures\Quote as QuoteFixtureData;
+use MyHordes\Plugins\Fixtures\Quote as QuoteFixtureData;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;

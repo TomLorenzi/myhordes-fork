@@ -86,7 +86,8 @@
                 </div>
             </div>
         </div>
-    {% elseif town.event %}
+    {% endif %}
+    {% if town.event %}
         <div class="row">
             <div class="cell rw-12 padded">
                 <div class="note green-note">
@@ -98,24 +99,29 @@
                 </div>
             </div>
         </div>
-    {% elseif is_granted('ROLE_CROW') %}
+    {% endif %}
+    {% if is_granted('ROLE_CROW') %}
         <div class="row">
             <div class="cell rw-12 padded">
-                <div class="button small inline" id="event">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</div>
-                {% if town.getDisableFlag() != constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL')  %}
-                <br />
-                {% endif %}
-                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING')) %}
-                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING') }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
-                {% endif %}
-                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
-                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
-                {% endif %}
-                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
-                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
-                {% endif %}
-                {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL')) %}
-                    <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">{{ 'Stadt nicht in der Seele listen'|trans({}, 'admin') }}</div>
+                {% if town.getDisableFlag() == constant("\\App\\Entity\\TownRankingProxy::DISABLE_NOTHING") %}
+                    {% if not town.event %}
+                        <div class="button small inline" id="event">{{ 'Als Event-Stadt markieren'|trans({},'admin') }}</div>
+                        {% if town.getDisableFlag() != constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL')  %}
+                            <br />
+                        {% endif %}
+                        {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING')) %}
+                            <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_RANKING') }}">{{ 'Diese Stadt aus dem Ranking ausschließen'|trans({},'admin') }}</div>
+                        {% endif %}
+                    {% endif %}
+                    {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS')) %}
+                        <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_PICTOS') }}">{{ 'Auszeichnungen aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
+                    {% endif %}
+                    {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS')) %}
+                        <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_SOULPOINTS') }}">{{ 'Seelenpunkte aller Einwohner dieser Stadt löschen'|trans({}, 'admin') }}</div>
+                    {% endif %}
+                    {% if not town.hasDisableFlag(constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL')) %}
+                        <div class="button small inline" x-action="unrank" x-flag="{{ constant('\\App\\Entity\\TownRankingProxy::DISABLE_ALL') }}">{{ 'Stadt nicht in der Seele listen'|trans({}, 'admin') }}</div>
+                    {% endif %}
                 {% endif %}
                 {% if not town.imported %}
                     <br />

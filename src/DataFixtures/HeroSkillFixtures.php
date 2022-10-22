@@ -8,7 +8,7 @@ use App\Entity\HeroSkillPrototype;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
-use MyHordes\Fixtures\Fixtures\HeroSkill;
+use MyHordes\Plugins\Fixtures\HeroSkill;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;

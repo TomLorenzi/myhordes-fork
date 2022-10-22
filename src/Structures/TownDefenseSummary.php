@@ -22,6 +22,10 @@ class TownDefenseSummary
         return round($this->overall_scale * ($this->base_defense + $this->item_defense + $this->building_def_base + $this->building_def_vote + $this->house_defense + $this->guardian_defense + $this->temp_defense + $this->nightwatch_defense + $this->soul_defense + $this->cemetery));
     }
 
+    public function withoutItemDefense(): int {
+        return round($this->overall_scale * ($this->base_defense + $this->building_def_base + $this->building_def_vote + $this->house_defense + $this->guardian_defense + $this->temp_defense + $this->nightwatch_defense + $this->soul_defense + $this->cemetery));
+    }
+
     public function toArray(): array {
         return [
             'base' => $this->base_defense,

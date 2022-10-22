@@ -21,6 +21,7 @@ use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -28,10 +29,12 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
+#[AsCommand(
+    name: 'app:town:inspect',
+    description: 'Manipulates and lists information about a single town.'
+)]
 class TownInspectorCommand extends Command
 {
-    protected static $defaultName = 'app:town:inspect';
-
     private EntityManagerInterface $entityManager;
     private GameFactory $gameFactory;
     private TownHandler $townHandler;
@@ -61,7 +64,6 @@ class TownInspectorCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Manipulates and lists information about a single town.')
             ->setHelp('This command allows you work on single towns.')
             ->addArgument('TownID', InputArgument::REQUIRED, 'The town ID')
 
@@ -276,7 +278,7 @@ class TownInspectorCommand extends Command
 
             foreach ($town->getZones() as &$zone) if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 $changes = true;
-                $this->mazeMaker->generateMaze( $zone );
+                $this->mazeMaker->generateCompleteMaze( $zone );
 
                 foreach ($zone->getExplorerStats() as $stat) {
                     $stat->getCitizen()->removeExplorerStat($stat);

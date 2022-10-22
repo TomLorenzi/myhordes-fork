@@ -211,7 +211,7 @@ class GameController extends CustomAbstractController
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizenRoleList,
-            'votesNeeded' => $votesNeeded,
+            'votesNeeded' => $in_town ? $votesNeeded : [],
             'town' => $town,
             'announcement' => $latest_announcement?->getTimestamp() < new \DateTime('-4weeks') ? null : $latest_announcement,
             'season' => $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]),

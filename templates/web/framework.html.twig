@@ -25,6 +25,7 @@
 
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('fa') }}
 
         {% if app.user != null and app.user.language == "ach" %}
         <script type="text/javascript">
@@ -36,6 +37,7 @@
 
         <!-- Load JS -->
         {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('fa', null, '_default', {'defer': true}) }}
 
         <!-- Set Favicon -->
         <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
@@ -170,6 +172,14 @@
                         {% endfor %}
                     </div>
                 </div>
+
+                <div>
+                    <strong>{{ 'Rechtliche Informationen'|trans({}, 'global') }}</strong>
+                    <div class="content">
+                        <a href="{{ url('legal_doc_default', {document: 'privacy-policy'}) }}">{{ 'Datenschutzerklärung'|trans({}, 'global') }}</a><br/>
+                        <a href="{{ url('legal_doc_default', {document: 'imprint'}) }}">{{ 'Impressum'|trans({}, 'global') }}</a>
+                    </div>
+                </div>
             </div>
         </div>
     {% endblock %}
@@ -190,6 +200,7 @@
                 {{ include('scripts/errors/ghost.txt.twig') }}
                 {{ include('scripts/errors/messages.txt.twig') }}
             },
+            'modules': {{ include('scripts/modules.json.twig') }},
             'langs': {
                 {% for lang in langs %}
                 '{{ lang['code'] }}': '{{ lang["label"] |trans({},'global') }}',

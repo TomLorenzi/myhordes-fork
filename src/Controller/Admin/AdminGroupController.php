@@ -157,11 +157,11 @@ class AdminGroupController extends CustomAbstractController
             if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-            if ($media->resizeImage( $payload, function(int &$w, int &$h, bool &$fit): bool {
+            if ($media->resizeImage( $payload, function(int &$w, int &$h, bool &$fit, int $animated): bool {
                     if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
                         return false;
 
-                    if ( max($w,$h) > 200 || min($w,$h < 90) )
+                    if ( max($w,$h) > 200 || ((min($w,$h) < 90) && !$animated) )
                         $w = $h = min(200,max(90,$w,$h));
 
                     return $fit = true;

@@ -6,7 +6,7 @@ use App\Entity\TownClass;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\Fixtures\Town;
+use MyHordes\Plugins\Fixtures\Town;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;

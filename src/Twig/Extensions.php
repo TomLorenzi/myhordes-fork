@@ -21,12 +21,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-class Extensions extends AbstractExtension  implements GlobalsInterface
+class Extensions extends AbstractExtension implements GlobalsInterface
 {
     private TranslatorInterface $translator;
     private UrlGeneratorInterface $router;
@@ -35,8 +36,9 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
     private CitizenHandler $citizenHandler;
     private TownHandler $townHandler;
     private GameFactory $gameFactory;
+    private EntrypointLookupInterface $entryPoints;
 
-    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th, GameFactory $gf) {
+    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th, GameFactory $gf, EntrypointLookupInterface $epl) {
         $this->translator = $ti;
         $this->router = $r;
         $this->userHandler = $uh;
@@ -44,6 +46,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         $this->citizenHandler = $ch;
         $this->townHandler = $th;
         $this->gameFactory = $gf;
+        $this->entryPoints = $epl;
     }
 
     public function getFilters(): array
@@ -78,6 +81,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFunction('help_btn', [$this, 'help_btn'], ['is_safe' => array('html')]),
             new TwigFunction('help_lnk', [$this, 'help_lnk'], ['is_safe' => array('html')]),
             new TwigFunction('tooltip', [$this, 'tooltip'], ['is_safe' => array('html')]),
+            new TwigFunction('tooltip', [$this, 'tooltip'], ['is_safe' => array('html')]),
         ];
     }
 
@@ -86,8 +90,8 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         return [];
     }
 
-    public function instance_of($object, $classname): bool {
-        return is_a($object, $classname);
+    public function instance_of($object, string $classname): bool {
+        return $classname === 'object' ? is_object($object) : is_a($object, $classname);
     }
 
     /**

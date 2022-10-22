@@ -10,6 +10,7 @@ use App\Structures\MyHordesConf;
 use DirectoryIterator;
 use Exception;
 use SplFileInfo;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -24,21 +25,20 @@ use Symfony\Component\Translation\Loader\FileLoader;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Component\Translation\MessageCatalogueInterface;
 
+#[AsCommand(
+    name: 'app:translation:stats',
+    description: 'Displays translation statistics.'
+)]
 class TranslationsStatsCommand extends Command
 {
-    protected static $defaultName = 'app:translation:stats';
-
-    private CommandHelper $helper;
     private ConfMaster $confMaster;
 
     private ContainerInterface $container;
     private ParameterBagInterface $param;
 
-    public function __construct(TranslationConfigGlobal $conf_trans, CommandHelper $helper, ParameterBagInterface $param, ContainerInterface $container, ConfMaster $confMaster)
+    public function __construct(ParameterBagInterface $param, ContainerInterface $container, ConfMaster $confMaster)
     {
-        $this->conf_trans = $conf_trans;
         $this->container = $container;
-        $this->helper = $helper;
         $this->param = $param;
         $this->confMaster = $confMaster;
 
@@ -48,7 +48,6 @@ class TranslationsStatsCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Displays translation statistics.')
             ->setHelp('Translation stats.')
 
             ->addOption('absolute', 'a', InputOption::VALUE_NONE, 'Displays the absolute number of missing translations instead of a percentage.')

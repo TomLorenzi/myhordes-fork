@@ -23,7 +23,9 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\PermissionHandler;
+use App\Service\RateLimitingFactoryProvider;
 use App\Service\UserHandler;
+use App\Structures\HTMLParserInsight;
 use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
@@ -33,7 +35,6 @@ use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -735,7 +736,7 @@ class MessageGlobalPMController extends MessageController
                 try {
                     $tx .= $this->translator->trans(
                         $message->getTemplate()->getText(), $th->parseTransParams($message->getTemplate()->getVariableTypes(), $message->getData()), 'game'
-                    );
+                    ) . $th->processAmendment( $message->getTemplate(), $message->getData() );
                 }
                 catch (\Exception $e) { $tx .= '_TEMPLATE_ERROR_'; }
 
@@ -1246,10 +1247,10 @@ class MessageGlobalPMController extends MessageController
         $post = (new GlobalPrivateMessage())
             ->setSender($user)->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,null,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $this->entity_manager->persist( $post );
 
@@ -1311,10 +1312,10 @@ class MessageGlobalPMController extends MessageController
             ->setSender($this->getUser())->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
         if ($overwrite_og) $post->setSenderGroup($official_group);
 
-        $tx_len = 0;
-        if (!$this->preparePost($this->getUser(),null,$post,$tx_len, null, $edit))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($this->getUser(),null,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $this->entity_manager->persist( (new OfficialGroupMessageLink())->setMessageGroup( $pg )->setOfficialGroup( $official_group ) );
 
@@ -1387,10 +1388,10 @@ class MessageGlobalPMController extends MessageController
 
         $post = (new GlobalPrivateMessage())->setSender($user)->setTimestamp($ts)->setReceiverGroup($group)->setText($text);
 
-        $tx_len = 0;
-        if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
+        /** @var HTMLParserInsight $insight */
+        if (!$this->preparePost($user,null,$post, null, $insight))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
-        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+        if ($insight->text_length < 2) return AjaxResponse::error( self::ErrorPostTextLength );
 
         if ($group_association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember && $official)
             $post->setSenderGroup($official->getOfficialGroup());
@@ -1413,7 +1414,7 @@ class MessageGlobalPMController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow, RateLimiterFactory $reportToModerationLimiter): Response {
+    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti, JSONRequestParser $parser, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
         $user = $this->getUser();
 
         $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
@@ -1438,7 +1439,7 @@ class MessageGlobalPMController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume()->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         $details = $parser->trimmed('details');

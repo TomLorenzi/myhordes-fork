@@ -7,8 +7,8 @@
 {% block ajax %}
     {% macro valuelist(prop,val) %}
         <div class="row">
-            <div class="cell rw-4"><b>{{ prop }}</b></div>
-            <div class="cell rw-8">
+            <div class="cell rw-4 rw-sm-12"><b>{{ prop }}</b></div>
+            <div class="cell rw-8 rw-sm-11 ro-sm-1">
                 {% if val is same as(true) %}
                     {{ 'Ja'|trans({},'admin') }}
                 {% elseif val is same as(false)  %}
@@ -54,7 +54,7 @@
                             {% for citizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
                                 {# @var \App\Entity\Citizen citizen  #}
                                 <div class="row-flex stretch pointer" style="max-height: 100px;">
-                                    <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+                                    {% include 'ajax/soul/playeravatar.html.twig' with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0'], attributes: {style: 'flex-basis: 92px;', ('x-ajax-href'): url('admin_users_citizen_view', {id: citizen.user.id})}} only %}
                                     <div class="cell factor-0 citizen-dead" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
                                     <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
@@ -90,12 +90,12 @@
             </div>
             <br />
             <div class="row">
-                <div class="padded cell rw-3 ro-6">
+                <div class="padded cell rw-3 ro-6 rw-md-6 ro-md-0 rw-sm-12">
                     {% if town.citizens is not empty %}
                         <a class="button" target="_blank" href="{{ url('soul_view_town', {sid: town.citizens[0].user.id, idtown: town.id}) }}">{{ 'Ranking-Eintrag'|trans({},'admin') }}</a>
                     {% endif %}
                 </div>
-                <div class="padded cell rw-3">
+                <div class="padded cell rw-3 rw-md-6 rw-sm-12">
                     <button x-ajax-href="{{ path('admin_old_town_list') }}">{{ 'Stadtübersicht'|trans({},'admin') }}</button>
                 </div>
             </div>

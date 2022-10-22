@@ -10,6 +10,7 @@ use App\Entity\TownClass;
 use App\Service\GameValidator;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,12 +18,14 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
+#[AsCommand(
+    name: 'app:town:list',
+    description: 'Lists information about towns.'
+)]
 class TownInfoCommand extends Command
 {
-    protected static $defaultName = 'app:town:list';
-
-    private $entityManager;
-    private $gameValidator;
+    private EntityManagerInterface $entityManager;
+    private GameValidator $gameValidator;
 
     public function __construct(EntityManagerInterface $em, GameValidator $v)
     {
@@ -34,7 +37,6 @@ class TownInfoCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Lists information about towns.')
             ->setHelp('This command allows you list towns.')
 
             ->addOption('type', 't', InputOption::VALUE_REQUIRED, 'Town type [all, ' . implode(', ', $this->gameValidator->getValidTownTypes()) . '], default is \'all\'');
@@ -43,7 +45,7 @@ class TownInfoCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $type = $input->getOption('type') ?: 'all';
-        if ($type !== 'all' && !in_array($type, $this->getValidTownTypes())) {
+        if ($type !== 'all' && !in_array($type, $this->gameValidator->getValidTownTypes())) {
             $output->writeln('<error>The given town type is invalid. Check the help for a list of valid types.</error>');
             return -1;
         }

@@ -12,16 +12,19 @@ use App\Service\ConfMaster;
 use App\Service\RandomGenerator;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+#[AsCommand(
+    name: 'app:info:item',
+    description: 'Dumps balancing information'
+)]
 class ItemCommand extends LanguageCommand
 {
-    protected static $defaultName = 'app:info:item';
-
     private EntityManagerInterface $em;
     private ConfMaster $conf;
 
@@ -35,7 +38,6 @@ class ItemCommand extends LanguageCommand
     protected function configure()
     {
         $this
-            ->setDescription('Dumps balancing information')
             ->addArgument('item',  InputArgument::OPTIONAL, 'What item would you like to know about?')
             ->addOption('not', null, InputOption::VALUE_NONE, 'If we want items NOT matching the argument (only for item properties)')
         ;

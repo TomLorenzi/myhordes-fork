@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\ActionCounter;
 use App\Entity\AffectAP;
 use App\Entity\AffectBlueprint;
 use App\Entity\AffectCP;
@@ -56,13 +55,12 @@ use App\Entity\RequireZone;
 use App\Entity\Result;
 use App\Entity\SpecialActionPrototype;
 use App\Enum\ItemPoisonType;
-use App\Structures\TownConf;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use MyHordes\Fixtures\Fixtures\Action;
+use MyHordes\Plugins\Fixtures\Action;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

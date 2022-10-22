@@ -2,7 +2,7 @@
 
 namespace MyHordes\Fixtures\Service;
 
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ItemDataService implements FixtureProcessorInterface {
 
@@ -145,7 +145,7 @@ class ItemDataService implements FixtureProcessorInterface {
                 ['label' => 'Batteriewerfer Mark II (geladen)', 'icon' => 'pilegun_up', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 11],                   // -- Out
                 ['label' => 'Verbrauchte Fackel', 'icon' => 'torch_off', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                  // -- Out
                 ['label' => 'Mobiltelefon', 'icon' => 'iphone', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                           // -- Out
-                ['label' => 'Explosive Pampelmuse', 'icon' => 'boomfruit', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                                // -- Out
+                ['label' => 'Explosive Pampelmuse', 'icon' => 'boomfruit', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                // -- Out
                 ['label' => 'Pfahlwerfer', 'icon' => 'rlaunc', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                                            // --
                 ['label' => 'Kalaschni-Splash', 'icon' => 'kalach', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 11],                                        // -- ---
                 ['label' => 'Kalaschni-Splash (leer)', 'icon' => 'kalach', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In Out
@@ -183,7 +183,7 @@ class ItemDataService implements FixtureProcessorInterface {
                 ['label' => 'Sperrholzstück', 'icon' => 'out_def', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // -- ---
                 ['label' => 'Ekliger Hautfetzen', 'icon' => 'smelly_meat', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
                 ['label' => 'Bandage', 'icon' => 'bandage', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                 // In Out
-                ['label' => 'Pharmazeutische Substanz', 'icon' => 'pharma', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
+                ['label' => 'Pharmazeutische Substanz', 'icon' => 'pharma', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                 // -- ---
                 ['label' => 'Zyanid', 'icon' => 'cyanure', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // In Out
                 ['label' => 'Micropur Brausetablette', 'icon' => 'water_cleaner', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // -- ---
                 ['label' => 'Dickflüssige Substanz', 'icon' => 'pharma_part', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // -- ---
@@ -289,7 +289,7 @@ class ItemDataService implements FixtureProcessorInterface {
                 ['label' => 'Aufgewelltes Blatt', 'icon' => 'rp_scroll', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // In Out
                 ['label' => 'Unleserliches Notizbuch', 'icon' => 'rp_book2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
                 ['label' => 'Blätterstapel', 'icon' => 'rp_sheets', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // In Out
-                ['label' => 'Giftfläschchen', 'icon' => 'poison', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            // In Out
+                ['label' => 'Giftfläschchen', 'icon' => 'poison', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                            // In Out
                 ['label' => 'Ätzmittel', 'icon' => 'poison_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            // -- ---
                 ['label' => 'Normaler Bauplan (gewöhnlich)', 'icon' => 'bplan_c', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
                 ['label' => 'Normaler Bauplan (ungewöhnlich)', 'icon' => 'bplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In ---

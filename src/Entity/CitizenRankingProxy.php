@@ -7,12 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 
-/**
- * @ORM\Entity(repositoryClass=CitizenRankingProxyRepository::class)
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="citizen_ranking_proxy_id_unique",columns={"base_id", "import_id", "import_lang"})
- * })
- */
+#[ORM\Entity(repositoryClass: CitizenRankingProxyRepository::class)]
+#[Table]
+#[UniqueConstraint(name: 'citizen_ranking_proxy_id_unique', columns: ['base_id', 'import_id', 'import_lang'])]
 class CitizenRankingProxy
 {
     const DISABLE_NOTHING = 0;
@@ -20,250 +17,157 @@ class CitizenRankingProxy
     const DISABLE_PICTOS = 1 << 1;
     const DISABLE_SOULPOINTS = 1 << 2;
     const DISABLE_ALL = self::DISABLE_PICTOS | self::DISABLE_RANKING | self::DISABLE_SOULPOINTS;
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="pastLifes")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'pastLifes')]
+    #[ORM\JoinColumn(nullable: false)]
     private $user;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $day;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $points;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $comment;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=CauseOfDeath::class)
-     */
+    #[ORM\ManyToOne(targetEntity: CauseOfDeath::class)]
     private $cod;
-
-    /**
-     * @ORM\Column(name="`begin`", type="datetime", nullable=true)
-     */
+    #[ORM\Column(name: '`begin`', type: 'datetime', nullable: true)]
     private $begin;
-
-    /**
-     * @ORM\Column(name="`end`", type="datetime", nullable=true)
-     */
+    #[ORM\Column(name: '`end`', type: 'datetime', nullable: true)]
     private $end;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=TownRankingProxy::class, inversedBy="citizens")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: TownRankingProxy::class, inversedBy: 'citizens')]
+    #[ORM\JoinColumn(nullable: false)]
     private $town;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $baseID;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Citizen::class, inversedBy="rankingEntry", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     */
+    #[ORM\OneToOne(targetEntity: Citizen::class, inversedBy: 'rankingEntry', cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $citizen;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private $lastWords;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $confirmed = false;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $importID = 0;
-
-    /**
-     * @ORM\Column(type="string", length=16, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 16, nullable: true)]
     private $importLang;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $dayOfDeath = 1;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $commentLocked;
-
-    /**
-     * @ORM\Column(type="string", length=24, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 24, nullable: true)]
     private $alias;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $disabled = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private $limitedImport = false;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $cleanup_type;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $cleanup_username;
-
-    /**
-     * @ORM\OneToOne(targetEntity=SoulResetMarker::class, mappedBy="ranking", cascade={"persist", "remove"})
-     */
+    #[ORM\OneToOne(targetEntity: SoulResetMarker::class, mappedBy: 'ranking', cascade: ['persist', 'remove'])]
     private $resetMarker;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private $disableFlag = self::DISABLE_NOTHING;
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getUser(): ?User
     {
         return $this->user;
     }
-
     public function setUser(?User $user): self
     {
         $this->user = $user;
 
         return $this;
     }
-
     public function getDay(): ?int
     {
         return $this->day;
     }
-
     public function setDay(?int $day): self
     {
         $this->day = $day;
 
         return $this;
     }
-
     public function getPoints(): ?int
     {
         return $this->points;
     }
-
     public function setPoints(?int $points): self
     {
         $this->points = $points;
 
         return $this;
     }
-
     public function getComment(): ?string
     {
         return $this->comment;
     }
-
     public function setComment(?string $comment): self
     {
         $this->comment = $comment;
 
         return $this;
     }
-
     public function getCod(): ?CauseOfDeath
     {
         return $this->cod;
     }
-
     public function setCod(?CauseOfDeath $cod): self
     {
         $this->cod = $cod;
 
         return $this;
     }
-
     public function getBegin(): ?\DateTimeInterface
     {
         return $this->begin;
     }
-
     public function setBegin(\DateTimeInterface $begin): self
     {
         $this->begin = $begin;
 
         return $this;
     }
-
     public function getEnd(): ?\DateTimeInterface
     {
         return $this->end;
     }
-
     public function setEnd(?\DateTimeInterface $end): self
     {
         $this->end = $end;
 
         return $this;
     }
-
     public function getTown(): ?TownRankingProxy
     {
         return $this->town;
     }
-
     public function setTown(?TownRankingProxy $town): self
     {
         $this->town = $town;
 
         return $this;
     }
-
     public function getBaseID(): ?int
     {
         return $this->baseID;
     }
-
     public function setBaseID(int $baseID): self
     {
         $this->baseID = $baseID;
 
         return $this;
     }
-
     public function getCitizen(): ?Citizen
     {
         return $this->citizen;
     }
-
     public function setCitizen(?Citizen $citizen): self
     {
         $this->citizen = $citizen;
@@ -276,7 +180,6 @@ class CitizenRankingProxy
 
         return $this;
     }
-
     public static function fromCitizen(Citizen $citizen, bool $update = false): CitizenRankingProxy {
         if (!$update && $citizen->getRankingEntry()) return $citizen->getRankingEntry();
         $obj = (($update && $citizen->getRankingEntry()) ? $citizen->getRankingEntry() : new CitizenRankingProxy())
@@ -321,149 +224,124 @@ class CitizenRankingProxy
 
         return $obj;
     }
-
     public function getLastWords(): ?string
     {
         return $this->lastWords;
     }
-
     public function setLastWords(?string $lastWords): self
     {
         $this->lastWords = $lastWords;
 
         return $this;
     }
-
     public function getConfirmed(): ?bool
     {
         return $this->confirmed;
     }
-
     public function setConfirmed(bool $confirmed): self
     {
         $this->confirmed = $confirmed;
 
         return $this;
     }
-
     public function getImportID(): ?int
     {
         return $this->importID;
     }
-
     public function setImportID(int $importID): self
     {
         $this->importID = $importID;
 
         return $this;
     }
-
     public function getImportLang(): ?string
     {
         return $this->importLang;
     }
-
     public function setImportLang(?string $importLang): self
     {
         $this->importLang = $importLang;
 
         return $this;
     }
-
     public function getDayOfDeath(): ?int
     {
         return $this->dayOfDeath;
     }
-
     public function setDayOfDeath(int $dayOfDeath): self
     {
         $this->dayOfDeath = $dayOfDeath;
 
         return $this;
     }
-
     public function getCommentLocked(): ?bool
     {
         return $this->commentLocked;
     }
-
     public function setCommentLocked(?bool $commentLocked): self
     {
         $this->commentLocked = $commentLocked;
 
         return $this;
     }
-
     public function getAlias(): ?string
     {
         return $this->alias;
     }
-
     public function setAlias(?string $alias): self
     {
         $this->alias = $alias;
 
         return $this;
     }
-
     public function getName(): string
     {
         return $this->getAlias() ?? $this->getUser()->getName();
     }
-
     public function getDisabled(): ?bool
     {
         return $this->disabled;
     }
-
     public function setDisabled(bool $disabled): self
     {
         $this->disabled = $disabled;
 
         return $this;
     }
-
     public function getLimitedImport(): ?bool
     {
         return $this->limitedImport;
     }
-
     public function setLimitedImport(bool $limitedImport): self
     {
         $this->limitedImport = $limitedImport;
 
         return $this;
     }
-
     public function getCleanupType(): ?string
     {
         return $this->cleanup_type;
     }
-
     public function setCleanupType(?string $cleanup_type): self
     {
         $this->cleanup_type = $cleanup_type;
 
         return $this;
     }
-
     public function getCleanupUsername(): ?string
     {
         return $this->cleanup_username;
     }
-
     public function setCleanupUsername(?string $cleanup_username): self
     {
         $this->cleanup_username = $cleanup_username;
 
         return $this;
     }
-
     public function getResetMarker(): ?SoulResetMarker
     {
         return $this->resetMarker;
     }
-
     public function setResetMarker(?SoulResetMarker $resetMarker): self
     {
         // set the owning side of the relation if necessary
@@ -475,29 +353,24 @@ class CitizenRankingProxy
 
         return $this;
     }
-
     public function getDisableFlag(): ?int
     {
         return $this->disableFlag;
     }
-
     public function setDisableFlag(int $disableFlag): self
     {
         $this->disableFlag = $disableFlag;
 
         return $this;
     }
-
     public function addDisableFlag(int $disableFlag): self {
         $this->setDisableFlag( $this->getDisableFlag() | $disableFlag );
         return $this;
     }
-
     public function removeDisableFlag(int $disableFlag): self {
         $this->setDisableFlag( $this->getDisableFlag() & ~$disableFlag );
         return $this;
     }
-
     public function hasDisableFlag(int $disableFlag): bool {
         return ($this->getDisableFlag() & $disableFlag) === $disableFlag;
     }

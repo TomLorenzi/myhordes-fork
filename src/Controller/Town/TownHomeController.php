@@ -215,7 +215,7 @@ class TownHomeController extends TownController
             'decoItems' => $decoItems,
             'protected' => $this->citizen_handler->houseIsProtected($this->getActiveCitizen(), true),
 
-            'log' => $this->renderLog( -1, $citizen, false, null, 10 )->getContent(),
+            'log' => $this->renderLog( -1, $citizen, false, null, 5 )->getContent(),
             'day' => $town->getDay(),
 
             'can_send_global_pm' => $can_send_global_pm,

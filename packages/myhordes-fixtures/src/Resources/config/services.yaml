@@ -11,9 +11,6 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    MyHordes\Fixtures\Fixtures\:
-      resource: '../../../src/Fixtures/*'
-
     MyHordes\Fixtures\Service\PermissionDataService:
       tags: [ { name: 'myhordes.fixtures.permissions', priority: 0 } ]
 

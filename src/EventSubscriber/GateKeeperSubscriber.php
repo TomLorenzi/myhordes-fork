@@ -5,7 +5,6 @@ namespace App\EventSubscriber;
 
 use App\Controller\HookedInterfaceController;
 use App\Entity\AccountRestriction;
-use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
@@ -15,8 +14,8 @@ use App\Service\Locksmith;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
@@ -29,6 +28,7 @@ use Symfony\Component\Security\Http\Event\LogoutEvent;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 use App\Annotations\GateKeeperProfile;
+use Throwable;
 
 class GateKeeperSubscriber implements EventSubscriberInterface
 {
@@ -44,7 +44,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private CitizenHandler $citizenHandler;
 
     /** @var LockInterface|null  */
-    private $current_lock = null;
+    private ?LockInterface $current_lock = null;
 
     public function __construct(
         EntityManagerInterface $em, Locksmith $locksmith, Security $security, UserHandler $uh,
@@ -70,20 +70,24 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $controller = $event->getController();
         if (is_array($controller)) $controller = $controller[0];
 
+        if (!str_starts_with( get_class($controller) ?? '', 'App\\' )) return;
+
         // During the attack, only whitelisted controllers and functions are available
         // This is controlled by the allow_during_attack parameter of @GateKeeperProfile
         if (!$gk_profile->getAllowDuringAttack() && $this->timeKeeper->isDuringAttack())
             throw new DynamicAjaxResetException($event->getRequest());
 
-        /** @var User $user */
+        /** @var ?User $user */
         $user = $this->security->getUser();
         if ($gk_profile->getRecordUserActivity() && $user) {
             $this->anti_cheat->recordConnection($user, $event->getRequest());
-            $this->em->persist( $user->setLastActionTimestamp( new \DateTime() ) );
-            try { $this->em->flush(); } catch (Exception $e) {}
+            $this->em->persist( $user->setLastActionTimestamp( new DateTime() ) );
+            if ($user->getActiveCitizen()?->getAlive())
+                $this->citizenHandler->inflictStatus($user->getActiveCitizen(), 'tg_chk_active');
+            try { $this->em->flush(); } catch (Throwable) {}
         }
 
-        if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage())
+        if ($user?->getLanguage() && $event->getRequest()->getLocale() !== $user?->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
 
         if ($gk_profile->onlyWhenGhost() && (!$user || $user->getActiveCitizen()))
@@ -92,7 +96,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
         if ($gk_profile->onlyWhenIncarnated()) {
             // This is a game controller; it is not available to players outside of a game
-            if (!$user || !$citizen = $user->getActiveCitizen())
+            if (!$citizen = $user?->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
 
             // Redirect shadow-banned users
@@ -101,7 +105,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 return;
             }
 
-            /** @var $citizen Citizen */
             $this->current_lock = $this->locksmith->waitForLock( 'game-' . $citizen->getTown()->getId() );
             if ($this->townHandler->triggerAlways( $citizen->getTown() ))
                 $this->em->persist( $citizen->getTown() );
@@ -109,10 +112,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             if ($gk_profile->onlyWhenAlive() && !$citizen->getAlive())
                 // This is a game action controller; it is not available to players who are dead
                 throw new DynamicAjaxResetException($event->getRequest());
-
-            if ($citizen->getAlive()){
-                $this->citizenHandler->inflictStatus($citizen, 'tg_chk_active');
-            }
 
             if ($gk_profile->onlyWithProfession() && $citizen->getProfession()->getName() === CitizenProfession::DEFAULT) {
                 // This is a game profession controller; it is not available to players who have not chosen a profession
@@ -144,7 +143,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 $citizen->setLastActionTimestamp(time());
                 $this->em->persist($citizen);
                 $this->em->flush();
-            } catch (\Throwable $t) {}
+            } catch (Throwable) {}
 
 
             // Execute before() on HookedControllers
@@ -155,7 +154,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     }
 
     public function releaseTheDoor(ResponseEvent $event) {
-        if ($this->current_lock) $this->current_lock->release();
+        $this->current_lock?->release();
     }
 
     public function removeRememberMeToken(LogoutEvent $event) {

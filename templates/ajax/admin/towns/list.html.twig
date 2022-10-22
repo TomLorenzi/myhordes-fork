@@ -37,23 +37,37 @@
                 {# @var towns \App\Entity\Town[] #}
                 {% for town in towns %}
                     <div class="row-flex wrap">
-                        <div class="cell padded rw-1 rw-sm-2 shrink-0">
+                        <div class="cell padded rw-1 rw-sm-2 shrink-0" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
                             <span class="hide-mobile">{{ town.id }}</span><span class="small hide-desktop">{{ town.id }}</span><br />
                             {% if town.language is not empty %}
                                 <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
                             {% endif %}
                         </div>
-                        <div class="cell padded rw-5 rw-sm-8">
+                        <div class="cell padded rw-5 rw-sm-8" style="opacity: {{ town.scheduledFor > 'now'|to_date ? 0.5 : 1 }}">
                             {{ town.name }}<br /><span class="small">{% if town.open %}<i class="fa fa-door-open"></i> {% endif %}{{ town.type.label|trans({},'game') }}</span>
                             {% if town.attackFails >= 3 %}<div style="color: red">{{ 'Quarantäne'|trans({},'game') }}</div> {% endif %}
                             {% if town.rankingEntry.disabled %}<div class="bold" style="color: #ff8800">{{ 'Ranking-Ausschluss'|trans({},'game') }}</div> {% endif %}
                             {% if town.rankingEntry.event %}<div class="bold" style="color: #81b3e2">{{ 'Event-Stadt'|trans({},'ghost') }}</div> {% endif %}
                         </div>
-                        <div class="cell padded rw-1 rw-sm-2 shrink-0">{{ town.day }}</div>
-                        <div class="cell padded rw-2 rw-sm-8">
-                            {{ town.citizenCount }} / {{ town.population }} {% if town.citizenCount < town.population %}<i title="{{ 'Geöffnet'|trans({},'admin') }}" class="small fa fa-door-open"></i>{% endif %}<br />
-                            <span title="{{ 'Leben'|trans({},'admin') }}" class="small"><i class="fa fa-users"></i> {{ town.aliveCitizenCount }}</span> <span title="{{ 'Tot'|trans({},'admin') }}" class="small"><i class="fa fa-skull"></i> {{ town.citizenCount - town.aliveCitizenCount }}</span> <span title="{{ 'Getrennt'|trans({},'admin') }}" class="small"><i class="fa fa-user-slash"></i> {{ town.citizenCount - town.activeCitizenCount }}</span>
-                        </div>
+                        {% if town.scheduledFor > 'now'|to_date %}
+                            <div class="cell padded rw-3 rw-sm-10 shrink-0">
+                                <div class="row-flex v-center">
+                                    <div class="padded cell">
+                                        <i class="fa fa-clock"></i>
+                                    </div>
+                                    <div class="padded cell small">
+                                        {{ town.scheduledFor|format_date('full') }}<br/>
+                                        {{ town.scheduledFor|format_time('short') }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="cell padded rw-1 rw-sm-2 shrink-0">{{ town.day }}</div>
+                            <div class="cell padded rw-2 rw-sm-8">
+                                {{ town.citizenCount }} / {{ town.population }} {% if town.citizenCount < town.population %}<i title="{{ 'Geöffnet'|trans({},'admin') }}" class="small fa fa-door-open"></i>{% endif %}<br />
+                                <span title="{{ 'Leben'|trans({},'admin') }}" class="small"><i class="fa fa-users"></i> {{ town.aliveCitizenCount }}</span> <span title="{{ 'Tot'|trans({},'admin') }}" class="small"><i class="fa fa-skull"></i> {{ town.citizenCount - town.aliveCitizenCount }}</span> <span title="{{ 'Getrennt'|trans({},'admin') }}" class="small"><i class="fa fa-user-slash"></i> {{ town.citizenCount - town.activeCitizenCount }}</span>
+                            </div>
+                        {% endif %}
                         <div class="cell padded rw-3 rw-sm-4 right">
                             <button x-ajax-href="{{ path('admin_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
                         </div>
@@ -67,7 +81,7 @@
                     <label>
                         <select id="new_town_lang">
                             {% for lang in langs %}
-                                <option value="{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</option>
+                                <option {% if lang['code'] == app.user.language %}selected{% endif%} value="{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</option>
                             {% endfor %}
                             <option value="multi">Multi</option>
                         </select>
@@ -75,10 +89,11 @@
                 </div>
                 <div class="padded cell rw-sm-12 grow-1 shrink-1"><label><input id="new_town_name" type="text" placeholder="{{ 'Stadtname'|trans({},'admin') }}" /></label></div>
                 <div class="padded cell rw-sm-12 grow-0 shrink-0"><label><select id="new_town_type">
-                            <option value="small">{{ 'Kleine Stadt'|trans({},'game') }}</option>
-                            <option value="remote">{{ 'Entfernte Regionen'|trans({},'game') }}</option>
-                            <option value="panda">{{ 'Pandämonium'|trans({},'game') }}</option>
+                    <option value="small">{{ 'Kleine Stadt'|trans({},'game') }}</option>
+                    <option selected value="remote">{{ 'Entfernte Regionen'|trans({},'game') }}</option>
+                    <option value="panda">{{ 'Pandämonium'|trans({},'game') }}</option>
                 </select></label></div>
+                <div class="padded cell rw-sm-12 grow-0 shrink-0"><label title="{{ 'Lege einen Zeitpunkt fest, an dem die Stadt eröffnet werden soll. Leer lassen oder einen Zeitpunkt in der Vergangenheit angeben, um die Stadt sofort zu öffnen.'|trans({},'admin') }}"><input type="datetime-local" id="new_town_sched" value="{{ 'today+20min'|to_date|date('Y-m-d\\TH:i:s') }}" /></label></div>
                 <div class="padded cell rw-sm-12 shrink-0"><button id="new_town_button">{{ 'Stadt anlegen'|trans({},'admin') }}</button></div>
             </div>
         </div>
@@ -94,6 +109,7 @@
 
             $.ajax.easySend('{{ path('admin_new_town') }}', {
                 name: name,
+                time: document.getElementById('new_town_sched').value,
                 type: document.getElementById('new_town_type').value,
                 lang: document.getElementById('new_town_lang').value
             }, () => $.ajax.load(null, '{{ path('admin_town_list') }}'));

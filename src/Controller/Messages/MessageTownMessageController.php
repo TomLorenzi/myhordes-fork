@@ -21,12 +21,12 @@ use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
+use App\Service\RateLimitingFactoryProvider;
 use App\Service\UserHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -76,6 +76,9 @@ class MessageTownMessageController extends MessageController
 
         if ($type === "global" && !$sender->getProfession()->getHeroic() && !$userHandler->hasSkill($sender->getUser(), 'writer'))
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
+
+        if ($type === "global" && !$sender->getTown()->isOpen() && $sender->getTown()->getAliveCitizenCount() <= 1)
+            return AjaxResponse::errorMessage( $this->translator->trans('Du bist ganz allein. Niemand wird dir antworten, du kannst es also getrost sein lassen. Außerdem spielt das eh keine Rolle mehr, du wirst heute Nacht bestimmt sterben...', [], 'game') );
 
         if ($type === "global" && $sender->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
@@ -132,7 +135,7 @@ class MessageTownMessageController extends MessageController
             $recipient = $global_recipient ?? $em->getRepository(Citizen::class)->find($recipient);
 
             if (count($linked_items) > 0) {
-                if ($recipient->getBanished() != $sender->getBanished())
+                if ($recipient->getBanished() != $sender->getBanished() && !$this->citizen_handler->hasStatusEffect($sender,'drunk'))
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 if ($sender->getTown()->getChaos()){
                     if($recipient->getZone())
@@ -161,7 +164,7 @@ class MessageTownMessageController extends MessageController
                 // Filter possible recipents. A sender can only send to someone who has the same banishment status.
                 $list = $sender->getTown()
                                ->getCitizens()
-                               ->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive() && $sender->getBanished() === $c->getBanished())
+                               ->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive() && ($sender->getBanished() === $c->getBanished() || empty($linked_items)))
                                ->getValues();
 
                 // If there's no recipient, we have to send an error. No MP will be sent.
@@ -171,16 +174,19 @@ class MessageTownMessageController extends MessageController
 
                 shuffle($list);
 
-                if ($this->rand->chance(0.5))
-                    foreach ($list as $incorrect_receiver_candidate)
-                        if ($this->inventory_handler->getFreeSize($incorrect_receiver_candidate->getHome()->getChest()) >= count($linked_items)) {
-                            $correct_receiver = $recipient;
-                            $incorrect_receiver = $incorrect_receiver_candidate;
-                            $global_thread = null;
-                            break;
-                        }
+                foreach ($list as $incorrect_receiver_candidate)
+                    if ($this->inventory_handler->getFreeSize($incorrect_receiver_candidate->getHome()->getChest()) >= count($linked_items)) {
+                        $correct_receiver = $recipient;
+                        $incorrect_receiver = $incorrect_receiver_candidate;
+                        $global_thread = null;
+                        break;
+                    }
 
-                $recipients[] = $incorrect_receiver ?? $recipient;
+                // If there's no recipient, we have to send an error. No MP will be sent.
+                if (!$incorrect_receiver)
+                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+                $recipients[] = $incorrect_receiver;
             } else if ($recipient) $recipients[] = $recipient;
 
         } else {
@@ -235,8 +241,7 @@ class MessageTownMessageController extends MessageController
 
             $post->setItems($items_prototype);
 
-            $tx_len = 0;
-            if (!$this->preparePost($this->getUser(),null,$post,$tx_len, $recipient->getTown()))
+            if (!$this->preparePost($this->getUser(),null,$post, $recipient->getTown()))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread
@@ -441,7 +446,7 @@ class MessageTownMessageController extends MessageController
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimiterFactory $reportToModerationLimiter): Response {
+    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti, CrowService $crow, RateLimitingFactoryProvider $rateLimiter): Response {
         $user = $this->getUser();
 
         $id = $parser->get('pmid', null);
@@ -462,7 +467,7 @@ class MessageTownMessageController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
+        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume()->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
 
         $details = $parser->trimmed('details');
@@ -639,8 +644,7 @@ class MessageTownMessageController extends MessageController
                 ->setNew(true)
                 ->setRecipient($recipient);
 
-            $tx_len = 0;
-            if (!$this->preparePost($this->getUser(),null,$post,$tx_len, $recipient->getTown()))
+            if (!$this->preparePost($this->getUser(),null,$post, $recipient->getTown()))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread

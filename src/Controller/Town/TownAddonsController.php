@@ -233,7 +233,7 @@ class TownAddonsController extends TownController
             'need_ap' => 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0),
             'source' => $source_db, 'result' => $result_db,
 
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWorkshop, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWorkshop, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
     }
@@ -368,7 +368,7 @@ class TownAddonsController extends TownController
             'items' => $cache,
             'dump_def' => $dump->getTempDefenseBonus(),
             'total_def' => $th->calculate_town_def( $town ),
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDump, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDump, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ]) );
     }
@@ -638,7 +638,7 @@ class TownAddonsController extends TownController
             'catapult_improved' => $th->getBuilding( $town, 'item_courroie_#01', true ) !== null,
             'catapult_master' => $cata_master,
             'is_catapult_master' => $this->getActiveCitizen()->hasRole('cata'),
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeCatapult, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeCatapult, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ]) );
     }
@@ -709,7 +709,7 @@ class TownAddonsController extends TownController
         if ($citizen->getAp() < $ap || $ch->isTired($citizen)) return AjaxResponse::error(ErrorHelper::ErrorNoAP);
 
         // Different target zone
-        if ($this->random_generator->chance(0.15)) {
+        if ($this->random_generator->chance(0.10)) {
 
             $alt_zones = [];
 

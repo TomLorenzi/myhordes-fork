@@ -22,6 +22,7 @@ use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use ReflectionClass;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -33,26 +34,25 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:forum:permissions',
+    description: 'Allows editing forum permissions'
+)]
 class ForumPermissionCommand extends Command
 {
-    protected static $defaultName = 'app:forum:permissions';
-
     private EntityManagerInterface $entityManager;
     private CommandHelper $helper;
-    private PermissionHandler $perm;
 
-    public function __construct(EntityManagerInterface $em, CommandHelper $comh, PermissionHandler $permissionHandler)
+    public function __construct(EntityManagerInterface $em, CommandHelper $comh)
     {
         $this->entityManager = $em;
         $this->helper = $comh;
-        $this->perm = $permissionHandler;
         parent::__construct();
     }
 
     protected function configure()
     {
         $this
-            ->setDescription('Allows editing forum permissions')
             ->setHelp('This command allows editing forum permissions.')
 
             ->addArgument('ForumID', InputArgument::REQUIRED, 'The Forum ID')

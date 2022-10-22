@@ -39,6 +39,7 @@ use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Enum\ItemPoisonType;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
@@ -206,7 +207,7 @@ class ActionHandler
 
                 if ($count > 0) {
                     if (empty($this->inventory_handler->fetchSpecificItems( $source,
-                        [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
+                        [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
                     ))) {
                         if (!$is_prop) for ($i = 0; $i < $item_condition->getCount() ?? 1; $i++) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
                         $current_state = min($current_state, $this_state);
@@ -367,6 +368,16 @@ class ActionHandler
                     case 69:
                         if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
                             $current_state = min($current_state, $this_state);
+                        break;
+
+                    // Camourflace for hunter
+                    case 100:
+                        if (!$citizen->getLeadingEscorts()->isEmpty()) {
+                            $current_state = min($current_state, $this_state);
+                            $messages[] = $this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items');
+                        }
+
+                        break;
                 }
 
 
@@ -569,7 +580,7 @@ class ActionHandler
     }
 
     /**
-     * @param ItemPrototype|BuildingPrototype|Citizen|string $o
+     * @param ItemPrototype|BuildingPrototype|Citizen|ZonePrototype|string $o
      * @param int $c
      * @return string
      */
@@ -584,6 +595,8 @@ class ActionHandler
         } else if (is_a($o, Citizen::class)) {
             $s =  $o->getName();
             $i = 'build/images/professions/' . $o->getProfession()->getIcon() . '.gif';
+        } else if (is_a($o, ZonePrototype::class)) {
+            $s =  $this->translator->trans($o->getLabel(), [], 'game');
         }
         else if (is_string($o)) $s = $o;
         else if (is_null($o)) $s = 'NULL';
@@ -901,7 +914,7 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
-                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
+                    if ($i = $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory ], true)) {
                         if ($i !== $citizen->getInventory())
                             $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                         $execute_info_cache['items_spawn'][] = $target;
@@ -928,6 +941,10 @@ class ActionHandler
                     switch ($item_spawn->getSpawnTarget()) {
                         case AffectItemSpawn::DropTargetFloor:
                             $target = [ $floor_inventory, $citizen->getInventory(), $floor_inventory ];
+                            $force = true;
+                            break;
+                        case AffectItemSpawn::DropTargetFloorOnly:
+                            $target = [ $floor_inventory ];
                             $force = true;
                             break;
                         case AffectItemSpawn::DropTargetRucksack:
@@ -1123,7 +1140,10 @@ class ActionHandler
 
             if ($result->getRolePlayText()) {
                 /** @var RolePlayText|null $text */
-                $text = $this->random_generator->pick( ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null) ? $this->entity_manager->getRepository(RolePlayText::class)->findAll() : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
+                $text = $this->random_generator->pickEntryFromRandomArray(
+                    ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null)
+                        ? $this->entity_manager->getRepository(RolePlayText::class)->findAll()
+                        : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
                 $alreadyfound = !$text || $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
                 $execute_info_cache['rp_text'] = $text->getTitle();
                 if ($alreadyfound)
@@ -1579,13 +1599,14 @@ class ActionHandler
                         $criteria->andWhere($criteria->expr()->neq('discoveryStatus', Zone::DiscoveryStateCurrent));
                         $zones = $this->entity_manager->getRepository(Zone::class)->matching($criteria)->getValues();
                         if(count($zones) > 0) {
+                            /** @var Zone $zone */
                             $zone = $this->random_generator->pick($zones);
                             $zone->setDiscoveryStatus(Zone::DiscoveryStateCurrent);
                             $zone->setZombieStatus( max( $zone->getZombieStatus(), $this->town_handler->getBuilding($citizen->getTown(), 'item_electro_#00', true) ? Zone::ZombieStateExact : Zone::ZombieStateEstimate ) );
                             $this->entity_manager->persist($zone);
                             $this->inventory_handler->forceRemoveItem( $item );
                             $execute_info_cache['items_consume'][] = $item->getPrototype();
-                            $tags[] = 'flare_ok';
+                            $tags[] = $zone->getPrototype() ? 'flare_ok_ruin' : 'flare_ok';
                             $execute_info_cache['zone'] = $zone;
                         } else {
                             $tags[] = 'flare_fail';
@@ -1697,6 +1718,7 @@ class ActionHandler
 	                '{bp_parent}'     => $this->wrap_concat_hierarchy($execute_info_cache['bp_parent']),
 	                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
 	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
+	                '{zone_ruin}'     => ($execute_info_cache['zone'] && $execute_info_cache['zone']->getPrototype()) ? $this->wrap( $execute_info_cache['zone']->getPrototype() ) : '',
 	                '{casino}'        => $execute_info_cache['casino'],
 	                '{kills}'         => $execute_info_cache['kills'],
 	                '{bury_count}'    => $execute_info_cache['bury_count'],
@@ -1808,7 +1830,7 @@ class ActionHandler
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
-                $base = T::__('Du hast {item_list} zu {item} umgewandelt.', 'game');
+                $base = (!empty($recipe->getTooltipString()) ? $recipe->getTooltipString() : T::__('Du hast {item_list} zu {item} umgewandelt.', 'game'));
                 break;
         }
 
@@ -1819,7 +1841,7 @@ class ActionHandler
         $message = $this->translator->trans( $base, [
             '{item_list}' => $this->wrap_concat( $list ),
             '{item}' => $this->wrap( $new_item ),
-            '{ap}' => $used_ap == 0 ? "0" : 0,
+            '{ap}' => $used_ap <= 0 ? "0" : $used_ap,
         ], 'game' );
 
         return self::ErrorNone;

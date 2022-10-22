@@ -25,6 +25,7 @@ use App\Service\UserHandler;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -33,10 +34,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+#[AsCommand(
+    name: 'app:ranking',
+    description: 'Calculates ranking rewards at the end of a season.'
+)]
 class RankingCommand extends Command
 {
-    protected static $defaultName = 'app:ranking';
-
     private EntityManagerInterface $entityManager;
     private CommandHelper $commandHelper;
     private UserHandler $userHandler;
@@ -54,7 +57,6 @@ class RankingCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Calculates ranking rewards at the end of a season.')
             ->addArgument('SeasonNumber', InputArgument::OPTIONAL, 'The season number. Enter numeric value or c for current, l for latest.', 'c')
             ->addArgument('SeasonSubNumber', InputArgument::OPTIONAL, 'The season sub number. Enter numeric value or c for current, l for latest.', '')
 

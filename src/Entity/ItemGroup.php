@@ -8,33 +8,21 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\ItemGroupRepository")
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\ItemGroupRepository')]
 class ItemGroup implements RandomGroup
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $name;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ItemGroupEntry", mappedBy="itemGroup", orphanRemoval=true, cascade={"persist", "detach"}, fetch="EAGER")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\ItemGroupEntry', mappedBy: 'itemGroup', orphanRemoval: true, cascade: ['persist', 'detach'], fetch: 'EAGER')]
     private $entries;
-
     public function __construct()
     {
         $this->entries = new ArrayCollection();
     }
-
     public function __clone()
     {
         if ($this->id) {
@@ -45,24 +33,20 @@ class ItemGroup implements RandomGroup
             $this->entries = $cache;
         }
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     /**
      * @return Collection|ItemGroupEntry[]
      */
@@ -70,7 +54,6 @@ class ItemGroup implements RandomGroup
     {
         return $this->entries;
     }
-
     public function addEntry(ItemGroupEntry $entry): self
     {
         if (!$this->entries->contains($entry)) {
@@ -80,7 +63,6 @@ class ItemGroup implements RandomGroup
 
         return $this;
     }
-
     public function findEntry( string $item_prototype_name ): ?ItemGroupEntry {
         foreach ($this->entries as $entry)
             /** @var ItemGroupEntry $entry */
@@ -88,7 +70,6 @@ class ItemGroup implements RandomGroup
                 return $entry;
         return null;
     }
-
     public function toArray(): array {
         $array = [];
         foreach ($this->entries as $entry)
@@ -96,7 +77,6 @@ class ItemGroup implements RandomGroup
             $array[ $entry->getPrototype()->getName() ] = $entry;
         return $array;
     }
-
     public function removeEntry(ItemGroupEntry $entry): self
     {
         if ($this->entries->contains($entry)) {

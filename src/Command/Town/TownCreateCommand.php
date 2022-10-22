@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -23,10 +24,12 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 
+#[AsCommand(
+    name: 'app:town:create',
+    description: 'Creates a new town.'
+)]
 class TownCreateCommand extends Command
 {
-    protected static $defaultName = 'app:town:create';
-
     private EntityManagerInterface $entityManager;
     private GameFactory $gameFactory;
     private GameValidator $gameValidator;
@@ -52,7 +55,6 @@ class TownCreateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Creates a new town.')
             ->setHelp('This command allows you to create a new, empty town.')
 
             ->addArgument('townClass', InputArgument::REQUIRED, 'Town type [' . implode(', ', $this->gameValidator->getValidTownTypes()) . ']')
@@ -76,8 +78,13 @@ class TownCreateCommand extends Command
 
         $this->trans->setLocale($town_lang !== 'multi' ? $town_lang : 'en');
 
+        $current_events = $this->conf->getCurrentEvents();
+        $name_changers = array_values(
+            array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
+        );
+
         $output->writeln("<info>Creating a new '$town_type' town " . ($town_name === null ? '' : "called '$town_name' ") . " (" . $town_lang . ") with $town_citizens unlucky inhabitants.</info>");
-        $town = $this->gameFactory->createTown($town_name, $town_lang, $town_citizens, $town_type);
+        $town = $this->gameFactory->createTown($town_name, $town_lang, $town_citizens, $town_type, [], -1, $name_changers[0] ?? null);
 
         if ($town === null) {
             $output->writeln('<error>Town creation service terminated with an error. Please check if the town parameters are valid.</error>');
@@ -98,7 +105,6 @@ class TownCreateCommand extends Command
             }
             $output->writeln('<info>OK!</info>');
 
-            $current_events = $this->conf->getCurrentEvents();
             $current_event_names = array_map(fn(EventConf $e) => $e->name(), array_filter($current_events, fn(EventConf $e) => $e->active()));
             if (!empty($current_event_names)) {
                 $output->write("Applying current events [<info>" . implode('</info>,<info>', $current_event_names) . "</info>] ... ");

@@ -80,6 +80,12 @@
                                                 {% endif %}
                                             </div>
                                         </div>
+                                        {% if is_granted('ROLE_ADMIN') and restriction.active and (restriction.expires is null or restriction.expires > 'now'|to_date) %}
+                                            <div class="inline-block" data-edit="{{ restriction.id }}" data-reason="{{ restriction.publicReason }}" data-internal="{{ restriction.internalReason }}" data-duration="{{ restriction.originalDuration }}" data-type="{{ restriction.restriction }}">
+                                                <img alt="" src="{{ asset('build/images/forum/edit.png') }}" />
+                                                <div class="tooltip">{{ 'Bearbeiten'|trans({}, 'global') }}</div>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                     <div class="cell rw-2 rw-md-5 rw-sm-4 padded">{% if restriction.moderator|is_granted('ROLE_ADMIN') %}<img alt="[ADM]" src="{{ asset('build/images/icons/small_admin.gif') }}"> {% endif %}{{ restriction.moderator.name }}</div>
                                     <div class="cell rw-2 rw-md-5 padded">
@@ -155,6 +161,7 @@
                             <br />
                             <b><label for="rest_private">{{ 'Interner Vermerk'|trans({},'admin') }}</label></b>
                             <textarea style="min-height: 120px; height: 120px;" id="rest_private"></textarea>
+                            <input type="hidden" value="" id="rest_id">
                         </div>
 
                         <div class="cell rw-6 rw-md-12 padded">
@@ -199,6 +206,8 @@
                     </div>
                     <div class="row">
                         <div class="cell rw-4 rw-md-6 rw-sm-12"><button id="add_rest_button">{{ 'Hinzufügen'|trans({},'admin') }}</button></div>
+                        <div class="cell rw-3 rw-md-6 rw-sm-12"><button class="hidden" id="edit_rest_button">{{ 'Bearbeiten'|trans({},'admin') }}</button></div>
+                        <div class="cell rw-3 rw-md-6 rw-sm-12"><button class="hidden" id="cancel_edit_rest_button">{{ 'Abbrechen'|trans({},'global') }}</button></div>
                     </div>
                 </div>
 
@@ -215,6 +224,37 @@
     {{ parent() }}
     <script>
         (function() {
+
+            $.html.addEventListenerAll('[data-edit]', 'click', (e,elem) => {
+                document.getElementById('add_rest_button').classList.add('hidden');
+                document.getElementById('edit_rest_button').classList.remove('hidden');
+                document.getElementById('cancel_edit_rest_button').classList.remove('hidden');
+
+                document.getElementById('rest_id').value = elem.dataset.edit;
+                document.getElementById('rest_public').value = elem.dataset.reason;
+                document.getElementById('rest_private').value = elem.dataset.internal;
+                document.getElementById('rest_duration').value = elem.dataset.duration;
+
+                const r = parseInt(elem.dataset.type);
+                $.html.forEach('input[type="checkbox"][x-restriction]', element => {
+                    const re = parseInt(element.getAttribute('x-restriction'));
+                    element.checked = ((r & re) === re);
+                });
+            });
+
+            $.html.addEventListenerAll('#cancel_edit_rest_button', 'click', (e,elem) => {
+                document.getElementById('add_rest_button').classList.remove('hidden');
+                document.getElementById('edit_rest_button').classList.add('hidden');
+                document.getElementById('cancel_edit_rest_button').classList.add('hidden');
+
+                document.getElementById('rest_id').value = '';
+                document.getElementById('rest_public').value = '';
+                document.getElementById('rest_private').value = '';
+                document.getElementById('rest_duration').value = '86400';
+
+                $.html.forEach('input[type="checkbox"][x-restriction]', element => element.checked = false);
+            });
+
             const check_confirmation_level = function(){
                 $.html.forEach('#rest_info_lv1,#rest_info_lv2', element => element.classList.add('hidden'));
 
@@ -285,11 +325,15 @@
                 $.ajax.easySend(elem.getAttribute('x-disable-url'), {}, () => $.ajax.load(null,"{{ path('admin_users_ban_view', {id: user.id}) }}"));
             });
 
-            $.html.addEventListenerAll('#add_rest_button','click',() => {
+            $.html.addEventListenerAll('#add_rest_button,#edit_rest_button','click',() => {
                 const rm = get_restriction_mask();
                 if (rm === 0) {
                     $.html.error('{{ 'Bitte wähle die Art der Beschränkung.'|trans({},'global')|e('js') }}');
                     return;
+                }
+
+                if (document.getElementById('rest_id').value != '') {
+                    if (!confirm('{{ 'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?'|trans({},'admin')|e('js') }}')) return;
                 }
 
                 let str = '{{ 'Bestätigen?'|trans({},'global')|e('js') }}';
@@ -304,6 +348,7 @@
                     duration: document.getElementById('rest_duration').value,
                     reason: document.getElementById('rest_public').value,
                     note: document.getElementById('rest_private').value,
+                    existing: document.getElementById('rest_id').value,
                 }, () => $.ajax.load(null,"{{ path('admin_users_ban_view', {id: user.id}) }}"));
             });
         })();

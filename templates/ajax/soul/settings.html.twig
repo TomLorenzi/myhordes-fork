@@ -85,7 +85,8 @@
                             {% if app.user.eternalID is null or app.user.noAutomaticNameManagement %}
                                 {{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}
                             {% else %}
-                                {{ 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.'|trans({}, 'soul') }}
+                                {{ 'Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.'|trans({}, 'soul') }}<br/><br/>
+                                {{ 'Achtung: Die maximale Länge eines Spielernamens auf MyHordes beträgt 16 Zeichen. Wenn du auf Eternaltwin einen längeren Namen wählst, kannst du diesen nicht auf MyHordes übertragen.'|trans({}, 'soul') }}
                             {% endif %}
                         </div>
                     </div>
@@ -250,9 +251,7 @@
                                         {% if not app.user.avatar.classic %}
                                             <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
                                         {% endif %}
-                                        <div class="avatar no-arma">
-                                            <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
-                                        </div>
+                                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, no_distortion: true} only %}
                                     </div>
                                 {% else %}
                                     <div class="help">
@@ -264,9 +263,7 @@
                                 {% if app.user.avatar is not null and not app.user.avatar.classic %}
                                     <div class="hide-md hide-sm">
                                         <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                                        <div class="avatar small no-arma">
-                                            <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
-                                        </div>
+                                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, small: true, no_distortion: true} only %}
                                     </div>
                                     <div class="hide-desktop hide-lg center">
                                         <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
@@ -460,6 +457,12 @@
                     {% set preferredLanguage = 'de' %}
                 {% endif %}
 
+                {% if app.user.adminLang is defined and not app.user.adminLang is null %}
+                    {% set preferredAdminLanguage = app.user.adminLang %}
+                {% else %}
+                    {% set preferredAdminLanguage = preferredLanguage %}
+                {% endif %}
+
                 <div class="row">
                     <div class="padded cell rw-12">
                         <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
@@ -477,6 +480,25 @@
                         </div>
                     </div>
                 </div>
+                {% if is_granted("ROLE_CROW") %}
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <h5>{{ 'Sprache der Admin-Oberfläche'|trans({},'soul') }}</h5>
+                        <div class="language-picker">
+                            {% for lang in langs %}
+                                <div class="note note-lightest">
+                                    <input x-setting {% if preferredAdminLanguage == lang['code'] %}checked{% endif%} value="{{ lang['code'] }}" type="radio" name="admin_setting_preferred_language" id="admin_setting_preferred_language_{{ lang['code'] }}">&nbsp;<label for="admin_setting_preferred_language_{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</label>
+                                    {% if lang["tooltip"] != '' and lang['tooltip'] != null %}
+                                        <div class="tooltip help">
+                                            {{ lang['tooltip']|trans({}, 'global') }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     <div class="cell rw-12">
                         <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
@@ -512,6 +534,24 @@
                             <div class="padded cell rw-12">
                                 <div class="note note-lightest">
                                     <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::LimitTownListSize") ) %}checked{% endif%} type="checkbox" id="setting_limit_town_size">&nbsp;<label for="setting_limit_town_size">{{'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen'|trans({}, 'soul')}}</label>
+                                </div>
+                            </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeOnFriendRequest") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_friend">&nbsp;<label for="setting_notify_on_friend">{{'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt'|trans({}, 'soul')}}</label>
+                                </div>
+                            </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>&nbsp;
+                                    <select class="small" x-setting id="setting_notify_on_mention">
+                                        <option value="0" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 0 %}selected{% endif%}>{{ 'Deaktiviert'|trans({}, 'soul') }}</option>
+                                        <option value="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 1 %}selected{% endif%}>{{ 'Nur in Stadtforen'|trans({}, 'soul') }}</option>
+                                        <option value="3" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 3 %}selected{% endif%}>{{ 'Nur in Weltforen'|trans({}, 'soul') }}</option>
+                                        <option value="2" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 2 %}selected{% endif%}>{{ 'In allen Foren'|trans({}, 'soul') }}</option>
+                                    </select>
+                                    &nbsp;
+                                    {{help_btn('Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.'|trans({}, 'soul'))}}
                                 </div>
                             </div>
                         </div>
@@ -763,6 +803,11 @@
                     autofollow: document.getElementById('setting_auto_follow').checked,
                     clasort: document.getElementById('setting_classic_bank_sort').checked,
                     town10: document.getElementById('setting_limit_town_size').checked,
+                    notify: document.getElementById('setting_notify_on_mention').value,
+                    notifyFriend: document.getElementById('setting_notify_on_friend').checked,
+                    {% if is_granted("ROLE_CROW") %}
+                    adminLang: document.querySelector("input[name=admin_setting_preferred_language]:checked").value
+                    {% endif %}
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

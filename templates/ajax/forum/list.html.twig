@@ -83,7 +83,7 @@
                     <h5>{{ 'Mit offiziellen Gruppen in Kontakt treten'|trans({},'global') }}</h5>
                     {% for group in official_groups %}
                         <div x-group-connect="oglink_{{ group.id }}" class="forum-preview forum-preview-og {% if group.description is not empty %}forum-preview-desc{% endif %}">
-                            <img alt="" src="{{ path('app_web_group_icon', { gid: group.usergroup.id, name: group.avatarName, ext: group.avatarExt }) }}" />
+                            {% include "ajax/soul/playeravatar.html.twig" with {user: group, wrapper: false} only %}
                             <div>
                                 <div>{{ group.usergroup.name }}</div>
                                 {% if group.description is not empty %}

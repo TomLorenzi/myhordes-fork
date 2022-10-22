@@ -4,6 +4,9 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
+
+    {% include "ajax/soul/future_shell.html.twig" with { future_tab: "future" } %}
+
     {% if selected is null %}
         COMING SOON
     {% else %}
@@ -20,8 +23,9 @@
     {% endif %}
     <div class="news">
         <div class="head">
-            <div class="title center"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.title}}</span><img src="{{ asset('build/images/log/build.gif') }}" /></div>
+            <div class="title center hide-lg hide-md hide-sm"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.title}}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
         </div>
+        <div class="title center hide-desktop"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{selected.title}}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
         <div class="version">
             {{"Version"|trans({}, 'soul')}} {{selected.version}}
         </div>

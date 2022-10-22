@@ -7,6 +7,7 @@ use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Service\CommandHelper;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -19,13 +20,15 @@ use Symfony\Component\Validator\Constraints\Url as UrlConstraint;
 
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+#[AsCommand(
+    name: 'app:external-apps',
+    description: 'Manage external apps.'
+)]
 class ExternalAppsCommand extends Command
 {
-    protected static $defaultName = 'app:external-apps';
-
-    private $entityManager;
-    private $helper;
-    private $validator;
+    private EntityManagerInterface $entityManager;
+    private CommandHelper $helper;
+    private ValidatorInterface $validator;
 
     public function __construct(EntityManagerInterface $em, CommandHelper $ch, ValidatorInterface $validator)
     {
@@ -38,7 +41,6 @@ class ExternalAppsCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Manage external apps.')
             ->setHelp('This command helps manage external apps.')
 
             ->addArgument('ExternalAppId', InputArgument::OPTIONAL, 'The identifier of the external app')

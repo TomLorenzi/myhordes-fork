@@ -2,7 +2,7 @@
 
 namespace MyHordes\Fixtures\Service;
 
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class BuildingDataService implements FixtureProcessorInterface {
 
@@ -211,10 +211,10 @@ class BuildingDataService implements FixtureProcessorInterface {
                     ["name" => "Schwedische Schreinerei",'desc' => 'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!', "temporary" => 0,"img" => "small_ikea","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 2,"rsc" => ["meca_parts_#00" => 3,"wood2_#00" => 15,"metal_#00" => 10,"plate_#00" => 4,"concrete_wall_#00" => 2,"wood_beam_#00" => 5,], "orderby" => 3],
                 ]],
                 ["name" => "Krähennest",'desc' => 'Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).', "temporary" => 0,"img" => "small_watchmen","vp" => 10,"ap" => 36, "hp" => 36,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,], "orderby" => 7],
-                ["name" => "Straßenbeleuchtung","maxLevel" => 3,'desc' => 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.', "temporary" => 0,"img" => "small_novlamps","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"lens_#00" => 2,"diode_#00" => 2,"metal_beam_#00" => 10,"wire_#00" => 1, "pile_#00" => 5], "orderby" => 16,
+                ["name" => "Straßenbeleuchtung","maxLevel" => 2,'desc' => 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.', "temporary" => 0,"img" => "small_novlamps","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"lens_#00" => 2,"diode_#00" => 2,"metal_beam_#00" => 10,"wire_#00" => 1, "pile_#00" => 5], "orderby" => 16,
                     "lv0text" => 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.',
                     "upgradeTexts" => [
-                        'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
+                        /* 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.', */
                         'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
                         'Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.',
                         /* 'Bei Nacht erhöhen sich die Fundchancen im Umkreis von 10km um die Stadt um 20%, pro Tag werden 2 Batterien verbraucht.', */

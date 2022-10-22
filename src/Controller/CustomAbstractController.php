@@ -27,46 +27,22 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class CustomAbstractController
  * @method User getUser
  */
-class CustomAbstractController extends AbstractController {
+class CustomAbstractController extends CustomAbstractCoreController {
 
-    protected ConfMaster $conf;
     protected ?Citizen $cache_active_citizen = null;
     protected TownConf $town_conf;
     protected EntityManagerInterface $entity_manager;
     protected TimeKeeperService $time_keeper;
     protected CitizenHandler $citizen_handler;
     protected InventoryHandler $inventory_handler;
-    protected TranslatorInterface $translator;
-    protected array $generatedLangs;
-    protected array $allLangs;
-    protected array $generatedLangsCodes;
-    protected array $allLangsCodes;
 
     public function __construct(ConfMaster $conf, EntityManagerInterface $em, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, TranslatorInterface $translator) {
-        $this->conf = $conf;
+        parent::__construct($conf, $translator);
+
         $this->entity_manager = $em;
         $this->time_keeper = $tk;
         $this->citizen_handler = $ch;
         $this->inventory_handler = $ih;
-        $this->translator = $translator;
-
-        $this->allLangs = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_LANGS);
-        $this->allLangsCodes = array_map(function($item) {return $item['code'];}, $this->allLangs);
-
-        $this->generatedLangs = array_filter($this->allLangs, function($item) {
-            return $item['generate'];
-        });
-        $this->generatedLangsCodes = array_map(function($item) {return $item['code'];}, $this->generatedLangs);
-
-    }
-
-    public function getUserLanguage( bool $ignore_profile_language = false ): string {
-        if (!$ignore_profile_language && $this->getUser() && $this->getUser()->getLanguage())
-            return $this->getUser()->getLanguage();
-
-        $l = $this->container->get('request_stack')->getCurrentRequest()->getPreferredLanguage( array_diff( $this->allLangsCodes, ['ach'] ) );
-        if ($l) $l = explode('_', $l)[0];
-        return in_array($l, $this->allLangsCodes) ? $l : 'de';
     }
 
     private static int $flash_message_count = 0;

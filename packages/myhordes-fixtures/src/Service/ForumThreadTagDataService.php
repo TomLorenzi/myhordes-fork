@@ -3,7 +3,7 @@
 namespace MyHordes\Fixtures\Service;
 
 use App\Entity\ForumUsagePermissions;
-use MyHordes\Fixtures\Interfaces\FixtureProcessorInterface;
+use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ForumThreadTagDataService implements FixtureProcessorInterface {
 

@@ -10,99 +10,67 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\ItemCategoryRepository")
- * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="item_category_name_unique",columns={"name"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\ItemCategoryRepository')]
+#[UniqueEntity('name')]
+#[Table]
+#[UniqueConstraint(name: 'item_category_name_unique', columns: ['name'])]
 class ItemCategory implements NamedEntity
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=16)
-     */
+    #[ORM\Column(type: 'string', length: 16)]
     private $name;
-
-    /**
-     * @ORM\Column(type="string", length=190)
-     */
+    #[ORM\Column(type: 'string', length: 190)]
     private $label;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ItemCategory", inversedBy="children")
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemCategory', inversedBy: 'children')]
     private $parent;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ItemCategory", mappedBy="parent")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\ItemCategory', mappedBy: 'parent')]
     private $children;
-
-    /**
-     * @ORM\Column(type="smallint")
-     */
+    #[ORM\Column(type: 'smallint')]
     private $ordering;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ItemPrototype", mappedBy="category")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\ItemPrototype', mappedBy: 'category')]
     private $itemPrototypes;
-
     public function __construct()
     {
         $this->children = new ArrayCollection();
         $this->itemPrototypes = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getLabel(): ?string
     {
         return $this->label;
     }
-
     public function setLabel(string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
-
     public function getParent(): ?self
     {
         return $this->parent;
     }
-
     public function setParent(?self $parent): self
     {
         $this->parent = $parent;
 
         return $this;
     }
-
     /**
      * @return Collection|self[]
      */
@@ -110,7 +78,6 @@ class ItemCategory implements NamedEntity
     {
         return $this->children;
     }
-
     public function addChild(self $child): self
     {
         if (!$this->children->contains($child)) {
@@ -120,7 +87,6 @@ class ItemCategory implements NamedEntity
 
         return $this;
     }
-
     public function removeChild(self $child): self
     {
         if ($this->children->contains($child)) {
@@ -133,19 +99,16 @@ class ItemCategory implements NamedEntity
 
         return $this;
     }
-
     public function getOrdering(): ?int
     {
         return $this->ordering;
     }
-
     public function setOrdering(int $ordering): self
     {
         $this->ordering = $ordering;
 
         return $this;
     }
-
     /**
      * @return Collection|ItemPrototype[]
      */
@@ -153,7 +116,6 @@ class ItemCategory implements NamedEntity
     {
         return $this->itemPrototypes;
     }
-
     public function addItemPrototype(ItemPrototype $itemPrototype): self
     {
         if (!$this->itemPrototypes->contains($itemPrototype)) {
@@ -163,7 +125,6 @@ class ItemCategory implements NamedEntity
 
         return $this;
     }
-
     public function removeItemPrototype(ItemPrototype $itemPrototype): self
     {
         if ($this->itemPrototypes->contains($itemPrototype)) {
@@ -176,7 +137,6 @@ class ItemCategory implements NamedEntity
 
         return $this;
     }
-
     public static function getTranslationDomain(): ?string
     {
         return 'items';

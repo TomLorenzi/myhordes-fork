@@ -1,9 +1,4 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-
 import {Global} from "../defaults";
-import {MapCoreProps} from "./map/typedef";
-import {MapWrapper} from "./map/Wrapper";
 
 declare var $: Global;
 
@@ -79,7 +74,7 @@ export default class Components {
     private idcount: number = 0;
     private io_registry: ReactIORegistry = {};
 
-    private static vitalize(parent: HTMLElement) {
+    public static vitalize(parent: HTMLElement) {
         let tooltips = parent.querySelectorAll('div.tooltip');
         for (let t = 0; t < tooltips.length; t++)
             $.html.handleTooltip( tooltips[t] as HTMLElement );
@@ -92,8 +87,7 @@ export default class Components {
         } );
     }
 
-    generate(parent: HTMLElement, reactClass: string, data: object = {}) {
-
+    kickstart(parent: HTMLElement, data: object = {}) {
         let eventIO;
         if ( typeof parent.dataset.react === "undefined" ) {
             eventIO = new ReactIO(parent);
@@ -104,65 +98,79 @@ export default class Components {
             eventIO.clear();
         }
 
-        switch (reactClass) {
-            case 'map':
-                ReactDOM.render(<MapWrapper data={data as MapCoreProps} eventGateway={eventIO.getReactTrigger()} eventRegistrar={eventIO.getReactListenerGateway()} />, parent, () => Components.vitalize( parent ));
-                break;
-            default:
-                console.error('Invalid react class definition: "' + reactClass + "'.", data)
+        return {
+            data,
+            eventGateway: eventIO.getReactTrigger(),
+            eventRegistrar: eventIO.getReactListenerGateway()
         }
     }
 
     degenerate( parent: HTMLElement ) {
-        if (ReactDOM.unmountComponentAtNode( parent )) {
-            if (parent.dataset.react) delete this.io_registry[parent.dataset.react];
-            parent.removeAttribute('data-react');
-        }
+        if (parent.dataset.react) delete this.io_registry[parent.dataset.react];
+        parent.removeAttribute('data-react');
     }
 
     dispatchEvent(parent: HTMLElement | string, event: string, data: object) {
         if (typeof parent === "string") parent = document.getElementById(parent);
         if (!parent) return;
 
-        if (!parent.hasAttribute('x-react-mount')) {
-            console.error('Attempt to bind a React event to something that is not a valid React mount point:', parent);
-            return;
+        const deferrable = () => {
+            if (!(parent as HTMLElement).dataset.reactMount) {
+                console.error('Attempt to dispatch a React event to something that is not a valid React mount point:', parent);
+                return;
+            }
+
+            (parent as HTMLElement).dispatchEvent(new CustomEvent('_react', { detail: {event, data} }));
         }
 
-        parent.dispatchEvent(new CustomEvent('_react', { detail: {event, data} }));
+        if ((parent as HTMLElement).matches(':not(:defined)'))
+            customElements.whenDefined(parent.localName).then(deferrable);
+        else deferrable();
     }
 
     clearEventListeners( parent: HTMLElement | string, event: string ) {
         if (typeof parent === "string") parent = document.getElementById(parent);
         if (!parent) return;
 
-        if (!parent.hasAttribute('x-react-mount')) {
-            console.error('Attempt to listen to a React event on something that is not a valid React mount point:', parent);
-            return;
+        const deferrable = () => {
+            if (!(parent as HTMLElement).dataset.reactMount) {
+                console.error('Attempt to clear a React event on something that is not a valid React mount point:', parent);
+                return;
+            }
+
+            if (!(parent as HTMLElement).hasAttribute('data-react')) {
+                console.error('Attempt to clear a React event on non-initialized react mount point:', parent);
+                return;
+            }
+
+            this.io_registry[(parent as HTMLElement).dataset.react].clearClientEvents(event);
         }
 
-        if (!parent.hasAttribute('data-react')) {
-            console.error('Attempt to listen to a React event on non-initialized react mount point:', parent);
-            return;
-        }
-
-        this.io_registry[parent.dataset.react].clearClientEvents(event);
+        if ((parent as HTMLElement).matches(':not(:defined)'))
+            customElements.whenDefined(parent.localName).then(deferrable);
+        else deferrable();
     }
 
     attachEventListener( parent: HTMLElement | string, event: string, callback: (object)=>void ) {
         if (typeof parent === "string") parent = document.getElementById(parent);
         if (!parent) return;
 
-        if (!parent.hasAttribute('x-react-mount')) {
-            console.error('Attempt to listen to a React event on something that is not a valid React mount point:', parent);
-            return;
+        const deferrable = () => {
+            if (!(parent as HTMLElement).dataset.reactMount) {
+                console.error('Attempt to listen to a React event on something that is not a valid React mount point:', parent);
+                return;
+            }
+
+            if (!(parent as HTMLElement).hasAttribute('data-react')) {
+                console.error('Attempt to listen to a React event on non-initialized react mount point:', parent);
+                return;
+            }
+
+            this.io_registry[(parent as HTMLElement).dataset.react].addClientEvent(event,callback);
         }
 
-        if (!parent.hasAttribute('data-react')) {
-            console.error('Attempt to listen to a React event on non-initialized react mount point:', parent);
-            return;
-        }
-
-        this.io_registry[parent.dataset.react].addClientEvent(event,callback);
+        if ((parent as HTMLElement).matches(':not(:defined)'))
+            customElements.whenDefined(parent.localName).then(deferrable);
+        else deferrable();
     }
 }

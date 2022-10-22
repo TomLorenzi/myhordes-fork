@@ -12,7 +12,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
-use MyHordes\Fixtures\Fixtures\RolePlayText as RolePlayTextFixtures;
+use MyHordes\Plugins\Fixtures\RolePlayText as RolePlayTextFixtures;
 
 class TextFixtures extends Fixture
 {
@@ -60,6 +60,7 @@ class TextFixtures extends Fixture
                 ->setAuthor( $entry['author'] )
                 ->setTitle( $entry['title'] )
                 ->setLanguage($entry['lang'])
+                ->setChance( (int)$entry['chance'] )
                 ->setUnlockable($id_cache[$name] = ($entry['unlockable'] ?? true));
 
             if ($entity->getUnlockable())

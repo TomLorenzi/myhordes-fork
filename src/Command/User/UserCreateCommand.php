@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\User;
 use App\Service\UserFactory;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -16,10 +17,12 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
+#[AsCommand(
+    name: 'app:user:create',
+    description: 'Creates a new user account'
+)]
 class UserCreateCommand extends Command
 {
-    protected static $defaultName = 'app:user:create';
-
     private $entityManager;
     private $userFactory;
 
@@ -33,7 +36,6 @@ class UserCreateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Creates a new user account.')
             ->setHelp('This command allows you to create new users.')
 
             ->addArgument('name',     InputArgument::REQUIRED, 'The user\'s name.')

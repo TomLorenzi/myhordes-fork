@@ -4,6 +4,13 @@ namespace App\Translation;
 
 use App\Entity\Citizen;
 use App\Entity\User;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\DisallowedRawHtml\DisallowedRawHtmlExtension;
+use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+use League\CommonMark\Extension\TaskList\TaskListExtension;
+use League\CommonMark\MarkdownConverter;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Translation\MessageCatalogueInterface;
 use Symfony\Component\Translation\TranslatorBagInterface;
@@ -59,7 +66,29 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
             if (isset($parameters["{$key}__tag"])) $pass_trough[$key] = "<{$parameters["{$key}__tag"]} class=\"" . ($parameters["{$key}__class"] ?? '') . "\">{$pass_trough[$key]}</{$parameters["{$key}__tag"]}>";
         }
 
-        return $this->_decorated->trans($id,$pass_trough,$domain,$locale);
+        $string = $this->_decorated->trans($id,$pass_trough,$domain,$locale);
+
+        $config = [
+            'html_input' => "allow"
+        ];
+        $environment = new Environment($config);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new DisallowedRawHtmlExtension());
+        $environment->addExtension(new StrikethroughExtension());
+        $environment->addExtension(new TableExtension());
+        $environment->addExtension(new TaskListExtension());
+
+        # We put the string in 1 line and replace multiple spaces with only one
+        $string = preg_replace("#\n#mi", "", $string);
+        $string = preg_replace("# {2,}#mi", " ", $string);
+
+        $converter = new MarkdownConverter($environment);
+        $string = $converter->convert($string);
+        $string = preg_replace('#<p>(.*)</p>#i', '$1', $string);
+        $string = html_entity_decode($string);
+
+        return trim($string);
+
     }
 
     public function getCatalogue(string $locale = null): MessageCatalogueInterface

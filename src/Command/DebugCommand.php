@@ -37,6 +37,7 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
@@ -49,11 +50,12 @@ use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Constraints\Date;
 
-
+#[AsCommand(
+    name: 'app:debug',
+    description: 'Debug options.'
+)]
 class DebugCommand extends LanguageCommand
 {
-    protected static $defaultName = 'app:debug';
-
     private KernelInterface $kernel;
 
     private GameFactory $game_factory;
@@ -98,7 +100,6 @@ class DebugCommand extends LanguageCommand
     protected function configure()
     {
         $this
-            ->setDescription('Debug options.')
             ->setHelp('Debug options.')
             
             ->addOption('everyone-drink', null, InputOption::VALUE_REQUIRED, 'Unset thirst status of all citizen.')
@@ -460,9 +461,21 @@ class DebugCommand extends LanguageCommand
             return 0;
         }
 
-        if ($lang = $input->getOption('test-town-names'))
-            for ($i = 0; $i < 50; $i++)
-                $output->writeln($this->game_factory->createTownName($lang));
+        if ($setting = $input->getOption('test-town-names')) {
+
+            [$lang,$mutator] = explode('.', "$setting.");
+
+            $table = new Table( $output );
+            $table->setHeaders( ['Schema', 'Name'] );
+
+            for ($i = 0; $i < 50; $i++) {
+                $name = $this->game_factory->createTownName($lang, $schema, $mutator ?: null);
+                $table->addRow(["<comment>$schema</comment>", $name ]);
+            }
+
+            $table->render();
+            return 0;
+        }
 
         if ($input->getOption('compact-active-towns'))
             foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $town)

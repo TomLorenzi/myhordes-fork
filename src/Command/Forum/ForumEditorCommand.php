@@ -20,6 +20,7 @@ use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use ReflectionClass;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -30,10 +31,12 @@ use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+#[AsCommand(
+    name: 'app:forum:edit',
+    description: 'Allows editing forums'
+)]
 class ForumEditorCommand extends Command
 {
-    protected static $defaultName = 'app:forum:edit';
-
     private EntityManagerInterface $entityManager;
     private CommandHelper $helper;
     private KernelInterface $kernel;
@@ -49,7 +52,6 @@ class ForumEditorCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Allows editing forums')
             ->setHelp('This command allows editing an existing forum.')
             ->addArgument('ForumID', InputArgument::REQUIRED, 'The Forum ID')
 

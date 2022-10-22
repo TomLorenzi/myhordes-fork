@@ -7,51 +7,36 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=ShoutboxRepository::class)
- */
+#[ORM\Entity(repositoryClass: ShoutboxRepository::class)]
 class Shoutbox
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\OneToOne(targetEntity=UserGroup::class, inversedBy="shoutbox", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
-     */
+    #[ORM\OneToOne(targetEntity: UserGroup::class, inversedBy: 'shoutbox', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $userGroup;
-
-    /**
-     * @ORM\OneToMany(targetEntity=ShoutboxEntry::class, mappedBy="shoutbox", orphanRemoval=true, cascade={"persist", "remove"})
-     */
+    #[ORM\OneToMany(targetEntity: ShoutboxEntry::class, mappedBy: 'shoutbox', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private $entries;
-
     public function __construct()
     {
         $this->entries = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getUserGroup(): ?UserGroup
     {
         return $this->userGroup;
     }
-
     public function setUserGroup(UserGroup $userGroup): self
     {
         $this->userGroup = $userGroup;
 
         return $this;
     }
-
     /**
      * @return Collection|ShoutboxEntry[]
      */
@@ -59,7 +44,6 @@ class Shoutbox
     {
         return $this->entries;
     }
-
     public function addEntry(ShoutboxEntry $entry): self
     {
         if (!$this->entries->contains($entry)) {
@@ -69,7 +53,6 @@ class Shoutbox
 
         return $this;
     }
-
     public function removeEntry(ShoutboxEntry $entry): self
     {
         if ($this->entries->removeElement($entry)) {

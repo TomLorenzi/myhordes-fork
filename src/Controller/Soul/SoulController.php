@@ -7,6 +7,7 @@ use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
 use App\Entity\AdminReport;
 use App\Entity\Announcement;
+use App\Entity\AntiSpamDomains;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -38,6 +39,7 @@ use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Enum\AdminReportSpecification;
+use App\Enum\DomainBlacklistType;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
@@ -47,6 +49,7 @@ use App\Service\EternalTwinHandler;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
+use App\Service\RateLimitingFactoryProvider;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminHandler;
@@ -89,6 +92,7 @@ class SoulController extends CustomAbstractController
     const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
     const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
     const ErrorUserConfirmToken              = ErrorHelper::BaseSoulErrors + 11;
+    const ErrorUserEditUserNameTooLong       = ErrorHelper::BaseSoulErrors + 12;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
@@ -414,8 +418,8 @@ class SoulController extends CustomAbstractController
         };
 
         foreach ( array_slice( $parser->get_array( 'names', [] ), 0, 100 ) as $name ) {
-
-            if (($count = $this->entity_manager->getRepository(User::class)->countByNameOrDisplayName( trim($name) )) < 2)
+            if ($name === 'me') $add( $this->getUser(), 'me', $this->getUser()->getId() );
+            elseif (($count = $this->entity_manager->getRepository(User::class)->countByNameOrDisplayName( trim($name) )) < 2)
                 $add( $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( trim($name) ), $name, -1 );
             else $addMultiple( $count, $name );
         }
@@ -523,6 +527,34 @@ class SoulController extends CustomAbstractController
             'polls' => $polls, 'selected' => $selected
         ]) );
     }
+
+    /**
+     * @Route("jx/soul/events", name="soul_events")
+     * @return Response
+     */
+    public function soul_events(): Response
+    {
+        $now = new DateTime();
+
+        $schedule =
+            array_filter(
+                array_map( function(string $name) use (&$now) {
+                    $enabled = $this->conf->getEventScheduleByName( $name, $now, $begin, $end, true );
+                    return [ $name, $begin, $end, $enabled ];
+                }, $this->conf->getAllEventNames() ),
+            function( array $event ) use (&$now) {
+                return $this->conf->eventIsPublic( $event[0] ) && ( $event[3] || $event[1] > $now || $event[2] > $now );
+            }
+        );
+
+        usort( $schedule, fn(array $a, array $b) => $a[1] <=> $b[1] );
+
+        return $this->render( 'ajax/soul/events.html.twig', $this->addDefaultTwigArgs("soul_future", [
+            'active_events' => array_filter( $schedule, fn($event) =>  $event[3] ),
+            'future_events' => array_filter( $schedule, fn($event) => !$event[3] ),
+        ]) );
+    }
+
 
     /**
      * @Route("api/soul/polls/{id<\d+>}/{answer<\d+>}", name="soul_poll_participate")
@@ -667,8 +699,8 @@ class SoulController extends CustomAbstractController
 
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
 
-        if ($name_change && !$this->user_handler->isNameValid($displayName))
-            return AjaxResponse::error(self::ErrorUserEditUserName);
+        if ($name_change && !$this->user_handler->isNameValid($displayName, $too_long))
+            return AjaxResponse::error(!$too_long ? self::ErrorUserEditUserName : self::ErrorUserEditUserNameTooLong);
 
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 4)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
@@ -708,7 +740,7 @@ class SoulController extends CustomAbstractController
         $user->setFlag($flag === '' ? null : $flag);
 
         $desc_obj = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
-        if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $len) && $len > 0) {
+        if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $insight) && $insight->text_length > 0) {
             if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDescription)) {
                 if (!$desc_obj) $desc_obj = (new UserDescription())->setUser($user);
                 $desc_obj->setText($desc);
@@ -1020,10 +1052,10 @@ class SoulController extends CustomAbstractController
      * @Route("api/soul/{sid}/report", name="soul_report_user")
      * @param int $sid
      * @param JSONRequestParser $parser
-     * @param RateLimiterFactory $reportToModerationLimiter
+     * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
-    public function soul_report_user(int $sid, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter): Response
+    public function soul_report_user(int $sid, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
     {
         $user = $this->getUser();
         if ($sid === $user->getId())
@@ -1034,7 +1066,7 @@ class SoulController extends CustomAbstractController
         if (!$target_user)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        return $this->reportUser( $target_user, $parser, $reportToModerationLimiter );
+        return $this->reportUser( $target_user, $parser, $rateLimiter->reportLimiter( $user ) );
     }
 
     /**
@@ -1043,10 +1075,10 @@ class SoulController extends CustomAbstractController
      * @param int $idtown
      * @param string $topic
      * @param JSONRequestParser $parser
-     * @param RateLimiterFactory $reportToModerationLimiter
+     * @param RateLimitingFactoryProvider $rateLimiter
      * @return Response
      */
-    public function soul_report_comment(int $sid, int $idtown, string $topic, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter): Response
+    public function soul_report_comment(int $sid, int $idtown, string $topic, JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter): Response
     {
         if (!in_array( $topic, ['lw','com'] )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
@@ -1065,7 +1097,7 @@ class SoulController extends CustomAbstractController
         if (!$citizen)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        return $this->reportCitizen( $citizen, $topic === 'lw' ? AdminReportSpecification::CitizenLastWords : AdminReportSpecification::CitizenTownComment, $parser, $reportToModerationLimiter );
+        return $this->reportCitizen( $citizen, $topic === 'lw' ? AdminReportSpecification::CitizenLastWords : AdminReportSpecification::CitizenTownComment, $parser, $rateLimiter->reportLimiter( $user ) );
     }
 
     /**
@@ -1107,7 +1139,7 @@ class SoulController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function soul_settings_common(JSONRequestParser $parser): Response {
+    public function soul_settings_common(JSONRequestParser $parser, SessionInterface $session): Response {
         $user = $this->getUser();
 
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
@@ -1116,8 +1148,14 @@ class SoulController extends CustomAbstractController
         $user->setNoAutoFollowThreads( !$parser->get('autofollow', true) );
         $user->setClassicBankSort( (bool)$parser->get('clasort', false) );
         $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
+        $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', 0) );
+        $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
+        $user->setAdminLang($parser->get("adminLang", null));
+        $session->set('_admin_lang',$user->getAdminLang() ?? $user->getLanguage());
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
+
+        $this->addFlash('notice', $this->translator->trans('Du hast die Seiteneinstellungen geändert.', [], 'global'));
 
         return AjaxResponse::success();
     }
@@ -1304,9 +1342,12 @@ class SoulController extends CustomAbstractController
         }
 
         if (!empty($new_email)) {
-            if ($this->entity_manager->getRepository(User::class)->findOneByMail( $new_email )) {
+            if ($this->entity_manager->getRepository(User::class)->findOneByMail( $new_email ))
                 return AjaxResponse::error(UserFactory::ErrorMailExists);
-            }
+
+            if ($this->entity_manager->getRepository(AntiSpamDomains::class)->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $new_email )] ))
+                return AjaxResponse::error(UserFactory::ErrorMailExists);
+
             $user->setPendingEmail($new_email);
             if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
                 return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
@@ -1770,6 +1811,11 @@ class SoulController extends CustomAbstractController
 
         $this->entity_manager->persist($this->getUser());
         $this->entity_manager->flush();
+
+        if ($action && $user->getSetting( UserSetting::NotifyMeOnFriendRequest )) {
+            $this->entity_manager->persist( $this->crow->createPM_friendNotification( $user, $this->getUser() ) );
+            try { $this->entity_manager->flush(); } catch (\Throwable) {}
+        }
 
         if($action){
             $this->addFlash("notice", $this->translator->trans("Du hast {username} zu deinen Kontakten hinzugefügt!", ['{username}' => $user], "soul"));

@@ -7,123 +7,87 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\RequireStatusRepository")
- * @UniqueEntity("name")
- * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="require_status_name_unique",columns={"name"})
- * })
- */
+#[ORM\Entity(repositoryClass: 'App\Repository\RequireStatusRepository')]
+#[UniqueEntity('name')]
+#[Table]
+#[UniqueConstraint(name: 'require_status_name_unique', columns: ['name'])]
 class RequireStatus
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $enabled;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenStatus")
-     * @ORM\JoinColumn(nullable=true)
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenStatus')]
+    #[ORM\JoinColumn(nullable: true)]
     private $status;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
+    #[ORM\Column(type: 'string', length: 64)]
     private $name;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenProfession")
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenProfession')]
     private $profession;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\CitizenRole")
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenRole')]
     private $role;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $banished;
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getEnabled(): ?bool
     {
         return $this->enabled;
     }
-
     public function setEnabled(?bool $enabled): self
     {
         $this->enabled = $enabled;
 
         return $this;
     }
-
     public function getStatus(): ?CitizenStatus
     {
         return $this->status;
     }
-
     public function setStatus(?CitizenStatus $status): self
     {
         $this->status = $status;
 
         return $this;
     }
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
     public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
-
     public function getProfession(): ?CitizenProfession
     {
         return $this->profession;
     }
-
     public function setProfession(?CitizenProfession $profession): self
     {
         $this->profession = $profession;
 
         return $this;
     }
-
     public function getRole(): ?CitizenRole
     {
         return $this->role;
     }
-
     public function setRole(?CitizenRole $role): self
     {
         $this->role = $role;
 
         return $this;
     }
-
     public function getBanished(): ?bool
     {
         return $this->banished;
     }
-
     public function setBanished(?bool $banished): self
     {
         $this->banished = $banished;
