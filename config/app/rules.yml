@@ -69,7 +69,7 @@ parameters:
 
       initial_chest: []
       distribute_items: ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'firework_powder_#00','firework_tube_#00','firework_box_#00','firework_box_#00']
-      instant_pictos: ['r_rp_#00', 'r_sandb_#00', 'r_ban_#00', 'r_theft_#00', 'r_collec_#00', 'r_guard_#00', 'r_guide_#00']
+      instant_pictos: ['r_rp_#00', 'r_sandb_#00', 'r_ban_#00', 'r_theft_#00', 'r_collec_#00']
 
       distribution_distance:
         - item: 'bplan_box_e_#00'
