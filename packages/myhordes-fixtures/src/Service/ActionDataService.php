@@ -417,7 +417,7 @@ class ActionDataService implements FixtureProcessorInterface {
                     'metalbox'  => [ 'what' => ['drug_#00', 'bandage_#00', /*'vodka_de_#00',*/ 'vodka_#00', ['explo_#00', 2], 'lights_#00', 'drug_hero_#00', 'rhum_#00'], 'where' => AffectItemSpawn::DropTargetRucksack ],
                     'metalbox2' => [ 'what' => [['watergun_opt_part_#00',2], ['pilegun_upkit_#00',2], ['pocket_belt_#00',2], ['cutcut_#00',2], ['chainsaw_part_#00',2], ['mixergun_part_#00',2], 'big_pgun_part_#00', ['lawn_part_#00',2]], 'where' => AffectItemSpawn::DropTargetRucksack],
                     'catbox'    => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ],
-                    'toolbox'   => [ 'pile_#00', ['meca_parts_#00', 2], 'rustine_#00', 'tube_#00', 'pharma_#00', ['explo_#00', 2], 'lights_#00' ],
+                    'toolbox'   => [ 'pile_#00', ['meca_parts_#00', 2], 'rustine_#00', 'tube_#00', 'pharma_#00', ['explo_#00', 2] ],
                     'foodbox'   => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', ['vegetable_#00', 2] ],
 
                     'phone'     => [ 'what' => ['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
