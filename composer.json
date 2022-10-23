@@ -62,7 +62,7 @@
         "twig/intl-extra": "3.4.2",
         "twig/markdown-extra": "3.4.0",
         "twig/twig": "^2.12|^3.0",
-        "shivas/versioning-bundle": "4.0.1"
+        "shivas/versioning-bundle": "dev-master"
     },
     "require-dev": {
         "dama/doctrine-test-bundle": "7.1.1",
@@ -82,10 +82,6 @@
         "ext-ssh2": "*"
     },
     "repositories": [
-      {
-        "type": "vcs",
-        "url":  "https://github.com/wvsgnovize01/versioning-bundle.git"
-      },
       {
         "type": "path",
         "url": "packages/*"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54f9ac5af8a2f4179d4f8de16a2defaa",
+    "content-hash": "c644b7aa4dcf44b1d31641c159c95be5",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3159,16 +3159,16 @@
         },
         {
             "name": "shivas/versioning-bundle",
-            "version": "4.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shivas/versioning-bundle.git",
-                "reference": "a1ff217ad231bd6984a2cc79b8ab6a095322b317"
+                "reference": "427969bce2f139e1f7234d14efcd8cd0083d896c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shivas/versioning-bundle/zipball/a1ff217ad231bd6984a2cc79b8ab6a095322b317",
-                "reference": "a1ff217ad231bd6984a2cc79b8ab6a095322b317",
+                "url": "https://api.github.com/repos/shivas/versioning-bundle/zipball/427969bce2f139e1f7234d14efcd8cd0083d896c",
+                "reference": "427969bce2f139e1f7234d14efcd8cd0083d896c",
                 "shasum": ""
             },
             "require": {
@@ -3181,10 +3181,11 @@
             "require-dev": {
                 "mikey179/vfsstream": "^2",
                 "nyholm/symfony-bundle-test": "1.x-dev",
-                "phpunit/phpunit": "^7 || ^8",
-                "symfony/phpunit-bridge": "^5",
+                "phpunit/phpunit": "^8.5.27",
+                "symfony/phpunit-bridge": "^5 || ^6",
                 "twig/twig": "^2 || ^3"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -3212,10 +3213,10 @@
             ],
             "support": {
                 "issues": "https://github.com/shivas/versioning-bundle/issues",
-                "source": "https://github.com/shivas/versioning-bundle/tree/4.0.1",
+                "source": "https://github.com/shivas/versioning-bundle/tree/master",
                 "wiki": "https://github.com/shivas/versioning-bundle/wiki"
             },
-            "time": "2022-02-17T07:56:41+00:00"
+            "time": "2022-07-10T17:39:01+00:00"
         },
         {
             "name": "symfony/apache-pack",
@@ -11131,7 +11132,8 @@
     "stability-flags": {
         "myhordes/fixtures": 20,
         "myhordes/plugins": 20,
-        "myhordes/prime": 20
+        "myhordes/prime": 20,
+        "shivas/versioning-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
