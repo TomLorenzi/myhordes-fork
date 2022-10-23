@@ -243,7 +243,7 @@ class AdminFileSystemController extends AdminActionController
 
         $spl_core_path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log");
         $path = new SplFileInfo($f);
-        if ($path->isFile() && strtolower($path->getExtension()) !== 'log' && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
+        if ($path->isFile() && strtolower($path->getExtension()) === 'log' && str_starts_with( $path->getRealPath(), $spl_core_path->getRealPath() ))
             unlink($path->getRealPath());
 
         $this->logger->invoke("Admin <info>{$this->getUser()->getName()}</info> deleted log <debug>{$f}</debug>");
