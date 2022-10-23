@@ -462,7 +462,7 @@ class CrowService {
                     CURLOPT_URL => $endpoint,
                     CURLOPT_TIMEOUT => 5,
                     CURLOPT_POSTFIELDS => [
-                        'payload_json' => new \CURLStringFile( json_encode( $payload ), null, 'application/json' ),
+                        'payload_json' => new \CURLStringFile( json_encode( $payload ), '', 'application/json' ),
                     ],
                 ]);
 
