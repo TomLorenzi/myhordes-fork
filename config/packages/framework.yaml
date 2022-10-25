@@ -19,6 +19,8 @@ framework:
     php_errors:
         log: true
 
+    error_controller: App\Controller\WebController::render_error_framework
+
 when@test:
     framework:
         test: true
