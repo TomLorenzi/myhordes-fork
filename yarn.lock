@@ -1364,7 +1364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.19.0
   resolution: "@babel/runtime@npm:7.19.0"
   dependencies:
@@ -1573,10 +1573,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.10.21":
-  version: 0.1.0-nightly.2022.10.21
-  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.10.21"
-  checksum: 324d3c9ff507e151bb92b8d1a65a37e63dd4be87614b702cb732ff1ba661963213754cace2761e4274545e2c2af3bb9d645444b0335a544f50b78d59e836427c
+"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.10.28":
+  version: 0.1.0-nightly.2022.10.28
+  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.10.28"
+  checksum: e3b177e3649338b61f6afa9eb20a5705daa0695c1a54376d685e557ad2e70e8978d18d957dafda98a89dec3383605d73d23ed210bb37f00e751fa504a05f8205
   languageName: node
   linkType: hard
 
@@ -3005,7 +3005,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copy-to-clipboard@npm:^3":
+"copy-to-clipboard@npm:^3.3.1":
   version: 3.3.2
   resolution: "copy-to-clipboard@npm:3.3.2"
   dependencies:
@@ -3030,10 +3030,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:3.25.5":
-  version: 3.25.5
-  resolution: "core-js@npm:3.25.5"
-  checksum: 208b308c49bc022f90d4349d4c99802a73c9d55053976b3c529f10014c1e37845926defad8c519f2c7f71ea0acf18d2b323ab6aaee34dc85b4c4b3ced0623f3f
+"core-js@npm:3.26.0":
+  version: 3.26.0
+  resolution: "core-js@npm:3.26.0"
+  checksum: 0149eb9d3909fde9c17626af3a6e625c326e8598d0bb5e6c5b48a18e5fcd4eaf48d4964d873667d8148542ff590fb98eb3f93618da114ca54999d6bc0349734b
   languageName: node
   linkType: hard
 
@@ -4604,16 +4604,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-dom@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "is-dom@npm:1.1.0"
-  dependencies:
-    is-object: ^1.0.1
-    is-window: ^1.0.2
-  checksum: 72aff0a7366b801c9d598d49452ec06544b52c3da92a0c6c3cacace33bb0c3df5ba1b4e422ac39224773316a553699d5920a1eb136919319f57d00e6384eb41b
-  languageName: node
-  linkType: hard
-
 "is-extglob@npm:^2.1.1":
   version: 2.1.1
   resolution: "is-extglob@npm:2.1.1"
@@ -4671,13 +4661,6 @@ __metadata:
   version: 7.0.0
   resolution: "is-number@npm:7.0.0"
   checksum: 456ac6f8e0f3111ed34668a624e45315201dff921e5ac181f8ec24923b99e9f32ca1a194912dc79d539c97d33dba17dc635202ff0b2cf98326f608323276d27a
-  languageName: node
-  linkType: hard
-
-"is-object@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "is-object@npm:1.0.2"
-  checksum: 971219c4b1985b9751f65e4c8296d3104f0457b0e8a70849e848a4a2208bc47317d73b3b85d4a369619cb2df8284dc22584cb2695a7d99aca5e8d0aa64fc075a
   languageName: node
   linkType: hard
 
@@ -4786,13 +4769,6 @@ __metadata:
   version: 3.14.1
   resolution: "is-what@npm:3.14.1"
   checksum: a9a6ce92d33799f1ae0916c7afb6f8128a23ce9d28bd69d9ec3ec88910e7a1f68432e6236c3c8a4d544cf0b864675e5d828437efde60ee0cf8102061d395c1df
-  languageName: node
-  linkType: hard
-
-"is-window@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "is-window@npm:1.0.2"
-  checksum: aeaacd2ca816d38d4e2fba4670158fba2190061f28a61c5d84df7c479abf8897b8cb634d22cb76cdf7805035e95bebd430faaab6231ac2ebc814eae02d2c8fd4
   languageName: node
   linkType: hard
 
@@ -6240,7 +6216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.8.1, prop-types@npm:^15.0.0, prop-types@npm:^15.5.8, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:15.8.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -6361,15 +6337,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-copy-to-clipboard@npm:5.0.4":
-  version: 5.0.4
-  resolution: "react-copy-to-clipboard@npm:5.0.4"
+"react-copy-to-clipboard@npm:5.1.0":
+  version: 5.1.0
+  resolution: "react-copy-to-clipboard@npm:5.1.0"
   dependencies:
-    copy-to-clipboard: ^3
-    prop-types: ^15.5.8
+    copy-to-clipboard: ^3.3.1
+    prop-types: ^15.8.1
   peerDependencies:
-    react: ^15.3.0 || ^16.0.0 || ^17.0.0
-  checksum: dae8caae192d4937a151ec3ddad540fe4846d28646aee6d90774abcc6a077761926c99f2bcd9506a76a65524ec2c32b5ec1341e8096fcd3f6335365eaf065137
+    react: ^15.3.0 || 16 || 17 || 18
+  checksum: f00a4551b9b63c944a041a6ab46af5ef20ba1106b3bc25173e7ef9bffbfba17a613368682ab8820cfe8d4b3acc5335cd9ce20229145bcc1e6aa8d1db04c512e5
   languageName: node
   linkType: hard
 
@@ -6432,16 +6408,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-inspector@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "react-inspector@npm:5.1.1"
-  dependencies:
-    "@babel/runtime": ^7.0.0
-    is-dom: ^1.0.0
-    prop-types: ^15.0.0
+"react-inspector@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "react-inspector@npm:6.0.1"
   peerDependencies:
-    react: ^16.8.4 || ^17.0.0
-  checksum: ca9e4c1fedb94e4e956dd3142838c5a25a9d61375aee5e8a74dd623bae09a263098a93f220e8d84c7fd39e569e1fa4297d363ddbc91b15bca91baeb7281d7f4f
+    react: ^16.8.4 || ^17.0.0 || ^18.0.0
+  checksum: 877cbccf36fdc6213abb9611fb9279c4bb76ef7ecb4ec554b3935419a99d55e6d30a80799a054d468d43cc59a9777f21d22d6219a4597bfbd27f3f08a4cdfdc6
   languageName: node
   linkType: hard
 
@@ -6835,10 +6807,10 @@ __metadata:
     "@babel/preset-env": 7.19.4
     "@babel/preset-react": 7.18.6
     "@fortawesome/fontawesome-free": 6.2.0
-    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.10.21
+    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.10.28
     "@symfony/webpack-encore": 4.1.1
     buffer: 6.0.3
-    core-js: 3.25.5
+    core-js: 3.26.0
     file-loader: 6.2.0
     latest-createjs: 1.0.24
     less: 4.1.3
@@ -6851,7 +6823,7 @@ __metadata:
     stream: 0.0.2
     stream-browserify: 3.0.0
     string.prototype.matchall: 4.0.7
-    swagger-ui: 4.15.0
+    swagger-ui: 4.15.2
     ts-loader: 9.4.1
     typescript: 4.8.4
     webpack: 5.74.0
@@ -7471,9 +7443,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui@npm:4.15.0":
-  version: 4.15.0
-  resolution: "swagger-ui@npm:4.15.0"
+"swagger-ui@npm:4.15.2":
+  version: 4.15.2
+  resolution: "swagger-ui@npm:4.15.2"
   dependencies:
     "@babel/runtime-corejs3": ^7.18.9
     "@braintree/sanitize-url": =6.0.0
@@ -7491,12 +7463,12 @@ __metadata:
     randexp: ^0.5.3
     randombytes: ^2.1.0
     react: =17.0.2
-    react-copy-to-clipboard: 5.0.4
+    react-copy-to-clipboard: 5.1.0
     react-debounce-input: =3.3.0
     react-dom: =17.0.2
     react-immutable-proptypes: 2.2.0
     react-immutable-pure-component: ^2.2.0
-    react-inspector: ^5.1.1
+    react-inspector: ^6.0.1
     react-redux: ^7.2.4
     react-syntax-highlighter: ^15.4.5
     redux: ^4.1.2
@@ -7510,7 +7482,7 @@ __metadata:
     xml: =1.0.1
     xml-but-prettier: ^1.0.1
     zenscroll: ^4.0.2
-  checksum: bfa5515c5a8e81a29706ee59412bf990df2b8485c1d16aae9e9af9f8865222fa329dfb0d146f215533d7efea94b5df6cc7b35cfecb366bd7b8cc36604607f0a4
+  checksum: 847720baa444e025fb84e42c4e92a25d691c1c55f8b323f6eb080b6e8a5a545f0737edf570bdefd3465ea291f04dc94c1ab8f19eea08632cd6ee8caf4ea3e0bf
   languageName: node
   linkType: hard
 
