@@ -39,10 +39,12 @@
     &.rz-far:not(.rz-zeds) { filter: brightness(75%); }
     &.rz-zeds:not(.rz-far) { filter: hue-rotate(290deg) }
     &.rz-far.rz-zeds { filter: brightness(75%) hue-rotate(290deg); }
-    &.rz-locked, &.rz-unlocked {
+    &.rz-locked, &.rz-unlocked, &.rz-up, &.rz-down {
       &:after { content: " "; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-size: contain; }
       &.rz-locked:after { background-image: url(../../img/admin/fmap/doorlock1.png) }
       &.rz-unlocked:after { background-image: url(../../img/admin/fmap/doorlock2.png) }
+      &.rz-up:after { background-image: url(../../img/admin/fmap/up.png) }
+      &.rz-down:after { background-image: url(../../img/admin/fmap/down.png) }
     }
 
     &.rz-1 { background-image: url( ../../img/admin/fmap/tile2.png ); }

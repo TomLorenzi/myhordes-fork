@@ -49,6 +49,7 @@ class TownConf extends Conf
     const CONF_EXPLORABLES_ROOMS        = 'explorable_ruin_params.rooms';
     const CONF_EXPLORABLES_ROOM_DIST    = 'explorable_ruin_params.room_spacing';
     const CONF_EXPLORABLES_LOCKDIST     = 'explorable_ruin_params.lock_distance';
+    const CONF_EXPLORABLES_ROOMDIST     = 'explorable_ruin_params.room_distance';
     const CONF_EXPLORABLES_ITEM_RATE    = 'explorable_ruin_params.item_fillrate';
     const CONF_EXPLORABLES_MAX_DISTANCE = 'explorable_ruin_params.max_distance';
     const CONF_EXPLORABLES_ZOMBIES_INI  = 'explorable_ruin_params.zombies.initial';
@@ -56,6 +57,7 @@ class TownConf extends Conf
     const CONF_EXPLORABLES_PLAN_LIMIT_U = 'explorable_ruin_params.plan_limits.unusual';
     const CONF_EXPLORABLES_PLAN_LIMIT_R = 'explorable_ruin_params.plan_limits.rare';
     const CONF_EXPLORABLES_PLAN_LIMIT_E = 'explorable_ruin_params.plan_limits.epic';
+    const CONF_EXPLORABLES_FLOORS       = 'explorable_ruin_params.floors';
 
     const CONF_TIMES_DIG_NORMAL     = 'times.digging.normal';
     const CONF_TIMES_DIG_COLLEC     = 'times.digging.collec';

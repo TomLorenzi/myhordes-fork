@@ -16,6 +16,7 @@ use App\Response\AjaxResponse;
 use App\Service\AdminHandler;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use Symfony\Component\Finder\Glob;
@@ -35,7 +36,7 @@ class AdminForumController extends AdminActionController
      * @param PermissionHandler $perm
      * @return Response
      */
-    public function render_pm(JSONRequestParser $parser, PermissionHandler $perm) {
+    public function render_pm(JSONRequestParser $parser, PermissionHandler $perm, HTMLService $html) {
         $user = $this->getUser();
 
         $pmid = $parser->get('pmid', null);
@@ -54,6 +55,7 @@ class AdminForumController extends AdminActionController
             return new Response();
 
         $posts = $thread->getMessages();
+        foreach ($posts as $post) $post->setText( $html->prepareEmotes( $post->getText(), $this->getUser() ) );
 
         return $this->render( 'ajax/admin/reports/pn-viewer.html.twig', $this->addDefaultTwigArgs(null, [
             'thread' => $thread,
@@ -69,7 +71,7 @@ class AdminForumController extends AdminActionController
      * @param PermissionHandler $perm
      * @return Response
      */
-    public function render_gpm(JSONRequestParser $parser) {
+    public function render_gpm(JSONRequestParser $parser, HTMLService $html) {
         $user = $this->getUser();
 
         $pmid = $parser->get('pmid', null);
@@ -85,6 +87,7 @@ class AdminForumController extends AdminActionController
         if (!$group || !$message->getSender()) return new Response();
 
         $posts = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->findByGroup( $group, 0, 15, $message->getId() );
+        foreach ($posts as $post) $post->setText( $html->prepareEmotes( $post->getText(), $this->getUser() ) );
 
         return $this->render( 'ajax/admin/reports/gpn-viewer.html.twig', $this->addDefaultTwigArgs(null, [
             'group' => $group,

@@ -27,6 +27,7 @@ class TownRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.day = 1')
+            ->andWhere('t.scheduledFor IS NULL OR t.scheduledFor <= :now')->setParameter(':now', new \DateTime())
             ->andHaving('count(c) < t.population')
             ->groupBy('t.id')
             ->leftJoin('t.citizens', 'c')

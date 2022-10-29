@@ -189,8 +189,12 @@ class AdminTownController extends AdminActionController
                 $explorables[$zone->getId()] = ['rz' => [], 'z' => $zone, 'x' => $zone->getExplorerStats(), 'ax' => $zone->activeExplorerStats()];
                 if ($zone->activeExplorerStats()) $explorables[$zone->getId()]['axt'] = max(0, $zone->activeExplorerStats()->getTimeout()->getTimestamp() - time());
                 $rz = $zone->getRuinZones();
-                foreach ($rz as $r)
-                    $explorables[$zone->getId()]['rz'][] = $r;
+                foreach ($rz as $r) {
+                    if (!isset( $explorables[$zone->getId()]['rz'][$r->getZ()] ))
+                        $explorables[$zone->getId()]['rz'][$r->getZ()] = [];
+                    $explorables[$zone->getId()]['rz'][$r->getZ()][] = $r;
+                }
+                ksort($explorables[$zone->getId()]['rz']);
             }
 
         $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();

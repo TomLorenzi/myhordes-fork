@@ -19,4 +19,8 @@
         {% set last_entry = entry %}
     {% endfor %}
 {% endif %}
+{% if show_more_entries %}
+    <div class="log-complete-link">{{ 'Alle Einträge anzeigen'|trans({},'game') }}</div>
+    <div class="log-spinner hidden"><i class="fa fa-pulse fa-spinner"></i> {{ random(['Akteneinsicht wird beantragt...'|trans({},'game'),'Protokolle werden analysiert...'|trans({},'game'),'Überwachungsapparat wird ausgewertet...'|trans({},'game'),'Belastende Beweise werden übermittelt...'|trans({},'game')]) }}</div>
+{% endif %}
 {{ include('ajax/flash.html.twig') }}

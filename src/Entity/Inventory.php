@@ -27,7 +27,7 @@ class Inventory
     private $zone;
     #[ORM\OneToOne(targetEntity: 'App\Entity\RuinZone', mappedBy: 'floor', cascade: ['persist', 'remove'])]
     private $ruinZone;
-    #[ORM\OneToOne(targetEntity: RuinZone::class, mappedBy: 'roomFloor', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(targetEntity: RuinZone::class, mappedBy: 'roomFloor', cascade: ['persist'])]
     private $ruinZoneRoom;
     public function __construct()
     {

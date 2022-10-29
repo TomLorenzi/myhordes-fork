@@ -26,6 +26,7 @@ use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,6 +34,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -121,6 +123,46 @@ class WebController extends CustomAbstractController
         ] );
     }
 
+    public function render_error_framework(FlattenException $exception, DebugLoggerInterface $logger = null): Response {
+        try {
+            $version = $this->version_manager->getVersion();
+            $is_debug_version =
+                ($version->getMajor() < 1) ||
+                ($version->getPreRelease() && !(
+                        $version->getPreRelease()->toString() === 'rc' || str_starts_with($version->getPreRelease()->toString(), 'rc.')
+                    ));
+        } catch (\Exception $e) {
+            $is_debug_version = false;
+            $version = null;
+        }
+
+        $devs = self::$devs;
+        shuffle($devs);
+
+        $supporters = self::$supporters;
+        shuffle($supporters);
+
+        $support_groups = $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]);
+
+
+        return $this->render(  'web/error_page.twig', [
+            'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
+            'devs' => array_map(function($dev) {
+                $dev[3] = match ($dev[1]) {
+                    'code' => T::__('Programmierung', 'global'),
+                    'users' => T::__('Community-Management', 'global'),
+                    default => '',
+                };
+                return $dev;
+            }, $devs),
+            'supporters' => $supporters,
+            'ajax_landing' => '',
+            'langs' => $this->allLangs,
+            'exception' => $exception,
+            'support' => count($support_groups) === 1 ? $support_groups[0] : null
+
+        ] );
+    }
     /**
      * @Route("/", name="home")
      * @return Response

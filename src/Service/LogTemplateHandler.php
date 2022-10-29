@@ -1249,7 +1249,11 @@ class LogTemplateHandler
             $variables = array('num' => $num_zombies);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOpenDoor']);
         }
-        elseif ($num_zombies > 0) {
+        elseif ($num_zombies == 1) {
+            $variables = [];
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOneZombie']);
+        }
+        elseif ($num_zombies > 1) {
             $variables = array('num' => $num_zombies);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummarySomeZombies']);
         }
