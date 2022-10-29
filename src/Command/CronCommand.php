@@ -447,9 +447,12 @@ class CronCommand extends Command
                 $stranger_day   = (int)$town_conf->get( TownConf::CONF_STRANGER_TOWN_AFTER, -1 );
                 $stranger_limit = (int)$town_conf->get( TownConf::CONF_STRANGER_TOWN_MIN, 0 );
 
+                $update_events = false;
+
                 if ($town->isOpen() && $town->getAliveCitizenCount() > 0 && !$town->getCitizens()->isEmpty() && $stranger_day >= 0 && $town->getDayWithoutAttack() > $stranger_day && $town->getCitizenCount() >= $stranger_limit && $town->getCitizenCount() < $grace) {
                     $last_op = 'strg';
                     $town->setForceStartAhead(true);
+                    $update_events = true;
                     $this->entityManager->persist($town);
                 } elseif ($town->isOpen() && $town->getAliveCitizenCount() > 0 && !$town->getCitizens()->isEmpty() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
                     $last_op = 'del';
@@ -464,13 +467,18 @@ class CronCommand extends Command
                 } elseif ((!$town->isOpen()) && $town->getAliveCitizenCount() == 0) {
                     $last_op = 'com';
                     $town->setAttackFails(0);
-                    if (!$this->gameFactory->compactTown($town))
+                    if (!$this->gameFactory->compactTown($town)) {
                         $this->entityManager->persist($town);
+                        $update_events = true;
+                    }
                 } else {
+                    $update_events = true;
                     $town->setAttackFails(0);
                     $this->entityManager->persist($town);
+                }
 
-                    // Enable or disable events
+                // Enable or disable events
+                if ($update_events) {
                     $running_events = $town_events;
                     if (!$town->getManagedEvents() && !$this->conf_master->checkEventActivation($town)) {
                         $this->entityManager->flush();
@@ -487,6 +495,7 @@ class CronCommand extends Command
                     $this->entityManager->persist($town);
                     $this->entityManager->flush();
                 }
+
                 $this->entityManager->flush();
             }
         } catch (Exception $e) {
