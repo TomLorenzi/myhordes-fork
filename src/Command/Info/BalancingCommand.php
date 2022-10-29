@@ -99,11 +99,11 @@ class BalancingCommand extends LanguageCommand
         };
 
         $data = [];
-        foreach ($itemGroup->getEntries() as $entry) {
-            $chances = $fun_by_proto($entry->getPrototype());
-            $chances[1] = round($chances[1] * 100, $chances[1] < 0.01 ? 4 : ( $chances[1] < 0.1 ? 2 : 1) ) . '%';
-            $data[] = $chances;
-        }
+        foreach ($itemGroup->getEntries() as $entry)
+            $data[] = $fun_by_proto($entry->getPrototype());
+
+        usort($data, fn($a, $b) => $b[1] <=> $a[1] ?: strcmp( $b[0], $a[0] ));
+        $data = array_map( fn( $a ) => [ $a[0], round($a[1] * 100, $a[1] < 0.01 ? 4 : ( $a[1] < 0.1 ? 2 : 1) ) . '%' ], $data );
 
         if (!empty($data)) {
             $io->section('Items');
