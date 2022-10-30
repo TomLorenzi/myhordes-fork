@@ -256,7 +256,8 @@ class GazetteService
                     break;
                 case 'item':
                     $variables['item'] = $this->rand->pick( [
-                        T::__('einen Haufen Gerümpel ','gazette'),T::__('einen Holzstapel ','gazette'),
+                        T::__('einen Haufen Gerümpel','gazette'),T::__('einen Holzstapel','gazette'),
+                        T::__('einen Abfallberg', 'gazette'),
                         T::__('einen Haufen Schrott','gazette'),T::__('einen toter Baumstamm','gazette'),
                         T::__('eine vergessene Leiter','gazette'),T::__('einen Berg von Kisten','gazette'),
                         T::__('einen Turm aus Trümmern','gazette'),T::__('einen Haufen Plunder','gazette'),

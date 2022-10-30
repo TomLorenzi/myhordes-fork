@@ -173,14 +173,14 @@ Phenol: au phénol
 Ponasulfat: au ponasulfate
 'Es gibt einige, die sich auf unsere Kosten einen Spaß machen, das sage ich euch, zum Beispiel <strong>{citizen1}</strong>, der {random} Mal vorbeikam, um eine Kleinigkeit aus der Bank zu holen... Wir verweigern uns nichts.': 'Il y en a qui se font plaisir sur notre dos je vous le dis, avec (par exemple) <strong>{citizen1}</strong> qui est passé(e) {random} fois prendre un petit quelque chose dans la banque... On ne se refuse rien..'
 '<strong>{citizen1}</strong> ist so oft zur Bank gerannt, dass es ja irgendwann mal auffallen MUSSTE! Allein gestern waren es <strong>{random} Mal</strong>.': 'On notera le bon paquet de fois où <strong>{citizen1}</strong> a été aperçu(e) en train de se servir dans la banque. <strong>{random} fois</strong> rien qu''hier.'
-'in der Nähe des Gemüsegartens': 'près de l''aile Nord'
-'in der Nähe der südlichen Stadtmauer': 'pas loin de la muraille Sud'
+'in der Nähe des Gemüsegartens': 'près de l''aile nord'
+'in der Nähe der südlichen Stadtmauer': 'pas loin de la muraille sud'
 'am Stadttor': 'à la grande porte'
 'am Aussichtsturm': 'à la façade Ouest'
-'am westlichen Flügel der Stadt': 'à côté de l''aile Ouest'
-'an der nördlichen Stadtmauer': 'au mur Nord'
-'an unserer schwach gesicherten Flanke': 'à proximité du mur Ouest'
-'in der Nähe des Brunnens': 'à la façade Ouest'
+'am westlichen Flügel der Stadt': 'à côté de l''aile ouest'
+'an der nördlichen Stadtmauer': 'au mur nord'
+'an unserer schwach gesicherten Flanke': 'à proximité du mur ouest'
+'in der Nähe des Brunnens': 'à la façade ouest'
 'an der östlichen Stadtmauer': 'au mur Est'
 'in der Stadtmauer am Stadttor': 'près de la muraille'
 Drops: Canigou
@@ -191,7 +191,7 @@ Romero: Gradubide
 Krümel: Grignotte
 Trolli: Guu
 Warpie: La-Peste
-Panda: La-Tègne
+Panda: La-Teigne
 Urmel: Poltron
 Nuffi: Ronron
 Kampfzwerg: Sauron
@@ -207,14 +207,15 @@ Schwein: le vieux cochon
 Erdmännchen: le vieux lapin
 Wasserschwein: le ragondin
 Sumpfschildkröte: le furet
-Kätzchen: le chaton
-'einen Haufen Gerümpel ': 'un amas de déchets'
-'einen Holzstapel ': 'un tas de bois'
+Kätzchen: le châton
+'einen Haufen Gerümpel': 'un amas de déchets'
+'einen Holzstapel': 'un tas de bois'
+'einen Abfallberg': 'une pile de détritus'
 'einen Haufen Schrott': 'un ramassis de saletés'
 'einen toter Baumstamm': 'un tronc d''arbre mort'
 'eine vergessene Leiter': 'une échelle oubliée'
 'einen Berg von Kisten': 'une pile de caisses'
-'einen Turm aus Trümmern': 'un échafaudage'
+'einen Turm aus Trümmern': 'un échaffaudage'
 'einen Haufen Plunder': 'un amoncellement de déchets'
 'einen Steinhaufen': 'un tas de pierres'
 'einen Haufen Ramsch': 'un tas de déchets'
