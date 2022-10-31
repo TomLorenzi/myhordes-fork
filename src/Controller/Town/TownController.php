@@ -38,7 +38,9 @@ use App\Entity\User;
 use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
+use App\Enum\ZoneActivityMarkerType;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
 use App\Service\GameProfilerService;
@@ -1740,6 +1742,24 @@ class TownController extends InventoryAwareController
 
         $town = $this->getActiveCitizen()->getTown();
         $time = $this->getTownConf()->isNightTime() ? 'night' : 'day';
+
+        if ($door_locked || true) {
+            /** @var Zone $zeroZero */
+            $zeroZero = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town, 0, 0);
+            if ($zeroZero &&
+                !$zeroZero->getActivityMarkersFor( ZoneActivityMarkerType::DoorAutoClosed )->isEmpty() &&
+                $zeroZero->getActivityMarkersFor( ZoneActivityMarkerType::DoorAutoCloseReported )->isEmpty()
+            ) {
+                $zeroZero->addActivityMarker( (new ZoneActivityMarker())
+                    ->setCitizen( $this->getActiveCitizen() )
+                    ->setTimestamp( new DateTime() )
+                    ->setType(ZoneActivityMarkerType::DoorAutoCloseReported )
+                );
+                $this->entity_manager->persist($zeroZero);
+                $this->entity_manager->persist( $this->log->doorCheck( $this->getActiveCitizen() ) );
+                $this->entity_manager->flush();
+            }
+        }
 
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', [
             'def'               => $th->calculate_town_def($town, $defSummary),

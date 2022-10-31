@@ -685,6 +685,19 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function doorCheck( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'doorCheck']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function doorControlAuto( Town $town, bool $open, ?DateTimeInterface $time ): TownLogEntry {
         if ($open)
             $action = T::__("geöffnet", 'game');
