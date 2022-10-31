@@ -1200,9 +1200,10 @@ class BeyondController extends InventoryAwareController
             default: $wound = null;
         }
 
-        if ($wound !== null)
+        if ($wound !== null) {
             $this->addFlash('notice', $this->translator->trans('Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!', ['injury' => "<strong>$wound</strong>"], 'game'));
-
+            $this->entity_manager->persist( $this->log->escapeInjury($citizen));
+        }
         try {
             $escape = (new EscapeTimer())
             ->setZone( $citizen->getZone() )

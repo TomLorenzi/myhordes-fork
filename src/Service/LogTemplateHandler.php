@@ -488,6 +488,19 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function escapeInjury( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'escapeInjury']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function constructionsInvest( Citizen $citizen, BuildingPrototype $proto, int $ap, $slave_bonus = false ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $slave_bonus ? 'constructionsInvestSlave' : 'constructionsInvest']);
