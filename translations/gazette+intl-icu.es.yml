@@ -208,9 +208,9 @@ Erdmännchen: el conejo
 Wasserschwein: el loro
 Sumpfschildkröte: el hurón
 Kätzchen: el gato
-'einen Haufen Gerümpel': 'einen Haufen Gerümpel'
-'einen Holzstapel': 'einen Holzstapel'
-'einen Abfallberg': 'einen Abfallberg'
+'einen Haufen Gerümpel': 'un montículo de basura'
+'einen Holzstapel': 'un montículo de madera'
+'einen Abfallberg': 'un montón de chatarra'
 'einen Haufen Schrott': 'un montón de basura'
 'einen toter Baumstamm': 'einen toter Baumstamm'
 'eine vergessene Leiter': 'una escalera olvidada'
@@ -233,7 +233,7 @@ Kätzchen: el gato
 'Die ganze Stadt <strong>freut</strong> sich insgeheim über <i class="dagger">†</i> {cadaver1} Tod... Niemand sagt allerdings warum - außer <strong>{citizen1}</strong>: "Den konnte hier doch eh keiner leiden!".': 'Hay quienes se <strong>alegran</strong> en silencio por la muerte de <i class="dagger">†</i> {cadaver1} anoche... Incluso se dice que <strong>{citizen1}</strong> habría murmurado: "Se lo tenía bien merecido".'
 'Wir trauern und beten für die {deaths} Seelen, die uns gestern verlassen haben. Leider ist es uns nicht gelungen, die zirka {attack} Untoten aufzuhalten... Gott erbarme sich unser! Alles Pappnasen hier...': '¡Tremenda hecatombe en nuestras filas! Nada menos que <strong>{deaths} muertos</strong>. ¿Pero qué hacéis ahí de brazos cruzados? ¡A preparar defensas holgazanes!'
 'Getrocknete Blutlachen entwürdigten heute Morgen unsere stolze Stadt. Die Horde hat uns eine Lehre erteilt und uns gemahnt, in unseren Bemühungen nicht nachzulassen.': 'Hay mucha <strong>sangre</strong> en las calles esta mañana. Las turbas de zombies no tuvieron piedad.'
-'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'Der entsetzliche Angriff letzte Nacht kostete das Leben von {cadavers} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...'
+'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'El terrible ataque de anoche le ha costado la vida a {cadavers} compañeros al caer en manos de <strong>{attack} zombies</strong>. Por las plumas de mi abuela, qué horror...'
 'Unsere Maßnahmen waren angemessen und ausreichend! Leider sind ein paar Zombies "auf die Idee gekommen", (ob die Viecher denken können steht auf einem anderen Blatt...) {item} zu verwenden, um sich {location} ihren Weg in die Stadt zu bahnen. Bilanz: <strong>{deaths} getötete Bürgers</strong>.': '¡Las defensas <strong>fueron bastante sólidas</strong> anoche! Pero algunos zombies aprovecharon <strong>{item}</strong> {location} para infiltrarse en el pueblo. Resultado: <strong>{deaths} habitantes muertos</strong>.'
 'Unsere Verteidigungen waren gestern zu knapp: Ein kleiner Zombietrupp hat unsere Stadt {location} betreten und {deaths} Bürger gemetzelt.': 'Habría que revisar las defensas: Un pequeño grupo de zombies logró entrar en el pueblo, <strong>{location}</strong>, matando a <strong>{deaths} compañeros nuestros</strong>.'
 'Die abgebissenen Gliedmaßen und aus den Bäuchen quellenden Eingeweide unserer {deaths} Mitbürger sprechen eine klare Sprache: Wir müssen schnellstens unsere Verteidigung verbessern...': 'Las vísceras y restos de {deaths} habitantes masacrados nos dejan un mensaje más que claro: Mejorar nuestras defensas... o <strong>morir</strong>.'
