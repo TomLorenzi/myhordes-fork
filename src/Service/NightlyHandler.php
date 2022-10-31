@@ -780,16 +780,22 @@ class NightlyHandler
         $has_nightwatch = $this->town_handler->getBuilding($town, 'small_round_path_#00');
 
         $count_zombified_citizens = 0;
+        $count_garbaged_citizens = 0;
         $last_zombified_citizen = null;
+        $last_garbaged_citizen = null;
         foreach ($town->getCitizens() as $citizen)
             if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished) {
                 $count_zombified_citizens++;
                 $last_zombified_citizen = $citizen;
+            } elseif (!$citizen->getAlive() && $citizen->getDisposed() === Citizen::Thrown && $citizen->getSurvivedDays() === $town->getDay() - 2) {
+                $count_garbaged_citizens++;
+                $last_garbaged_citizen = $citizen;
             }
 
-
-        if ($count_zombified_citizens > 0)
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
+        if ($count_garbaged_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_garbaged_citizens, true, $count_garbaged_citizens === 1 ? $last_garbaged_citizen : null, true) );
+        elseif ($count_zombified_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null, false) );
 
         $this->stage2_surprise_attack($town);
 
@@ -801,6 +807,8 @@ class NightlyHandler
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin2($town) );
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
+        $post_summary = $this->logTemplates->nightlyAttackSummaryPost($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch);
+        if ($post_summary) $this->entity_manager->persist( $post_summary );
 
         if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );
@@ -825,6 +833,7 @@ class NightlyHandler
 
         $wounded_citizens = [];
         $terrorized_citizens = [];
+        $no_watch_items_citizens = [];
 
         foreach ($watchers as $watcher) {
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) * $def_scale) : 0;
@@ -878,13 +887,16 @@ class NightlyHandler
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$defBonus</info> zombies from his watch");
 
                 $null = null;
+                $used_items = 0;
                 foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getNightWatchAction()) {
                         $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info> : '<info>{$item->getPrototype()->getNightWatchAction()->getName()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
                         $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
+                        $used_items++;
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
                     }
 
+                if ($used_items === 0) $no_watch_items_citizens[] = $watcher->getCitizen();
 
             } else {
                 $watcher->setSkipped(true);
@@ -900,6 +912,9 @@ class NightlyHandler
         if ($total_watch_def > 0 && $overflow > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
         }
+
+        if (!empty($no_watch_items_citizens))
+            foreach ($no_watch_items_citizens as $wctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherNoItem($town, $wctx));
 
         if (!empty($wounded_citizens)) {
             foreach ($wounded_citizens as $wctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherWound($town, $wctx));

@@ -1209,9 +1209,16 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackBegin( Town $town, int $num_zombies, bool $former_citizens = false, ?Citizen $specific = null ): TownLogEntry {
+    public function nightlyAttackBegin( Town $town, int $num_zombies, bool $former_citizens = false, ?Citizen $specific = null, bool $garbaged = false ): TownLogEntry {
         $variables = array('num' => $num_zombies, 'citizen' => $specific ? $specific->getId() : null);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $former_citizens ? ($specific ? 'nightlyAttackBeginOneCitizen' : 'nightlyAttackBeginWithCitizens') : 'nightlyAttackBegin']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(
+            ['name' => $former_citizens ?
+                ($specific
+                    ? ($garbaged ? 'nightlyAttackBeginOneGarbagedCitizen' : 'nightlyAttackBeginOneCitizen' )
+                    : ($garbaged ? 'nightlyAttackBeginWithGarbagedCitizens' : 'nightlyAttackBeginWithCitizens')
+                )
+                : 'nightlyAttackBegin']
+        );
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
@@ -1245,12 +1252,14 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackSummary( Town $town, bool $door_open, int $num_zombies, bool $watch = false ): TownLogEntry {
+        $variables = [];
         if ($door_open) {
             $variables = array('num' => $num_zombies);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOpenDoor']);
         }
+        elseif ($town->getActiveCitizenCount() === 1 && $num_zombies > 0 && $watch)
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOnePlayerWatch']);
         elseif ($num_zombies == 1) {
-            $variables = [];
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOneZombie']);
         }
         elseif ($num_zombies > 1) {
@@ -1258,9 +1267,10 @@ class LogTemplateHandler
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummarySomeZombies']);
         }
         else {
-            $variables = [];
             if($watch)
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackUselessWatch']);
+            elseif ($town->getActiveCitizenCount() === 1)
+                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOnePlayerDefense']);
             else
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryNoZombies']);
         }
@@ -1271,6 +1281,20 @@ class LogTemplateHandler
             ->setTown( $town )
             ->setDay( $town->getDay() )
             ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackSummaryPost( Town $town, bool $door_open, int $num_zombies, bool $watch = false ): ?TownLogEntry {
+        $variables = [];
+        if (!$door_open && $town->getActiveCitizenCount() === 1 && $num_zombies > 0 && $watch) {
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOnePlayerWatchPost']);
+            return (new TownLogEntry())
+                ->setLogEntryTemplate($template)
+                ->setVariables($variables)
+                ->setTown( $town )
+                ->setDay( $town->getDay() )
+                ->setTimestamp( new DateTime('now') );
+        }
+        else return null;
     }
 
     public function nightlyAttackWatchersCount( Town $town, int $watchers ): TownLogEntry {
@@ -1346,6 +1370,19 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $town )
             ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackWatcherNoItem( Town $town, Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatcherNoItem']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setCitizen( $citizen )
             ->setTimestamp( new DateTime('now') );
     }
 
