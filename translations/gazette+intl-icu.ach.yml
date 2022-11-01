@@ -208,8 +208,9 @@ Erdmännchen: crwdns66834:0crwdne66834:0
 Wasserschwein: crwdns66836:0crwdne66836:0
 Sumpfschildkröte: crwdns66838:0crwdne66838:0
 Kätzchen: crwdns66840:0crwdne66840:0
-'einen Haufen Gerümpel': 'crwdns66842:0crwdne66842:0'
-'einen Holzstapel': 'crwdns66844:0crwdne66844:0'
+'einen Haufen Gerümpel': 'crwdns136607:0crwdne136607:0'
+'einen Holzstapel': 'crwdns136609:0crwdne136609:0'
+'einen Abfallberg': 'crwdns136611:0crwdne136611:0'
 'einen Haufen Schrott': 'crwdns66846:0crwdne66846:0'
 'einen toter Baumstamm': 'crwdns66848:0crwdne66848:0'
 'eine vergessene Leiter': 'crwdns66850:0crwdne66850:0'
@@ -232,7 +233,7 @@ Kätzchen: crwdns66840:0crwdne66840:0
 'Die ganze Stadt <strong>freut</strong> sich insgeheim über <i class="dagger">†</i> {cadaver1} Tod... Niemand sagt allerdings warum - außer <strong>{citizen1}</strong>: "Den konnte hier doch eh keiner leiden!".': 'crwdns66884:0{cadaver1}crwdnd66884:0{citizen1}crwdne66884:0'
 'Wir trauern und beten für die {deaths} Seelen, die uns gestern verlassen haben. Leider ist es uns nicht gelungen, die zirka {attack} Untoten aufzuhalten... Gott erbarme sich unser! Alles Pappnasen hier...': 'crwdns66886:0{deaths}crwdnd66886:0{attack}crwdne66886:0'
 'Getrocknete Blutlachen entwürdigten heute Morgen unsere stolze Stadt. Die Horde hat uns eine Lehre erteilt und uns gemahnt, in unseren Bemühungen nicht nachzulassen.': 'crwdns66888:0crwdne66888:0'
-'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'crwdns66890:0{deaths}crwdnd66890:0{attack}crwdne66890:0'
+'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'crwdns136613:0{cadavers}crwdnd136613:0{attack}crwdne136613:0'
 'Unsere Maßnahmen waren angemessen und ausreichend! Leider sind ein paar Zombies "auf die Idee gekommen", (ob die Viecher denken können steht auf einem anderen Blatt...) {item} zu verwenden, um sich {location} ihren Weg in die Stadt zu bahnen. Bilanz: <strong>{deaths} getötete Bürgers</strong>.': 'crwdns66892:0{item}crwdnd66892:0{location}crwdnd66892:0{deaths}crwdne66892:0'
 'Unsere Verteidigungen waren gestern zu knapp: Ein kleiner Zombietrupp hat unsere Stadt {location} betreten und {deaths} Bürger gemetzelt.': 'crwdns66894:0{location}crwdnd66894:0{deaths}crwdne66894:0'
 'Die abgebissenen Gliedmaßen und aus den Bäuchen quellenden Eingeweide unserer {deaths} Mitbürger sprechen eine klare Sprache: Wir müssen schnellstens unsere Verteidigung verbessern...': 'crwdns66896:0{deaths}crwdne66896:0'
