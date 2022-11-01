@@ -208,8 +208,9 @@ Erdmännchen: le vieux lapin
 Wasserschwein: le ragondin
 Sumpfschildkröte: le furet
 Kätzchen: le chaton
-'einen Haufen Gerümpel ': 'un amas de déchets'
-'einen Holzstapel ': 'un tas de bois'
+'einen Haufen Gerümpel': 'un amas de déchets'
+'einen Holzstapel': 'un tas de bois'
+'einen Abfallberg': 'une pile de détritus'
 'einen Haufen Schrott': 'un ramassis de saletés'
 'einen toter Baumstamm': 'un tronc d''arbre mort'
 'eine vergessene Leiter': 'une échelle oubliée'
@@ -232,7 +233,7 @@ Kätzchen: le chaton
 'Die ganze Stadt <strong>freut</strong> sich insgeheim über <i class="dagger">†</i> {cadaver1} Tod... Niemand sagt allerdings warum - außer <strong>{citizen1}</strong>: "Den konnte hier doch eh keiner leiden!".': 'Tout le monde semble se <strong>réjouir</strong> en silence de la mort de <i class="dagger">†</i> {cadaver1} cette nuit... Seulement, personne n''explique pourquoi. <strong>{citizen1}</strong> aurait tout de même commenté : "ouais, l''aura eu ce qu''il méritait !".'
 'Wir trauern und beten für die {deaths} Seelen, die uns gestern verlassen haben. Leider ist es uns nicht gelungen, die zirka {attack} Untoten aufzuhalten... Gott erbarme sich unser! Alles Pappnasen hier...': 'Belle hécatombe dans nos rangs cette nuit ! Félicitations: <strong>{deaths} morts</strong>.'
 'Getrocknete Blutlachen entwürdigten heute Morgen unsere stolze Stadt. Die Horde hat uns eine Lehre erteilt und uns gemahnt, in unseren Bemühungen nicht nachzulassen.': 'Il y avait du <strong>sang</strong> partout dans nos rues ce matin. Celui des victimes de cette nuit. La horde a franchi nos murs.'
-'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'L''attaque terrible d''hier soir a coûté la vie à {cadavers} personnes. Pas loin de <strong>{attack} zombies</strong> ! La violence de ce nouvel assaut laisse présager le pire...'
+'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'L’horrible attaque de la nuit dernière a coûté la vie à des citoyens : {cadavers}. Autour de <strong>{attack} Zombies</strong> ! La violence observée dans cette dernière attaque nous fait nous attendre au pire...'
 'Unsere Maßnahmen waren angemessen und ausreichend! Leider sind ein paar Zombies "auf die Idee gekommen", (ob die Viecher denken können steht auf einem anderen Blatt...) {item} zu verwenden, um sich {location} ihren Weg in die Stadt zu bahnen. Bilanz: <strong>{deaths} getötete Bürgers</strong>.': 'Les défenses étaient <strong>justes</strong> cette nuit ! Quelques zombies ont profité d''<strong>{item}</strong> {location} pour s''infiltrer en ville. Bilan : <strong>{deaths} citoyens tués</strong>.'
 'Unsere Verteidigungen waren gestern zu knapp: Ein kleiner Zombietrupp hat unsere Stadt {location} betreten und {deaths} Bürger gemetzelt.': 'Les défenses étaient très limite cette nuit : un petit groupe de zombies a réussi à entrer dans notre ville <strong>{location}</strong>, tuant <strong>{deaths} citoyens</strong>.'
 'Die abgebissenen Gliedmaßen und aus den Bäuchen quellenden Eingeweide unserer {deaths} Mitbürger sprechen eine klare Sprache: Wir müssen schnellstens unsere Verteidigung verbessern...': 'Les viscères et restes des {deaths} citoyens massacrés cette nuit (étalés un peu partout) laissent un message on ne peut plus clair : améliorer rapidement nos défenses... ou <strong>mourir</strong>.'
