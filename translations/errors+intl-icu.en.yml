@@ -1,13 +1,13 @@
-'Ein Fehler ist aufgetreten': 'Ein Fehler ist aufgetreten'
-'Es ist ein Fehler aufgetreten, doch es besteht kein Grund zur Panik!': 'Es ist ein Fehler aufgetreten, doch es besteht kein Grund zur Panik!'
-'Sollte die Statusmeldung nicht verständlich sein, kopiere sie und sende sie an unseren Technischen Support.': 'Sollte die Statusmeldung nicht verständlich sein, kopiere sie und sende sie an unseren Technischen Support.'
-'Fehler:': 'Fehler:'
-'**Allgemeine** Empfehlungen:': '**Allgemeine** Empfehlungen:'
-'**Lösche den Cache** deines Browsers.': '**Lösche den Cache** deines Browsers.'
-'**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**'
-'**Lösche deine alten Lesezeichen**.': '**Lösche deine alten Lesezeichen**.'
-"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**."
-"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**."
-'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}'
-'Bugs melden': 'Bugs melden'
+'Ein Fehler ist aufgetreten': 'An error has occurred'
+'Es ist ein Fehler aufgetreten, doch es besteht kein Grund zur Panik!': 'An error has occurred, but no need to panic!'
+'Sollte die Statusmeldung nicht verständlich sein, kopiere sie und sende sie an unseren Technischen Support.': 'If the status message is not understandable, please copy it and forward it to our technical support.'
+'Fehler:': 'Error:'
+'**Allgemeine** Empfehlungen:': '**General** recommendations:'
+'**Lösche den Cache** deines Browsers.': '**Clear** your browser''s cache.'
+'**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Reload the page (depending on your browser, this works with: CTRL + R or F5).**'
+'**Lösche deine alten Lesezeichen**.': '**Delete your old bookmarks**.'
+"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Please ensure you are at least using **Firefox** or **Google Chrome**.\n                    are **using**."
+"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** and other browsers are officially **not\n                    supported**."
+'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'If you encounter any problems, you may report them on our support portal: {error_url}'
+'Bugs melden': 'Report bugs'
 'Error {code}': 'Error {code}'
