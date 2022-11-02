@@ -611,8 +611,10 @@ class NightlyHandler
                     if ($citizen->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE)) $c++;
                 }
                 // The spiritual leader is only given if there's more than 50% of alive citizen with less than 100 SP
-                if ($c >= $town->getAliveCitizenCount() / 2)
-                    $this->picto_handler->give_picto($citizen, 'r_guide_#00', $town->getDay());
+                if ($c >= $town->getAliveCitizenCount() / 2) {
+                    for ($d = 1; $d < $town->getDay(); $d++) $nbPicto += $d;
+                    $this->picto_handler->give_picto($citizen, 'r_guide_#00', $nbPicto);
+                }
             }
 
             if (!$citizen->getProfession()->getHeroic())
