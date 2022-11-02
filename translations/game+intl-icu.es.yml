@@ -2353,7 +2353,7 @@ Stadt/Stadttor: Pueblo/Portal
 'Treppe nach unten nehmen': 'Bajar las escaleras'
 'Über dieses Treppenhaus kannst du ein anderes Stockwerk dieser Ruine betreten.': 'Al tomar esta escalera, puede acceder a otro piso de esta ruina.'
 'Ein einzelner Zombie ist in die Stadt eingedrungen!': '¡Un solo zombie ha penetrado en el pueblo!'
-'{citizen} hat soeben gemeldet, dass das Stadttor automatisch geschlossen wurde.': '{citizen} hat soeben gemeldet, dass das Stadttor automatisch geschlossen wurde.'
+'{citizen} hat soeben gemeldet, dass das Stadttor automatisch geschlossen wurde.': '{citizen} nos comenta que las puertas se han cerrado automáticamente.'
 '{num} ehemalige Mitbürger, deren Leichen wir gestern noch entsorgt haben, haben uns heute einen Besuch abgestattet. Wie grotesk!': '{num} ehemalige Mitbürger, deren Leichen wir gestern noch entsorgt haben, haben uns heute einen Besuch abgestattet. Wie grotesk!'
 'Wir haben heute <i class="dagger">†</i> {citizen} wiedererkannt. Seine Leiche hatten wir gestern erst weggeworfen!': 'Wir haben heute <i class="dagger">†</i> {citizen} wiedererkannt. Seine Leiche hatten wir gestern erst weggeworfen!'
 'Du hast Glück gehabt. Die Zombies wurden noch einmal von den Verteidigungsanlagen der Stadt aufgehalten!': 'Du hast Glück gehabt. Die Zombies wurden noch einmal von den Verteidigungsanlagen der Stadt aufgehalten!'
