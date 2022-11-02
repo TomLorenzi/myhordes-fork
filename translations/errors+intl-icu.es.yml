@@ -1,0 +1,13 @@
+'Ein Fehler ist aufgetreten': 'Ha ocurrido un error'
+'Es ist ein Fehler aufgetreten, doch es besteht kein Grund zur Panik!': '¡Ha ocurrido un error, pero que no cunda el pánico!'
+'Sollte die Statusmeldung nicht verständlich sein, kopiere sie und sende sie an unseren Technischen Support.': 'Si el mensaje de estado no es comprensible, cópielo y envíelo a nuestro soporte técnico.'
+'Fehler:': 'Error:'
+'**Allgemeine** Empfehlungen:': 'Recomendaciones **generales**:'
+'**Lösche den Cache** deines Browsers.': '**Limpia la caché** de tu navegador.'
+'**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**'
+'**Lösche deine alten Lesezeichen**.': '**Lösche deine alten Lesezeichen**.'
+"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**."
+"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**."
+'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}'
+'Bugs melden': 'Bugs melden'
+'Error {code}': 'Error {code}'
