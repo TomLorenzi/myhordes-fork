@@ -1794,7 +1794,7 @@ class SoulController extends CustomAbstractController
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $id = $parser->get("id");
-        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        $user = $this->entity_manager->getRepository(User::class)->find($id ?? -1);
 
         if (!$user || $this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
