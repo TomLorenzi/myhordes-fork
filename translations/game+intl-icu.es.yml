@@ -2361,3 +2361,4 @@ Stadt/Stadttor: Pueblo/Portal
 'Schade, dass das die anderen dich nicht mehr sehen können! Du bist ohne Zweifel ein ausgezeichneter Nachtwächter!': 'Es una pena que los demás ya no puedan verte. Es usted, sin duda, un excelente vigilia nocturno.'
 'Nachtwächter {citizen} trug keine Waffe bei sich??!! War das Nachlässigkeit?': '¿El centinela {citizen} no llevaba armas? ¿Habrá sido un descuido?'
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '¡{citizen} logro escapar la zona, aunque fue <strong>gravemente herido</strong>!'
+'{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!'
