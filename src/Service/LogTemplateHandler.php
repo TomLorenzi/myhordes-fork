@@ -2130,7 +2130,6 @@ class LogTemplateHandler
     }
 
     public function zoneEscapeItemUsed( Citizen $citizen, ItemPrototype $item, int $duration): TownLogEntry {
-        $variables = array();
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneEscapeItemUsed']);
 
         return (new TownLogEntry())
@@ -2139,6 +2138,22 @@ class LogTemplateHandler
                                'item' => $item->getId(),
                                'citizen' => $citizen->getId(),
                                'duration' => $duration,
+                           ])
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setZone($citizen->getZone());
+    }
+
+    public function zoneEscapeArmagUsed( Citizen $citizen, int $duration, int $zombies): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneEscapeArmagUsed']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([
+                               'citizen' => $citizen->getId(),
+                               'duration' => $duration,
+                               'zombies' => $zombies
                            ])
             ->setTown( $citizen->getTown() )
             ->setDay( $citizen->getTown()->getDay() )
