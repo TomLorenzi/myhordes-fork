@@ -1017,7 +1017,7 @@ class AdminTownController extends AdminActionController
                 foreach ($citizen->getValidLeadingEscorts() as $escort)
                     $movers[] = $escort->getCitizen();
             } else {
-                foreach ($citizen->getValidLeadingEscorts() as $escort) {
+                foreach ($citizen->getLeadingEscorts() as $escort) {
                     $escort->getCitizen()->getEscortSettings()->setLeader(null);
                     $this->entity_manager->persist($escort->getCitizen());
                 }

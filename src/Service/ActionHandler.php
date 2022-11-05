@@ -1382,7 +1382,7 @@ class ActionHandler
                             $this->entity_manager->persist( $dig_timer );
                         }
 
-                        foreach ($jumper->getValidLeadingEscorts() as $escort)
+                        foreach ($jumper->getLeadingEscorts() as $escort)
                             $escort->getCitizen()->getEscortSettings()->setLeader(null);
 
                         if ($jumper->getEscortSettings()) {
