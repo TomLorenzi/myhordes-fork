@@ -2361,3 +2361,4 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 'Schade, dass das die anderen dich nicht mehr sehen können! Du bist ohne Zweifel ein ausgezeichneter Nachtwächter!': 'crwdns136651:0crwdne136651:0'
 'Nachtwächter {citizen} trug keine Waffe bei sich??!! War das Nachlässigkeit?': 'crwdns136653:0{citizen}crwdne136653:0'
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': 'crwdns136655:0{citizen}crwdne136655:0'
+'{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': 'crwdns136657:0{citizen}crwdnd136657:0{zombies}crwdnd136657:0{duration}crwdne136657:0'
