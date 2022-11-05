@@ -27,6 +27,7 @@ use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ChoiceQuestion;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -426,6 +427,10 @@ class CommandHelper
             return $l[$result];
         }
         else return null;
+    }
 
+    public function interactiveConfirm(mixed $helper, InputInterface $input, OutputInterface $output, string $question = 'Confirm?', bool $default = false): bool {
+        if ( $input->getOption('yes') ) return true;
+        return $helper->ask($input, $output, new ConfirmationQuestion("<fg=yellow>$question</> (y/n)\n> ", $default));
     }
 }

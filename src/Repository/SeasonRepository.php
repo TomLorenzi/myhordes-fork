@@ -23,6 +23,29 @@ class SeasonRepository extends ServiceEntityRepository
         return $this->findBy([],['number' => 'DESC','subNumber' => 'DESC']);
     }
 
+    public function findPastAndPresent(): array
+    {
+        $currentSeason = $this->findOneBy(['current' => true]);
+        if (!$currentSeason) return $this->findAll();
+
+        $qb = $this->createQueryBuilder( 's' );
+        $or = $qb->expr()->orX();
+
+        $and = $qb->expr()->andX();
+        $and->add( $qb->expr()->eq('s.number', $currentSeason->getNumber()) );
+        $and->add( $qb->expr()->lte('s.subNumber', $currentSeason->getSubNumber()) );
+
+        $or->add($qb->expr()->lt('s.number', $currentSeason->getNumber()));
+        $or->add($and);
+
+        return $qb
+            ->where( $or )
+            ->addOrderBy('s.number', 'DESC')
+            ->addOrderBy('s.subNumber', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findLatest(){
         return $this->createQueryBuilder('s')
             ->addOrderBy('s.number', 'DESC')

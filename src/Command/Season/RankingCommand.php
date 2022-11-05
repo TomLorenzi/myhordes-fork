@@ -1,13 +1,10 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Command\Season;
 
 
-use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\CitizenRole;
-use App\Entity\CitizenStatus;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
@@ -15,14 +12,9 @@ use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
-use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
 use App\Service\GameFactory;
-use App\Service\InventoryHandler;
-use App\Service\ItemFactory;
-use App\Service\StatusFactory;
 use App\Service\UserHandler;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -31,11 +23,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
-    name: 'app:ranking',
+    name: 'app:season:ranking',
     description: 'Calculates ranking rewards at the end of a season.'
 )]
 class RankingCommand extends Command
@@ -255,6 +246,6 @@ class RankingCommand extends Command
 
         $this->entityManager->flush();
 
-        return 1;
+        return 0;
     }
 }

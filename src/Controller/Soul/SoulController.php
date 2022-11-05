@@ -201,7 +201,7 @@ class SoulController extends CustomAbstractController
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         $features = [];
-        $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         foreach ($this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll() as $p)
             if ($ff = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser($user,$season,$p))
                 $features[] = $ff;
@@ -214,7 +214,7 @@ class SoulController extends CustomAbstractController
             'points' => round($points),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
-            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null
         ]));
     }
@@ -1518,7 +1518,7 @@ class SoulController extends CustomAbstractController
             'pictos' => $pictos,
             'top3' => $top3,
             'points' => round($points),
-            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),
             'returnUrl' => $returnUrl,
             'citizen_id' => $citizen_id,
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null

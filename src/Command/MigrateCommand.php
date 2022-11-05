@@ -617,7 +617,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('assign-features')) {
 
-            $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
 
             $p_arma = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_armag_#00');
             $p_cont = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ginfec_#00');

@@ -1198,7 +1198,7 @@ class AdminUserController extends AdminActionController
 
         $f_protos = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll();
         $features = [];
-        $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         foreach ($f_protos as $p)
             if ($ff = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser($user,$season,$p))
                 $features[] = $ff;
@@ -1413,7 +1413,7 @@ class AdminUserController extends AdminActionController
             case 1:
                 $feature
                     ->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)
-                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findLatest() );
+                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) );
                 break;
             case 2:
                 $feature
