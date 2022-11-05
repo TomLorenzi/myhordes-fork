@@ -1950,8 +1950,17 @@ span.tag {
 .username {
   word-break: break-all;
   text-decoration: none;
-  background-color: #5C0000;
-  border-top: 1px solid #98341c;
+
+  &.username-alias {
+    background-color: #5c0045;
+    border-top: 1px solid #981c54;
+  }
+
+  &:not(.username-alias) {
+    background-color: #5C0000;
+    border-top: 1px solid #98341c;
+  }
+
   border-radius: 4px;
   padding-right: 5px;
   padding-left: 5px;
@@ -1966,7 +1975,7 @@ span.tag {
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 0 1px black;
   }
 
-  &.is-friend {
+  &:not(.username-alias).is-friend {
     border-top: 1px solid #965c36;
     background-color: #7e4e2a;
   }
