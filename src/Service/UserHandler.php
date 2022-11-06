@@ -292,7 +292,6 @@ class UserHandler
                 $remove_awards[] = $award;
         }
 
-        //echo "####################################################\n";
         foreach ($this->entity_manager->getRepository(AwardPrototype::class)->findAll() as $prototype)
             if (!in_array($prototype,$skip_proto) &&
                 (isset($cache[$prototype->getAssociatedPicto()->getId()]) && $cache[$prototype->getAssociatedPicto()->getId()] >= $prototype->getUnlockQuantity())

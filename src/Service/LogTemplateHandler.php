@@ -14,11 +14,13 @@ use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\Complaint;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
+use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
@@ -302,6 +304,32 @@ class LogTemplateHandler
                     if (!empty($unique_icons)) $transParams['{'.$typeEntry['name'].'}'] .= '<p><h5>' . $this->trans->trans('Einzigartige Icons', [], 'global') . '</h5><div class="list">' .
                         implode('', array_map( fn(Award $e) => "<img alt='' src='{$this->url->generate('app_web_customicon', ['uid' => $e->getUser()->getId(), 'aid' => $e->getId(), 'name' => $e->getCustomIconName(), 'ext' => $e->getCustomIconFormat()])}' />", $unique_icons )) .
                         '</div></p>';
+                }
+
+                elseif ($typeEntry['type'] === 'picto-list') {
+                    $pictos = array_filter( array_map( fn(array $p) => ($p[1] ?? 0) > 0 ? [$this->entity_manager->getRepository(PictoPrototype::class)->find($p[0] ?? 0), $p[1]] : null, $variables[$typeEntry['name']] ), fn($a) => $a !== null && $a[0] !== null );
+                    if (!empty($pictos)) $transParams['{'.$typeEntry['name'].'}'] = '<div class="list">' .
+                        implode('', array_map( fn(array $e) =>
+                            '<span>' .
+                            "<img alt='' src='{$this->asset->getUrl( "build/images/pictos/{$e[0]->getIcon()}.gif" )}' /> x " . $e[1] .
+                            '<div class="tooltip">' . $this->trans->trans($e[0]->getLabel(), [], 'game') . ' x ' . $e[1] . '</div>' .
+                            '</span>'
+                            , $pictos )) .
+                        '</div>';
+                    else $transParams['{'.$typeEntry['name'].'}'] = '<div>---</div>';
+                }
+
+                elseif ($typeEntry['type'] === 'feature-list') {
+                    $features = array_filter( array_map( fn(int $f) => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->find($f), $variables[$typeEntry['name']] ), fn($a) => $a !== null );
+                    if (!empty($features)) $transParams['{'.$typeEntry['name'].'}'] = '<div class="list">' .
+                        implode('', array_map( fn(FeatureUnlockPrototype $e) =>
+                            '<span>' .
+                            "<img alt='' src='{$this->asset->getUrl( "build/images/pictos/{$e->getIcon()}.gif" )}' />" .
+                            '<div class="tooltip"><h1>' . $this->trans->trans($e->getLabel(), [], 'game') . '</h1>' . $this->trans->trans($e->getDescription(), [], 'game')  . '</div>' .
+                            '</span>'
+                            , $features )) .
+                        '</div>';
+                    else $transParams['{'.$typeEntry['name'].'}'] = '<div>---</div>';
                 }
 
                 elseif ($typeEntry['type'] === 'duration') {

@@ -3,9 +3,6 @@
 
 namespace App\Command\Season;
 
-
-use App\Entity\Award;
-use App\Entity\AwardPrototype;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\FeatureUnlock;
 use App\Entity\FeatureUnlockPrototype;
@@ -17,6 +14,7 @@ use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CommandHelper;
+use App\Service\CrowService;
 use App\Service\GameFactory;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,13 +40,15 @@ class RankingCommand extends Command
     private CommandHelper $commandHelper;
     private UserHandler $userHandler;
     private GameFactory $gameFactory;
+    private CrowService $crowService;
 
-    public function __construct(EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf)
+    public function __construct(EntityManagerInterface $em, CommandHelper $com, UserHandler $uh, GameFactory $gf, CrowService $crowService)
     {
         $this->entityManager = $em;
         $this->commandHelper = $com;
         $this->userHandler = $uh;
         $this->gameFactory = $gf;
+        $this->crowService = $crowService;
         parent::__construct();
     }
 
@@ -158,10 +158,14 @@ class RankingCommand extends Command
             : [];
 
         $preset_ranking = [];
+        $import_lang = null;
         foreach ( $input->getOption('import') as $import ) {
 
             $base = explode(':', $import);
             if (count($base) !== 3) throw new Exception("Invalid import format ('$import')");
+
+            if ($import_lang === null) $import_lang = $base[1];
+            elseif ($import_lang !== $base[1]) throw new Exception("Encountered unexpected language '{$base[1]}'.");
 
             /** @var TownClass $town_type */
             $town_type = $this->entityManager->getRepository(TownClass::class)->findOneBy(['ranked' => true, 'name' => $base[0]]);
@@ -216,7 +220,7 @@ class RankingCommand extends Command
                     if ($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_RANKING)) continue;
 
                     if (!isset($citizen_ranking[$citizen->getUser()->getId()]))
-                        $citizen_ranking[$citizen->getUser()->getId()] = [[],[],$citizen->getUser()];
+                        $citizen_ranking[$citizen->getUser()->getId()] = [[],[],$citizen->getUser(),[],[]];
 
                     if ($place === 0)
                         $citizen_ranking[$citizen->getUser()->getId()][0][] = $town;
@@ -238,7 +242,7 @@ class RankingCommand extends Command
         /** @var Picto[] $all_rank_pictos */
         $all_rank_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => [$ranking_picto,$top_ranking_picto]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
         /** @var FeatureUnlock[] $all_rank_rewards */
-        $all_rank_rewards = $upcoming_season
+        $all_rank_rewards = ($upcoming_season && !$seasonal_merge)
             ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => [$award_glory,$award_alarm], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
             : [];
 
@@ -250,8 +254,10 @@ class RankingCommand extends Command
                 $citizen_ranking[$rank_reward->getUser()->getId()] = [[],[],$rank_reward->getUser(),[],[]];
 
         usort($citizen_ranking, fn(array $a, array $b) => count($b[0]) <=> count($a[0]) ?: count($b[1]) <=> count($a[1]) ?: $a[2]->getId() <=> $b[2]->getId() );
-        $data = [];
 
+        $message_cache = [];
+
+        $data = [];
         foreach ($citizen_ranking as $k => $citizen_ranking_entry) {
             /** @var Picto[] $existing_top_pictos */
             $existing_top_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => $top_ranking_picto, 'user' => $citizen_ranking_entry[2]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
@@ -340,11 +346,54 @@ class RankingCommand extends Command
                 empty($citizen_ranking_entry[0]) ? 0 : 1, "-{$minus[2]} / +{$plus[2]}",
                 (empty($citizen_ranking_entry[0]) && empty($citizen_ranking_entry[1])) ? 0 : 1, "-{$minus[3]} / +{$plus[3]}",
             ];
+
+            $message_cache[] = [$citizen_ranking_entry[2]->getId(), array_map( fn(int $plus, int $minus) => $plus - $minus, $plus, $minus ) ];
         }
         $io->table(['#', 'ID', 'User', 'Top Towns', 'Top Towns Change', 'Ranked Towns', 'Ranked Towns Change', 'Alarm', 'Alarm Change', 'Glory', 'Glory Change'], $data);
 
-        if ($this->commandHelper->interactiveConfirm( $this->getHelper('question'), $input, $output ))
+        if ($this->commandHelper->interactiveConfirm( $this->getHelper('question'), $input, $output )) {
+
+            $io->write('Persisting... ');
             $this->entityManager->flush();
+            $io->writeln('<fg=green>OK!</>');
+
+            $this->entityManager->clear();
+            $io->writeln('Sending crow messages and calculating title unlocks...');
+            foreach ($io->createProgressBar()->iterate($message_cache) as $citizen_ranking_entry) {
+
+                $user = $this->entityManager->getRepository(User::class)->find( $citizen_ranking_entry[0] );
+
+                $ranking_picto     = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winbas_#00');
+                $top_ranking_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_wintop_#00');
+
+                $award_glory = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_glory');
+                $award_alarm   = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
+
+                $features = [];
+                if ($citizen_ranking_entry[1][2] > 0) $features[] = $award_alarm;
+                if ($citizen_ranking_entry[1][3] > 0) $features[] = $award_glory;
+
+                if (array_reduce( $citizen_ranking_entry[1], fn(int $carry, int $value) => max( $carry, $value ), 0 ) > 0)
+                    $this->entityManager->persist( $this->crowService->createPM_seasonalRewards(
+                        $this->entityManager->getRepository(User::class)->find( $citizen_ranking_entry[0] ),
+                        [
+                            [$top_ranking_picto, $citizen_ranking_entry[1][0]],
+                            [$ranking_picto, $citizen_ranking_entry[1][1]],
+                        ],
+                        $features,
+                        $import_lang,
+                        $season?->getNumber() ?: 0
+                    ) );
+
+                $this->userHandler->computePictoUnlocks( $user );
+
+                $this->entityManager->flush();
+                $this->entityManager->clear();
+            }
+
+            $io->writeln(' <fg=green>Complete!</>');
+        }
+
 
         return 0;
     }
