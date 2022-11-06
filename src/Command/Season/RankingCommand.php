@@ -4,7 +4,11 @@
 namespace App\Command\Season;
 
 
+use App\Entity\Award;
+use App\Entity\AwardPrototype;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
@@ -24,6 +28,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+
+// Note: You can export a ranking page from the original game using this JS snipped:
+// [...document.querySelectorAll('.table.mapRanking tr')].filter(e => parseInt(e.querySelector('td.rank')?.textContent ?? 100) <= 35).map(e => e.querySelector('td.name>a').getAttribute('href').match(/dmid=(\d+)/)[1]).join(',')
 
 #[AsCommand(
     name: 'app:season:ranking',
@@ -51,8 +58,10 @@ class RankingCommand extends Command
             ->addArgument('SeasonNumber', InputArgument::OPTIONAL, 'The season number. Enter numeric value or c for current, l for latest.', 'c')
             ->addArgument('SeasonSubNumber', InputArgument::OPTIONAL, 'The season sub number. Enter numeric value or c for current, l for latest.', '')
 
+            ->addOption('yes', 'y', InputOption::VALUE_NONE, 'Auto-confirm')
             ->addOption('clear', null,InputOption::VALUE_NONE, 'Removes the ranking pictos for the selected season.')
             ->addOption('alpha', null,InputOption::VALUE_NONE, 'Instead of calculating a season ranking, disperse ranking pictos')
+            ->addOption('import', null,InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Imports a ranking instead of using our own database. Use form "<type>:<lang>:<id>,<id>,..."', [])
         ;
     }
 
@@ -132,10 +141,46 @@ class RankingCommand extends Command
             if (!$season) throw new Exception('The specified season was not found.');
         }
 
+        /** @var Season $season */
         if ($season) $output->writeln("Selected season: <info>{$season->getNumber()}.{$season->getSubNumber()}</info>");
         else $output->writeln("Selected season: <info>ALPHA SEASON</info>");
 
-        $all_town_types = $this->entityManager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']);
+        /** @var Season $upcoming_season */
+        $upcoming_season = $this->entityManager->getRepository(Season::class)->findNext($season);
+        if ($upcoming_season) $output->writeln("Upcoming season: <info>{$upcoming_season->getNumber()}.{$upcoming_season->getSubNumber()}</info>");
+        else $output->writeln("<fg=red>Warning: No upcoming season found!</>");
+
+        $seasonal_merge = $upcoming_season && $upcoming_season->getNumber() > 0 && $season->getNumber() === 0 && !$clear;
+        if ($seasonal_merge) $output->writeln("The upcoming season seems to be a <fg=blue>seasonal junction</> as it may be preceded by several different seasons.\n<fg=yellow>Therefore, feature unlocks for the upcoming season will be calculated in additive mode.</>");
+
+        $all_town_types = (empty( $input->getOption('import') ))
+            ? $this->entityManager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC'])
+            : [];
+
+        $preset_ranking = [];
+        foreach ( $input->getOption('import') as $import ) {
+
+            $base = explode(':', $import);
+            if (count($base) !== 3) throw new Exception("Invalid import format ('$import')");
+
+            /** @var TownClass $town_type */
+            $town_type = $this->entityManager->getRepository(TownClass::class)->findOneBy(['ranked' => true, 'name' => $base[0]]);
+            if (!$town_type) throw new Exception("Invalid town type '{$base[0]}'.");
+
+            $all_town_types[] = $town_type;
+            $preset_ranking[$town_type->getName()] =
+                array_map(
+                    fn(?TownRankingProxy $town) => $town && !$town->getDisabled() && !$town->hasDisableFlag( TownRankingProxy::DISABLE_RANKING ) ? $town : null,
+                    array_map( fn(int $id) => $this->entityManager->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $id, 'imported' => true, 'language' => $base[1]]), explode(',', $base[2]))
+                );
+
+            foreach ($preset_ranking[$town_type->getName()] as $town) {
+                /** @var TownRankingProxy $town */
+                if ($town && $town->getSeason() !== $season) throw new Exception("Town #{$town->getId()} '{$town->getName()}' is from season {$town->getSeason()?->getNumber()}.{$town->getSeason()?->getSubNumber()}!");
+            }
+        }
+
+        usort( $all_town_types, fn(TownClass $a, TownClass $b) => $a->getOrderBy() <=> $b->getOrderBy() );
 
         $io = new SymfonyStyle($input, $output);
         $io->title("Ranking overview");
@@ -147,10 +192,15 @@ class RankingCommand extends Command
             if (!$clear) $io->section("Ranking for town type <info>{$type->getLabel()}</info>");
 
             /** @var TownRankingProxy[] $towns */
-            $towns = $clear ? [] : $this->entityManager->getRepository(TownRankingProxy::class)->findTopOfSeason($season, $type);
+            $towns = $clear ? [] : $preset_ranking[$type->getName()] ?? $this->entityManager->getRepository(TownRankingProxy::class)->findTopOfSeason($season, $type);
 
             $data = [];
             foreach ($towns as $place => $town) {
+
+                $data[] = [
+                    $place + 1, $town?->getId() ?? '-', $town?->getName() ?? '-', $town?->getScore() ?? '-', $town?->getDays() ?? '-'
+                ];
+                if (!$town) continue;
 
                 $citizens = $town->getCitizens()->getValues();
                 usort($citizens, fn(CitizenRankingProxy $a, CitizenRankingProxy $b) => $a->getEnd() <=> $b->getEnd());
@@ -172,10 +222,6 @@ class RankingCommand extends Command
                         $citizen_ranking[$citizen->getUser()->getId()][0][] = $town;
                     else $citizen_ranking[$citizen->getUser()->getId()][1][] = $town;
                 }
-
-                $data[] = [
-                    $place + 1, $town->getId(), $town->getName(), $town->getScore(), $town->getDays()
-                ];
             }
 
             if (!$clear) $io->table(['#', 'ID', 'Name', 'Score', 'Days'], $data);
@@ -186,11 +232,22 @@ class RankingCommand extends Command
         $ranking_picto     = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winbas_#00');
         $top_ranking_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_wintop_#00');
 
+        $award_glory = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_glory');
+        $award_alarm   = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
+
         /** @var Picto[] $all_rank_pictos */
         $all_rank_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => [$ranking_picto,$top_ranking_picto]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
+        /** @var FeatureUnlock[] $all_rank_rewards */
+        $all_rank_rewards = $upcoming_season
+            ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => [$award_glory,$award_alarm], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
+            : [];
+
         foreach ($all_rank_pictos as $rank_picto)
             if (!isset($citizen_ranking[$rank_picto->getUser()->getId()]))
-                $citizen_ranking[$rank_picto->getUser()->getId()] = [[],[],$rank_picto->getUser()];
+                $citizen_ranking[$rank_picto->getUser()->getId()] = [[],[],$rank_picto->getUser(),[],[]];
+        foreach ($all_rank_rewards as $rank_reward)
+            if (!isset($citizen_ranking[$rank_reward->getUser()->getId()]))
+                $citizen_ranking[$rank_reward->getUser()->getId()] = [[],[],$rank_reward->getUser(),[],[]];
 
         usort($citizen_ranking, fn(array $a, array $b) => count($b[0]) <=> count($a[0]) ?: count($b[1]) <=> count($a[1]) ?: $a[2]->getId() <=> $b[2]->getId() );
         $data = [];
@@ -202,9 +259,19 @@ class RankingCommand extends Command
             /** @var Picto[] $existing_rank_pictos */
             $existing_rank_pictos = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => $ranking_picto, 'user' => $citizen_ranking_entry[2]]),     fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
 
-            $minus = [0,0];
-            $plus  = [0,0];
-            $already = [[],[]];
+            /** @var FeatureUnlock[] $existing_alarms */
+            $existing_alarms = $upcoming_season
+                ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => $award_alarm, 'user' => $citizen_ranking_entry[2], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
+                : [];
+
+            /** @var FeatureUnlock[] $existing_glory */
+            $existing_glory = $upcoming_season
+                ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => $award_glory, 'user' => $citizen_ranking_entry[2], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
+                : [];
+
+            $minus = [0,0,0,0];
+            $plus  = [0,0,0,0];
+            $already = [[],[],false,false];
 
             foreach ($existing_top_pictos as $top_picto) {
                 if ($top_picto->getPersisted() !== 2 || !in_array($top_picto->getTownEntry(), $citizen_ranking_entry[0])) {
@@ -228,6 +295,22 @@ class RankingCommand extends Command
                 } else $already[1][] = $rank_picto->getTownEntry();
             }
 
+            if ($upcoming_season)
+                foreach ($existing_alarms as $n => $alarm) {
+                    if ((empty($citizen_ranking_entry[0]) && !$seasonal_merge) || $n > 0) {
+                        $minus[2]++;
+                        $this->entityManager->remove($alarm);
+                    } else $already[2] = true;
+                }
+
+            if ($upcoming_season)
+                foreach ($existing_glory as $n => $glory) {
+                    if ((empty($citizen_ranking_entry[0]) && empty($citizen_ranking_entry[1]) && !$seasonal_merge) || $n > 0) {
+                        $minus[3]++;
+                        $this->entityManager->remove($glory);
+                    } else $already[3] = true;
+                }
+
             foreach ($citizen_ranking_entry[0] as $townEntry)
                 if (!in_array($townEntry,$already[0])) {
                     $this->entityManager->persist( (new Picto())->setUser( $citizen_ranking_entry[2] )->setCount( 1 )->setPersisted( 2 )->setTownEntry( $townEntry )->setPrototype( $top_ranking_picto ) );
@@ -240,11 +323,28 @@ class RankingCommand extends Command
                     $plus[1]++;
                 }
 
-            $data[] = [ $k + 1, $citizen_ranking_entry[2]->getId(), $citizen_ranking_entry[2]->getName(), count($citizen_ranking_entry[0]), "-{$minus[0]} / +{$plus[0]}", count($citizen_ranking_entry[1]), "-{$minus[1]} / +{$plus[1]}" ];
-        }
-        $io->table(['#', 'ID', 'User', 'Top Towns', 'Top Towns Change', 'Ranked Towns', 'Ranked Towns Change'], $data);
+            if (!empty($citizen_ranking_entry[0]) && !$already[2] && $upcoming_season) {
+                $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_alarm)->setUser($citizen_ranking_entry[2])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
+                $plus[2]++;
+            }
+            if ((!empty($citizen_ranking_entry[0]) || !empty($citizen_ranking_entry[1])) && !$already[3] && $upcoming_season) {
+                $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_glory)->setUser($citizen_ranking_entry[2])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
+                $plus[3]++;
+            }
 
-        $this->entityManager->flush();
+            $data[] = [
+                $k + 1,
+                $citizen_ranking_entry[2]->getId(), $citizen_ranking_entry[2]->getName(),
+                count($citizen_ranking_entry[0]), "-{$minus[0]} / +{$plus[0]}",
+                count($citizen_ranking_entry[1]), "-{$minus[1]} / +{$plus[1]}",
+                empty($citizen_ranking_entry[0]) ? 0 : 1, "-{$minus[2]} / +{$plus[2]}",
+                (empty($citizen_ranking_entry[0]) && empty($citizen_ranking_entry[1])) ? 0 : 1, "-{$minus[3]} / +{$plus[3]}",
+            ];
+        }
+        $io->table(['#', 'ID', 'User', 'Top Towns', 'Top Towns Change', 'Ranked Towns', 'Ranked Towns Change', 'Alarm', 'Alarm Change', 'Glory', 'Glory Change'], $data);
+
+        if ($this->commandHelper->interactiveConfirm( $this->getHelper('question'), $input, $output ))
+            $this->entityManager->flush();
 
         return 0;
     }

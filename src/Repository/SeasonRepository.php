@@ -55,6 +55,33 @@ class SeasonRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
+    public function findNext(?Season $season, $include_beta = false): ?Season
+    {
+        $qb = $this->createQueryBuilder('s')
+            ->addOrderBy('s.number', 'ASC')
+            ->addOrderBy('s.subNumber', 'ASC')
+            ->setMaxResults(1);
+
+        $and = $qb->expr()->andX();
+        if (!$include_beta) $and->add( $qb->expr()->gte('s.number', 1) );
+        if ($season) {
+            $sub_and = $qb->expr()->andX();
+            $sub_and->add( $qb->expr()->eq('s.number', $season->getNumber()) );
+            $sub_and->add( $qb->expr()->gt('s.subNumber', $season->getSubNumber()) );
+
+            $or = $qb->expr()->orX();
+            $or->add( $qb->expr()->gt('s.number', $season->getNumber()) );
+            $or->add( $sub_and );
+
+            $and->add( $or );
+        }
+
+        return $qb
+            ->where( $and )
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     // /**
     //  * @return Season[] Returns an array of Season objects
     //  */
