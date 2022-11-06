@@ -365,7 +365,7 @@ class UserHandler
 
         $user
             ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
-            ->setName("$ deleted <{$user->getId()}>")
+            ->setName("\${$user->getId()}")
             ->setEternalID(null)
             ->setDeleteAfter(null)
             ->setPassword(null)
