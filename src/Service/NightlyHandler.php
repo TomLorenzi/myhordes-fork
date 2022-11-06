@@ -123,7 +123,7 @@ class NightlyHandler
         return true;
     }
 
-    private function kill_wrap( Citizen &$citizen, CauseOfDeath $cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ) {
+    private function kill_wrap( Citizen &$citizen, CauseOfDeath $cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ): void {
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
@@ -132,11 +132,11 @@ class NightlyHandler
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
     }
 
-    private function stage0_stranger(Town $town) {
+    private function stage0_stranger(Town $town): void {
         $stranger_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('1sec'));
 
         $stranger_ap = $town->getStrangerPower() * 6 + mt_rand( 0, $town->getStrangerPower() * 3 );
-        $this->log->debug( "The stranger's power of <info>{$town->getStrangerPower()}</info> grants him <info>{$stranger_ap} AP</info>." );
+        $this->log->debug( "The stranger's power of <info>{$town->getStrangerPower()}</info> grants him <info>$stranger_ap AP</info>." );
 
         // Partition zones
         $close_zones = []; $medium_zones = []; $far_zones = [];
@@ -147,7 +147,7 @@ class NightlyHandler
 
         $ap_for_digging = max(0, min(mt_rand( floor($stranger_ap * 0.4), ceil( $stranger_ap * 0.6 ) ), $stranger_ap));
         $ap_for_building = $stranger_ap - $ap_for_digging;
-        $this->log->debug( "The stranger will use <info>{$ap_for_digging} AP</info> for scavenging and <info>{$ap_for_building} AP</info> on the construction site." );
+        $this->log->debug( "The stranger will use <info>$ap_for_digging AP</info> for scavenging and <info>$ap_for_building AP</info> on the construction site." );
 
         // Digging
         $empty_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => 'empty_dig']);
@@ -604,8 +604,17 @@ class NightlyHandler
             // Spiritual leader
             if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide')) {
                 $c = 0;
-                for ($d = 1; $d < $town->getDay(); $d++) $c += $d;
-                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $c);
+                foreach ($town->getCitizens() as $foreign) {
+                    if (!$foreign->getAlive()) continue;
+                    if ($foreign->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE)) $c++;
+                }
+
+                // The spiritual leader is only given if there's more than 50% of alive citizen with less than 100 SP
+                if ($c >= $town->getAliveCitizenCount() / 2) {
+                    $nbPicto = 0;
+                    for ($d = 1; $d < $town->getDay(); $d++) $nbPicto += $d;
+                    $this->picto_handler->give_picto($citizen, 'r_guide_#00', $nbPicto);
+                }
             }
 
             if (!$citizen->getProfession()->getHeroic())
