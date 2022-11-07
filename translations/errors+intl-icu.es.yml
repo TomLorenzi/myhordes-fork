@@ -4,10 +4,10 @@
 'Fehler:': 'Error:'
 '**Allgemeine** Empfehlungen:': 'Recomendaciones **generales**:'
 '**Lösche den Cache** deines Browsers.': '**Limpia la caché** de tu navegador.'
-'**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**'
-'**Lösche deine alten Lesezeichen**.': '**Lösche deine alten Lesezeichen**.'
-"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**."
-"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**."
-'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}'
-'Bugs melden': 'Bugs melden'
+'**Lade die Seite noch einmal (je nach Browser, funktioniert das mit: CTRL + R oder F5).**': '**Recargué la página (dependiendo de su navegador, esto funciona con: CTRL + R o F5).**'
+'**Lösche deine alten Lesezeichen**.': '**Borré sus antiguos marcadores**.'
+"Vergewissere dich, dass du mindestens **Firefox** oder **Google Chrome**\n                    **benutzt**.": "Asegúrese de que utiliza al menos **Firefox** o **Google Chrome**.\n                    **Uso**."
+"**Safari, Opera, Internet Explorer** und andere Browser werden offiziell **nicht\n                    unterstützt**.": "**Safari, Opera, Internet Explorer** y otros navegadores no son oficialmente **soportados**."
+'Eventuell auftretende Probleme kannst du auf unserem Supportportal melden: {error_url}': 'Puede informarnos de cualquier problema en nuestro portal de asistencia: {error_url}'
+'Bugs melden': 'Informar de un error'
 'Error {code}': 'Error {code}'
