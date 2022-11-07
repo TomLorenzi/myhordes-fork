@@ -153,10 +153,10 @@
                     </div>
                     <div class="row">
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                            Impersonate user
+                            {{ "Benutzer impersonifizieren"|trans({}, "admin") }}
                         </div>
                         <div class="cell padded rw-9 rw-sm-12">
-                            <div id="impersonate_user" class="button inline small">Proceed</div>
+                            <div id="impersonate_user" class="button inline small">{{ "Fortfahren"|trans({}, 'admin') }}</div>
                         </div>
                     </div>
 
@@ -455,7 +455,7 @@
             });
 
             document.getElementById("impersonate_user").addEventListener('click', function() {
-                $.ajax.load(null, '{{ url('initial_landing') }}?_switch_user=Eragony', true);
+                $.ajax.load(null, '{{ url('initial_landing') }}?_switch_user={{ user.name }}', true);
             })
 
             $.html.addEventListenerAll('[x-trigger-flag]', 'change', (e,elem) => {
