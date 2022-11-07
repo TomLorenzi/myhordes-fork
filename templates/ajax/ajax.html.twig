@@ -43,6 +43,9 @@
             </div>
         </div>
     {% endif %}
+    {% if is_granted('IS_IMPERSONATOR') %}
+        <div><a class="button inline small" x-ajax-href="{{ impersonation_exit_path(path('initial_landing') ) }}">Exit impersonation</a></div>
+    {% endif %}
     <div id="gma" class="game-menu-area">
         {% block gma %}
             <div class="game-bar">

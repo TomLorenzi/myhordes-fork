@@ -151,6 +151,14 @@
                             {% endif %}
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            Impersonate user
+                        </div>
+                        <div class="cell padded rw-9 rw-sm-12">
+                            <div id="impersonate_user" class="button inline small">Proceed</div>
+                        </div>
+                    </div>
 
                     <h5>{{ 'Info'|trans({}, 'admin') }}</h5>
                     <div class="row">
@@ -445,6 +453,10 @@
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );
             });
+
+            document.getElementById("impersonate_user").addEventListener('click', function() {
+                $.ajax.load(null, '{{ url('initial_landing') }}?_switch_user=Eragony', true);
+            })
 
             $.html.addEventListenerAll('[x-trigger-flag]', 'change', (e,elem) => {
                 $.ajax.easySend( '{{ url('admin_users_account_manage', {action: 'grant', id: user.id}) }}', {param: (elem.checked ? '' : '!') + elem.getAttribute('x-trigger-flag')},
