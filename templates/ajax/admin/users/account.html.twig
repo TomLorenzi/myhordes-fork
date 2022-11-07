@@ -265,7 +265,7 @@
                             {{ 'Sonstige Accountmarkierungen'|trans({}, 'admin') }}
                         </div>
                         <div class="cell padded rw-9 rw-sm-12">
-                            <div><label><input {% if user.roleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
+                            <div><label><input {% if user.hasRoleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
                         </div>
                     </div>
 

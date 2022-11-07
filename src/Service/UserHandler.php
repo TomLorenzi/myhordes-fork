@@ -292,7 +292,6 @@ class UserHandler
                 $remove_awards[] = $award;
         }
 
-        //echo "####################################################\n";
         foreach ($this->entity_manager->getRepository(AwardPrototype::class)->findAll() as $prototype)
             if (!in_array($prototype,$skip_proto) &&
                 (isset($cache[$prototype->getAssociatedPicto()->getId()]) && $cache[$prototype->getAssociatedPicto()->getId()] >= $prototype->getUnlockQuantity())
@@ -366,7 +365,7 @@ class UserHandler
 
         $user
             ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
-            ->setName("$ deleted <{$user->getId()}>")
+            ->setName("\${$user->getId()}")
             ->setEternalID(null)
             ->setDeleteAfter(null)
             ->setPassword(null)
@@ -803,15 +802,20 @@ class UserHandler
             'Corvus', 'Corbilla', '_'
         ];
 
-        $closestDistance = PHP_INT_MAX;
-        foreach ($invalidNames as $invalidName)
-            $closestDistance = min( $closestDistance, levenshtein($name,$invalidName));
+        $closestDistance = [PHP_INT_MAX, ''];
+        foreach ($invalidNames as $invalidName) {
+            $levenshtein = levenshtein($name, $invalidName);
+            if ($levenshtein < $closestDistance[0])
+                $closestDistance = [ $levenshtein, $invalidName ];
+        }
 
         foreach ($invalidNameStarters as $starter)
             if (str_starts_with($name, $starter)) return false;
 
+        $levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
+
         $too_long = strlen($name) > 16;
-        return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && !$too_long && $closestDistance > 2;
+        return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
     }
 
     public function getMaximumEntryHidden(User $user): int {

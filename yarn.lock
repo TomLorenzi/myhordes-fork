@@ -1573,10 +1573,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.10.28":
-  version: 0.1.0-nightly.2022.10.28
-  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.10.28"
-  checksum: e3b177e3649338b61f6afa9eb20a5705daa0695c1a54376d685e557ad2e70e8978d18d957dafda98a89dec3383605d73d23ed210bb37f00e751fa504a05f8205
+"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.11.4":
+  version: 0.1.0-nightly.2022.11.4
+  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.11.4"
+  checksum: 5d9a203114d114636145109acf481a2165b7c61ce259518ef19d4c257ceb481367e0989b04687602079415426c622bf5feaf88801a8f1167beda35670a4cb984
   languageName: node
   linkType: hard
 
@@ -6807,7 +6807,7 @@ __metadata:
     "@babel/preset-env": 7.19.4
     "@babel/preset-react": 7.18.6
     "@fortawesome/fontawesome-free": 6.2.0
-    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.10.28
+    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.11.4
     "@symfony/webpack-encore": 4.1.1
     buffer: 6.0.3
     core-js: 3.26.0

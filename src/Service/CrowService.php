@@ -7,6 +7,7 @@ use App\Entity\Award;
 use App\Entity\BlackboardEdit;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\LogEntryTemplate;
@@ -190,6 +191,36 @@ class CrowService {
         return (new GlobalPrivateMessage())
             ->setTemplate( $template )
             ->setData( ['list' => array_map(fn(Award $a) => $a->getPrototype() ? $a->getPrototype()->getId() : -$a->getId(), $awards) ] )
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
+    }
+
+    /**
+     * @param User $receiver
+     * @param array $pictos
+     * @param FeatureUnlockPrototype[] $features
+     * @return GlobalPrivateMessage
+     */
+    public function createPM_seasonalRewards(User $receiver, array $pictos, array $features, ?string $importLang, int $season): GlobalPrivateMessage
+    {
+        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_season_reward']);
+
+        return (new GlobalPrivateMessage())
+            ->setTemplate( $template )
+            ->setData( [
+                'pictos' => array_map(fn(array $p) => [$p[0]->getId(), $p[1]], $pictos),
+                'features' => array_map(fn(FeatureUnlockPrototype $f) => $f->getId(), $features),
+                'server' => match ($importLang) {
+                    'de' => 'Die Verdammten',
+                    'en' => 'Die2Nite',
+                    'es' => 'Zombinoia',
+                    'fr' => 'Hordes',
+                    default => 'MyHordes'
+                },
+                'season' => $season
+            ] )
             ->setTimestamp( new DateTime('now') )
             ->setReceiverUser( $receiver )
             ->setSender( $this->getCrowAccount() )
