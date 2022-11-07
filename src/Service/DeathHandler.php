@@ -108,7 +108,7 @@ class DeathHandler
             $citizen->setEscortSettings(null);
         }
 
-        foreach ($citizen->getValidLeadingEscorts() as $escort)
+        foreach ($citizen->getLeadingEscorts() as $escort)
             $this->entity_manager->persist( $escort->getCitizen()->getEscortSettings()->setLeader(null) );
 
         $died_outside = $citizen->getZone() !== null;

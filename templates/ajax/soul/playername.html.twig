@@ -1,9 +1,18 @@
 {% apply spaceless %}
     {% set display_name = '' %}
+    {% set using_alias = false %}
     {% if alt_name is not defined or not alt_name %}
         {% if user.name == 'Der Rabe' %}{% set display_name = 'Der Rabe'|trans({},'global') %}
         {% elseif user.name == 'Animateur-Team' %}{% set display_name = 'Animateur-Team'|trans({},'global') %}
-        {% else %}{% set display_name = (app.user and app.user.activeCitizen and user.citizenFor(app.user.activeCitizen.town) and ( globalSpace is not defined or not globalSpace )) ? user.citizenFor(app.user.activeCitizen.town).name : user.name %}{% endif %}
+        {% else %}
+            {% if (app.user and app.user.activeCitizen and user.citizenFor(app.user.activeCitizen.town) and ( globalSpace is not defined or not globalSpace )) %}
+                {% set active_citizen = user.citizenFor(app.user.activeCitizen.town) %}
+                {% set display_name = active_citizen.name %}
+                {% set using_alias = active_citizen.alias ? true : false %}
+            {% else %}
+                {% set display_name = user.name %}
+            {% endif %}
+        {% endif %}
     {% else %}
         {% set display_name = alt_name %}
     {% endif %}
@@ -12,6 +21,7 @@
         {% set default_classes = ['username'] %}
         {% if app.user and (user == app.user or app.user.friends.contains(user)) %}{% set default_classes = default_classes|merge(['is-friend']) %}{% endif %}
         {% if additional_classes is defined %}{% set default_classes = default_classes|merge(additional_classes|filter(v=>v)) %}{% endif %}
+        {% if using_alias %}{% set default_classes = default_classes|merge(['username-alias']) %}{% endif %}
 
         {% set default_tag = 'span' %}
         {% if tag is defined and tag %}

@@ -29,6 +29,9 @@ class AffectZone
     private $improveLevel;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $chatSilence;
+
+    #[ORM\Column(length: 16, nullable: true)]
+    private ?string $escapeTag = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class AffectZone
     public function setChatSilence(?int $chatSilence): self
     {
         $this->chatSilence = $chatSilence;
+
+        return $this;
+    }
+
+    public function getEscapeTag(): ?string
+    {
+        return $this->escapeTag;
+    }
+
+    public function setEscapeTag(?string $escapeTag): self
+    {
+        $this->escapeTag = $escapeTag;
 
         return $this;
     }

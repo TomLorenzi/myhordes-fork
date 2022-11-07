@@ -95,7 +95,13 @@ class AdminActionController extends CustomAbstractController
 
     protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($town, $day, null, $zone, $type, $max, null ) as $idx => $entity) {
+
+        # Try to fetch one more log to check if we must display the "show more entries" message
+        $nb_to_fetch = (is_null($max) or $max <= 0) ? $max : $max + 1;
+
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
+            $town, $day, null, $zone, $type, $nb_to_fetch, null ) as $idx => $entity) {
+
                 /** @var LogEntryTemplate $template */
                 $template = $entity->getLogEntryTemplate();
                 if (!$template)
@@ -119,8 +125,15 @@ class AdminActionController extends CustomAbstractController
                 }             
             }
 
+        $show_more_entries = false;
+        if ($nb_to_fetch != $max) {
+            $show_more_entries = count($entries) > $max;
+            $entries = array_slice($entries, 0, $max);
+        }
+
         return $this->render( 'ajax/admin/towns/log_content.html.twig', [
             'entries' => $entries,
+            'show_more_entries' => $show_more_entries,
             'canHideEntry' => false,
             'day' => $day
         ] );

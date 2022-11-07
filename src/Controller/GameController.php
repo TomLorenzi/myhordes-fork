@@ -70,8 +70,14 @@ class GameController extends CustomAbstractController
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
+
+        # Try to fetch one more log to check if we must display the "show more entries" message
+        $nb_to_fetch = (is_null($max) or $max <= 0) ? $max : $max + 1;
+
         /** @var TownLogEntry $entity */
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($this->getActiveCitizen()->getTown(),$day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
+            $this->getActiveCitizen()->getTown(),$day, $citizen, $zone, $type, $nb_to_fetch ) as $idx=>$entity) {
+
             /** @var LogEntryTemplate $template */
             $template = $entity->getLogEntryTemplate();
             if (!$template)
@@ -98,10 +104,17 @@ class GameController extends CustomAbstractController
 
         if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
 
+        $show_more_entries = false;
+        if ($nb_to_fetch != $max) {
+            $show_more_entries = count($entries) > $max;
+            $entries = array_slice($entries, 0, $max);
+        }
+
         $args = $this->addDefaultTwigArgs(null, [
                 'day' => $day,
                 'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
                 'entries' => $entries,
+                'show_more_entries' => $show_more_entries,
                 'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
             ]
         );
@@ -137,7 +150,7 @@ class GameController extends CustomAbstractController
     {
         $this->entity_manager->persist( $this->getUser()->setExpert( !$this->getUser()->getExpert() ) );
         if ( !$this->getUser()->getExpert() && $this->getUser()->getActiveCitizen())
-            foreach ($this->getUser()->getActiveCitizen()->getValidLeadingEscorts() as $escort) {
+            foreach ($this->getUser()->getActiveCitizen()->getLeadingEscorts() as $escort) {
                 $this->entity_manager->persist($log->beyondEscortReleaseCitizen($this->getUser()->getActiveCitizen(), $escort->getCitizen()));
                 $escort->setLeader(null);
                 $this->entity_manager->persist($escort);

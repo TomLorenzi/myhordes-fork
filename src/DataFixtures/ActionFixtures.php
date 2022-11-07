@@ -1175,10 +1175,14 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
+            $escape = is_array( $data['escape'] ?? null ) ? $data['escape'][1] : ($data['escape'] ?? null);
+            $escape_tag = is_array( $data['escape'] ?? null ) ? $data['escape'][0] : null;
+
             $result->setName( $id )
                 ->setUncoverZones( $data['scout'] ?? false )
                 ->setUncoverRuin( $data['uncover'] ?? false )
-                ->setEscape( $data['escape'] ?? null )
+                ->setEscape( $escape )
+                ->setEscapeTag( $escape_tag )
                 ->setImproveLevel( $data['improve'] ?? null )
                 ->setChatSilence( $data['chatSilence'] ?? null);
             $manager->persist( $cache[$id] = $result );

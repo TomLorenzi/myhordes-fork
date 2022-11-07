@@ -30,9 +30,9 @@
                         {% for role in citizen.infos.roles %}
                             {% if not role.secret and not role.hidden %}
                                 <span>
-                                        <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
-                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen.infos}, 'game'), 'ref': citizen.infos}, 'game')}}</div>
-                                    </span>
+                                    <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                    <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen.infos}, 'game'), 'ref': citizen.infos}, 'game')}}</div>
+                                </span>
                             {% endif %}
                         {% endfor %}
                     {% else %}
@@ -59,6 +59,21 @@
                         'undecorated',
                         citizen.infos == me ? 'citizen-label-name-me' : null,
                     ]} only %}
+                    {% if citizen.infos.alive %}
+                        {% if citizen.infos.banished %}
+                            <div class="inline">
+                                <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                                <div class="tooltip help">
+                                    {{ 'Dieser Bürger wurde aus der Gemeinschaft verbannt.'|trans({},'game') }}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if citizen.infos.profession.heroic %}
+                            <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
+                        {% else %}
+                            <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                        {% endif %}
+                    {% endif %}
                 </div>
                 <div class="cell rw-3 rw-md-2 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                     {% if not hidden[citizen.infos.id] %}

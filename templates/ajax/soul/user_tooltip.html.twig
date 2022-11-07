@@ -48,6 +48,9 @@
                 {% endif %}
             </div>
 
+            {% if app.user.id != user.id and not app.user.activeCitizen is null and not user.activeCitizen is null and app.user.activeCitizen.town == user.activeCitizen.town and user.activeCitizen.alias %}
+                <div class="friend-relation using-alias mt-1">{{ 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.'|trans({},'global') }}</div>
+            {% endif %}
 
             {% if super %}
                 <div class="note note-important">{{ 'Dieser Spieler ist ein Administrator auf diesem Server.'|trans({},'global') }}</div>

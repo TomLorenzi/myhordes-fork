@@ -634,7 +634,7 @@ class BeyondController extends InventoryAwareController
                     $movers[] = $escort->getCitizen();
             }
         else
-            foreach ($citizen->getValidLeadingEscorts() as $escort)
+            foreach ($citizen->getLeadingEscorts() as $escort)
                 $escort->getCitizen()->getEscortSettings()->setLeader(null);
 
         $others_are_here = $zone->getCitizens()->count() > count($movers);
@@ -878,8 +878,9 @@ class BeyondController extends InventoryAwareController
 
             // Single movers get their escort mode disabled
             if (count($movers) === 1 && $mover->getEscortSettings()) {
-                $remove[] = $mover->getEscortSettings();
+                $es = $mover->getEscortSettings();
                 $mover->setEscortSettings(null);
+                $this->entity_manager->remove( $es );
             }
 
             // Get them clothes dirty!
@@ -1200,9 +1201,10 @@ class BeyondController extends InventoryAwareController
             default: $wound = null;
         }
 
-        if ($wound !== null)
+        if ($wound !== null) {
             $this->addFlash('notice', $this->translator->trans('Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!', ['injury' => "<strong>$wound</strong>"], 'game'));
-
+            $this->entity_manager->persist( $this->log->escapeInjury($citizen));
+        }
         try {
             $escape = (new EscapeTimer())
             ->setZone( $citizen->getZone() )
@@ -1679,7 +1681,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
-        foreach ($citizen->getValidLeadingEscorts() as $escort) {
+        foreach ($citizen->getLeadingEscorts() as $escort) {
             $this->entity_manager->persist($this->log->beyondEscortReleaseCitizen($citizen, $escort->getCitizen()));
             $escort->setLeader(null);
             $this->entity_manager->persist($escort);

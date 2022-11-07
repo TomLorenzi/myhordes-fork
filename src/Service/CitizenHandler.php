@@ -574,13 +574,14 @@ class CitizenHandler
     public function applyAlias(Citizen &$citizen, string $alias) {
         if (!empty($alias) && $alias !== $citizen->getUser()->getName()) {
 
-            if (in_array($alias, ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow', 'LeCorbeau', 'Le Corbeau', 'Le_Corbeau']))
+
+            if (!$this->user_handler->isNameValid( $alias ))
                 return -1;
 
             if (mb_strlen($alias) < 4 || mb_strlen($alias) > 22 || preg_match('/[^\w]/', $alias))
                 return -1;
 
-            $citizen->setAlias( "· {$alias}" ); // nbsp
+            $citizen->setAlias( $alias ); // nbsp
 
             return 1;
         }
