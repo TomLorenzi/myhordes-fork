@@ -467,3 +467,6 @@ Kopfzeile: En-tête
 'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'Erreur réseau. Vérifiez votre connexion internet.'
 'Link wurde in die Zwischenablage kopiert.': 'Le lien a été copié dans le presse-papiers.'
 'Link konnte nicht kopiert werden.': 'Le lien n''a pas pu être copié.'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'MyHordes est <i>Open Source</i> et tout le monde est le bienvenu pour y <b>participer</b>. Vous pouvez consulter le code source sur {gitlab} et y signaler les bugs que vous rencontrez.'
+'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'Vous ne pouvez pas faire cette action lorsque vous êtes connecté en tant qu''un autre utilisateur.'
+'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'Ce citoyen utilise un alias dans la ville actuelle.'
