@@ -1,12 +1,11 @@
 {% extends "ajax/ajax.html.twig" %}
+{# @var user \App\Entity\User#}
 {% block title %}{% trans from 'admin' %}Account{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
 {% block ajax %}
-    {# @var user \App\Entity\User#}
-
     {% set has_main_soul = false %}
     {% for soul in user.twinoidImports %}
         {% if soul.main %}
@@ -455,7 +454,7 @@
             });
 
             document.getElementById("impersonate_user").addEventListener('click', function() {
-                $.ajax.load(null, '{{ url('initial_landing') }}?_switch_user={{ user.name }}', true);
+                $.ajax.load(null, '{{ url('initial_landing') }}?_switch_user={{ user.username }}', true);
             })
 
             $.html.addEventListenerAll('[x-trigger-flag]', 'change', (e,elem) => {
