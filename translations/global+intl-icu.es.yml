@@ -468,5 +468,5 @@ Kopfzeile: Cabecera
 'Link wurde in die Zwischenablage kopiert.': 'El enlace se ha copiado en el portapapeles.'
 'Link konnte nicht kopiert werden.': 'No se pudo copiar el enlace.'
 'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'MyHordes es <i>código abierto</i> y todo el mundo está invitado a <b>contribuir</b>. Puede encontrar el código en {gitlab} y también reportar problemas ahí.'
-'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.'
+'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'No se puede hacer esto mientras esté conectado como otro usuario.'
 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'Este habitante utiliza un apodo alternativo en el pueblo actual.'
