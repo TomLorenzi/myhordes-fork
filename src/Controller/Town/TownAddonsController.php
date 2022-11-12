@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
@@ -34,6 +35,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
+ * @Semaphore("town", scope="town")
  */
 class TownAddonsController extends TownController
 {

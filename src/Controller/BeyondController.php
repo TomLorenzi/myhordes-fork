@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
 use App\Entity\ChatSilenceTimer;
@@ -48,10 +49,8 @@ use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
-use Cassandra\Date;
 use DateInterval;
 use DateTime;
-use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
@@ -59,11 +58,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Twig\Environment;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_alive=true, only_beyond=true)
+ * @Semaphore("town", scope="town")
  */
 class BeyondController extends InventoryAwareController
 {

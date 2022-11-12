@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
@@ -69,6 +70,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
+ * @Semaphore("town", scope="town")
  * @method User getUser()
  */
 class TownController extends InventoryAwareController
