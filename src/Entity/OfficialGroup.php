@@ -13,6 +13,8 @@ class OfficialGroup
     const SEMANTIC_NONE = 0;
     const SEMANTIC_SUPPORT = 1;
     const SEMANTIC_MODERATION = 2;
+    const SEMANTIC_ANIMACTION = 3;
+    const SEMANTIC_ORACLE = 4;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
