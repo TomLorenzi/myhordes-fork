@@ -17,6 +17,7 @@ security:
             logout:
                 path: auto_logout
                 target: /
+            switch_user: { role: ROLE_ADMIN }
 
             custom_authenticators:
               - App\Security\AjaxAuthenticator

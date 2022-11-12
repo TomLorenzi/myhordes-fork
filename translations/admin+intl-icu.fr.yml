@@ -547,3 +547,6 @@ Basiskonfiguration: Configuration de base
 'Du bist im Begriff, eine bestehende Accountbeschränkung zu bearbeiten. Der Spieler wird über die Bearbeitung nicht informiert. Existierende Bestätigungen für diese Beschränkung werden entfernt. Fortsetzen?': 'Vous êtes sur le point de modifier une restriction de compte existante. Le joueur ne sera pas informé de cette modification. Les confirmations existantes pour cette restriction seront supprimées. Continuer ?'
 Stockwerk: Étage
 Treppe: Escalier
+'Impersonifizierung beenden': 'Retourner sur votre compte'
+'Benutzer impersonifizieren': 'Se connecter en tant que cet utilisateur'
+Fortfahren: Procéder

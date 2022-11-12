@@ -153,6 +153,8 @@ class TownAddonsController extends TownController
      * @return Response
      */
     public function watchtower_est_api(): Response {
+        if ($this->isGranted("IS_IMPERSONATOR", $this->getUser()))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableImpersonator );
         $town = $this->getActiveCitizen()->getTown();
 
         if (!$this->town_handler->getBuilding($town, 'item_tagger_#00', true))

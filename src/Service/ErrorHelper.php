@@ -44,6 +44,7 @@ class ErrorHelper
     const ErrorActionNotAvailableTerror  = 57;
     const ErrorRateLimited               = 58;
     const ErrorNoMP                      = 59;
+    const ErrorActionNotAvailableImpersonator = 60;
 
     const ErrorBlockedByUser             = 71;
 }

@@ -95,7 +95,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             throw new DynamicAjaxResetException($event->getRequest());
 
         if ($gk_profile->onlyWhenIncarnated()) {
-            // This is a game controller; it is not available to players outside of a game
+            // This is a game controller; it is not available to players outside a game
             if (!$citizen = $user?->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
 
