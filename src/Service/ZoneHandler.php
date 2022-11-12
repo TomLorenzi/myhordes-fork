@@ -65,7 +65,7 @@ class ZoneHandler
     public function updateRuinZone(?RuinExplorerStats $ex): ?string {
         if ($ex === null || !$ex->getActive()) return false;
 
-        $eject = $ex->getTimeout()->getTimestamp() < time() || $this->citizen_handler->isWounded( $ex->getCitizen() ) || $this->citizen_handler->hasStatusEffect($ex->getCitizen(), 'terror');
+        $eject = $ex->getTimeout()->getTimestamp() < time()/* || $this->citizen_handler->isWounded( $ex->getCitizen() ) || $this->citizen_handler->hasStatusEffect($ex->getCitizen(), 'terror')*/;
         $wound = $ex->getTimeout()->getTimestamp() < time();
 
         if ($eject) {
