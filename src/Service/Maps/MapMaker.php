@@ -12,6 +12,7 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
 use App\Structures\TownConf;
+use App\Structures\ZombieSpawnZone;
 use Doctrine\ORM\EntityManagerInterface;
 
 class MapMaker
@@ -224,6 +225,13 @@ class MapMaker
 
     public function dailyZombieSpawn( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void
     {
+        $govMH = true;
+
+        if ($govMH) $this->zombieSpawnGovernorMH( $town, $cycles, $mode, $override_day );
+        else for ($i = 0; $i < $cycles; ++$i) $this->zombieSpawnGovernorHordes( $town );
+    }
+
+    private function zombieSpawnGovernorMH( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void {
         /** @var Zone[] $zones */
         $zones = $town->getZones()->getValues();
         $zone_db = []; $despair_db = [];
@@ -362,7 +370,92 @@ class MapMaker
             $zombies = max( 0, $zone_db[$zone->getX()][$zone->getY()] );
             $zone->setZombies( max(0, floor($zombies - $despair_db[$zone->getX()][$zone->getY()] )));
             $zone->setInitialZombies( $zombies );
+            $zone->setPlayerDeaths(0 );
+        }
+    }
+
+    // INCOMPLETE
+    private function zombieSpawnGovernorHordes( Town $town ): void {
+
+        $mapGrid = [];
+
+        /** @var ZombieSpawnZone[] $baseZones */
+        $baseZones = [];    // All zones
+
+        /** @var ZombieSpawnZone[] $zones */
+        $zones = [];        // All zones with zombies
+
+        // Built data structures
+        foreach ($town->getZones() as $zone) {
+            $container = new ZombieSpawnZone($zone);
+            $baseZones[] = $container;
+            if (!isset( $mapGrid[$zone->getX()] )) $mapGrid[$zone->getX()] = [];
+            if (!isset( $mapGrid[$zone->getX()][$zone->getY()] )) $mapGrid[$zone->getX()][$zone->getY()] = $container;
         }
 
+        // ### Helper functions
+
+        // Writes all zones with zombies into the $zones array
+        $group_zones = function() use (&$zones, &$baseZones) {
+            $zones = array_filter( $baseZones, fn(ZombieSpawnZone $z) => $z->zombies > 0 );
+        };
+
+        // Returns a ZombieSpawnZone from coordinates or from a Zone instance; returns null for invalid coords
+        $grid = fn(int|Zone $x, ?int $y = null): ?ZombieSpawnZone => is_a($x, Zone::class)
+            ? ($mapGrid[$x->getX()][$x->getY()] ?? null)
+            : ($mapGrid[$x][$y] ?? null)
+        ;
+
+        // Returns all zones adjacent to the given zone that are not the town zone
+        $adjacent = fn(ZombieSpawnZone $z): array => array_filter( [
+            $grid($z->x + 1, $z->y), $grid($z->x, $z->y + 1),
+            $grid($z->x - 1, $z->y), $grid($z->x, $z->y - 1),
+        ], fn( ?ZombieSpawnZone $zz ) => $zz && !$zz->town );
+
+        // ### Config
+
+        $mt_ZombieGrowThreshold = 3;
+        $mt_ZombieSpread = 2;
+        $mt_OverThresholdGrowChance = 0.75;
+
+        // ### Online
+
+        $group_zones();
+
+        foreach ( array_filter( $zones, fn(ZombieSpawnZone $z) => $z->zombies >= $mt_ZombieGrowThreshold ) as $zone) {
+            /** @var ZombieSpawnZone[] $adjacent_zones Adjacent zones below the zombie growth threshold */
+            $adjacent_zones = array_filter( $adjacent( $zone ), fn( ZombieSpawnZone $z ) => $z->zombies < $mt_ZombieGrowThreshold );
+
+            if (empty($adjacent_zones)) $zone->addZombie();
+            else {
+                $zombies = $mt_ZombieSpread;
+                while ($zombies > 0) {
+                    /** @var ZombieSpawnZone $spreadZone */
+                    $spreadZone = $this->random->pick( $adjacent_zones );
+                    $spread = mt_rand(1, $zombies);
+
+                    $spreadZone->addZombie( $spread );
+                    $zombies -= $spread;
+                }
+
+                if ($this->random->chance( $mt_OverThresholdGrowChance ))
+                    $zone->addZombie();
+            }
+
+            if ($zone->building || $this->random->chance(0.5))
+                $zone->addZombie();
+        }
+
+        // Final
+
+        foreach ($baseZones as $zone) {
+            if ($zone->town) continue;
+
+            $zone->zone
+                ->setZombies( $zone->zombies )
+                ->setInitialZombies( $zone->zombies )
+                ->setPlayerDeaths(0 )
+                ->setScoutEstimationOffset( mt_rand(-2,2) );
+        }
     }
 }
