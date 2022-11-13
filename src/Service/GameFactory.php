@@ -29,6 +29,7 @@ use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
@@ -52,7 +53,7 @@ class GameFactory
     private LogTemplateHandler $log;
     private ConfMaster $conf;
     private TranslatorInterface $translator;
-    private MazeMaker $maze_maker;
+    private MapMaker $map_maker;
     private CrowService $crow;
     private PermissionHandler $perm;
     private TimeKeeperService $timeKeeper;
@@ -70,7 +71,7 @@ class GameFactory
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th, TimeKeeperService $ts,
         RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
+        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -85,7 +86,7 @@ class GameFactory
         $this->log = $lh;
         $this->conf = $conf;
         $this->translator = $translator;
-        $this->maze_maker = $mm;
+        $this->map_maker = $mm;
         $this->crow = $crow;
         $this->perm = $perm;
         $this->gps = $gps;
@@ -390,21 +391,6 @@ class GameFactory
         return $this->evaluateNameSchema( $schema = $this->generateNameSchema( $language, $mutator ) ) ?? 'TOWN_NAME_GENERATOR_FAILED';
     }
 
-    private function getDefaultZoneResolution( TownConf $conf, ?int &$offset_x, ?int &$offset_y ): int {
-        $resolution = mt_rand( $conf->get(TownConf::CONF_MAP_MIN, 0), $conf->get(TownConf::CONF_MAP_MAX, 0) );
-        $safe_border = ceil($resolution * $conf->get(TownConf::CONF_MAP_MARGIN, 0.25));
-
-        if ($safe_border >= $resolution/2) {
-            $offset_x = mt_rand(floor(($resolution-1)/2), ceil(($resolution-1)/2));
-            $offset_y = mt_rand(floor(($resolution-1)/2), ceil(($resolution-1)/2));
-        } else {
-            $offset_x = $safe_border + mt_rand(0, max(0,$resolution - 2*$safe_border));
-            $offset_y = $safe_border + mt_rand(0, max(0,$resolution - 2*$safe_border));
-        }
-
-        return $resolution;
-    }
-
     public function createTown( ?string $name, ?string $language, ?int $population, string|array $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
         if (is_array( $type )) {
             $deriveFrom = $type[1] ?? $type[0];
@@ -484,169 +470,7 @@ class GameFactory
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
 
-        $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
-
-        $map_resolution = $this->getDefaultZoneResolution( $conf, $ox, $oy );
-        for ($x = 0; $x < $map_resolution; $x++)
-            for ($y = 0; $y < $map_resolution; $y++) {
-                $zone = new Zone();
-                $zone
-                    ->setX( $x - $ox )
-                    ->setY( $y - $oy )
-                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
-                    ->setFloor( new Inventory() )
-                    ->setDiscoveryStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::DiscoveryStateCurrent : Zone::DiscoveryStateNone )
-                    ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )
-                    ->setZombies( 0 )
-                    ->setInitialZombies( 0 )
-                    ->setStartZombies( 0 )
-                    ->setTag($defaultTag)
-                ;
-                $town->addZone( $zone );
-            }
-
-        $spawn_ruins = $conf->get(TownConf::CONF_NUM_RUINS, 0);
-
-        $ruin_km_range = [
-            $this->entity_manager->getRepository(ZonePrototype::class)->findMinRuinDistance(false),
-            $this->entity_manager->getRepository(ZonePrototype::class)->findMaxRuinDistance(false),
-        ];
-
-        /** @var Zone[] $zone_list */
-        $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) use ($ruin_km_range) {
-            $km = round(sqrt( pow($z->getX(),2) + pow($z->getY(),2) ) );
-            // $ap = abs($z->getX()) + abs($z->getY());
-            return $km != 0 && $km >= $ruin_km_range[0] && $km <= $ruin_km_range[1];
-        });
-        shuffle($zone_list);
-
-        $previous = [];
-
-        $co_location_cache = [];
-        $cl_get = function(int $x, int $y) use (&$co_location_cache): int {
-            $m = 0;
-            for ($xo = -1; $xo <= 1; $xo++) for ($yo = -1; $yo <= 1; $yo++)
-                if (isset($co_location_cache[$id = (($x+$xo) . '.' . ($y+$yo))]))
-                    $m = max($m, count($co_location_cache[$id]));
-            return $m;
-        };
-        $cl_set = function(int $x, int $y) use (&$co_location_cache): void {
-            $a = [$x . '.' . $y];
-            for ($xo = -1; $xo <= 1; $xo++) for ($yo = -1; $yo <= 1; $yo++)
-                if (isset($co_location_cache[$id = (($x+$xo) . '.' . ($y+$yo))]))
-                    $a = array_merge($a,$co_location_cache[$id]);
-            $a = array_unique($a);
-            foreach ($a as $id) $co_location_cache[$id] = $a;
-        };
-
-        $o = 0;
-        for ($i = 0; $i < $spawn_ruins+2; $i++) {
-
-            $zombies_base = 0;
-            do {
-                if (($i+$o) >= count($zone_list)) continue 2;
-                $b = $cl_get( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
-                if ($b <= 1) $keep_location = true;
-                else if ($b === 2) $keep_location = $this->random_generator->chance(0.25);
-                else $keep_location = false;
-
-                if (!$keep_location) $o++;
-            } while ( !$keep_location );
-
-            $cl_set( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
-
-            if ($i < $spawn_ruins) {
-
-                $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 18);
-
-                //$ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance( abs($zone_list[$i]->getX()) + abs($zone_list[$i]->getY()) );
-                $ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance(round(sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )));
-                if (empty($ruin_types)) continue;
-
-                $iterations = 0;
-                do {
-                    $target_ruin = $this->random_generator->pickLocationFromList( $ruin_types );
-                    $iterations++;
-                } while ( isset( $previous[$target_ruin->getId()] ) && $iterations <= $previous[$target_ruin->getId()] );
-
-                if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
-                else $previous[$target_ruin->getId()]++;
-
-                $zone_list[$i+$o]
-                    ->setPrototype( $target_ruin )
-                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 10), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 10) ) );
-
-                if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
-                    $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
-
-                if ($this->random_generator->chance(0.5)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
-            } else
-                if ($this->random_generator->chance(0.1))
-                    $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 3);
-
-            if ($zombies_base > 0) {
-                $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $zone_list[$i+$o]->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
-            }
-        }
-
-        $spawn_explorable_ruins = $conf->get(TownConf::CONF_NUM_EXPLORABLE_RUINS, 0);
-        $all_explorable_ruins = $explorable_ruins = [];
-        if ($spawn_explorable_ruins > 0)
-            $all_explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
-            $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) {return $z->getPrototype() === null && ($z->getX() !== 0 || $z->getY() !== 0);});
-
-        for ($i = 0; $i < $spawn_explorable_ruins; $i++) {
-            if (empty($explorable_ruins)) {
-                $explorable_ruins = $all_explorable_ruins;
-                shuffle($explorable_ruins);
-            }
-
-            /** @var ZonePrototype $spawning_ruin */
-            $spawning_ruin = array_pop($explorable_ruins);
-            if (!$spawning_ruin) continue;
-
-            $maxDistance = $conf->get(TownConf::CONF_EXPLORABLES_MAX_DISTANCE, 100);
-            $spawn_zone = $this->random_generator->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $maxDistance, ['prototype_id' => null]);
-
-            if ($spawn_zone) {
-                $spawn_zone->setPrototype($spawning_ruin);
-                $this->maze_maker->createField( $spawn_zone, $conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1) );
-                $this->maze_maker->generateCompleteMaze( $spawn_zone );
-
-                $zombies_base = 1 + floor(min(1,sqrt( pow($spawn_zone->getX(),2) + pow($spawn_zone->getY(),2) )/18) * 3);
-                $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $spawn_zone->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
-            }
-        }
-
-        $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
-        $distribution = [];
-
-        $zone_list = $town->getZones()->getValues();
-        foreach ($conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []) as $dd) {
-            $distribution[$dd['item']] = ['min' => $dd['min'], 'max' => $dd['max']];
-        }
-        for ($i = 0; $i < count($item_spawns); $i++) {
-            $item = $item_spawns[$i];
-            if (isset($distribution[$item])) {
-                $min_distance = $distribution[$item]['min'];
-                $max_distance = $distribution[$item]['max'];
-            }
-            else {
-                $min_distance = 1;
-                $max_distance = 100;
-            }
-
-            $spawnZone = $this->random_generator->pickLocationBetweenFromList($zone_list, $min_distance, $max_distance);
-            if ($spawnZone) {
-                $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $this->item_factory->createItem($item_spawns[$i]));
-                $zone_list = array_filter( $zone_list, fn(Zone $z) => $z !== $spawnZone );
-            }
-        }
-
-        $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
-        foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
+        $this->map_maker->createMap( $town );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
         foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp','event','dsc_disc','dsc_guide','dsc_orga']]) as $tag)

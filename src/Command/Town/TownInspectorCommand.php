@@ -13,6 +13,7 @@ use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
+use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Service\NightlyHandler;
 use App\Service\TownHandler;
@@ -39,12 +40,15 @@ class TownInspectorCommand extends Command
     private ZoneHandler $zonehandler;
     private NightlyHandler $nighthandler;
     private MazeMaker $mazeMaker;
+    private MapMaker $mapMaker;
     private Translator $trans;
     private CommandHelper $helper;
     private ConfMaster $conf;
     private GameProfilerService $gps;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker, CommandHelper $ch, ConfMaster $conf, GameProfilerService $gps)
+    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th,
+                                NightlyHandler $nh, Translator $translator, MapMaker $map_maker, MazeMaker $maker,
+                                CommandHelper $ch, ConfMaster $conf, GameProfilerService $gps)
     {
         $this->entityManager = $em;
         $this->gameFactory = $gf;
@@ -52,6 +56,7 @@ class TownInspectorCommand extends Command
         $this->townHandler = $th;
         $this->nighthandler = $nh;
         $this->trans = $translator;
+        $this->mapMaker = $map_maker;
         $this->mazeMaker = $maker;
         $this->helper = $ch;
         $this->conf = $conf;
@@ -321,12 +326,12 @@ class TownInspectorCommand extends Command
                     $output->writeln("<comment>Zombies</comment> have been removed.");
                     break;
                 case 'daily':
-                    $this->zonehandler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeAuto );
+                    $this->mapMaker->dailyZombieSpawn( $town, 1, MapMaker::RespawnModeAuto );
                     $changes = true;
                     $output->writeln("<comment>Daily Zombie spawn</comment> has been executed.");
                     break;
                 case 'global':
-                    $this->zonehandler->dailyZombieSpawn( $town, 0, ZoneHandler::RespawnModeForce );
+                    $this->mapMaker->dailyZombieSpawn( $town, 0, MapMaker::RespawnModeForce );
                     $changes = true;
                     $output->writeln("<comment>Global Zombie respawn</comment> has been executed.");
                     break;

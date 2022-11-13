@@ -17,9 +17,9 @@ use Graphp\Algorithms\ConnectedComponents;
 
 class MazeMaker
 {
-    private $entity_manager;
-    private $random;
-    private $conf;
+    private EntityManagerInterface $entity_manager;
+    private RandomGenerator $random;
+    private ConfMaster $conf;
 
     public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c)
     {

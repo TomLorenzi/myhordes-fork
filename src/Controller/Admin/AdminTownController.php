@@ -51,6 +51,7 @@ use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
+use App\Service\Maps\MapMaker;
 use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
@@ -434,7 +435,10 @@ class AdminTownController extends AdminActionController
      * @param int $id The ID of the town
      * @param string $action The action to perform
      */
-    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler, GameProfilerService $gps): Response
+    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random,
+                                 NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService,
+                                 KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler,
+                                 GameProfilerService $gps, MapMaker $mapMaker): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -634,7 +638,7 @@ class AdminTownController extends AdminActionController
                     if (!is_numeric($param) || (int)$param <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
                     $d = (int)$param;
                 }
-                $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeAuto, $d );
+                $mapMaker->dailyZombieSpawn( $town, 1, MapMaker::RespawnModeAuto, $d );
                 $this->entity_manager->persist( $town );
                 break;
 
