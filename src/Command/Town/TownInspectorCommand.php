@@ -7,27 +7,25 @@ namespace App\Command\Town;
 use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
-use App\Entity\CitizenStatus;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
-use App\Service\MazeMaker;
+use App\Service\Maps\MazeMaker;
 use App\Service\NightlyHandler;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
 
 #[AsCommand(
     name: 'app:town:inspect',

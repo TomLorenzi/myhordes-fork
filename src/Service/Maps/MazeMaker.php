@@ -1,18 +1,19 @@
 <?php
 
 
-namespace App\Service;
+namespace App\Service\Maps;
 
 use App\Entity\Inventory;
 use App\Entity\RuinZone;
 use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
+use App\Service\ConfMaster;
+use App\Service\RandomGenerator;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\ConnectedComponents;
-use Graphp\Algorithms\MinimumSpanningTree\Kruskal;
 
 class MazeMaker
 {

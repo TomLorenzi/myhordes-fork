@@ -29,12 +29,12 @@ use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
-use PHPUnit\Util\Exception;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
