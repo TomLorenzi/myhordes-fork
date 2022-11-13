@@ -26,6 +26,14 @@ parameters:
       ruins: 20
       explorable_ruins: 1
 
+      map_params:
+        free_spawn_zones:
+          count: 2
+          probability: 0.1
+        buried_ruins:
+          probability: 0.5
+          digs: { min: 6, max: 20 }
+
       explorable_ruin_params:
         complexity: 0.9
         convolution: 0.2

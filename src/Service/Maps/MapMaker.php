@@ -92,7 +92,7 @@ class MapMaker
         };
 
         $o = 0;
-        for ($i = 0; $i < $spawn_ruins+2; $i++) {
+        for ($i = 0; $i < $spawn_ruins + $conf->get(TownConf::CONF_MAP_FREE_SPAWN_COUNT, 2); $i++) {
 
             $zombies_base = 0;
             do {
@@ -131,9 +131,11 @@ class MapMaker
                 if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
                     $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
 
-                if ($this->random->chance(0.5)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
+                if ($this->random->chance($conf->get(TownConf::CONF_MAP_BURIED_PROB, 0.5)))
+                    $zone_list[$i+$o]->setBuryCount( mt_rand($conf->get(TownConf::CONF_MAP_BURIED_DIGS_MIN, 6), $conf->get(TownConf::CONF_MAP_BURIED_DIGS_MAX, 20)) );
+
             } else
-                if ($this->random->chance(0.1))
+                if ($this->random->chance( $conf->get(TownConf::CONF_MAP_FREE_SPAWN_PROB, 0.1) ))
                     $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 3);
 
             if ($zombies_base > 0) {
