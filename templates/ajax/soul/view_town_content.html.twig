@@ -144,7 +144,7 @@
             <div class="padded cell rw-4 rw-lg-3 hide-md hide-sm">{{'Kommentar'|trans({}, 'soul')}}</div>
         </div>
         {# @var \App\Entity\CitizenRankingProxy citizen #}
-        {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day) %}
+        {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day ?: b.end <=> a.end) %}
             {% set days = citizen.day %}
             {% set sp = days * ( days + 1 ) / 2 %}
             <div class="row {% if citizen.user.id == app.user.id or citizen.user.id == user.id %}me{% endif %}">
