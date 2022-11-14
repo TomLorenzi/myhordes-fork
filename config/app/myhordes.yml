@@ -104,6 +104,8 @@ parameters:
       sp_threshold: 15
       tw_threshold: 5
       tw_cutoff: 1635199200
+    registration:
+      token_only: false
     avatars:
       allow_raw: false
       max_processing_size: 3145728 # 3MB

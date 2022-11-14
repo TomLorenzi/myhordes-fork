@@ -20,6 +20,7 @@ use App\Entity\FeatureUnlockPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RegistrationToken;
 use App\Entity\Season;
 use App\Entity\SocialRelation;
 use App\Entity\SoulResetMarker;
@@ -245,6 +246,42 @@ class AdminUserController extends AdminActionController
             'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
             'spon_inactive' => array_filter( $all_sponsored, fn(UserSponsorship $s) =>  $this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') || !$s->getUser()->getValidated() ),
         ]));
+    }
+
+    /**
+     * @Route("jx/admin/users/tokens", name="admin_users_tokens")
+     * @param AntiCheatService $as
+     * @return Response
+     */
+    public function users_tokens(AntiCheatService $as): Response
+    {
+        $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
+        return $this->render( 'ajax/admin/users/token_index.html.twig', $this->addDefaultTwigArgs("token_list", [
+            'tokens' => $tokens
+        ]));
+    }
+
+    /**
+     * @Route("api/admin/users/generateTokens", name="admin_users_generatetokens")
+     * @return Response
+     */
+    public function users_generate_tokens(JSONRequestParser $parser):Response {
+        if (!$parser->has("count")) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $nb = intval($parser->get("count"));
+        if ($nb <= 0)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        for ($i = 0 ; $i < $nb; $i++) {
+            $token = new RegistrationToken();
+            $token->setToken(bin2hex(random_bytes(20)));
+            $this->entity_manager->persist($token);
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
     }
 
     /**
