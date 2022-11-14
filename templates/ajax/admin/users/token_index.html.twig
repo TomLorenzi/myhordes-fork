@@ -7,7 +7,7 @@
             <h5>{{'Registration Token'|trans({}, "admin")}}</h5>
             <div class="row-table">
                 <div class="row header">
-                    <div class="cell padded rw-8 rw-md-12">{{ 'Token'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-8 rw-md-12">{{ 'Registrierungstoken'|trans({},'admin') }}</div>
                     <div class="cell padded rw-4 rw-md-12">{{ 'Benutzername'|trans({},'admin') }}</div>
                 </div>
                 {% for token in tokens %}
@@ -40,7 +40,7 @@
         {% if is_granted("ROLE_ADMIN") %}
             $.html.addEventListenerAll('button[x-action="add_tokens"]', 'click', function(){
                 let nb = 0;
-                if (!(nb = prompt("How many token to generate?")))
+                if (!(nb = prompt("{{'Wie viele Token möchtest du erzeugen?'|trans({}, 'admin')}}")))
                     return;
 
                 if (parseInt(nb) <= 0 || isNaN(parseInt(nb)))
@@ -49,7 +49,6 @@
                 $.ajax.easySend("{{ path("admin_users_generatetokens") }}", {'count': nb}, function () {
                     $.ajax.load(null, "{{ path("admin_users_tokens") }}");
                 })
-                console.log("let's go !");
             })
         {% endif %}
     </script>

@@ -281,6 +281,7 @@ class AdminUserController extends AdminActionController
         }
 
         $this->entity_manager->flush();
+        $this->addFlash('notice', $this->translator->trans("Tokens erfolgreich erzeugt!", [], 'admin'));
         return AjaxResponse::success();
     }
 

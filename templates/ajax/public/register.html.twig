@@ -56,9 +56,9 @@
 
                 {% if need_token %}
                 <div class="row">
-                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="registration_token">{% trans from 'login' %}Registration Token{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="registration_token">{% trans from 'login' %}Registrierungstoken{% endtrans %}</label></b></div>
                     <div class="cell padded-small rw-6 rw-md-12"><input name="token"  id="registration_token" type="text" /></div>
-                    <div class="cell padded-small rw-12"><span class="small critical warning">{{ 'This token is required to be able to create an account'|trans({}, 'login') }}</span></div>
+                    <div class="cell padded-small rw-12"><span class="small critical warning">{{ 'Dieser Token ist für die Registrierung erforderlich.'|trans({}, 'login') }}</span></div>
                 </div>
                 {% endif %}
 
