@@ -83,6 +83,6 @@ Pate: Parrain
 'Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.': 'Votre nom d’utilisateur Eternaltwin contient des éléments qui ne sont pas autorisés sur MyHordes. Veuillez changer votre nom sur Eternaltwin pour vous connecter à MyHordes.'
 'Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.': 'Le joueur mentionné comme parrain n’est pas inscrit au programme de parrainage. Demandez-lui de visiter la page « Parrainage » dans son âme; il sera alors automatiquement enregistré. Ce n’est qu’alors que vous pourrez le choisir comme parrain.'
 'Deine E-Mail-Adresse wurde erfolgreich geändert.': 'Votre addresse email a été changée avec succès.'
-'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.'
-Registrierungstoken: Registrierungstoken
-'Dieser Token ist für die Registrierung erforderlich.': 'Dieser Token ist für die Registrierung erforderlich.'
+'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'Le jeton d''inscription est invalide ou a déjà été utilisé.'
+Registrierungstoken: Jeton d'inscription
+'Dieser Token ist für die Registrierung erforderlich.': 'Un jeton d''inscription est nécessaire pour créer un compte.'
