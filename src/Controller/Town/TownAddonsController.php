@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
@@ -34,6 +35,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
+ * @Semaphore("town", scope="town")
  */
 class TownAddonsController extends TownController
 {
@@ -153,6 +155,8 @@ class TownAddonsController extends TownController
      * @return Response
      */
     public function watchtower_est_api(): Response {
+        if ($this->isGranted("IS_IMPERSONATOR", $this->getUser()))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableImpersonator );
         $town = $this->getActiveCitizen()->getTown();
 
         if (!$this->town_handler->getBuilding($town, 'item_tagger_#00', true))

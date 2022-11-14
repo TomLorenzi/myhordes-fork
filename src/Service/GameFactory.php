@@ -29,12 +29,13 @@ use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Service\Maps\MapMaker;
+use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
-use PHPUnit\Util\Exception;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
@@ -52,7 +53,7 @@ class GameFactory
     private LogTemplateHandler $log;
     private ConfMaster $conf;
     private TranslatorInterface $translator;
-    private MazeMaker $maze_maker;
+    private MapMaker $map_maker;
     private CrowService $crow;
     private PermissionHandler $perm;
     private TimeKeeperService $timeKeeper;
@@ -70,7 +71,7 @@ class GameFactory
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th, TimeKeeperService $ts,
         RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
+        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -85,7 +86,7 @@ class GameFactory
         $this->log = $lh;
         $this->conf = $conf;
         $this->translator = $translator;
-        $this->maze_maker = $mm;
+        $this->map_maker = $mm;
         $this->crow = $crow;
         $this->perm = $perm;
         $this->gps = $gps;
@@ -178,8 +179,8 @@ class GameFactory
             'sets' => [
                 [
                     // Subjects
-                    'f' => ['Tundra|s', 'Estepa|s', 'Corriente|s', 'Pradera|s', 'Arena|s', 'Tumba|s', 'Llanura|s', 'Estepa|s', 'Pampa|s', 'Planicie|s', 'Pradera|s', 'Nirvana|s', 'Zanja|s', 'Fosa|s', 'Gracia|s', 'Mirada|s', 'Cumbre|s', 'Inmensidad|es', 'Indolencia|s', 'Colina|s', 'Piedra|s', 'Ladera|s', 'Comarca|s', 'Región|es', 'Cueva|s', 'Desolación', 'Falla|s', 'Cloaca|s', 'Cala|s', 'Villa|s', 'Feria|s', 'Ciudadela|s', 'Frontera|s', 'Muralla|-es', 'Alameda|s', 'Aldea|s', 'Boca|s', 'Fuente|s', 'Cuadra|s', 'Pocilga|s', 'Tierra', 'Tierra|s', 'Cruzada', 'Cruzada|s', 'Barriada|s', 'Calle|s', 'Gruta|s', 'Grieta|s', 'Alianza|s', 'Ensenada|s'],
-                    'm' => ['Horizonte|s', 'Sendero|s', 'Llano|s', 'Rumore|s', 'Aire|s', 'Barracone|s', 'Jardine|s', 'Suburbio|s', 'Límite|s', 'Burgo|s', 'Cerro|s', 'Jirone|s', 'Cuchitrile|s', 'Muro|s', 'Villorio|s', 'Abismo|s', 'Altar|s', 'Averno|s', 'Hoyo|s', 'Vacío|s', 'Cañón|--ones', 'Valle|s', 'Averno|s', 'Espacio|s', 'Canto|s', 'Rincón|--ones', 'Vergel|s', 'Edén|s', 'Antro|s', 'Recinto|s', 'Paseo|s', 'Teatro|s', 'Subsuelo|s', 'Sitio|s', 'Barrio|s', 'Eco|s', 'Suburbio|s', 'Acantilado|s', 'Precipicio|s', 'Abismo|s', 'Infierno|s', 'Monte|s', 'Caserío|s', 'Monolito|s', 'Enclave|s', 'Cementerio|s', 'Pabellón|--ones', 'Campo|s', 'Refugio|s', 'Montículo|s', 'Misterio|s', 'Sepulcro|s', 'Condado|s', 'Corral|s', 'Fundo|s', 'Arrabal|es', 'Pozo|s', 'Cerro|s', 'Belén|s', 'Fósil|es', 'Prado|s', 'Retiro|s', 'Fuerte|s', 'Santuario|s', 'Paraíso|s', 'Paseo|s', 'Poblado|s', 'Hito|s', 'Paisaje|s', 'Suspiro|s'],
+                    'f' => ['Tundra|s', 'Estepa|s', 'Corriente|s', 'Pradera|s', 'Arena|s', 'Tumba|s', 'Llanura|s', 'Estepa|s', 'Pampa|s', 'Planicie|s', 'Pradera|s', 'Nirvana|s', 'Zanja|s', 'Fosa|s', 'Gracia|s', 'Mirada|s', 'Cumbre|s', 'Inmensidad|es', 'Indolencia|s', 'Colina|s', 'Piedra|s', 'Ladera|s', 'Comarca|s', 'Región|es', 'Cueva|s', 'Desolación|--ones', 'Falla|s', 'Cloaca|s', 'Cala|s', 'Villa|s', 'Feria|s', 'Ciudadela|s', 'Frontera|s', 'Muralla|s', 'Alameda|s', 'Aldea|s', 'Boca|s', 'Fuente|s', 'Cuadra|s', 'Pocilga|s', 'Tierra', 'Tierra|s', 'Cruzada', 'Cruzada|s', 'Barriada|s', 'Calle|s', 'Gruta|s', 'Grieta|s', 'Alianza|s', 'Ensenada|s'],
+                    'm' => ['Horizonte|s', 'Sendero|s', 'Llano|s', 'Rumore|s', 'Aire|s', 'Barracón|--ones', 'Jardín|--ines', 'Suburbio|s', 'Límite|s', 'Burgo|s', 'Cerro|s', 'Jirón|--ones', 'Cuchitril|es', 'Muro|s', 'Villorrio|s', 'Abismo|s', 'Altar|es', 'Averno|s', 'Hoyo|s', 'Vacío|s', 'Cañón|--ones', 'Valle|s', 'Averno|s', 'Espacio|s', 'Canto|s', 'Rincón|--ones', 'Vergel|es', 'Edén|--enes', 'Antro|s', 'Recinto|s', 'Paseo|s', 'Teatro|s', 'Subsuelo|s', 'Sitio|s', 'Barrio|s', 'Eco|s', 'Suburbio|s', 'Acantilado|s', 'Precipicio|s', 'Abismo|s', 'Infierno|s', 'Monte|s', 'Caserío|s', 'Monolito|s', 'Enclave|s', 'Cementerio|s', 'Pabellón|--ones', 'Campo|s', 'Refugio|s', 'Montículo|s', 'Misterio|s', 'Sepulcro|s', 'Condado|s', 'Corral|es', 'Fundo|s', 'Arrabal|es', 'Pozo|s', 'Cerro|s', 'Belén|--enes', 'Fósil|es', 'Prado|s', 'Retiro|s', 'Fuerte|s', 'Santuario|s', 'Paraíso|s', 'Paseo|s', 'Poblado|s', 'Hito|s', 'Paisaje|s', 'Suspiro|s'],
                     '*' => [ ],
                 ],
                 [
@@ -192,7 +193,7 @@ class GameFactory
                     // Suffixes
                     'f' => [ ],
                     'm' => [ ],
-                    '*' => ['de Angustia|s', 'del Ojo Triste|<de los Ojos Tristes', 'de los Guardianes', 'de los Desaparecidos', 'de la Luz', 'del Gran Poder', 'de la Esperanza|s', 'del Socorro|s', 'del Pez Rabioso|s', 'de Sol Divino|s', 'del Oro Azul|s', 'de Ensueño|s', 'de la Epidemia|s', 'de Deepnight|s', 'del Caballo Blanco', 'del Morro Solar|s', 'del Camino Sinuoso|s', 'de los Topos', 'del Ave Mensajera|s', 'de los Mártires', 'del Humo Negro|s', 'del Espectro Verde|s', 'del Terrible Susto|s', 'del Mago|s', 'del Arquitecto Orate|s', 'del Chiste Malo|s', 'del Ingenio|s', 'de la Gran Mentira|s', 'del Gran Susto|s', 'del Héroe Olvidado|s', 'de la Luna|s', 'de los Ídolos', 'de los Ancestros Mayas', 'de la Injusticia|s', 'del Gran Guía|s', 'del Sueño Inspirador|s', 'del Cuervo Loco|s', 'del Grito Ahogado|s', 'del Troll Fantasma|s', 'de los Eclipses', 'del Punto Rojo', 'de Maestro Shaolín|s', 'del Poeta Solitario|s', 'del Espasmo|s', 'de la Justicia|s', 'de los Tuertos', 'del Nunca Jamás', 'de la Verdad Absoluta|s', 'de los Renegados', 'de los Lamentos', 'del Socorro|s', 'de la Lluvia Perpetua|s', 'del Veneno Vil|s', 'de la Paz|s', 'de Carroñeros', 'de la Astucia|s', 'de los Caporales', 'del Antídoto|s', 'de Carne Débil|s', 'del Por Qué|s', 'del Mal Menor|s', 'del Delirium Tremens', 'de los Pasos Perdidos', 'de los Temblores', 'del Ojo Ciego|s', 'del Quinto Elemento|s', 'de la Legión Púrpura|s', 'del Futuro Incierto|s', 'del Guante Caído|s', 'del Pasado Brillante|s', 'de Sagitario|s', 'de Géminis', 'de Capricornio|s', 'de Aries', 'de Tauro|s', 'de la Juventud|s', 'del Olvido|s', 'de la Amargura|s', 'del Alma Pura|s', 'de los Brazos Cruzados', 'de Fuego|s', 'del Gran Jefe|s', 'del Pequeño Saltamontes', 'del Hambre|s', 'de lo Perverso|s', 'de la Tranquilidad|s', 'de la Utopía|s', 'de Sabiduría|s', 'de la Independencia|s', 'del Profeta|s', 'del Primer Instinto|s', 'de la Brisa Fétida|s', 'del Pensamiento|s', 'de la Piel Cobriza|s', 'de los Bipolares', 'del Embrujo|s', 'del Dolor|s', 'del Rey Cuervo|s', 'del Optimismo|s', 'del Pesimismo|s', 'de lo Desconocido|s', 'de la Peste Negra|s', 'del Deseo Inútil|es', 'de la Razón|es', 'del Sentido Común|s', 'de la Hermandad|s', 'del Pacífico|s', 'de la Caridad|s', 'de la Alegría|s', 'de Murakami|s', 'del Instinto Carnal|s', 'de los Descosidos', 'de los Descalzos', 'del Amor Interesado|s', 'de la Risa Contagiante|s', 'de Lágrimas Ajenas', 'de Sangre Caliente|s', 'del Fracaso|s', 'del Miedo|s', 'de Tripas Secas', 'de los Milagros', 'de Atacama|s', 'de Baja California|s', 'de Sonora|s', 'de Sechura|s', 'de Paita|s', 'de Paracas', 'de Nazca|s', 'de Tabernas', 'de Badenas Reales', 'de Monegros', 'de Guajira|s', 'de la Esmeralda|s', 'Sin Mañana|s', 'de la Tierra del Fuego|s', 'de la Patagonia|s', 'del Carnaval|s', 'Sin Fin|s', 'de los Condenados', 'del Norte|s', 'del Sur|s', 'del Este|s', 'del Oeste|s', 'del Oriente|s', 'de Virgo|s', 'de los Últimos Héroes', 'de Orión|s', 'del Fin del Mundo|s', 'del Buen Tiempo|s', 'de la Esperanza|s', 'del Crimen Impune|s', 'del Castigo|s', 'de Corazones', 'de Mil Lágrimas', 'del Nosequé|s', 'de Kalahari|s', 'de Teneré|s', 'del Ecuador|s', 'del Gran Poder|s', 'del Otoño|s', 'del Cielo Prometido|s', 'del Sarcasmo|s', 'de Cárcamo Díaz|s', 'del Díscolo|s', 'de San Pedro|s', 'de San Pablo|s', 'de San Mateo|s', 'de San Quintín|s', 'de Judas', 'de Don Ramón|es', 'de Changó|s', 'de la Santería|s', 'de los Babasónicos', 'del Sadismo|s', 'del Silencio|s', 'del Apocalipsis', 'del Insomnio|s', 'de Cramberries', 'de los Habitantes Anónimos', 'del Cada Vez Peor|s', 'de Hendrix|s', 'de Nadie|s', 'de la Nada|s', 'de la Carcajada|<de las Carcajadas', 'del Colmo|s', 'del Pudor|s', 'del Único Camino|s', 'de la Ira|s', 'de Hard Rock|s', 'de la Redención|es', 'del Loco|s', 'de Traición|es', 'de los Rolling Stones', 'del Río Seco|s', 'del Cojo|s', 'de la Cachetada|s', 'del Calambre|s', 'de la Envidia|s', 'de la Gula|s', 'de la Avaricia|s', 'de la Soberbia|s', 'de Zombiepolares', 'del Yonofuí|s', 'del Queseyó|s', 'de Nosedonde|s', 'de Quiensabequé|s', 'de Malkev|s', 'de Ficachi|s', 'de Snow|s', 'de Binto|s', 'de Len Kagamine|s', 'de Aldesa|s', 'de Len Dragonick|s', 'de Amasijador|s', 'de H4RO', 'de Trendy|s', 'de Giar|s', 'de dunedain33', 'de Bossu|s', 'de Znarf', 'de LordLuis', 'de KamusDave', 'de AlancapoII', 'de Kraterfire', 'de Trendy', 'del Cuervo Loco'],
+                    '*' => ['de Angustia|s', 'del Ojo Triste|<de los Ojos Tristes', 'de los Guardianes', 'de los Desaparecidos', 'de la Luz', 'del Gran Poder', 'de la Esperanza|<de las Esperanzas', 'del Socorro', 'del Pez Rabioso|<de los Peces Rabiosos', 'de Sol Divino|<de los Soles Divinos', 'del Oro Azul', 'de Ensueño|s', 'de la Epidemia|<de las Epidemias', 'de la Noche Profunda', 'del Caballo Blanco', 'del Morro Solar', 'del Camino Sinuoso', 'de los Topos', 'del Ave Mensajera', 'de los Mártires', 'del Humo Negro', 'del Espectro Verde', 'del Terrible Susto', 'del Mago', 'del Arquitecto Orate', 'del Chiste Malo', 'del Ingenio', 'de la Gran Mentira', 'del Gran Susto', 'del Héroe Olvidado', 'de la Luna', 'de los Ídolos', 'de los Ancestros Mayas', 'de la Injusticia', 'del Gran Guía', 'del Sueño Inspirador', 'del Cuervo Loco', 'del Grito Ahogado', 'del Troll Fantasma', 'de los Eclipses', 'del Punto Rojo', 'del Maestro Shaolín', 'del Poeta Solitario|s', 'del Espasmo|s', 'de la Justicia|s', 'de los Tuertos', 'del Nunca Jamás', 'de la Verdad Absoluta|s', 'de los Renegados', 'de los Lamentos', 'de la Lluvia Perpetua|s', 'del Veneno Vil|s', 'de la Paz|s', 'de Carroñeros', 'de la Astucia|s', 'de los Caporales', 'del Antídoto|s', 'de Carne Débil|s', 'del Por Qué|s', 'del Mal Menor|s', 'del Delirium Tremens', 'de los Pasos Perdidos', 'de los Temblores', 'del Ojo Ciego|s', 'del Quinto Elemento', 'de la Legión Púrpura|s', 'del Futuro Incierto|s', 'del Guante Caído|s', 'del Pasado Brillante', 'de Sagitario|s', 'de Géminis', 'de Capricornio|s', 'de Aries', 'de Tauro|s', 'de la Juventud|s', 'del Olvido|s', 'de la Amargura|s', 'del Alma Pura', 'de los Brazos Cruzados', 'de Fuego|s', 'del Gran Jefe', 'del Pequeño Saltamontes', 'del Hambre|s', 'de lo Perverso', 'de la Tranquilidad', 'de la Utopía|s', 'de Sabiduría|s', 'de la Independencia|s', 'del Profeta|s', 'del Primer Instinto', 'de la Brisa Fétida', 'del Pensamiento', 'de la Piel Cobriza|s', 'de los Bipolares', 'del Embrujo|s', 'del Dolor|s', 'del Rey Cuervo|s', 'del Optimismo|s', 'del Pesimismo|s', 'de lo Desconocido|s', 'de la Peste Negra|s', 'del Deseo Inútil|es', 'de la Razón|es', 'del Sentido Común|s', 'de la Hermandad|s', 'del Pacífico|s', 'de la Caridad|s', 'de la Alegría|s', 'de Murakami|s', 'del Instinto Carnal|s', 'de los Descosidos', 'de los Descalzos', 'del Amor Interesado|s', 'de la Risa Contagiante|s', 'de Lágrimas Ajenas', 'de Sangre Caliente|s', 'del Fracaso|s', 'del Miedo|s', 'de Tripas Secas', 'de los Milagros', 'de Atacama|s', 'de Baja California|s', 'de Sonora|s', 'de Sechura|s', 'de Paita|s', 'de Paracas', 'de Nazca|s', 'de Tabernas', 'de Badenas Reales', 'de Monegros', 'de Guajira|s', 'de la Esmeralda|s', 'Sin Mañana|s', 'de la Tierra del Fuego|s', 'de la Patagonia|s', 'del Carnaval|s', 'Sin Fin|s', 'de los Condenados', 'del Norte|s', 'del Sur|s', 'del Este|s', 'del Oeste|s', 'del Oriente|s', 'de Virgo|s', 'de los Últimos Héroes', 'de Orión|s', 'del Fin del Mundo|s', 'del Buen Tiempo|s', 'de la Esperanza|s', 'del Crimen Impune|s', 'del Castigo|s', 'de Corazones', 'de Mil Lágrimas', 'del Nosequé|s', 'de Kalahari|s', 'de Teneré|s', 'del Ecuador|s', 'del Gran Poder|s', 'del Otoño|s', 'del Cielo Prometido|s', 'del Sarcasmo|s', 'de Cárcamo Díaz|s', 'del Díscolo|s', 'de San Pedro', 'de San Pablo', 'de San Mateo', 'de San Quintín', 'de Judas', 'de Don Ramón|es', 'de Changó|s', 'de la Santería|s', 'de los Babasónicos', 'del Sadismo|s', 'del Silencio|s', 'del Apocalipsis', 'del Insomnio|s', 'de Cramberries', 'de los Habitantes Anónimos', 'del Cada Vez Peor|s', 'de Hendrix|s', 'de Nadie|s', 'de la Nada|s', 'de la Carcajada|<de las Carcajadas', 'del Colmo|s', 'del Pudor|s', 'del Único Camino|s', 'de la Ira|s', 'de Hard Rock|s', 'de la Redención|es', 'del Loco|s', 'de Traición|es', 'de los Rolling Stones', 'del Río Seco|s', 'del Cojo|s', 'de la Cachetada|s', 'del Calambre|s', 'de la Envidia|s', 'de la Gula|s', 'de la Avaricia', 'de la Soberbia', 'de Zombiepolares', 'del Yonofuí', 'del Queseyó', 'de Nosedonde', 'de Quiensabequé|s', 'de Malkev', 'de Ficachi', 'de Snow', 'de Binto', 'de Len Kagamine', 'de Aldesa', 'de Len Dragonick', 'de Amasijador', 'de H4RO', 'de Trendy', 'de Giar', 'de dunedain33', 'de Bossu', 'de Znarf', 'de LordLuis', 'de KamusDave', 'de AlancapoII', 'de Kraterfire', 'de Trendy'],
                 ]
             ]
         ],
@@ -390,21 +391,6 @@ class GameFactory
         return $this->evaluateNameSchema( $schema = $this->generateNameSchema( $language, $mutator ) ) ?? 'TOWN_NAME_GENERATOR_FAILED';
     }
 
-    private function getDefaultZoneResolution( TownConf $conf, ?int &$offset_x, ?int &$offset_y ): int {
-        $resolution = mt_rand( $conf->get(TownConf::CONF_MAP_MIN, 0), $conf->get(TownConf::CONF_MAP_MAX, 0) );
-        $safe_border = ceil($resolution * $conf->get(TownConf::CONF_MAP_MARGIN, 0.25));
-
-        if ($safe_border >= $resolution/2) {
-            $offset_x = mt_rand(floor(($resolution-1)/2), ceil(($resolution-1)/2));
-            $offset_y = mt_rand(floor(($resolution-1)/2), ceil(($resolution-1)/2));
-        } else {
-            $offset_x = $safe_border + mt_rand(0, max(0,$resolution - 2*$safe_border));
-            $offset_y = $safe_border + mt_rand(0, max(0,$resolution - 2*$safe_border));
-        }
-
-        return $resolution;
-    }
-
     public function createTown( ?string $name, ?string $language, ?int $population, string|array $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
         if (is_array( $type )) {
             $deriveFrom = $type[1] ?? $type[0];
@@ -484,169 +470,7 @@ class GameFactory
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
 
-        $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
-
-        $map_resolution = $this->getDefaultZoneResolution( $conf, $ox, $oy );
-        for ($x = 0; $x < $map_resolution; $x++)
-            for ($y = 0; $y < $map_resolution; $y++) {
-                $zone = new Zone();
-                $zone
-                    ->setX( $x - $ox )
-                    ->setY( $y - $oy )
-                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
-                    ->setFloor( new Inventory() )
-                    ->setDiscoveryStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::DiscoveryStateCurrent : Zone::DiscoveryStateNone )
-                    ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )
-                    ->setZombies( 0 )
-                    ->setInitialZombies( 0 )
-                    ->setStartZombies( 0 )
-                    ->setTag($defaultTag)
-                ;
-                $town->addZone( $zone );
-            }
-
-        $spawn_ruins = $conf->get(TownConf::CONF_NUM_RUINS, 0);
-
-        $ruin_km_range = [
-            $this->entity_manager->getRepository(ZonePrototype::class)->findMinRuinDistance(false),
-            $this->entity_manager->getRepository(ZonePrototype::class)->findMaxRuinDistance(false),
-        ];
-
-        /** @var Zone[] $zone_list */
-        $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) use ($ruin_km_range) {
-            $km = round(sqrt( pow($z->getX(),2) + pow($z->getY(),2) ) );
-            // $ap = abs($z->getX()) + abs($z->getY());
-            return $km != 0 && $km >= $ruin_km_range[0] && $km <= $ruin_km_range[1];
-        });
-        shuffle($zone_list);
-
-        $previous = [];
-
-        $co_location_cache = [];
-        $cl_get = function(int $x, int $y) use (&$co_location_cache): int {
-            $m = 0;
-            for ($xo = -1; $xo <= 1; $xo++) for ($yo = -1; $yo <= 1; $yo++)
-                if (isset($co_location_cache[$id = (($x+$xo) . '.' . ($y+$yo))]))
-                    $m = max($m, count($co_location_cache[$id]));
-            return $m;
-        };
-        $cl_set = function(int $x, int $y) use (&$co_location_cache): void {
-            $a = [$x . '.' . $y];
-            for ($xo = -1; $xo <= 1; $xo++) for ($yo = -1; $yo <= 1; $yo++)
-                if (isset($co_location_cache[$id = (($x+$xo) . '.' . ($y+$yo))]))
-                    $a = array_merge($a,$co_location_cache[$id]);
-            $a = array_unique($a);
-            foreach ($a as $id) $co_location_cache[$id] = $a;
-        };
-
-        $o = 0;
-        for ($i = 0; $i < $spawn_ruins+2; $i++) {
-
-            $zombies_base = 0;
-            do {
-                if (($i+$o) >= count($zone_list)) continue 2;
-                $b = $cl_get( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
-                if ($b <= 1) $keep_location = true;
-                else if ($b === 2) $keep_location = $this->random_generator->chance(0.25);
-                else $keep_location = false;
-
-                if (!$keep_location) $o++;
-            } while ( !$keep_location );
-
-            $cl_set( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
-
-            if ($i < $spawn_ruins) {
-
-                $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 18);
-
-                //$ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance( abs($zone_list[$i]->getX()) + abs($zone_list[$i]->getY()) );
-                $ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance(round(sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )));
-                if (empty($ruin_types)) continue;
-
-                $iterations = 0;
-                do {
-                    $target_ruin = $this->random_generator->pickLocationFromList( $ruin_types );
-                    $iterations++;
-                } while ( isset( $previous[$target_ruin->getId()] ) && $iterations <= $previous[$target_ruin->getId()] );
-
-                if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
-                else $previous[$target_ruin->getId()]++;
-
-                $zone_list[$i+$o]
-                    ->setPrototype( $target_ruin )
-                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 10), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 10) ) );
-
-                if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
-                    $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
-
-                if ($this->random_generator->chance(0.5)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
-            } else
-                if ($this->random_generator->chance(0.1))
-                    $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 3);
-
-            if ($zombies_base > 0) {
-                $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $zone_list[$i+$o]->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
-            }
-        }
-
-        $spawn_explorable_ruins = $conf->get(TownConf::CONF_NUM_EXPLORABLE_RUINS, 0);
-        $all_explorable_ruins = $explorable_ruins = [];
-        if ($spawn_explorable_ruins > 0)
-            $all_explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
-            $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) {return $z->getPrototype() === null && ($z->getX() !== 0 || $z->getY() !== 0);});
-
-        for ($i = 0; $i < $spawn_explorable_ruins; $i++) {
-            if (empty($explorable_ruins)) {
-                $explorable_ruins = $all_explorable_ruins;
-                shuffle($explorable_ruins);
-            }
-
-            /** @var ZonePrototype $spawning_ruin */
-            $spawning_ruin = array_pop($explorable_ruins);
-            if (!$spawning_ruin) continue;
-
-            $maxDistance = $conf->get(TownConf::CONF_EXPLORABLES_MAX_DISTANCE, 100);
-            $spawn_zone = $this->random_generator->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $maxDistance, ['prototype_id' => null]);
-
-            if ($spawn_zone) {
-                $spawn_zone->setPrototype($spawning_ruin);
-                $this->maze_maker->createField( $spawn_zone, $conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1) );
-                $this->maze_maker->generateCompleteMaze( $spawn_zone );
-
-                $zombies_base = 1 + floor(min(1,sqrt( pow($spawn_zone->getX(),2) + pow($spawn_zone->getY(),2) )/18) * 3);
-                $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $spawn_zone->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
-            }
-        }
-
-        $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
-        $distribution = [];
-
-        $zone_list = $town->getZones()->getValues();
-        foreach ($conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []) as $dd) {
-            $distribution[$dd['item']] = ['min' => $dd['min'], 'max' => $dd['max']];
-        }
-        for ($i = 0; $i < count($item_spawns); $i++) {
-            $item = $item_spawns[$i];
-            if (isset($distribution[$item])) {
-                $min_distance = $distribution[$item]['min'];
-                $max_distance = $distribution[$item]['max'];
-            }
-            else {
-                $min_distance = 1;
-                $max_distance = 100;
-            }
-
-            $spawnZone = $this->random_generator->pickLocationBetweenFromList($zone_list, $min_distance, $max_distance);
-            if ($spawnZone) {
-                $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $this->item_factory->createItem($item_spawns[$i]));
-                $zone_list = array_filter( $zone_list, fn(Zone $z) => $z !== $spawnZone );
-            }
-        }
-
-        $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
-        foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
+        $this->map_maker->createMap( $town );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
         foreach ($this->entity_manager->getRepository(ThreadTag::class)->findBy(['name' => ['help','rp','event','dsc_disc','dsc_guide','dsc_orga']]) as $tag)

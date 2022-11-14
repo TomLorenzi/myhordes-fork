@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\AccountRestriction;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
@@ -496,6 +497,7 @@ class GhostController extends CustomAbstractController
 
     /**
      * @Route("api/ghost/join", name="api_join")
+     * @Semaphore(scope="global")
      * Process the user joining a town
      * @param JSONRequestParser $parser
      * @param GameFactory $factory

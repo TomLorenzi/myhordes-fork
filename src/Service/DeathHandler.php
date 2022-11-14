@@ -135,6 +135,7 @@ class DeathHandler
 
             $citizen->setZone(null);
             $zone->removeCitizen( $citizen );
+            if (!$zone->isTownZone()) $zone->setPlayerDeaths( $zone->getPlayerDeaths() + 1 );
             $this->zone_handler->handleCitizenCountUpdate( $zone, $ok );
             foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['victim' => $citizen]) as $homeIntrusion)
                 $this->entity_manager->remove($homeIntrusion);

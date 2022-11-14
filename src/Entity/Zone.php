@@ -98,6 +98,9 @@ class Zone
     #[ORM\Column]
     private int $explorableFloors = 1;
 
+    #[ORM\Column]
+    private int $playerDeaths = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -599,6 +602,18 @@ class Zone
     public function setExplorableFloors(int $explorableFloors): self
     {
         $this->explorableFloors = $explorableFloors;
+
+        return $this;
+    }
+
+    public function getPlayerDeaths(): ?int
+    {
+        return $this->playerDeaths;
+    }
+
+    public function setPlayerDeaths(int $playerDeaths): self
+    {
+        $this->playerDeaths = $playerDeaths;
 
         return $this;
     }

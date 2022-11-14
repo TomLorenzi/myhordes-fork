@@ -92,6 +92,15 @@ parameters:
             group: 'halloween_dig'
             chance: 0.4
       public: true
+    contamination:
+      trigger:
+        type: datetime
+        begin: 05-01 00:00
+        end: 05-04 00:00
+      conf:
+        name: 'Großen Verseuchung'
+        priority: 105
+        css: 'contamination'
     purge:
       trigger:
         type: datetime

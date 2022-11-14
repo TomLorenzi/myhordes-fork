@@ -190,7 +190,7 @@
             {% endif %}
 
             {% if app.user.expert %}
-                <div class="row">
+                <div class="row hide-sm">
                     <div class="cell rw-12 background">
                         <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den {modelink}!'|trans({'{modelink}': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
                         {{ help_lnk('Handbuch zur Aussenwelt'|trans({},'game'), 'help', {'name': 'world_beyond'}) }}
@@ -203,6 +203,14 @@
             {% block content %}
             {% endblock %}
         </div>
+
+        {% if app.user.expert %}
+            <div class="cell rw-12 background hide-md hide-lg hide-desktop">
+                <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den {modelink}!'|trans({'{modelink}': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
+                {{ help_lnk('Handbuch zur Aussenwelt'|trans({},'game'), 'help', {'name': 'world_beyond'}) }}
+            </div>
+        {% endif %}
+
         <div class="cell rw-12 flavour-quote">
             « {{ quote.content }} »
         </div>

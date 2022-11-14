@@ -288,6 +288,12 @@ class WebController extends CustomAbstractController
             case 'moderation':
                 $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_MODERATION]);
                 break;
+            case 'animaction':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_ANIMACTION]);
+                break;
+            case 'oracle':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_ORACLE]);
+                break;
         }
         if (!$group) return $this->redirect($this->generateUrl('home'));
 

@@ -15,22 +15,20 @@ use App\Entity\Gazette;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
-use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemInfoAttachment;
 use App\Entity\ItemPrototype;
-use App\Entity\HeroSkillPrototype;
-use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
-use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
-use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Service\Maps\MapMaker;
+use App\Service\Maps\MazeMaker;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
@@ -64,6 +62,7 @@ class NightlyHandler
     private ConfMaster $conf;
     private ActionHandler $action_handler;
     private MazeMaker $maze;
+    private MapMaker $map;
     private CrowService $crow;
     private UserHandler $user_handler;
     private GameFactory $game_factory;
@@ -75,7 +74,7 @@ class NightlyHandler
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
                               CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
-                              TimeKeeperService $timeKeeper )
+                              TimeKeeperService $timeKeeper, MapMaker $mapMaker )
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -97,6 +96,7 @@ class NightlyHandler
         $this->gazette_service = $gs;
         $this->gps = $gps;
         $this->timeKeeper = $timeKeeper;
+        $this->map = $mapMaker;
     }
 
     private function check_town(Town $town): bool {
@@ -1448,7 +1448,7 @@ class NightlyHandler
         $this->log->info('<info>Processing changes in the World Beyond</info> ...');
 
         $this->log->debug('Spreading zombies ...');
-        $this->zone_handler->dailyZombieSpawn($town);
+        $this->map->dailyZombieSpawn($town);
 
         if ($this->exec_firework)
             // Kill zombies around the town (all at 1km, none beyond 10km)

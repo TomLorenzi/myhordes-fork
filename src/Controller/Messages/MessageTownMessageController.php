@@ -161,7 +161,7 @@ class MessageTownMessageController extends MessageController
             // Special drunk handler
             if ($recipient && $this->citizen_handler->hasStatusEffect($sender,'drunk')) {
 
-                // Filter possible recipents. A sender can only send to someone who has the same banishment status.
+                // Filter possible recipients. A sender can only send to someone who has the same banishment status.
                 $list = $sender->getTown()
                                ->getCitizens()
                                ->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive() && ($sender->getBanished() === $c->getBanished() || empty($linked_items)))

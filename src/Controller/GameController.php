@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\ActionCounter;
 use App\Entity\Announcement;
 use App\Entity\Citizen;
@@ -42,6 +43,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_incarnated=true)
+ * @Semaphore("town", scope="town")
  * @method User getUser()
  */
 class GameController extends CustomAbstractController

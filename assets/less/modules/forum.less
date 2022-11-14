@@ -216,6 +216,9 @@
       color: #3b4151;
       font-style: italic;
     }
+    .collapsor, a {
+      color: darken(#ddab76, 30%);
+    }
   }
 
   pre {
@@ -381,7 +384,7 @@ ul.subscriptions {
       &>img { width: 90px !important; height: 30px !important; object-fit: cover }
     }
     margin-bottom: 2px;
-    .username { color: white; text-decoration: none; background: none; border: none; box-shadow: none; padding: 0;}
+    .username,.username.is-friend { color: white; text-decoration: none; background: none; border: none; box-shadow: none; padding: 0;}
   }
 
   &>.forum-post-header {
@@ -405,7 +408,7 @@ ul.subscriptions {
     &.header-variant-crow { background: rgba(0,0,0,0.3); }
     &.header-variant-dev { background: #006495; }
     a.link, span.link { color: white; text-decoration: none }
-    .username { color: white; text-decoration: none; background: none; border: none; box-shadow: none; padding: 0;}
+    .username { color: white; text-decoration: none; background: none !important; border: none !important; box-shadow: none; padding: 0;}
   }
 
   &.forum-post-search-result>.forum-post-header {

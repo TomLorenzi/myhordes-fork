@@ -380,7 +380,7 @@ class TownCreatorController extends CustomAbstractCoreController
 
     protected function sanitize_config(array $conf): array {
         static $unset_props = [
-            'ruin_items', 'zone_items', 'explorable_ruin_params',
+            'ruin_items', 'zone_items', 'explorable_ruin_params', 'map_params',
             'allow_local_conf',
             'bank_abuse', 'spiritual_guide', 'times',
             'distribute_items', 'distribution_distance',
