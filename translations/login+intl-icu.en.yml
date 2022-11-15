@@ -83,6 +83,6 @@ Pate: Sponsor
 'Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.': 'Your Eternaltwin display name contains elements that are not allowed on MyHordes. To log in with your Eternaltwin account, you must change its display name.'
 'Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.': 'The player you''ve selected is not currently enrolled in the sponsorship program. Ask them to visit the "Friendship" page in their soul; this will automatically register them. Only then can you select them as your sponsor.'
 'Deine E-Mail-Adresse wurde erfolgreich geändert.': 'Your email address has been changed successfully.'
-'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.'
-Registrierungstoken: Registrierungstoken
-'Dieser Token ist für die Registrierung erforderlich.': 'Dieser Token ist für die Registrierung erforderlich.'
+'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'The registration token is invalid or has already been used.'
+Registrierungstoken: Registration token
+'Dieser Token ist für die Registrierung erforderlich.': 'A registration token is required to create an account.'
