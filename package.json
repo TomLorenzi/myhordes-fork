@@ -39,5 +39,6 @@
         "stream-browserify": "3.0.0",
         "string.prototype.matchall": "4.0.8",
         "swagger-ui": "4.15.5"
-    }
+    },
+    "packageManager": "yarn@3.1.1"
 }
