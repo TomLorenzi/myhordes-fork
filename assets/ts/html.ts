@@ -500,8 +500,9 @@ export default class HTML {
             target.setAttribute("id", "user-tooltip");
             target.innerHTML = '<div class="center small"><img src="' + this.initParams.userPopupLoadingAnimation + '" alt=""/></div>';
 
-            target.style.width = null;
-            if (element.getBoundingClientRect().left + element.offsetWidth + target.offsetWidth > window.innerWidth) {
+            const reposition = () => {
+                target.style.width = null;
+                if (element.getBoundingClientRect().left + element.offsetWidth + target.offsetWidth > window.innerWidth) {
 
                 const temp_left = Math.max(0,element.getBoundingClientRect().left + element.offsetWidth/2 - element.offsetWidth/2);
                 if (temp_left + target.offsetWidth > window.innerWidth) {
@@ -517,21 +518,35 @@ export default class HTML {
                     target.style.left = temp_left + "px";
                 }
 
-            } else {
-                target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
-                target.style.left = element.getBoundingClientRect().left + element.offsetWidth + 5 + "px";
+                } else {
+                    target.style.top = (element.getBoundingClientRect().top + document.documentElement.scrollTop) + "px";
+                    target.style.left = element.getBoundingClientRect().left + element.offsetWidth + 5 + "px";
+                }
+
+                target.style.transform = 'translateY(0px)';
+                window.requestAnimationFrame(() => {
+                    const rect = target.getBoundingClientRect();
+                    if (rect.top < 0) target.style.transform = 'translateY(' + (-rect.top) + 'px)';
+                    else if (rect.bottom > window.innerHeight) target.style.transform = 'translateY(' + (window.innerHeight-rect.bottom) + 'px)';
+                })
             }
 
+            const scrollHandler = () => reposition();
             const removeTooltip = function(event,force=false) {
                 if(event.target !== target && (!event.target.closest("#user-tooltip") || force)) {
                     target.remove();
                     document.removeEventListener("click", removeTooltip);
+                    window.removeEventListener( "scroll", scrollHandler, {capture: true} );
                 }
             }
 
             document.addEventListener("click", removeTooltip);
+            window.addEventListener("scroll", scrollHandler, {capture: true});
+            reposition();
+
             $.ajax.background().load(target, this.initParams.userPopupEndpoint, false, {'id': element.getAttribute("x-user-id")}, () => {
                 $.html.addEventListenerAll('[x-ajax-href]', 'click', e => removeTooltip(e,true));
+                reposition();
             });
         })
     }
