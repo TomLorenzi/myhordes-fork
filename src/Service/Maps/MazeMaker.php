@@ -20,6 +20,9 @@ class MazeMaker
     private EntityManagerInterface $entity_manager;
     private RandomGenerator $random;
     private ConfMaster $conf;
+    private float $skipMazeDirectionProbability = 0;
+    private float $joinPathProbability = 0.2;
+    private bool $enableOpenArea = false;
 
     public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c)
     {
@@ -185,14 +188,16 @@ class MazeMaker
         }
 
         $binary[$origin[0]][$origin[1]] = true;
-        if ($level === 0) $binary[$origin[0]][$origin[1]+1] = true;
 
-        $base_intersection = $level === 0 ? [ $origin[0], $origin[1]+1 ] : $origin;
-        $intersections = ["{$base_intersection[0]}/{$base_intersection[1]}" => $base_intersection];
+        $conf =  $this->conf->getTownConfiguration( $base->getTown() );
+        $complexity = $conf->get(TownConf::CONF_EXPLORABLES_COMPLEXITY, 0.5);
+        $convolution = $conf->get(TownConf::CONF_EXPLORABLES_CONVOLUTION, 0.75);
+        $cruelty     = $conf->get(TownConf::CONF_EXPLORABLES_CRUELTY, 0.06);
+
 
         // Returns true if the given coordinates point to an existing zone
-        $exists = function(int $x, int $y) use (&$binary): bool {
-            return (isset($binary[$x]) && isset($binary[$x][$y]));
+        $exists = function(int $x, int $y) use (&$cache): bool {
+            return (isset($cache[$x]) && isset($cache[$x][$y]));
         };
 
         // Returns true if the given coordinates point to an existing zone and the zone is already marked as a corridor
@@ -246,111 +251,104 @@ class MazeMaker
                 ($corridor($x,$y+1) ? 1 : 0) + ($corridor($x,$y-1) ? 1 : 0);
         };
 
-        $conf =  $this->conf->getTownConfiguration( $base->getTown() );
-        $complexity = $conf->get(TownConf::CONF_EXPLORABLES_COMPLEXITY, 0.5);
-        $convolution = $conf->get(TownConf::CONF_EXPLORABLES_CONVOLUTION, 0.75);
-        $cruelty     = $conf->get(TownConf::CONF_EXPLORABLES_CRUELTY, 0.06);
+        // MY CODE
 
-        $c_left = ceil( $n * $complexity );
+        // Invalidated max ? Kezako ?
+        $head = $cache[$origin[0]][$origin[1]];
+        $binary[$origin[0]][$origin[1]] = true;
 
-        // As long as we have more intersections ...
-        while ($c_left > 0 && $start = $get_intersection()) {
+        $walker = [];
+        array_push($walker,$head);
 
-            // Get coordinates
-            list($x,$y) = $start;
+        $dirs = [ [ 1, 0 ], [ 0, 1 ], [ -1, 0 ], [ 0, -1 ] ];
+        $dTime = 0;
 
-            // Make sure the intersection is still valid; otherwise, remove it from the list and continue
-            if (!$valid_intersection($x,$y)) {
-                $unmark_intersection($x,$y);
-                continue;
+        $countcorridor = 0;
+        while (count($walker) > 0)
+        {
+			// Sometimes, we change order in which directions are checks, because why not?
+            $dTime--;
+            if ($dTime < 0)
+            {
+                $indexToChange = 1+mt_rand(0, 2);
+                $d = $dirs[$indexToChange];
+                array_splice($dirs, $indexToChange, 1);
+                array_unshift($dirs, $d);
+                $dTime = 3 /*minStep*/ + mt_rand(0, 1);
             }
 
-            // Find possible directions to walk; there must be at least one, otherwise the intersection check would have
-            // failed
-            $list = array_filter( [[1,0],[-1,0],[0,1],[0,-1]], function (array $coords) use (&$valid,&$x,&$y) {
-                return $valid($x+$coords[0],$y+$coords[1]);
-            } );
+            $next = null;
+            foreach ($dirs as &$dir)
+            {
+				// Sometime we skip a direction
+                if((mt_rand() / mt_getrandmax()) < $this->skipMazeDirectionProbability) continue;
 
-            // Randomly select direction
-            list($dx,$dy) = $this->random->pick( $list );
+                $tx = $head->getX() + $dir[0];
+                $ty = $head->getY() + $dir[1];
+				// Is the direction we check has valide coordinate (no oob)
+				if ( $exists($tx, $ty) ) {
+                    $next = $cache[$tx][$ty];
+					// Is the data at the coordinate in the direction we are checking is a a wall
+                    if ($binary[$tx][$ty] == false)
+                    {
+                        $wallCount = 0;
+                        $wDirX = 0;
+                        $wDirY = 0;
+						// We check walls around the case we want to check, count them, and keep track in which axis we found them
+                        foreach ($dirs as &$dir2)
+                        {
+                            $ty = $next->getY() + $dir2[1];
+                            $tx = $next->getX() + $dir2[0];
+							if ( $exists($tx, $ty) == false || $binary[$tx][$ty] == false ) {
+                                $wallCount++;
+                                $wDirX += $dir2[0] * $dir2[0];
+                                $wDirY += $dir2[1] * $dir2[1];
+                            }
+                        }
 
-            // Walk in that direction
-            while ($c_left > 0 && !$this->random->chance($convolution) && $valid($x+$dx,$y+$dy)) {
-                $x += $dx; $y += $dy;
-                $add($x,$y);
-                $mark_intersection($x,$y);
+						// If we break to an other path
+                        if ($wallCount < 3)
+                        {
+                            if ( (mt_rand() / mt_getrandmax()) < $this->joinPathProbability && ($this->enableOpenArea || ($wallCount == 2 && ($wDirX == 0 || $wDirY == 0) ))) {
+                                $binary[$next->getX()][$next->getY()] = true;
+                                $countcorridor++;
+                                //next.distance = head.distance + 1;
+                                //we break path, so we need to update distance of nodes !
+                                //updateDistance(next);
+                            }
+                            $next = null;
+                        }
+                    } else {
+                        $next = null;
+                    }
+                }
+				if ( $next != null ) break;
             }
+            if ( $next == null ) {
+				$head = array_pop($walker);
+				$dTime = 0;
+			} else {
+                $binary[$next->getX()][$next->getY()] = true;
+                $countcorridor++;
+				//next.distance = head.distance + 1;
+				array_push($walker, $next);
+				$head = $next;
+			}	
         }
-
-        // Post-processing - remove corridors to make the layout more challenging
-        $remove_nodes = floor( $n * $cruelty );
-        $tries = 0;
-
-        /** @var Vertex[] $list */
-        $graph = $this->graphyfy($binary, $nodes, $list);
-        $removed_nodes = 0;
-
-        // While we still have nodes to remove
-        while ($remove_nodes > 0 && $tries < 200) {
-            $tries++;
-
-            // Create a working copy of the current graph
-            $temp  = $graph->createGraphClone();
-
-            // Select a random node that is not origin and attempt to remove it
-            // Also do not remove dead ends with only one neighbor; removing them does not increase complexity
-            $nid = array_rand($list);
-            if ($list[$nid]->getId() === "{$origin[0]}/{$origin[1]}") continue;
-            list($x,$y) = $list[$nid]->getAttribute('pos');
-            if ($neighbors($x,$y) <= 1) continue;
-            $temp->getVertex( $list[$nid]->getId() )->destroy();
-
-            // Create a connected component graph with all nodes accessible from origin
-            $cc = new ConnectedComponents($temp);
-            $subgraph = $cc->createGraphComponentVertex( $temp->getVertex("{$origin[0]}/{$origin[1]}") );
-
-            // If the connected component graph is identical to the source graph, it is still fully traversable
-            if ($subgraph->getVertices()->count() == $temp->getVertices()->count()) {
-                // Remove the associated corridor
-                $binary[$x][$y] = false;
-
-                // Remove the vertex
-                unset( $list[$nid] );
-
-                // Update the graph
-                $graph = $temp;
-
-                // Count down removed nodes
-                $remove_nodes--;
-                $removed_nodes++;
-            };
-        }
-
-        // Attempt to re-adds nodes without forming new corridor connections
-        // First, identify corridors that can be added back in
-        $add_list = [];
-        foreach ($binary as $x => $line)
-            foreach ($line as $y => $entry)
-                if ($neighbors($x,$y) === 1 && !$corridor($x,$y))
-                    $add_list[] = [$x,$y];
-
-        // Select and add them back in
-        shuffle($add_list);
-        while ($removed_nodes > 0 && !empty($add_list)) {
-            list($x,$y) = array_pop($add_list);
-            if ($valid($x,$y) && $neighbors($x,$y) === 1)
-                $add($x,$y);
-        }
+        // /MY CODE
+        // OLD CODE BELOW
 
         // Build the actual map
         foreach ($cache as $x => $line)
-            foreach ($line as $y => $ruinZone)
-                if ($corridor($x,$y)) {
-                    if ($corridor($x+1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_E );
-                    if ($corridor($x-1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_W );
-                    if ($corridor($x,$y+1)) $ruinZone->addCorridor( RuinZone::CORRIDOR_S );
-                    if ($corridor($x,$y-1)) $ruinZone->addCorridor( RuinZone::CORRIDOR_N );
-                } else $ruinZone->setCorridor(RuinZone::CORRIDOR_NONE);
+        foreach ($line as $y => $ruinZone)
+        {
+            if ($corridor($x,$y)) {
+                if ($corridor($x+1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_E );
+                if ($corridor($x-1,$y)) $ruinZone->addCorridor( RuinZone::CORRIDOR_W );
+                if ($corridor($x,$y+1)) $ruinZone->addCorridor( RuinZone::CORRIDOR_S );
+                if ($corridor($x,$y-1)) $ruinZone->addCorridor( RuinZone::CORRIDOR_N );
+            } else $ruinZone->setCorridor(RuinZone::CORRIDOR_NONE);
+        }
 
         // Calculate distances
         $cache[$origin[0]][$origin[1]]->setDistance($offset_distance);
