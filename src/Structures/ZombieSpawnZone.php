@@ -7,6 +7,7 @@ use App\Entity\Zone;
 
 /**
  * @property int $zombies
+ * @property boolean $done
  * @property-read int $x
  * @property-read int $y
  * @property-read boolean $town
@@ -15,6 +16,7 @@ use App\Entity\Zone;
 class ZombieSpawnZone
 {
     protected int $zombies;
+    public bool $done = false;
 
     public function __construct(public readonly Zone $zone)  {
         $this->zombies = $zone->getZombies();
@@ -45,10 +47,10 @@ class ZombieSpawnZone
     }
 
     public function addZombie(int $n = 1): void {
-        $this->zombies += $n;
+        $this->zombies = max(0, $this->zombies + $n);
     }
 
     public function killZombie(int $n = 1): void {
-        $this->zombies = max(0, $this->zombies - $n);
+        $this->addZombie( -$n );
     }
 }

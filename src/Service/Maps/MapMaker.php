@@ -7,6 +7,7 @@ use App\Entity\Town;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Enum\HordeSpawnGovernor;
 use App\Service\ConfMaster;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -225,10 +226,10 @@ class MapMaker
 
     public function dailyZombieSpawn( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void
     {
-        $govMH = true;
+        $gov = HordeSpawnGovernor::MyHordes;
 
-        if ($govMH) $this->zombieSpawnGovernorMH( $town, $cycles, $mode, $override_day );
-        else for ($i = 0; $i < $cycles; ++$i) $this->zombieSpawnGovernorHordes( $town );
+        if ($gov->myHordes()) $this->zombieSpawnGovernorMH( $town, $cycles, $mode, $override_day );
+        elseif ($gov->hordes()) for ($i = 0; $i < $cycles; ++$i) $this->zombieSpawnGovernorHordes( $town, $gov );
     }
 
     private function zombieSpawnGovernorMH( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void {
@@ -375,7 +376,7 @@ class MapMaker
     }
 
     // INCOMPLETE
-    private function zombieSpawnGovernorHordes( Town $town ): void {
+    private function zombieSpawnGovernorHordes( Town $town, HordeSpawnGovernor $gov ): void {
 
         $mapGrid = [];
 
@@ -419,31 +420,87 @@ class MapMaker
         $mt_OverThresholdGrowChance = 0.75;
 
         // ### Online
+        switch ($gov) {
+            case HordeSpawnGovernor::HordesOnline:
+                $group_zones();
+                foreach ( array_filter( $zones, fn(ZombieSpawnZone $z) => $z->zombies >= $mt_ZombieGrowThreshold ) as $zone) {
+                    /** @var ZombieSpawnZone[] $adjacent_zones Adjacent zones below the zombie growth threshold */
+                    $adjacent_zones = array_filter( $adjacent( $zone ), fn( ZombieSpawnZone $z ) => $z->zombies < $mt_ZombieGrowThreshold );
 
-        $group_zones();
+                    if (empty($adjacent_zones)) $zone->addZombie();
+                    else {
+                        $zombies = $mt_ZombieSpread;
+                        while ($zombies > 0) {
+                            /** @var ZombieSpawnZone $spreadZone */
+                            $spreadZone = $this->random->pick( $adjacent_zones );
+                            $spread = mt_rand(1, $zombies);
 
-        foreach ( array_filter( $zones, fn(ZombieSpawnZone $z) => $z->zombies >= $mt_ZombieGrowThreshold ) as $zone) {
-            /** @var ZombieSpawnZone[] $adjacent_zones Adjacent zones below the zombie growth threshold */
-            $adjacent_zones = array_filter( $adjacent( $zone ), fn( ZombieSpawnZone $z ) => $z->zombies < $mt_ZombieGrowThreshold );
+                            $spreadZone->addZombie( $spread );
+                            $zombies -= $spread;
+                        }
 
-            if (empty($adjacent_zones)) $zone->addZombie();
-            else {
-                $zombies = $mt_ZombieSpread;
-                while ($zombies > 0) {
-                    /** @var ZombieSpawnZone $spreadZone */
-                    $spreadZone = $this->random->pick( $adjacent_zones );
-                    $spread = mt_rand(1, $zombies);
+                        if ($this->random->chance( $mt_OverThresholdGrowChance ))
+                            $zone->addZombie();
+                    }
 
-                    $spreadZone->addZombie( $spread );
-                    $zombies -= $spread;
+                    if ($zone->building || $this->random->chance(0.5))
+                        $zone->addZombie();
                 }
+                break;
+            case HordeSpawnGovernor::HordesModDone:
+                $doneLimit = mt_rand(3,5);
+                $group_zones();
+                shuffle( $zones );
 
-                if ($this->random->chance( $mt_OverThresholdGrowChance ))
-                    $zone->addZombie();
-            }
+                $cZombie = 0;
+                $cZombieRatio = 75;
 
-            if ($zone->building || $this->random->chance(0.5))
-                $zone->addZombie();
+                while (!empty($zones)) {
+                    $zone = array_pop( $zones );
+                    if ($zone->done) continue;
+
+                    $zone->done = true;
+                    if ($zone->zombies >= $mt_ZombieGrowThreshold) {
+                        $adjacent_zones = array_filter($adjacent($zone),
+                            fn(ZombieSpawnZone $z) => !$z->done && ($z->zombies < $mt_ZombieGrowThreshold || $this->random->chance(0.3))
+                        );
+
+                        if (empty($adjacent_zones)) {
+                            $cZombie++;
+                            $zone->addZombie();
+                            continue;
+                        }
+
+                        $zombies = $mt_ZombieSpread;
+                        while ($zombies > 0) {
+                            /** @var ZombieSpawnZone $spreadZone */
+                            $spreadZone = $this->random->pick($adjacent_zones);
+                            $spread = mt_rand(1, $zombies);
+
+                            $spreadZone->addZombie($spread);
+                            $zombies -= $spread;
+
+                            $cZombie += $spread;
+                            if ($spreadZone->zombies >= $doneLimit)
+                                $spreadZone->done = true;
+
+                            if ((mt_rand( 0, 99 ) - ( $cZombie / $cZombieRatio )) < 50)
+                                $zone->killZombie( $zombies );
+                        }
+
+                        if ((mt_rand( 0, 99 ) - ( $cZombie / $cZombieRatio )) < 75) {
+                            $cZombie++;
+                            $zone->addZombie();
+                        }
+                    }
+
+                    if ($zone->building || $this->random->chance(0.5))
+                        $zone->addZombie();
+                }
+                break;
+            case HordeSpawnGovernor::HordesCrowdControl:
+                throw new \Exception('To be implemented');
+            default: throw new \Exception('Invalid governor.');
         }
 
         // Final
