@@ -7,12 +7,14 @@ use App\Entity\Town;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Enum\HordeSpawnBehaviourType;
 use App\Enum\HordeSpawnGovernor;
 use App\Service\ConfMaster;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
 use App\Structures\TownConf;
+use App\Structures\ZombieSpawnBehaviour;
 use App\Structures\ZombieSpawnZone;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -229,7 +231,7 @@ class MapMaker
         $gov = HordeSpawnGovernor::MyHordes;
 
         if ($gov->myHordes()) $this->zombieSpawnGovernorMH( $town, $cycles, $mode, $override_day );
-        elseif ($gov->hordes()) for ($i = 0; $i < $cycles; ++$i) $this->zombieSpawnGovernorHordes( $town, $gov );
+        elseif ($gov->hordes()) for ($i = 0; $i < $cycles; $i++) $this->zombieSpawnGovernorHordes( $town, $gov, $override_day );
     }
 
     private function zombieSpawnGovernorMH( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void {
@@ -376,7 +378,7 @@ class MapMaker
     }
 
     // INCOMPLETE
-    private function zombieSpawnGovernorHordes( Town $town, HordeSpawnGovernor $gov ): void {
+    private function zombieSpawnGovernorHordes( Town $town, HordeSpawnGovernor $gov, ?int $override_day = null ): void {
 
         $mapGrid = [];
 
@@ -386,19 +388,44 @@ class MapMaker
         /** @var ZombieSpawnZone[] $zones */
         $zones = [];        // All zones with zombies
 
+        /** @var ZombieSpawnZone[] $zonesWithDeads */
+        $zonesWithDeads = []; // All zones where a citizen has died (sorted descending)
+
+        /** @var ZombieSpawnZone[] $zonesWithZombieKills */
+        $zonesWithZombieKills = []; // All zones where a zombie has died (sorted descending)
+
+        /** @var ZombieSpawnZone[] $orderedZones */
+        $orderedZones = [];        // All zones with zombies (sorted descending)
+
+        /** @var ZombieSpawnZone[] $emptyZones */
+        $emptyZones = [];        // All zones without zombies
+
+        $grid_min = PHP_INT_MAX;
+        $grid_max = PHP_INT_MIN;
+
         // Built data structures
         foreach ($town->getZones() as $zone) {
             $container = new ZombieSpawnZone($zone);
             $baseZones[] = $container;
             if (!isset( $mapGrid[$zone->getX()] )) $mapGrid[$zone->getX()] = [];
             if (!isset( $mapGrid[$zone->getX()][$zone->getY()] )) $mapGrid[$zone->getX()][$zone->getY()] = $container;
+
+            $grid_min = min( $zone->getX(), $zone->getY(), $grid_min );
+            $grid_max = max( $zone->getX(), $zone->getY(), $grid_max );
         }
 
         // ### Helper functions
 
         // Writes all zones with zombies into the $zones array
-        $group_zones = function() use (&$zones, &$baseZones) {
-            $zones = array_filter( $baseZones, fn(ZombieSpawnZone $z) => $z->zombies > 0 );
+        $group_zones = function() use (&$zones, &$orderedZones, &$baseZones, &$emptyZones, &$zonesWithDeads, &$zonesWithZombieKills) {
+            $orderedZones = $zones = array_values(array_filter( $baseZones, fn(ZombieSpawnZone $z) => $z->zombies > 0 && !$z->town ));
+            $emptyZones = array_values(array_filter( $baseZones, fn(ZombieSpawnZone $z) => $z->zombies == 0 && !$z->town ));
+            $zonesWithDeads = array_values(array_filter( $baseZones, fn(ZombieSpawnZone $z) => $z->deads > 0 ));
+            $zonesWithZombieKills = array_values(array_filter( $baseZones, fn(ZombieSpawnZone $z) => $z->zombieKills > 0 ));
+
+            usort( $orderedZones, fn(ZombieSpawnZone $a, ZombieSpawnZone $b) => $b->zombies <=> $a->zombies );
+            usort( $zonesWithDeads, fn(ZombieSpawnZone $a, ZombieSpawnZone $b) => $b->deads <=> $a->deads );
+            usort( $zonesWithZombieKills, fn(ZombieSpawnZone $a, ZombieSpawnZone $b) => $b->zombieKills <=> $a->zombieKills );
         };
 
         // Returns a ZombieSpawnZone from coordinates or from a Zone instance; returns null for invalid coords
@@ -407,19 +434,42 @@ class MapMaker
             : ($mapGrid[$x][$y] ?? null)
         ;
 
-        // Returns all zones adjacent to the given zone that are not the town zone
-        $adjacent = fn(ZombieSpawnZone $z): array => array_filter( [
+        $star = fn(ZombieSpawnZone $z, bool $with_self = false) => [
+            $with_self ? $z : null,
             $grid($z->x + 1, $z->y), $grid($z->x, $z->y + 1),
             $grid($z->x - 1, $z->y), $grid($z->x, $z->y - 1),
-        ], fn( ?ZombieSpawnZone $zz ) => $zz && !$zz->town );
+        ];
+
+        // Returns all zones adjacent to the given zone that are not the town zone
+        $adjacent = fn(ZombieSpawnZone $z): array => array_filter( $star($z), fn( ?ZombieSpawnZone $zz ) => $zz && !$zz->town );
+
+        // Concats values of close zones together
+        $concat = function (array &$zoneArray, callable $get, callable $set) {
+            if (count($zoneArray) > 1) {
+                for ($i = 0; $i < count($zoneArray); $i++) {
+                    if (($zone = $zoneArray[$i]) === null) continue;
+                    for ($j = $i+1; $j < count($zoneArray); $j++) {
+                        if (($zone2 = $zoneArray[$j]) === null) continue;
+
+                        $level = ZombieSpawnZone::getZoneLevel( $zone, $zone2 );
+                        if ($level <= 2) {
+                            $set( $zone, $get($zone) + (int)( $get($zone2) / $level ) );
+                            $set( $zone2, 0 );
+                            $zoneArray[$j] = null;
+                        }
+                    }
+                }
+                $zoneArray = array_values( array_filter( $zoneArray ) );
+            }
+        };
 
         // ### Config
 
         $mt_ZombieGrowThreshold = 3;
         $mt_ZombieSpread = 2;
         $mt_OverThresholdGrowChance = 0.75;
+        $mt_distanceAttenuation = [ 1.0, 0.60, 0.25, 0.10, 0.05, 0.05 ];
 
-        // ### Online
         switch ($gov) {
             case HordeSpawnGovernor::HordesOnline:
                 $group_zones();
@@ -499,20 +549,184 @@ class MapMaker
                 }
                 break;
             case HordeSpawnGovernor::HordesCrowdControl:
-                throw new \Exception('To be implemented');
+
+                // Prepare
+                $group_zones();
+                shuffle( $zones );
+
+                // Prepare Lead
+                $nbLeader = mt_rand(0, 14) + max( 10, $override_day ?? $town->getDay() );
+                /** @var ZombieSpawnBehaviour[] $leaders */
+                $leaders = [];
+
+                $concat( $zonesWithDeads,
+                    fn(ZombieSpawnZone $zone): int => $zone->deads,
+                    fn(ZombieSpawnZone $zone, int $value): int => $zone->deads = $value,
+                );
+                $concat( $zonesWithZombieKills,
+                    fn(ZombieSpawnZone $zone): int => $zone->zombieKills,
+                    fn(ZombieSpawnZone $zone, int $value): int => $zone->zombieKills = $value,
+                );
+
+                $cDead = 0;
+                $cZombieKill = 0;
+
+                while ( count($leaders) < $nbLeader - 2 && (!empty( $zonesWithDeads ) || !empty( $zonesWithZombieKills )) ) {
+
+                    if (!empty( $zonesWithDeads )) {
+                        $zone = array_shift( $zonesWithDeads );
+                        if (mt_rand(0,99) < $zone->deads * 10) {
+                            ZombieSpawnBehaviour::Deads( $leaders, $zone, $zone->deads );
+                            $cDead++;
+                        } elseif ( mt_rand( 0,99 ) < $zone->deads * 20 )
+                            $zonesWithDeads = [];
+                    }
+
+                    if (!empty( $zonesWithZombieKills )) {
+                        $zone = array_shift( $zonesWithZombieKills );
+                        if (mt_rand(0,99) < $zone->zombieKills * 10) {
+                            ZombieSpawnBehaviour::ZombieKills( $leaders, $zone, $zone->zombieKills );
+                            $cZombieKill++;
+                        } elseif ( mt_rand( 0,99 ) < $zone->zombieKills * 20 )
+                            $zonesWithZombieKills = [];
+                    }
+
+                }
+
+                foreach ($baseZones as $zone)
+                    if ($zone->building && $zone->zombies <= 3)
+                        $zone->addZombie( mt_rand(1, 4) );
+
+                if (!(count($leaders) > 0 && $nbLeader >= count($leaders))) {
+                    while ( count($leaders) < $nbLeader )
+                        ZombieSpawnBehaviour::OwnWay( $leaders, $this->random->pick( $zones ), $grid_max - $grid_min + 1, $this->random );
+
+                    $i = 0;
+                    while ($i < count($orderedZones) && $i < 10) {
+                        $zone = $orderedZones[$i];
+                        if ($zone->zombies > 20)
+                            $leaders[] = new ZombieSpawnBehaviour( HordeSpawnBehaviourType::Move, $zone,
+                                out: true, tx: $zone->x, ty: $zone->y, max: 3, power: $zone->zombies * 2
+                            );
+                        $i++;
+                    }
+                }
+
+                // Diffuse leads
+                foreach ($leaders as $leader)
+                    switch ($leader->type) {
+                        case HordeSpawnBehaviourType::Grow:
+                            $d = 15 + $leader->power * 10;
+                            $leader->zone->addLead( $leader, $d );
+                            $max = $leader->power < 4 ? 1 : mt_rand( 1, 2 );
+                            for ($x = $leader->zone->x - $max; $x <= $leader->zone->x + $max; $x++)
+                                for ($y = $leader->zone->y - $max; $y <= $leader->zone->y + $max; $y++) {
+                                    $z = $grid($x,$y);
+                                    if (!$z || $z->town) continue;
+                                    $z->addLead( $leader, $d * ($mt_distanceAttenuation[ ZombieSpawnZone::getZoneLevel( $leader->zone, $z ) ] ?? 0) );
+                                }
+                            break;
+                        case HordeSpawnBehaviourType::Eat:
+                            $leader->zone->addLead( $leader, 15 );
+                            break;
+                        case HordeSpawnBehaviourType::Move:
+                            if ($leader->max <= 0) break;
+                            for ($x = $leader->zone->x - $leader->max; $x <= $leader->zone->x + $leader->max; $x++)
+                                for ($y = $leader->zone->y - $leader->max; $y <= $leader->zone->y + $leader->max; $y++) {
+                                    $z = $grid($x,$y);
+                                    if (!$z || $z->town) continue;
+                                    $z->addLead( $leader, $leader->power * ($mt_distanceAttenuation[ ZombieSpawnZone::getZoneLevel( $leader->zone, $z ) ] ?? 0) );
+                                }
+
+                            break;
+
+                    }
+
+                // Apply leads
+                foreach ($baseZones as $zone) {
+                    if ($zone->town) continue;
+
+                    $zc = $zone->zombies;
+
+                    while ( $zc > 0 && $zl = $zone->getBehaviour( $this->random ) )
+                        switch ($zl->type) {
+                            case HordeSpawnBehaviourType::Grow:
+                                $p = $zl->power;
+                                while ($p > 0) {
+                                    /** @var ?ZombieSpawnZone $z2 */
+                                    $z2 = $this->random->pick( $star($zl->zone, true) );
+                                    if (!$z2 || $z2->town) continue;
+                                    $z2->addZombie();
+                                    $p--;
+                                    $zc -= mt_rand(1,2);
+                                }
+                                break;
+                            case HordeSpawnBehaviourType::Eat:
+                                if ($zone->zombies <= 0) break;
+                                $k = mt_rand( 0, floor( $zl->power / 10 ) );
+                                $zone->killZombie( $k );
+                                $zc -= $k * 2;
+                                break;
+                            case HordeSpawnBehaviourType::Move:
+
+                                if (!($tz = $grid( $zl->tx, $zl->tx ))) break;
+                                $tlevel = ZombieSpawnZone::getZoneLevel( $zone, $tz );
+                                $v = [ $tz->x - $zone->x, $tz->y - $zone->y ];
+                                $motivation = floor( $zl->power / 5 );
+
+                                for ($n = 0; $n <= $zc; $n++) {
+                                    if (!$zl->out) {
+                                        $m = mt_rand(0, $tlevel + floor($motivation / 2) - 1);
+                                        if ($m === 0) continue;
+
+                                        $p = $m / ($tlevel + floor($motivation / 2));
+                                        $dx = floor($v[0] * $p);
+                                        $dy = floor($v[1] * $p);
+
+                                    } else {
+
+                                        $d = floor(max(1, 15 - $tlevel - floor($motivation / 2)));
+                                        $m = mt_rand(0, $d - 1);
+                                        if ($m === 0) continue;
+
+                                        $p = 1 - $m / $d;
+                                        $dx = $v[0] == 0 ? $this->random->pick([-1, 1]) * mt_rand(0, 1) : floor($v[0] * -$p);
+                                        $dy = $v[1] == 0 ? $this->random->pick([-1, 1]) * mt_rand(0, 1) : floor($v[1] * -$p);
+                                    }
+
+                                    $z2 = $grid($zone->x + $dx, $zone->y + $dy);
+                                    if (!$z2 || $z2->town) {
+                                        $r1 = mt_rand(0, 1);
+                                        $r2 = 1 - $r1;
+                                        $z2 = $grid($zone->x + $dx + $this->random->pick([-1, 1]) * $r1, $zone->y + $dy + $this->random->pick([-1, 1]) * $r2);
+                                        if (!$z2 || $z2->town) continue;
+
+                                        $z2->addZombie();
+                                        $zone->killZombie();
+                                    }
+
+                                    $motivation++;
+                                }
+
+                                break;
+                        }
+                }
+
+                break;
+
             default: throw new \Exception('Invalid governor.');
         }
 
         // Final
-
         foreach ($baseZones as $zone) {
+            $zone->zone->setScoutEstimationOffset( $zone->town ? 0 : mt_rand(-2,2) );
+
             if ($zone->town) continue;
 
             $zone->zone
                 ->setZombies( $zone->zombies )
                 ->setInitialZombies( $zone->zombies )
-                ->setPlayerDeaths(0 )
-                ->setScoutEstimationOffset( mt_rand(-2,2) );
+                ->setPlayerDeaths(0 );
         }
     }
 }
