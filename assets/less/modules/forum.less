@@ -361,9 +361,16 @@ ul.subscriptions {
 }
 
 .forum-note {
+  position: relative;
+
   &>b:first-child {
     display: block; background: #965c36; padding: 4px; font-variant: small-caps; overflow: hidden; white-space: nowrap;
     text-overflow: ellipsis;
+    &+span {
+      position: absolute;
+      top: 5px; right: 3px;
+      opacity: 0.8;
+    }
   }
   font-size: 1.1rem; background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border: 1px solid #704328;

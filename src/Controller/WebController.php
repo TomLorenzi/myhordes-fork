@@ -462,8 +462,10 @@ class WebController extends CustomAbstractController
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find( $uid );
         if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
-        if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name) || $user->getAvatar()->getFormat() !== $ext)
+        if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name))
             return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
+        if ($user->getAvatar()->getFormat() !== $ext)
+            return $this->redirectToRoute( 'app_web_avatar', ['uid' => $uid, 'name' => $name, 'ext' => $user->getAvatar()->getFormat()] );
 
         $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
         return $this->image_output($target, $name, $ext);
