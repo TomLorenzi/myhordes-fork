@@ -7,6 +7,7 @@ use App\Entity\Inventory;
 use App\Entity\RuinZone;
 use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
+use App\Service\AdminLog;
 use App\Service\ConfMaster;
 use App\Service\RandomGenerator;
 use App\Structures\TownConf;
@@ -17,6 +18,11 @@ use Graphp\Algorithms\ConnectedComponents;
 
 class MazeMaker
 {
+
+    // -----------------------------------------------------------------------------------------
+    // 
+    // -----------------------------------------------------------------------------------------
+
     private EntityManagerInterface $entity_manager;
     private RandomGenerator $random;
     private ConfMaster $conf;
@@ -24,35 +30,129 @@ class MazeMaker
     private float $joinPathProbability = 0.2;
     private bool $enableOpenArea = false;
 
-    public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c)
+    private Zone $targetZone;
+
+    private AdminLog $logger;
+
+    const mazeSizeX = 13;
+    const mazeSizeY = 13;
+    const mazeOffsetX = -7;
+    const mazeOffsetY = 1;
+        
+    const minStepDirection = 3;
+    
+    // --------
+
+    public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c, AdminLog $l)
     {
+        $this->logger = $l;
         $this->entity_manager = $em;
         $this->random = $r;
         $this->conf = $c;
     }
 
-    public function createField( Zone $base, int $levels = 1 ) {
+    // -----------------------------------------------------------------------------------------
+    // Parameter Setters
+    // -----------------------------------------------------------------------------------------
 
-        $base->setExplorableFloors($levels)->addRuinZone((new RuinZone())
-            ->setCorridor(RuinZone::CORRIDOR_NONE)
-            ->setY(0)
-            ->setX(0)
-            ->setZ(0)
-            ->setZombies(0)
-            ->setFloor(new Inventory()));
-
-        for ($x = -7; $x <= 5; $x++)
-            for ($y = 1; $y <= 13; $y++)
-                for ($z = 0; $z < $levels; $z++)
-                    $base->addRuinZone((new RuinZone())
-                        ->setCorridor(RuinZone::CORRIDOR_NONE )
-                        ->setY($y)
-                        ->setX($x)
-                        ->setZ($z)
-                        ->setZombies(0)
-                        ->setFloor(new Inventory())
-                    );
+    public function setTargetZone(Zone $zone) {
+        $this->targetZone = $zone;
     }
+
+    // -----------------------------------------------------------------------------------------
+    // Setup function
+    // -----------------------------------------------------------------------------------------
+
+    private function createAndAddRuinZone(int $x, int $y, int $z) {
+        $this->logger->invoke("[{$x},{$y},{$z}]");
+        $this->targetZone->addRuinZone((new RuinZone())
+                ->setCorridor(RuinZone::CORRIDOR_NONE)
+                ->setY($y)
+                ->setX($x)
+                ->setZ($z)
+                ->setZombies(0)
+                ->setFloor(new Inventory()));
+    }
+    
+    // --------
+
+    private function resetOneRuinZone(RuinZone $ruinZone)
+    {
+        $ruinZone->setCorridor(RuinZone::CORRIDOR_NONE);
+        $ruinZone->setConnect(0);
+        $ruinZone->setDistance(9999);
+        $ruinZone->setRoomDistance(9999);
+        $ruinZone->setDigs(0);
+        $ruinZone->setPrototype( null );
+        $ruinZone->setLocked( false );
+        $ruinZone->setDoorPosition( 0 );
+        $ruinZone->setUnifiedDecals( mt_rand(0,0xFFFFFFFF) );
+        $ruinZone->setZombies(0)->setKilledZombies(0);
+
+        if ($ruinZone->getRoomFloor()) {
+            $this->entity_manager->remove( $ruinZone->getRoomFloor() );
+            $ruinZone->setRoomFloor(null);
+        }
+    }
+
+    // --------
+
+    private function resetMazeContent()
+    {
+        if ($this->targetZone == null) {
+            return;
+        }
+
+        foreach ($this->targetZone->getRuinZones() as $ruinZone) {
+            $this->resetOneRuinZone($ruinZone);
+        }
+    }
+    
+    // --------
+
+    public function createField() {
+
+        if ($this->targetZone == null) {
+            return;
+        }
+
+        // Create a cache. The idea is if we regenerate the maze, we don't destroy existing case, we just create the missing one. 
+        // So we check the one that already exist
+        $cache = [];
+        foreach ($this->targetZone->getRuinZones() as $ruinZone) {
+            $this->logger->invoke("ADD TO CACHE :: [{$ruinZone->getX()},{$ruinZone->getY()},{$ruinZone->getZ()}]");
+            if (!isset($cache[$ruinZone->getZ()]))  {
+                $cache[$ruinZone->getZ()] = [];
+            }
+            if (!isset($cache[$ruinZone->getZ()][$ruinZone->getX()])) {
+                $cache[$ruinZone->getZ()][$ruinZone->getX()] = [];
+            }
+            if (!isset($cache[$ruinZone->getZ()][$ruinZone->getX()][$ruinZone->getY()])) {
+                $cache[$ruinZone->getZ()][$ruinZone->getX()][$ruinZone->getY()] = $ruinZone;
+            }
+        }
+
+        if (!isset($cache[0][0][0]))
+        {
+            $this->createAndAddRuinZone(0, 0, 0);
+        }
+
+        for ($x = self::mazeOffsetX; $x < self::mazeOffsetX + self::mazeSizeX; $x++) {
+            for ($y = self::mazeOffsetY; $y < self::mazeOffsetY + self::mazeSizeY; $y++) {
+                for ($z = 0; $z < $this->targetZone->getExplorableFloors(); $z++) {
+                    
+                    if (!isset($cache[$z][$x][$y]))
+                    {
+                        $this->createAndAddRuinZone($x, $y, $z);
+                    }
+                }
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------
+    // graphyfy
+    // -----------------------------------------------------------------------------------------
 
     private function graphyfy(array $use_binary, ?array &$nodes, ?array &$flat_nodes): Graph {
         $graph = new Graph();
@@ -88,6 +188,10 @@ class MazeMaker
 
         return $graph;
     }
+
+    // -----------------------------------------------------------------------------------------
+    // dykstra(Did you mean Dijkstra ?)
+    // -----------------------------------------------------------------------------------------
 
     /**
      * @param RuinZone[][] $cache
@@ -140,60 +244,57 @@ class MazeMaker
 
     }
 
-    public function generateCompleteMaze( Zone $base ) {
+    // -----------------------------------------------------------------------------------------
+    // Global generation
+    // -----------------------------------------------------------------------------------------
 
-        $levels = $base->getExplorableFloorFactor();
-        $invert = $base->getPrototype()->getExplorableSkin() === 'bunker';
+    public function generateCompleteMaze() {
+
+        if ($this->targetZone == null) {
+            return;
+        }
+
+        $this->resetMazeContent();
+
+        $levels = $this->targetZone->getExplorableFloors();
+        $invert = $this->targetZone->getPrototype()->getExplorableSkin() === 'bunker';
 
         $origin = [0,0];
         $originOffset = 0;
 
         for ($i = 0; $i < $levels; $i++) {
-            $originZone = $this->generateMaze($base, $i, $origin, $originOffset, $i < ($levels-1), $invert);
+            $this->generateMaze($i, $origin, $originOffset);
+            $originZone = $this->generateRoom($i, $origin, $originOffset, $i < ($levels-1), $invert);
             if (!$originZone) break;
             $origin = [ $originZone->getX(), $originZone->getY() ];
             $originOffset += $originZone->getDistance() + 1;
         }
 
-        $this->populateMaze( $base,$this->conf->getTownConfiguration( $base->getTown() )->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) * $levels );
+        $this->populateMaze($this->conf->getTownConfiguration( $this->targetZone->getTown() )->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) * $levels );
     }
 
-    protected function generateMaze( Zone $base, int $level = 0, array $origin = [0,0], int $offset_distance = 0, bool $go_up = false, bool $invertDirections = false ): ?RuinZone {
+    // -----------------------------------------------------------------------------------------
+    // Maze Corridor generation
+    // -----------------------------------------------------------------------------------------
+
+    /**
+     * @param int $level
+     * @param array $origin
+     * @param int $offset_distance
+     */
+    protected function generateMaze( int $level = 0, array $origin = [0,0], int $offset_distance = 0 ) {
 
         /** @var RuinZone[][] $cache */
-        $cache = []; $binary = []; $n = 0;
-        foreach ($base->getRuinZonesOnLevel($level) as $ruinZone) {
+        $cache = []; $binary = []; 
+        foreach ($this->targetZone->getRuinZonesOnLevel($level) as $ruinZone) {
             if (!isset($cache[$ruinZone->getX()])) $cache[$ruinZone->getX()] = [];
             if (!isset($cache[$ruinZone->getX()][$ruinZone->getY()])) {
-                $cache[$ruinZone->getX()][$ruinZone->getY()] = $ruinZone
-                    ->setCorridor(RuinZone::CORRIDOR_NONE)
-                    ->setConnect(0)
-                    ->setDistance(9999)
-                    ->setRoomDistance(9999)
-                    ->setDigs(0)
-                    ->setPrototype( null )
-                    ->setLocked( false )
-                    ->setDoorPosition( 0 )
-                    ->setUnifiedDecals( mt_rand(0,0xFFFFFFFF) )
-                    ->setZombies(0)->setKilledZombies(0);
-
-                if ($ruinZone->getRoomFloor()) {
-                    $this->entity_manager->remove( $ruinZone->getRoomFloor() );
-                    $ruinZone->setRoomFloor(null);
-                }
-
+                $cache[$ruinZone->getX()][$ruinZone->getY()] = $ruinZone;
                 $binary[$ruinZone->getX()][$ruinZone->getY()] = false;
-                $n++;
             }
         }
 
         $binary[$origin[0]][$origin[1]] = true;
-
-        $conf =  $this->conf->getTownConfiguration( $base->getTown() );
-        $complexity = $conf->get(TownConf::CONF_EXPLORABLES_COMPLEXITY, 0.5);
-        $convolution = $conf->get(TownConf::CONF_EXPLORABLES_CONVOLUTION, 0.75);
-        $cruelty     = $conf->get(TownConf::CONF_EXPLORABLES_CRUELTY, 0.06);
-
 
         // Returns true if the given coordinates point to an existing zone
         $exists = function(int $x, int $y) use (&$cache): bool {
@@ -204,54 +305,6 @@ class MazeMaker
         $corridor = function(int $x, int $y) use (&$binary,&$exists): bool {
             return $exists($x,$y) && $binary[$x][$y];
         };
-
-        // Returns true if the given coordinates point to an existing zone that is not yet a corridor, but could be
-        // turned into one without breaking the map rules
-        $valid = function(int $x, int $y) use (&$corridor,&$exists): bool {
-            return $exists($x,$y) && !$corridor($x,$y) &&
-                (!$corridor($x-1,$y) || !$corridor($x,$y-1) || !$corridor($x-1,$y-1)) &&
-                (!$corridor($x+1,$y) || !$corridor($x,$y-1) || !$corridor($x+1,$y-1)) &&
-                (!$corridor($x-1,$y) || !$corridor($x,$y+1) || !$corridor($x-1,$y+1)) &&
-                (!$corridor($x+1,$y) || !$corridor($x,$y+1) || !$corridor($x+1,$y+1));
-        };
-
-        // Returns true if the given coordinates point to an existing zone that is a corridor and can spawn additional
-        // pathways
-        $valid_intersection = function(int $x, int $y) use (&$corridor,&$valid): bool {
-            return $corridor($x,$y) && ($valid($x+1,$y) || $valid($x-1,$y) || $valid($x,$y+1) || $valid($x,$y-1));
-        };
-
-        // Attempts to mark the coordinates as intersection if possible
-        $mark_intersection = function(int $x, int $y) use (&$valid_intersection, &$intersections, &$binary): bool {
-            if ($valid_intersection($x,$y) && !isset($intersections["$x/$y"])) {
-                $intersections["$x/$y"] = [$x,$y];
-                return true;
-            } return false;
-        };
-
-        // Removes coordinates from intersection list
-        $unmark_intersection = function(int $x, int $y) use (&$intersections) {
-            unset($intersections["$x/$y"]);
-        };
-
-        // Returns a random intersection, or null if none is left
-        $get_intersection = function() use (&$intersections): ?array {
-            return $this->random->pick($intersections);
-        };
-
-        // Turns an existing zone into a corridor
-        $add = function($x, $y) use (&$binary,&$exists) {
-            if ($exists($x,$y)) $binary[$x][$y] = true;
-        };
-
-        // Returns the number of neighbor corridors for a zone
-        $neighbors = function($x,$y) use (&$corridor): int {
-            return
-                ($corridor($x+1,$y) ? 1 : 0) + ($corridor($x-1,$y) ? 1 : 0) +
-                ($corridor($x,$y+1) ? 1 : 0) + ($corridor($x,$y-1) ? 1 : 0);
-        };
-
-        // MY CODE
 
         // Invalidated max ? Kezako ?
         $head = $cache[$origin[0]][$origin[1]];
@@ -274,10 +327,11 @@ class MazeMaker
                 $d = $dirs[$indexToChange];
                 array_splice($dirs, $indexToChange, 1);
                 array_unshift($dirs, $d);
-                $dTime = 3 /*minStep*/ + mt_rand(0, 1);
+                $dTime = self::minStepDirection + mt_rand(0, 1);
             }
 
             $next = null;
+            // Check all directions
             foreach ($dirs as &$dir)
             {
 				// Sometime we skip a direction
@@ -335,8 +389,6 @@ class MazeMaker
 				$head = $next;
 			}	
         }
-        // /MY CODE
-        // OLD CODE BELOW
 
         // Build the actual map
         foreach ($cache as $x => $line)
@@ -356,7 +408,40 @@ class MazeMaker
             function (RuinZone $r): int { return $r->getDistance(); },
             function (RuinZone $r, int $i): void { $r->setDistance( $i ); }
         );
+    }
 
+    // -----------------------------------------------------------------------------------------
+    // Maze Room generation
+    // -----------------------------------------------------------------------------------------
+    /**
+     * @param int $level
+     * @param array $origin
+     * @param int $offset_distance
+     * @param bool $go_up
+     * @param bool $invertDirections 
+     */
+    public function generateRoom(int $level = 0, array $origin = [0,0], int $offset_distance = 0, bool $go_up = false, bool $invertDirections = false): ?RuinZone {
+        $cache = [];
+        foreach ($this->targetZone->getRuinZonesOnLevel($level) as $ruinZone) {
+            if ($ruinZone->getCorridor() != RuinZone::CORRIDOR_NONE)
+            {
+                if (!isset($cache[$ruinZone->getX()]))  {
+                    $cache[$ruinZone->getX()] = [];
+                }
+                if (!isset($cache[$ruinZone->getX()][$ruinZone->getY()])) {
+                    $cache[$ruinZone->getX()][$ruinZone->getY()] = $ruinZone;
+                }
+            }
+        }
+
+        // Returns true if the given coordinates point to an existing corridor
+        $exists = function(int $x, int $y) use (&$cache): bool {
+            return (isset($cache[$x]) && isset($cache[$x][$y]));
+        };
+
+
+        $conf =  $this->conf->getTownConfiguration( $this->targetZone->getTown() );
+        
         // Let's add some rooms!
         $room_distance = $conf->get(TownConf::CONF_EXPLORABLES_ROOMDIST,   5) + $offset_distance;
         $lock_distance = $conf->get(TownConf::CONF_EXPLORABLES_LOCKDIST,  10);
@@ -365,12 +450,13 @@ class MazeMaker
 
         // Room candidates
         $room_candidates = [];
-        foreach ($cache as $x => $line)
-            foreach ($line as $y => $ruinZone)
-                if ($corridor($x,$y) && ($x * $y !== 0) && $ruinZone->getDistance() > $room_distance) {
+        foreach ($cache as $x => $line) {
+            foreach ($line as $y => $ruinZone) {
+                if ($exists($x,$y) && ($x * $y !== 0) && $ruinZone->getDistance() > $room_distance) {
                     $room_candidates[] = $ruinZone;
                 }
-
+            }
+        }
 
         // Get room types
         $locked_room_types = $this->entity_manager->getRepository(RuinZonePrototype::class)->findLocked();
@@ -435,7 +521,7 @@ class MazeMaker
         }
 
         // Place decals
-        foreach ($cache as $x => $line)
+        foreach ($cache as $x => $line) {
             foreach ($line as $y => $ruinZone) {
                 // Get decal value
                 $decal_filter = 0;
@@ -459,20 +545,24 @@ class MazeMaker
 
                 $ruinZone->setUnifiedDecals( $ruinZone->getUnifiedDecals() & (~$decal_filter) );
             }
+        }
 
         return $up_position;
     }
 
+
+    // -----------------------------------------------------------------------------------------
+    // Maze Population generation
+    // -----------------------------------------------------------------------------------------
     /**
-     * @param Zone $base
      * @param int $zeds
      * @param bool|false $reposition
      * @param bool $clear_bodies
      * @param RuinZone[] $skip_zone
      */
-    public function populateMaze( Zone $base, int $zeds, bool $reposition = false, bool $clear_bodies = true, array $skip_zone = [] ) {
+    public function populateMaze( int $zeds, bool $reposition = false, bool $clear_bodies = true, array $skip_zone = [] ) {
         /** @var RuinZone[] $ruinZones */
-        $ruinZones = $base->getRuinZones()->getValues();
+        $ruinZones = $this->targetZone->getRuinZones()->getValues();
         if ($reposition || $clear_bodies)
             foreach ($ruinZones as $ruinZone) {
                 if ($clear_bodies) $ruinZone->setKilledZombies(0);

@@ -166,8 +166,10 @@ class MapMaker
 
             if ($spawn_zone) {
                 $spawn_zone->setPrototype($spawning_ruin);
-                $this->maze_maker->createField( $spawn_zone, $conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1) );
-                $this->maze_maker->generateCompleteMaze( $spawn_zone );
+                $this->maze_maker->setTargetZone($spawn_zone);
+                $spawn_zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+                $this->maze_maker->createField();
+                $this->maze_maker->generateCompleteMaze();
 
                 $zombies_base = 1 + floor(min(1,sqrt( pow($spawn_zone->getX(),2) + pow($spawn_zone->getY(),2) )/18) * 3);
                 $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );

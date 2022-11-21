@@ -41,6 +41,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Enum\ItemPoisonType;
 use App\Response\AjaxResponse;
+use App\Service\AdminLog;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -789,6 +790,9 @@ class AdminTownController extends AdminActionController
                     foreach ($citizen->getHome()->getChest()->getItems() as $item)
                         $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 }
+                break;
+            case 'admin_regenerate_ruins':
+
                 break;
             case 'set_town_base_def':
                 $town->setBaseDefense($param);
@@ -2210,7 +2214,7 @@ class AdminTownController extends AdminActionController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function admin_regenerate_ruins(int $id, JSONRequestParser $parser, MazeMaker $mazeMaker): Response {
+    public function admin_regenerate_ruins(int $id, JSONRequestParser $parser, MazeMaker $mazeMaker, AdminLog $logger): Response {
         /** @var Town $town */
 
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -2226,18 +2230,26 @@ class AdminTownController extends AdminActionController
             }
         }
 
+
+        $conf = $this->conf->getTownConfiguration( $town );
+
         foreach ($explorables as $zone)
         {
-            $mazeMaker->generateCompleteMaze( $zone );
-        }
 
-        try {
-            $this->entity_manager->persist($town);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
+            $mazeMaker->setTargetZone($zone);
+            $zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
 
+            $mazeMaker->createField();  
+            $mazeMaker->generateCompleteMaze();
+            
+            try {
+                $this->entity_manager->persist($town);
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                $logger->invoke(strval($e));
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+        }
         return AjaxResponse::success();
     }
 }

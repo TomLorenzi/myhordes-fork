@@ -873,7 +873,10 @@ class MigrateCommand extends Command
                     if ($spawn_zone) {
                         $output->writeln("Spawning <info>{$spawning_ruin->getLabel()}</info> at <info>{$spawn_zone->getX()} / {$spawn_zone->getY()}</info>");
                         $spawn_zone->setPrototype($spawning_ruin);
-                        $this->maze->createField( $spawn_zone, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_FLOORS, 1) );
+                        
+                        $this->maze->setTargetZone($spawn_zone);
+                        $spawn_zone->setExplorableFloors($this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+                        $this->maze->createField();
                         $this->maze->generateCompleteMaze( $spawn_zone );
                     }
 
