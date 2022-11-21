@@ -83,6 +83,6 @@ Pate: Patrocinador
 'Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.': 'Tu nombre de usuario de Eternaltwin contiene elementos que no están permitidos en MyHordes. Debes cambiar tu nombre de Eternaltwin para poder ingresar en MyHordes.'
 'Der eingegebene Spieler ist nicht für das Patenschafts-Programm registriert. Bitte ihn, die "Freundschaft"-Seite in seiner Seele aufzurufen; er wird dann automatisch registriert. Erst dann kannst du ihn als Sponsor auswählen.': 'El jugador que indicaste actualmente no está registrado en el programa de Patrocinio. Pídele que vaya a la pestaña "Patrocinio" en su alma; esto lo registrará automáticamente. Solo entonces podrás elegirlo como tu Patrocinador.'
 'Deine E-Mail-Adresse wurde erfolgreich geändert.': 'Has cambiado tu correo electrónico correctamente.'
-'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.'
-Registrierungstoken: Registrierungstoken
-'Dieser Token ist für die Registrierung erforderlich.': 'Dieser Token ist für die Registrierung erforderlich.'
+'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'La ficha de inscripción no es válida o ya ha sido utilizada.'
+Registrierungstoken: Ficha de inscripción
+'Dieser Token ist für die Registrierung erforderlich.': 'Una ficha de inscripción es necesaria para crear una cuenta.'
