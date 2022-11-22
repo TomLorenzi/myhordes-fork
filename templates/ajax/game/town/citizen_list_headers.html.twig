@@ -7,7 +7,11 @@
         {% for name,role in votesNeeded %}
             {% if role %}
                 <li class="tab {% if active_tab is defined and active_tab == ('role_' ~ role.id) %}selected{% endif %}">
-                    <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}"><img alt="" src="{{ asset('build/images/item/item_bureau.gif') }}" /> {{ role.label|trans({}, 'game') }}</div>
+                    <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}">
+                        <img alt="" src="{{ asset('build/images/item/item_bureau.gif') }}" />
+                        <img  class="hide-desktop" alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                        <span class="hide-sm hide-md hide-lg">{{ role.label|trans({}, 'game') }}</span>
+                    </div>
                 </li>
             {% endif %}
         {% endfor %}

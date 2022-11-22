@@ -11,6 +11,7 @@
 {% macro display_thread_list( list, fid, icon, title, select, jump, permission, town = false, add_seperators = false, paranoid = false, post_page = -1 ) %}
     <div class="forum-note thread-list-{{ icon }}">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
+        <span>{{ 'Antw.'|trans({},'global') }}</span>
         {% set last_day = 'today'|to_date %}
         {% for thread in list %}
             {% set postUrl = path('forum_viewer_controller', {fid: fid, tid: thread.id }) %}
