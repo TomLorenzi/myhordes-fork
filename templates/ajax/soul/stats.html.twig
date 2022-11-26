@@ -1,0 +1,91 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Die Zukunft'|trans({}, 'game')|raw}}{% endblock %}
+{% block menu_text %}
+    {{ parent() }}
+{% endblock %}
+{% block soul_content %}
+
+    {% include "ajax/soul/future_shell.html.twig" with { future_tab: "stats" } %}
+
+    <div class="news">
+        <div class="head">
+            <div class="title center hide-lg hide-md hide-sm"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{ 'Statistiken'|trans({},'soul') }}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
+        </div>
+        <div class="title center hide-desktop"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{ 'Statistiken'|trans({},'soul') }}</span><img alt="" src="{{ asset('build/images/log/build.gif') }}" /></div>
+
+        <div class="row">
+            <div class="cell padded rw-12">
+                <div class="help">
+                    <b>{{ 'Schon gewusst?'|trans({},'global') }}</b>
+                    {{ 'Auf dieser Seite findest du Statistiken über MyHordes, wie zum Beispiel die Zahl aktiver Spieler. Wir veröffentlichen diese Statistiken, um euch gegenüber die höchstmögliche Transparenz zu bieten.'|trans({},'soul') }}
+                    <br />
+                    {{ 'Diese Statistiken werden nicht live berechnet, sondern in regelmäßigen Abständen (meist einmal pro Tag) aktualisiert.'|trans({},'soul') }}
+                </div>
+            </div>
+        </div>
+
+        <h1 class="page-head">{{ 'Aktive Spieler'|trans({},'global') }}</h1>
+        {% if byLang_total > 0 and byLang_total_month > 0 %}
+            <div class="row">
+            <div class="padded cell rw-6 rw-md-12">
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="padded cell rw-12">{{ 'Täglich aktive Spieler (Durchschn.)'|trans({},'global') }}</div>
+                    </div>
+                    {% for lang, count in byLang %}
+                        <div class="row">
+                            <div class="padded cell rw-2 rw-sm-4">
+                                <img src="{{ asset("build/images/lang/" ~ lang ~ ".png") }}" alt="{{ lang }}" />
+                            </div>
+                            <div class="padded cell rw-10 rw-sm-8">
+                                {{ count }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="padded cell rw-2 rw-sm-4">
+                            <strong>∑</strong>
+                        </div>
+                        <div class="padded cell rw-10 rw-sm-8">
+                            {{ byLang_total }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="padded cell rw-6 rw-md-12">
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="padded cell rw-12">{{ 'Monatlich aktive Spieler'|trans({},'global') }}</div>
+                    </div>
+                    {% for lang, count in byLang_month %}
+                        <div class="row">
+                            <div class="padded cell rw-2 rw-sm-4">
+                                <img src="{{ asset("build/images/lang/" ~ lang ~ ".png") }}" alt="{{ lang }}" />
+                            </div>
+                            <div class="padded cell rw-10 rw-sm-8">
+                                {{ count }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="padded cell rw-2 rw-sm-4">
+                            <strong>∑</strong>
+                        </div>
+                        <div class="padded cell rw-10 rw-sm-8">
+                            {{ byLang_total_month }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <div class="note note-critical">
+                        {{ 'Leider haben wir aktuell keine Daten, die wir hier anzeigen könnten... Bitte schau in Kürze erneut vorbei.'|trans({},'soul') }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

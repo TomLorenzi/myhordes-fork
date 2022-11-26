@@ -13,6 +13,10 @@
                 <img src="{{ asset('build/images/icons/small_talk.gif') }}" alt=""/>
                 {{ 'Umfragen'|trans({},'soul') }}
             </div></li>
+            <li class="tab {% if future_tab is defined and future_tab == 'stats' %}selected{% endif %}"><div class="tab-link" x-ajax-href="{{ path('soul_stats') }}">
+                <img src="{{ asset('build/images/icons/small_action.gif') }}" alt=""/>
+                {{ 'Statistiken'|trans({},'soul') }}
+            </div></li>
         </ul>
     </div>
 </div>
