@@ -7,8 +7,10 @@ namespace App\Command;
 use App\Entity\Announcement;
 use App\Entity\AttackSchedule;
 use App\Entity\EventAnnouncementMarker;
+use App\Entity\Statistic;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Enum\StatisticType;
 use App\Service\AdminHandler;
 use App\Service\AntiCheatService;
 use App\Service\CommandHelper;
@@ -19,6 +21,7 @@ use App\Service\GameProfilerService;
 use App\Service\GazetteService;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
+use App\Service\Statistics\UserStatCollectionService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
@@ -26,6 +29,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
 use DirectoryIterator;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use SplFileInfo;
@@ -63,6 +67,7 @@ class CronCommand extends Command
     private GameProfilerService $gps;
     private Environment $twig;
     private AdminHandler $adminHandler;
+    private UserStatCollectionService $userStats;
 
     private array $db;
 
@@ -70,7 +75,7 @@ class CronCommand extends Command
                                 EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
-                                GameProfilerService $gps, AdminHandler $adminHandler)
+                                GameProfilerService $gps, AdminHandler $adminHandler, UserStatCollectionService $us)
     {
         $this->kernel = $kernel;
         $this->twig = $twig;
@@ -90,6 +95,7 @@ class CronCommand extends Command
         $this->params = $params;
         $this->gps = $gps;
         $this->adminHandler = $adminHandler;
+        $this->userStats = $us;
 
         $this->db = $db;
         parent::__construct();
@@ -104,6 +110,31 @@ class CronCommand extends Command
             ->addArgument('p1',  InputArgument::OPTIONAL, 'Parameter 1', -1)
             ->addArgument('p2',  InputArgument::OPTIONAL, 'Parameter 2', -1)
             ;
+    }
+
+    protected function module_run_collect_stats(): bool {
+        $missing_stat = false;
+        foreach (StatisticType::playerStatTypes() as $playerStatType) {
+
+            $missing_stat |= $needed = $this->entityManager->getRepository(Statistic::class)->matching(
+                (new Criteria())->where(
+                    Criteria::expr()->gte( 'created', new DateTime('today') )
+                )->andWhere(
+                    Criteria::expr()->eq( 'type', $playerStatType )
+                )
+            )->isEmpty();
+
+            if ($needed)
+                $this->entityManager->persist((new Statistic())
+                    ->setType($playerStatType)
+                    ->setCreated(new DateTime('now'))
+                    ->setPayload($this->userStats->collectData($playerStatType->cutoffDate(), ['de', 'en', 'es', 'fr']))
+                );
+        }
+
+        if ($missing_stat) $this->entityManager->flush();
+
+        return $missing_stat;
     }
 
     protected function module_run_backups(OutputInterface $output): ?string {
@@ -360,6 +391,9 @@ class CronCommand extends Command
 
         $backup_ran = $this->module_run_backups($output);
         $output->writeln( "Backup scheduler: <info>" . ($backup_ran ?? 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
+
+        $stats_ran = $this->module_run_collect_stats();
+        $output->writeln( "Statistics scheduler: <info>" . ($stats_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
 
         $attacks_ran = $this->module_run_attacks($output);
         $output->writeln( "Attack scheduler: <info>" . ($attacks_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
