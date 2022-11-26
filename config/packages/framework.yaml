@@ -28,3 +28,4 @@ when@test:
 when@prod:
   framework:
     error_controller: App\Controller\WebController::render_error_framework
+    http_cache: true

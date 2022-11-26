@@ -27,6 +27,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\EventListener\AbstractSessionListener;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Cache\ItemInterface;
 
@@ -41,7 +42,7 @@ class UserStatisticsController extends CustomAbstractCoreController
      * @Route("/daily-active-users", name="list-dau", methods={"GET"}, defaults={"dateDiff"="24hour"})
      * @Route("/monthly-active-users", name="list-mau", methods={"GET"}, defaults={"dateDiff"="30day"})
      * @Route("/yearly-active-users", name="list-yau", methods={"GET"}, defaults={"dateDiff"="1year"})
-     * @Cache(smaxage="43200")
+     * @Cache(smaxage="43200", mustRevalidate=false, public=true)
      * @param EntityManagerInterface $em
      * @param string $dateDiff
      * @return JsonResponse
