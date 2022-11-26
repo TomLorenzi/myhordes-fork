@@ -17,6 +17,7 @@ use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
+use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemInfoAttachment;
 use App\Entity\ItemPrototype;
@@ -845,6 +846,8 @@ class NightlyHandler
         $no_watch_items_citizens = [];
 
         foreach ($watchers as $watcher) {
+            $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
+
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) * $def_scale) : 0;
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
@@ -896,14 +899,14 @@ class NightlyHandler
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$defBonus</info> zombies from his watch");
 
                 $null = null;
-                $used_items = 0;
                 foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getNightWatchAction()) {
                         $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info> : '<info>{$item->getPrototype()->getNightWatchAction()->getName()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
                         $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
                         $used_items++;
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
-                    }
+                    } else if ($item->getPrototype()->getWatchpoint())
+                        $used_items++;
 
                 if ($used_items === 0) $no_watch_items_citizens[] = $watcher->getCitizen();
 
