@@ -122,6 +122,7 @@ class MigrateCommand extends Command
         '45c0b9f06dd82928e6d979229f9588a634d13828' => [ ['app:migrate', ['--adjust-sandball-pictos3' => true] ] ],
         'a759042d47a803078d40cd650fbc96a9fc92737b' => [ ['app:migrate', ['--fix-soul-reset' => true] ] ],
         //'02450bd175f6937e4c3d9641d1249beff1a414b3' => [ ['app:media:compress', [] ] ]
+        '8a87dbab808e1222eda7d7a9e3677096d40a43f3' => [ ['app:migrate', ['--fix-soul-picto-count' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
