@@ -611,7 +611,7 @@ class InventoryAwareController extends CustomAbstractController
         if ($direction === 'down' && $allow_down_all && $item && in_array($item->getPrototype()->getName(), $carrier_items)) {
 
             $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $item) {
-                return $i !== $item && in_array($i->getPrototype()->getName(), $carrier_items);
+                return $i !== $item && in_array($i->getPrototype()->getName(), /*$carrier_items*/[]);   // Fix watcher/belt abuse
             }));
 
             if (!$has_other_carriers) {

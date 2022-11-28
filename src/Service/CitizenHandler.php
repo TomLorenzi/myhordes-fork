@@ -776,19 +776,20 @@ class CitizenHandler
     }
 
     public function getNightwatchProfessionDefenseBonus(Citizen $citizen): int{
-        if ($citizen->getProfession()->getName() == "guardian") {
+        /*if ($citizen->getProfession()->getName() == "guardian") {
             return 30;
         } else if ($citizen->getProfession()->getName() == "tamer") {
             return 20;
-        }
-        return 0;
+        }*/
+
+        return $citizen->getProfession()->getNightwatchDefenseBonus();
     }
 
     public function getNightwatchProfessionSurvivalBonus(Citizen $citizen){
-        if ($citizen->getProfession()->getName() == "guardian") {
+        /*if ($citizen->getProfession()->getName() == "guardian") {
             return 0.04;
-        }
-        return 0;
+        }*/
+        return $citizen->getProfession()->getNightwatchSurvivalBonus();
     }
 
     public function getNightwatchBaseFatigue(Citizen $citizen): float{
