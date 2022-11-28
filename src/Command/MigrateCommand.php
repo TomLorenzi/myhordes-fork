@@ -42,9 +42,11 @@ use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -120,6 +122,7 @@ class MigrateCommand extends Command
         '45c0b9f06dd82928e6d979229f9588a634d13828' => [ ['app:migrate', ['--adjust-sandball-pictos3' => true] ] ],
         'a759042d47a803078d40cd650fbc96a9fc92737b' => [ ['app:migrate', ['--fix-soul-reset' => true] ] ],
         //'02450bd175f6937e4c3d9641d1249beff1a414b3' => [ ['app:media:compress', [] ] ]
+        '8a87dbab808e1222eda7d7a9e3677096d40a43f3' => [ ['app:migrate', ['--fix-soul-picto-count' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -219,6 +222,8 @@ class MigrateCommand extends Command
             ->addOption('prune-rp-texts', null, InputOption::VALUE_NONE, 'Makes sure the amount of unlocked RP texts matches the picto count')
             ->addOption('update-world-forums', null, InputOption::VALUE_NONE, '')
             ->addOption('update-user-settings', null, InputOption::VALUE_NONE, '')
+
+            ->addOption('fix-soul-picto-count', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -1261,6 +1266,35 @@ class MigrateCommand extends Command
             });
 
             return 0;
+        }
+
+        if ($input->getOption('fix-soul-picto-count')) {
+
+            $data = $this->entity_manager->createQueryBuilder()
+                ->select('p.id','c.points', 'p.count')
+                ->from(CitizenRankingProxy::class, 'c')
+                ->innerJoin(Picto::class, 'p', Join::WITH, 'c.town = p.townEntry and p.user = c.user and p.prototype = :pid and p.persisted = 2')
+                ->setParameter('pid', $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ptame_#00'))
+                ->where('c.points != p.count')->getQuery()->execute();
+
+            if (empty($data)) return 0;
+
+            $progress = new ProgressBar( $output->section() );
+            $progress->start(count($data));
+
+            foreach ($data as $entry) {
+                /** @var Picto $picto */
+                $picto = $this->entity_manager->getRepository(Picto::class)->find( $entry['id'] );
+                if ($picto->getCount() !== $entry['count']) throw new Exception("Invalid picto count (#{$entry['id']}), should be {$entry['count']} but is {$picto->getCount()}.");
+                if ($entry['points'] > 0)
+                    $this->entity_manager->persist( $picto->setCount( $entry['points'] ) );
+                else $this->entity_manager->remove( $picto );
+                $progress->advance();
+            }
+
+            $this->entity_manager->flush();
+            $progress->finish();
+
         }
 
         return 99;
