@@ -854,7 +854,7 @@ class NightlyHandler
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
 
-            $this->log->debug("Watcher {$watcher->getCitizen()->getUser()->getName()} chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
+            $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
 
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
@@ -870,7 +870,7 @@ class NightlyHandler
                 foreach ($ctz->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getWatchpoint() > 0 || $item->getPrototype()->getName() === 'chkspk_#00') $this->inventory_handler->forceRemoveItem( $item );
 
-                $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
+                $this->kill_wrap($ctz, $cod, false, $defBonus, $skip);
 
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
 
