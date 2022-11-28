@@ -1303,13 +1303,10 @@ class MigrateCommand extends Command
 
             $sourceRolePlayTexts = ['cave1', 'ie', 'binary'];
             foreach ($sourceRolePlayTexts as $rpKey) {
-                $output->writeln("<comment>Fetching old RP $rpKey</comment>");
                 /** @var RolePlayText $oldRp */
                 $oldRp = $this->entity_manager->getRepository(RolePlayText::class)->findOneBy(['name' => $rpKey]);
                 if (!$oldRp) continue;
-                $output->writeln("<info>Old RP $rpKey found</info>");
 
-                $output->writeln("<comment>Finding new RP matching name LIKE '$rpKey%' AND title = '{$oldRp->getTitle()}'</comment>");
                 // We search the RP that has the same title and a name starting with the one we'll remove
                 $crit = new Criteria();
                 $crit->andWhere($crit->expr()->startsWith('name', $oldRp->getName()));
@@ -1318,7 +1315,6 @@ class MigrateCommand extends Command
 
                 $newRp = $this->entity_manager->getRepository(RolePlayText::class)->matching($crit);
                 if(!$newRp->count() === 0) continue;
-                $output->writeln("<info>New RP count matching criteria : {$newRp->count()}</info>");
                 $rp = $newRp->first();
 
                 // We check every user that unlocked the old RP text
