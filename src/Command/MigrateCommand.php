@@ -123,6 +123,7 @@ class MigrateCommand extends Command
         'a759042d47a803078d40cd650fbc96a9fc92737b' => [ ['app:migrate', ['--fix-soul-reset' => true] ] ],
         //'02450bd175f6937e4c3d9641d1249beff1a414b3' => [ ['app:media:compress', [] ] ]
         '8a87dbab808e1222eda7d7a9e3677096d40a43f3' => [ ['app:migrate', ['--fix-soul-picto-count' => true] ] ],
+        '4fa1ae01cc1262eb707769291a0ba43ca9579134' => [ ["app:migrate", ['--fix-fixtures' => true ] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -224,6 +225,7 @@ class MigrateCommand extends Command
             ->addOption('update-user-settings', null, InputOption::VALUE_NONE, '')
 
             ->addOption('fix-soul-picto-count', null, InputOption::VALUE_NONE, '')
+            ->addOption('fix-fixtures', null, InputOption::VALUE_NONE, 'Fix fixtures with duplicate keys')
         ;
     }
 
@@ -1294,6 +1296,47 @@ class MigrateCommand extends Command
 
             $this->entity_manager->flush();
             $progress->finish();
+
+        }
+
+        if ($input->getOption('fix-fixtures')) {
+
+            $sourceRolePlayTexts = ['cave1', 'ie', 'binary'];
+            foreach ($sourceRolePlayTexts as $rpKey) {
+                /** @var RolePlayText $oldRp */
+                $oldRp = $this->entity_manager->getRepository(RolePlayText::class)->findOneBy(['name' => $rpKey]);
+                if (!$oldRp) continue;
+
+                // We search the RP that has the same title and a name starting with the one we'll remove
+                $crit = new Criteria();
+                $crit->andWhere($crit->expr()->startsWith('name', $oldRp->getName()));
+                $crit->andWhere($crit->expr()->eq('title', $oldRp->getTitle()));
+                $crit->andWhere($crit->expr()->neq('name', $oldRp->getName()));
+
+                $newRp = $this->entity_manager->getRepository(RolePlayText::class)->matching($crit);
+                if(!$newRp->count() === 0) continue;
+                $rp = $newRp->first();
+
+                // We check every user that unlocked the old RP text
+                $unlockeds = $this->entity_manager->getRepository(FoundRolePlayText::class)->findBy(['text' => $oldRp]);
+                /** @var FoundRolePlayText $unlocked */
+                foreach ($unlockeds as $unlocked) {
+                    // e give them the new one instead
+                    $unlocked->setText($rp);
+                    $this->entity_manager->persist($unlocked);
+                }
+
+                $this->entity_manager->flush();
+
+                // We remove the old one
+                foreach ($oldRp->getPages() as $page) {
+                    $this->entity_manager->remove($page);
+                }
+                $this->entity_manager->flush();
+                $this->entity_manager->remove($oldRp);
+                $this->entity_manager->flush();
+
+            }
 
         }
 

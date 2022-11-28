@@ -168,6 +168,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\Column(length: 3, nullable: true)]
     private ?string $adminLang = null;
 
+    #[ORM\OneToOne(mappedBy: 'User', cascade: ['persist', 'remove'])]
+    private ?RegistrationToken $registrationToken = null;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -964,6 +967,28 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setAdminLang(?string $adminLang): self
     {
         $this->adminLang = $adminLang;
+
+        return $this;
+    }
+
+    public function getRegistrationToken(): ?RegistrationToken
+    {
+        return $this->registrationToken;
+    }
+
+    public function setRegistrationToken(?RegistrationToken $registrationToken): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($registrationToken === null && $this->registrationToken !== null) {
+            $this->registrationToken->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($registrationToken !== null && $registrationToken->getUser() !== $this) {
+            $registrationToken->setUser($this);
+        }
+
+        $this->registrationToken = $registrationToken;
 
         return $this;
     }

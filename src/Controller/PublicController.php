@@ -12,6 +12,7 @@ use App\Entity\HordesFact;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationLog;
+use App\Entity\RegistrationToken;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
@@ -119,7 +120,10 @@ class PublicController extends CustomAbstractController
         if ($etwin->isReady())
             return $this->redirect($this->generateUrl('public_login'));
 
-        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs(null, ['refer' => $s->get('refer')]) );
+        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs(null, [
+            'refer' => $s->get('refer'),
+            'need_token' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION)
+        ]));
     }
 
     /**
@@ -294,6 +298,10 @@ class PublicController extends CustomAbstractController
         if (!$userHandler->isNameValid($parser->trimmed('user', '')))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && !$parser->has('token', true)) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
             'user' => [
                 new Constraints\Regex( ['match' => false, 'pattern' => '/[^\w]/', 'message' => $translator->trans('Dein Name kann nur alphanumerische Zeichen enthalten.', [], 'login') ] ),
@@ -342,6 +350,20 @@ class PublicController extends CustomAbstractController
 
         if ($violations->count() === 0) {
 
+            $regToken = null;
+
+            if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION)) {
+                $regToken_str = $parser->get('token');
+                $regToken = $this->entity_manager->getRepository(RegistrationToken::class)->findOneBy(['token' => $regToken_str]);
+                if($regToken === null) {
+                    return AjaxResponse::error(UserFactory::ErrorInvalidToken);
+                }
+
+                if ($regToken->getUser() !== null) {
+                    return AjaxResponse::error(UserFactory::ErrorInvalidToken);
+                }
+            }
+
             if ($entityManager->getRepository(RegistrationLog::class)->countRecentRegistrations($request->getClientIp()) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
                 return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
 
@@ -385,6 +407,12 @@ class PublicController extends CustomAbstractController
                                 ->setUser( $user )
                                 ->setCountedHeroExp(0)->setCountedSoulPoints(0)
                             );
+
+                        if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken) {
+                            $user->setRegistrationToken($regToken);
+                            $regToken->setUser($user);
+                            $this->entity_manager->persist($regToken);
+                        }
 
                         $entityManager->persist( $user );
                         $entityManager->flush();
