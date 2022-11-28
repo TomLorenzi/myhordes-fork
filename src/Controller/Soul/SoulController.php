@@ -27,6 +27,7 @@ use App\Entity\RememberMeTokens;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\SocialRelation;
+use App\Entity\Statistic;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
@@ -40,6 +41,7 @@ use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Enum\AdminReportSpecification;
 use App\Enum\DomainBlacklistType;
+use App\Enum\StatisticType;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
@@ -525,6 +527,52 @@ class SoulController extends CustomAbstractController
             'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected->getPoll()->getAllAnswerTags() : [],
             'group' => $group, 'tag' => $tag,
             'polls' => $polls, 'selected' => $selected
+        ]) );
+    }
+
+    /**
+     * @Route("jx/soul/stats", name="soul_stats")
+     * @return Response
+     */
+    public function soul_stats(): Response
+    {
+        $byLang = $this->entity_manager->getRepository(Statistic::class)->createQueryBuilder('s')
+            ->select(
+                array_merge(
+                    array_map(fn(string $lang) => "AVG(JSON_EXTRACT(s.payload, '$.by_lang.{$lang}')) as {$lang}", $this->generatedLangsCodes),
+                    ["AVG(JSON_EXTRACT(s.payload, '$.total')) as total"]
+                ),
+            )
+            ->andWhere('s.type = :type')->setParameter('type', StatisticType::PlayerStatsDaily->value)
+            ->andWhere('s.created >= :date')->setParameter('date', (new DateTime('today-7day')))
+            ->getQuery()->execute()[0] ?? [];
+
+        $byLangMonthly = $this->entity_manager->getRepository(Statistic::class)->createQueryBuilder('s')
+            ->select(
+                array_merge(
+                    array_map(fn(string $lang) => "JSON_EXTRACT(s.payload, '$.by_lang.{$lang}') as {$lang}", $this->generatedLangsCodes),
+                    ["JSON_EXTRACT(s.payload, '$.total') as total"]
+                ),
+            )
+            ->andWhere('s.type = :type')->setParameter('type', StatisticType::PlayerStatsMonthly->value)
+            ->orderBy('s.created', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()->execute()[0] ?? [];
+
+        return $this->render( 'ajax/soul/stats.html.twig', $this->addDefaultTwigArgs("soul_future", [
+
+            'byLang' => array_map(
+                fn(string $l) => $byLang[$l] ?? 0,
+                array_combine( $this->generatedLangsCodes, $this->generatedLangsCodes )
+            ),
+            'byLang_total' => $byLang['total'] ?? 0,
+
+            'byLang_month' => array_map(
+                fn(string $l) => $byLangMonthly[$l] ?? 0,
+                array_combine( $this->generatedLangsCodes, $this->generatedLangsCodes )
+            ),
+            'byLang_total_month' => $byLangMonthly['total'] ?? 0,
+
         ]) );
     }
 

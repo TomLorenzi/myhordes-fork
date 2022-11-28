@@ -570,7 +570,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'background' => 'news',
                 'chance' => '10',
             ],
-            'cave1' => [
+            'cave1_de' => [
                 'title' => 'Papierfetzen',
                 'author' => 'gangster',
                 'content' => [
@@ -1016,7 +1016,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'background' => 'blood',
                 'chance' => '4',
             ],
-            'ie' => [
+            'ie_de' => [
                 'title' => 'Warnhinweis an zukünftige Wanderer',
                 'author' => 'coctail',
                 'content' => [
@@ -1055,7 +1055,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 'background' => 'printer',
                 'chance' => '10',
             ],
-            'binary' => [
+            'binary_de' => [
                 'title' => 'Zerknitterter Programmausdruck',
                 'author' => null,
                 'content' => [
@@ -3177,7 +3177,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 "design" => "typed",
                 "chance" => "10",
             ],
-            "binary" => [
+            "binary_fr" => [
                 "title" => "Listing froissé",
                 "author" => null,
                 "content" => [
@@ -3590,7 +3590,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 "design" => "classic",
                 "chance" => "5",
             ],
-            "cave1" => [
+            "cave1_fr" => [
                 "title" => "Mot déchiré",
                 "author" => "gangster",
                 "content" => [
@@ -3687,7 +3687,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
                 "design" => "written",
                 "chance" => "2",
             ],
-            "ie" => [
+            "ie_fr" => [
                 "title" => "Note pour les prochains promeneurs",
                 "author" => "coctail",
                 "content" => [

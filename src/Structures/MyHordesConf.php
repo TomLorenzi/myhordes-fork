@@ -65,4 +65,6 @@ class MyHordesConf extends Conf
     const CONF_IMPORT_SP_THRESHOLD = 'soul_import.sp_threshold';
     const CONF_IMPORT_TW_THRESHOLD = 'soul_import.tw_threshold';
     const CONF_IMPORT_TW_CUTOFF    = 'soul_import.tw_cutoff';
+
+    const CONF_TOKEN_NEEDED_FOR_REGISTRATION = 'registration.token_only';
 }
