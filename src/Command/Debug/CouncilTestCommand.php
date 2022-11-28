@@ -116,7 +116,7 @@ class CouncilTestCommand extends Command
         switch ($node) {
             case CouncilEntryTemplate::CouncilNodeRootGuideFirst:  case CouncilEntryTemplate::CouncilNodeRootGuideNext:
             case CouncilEntryTemplate::CouncilNodeRootShamanFirst: case CouncilEntryTemplate::CouncilNodeRootShamanNext:
-            case CouncilEntryTemplate::CouncilNodeRootShamanFew:   case CouncilEntryTemplate::CouncilNodeRootShamanFew:
+            case CouncilEntryTemplate::CouncilNodeRootShamanFew:   // case CouncilEntryTemplate::CouncilNodeRootShamanFew:
                 if ($previous_mc && in_array( $previous_mc, $all_citizens ) && !(int)$input->getOption('no-mc') && (int)$input->getOption('same-mc')) {
                     $partition['_mc'] = [$previous_mc];
                     $all_citizens = array_filter($all_citizens, fn(Citizen $c) => $c !== $previous_mc);
