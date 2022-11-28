@@ -472,7 +472,7 @@ Kopfzeile: Header
 'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'This citizen is using an alternative nickname in the current town.'
 "Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "The number of mounds of earth and debris show that there is doubtless not much left here to find. <p><em>You can continue searching for poor quality resources for construction sites though...</em></p>"
 Antw.: Rep.
-'Aktive Spieler': 'Aktive Spieler'
-'Täglich aktive Spieler (Durchschn.)': 'Täglich aktive Spieler (Durchschn.)'
-'Monatlich aktive Spieler': 'Monatlich aktive Spieler'
-Gesamt: Gesamt
+'Aktive Spieler': 'Active players'
+'Täglich aktive Spieler (Durchschn.)': 'Daily active players (avg.)'
+'Monatlich aktive Spieler': 'Monthly active players'
+Gesamt: Total
