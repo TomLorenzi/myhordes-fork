@@ -32,8 +32,6 @@ class MazeMaker
 
     private Zone $targetZone;
 
-    private AdminLog $logger;
-
     const mazeSizeX = 13;
     const mazeSizeY = 13;
     const mazeOffsetX = -7;
@@ -43,9 +41,8 @@ class MazeMaker
     
     // --------
 
-    public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c, AdminLog $l)
+    public function __construct(EntityManagerInterface $em, RandomGenerator $r, ConfMaster $c)
     {
-        $this->logger = $l;
         $this->entity_manager = $em;
         $this->random = $r;
         $this->conf = $c;
@@ -64,7 +61,6 @@ class MazeMaker
     // -----------------------------------------------------------------------------------------
 
     private function createAndAddRuinZone(int $x, int $y, int $z) {
-        $this->logger->invoke("[{$x},{$y},{$z}]");
         $this->targetZone->addRuinZone((new RuinZone())
                 ->setCorridor(RuinZone::CORRIDOR_NONE)
                 ->setY($y)
@@ -120,7 +116,6 @@ class MazeMaker
         // So we check the one that already exist
         $cache = [];
         foreach ($this->targetZone->getRuinZones() as $ruinZone) {
-            $this->logger->invoke("ADD TO CACHE :: [{$ruinZone->getX()},{$ruinZone->getY()},{$ruinZone->getZ()}]");
             if (!isset($cache[$ruinZone->getZ()]))  {
                 $cache[$ruinZone->getZ()] = [];
             }
@@ -438,7 +433,6 @@ class MazeMaker
         $exists = function(int $x, int $y) use (&$cache): bool {
             return (isset($cache[$x]) && isset($cache[$x][$y]));
         };
-
 
         $conf =  $this->conf->getTownConfiguration( $this->targetZone->getTown() );
         
