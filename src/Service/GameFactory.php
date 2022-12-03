@@ -223,7 +223,34 @@ class GameFactory
                 ]
             ],
             'es' => [],
-        ]
+        ],
+
+        'christmas' => [
+            'de' => [
+                [   // Adjectives
+                    'f' => [ 'Weihnachtliche', 'Besinnliche', 'Verschneite', 'Heilige', 'Beschenkte' ],
+                    'm' => [ 'Weihnachtlicher|-', 'Besinnlicher|-', 'Verschneiter|-', 'Heiliger|-', 'Beschenkter|-' ],
+                    'n' => [ 'Weihnachtliches|-', 'Besinnliches|-', 'Verschneites|-', 'Heiliges|-', 'Beschenktes|-' ],
+                    '*' => [],
+                ],
+                [   // Subjects
+                    'f' => [ 'Rentier|e', 'Elfe|n', 'Kalendertür|en', 'Schneeflocke|n', 'Gabe|n', 'Holzeisenbahn|en', 'Socke|n', 'Feuerzangenbowle|n' ],
+                    'm' => [ 'Weihnachtsmann|<Weihnachtsmänner', 'Weihnachtsbaum|<Weihnachtsbäume', 'Lebkuchen', 'Schornstein|e', 'Glühweintrinker', 'Eierpunscher', 'Weihnachtsmarkt|<Weihnachtsmärkte', 'Engel', 'Mistelzweig|e' ],
+                    'n' => [ 'Geschenk|e', 'Familientreffen', 'Christkind|er', 'Kalendertürchen', 'Fest|e', 'Weihnachtsfest|e' ],
+                    '*' => [],
+                ],
+                [
+                    // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    'n' => [ ],
+                    '*' => ['der weißen Weihnacht', 'im Schneegestöber', 'im Glühweinrausch', 'aus Schnee', 'im Schnee', 'mit Glühwein', 'in der Krippe', 'im Stall', 'mit Weihnachtsbaum', 'unter dem Weihnachtsbaum', 'auf dem Festplatz'],
+                ]
+            ],
+            'en' => [],
+            'fr' => [],
+            'es' => [],
+        ],
     ];
 
     private function pluralize(string $expression, bool $pluralize = true) {
@@ -268,8 +295,9 @@ class GameFactory
                 $conf_section = $gender . ($plural ? 'p' : 's');
 
                 $mutator_keys = [];
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data ) );
                 foreach ($data['sets'] as $index => &$set)
-                    if (isset( $mutator_data[$index] )) {
+                    if (isset( $mutator_data[$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$index];
                         $mutator_keys[] = $mutator;
                     } else $mutator_keys[] = null;
@@ -291,8 +319,9 @@ class GameFactory
                 $conf_section = "$base_set";
 
                 $mutator_keys = [];
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data[$base_set] ) );
                 foreach ($data['sets'][$base_set] as $index => &$set)
-                    if (isset( $mutator_data[$base_set][$index] )) {
+                    if (isset( $mutator_data[$base_set][$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$base_set][$index];
                         $mutator_keys[] = $mutator;
                     } else $mutator_keys[] = null;
