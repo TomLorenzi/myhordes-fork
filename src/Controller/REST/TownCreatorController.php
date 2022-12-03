@@ -874,7 +874,7 @@ class TownCreatorController extends CustomAbstractCoreController
             } catch (Exception $e) {}
         }
 
-        $incarnation = $header['townIncarnation'] ?? 'incarnate';
+        $incarnation = $header['townIncarnation'] ?? ($user->getRightsElevation() < User::USER_LEVEL_CROW ? 'incarnate' : 'none');
         $incarnated = $incarnation === 'incarnate';
 
         if ($incarnated) {
