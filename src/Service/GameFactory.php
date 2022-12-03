@@ -33,6 +33,7 @@ use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
@@ -391,27 +392,22 @@ class GameFactory
         return $this->evaluateNameSchema( $schema = $this->generateNameSchema( $language, $mutator ) ) ?? 'TOWN_NAME_GENERATOR_FAILED';
     }
 
-    public function createTown( ?string $name, ?string $language, ?int $population, string|array $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
-        if (is_array( $type )) {
-            $deriveFrom = $type[1] ?? $type[0];
-            $type = $type[0];
-        } else $deriveFrom = $type;
-
-        if (!$this->validator->validateTownType($type))
+    public function createTown( TownSetup $townSetup ): ?Town {
+        if (!$this->validator->validateTownType($townSetup->type))
             return null;
 
-        if ($seed > 0) mt_srand($seed);
+        if ($townSetup->seeds) mt_srand($townSetup->seed);
 
-        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $type ]);
+        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $townSetup->type ]);
 
         // Initial: Create town
         $town = new Town();
         $town
             ->setType($townClass)
-            ->setConf($customConf);
+            ->setConf($townSetup->customConf);
 
-        if ($deriveFrom !== $type)
-            $town->setDeriveConfigFrom( $deriveFrom );
+        if ($townSetup->derives)
+            $town->setDeriveConfigFrom( $townSetup->typeDeriveFrom );
 
         $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
 
@@ -419,18 +415,18 @@ class GameFactory
 
         $conf = $this->conf->getTownConfiguration($town);
 
-        if ($population === null) $population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
-        if ($population <= 0 || $population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
+        if ($townSetup->population === null) $townSetup->population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
+        if ($townSetup->population <= 0 || $townSetup->population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $townSetup->population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
             return null;
 
-        $this->translator->setLocale($language ?? 'de');
+        $this->translator->setLocale($townSetup->language ?? 'de');
 
         $schema = null;
         $town
-            ->setPopulation( $population )
-            ->setName( $name ?: $this->createTownName($language, $schema, $nameMutator) )
+            ->setPopulation( $townSetup->population )
+            ->setName( $townSetup->name ?: $this->createTownName($townSetup->nameLanguage, $schema, $townSetup->nameMutator ) )
             ->setNameSchema( $schema )
-            ->setLanguage( $language )
+            ->setLanguage( $townSetup->language )
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 

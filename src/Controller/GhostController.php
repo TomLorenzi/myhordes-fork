@@ -30,6 +30,7 @@ use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -412,9 +413,16 @@ class GhostController extends CustomAbstractController
             );
         }
 
+        $setup = new TownSetup(
+            'custom',
+            name:        $townname, language: $lang, typeDeriveFrom: $type, customConf: $customConf, seed: $seed,
+            nameMutator: $name_changers[0]
+        );
+
         if ($crow_permissions && $parser->get('unprivate', false))
-            $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed, $name_changers[0] ?? null);
-        else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed, $name_changers[0] ?? null))->setDeriveConfigFrom( $type );
+            $setup->type = $type;
+
+        $town = $gf->createTown($setup);
 
         $town->setCreator($user);
         if(!empty($password)) $town->setPassword($password);

@@ -26,6 +26,7 @@ export type TranslationStrings = {
         town_name_help: string
 
         lang: string
+        name_lang: string
         langs: {
             code: string
             label: string

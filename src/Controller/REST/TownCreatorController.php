@@ -18,6 +18,7 @@ use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
+use App\Structures\TownSetup;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -78,6 +79,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'town_name_help' => $this->translator->trans('Leer lassen, um Stadtnamen automatisch zu generieren.', [], 'ghost'),
 
                     'lang' => $this->translator->trans('Sprache', [], 'global'),
+                    'name_lang' => $this->translator->trans('Sprache des Stadtnamens', [], 'global'),
                     'langs' => array_merge(
                         array_map(fn($lang) => ['code' => $lang['code'], 'label' => $this->translator->trans( $lang['label'], [], 'global' )], $this->generatedLangs),
                         [ [ 'code' => 'multi', 'label' => $this->translator->trans('Mehrsprachig', [], 'global') ] ]
@@ -533,6 +535,9 @@ class TownCreatorController extends CustomAbstractCoreController
         $lang = $head['townLang'] ?? 'multi';
         if ($lang !== 'multi' && !in_array( $lang, $this->generatedLangsCodes )) unset( $head['townLang'] );
 
+        $lang_name = $head['townNameLang'] ?? $lang;
+        if ($lang_name !== 'multi' && !in_array( $lang_name, $this->generatedLangsCodes )) unset( $head['townNameLang'] );
+
         // Make sure the event value is valid
         if (($head['event'] ?? 'auto') === 'auto') unset( $head['event'] );
         elseif ($head['event'] !== 'none' && !in_array( $head['event'], $this->conf->getAllEventNames() )) $head['event'] = 'none';
@@ -832,14 +837,15 @@ class TownCreatorController extends CustomAbstractCoreController
             array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
         );
 
-        $town = $gameFactory->createTown(
-            $header['townName'] ?? null,
-            $header['townLang'] ?? 'multi',
-            null,
-            [$header['townType'], $header['townBase']],
-            $rules,
-            $seed,
-            $name_changers[0] ?? null);
+        $town = $gameFactory->createTown(new TownSetup(
+                                             type:           $header['townType'],
+                                             language:       $header['townLang'] ?? 'multi',
+                                             nameLanguage:   $header['townNameLang'] ?? null,
+                                             typeDeriveFrom: $header['townBase'] ?? null,
+                                             customConf:     $rules,
+                                             seed:           $seed,
+                                             nameMutator:    $name_changers[0] ?? null
+                                         ));
 
         $town->setCreator($user);
         if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
