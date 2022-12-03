@@ -38,7 +38,7 @@
                                 <img src="{{ asset("build/images/lang/" ~ lang ~ ".png") }}" alt="{{ lang }}" />
                             </div>
                             <div class="padded cell rw-10 rw-sm-8">
-                                {{ count }}
+                                {{ count|round }}
                             </div>
                         </div>
                     {% endfor %}
@@ -47,7 +47,7 @@
                             <strong>{{ 'Gesamt'|trans({},'global') }}</strong>
                         </div>
                         <div class="padded cell rw-10 rw-sm-8">
-                            {{ byLang_total }}
+                            {{ byLang_total|round }}
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 <img src="{{ asset("build/images/lang/" ~ lang ~ ".png") }}" alt="{{ lang }}" />
                             </div>
                             <div class="padded cell rw-10 rw-sm-8">
-                                {{ count }}
+                                {{ count|round }}
                             </div>
                         </div>
                     {% endfor %}
@@ -72,7 +72,7 @@
                             <strong>{{ 'Gesamt'|trans({},'global') }}</strong>
                         </div>
                         <div class="padded cell rw-10 rw-sm-8">
-                            {{ byLang_total_month }}
+                            {{ byLang_total_month|round }}
                         </div>
                     </div>
                 </div>
