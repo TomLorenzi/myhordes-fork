@@ -68,7 +68,7 @@
                                 {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
                             </div>
                         {% endif %}
-                            <hordes-map id="beyond-map" data-react-mount="map" data-map="{{ map_public_json }}" {{ {'mdg': app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderActionButtonsBeyond") )}|classes }}></hordes-map>
+                            <hordes-map id="beyond-map" data-react-mount="map" data-map="{{ map_public_json }}" {{ {'mdg': app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderActionButtonsBeyond") ) and app.user.expert}|classes }}></hordes-map>
 
                             <div class="zone-info link" x-ajax-href="{{ path('help', {'name': 'control_points'}) }}">
                                 <div class="row zone-cp note note-light">

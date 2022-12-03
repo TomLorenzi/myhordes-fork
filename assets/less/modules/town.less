@@ -126,8 +126,9 @@ div.town-banner {
     &:first-child {margin-left: 0}
     &:nth-child(6) {margin-right: 0}
 
-
     &:nth-child(n+7) { display: none; }
+
+    img { max-height: 14px; }
 
     & > div {
       padding: 0; margin: 0; background-repeat: no-repeat; background-position: center; background-size: cover;
@@ -180,6 +181,19 @@ div.town-banner {
       background-image: url("../../img/icons/evo/smenu_catapult2.gif");
     }
   }
+
+  &:not(.night)>.town-addon-house>div:first-child { background: url("../../img/background/town/menu_home.gif") center/cover no-repeat }
+  &:not(.night)>.town-addon-well>div:first-child { background: url("../../img/background/town/menu_well.gif") center/cover no-repeat }
+  &:not(.night)>.town-addon-bank>div:first-child { background: url("../../img/background/town/menu_bank.gif") center/cover no-repeat }
+  &:not(.night)>.town-addon-citizens>div:first-child { background: url("../../img/background/town/menu_houses.gif") center/cover no-repeat }
+  &:not(.night)>.town-addon-construct>div:first-child { background: url("../../img/background/town/menu_construction.gif") center/cover no-repeat }
+  &:not(.night)>.town-addon-door>div:first-child { background: url("../../img/background/town/menu_door.gif") center/cover no-repeat }
+  &.night>.town-addon-house>div:first-child { background: url("../../img/background/town/menu_home_night.gif") center/cover no-repeat }
+  &.night>.town-addon-well>div:first-child { background: url("../../img/background/town/menu_well_night.gif") center/cover no-repeat }
+  &.night>.town-addon-bank>div:first-child { background: url("../../img/background/town/menu_bank_night.gif") center/cover no-repeat }
+  &.night>.town-addon-citizens>div:first-child { background: url("../../img/background/town/menu_houses_night.gif") center/cover no-repeat }
+  &.night>.town-addon-construct>div:first-child { background: url("../../img/background/town/menu_construction_night.gif") center/cover no-repeat }
+  &.night>.town-addon-door>div:first-child { background: url("../../img/background/town/menu_door_night.gif") center/cover no-repeat }
 }
 
 .town-upgrades,

@@ -255,14 +255,18 @@
                         {% endif %}
 
                     {% endif %}
-                    <div class="row town-menu {% if conf.isNightTime %}night{% endif %}">
+
+                    <div class="town-menu row">
                         <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                             <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/icons/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
                         </div>
+                    </div>
+
+                    <div {{ {'row': true, 'town-menu': true, 'night': conf.isNightTime, 'hide-sm ': app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderTownLocationButtons") ) and app.user.expert}|classes }}>
                         <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text6"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
                             <div></div>
                             <div>
-                                <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %} {% if new_message %}<img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}
+                                <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %} {% if new_message %}<img alt="!" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}
                             </div>
                         </div>
                         <div x-ajax-href="{{ path('town_well') }}" {% if not app.user.expert%}x-advance-tutorial="3.text2>3.text3"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'well' %}selected{% endif %} town-menu-well">
@@ -297,6 +301,34 @@
                         </div>
                     </div>
                     <div class="row">
+                        {% if app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderTownLocationButtons") ) and app.user.expert %}
+                            <div {{ {'cell rw-12 hide-md hide-lg hide-desktop town-addons': true, 'night': conf.isNightTime}|classes }}>
+                                <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" class="town-addon {% if menu_section == 'house' %}selected{% endif %} town-addon-house">
+                                    <div></div>
+                                    <span><img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% if new_message %}<img alt="!" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}</span>
+                                </div>
+                                <div x-ajax-href="{{ path('town_well') }}" class="town-addon {% if menu_section == 'well' %}selected{% endif %} town-addon-well">
+                                    <div></div>
+                                    <span>{% trans from 'game' %}Brunnen (short){% endtrans %}</span>
+                                </div>
+                                <div x-ajax-href="{{ path('town_bank') }}" class="town-addon {% if menu_section == 'bank' %}selected{% endif %} town-addon-bank">
+                                    <div></div>
+                                    <span>{% trans from 'game' %}Bank (short){% endtrans %}</span>
+                                </div>
+                                <div x-ajax-href="{{ path('town_citizens') }}" class="town-addon {% if menu_section == 'citizens' %}selected{% endif %} town-addon-citizens">
+                                    <div></div>
+                                    <span>{% trans from 'game' %}Bürger (short){% endtrans %}</span>
+                                </div>
+                                <div x-ajax-href="{{ path('town_constructions') }}" class="town-addon {% if menu_section == 'constructions' %}selected{% endif %} town-addon-construct">
+                                    <div></div>
+                                    <span>{% trans from 'game' %}Konstruktionen (short){% endtrans %}</span>
+                                </div>
+                                <div x-ajax-href="{{ path('town_door') }}" class="town-addon {% if menu_section == 'door' %}selected{% endif %} town-addon-door">
+                                    <div></div>
+                                    <span>{% trans from 'game' %}Stadttor (short){% endtrans %}</span>
+                                </div>
+                            </div>
+                        {% endif %}
                         <div class="cell rw-12 town-addons">
                             {% for name, addon in addons|sort((a, b) => a[2] <=> b[2]) %}
                                 <div x-ajax-href="{{ path(addon[1]) }}" class="town-addon {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}">
