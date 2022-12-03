@@ -51,6 +51,50 @@
                         <div class="cell padded rw-12" {% if user_citizen is not null %}id="citizen_base_selector" x-id="{{ user_citizen.id }}"{% endif %}>
                             <label><input disabled style="width: 100%;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" /></label>
                         </div>
+                        <div class="cell padded rw-12">
+                            <div class="row-table">
+                                <div class="row header">
+                                    <div class="padded cell rw-3">{{ 'Nachricht'|trans({},'admin') }}</div>
+                                    <div class="padded cell rw-6">{{ 'Inhalt'|trans({},'admin') }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="padded cell rw-3"><b>{{ 'Nachricht'|trans({},'game') }}</b></div>
+                                    <div class="padded cell rw-6"><span class="small">{{ user_citizen.home.description }}</span></div>
+                                    <div class="padded cell rw-3 right">
+                                        {% if user_citizen.home.description %}
+                                            <div class="inline pointer" data-delete-subject="status">
+                                                <i class="fa fa-trash"></i>
+                                                <div class="tooltip"><b>{{ 'Löschen'|trans({}, 'admin') }}</b></div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="padded cell rw-3"><b>{{ 'Kommentar'|trans({},'soul') }}</b></div>
+                                    <div class="padded cell rw-6"><span class="small">{{ user_citizen.comment }}</span></div>
+                                    <div class="padded cell rw-3">
+                                        {% if user_citizen.comment %}
+                                            <div class="inline pointer" data-delete-subject="comment">
+                                                <i class="fa fa-trash"></i>
+                                                <div class="tooltip"><b>{{ 'Löschen'|trans({}, 'admin') }}</b></div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="padded cell rw-3"><b>{{ 'Letzte Worte'|trans({},'soul') }}</b></div>
+                                    <div class="padded cell rw-6"><span class="small">{{ user_citizen.lastWords }}</span></div>
+                                    <div class="padded cell rw-3">
+                                        {% if user_citizen.lastWords %}
+                                            <div class="inline pointer" data-delete-subject="lastWords">
+                                                <i class="fa fa-trash"></i>
+                                                <div class="tooltip"><b>{{ 'Löschen'|trans({}, 'admin') }}</b></div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {% if active %}
                             {% if alive %}
                                 <div class="row">
@@ -121,6 +165,16 @@
             });
         {% endif %}
 
+        {% if is_granted("ROLE_CROW") %}
+            $.html.addEventListenerAll('[data-delete-subject]', 'click', (e,elem) => {
+                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    $.ajax.easySend( '{{ path('admin_users_citizen_remove_aspect', { 'id': user.Id }) }}', {'subject': elem.dataset.deleteSubject},
+                        function () {
+                            $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
+                        } )
+            });
+        {% endif %}
+
         {% if active %}
             {% if alive %}
                 {% if is_granted("ROLE_ADMIN") %}
@@ -135,14 +189,14 @@
                 {% endif %}
 
                 {% if is_granted("ROLE_CROW") %}
-                document.getElementById('x-liver-eat')?.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
-                        $.ajax.easySend( '{{ path('admin_users_citizen_eat_liver', { 'id': user_citizen.id }) }}', [],
-                            function () {
-                                $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
-                            } )
-                });
+                    document.getElementById('x-liver-eat')?.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
+                            $.ajax.easySend( '{{ path('admin_users_citizen_eat_liver', { 'id': user_citizen.id }) }}', [],
+                                function () {
+                                    $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
+                                } )
+                    });
                 {% endif %}
 
                 document.getElementById('x-pm').addEventListener('click', function(e) {

@@ -1145,6 +1145,44 @@ class AdminUserController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/users/{id}/citizen/delete", name="admin_users_citizen_remove_aspect", requirements={"id"="\d+"})
+     * @param User $user
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function users_citizen_remove_aspect(User $user, JSONRequestParser $parser): Response {
+        $citizen = $user->getActiveCitizen();
+
+        if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        switch ($parser->get('subject')) {
+            case 'comment':
+                $citizen->setComment('')->getRankingEntry()->setComment('');
+                $this->entity_manager->persist($citizen);
+                $this->entity_manager->persist($citizen->getRankingEntry());
+                break;
+            case 'lastWords':
+                $citizen->setLastWords('')->getRankingEntry()->setLastWords('');
+                $this->entity_manager->persist($citizen);
+                $this->entity_manager->persist($citizen->getRankingEntry());
+                break;
+            case 'status':
+                $citizen->getHome()->setDescription(null);
+                $this->entity_manager->persist($citizen->getHome());
+                break;
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Throwable) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("jx/admin/users/{id}/social/view", name="admin_users_social_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
