@@ -2363,3 +2363,8 @@ Stadt/Stadttor: Town/Doors
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '{citizen} managed to flee from the zone, although they were <strong>seriously injured</strong> in the process!'
 '{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} has used a <strong>special ability</strong>, killing {zombies} zombie(s) and gaining control of the zone for <strong>{duration}</strong>!'
 '<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Citizen</strong>,<br/>in recognition of your achievements in the fight against the zombies and as a reward for achieving first place in the ranking of the best towns in <i>season {season}</i> on <i>{server}</i> you are awarded the following:{pictos}In addition, the following tools are available to you for the duration of the new season:{features}<br/><strong>Congratulations!</strong>'
+'Brunnen (short)': 'Brunnen (short)'
+'Bank (short)': 'Bank (short)'
+'Bürger (short)': 'Bürger (short)'
+'Konstruktionen (short)': 'Konstruktionen (short)'
+'Stadttor (short)': 'Stadttor (short)'
