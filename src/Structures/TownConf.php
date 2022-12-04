@@ -49,6 +49,12 @@ class TownConf extends Conf
     const CONF_MAP_BURIED_DIGS_MIN  = 'map_params.buried_ruins.digs.min';
     const CONF_MAP_BURIED_DIGS_MAX  = 'map_params.buried_ruins.digs.max';
 
+    const CONF_ESTIM_INITIAL_SHIFT  = 'estimation.shift';
+    const CONF_ESTIM_SPREAD         = 'estimation.spread';
+    const CONF_ESTIM_VARIANCE       = 'estimation.variance';
+    const CONF_ESTIM_OFFSET_MIN     = 'estimation.offset.min';
+    const CONF_ESTIM_OFFSET_MAX     = 'estimation.offset.max';
+
     const CONF_EXPLORABLES_COMPLEXITY   = 'explorable_ruin_params.complexity';
     const CONF_EXPLORABLES_CONVOLUTION  = 'explorable_ruin_params.convolution';
     const CONF_EXPLORABLES_CRUELTY      = 'explorable_ruin_params.cruelty';

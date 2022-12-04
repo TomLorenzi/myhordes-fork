@@ -295,7 +295,7 @@ class GameFactory
                 $conf_section = $gender . ($plural ? 'p' : 's');
 
                 $mutator_keys = [];
-                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data ) );
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data ?? [] ) );
                 foreach ($data['sets'] as $index => &$set)
                     if (isset( $mutator_data[$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$index];
@@ -319,7 +319,7 @@ class GameFactory
                 $conf_section = "$base_set";
 
                 $mutator_keys = [];
-                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data[$base_set] ) );
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data[$base_set] ?? [] ) );
                 foreach ($data['sets'][$base_set] as $index => &$set)
                     if (isset( $mutator_data[$base_set][$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$base_set][$index];
