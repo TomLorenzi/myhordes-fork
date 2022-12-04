@@ -576,7 +576,7 @@ class TownHandler
         return $total_def;
     }
 
-    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = true): array {
+    public function get_zombie_estimation(Town &$town, int $day = null): array {
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $day ?? $town->getDay());
         /** @var ZombieEstimation $est */
         if (!$est) return [];
@@ -592,7 +592,7 @@ class TownHandler
         $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
         mt_srand($est->getSeed() ?? $town->getDay() + $town->getId());
         $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
-        $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $new_formula);
+        $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset);
 
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -631,7 +631,7 @@ class TownHandler
             $offsetMin = $est->getOffsetMin();
             $offsetMax = $est->getOffsetMax();
 
-            $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil, $new_formula);
+            $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil);
 
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -670,13 +670,13 @@ class TownHandler
         return $result;
     }
 
-    public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
+    public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound){
         for ($i = 0; $i < min($nbRound, 24); $i++) {
             if ($offsetMin + $offsetMax > 10) {
                 $increase_min = $this->random->chance($offsetMin / ($offsetMin + $offsetMax));
-                $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                $alter = mt_rand(500, 2000) / 1000.0;
                 if ($this->random->chance(0.25)){
-                    $alterMax = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                    $alterMax = mt_rand(500, 2000) / 1000.0;
                     if($offsetMin > 3)
                         $offsetMin -= $alter;
                     if($offsetMax > 3)
