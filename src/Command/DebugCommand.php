@@ -598,12 +598,12 @@ class DebugCommand extends LanguageCommand
 
             $soulFactor = min(1 + (0.04 * $this->townHandler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
-            $output->writeln("Attack for day {$town->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
+            $output->writeln("Attack for day {$est->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
 
             $table = new Table( $output );
             $table->setHeaders( ['Precision', 'Min', 'Max', 'Off Min', 'Off Max'] );
 
-            $new_way = $this->townHandler->get_zombie_estimation($town, $day);
+            $new_way = $this->townHandler->get_zombie_estimation($town, $day, 0);
             $estim = round($new_way[0]->getEstimation() * 100);
 
             $table->addRow([
@@ -627,7 +627,7 @@ class DebugCommand extends LanguageCommand
                     return 3;
                 }
 
-                $new_way = $this->townHandler->get_zombie_estimation($town, $day);
+                $new_way = $this->townHandler->get_zombie_estimation($town, $day, 0);
                 $estim = round($new_way[0]->getEstimation() * 100);
 
                 $table->addRow([
@@ -665,7 +665,7 @@ class DebugCommand extends LanguageCommand
                         return 3;
                     }
 
-                    $new_way = $this->townHandler->get_zombie_estimation($town, $day + 1);
+                    $new_way = $this->townHandler->get_zombie_estimation($town, $day + 1, 0);
                     $estim = round($new_way[1]->getEstimation() * 100);
 
                     $table->addRow([
