@@ -11,9 +11,11 @@ use App\Entity\ExternalApp;
 use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Response\AjaxResponse;
 use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
+use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
@@ -28,6 +30,7 @@ use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,7 +66,7 @@ class WebController extends CustomAbstractController
         'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
         'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
         'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Ross',
-        'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud'
+        'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus'
     ];
 
     private VersionManager $version_manager;
@@ -123,7 +126,16 @@ class WebController extends CustomAbstractController
         ] );
     }
 
-    public function render_error_framework(FlattenException $exception, DebugLoggerInterface $logger = null): Response {
+    public function render_error_framework(FlattenException $exception, DebugLoggerInterface $logger = null, KernelInterface $kernel): Response {
+        foreach (Request::createFromGlobals()->getAcceptableContentTypes() as $type)
+            switch ($type) {
+                case 'application/json':
+                    return AjaxResponse::error( ErrorHelper::ErrorInternalError, $kernel->getEnvironment() === 'dev' ? [
+                        'message' => $exception->getMessage(),
+                        'trace' => $exception->getTrace()
+                    ] : [] );
+            }
+
         try {
             $version = $this->version_manager->getVersion();
             $is_debug_version =
@@ -158,7 +170,7 @@ class WebController extends CustomAbstractController
             'supporters' => $supporters,
             'ajax_landing' => '',
             'langs' => $this->allLangs,
-            'exception' => $exception,
+            'exception' => $kernel->getEnvironment() === 'dev' ? $exception : 'Internal Error.',
             'support' => count($support_groups) === 1 ? $support_groups[0] : null
 
         ] );
@@ -287,6 +299,12 @@ class WebController extends CustomAbstractController
                 break;
             case 'moderation':
                 $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_MODERATION]);
+                break;
+            case 'animaction':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_ANIMACTION]);
+                break;
+            case 'oracle':
+                $group = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['lang' => $lang, 'semantic' => OfficialGroup::SEMANTIC_ORACLE]);
                 break;
         }
         if (!$group) return $this->redirect($this->generateUrl('home'));
@@ -456,8 +474,10 @@ class WebController extends CustomAbstractController
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find( $uid );
         if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
-        if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name) || $user->getAvatar()->getFormat() !== $ext)
+        if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name))
             return $this->cdn_fallback( "avatar/{$uid}/{$name}.{$ext}" );
+        if ($user->getAvatar()->getFormat() !== $ext)
+            return $this->redirectToRoute( 'app_web_avatar', ['uid' => $uid, 'name' => $name, 'ext' => $user->getAvatar()->getFormat()] );
 
         $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
         return $this->image_output($target, $name, $ext);

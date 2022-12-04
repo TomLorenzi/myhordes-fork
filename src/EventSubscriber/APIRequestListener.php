@@ -158,7 +158,7 @@ class APIRequestListener implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::CONTROLLER => ['process', -1],
+            KernelEvents::CONTROLLER => ['process', -64],
             KernelEvents::RESPONSE   => ['addRateLimiterTokens', -1],
         ];
     }

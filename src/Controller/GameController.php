@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\ActionCounter;
 use App\Entity\Announcement;
 use App\Entity\Citizen;
@@ -42,6 +43,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_incarnated=true)
+ * @Semaphore("town", scope="town")
  * @method User getUser()
  */
 class GameController extends CustomAbstractController
@@ -150,7 +152,7 @@ class GameController extends CustomAbstractController
     {
         $this->entity_manager->persist( $this->getUser()->setExpert( !$this->getUser()->getExpert() ) );
         if ( !$this->getUser()->getExpert() && $this->getUser()->getActiveCitizen())
-            foreach ($this->getUser()->getActiveCitizen()->getValidLeadingEscorts() as $escort) {
+            foreach ($this->getUser()->getActiveCitizen()->getLeadingEscorts() as $escort) {
                 $this->entity_manager->persist($log->beyondEscortReleaseCitizen($this->getUser()->getActiveCitizen(), $escort->getCitizen()));
                 $escort->setLeader(null);
                 $this->entity_manager->persist($escort);

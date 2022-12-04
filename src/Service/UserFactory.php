@@ -37,13 +37,14 @@ class UserFactory
     private MailerInterface $mailer;
 
     const ErrorNone = 0;
-    const ErrorUserExists        = ErrorHelper::BaseUserErrors + 1;
-    const ErrorMailExists        = ErrorHelper::BaseUserErrors + 2;
-    const ErrorInvalidParams     = ErrorHelper::BaseUserErrors + 3;
-    const ErrorDatabaseException = ErrorHelper::BaseUserErrors + 4;
-    const ErrorValidationExists  = ErrorHelper::BaseUserErrors + 5;
+    const ErrorUserExists           = ErrorHelper::BaseUserErrors + 1;
+    const ErrorMailExists           = ErrorHelper::BaseUserErrors + 2;
+    const ErrorInvalidParams        = ErrorHelper::BaseUserErrors + 3;
+    const ErrorDatabaseException    = ErrorHelper::BaseUserErrors + 4;
+    const ErrorValidationExists     = ErrorHelper::BaseUserErrors + 5;
     const ErrorTooManyRegistrations = ErrorHelper::BaseUserErrors + 6;
-    const ErrorTooManyMails      = ErrorHelper::BaseUserErrors + 7;
+    const ErrorTooManyMails         = ErrorHelper::BaseUserErrors + 7;
+    const ErrorInvalidToken         = ErrorHelper::BaseUserErrors + 8;
 
     public function __construct( EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,

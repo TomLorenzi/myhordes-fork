@@ -10,7 +10,6 @@ use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\AntiCheatService;
 use App\Service\CitizenHandler;
-use App\Service\Locksmith;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
@@ -21,7 +20,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Lock\LockInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Event\LogoutEvent;
@@ -34,7 +32,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 {
     private Security $security;
     private EntityManagerInterface $em;
-    private Locksmith $locksmith;
     private TownHandler $townHandler;
     private TimeKeeperService $timeKeeper;
     private AntiCheatService $anti_cheat;
@@ -43,15 +40,11 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private UserHandler $userHandler;
     private CitizenHandler $citizenHandler;
 
-    /** @var LockInterface|null  */
-    private ?LockInterface $current_lock = null;
-
     public function __construct(
-        EntityManagerInterface $em, Locksmith $locksmith, Security $security, UserHandler $uh,
+        EntityManagerInterface $em, Security $security, UserHandler $uh,
         TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator, CitizenHandler $ch)
     {
         $this->em = $em;
-        $this->locksmith = $locksmith;
         $this->security = $security;
         $this->townHandler = $th;
         $this->timeKeeper = $tk;
@@ -95,7 +88,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             throw new DynamicAjaxResetException($event->getRequest());
 
         if ($gk_profile->onlyWhenIncarnated()) {
-            // This is a game controller; it is not available to players outside of a game
+            // This is a game controller; it is not available to players outside a game
             if (!$citizen = $user?->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
 
@@ -105,7 +98,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 return;
             }
 
-            $this->current_lock = $this->locksmith->waitForLock( 'game-' . $citizen->getTown()->getId() );
             if ($this->townHandler->triggerAlways( $citizen->getTown() ))
                 $this->em->persist( $citizen->getTown() );
 
@@ -153,10 +145,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         }
     }
 
-    public function releaseTheDoor(ResponseEvent $event) {
-        $this->current_lock?->release();
-    }
-
     public function removeRememberMeToken(LogoutEvent $event) {
         $event->getResponse()->headers->clearCookie('myhordes_remember_me');
     }
@@ -167,8 +155,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::CONTROLLER => ['holdTheDoor', -5],
-            KernelEvents::RESPONSE   => 'releaseTheDoor',
+            KernelEvents::CONTROLLER => ['holdTheDoor', -64],
             LogoutEvent::class => ['removeRememberMeToken',-1],
         ];
     }

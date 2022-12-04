@@ -1420,6 +1420,9 @@ class MessageGlobalPMController extends MessageController
         $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
         if (!$message) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         $group = $message->getReceiverGroup();
         if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);

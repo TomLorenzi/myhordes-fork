@@ -1,0 +1,55 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+    <div class="row">
+        <div class="cell rw-12">
+            {% embed "ajax/admin/users/listing_tabs.html.twig" %}{% endembed %}
+            <h5>{{'Registrierungstoken'|trans({}, "admin")}}</h5>
+            <div class="row-table">
+                <div class="row header">
+                    <div class="cell padded rw-8 rw-md-12">{{ 'Registrierungstoken'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-4 rw-md-12">{{ 'Benutzername'|trans({},'admin') }}</div>
+                </div>
+                {% for token in tokens %}
+                    <div class="row">
+                        <div class="cell padded rw-8 rw-md-12">
+                            {{ token.token }}
+                        </div>
+                        <div class="cell padded rw-4 rw-md-12">
+                            {% if not token.user is null %}
+                                {% embed 'ajax/soul/playername.html.twig' with {'user': token.user} %}{% endembed %}
+                            {% else %}
+                                --
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="row">
+                    <div class="padded cell ro-11 rw-1 right">
+                        <button x-action="add_tokens" class="small inline"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_granted("ROLE_ADMIN") %}
+            $.html.addEventListenerAll('button[x-action="add_tokens"]', 'click', function(){
+                let nb = 0;
+                if (!(nb = prompt("{{'Wie viele Token möchtest du erzeugen?'|trans({}, 'admin')}}")))
+                    return;
+
+                if (parseInt(nb) <= 0 || isNaN(parseInt(nb)))
+                    return;
+
+                $.ajax.easySend("{{ path("admin_users_generatetokens") }}", {'count': nb}, function () {
+                    $.ajax.load(null, "{{ path("admin_users_tokens") }}");
+                })
+            })
+        {% endif %}
+    </script>
+{% endblock %}

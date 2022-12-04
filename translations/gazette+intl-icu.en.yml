@@ -208,8 +208,9 @@ Erdmännchen: capybara
 Wasserschwein: meerkat
 Sumpfschildkröte: toyger
 Kätzchen: kitten
-'einen Haufen Gerümpel ': 'a load of garbage'
-'einen Holzstapel ': 'a pile of wood'
+'einen Haufen Gerümpel': 'a load of garbage'
+'einen Holzstapel': 'a pile of wood'
+'einen Abfallberg': 'a mound of rubbish'
 'einen Haufen Schrott': 'a mound of rubbish'
 'einen toter Baumstamm': 'einen toter Baumstamm'
 'eine vergessene Leiter': 'a misplaced ladder'
@@ -232,7 +233,7 @@ Kätzchen: kitten
 'Die ganze Stadt <strong>freut</strong> sich insgeheim über <i class="dagger">†</i> {cadaver1} Tod... Niemand sagt allerdings warum - außer <strong>{citizen1}</strong>: "Den konnte hier doch eh keiner leiden!".': 'Everybody seems to be silently <strong>rejoicing</strong> following the death of <i class="dagger">†</i> {cadaver1} last night... However, nobody has explained why. <strong>{citizen1}</strong> commented: "their mother was hamster, and their father smelt of elderberries".'
 'Wir trauern und beten für die {deaths} Seelen, die uns gestern verlassen haben. Leider ist es uns nicht gelungen, die zirka {attack} Untoten aufzuhalten... Gott erbarme sich unser! Alles Pappnasen hier...': 'Last night''s bloodbath was brought to you by the number of dead citizens, <strong>{deaths}</strong>, and by the letters <strong>F</strong>, <strong>M</strong> and <strong>L</strong>.'
 'Getrocknete Blutlachen entwürdigten heute Morgen unsere stolze Stadt. Die Horde hat uns eine Lehre erteilt und uns gemahnt, in unseren Bemühungen nicht nachzulassen.': 'There was blood in the streets this morning belonging to last night''s victims. The horde got past our walls.'
-'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'The horrifying assault last night cost the lives of {deaths} people. Around <strong>{attack} zombies</strong>! The violence witnessed during this most recent attack leaves us expecting the worst...'
+'Der entsetzliche Angriff letzte Nacht kostete das Leben von {deaths} Menschen. Circa <strong>{attack} Zombies</strong>! Die Gewalt, die bei diesem jüngsten Angriff zu beobachten war, lässt uns das Schlimmste erwarten...': 'The horrifying assault last night cost the lives of {cadavers} people. Around <strong>{attack} zombies</strong>! The violence witnessed during this most recent attack leaves us expecting the worst...'
 'Unsere Maßnahmen waren angemessen und ausreichend! Leider sind ein paar Zombies "auf die Idee gekommen", (ob die Viecher denken können steht auf einem anderen Blatt...) {item} zu verwenden, um sich {location} ihren Weg in die Stadt zu bahnen. Bilanz: <strong>{deaths} getötete Bürgers</strong>.': 'Our defenses were tested last night! Some zombies used <strong>{item}</strong> to get into the town {location}. Result: <strong>{deaths} citizens dead</strong>.'
 'Unsere Verteidigungen waren gestern zu knapp: Ein kleiner Zombietrupp hat unsere Stadt {location} betreten und {deaths} Bürger gemetzelt.': 'Our defenses were borderline last night: a small group of zombies managed to get in to the town <strong>{location}</strong>, killing<strong>{deaths} citizens</strong>.'
 'Die abgebissenen Gliedmaßen und aus den Bäuchen quellenden Eingeweide unserer {deaths} Mitbürger sprechen eine klare Sprache: Wir müssen schnellstens unsere Verteidigung verbessern...': 'The organs and remains of the {deaths} citizens that were massacred last night (spread all over town) should serve as a clear message: improve the town''s defences or <strong>die</strong>.'

@@ -33,14 +33,113 @@ class MediaService {
 
     }
 
+    /** @noinspection PhpComposerExtensionStubsInspection */
+    protected function cloneImageFormat( Imagick $im_image, ?string $format = null ): ?Imagick {
+        $clone = clone $im_image;
+        if ($format !== null)
+            try {
+                if (!$clone->setFormat( $format ))
+                    throw new Exception();
+            } catch (\Throwable) {
+                return null;
+            }
+
+        return $clone;
+    }
+
+    /** @noinspection PhpComposerExtensionStubsInspection */
+    protected function getSmallerImage( ?Imagick $a, ?Imagick $b ): Imagick {
+        try {
+            $blob_a = $a?->getImageBlob();
+        } catch (\Throwable) {
+            $blob_a = null;
+        }
+
+        try {
+            $blob_b = $b?->getImageBlob();
+        } catch (\Throwable) {
+            $blob_b = null;
+        }
+
+        if ($blob_a === null) return $b;
+        elseif ($blob_b === null) return $a;
+
+        return strlen( $blob_a ) < strlen( $blob_b ) ? $a : $b;
+    }
+
+    /** @noinspection PhpComposerExtensionStubsInspection */
+    protected function compressImage(Imagick $im_image, bool $allow_format_change = true, bool $gif_deconstruct = true): ?Imagick {
+        try {
+            $format = $im_image->getImageFormat();
+        } catch (\Throwable) {
+            return null;
+        }
+
+        if ($format !== 'WEBP' && $allow_format_change)
+            $im_image_webp = $this->compressImage( $this->cloneImageFormat( $im_image, 'WEBP' ), false, $gif_deconstruct );
+        else $im_image_webp = null;
+
+        try {
+            switch ($format) {
+                case 'WEBP':
+                    $im_image->setImageCompressionQuality(90);
+                    $im_image->setOption('webp:method', '6');
+                    return $im_image;
+                case 'JPEG':
+                    $im_image->setImageCompressionQuality(90);
+                    return $this->getSmallerImage( $im_image, $im_image_webp );
+                case 'PNG':
+                    $im_image->setOption('png:compression-level', 9);
+                    return $this->getSmallerImage( $im_image, $im_image_webp );
+                case 'GIF':
+                    if ($gif_deconstruct)
+                        $im_image = $im_image->deconstructImages();
+                    $im_image->setOption('optimize', true);
+                    return $this->getSmallerImage( $im_image, $im_image_webp );
+                default:
+                    return $im_image;
+            }
+        } catch (\Throwable) {
+            return null;
+        }
+    }
+
     public function resizeImageSimple(&$data, int $width, int $height, ?string &$format = null, bool $compress = true): int {
         return $this->resizeImage($data,
             function(int &$w, int &$h, bool &$fit) use ($width,$height) { $w = $width; $h = $height; $fit = true; return true; },
-            $w,$h, $format, $compress
+            $w,$h, $format, $compress, false
         );
     }
 
-    public function resizeImage( &$data, callable $determine_dimensions, ?int &$width = null, ?int &$height = null, ?string &$format = null, bool $compress = true): int
+    public function updateImageFormat( &$data, &$format, $force = false ): bool {
+        if (!extension_loaded('imagick')) return false;
+
+        try {
+            if (!is_a($data, Imagick::class)) {
+                $im_image = new Imagick();
+                if (!$im_image->readImageBlob($data))
+                    return false;
+            } else $im_image = $data;
+
+            $format = strtolower($im_image->getImageFormat());
+
+            if ($format === 'webp') return false;
+
+            $webp_image = $this->compressImage( $this->cloneImageFormat( $im_image, 'WEBP' ), false, true );
+            $smaller_image = $force ? $webp_image : $this->getSmallerImage( $im_image, $webp_image );
+
+            if ($smaller_image === $im_image) return false;
+
+            $data = !is_a($data, Imagick::class) ? $smaller_image->getImagesBlob() : $smaller_image;
+            $format = strtolower($smaller_image->getImageFormat());
+
+            return true;
+        } catch (\Throwable) {
+            return false;
+        }
+    }
+
+    public function resizeImage( &$data, callable $determine_dimensions, ?int &$width = null, ?int &$height = null, ?string &$format = null, bool $compress = true, bool $change_format = true): int
     {
         if (!extension_loaded('imagick')) return self::ErrorBackendMissing;
 
@@ -53,6 +152,9 @@ class MediaService {
 
             if (!in_array($im_image->getImageFormat(), ['GIF', 'JPEG', 'BMP', 'PNG', 'WEBP']))
                 return self::ErrorInputUnsupported;
+
+            if ($change_format && $im_image->getImageFormat() === 'GIF' && $im_image->getNumberImages() > 1)
+                $im_image->setFormat("WEBP");
 
             $im_image->resetImagePage('0x0');
             $im_image->setFirstIterator();
@@ -89,26 +191,10 @@ class MediaService {
             $width = $im_image->getImageWidth();
             $height = $im_image->getImageHeight();
 
-            if ($compress)
-                switch ($im_image->getImageFormat()) {
-                    case 'WEBP':
-                        $im_image->setImageCompressionQuality(90);
-                        $im_image->setOption('webp:method', '6');
-                        break;
-                    case 'JPEG':
-                        $im_image->setImageCompressionQuality(90);
-                        break;
-                    case 'PNG':
-                        $im_image->setOption('png:compression-level', 9);
-                        break;
-                    case 'GIF':
-                        if ($resized)
-                            $im_image = $im_image->deconstructImages();
-                        $im_image->setOption('optimize', true);
-                        break;
-                    default:
-                        break;
-                }
+            if ($compress) {
+                $im_image = $this->compressImage($im_image, $change_format, $resized);
+                if ($im_image === null) return self::ErrorProcessingFailed;
+            }
 
             $data = !is_a($data, Imagick::class) ? $im_image->getImagesBlob() : $im_image;
             $format = strtolower($im_image->getImageFormat());
@@ -139,7 +225,7 @@ class MediaService {
                 $frame->setImagePage($dx,$dy,0,0);
             }
 
-            if (($e = $this->resizeImage($im_image, $determine_dimensions, $width, $height, $format, $compress)) !== self::ErrorNone)
+            if (($e = $this->resizeImage($im_image, $determine_dimensions, $width, $height, $format, $compress, false)) !== self::ErrorNone)
                 return $e;
 
             $data = !is_a($data, Imagick::class) ? $im_image->getImagesBlob() : $im_image;

@@ -27,6 +27,7 @@ use App\Entity\RememberMeTokens;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\SocialRelation;
+use App\Entity\Statistic;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
@@ -40,6 +41,7 @@ use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Enum\AdminReportSpecification;
 use App\Enum\DomainBlacklistType;
+use App\Enum\StatisticType;
 use App\Enum\UserSetting;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
@@ -201,7 +203,7 @@ class SoulController extends CustomAbstractController
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         $features = [];
-        $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         foreach ($this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll() as $p)
             if ($ff = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser($user,$season,$p))
                 $features[] = $ff;
@@ -214,7 +216,7 @@ class SoulController extends CustomAbstractController
             'points' => round($points),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
-            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null
         ]));
     }
@@ -525,6 +527,52 @@ class SoulController extends CustomAbstractController
             'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected->getPoll()->getAllAnswerTags() : [],
             'group' => $group, 'tag' => $tag,
             'polls' => $polls, 'selected' => $selected
+        ]) );
+    }
+
+    /**
+     * @Route("jx/soul/stats", name="soul_stats")
+     * @return Response
+     */
+    public function soul_stats(): Response
+    {
+        $byLang = $this->entity_manager->getRepository(Statistic::class)->createQueryBuilder('s')
+            ->select(
+                array_merge(
+                    array_map(fn(string $lang) => "AVG(JSON_EXTRACT(s.payload, '$.by_lang.{$lang}')) as {$lang}", $this->generatedLangsCodes),
+                    ["AVG(JSON_EXTRACT(s.payload, '$.total')) as total"]
+                ),
+            )
+            ->andWhere('s.type = :type')->setParameter('type', StatisticType::PlayerStatsDaily->value)
+            ->andWhere('s.created >= :date')->setParameter('date', (new DateTime('today-7day')))
+            ->getQuery()->execute()[0] ?? [];
+
+        $byLangMonthly = $this->entity_manager->getRepository(Statistic::class)->createQueryBuilder('s')
+            ->select(
+                array_merge(
+                    array_map(fn(string $lang) => "JSON_EXTRACT(s.payload, '$.by_lang.{$lang}') as {$lang}", $this->generatedLangsCodes),
+                    ["JSON_EXTRACT(s.payload, '$.total') as total"]
+                ),
+            )
+            ->andWhere('s.type = :type')->setParameter('type', StatisticType::PlayerStatsMonthly->value)
+            ->orderBy('s.created', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()->execute()[0] ?? [];
+
+        return $this->render( 'ajax/soul/stats.html.twig', $this->addDefaultTwigArgs("soul_future", [
+
+            'byLang' => array_map(
+                fn(string $l) => $byLang[$l] ?? 0,
+                array_combine( $this->generatedLangsCodes, $this->generatedLangsCodes )
+            ),
+            'byLang_total' => $byLang['total'] ?? 0,
+
+            'byLang_month' => array_map(
+                fn(string $l) => $byLangMonthly[$l] ?? 0,
+                array_combine( $this->generatedLangsCodes, $this->generatedLangsCodes )
+            ),
+            'byLang_total_month' => $byLangMonthly['total'] ?? 0,
+
         ]) );
     }
 
@@ -1150,6 +1198,8 @@ class SoulController extends CustomAbstractController
         $user->setSetting( UserSetting::LimitTownListSize, (bool)$parser->get('town10', true) );
         $user->setSetting( UserSetting::NotifyMeWhenMentioned, (int)$parser->get('notify', 0) );
         $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
+        $user->setSetting( UserSetting::ReorderActionButtonsBeyond, (bool)$parser->get('beyondAltLayout', false) );
+        $user->setSetting( UserSetting::ReorderTownLocationButtons, (bool)$parser->get('townAltLayout', true) );
         $user->setAdminLang($parser->get("adminLang", null));
         $session->set('_admin_lang',$user->getAdminLang() ?? $user->getLanguage());
         $this->entity_manager->persist( $user );
@@ -1518,7 +1568,7 @@ class SoulController extends CustomAbstractController
             'pictos' => $pictos,
             'top3' => $top3,
             'points' => round($points),
-            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),
             'returnUrl' => $returnUrl,
             'citizen_id' => $citizen_id,
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText(), $this->getUser()) : null
@@ -1794,7 +1844,7 @@ class SoulController extends CustomAbstractController
         if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $id = $parser->get("id");
-        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        $user = $this->entity_manager->getRepository(User::class)->find($id ?? -1);
 
         if (!$user || $this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);

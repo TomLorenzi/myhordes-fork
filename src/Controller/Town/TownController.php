@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
@@ -38,7 +39,9 @@ use App\Entity\User;
 use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
+use App\Enum\ZoneActivityMarkerType;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
 use App\Service\GameProfilerService;
@@ -67,6 +70,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
+ * @Semaphore("town", scope="town")
  * @method User getUser()
  */
 class TownController extends InventoryAwareController
@@ -1741,6 +1745,24 @@ class TownController extends InventoryAwareController
         $town = $this->getActiveCitizen()->getTown();
         $time = $this->getTownConf()->isNightTime() ? 'night' : 'day';
 
+        if ($door_locked || true) {
+            /** @var Zone $zeroZero */
+            $zeroZero = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town, 0, 0);
+            if ($zeroZero &&
+                !$zeroZero->getActivityMarkersFor( ZoneActivityMarkerType::DoorAutoClosed )->isEmpty() &&
+                $zeroZero->getActivityMarkersFor( ZoneActivityMarkerType::DoorAutoCloseReported )->isEmpty()
+            ) {
+                $zeroZero->addActivityMarker( (new ZoneActivityMarker())
+                    ->setCitizen( $this->getActiveCitizen() )
+                    ->setTimestamp( new DateTime() )
+                    ->setType(ZoneActivityMarkerType::DoorAutoCloseReported )
+                );
+                $this->entity_manager->persist($zeroZero);
+                $this->entity_manager->persist( $this->log->doorCheck( $this->getActiveCitizen() ) );
+                $this->entity_manager->flush();
+            }
+        }
+
         return $this->render( 'ajax/game/town/door.html.twig', $this->addDefaultTwigArgs('door', [
             'def'               => $th->calculate_town_def($town, $defSummary),
             'town'              => $town,
@@ -1961,6 +1983,8 @@ class TownController extends InventoryAwareController
     public function dashboard_report_wordofheroes_api(JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
         $user = $this->getUser();
         $blackBoardEdit = $this->entity_manager->getRepository(BlackboardEdit::class)->find( $parser->get_int('bbe') );
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (!$blackBoardEdit || empty( $blackBoardEdit->getText() ) || $blackBoardEdit->getTown() !== $this->getActiveCitizen()->getTown())
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1981,7 +2005,7 @@ class TownController extends InventoryAwareController
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
+            ->setReason( $reason )
             ->setDetails( $details ?: null )
             ->setTs(new DateTime('now'))
             ->setBlackBoard( $blackBoardEdit );

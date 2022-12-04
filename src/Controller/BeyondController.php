@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
 use App\Entity\ChatSilenceTimer;
@@ -48,10 +49,8 @@ use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
-use Cassandra\Date;
 use DateInterval;
 use DateTime;
-use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
@@ -59,11 +58,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Twig\Environment;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_alive=true, only_beyond=true)
+ * @Semaphore("town", scope="town")
  */
 class BeyondController extends InventoryAwareController
 {
@@ -634,7 +633,7 @@ class BeyondController extends InventoryAwareController
                     $movers[] = $escort->getCitizen();
             }
         else
-            foreach ($citizen->getValidLeadingEscorts() as $escort)
+            foreach ($citizen->getLeadingEscorts() as $escort)
                 $escort->getCitizen()->getEscortSettings()->setLeader(null);
 
         $others_are_here = $zone->getCitizens()->count() > count($movers);
@@ -878,8 +877,9 @@ class BeyondController extends InventoryAwareController
 
             // Single movers get their escort mode disabled
             if (count($movers) === 1 && $mover->getEscortSettings()) {
-                $remove[] = $mover->getEscortSettings();
+                $es = $mover->getEscortSettings();
                 $mover->setEscortSettings(null);
+                $this->entity_manager->remove( $es );
             }
 
             // Get them clothes dirty!
@@ -1200,9 +1200,10 @@ class BeyondController extends InventoryAwareController
             default: $wound = null;
         }
 
-        if ($wound !== null)
+        if ($wound !== null) {
             $this->addFlash('notice', $this->translator->trans('Bei deinem Fluchtversuch ist es einem Zombie gelungen dir eine Verletzung zuzufügen: {injury}! Du solltest hier besser schnell verschwinden!', ['injury' => "<strong>$wound</strong>"], 'game'));
-
+            $this->entity_manager->persist( $this->log->escapeInjury($citizen));
+        }
         try {
             $escape = (new EscapeTimer())
             ->setZone( $citizen->getZone() )
@@ -1679,7 +1680,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
-        foreach ($citizen->getValidLeadingEscorts() as $escort) {
+        foreach ($citizen->getLeadingEscorts() as $escort) {
             $this->entity_manager->persist($this->log->beyondEscortReleaseCitizen($citizen, $escort->getCitizen()));
             $escort->setLeader(null);
             $this->entity_manager->persist($escort);

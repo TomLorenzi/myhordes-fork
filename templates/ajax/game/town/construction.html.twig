@@ -58,7 +58,7 @@
 
     {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canvote, votedBuilding) %}
         {# @var building \App\Entity\Building #}
-        <div class="row {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
+        <div class="row-flex wrap stretch {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
             <div class="padded cell rw-5 rw-lg-12">
                 {% if buildable %}
                     <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" >

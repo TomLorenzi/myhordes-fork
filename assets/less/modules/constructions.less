@@ -32,7 +32,7 @@ div.buildings {
     &>.bar { background: linear-gradient(180deg, #fffb58 0%, #f2c94d 100%); height: 100% }
   }
 
-  &>.row {
+  &>.row,&>.row-flex {
     .b-table();
     &.root > div.cell:first-child>span { font-weight: bold }
     overflow: hidden;
@@ -67,6 +67,8 @@ div.buildings {
         visibility: visible;
       }
     }
+
+    .no-ws:empty { display: none}
 
     &.locked { opacity: 0.35}
     .lv_list(6);

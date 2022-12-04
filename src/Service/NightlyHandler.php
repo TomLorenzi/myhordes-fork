@@ -15,22 +15,21 @@ use App\Entity\Gazette;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemInfoAttachment;
 use App\Entity\ItemPrototype;
-use App\Entity\HeroSkillPrototype;
-use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
-use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
-use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Service\Maps\MapMaker;
+use App\Service\Maps\MazeMaker;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
@@ -64,6 +63,7 @@ class NightlyHandler
     private ConfMaster $conf;
     private ActionHandler $action_handler;
     private MazeMaker $maze;
+    private MapMaker $map;
     private CrowService $crow;
     private UserHandler $user_handler;
     private GameFactory $game_factory;
@@ -75,7 +75,7 @@ class NightlyHandler
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
                               CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
-                              TimeKeeperService $timeKeeper )
+                              TimeKeeperService $timeKeeper, MapMaker $mapMaker )
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -97,6 +97,7 @@ class NightlyHandler
         $this->gazette_service = $gs;
         $this->gps = $gps;
         $this->timeKeeper = $timeKeeper;
+        $this->map = $mapMaker;
     }
 
     private function check_town(Town $town): bool {
@@ -123,7 +124,7 @@ class NightlyHandler
         return true;
     }
 
-    private function kill_wrap( Citizen &$citizen, CauseOfDeath $cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ) {
+    private function kill_wrap( Citizen &$citizen, CauseOfDeath $cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ): void {
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
@@ -132,11 +133,11 @@ class NightlyHandler
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
     }
 
-    private function stage0_stranger(Town $town) {
+    private function stage0_stranger(Town $town): void {
         $stranger_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('1sec'));
 
         $stranger_ap = $town->getStrangerPower() * 6 + mt_rand( 0, $town->getStrangerPower() * 3 );
-        $this->log->debug( "The stranger's power of <info>{$town->getStrangerPower()}</info> grants him <info>{$stranger_ap} AP</info>." );
+        $this->log->debug( "The stranger's power of <info>{$town->getStrangerPower()}</info> grants him <info>$stranger_ap AP</info>." );
 
         // Partition zones
         $close_zones = []; $medium_zones = []; $far_zones = [];
@@ -147,7 +148,7 @@ class NightlyHandler
 
         $ap_for_digging = max(0, min(mt_rand( floor($stranger_ap * 0.4), ceil( $stranger_ap * 0.6 ) ), $stranger_ap));
         $ap_for_building = $stranger_ap - $ap_for_digging;
-        $this->log->debug( "The stranger will use <info>{$ap_for_digging} AP</info> for scavenging and <info>{$ap_for_building} AP</info> on the construction site." );
+        $this->log->debug( "The stranger will use <info>$ap_for_digging AP</info> for scavenging and <info>$ap_for_building AP</info> on the construction site." );
 
         // Digging
         $empty_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => 'empty_dig']);
@@ -224,7 +225,7 @@ class NightlyHandler
             if ($invest > 0) {
                 $building->setHp( min($building->getHp() + 2 * $invest, $building->getPrototype()->getHp()) );
                 $this->log->debug( "The stranger invests <info>{$invest} AP</info> into repairing <info>{$building->getPrototype()->getLabel()}</info>." );
-                if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building, $stranger_ts ) );
+                if ($enable_log) $this->entity_manager->persist( $this->logTemplates->strangerConstructionsInvestRepair( $town, $building->getPrototype(), $stranger_ts ) );
             }
 
             $ap_for_building -= $invest;
@@ -604,8 +605,17 @@ class NightlyHandler
             // Spiritual leader
             if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_spirit_guide')) {
                 $c = 0;
-                for ($d = 1; $d < $town->getDay(); $d++) $c += $d;
-                $this->picto_handler->give_picto($citizen, 'r_guide_#00', $c);
+                foreach ($town->getCitizens() as $foreign) {
+                    if (!$foreign->getAlive()) continue;
+                    if ($foreign->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_SOULPOINT_LIMIT_REMOTE)) $c++;
+                }
+
+                // The spiritual leader is only given if there's more than 50% of alive citizen with less than 100 SP
+                if ($c >= $town->getAliveCitizenCount() / 2) {
+                    $nbPicto = 0;
+                    for ($d = 1; $d < $town->getDay(); $d++) $nbPicto += $d;
+                    $this->picto_handler->give_picto($citizen, 'r_guide_#00', $nbPicto);
+                }
             }
 
             if (!$citizen->getProfession()->getHeroic())
@@ -780,16 +790,22 @@ class NightlyHandler
         $has_nightwatch = $this->town_handler->getBuilding($town, 'small_round_path_#00');
 
         $count_zombified_citizens = 0;
+        $count_garbaged_citizens = 0;
         $last_zombified_citizen = null;
+        $last_garbaged_citizen = null;
         foreach ($town->getCitizens() as $citizen)
             if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished) {
                 $count_zombified_citizens++;
                 $last_zombified_citizen = $citizen;
+            } elseif (!$citizen->getAlive() && $citizen->getDisposed() === Citizen::Thrown && $citizen->getSurvivedDays() === $town->getDay() - 2) {
+                $count_garbaged_citizens++;
+                $last_garbaged_citizen = $citizen;
             }
 
-
-        if ($count_zombified_citizens > 0)
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null) );
+        if ($count_garbaged_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_garbaged_citizens, true, $count_garbaged_citizens === 1 ? $last_garbaged_citizen : null, true) );
+        elseif ($count_zombified_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null, false) );
 
         $this->stage2_surprise_attack($town);
 
@@ -801,6 +817,8 @@ class NightlyHandler
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin2($town) );
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
+        $post_summary = $this->logTemplates->nightlyAttackSummaryPost($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch);
+        if ($post_summary) $this->entity_manager->persist( $post_summary );
 
         if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );
@@ -825,15 +843,18 @@ class NightlyHandler
 
         $wounded_citizens = [];
         $terrorized_citizens = [];
+        $no_watch_items_citizens = [];
 
         foreach ($watchers as $watcher) {
+            $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
+
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) * $def_scale) : 0;
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
 
-            $this->log->debug("Watcher {$watcher->getCitizen()->getUser()->getName()} chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
+            $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
 
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
@@ -849,7 +870,7 @@ class NightlyHandler
                 foreach ($ctz->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getWatchpoint() > 0 || $item->getPrototype()->getName() === 'chkspk_#00') $this->inventory_handler->forceRemoveItem( $item );
 
-                $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
+                $this->kill_wrap($ctz, $cod, false, $defBonus, $skip);
 
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
 
@@ -882,9 +903,12 @@ class NightlyHandler
                     if ($item->getPrototype()->getNightWatchAction()) {
                         $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info> : '<info>{$item->getPrototype()->getNightWatchAction()->getName()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
                         $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
+                        $used_items++;
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
-                    }
+                    } else if ($item->getPrototype()->getWatchpoint())
+                        $used_items++;
 
+                if ($used_items === 0) $no_watch_items_citizens[] = $watcher->getCitizen();
 
             } else {
                 $watcher->setSkipped(true);
@@ -900,6 +924,9 @@ class NightlyHandler
         if ($total_watch_def > 0 && $overflow > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
         }
+
+        if (!empty($no_watch_items_citizens))
+            foreach ($no_watch_items_citizens as $wctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherNoItem($town, $wctx));
 
         if (!empty($wounded_citizens)) {
             foreach ($wounded_citizens as $wctx) $this->entity_manager->persist($this->logTemplates->nightlyAttackWatcherWound($town, $wctx));
@@ -1424,7 +1451,7 @@ class NightlyHandler
         $this->log->info('<info>Processing changes in the World Beyond</info> ...');
 
         $this->log->debug('Spreading zombies ...');
-        $this->zone_handler->dailyZombieSpawn($town);
+        $this->map->dailyZombieSpawn($town);
 
         if ($this->exec_firework)
             // Kill zombies around the town (all at 1km, none beyond 10km)

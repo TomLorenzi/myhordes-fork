@@ -14,8 +14,6 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
-use App\Entity\Complaint;
-use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
 use App\Entity\EventActivationMarker;
@@ -41,16 +39,16 @@ use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\ItemPoisonType;
+use App\Service\Maps\MazeMaker;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Asset\Packages;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ActionHandler
 {
@@ -685,6 +683,7 @@ class ActionHandler
                 $escort_mode ? $action->getEscortMessage() : $action->getMessage(),
             ],
             'kills' => 0,
+            'kills_silent' => false,
             'bury_count' => 0,
             'items_count' => 0,
             'size' => 0,
@@ -1001,7 +1000,8 @@ class ActionHandler
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $execute_info_cache['kills'] = $kills;
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
+                        if (!$execute_info_cache['kills_silent'])
+                            $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         $tags[] = 'kills';
                         if($citizen->getZone()->getZombies() <= 0)
@@ -1083,8 +1083,17 @@ class ActionHandler
                             $tags[] = 'reverse-escape';
                         } else {
                             $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
-                            if ($execute_info_cache['item'])
-                                $this->entity_manager->persist( $this->log->zoneEscapeItemUsed( $citizen, $execute_info_cache['item'], $zoneEffect->getEscape() ) );
+                            switch ($zoneEffect->getEscapeTag()) {
+                                case 'armag':
+                                    $this->entity_manager->persist( $this->log->zoneEscapeArmagUsed( $citizen, $zoneEffect->getEscape(), 1 ) );
+                                    $execute_info_cache['kills_silent'] = true;
+                                    break;
+                                default:
+                                    if ($execute_info_cache['item'])
+                                        $this->entity_manager->persist( $this->log->zoneEscapeItemUsed( $citizen, $execute_info_cache['item'], $zoneEffect->getEscape() ) );
+                                    break;
+                            }
+
                             $tags[] = 'escape';
                         }
                     }
@@ -1382,7 +1391,7 @@ class ActionHandler
                             $this->entity_manager->persist( $dig_timer );
                         }
 
-                        foreach ($jumper->getValidLeadingEscorts() as $escort)
+                        foreach ($jumper->getLeadingEscorts() as $escort)
                             $escort->getCitizen()->getEscortSettings()->setLeader(null);
 
                         if ($jumper->getEscortSettings()) {

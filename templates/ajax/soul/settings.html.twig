@@ -471,24 +471,6 @@
                                 <div class="note note-lightest">
                                     <input x-lang-setting {% if preferredLanguage == lang['code'] %}checked{% endif%} value="{{ lang['code'] }}" type="radio" name="setting_preferred_language" id="setting_preferred_language_{{ lang['code'] }}">&nbsp;<label for="setting_preferred_language_{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</label>
                                     {% if lang["tooltip"] != '' and lang['tooltip'] != null %}
-                                    <div class="tooltip help">
-                                        {{ lang['tooltip']|trans({}, 'global') }}
-                                    </div>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                {% if is_granted("ROLE_CROW") %}
-                <div class="row">
-                    <div class="padded cell rw-12">
-                        <h5>{{ 'Sprache der Admin-Oberfläche'|trans({},'soul') }}</h5>
-                        <div class="language-picker">
-                            {% for lang in langs %}
-                                <div class="note note-lightest">
-                                    <input x-setting {% if preferredAdminLanguage == lang['code'] %}checked{% endif%} value="{{ lang['code'] }}" type="radio" name="admin_setting_preferred_language" id="admin_setting_preferred_language_{{ lang['code'] }}">&nbsp;<label for="admin_setting_preferred_language_{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</label>
-                                    {% if lang["tooltip"] != '' and lang['tooltip'] != null %}
                                         <div class="tooltip help">
                                             {{ lang['tooltip']|trans({}, 'global') }}
                                         </div>
@@ -498,9 +480,55 @@
                         </div>
                     </div>
                 </div>
+                {% if is_granted("ROLE_CROW") %}
+                    <div class="row">
+                        <div class="padded cell rw-12">
+                            <h5>{{ 'Sprache der Admin-Oberfläche'|trans({},'soul') }}</h5>
+                            <div class="language-picker">
+                                {% for lang in langs %}
+                                    <div class="note note-lightest">
+                                        <input x-setting {% if preferredAdminLanguage == lang['code'] %}checked{% endif%} value="{{ lang['code'] }}" type="radio" name="admin_setting_preferred_language" id="admin_setting_preferred_language_{{ lang['code'] }}">&nbsp;<label for="admin_setting_preferred_language_{{ lang['code'] }}">{{ lang['label']|trans({}, 'global') }}</label>
+                                        {% if lang["tooltip"] != '' and lang['tooltip'] != null %}
+                                            <div class="tooltip help">
+                                                {{ lang['tooltip']|trans({}, 'global') }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 {% endif %}
                 <div class="row">
                     <div class="cell rw-12">
+                        <h5>{{ 'Benachrichtigungen'|trans({},'soul') }}</h5>
+                        <div class="row">
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if not app.user.noAutoFollowThreads %}checked{% endif%} type="checkbox" id="setting_auto_follow">&nbsp;<label for="setting_auto_follow">{{'Neuen Threads automatisch abonnieren'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeOnFriendRequest") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_friend">&nbsp;<label for="setting_notify_on_friend">{{'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt'|trans({}, 'soul')}}</label>
+                                </div>
+                            </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>&nbsp;
+                                    <select class="small" x-setting id="setting_notify_on_mention">
+                                        <option value="0" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 0 %}selected{% endif%}>{{ 'Deaktiviert'|trans({}, 'soul') }}</option>
+                                        <option value="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 1 %}selected{% endif%}>{{ 'Nur in Stadtforen'|trans({}, 'soul') }}</option>
+                                        <option value="3" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 3 %}selected{% endif%}>{{ 'Nur in Weltforen'|trans({}, 'soul') }}</option>
+                                        <option value="2" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 2 %}selected{% endif%}>{{ 'In allen Foren'|trans({}, 'soul') }}</option>
+                                    </select>
+                                    &nbsp;
+                                    {{help_btn('Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.'|trans({}, 'soul'))}}
+                                </div>
+                            </div>
+                        </div>
+
                         <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
                         <div class="row">
                             <div class="padded cell rw-12">
@@ -521,10 +549,13 @@
                             </div>
                             <div class="padded cell rw-12">
                                 <div class="note note-lightest">
-                                    <input x-setting {% if not app.user.noAutoFollowThreads %}checked{% endif%} type="checkbox" id="setting_auto_follow">&nbsp;<label for="setting_auto_follow">{{'Neuen Threads automatisch abonnieren'|trans({}, 'soul')}}</label>
-                                    {{help_btn("Ist diese Option aktiviert, abonnierst du automatisch allen Threads, die du selbst erstellt hast. Du kannst das Abonnement deiner Threads jederzeit manuell beenden."|trans({}, 'soul'))}}
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::LimitTownListSize") ) %}checked{% endif%} type="checkbox" id="setting_limit_town_size">&nbsp;<label for="setting_limit_town_size">{{'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen'|trans({}, 'soul')}}</label>
                                 </div>
                             </div>
+                        </div>
+
+                        <h5>{{ 'Layout'|trans({},'soul') }}</h5>
+                        <div class="row">
                             <div class="padded cell rw-12">
                                 <div class="note note-lightest">
                                     <input x-setting {% if app.user.classicBankSort %}checked{% endif%} type="checkbox" id="setting_classic_bank_sort">&nbsp;<label for="setting_classic_bank_sort">{{'Gegenstände in der Bank nach Anzahl sortieren'|trans({}, 'soul')}}</label>
@@ -533,25 +564,14 @@
                             </div>
                             <div class="padded cell rw-12">
                                 <div class="note note-lightest">
-                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::LimitTownListSize") ) %}checked{% endif%} type="checkbox" id="setting_limit_town_size">&nbsp;<label for="setting_limit_town_size">{{'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen'|trans({}, 'soul')}}</label>
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderTownLocationButtons") ) %}checked{% endif%} type="checkbox" id="setting_reorder-location-buttons-town">&nbsp;<label for="setting_reorder-location-buttons-town">{{'Orte in der Stadt platzsparend anordnen (mobil)'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Verwendet ein alternatives Layout für die verschiedenen Orte in der Stadt (Baustelle, dein Haus, etc) auf mobilen Geräten. Auf Desktops, Laptops oder Tablets mit größerem Display hat diese Einstellung keinen Effekt."|trans({}, 'soul'))}}
                                 </div>
                             </div>
                             <div class="padded cell rw-12">
                                 <div class="note note-lightest">
-                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeOnFriendRequest") ) %}checked{% endif%} type="checkbox" id="setting_notify_on_friend">&nbsp;<label for="setting_notify_on_friend">{{'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt'|trans({}, 'soul')}}</label>
-                                </div>
-                            </div>
-                            <div class="padded cell rw-12">
-                                <div class="note note-lightest">
-                                    <label for="setting_notify_on_mention">{{'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde'|trans({}, 'soul')}}</label>&nbsp;
-                                    <select class="small" x-setting id="setting_notify_on_mention">
-                                        <option value="0" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 0 %}selected{% endif%}>{{ 'Deaktiviert'|trans({}, 'soul') }}</option>
-                                        <option value="1" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 1 %}selected{% endif%}>{{ 'Nur in Stadtforen'|trans({}, 'soul') }}</option>
-                                        <option value="3" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 3 %}selected{% endif%}>{{ 'Nur in Weltforen'|trans({}, 'soul') }}</option>
-                                        <option value="2" {% if app.user.setting( constant("\\App\\Enum\\UserSetting::NotifyMeWhenMentioned") ) == 2 %}selected{% endif%}>{{ 'In allen Foren'|trans({}, 'soul') }}</option>
-                                    </select>
-                                    &nbsp;
-                                    {{help_btn('Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.'|trans({}, 'soul'))}}
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderActionButtonsBeyond") ) %}checked{% endif%} type="checkbox" id="setting_reorder-action-buttons-beyond">&nbsp;<label for="setting_reorder-action-buttons-beyond">{{'Aktionen in der Außenwelt platzsparend anordnen (mobil)'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Verwendet ein alternatives Layout für viele Aktionsschaltflächen in der Außenwelt auf mobilen Geräten. Auf Desktops, Laptops oder Tablets mit größerem Display hat diese Einstellung keinen Effekt. Dieses Layout spart Platz, zeigt aber für einige Schaltflächen nur noch ein Icon und keine Beschriftung mehr an. Diese Einstellung sollte daher nur von erfahrenen Spielern aktiviert werden."|trans({}, 'soul'))}}
                                 </div>
                             </div>
                         </div>
@@ -805,6 +825,8 @@
                     town10: document.getElementById('setting_limit_town_size').checked,
                     notify: document.getElementById('setting_notify_on_mention').value,
                     notifyFriend: document.getElementById('setting_notify_on_friend').checked,
+                    beyondAltLayout: document.getElementById('setting_reorder-action-buttons-beyond').checked,
+                    townAltLayout: document.getElementById('setting_reorder-location-buttons-town').checked,
                     {% if is_granted("ROLE_CROW") %}
                     adminLang: document.querySelector("input[name=admin_setting_preferred_language]:checked").value
                     {% endif %}

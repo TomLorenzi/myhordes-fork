@@ -20,6 +20,7 @@ use App\Entity\FeatureUnlockPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RegistrationToken;
 use App\Entity\Season;
 use App\Entity\SocialRelation;
 use App\Entity\SoulResetMarker;
@@ -245,6 +246,43 @@ class AdminUserController extends AdminActionController
             'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
             'spon_inactive' => array_filter( $all_sponsored, fn(UserSponsorship $s) =>  $this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') || !$s->getUser()->getValidated() ),
         ]));
+    }
+
+    /**
+     * @Route("jx/admin/users/tokens", name="admin_users_tokens")
+     * @param AntiCheatService $as
+     * @return Response
+     */
+    public function users_tokens(AntiCheatService $as): Response
+    {
+        $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
+        return $this->render( 'ajax/admin/users/token_index.html.twig', $this->addDefaultTwigArgs("token_list", [
+            'tokens' => $tokens
+        ]));
+    }
+
+    /**
+     * @Route("api/admin/users/generateTokens", name="admin_users_generatetokens")
+     * @return Response
+     */
+    public function users_generate_tokens(JSONRequestParser $parser):Response {
+        if (!$parser->has("count")) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $nb = intval($parser->get("count"));
+        if ($nb <= 0)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        for ($i = 0 ; $i < $nb; $i++) {
+            $token = new RegistrationToken();
+            $token->setToken(bin2hex(random_bytes(20)));
+            $this->entity_manager->persist($token);
+        }
+
+        $this->entity_manager->flush();
+        $this->addFlash('notice', $this->translator->trans("Tokens erfolgreich erzeugt!", [], 'admin'));
+        return AjaxResponse::success();
     }
 
     /**
@@ -1107,6 +1145,44 @@ class AdminUserController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/users/{id}/citizen/delete", name="admin_users_citizen_remove_aspect", requirements={"id"="\d+"})
+     * @param User $user
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function users_citizen_remove_aspect(User $user, JSONRequestParser $parser): Response {
+        $citizen = $user->getActiveCitizen();
+
+        if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        switch ($parser->get('subject')) {
+            case 'comment':
+                $citizen->setComment('')->getRankingEntry()->setComment('');
+                $this->entity_manager->persist($citizen);
+                $this->entity_manager->persist($citizen->getRankingEntry());
+                break;
+            case 'lastWords':
+                $citizen->setLastWords('')->getRankingEntry()->setLastWords('');
+                $this->entity_manager->persist($citizen);
+                $this->entity_manager->persist($citizen->getRankingEntry());
+                break;
+            case 'status':
+                $citizen->getHome()->setDescription(null);
+                $this->entity_manager->persist($citizen->getHome());
+                break;
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Throwable) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("jx/admin/users/{id}/social/view", name="admin_users_social_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
@@ -1198,7 +1274,7 @@ class AdminUserController extends AdminActionController
 
         $f_protos = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll();
         $features = [];
-        $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         foreach ($f_protos as $p)
             if ($ff = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser($user,$season,$p))
                 $features[] = $ff;
@@ -1413,7 +1489,7 @@ class AdminUserController extends AdminActionController
             case 1:
                 $feature
                     ->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)
-                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findLatest() );
+                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) );
                 break;
             case 2:
                 $feature

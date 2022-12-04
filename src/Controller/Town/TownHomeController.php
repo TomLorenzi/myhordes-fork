@@ -3,6 +3,7 @@
 namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
@@ -36,6 +37,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
+ * @Semaphore("town", scope="town")
  */
 class TownHomeController extends TownController
 {
@@ -467,7 +469,6 @@ class TownHomeController extends TownController
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
 
-        // Mit dem Bau der(s) {name} hat dein Haus {level} erreicht!
         $text = $this->translator->trans("Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!", ['{upgrade}' => $this->translator->trans($proto->getLabel(), [], 'buildings'), '{level}' => $current->getLevel()], 'game');
 
         $this->addFlash('notice', $text);
@@ -486,6 +487,7 @@ class TownHomeController extends TownController
 
     /**
      * @Route("api/town/house/suicid", name="town_home_suicid")
+     * @param AdminHandler $admh
      * @return Response
      */
     public function suicid(AdminHandler $admh): Response
@@ -497,7 +499,7 @@ class TownHomeController extends TownController
 
     /**
      * @Route("api/town/house/pm/all_read", name="town_home_mark_all_read")
-     * @param EntityManagerInterfacce $em
+     * @param EntityManagerInterface $em
      * @return Response
      */
     public function mark_all_pm_as_read(EntityManagerInterface $em): Response
@@ -526,7 +528,7 @@ class TownHomeController extends TownController
 
     /**
      * @Route("api/town/house/pm/archive_all", name="town_home_archive_all_pm")
-     * @param EntityManagerInterfacce $em
+     * @param EntityManagerInterface $em
      * @return Response
      */
     public function archive_all_pm(EntityManagerInterface $em): Response

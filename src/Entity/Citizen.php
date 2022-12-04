@@ -11,6 +11,9 @@ use Doctrine\ORM\ORMException;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\CitizenRepository')]
 #[ORM\HasLifecycleCallbacks]
+#[ORM\UniqueConstraint(
+    name: "citizen_user",fields: ["user", "town"]
+)]
 class Citizen
 {
     const Thrown = 1;

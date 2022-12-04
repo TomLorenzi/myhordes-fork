@@ -338,6 +338,96 @@
       border-right: 0 !important;
     }
   }
+
+  #beyond_desert_content {
+    background: @myhordes-panel-border-a-top, @myhordes-panel-bg !important;
+
+    .zone-beyond {
+      top: 6px; left: 6px; box-shadow: inset 0 0 15px 3px black;
+      border: none; position: absolute;
+      width: calc(100% - 10px); opacity: 0.3;
+      &:after {
+        content: " "; position: absolute; top: 75%; bottom: 0; left: 0; right: 0;
+        background: linear-gradient(rgba(126, 77, 42, 0), #7e4d2a);
+      }
+    }
+
+    .ambiant-zone-desc {
+      margin: 0; background-image: none; padding: 0;
+      min-height: 70px; overflow-y: auto; line-height: 1.1rem;
+      color: white; text-shadow: 0 0 2px #ddab76;
+
+      .ruin-info {
+        background: none;
+        img { display: none }
+      }
+    }
+
+    h5 {
+      margin-top: 0;
+    }
+
+    .mdg {
+      display: grid; grid-template-columns: repeat(6, 1fr); grid-column-gap: 8px;
+      align-items: baseline;
+
+      &>h5 { display: none }
+      button {
+        font-size: 0; display: flex; justify-content: center;
+        img { margin: 0 }
+        margin: 0;
+      }
+
+      #mgd-dig_button-container, #town-enter,
+      #enter_ruin_button, #dig_ruin_button, #uncover_ruin_button,
+      #bury_rucksack_button,
+      #mgd-trash_button-container,
+      #mgd-town-enter_button-container,
+      button[x-item-action-toggle] {
+        grid-row: 1 / span 1;
+      }
+
+      .actions {
+        grid-column: 1 / span 6;
+        grid-row: 2 / span 1;
+      }
+
+      .heroic_actions {
+        grid-column: 1 / span 6;
+        grid-row: 3 / span 1;
+      }
+
+      #town-enter-escort,
+      #town-enter-hero,
+      #town-enter-sneak {
+        grid-row: 4 / span 1;
+      }
+
+      #mgd-empty-zone-note {
+        grid-column: 1 / span 6;
+        grid-row: 5 / span 1;
+      }
+
+      #mgd-digging-note {
+        grid-column: 1 / span 6;
+        grid-row: 6 / span 1;
+      }
+
+      #mgd-town-note {
+        grid-column: 1 / span 6;
+        grid-row: 7 / span 1;
+      }
+
+      .special_actions {
+        grid-column: 1 / span 6;
+        grid-row: 8 / span 1;
+      }
+    }
+  }
+
+  #beyond-map.mdg div.react_map_area div.map {
+    padding-top: 75%;
+  }
 }
 
 .postfix(@threshold, @postfix) {

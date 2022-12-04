@@ -28,6 +28,8 @@ use App\Entity\PrivateMessage;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
+use App\Enum\ZoneActivityMarkerType;
 use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
@@ -108,6 +110,15 @@ class TownHandler
             if ($close_ts !== null) {
                 $town->setDoor( false );
                 $this->entity_manager->persist( $this->log->doorControlAuto( $town, false, $close_ts) );
+                $zeroZero = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town, 0, 0);
+                $proxy = $town->getCitizens()[0] ?? null;
+                if ($zeroZero && $proxy) {
+                    $zeroZero->addActivityMarker( (new ZoneActivityMarker())
+                                                      ->setCitizen( $proxy )
+                                                      ->setTimestamp( $close_ts )
+                                                      ->setType(ZoneActivityMarkerType::DoorAutoClosed));
+                    $this->entity_manager->persist($zeroZero);
+                }
                 $changed = true;
             }
 

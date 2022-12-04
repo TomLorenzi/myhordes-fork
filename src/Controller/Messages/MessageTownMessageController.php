@@ -161,7 +161,7 @@ class MessageTownMessageController extends MessageController
             // Special drunk handler
             if ($recipient && $this->citizen_handler->hasStatusEffect($sender,'drunk')) {
 
-                // Filter possible recipents. A sender can only send to someone who has the same banishment status.
+                // Filter possible recipients. A sender can only send to someone who has the same banishment status.
                 $list = $sender->getTown()
                                ->getCitizens()
                                ->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive() && ($sender->getBanished() === $c->getBanished() || empty($linked_items)))
@@ -451,6 +451,9 @@ class MessageTownMessageController extends MessageController
 
         $id = $parser->get('pmid', null);
         if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var Citizen $citizen */
         if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);

@@ -1,12 +1,11 @@
 {% extends "ajax/ajax.html.twig" %}
+{# @var user \App\Entity\User#}
 {% block title %}{% trans from 'admin' %}Account{% endtrans %} - {{ user.name }}{%  endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
 {% block ajax %}
-    {# @var user \App\Entity\User#}
-
     {% set has_main_soul = false %}
     {% for soul in user.twinoidImports %}
         {% if soul.main %}
@@ -151,6 +150,14 @@
                             {% endif %}
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            {{ "Benutzer impersonifizieren"|trans({}, "admin") }}
+                        </div>
+                        <div class="cell padded rw-9 rw-sm-12">
+                            <div id="impersonate_user" class="button inline small">{{ "Fortfahren"|trans({}, 'admin') }}</div>
+                        </div>
+                    </div>
 
                     <h5>{{ 'Info'|trans({}, 'admin') }}</h5>
                     <div class="row">
@@ -257,7 +264,7 @@
                             {{ 'Sonstige Accountmarkierungen'|trans({}, 'admin') }}
                         </div>
                         <div class="cell padded rw-9 rw-sm-12">
-                            <div><label><input {% if user.roleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
+                            <div><label><input {% if user.hasRoleFlag( constant('App\\Entity\\User::USER_ROLE_LIMIT_MODERATION') ) %}checked{% endif %} {% if user.rightsElevation >= 3 %}disabled{% endif%} type="checkbox" x-trigger-flag="FLAG_RUFFIAN" /> {{ 'Strenges Report Rate Limiting'|trans({}, 'admin') }}</label></div><br />
                         </div>
                     </div>
 
@@ -445,6 +452,10 @@
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );
             });
+
+            document.getElementById("impersonate_user").addEventListener('click', function() {
+                $.ajax.load(null, '{{ url('initial_landing') }}?_switch_user={{ user.username }}', true);
+            })
 
             $.html.addEventListenerAll('[x-trigger-flag]', 'change', (e,elem) => {
                 $.ajax.easySend( '{{ url('admin_users_account_manage', {action: 'grant', id: user.id}) }}', {param: (elem.checked ? '' : '!') + elem.getAttribute('x-trigger-flag')},

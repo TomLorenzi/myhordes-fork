@@ -11,6 +11,9 @@ enum ZoneActivityMarkerType: int {
     case RuinDig = 2;
     case ScoutVisit = 3;
 
+    case DoorAutoClosed = 10;
+    case DoorAutoCloseReported = 11;
+
     case ExplorableBlueprintU = 101;
     case ExplorableBlueprintR = 102;
     case ExplorableBlueprintE = 103;

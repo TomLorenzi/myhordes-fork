@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Semaphore;
 use App\Entity\ActionCounter;
 use App\Entity\AdminReport;
 use App\Entity\CampingActionPrototype;
@@ -67,6 +68,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class InventoryAwareController
  * @package App\Controller
  * @GateKeeperProfile(only_alive=true, only_with_profession=true)
+ * @Semaphore("town", scope="town")
  */
 class InventoryAwareController extends CustomAbstractController
     implements HookedInterfaceController
@@ -609,7 +611,7 @@ class InventoryAwareController extends CustomAbstractController
         if ($direction === 'down' && $allow_down_all && $item && in_array($item->getPrototype()->getName(), $carrier_items)) {
 
             $has_other_carriers = !empty(array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $item) {
-                return $i !== $item && in_array($i->getPrototype()->getName(), $carrier_items);
+                return $i !== $item && in_array($i->getPrototype()->getName(), /*$carrier_items*/[]);   // Fix watcher/belt abuse
             }));
 
             if (!$has_other_carriers) {
@@ -1484,6 +1486,8 @@ class InventoryAwareController extends CustomAbstractController
     public function reportCitizen( Citizen|CitizenRankingProxy $citizen, AdminReportSpecification $specification, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
 
         $user = $this->getUser();
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $proxy   = is_a( $citizen, CitizenRankingProxy::class ) ? $citizen : $citizen->getRankingEntry();
         $citizen = $proxy->getCitizen();
@@ -1514,7 +1518,7 @@ class InventoryAwareController extends CustomAbstractController
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
+            ->setReason( $reason )
             ->setDetails( $details ?: null )
             ->setTs(new \DateTime('now'))
             ->setCitizen( $proxy )

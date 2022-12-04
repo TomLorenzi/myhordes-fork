@@ -101,7 +101,10 @@
                     <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
                 {% endif %}
             </button>
-            <button x-item-action-toggle="0" class="mb-1" style="display:none;">{{'Abbrechen'|trans({}, 'global')  }}</button>
+            <button x-item-action-toggle="0" class="mb-1" style="display:none;">
+                <img src="{{ asset('build/images/icons/small_remove.gif') }}" alt="">
+                {{'Abbrechen'|trans({}, 'global')  }}
+            </button>
         {% endif %}
         <ul class="actions">
             {% if (item_action_list is defined) %}

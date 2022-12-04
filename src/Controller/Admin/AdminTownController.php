@@ -51,6 +51,7 @@ use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
+use App\Service\Maps\MapMaker;
 use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
@@ -59,6 +60,7 @@ use App\Structures\BankItem;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -434,7 +436,10 @@ class AdminTownController extends AdminActionController
      * @param int $id The ID of the town
      * @param string $action The action to perform
      */
-    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler, GameProfilerService $gps): Response
+    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random,
+                                 NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService,
+                                 KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler,
+                                 GameProfilerService $gps, MapMaker $mapMaker): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -634,7 +639,7 @@ class AdminTownController extends AdminActionController
                     if (!is_numeric($param) || (int)$param <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
                     $d = (int)$param;
                 }
-                $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeAuto, $d );
+                $mapMaker->dailyZombieSpawn( $town, 1, MapMaker::RespawnModeAuto, $d );
                 $this->entity_manager->persist( $town );
                 break;
 
@@ -900,7 +905,7 @@ class AdminTownController extends AdminActionController
             array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
         );
 
-        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type, [], -1, $name_changers[0] ?? null);
+        $town = $gameFactory->createTown( new TownSetup( $town_type, name: $town_name, language: $town_lang, nameMutator: $name_changers[0] ?? null ));
         if (!$town) {
             $this->logger->invoke("Town creation failed!");
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
@@ -914,7 +919,7 @@ class AdminTownController extends AdminActionController
             $gps->recordTownCreated( $town, $this->getUser(), 'manual' );
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
         }
 
         $current_event_names = array_map(fn(EventConf $e) => $e->name(), array_filter($current_events, fn(EventConf $e) => $e->active()));
@@ -1017,7 +1022,7 @@ class AdminTownController extends AdminActionController
                 foreach ($citizen->getValidLeadingEscorts() as $escort)
                     $movers[] = $escort->getCitizen();
             } else {
-                foreach ($citizen->getValidLeadingEscorts() as $escort) {
+                foreach ($citizen->getLeadingEscorts() as $escort) {
                     $escort->getCitizen()->getEscortSettings()->setLeader(null);
                     $this->entity_manager->persist($escort->getCitizen());
                 }
