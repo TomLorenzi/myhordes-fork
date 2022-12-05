@@ -270,7 +270,7 @@
         {% endif %}
         <div class="row">
             <div class="padded cell rw-6 rw-md-12 actions-box">
-                <div {{ {'mdg': app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderActionButtonsBeyond") )}|classes }}>
+                <div {{ {'mdg': app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderActionButtonsBeyond") ) and app.user.expert}|classes }}>
                     {% if not zone.townZone %}
                         <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                         {% if zone.digs <= 0 %}

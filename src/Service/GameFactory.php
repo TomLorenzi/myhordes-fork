@@ -33,6 +33,7 @@ use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
@@ -222,7 +223,34 @@ class GameFactory
                 ]
             ],
             'es' => [],
-        ]
+        ],
+
+        'christmas' => [
+            'de' => [
+                [   // Adjectives
+                    'f' => [ 'Weihnachtliche', 'Besinnliche', 'Verschneite', 'Heilige', 'Beschenkte' ],
+                    'm' => [ 'Weihnachtlicher|-', 'Besinnlicher|-', 'Verschneiter|-', 'Heiliger|-', 'Beschenkter|-' ],
+                    'n' => [ 'Weihnachtliches|-', 'Besinnliches|-', 'Verschneites|-', 'Heiliges|-', 'Beschenktes|-' ],
+                    '*' => [],
+                ],
+                [   // Subjects
+                    'f' => [ 'Rentier|e', 'Elfe|n', 'Kalendertür|en', 'Schneeflocke|n', 'Gabe|n', 'Holzeisenbahn|en', 'Socke|n', 'Feuerzangenbowle|n' ],
+                    'm' => [ 'Weihnachtsmann|<Weihnachtsmänner', 'Weihnachtsbaum|<Weihnachtsbäume', 'Lebkuchen', 'Schornstein|e', 'Glühweintrinker', 'Eierpunscher', 'Weihnachtsmarkt|<Weihnachtsmärkte', 'Engel', 'Mistelzweig|e' ],
+                    'n' => [ 'Geschenk|e', 'Familientreffen', 'Christkind|er', 'Kalendertürchen', 'Fest|e', 'Weihnachtsfest|e' ],
+                    '*' => [],
+                ],
+                [
+                    // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    'n' => [ ],
+                    '*' => ['der weißen Weihnacht', 'im Schneegestöber', 'im Glühweinrausch', 'aus Schnee', 'im Schnee', 'mit Glühwein', 'in der Krippe', 'im Stall', 'mit Weihnachtsbaum', 'unter dem Weihnachtsbaum', 'auf dem Festplatz'],
+                ]
+            ],
+            'en' => [],
+            'fr' => [],
+            'es' => [],
+        ],
     ];
 
     private function pluralize(string $expression, bool $pluralize = true) {
@@ -267,8 +295,9 @@ class GameFactory
                 $conf_section = $gender . ($plural ? 'p' : 's');
 
                 $mutator_keys = [];
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data ?? [] ) );
                 foreach ($data['sets'] as $index => &$set)
-                    if (isset( $mutator_data[$index] )) {
+                    if (isset( $mutator_data[$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$index];
                         $mutator_keys[] = $mutator;
                     } else $mutator_keys[] = null;
@@ -290,8 +319,9 @@ class GameFactory
                 $conf_section = "$base_set";
 
                 $mutator_keys = [];
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data[$base_set] ?? [] ) );
                 foreach ($data['sets'][$base_set] as $index => &$set)
-                    if (isset( $mutator_data[$base_set][$index] )) {
+                    if (isset( $mutator_data[$base_set][$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$base_set][$index];
                         $mutator_keys[] = $mutator;
                     } else $mutator_keys[] = null;
@@ -391,27 +421,22 @@ class GameFactory
         return $this->evaluateNameSchema( $schema = $this->generateNameSchema( $language, $mutator ) ) ?? 'TOWN_NAME_GENERATOR_FAILED';
     }
 
-    public function createTown( ?string $name, ?string $language, ?int $population, string|array $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
-        if (is_array( $type )) {
-            $deriveFrom = $type[1] ?? $type[0];
-            $type = $type[0];
-        } else $deriveFrom = $type;
-
-        if (!$this->validator->validateTownType($type))
+    public function createTown( TownSetup $townSetup ): ?Town {
+        if (!$this->validator->validateTownType($townSetup->type))
             return null;
 
-        if ($seed > 0) mt_srand($seed);
+        if ($townSetup->seeds) mt_srand($townSetup->seed);
 
-        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $type ]);
+        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $townSetup->type ]);
 
         // Initial: Create town
         $town = new Town();
         $town
             ->setType($townClass)
-            ->setConf($customConf);
+            ->setConf($townSetup->customConf);
 
-        if ($deriveFrom !== $type)
-            $town->setDeriveConfigFrom( $deriveFrom );
+        if ($townSetup->derives)
+            $town->setDeriveConfigFrom( $townSetup->typeDeriveFrom );
 
         $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
 
@@ -419,18 +444,18 @@ class GameFactory
 
         $conf = $this->conf->getTownConfiguration($town);
 
-        if ($population === null) $population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
-        if ($population <= 0 || $population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
+        if ($townSetup->population === null) $townSetup->population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
+        if ($townSetup->population <= 0 || $townSetup->population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $townSetup->population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
             return null;
 
-        $this->translator->setLocale($language ?? 'de');
+        $this->translator->setLocale($townSetup->language ?? 'de');
 
         $schema = null;
         $town
-            ->setPopulation( $population )
-            ->setName( $name ?: $this->createTownName($language, $schema, $nameMutator) )
+            ->setPopulation( $townSetup->population )
+            ->setName( $townSetup->name ?: $this->createTownName($townSetup->nameLanguage, $schema, $townSetup->nameMutator ) )
             ->setNameSchema( $schema )
-            ->setLanguage( $language )
+            ->setLanguage( $townSetup->language )
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 

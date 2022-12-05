@@ -22,7 +22,7 @@ export const TownCreatorSectionAnimator = () => {
                       value={ globals.getOption( 'head.townSchedule' ) } propName="head.townSchedule"
                       onChange={e => {
                           globals.setOption('head.townSchedule', (e.target as HTMLInputElement).value);
-                          if ((globals.getOption( 'head.townIncarnation' ) ?? 'incarnate') === 'incarnate')
+                          if ((globals.getOption( 'head.townIncarnation' ) ?? 'none') === 'incarnate')
                               globals.setOption( 'head.townIncarnation', 'none' );
                       }}
         />
@@ -60,7 +60,7 @@ export const TownCreatorSectionAnimator = () => {
 
         { /* Participation Settings */ }
         <OptionSelect propTitle={animation.participation}
-                      value={globals.getOption( 'head.townIncarnation' ) ?? 'incarnate'} propName="<.head.townIncarnation"
+                      value={globals.getOption( 'head.townIncarnation' ) ?? 'none'} propName="<.head.townIncarnation"
                       options={ animation.participation_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
                       onChange={e => {
                           const v = (e.target as HTMLSelectElement).value;

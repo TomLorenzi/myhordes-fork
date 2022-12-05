@@ -41,7 +41,7 @@
             <div class="row">
                 {% for job in professions %}
                     {# @var job \App\Entity\CitizenProfession #}
-                    <div class="jobs-choice padded cell rw-4 rw-lg-6 rw-sm-8 ro-sm-2 pointer">
+                    <div class="jobs-choice padded cell rw-4 rw-md-6 pointer">
                         <div class="text center">
                             <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
                             <label for="jb_{{ job.name }}">
@@ -65,17 +65,17 @@
             <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="row prof-list">
             {% for elem in prof_count %}
-                <div class="padded cell small center rw-4 rw-lg-6 rw-sm-12">
+                <div class="padded cell small center rw-4 rw-lg-6">
                     <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
                     {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
                 </div>
             {% endfor %}
         </div>
             <br/>
-            <p class="ambiant">
+            <p class="ambiant hide-sm">
                 {{ 'Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...'|trans({},'game') }}
+                <br />
             </p>
-            <br />
             <div class="cell rw-12">
                 <div class="row">
                     <div class="cell ro-8 rw-4 ro-lg-7 rw-lg-5 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12 right">
@@ -86,6 +86,10 @@
                     </div>
                 </div>
             </div>
+            <p class="ambiant hide-md hide-lg hide-desktop">
+                {{ 'Du suchst dir besser eine Beschäftigung aus, denn es gilt: Ohne Job, kein Leben. Wozu bist du denn sonst gut? Die Gemeinschaft, der du angehören wirst, braucht jede Art von Personen. Die Zusammenarbeit mit den anderen wird zweifelsohne deine Überlebensdauer entscheidend beeinflussen...'|trans({},'game') }}
+                <br />
+            </p>
         </div>
     </div>
 {% endblock %}

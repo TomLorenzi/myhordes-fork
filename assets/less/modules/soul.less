@@ -437,8 +437,11 @@ div.tooltip.badge-tooltip {
     }
 
     .language-picker {
-        display: flex; justify-content: space-between;
-        .note { width: 24%; flex-basis: 24%; }
+        display: inline-flex; justify-content: space-between; gap: 12px;
+        &>* {
+          display: inline-flex; padding: 4px; align-items: center; gap: 1px;
+          &>input { flex-shrink: 0; flex-grow: 0; margin: 0; padding: 0 }
+        }
     }
 
     ul.group-conversation.announcement {

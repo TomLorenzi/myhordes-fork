@@ -60,6 +60,7 @@ use App\Structures\BankItem;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -904,7 +905,7 @@ class AdminTownController extends AdminActionController
             array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
         );
 
-        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type, [], -1, $name_changers[0] ?? null);
+        $town = $gameFactory->createTown( new TownSetup( $town_type, name: $town_name, language: $town_lang, nameMutator: $name_changers[0] ?? null ));
         if (!$town) {
             $this->logger->invoke("Town creation failed!");
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);

@@ -1583,6 +1583,8 @@ class MessageForumController extends MessageController
 
         $user = $this->getUser();
         $postId = $parser->get('postId');
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var Post $post */
         $post = $em->getRepository( Post::class )->find( $postId );
@@ -1610,7 +1612,7 @@ class MessageForumController extends MessageController
         $post->addAdminReport(
             $newReport = (new AdminReport())
                 ->setSourceUser($user)
-                ->setReason( $parser->get_int('reason', 0, 0, 13) )
+                ->setReason( $reason )
                 ->setDetails( $details ?: null )
                 ->setTs(new DateTime('now'))
         );

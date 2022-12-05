@@ -32,6 +32,12 @@ class ZombieEstimation
     private $citizens;
     #[ORM\Column(type: 'bigint', nullable: true)]
     private $seed;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $targetMin = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $targetMax = null;
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -121,6 +127,30 @@ class ZombieEstimation
     public function setSeed(?int $seed): self
     {
         $this->seed = $seed;
+
+        return $this;
+    }
+
+    public function getTargetMin(): ?int
+    {
+        return $this->targetMin ?? $this->getZombies();
+    }
+
+    public function setTargetMin(?int $targetMin): self
+    {
+        $this->targetMin = $targetMin;
+
+        return $this;
+    }
+
+    public function getTargetMax(): ?int
+    {
+        return $this->targetMax ?? $this->getZombies();
+    }
+
+    public function setTargetMax(?int $targetMax): self
+    {
+        $this->targetMax = $targetMax;
 
         return $this;
     }

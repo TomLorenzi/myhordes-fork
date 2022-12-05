@@ -518,7 +518,6 @@
                     form.append($.html.createElement( '<p class="small bold"></p>', '{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}' ));
 
                     let sec_p = $.html.createElement('<p class="small"/>', '{{ 'Wenn möglich gib bitte einen Grund für deine Meldung an:'|trans({},'global')|e('js') }}');
-                    sec_p.append( $.html.createElement('<div><label><input checked type="radio" name="report_reason" value="0" />' + '{{ 'Keinen Grund angeben'|trans({},'global')|e('js') }}' + '</label></div>') )
                     sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="1" />' + '{{ 'Cheating'|trans({},'global')|e('js') }}' + '</label></div>') )
                     sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="2" />' + '{{ 'Flooding oder Spam'|trans({},'global')|e('js') }}' + '</label></div>') )
                     sec_p.append( $.html.createElement('<div><label><input type="radio" name="report_reason" value="4" />' + '{{ 'Beleidigungen / Unangemessener Ausdruck'|trans({},'global')|e('js') }}' + '</label></div>') )
@@ -538,8 +537,10 @@
                             const reason = document.querySelector('[name="report_reason"]:checked') ? parseInt(document.querySelector('[name="report_reason"]:checked').value) : 0;
                             const detail = document.querySelector('[name="report_details"]') ? document.querySelector('[name="report_details"]').value : '';
 
-                            $.html.triggerPopupPop(elem_sub);
-                            $.ajax.easySend( elem.getAttribute('x-report-url'), {reason: reason, details: detail}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
+                            if (reason > 0) {
+                                $.html.triggerPopupPop(elem_sub);
+                                $.ajax.easySend( elem.getAttribute('x-report-url'), {reason: reason, details: detail}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
+                            } else $.html.error('{{ 'Bitte wähle einen Grund für deine Meldung aus.'|trans({},'global')|e('js') }}')
                         }] ] ],
                         [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e_sub, elem_sub) => $.html.triggerPopupPop(elem_sub)] ] ]
                     ] );

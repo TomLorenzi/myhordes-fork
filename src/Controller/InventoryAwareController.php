@@ -1486,6 +1486,8 @@ class InventoryAwareController extends CustomAbstractController
     public function reportCitizen( Citizen|CitizenRankingProxy $citizen, AdminReportSpecification $specification, JSONRequestParser $parser, RateLimiterFactory $reportToModerationLimiter ): Response {
 
         $user = $this->getUser();
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $proxy   = is_a( $citizen, CitizenRankingProxy::class ) ? $citizen : $citizen->getRankingEntry();
         $citizen = $proxy->getCitizen();
@@ -1516,7 +1518,7 @@ class InventoryAwareController extends CustomAbstractController
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
+            ->setReason( $reason )
             ->setDetails( $details ?: null )
             ->setTs(new \DateTime('now'))
             ->setCitizen( $proxy )

@@ -27,6 +27,7 @@ use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use DateTime;
 use DirectoryIterator;
 use Doctrine\Common\Collections\Criteria;
@@ -361,7 +362,9 @@ class CronCommand extends Command
                         array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
                     );
 
-                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type, [], -1, $name_changers[0] ?? null ));
+                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(
+                        new TownSetup( $type, language: $lang, nameMutator: $name_changers[0] ?? null )
+                    ));
                     $this->entityManager->flush();
 
                     $this->gps->recordTownCreated( $newTown, null, 'cron' );
