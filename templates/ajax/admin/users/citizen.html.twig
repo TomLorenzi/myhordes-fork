@@ -51,7 +51,9 @@
                         <div class="cell padded rw-12" {% if user_citizen is not null %}id="citizen_base_selector" x-id="{{ user_citizen.id }}"{% endif %}>
                             <label><input disabled style="width: 100%;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" /></label>
                         </div>
-                        <div class="cell padded rw-12">
+
+                        {% if user_citizen is not null %}
+                            <div class="cell padded rw-12">
                             <div class="row-table">
                                 <div class="row header">
                                     <div class="padded cell rw-3">{{ 'Nachricht'|trans({},'admin') }}</div>
@@ -95,6 +97,8 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
+
                         {% if active %}
                             {% if alive %}
                                 <div class="row">
