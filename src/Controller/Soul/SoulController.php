@@ -867,7 +867,7 @@ class SoulController extends CustomAbstractController
             }
         }
 
-        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
+        return $this->render( 'ajax/soul/ranking/towns.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
             'virtualSeason' => false,
@@ -927,7 +927,7 @@ class SoulController extends CustomAbstractController
         //if (!$ranking || !$pages)
         //    return $this->redirect($this->generateUrl( 'soul_season' ));
 
-        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
+        return $this->render( 'ajax/soul/ranking/solo.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
             'currentSeason' => $seasonId === 'a' ? 'a' : $currentSeason,
             'virtualSeason' => is_string($currentSeason) || $seasonId === 'a',

@@ -1,0 +1,181 @@
+{% extends "ajax/soul/ranking/shell.html.twig" %}
+
+{% block ranking_content %}
+    {# @var \src\Entity\Season currentSeason #}
+    <div class="cell padded rw-12">
+        {% if towns|length > 0 %}
+            <div class="row-flex header">
+                <div class="cell padded rw-1 rw-sm-0 center">
+                    {{'Lang.'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-1 rw-sm-0 center">
+                    {{'Pos.'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-6 rw-sm-10 center">
+                    {{'Stadt'|trans({}, 'game')}}
+                </div>
+                <div class="cell padded rw-2 rw-sm-0 center">
+                    {{'Überlebte Tage'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-2 center">
+                    {{'Score'|trans({}, 'soul')}} <a class="help-button"><div class="tooltip help">{{ 'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                </div>
+            </div>
+            <div class="town-container">
+                {% set pos = 1 %}
+                {% for town in towns %}
+                    <div class="row-flex stretch season_entry {% if pos is not odd %}even{% endif %} {% if played[town.id] is defined %}played{% endif %}">
+                        {# @var town \src\Entity\TownRankingProxy #}
+                        <div class="cell rw-1 season_entry_td center"><img class="fit" style="max-width: 32px;" src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
+                        <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
+                        <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
+                        <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
+                        <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
+                    </div>
+                    {% if pos == 1 %}
+                        <div class="row-flex stretch season_entry_container" x-town-latest="">
+                            <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
+                            <div class="cell rw-7 ro-1">
+                                {% for denizen in town.citizens|filter(a => a.day == town.days)|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
+                                    <span class="small">
+                                    {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated']} only %} <span style="color: #f0d79e">({{ denizen.day }})</span>
+                                    </span>{% if not loop.last %},{% endif %}
+                                {% endfor %}
+                                {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
+                            </div>
+                            <div class="cell rw-4 center"></div>
+                        </div>
+                    {% endif %}
+                    <div x-town-tohide="{{ town.id }}" class="row-flex stretch season_entry_container hidden" style="background-color: #5c2b20">
+                        <div class="cell rw-1" style="border-right: 1px solid #7e4d2a;"></div>
+                        <div class="cell rw-1 rw-md-0"></div>
+                        <div x-town-details="{{ town.id }}" class="cell rw-8 rw-md-11">
+                            <ul class="citizen-list">
+                                {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day ?: b.end <=> a.end) %}
+                                    {# @var denizen \App\Entity\CitizenRankingProxy #}
+                                    <li class="row-flex wrap" style="border-bottom: 1px dashed #ddab76;{% if denizen.user.id == user.id %}background-color: #3b3249;{% endif %}">
+                                        <div class="cell padded rw-4 rw-sm-10">
+                                            {% if denizen.cod.ref == constant("App\\Entity\\CauseOfDeath::Vanished") %}
+                                                <div class="inline-block"><img src="{{ asset("build/images/death/outside.gif") }}" alt="" /> <div class="tooltip">{{ 'Draußen gestorben'|trans({}, 'soul') }}</div></div>
+                                            {% else %}
+                                                <div class="inline-block"><img src="{{ asset("build/images/death/inside.gif") }}" alt="" /> <div class="tooltip">{{ 'In der Stadt gestorben'|trans({}, 'soul') }}</div></div>
+                                            {% endif %}
+                                            {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated']} only %}
+                                        </div>
+                                        <div class="cell padded rw-1 rw-sm-2" style="color:#f8eacb">{{ denizen.day }}</div>
+                                        <div class="cell padded rw-4 rw-md-7 rw-sm-12"><em>{{ denizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}</em></div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="right"><span class="small pointer" x-town-toggle="{{ town.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+                        </div>
+                        <div class="cell rw-2 rw-md-0"></div>
+                    </div>
+                    <!-- to compensate even/odd coloring (2 rows per town makes them all even and it's incorrect, so we need 3) -->
+                    <!-- (also helps with a border issue) -->
+                    <div class="row-flex stretch">
+                    </div>
+                    {% set pos = pos + 1 %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="note note-critical">{{ 'Es wurde noch keine Stadt in die Rangliste aufgenommen!'|trans({},'global') }}</div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block below_ranking_content %}
+    {% if seasons|length > 0 %}
+        <div class="row">
+            <div class="padded cell rw-12">
+                <div class="note">
+                    <label for="season">
+                        {{ 'Vorangegangene Saisons:'|trans({}, 'soul') }}
+                    </label>
+                    <select name="season" id="season">
+                        {% for season in seasons %}
+                            <option value="{{season.id}}" {% if currentSeason is not null and currentSeason == season %}selected{% endif %}>
+                                {% set got  = season.number == 0 and season.subnumber <= 14 %}
+                                {% set beta = season.number == 0 and not got %}
+                                {% if got %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
+                                {% if beta %}
+                                    {{ 'Beta-Saison'|trans({},'soul') }}
+                                {% else %}
+                                    {{ 'Saison {n}'|trans({'{n}': season.number > 0 ? season.number : season.subNumber},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                                {% endif %}
+                            </option>
+                        {% endfor %}
+                        <option value="a" {% if currentSeason is null %}selected{% endif %}>{{'Alte Städte'|trans({}, "soul")}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="help">
+        <strong>{{'Die blau markierten Felder sind Städte, in denen du mitgespielt hast!'|trans({}, 'game')}}</strong>
+        {{'Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.'|trans({}, 'game')}}<br />
+        {{ help_lnk('Ranglisten und Saisons'|trans({}, 'help'), 'help', {'name': 'seasons_and_rankings'}) }}
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script>
+        let season = document.getElementById("season");
+        if(season) season.addEventListener("change", function(){
+            $.ajax.load(null, '{{ path("soul_season", {'type': currentType.id}) }}', true, {'season': season.value});
+        })
+
+        $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
+            let old_src = elem.getAttribute('src');
+            let new_src = elem.getAttribute('alt-src');
+            elem.setAttribute('src', new_src);
+            elem.setAttribute('alt-src', old_src);
+            const id = elem.getAttribute('x-town-toggle');
+            document.querySelectorAll('[x-town-tohide="' + id + '"]').forEach(function( target ) {
+                // We hide all the other details
+                document.querySelectorAll('[x-town-tohide]:not([x-town-tohide="' + id + '"])').forEach(function(target2){
+                    if (!target2.classList.contains('hidden')) {
+                        target2.classList.add('hidden');
+                        let img = document.querySelector('img[x-town-toggle="' + target2.getAttribute("x-town-tohide") + '"]');
+                        let old_src = img.getAttribute('src');
+                        let new_src = img.getAttribute('alt-src');
+                        img.setAttribute('src', new_src);
+                        img.setAttribute('alt-src', old_src);
+                    }
+                });
+                if (target.classList.contains('hidden')) target.classList.remove('hidden');
+                else {
+                    target.classList.add('hidden');
+                }
+            })
+            document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
+                if (!target.classList.contains('hidden')) target.classList.add('hidden');
+                // opening and closing a town won't restore the x-town-latest, but not a problem imo !
+                // allows to display the rankings without it which is good
+                // Hordes works like this
+            })
+        } );
+
+        $.html.addEventListenerAll( '[x-town-toggle-list]', 'click', function(e,elem) {
+            let old_src = elem.getAttribute('src');
+            let new_src = elem.getAttribute('alt-src');
+            elem.setAttribute('src', new_src);
+            elem.setAttribute('alt-src', old_src);
+            const id = elem.getAttribute('x-town-toggle-list');
+            document.querySelectorAll('[x-town-list="' + id + '"][x-default-display="hidden"]').forEach(function( target ) {
+                if (target.classList.contains('hidden')) target.classList.remove('hidden');
+                else target.classList.add('hidden');
+                // todo: hide other town lists when selecting a new one ? hordes works this way
+            })
+            /*document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
+                if (!target.classList.contains('hidden')) target.classList.add('hidden');
+                // opening and closing a town won't restore the x-town-latest, but not a problem imo !
+                // allows to display the rankings without it which is good
+            })*/
+        } );
+    </script>
+
+{% endblock %}
