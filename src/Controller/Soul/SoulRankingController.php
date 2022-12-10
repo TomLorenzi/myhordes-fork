@@ -227,7 +227,7 @@ class SoulRankingController extends SoulController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasonId = $season ?? $parser->get('season', 'all');
+        $seasonId = $season ?? $parser->get('season', 'c');
         if (($currentSeason = $this->resolveSeasonIdentifier( $seasonId )) === false)
             return $this->redirect($this->generateUrl( 'soul_season_solo', ['season' => 'c'] ));
 
@@ -325,7 +325,7 @@ class SoulRankingController extends SoulController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasonId = $season ?? $parser->get('season', 'all');
+        $seasonId = $season ?? $parser->get('season', 'c');
         if (($currentSeason = $this->resolveSeasonIdentifier( $seasonId )) === false)
             return $this->redirect($this->generateUrl( 'soul_season_solo', ['season' => 'c'] ));
 
