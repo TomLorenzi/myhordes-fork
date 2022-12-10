@@ -1,0 +1,77 @@
+{% extends "ajax/soul/ranking/shell.html.twig" %}
+
+{% block ranking_content %}
+    <div class="cell rw-12">
+        <div class="row season_access_text"><label for="season">{{'Zugriff auf die Rangliste einer bestimmten Saison:'|trans({}, 'soul')}}</label></div>
+        <div class="row season_access_select">
+            <div class="cell rw-4">
+                <select name="season" id="season">
+                    <option {% if (currentSeason == 'all') %}selected{% endif %} value="all">{{'Alle Saisons'|trans({}, "soul")}}</option>
+                    <option {% if (currentSeason == 'myh') %}selected{% endif %} value="myh">{{'Alle Saisons auf MyHordes'|trans({}, "soul")}}</option>
+                    {% for season in seasons %}
+                        <option value="{{season.id}}" {% if currentSeason is not null and not virtualSeason and currentSeason == season %}selected{% endif %}>
+                            {% set got  = season.number == 0 and season.subnumber <= 14 %}
+                            {% set beta = season.number == 0 and not got %}
+                            {% if got %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
+                            {% if beta %}
+                                {{ 'Beta-Saison'|trans({},'soul') }}
+                            {% else %}
+                                {{ 'Saison {n}'|trans({'{n}': season.number > 0 ? season.number : season.subNumber},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                            {% endif %}
+                        </option>
+                    {% endfor %}
+                    <option value="a" {% if currentSeason is null or currentSeason == 'a' %}selected{% endif %}>{{'Alpha-Seelen'|trans({}, "soul")}}</option>
+                </select>
+            </div>
+            <div class="cell rw-8">
+            </div>
+        </div>
+    </div>
+    <div class="cell rw-12">
+        <div class="row">
+            {% for picto in ranking %}
+                {% if picto.ranking is not empty %}
+                    <div class="padded cell rw-4 rw-lg-6 rw-md-12">
+                        <div class="row-flex header v-center pointer" style="column-gap: 8px"  x-ajax-href="{{ path("soul_season_distinction_detail", {id: picto.prototype.id} ) }}">
+                            <img class="padded cell" alt="" src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
+                            <div class="padded cell label small">{{ picto.prototype.label|trans({}, 'game') }}</div>
+                        </div>
+                        <div class="town-container">
+                            {% for pos, entry in picto.ranking %}
+                                <div {{ {'row-flex stretch season_entry_solo top5plus': true}|classes }} >
+                                    <div class="cell rw-2 season_entry_td center soul_season_flag">
+                                        {% if entry.user.flag is not null %}
+                                            <div class="user-flag small"><img alt="{{ entry.user.flag }}" src="{{ asset('build/images/lang/any/' ~ entry.user.flag ~ '.svg' ) }}"/></div>
+                                        {% elseif entry.user.language is not null %}
+                                            <img src="{{ asset("build/images/lang/" ~ entry.user.language ~ ".png") }}" alt="{{ entry.user.language }}" />
+                                        {% else %}
+                                            <img src="{{ asset("build/images/lang/multi.png") }}" alt="" />
+                                        {% endif %}
+                                    </div>
+                                    <div class="cell rw-6 season_entry_td left soul_season_name">
+                                        {% include 'ajax/soul/playername.html.twig' with {user: entry.user, additional_classes: ['undecorated', 'small']} only %}
+                                    </div>
+                                    <div class="cell rw-4 season_entry_td center soul_season_points">
+                                        {{ entry.count }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script>
+        let season = document.getElementById("season");
+        if(season) season.addEventListener("change", function(){
+            $.ajax.load(null, '{{ path("soul_season_distinction_overview") }}', true, {'season': season.value});
+        })
+    </script>
+
+{% endblock %}

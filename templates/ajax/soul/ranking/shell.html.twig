@@ -48,6 +48,7 @@
                     <li x-ajax-sticky x-ajax-href="{{ path('soul_season', {'type': type.id, 'season': (currentSeason and not virtualSeason) ? currentSeason.id : (virtualSeason ? 'c' : 'a')}) }}" class="type {% if currentType and type.id == currentType.id %}selected{% endif %}" x-type-id="{{ type.id }}"><img src="{%if type.name == 'remote' %}{{ asset('build/images/pictos/r_surlst.gif') }}{% else %}{{ asset('build/images/towntypes/' ~ type.name ~ '.gif') }}{% endif %}" alt="" /> <span class="link soul_season_link">{{ type.label|trans({}, 'soul') }}</span></li>
                 {% endfor %}
                 <li x-ajax-sticky x-ajax-href="{{ path('soul_season_solo') }}" class="type {% if soloType is defined and soloType == 'soul' %}selected{% endif %}" x-type-id="soul"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" /> <span class="link soul_season_link">{{ 'Seelenpunkte'|trans({}, 'soul') }}</span></li>
+                <li x-ajax-sticky x-ajax-href="{{ path('soul_season_distinction_overview') }}" class="type {% if soloType is defined and soloType == 'distinctions' %}selected{% endif %}" x-type-id="soul"><img src="{{ asset('build/images/icons/small_hero.gif') }}" alt="" /> <span class="link soul_season_link">{{ 'Auszeichnungen'|trans({}, 'soul') }}</span></li>
             </ul>
         </div>
 
