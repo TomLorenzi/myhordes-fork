@@ -222,12 +222,13 @@ class GameFactory
                     '*' => ['des citrouilles', 'aux citrouilles', 'du potiron', 'aux potimarrons', 'd\'Halloween', 'du chaudron', 'aux sorcières', 'de la sorcière', 'de la fête des morts', 'des morts qui dansent', 'de la citrouille creuse'],
                 ]
             ],
-            'es' => // Suffixes
+            'es' => [// Suffixes
                 2 => [
                 'f' => [ ],
                 'm' => [ ],
                 '*' => ['de las calabazas', 'de calabazas', 'del caldero', 'de Halloween', 'de las brujas', 'de la bruja', 'del festival de los muertos', 'del día de los muertos', 'de los muertos que bailan', 'de la calabaza hueca'],
                 ]
+            ]
         ],
 
         'christmas' => [
@@ -273,6 +274,7 @@ class GameFactory
                      'n' => [ ],
                      '*' => ['du Noël blanc', 'dans la rafale de neige', 'dans la ruée vers le vin chaud', 'en neige', 'dans la neige', 'avec du vin chaud', 'dans la crèche ', 'dans l\'étable', 'sous le Sapin', 'de la fête foraine'],
                 ],
+            ],
             'es' => [],
         ],
     ];
