@@ -222,11 +222,12 @@ class GameFactory
                     '*' => ['des citrouilles', 'aux citrouilles', 'du potiron', 'aux potimarrons', 'd\'Halloween', 'du chaudron', 'aux sorcières', 'de la sorcière', 'de la fête des morts', 'des morts qui dansent', 'de la citrouille creuse'],
                 ]
             ],
-            'es' => // Suffixes
+            'es' => [
                 2 => [
-                'f' => [ ],
-                'm' => [ ],
-                '*' => ['de las calabazas', 'de calabazas', 'del caldero', 'de Halloween', 'de las brujas', 'de la bruja', 'del festival de los muertos', 'del día de los muertos', 'de los muertos que bailan', 'de la calabaza hueca'],
+                    // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    '*' => ['de las calabazas', 'de calabazas', 'del caldero', 'de Halloween', 'de las brujas', 'de la bruja', 'del festival de los muertos', 'del día de los muertos', 'de los muertos que bailan', 'de la calabaza hueca'],
                 ]
         ],
 
