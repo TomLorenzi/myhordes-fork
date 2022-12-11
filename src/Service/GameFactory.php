@@ -265,7 +265,7 @@ class GameFactory
                     'f' => [ ],
                     'm' => [ ],
                     'n' => [ ],
-                    '*' => [ 'Renne|s', 'Elfe|s', 'Cadeau|x', 'Festival|-aux', 'Fête de Noyel', 'Calendrier|s', 'Flocon de neige', 'Train en bois', 'Chaussette|s', 'Papa Noyel', 'Pain d\'épice', 'Cheminée|e', 'Marché de Noël', 'Ange|s' ],
+                    '*' => [ 'Renne|s', 'Elfe|s', 'Cadeau|x', 'Festival|-ux', 'Fête de Noyel', 'Calendrier|s', 'Flocon de neige', 'Train en bois', 'Chaussette|s', 'Papa Noyel', 'Pain d\'épice', 'Cheminée|e', 'Marché de Noël', 'Ange|s' ],
                  ],
                  [
                      // Suffixes
