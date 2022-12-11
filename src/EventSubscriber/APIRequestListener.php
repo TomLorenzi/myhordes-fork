@@ -30,7 +30,7 @@ class APIRequestListener implements EventSubscriberInterface
     private TimeKeeperService $timeKeeper;
     private RateLimitingFactoryProvider $rate_limit;
 
-    private $headers = [];
+    private array $headers = [];
 
 
     public function __construct(
@@ -158,7 +158,7 @@ class APIRequestListener implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::CONTROLLER => ['process', -64],
+            KernelEvents::CONTROLLER => ['process', -49],
             KernelEvents::RESPONSE   => ['addRateLimiterTokens', -1],
         ];
     }
