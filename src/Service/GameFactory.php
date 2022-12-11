@@ -256,8 +256,8 @@ class GameFactory
             'en' => [],
             'fr' => [
                 [   // Adjectives
-                     'f' => [ 'Contemplative|s', 'Enneigée|s', 'Sainte' ],
-                     'm' => [ 'Contemplatif|s', 'Enneigé|s', 'Saint' ],
+                     'f' => [ 'Contemplative|s', 'Enneigée|s', 'Sainte|s' ],
+                     'm' => [ 'Contemplatif|s', 'Enneigé|s', 'Saint|s' ],
                      'n' => [ ],
                      '*' => [ 'Noël', 'Destinataire|s' ],
                  ],
