@@ -83,7 +83,7 @@ use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
 
 /**
- * @Route("/jx/soul/ranking",condition="request.isXmlHttpRequest()")
+ * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
  */
 class SoulRankingController extends SoulController
@@ -99,7 +99,7 @@ class SoulRankingController extends SoulController
     }
 
     /**
-     * @Route("/{type<\d+>}/{season<\d+|c|all|a>}", name="soul_season")
+     * @Route("/jx/soul/ranking/{type<\d+>}/{season<\d+|c|all|a>}", name="soul_season")
      * @param JSONRequestParser $parser
      * @param null $type Type of town we're looking the ranking for
      * @param null $season
@@ -156,7 +156,7 @@ class SoulRankingController extends SoulController
     }
 
     /**
-     * @Route("/soul/{page}/{season<\d+|c|all|myh|a>}", name="soul_season_solo")
+     * @Route("/jx/soul/ranking/soul/{page}/{season<\d+|c|all|myh|a>}", name="soul_season_solo")
      * @param JSONRequestParser $parser
      * @param int $page
      * @param null $season
@@ -214,7 +214,7 @@ class SoulRankingController extends SoulController
     }
 
     /**
-     * @Route("/distinctions/{season<\d+|c|all|myh|a>}", name="soul_season_distinction_overview")
+     * @Route("/jx/soul/ranking/distinctions/{season<\d+|c|all|myh|a>}", name="soul_season_distinction_overview")
      * @param JSONRequestParser $parser
      * @param null $season
      * @return Response
@@ -311,7 +311,7 @@ class SoulRankingController extends SoulController
 
 
     /**
-     * @Route("/distinctions/detail/{id}/{season<\d+|c|all|myh|a>}", name="soul_season_distinction_detail")
+     * @Route("/jx/soul/ranking/distinctions/detail/{id}/{season<\d+|c|all|myh|a>}", name="soul_season_distinction_detail")
      * @param PictoPrototype $prototype
      * @param JSONRequestParser $parser
      * @param null $season
