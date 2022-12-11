@@ -6,7 +6,7 @@ namespace App\EventSubscriber\Deflect;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\CitizenProfession;
 use App\Entity\User;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**

@@ -8,7 +8,7 @@ use App\Entity\User;
 use App\Annotations\GateKeeperProfile;
 use App\Service\UserHandler;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
 
 /**
  * Redirects users with a gameplay ban
