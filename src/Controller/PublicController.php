@@ -406,6 +406,7 @@ class PublicController extends CustomAbstractController
                                 ->setSponsor( $referred_player )
                                 ->setUser( $user )
                                 ->setCountedHeroExp(0)->setCountedSoulPoints(0)
+                                ->setTimestamp(new DateTime())
                             );
 
                         if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken) {
@@ -634,6 +635,7 @@ class PublicController extends CustomAbstractController
                                                                 ->setSponsor( $referred_player )
                                                                 ->setUser( $new_user )
                                                                 ->setCountedHeroExp(0)->setCountedSoulPoints(0)
+                                                                ->setTimestamp(new DateTime())
                             );
 
 

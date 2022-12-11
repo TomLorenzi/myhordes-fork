@@ -171,6 +171,9 @@
                                         <div class="padded cell rw-3">
                                             <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
                                             {% include 'ajax/soul/playername.html.twig' with {user: entry.user,  additional_classes: ['undecorated']} only %}
+                                            {% if entry.timestamp is not null %}
+                                                <br/><span class="small">{{ entry.timestamp|format_datetime('short', 'short') }}</span>
+                                            {% endif %}
                                         </div>
                                         <div class="padded cell rw-3">{{ entry.user.allSoulPoints }}</div>
                                         <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
@@ -193,6 +196,10 @@
                                     </div>
                                 {% endfor %}
                             </div>
+                        </div>
+                        <div class="padded cell rw-12">
+                            <span class="small">{{ 'Gesamtzahl geworbener Spieler'|trans({},'soul') }}: </span>
+                            <strong>{{ sponsored|length }}</strong>
                         </div>
                     {% endif %}
 

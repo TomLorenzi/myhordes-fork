@@ -655,7 +655,7 @@ class AdminUserController extends AdminActionController
                         if ($i > 1000) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                     }
 
-                $this->entity_manager->persist( (new UserSponsorship)->setUser($user)->setSponsor($other_user)->setCountedSoulPoints(0)->setCountedHeroExp(0) );
+                $this->entity_manager->persist( (new UserSponsorship)->setUser($user)->setSponsor($other_user)->setCountedSoulPoints(0)->setCountedHeroExp(0)->setTimestamp(new \DateTime()) );
 
                 break;
 
