@@ -312,7 +312,7 @@ class PublicController extends CustomAbstractController
                     ]),
             ],
             'mail1' => [
-                new Constraints\Email( ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+                new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
                 new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$entityManager,$translator) {
                     $repo = $entityManager->getRepository(AntiSpamDomains::class);
 
@@ -555,7 +555,7 @@ class PublicController extends CustomAbstractController
             $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
                 'fields' => [
                     'mail1' => [
-                        new Constraints\Email( ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+                        new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
                         new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$translator) {
                             $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
                             if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
