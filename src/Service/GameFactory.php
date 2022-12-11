@@ -253,7 +253,26 @@ class GameFactory
                 ]
             ],
             'en' => [],
-            'fr' => [],
+            'fr' => [
+                [   // Adjectives
+                     'f' => [ 'Contemplative|s', 'Enneigée|s', 'Sainte' ],
+                     'm' => [ 'Contemplatif|s', 'Enneigé|s', 'Saint' ],
+                     'n' => [ ],
+                     '*' => [ 'Noël', 'Destinataire|s' ],
+                 ],
+                 [   // Subjects
+                    'f' => [ ],
+                    'm' => [ ],
+                    'n' => [ ],
+                    '*' => [ 'Renne|s', 'Elfe|s', 'Cadeau|x', 'Festival|-aux', 'Fête de Noyel', 'Calendrier|s', 'Flocon de neige', 'Train en bois', 'Chaussette|s', 'Papa Noyel', 'Pain d\'épice', 'Cheminée|e', 'Marché de Noël', 'Ange|s' ],
+                 ],
+                 [
+                     // Suffixes
+                     'f' => [ ],
+                     'm' => [ ],
+                     'n' => [ ],
+                     '*' => ['du Noël blanc', 'dans la rafale de neige', 'dans la ruée vers le vin chaud', 'en neige', 'dans la neige', 'avec du vin chaud', 'dans la crèche ', 'dans l\'étable', 'sous le Sapin', 'de la fête foraine'],
+                ],
             'es' => [],
         ],
     ];
