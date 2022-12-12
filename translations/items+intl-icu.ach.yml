@@ -947,3 +947,4 @@ Toxin: crwdns71844:0crwdne71844:0
 '<t-zone>Du hast ein neues Gebäude bei den Koordinaten {zone} entdeckt!</t-zone><nt-zone>Du suchst den gesamten Horizont mit deinen Adleraugen ab. Aber es scheint keine weiteren Gebäude zu entdecken zu geben.</nt-zone>': 'crwdns136428:0{zone}crwdne136428:0'
 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!': 'crwdns136430:0crwdne136430:0'
 'Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...': 'crwdns136458:0{num}crwdne136458:0'
+'Du brauchst im Moment <strong>nichts trinken</strong>, da du nicht müde bist und noch alle deine Aktionspunkte hast.': 'crwdns136743:0crwdne136743:0'
