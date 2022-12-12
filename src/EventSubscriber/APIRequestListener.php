@@ -57,11 +57,9 @@ class APIRequestListener implements EventSubscriberInterface
         /** @var ?ExternalAPI $apiConf */
         if ($apiConf = $event->getRequest()->attributes->get('_ExternalAPI') ?? null) {
 
-            if (!$event->getRequest()->attributes->get('_GateKeeperProfile')) {
-                $gk = new GateKeeperProfile();
-                $gk->value = 'skip';
-                $event->getRequest()->attributes->add( ['_GateKeeperProfile' => $gk] );
-            }
+            $gk = new GateKeeperProfile();
+            $gk->value = 'skip';
+            $event->getRequest()->attributes->add( ['_GateKeeperProfile' => $gk] );
 
             // Load params
             $app_key = trim($event->getRequest()->query->get('appkey') ?? $event->getRequest()->request->get('appkey') ?? '');
