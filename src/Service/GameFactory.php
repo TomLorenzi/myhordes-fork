@@ -255,17 +255,17 @@ class GameFactory
             ],
             'en' => [],
             'fr' => [
-                [   // Adjectives
-                     'f' => [ 'Contemplative|s', 'Enneigée|s', 'Sainte|s' ],
-                     'm' => [ 'Contemplatif|s', 'Enneigé|s', 'Saint|s' ],
-                     'n' => [ ],
-                     '*' => [ 'Noël', 'Destinataire|s' ],
-                 ],
                  [   // Subjects
                     'f' => [ ],
                     'm' => [ ],
                     'n' => [ ],
                     '*' => [ 'Renne|s', 'Elfe|s', 'Cadeau|x', 'Festival|-ux', 'Fête de Noyel', 'Calendrier|s', 'Flocon de neige', 'Train en bois', 'Chaussette|s', 'Papa Noyel', 'Pain d\'épice', 'Cheminée|e', 'Marché de Noël', 'Ange|s' ],
+                 ],
+                 [   // Adjectives
+                     'f' => [ 'Contemplative|s', 'Enneigée|s', 'Sainte|s' ],
+                     'm' => [ 'Contemplatif|s', 'Enneigé|s', 'Saint|s' ],
+                     'n' => [ ],
+                     '*' => [ 'Noël', 'Destinataire|s' ],
                  ],
                  [
                      // Suffixes
