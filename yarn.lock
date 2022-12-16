@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -1700,16 +1700,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.12.7":
-  version: 0.1.0-nightly.2022.12.7
-  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.12.7"
-  checksum: 730172509d29d4d80a315b039df4c91e0052f4e7ec627e28407ba6eec82e49389a54c643e888783ceed2b5c9da0b4caeaa95303a842ae6414e9f40bd456aa3d3
+"@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.12.16":
+  version: 0.1.0-nightly.2022.12.16
+  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2022.12.16"
+  checksum: b0009e191490f3e0b17ec9c3c083eb198170e61a9d0c75be2f615eb000902e11cff812a8c34b20a451c27cb6884a210ea0459b8e4e57599b54b017d7f2e30ea4
   languageName: node
   linkType: hard
 
-"@symfony/webpack-encore@npm:4.1.2":
-  version: 4.1.2
-  resolution: "@symfony/webpack-encore@npm:4.1.2"
+"@symfony/webpack-encore@npm:4.2.0":
+  version: 4.2.0
+  resolution: "@symfony/webpack-encore@npm:4.2.0"
   dependencies:
     "@nuxt/friendly-errors-webpack-plugin": ^2.5.1
     assets-webpack-plugin: 7.0.*
@@ -1761,7 +1761,7 @@ __metadata:
     vue-loader: ^15.0.11 || ^17.0.0
     vue-template-compiler: ^2.5
     webpack: ^5.72
-    webpack-cli: ^4.9.1
+    webpack-cli: ^4.9.1 || ^5.0.1
     webpack-notifier: ^1.15.0
   peerDependenciesMeta:
     "@babel/core":
@@ -1828,7 +1828,7 @@ __metadata:
       optional: true
   bin:
     encore: bin/encore.js
-  checksum: f0a5fda1094c887f9fe868a7987f75b6cfb0f2caedaf7508f69dbc96fe91ae6a1f6eeeb8b8f72efab6f5bd87c0d7a2818c65bfb2186b35585511e2c3925f0677
+  checksum: a92e98ecedc695e44d88955b440cd67b545f82453bba502e97c67aa6439fbd4e1880d188a9c96b37ed029cbba9c1fb6bd036927d8dbcc43a92eb355fa3fa5200
   languageName: node
   linkType: hard
 
@@ -4134,7 +4134,7 @@ __metadata:
 
 "fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
   dependencies:
     node-gyp: latest
   conditions: os=darwin
@@ -7043,7 +7043,7 @@ fsevents@~2.3.2:
 
 "resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.9.0#~builtin<compat/resolve>":
   version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
@@ -7105,8 +7105,8 @@ fsevents@~2.3.2:
     "@babel/preset-env": 7.20.2
     "@babel/preset-react": 7.18.6
     "@fortawesome/fontawesome-free": 6.2.1
-    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.12.7
-    "@symfony/webpack-encore": 4.1.2
+    "@ruffle-rs/ruffle": 0.1.0-nightly.2022.12.16
+    "@symfony/webpack-encore": 4.2.0
     buffer: 6.0.3
     core-js: 3.26.1
     file-loader: 6.2.0
@@ -8005,7 +8005,7 @@ fsevents@~2.3.2:
 
 "typescript@patch:typescript@4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=493e53"
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=d73830"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
