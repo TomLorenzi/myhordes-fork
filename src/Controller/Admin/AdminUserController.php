@@ -1426,7 +1426,7 @@ class AdminUserController extends AdminActionController
     /**
      * @Route("api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param int $cid
      * @param JSONRequestParser $parser The Request Parser
