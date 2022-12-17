@@ -410,7 +410,8 @@
                             </div>
                             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
                                 <button id="town-enter-escort" {% if not doors_open %}disabled{% endif %}>
-                                    <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}">
+                                    <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}" />
+                                    <img alt="" src="{{ asset('build/images/icons/escort_in.gif') }}" {{ {'hide-desktop hide-lg hide-md': true, 'hide-sm': not (app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderActionButtonsBeyond") ) and app.user.expert)}|classes }} />
                                     {% trans from 'game' %}Stadt betreten{% endtrans %} {% trans from 'game' %}(Mit Eskorte){% endtrans %}
                                     {% if enter_costs_ap %}
                                         (<div class="ap">1</div>)
