@@ -203,7 +203,7 @@
                     });
                 {% endif %}
 
-                document.getElementById('x-pm').addEventListener('click', function(e) {
+                document.getElementById('x-pm').addEventListener('click', function() {
                     document.getElementById("forum-content").innerHTML = "";
                     $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'pm'}) }}', false )
                 });
