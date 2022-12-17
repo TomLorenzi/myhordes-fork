@@ -837,15 +837,15 @@ class TownCreatorController extends CustomAbstractCoreController
             array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
         );
 
-        $town = $gameFactory->createTown(new TownSetup(
-                                             type:           $header['townType'],
-                                             language:       $header['townLang'] ?? 'multi',
-                                             nameLanguage:   $header['townNameLang'] ?? null,
-                                             typeDeriveFrom: $header['townBase'] ?? null,
-                                             customConf:     $rules,
-                                             seed:           $seed,
-                                             nameMutator:    $name_changers[0] ?? null
-                                         ));
+        $town = $gameFactory->createTown(new TownSetup( $header['townType'],
+            name:           $header['townName'] ?? null,
+            language:       $header['townLang'] ?? 'multi',
+            nameLanguage:   $header['townNameLang'] ?? null,
+            typeDeriveFrom: $header['townBase'] ?? null,
+            customConf:     $rules,
+            seed:           $seed,
+            nameMutator:    $name_changers[0] ?? null
+        ));
 
         $town->setCreator($user);
         if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
