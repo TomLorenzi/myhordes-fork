@@ -97,6 +97,7 @@
                                     {% endif %}
                                     <optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
                                         {% if is_granted("ROLE_ADMIN") %}
+                                            <option value="{{ url('admin_town_manage', {action: 'set_name', id: town.id}) }}" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Stadtnamen ändern'|trans({},'admin') }}</option>
                                             <option value="{{ url('admin_town_manage', {action: 'dice_name', id: town.id}) }}">{{ 'Stadtnamen regenerieren'|trans({},'admin') }}</option>
                                             <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
                                             {% if town.open %}
