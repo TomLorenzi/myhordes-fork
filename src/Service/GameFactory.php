@@ -260,7 +260,7 @@ class GameFactory
                     // Subjects
                     [ 'reindeer', 'elves', 'gift', 'festival', 'sugarcane', 'calendar', 'snowflake', 'wooden train', 'sock', 'santa', 'gingerbread', 'chimney', 'krampus', 'angel', 'Snowman' ],
                     // Suffixes
-                    ['of the white Christmas', 'in the snowstorm', 'with eggnog', 'in the snow', 'with hot wine', 'of the snowmen', 'in the stable', 'under the tree', 'of the yule log', 'with hot milk', ],
+                    ['of the white Christmas', 'in the snowstorm', 'with eggnog', 'in the snow', 'with spiced wine', 'of the snowmen', 'in the stable', 'under the tree', 'of the yule log', 'with hot milk', ],
                 ]
             ],
             'fr' => [
