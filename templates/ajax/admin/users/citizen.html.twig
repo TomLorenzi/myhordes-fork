@@ -51,6 +51,7 @@
                         <div class="cell padded rw-12" {% if user_citizen is not null %}id="citizen_base_selector" x-id="{{ user_citizen.id }}"{% endif %}>
                             <label><input disabled style="width: 100%;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" /></label>
                         </div>
+                        {% if user_citizen is not null %}
                         <div class="cell padded rw-12">
                             <div class="row-table">
                                 <div class="row header">
@@ -95,6 +96,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                         {% if active %}
                             {% if alive %}
                                 <div class="row">
@@ -199,7 +201,7 @@
                     });
                 {% endif %}
 
-                document.getElementById('x-pm').addEventListener('click', function(e) {
+                document.getElementById('x-pm').addEventListener('click', function() {
                     document.getElementById("forum-content").innerHTML = "";
                     $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'pm'}) }}', false )
                 });
