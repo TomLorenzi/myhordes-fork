@@ -253,7 +253,16 @@ class GameFactory
                     '*' => ['der weißen Weihnacht', 'im Schneegestöber', 'im Glühweinrausch', 'aus Schnee', 'im Schnee', 'mit Glühwein', 'in der Krippe', 'im Stall', 'mit Weihnachtsbaum', 'unter dem Weihnachtsbaum', 'auf dem Festplatz'],
                 ]
             ],
-            'en' => [],
+            'en' => [
+                [
+                    // Adjectives
+                    [ 'festive', 'naughty', 'icy', 'holy', 'snowy', 'merry', 'jolly', ],
+                    // Subjects
+                    [ 'reindeer', 'elves', 'gift', 'festival', 'sugarcane', 'calendar', 'snowflake', 'wooden train', 'sock', 'santa', 'gingerbread', 'chimney', 'krampus', 'angel', 'Snowman' ],
+                    // Suffixes
+                    ['of the white Christmas', 'in the snowstorm', 'with eggnog', 'in the snow', 'with hot wine', 'of the snowmen', 'in the stable', 'under the tree', 'of the yule log', 'with hot milk', ],
+                ]
+            ],
             'fr' => [
                  [   // Subjects
                     'f' => [ ],
