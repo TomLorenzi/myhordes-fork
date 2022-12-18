@@ -8,11 +8,42 @@
 {% if not hidden %}
     {% macro target_popup( action_id, provoking_id, targets, target_for, text_having, text_missing, close_button = false, big = false, confirm = false, confirmMsg = null, action_button = null, item_tooltip = false ) %}
         <div class="targets" x-target-selection-for="{{ target_for }}">
-            {% if targets|length > 0 %}
+            {% if text_having is iterable %}
+                {% set error = '' %}
+                {% for key,text in text_having %}
+                    {% if targets|filter(t => t[4] == key) is empty %}
+                        {% set error = text_missing[key] %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if error is empty %}
+                    {% for key,text in text_having %}
+                        <span class="header">{{ text }}</span>
+                        <ul>
+                            {% for target in targets|filter(t => t[4] == key) %}
+                                <li class="line line-check expanded">
+                                    <input class="inline" type="radio" x-collection-for="{{ target_for }}" title="{{ target[1] }}" value="{{ key }}-{{ target[0] }}" id="{{ target_for }}-{{ key }}-{{ target[0] }}" name="{{ target_for }}-{{ key }}" />
+                                    <label for="{{ target_for }}-{{ key }}-{{ target[0] }}">
+                                        <div><img src="{{ asset(target[2]) }}" alt="{{ target[1] }}"> {{ target[1] }}</div>
+                                    </label>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                    <ul>
+                        <li class="line expanded">
+                            <div class="button small" x-action-id="{{ action_id }}" x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="?" x-collection-target="{{ target_for }}">{{ 'Auswahl bestätigen'|trans({},'global') }}</div>
+                        </li>
+                    </ul>
+                {% else %}
+                    <span>{{ error|raw }}</span>
+                {% endif %}
+            {% else %}
+                {% if targets|length > 0 %}
                 <span>{{ text_having }}</span>
                 <ul>
                     {% for target in targets %}
-                        <li class="{{ action_button is null ? '' : 'line' }} {{ big is same as 'big' ? 'expanded' : '' }}" {% if action_button is null %}x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'{target}':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}"{% endif %} >
+                        <li {{ {'line': action_button is not null, 'expanded': big is same as 'big'}|classes }} {% if action_button is null %}x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'{target}':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}"{% endif %} >
                             {% if big or action_button is not null %}
                                 <div><img src="{{ asset(target[2]) }}" alt="{{ target[1] }}"> {{ target[1] }}</div>
                                 {% if action_button is not null %}
@@ -28,6 +59,8 @@
             {% else %}
                 <span>{{ text_missing|raw }}</span>
             {% endif %}
+            {% endif %}
+
             {% if close_button %}
                 <div class="right"><span x-close-for="{{ target_for }}">{{ 'Schließen'|trans({},'global') }}</span></div>
             {% endif %}
@@ -302,6 +335,8 @@
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, entry.action.confirm, entry.action.confirmMsg, null, true ) }}
                         {% elseif entry.target_mode in [3,4,5,7] %}
                             {{ _self.target_popup( entry.id, null, entry.targets|sort((a,b) => a[1]|lower <=> b[1]|lower), entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm, entry.action.confirmMsg ) }}
+                        {% elseif entry.target_mode == 8 %}
+                            {{ _self.target_popup( entry.id, null, entry.targets|sort((a,b) => a[1]|lower <=> b[1]|lower), entry.id ~ '--hero', {'Action': 'Bitte wähle eine Heldentat:'|trans({},'game'), 'Player': 'Bitte wähle einen Bürger:'|trans({},'game')}, {'Action': 'Du hast keine Heldentaten mehr, die du spenden könntest...'|trans({},'game'), 'Player': 'Es ist kein Bürger in der Nähe...'|trans({},'game')}, true, true, entry.action.confirm, entry.action.confirmMsg ) }}
                         {% endif %}
                     {% endif %}
                     {% if entry.used is defined and entry.used %}

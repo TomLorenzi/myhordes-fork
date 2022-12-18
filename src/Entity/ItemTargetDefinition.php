@@ -15,6 +15,9 @@ class ItemTargetDefinition
     const ItemCitizenOnZoneSBType = 5;
     const ItemSelectionTypePoison = 6;
     const ItemCitizenVoteType = 7;
+    const ItemFriendshipType = 8;
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

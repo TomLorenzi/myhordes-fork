@@ -949,11 +949,12 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       span.highlight { padding-left: 3px; padding-right: 3px; white-space: nowrap; background-color: rgba(255,255,255,0.2);
         img { vertical-align: middle; margin-right: 3px; }
       }
-      &>span:first-child { display: block; background: #696486; padding: 0 3px; }
+      &>span:first-child, &>span.header { display: block; background: #696486; padding: 0 3px; }
       &>ul {
         margin: 0; padding: 0; font-size: 0; max-height: 300px; overflow-y: auto;
         &>li {
-          &.line { display: flex; align-items: center; &>*:first-child { flex-grow: 1 } }
+          &.line:not(.line-check) { display: flex; align-items: center; &>*:first-child { flex-grow: 1 } }
+          &.line.line-check { font-size: 1.2rem; display: flex; align-items: center; &>*:last-child { flex-grow: 1 } }
           &:not(.line) { cursor: pointer; }
           &:not(.line):not(.expanded) { display: inline-block;}
           &>div:not(.tooltip) { font-size: 1.2rem; display: inline-block }
