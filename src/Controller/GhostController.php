@@ -539,10 +539,8 @@ class GhostController extends CustomAbstractController
         if(!empty($town->getPassword()) && $town->getPassword() !== $parser->get('pass', ''))
             return AjaxResponse::error(self::ErrorWrongTownPassword);
 
-        $allowedTownClasses = $this->getUserTownClassAccess($conf->getGlobalConf());
-        if (!$allowedTownClasses[$town->getType()->getName()]) {
+        if (!$factory->userCanEnterTown( $town, $user ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
 
         $citizen = $factory->createCitizen($town, $user, $error, $all);
         if (!$citizen) return AjaxResponse::error($error);
