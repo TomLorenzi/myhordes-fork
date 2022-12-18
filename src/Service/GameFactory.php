@@ -284,7 +284,7 @@ class GameFactory
             'es' => [
                 [   // Subjects
                     'f' => ['Chimenea|s', 'Campanada|s',  ],
-                    'm' => ['Reno|s', 'Elfo|s', 'Regalo|s', 'Festival|es', 'Turrón|--ones', 'Copos de nieve', 'Brazo de gitano', 'Calcetín|--ines', 'San Nicolás', 'Belén', 'Papá Noel', 'Angel|es', 'Muñeco de nieve', ],
+                    'm' => ['Reno|s', 'Elfo|s', 'Regalo|s', 'Festival|es', 'Turrón|--ones', 'Copos de nieve', 'Brazo de gitano', 'Calcetín|--ines', 'San Nicolás', 'Belén', 'Papá Noel', 'Angel|es', 'Muñeco de nieve|<Muñecos de nieve', ],
                     '*' => [ ],
                 ],
                 [   // Adjectives
