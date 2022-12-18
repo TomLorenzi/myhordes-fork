@@ -284,7 +284,26 @@ class GameFactory
                      '*' => ['du Noël blanc', 'dans la rafale de neige', 'dans la ruée vers le vin chaud', 'en neige', 'dans la neige', 'avec du vin chaud', 'dans la crèche ', 'dans l\'étable', 'sous le Sapin', 'de la fête foraine'],
                 ],
             ],
-            'es' => [],
+            'es' => [
+                [   // Subjects
+                    'f' => [ ],
+                    'm' => [ ],
+                    'n' => [ ],
+                    '*' => [ 'Reno|s', 'Elf|-os', 'Regalo|s', 'Festival|es', 'Turrón|--ones', 'Campanada|s', 'Copos de nieve', 'Brazo de gitano', 'Calcetín|--ines', 'San Nicolás', 'Belén', 'Chimenea|s', 'Papá Noel ', 'Angel|es', 'Muñeco de nieve' ],
+                ],
+                [   // Adjectives
+                    'f' => ['Festiva|s', 'Helada|s', 'Santa|s', 'Nevada|s', ],
+                    'm' => ['Festivo|s', 'Helado|s', 'Santo|s', 'Nevado|s', ],
+                    '*' => ['Pillín|es', 'Jovial|es', 'Feliz|-ces', ],
+                 ],
+                 [
+                     // Suffixes
+                     'f' => [ ],
+                     'm' => [ ],
+                     'n' => [ ],
+                     '*' => ['de la Navidad', 'en la tormenta de nieve', 'bajo la nieve', 'con cava', 'con galletitas', 'de los muñecos de nieve', '', 'debajo del arbolito', 'del tronco de yule', 'con leche calentita' ],
+                ],
+            ]
         ],
     ];
 
