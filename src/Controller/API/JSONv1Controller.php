@@ -1784,7 +1784,7 @@ class JSONv1Controller extends CoreController {
                         $data[$field] = $citizen->getUser()->getEternalID();
                         break;
                     case "mapId":
-                        $data[$field] = $citizen->getTown()->getId();
+                        $data[$field] = $citizen->getTown()->getBaseID() !== null ? $citizen->getTown()->getBaseID() : $citizen->getTown()->getId();
                         break;
                     case "survival":
                         $data[$field] = $citizen->getDay();
