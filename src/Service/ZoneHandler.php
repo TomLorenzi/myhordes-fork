@@ -156,9 +156,11 @@ class ZoneHandler
             $e = $this->random_generator->pick( $events );
             $event = $e->get(EventConf::EVENT_DIG_DESERT_GROUP, null);
             $event_chance = $e->get(EventConf::EVENT_DIG_DESERT_CHANCE, 1.0);
+            $event_cap = $e->get(EventConf::EVENT_DIG_DESERT_CHANCE_CAP, 0.9);
         } else {
             $event = null;
             $event_chance = 0.0;
+            $event_cap = 0.9;
         }
 
         if ($event && $event_chance > 0) $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
@@ -181,10 +183,10 @@ class ZoneHandler
                 if ($timer->getTimestamp() < $up_to) {
                     $factor = $this->getDigChanceFactor($timer->getCitizen(), $zone);
 
-                    $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 )), 0.9);
+                    $total_dig_chance = $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 );
 
-                    $found_item = $this->random_generator->chance($total_dig_chance);
-                    $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance) );
+                    $found_item = $this->random_generator->chance($total_dig_chance, 0.1, 0.9);
+                    $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance, 0.1, $event_cap ));
 
                     $cache = $timer->getDigCache() ?? [];
                     if ($found_item || $found_event_item) {
