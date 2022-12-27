@@ -7,7 +7,7 @@
     </div>
     <div class="town-container">
         {% for pos, entry in picto.ranking %}
-            <div {{ {'row-flex stretch season_entry_solo top5plus': true, 'played': entry.user == current_user}|classes }} >
+            <div {{ {'row-flex stretch season_entry_solo top5plus': true, 'played': entry.user == current_user}|classes }}>
                 <div class="cell rw-2 season_entry_td center soul_season_flag">
                     {% if entry.user.flag is not null %}
                         <div class="user-flag small"><img alt="{{ entry.user.flag }}" src="{{ asset('build/images/lang/any/' ~ entry.user.flag ~ '.svg' ) }}"/></div>
@@ -25,6 +25,20 @@
                 </div>
             </div>
         {% endfor %}
+        {% if picto.ranking|length < 3 %}
+            <div {{ {'row-flex stretch season_entry_solo top5plus': true}|classes }}>
+                <div class="cell rw-2 season_entry_td center soul_season_flag">&nbsp;</div>
+                <div class="cell rw-6 season_entry_td left soul_season_name">&nbsp;</div>
+                <div class="cell rw-4 season_entry_td center soul_season_points">&nbsp;</div>
+            </div>
+        {% endif %}
+        {% if picto.ranking|length < 2 %}
+            <div {{ {'row-flex stretch season_entry_solo top5plus': true}|classes }}>
+                <div class="cell rw-2 season_entry_td center soul_season_flag">&nbsp;</div>
+                <div class="cell rw-6 season_entry_td left soul_season_name">&nbsp;</div>
+                <div class="cell rw-4 season_entry_td center soul_season_points">&nbsp;</div>
+            </div>
+        {% endif %}
     </div>
 {% endmacro %}
 
@@ -68,17 +82,19 @@
             {% endfor %}
         </div>
 
-        <br />
-        <h1 class="page-head">{{ 'Besondere Auszeichnungen'|trans({},'soul') }}</h1>
-        <div class="row">
-            {% for picto in ranking|filter(a => a.prototype.special) %}
-                {% if picto.ranking is not empty %}
-                    <div class="padded cell rw-4 rw-lg-6 rw-md-12">
-                        {{ _self.ranking_block( picto, app.user, currentSeason|instance_of('object') ? currentSeason.id : currentSeason ) }}
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
+        {% if ranking|filter(a => a.prototype.special) is not empty %}
+            <br />
+            <h1 class="page-head">{{ 'Besondere Auszeichnungen'|trans({},'soul') }}</h1>
+            <div class="row">
+                {% for picto in ranking|filter(a => a.prototype.special) %}
+                    {% if picto.ranking is not empty %}
+                        <div class="padded cell rw-4 rw-lg-6 rw-md-12">
+                            {{ _self.ranking_block( picto, app.user, currentSeason|instance_of('object') ? currentSeason.id : currentSeason ) }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 
