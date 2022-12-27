@@ -12,8 +12,8 @@
     "minimum-stability": "dev",
     "require": {
       "php": ">=8.1",
-      "symfony/framework-bundle": "6.2.*",
-      "symfony/yaml": "6.2.*",
+      "symfony/framework-bundle": "*",
+      "symfony/yaml": "*",
       "etwin/myhordes": "@dev",
       "myhordes/plugins": "@dev"
     },
