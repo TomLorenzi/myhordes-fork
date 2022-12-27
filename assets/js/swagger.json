@@ -2,12 +2,12 @@
   "openapi": "3.0.2",
   "info": {
     "title": "MyHordes External API",
-    "description": "This documentation describes the MyHordes external API. It is currently work-in-progress.",
+    "description": "This documentation describes the MyHordes external API. There are two APIs available to use - JSON and XML. Although it's possible to mix them, this is not recommended.",
     "license": {
       "name": "AGPL3",
       "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
     },
-    "version": "1.0.0.43"
+    "version": "1.0.0.61"
   },
   "servers": [
     {
@@ -183,6 +183,114 @@
               "application/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/XMLTownResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+
+    "/json/status": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Server status",
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONServerStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/json/items": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Prototypes API (item types)",
+        "parameters": [
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterFilter"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONPrototypeItemsResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/json/buildings": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Prototypes API (buildings)",
+        "parameters": [
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterFilter"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONBuildingPrototypeObject"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/json/pictos": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Prototypes API (distinctions)",
+        "parameters": [
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterFilter"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONPictoPrototypeObject"
                 }
               }
             }
@@ -1656,6 +1764,255 @@
         },
         "xml": {
           "name": "map"
+        }
+      },
+
+      "JSONServerStatusResponse": {
+        "description": "Server status",
+        "type": "object",
+        "properties": {
+          "attack": {
+            "type": "boolean",
+            "example": true,
+            "description": "True if the nightly attack is currently being processed."
+          },
+          "maintain": {
+            "type": "boolean",
+            "example": false,
+            "description": "True if the server is in maintenance mode. WARNING: At this moment, the API is not available in maintenance mode!"
+          }
+        }
+      },
+      "JSONPrototypeItemsResponse": {
+        "description": "List of item types known to the server.",
+        "type": "object",
+        "additionalProperties": {"$ref": "#/components/schemas/JSONItemPrototypeObject"}
+      },
+
+      "JSONLanguageDependantField": {
+        "description": "Localizable string",
+        "oneOf": [
+          {
+            "type": "string",
+            "example": "A string",
+            "description": "Localized string (in the single selected language)"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "de": {
+                "type": "string",
+                "example": "DE",
+                "description": "German localization",
+                "required": false
+              },
+              "en": {
+                "type": "string",
+                "example": "EN",
+                "description": "English localization",
+                "required": false
+              },
+              "fr": {
+                "type": "string",
+                "example": "FR",
+                "description": "French localization",
+                "required": false
+              },
+              "es": {
+                "type": "string",
+                "example": "ES",
+                "description": "Spanish localization",
+                "required": false
+              }
+            }
+          }
+        ]
+      },
+
+      "JSONItemPrototypeObject": {
+        "description": "Item type",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric item ID",
+            "example": 1
+          },
+          "uid": {
+            "type": "string",
+            "description": "Internal item descriptor.",
+            "example": "water"
+          },
+          "img": {
+            "type": "string",
+            "description": "Path to item icon",
+            "example": "item/item_water.85230dbb.gif"
+          },
+          "heavy": {
+            "type": "boolean",
+            "description": "Is the item heavy?",
+            "example": false
+          },
+          "deco": {
+            "type": "integer",
+            "description": "Decoration value",
+            "example": 0
+          },
+          "guard": {
+            "type": "integer",
+            "description": "Guardian strength",
+            "example": 0
+          },
+          "name": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "desc": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "cat": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          }
+        }
+      },
+      "JSONItemResourceObject": {
+        "type": "object",
+        "description": "An item resource needed for an action.",
+        "properties": {
+          "amount": {
+            "type": "integer",
+            "description": "Required amount",
+            "example": 12
+          },
+          "rsc": {
+            "$ref": "#/components/schemas/JSONItemPrototypeObject"
+          }
+        }
+      },
+      "JSONBuildingPrototypeObject": {
+        "description": "Building type",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric building ID",
+            "example": 1
+          },
+          "img": {
+            "type": "string",
+            "description": "Path to building icon",
+            "example": "building/small_waterhole.467957af.gif"
+          },
+          "name": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "desc": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "pa": {
+            "type": "integer",
+            "description": "AP requirement",
+            "example": 100
+          },
+          "maxLife": {
+            "type": "integer",
+            "description": "HP count",
+            "example": 100
+          },
+          "breakable": {
+            "type": "boolean",
+            "description": "Can take damage and be destroyed.",
+            "example": true
+          },
+          "def": {
+            "type": "integer",
+            "description": "Defense value",
+            "example": 10
+          },
+          "hasUpgrade": {
+            "type": "boolean",
+            "description": "Can be voted for a daily improvement.",
+            "example": true
+          },
+          "rarity": {
+            "type": "integer",
+            "description": "Blueprint level (0 if no blueprint, 5 if not unlockable by blueprint)",
+            "example": 0
+          },
+          "temporary": {
+            "type": "boolean",
+            "description": "Always breaks during the nightly attack.",
+            "example": true
+          },
+          "parent": {
+            "type": "integer",
+            "description": "ID of parent building (0 if no parent)",
+            "example": 0
+          },
+          "resources": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/JSONItemResourceObject"}
+          }
+        }
+      },
+      "JSONPictoPrototypeObject": {
+        "description": "Distinction type",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric distinction ID",
+            "example": 1
+          },
+          "img": {
+            "type": "string",
+            "description": "Path to distinction icon",
+            "example": "pictos/r_heroac.2a464a9d.gif"
+          },
+          "name": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "desc": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "community": {
+            "type": "boolean",
+            "description": "Can be awarded by a Crow.",
+            "example": true
+          },
+          "rare": {
+            "type": "boolean",
+            "description": "Is considered rare.",
+            "example": true
+          }
+        }
+      }
+    },
+    "parameters": {
+      "JSONParameterFields": {
+        "in": "query",
+        "name": "fields",
+        "allowEmptyValue": true,
+        "description": "Comma-separated list of fields to fetch for the result set. Check the example below for a list of valid fields.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "JSONParameterFilter": {
+        "in": "query",
+        "name": "filters",
+        "allowEmptyValue": true,
+        "description": "Reduce the output list to the given UIDs. Multiple values can be separated by commas.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "JSONParameterLanguage": {
+        "in": "query",
+        "name": "languages",
+        "allowEmptyValue": true,
+        "description": "Comma-separated list of languages to fetch the content in. Note that passing only a single language will turn all language-dependant fields to a single string.",
+        "schema": {
+          "type": "string"
         }
       }
     },

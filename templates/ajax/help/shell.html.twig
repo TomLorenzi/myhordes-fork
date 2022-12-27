@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block ajax %}
-    {% macro search_entry(section,currentSection,text,icon,main) %}
-        <li data-section="{{ currentSection }}" class="{% if main %}main{% endif%} {% if section == currentSection %}active{% endif %}">
+    {% macro search_entry(section,currentSection,text,icon,main,link_only=false) %}
+        <li data-section="{{ currentSection }}" class="{% if main %}main{% endif%} {% if not link_only and section == currentSection %}active{% endif %}">
             <img src="{{ asset(icon) }}" alt="">
             <span data-direct="1" class="link" x-ajax-href="{{ url('help', {'name': currentSection}) }}">{{ text }}</span>
             <span data-indirect="{{ url('help_partial', {'name': currentSection} ) }}" class="link hidden">{{ text }}</span>
@@ -130,7 +130,7 @@
                         </ul>
                     </li>
 
-                    {{ _self.search_entry(section,'support','Für Community-Entwickler'|trans({},'help'),'build/images/icons/small_middot.gif',true) }}
+                    {{ _self.search_entry(section,'use_of_external_sites','Für Community-Entwickler'|trans({},'help'),'build/images/icons/small_middot.gif',true,true) }}
 
                     <li class="sublist">
                         <ul>
