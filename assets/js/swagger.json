@@ -301,6 +301,100 @@
           {"user_key":[]}
         ]
       }
+    },
+    "/json/ruins": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Prototypes API (ruins)",
+        "parameters": [
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterFilter"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONRuinPrototypeObject"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/json/me": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Information about the current user.",
+        "parameters": [
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONUserObject"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/json/user": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Information about the current user.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "User ID",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          },
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONUserObject"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
     }
   },
   "components": {
@@ -1983,6 +2077,643 @@
             "type": "boolean",
             "description": "Is considered rare.",
             "example": true
+          }
+        }
+      },
+      "JSONRuinPrototypeObject": {
+        "description": "Ruin type",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric ruin ID",
+            "example": 1
+          },
+          "img": {
+            "type": "string",
+            "description": "Path to ruin icon",
+            "example": "building/small_waterhole.467957af.gif"
+          },
+          "name": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "desc": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "explorable": {
+            "type": "boolean",
+            "description": "Can this ruin be entered.",
+            "example": true
+          }
+        }
+      },
+
+      "JSONUserObject": {
+        "description": "A MyHordes user",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric user ID",
+            "example": 1
+          },
+          "twinId": {
+            "type": "integer",
+            "description": "Twinoid ID if user has a connected Twinoid Account.",
+            "example": 250
+          },
+          "etwinId": {
+            "type": "string",
+            "description": "Eternal Twin ID if user has a connected ET Account.",
+            "example": ""
+          },
+          "name": {
+            "type": "string",
+            "description": "User name",
+            "example": "Brainbox"
+          },
+          "locale": {
+            "type": "string",
+            "description": "User language",
+            "example": "de"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "User avatar path",
+            "example": ""
+          },
+          "isGhost": {
+            "type": "boolean",
+            "description": "User is currently NOT incarnated.",
+            "example": true
+          },
+          "playedMaps": {
+            "type": "array",
+            "description": "List of previous games played by this user.",
+            "items": { "$ref": "#/components/schemas/JSONMapObject" }
+          },
+          "contacts": {
+            "type": "array",
+            "description": "Friend list",
+            "items": { "$ref": "#/components/schemas/JSONUserObject" }
+          },
+          "rewards": {
+            "type": "array",
+            "description": "List of distinctions",
+            "items": { "$ref": "#/components/schemas/JSONPictoObject" }
+          },
+          "homeMessage": {
+            "type": "string",
+            "description": "Current home message (if incarnated)"
+          },
+          "hero": {
+            "type": "boolean",
+            "description": "User is a hero (if incarnated)",
+            "example": true
+          },
+          "dead": {
+            "type": "boolean",
+            "description": "User is dead (if incarnated)",
+            "example": false
+          },
+          "out": {
+            "type": "boolean",
+            "description": "User is outside of town (if incarnated)",
+            "example": true
+          },
+          "ban": {
+            "type": "boolean",
+            "description": "User is shunned (if incarnated)",
+            "example": false
+          },
+          "baseDef": {
+            "type": "integer",
+            "description": "Home base defense (if incarnated)",
+            "example": 5
+          },
+          "x": {
+            "type": "integer",
+            "description": "X position on map (town position if in town, if incarnated)",
+            "example": 12
+          },
+          "y": {
+            "type": "integer",
+            "description": "Y position on map (town position if in town, if incarnated)",
+            "example": 10
+          },
+          "mapId": {
+            "type": "integer",
+            "description": "Town ID (if incarnated)",
+            "example": 1
+          },
+          "map": {
+            "$ref": "#/components/schemas/JSONGameObject"
+          },
+          "job": {
+            "$ref": "#/components/schemas/JSONJobObject"
+          }
+        }
+      },
+      "JSONPictoObject": {
+        "description": "Information about distinctions for a user.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric distinction ID",
+            "example": 1
+          },
+          "rare": {
+            "type": "boolean",
+            "description": "Is considered rare.",
+            "example": true
+          },
+          "number": {
+            "type": "integer",
+            "description": "Number of distinctions.",
+            "example": 1
+          },
+          "img": {
+            "type": "string",
+            "description": "Path to distinction icon",
+            "example": "pictos/r_heroac.2a464a9d.gif"
+          },
+          "name": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "desc": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "titles": {
+            "type": "array",
+            "description": "List of unlocked titles.",
+            "items": { "$ref": "#/components/schemas/JSONLanguageDependantField" }
+          }
+        }
+      },
+      "JSONMapObject": {
+        "description": "A MyHordes game",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric user ID",
+            "example": 1
+          },
+          "twinId": {
+            "type": "integer",
+            "description": "Twinoid ID if user has a connected Twinoid Account.",
+            "example": 250
+          },
+          "etwinId": {
+            "type": "string",
+            "description": "Eternal Twin ID if user has a connected ET Account.",
+            "example": ""
+          },
+          "mapId": {
+            "type": "integer",
+            "description": "Numeric map ID",
+            "example": 1
+          },
+          "survival": {
+            "type": "integer",
+            "description": "Number of survived days.",
+            "example": 1
+          },
+          "day": {
+            "type": "integer",
+            "description": "Number of survived days for the entire town.",
+            "example": 1
+          },
+          "avatar": {
+            "type": "string",
+            "description": "User avatar path",
+            "example": ""
+          },
+          "name": {
+            "type": "string",
+            "description": "User name",
+            "example": "Brainbox"
+          },
+          "mapName": {
+            "type": "string",
+            "description": "Map name",
+            "example": "A Town"
+          },
+          "origin": {
+            "type": "string",
+            "description": "If this town is imported from Twinoid, contains the import source and season.",
+            "example": "de-10"
+          },
+          "season": {
+            "type": "integer",
+            "description": "Season",
+            "example": 15
+          },
+          "dtype": {
+            "type": "integer",
+            "description": "Death type ID",
+            "example": 1
+          },
+          "v1": {
+            "type": "integer",
+            "description": "Is always zero (exists for backwards compatibility)",
+            "example": 0
+          },
+          "score": {
+            "type": "integer",
+            "description": "Soul points earned for this town.",
+            "example": 1
+          },
+          "msg": {
+            "type": "string",
+            "description": "Citizen's last words.",
+            "example": 1
+          },
+          "comment": {
+            "type": "string",
+            "description": "Citizen's town comment.",
+            "example": 1
+          },
+          "cleanup": {
+            "type": "object",
+            "description": "How was the body of this citizen cleaned up?",
+            "properties": {
+              "user": {
+                "type": "string",
+                "description": "Name of the player who did the clean up.",
+                "example": "MisterD"
+              },
+              "type": {
+                "type": "integer",
+                "description": "Cleanup type ID",
+                "example": 1
+              }
+            }
+          }
+        }
+      },
+      "JSONJobObject": {
+        "description": "A profession",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric profession ID",
+            "example": 1
+          },
+          "uid": {
+            "type": "string",
+            "description": "Internal identifier",
+            "example": ""
+          },
+          "name": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          },
+          "desc": {
+            "$ref": "#/components/schemas/JSONLanguageDependantField"
+          }
+        }
+      },
+      "JSONEstimationObject": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "description": "Estimation day",
+            "example": 1
+          },
+          "min": {
+            "type": "integer",
+            "description": "Estimation min",
+            "example": 10
+          },
+          "max": {
+            "type": "integer",
+            "description": "Estimation max",
+            "example": 20
+          },
+          "maxed": {
+            "type": "boolean",
+            "description": "Has the estimation reached max precision?",
+            "example": true
+          }
+        }
+      },
+      "JSONItemListObject": {
+        "type": "array",
+        "items": {
+          "allOf": [
+            { "$ref": "#/components/schemas/JSONItemPrototypeObject" },
+            {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "description": "Item count",
+                  "example": 4
+                },
+                "broken": {
+                  "type": "boolean",
+                  "description": "Is this item broken?",
+                  "example": false
+                }
+              }
+            }
+          ]
+        }
+      },
+      "JSONGameObject": {
+        "description": "A running MyHordes game",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Numeric user ID",
+            "example": 1
+          },
+          "date": {
+            "type": "string",
+            "description": "Town start date"
+          },
+          "wid": {
+            "type": "integer",
+            "description": "Map width",
+            "example": 25
+          },
+          "hei": {
+            "type": "integer",
+            "description": "Map height",
+            "example": 25
+          },
+          "conspiracy": {
+            "type": "boolean",
+            "description": "Has an insurrection happened.",
+            "example": false
+          },
+          "days": {
+            "type": "integer",
+            "description": "Current day",
+            "example": 1
+          },
+          "season": {
+            "type": "integer",
+            "description": "Season",
+            "example": 15
+          },
+          "phase": {
+            "type": "string",
+            "description": "Server phase (alpha, beta, import or native)",
+            "example": "beta"
+          },
+          "source": {
+            "type": "string",
+            "description": "If this town is imported from Twinoid, contains the import source",
+            "example": "www.dieverdammten.de"
+          },
+          "bonusPts": {
+            "type": "integer",
+            "description": "Bonus points for this town (usually 0)",
+            "example": 0
+          },
+          "guide": {
+            "type": "integer",
+            "description": "User ID of the current guide",
+            "example": 1
+          },
+          "shaman": {
+            "type": "integer",
+            "description": "User ID of the current shaman",
+            "example": 1
+          },
+          "custom": {
+            "type": "boolean",
+            "description": "Town is a private town",
+            "example": false
+          },
+          "city": {
+            "type": "object",
+            "properties": {
+              "buildings": {
+                "type": "array",
+                "description": "Town buildings.",
+                "items": {
+                  "allOf": [
+                    { "$ref": "#/components/schemas/JSONBuildingPrototypeObject" },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "life": {
+                          "type": "integer",
+                          "description": "Current HP",
+                          "example": 10
+                        },
+                        "votes": {
+                          "type": "integer",
+                          "description": "How many people have voted to improve this building (0 if non-upgradeable)",
+                          "example": 0
+                        },
+                        "hasLevels": {
+                          "type": "integer",
+                          "description": "Current upgrade level (0 if non-upgradeable)",
+                          "example": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "news": {
+                "type": "object",
+                "description": "Current news article",
+                "properties": {
+                  "z": {
+                    "type": "integer",
+                    "description": "Attack strength",
+                    "example": 100
+                  },
+                  "def": {
+                    "type": "integer",
+                    "description": "Defense",
+                    "example": 100
+                  },
+                  "water": {
+                    "type": "integer",
+                    "description": "Amount of lost water.",
+                    "example": 0
+                  },
+                  "content": { "$ref": "#/components/schemas/JSONLanguageDependantField" },
+                  "regenDir": { "$ref": "#/components/schemas/JSONLanguageDependantField" }
+                }
+              },
+              "defense": {
+                "type": "object",
+                "description": "Current town defense",
+                "properties": {
+                  "total": {
+                    "type": "integer",
+                    "description": "Total defense",
+                    "example": 0
+                  },
+                  "base": {
+                    "type": "integer",
+                    "description": "Base town defense",
+                    "example": 0
+                  },
+                  "buildings": {
+                    "type": "integer",
+                    "description": "Defense from buildings",
+                    "example": 0
+                  },
+                  "upgrades": {
+                    "type": "integer",
+                    "description": "Defense from upgrades",
+                    "example": 0
+                  },
+                  "items": {
+                    "type": "integer",
+                    "description": "Defense from items",
+                    "example": 0
+                  },
+                  "itemsMul": {
+                    "type": "number",
+                    "description": "Item defense multiplier",
+                    "example": 1.0
+                  },
+                  "citizenHomes": {
+                    "type": "integer",
+                    "description": "Defense from citizen homes",
+                    "example": 0
+                  },
+                  "citizenGuardians": {
+                    "type": "integer",
+                    "description": "Defense from guardians",
+                    "example": 0
+                  },
+                  "watchmen": {
+                    "type": "integer",
+                    "description": "Defense from watchmen",
+                    "example": 0
+                  },
+                  "souls": {
+                    "type": "integer",
+                    "description": "Defense from souls",
+                    "example": 0
+                  },
+                  "temp": {
+                    "type": "integer",
+                    "description": "Temp defense",
+                    "example": 0
+                  },
+                  "cadavers": {
+                    "type": "integer",
+                    "description": "Defense from the cemetery.",
+                    "example": 0
+                  },
+                  "bonus": {
+                    "type": "number",
+                    "description": "Defense bonus multiplier",
+                    "example": 0.0
+                  }
+                }
+              },
+              "upgrades": {
+                "type": "object",
+                "description": "Town building upgrades",
+                "properties": {
+                  "total": {
+                    "type": "integer",
+                    "description": "Total number of upgrades",
+                    "example": 1
+                  },
+                  "list": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "$ref": "#/components/schemas/JSONLanguageDependantField" },
+                        "level": {
+                          "type": "integer",
+                          "description": "Upgrade level",
+                          "example": 1
+                        },
+                        "update": { "$ref": "#/components/schemas/JSONLanguageDependantField" },
+                        "buildingId": {
+                          "type": "integer",
+                          "description": "The building ID",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "estimations": { "$ref": "#/components/schemas/JSONEstimationObject" },
+              "estimationsNext": { "$ref": "#/components/schemas/JSONEstimationObject" },
+              "bank": { "$ref": "#/components/schemas/JSONItemListObject" }
+            }
+          },
+          "expeditions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "author": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Author user ID",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Author name",
+                      "example": "Brainbox"
+                    },
+                    "avatar": {
+                      "type": "string",
+                      "description": "Author avatar URL",
+                      "example": ""
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Route name"
+                },
+                "length": {
+                  "type": "integer",
+                  "description": "Route length (in AP)",
+                  "example": 18
+                },
+                "points": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "description": "X position"
+                      },
+                      "y": {
+                        "type": "integer",
+                        "description": "Y position"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "zones": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "items": { "$ref": "#/components/schemas/JSONItemListObject" }
+              }
+            }
           }
         }
       }

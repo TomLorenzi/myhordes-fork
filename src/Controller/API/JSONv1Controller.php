@@ -101,6 +101,9 @@ class JSONv1Controller extends CoreController {
                 $data = $this->getPrototypesAPI($type);
                 break;
             case 'debug':
+                if ($this->user->getRightsElevation() <= User::USER_LEVEL_ADMIN) {
+                    break;
+                }
                 $data = $this->getDebugdata();
                 break;
             case "user":
