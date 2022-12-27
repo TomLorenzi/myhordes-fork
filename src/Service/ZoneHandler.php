@@ -281,7 +281,8 @@ class ZoneHandler
                         $this->entity_manager->persist( $executable_timer->getZone()->getFloor() );
                     }
                 } else {
-                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, (new DateTime())->setTimestamp($time) ) );
+                    // Uncomment to have the dig message show up when the dig happened, not when the user logged back in
+                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype/*, (new DateTime())->setTimestamp($time) */) );
                 }
 
                 // Banished citizen's stash check
