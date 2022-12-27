@@ -1,5 +1,33 @@
 {% extends "ajax/soul/ranking/shell.html.twig" %}
 
+{% macro ranking_block(picto,current_user,currentSeason) %}
+    <div class="row-flex header v-center pointer" style="column-gap: 8px"  x-ajax-href="{{ path("soul_season_distinction_detail", {id: picto.prototype.id, season: currentSeason} ) }}">
+        <img class="padded cell" alt="" src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
+        <div class="padded cell label small">{{ picto.prototype.label|trans({}, 'game') }}</div>
+    </div>
+    <div class="town-container">
+        {% for pos, entry in picto.ranking %}
+            <div {{ {'row-flex stretch season_entry_solo top5plus': true, 'played': entry.user == current_user}|classes }} >
+                <div class="cell rw-2 season_entry_td center soul_season_flag">
+                    {% if entry.user.flag is not null %}
+                        <div class="user-flag small"><img alt="{{ entry.user.flag }}" src="{{ asset('build/images/lang/any/' ~ entry.user.flag ~ '.svg' ) }}"/></div>
+                    {% elseif entry.user.language is not null %}
+                        <img src="{{ asset("build/images/lang/" ~ entry.user.language ~ ".png") }}" alt="{{ entry.user.language }}" />
+                    {% else %}
+                        <img src="{{ asset("build/images/lang/multi.png") }}" alt="" />
+                    {% endif %}
+                </div>
+                <div class="cell rw-6 season_entry_td left soul_season_name">
+                    {% include 'ajax/soul/playername.html.twig' with {user: entry.user, additional_classes: ['undecorated', 'small']} only %}
+                </div>
+                <div class="cell rw-4 season_entry_td center soul_season_points">
+                    {{ entry.count }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
 {% block ranking_content %}
     <div class="cell rw-12">
         <div class="row season_access_text"><label for="season">{{'Zugriff auf die Rangliste einer bestimmten Saison:'|trans({}, 'soul')}}</label></div>
@@ -28,35 +56,25 @@
         </div>
     </div>
     <div class="cell rw-12">
+        <br />
+        <h1 class="page-head">{{ 'Reguläre Auszeichnungen'|trans({},'soul') }}</h1>
         <div class="row">
-            {% for picto in ranking %}
+            {% for picto in ranking|filter(a => not a.prototype.special) %}
                 {% if picto.ranking is not empty %}
                     <div class="padded cell rw-4 rw-lg-6 rw-md-12">
-                        <div class="row-flex header v-center pointer" style="column-gap: 8px"  x-ajax-href="{{ path("soul_season_distinction_detail", {id: picto.prototype.id, season: currentSeason|instance_of('object') ? currentSeason.id : currentSeason} ) }}">
-                            <img class="padded cell" alt="" src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" />
-                            <div class="padded cell label small">{{ picto.prototype.label|trans({}, 'game') }}</div>
-                        </div>
-                        <div class="town-container">
-                            {% for pos, entry in picto.ranking %}
-                                <div {{ {'row-flex stretch season_entry_solo top5plus': true, 'played': entry.user == app.user}|classes }} >
-                                    <div class="cell rw-2 season_entry_td center soul_season_flag">
-                                        {% if entry.user.flag is not null %}
-                                            <div class="user-flag small"><img alt="{{ entry.user.flag }}" src="{{ asset('build/images/lang/any/' ~ entry.user.flag ~ '.svg' ) }}"/></div>
-                                        {% elseif entry.user.language is not null %}
-                                            <img src="{{ asset("build/images/lang/" ~ entry.user.language ~ ".png") }}" alt="{{ entry.user.language }}" />
-                                        {% else %}
-                                            <img src="{{ asset("build/images/lang/multi.png") }}" alt="" />
-                                        {% endif %}
-                                    </div>
-                                    <div class="cell rw-6 season_entry_td left soul_season_name">
-                                        {% include 'ajax/soul/playername.html.twig' with {user: entry.user, additional_classes: ['undecorated', 'small']} only %}
-                                    </div>
-                                    <div class="cell rw-4 season_entry_td center soul_season_points">
-                                        {{ entry.count }}
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
+                        {{ _self.ranking_block( picto, app.user, currentSeason|instance_of('object') ? currentSeason.id : currentSeason ) }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <br />
+        <h1 class="page-head">{{ 'Besondere Auszeichnungen'|trans({},'soul') }}</h1>
+        <div class="row">
+            {% for picto in ranking|filter(a => a.prototype.special) %}
+                {% if picto.ranking is not empty %}
+                    <div class="padded cell rw-4 rw-lg-6 rw-md-12">
+                        {{ _self.ranking_block( picto, app.user, currentSeason|instance_of('object') ? currentSeason.id : currentSeason ) }}
                     </div>
                 {% endif %}
             {% endfor %}
