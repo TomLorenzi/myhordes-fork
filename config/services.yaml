@@ -136,7 +136,13 @@ services:
       arguments: ['@app.decoration.translator.inner']
       public: false
 
+    App\Translation\NameResolverVisitor:
+      tags:
+        - { name: translation.extractor.visitor, priority: 999 }
     App\Translation\TMethodVisitor:
+      tags:
+        - { name: translation.extractor.visitor }
+    App\Translation\FixtureVisitor:
       tags:
         - { name: translation.extractor.visitor }
     App\Translation\DatabaseExtractor:
@@ -154,10 +160,6 @@ services:
       decorates: translation.dumper.yml
       arguments: [ '@app.decoration.trans_dumper.inner' ]
       public: false
-
-    App\Translation\FixtureExtractor:
-        tags:
-            - { name: translation.extractor, alias: FixtureExtractor }
 
     App\Service\ConfMaster:
         arguments:
