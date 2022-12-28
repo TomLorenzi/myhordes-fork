@@ -450,7 +450,7 @@ class AdminTownController extends AdminActionController
 
         if (in_array($action, [
                 'release', 'quarantine', 'advance', 'nullify', 'pw_change',
-                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name',
+                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name', 'set_name',
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
@@ -505,16 +505,19 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist((new BlackboardEdit())->setText("")->setTime(new \DateTime())->setTown($town)->setUser($this->getUser()));
                 $this->entity_manager->persist($town);
                 break;
-            case 'dice_name':
+            case 'set_name': case 'dice_name':
                 $old_name = $town->getName();
-                $new_name = $gameFactory->createTownName( $town->getLanguage(), $schema );
+                $schema = null;
+                $new_name = $action === 'dice_name'
+                    ? $gameFactory->createTownName( $town->getLanguage(), $schema )
+                    : trim($param ?? '');
+                if (empty($new_name)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
                 $town->setName( $new_name )->setNameSchema( $schema );
                 $town->getRankingEntry()->setName( $new_name );
                 $this->entity_manager->persist($town);
                 $this->entity_manager->persist($town->getRankingEntry());
                 foreach ($town->getCitizens() as $citizen)
                     $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town, $old_name ));
-
                 break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)

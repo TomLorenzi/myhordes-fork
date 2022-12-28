@@ -74,5 +74,4 @@ class GateKeeperProfile implements ConfigurationInterface
     public function onlyInTown(): bool { return $this->only_in_town; }
     public function onlyBeyond(): bool { return $this->only_beyond || $this->onlyInRuin(); }
     public function onlyInRuin(): bool { return $this->only_in_ruin; }
-
 }

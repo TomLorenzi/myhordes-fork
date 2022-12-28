@@ -206,7 +206,7 @@ class WebController extends CustomAbstractController
     {
         $lang = $lang ?? $this->getUserLanguage();
 
-        if (!in_array($document, ['imprint','privacy-policy'])) return $this->redirect($this->generateUrl('home'));
+        if (!in_array($document, ['imprint','privacy-policy','tos'])) return $this->redirect($this->generateUrl('home'));
         if (!in_array($lang, $this->generatedLangsCodes)) return $this->redirect($this->generateUrl('legal_doc_lang', [
             'lang' => $this->getUserLanguage(),
             'document' => $document

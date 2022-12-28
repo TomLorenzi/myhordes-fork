@@ -13,3 +13,7 @@ services:
 
     MyHordes\Plugins\Fixtures\:
       resource: '../../../src/Fixtures/*'
+      public: true
+
+    MyHordes\Plugins\Management\:
+      resource: '../../../src/Management/*'

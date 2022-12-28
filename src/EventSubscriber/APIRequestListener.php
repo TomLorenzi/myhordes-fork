@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\RateLimiter\LimiterInterface;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
 
 class APIRequestListener implements EventSubscriberInterface
 {
@@ -30,7 +30,7 @@ class APIRequestListener implements EventSubscriberInterface
     private TimeKeeperService $timeKeeper;
     private RateLimitingFactoryProvider $rate_limit;
 
-    private $headers = [];
+    private array $headers = [];
 
 
     public function __construct(
@@ -57,11 +57,9 @@ class APIRequestListener implements EventSubscriberInterface
         /** @var ?ExternalAPI $apiConf */
         if ($apiConf = $event->getRequest()->attributes->get('_ExternalAPI') ?? null) {
 
-            if (!$event->getRequest()->attributes->get('_GateKeeperProfile')) {
-                $gk = new GateKeeperProfile();
-                $gk->value = 'skip';
-                $event->getRequest()->attributes->add( ['_GateKeeperProfile' => $gk] );
-            }
+            $gk = new GateKeeperProfile();
+            $gk->value = 'skip';
+            $event->getRequest()->attributes->add( ['_GateKeeperProfile' => $gk] );
 
             // Load params
             $app_key = trim($event->getRequest()->query->get('appkey') ?? $event->getRequest()->request->get('appkey') ?? '');
@@ -158,7 +156,7 @@ class APIRequestListener implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::CONTROLLER => ['process', -64],
+            KernelEvents::CONTROLLER => ['process', -49],
             KernelEvents::RESPONSE   => ['addRateLimiterTokens', -1],
         ];
     }

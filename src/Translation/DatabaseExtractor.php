@@ -231,11 +231,12 @@ class DatabaseExtractor implements ExtractorInterface
                 $this->insert( $c, $pictoPrototype->getDescription(), 'game', PictoPrototype::class );
         }
 
-        foreach ($this->em->getRepository(AwardPrototype::class)->findAll() as $awardPrototype) {
-            /** @var AwardPrototype $awardPrototype */
-            if ($awardPrototype->getTitle())
-                $this->insert( $c, $awardPrototype->getTitle(), 'game', AwardPrototype::class );
-        }
+        // HANDLED BY FixtureVisitor now
+        //foreach ($this->em->getRepository(AwardPrototype::class)->findAll() as $awardPrototype) {
+        //    /** @var AwardPrototype $awardPrototype */
+        //    if ($awardPrototype->getTitle())
+        //        $this->insert( $c, $awardPrototype->getTitle(), 'game', AwardPrototype::class );
+        //}
 
         foreach ($this->em->getRepository(LogEntryTemplate::class)->findAll() as $logtemplate)
             /** @var LogEntryTemplate $logtemplate */

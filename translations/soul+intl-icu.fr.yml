@@ -518,3 +518,9 @@ Events: Événements
 'Auf dieser Seite findest du Statistiken über MyHordes, wie zum Beispiel die Zahl aktiver Spieler. Wir veröffentlichen diese Statistiken, um euch gegenüber die höchstmögliche Transparenz zu bieten.': 'Sur cette page, vous trouverez des statistiques sur MyHordes, telles que le nombre de joueurs actifs. Nous publions ces statistiques pour vous offrir la plus grande transparence possible.'
 'Diese Statistiken werden nicht live berechnet, sondern in regelmäßigen Abständen (meist einmal pro Tag) aktualisiert.': 'Ces statistiques ne sont pas calculées en direct, mais mises à jour à intervalles réguliers (généralement une fois par jour).'
 'Leider haben wir aktuell keine Daten, die wir hier anzeigen könnten... Bitte schau in Kürze erneut vorbei.': 'Malheureusement, nous n’avons actuellement aucune donnée que nous pourrions afficher ici... Veuillez vérifier à nouveau sous peu.'
+Benachrichtigungen: Notifications
+Layout: Mise en page
+'Orte in der Stadt platzsparend anordnen (mobil)': 'Changement de l''affichage des lieux en ville pour gagner de la place (mobile)'
+'Verwendet ein alternatives Layout für die verschiedenen Orte in der Stadt (Baustelle, dein Haus, etc) auf mobilen Geräten. Auf Desktops, Laptops oder Tablets mit größerem Display hat diese Einstellung keinen Effekt.': 'Utilisez une disposition alternative pour les différents lieux de la ville (chantier, votre maison, etc.) sur les appareils mobiles. Sur les ordinateurs, ordinateurs portables ou tablettes dotés d’un écran plus grand, ce paramètre n’a aucun effet.'
+'Zurück zur Übersicht': 'Retour à l''aperçu'
+'Gesamtzahl geworbener Spieler': 'Nombre total de joueurs parrainés'

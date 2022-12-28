@@ -18,7 +18,7 @@ class JSONRequestParser
     public function __construct()
     {
         $request = Request::createFromGlobals();
-        $ct = $request->getContentType();
+        $ct = $request->getContentTypeFormat();
         if ($ct === 'json') {
             $this->trimmed_data = $this->data =
                 json_decode($request->getContent(), true, 512, JSON_INVALID_UTF8_IGNORE );

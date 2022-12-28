@@ -1265,7 +1265,7 @@ class InventoryAwareController extends CustomAbstractController
 
         /** @var Item|ItemPrototype|null $target */
         $target = null;
-        /** @var SpecialActionPrototype|null $heroic */
+        /** @var SpecialActionPrototype|null $special */
         $special = ($action_id < 0) ? null : $this->entity_manager->getRepository(SpecialActionPrototype::class)->find( $action_id );
 
         if ( !$special ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -1283,6 +1283,13 @@ class InventoryAwareController extends CustomAbstractController
             $special_action = $special->getAction();
             if ($trigger_after) $trigger_after($special_action);
             if ( $special->getConsumable() ) $citizen->removeSpecialAction($special);
+
+            // Special handler for the ARMA action
+            $arma_actions = ['special_armag','special_armag_d','special_armag_n'];
+            if (in_array( $special->getName(), $arma_actions))
+                foreach ($citizen->getSpecialActions() as $specialAction)
+                    if (in_array( $specialAction->getName(), $arma_actions))
+                        $citizen->removeSpecialAction($specialAction);
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)

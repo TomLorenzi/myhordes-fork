@@ -2363,3 +2363,8 @@ Stadt/Stadttor: Ville/Portes
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '{citizen} a réussi à s''enfuir de la zone, au prix d''une <strong>blessure grave</strong> !'
 '{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} a utilisé une <strong>capacité spéciale</strong> pour tuer {zombies} zombie(s) et reprendre le contrôle pour <strong>{duration} minutes</strong> !'
 '<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Citoyen</strong>, <br />en reconnaissance de vos exploits dans la lutte contre les zombies et en récompense d’un placement dans le classement des meilleures villes de la <i>saison {season}</i> sur <i>{server}</i>, vous recevrez ce qui suit:{pictos}En outre, les outils suivants sont disponibles pour la durée de la nouvelle saison:{features}<br/><strong>Félicitations !</strong>'
+'Brunnen (short)': Puits
+'Bank (short)': Banque
+'Bürger (short)': Citoyens
+'Konstruktionen (short)': Chantiers
+'Stadttor (short)': Portes

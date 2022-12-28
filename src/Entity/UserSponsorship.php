@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserSponsorshipRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -26,6 +27,9 @@ class UserSponsorship
     private $countedSoulPoints;
     #[ORM\Column(type: 'integer')]
     private $countedHeroExp;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $timestamp = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -67,6 +71,18 @@ class UserSponsorship
     public function setCountedHeroExp(int $countedHeroExp): self
     {
         $this->countedHeroExp = $countedHeroExp;
+
+        return $this;
+    }
+
+    public function getTimestamp(): ?\DateTimeInterface
+    {
+        return $this->timestamp;
+    }
+
+    public function setTimestamp(?\DateTimeInterface $timestamp): self
+    {
+        $this->timestamp = $timestamp;
 
         return $this;
     }
