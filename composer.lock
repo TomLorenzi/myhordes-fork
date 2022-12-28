@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "caa49ef22e5268092bbe1dab11e34ef7",
+    "content-hash": "01d9d30b28e2d9b74f98998763c125a9",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2364,7 +2364,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-master",
+            "version": "dev-master-next",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -2402,7 +2402,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-master",
+            "version": "dev-master-next",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
@@ -2436,11 +2436,11 @@
         },
         {
             "name": "myhordes/prime",
-            "version": "0.0.1",
+            "version": "1.0.0",
             "dist": {
                 "type": "path",
-                "url": "packages/myhordes-prime-shim",
-                "reference": "643a7bf25650168c4791dc9c5e45139d8d5c8620"
+                "url": "packages/myhordes-prime",
+                "reference": "6e2c57c8bca5a62eb76b56f91a40e56be4289003"
             },
             "require": {
                 "php": ">=8.1",
@@ -2449,7 +2449,10 @@
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
-                    "MyHordes\\Prime\\": "src/"
+                    "MyHordes\\Prime\\": [
+                        "src/",
+                        "src/templates"
+                    ]
                 }
             },
             "license": [
@@ -2461,7 +2464,7 @@
                     "email": "wvsgnovize@gmail.com"
                 }
             ],
-            "description": "This package exists as a replacement for the closed-source game content provided by the real myhordes/prime package.",
+            "description": "Contains optional closed source content for the MyHordes project.",
             "transport-options": {
                 "relative": true
             }
