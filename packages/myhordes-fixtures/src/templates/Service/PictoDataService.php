@@ -512,21 +512,24 @@ class PictoDataService implements FixtureProcessorInterface {
                 'description' => 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011',
                 'icon' => 'r_fjvani',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Video Game Festival 2010',
                 'description' => 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!',
                 'icon' => 'r_fjv2',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'FJV\'08 Kanonenfutter',
                 'description' => 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.',
                 'icon' => 'r_fjv',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Community-Auszeichnung',
@@ -561,42 +564,48 @@ class PictoDataService implements FixtureProcessorInterface {
                 'description' => 'Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!',
                 'icon' => 'r_derwin',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Einsiedler - Gewinner des SoH',
                 'description' => 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!',
                 'icon' => 'r_ermwin',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Buddler - Gewinner des SoH',
                 'description' => 'Sieg für die Buddler beim Shock of Heroes Event!',
                 'icon' => 'r_cdhwin',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Wächter - Gewinner des SoH',
                 'description' => 'Sieg für die Wächter beim Shock of Heroes Event!',
                 'icon' => 'r_defwin',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Aufklärer - Gewinner des SoH',
                 'description' => 'Sieg für die Aufklärer beim Shock of Heroes Event!',
                 'icon' => 'r_rangwin',
                 'rare' => true,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Bewohner Koh-Lambdas',
                 'description' => 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!',
                 'icon' => 'r_kohlmb',
                 'rare' => false,
-                'community' => false
+                'community' => false,
+                'special' => true,
             ],
             [
                 'label' => 'Der Kobold hat dich erwischt',
@@ -615,14 +624,16 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Beta-Tester der neuen Zeit',
                 'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist. Drogen sind nicht gut.',
                 'icon' => 'r_beta2',
-                'rare' => true
+                'rare' => true,
+                'special' => true,
             ],
             [
                 'label' => 'HAZ-Gewinner',
                 'description' => 'Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.',
                 'icon' => 'r_gsp',
                 'rare' => false,
-                'community' => true
+                'community' => true,
+                'special' => true,
             ],
             [
                 'label' => 'Kernsammler (job)',
@@ -641,19 +652,22 @@ class PictoDataService implements FixtureProcessorInterface {
                 'description' => 'Ehrenpreis für die Teilnahme am UFC!',
                 'icon' => 'r_ufc',
                 'rare' => false,
-                'community' => true
+                'community' => true,
+                'special' => true,
             ],
             [
                 'label' => 'Sind wir noch in der Alpha?',
                 'description' => 'Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.',
                 'icon' => 'r_ripflash',
-                'rare' => true
+                'rare' => true,
+                'special' => true,
             ],
             [
                 'label' => 'Legendärer Dompteur',
                 'description' => 'Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!',
                 'icon' => 'r_tamwin',
-                'rare' => true
+                'rare' => true,
+                'special' => true,
             ],
             [
                 'label' => 'Einwohner',
@@ -665,13 +679,15 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Buddler - Gewinner des DdA',
                 'description' => 'Auszeichnung für die Mitglieder der Buddler-Liga, die beim Duell der Achter gewonnen haben!',
                 'icon' => 'r_scaddh',
-                'rare' => true
+                'rare' => true,
+                'special' => true,
             ],
             [
                 'label' => 'Duell der Achter',
                 'description' => 'Ehrenpreis für die Teilname am Duell der Achter Event!',
                 'icon' => 'r_ddh',
-                'rare' => false
+                'rare' => false,
+                'special' => true,
             ],
         ]);
     }

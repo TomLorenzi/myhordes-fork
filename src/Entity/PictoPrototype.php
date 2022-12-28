@@ -36,6 +36,9 @@ class PictoPrototype implements NamedEntity
     private $community = false;
     #[ORM\Column(type: 'integer')]
     private $priority = 0;
+
+    #[ORM\Column]
+    private ?bool $special = null;
     public function __construct()
     {
         $this->awards = new ArrayCollection();
@@ -145,5 +148,17 @@ class PictoPrototype implements NamedEntity
     public static function getTranslationDomain(): ?string
     {
         return 'game';
+    }
+
+    public function isSpecial(): ?bool
+    {
+        return $this->special;
+    }
+
+    public function setSpecial(bool $special): self
+    {
+        $this->special = $special;
+
+        return $this;
     }
 }

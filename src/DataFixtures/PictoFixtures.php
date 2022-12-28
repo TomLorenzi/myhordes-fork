@@ -54,6 +54,7 @@ class PictoFixtures extends Fixture
                 ->setRare($entry['rare'])
                 ->setPriority($entry['priority'] ?? 0)
                 ->setCommunity($entry['community'] ?? false)
+                ->setSpecial($entry['special'] ?? false)
             ;
 
             $manager->persist($entity);

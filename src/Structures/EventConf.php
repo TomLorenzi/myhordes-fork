@@ -17,6 +17,7 @@ class EventConf extends Conf
 
     const EVENT_DIG_DESERT_GROUP  = 'event_dig.desert.group';
     const EVENT_DIG_DESERT_CHANCE = 'event_dig.desert.chance';
+    const EVENT_DIG_DESERT_CHANCE_CAP = 'event_dig.desert.chance_cap';
     const EVENT_DIG_RUINS         = 'event_dig.ruins';
 
     const EVENT_HOOK_WATCHTOWER   = 'hooks.watchtower';
