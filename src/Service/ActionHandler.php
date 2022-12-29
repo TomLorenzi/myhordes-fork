@@ -54,48 +54,26 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ActionHandler
 {
-    private EntityManagerInterface $entity_manager;
-    private StatusFactory $status_factory;
-    private CitizenHandler $citizen_handler;
-    private DeathHandler $death_handler;
-    private InventoryHandler $inventory_handler;
-    private RandomGenerator $random_generator;
-    private ItemFactory $item_factory;
-    private TranslatorInterface $translator;
-    private GameFactory $game_factory;
-    private TownHandler $town_handler;
-    private ZoneHandler $zone_handler;
-    private PictoHandler $picto_handler;
-    private Packages $assets;
-    private LogTemplateHandler $log;
-    private ConfMaster $conf;
-    private MazeMaker $maze;
-    private GameProfilerService $gps;
-
-
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
-        RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm, GameProfilerService $gps)
-    {
-        $this->entity_manager = $em;
-        $this->status_factory = $sf;
-        $this->citizen_handler = $ch;
-        $this->inventory_handler = $ih;
-        $this->random_generator = $rg;
-        $this->item_factory = $if;
-        $this->translator = $ti;
-        $this->game_factory = $gf;
-        $this->assets = $am;
-        $this->town_handler = $th;
-        $this->death_handler = $dh;
-        $this->zone_handler = $zh;
-        $this->picto_handler = $ph;
-        $this->log = $lt;
-        $this->conf = $conf;
-        $this->maze = $mm;
-        $this->gps = $gps;
-    }
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly StatusFactory $status_factory,
+        private readonly CitizenHandler $citizen_handler,
+        private readonly UserHandler $user_handler,
+        private readonly DeathHandler $death_handler,
+        private readonly InventoryHandler $inventory_handler,
+        private readonly RandomGenerator $random_generator,
+        private readonly ItemFactory $item_factory,
+        private readonly TranslatorInterface $translator,
+        private readonly GameFactory $game_factory,
+        private readonly TownHandler $town_handler,
+        private readonly ZoneHandler $zone_handler,
+        private readonly PictoHandler $picto_handler,
+        private readonly Packages $assets,
+        private readonly LogTemplateHandler $log,
+        private readonly ConfMaster $conf,
+        private readonly MazeMaker $maze,
+        private readonly GameProfilerService $gps
+    ) {}
 
     const ActionValidityNone = 1;
     const ActionValidityHidden = 2;
@@ -370,8 +348,10 @@ class ActionHandler
                             $current_state = min($current_state, $this_state);
                         break;
 
-                    // Friendship (TODO)
+                    // Friendship
                     case 70:
+                        if (!$this->user_handler->checkFeatureUnlock($citizen->getUser(), 'f_share', false))
+                            $current_state = min($current_state, Requirement::HideOnFail);
                         break;
 
                     // Camourflace for hunter
@@ -1663,6 +1643,9 @@ class ActionHandler
 
                     case 70:
                         if (!is_a($target, FriendshipActionTarget::class)) break;
+
+                        if (!$this->user_handler->checkFeatureUnlock($citizen->getUser(), 'f_share', true))
+                            break;
 
                         $citizen->getHeroicActions()->removeElement( $target->action() );
                         $citizen->getUsedHeroicActions()->add( $target->action() );
