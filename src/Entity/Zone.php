@@ -362,7 +362,7 @@ class Zone
 
     public function getScoutLevel(): int
     {
-        return max(0,$this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count() - 1);
+        return max(0, floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count()/5));
     }
     public function getScoutEstimationOffset(): ?int
     {

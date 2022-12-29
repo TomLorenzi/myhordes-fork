@@ -1544,7 +1544,7 @@ class NightlyHandler
                 }
 
                 if ($zone->getPrototype() && $this->random->chance( $recovery_chance ) ) {
-                    $rdigs = mt_rand(1, 5);
+                    $rdigs = 5;
                     $zone->setRuinDigs( min( $zone->getRuinDigs() + $rdigs, 10 ) );
                     $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>." );
                 }

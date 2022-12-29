@@ -42,15 +42,5 @@ class Kernel extends BaseKernel implements CompilerPassInterface
 
     public function process(ContainerBuilder $container)
     {
-        $definition = $container->getDefinition('translation.extractor');
-        $definition->removeMethodCall('addExtractor');
-
-        foreach ($container->findTaggedServiceIds('translation.extractor.myhordes', true) as $id => $attributes) {
-            if (!isset($attributes[0]['alias'])) {
-                throw new RuntimeException(sprintf('The alias for the tag "translation.extractor.myhordes" of service "%s" must be set.', $id));
-            }
-
-            $definition->addMethodCall('addExtractor', [$attributes[0]['alias'], new Reference($id)]);
-        }
     }
 }

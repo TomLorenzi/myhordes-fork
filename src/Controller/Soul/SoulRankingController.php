@@ -109,8 +109,7 @@ class SoulRankingController extends SoulController
     {
         $user = $this->getUser();
 
-        $seasonId = $season ?? $parser->get('season', 'c');
-        if (($currentSeason = $this->resolveSeasonIdentifier( $season ?? $parser->get('season', 'all'), true )) === false)
+        if (($currentSeason = $this->resolveSeasonIdentifier( $season ?? $parser->get('season', 'c'), true )) === false)
             return $this->redirect($this->generateUrl( 'soul_season', ['type' => $type, 'season' => 'c'] ));
 
         /** @var CitizenRankingProxy $nextDeath */

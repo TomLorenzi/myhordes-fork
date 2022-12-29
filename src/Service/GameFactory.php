@@ -267,42 +267,36 @@ class GameFactory
                  [   // Subjects
                     'f' => [ ],
                     'm' => [ ],
-                    'n' => [ ],
                     '*' => [ 'Renne|s', 'Elfe|s', 'Cadeau|x', 'Festival|-ux', 'Fête de Noyel', 'Calendrier|s', 'Flocon de neige', 'Train en bois', 'Chaussette|s', 'Papa Noyel', 'Pain d\'épice', 'Cheminée|e', 'Marché de Noël', 'Ange|s' ],
                  ],
                  [   // Adjectives
                      'f' => [ 'Contemplative|s', 'Enneigée|s', 'Sainte|s' ],
                      'm' => [ 'Contemplatif|s', 'Enneigé|s', 'Saint|s' ],
-                     'n' => [ ],
                      '*' => [ 'Noël', 'Destinataire|s' ],
                  ],
                  [
                      // Suffixes
                      'f' => [ ],
                      'm' => [ ],
-                     'n' => [ ],
                      '*' => ['du Noël blanc', 'dans la rafale de neige', 'dans la ruée vers le vin chaud', 'en neige', 'dans la neige', 'avec du vin chaud', 'dans la crèche ', 'dans l\'étable', 'sous le Sapin', 'de la fête foraine'],
                 ],
             ],
             'es' => [
                 [   // Subjects
-                    'f' => [ ],
-                    'm' => [ ],
-                    'n' => [ ],
-                    '*' => [ 'Reno|s', 'Elf|-os', 'Regalo|s', 'Festival|es', 'Turrón|--ones', 'Campanada|s', 'Copos de nieve', 'Brazo de gitano', 'Calcetín|--ines', 'San Nicolás', 'Belén', 'Chimenea|s', 'Papá Noel ', 'Angel|es', 'Muñeco de nieve' ],
+                    'f' => ['Chimenea|s', 'Campanada|s',  ],
+                    'm' => ['Reno|s', 'Elfo|s', 'Regalo|s', 'Festival|es', 'Turrón|--ones', 'Copos de nieve', 'Brazo de gitano', 'Calcetín|--ines', 'San Nicolás', 'Belén', 'Papá Noel', 'Angel|es', 'Muñeco de nieve|<Muñecos de nieve', ],
+                    '*' => [ ],
                 ],
                 [   // Adjectives
-                    'f' => ['Festiva|s', 'Helada|s', 'Santa|s', 'Nevada|s', ],
-                    'm' => ['Festivo|s', 'Helado|s', 'Santo|s', 'Nevado|s', ],
-                    '*' => ['Pillín|es', 'Jovial|es', 'Feliz|-ces', ],
-                 ],
-                 [
-                     // Suffixes
-                     'f' => [ ],
-                     'm' => [ ],
-                     'n' => [ ],
-                     '*' => ['de la Navidad', 'en la tormenta de nieve', 'bajo la nieve', 'con cava', 'con galletitas', 'de los muñecos de nieve', '', 'debajo del arbolito', 'del tronco de yule', 'con leche calentita' ],
+                    'f' => ['Festiva|s', 'Helada|s', 'Santa|s', 'Nevada|s', 'Pillína|s', ],
+                    'm' => ['Festivo|s', 'Helado|s', 'Santo|s', 'Nevado|s', 'Pillín|es', ],
+                    '*' => ['Jovial|es', 'Feliz|-ces', ],
                 ],
+                [  // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    '*' => ['de la Navidad', 'en la tormenta de nieve', 'bajo la nieve', 'con cava', 'con galletitas', 'de los muñecos de nieve', '', 'debajo del arbolito', 'del tronco de yule', 'con leche calentita', ],
+                ]
             ]
         ],
     ];

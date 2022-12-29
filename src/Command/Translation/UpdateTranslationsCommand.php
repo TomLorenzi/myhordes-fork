@@ -86,39 +86,43 @@ class UpdateTranslationsCommand extends Command
                 return 1;
             }
 
-        } elseif (extension_loaded('pthreads')) {
-            $output->writeln("Using pthreads !");
-            $threads = [];
-            foreach ($langs as $current_lang) {
-
-                $com = "app:translation:update $current_lang";
-                if ($input->getOption('disable-db')) $com .= " --disable-db";
-                if ($input->getOption('disable-php')) $com .= " --disable-php";
-                if ($input->getOption('disable-twig')) $com .= " --disable-twig";
-                if ($input->getOption('disable-config')) $com .= " --disable-config";
-
-                foreach ($input->getOption('file') as $file_name)
-                    $com .= " --file $file_name";
-
-                $threads[] = new class(function () use ($com, $output) {
-                    $this->helper->capsule($com, $output);
-                }) extends \Worker {
-                    private $_f;
-
-                    public function __construct(callable $fun)
-                    {
-                        $this->_f = $fun;
-                    }
-
-                    public function run()
-                    {
-                        ($this->_f)();
-                    }
-                };
+            $input = new ArrayInput([
+                                        'locale' => $lang,
+                                        'bundle' => 'MyHordesFixturesBundle',
+                                        '--force' => true,
+                                        '--sort' => 'asc',
+                                        '--format' => 'yml',
+                                        '--prefix' => '',
+                                    ]);
+            $input->setInteractive(false);
+            try {
+                $command->run($input, $output);
+            } catch (Exception $e) {
+                $output->writeln("Error: <error>{$e->getMessage()}</error>");
+                return 1;
             }
 
-            foreach ($threads as $thread) $thread->start();
-            foreach ($threads as $thread) $thread->join();
+            $command = $this->getApplication()->find('app:translation:bundle');
+            $input = new ArrayInput([
+                                        'locale' => $lang,
+                                        'bundle' => 'MyHordesPrimeBundle',
+                                        '--force' => true,
+                                        '--sort' => 'asc',
+                                        '--format' => 'yml',
+                                        '--prefix' => '',
+                                    ]);
+            $input->setInteractive(false);
+
+            $this->conf_trans->setDatabaseSearch(false);
+            $this->conf_trans->setTwigSearch(false);
+
+            try {
+                $command->run($input, $output);
+            } catch (Exception $e) {
+                $output->writeln("Error: <error>{$e->getMessage()}</error>");
+                return 1;
+            }
+
         } else foreach ($langs as $current_lang) {
             $com = "app:translation:update $current_lang";
             if ($input->getOption('disable-db')) $com .= " --disable-db";

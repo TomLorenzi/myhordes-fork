@@ -15,13 +15,13 @@ parameters:
       zone_items:
         min: 5
         max: 10
-        refresh_min: 1
-        refresh_max: 8
-        fill_max: 30
-        throttle_at: 12
+        refresh_min: 5
+        refresh_max: 5
+        fill_max: 10
+        throttle_at: 10
       ruin_items:
-        min: 10
-        max: 10
+        min: 8
+        max: 16
 
       ruins: 20
       explorable_ruins: 1
@@ -42,13 +42,13 @@ parameters:
         room_distance: 5
         room_spacing: 4
         lock_distance: 10
-        item_fillrate: 11
+        item_fillrate: 5
         max_distance: 10
         floors: 1
         plan_limits:
-          unusual: -1
-          rare: -1
-          epic: -1
+          unusual: 8
+          rare: 4
+          epic: 2
         zombies:
           initial: 10
           daily: 5
@@ -97,7 +97,7 @@ parameters:
           max: 15
 
       estimation:
-        shift: 0
+        shift: 10
         spread: 10
         variance: 48
         offset:

@@ -101,6 +101,9 @@ class JSONv1Controller extends CoreController {
                 $data = $this->getPrototypesAPI($type);
                 break;
             case 'debug':
+                if ($this->user->getRightsElevation() <= User::USER_LEVEL_ADMIN) {
+                    break;
+                }
                 $data = $this->getDebugdata();
                 break;
             case "user":
@@ -1784,7 +1787,7 @@ class JSONv1Controller extends CoreController {
                         $data[$field] = $citizen->getUser()->getEternalID();
                         break;
                     case "mapId":
-                        $data[$field] = $citizen->getTown()->getId();
+                        $data[$field] = $citizen->getTown()->getBaseID() !== null ? $citizen->getTown()->getBaseID() : $citizen->getTown()->getId();
                         break;
                     case "survival":
                         $data[$field] = $citizen->getDay();
