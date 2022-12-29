@@ -395,6 +395,81 @@
           {"user_key":[]}
         ]
       }
+    },
+    "/json/users": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Information about multiple users at once.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ids",
+            "description": "Comma-separated list of user IDs",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/JSONUserObject" }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
+    },
+    "/json/map": {
+      "get": {
+        "tags": [
+          "JSON API"
+        ],
+        "summary": "Information about a current game.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "mapId",
+            "description": "Map ID",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          },
+          {"$ref": "#/components/parameters/JSONParameterFields"},
+          {"$ref": "#/components/parameters/JSONParameterLanguage"}
+        ],
+        "responses": {
+          "200": {
+            "description": "List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JSONGameObject"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {"secret_key":[]},
+          {"user_key":[]}
+        ]
+      }
     }
   },
   "components": {
@@ -2108,7 +2183,7 @@
         }
       },
 
-      "JSONUserObject": {
+      "JSONCitizenUserObject": {
         "description": "A MyHordes user",
         "type": "object",
         "properties": {
@@ -2206,13 +2281,24 @@
             "description": "Town ID (if incarnated)",
             "example": 1
           },
-          "map": {
-            "$ref": "#/components/schemas/JSONGameObject"
-          },
           "job": {
             "$ref": "#/components/schemas/JSONJobObject"
           }
         }
+      },
+      "JSONUserObject": {
+        "allOf": [
+          { "$ref": "#/components/schemas/JSONCitizenUserObject" },
+          {
+            "type": "object",
+            "properties": {
+              "map": {
+                "$ref": "#/components/schemas/JSONGameObject"
+              }
+            }
+          }
+        ],
+        "description": "A MyHordes user"
       },
       "JSONPictoObject": {
         "description": "Information about distinctions for a user.",
@@ -2490,6 +2576,12 @@
             "type": "boolean",
             "description": "Town is a private town",
             "example": false
+          },
+          "citizens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JSONCitizenUserObject"
+            }
           },
           "city": {
             "type": "object",
