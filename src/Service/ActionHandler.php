@@ -1658,15 +1658,28 @@ class ActionHandler
                         if ($target->action()->getName() === 'hero_generic_find_lucky' )
                             $downgrade_actions[] = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => 'hero_generic_find']);
 
-                        $valid = true;
+                        $valid = !$this->citizen_handler->hasStatusEffect( $target->citizen(), 'tg_rec_heroic' );
 
-                        if ($target->citizen()->getHeroicActions()->contains( $target->action() ))
-                            $valid = false;
-                        foreach ( $upgrade_actions as $a ) if ($target->citizen()->getHeroicActions()->contains( $a ))
-                            $valid = false;
+                        if ($valid) {
+                            if ($target->citizen()->getHeroicActions()->contains( $target->action() ))
+                                $valid = false;
+                            foreach ( $upgrade_actions as $a ) if ($target->citizen()->getHeroicActions()->contains( $a ))
+                                $valid = false;
+                        }
+
+                        $target->citizen()->getSpecificActionCounter(
+                            ActionCounter::ActionTypeReceiveHeroic
+                        )->increment()->addRecord( [
+                                                       'action' => $target->action()->getName(),
+                                                       'from' => $citizen->getId(),
+                                                       'valid' => $valid,
+                                                       'seen' => false
+                                                   ] );
 
                         if ($valid) {
                             $this->picto_handler->award_picto_to( $citizen, 'r_share_#00' );
+                            $this->citizen_handler->inflictStatus( $target->citizen(), 'tg_rec_heroic' );
+
                             foreach ( $downgrade_actions as $a ) {
                                 $target->citizen()->getHeroicActions()->removeElement( $a );
                                 $target->citizen()->getUsedHeroicActions()->removeElement( $a );

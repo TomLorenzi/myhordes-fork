@@ -132,6 +132,24 @@ class InventoryAwareController extends CustomAbstractController
             $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('stranger') );
             $this->entity_manager->persist($this->getActiveCitizen());
             $this->entity_manager->flush();
+        } else if ( !empty( $records = array_filter( $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
+            fn($record) => is_array($record) && !( $record['seen'] ?? true ) && ( $record['valid'] ?? false )
+        ) ) ) {
+            $key = array_key_first( $records );
+            $record = $records[$key];
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find( (int)$record['from'] ?? 0 );
+            if ($citizen && $citizen->getTown() !== $this->getActiveCitizen()->getTown()) $citizen = null;
+
+            $action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $record['action'] ?? '']);
+            if ($citizen && $action)
+                $this->addFlash('popup-general', $this->renderView('ajax/game/notifications/hero_donation.html.twig', [
+                    'citizen' => $citizen, 'action' => $action]
+                ));
+
+            $this->entity_manager->persist(
+                $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->setRecord( $key, true, 'seen' )
+            );
+            $this->entity_manager->flush();
         }
         return true;
     }

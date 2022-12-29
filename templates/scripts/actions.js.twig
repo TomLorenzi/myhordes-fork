@@ -55,7 +55,7 @@ const handleHeroicActions = function( actions, api_path, return_path, content = 
                     actions[i].removeAttribute('disabled');
                     actions[i].setAttribute('x-target-id', targets.join(';'))
                     let tmp = message;
-                    values.forEach( ([key,value]) => tmp = tmp.replace('{target' + key + '}', value) );
+                    values.forEach( ([key,value]) => tmp = tmp.replaceAll('{target' + key + '}', value) );
                     actions[i].setAttribute('x-confirm-msg', tmp)
                 }
                 else {

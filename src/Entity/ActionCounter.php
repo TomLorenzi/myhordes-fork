@@ -22,6 +22,7 @@ class ActionCounter
     const ActionTypeClothes     = 9;
     const ActionTypeHomeCleanup = 10;
     const ActionTypeShower      = 11;
+    const ActionTypeReceiveHeroic = 12;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
     ];
@@ -40,6 +41,9 @@ class ActionCounter
     private $last;
     #[ORM\Column(type: 'integer')]
     private $referenceID = 0;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $additionalData = [];
     public function getId(): ?int
     {
         return $this->id;
@@ -99,6 +103,34 @@ class ActionCounter
     {
         $this->referenceID = $referenceID;
 
+        return $this;
+    }
+
+    public function getAdditionalData(): array
+    {
+        return $this->additionalData;
+    }
+
+    public function setAdditionalData(?array $additionalData): self
+    {
+        $this->additionalData = $additionalData;
+
+        return $this;
+    }
+
+    public function addRecord( array $data ): self {
+        $this->setAdditionalData( array_merge( $this->getAdditionalData() ?? [], [$data] ) );
+        return $this;
+    }
+
+    public function setRecord( int $key, mixed $data, ?string $recordKey = null ): self {
+        $json = $this->getAdditionalData();
+        if ($recordKey !== null) {
+            $entry = $json[$key] ?? [];
+            $entry[$recordKey] = $data;
+            $json[$key] = $entry;
+        } else $json[$key] = $data;
+        $this->setAdditionalData( $json );
         return $this;
     }
 }
