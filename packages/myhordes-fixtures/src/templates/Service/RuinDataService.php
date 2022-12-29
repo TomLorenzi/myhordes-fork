@@ -332,7 +332,7 @@ class RuinDataService implements FixtureProcessorInterface {
 
             // id 59
             'ufo' => ["label" => "Ein seltsames kreisförmiges Gerät",'icon' => 'ufo',"camping" => 7,"min_dist" => 21, "max_dist" => 28, "chance" => 15, "empty" => 0.10, "drops" => [
-                'metal_#00_bad' => 40,
+                'metal_bad_#00' => 40,
                 'plate_raw_#00' => 10,
                 'iphone_#00' => 5,
                 'chest_xl_#00' => 1,
