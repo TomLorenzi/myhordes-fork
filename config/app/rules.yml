@@ -142,6 +142,9 @@ parameters:
         home_recycling:
           ap: 15
           return: 5
+        generosity:
+          from_ghoul: 1
+          from_last_death_factor: 1
 
       features:
         camping: true
@@ -256,6 +259,9 @@ parameters:
         sandball_nastyness: 0.85
         ghoul_infection_begin: 2
         hide_home_upgrade: true
+        generosity:
+          from_ghoul: 1
+          from_last_death_factor: 2
 
       features:
         last_death:

@@ -1405,6 +1405,16 @@ class NightlyHandler
                     if (!empty($last_stand_pictos) && count($citizen_eligible) > 0) {
                         /** @var Citizen $winner */
                         $winner = $this->random->pick($citizen_eligible);
+
+                        $wonHeroDays = 0;
+                        if     ($town->getDay() >= 6 && $town->getDay() <= 10) $wonHeroDays = ($town->getDay() - 5);
+                        elseif ($town->getDay() > 10 && $town->getDay() <= 15) $wonHeroDays = 6;
+                        elseif ($town->getDay() > 15 && $town->getDay() <= 20) $wonHeroDays = 7;
+                        else $wonHeroDays = 10;
+
+                        $wonHeroDays = floor($wonHeroDays * $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_GENEROSITY_LAST, 1) );
+                        if ($wonHeroDays > 0) $winner->giveGenerosityBonus( $wonHeroDays );
+
                         foreach ($last_stand_pictos as $last_stand_picto) {
                             $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
                             $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
