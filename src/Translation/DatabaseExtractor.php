@@ -68,6 +68,8 @@ class DatabaseExtractor implements ExtractorInterface
      */
     public function extract($resource, MessageCatalogue $c)
     {
+        if (!$this->config->useDatabase()) return;
+
         if (self::$has_been_run) return;
         self::$has_been_run = true;
 

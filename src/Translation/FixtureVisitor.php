@@ -28,7 +28,6 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
         foreach ($columns as $column)
             foreach ( array_filter( array_column( $data, $column ) ) as $message )
                 $this->addMessageToCatalogue($message, $domain, 0);
-        var_dump($data);
         return true;
     }
 

@@ -49,6 +49,8 @@ class ExpandedTwigExtractor extends TwigExtractor
      */
     public function extract($resource, MessageCatalogue $catalogue)
     {
+        if (!$this->config->useTwig()) return;
+
         foreach ($this->extractFiles($resource) as $file) {
             try {
                 $this->file = $file->getPathname();
