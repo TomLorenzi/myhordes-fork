@@ -2,6 +2,7 @@
 
 namespace App\Translation;
 
+use MyHordes\Plugins\Fixtures\Action;
 use MyHordes\Plugins\Fixtures\AwardTitle;
 use MyHordes\Plugins\Interfaces\FixtureChainInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
@@ -23,16 +24,31 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
         return null;
     }
 
-    protected function extractColumnData( array $data, array|string $columns, string $domain ): bool {
-        if (!is_array($columns)) $columns = [$columns];
-        foreach ($columns as $column)
-            foreach ( array_filter( array_column( $data, $column ) ) as $message )
-                $this->addMessageToCatalogue($message, $domain, 0);
+    protected function extractArrayData( array $data, string $domain ): bool {
+        foreach ( array_filter($data) as $message )
+            $this->addMessageToCatalogue($message, $domain, 0);
         return true;
+    }
+
+    protected function extractColumnData( array $data, array|string $columns, string $domain ): bool {
+        return array_reduce(
+            array_map(
+                fn($column) => $this->extractArrayData( array_column( $data, $column ), $domain ),
+                is_array($columns) ? $columns : [$columns]
+            ),
+            fn($c,$r) => $r && $c,
+            true
+        );
     }
 
     protected function extractData( FixtureChainInterface $provider, array $data ): bool {
         return match ($provider::class) {
+            Action::class =>
+                $this->extractArrayData( $data['message_keys'] ?? [], 'items') &&
+                $this->extractColumnData( $data['meta_requirements'], 'text', 'items') &&
+                $this->extractColumnData( $data['actions'], ['label','tooltip','confirmMsg','message','escort_message'], 'items') &&
+                $this->extractColumnData( $data['escort'], ['label','tooltip'], 'items') &&
+                $this->extractColumnData( array_column( $data['meta_results'], 'message' ), 'text', 'items'),
             AwardTitle::class => $this->extractColumnData($data, 'title', 'game'),
             default => true,
         };

@@ -83,28 +83,30 @@ class DatabaseExtractor implements ExtractorInterface
         }
 
         // Get Action labels and messages as well as requirement messages
-        foreach ($this->em->getRepository(ItemAction::class)->findAll() as $action) {
-            /** @var ItemAction $action */
-            $this->insert($c, $action->getLabel(), 'items', ItemAction::class);
-            if (!empty($action->getTooltip()))
-                $this->insert($c, $action->getTooltip(), 'items', ItemAction::class);
-            if (!empty($action->getConfirmMsg()))
-                $this->insert($c, $action->getConfirmMsg(), 'items', ItemAction::class);
-            if (!empty($action->getMessage()))
-                $this->insert($c, $action->getMessage(), 'items', ItemAction::class);
-            if (!empty($action->getEscortMessage()))
-                $this->insert($c, $action->getEscortMessage(), 'items', ItemAction::class);
-            foreach ($action->getRequirements() as $requirement) {
-                if ($requirement->getFailureText())
-                    $this->insert($c, $requirement->getFailureText(), 'items', Requirement::class);
-            }
-        }
+        // HANDLED BY FixtureVisitor now
+        //foreach ($this->em->getRepository(ItemAction::class)->findAll() as $action) {
+        //    /** @var ItemAction $action */
+        //    $this->insert($c, $action->getLabel(), 'items', ItemAction::class);
+        //    if (!empty($action->getTooltip()))
+        //        $this->insert($c, $action->getTooltip(), 'items', ItemAction::class);
+        //    if (!empty($action->getConfirmMsg()))
+        //        $this->insert($c, $action->getConfirmMsg(), 'items', ItemAction::class);
+        //    if (!empty($action->getMessage()))
+        //        $this->insert($c, $action->getMessage(), 'items', ItemAction::class);
+        //    if (!empty($action->getEscortMessage()))
+        //        $this->insert($c, $action->getEscortMessage(), 'items', ItemAction::class);
+        //    foreach ($action->getRequirements() as $requirement) {
+        //        if ($requirement->getFailureText())
+        //            $this->insert($c, $requirement->getFailureText(), 'items', Requirement::class);
+        //    }
+        //}
 
         // Get the escort action labels and tooltips
-        foreach ($this->em->getRepository(EscortActionGroup::class)->findAll() as $escort_action) {
-            $this->insert($c, $escort_action->getLabel(), 'items', EscortActionGroup::class);
-            $this->insert($c, $escort_action->getTooltip(), 'items', EscortActionGroup::class);
-        }
+        // HANDLED BY FixtureVisitor now
+        //foreach ($this->em->getRepository(EscortActionGroup::class)->findAll() as $escort_action) {
+        //    $this->insert($c, $escort_action->getLabel(), 'items', EscortActionGroup::class);
+        //    $this->insert($c, $escort_action->getTooltip(), 'items', EscortActionGroup::class);
+        //}
 
         foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe) {
             /** @var Recipe $recipe */
@@ -121,10 +123,11 @@ class DatabaseExtractor implements ExtractorInterface
             if ($itemCategory->getLabel())
                 $this->insert( $c, $itemCategory->getLabel(), 'items', ItemCategory::class );
 
-        foreach ($this->em->getRepository(AffectMessage::class)->findAll() as $affectMessage)
-            /** @var AffectMessage $affectMessage */
-            if ($affectMessage->getText())
-                $this->insert( $c, $affectMessage->getText(), 'items', AffectMessage::class );
+        // HANDLED BY FixtureVisitor now
+        //foreach ($this->em->getRepository(AffectMessage::class)->findAll() as $affectMessage)
+        //    /** @var AffectMessage $affectMessage */
+        //    if ($affectMessage->getText())
+        //        $this->insert( $c, $affectMessage->getText(), 'items', AffectMessage::class );
 
         foreach ($this->em->getRepository(FeatureUnlockPrototype::class)->findAll() as $feature) {
             /** @var FeatureUnlockPrototype $feature */

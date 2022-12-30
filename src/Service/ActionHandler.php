@@ -1751,6 +1751,10 @@ class ActionHandler
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
+                    '{pm}'            => $execute_info_cache['pm'],
+                    '{minus_pm}'      => -$execute_info_cache['pm'],
+                    '{cp}'            => $execute_info_cache['cp'],
+                    '{minus_cp}'      => -$execute_info_cache['cp'],
 	                '{well}'          => $execute_info_cache['well'],
 	                '{zombies}'       => $execute_info_cache['zombies'],
 	                '{item}'          => $this->wrap($execute_info_cache['item']),
