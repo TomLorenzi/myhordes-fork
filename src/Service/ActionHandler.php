@@ -322,6 +322,14 @@ class ActionHandler
                         if (!$b) $current_state = min($current_state, Requirement::CrossOnFail);
                         break;
 
+                    // Guard tower
+                    case 13:
+                        $cn = $this->town_handler->getBuilding( $citizen->getTown(), 'small_watchmen_#00', true );
+                        $max = $this->conf->getTownConfiguration( $citizen->getTown() )->get( TownConf::CONF_MODIFIER_GUARDTOWER_MAX, 150 );
+                        if ($cn && $max > 0 && $cn->getTempDefenseBonus() >= $max)
+                            $current_state = min($current_state, $this_state);
+                        break;
+
                     // Vote
                     case 18: case 19:
                         if (!$citizen->getProfession()->getHeroic()) {
@@ -340,7 +348,7 @@ class ActionHandler
                         if (!$this->town_handler->is_vote_needed( $citizen->getTown(), $role ))
                             $current_state = min($current_state, Requirement::HideOnFail);
 
-                        break;
+                    break;
 
                     // Inventory space
                     case 69:
@@ -1459,10 +1467,15 @@ class ActionHandler
 
                     }
 
-                    // Increase town temp defense for the watchtower by ten
+                    // Increase town temp defense for the watchtower
                     case 13: {
                         $cn = $this->town_handler->getBuilding( $citizen->getTown(), 'small_watchmen_#00', true );
-                        if ($cn) $cn->setTempDefenseBonus( $cn->getTempDefenseBonus() + 10 );
+                        $max = $town_conf->get( TownConf::CONF_MODIFIER_GUARDTOWER_MAX, 150 );
+                        $use = $town_conf->get( TownConf::CONF_MODIFIER_GUARDTOWER_UNIT, 10 );
+
+                        if ($max <= 0) $max = PHP_INT_MAX;
+
+                        if ($cn) $cn->setTempDefenseBonus(min($max, $cn->getTempDefenseBonus() + $use));
                         break;
                     }
 

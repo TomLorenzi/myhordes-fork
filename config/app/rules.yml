@@ -145,6 +145,9 @@ parameters:
         generosity:
           from_ghoul: 1
           from_last_death_factor: 1
+        guard_tower:
+          per_use: 10
+          max_def: 150
 
       features:
         camping: true

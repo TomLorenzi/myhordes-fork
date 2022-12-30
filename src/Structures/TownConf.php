@@ -115,6 +115,8 @@ class TownConf extends Conf
     const CONF_MODIFIER_RECYCLING_RETURN     = 'modifiers.home_recycling.return';
     const CONF_MODIFIER_GENEROSITY_GHOUL     = 'modifiers.generosity.from_ghoul';
     const CONF_MODIFIER_GENEROSITY_LAST     = 'modifiers.generosity.from_last_death_factor';
+    const CONF_MODIFIER_GUARDTOWER_MAX     = 'modifiers.guard_tower.max_def';
+    const CONF_MODIFIER_GUARDTOWER_UNIT    = 'modifiers.guard_tower.per_use';
 
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
