@@ -27,7 +27,7 @@ class RecipeDataService implements FixtureProcessorInterface {
             'ws015' => ['type' => Recipe::WorkshopType, 'in' => 'chest_tools_#00',     'out' => [ ['pile_#00', 12], ['meca_parts_#00', 17], ['rustine_#00', 13], ['tube_#00', 13], ['pharma_#00', 25], ['explo_#00', 19] ], 'action' => 'Öffnen' ],
             'ws016' => ['type' => Recipe::WorkshopType, 'in' => 'chest_food_#00',      'out' => [ ['food_bag_#00', 8], ['can_#00', 11], ['meat_#00', 7], ['hmeat_#00', 13], ['vegetable_#00', 8] ], 'action' => 'Öffnen' ],
             'ws017' => ['type' => Recipe::WorkshopType, 'in' => 'deco_box_#00',        'out' => [ ['door_#00', 44], ['chair_basic_#00', 60], ['trestle_#00', 35], ['table_#00', 35], ['chair_#00', 46] ], 'action' => 'Wandeln' ],
-            'ws018' => ['type' => Recipe::WorkshopType, 'in' => 'catbox_#00',          'out' => [ ['poison_part_#00', 2], ['pet_cat_#00', 4], ['angryc_#00', 4] ], 'action' => 'Öffnen' ],
+            'ws018' => ['type' => Recipe::WorkshopType, 'in' => 'catbox_#00',          'out' => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ], 'action' => 'Öffnen' ],
             'ws019' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#00',          'out' => 'magneticKey_#00', 'action' => 'Wandeln' ],   // Magnetic key
             'ws020' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#01',          'out' => 'bumpKey_#00', 'action' => 'Wandeln' ],       // Bump key
             'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Bottle Opener key

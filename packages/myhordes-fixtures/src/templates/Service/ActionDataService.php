@@ -416,11 +416,11 @@ class ActionDataService implements FixtureProcessorInterface {
                     'xmas_1'  => [ 'rp_letter_#00' ],
                     'matbox'  => [ 'wood2_#00', 'metal_#00' ],
 
-                    'metalbox'  => [ 'what' => ['drug_#00', 'bandage_#00', /*'vodka_de_#00',*/ 'vodka_#00', ['explo_#00', 2], 'lights_#00', 'drug_hero_#00', 'rhum_#00'], 'where' => AffectItemSpawn::DropTargetRucksack ],
-                    'metalbox2' => [ 'what' => [['watergun_opt_part_#00',2], ['pilegun_upkit_#00',2], ['pocket_belt_#00',2], ['cutcut_#00',2], ['chainsaw_part_#00',2], ['mixergun_part_#00',2], 'big_pgun_part_#00', ['lawn_part_#00',2]], 'where' => AffectItemSpawn::DropTargetRucksack],
+                    'metalbox'  => [ 'what' => [ ['drug_#00', 16], ['bandage_#00', 28], ['vodka_de_#00', 20], ['vodka_#00', 20], ['explo_#00', 8], ['lights_#00', 4], ['drug_hero_#00', 16], ['rhum_#00', 8] ], 'where' => AffectItemSpawn::DropTargetRucksack ],
+                    'metalbox2' => [ 'what' => [ ['watergun_opt_part_#00', 19], ['pilegun_upkit_#00', 10], ['pocket_belt_#00', 12], ['cutcut_#00', 10], ['chainsaw_part_#00', 12], ['mixergun_part_#00', 19], ['big_pgun_part_#00', 7], ['lawn_part_#00', 12] ], 'where' => AffectItemSpawn::DropTargetRucksack],
                     'catbox'    => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ],
-                    'toolbox'   => [ 'pile_#00', ['meca_parts_#00', 2], 'rustine_#00', 'tube_#00', 'pharma_#00', ['explo_#00', 2] ],
-                    'foodbox'   => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', ['vegetable_#00', 2] ],
+                    'toolbox'   => [ ['pile_#00', 12], ['meca_parts_#00', 17], ['rustine_#00', 13], ['tube_#00', 13], ['pharma_#00', 25], ['explo_#00', 19] ],
+                    'foodbox'   => [ ['food_bag_#00', 8], ['can_#00', 11], ['meat_#00', 7], ['hmeat_#00', 13], ['vegetable_#00', 8] ],
 
                     'phone'     => [ 'what' => ['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                     'phone_nw'  => [ 'what' => ['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'], 'where' => AffectItemSpawn::DropTargetRucksack ],
@@ -635,7 +635,7 @@ class ActionDataService implements FixtureProcessorInterface {
                     [ ['death_poison'], 2 ],
                 ]] ] ] ,
 
-                'open_doggybag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'food_pims_#00', 'food_tarte_#00', 'food_chick_#00', 'food_biscuit_#00', 'food_bar3_#00', 'food_bar1_#00', 'food_sandw_#00', 'food_bar2_#00' ] ] ], 'message' => 'Du hast dein <span class="tool">{item}</span> ausgepackt und <span class="tool">{items_spawn}</span> erhalten!' ],
+                'open_doggybag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['food_pims_#00', 186], ['food_tarte_#00', 174], ['food_chick_#00', 194], ['food_biscuit_#00', 188], ['food_bar3_#00', 181], ['food_bar1_#00', 168], ['food_sandw_#00', 162], ['food_bar2_#00', 222] ] ] ], 'message' => 'Du hast dein <span class="tool">{item}</span> ausgepackt und <span class="tool">{items_spawn}</span> erhalten!' ],
                 'open_lunchbag'  => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'food_candies_#00', 'food_noodles_hot_#00', 'vegetable_tasty_#00', 'meat_#00' ] ] ], 'message_key' => 'container_open' ],
                 'open_c_chest'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'pile_#00', 'radio_off_#00', 'pharma_#00', 'lights_#00' ] ] ], 'message_key' => 'container_open' ],
                 'open_h_chest'   => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'watergun_empty_#00', 'pilegun_empty_#00', 'flash_#00', 'repair_one_#00', 'smoke_bomb_#00' ] ] ], 'message_key' => 'container_open' ],
