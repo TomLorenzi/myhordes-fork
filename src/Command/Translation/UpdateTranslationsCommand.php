@@ -42,13 +42,31 @@ class UpdateTranslationsCommand extends Command
             ->setHelp('Translation updater.')
             ->addArgument('lang', InputArgument::REQUIRED, 'Language to translate into.')
 
-            ->addOption('file', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Limits translations to specific files', [])
-            ->addOption('disable-php', null, InputOption::VALUE_NONE, 'Disables translation of PHP files')
             ->addOption('disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
             ->addOption('disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
             ->addOption('disable-config', null, InputOption::VALUE_NONE, 'Disables translation of config files')
+            ->addOption('prime', null, InputOption::VALUE_NONE, 'Limits extraction to the prime bundle.')
 
         ;
+    }
+
+    protected function getCommandExecutor( string $command, string $lang, ?string $bundle = null ): \Closure
+    {
+        $array = [
+            'locale' => $lang,
+            '--force' => true,
+            '--sort' => 'asc',
+            '--format' => 'yml',
+            '--prefix' => '',
+        ];
+
+        if ($bundle) $array['bundle'] = $bundle;
+
+        $input = new ArrayInput($array);
+        $input->setInteractive(false);
+
+        $command = $this->getApplication()->find( $command );
+        return fn($output) => $command->run($input, $output);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -60,64 +78,20 @@ class UpdateTranslationsCommand extends Command
         })) : [$lang];
         if (count($langs) === 1) {
 
-            $this->conf_trans->setConfigured(true);
-            if ($input->getOption('disable-db')) $this->conf_trans->setDatabaseSearch(false);
-            if ($input->getOption('disable-php')) $this->conf_trans->setPHPSearch(false);
-            if ($input->getOption('disable-twig')) $this->conf_trans->setTwigSearch(false);
-            if ($input->getOption('disable-config')) $this->conf_trans->setConfigSearch(false);
-            foreach ($input->getOption('file') as $file_name)
-                $this->conf_trans->addMatchedFileName($file_name);
-
-            $command = $this->getApplication()->find('translation:extract');
-
             $output->writeln("Now working on translations for <info>{$lang}</info>...");
-            $input = new ArrayInput([
-                                        'locale' => $lang,
-                                        '--force' => true,
-                                        '--sort' => 'asc',
-                                        '--format' => 'yml',
-                                        '--prefix' => '',
-                                    ]);
-            $input->setInteractive(false);
-            try {
-                $command->run($input, $output);
-            } catch (Exception $e) {
-                $output->writeln("Error: <error>{$e->getMessage()}</error>");
-                return 1;
-            }
 
-            $input = new ArrayInput([
-                                        'locale' => $lang,
-                                        'bundle' => 'MyHordesFixturesBundle',
-                                        '--force' => true,
-                                        '--sort' => 'asc',
-                                        '--format' => 'yml',
-                                        '--prefix' => '',
-                                    ]);
-            $input->setInteractive(false);
-            try {
-                $command->run($input, $output);
-            } catch (Exception $e) {
-                $output->writeln("Error: <error>{$e->getMessage()}</error>");
-                return 1;
-            }
-
-            $command = $this->getApplication()->find('app:translation:bundle');
-            $input = new ArrayInput([
-                                        'locale' => $lang,
-                                        'bundle' => 'MyHordesPrimeBundle',
-                                        '--force' => true,
-                                        '--sort' => 'asc',
-                                        '--format' => 'yml',
-                                        '--prefix' => '',
-                                    ]);
-            $input->setInteractive(false);
-
-            $this->conf_trans->setDatabaseSearch(false);
-            $this->conf_trans->setTwigSearch(false);
+            $this->conf_trans->setConfigured(true);
+            if ($input->getOption('disable-db') || $input->getOption('prime')) $this->conf_trans->setDatabaseSearch(false);
+            if ($input->getOption('disable-twig') || $input->getOption('prime')) $this->conf_trans->setTwigSearch(false);
+            if ($input->getOption('disable-config') || $input->getOption('prime')) $this->conf_trans->setConfigSearch(false);
 
             try {
-                $command->run($input, $output);
+                if (!$input->getOption('prime')) {
+                    $this->getCommandExecutor( 'translation:extract', $lang )($output);
+                    $this->getCommandExecutor( 'translation:extract', $lang, 'MyHordesFixturesBundle' )($output);
+                }
+
+                $this->getCommandExecutor( 'app:translation:bundle', $lang, 'MyHordesPrimeBundle' )($output);
             } catch (Exception $e) {
                 $output->writeln("Error: <error>{$e->getMessage()}</error>");
                 return 1;
@@ -126,11 +100,9 @@ class UpdateTranslationsCommand extends Command
         } else foreach ($langs as $current_lang) {
             $com = "app:translation:update $current_lang";
             if ($input->getOption('disable-db')) $com .= " --disable-db";
-            if ($input->getOption('disable-php')) $com .= " --disable-php";
             if ($input->getOption('disable-twig')) $com .= " --disable-twig";
             if ($input->getOption('disable-config')) $com .= " --disable-config";
-            foreach ($input->getOption('file') as $file_name)
-                $com .= " --file $file_name";
+            if ($input->getOption('prime')) $com .= " --prime";
 
             $this->helper->capsule($com, $output);
         }
