@@ -301,7 +301,6 @@ class MazeMaker
             return $exists($x,$y) && $binary[$x][$y];
         };
 
-        // Invalidated max ? Kezako ?
         $head = $cache[$origin[0]][$origin[1]];
         $binary[$origin[0]][$origin[1]] = true;
 
@@ -312,9 +311,14 @@ class MazeMaker
         $dTime = 0;
 
         $countcorridor = 0;
+        // Just to be clear : This algorithm isn't intuitive and is kinda hard to wrap his head around, but it make sense once you understand it.
+        // Clearly not the way I would do it, but the way the MT chose to do it. 
+        // A good a way to see it is that either the algorithm is building a continuous path, or it go back on the cell created to check if you can
+        // create a new path.
+
         while (count($walker) > 0)
         {
-			// Sometimes, we change order in which directions are checks, because why not?
+			// Sometimes, we change order in which directions are checks, it help to have something that lean more in a specific direction, and why not?
             $dTime--;
             if ($dTime < 0)
             {
@@ -358,25 +362,39 @@ class MazeMaker
 						// If we break to an other path
                         if ($wallCount < 3)
                         {
+                            // * Random allow the break
+                            // * AND
+                            // *** Open are area are possible
+                            // *** OR the break occure on one axis only
                             if ( (mt_rand() / mt_getrandmax()) < $this->joinPathProbability && ($this->enableOpenArea || ($wallCount == 2 && ($wDirX == 0 || $wDirY == 0) ))) {
                                 $binary[$next->getX()][$next->getY()] = true;
                                 $countcorridor++;
                                 //next.distance = head.distance + 1;
-                                //we break path, so we need to update distance of nodes !
+                                //we break path, so we need to update distance of nodes ! => No we don't, just do it at the end...
                                 //updateDistance(next);
                             }
+                            // End of the current path. 
                             $next = null;
+
+                            // NOTE : This seems to be a great place to flag corridor that could "collapse", without breaking the maze. 
                         }
                     } else {
+                        // End of the current path
                         $next = null;
                     }
                 }
-				if ( $next != null ) break;
+
+                // No need to check other directions if we found a potential path
+				if ( $next != null ) {
+                    break;
+                }
             }
             if ( $next == null ) {
+                // We go back on the path we were building, check if the previous cells has a possibility to start a new path.
 				$head = array_pop($walker);
 				$dTime = 0;
 			} else {
+                // We continue the path we are doing. 
                 $binary[$next->getX()][$next->getY()] = true;
                 $countcorridor++;
 				//next.distance = head.distance + 1;
@@ -416,7 +434,11 @@ class MazeMaker
      * @param bool $invertDirections 
      */
     public function generateRoom(int $level = 0, array $origin = [0,0], int $offset_distance = 0, bool $go_up = false, bool $invertDirections = false): ?RuinZone {
+
+        // TODO : Adapt the MT algorithm to replace the one made by brainbox (sorry brainbox :<)
+
         $cache = [];
+        // Get a two dim array to map where are the corridors
         foreach ($this->targetZone->getRuinZonesOnLevel($level) as $ruinZone) {
             if ($ruinZone->getCorridor() != RuinZone::CORRIDOR_NONE)
             {
@@ -555,6 +577,8 @@ class MazeMaker
      * @param RuinZone[] $skip_zone
      */
     public function populateMaze( int $zeds, bool $reposition = false, bool $clear_bodies = true, array $skip_zone = [] ) {
+
+        // TODO : Adapt the MT algorithm to replace the one made by brainbox (sorry brainbox :<)
         /** @var RuinZone[] $ruinZones */
         $ruinZones = $this->targetZone->getRuinZones()->getValues();
         if ($reposition || $clear_bodies)
