@@ -2368,3 +2368,11 @@ Stadt/Stadttor: Pueblo/Portal
 'Bürger (short)': Habitantes
 'Konstruktionen (short)': Construcciones
 'Stadttor (short)': Puerta
+'Bitte wähle eine Heldentat:': 'Elige una Acción heroica:'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'No tienes más acciones heroicas para donar...'
+'Du hast eine Heldentat erhalten!': '¡Recibiste una acción heroica!'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': 'En un frenesí de generosidad infinita, {citizen} te dio una de sus acciones heroicas:'
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'Con el sudor de tu frente has ganado las siguientes bonificaciones:'
+'Aufladungen für "Freundschaft"': 'Usos para "Camaradería"'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Te permite usar la acción heroica "Camaradería".'

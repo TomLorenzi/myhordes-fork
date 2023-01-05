@@ -2368,3 +2368,11 @@ Stadt/Stadttor: Town/Doors
 'Bürger (short)': Citizens
 'Konstruktionen (short)': Constructions
 'Stadttor (short)': Gates
+'Bitte wähle eine Heldentat:': 'Please choose a Heroic action:'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'You have no more Heroic actions to donate...'
+'Du hast eine Heldentat erhalten!': 'You received a Heroic action!'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'In a frenzy of endless generosity, {citizen} gave you one of his Heroic actions:'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': "{citizen} isn't too lazy to do this Heroic action himself, honestly!"
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'By the sweat of your brow you have earned the following bonuses:'
+'Aufladungen für "Freundschaft"': 'Uses for "Brothers in Arms"'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Allows you to use the Heroic action "Brothers in Arms".'
