@@ -75,7 +75,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
     private array $db;
 
     public function __construct(array $db, KernelInterface $kernel, Environment $twig,
-                                EntityManagerInterface $em, NightlyHandler $nhz, Locksmith $ls, Translator $translator,
+                                EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, GazetteService $gs,
                                 TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params,
                                 GameProfilerService $gps, AdminHandler $adminHandler, UserStatCollectionService $us)
