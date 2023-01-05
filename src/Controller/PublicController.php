@@ -387,7 +387,7 @@ class PublicController extends CustomAbstractController
                 $parser->trimmed('user'),
                 $parser->trimmed('mail1'),
                 $parser->trimmed('pass1'),
-                false,
+                $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken,
                 $error
             );
 

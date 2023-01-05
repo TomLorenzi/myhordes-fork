@@ -104,9 +104,18 @@ parameters:
       sp_threshold: 15
       tw_threshold: 5
       tw_cutoff: 1635199200
+    mail:
+      slice_domain: 0 # 0 = use active server domain as mail domain; 2 = scrap any sub domains
     registration:
       token_only: false
     avatars:
       allow_raw: false
       max_processing_size: 3145728 # 3MB
       max_storage_size: 1048576 # 1MB
+    staging:
+      enabled: false
+      prototown:
+        enabled: true
+        days: 45
+      herodays: 1000
+      features: ['f_wtns','f_arma','f_cam','f_alarm','f_share']

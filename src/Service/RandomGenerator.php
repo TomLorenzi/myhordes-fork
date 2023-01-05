@@ -32,6 +32,13 @@ class RandomGenerator
         return mt_rand(0,99) < (100.0*max($cap_min, min($c, $cap_max)));
     }
 
+    function string(int $length, string $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!%&=?_'): string {
+        $s = ''; $l = mb_strlen($chars);
+        for ($i = 0; $i < $length; $i++)
+            $s .= mb_substr( $chars, mt_rand(0, $l - 1), 1 );
+        return $s;
+    }
+
     /**
      * Randomly selects N elements from an array
      * @param array $a

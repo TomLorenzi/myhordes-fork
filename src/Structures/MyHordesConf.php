@@ -67,4 +67,12 @@ class MyHordesConf extends Conf
     const CONF_IMPORT_TW_CUTOFF    = 'soul_import.tw_cutoff';
 
     const CONF_TOKEN_NEEDED_FOR_REGISTRATION = 'registration.token_only';
+
+    const CONF_STAGING_ENABLED = 'staging.enabled';
+    const CONF_STAGING_TOWN_ENABLED = 'staging.prototown.enabled';
+    const CONF_STAGING_TOWN_DAYS    = 'staging.prototown.days';
+    const CONF_STAGING_FEATURES    = 'staging.features';
+    const CONF_STAGING_HERODAYS    = 'staging.herodays';
+
+    const CONF_MAIL_DOMAINCAP    = 'mail.slice_domain';
 }
