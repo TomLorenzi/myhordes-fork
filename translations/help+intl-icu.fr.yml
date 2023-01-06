@@ -843,8 +843,3 @@ Gebäudeverbesserung: Évolutions de bâtiments
 'Wichtig:': 'Important :'
 'In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.': 'Dans votre fuseau horaire, l’attaque aura lieu à {time}. Vous pouvez toujours voir le temps dont vous disposez jusqu’à la prochaine attaque sur l’horloge dans le coin supérieur droit de l’interface.'
 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.': 'La nuit dans MyHordes s’étend de {time0} à {time1} dans votre fuseau horaire local. Notez que ces heures peuvent varier dans les villes événementielles spécialement marquées.'
-'XML API': 'API XML'
-'Aktuelle Dokumentation': 'Documentation actuelle'
-'JSON API': 'API JSON'
-Legacy-Dokumentation: Documentation historique
-'Diese Dokumentation wird nicht mehr aktualisiert und ist möglicherweise veraltet oder unvollständig.': 'Cette documentation n''est plus à jour et peut être obsolète ou incomplète.'
