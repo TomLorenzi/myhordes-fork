@@ -843,8 +843,3 @@ Gebäudeverbesserung: Building upgrades
 'Wichtig:': 'Important:'
 'In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.': 'In your local time zone, the attack will take place at {time}. You can always see the time you have until the next attack on the clock in the upper right corner of the interface.'
 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.': 'The night in MyHordes extends from {time0} to {time1} in your local time zone. Note that these times may vary in specially designated event towns.'
-'XML API': 'XML API'
-'Aktuelle Dokumentation': 'Current documentation'
-'JSON API': 'JSON API'
-Legacy-Dokumentation: Legacy documentation
-'Diese Dokumentation wird nicht mehr aktualisiert und ist möglicherweise veraltet oder unvollständig.': 'This documentation is no longer updated and may be outdated or incomplete.'
