@@ -20,7 +20,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        {% endif %}
 
+        {% if not app.user.tosAccepted or not app.user.tosUpdateAccepted %}
+            <div class="cell rw-12 padded">
+                <div class="note critical">
+                    {{ 'Du hast den Nutzungsbedingungen von MyHordes noch nicht zugestimmt. Beachte, dass du diese Warnung nicht für immer ignorieren kannst.'|trans({},'login') }}
+                    <a href="#" x-ajax-href="{{ url('public_accept_tos') }}">{{ 'Zum Zustimmungsdialog wechseln'|trans({},'login') }}</a>
+                </div>
             </div>
         {% endif %}
 
