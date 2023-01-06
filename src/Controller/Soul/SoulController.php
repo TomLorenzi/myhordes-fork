@@ -524,7 +524,7 @@ class SoulController extends CustomAbstractController
         $selected = $selected ?? $polls[0] ?? null;
 
         return $this->render( 'ajax/soul/polls.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected->getPoll()->getAllAnswerTags() : [],
+            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected?->getPoll()?->getAllAnswerTags() : [],
             'group' => $group, 'tag' => $tag,
             'polls' => $polls, 'selected' => $selected
         ]) );
