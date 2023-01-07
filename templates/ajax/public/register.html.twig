@@ -71,7 +71,7 @@
 
                 <p class="justify"><b><label for="register-tos"><input name="tos" id="register-tos" required type="checkbox" />
                     {{ 'Ich habe die {privacyPolicy} und {tos} gelesen und stimme ihnen zu.'|trans({
-                        'privacy-policy': '<a href="' ~ url('legal_doc_default', {document: 'privacy-policy'}) ~ '" target="_blank">' ~ 'Datenschutzerklärung'|trans({}, 'global') ~ '</a>',
+                        'privacyPolicy': '<a href="' ~ url('legal_doc_default', {document: 'privacy-policy'}) ~ '" target="_blank">' ~ 'Datenschutzerklärung'|trans({}, 'global') ~ '</a>',
                         'tos': '<a href="' ~ url('legal_doc_default', {document: 'tos'}) ~ '" target="_blank">' ~ 'Nutzungsbedingungen'|trans({}, 'global') ~ '</a>'
                     },'login')|raw }}
                 </label></b></p>
