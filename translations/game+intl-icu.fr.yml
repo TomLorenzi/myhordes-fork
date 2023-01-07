@@ -2368,11 +2368,11 @@ Stadt/Stadttor: Ville/Portes
 'Bürger (short)': Citoyens
 'Konstruktionen (short)': Chantiers
 'Stadttor (short)': Portes
-'Bitte wähle eine Heldentat:': 'Veuillez choisir une action héroïque :'
-'Du hast keine Heldentaten mehr, die du spenden könntest...': "Vous n'avez plus d'actions héroïques à donner..."
+'Bitte wähle eine Heldentat:': 'Choisissez une action héroïque :'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'Vous n’avez plus d''actions héroïques à donner...'
 'Du hast eine Heldentat erhalten!': 'Vous avez reçu une action héroïque !'
-'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': "Dans une frénésie de générosité sans fin, {citoyen} vous a confié l'une de ses actions héroïques :"
-'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': '{citizen} est trop paresseux pour faire lui-même cette action héroïque, honnêtement !'
-'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'A la sueur de votre front vous avez gagné les bonus suivants :'
-'Aufladungen für "Freundschaft"': 'Utilisations pour "Générosité"'
-'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': "Permet d'utiliser l'action héroïque 'Générosité'."
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'Dans une frénésie de générosité sans fin, {citizen} vous a donné une action héroïque :'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': '{citizen} n’est pas paresseux au point de ne pas pouvoir faire cette action héroïque lui-même, honnêtement !'
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'À la sueur de votre front, vous avez gagné les bonus suivants :'
+'Aufladungen für "Freundschaft"': 'Utilisations restantes de "Camaraderie"'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Vous permet d’utiliser l’action héroïque "Camaraderie".'
