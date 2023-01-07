@@ -1,5 +1,5 @@
 <div class="tab-floater">
-    <ul class="tabs plain" x-tab-group="admin-town">
+    <ul class="tabs plain" x-tab-group="admin-users">
         <li class="tab{% if admin_tab == "full_list" %} selected{% endif %}">
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users') }}">{% trans from 'admin' %}Alle User{% endtrans %}</div>
         </li>
@@ -8,6 +8,9 @@
         </li>
         <li class="tab{% if admin_tab == "token_list" %} selected{% endif %}">
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_tokens') }}">{% trans from 'admin' %}Registrierungstoken{% endtrans %}</div>
+        </li>
+        <li class="tab{% if admin_tab == "token_dist" %} selected{% endif %}">
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_users_tokens_distribute') }}">{% trans from 'admin' %}Registrierungstoken verteilen{% endtrans %}</div>
         </li>
     </ul>
 </div>

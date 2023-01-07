@@ -268,6 +268,15 @@ class CrowService {
             ->setSeen( false );
     }
 
+    public function createPM( User $receiver, string $message): ?GlobalPrivateMessage {
+        return (new GlobalPrivateMessage())
+            ->setText($message)
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
+    }
+
     public function createPM_moderation( User $receiver, int $domain, int $target, int $action, $object = null, string $reason = ''): ?GlobalPrivateMessage {
 
         $name = null;
