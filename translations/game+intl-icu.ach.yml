@@ -2368,3 +2368,11 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 'Bürger (short)': crwdns136735:0crwdne136735:0
 'Konstruktionen (short)': crwdns136737:0crwdne136737:0
 'Stadttor (short)': crwdns136739:0crwdne136739:0
+'Bitte wähle eine Heldentat:': 'crwdns136777:0crwdne136777:0'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'crwdns136779:0crwdne136779:0'
+'Du hast eine Heldentat erhalten!': 'crwdns136781:0crwdne136781:0'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'crwdns136783:0{citizen}crwdne136783:0'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': 'crwdns136785:0{citizen}crwdne136785:0'
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'crwdns136787:0crwdne136787:0'
+'Aufladungen für "Freundschaft"': 'crwdns136789:0crwdne136789:0'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'crwdns136791:0crwdne136791:0'
