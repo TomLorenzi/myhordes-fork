@@ -2370,9 +2370,9 @@ Stadt/Stadttor: Town/Doors
 'Stadttor (short)': Gates
 'Bitte wähle eine Heldentat:': 'Please choose a heroic action:'
 'Du hast keine Heldentaten mehr, die du spenden könntest...': 'You have no more heroic actions to gift...'
-'Du hast eine Heldentat erhalten!': 'Du hast eine Heldentat erhalten!'
-'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:'
-'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': '{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!'
+'Du hast eine Heldentat erhalten!': 'You received a heroic action!'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'In an instant of extreme generosity, {citizen} gave you a heroic action:'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': 'Come on, {citizen} is not that lazy, he is able to that heroic action by himself!'
 'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:'
 'Aufladungen für "Freundschaft"': 'Aufladungen für "Freundschaft"'
 'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.'
