@@ -250,14 +250,25 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("jx/admin/users/tokens", name="admin_users_tokens")
-     * @param AntiCheatService $as
      * @return Response
      */
-    public function users_tokens(AntiCheatService $as): Response
+    public function users_tokens(): Response
     {
         $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
         return $this->render( 'ajax/admin/users/token_index.html.twig', $this->addDefaultTwigArgs("token_list", [
             'tokens' => $tokens
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/users/tokens/distribute", name="admin_users_tokens_distribute")
+     * @return Response
+     */
+    public function users_tokens_dist(): Response
+    {
+        $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
+        return $this->render( 'ajax/admin/users/token_distribute.html.twig', $this->addDefaultTwigArgs("token_dist", [
+
         ]));
     }
 
@@ -283,6 +294,70 @@ class AdminUserController extends AdminActionController
         $this->entity_manager->flush();
         $this->addFlash('notice', $this->translator->trans("Tokens erfolgreich erzeugt!", [], 'admin'));
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/users/distributeTokens", name="admin_users_distributetokens")
+     * @return Response
+     */
+    public function users_distribute_tokens(JSONRequestParser $parser):Response {
+        if (!$parser->has_all(['message','csv']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $message = $parser->trimmed('message');
+
+        $lines = array_filter( array_map( fn(string $s) => explode(';',trim($s)), explode( "\n", $parser->get('csv') ) ), fn(array $a) => !empty($a));
+
+        $required_length = 2;
+
+        while ( str_contains( $message, '%%' . ($required_length-1) . '%%' ) )
+            $required_length++;
+
+        $missmatch = [];
+        $debug = [];
+
+        $success = 0;
+
+        foreach ($lines as $line) {
+
+            if (count($line) < $required_length) {
+                $missmatch[] = implode(';', $line);
+                continue;
+            }
+            $username = explode( ':', $line[0] );
+
+            if (count($username) < 2)
+                $potential_user = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( $username[0] );
+            else $potential_user = $this->entity_manager->getRepository(User::class)->find( (int)$username[1] );
+
+            if (!$potential_user) {
+                $missmatch[] = implode(';', $line);
+                continue;
+            }
+
+            $this_message = $message;
+            foreach ($line as $k => $entry) {
+                if ($k === 0) $this_message = str_replace( '%%username%%', $potential_user->getName(), $this_message );
+                elseif ($k === 1) $this_message = str_replace( '%%token%%', $entry, $this_message );
+                else $this_message = str_replace( '%%' . ($k-1) . '%%', $entry, $this_message );
+            }
+
+            $debug[] = $this_message;
+            $this->entity_manager->persist($this->crow_service->createPM($potential_user, nl2br($this_message)));
+            $success++;
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success(true, [
+            'info' => [
+                'success' => $success,
+                'error' => count($missmatch),
+                'missmatch' => $missmatch,
+                'messages' => $debug
+            ]
+
+        ]);
     }
 
     /**
