@@ -8,7 +8,7 @@
                 {{ 'Damit du MyHordes weiter nutzen kannst, musst du unseren Nutzungsbedingungen zustimmen. Du findest die aktuellen Nutzungsbedingungen unter folgendem Link (öffnet in einem neuen Fenster):'|trans({},'login') }}<br />
                 <a href="{{ url('legal_doc_default', {document: 'tos'}) }}">{{ 'Nutzungsbedingungen'|trans({}, 'global') }}</a><br/><br />
                 {% if allow_grace %}
-                    <b>{{ 'Du musst nicht sofort zustimmen.'|trans({}, 'login') }}</b> {{ 'Klicke auf "Später zustimmen", um diesen Hinweis vorerst auszublenden. Bitte beachte jedoch, dass du diesen Hinweis nicht ewig ignorieren kannst.' }}
+                    <b>{{ 'Du musst nicht sofort zustimmen.'|trans({}, 'login') }}</b> {{ 'Klicke auf "Später zustimmen", um diesen Hinweis vorerst auszublenden. Bitte beachte jedoch, dass du diesen Hinweis nicht ewig ignorieren kannst.'|trans({}, 'login') }}
                 {% endif %}
             </p>
             <div class="row">
