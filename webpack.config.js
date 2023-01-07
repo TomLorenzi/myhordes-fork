@@ -41,7 +41,7 @@ const file_copy_map = {
     img: ['images', true],
     video: ['mov', true],
     swf: ['flash', true],
-    ext: ['flash', false],
+    ext: ['ext', false],
 }
 
 source_folders.forEach( folder => {
