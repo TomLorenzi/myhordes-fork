@@ -86,9 +86,9 @@ Pate: Sponsor
 'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'The registration token is invalid or has already been used.'
 Registrierungstoken: Registration token
 'Dieser Token ist für die Registrierung erforderlich.': 'A registration token is required to create an account.'
-'Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.': 'Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.'
-'Ich habe die {privacyPolicy} und {tos} gelesen und stimme ihnen zu.': 'Ich habe die {privacyPolicy} und {tos} gelesen und stimme ihnen zu.'
-'Nutzungsbedingungen zustimmen': 'Nutzungsbedingungen zustimmen'
+'Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.': 'Please accept the Privacy Policy and Terms of Service.'
+'Ich habe die {privacyPolicy} und {tos} gelesen und stimme ihnen zu.': 'I have read and I agree to the {privacyPolicy} and {tos}.'
+'Nutzungsbedingungen zustimmen': 'Agree to the Terms of Service'
 'Damit du MyHordes weiter nutzen kannst, musst du unseren Nutzungsbedingungen zustimmen. Du findest die aktuellen Nutzungsbedingungen unter folgendem Link (öffnet in einem neuen Fenster):': 'Damit du MyHordes weiter nutzen kannst, musst du unseren Nutzungsbedingungen zustimmen. Du findest die aktuellen Nutzungsbedingungen unter folgendem Link (öffnet in einem neuen Fenster):'
 'Du musst nicht sofort zustimmen.': 'Du musst nicht sofort zustimmen.'
 'Ich stimme den Nutzungsbedingungen zu!': 'Ich stimme den Nutzungsbedingungen zu!'
