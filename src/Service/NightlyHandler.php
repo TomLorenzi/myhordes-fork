@@ -1197,7 +1197,11 @@ class NightlyHandler
 
                 /** @var ZombieEstimation $est */
                 $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+
+                $zombie_diff = $est->getZombies() - ($est->getZombies() * $ratio);
                 $est->setZombies($est->getZombies() * $ratio);
+                $est->setTargetMin($est->getTargetMin() - $zombie_diff);
+                $est->setTargetMax($est->getTargetMax() - $zombie_diff);
                 $this->entity_manager->persist($est);
 
             } else {
