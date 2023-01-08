@@ -444,7 +444,7 @@ class PublicController extends CustomAbstractController
                 $error
             );
 
-            $user->setTosver(1);
+            $user?->setTosver(1);
 
             switch ($error) {
                 case UserFactory::ErrorNone:
