@@ -560,5 +560,5 @@ Nachricht: Mensaje
 Nachrichtentext: Nachrichtentext
 CSV: CSV
 Senden: Enviar
-'Es wurden {success} Nachrichten verschickt.': 'Es wurden {success} Nachrichten verschickt.'
-'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.'
+'Es wurden {success} Nachrichten verschickt.': '{success} mensajes fueron enviados.'
+'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} mensajes fueron enviados, {error} mensajes contienen errores.'
