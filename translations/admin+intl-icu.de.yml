@@ -555,3 +555,9 @@ Registrierungstoken: Registrierungstoken
 'Wie viele Token möchtest du erzeugen?': 'Wie viele Token möchtest du erzeugen?'
 Nachricht: Nachricht
 'Stadtnamen ändern': 'Stadtnamen ändern'
+'Registrierungstoken verteilen': 'Registrierungstoken verteilen'
+Nachrichtentext: Nachrichtentext
+CSV: CSV
+Senden: Senden
+'Es wurden {success} Nachrichten verschickt.': 'Es wurden {success} Nachrichten verschickt.'
+'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.'
