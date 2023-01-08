@@ -557,7 +557,7 @@ Registrierungstoken: Fichas de inscripción
 Nachricht: Mensaje
 'Stadtnamen ändern': 'Introduzca el nombre del pueblo'
 'Registrierungstoken verteilen': 'Distribuir fichas de registración'
-Nachrichtentext: Nachrichtentext
+Nachrichtentext: Cuerpo del mensaje
 CSV: CSV
 Senden: Enviar
 'Es wurden {success} Nachrichten verschickt.': '{success} mensajes fueron enviados.'
