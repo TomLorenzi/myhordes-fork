@@ -833,7 +833,7 @@ export default class TwinoAlikeParser {
             }
         } else {
             if (elem.hasAttribute( 'x-raw' )) return;
-            elem.childNodes.forEach( c => this.postprocessDOM( c as HTMLElement ) );
+            elem.childNodes.forEach( c => this.postprocessDOM( c as HTMLElement, options ) );
         }
     }
 
