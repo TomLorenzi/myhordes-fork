@@ -843,3 +843,8 @@ Gebäudeverbesserung: crwdns69948:0crwdne69948:0
 'Wichtig:': 'crwdns69958:0crwdne69958:0'
 'In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.': 'crwdns69960:0{time}crwdne69960:0'
 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.': 'crwdns69962:0{time0}crwdnd69962:0{time1}crwdne69962:0'
+'XML API': 'crwdns136855:0crwdne136855:0'
+'Aktuelle Dokumentation': 'crwdns136857:0crwdne136857:0'
+'JSON API': 'crwdns136859:0crwdne136859:0'
+Legacy-Dokumentation: crwdns136861:0crwdne136861:0
+'Diese Dokumentation wird nicht mehr aktualisiert und ist möglicherweise veraltet oder unvollständig.': 'crwdns136863:0crwdne136863:0'
