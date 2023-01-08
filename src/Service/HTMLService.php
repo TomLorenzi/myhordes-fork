@@ -676,6 +676,24 @@ class HTMLService {
             );
         };
 
+        $mod_fun = function(array &$segments, int $mod, int $r, float $factor = 1.0) use (&$mod_list, &$mod_double_letters, &$mod_insert_replace) {
+            switch ($mod) {
+                case HTMLService::ModulationHead:
+                    // Head modulation: Insert distortion in any word
+                    $ri = mt_rand(0, mb_strlen($segments[$r]));
+                    $segments[$r] = substr($segments[$r], 0, $ri) . $this->rand->pick($mod_list[$mod]) . substr($segments[$r], $ri);
+                    break;
+                case HTMLService::ModulationTerror:
+                    $mod_double_letters($segments, 0.075 * $factor);
+                    $mod_insert_replace( $segments, 0.75 * $factor, $r, $mod_list[$mod]['words'], $mod_list[$mod]['inserts'] );
+                    break;
+                case HTMLService::ModulationDrunk:
+                    $mod_double_letters($segments, 0.033 * $factor);
+                    $mod_insert_replace( $segments, 0.33 * $factor, $r, $mod_list[$mod]['words'], $mod_list[$mod]['inserts'] );
+                    break;
+            }
+        };
+
         foreach ($node_collection as $potential_node)
             if ($this->rand->chance( $potential_node[1] / 80.0 )) {
 
@@ -683,25 +701,14 @@ class HTMLService {
                 $mod = $this->rand->pick(array_keys($mod_list));
 
                 $segments = preg_split('/\s+/', $potential_node[0]->textContent, -1 );
-                $r = mt_rand(0,count($segments) - 1);
 
                 $distorted = true;
+                $r = mt_rand(0,count($segments) - 1);
+                $mod_fun($segments, $mod, $r);
 
-                switch ($mod) {
-                    case HTMLService::ModulationHead:
-                        // Head modulation: Insert distortion in any word
-                        $ri = mt_rand(0, mb_strlen($segments[$r]));
-                        $segments[$r] = substr($segments[$r], 0, $ri) . $this->rand->pick($mod_list[$mod]) . substr($segments[$r], $ri);
-                        break;
-                    case HTMLService::ModulationTerror:
-                        $mod_double_letters($segments, 0.075);
-                        $mod_insert_replace( $segments, 0.75, $r, $mod_list[$mod]['words'], $mod_list[$mod]['inserts'] );
-                        break;
-                    case HTMLService::ModulationDrunk:
-                        $mod_double_letters($segments, 0.033);
-                        $mod_insert_replace( $segments, 0.33, $r, $mod_list[$mod]['words'], $mod_list[$mod]['inserts'] );
-                        break;
-                }
+                foreach ($segments as $r0 => $segment)
+                    if ($r0 !== $r && mb_strlen( $segment ) > 24)
+                        $mod_fun($segments, $mod, $r, 1.1);
 
                 $potential_node[0]->textContent = implode(' ', $segments);
             }

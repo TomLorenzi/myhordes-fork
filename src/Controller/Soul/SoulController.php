@@ -1621,13 +1621,19 @@ class SoulController extends CustomAbstractController
 
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
             'url' => [ new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ) ],
+            'devurl' => [
+                new Constraints\AtLeastOneOf([
+                    new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ),
+                    new Constraints\Blank( ['message' => 'a' ] )
+                ])
+            ],
             'contact' => [ new Constraints\Email( ['message' => 'v']) ],
             'sk' => [  ]
         ]) );
 
         if ($violations->count() > 0) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        $app->setUrl( $parser->trimmed('url') )->setContact( $parser->trimmed('contact') );
+        $app->setUrl( $parser->trimmed('url') )->setContact( $parser->trimmed('contact') )->setDevurl( $parser->trimmed('devurl') ?: null );
         if ( !$app->getLinkOnly() && $parser->get('sk', null) ) {
             $s = '';
             for ($i = 0; $i < 32; $i++) $s .= $rand->pick(['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']);

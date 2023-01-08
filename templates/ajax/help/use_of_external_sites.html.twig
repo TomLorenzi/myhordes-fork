@@ -11,8 +11,19 @@
 <br>
 {{ 'Wenn ihr eine Anwendung entwickelt, muss diese sich an den APIs orientieren, die durch unser Spiel zur Verfügung gestellt werden. Um dich über alle Elemente zu informieren, zu denen wir dir Zugang geben, kannst du die folgenden Adressen besuchen:'|trans({},'help')|raw }}
 </p><ul>
-<li>API XML : DOCS COMING SOON</li>
-<li>API JSON : <span x-ajax-href="{{ url('json_docs') }}">{{ url('json_docs') }}</span></li>
+
+<li>
+    <b>{{ 'XML API'|trans({},'help') }}</b>
+    <ul>
+        <li><a target="_blank" href="{{ url('swagger') }}#operations-tag-XML_API">{{ 'Aktuelle Dokumentation'|trans({},'help') }}</a></li>
+    </ul>
+</li>
+<li>
+    <b>{{ 'JSON API'|trans({},'help') }}</b>
+    <ul>
+        <li><a target="_blank" href="{{ url('swagger') }}#operations-tag-JSON_API">{{ 'Aktuelle Dokumentation'|trans({},'help') }}</a></li>
+        <li><span x-ajax-href="{{ url('json_docs') }}">{{ 'Legacy-Dokumentation'|trans({},'help') }}</span> <i class="small">{{ 'Diese Dokumentation wird nicht mehr aktualisiert und ist möglicherweise veraltet oder unvollständig.'|trans({},'help') }}</i></li>
+    </ul>
 </ul>
 {{ 'Beide APIs bieten Zugang zu unterschiedlichen Informationen. Du musst für dich selbst entscheiden, welche APIs du benötigst, um die richtigen Informationen zu erhalten. Das ist eigentlich ganz einfach, denn mit jedem Token können Sie auf beide APIs zugreifen.'|trans({},'help')|raw }}
 <h2>{{ 'Nutzungsbedingungen'|trans({},'help')|raw }}</h2>
