@@ -25,7 +25,7 @@ class ExternalController extends CustomAbstractController {
         $app = $this->entity_manager->getRepository(ExternalApp::class)
                                     ->find($id);
         $user = $this->getUser();
-        if (!$app || !$user || ($app->getTesting() && $app->getOwner() !== $user)) {
+        if (!$app || !$user || ($app->getTesting() && $app->getOwner() !== $user && !$this->isGranted('ROLE_ADMIN'))) {
             return $this->redirect($this->generateUrl('initial_landing'));
         }
 

@@ -51,10 +51,16 @@
                     {% if not ex.linkOnly %}
                         <input type="hidden" name="key" value="{{ key }}">
                     {% endif %}
-                    <button type="submit" class="button">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
+                    <button type="submit" class="button" style="margin-bottom: 4px;">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
                 </form>
+                {% if ex.owner is not null and app.user == ex.owner and ex.devurl is not empty and not ex.linkOnly %}
+                    <form action="{{ ex.devurl }}" method="post" target="_self">
+                        <input type="hidden" name="key" value="{{ key }}">
+                        <button type="submit" class="button" style="margin-bottom: 4px;">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}' [{{ 'Entwickler-URL'|trans({},'admin') }}]</button>
+                    </form>
+                {% endif %}
             {% else %}
-                <button disabled="disabled" class="button">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
+                <button disabled="disabled" class="button" style="margin-bottom: 4px;">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
                 <p><span class="critical">{% trans from 'global' %}Du hast keine Externe ID.{% endtrans %}</span> {% trans from 'global' %}Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.{% endtrans %}</p>
            {% endif %}
             <button x-ajax-href="{{ path('initial_landing') }}" class="button">{{ 'Schön hier im Warmen bleiben'|trans({}, 'global') }}</button>
@@ -96,6 +102,15 @@
                     {% if not ex.linkOnly %}
                         <div class="row">
                             <div class="cell padded rw-4 rw-md-12 note note-lightest">
+                                <label for="app_dev_url">{{ 'Entwickler-URL'|trans({},'admin') }}</label>
+                                <span class="float-right"><a class="help-button float-right">{{ 'Hilfe'|trans({},'global') }}
+                            <div class="tooltip help">{{ 'Hier kannst du eine URL für eine Test- oder Entwicklungsumgebung hinterlegen (z.B. "localhost"). Du siehst dann einen zusätzlichen Button, der dich auf diese Umgebung weiterleitet. Diese URL sowie der zusätzliche Button sind ausschließlich für dich sichtbar.'|trans({},'global') }}</div>
+                        </a></span>
+                            </div>
+                            <div class="cell padded rw-8 rw-md-12"><input id="app_dev_url" type="url" value="{{ ex.devurl }}" /></div>
+                        </div>
+                        <div class="row">
+                            <div class="cell padded rw-4 rw-md-12 note note-lightest">
                                 <label for="app_sk">{{ 'Schlüssel'|trans({},'admin') }}</label>
                                 <span class="float-right"><a class="help-button float-right">{{ 'Hilfe'|trans({},'global') }}
                                 <div class="tooltip help">
@@ -131,6 +146,7 @@
                 $.ajax.easySend( '{{ path('soul_own_app_update', {id: ex.id}) }}', {
                         contact: document.getElementById('app_email').value,
                         url: document.getElementById('app_url').value,
+                        devurl: document.getElementById('app_dev_url').value,
                         sk: document.getElementById('app_regen') ? document.getElementById('app_regen').checked : false
                     },
                     function () {
