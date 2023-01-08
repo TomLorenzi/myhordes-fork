@@ -349,7 +349,7 @@ class ZoneHandler
 
     }
 
-    function getDigChanceFactor(Citizen $citizen, Zone $zone): float {
+    function getDigChanceFactor(Citizen $citizen, ?Zone $zone): float {
         $time = new DateTime();
         $factor = 1.0;
         if ($citizen->getProfession()->getName() === 'collec') $factor += 0.2; // based on 769 search made as scavenger
@@ -357,7 +357,7 @@ class ZoneHandler
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $factor -= 0.5; // based on 30 searchs made with eye injury
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $factor -= 0.2; // based on 51 search made while being drunk
 
-        if ($this->conf->getTownConfiguration( $citizen->getTown() )->isNightMode($time)) {
+        if ($zone && $this->conf->getTownConfiguration( $citizen->getTown() )->isNightMode($time)) {
 
             // If there are items that prevent night mode present, the night malus is set to 0
             $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.25 : 0.0; // based on 733 searchs made during night

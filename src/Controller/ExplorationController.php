@@ -357,7 +357,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         // Calculate chances
         $d = $ruinZone->getDigs() + 1;
         $chances = 1.0 / ( 1.0 + ( $d / max( 1, $this->getTownConf()->get(TownConf::CONF_EXPLORABLES_ITEM_RATE, 11) - ($d/3.0) ) ) );
-        if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $chances *= 0.8;
+        $chances *= $this->zone_handler->getDigChanceFactor( $citizen, null );
 
         if ($this->random_generator->chance( $chances )) {
             $group = $ruinZone->getZone()->getPrototype()->getDropByNames( $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] ) );
