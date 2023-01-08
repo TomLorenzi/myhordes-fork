@@ -812,11 +812,13 @@ class AdminUserController extends AdminActionController
                         else $user->addRoleFlag( User::USER_ROLE_ORACLE );
 
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         break;
 
                     case '!FLAG_ORACLE':
                         $user->removeRoleFlag( User::USER_ROLE_ORACLE );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         break;
 
                     case 'FLAG_ANIMAC':
