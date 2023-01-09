@@ -556,9 +556,10 @@ Registrierungstoken: Fichas de inscripción
 'Wie viele Token möchtest du erzeugen?': '¿Cuántas fichas quieres generar?'
 Nachricht: Mensaje
 'Stadtnamen ändern': 'Introduzca el nombre del pueblo'
-'Registrierungstoken verteilen': 'Registrierungstoken verteilen'
-Nachrichtentext: Nachrichtentext
+'Registrierungstoken verteilen': 'Distribuir fichas de registración'
+Nachrichtentext: Cuerpo del mensaje
 CSV: CSV
-Senden: Senden
-'Es wurden {success} Nachrichten verschickt.': 'Es wurden {success} Nachrichten verschickt.'
-'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.'
+Senden: Enviar
+'Es wurden {success} Nachrichten verschickt.': '{success} mensajes fueron enviados.'
+'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} mensajes fueron enviados, {error} mensajes contienen errores.'
+Entwickler-URL: URL de desarollo
