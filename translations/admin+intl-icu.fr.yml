@@ -556,9 +556,10 @@ Registrierungstoken: Jeton d'inscription
 'Wie viele Token möchtest du erzeugen?': 'Combien de jetons souhaitez-vous générer ?'
 Nachricht: Message
 'Stadtnamen ändern': 'Entrez le nom de la ville'
-'Registrierungstoken verteilen': 'Registrierungstoken verteilen'
-Nachrichtentext: Nachrichtentext
+'Registrierungstoken verteilen': 'Distribuer des jetons d''enregistrement'
+Nachrichtentext: Texte du message
 CSV: CSV
-Senden: Senden
-'Es wurden {success} Nachrichten verschickt.': 'Es wurden {success} Nachrichten verschickt.'
-'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.'
+Senden: Envoyer
+'Es wurden {success} Nachrichten verschickt.': '{success} messages ont été envoyés.'
+'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} ont été envoyés avec succès, {error} messages contenaient des erreurs.'
+Entwickler-URL: URL de développement
