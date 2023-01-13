@@ -21,7 +21,7 @@ Aktionen: Action
 Zugangscode: Code d'accès
 Stadttyp: Type de ville
 Ghule: Type de goule
-'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'Selon le type de ville sélectionné, les goules apparaissent selon les règles habituelles.'
+'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'Selon le type de ville sélectionné, les goules apparaissent naturellement au fil des jours.'
 Normal: Normal
 'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'Le rythme d''apparition est inchangé mais une goule ne pourra réduire sa voracité qu''en dévorant un citoyen.'
 Blutdurst: Soif de sang
@@ -127,7 +127,7 @@ Erweitert: Étendu
 '<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>': '<strong>Si 40 joueurs ne sont pas entrés dans la ville avant minuit le lendemain, elle sera automatiquement annulée. Tous les joueurs déjà arrivés dans la ville sont à nouveau libres pour les autres villes.</strong>'
 'Ghule sind deaktiviert.': 'Ville de bisounours : pas de goule possible.'
 Aerogen: Aérogène
-'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'Selon le type de ville sélectionné, les goules apparaissent selon les règles habituelles. De plus, une goule ne peut satisfaire sa faim qu''en mangeant un concitoyen.'
+'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'Selon le type de ville sélectionné, les goules apparaissent naturellement au fil des jours. De plus, une goule ne peut satisfaire sa faim qu''en mangeant un concitoyen.'
 'Blutdurst und Aerogen': 'Soif de sang et Aérogène'
 'Diese Stadt ist durch ein Passwort geschützt.': 'Cette ville est protégée par mot de passe.'
 'Für diese Stadt gilt eine Platzreservierung.': 'Une réservation de place est disponible pour cette ville.'
