@@ -71,7 +71,7 @@ export const TownCreatorSectionDifficulty = () => {
 
         { /* Position Settings */ }
         <AtLeast elevation="crow">
-            <OptionSelect value={ globals.getOption( 'rules.mapMarginPreset' ) ?? 'normal' } propName="rules.mapMarginPreset" propTitle={ difficulty.position }
+            <OptionSelect value={ globals.getOption( 'rules.mapMarginPreset' ) ?? 'normal' } propName="mapMarginPreset" propTitle={ difficulty.position }
                           options={ difficulty.position_presets.map( m => ({ value: m.value, title: m.label }) ) }
             />
         </AtLeast>
