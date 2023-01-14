@@ -259,7 +259,7 @@ class InventoryAwareController extends CustomAbstractController
             case ItemTargetDefinition::ItemFriendshipType:
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
-                    if ($citizen !== $this->getActiveCitizen() && $citizen->getAlive() && $citizen->getProfession()->getHeroic() && $citizen->getZone() === $this->getActiveCitizen()->getZone())
+                    if ($citizen !== $this->getActiveCitizen() && $citizen->getAlive() && $citizen->getProfession()->getHeroic() && $citizen->getZone() === $this->getActiveCitizen()->getZone() && !$this->citizen_handler->hasStatusEffect( $citizen, 'tg_rec_heroic' ))
                         $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/item/item_cart.gif", null, 'Player' ];
 
                 foreach ($this->getActiveCitizen()->getHeroicActions() as $action)
@@ -1252,7 +1252,7 @@ class InventoryAwareController extends CustomAbstractController
                 $player = $this->entity_manager->getRepository(Citizen::class)->find( $player );
                 if (!$action || !$player) return false;
 
-                if (!$player->getAlive() || !$player->getProfession()->getHeroic() || $player->getZone() !== $this->getActiveCitizen()->getZone() || $player === $this->getActiveCitizen() || !$this->getActiveCitizen()->getHeroicActions()->contains($action))
+                if (!$player->getAlive() || !$player->getProfession()->getHeroic() || $player->getZone() !== $this->getActiveCitizen()->getZone() || $player === $this->getActiveCitizen() || !$this->getActiveCitizen()->getHeroicActions()->contains($action) || $this->citizen_handler->hasStatusEffect( $player, 'tg_rec_heroic' ))
                     return false;
 
                 if ($action->getName() === 'hero_generic_friendship')

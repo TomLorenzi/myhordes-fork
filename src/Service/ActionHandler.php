@@ -567,7 +567,7 @@ class ActionHandler
                 break;
             case ItemTargetDefinition::ItemFriendshipType:
                 if (!is_a( $target, FriendshipActionTarget::class )) return false;
-                if (!$target->citizen()->getAlive() || !$target->citizen()->getProfession()->getHeroic() || $target->action()->getName() === 'hero_generic_friendship') return false;
+                if (!$target->citizen()->getAlive() || !$target->citizen()->getProfession()->getHeroic() || $target->action()->getName() === 'hero_generic_friendship' || $this->citizen_handler->hasStatusEffect( $target->citizen(), 'tg_rec_heroic' )) return false;
                 break;
             default: return false;
         }
