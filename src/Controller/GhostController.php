@@ -85,7 +85,7 @@ class GhostController extends CustomAbstractController
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
             'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
             'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
-            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW,
+            'canCreateTown' => !$this->conf->getGlobalConf()->get( MyHordesConf::CONF_STAGING_ENABLED, false ) && ($this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW),
         ] ));
     }
 
