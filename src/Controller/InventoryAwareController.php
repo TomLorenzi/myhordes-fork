@@ -259,7 +259,7 @@ class InventoryAwareController extends CustomAbstractController
             case ItemTargetDefinition::ItemFriendshipType:
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
-                    if ($citizen !== $this->getActiveCitizen() && $citizen->getAlive() && $citizen->getProfession()->getHeroic() && $citizen->getZone() === $this->getActiveCitizen()->getZone() && !$this->citizen_handler->hasStatusEffect( $citizen, 'tg_rec_heroic' ))
+                    if ($citizen !== $this->getActiveCitizen() && $citizen->getAlive() && $citizen->getZone() === $this->getActiveCitizen()->getZone() && !$this->citizen_handler->hasStatusEffect( $citizen, 'tg_rec_heroic' ))
                         $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/item/item_cart.gif", null, 'Player' ];
 
                 foreach ($this->getActiveCitizen()->getHeroicActions() as $action)
@@ -1252,7 +1252,7 @@ class InventoryAwareController extends CustomAbstractController
                 $player = $this->entity_manager->getRepository(Citizen::class)->find( $player );
                 if (!$action || !$player) return false;
 
-                if (!$player->getAlive() || !$player->getProfession()->getHeroic() || $player->getZone() !== $this->getActiveCitizen()->getZone() || $player === $this->getActiveCitizen() || !$this->getActiveCitizen()->getHeroicActions()->contains($action) || $this->citizen_handler->hasStatusEffect( $player, 'tg_rec_heroic' ))
+                if (!$player->getAlive() || $player->getZone() !== $this->getActiveCitizen()->getZone() || $player === $this->getActiveCitizen() || !$this->getActiveCitizen()->getHeroicActions()->contains($action) || $this->citizen_handler->hasStatusEffect( $player, 'tg_rec_heroic' ))
                     return false;
 
                 if ($action->getName() === 'hero_generic_friendship')
@@ -1337,6 +1337,10 @@ class InventoryAwareController extends CustomAbstractController
             $special_action = $special->getAction();
             if ($trigger_after) $trigger_after($special_action);
             if ( $special->getConsumable() ) $citizen->removeSpecialAction($special);
+            if ( $special->getProxyFor() ) {
+                $citizen->removeHeroicAction($special->getProxyFor());
+                $citizen->addUsedHeroicAction($special->getProxyFor());
+            }
 
             // Special handler for the ARMA action
             $arma_actions = ['special_armag','special_armag_d','special_armag_n'];

@@ -198,7 +198,8 @@ class TownHomeController extends TownController
             'tab' => $tab,
             'subtab' => $subtab,
             'heroics' => $this->getHeroicActions(),
-            'special_actions' => $this->getHomeActions(),
+            'home_actions' => $this->getHomeActions(),
+            'special_actions' => $this->getSpecialActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(true),
             'chest' => $home->getChest(),
@@ -262,12 +263,17 @@ class TownHomeController extends TownController
     }
 
     /**
-     * @Route("api/town/house/special_action", name="town_house_special_action_controller")
+     * @Route("api/town/house/action/{sect}", name="town_house_special_action_controller")
+     * @param string $sect
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function special_action_house_api(JSONRequestParser $parser): Response {
-        return $this->generic_home_action_api( $parser );
+    public function special_action_house_api(string $sect, JSONRequestParser $parser): Response {
+        return match ($sect) {
+            'home' => $this->generic_home_action_api( $parser ),
+            'special' => $this->generic_special_action_api( $parser ),
+            default => AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable )
+        };
     }
 
     /**

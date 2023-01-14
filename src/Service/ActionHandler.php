@@ -36,6 +36,7 @@ use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
@@ -567,7 +568,7 @@ class ActionHandler
                 break;
             case ItemTargetDefinition::ItemFriendshipType:
                 if (!is_a( $target, FriendshipActionTarget::class )) return false;
-                if (!$target->citizen()->getAlive() || !$target->citizen()->getProfession()->getHeroic() || $target->action()->getName() === 'hero_generic_friendship' || $this->citizen_handler->hasStatusEffect( $target->citizen(), 'tg_rec_heroic' )) return false;
+                if (!$target->citizen()->getAlive() || $target->action()->getName() === 'hero_generic_friendship' || $this->citizen_handler->hasStatusEffect( $target->citizen(), 'tg_rec_heroic' )) return false;
                 break;
             default: return false;
         }
@@ -1673,7 +1674,7 @@ class ActionHandler
 
                         $valid = !$this->citizen_handler->hasStatusEffect( $target->citizen(), 'tg_rec_heroic' );
 
-                        if ($valid) {
+                        if ($valid && $target->citizen()->getProfession()->getHeroic()) {
                             if ($target->citizen()->getHeroicActions()->contains( $target->action() ))
                                 $valid = false;
                             foreach ( $upgrade_actions as $a ) if ($target->citizen()->getHeroicActions()->contains( $a ))
@@ -1700,7 +1701,9 @@ class ActionHandler
                             foreach ( $upgrade_actions as $a )
                                 $target->citizen()->getUsedHeroicActions()->removeElement( $a );
 
-                            $target->citizen()->getHeroicActions()->add( $target->action() );
+                            if ($target->citizen()->getProfession()->getHeroic())
+                                $target->citizen()->getHeroicActions()->add( $target->action() );
+                            else $target->citizen()->addSpecialAction( $target->action()->getSpecialActionPrototype() );
                         }
 
                         break;

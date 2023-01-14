@@ -4,7 +4,11 @@
 {% if hidden is not defined %}
     {% set hidden = false %}
 {% endif %}
-
+{% if prefix is not defined %}
+    {% set prefix = '' %}
+{% else %}
+    {% set prefix = 'prefix-' ~ prefix ~ ' prefixed ' %}
+{% endif %}
 {% if not hidden %}
     {% macro target_popup( action_id, provoking_id, targets, target_for, text_having, text_missing, close_button = false, big = false, confirm = false, confirmMsg = null, action_button = null, item_tooltip = false ) %}
         <div class="targets" x-target-selection-for="{{ target_for }}">
@@ -139,7 +143,7 @@
                 {{'Abbrechen'|trans({}, 'global')  }}
             </button>
         {% endif %}
-        <ul class="actions">
+        <ul class="{{ prefix }}actions">
             {% if (item_action_list is defined) %}
                 {% set processed_renderers = [] %}
                 {% for entry in item_action_list|sort((a,b) => ( b.item.essential <=> a.item.essential ?: a.item.inventory.id <=> b.item.inventory.id ?: a.item.prototype.label|trans({}, 'items') <=> b.item.prototype.label|trans({}, 'items') ?: a.action.label|trans({},'items') <=> b.action.label|trans({},'items') )) %}
@@ -260,7 +264,7 @@
     {% endif %}
 
     {% if special_action_list is defined and special_action_list|length > 0 %}
-        <ul class="special_actions">
+        <ul class="{{ prefix }}special_actions">
             {% for entry in special_action_list %}
                 <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" {% if entry.action.confirm %}x-action-confirm="1"{% endif %} {% else %}x-target-definition="{{ entry.id }}--special"{% endif %}>
                     <img src="{{ asset('build/images/actions/' ~ entry.icon ~ '.gif') }}" alt="">
@@ -314,7 +318,7 @@
                 <img class="icon right" alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" />
             {% endif %} #}
         </button>
-        <ul class="heroic_actions">
+        <ul class="{{ prefix }}heroic_actions">
             <li class="heroic_action help">
                 <img src="{{ asset('build/images/icons/star.gif') }}" alt="">
                 <span>{{'Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:'|trans({}, 'game')|raw}}</span>
@@ -352,7 +356,7 @@
 
     {% endif %}
 {% else %}
-    <ul class="actions">
+    <ul class="{{ prefix }}actions">
         <li class="no-interaction">{{ 'Du kannst keine Aktionen ausführen, während du dich versteckst.'|trans({},'game')  }}</li>
     </ul>
 {% endif %}

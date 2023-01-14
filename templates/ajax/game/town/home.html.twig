@@ -138,6 +138,8 @@
         <div class="row">
             <div class="padded cell rw-6 rw-md-12 citizen-home actions-box">
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
+                {% embed "ajax/game/actions.html.twig" with {'special_action_list': home_actions, 'prefix': 'home'} %}
+                {% endembed %}
                 {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
                 {% endembed %}
 
@@ -666,8 +668,13 @@
         );
 
         handleSpecialActions(
-            document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),
-            '{{ path('town_house_special_action_controller') }}', '{{ path('town_house') }}'
+            document.querySelectorAll('ul.special_actions.prefix-home [x-action-id]:not([disabled])'),
+            '{{ path('town_house_special_action_controller', {'sect': 'home'}) }}', '{{ path('town_house') }}'
+        );
+
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions:not(.prefixed) [x-action-id]:not([disabled])'),
+            '{{ path('town_house_special_action_controller', {'sect': 'special'}) }}', '{{ path('town_house') }}'
         );
 
         handleActions(

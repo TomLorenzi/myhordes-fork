@@ -3,8 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\RequireZombiePresenceRepository')]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'require_zombie_presence_unique', columns: ['name'])]
 class RequireZombiePresence
 {
     #[ORM\Id]
