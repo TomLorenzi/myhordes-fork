@@ -26,8 +26,12 @@
                 {{ 'Heutige Abschätzung'|trans({},'game') }}
             </div>
             <div class="cell rw-12 center">
-
-                <b>{{ '{est_min} - {est_max}'|trans({est_min: z0[2], est_max: z0[3]}, 'game') }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                <span x-copy-prediction="0" class="x-copy-prediction">
+                    <b x-contain-prediction="0">{{ '{est_min} - {est_max}'|trans({est_min: z0[2], est_max: z0[3]}, 'game') }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                    <div class="tooltip help">
+                        {{ 'Klicken Sie auf die Vorhersage, um sie in das Clickboard zu kopieren.'|trans({}, 'game') }}
+                    </div>
+                </span>
             </div>
             {% else %}
                 <div class="padded cell rw-12 center">
@@ -84,7 +88,12 @@
             <div class="padded cell rw-12 center">
                 {% if z1[1] %}
                     <div>{{'Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:'|trans({}, 'game')}}</div>
-                    <b>{{ '{est_min} - {est_max}'|trans({est_min: z1[2], est_max: z1[3]}, 'game') }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                    <span x-copy-prediction="0" class="x-copy-prediction">
+                        <b x-contain-prediction="0">{{ '{est_min} - {est_max}'|trans({est_min: z1[2], est_max: z1[3]}, 'game') }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                        <div class="tooltip help">
+                            {{ 'Klicken Sie auf die Vorhersage, um sie in das Clickboard zu kopieren.'|trans({}, 'game') }}
+                        </div>
+                    </span>
                 {% else %}
                     <div>{{'Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.'|trans({}, 'game')}}</div>
                 {% endif %}
@@ -129,6 +138,30 @@
 {% block js %}
     {{ parent() }}
     <script>
+        function copyToClipboard(text) {
+            if (window.clipboardData && window.clipboardData.setData) {
+                // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
+                return window.clipboardData.setData("Text", text);
+
+            }
+            else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+                var textarea = document.createElement("textarea");
+                textarea.textContent = text;
+                textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+                }
+                catch (ex) {
+                    console.warn("Copy to clipboard failed.", ex);
+                }
+                finally {
+                    document.body.removeChild(textarea);
+                }
+            }
+        }
+
         let buttons = document.querySelectorAll('[x-predict-attack]');
         for (let i = 0; i < buttons.length; i++)
             buttons[i].addEventListener('click', function() {
@@ -137,5 +170,31 @@
                         $.ajax.load(null, '{{ path('town_watchtower') }}', true);
                     } );
             });
+            
+        let copyButtons = document.querySelectorAll('[x-copy-prediction]');
+        for (let i = 0; i < copyButtons.length; i++) {
+            let copyButton = copyButtons[i];
+            copyButton.addEventListener('click', function(evt) {
+                copyToClipboard(copyButton.querySelector('[x-contain-prediction]').textContent);
+                
+                const txt = '{{ 'Kopiert!'|trans({},'global')|e('js') }}';
+                let confirmCopyDisplay = document.createElement("div");
+                confirmCopyDisplay.textContent = txt;
+                confirmCopyDisplay.className = 'copy-popup tooltip';
+                confirmCopyDisplay.style.display = "block";
+                confirmCopyDisplay.style.left = evt.pageX+"px";
+                confirmCopyDisplay.style.top = evt.pageY+"px";
+                
+                document.body.appendChild(confirmCopyDisplay);
+
+                setTimeout(function() {
+                    confirmCopyDisplay.style.opacity = "0";
+                }, 500);
+                    
+                setTimeout(function() {
+                    document.body.removeChild(confirmCopyDisplay);
+                }, 3000);
+            })
+        }
     </script>
 {% endblock %}
