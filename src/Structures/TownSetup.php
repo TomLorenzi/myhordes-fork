@@ -32,7 +32,7 @@ class TownSetup
             'typeDeriveFrom' => $this->typeDeriveFrom ?? $this->type,
             'nameLanguage' => $this->nameLanguage ?? $this->language,
 
-            'derives' => $this->typeDeriveFrom === null || $this->typeDeriveFrom === $this->type,
+            'derives' => $this->typeDeriveFrom !== null && $this->typeDeriveFrom !== $this->type,
             'seeds' => $this->seed > 0,
             default => throw new \Exception("Getting invalid property '$name'")
         };

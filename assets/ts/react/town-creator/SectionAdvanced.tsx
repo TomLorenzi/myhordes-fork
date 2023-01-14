@@ -108,10 +108,12 @@ export const TownCreatorSectionAdvanced = () => {
     const jobs_left = advanced.job_list.reduce( (i, {name}) => i + (job_set.has(name) ? 0 : 1), 0 )
 
     let init = useRef(false);
-    if (!init.current) {
-        init.current = true;
-        job_set.forEach( s => globals.setOption(`rules.disabled_jobs.<>.${s}`, true) )
-    }
+    useEffect(() => {
+        if (!init.current) {
+            init.current = true;
+            job_set.forEach( s => globals.setOption(`rules.disabled_jobs.<>.${s}`, true) )
+        }
+    })
 
     return <div>
         <h5>{ advanced.section }</h5>

@@ -794,7 +794,7 @@ class NightlyHandler
         $last_zombified_citizen = null;
         $last_garbaged_citizen = null;
         foreach ($town->getCitizens() as $citizen)
-            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished) {
+            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished && $citizen->getSurvivedDays() <= $town->getDay() - 2) {
                 $count_zombified_citizens++;
                 $last_zombified_citizen = $citizen;
             } elseif (!$citizen->getAlive() && $citizen->getDisposed() === Citizen::Thrown && $citizen->getSurvivedDays() === $town->getDay() - 2) {
