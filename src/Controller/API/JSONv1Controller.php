@@ -1489,7 +1489,7 @@ class JSONv1Controller extends CoreController {
                     }
                     break;
                 case "rewards":
-                    $user_data[$field] = $this->getRewardsData();
+                    $user_data[$field] = $this->getRewardsData($user);
                     break;
             }
             if ($current_citizen) {
@@ -1580,14 +1580,15 @@ class JSONv1Controller extends CoreController {
         return $user_data;
     }
 
-    private function getRewardsData(array $fields = []): array {
+    private function getRewardsData(User $user = null, array $fields = []): array {
         $data = [];
 
         if(empty($fields)) {
             $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
         }
+		if ($user === null) $user = $this->user;
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->user);
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
