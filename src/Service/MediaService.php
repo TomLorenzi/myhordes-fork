@@ -218,12 +218,15 @@ class MediaService {
             } else $im_image = $data;
 
             $im_image->setFirstIterator();
+            $im_image = $im_image->coalesceImages();
 
             foreach ($im_image as $frame) {
                 if (!$frame->cropImage( $dx, $dy, $x, $y ))
                     return self::ErrorProcessingFailed;
                 $frame->setImagePage($dx,$dy,0,0);
             }
+            $im_image->resetImagePage('0x0');
+            $im_image->setFirstIterator();
 
             if (($e = $this->resizeImage($im_image, $determine_dimensions, $width, $height, $format, $compress, false)) !== self::ErrorNone)
                 return $e;
