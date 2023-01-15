@@ -15,6 +15,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
@@ -503,7 +504,23 @@ class ZoneHandler
         return array_values($cache);
     }
 
-    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false, $map_upgrade = false): array {
+    public function getZoneDangerLevelNumber( Zone $zone, int $seed = 0, bool $map_upgrade = false ): int {
+
+        $modA = $seed % 2 != 0;
+        $modB = $seed < 0;
+
+        return match ($zone->getZombies()) {
+            0 => 0,
+            1 => 1,
+            2 => $modA ? 1 : 2,
+            3 => 2,
+            4, 5 => $modB ? 2 : 3,
+            6, 7, 8 => 3,
+            default => (!$map_upgrade) ? 3 : 4,
+        };
+    }
+
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false, $map_upgrade = false, int $seed = 0): array {
         $attributes = ['zone'];
 
         if ($zone->getX() == 0 && $zone->getY() == 0) {
@@ -531,23 +548,8 @@ class ZoneHandler
                 }
             }
         }
-        if (($zone->getDiscoveryStatus() === Zone::DiscoveryStateCurrent && $zone->getZombieStatus() >= Zone::ZombieStateEstimate) || $admin) {
-            if ($zone->getZombies() == 0) {
-                $attributes[] = 'danger-0';
-            }
-            else if ($zone->getZombies() <= 2) {
-                $attributes[] = 'danger-1';
-            }
-            else if ($zone->getZombies() <= 5) {
-                $attributes[] = 'danger-2';
-            }
-            elseif ($zone->getZombies() <= 8 || (!$map_upgrade && !$admin)) {
-                $attributes[] = 'danger-3';
-            }
-            else {
-                $attributes[] = 'danger-4';
-            }
-        }
+        if (($zone->getDiscoveryStatus() === Zone::DiscoveryStateCurrent && $zone->getZombieStatus() >= Zone::ZombieStateEstimate) || $admin)
+            $attributes[] = "danger-{$this->getZoneDangerLevelNumber($zone,$seed,$map_upgrade || $admin)}";
 
         if($soul)
             $attributes[] = "soul";
