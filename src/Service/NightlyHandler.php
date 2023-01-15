@@ -1410,11 +1410,12 @@ class NightlyHandler
                         /** @var Citizen $winner */
                         $winner = $this->random->pick($citizen_eligible);
 
-                        $wonHeroDays = 0;
-                        if     ($town->getDay() >= 6 && $town->getDay() <= 10) $wonHeroDays = ($town->getDay() - 5);
-                        elseif ($town->getDay() > 10 && $town->getDay() <= 15) $wonHeroDays = 6;
-                        elseif ($town->getDay() > 15 && $town->getDay() <= 20) $wonHeroDays = 7;
-                        else $wonHeroDays = 10;
+                        if     ($winner->getSurvivedDays() <   6) $wonHeroDays = 0;
+                        elseif ($winner->getSurvivedDays() <=  8) $wonHeroDays = 1;
+                        elseif ($winner->getSurvivedDays() <= 10) $wonHeroDays = 2;
+                        elseif ($winner->getSurvivedDays() <= 15) $wonHeroDays = 3;
+                        elseif ($winner->getSurvivedDays() <= 20) $wonHeroDays = 4;
+                        else $wonHeroDays = 5;
 
                         $wonHeroDays = floor($wonHeroDays * $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_GENEROSITY_LAST, 1) );
                         if ($wonHeroDays > 0) $winner->giveGenerosityBonus( $wonHeroDays );
