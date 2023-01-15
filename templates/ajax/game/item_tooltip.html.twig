@@ -18,6 +18,7 @@
         <div class="item-addendum">{{ 'Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.'|trans({},'items') }}</div>
     {% endif %}
     {% if item.essential %}<div class="item-tag item-tag-essential">{{ 'Berufsgegenstand'|trans({},'items') }}</div>{% endif %}
+    {% if item.prototype.hasProperty('single_use') %}<div class="item-tag item-tag-use-1">{{ 'Mal pro Tag verwendbar'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.heavy %}<div class="item-tag item-tag-heavy">{{ 'Schwerer Gegenstand'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.deco > 0 or item.prototype.hasProperty('deco') %}<div class="item-tag item-tag-deco">{{ 'Einrichtungsgegenstand'|trans({},'items') }}</div>{% endif %}
     {% if item.prototype.hasProperty('defence') %}<div class="item-tag item-tag-defense">{{ 'Verteidigungsgegenstand'|trans({},'items') }}</div>{% endif %}
