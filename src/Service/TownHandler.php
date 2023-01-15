@@ -498,7 +498,7 @@ class TownHandler
             else                                 $summary->overall_scale += 0.10;
         }
 
-        $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 15 : 5;
+        $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 10 : 5;
 
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive()) {
