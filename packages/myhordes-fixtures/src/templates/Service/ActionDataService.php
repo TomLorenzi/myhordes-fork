@@ -417,7 +417,7 @@ class ActionDataService implements FixtureProcessorInterface {
                     'xmas_1'  => [ 'xmas_gift_#00' ],
                     'matbox'  => [ 'wood2_#00', 'metal_#00' ],
 
-                    'metalbox'  => [ 'what' => [ ['drug_#00', 16], ['bandage_#00', 28], ['vodka_de_#00', 20], ['vodka_#00', 20], ['explo_#00', 8], ['lights_#00', 4], ['drug_hero_#00', 16], ['rhum_#00', 8] ], 'where' => AffectItemSpawn::DropTargetRucksack ],
+                    'metalbox'  => [ 'what' => [ ['drug_#00', 16], ['bandage_#00', 28], /*['vodka_de_#00', 20],*/ ['vodka_#00', 20], ['explo_#00', 8], ['lights_#00', 4], ['drug_hero_#00', 16], ['rhum_#00', 8] ], 'where' => AffectItemSpawn::DropTargetRucksack ],
                     'metalbox2' => [ 'what' => [ ['watergun_opt_part_#00', 19], ['pilegun_upkit_#00', 10], ['pocket_belt_#00', 12], ['cutcut_#00', 10], ['chainsaw_part_#00', 12], ['mixergun_part_#00', 19], ['big_pgun_part_#00', 7], ['lawn_part_#00', 12] ], 'where' => AffectItemSpawn::DropTargetRucksack],
                     'catbox'    => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ],
                     'toolbox'   => [ ['pile_#00', 12], ['meca_parts_#00', 17], ['rustine_#00', 13], ['tube_#00', 13], ['pharma_#00', 25], ['explo_#00', 19] ],

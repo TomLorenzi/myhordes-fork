@@ -126,7 +126,8 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
                 ->setName( $name )
                 ->setLabel( $entry['label'] )
                 ->setIcon( $entry['icon'] )
-                ->setDescription( $entry['desc'] );
+                ->setDescription( $entry['desc'] )
+                ->setChargedByUse( $entry['byUse'] ?? false );
 
             $manager->persist($entity);
             $progress->advance();

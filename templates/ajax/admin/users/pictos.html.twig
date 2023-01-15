@@ -65,7 +65,9 @@
                                             {% if (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationNone')) %}{{ 'Dauerhaft!'|trans({},'game') }}
                                             {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationSeason')) %}{{ 'Für diese Saison'|trans({},'game') }}
                                             {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis {date}'|trans({'{date}': feature.timestamp|format_datetime('short', 'none')},'game') }}
-                                            {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}
+                                            {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}
+                                                {% if feature.prototype.chargedByUse %}{{ '{num} Aufladungen'|trans({'{num}': feature.townCount},'game') }}
+                                                {% else %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}{% endif %}
                                             {% else  %}???{% endif %}
                                         </b>
 
