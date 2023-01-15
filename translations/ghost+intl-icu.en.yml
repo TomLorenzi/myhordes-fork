@@ -21,7 +21,7 @@ Aktionen: Actions
 Zugangscode: Access code
 Stadttyp: Town type
 Ghule: Ghoul type
-'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'Depending on the city type you choose, ghouls will spawn naturally over the course of days.'
+'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'Depending on the town type chosen, ghouls will spawn naturally as the days go by.'
 Normal: Normal
 'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'The rate of appearance of the ghoul is unchanged but ghouls can only reduce their hunger by devouring a citizen.'
 Blutdurst: Bloodthirsty
