@@ -81,6 +81,7 @@ class Hook
 
             $citizen_handler->inflictStatus( $citizen, 'tg_got_xmas_gift' );
             $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'chest_christmas_3_#00' ) );
+            $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'rp_letter_#00' ) );
         }
     }
 
