@@ -1244,12 +1244,13 @@ class NightlyHandler
 
         $ghoul_mode  = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
         $ghoul_begin = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_AUTOGHOUL_FROM, 5);
+        $ghoul_next = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_AUTOGHOUL_NEXT, 5);
 
         // Check if we need to ghoulify someone
         if (in_array($ghoul_mode, ['airborne', 'airbnb']) && $town->getDay() >= $ghoul_begin) {
 
-            // Starting with the auto ghoul begin day, every 3 days a new ghoul is added
-            if (($town->getDay() - $ghoul_begin) % 3 === 0) {
+            // Starting with the auto ghoul begin day, every X days a new ghoul is added
+            if (($town->getDay() - $ghoul_begin) % $ghoul_next === 0) {
                 $this->log->debug("Distributing the <info>airborne ghoul infection</info>!");
                 $this->citizen_handler->pass_airborne_ghoul_infection(null,$town);
             }

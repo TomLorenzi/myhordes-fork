@@ -135,6 +135,7 @@ parameters:
         sandball_nastyness: 0.1
         massive_respawn_factor: 1
         ghoul_infection_begin: 5
+        ghoul_infection_next: 5
         daytime:
           range: [7,18]
           invert: false
@@ -260,7 +261,8 @@ parameters:
           map: 'hard'
         red_soul_max_factor: 666
         sandball_nastyness: 0.85
-        ghoul_infection_begin: 2
+        ghoul_infection_begin: 3
+        ghoul_infection_next: 3
         hide_home_upgrade: true
         generosity:
           from_ghoul: 1

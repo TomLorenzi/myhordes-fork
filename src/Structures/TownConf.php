@@ -108,6 +108,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
     const CONF_MODIFIER_RESPAWN_FACTOR       = 'modifiers.massive_respawn_factor';
     const CONF_MODIFIER_AUTOGHOUL_FROM       = 'modifiers.ghoul_infection_begin';
+    const CONF_MODIFIER_AUTOGHOUL_NEXT       = 'modifiers.ghoul_infection_next';
     const CONF_MODIFIER_DAYTIME_RANGE        = 'modifiers.daytime.range';
     const CONF_MODIFIER_DAYTIME_INVERT       = 'modifiers.daytime.invert';
     const CONF_MODIFIER_HIDE_HOME_UPGRADE    = 'modifiers.hide_home_upgrade';

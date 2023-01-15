@@ -397,11 +397,11 @@ class TownCreatorController extends CustomAbstractCoreController
 
         static $unset_modules = [
             'assemble_items_from_floor', 'citizen_attack',
-            'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'hide_home_upgrade',
+            'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'ghoul_infection_next', 'hide_home_upgrade',
             'infection_death_chance', 'massive_respawn_factor', 'meaty_bones_within_town',
             'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
             'watchtower_estimation_offset', 'watchtower_estimation_threshold', 'wind_distance',
-            'wound_terror_penalty', 'camping'
+            'wound_terror_penalty', 'camping', 'generosity', 'guard_tower'
         ];
 
         foreach ($unset_props as $prop) unset ($conf[$prop]);
