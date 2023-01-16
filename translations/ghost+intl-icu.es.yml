@@ -21,7 +21,7 @@ Aktionen: Acciones
 Zugangscode: Código de acceso
 Stadttyp: Tipo de pueblo
 Ghule: Mutante
-'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'El mutante aparecerá según las reglas propias del tipo de pueblo elegido.'
+'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'Dependiendo del tipo de pueblo que elijas, los mutantes aparecerán naturalmente a medida que pasan los días.'
 Normal: Normal
 'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'El ritmo de aparición no cambia pero un mutante solo podrá reducir su voracidad devorando un habitante.'
 Blutdurst: Voraces
@@ -127,7 +127,7 @@ Erweitert: Extendido
 '<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>': '<strong>Si 40 jugadores no han entrado en la ciudad antes de la medianoche del día siguiente, se negará automáticamente. Todos los jugadores que ya han llegado a la ciudad son libres para otras ciudades nuevamente.</strong>'
 'Ghule sind deaktiviert.': 'Los mutantes están desactivados.'
 Aerogen: Aerogénico
-'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'Dependiendo del tipo de pueblo seleccionado, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un habitante.'
+'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'Dependiendo del tipo de pueblo seleccionado, los mutantes aparecer naturalmente con el tiempo. Además, un mutante solo puede satisfacer su hambre comiéndose a un habitante.'
 'Blutdurst und Aerogen': 'Voraces y Aerogénico'
 'Diese Stadt ist durch ein Passwort geschützt.': 'Este pueblo está protegido con contraseña.'
 'Für diese Stadt gilt eine Platzreservierung.': 'Una reserva de cupo es requerida para este pueblo.'
