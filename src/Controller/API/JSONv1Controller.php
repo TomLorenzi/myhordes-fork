@@ -1570,7 +1570,7 @@ class JSONv1Controller extends CoreController {
                             $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields']);
                             break;
                         case "rewards":
-                            $user_data[$fieldName] = $this->getRewardsData($fieldValues['fields']);
+                            $user_data[$fieldName] = $this->getRewardsData($user, $fieldValues['fields']);
                             break;
                     }
                 }
