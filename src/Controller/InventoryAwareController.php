@@ -263,10 +263,11 @@ class InventoryAwareController extends CustomAbstractController
                     if ($citizen !== $this->getActiveCitizen() && $citizen->getAlive() && $citizen->getZone() === $this->getActiveCitizen()->getZone() && !$this->citizen_handler->hasStatusEffect( $citizen, 'tg_rec_heroic' ))
                         $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/item/item_cart.gif", null, 'Player' ];
 
-                $giftedActions = array_values(array_column( array_filter(
-                    $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData(),
-                    fn($entry) => $entry['valid']
-                ), 'action'));
+                //$giftedActions = array_values(array_column( array_filter(
+                //    $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData(),
+                //    fn($entry) => $entry['valid']
+                //), 'action'));
+                $giftedActions = [];
 
                 foreach ($this->getActiveCitizen()->getHeroicActions() as $action)
                     if ($action->getName() !== 'hero_generic_friendship' && !in_array( $action->getName(), $giftedActions ))
@@ -1210,10 +1211,11 @@ class InventoryAwareController extends CustomAbstractController
                 if (!$player->getAlive() || $player->getZone() !== $this->getActiveCitizen()->getZone() || $player === $this->getActiveCitizen() || !$this->getActiveCitizen()->getHeroicActions()->contains($action) || $this->citizen_handler->hasStatusEffect( $player, 'tg_rec_heroic' ))
                     return false;
 
-                $giftedActions = array_values(array_column( array_filter(
-                                                                $player->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData(),
-                                                                fn($entry) => $entry['valid']
-                                                            ), 'action'));
+                //$giftedActions = array_values(array_column( array_filter(
+                //                                                $player->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData(),
+                //                                                fn($entry) => $entry['valid']
+                //                                            ), 'action'));
+                $giftedActions = [];
 
                 if ($action->getName() === 'hero_generic_friendship' || in_array( $action->getName(), $giftedActions ))
                     return false;
