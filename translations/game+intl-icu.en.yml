@@ -1825,7 +1825,7 @@ Schamanen-Ratgeber: Shamans game guide
 'Du wurdest zum Reiseleiter in der Außenwelt gewählt!': 'You''ve been elected as the Guide to the World Beyond!'
 'Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?': 'You wake up with a smile on your face... A strange sensation around here... You walk out of your tent and.. People are saluting you?'
 'Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...': 'Oh dear... What did do last night? It seems you might have partied a little too hard last night... Yeeeerrrrp it''s you who''s been named. All vestigaes of dout dissappear as you lay eyes on the town gates: A crazy urge to go exploring comes over you, not at all your thing usually..'
-'Du bist nun der Reiseleiter in der Außenwelt.': '> You are now the Guide to the World Beyond.'
+'Du bist nun der Reiseleiter in der Außenwelt.': 'You are now the Guide to the World Beyond.'
 'Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!': 'New horizons open before you, you''re no longer just an ordinary citizen, but a leader, a pioneer...'
 'Schau dir am besten gleich den {guide_help} an.': 'Take a look at {guide_help} !'
 Reiseleiter-Ratgeber: the guide to the game for Guides to the World Beyond
@@ -2378,3 +2378,5 @@ Stadt/Stadttor: Town/Doors
 'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Allows using the heroic action "Brothers in Arms".'
 'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem eine deiner noch ungenutzten Heldentaten schenken! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentaten kannst du in dieser Stadt nicht mehr selbst verwenden. Um jemandem eine Heldentat zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'Once per game, you can give 1 Heroic action to a fellow citizen! Just wait, you''''ll become a veritable messiah for the masses... NB: any heroic actions you give away will be taken from your available actions.'
 'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'It is not possible to carry out this action again here. Go somewhere else, or come back tomorrow.'
+'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Click on the estimation to copy it to the clipboard.'
+'{num} Aufladungen': '{num} Charges'
