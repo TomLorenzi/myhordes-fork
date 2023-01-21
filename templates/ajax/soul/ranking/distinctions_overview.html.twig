@@ -18,7 +18,7 @@
                     {% endif %}
                 </div>
                 <div class="cell rw-6 season_entry_td left soul_season_name">
-                    {% include 'ajax/soul/playername.html.twig' with {user: entry.user, additional_classes: ['undecorated', 'small']} only %}
+                    {% include 'ajax/soul/playername.html.twig' with {user: entry.user, additional_classes: ['undecorated', 'small'], globalSpace: true} only %}
                 </div>
                 <div class="cell rw-4 season_entry_td center soul_season_points">
                     {{ entry.count }}

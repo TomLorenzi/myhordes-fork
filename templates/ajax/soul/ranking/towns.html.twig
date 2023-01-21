@@ -38,7 +38,7 @@
                             <div class="cell rw-7 ro-1">
                                 {% for denizen in town.citizens|filter(a => a.day == town.days)|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
                                     <span class="small">
-                                    {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated']} only %} <span style="color: #f0d79e">({{ denizen.day }})</span>
+                                    {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated'], globalSpace: true} only %} <span style="color: #f0d79e">({{ denizen.day }})</span>
                                     </span>{% if not loop.last %},{% endif %}
                                 {% endfor %}
                                 {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
@@ -60,7 +60,7 @@
                                             {% else %}
                                                 <div class="inline-block"><img src="{{ asset("build/images/death/inside.gif") }}" alt="" /> <div class="tooltip">{{ 'In der Stadt gestorben'|trans({}, 'soul') }}</div></div>
                                             {% endif %}
-                                            {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated']} only %}
+                                            {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated'], globalSpace: true} only %}
                                         </div>
                                         <div class="cell padded rw-1 rw-sm-2" style="color:#f8eacb">{{ denizen.day }}</div>
                                         <div class="cell padded rw-4 rw-md-7 rw-sm-12"><em>{{ denizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}</em></div>

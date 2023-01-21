@@ -55,7 +55,7 @@
                         <div class="cell rw-6 season_entry_td left soul_season_name">
                             {% set extra_class="" %}
                             {% if pos > 5 %}{% set extra_class = 'small' %}{% endif %}
-                            {% include 'ajax/soul/playername.html.twig' with {user: player, additional_classes: ['undecorated', extra_class]} only %}
+                            {% include 'ajax/soul/playername.html.twig' with {user: player, additional_classes: ['undecorated', extra_class], globalSpace: true} only %}
                         </div>
                         <div class="cell rw-4 season_entry_td center soul_season_points">{{ points }}</div>
                     </div>
