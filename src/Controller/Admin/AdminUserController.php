@@ -250,14 +250,25 @@ class AdminUserController extends AdminActionController
 
     /**
      * @Route("jx/admin/users/tokens", name="admin_users_tokens")
-     * @param AntiCheatService $as
      * @return Response
      */
-    public function users_tokens(AntiCheatService $as): Response
+    public function users_tokens(): Response
     {
         $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
         return $this->render( 'ajax/admin/users/token_index.html.twig', $this->addDefaultTwigArgs("token_list", [
             'tokens' => $tokens
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/users/tokens/distribute", name="admin_users_tokens_distribute")
+     * @return Response
+     */
+    public function users_tokens_dist(): Response
+    {
+        $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
+        return $this->render( 'ajax/admin/users/token_distribute.html.twig', $this->addDefaultTwigArgs("token_dist", [
+
         ]));
     }
 
@@ -283,6 +294,70 @@ class AdminUserController extends AdminActionController
         $this->entity_manager->flush();
         $this->addFlash('notice', $this->translator->trans("Tokens erfolgreich erzeugt!", [], 'admin'));
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/users/distributeTokens", name="admin_users_distributetokens")
+     * @return Response
+     */
+    public function users_distribute_tokens(JSONRequestParser $parser):Response {
+        if (!$parser->has_all(['message','csv']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $message = $parser->trimmed('message');
+
+        $lines = array_filter( array_map( fn(string $s) => explode(';',trim($s)), explode( "\n", $parser->get('csv') ) ), fn(array $a) => !empty($a));
+
+        $required_length = 2;
+
+        while ( str_contains( $message, '%%' . ($required_length-1) . '%%' ) )
+            $required_length++;
+
+        $missmatch = [];
+        $debug = [];
+
+        $success = 0;
+
+        foreach ($lines as $line) {
+
+            if (count($line) < $required_length) {
+                $missmatch[] = implode(';', $line);
+                continue;
+            }
+            $username = explode( ':', $line[0] );
+
+            if (count($username) < 2)
+                $potential_user = $this->entity_manager->getRepository(User::class)->findOneByNameOrDisplayName( $username[0] );
+            else $potential_user = $this->entity_manager->getRepository(User::class)->find( (int)$username[1] );
+
+            if (!$potential_user) {
+                $missmatch[] = implode(';', $line);
+                continue;
+            }
+
+            $this_message = $message;
+            foreach ($line as $k => $entry) {
+                if ($k === 0) $this_message = str_replace( '%%username%%', $potential_user->getName(), $this_message );
+                elseif ($k === 1) $this_message = str_replace( '%%token%%', $entry, $this_message );
+                else $this_message = str_replace( '%%' . ($k-1) . '%%', $entry, $this_message );
+            }
+
+            $debug[] = $this_message;
+            $this->entity_manager->persist($this->crow_service->createPM($potential_user, nl2br($this_message)));
+            $success++;
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success(true, [
+            'info' => [
+                'success' => $success,
+                'error' => count($missmatch),
+                'missmatch' => $missmatch,
+                'messages' => $debug
+            ]
+
+        ]);
     }
 
     /**
@@ -655,7 +730,7 @@ class AdminUserController extends AdminActionController
                         if ($i > 1000) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                     }
 
-                $this->entity_manager->persist( (new UserSponsorship)->setUser($user)->setSponsor($other_user)->setCountedSoulPoints(0)->setCountedHeroExp(0) );
+                $this->entity_manager->persist( (new UserSponsorship)->setUser($user)->setSponsor($other_user)->setCountedSoulPoints(0)->setCountedHeroExp(0)->setTimestamp(new \DateTime()) );
 
                 break;
 
@@ -737,11 +812,13 @@ class AdminUserController extends AdminActionController
                         else $user->addRoleFlag( User::USER_ROLE_ORACLE );
 
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         break;
 
                     case '!FLAG_ORACLE':
                         $user->removeRoleFlag( User::USER_ROLE_ORACLE );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         break;
 
                     case 'FLAG_ANIMAC':
@@ -1145,6 +1222,44 @@ class AdminUserController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/users/{id}/citizen/delete", name="admin_users_citizen_remove_aspect", requirements={"id"="\d+"})
+     * @param User $user
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function users_citizen_remove_aspect(User $user, JSONRequestParser $parser): Response {
+        $citizen = $user->getActiveCitizen();
+
+        if (!$citizen) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        switch ($parser->get('subject')) {
+            case 'comment':
+                $citizen->setComment('')->getRankingEntry()->setComment('');
+                $this->entity_manager->persist($citizen);
+                $this->entity_manager->persist($citizen->getRankingEntry());
+                break;
+            case 'lastWords':
+                $citizen->setLastWords('')->getRankingEntry()->setLastWords('');
+                $this->entity_manager->persist($citizen);
+                $this->entity_manager->persist($citizen->getRankingEntry());
+                break;
+            case 'status':
+                $citizen->getHome()->setDescription(null);
+                $this->entity_manager->persist($citizen->getHome());
+                break;
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Throwable) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("jx/admin/users/{id}/social/view", name="admin_users_social_view", requirements={"id"="\d+"})
      * @param int $id
      * @return Response
@@ -1388,7 +1503,7 @@ class AdminUserController extends AdminActionController
     /**
      * @Route("api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
      * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
+     * @Security("is_granted('ROLE_CROW')")
      * @param int $id User ID
      * @param int $cid
      * @param JSONRequestParser $parser The Request Parser

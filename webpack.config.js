@@ -1,5 +1,6 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 const webpack = require('webpack');
+const fs = require('fs');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -7,8 +8,10 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
 
-var local = [];
-try { local = require('./webpack.config.local'); } catch (e) {}
+const local = fs.existsSync( 'webpack.config.local.js' )
+    ? require('./webpack.config.local')
+    : []
+;
 
 Encore
     // enable REACT
@@ -18,36 +21,45 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath( local.public_path ? local.public_path : '/build/')
     // only needed for CDN's or sub-directory deploy
-    .setManifestKeyPrefix('build')
+    .setManifestKeyPrefix('build');
 
-    .copyFiles({
-        from: 'assets/img',
-        to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
-            ? 'images/[path][name].[ext]'
-            : 'images/[path][name].[contenthash:8].[ext]',
-    })
-    .copyFiles({
-        from: 'assets/video',
-        to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
-            ? 'mov/[path][name].[ext]'
-            : 'mov/[path][name].[contenthash:8].[ext]',
-    })
-    .copyFiles({
-        from: 'assets/swf',
-        to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
-            ? 'flash/[path][name].[ext]'
-            : 'flash/[path][name].[contenthash:8].[ext]',
-    })
+const filename_pattern = (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+    ? '[path][name].[ext]'
+    : '[path][name].[contenthash:8].[ext]'
+;
+
+const prime_asset_path = fs.existsSync( 'packages/myhordes-prime/src/Resources/assets' )
+    ? 'packages/myhordes-prime/src/Resources/assets'
+    : 'packages/myhordes-prime-shim/src/Resources/assets'
+
+// List of folders that contain game assets
+const source_folders = [
+    'assets', prime_asset_path
+];
+
+// List of asset subfolders that should get copied.
+// Format: source name: [destination name, allow hashed file name]
+const file_copy_map = {
+    img: ['images', true],
+    video: ['mov', true],
+    swf: ['flash', true],
+    ext: ['ext', false],
+}
+
+source_folders.forEach( folder => {
+    for (const [source, [destination, default_pattern]] of Object.entries(file_copy_map))
+        Encore.copyFiles( {
+            from: `${folder}/${source}`,
+            to: default_pattern ? `${destination}/${filename_pattern}` : `${destination}/[path][name].[ext]`
+        } )
+} )
+
+Encore
     .copyFiles({
         from: 'node_modules/@ruffle-rs/ruffle',
         pattern: /.*\.(js|wasm)$/,
         to: 'ruffle/[path][name].[ext]'
     })
-    .copyFiles({
-        from: 'assets/ext',
-        to: 'ext/[path][name].[ext]'
-    })
-
     .configureFilenames({
         js: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
         ? '[name].js'
@@ -76,6 +88,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry( 'prime', `./${prime_asset_path}/js/prime.js`)
     .addEntry('fa', './assets/js/fa.js')
 
     .addEntry('swagger', './assets/js/swagger.js')
@@ -132,7 +145,42 @@ Encore
     //.addEntry('admin', './assets/js/admin.js')
 ;
 
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const config = Encore.getWebpackConfig();
 config.resolve.fallback = { ...config.resolve?.fallback ?? {}, buffer: require.resolve('buffer/'), stream: require.resolve("stream-browserify") }
-config.plugins = [ ...config.plugins ?? [], new webpack.ProvidePlugin({ Buffer: ['buffer', 'Buffer'] }), new webpack.ProvidePlugin({ process: 'process/browser' })]
+config.plugins = [
+    ...config.plugins ?? [],
+    new webpack.ProvidePlugin({ Buffer: ['buffer', 'Buffer'] }),
+    new webpack.ProvidePlugin({ process: 'process/browser' }),
+    new FaviconsWebpackPlugin({
+        logo: local?.favicon?.image ?? './assets/img/favicon.png',
+        prefix: 'favicon/',
+        devMode: 'webapp',
+        favicons: {
+            background: local?.favicon?.background ?? '#100C0B',
+            theme_color: local?.favicon?.theme_color ?? '#7e4d2a',
+            pixel_art: true
+        }
+    }),
+    new HtmlWebpackPlugin({
+        filename: '../../templates/build/favicons.html.twig',
+        templateContent: ({favicons}) => favicons,
+        inject: false,
+        templateParameters:  (compilation, assets, assetTags) => {
+            return {favicons: assetTags.headTags
+                    .filter( a =>
+                        a?.tagName === 'meta' ||
+                        (
+                            a?.tagName === 'link' &&
+                            ['icon','shortcut icon','apple-touch-icon','apple-touch-startup-image','manifest','yandex-tableau-widget']
+                                .indexOf(a?.attributes?.rel) >= 0
+                        )
+                    )
+                    .map(a => a.toString() )
+                    .join('')}
+        }
+    })
+]
 module.exports = config;

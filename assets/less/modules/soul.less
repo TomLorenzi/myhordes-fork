@@ -128,7 +128,7 @@ div.tooltip.badge-tooltip {
         .distinctions-top {
 
           display: flex; justify-content: space-evenly; column-gap: 4px; align-items: stretch;
-          margin: 10px 6px;
+          margin: 10px 6px; flex-wrap: wrap; row-gap: 12px;
 
             .picto {
                 border: 1px solid white;
@@ -437,8 +437,11 @@ div.tooltip.badge-tooltip {
     }
 
     .language-picker {
-        display: flex; justify-content: space-between;
-        .note { width: 24%; flex-basis: 24%; }
+        display: inline-flex; justify-content: space-between; gap: 12px;
+        &>* {
+          display: inline-flex; padding: 4px; align-items: center; gap: 1px;
+          &>input { flex-shrink: 0; flex-grow: 0; margin: 0; padding: 0 }
+        }
     }
 
     ul.group-conversation.announcement {
@@ -712,7 +715,8 @@ div#user-tooltip {
         border-radius: 4px;
         background-color: #79432b;
         color: #ddab76;
-        padding: 5px
+        padding: 5px;
+        word-break: break-word;
     }
     div.friend-relation {
         color: white;

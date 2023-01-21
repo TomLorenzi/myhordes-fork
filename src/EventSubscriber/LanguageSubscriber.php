@@ -3,21 +3,21 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\User;
 use App\Service\ConfMaster;
 use App\Structures\MyHordesConf;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class LanguageSubscriber implements EventSubscriberInterface
 {
-    private ConfMaster $conf;
-
-    public function __construct(ConfMaster $confMaster){
-        $this->conf = $confMaster;
-    }
+    public function __construct(
+        private readonly ConfMaster $conf,
+        private readonly Security $security
+    ){ }
     public function onKernelRequest(RequestEvent $event) {
         if (!$event->getRequest()->isXmlHttpRequest()) {
             [,$first_path_segment] = explode( '/', $event->getRequest()->getPathInfo() );
@@ -51,13 +51,21 @@ class LanguageSubscriber implements EventSubscriberInterface
         }
     }
 
+    public function applyLanguage(ControllerEvent $event) {
+        /** @var User $user */
+        $user = $this->security->getUser();
+        if ($user?->getLanguage() && $event->getRequest()->getLocale() !== $user?->getLanguage())
+            $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
+    }
+
     /**
      * @inheritDoc
      */
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::REQUEST => [['onKernelRequest', 20]],
+            KernelEvents::REQUEST =>    [['onKernelRequest', 20]],
+            KernelEvents::CONTROLLER => [['applyLanguage', -20]],
         ];
     }
 }

@@ -33,6 +33,8 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use phpDocumentor\Reflection\Type;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -135,6 +137,56 @@ class PublicController extends CustomAbstractController
         if ($this->getUser() && $this->getUser()->getValidated())
             return $this->redirect($this->generateUrl('initial_landing'));
         return $this->render( 'ajax/public/validate.html.twig' );
+    }
+
+    /**
+     * @Route("jx/public/accept_tos", name="public_accept_tos")
+     * @return Response
+     */
+    public function accept_tos(): Response
+    {
+        if (!$this->getUser() || ($this->getUser()->tosAccepted() && $this->getUser()->tosUpdateAccepted()))
+            return $this->redirect($this->generateUrl('initial_landing'));
+
+        return $this->render( 'ajax/public/tos_first.html.twig', [
+            'allow_grace' => $this->getUser()->getTosgracenum() < 14 || ($this->getUser()->getTosgrace() !== null && $this->getUser()->getTosgrace() > new DateTime())
+        ] );
+    }
+
+    /**
+     * @Route("api/public/tos/accept", name="api_accept_tos", defaults={"accept"=true})
+     * @Route("api/public/tos/later", name="api_defer_tos", defaults={"accept"=false})
+     * @param bool $accept
+     * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function tos_api(bool $accept): Response
+    {
+        if (!$this->getUser() || ($this->getUser()->tosAccepted() && $this->getUser()->tosUpdateAccepted()))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (!$accept && $this->getUser()->getTosgracenum() >= 14 && ($this->getUser()->getTosgrace() === null || $this->getUser()->getTosgrace() < new DateTime()))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $user = $this->getUser();
+
+        if ($accept) {
+            $user->setTosver(1);
+            $user->setTosgracenum( 0 );
+            $user->setTosgrace( null );
+        } elseif ($this->getUser()->getTosgrace() === null || $this->getUser()->getTosgrace() < new DateTime()) {
+            $user->setTosgracenum( $user->getTosgracenum() + 1 );
+            $user->setTosgrace( (new DateTime('now'))->modify('+12hour') );
+        }
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        $token = new UsernamePasswordToken($user, 'main', $user->getRoles());
+        $this->container->get('security.token_storage')->setToken($token);
+
+        return AjaxResponse::success();
     }
 
     /**
@@ -292,7 +344,7 @@ class PublicController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
+        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], false ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (!$userHandler->isNameValid($parser->trimmed('user', '')))
@@ -312,7 +364,7 @@ class PublicController extends CustomAbstractController
                     ]),
             ],
             'mail1' => [
-                new Constraints\Email( ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+                new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
                 new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$entityManager,$translator) {
                     $repo = $entityManager->getRepository(AntiSpamDomains::class);
 
@@ -339,14 +391,15 @@ class PublicController extends CustomAbstractController
                         }
                     }
                 } ] )
-                ],
+            ],
             'mail2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
             'pass1' => new Constraints\Length(
                 ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens { limit } Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
-        ]), ['user','mail1','mail2','pass1','pass2'] );
+            'tos' => new Constraints\IsTrue(message: $translator->trans('Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.', [], 'login'))
+        ], allowExtraFields: true, allowMissingFields: false) );
 
         if ($violations->count() === 0) {
 
@@ -387,9 +440,11 @@ class PublicController extends CustomAbstractController
                 $parser->trimmed('user'),
                 $parser->trimmed('mail1'),
                 $parser->trimmed('pass1'),
-                false,
+                $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken,
                 $error
             );
+
+            $user?->setTosver(1);
 
             switch ($error) {
                 case UserFactory::ErrorNone:
@@ -406,6 +461,7 @@ class PublicController extends CustomAbstractController
                                 ->setSponsor( $referred_player )
                                 ->setUser( $user )
                                 ->setCountedHeroExp(0)->setCountedSoulPoints(0)
+                                ->setTimestamp(new DateTime())
                             );
 
                         if ($this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken) {
@@ -555,7 +611,7 @@ class PublicController extends CustomAbstractController
             $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
                 'fields' => [
                     'mail1' => [
-                        new Constraints\Email( ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+                        new Constraints\Email( message: $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')),
                         new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$translator) {
                             $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
                             if ($repo->findOneBy( ['type' => DomainBlacklistType::EmailAddress, 'domain' => DomainBlacklistType::EmailAddress->convert( $mail )] )) {
@@ -584,6 +640,7 @@ class PublicController extends CustomAbstractController
                     ],
                     'mail2' => new Constraints\EqualTo(
                         ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
+                    'tos' => new Constraints\IsTrue(message: $translator->trans('Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.', [], 'login'))
                 ],
                 'allowExtraFields' => true,
             ]) );
@@ -617,6 +674,7 @@ class PublicController extends CustomAbstractController
                 return AjaxResponse::errorMessage($this->translator->trans('Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.', [], 'login') );
 
             $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
+            $new_user->setTosver(1);
 
             switch ($error) {
                 case UserFactory::ErrorNone:
@@ -634,6 +692,7 @@ class PublicController extends CustomAbstractController
                                                                 ->setSponsor( $referred_player )
                                                                 ->setUser( $new_user )
                                                                 ->setCountedHeroExp(0)->setCountedSoulPoints(0)
+                                                                ->setTimestamp(new DateTime())
                             );
 
 

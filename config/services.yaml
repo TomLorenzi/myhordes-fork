@@ -136,40 +136,30 @@ services:
       arguments: ['@app.decoration.translator.inner']
       public: false
 
-    translation.extractor.myhordes:
-      public: false
-      abstract: true
-
+    App\Translation\NameResolverVisitor:
+      tags:
+        - { name: translation.extractor.visitor, priority: 999 }
+    App\Translation\TMethodVisitor:
+      tags:
+        - { name: translation.extractor.visitor }
+    App\Translation\FixtureVisitor:
+      tags:
+        - { name: translation.extractor.visitor }
     App\Translation\DatabaseExtractor:
         tags:
             - { name: translation.extractor, alias: 'db' }
-            - { name: translation.extractor.myhordes, alias: 'db' }
-    App\Translation\CorePhpExtractor:
-      tags:
-            - { name: translation.extractor, alias: 'php0' }
-            - { name: translation.extractor.myhordes, alias: 'php0' }
-    App\Translation\ExpandedPhpExtractor:
-        tags:
-            - { name: translation.extractor, alias: 'php' }
-            - { name: translation.extractor.myhordes, alias: 'php' }
     App\Translation\ExpandedTwigExtractor:
         tags:
             - { name: translation.extractor, alias: 'twig' }
-            - { name: translation.extractor.myhordes, alias: 'twig' }
     App\Translation\ConfigExtractor:
         tags:
             - { name: translation.extractor, alias: 'config' }
-            - { name: translation.extractor.myhordes, alias: 'config' }
 
     app.decoration.trans_dumper:
       class: App\Translation\ExpandedDumper
       decorates: translation.dumper.yml
       arguments: [ '@app.decoration.trans_dumper.inner' ]
       public: false
-
-    App\Translation\FixtureExtractor:
-        tags:
-            - { name: translation.extractor, alias: FixtureExtractor }
 
     App\Service\ConfMaster:
         arguments:

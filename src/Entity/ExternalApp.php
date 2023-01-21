@@ -40,6 +40,9 @@ class ExternalApp
     private $image_name;
     #[ORM\Column(type: 'string', length: 9, nullable: true)]
     private $image_format;
+
+    #[ORM\Column(length: 190, nullable: true)]
+    private ?string $devurl = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -151,6 +154,18 @@ class ExternalApp
     public function setImageFormat(?string $image_format): self
     {
         $this->image_format = $image_format;
+
+        return $this;
+    }
+
+    public function getDevurl(): ?string
+    {
+        return $this->devurl;
+    }
+
+    public function setDevurl(?string $devurl): self
+    {
+        $this->devurl = $devurl;
 
         return $this;
     }

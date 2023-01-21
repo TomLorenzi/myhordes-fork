@@ -70,6 +70,9 @@ class CitizenRankingProxy
     private $resetMarker;
     #[ORM\Column(type: 'integer')]
     private $disableFlag = self::DISABLE_NOTHING;
+
+    #[ORM\Column]
+    private ?int $generosityBonus = 0;
     public function getId(): ?int
     {
         return $this->id;
@@ -373,5 +376,17 @@ class CitizenRankingProxy
     }
     public function hasDisableFlag(int $disableFlag): bool {
         return ($this->getDisableFlag() & $disableFlag) === $disableFlag;
+    }
+
+    public function getGenerosityBonus(): int
+    {
+        return $this->generosityBonus ?? 0;
+    }
+
+    public function setGenerosityBonus(int $generosityBonus): self
+    {
+        $this->generosityBonus = max(0, $generosityBonus);
+
+        return $this;
     }
 }

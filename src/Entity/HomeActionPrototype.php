@@ -3,8 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\HomeActionPrototypeRepository')]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'home_action_prototype_unique', columns: ['name'])]
 class HomeActionPrototype
 {
     #[ORM\Id]

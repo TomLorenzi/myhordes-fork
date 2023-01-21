@@ -48,6 +48,17 @@
                                         <div class="cell padded-small rw-12"><span class="small">{{ 'Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...'|trans({}, 'login') }}</span></div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="cell padded-small rw-12">
+                                            <b><label for="tos"><input name="tos" id="tos" required type="checkbox" />
+                                                    {{ 'Ich habe die {privacyPolicy} und {tos} gelesen und stimme ihnen zu.'|trans({
+                                                        'privacyPolicy': '<a href="' ~ url('legal_doc_default', {document: 'privacy-policy'}) ~ '" target="_blank">' ~ 'Datenschutzerklärung'|trans({}, 'global') ~ '</a>',
+                                                        'tos': '<a href="' ~ url('legal_doc_default', {document: 'tos'}) ~ '" target="_blank">' ~ 'Nutzungsbedingungen'|trans({}, 'global') ~ '</a>'
+                                                    },'login')|raw }}
+                                            </label></b>
+                                        </div>
+                                    </div>
+
                                     <p class="justify">
                                         {% trans from 'login' %}
                                             Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
@@ -131,6 +142,7 @@
                     mail1: document.getElementById('mail1') ? document.getElementById('mail1').value : null,
                     mail2: document.getElementById('mail2') ? document.getElementById('mail2').value : null,
                     refer: document.getElementById('refer') ? document.getElementById('refer').value : null,
+                    tos: document.getElementById('tos') ? document.getElementById('tos').checked : null,
                 }, function() {
                     $.ajax.load(null, '{{ path('initial_landing') }}', true)
                 }, {

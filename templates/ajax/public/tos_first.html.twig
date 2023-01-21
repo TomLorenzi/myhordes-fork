@@ -1,0 +1,47 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
+            <h4>{% trans from 'login' %}Nutzungsbedingungen zustimmen{% endtrans %}</h4>
+            <p class="justify">
+                <b>{% trans with {'{name}': app.user.name} from 'login' %}Hallo {name}!{% endtrans %}</b><br />
+                {{ 'Damit du MyHordes weiter nutzen kannst, musst du unseren Nutzungsbedingungen zustimmen. Du findest die aktuellen Nutzungsbedingungen unter folgendem Link (öffnet in einem neuen Fenster):'|trans({},'login') }}<br />
+                <a href="{{ url('legal_doc_default', {document: 'tos'}) }}">{{ 'Nutzungsbedingungen'|trans({}, 'global') }}</a><br/><br />
+                {% if allow_grace %}
+                    <b>{{ 'Du musst nicht sofort zustimmen.'|trans({}, 'login') }}</b> {{ 'Klicke auf "Später zustimmen", um diesen Hinweis vorerst auszublenden. Bitte beachte jedoch, dass du diesen Hinweis nicht ewig ignorieren kannst.'|trans({}, 'login') }}
+                {% endif %}
+            </p>
+            <div class="row">
+                <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">
+                    <button id="tos_accept_btn">{% trans from 'login' %}Ich stimme den Nutzungsbedingungen zu!{% endtrans %}</button>
+                </div>
+            </div>
+            <p class="right small">
+                {% if allow_grace %}
+                    <a href="#" id="tos_defer_btn">{% trans from 'login' %}Später zustimmen{% endtrans %}</a><br />
+                {% endif %}
+                <a target="_self" href="{{ path('auto_logout') }}">{% trans from 'login' %}Ausloggen{% endtrans %}</a><br />
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $.html.addEventListenerAll('#tos_accept_btn', 'click', e => {
+            e.preventDefault();
+            $.ajax.easySend('{{ path('api_accept_tos') }}', {}, () => {
+                $.html.message('notice', '{{ 'Vielen Dank, dass du den Nutzungsbedingungen zugestimmt hast.'|trans({},'login') }}');
+                $.ajax.load(null, '{{ path('initial_landing') }}', true);
+            });
+        });
+
+        $.html.addEventListenerAll('#tos_defer_btn', 'click', e => {
+            e.preventDefault();
+            $.ajax.easySend('{{ path('api_defer_tos') }}', {}, () => {
+                $.html.message('notice', '{{ 'Du kannst den Nutzungsbedingungen jederzeit in deinen Seeleneinstellungen zustimmen. Wir werden dich weiterhin gelegentlich daran erinnern, dass du den Nutzungsbedingungen zustimmen musst.'|trans({},'login') }}');
+                $.ajax.load(null, '{{ path('initial_landing') }}', true);
+            });
+        });
+    </script>
+{% endblock %}

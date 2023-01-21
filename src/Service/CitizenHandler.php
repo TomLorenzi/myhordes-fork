@@ -562,6 +562,11 @@ class CitizenHandler
         if ($profession->getName() !== 'none')
             $this->entity_manager->persist( $this->log->citizenJoinProfession( $citizen ) );
 
+        if (!$prev?->getHeroic() && $profession->getHeroic())
+            foreach ($citizen->getSpecialActions() as $specialAction)
+                if ($specialAction->getProxyFor())
+                    $citizen->removeSpecialAction( $specialAction );
+
     }
 
     /**

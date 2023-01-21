@@ -1,0 +1,67 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Ranglisten der Saison'|trans({}, 'game')|raw}}{% endblock %}
+{% block menu_text %}
+    {{ parent() }}
+{% endblock %}
+{% block soul_content %}
+    {# @var \src\Entity\Season currentSeason #}
+    <div class="row">
+        <div class="cell rw-12 seasonHeader">
+            <span class="seasonName">
+                {% if currentSeason is not null and not virtualSeason %}
+                    {% if currentSeason.number > 0 %}
+                        {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
+                    {% endif %}
+                {% elseif not virtualSeason and soloType is not defined %}
+                    {{'Alte Städte'|trans({}, "soul")}}
+                {% elseif not virtualSeason and soloType is defined %}
+                    {{'Alte Seelen'|trans({}, "soul")}}
+                {% endif %}
+            </span>
+            <span class="seasonNumber">
+                {% if virtualSeason %}
+                    {{'ALLE SAISONS'|trans({}, "soul")}}
+                {% else %}
+                    {% if currentSeason is not null %}
+                        {% if currentSeason.number > 0 %}
+                            {% if currentSeason.subNumber > 0 %}
+                                {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                            {% else %}
+                                {% set curNumber = currentSeason.number %}
+                            {% endif %}
+                            {{ 'Saison {number}'|trans({"{number}": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
+                        {% else %}
+                            {{ '<span class="number">Beta</span> Saison'|trans({},'soul')|raw }}
+                        {% endif %}
+                    {% else %}
+                        {{ 'Saison {number}'|trans({"{number}": '<span class="number">' ~ 0 ~ '</span>'}, "soul")|raw}}
+                    {% endif %}
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+    <div class="row season-ranking">
+        <div class="cell rw-12">
+            {% apply spaceless %}
+            <ul class="type-list">
+                {% for type in townTypes %}
+                    <li x-ajax-sticky x-ajax-href="{{ path('soul_season', {'type': type.id, 'season': (currentSeason and not virtualSeason) ? currentSeason.id : (virtualSeason ? 'c' : 'a')}) }}" class="type {% if currentType and type.id == currentType.id %}selected{% endif %}" x-type-id="{{ type.id }}"><img src="{%if type.name == 'remote' %}{{ asset('build/images/pictos/r_surlst.gif') }}{% else %}{{ asset('build/images/towntypes/' ~ type.name ~ '.gif') }}{% endif %}" alt="" /> <span class="link soul_season_link">{{ type.label|trans({}, 'soul') }}</span></li>
+                {% endfor %}
+                <li x-ajax-sticky x-ajax-href="{{ path('soul_season_solo') }}" class="type {% if soloType is defined and soloType == 'soul' %}selected{% endif %}" x-type-id="soul"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" /> <span class="link soul_season_link">{{ 'Seelenpunkte'|trans({}, 'soul') }}</span></li>
+                <li x-ajax-sticky x-ajax-href="{{ path('soul_season_distinction_overview') }}" class="type {% if soloType is defined and soloType == 'distinctions' %}selected{% endif %}" x-type-id="soul"><img src="{{ asset('build/images/icons/small_hero.gif') }}" alt="" /> <span class="link soul_season_link">{{ 'Auszeichnungen'|trans({}, 'soul') }}</span></li>
+            </ul>
+            {% endapply %}
+        </div>
+
+        {% block ranking_content %}
+        {% endblock %}
+
+        {% block below_ranking_content %}
+        {% endblock %}
+    </div>
+
+    {% block pagination_content %}
+    {% endblock %}
+
+{% endblock %}

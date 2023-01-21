@@ -2363,3 +2363,20 @@ Stadt/Stadttor: Pueblo/Portal
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '¡{citizen} logro escapar la zona, aunque fue <strong>gravemente herido</strong>!'
 '{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} ha usado <strong>una habilidad especial</strong>, que ha matado a {zombies} zombis y ha recuperado así el control de la zona durante <strong>{duration}</strong>.'
 '<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Habitante</strong>,<br/>en reconocimiento a tus logros en la lucha contra los zombis y como recompensa por alcanzar el primer puesto en el ranking de los mejores pueblos en la <i>temporada {season}</i> del <i>{server}</i>, se te otorga lo siguiente: {pictos}Además, las siguientes herramientas estarán a tu disposición durante la nueva temporada:{features}<br/><strong>¡Enhorabuena!</strong>'
+'Brunnen (short)': Pozo
+'Bank (short)': Almacén
+'Bürger (short)': Habitantes
+'Konstruktionen (short)': Construcciones
+'Stadttor (short)': Puerta
+'Bitte wähle eine Heldentat:': 'Por favor, elija una acción heroica:'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'No tienes más acciones heroicas que donar...'
+'Du hast eine Heldentat erhalten!': '¡Has recibido una acción heroica!'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'En un instante de amplia generosidad, {citizen} te ha regalado una de sus acciones heroicas:'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': '¡{citizen} no es vago a tal punto que no pueda realizar esta acción heroica por sí mismo!'
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'Con el sudor de tu frente, has ganado las siguientes mejoras:'
+'Aufladungen für "Freundschaft"': 'Cargas de "Camaradería"'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Permite usar la acción heroica "Camaradería".'
+'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem eine deiner noch ungenutzten Heldentaten schenken! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentaten kannst du in dieser Stadt nicht mehr selbst verwenden. Um jemandem eine Heldentat zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'Puedes dar 1 Acciones heroicas a cualquier habitante. Espera convertirte en un verdadero mesías para muchas personas... NB: El Acción heroica será descontado de tus Acciones heroicas disponibles.'
+'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'Es <strong>imposible volver a realizar esta acción aquí</strong>. Hazlo en otro lugar, o inténtalo mañana.'
+'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Haga clic en el presupuesto para copiarlo en el portapapeles.'
+'{num} Aufladungen': '{num} Cargas'

@@ -491,7 +491,7 @@ Umfragen: crwdns73506:0crwdne73506:0
 'Du hast in dieser Stadt zusammen gespielt': 'crwdns73528:0crwdne73528:0'
 'Ich habe keine besondere Meinung zu dieser Frage.': 'crwdns73530:0crwdne73530:0'
 'Du kannst nur eine Antwort auswählen.': 'crwdns73532:0crwdne73532:0'
-'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen': 'crwdns106912:0crwdne106912:0'
+'Standartmäßig nur 10 Städte auf der Seelenseite anzeigen': 'crwdns136905:0crwdne136905:0'
 'Moderationslinks im selben Fenster öffnen': 'crwdns106914:0crwdne106914:0'
 'Benachrichrichtigung erhalten, wenn jemand mich als Freund hinzufügt': 'crwdns136124:0crwdne136124:0'
 'Benachrichrichtigung erhalten, wenn ich in einem Forenpost markiert werde': 'crwdns136122:0crwdne136122:0'
@@ -518,3 +518,11 @@ Events: crwdns136296:0crwdne136296:0
 'Auf dieser Seite findest du Statistiken über MyHordes, wie zum Beispiel die Zahl aktiver Spieler. Wir veröffentlichen diese Statistiken, um euch gegenüber die höchstmögliche Transparenz zu bieten.': 'crwdns136697:0crwdne136697:0'
 'Diese Statistiken werden nicht live berechnet, sondern in regelmäßigen Abständen (meist einmal pro Tag) aktualisiert.': 'crwdns136699:0crwdne136699:0'
 'Leider haben wir aktuell keine Daten, die wir hier anzeigen könnten... Bitte schau in Kürze erneut vorbei.': 'crwdns136701:0crwdne136701:0'
+Benachrichtigungen: crwdns136721:0crwdne136721:0
+Layout: crwdns136723:0crwdne136723:0
+'Orte in der Stadt platzsparend anordnen (mobil)': 'crwdns136725:0crwdne136725:0'
+'Verwendet ein alternatives Layout für die verschiedenen Orte in der Stadt (Baustelle, dein Haus, etc) auf mobilen Geräten. Auf Desktops, Laptops oder Tablets mit größerem Display hat diese Einstellung keinen Effekt.': 'crwdns136727:0crwdne136727:0'
+'Zurück zur Übersicht': 'crwdns136745:0crwdne136745:0'
+'Gesamtzahl geworbener Spieler': 'crwdns136749:0crwdne136749:0'
+'Reguläre Auszeichnungen': 'crwdns136757:0crwdne136757:0'
+'Besondere Auszeichnungen': 'crwdns136759:0crwdne136759:0'

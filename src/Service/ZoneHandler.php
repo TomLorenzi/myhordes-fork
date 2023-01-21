@@ -15,6 +15,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
@@ -156,9 +157,11 @@ class ZoneHandler
             $e = $this->random_generator->pick( $events );
             $event = $e->get(EventConf::EVENT_DIG_DESERT_GROUP, null);
             $event_chance = $e->get(EventConf::EVENT_DIG_DESERT_CHANCE, 1.0);
+            $event_cap = $e->get(EventConf::EVENT_DIG_DESERT_CHANCE_CAP, 0.9);
         } else {
             $event = null;
             $event_chance = 0.0;
+            $event_cap = 0.9;
         }
 
         if ($event && $event_chance > 0) $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
@@ -181,10 +184,10 @@ class ZoneHandler
                 if ($timer->getTimestamp() < $up_to) {
                     $factor = $this->getDigChanceFactor($timer->getCitizen(), $zone);
 
-                    $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 )), 0.9);
+                    $total_dig_chance = $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 );
 
-                    $found_item = $this->random_generator->chance($total_dig_chance);
-                    $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance) );
+                    $found_item = $this->random_generator->chance($total_dig_chance, 0.1, 0.9);
+                    $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance, 0.1, $event_cap ));
 
                     $cache = $timer->getDigCache() ?? [];
                     if ($found_item || $found_event_item) {
@@ -279,7 +282,8 @@ class ZoneHandler
                         $this->entity_manager->persist( $executable_timer->getZone()->getFloor() );
                     }
                 } else {
-                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, (new DateTime())->setTimestamp($time) ) );
+                    // Uncomment to have the dig message show up when the dig happened, not when the user logged back in
+                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype/*, (new DateTime())->setTimestamp($time) */) );
                 }
 
                 // Banished citizen's stash check
@@ -346,7 +350,7 @@ class ZoneHandler
 
     }
 
-    function getDigChanceFactor(Citizen $citizen, Zone $zone): float {
+    function getDigChanceFactor(Citizen $citizen, ?Zone $zone): float {
         $time = new DateTime();
         $factor = 1.0;
         if ($citizen->getProfession()->getName() === 'collec') $factor += 0.2; // based on 769 search made as scavenger
@@ -354,7 +358,7 @@ class ZoneHandler
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $factor -= 0.5; // based on 30 searchs made with eye injury
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $factor -= 0.2; // based on 51 search made while being drunk
 
-        if ($this->conf->getTownConfiguration( $citizen->getTown() )->isNightMode($time)) {
+        if ($zone && $this->conf->getTownConfiguration( $citizen->getTown() )->isNightMode($time)) {
 
             // If there are items that prevent night mode present, the night malus is set to 0
             $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.25 : 0.0; // based on 733 searchs made during night
@@ -500,7 +504,23 @@ class ZoneHandler
         return array_values($cache);
     }
 
-    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false, $map_upgrade = false): array {
+    public function getZoneDangerLevelNumber( Zone $zone, int $seed = 0, bool $map_upgrade = false ): int {
+
+        $modA = $seed % 2 != 0;
+        $modB = $seed < 0;
+
+        return match ($zone->getZombies()) {
+            0 => 0,
+            1 => 1,
+            2 => $modA ? 1 : 2,
+            3 => 2,
+            4, 5 => $modB ? 2 : 3,
+            6, 7, 8 => 3,
+            default => (!$map_upgrade) ? 3 : 4,
+        };
+    }
+
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false, $map_upgrade = false, int $seed = 0): array {
         $attributes = ['zone'];
 
         if ($zone->getX() == 0 && $zone->getY() == 0) {
@@ -528,23 +548,8 @@ class ZoneHandler
                 }
             }
         }
-        if (($zone->getDiscoveryStatus() === Zone::DiscoveryStateCurrent && $zone->getZombieStatus() >= Zone::ZombieStateEstimate) || $admin) {
-            if ($zone->getZombies() == 0) {
-                $attributes[] = 'danger-0';
-            }
-            else if ($zone->getZombies() <= 2) {
-                $attributes[] = 'danger-1';
-            }
-            else if ($zone->getZombies() <= 5) {
-                $attributes[] = 'danger-2';
-            }
-            elseif ($zone->getZombies() <= 8 || (!$map_upgrade && !$admin)) {
-                $attributes[] = 'danger-3';
-            }
-            else {
-                $attributes[] = 'danger-4';
-            }
-        }
+        if (($zone->getDiscoveryStatus() === Zone::DiscoveryStateCurrent && $zone->getZombieStatus() >= Zone::ZombieStateEstimate) || $admin)
+            $attributes[] = "danger-{$this->getZoneDangerLevelNumber($zone,$seed,$map_upgrade || $admin)}";
 
         if($soul)
             $attributes[] = "soul";

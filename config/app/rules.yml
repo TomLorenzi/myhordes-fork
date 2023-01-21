@@ -15,13 +15,13 @@ parameters:
       zone_items:
         min: 5
         max: 10
-        refresh_min: 1
-        refresh_max: 8
-        fill_max: 30
-        throttle_at: 12
+        refresh_min: 5
+        refresh_max: 5
+        fill_max: 10
+        throttle_at: 10
       ruin_items:
-        min: 10
-        max: 10
+        min: 8
+        max: 16
 
       ruins: 20
       explorable_ruins: 1
@@ -42,13 +42,13 @@ parameters:
         room_distance: 5
         room_spacing: 4
         lock_distance: 10
-        item_fillrate: 11
+        item_fillrate: 5
         max_distance: 10
         floors: 1
         plan_limits:
-          unusual: -1
-          rare: -1
-          epic: -1
+          unusual: 8
+          rare: 4
+          epic: 2
         zombies:
           initial: 10
           daily: 5
@@ -96,6 +96,14 @@ parameters:
           min: 6
           max: 15
 
+      estimation:
+        shift: 10
+        spread: 10
+        variance: 48
+        offset:
+          min: 15
+          max: 36
+
       modifiers:
         watchtower_estimation_threshold: 33
         watchtower_estimation_offset: 0
@@ -127,6 +135,7 @@ parameters:
         sandball_nastyness: 0.1
         massive_respawn_factor: 1
         ghoul_infection_begin: 5
+        ghoul_infection_next: 5
         daytime:
           range: [7,18]
           invert: false
@@ -134,6 +143,12 @@ parameters:
         home_recycling:
           ap: 15
           return: 5
+        generosity:
+          from_ghoul: 1
+          from_last_death_factor: 1
+        guard_tower:
+          per_use: 10
+          max_def: 150
 
       features:
         camping: true
@@ -246,8 +261,12 @@ parameters:
           map: 'hard'
         red_soul_max_factor: 666
         sandball_nastyness: 0.85
-        ghoul_infection_begin: 2
+        ghoul_infection_begin: 3
+        ghoul_infection_next: 3
         hide_home_upgrade: true
+        generosity:
+          from_ghoul: 1
+          from_last_death_factor: 2
 
       features:
         last_death:

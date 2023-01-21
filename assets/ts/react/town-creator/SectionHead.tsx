@@ -21,6 +21,7 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
 
     const appliedDefaults: {dot: string, default: any|string}[] = [
         { dot: 'head.townLang', default: globals.config.default_lang },
+        { dot: 'head.townNameLang', default: globals.config.default_lang },
         { dot: 'head.townType', default: type_default},
         { dot: 'head.townBase', default: -1},
     ];
@@ -89,7 +90,20 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
         <OptionSelect propTitle={head.lang}
                       value={globals.getOption( 'head.townLang' )} propName="townLang"
                       options={ head.langs.map( lang => ({ value: lang.code, title: lang.label }) ) }
+                      onChange={e => {
+                          const v =  (e.target as HTMLSelectElement).value;
+                          globals.setOption('head.townLang', v)
+                          globals.setOption('head.townNameLang', v);
+                      }}
         />
+
+        { /* Town Name Language */ }
+        { globals.getOption('head.townLang') === 'multi' && (
+            <OptionSelect propTitle={head.name_lang}
+                          value={globals.getOption( 'head.townNameLang' )} propName="townNameLang"
+                          options={ head.langs.map( lang => ({ value: lang.code, title: lang.label }) ) }
+            />
+        )}
 
         { /* Town Code */ }
         <OptionFreeText propTitle={head.code} propTip={head.code_help}

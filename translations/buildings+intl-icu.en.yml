@@ -71,7 +71,7 @@ Metzgerei: Butcher
 Verteidigungsanlage: Defensive Focus
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'Each defence object in the bank gives 2 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'Each defence object in the bank gives 2.5 defence points to the town.'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'TEach defence object in the bank gives 3 defence points to the town.'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'Each defence object in the bank gives 3 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'Each defence object in the bank gives 3.5 defence points to the town.'
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Each defence object in the bank gives 4 defence points to the town.'
 Steinkanone: Rock Cannon
@@ -377,3 +377,4 @@ Straßenbeleuchtung: Public lights
 'Die Stadt erhält nach dem nächsten Angriff einmalig 1 gewöhnliche Baupläne.': 'The Town will receive 1 common blueprints after the attack.'
 'Der Wasserwerfer gibt 70 zusätzliche Verteidigungspunkte.': 'Water Turrets gives an additional 70 defence points.'
 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.': 'The reduction in the chance of searches at night is canceled within a 2 km radius of town, 1 battery is consumed per day.'
+'Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Wächter unter den Helden glücklich. Dieses Bauwerk gibt pro Wächter in der Stadt +5 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.': 'Building a big, beautiful tower and walkway really makes Hero guardians happy. This construction gives +5 defence points per Guardian in town and allows them to earn even more defence points by exchanging them for AP.'

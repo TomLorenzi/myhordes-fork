@@ -142,7 +142,7 @@ class Zone
         return round(sqrt( pow($this->getX(),2) + pow($this->getY(),2) ));
     }
     public function getApDistance(): int {
-        return $this->getX() + $this->getY();
+        return abs($this->getX()) + abs($this->getY());
     }
     public function getZombies(): ?int
     {
@@ -362,7 +362,7 @@ class Zone
 
     public function getScoutLevel(): int
     {
-        return max(0,$this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count() - 1);
+        return max(0, floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count()/5));
     }
     public function getScoutEstimationOffset(): ?int
     {

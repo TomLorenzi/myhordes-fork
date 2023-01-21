@@ -75,6 +75,21 @@
                             {% endif %}
                         {% endif %}
                         <hr class="dashed" />
+                        {% if dead_citizen.generosityBonus > 0 and not dead_citizen.disabled and not dead_citizen.town.disabled %}
+                            <b>{{ 'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:'|trans({},'game')  }}</b>
+                            <ul>
+                                <li>
+                                    <div>
+                                        <img alt="" src="{{  asset('build/images/pictos/f_share.gif') }}" />
+                                    </div>
+                                    {{ 'Aufladungen für "Freundschaft"'|trans({}, 'game') }} <span class="count">× {{dead_citizen.generosityBonus}}</span>
+                                    <div class="tooltip">
+                                        {{ 'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.'|trans({},'game') }}
+                                    </div>
+                                </li>
+                            </ul>
+                            <hr class="dashed" />
+                        {% endif %}
                         {{ help_lnk('Die Auszeichnungen'|trans({}, 'help'), 'help', {'name': 'your_soul'}) }}
                     </div>
                 </div>

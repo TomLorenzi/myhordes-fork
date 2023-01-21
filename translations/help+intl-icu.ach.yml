@@ -346,7 +346,7 @@ Seelenrangliste: crwdns68866:0crwdne68866:0
 'Ausnahmen und Besonderheiten': 'crwdns68964:0crwdne68964:0'
 'Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.': 'crwdns68966:0crwdne68966:0'
 'Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.': 'crwdns68968:0crwdne68968:0'
-"Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support \t\nwenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.\nACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....": "crwdns68970:0crwdne68970:0"
+"Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support \t\nwenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.\nACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....": "crwdns136909:0crwdne136909:0"
 'Häufig gestellte Fragen': 'crwdns68972:0crwdne68972:0'
 'Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?': 'crwdns68974:0crwdne68974:0'
 '<strong>Nein,</strong> es werden nur eingeladene Spieler mitgenommen, die ihrerseits noch keine Stadt gewählt haben. Ob jemand off- oder online ist, spielt keine Rolle.': 'crwdns68976:0crwdne68976:0'
@@ -843,3 +843,19 @@ Gebäudeverbesserung: crwdns69948:0crwdne69948:0
 'Wichtig:': 'crwdns69958:0crwdne69958:0'
 'In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.': 'crwdns69960:0{time}crwdne69960:0'
 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.': 'crwdns69962:0{time0}crwdnd69962:0{time1}crwdne69962:0'
+'XML API': 'crwdns136855:0crwdne136855:0'
+'Aktuelle Dokumentation': 'crwdns136857:0crwdne136857:0'
+'JSON API': 'crwdns136859:0crwdne136859:0'
+Legacy-Dokumentation: crwdns136861:0crwdne136861:0
+'Diese Dokumentation wird nicht mehr aktualisiert und ist möglicherweise veraltet oder unvollständig.': 'crwdns136863:0crwdne136863:0'
+'Pro gefressenem Mitbürger gewinnst du <strong>1 Aufladung für "Freundschaft"</strong> (Du erhältst sie nach deinem Tod als Ghul).': 'crwdns136877:0crwdne136877:0'
+'Wenn der letzte Tote ein Held war, werden die gewonnenen Aufladungen für "Freundschaft" seinem Konto hinzugefügt.': 'crwdns136879:0crwdne136879:0'
+'Gewinntabelle für den Letzten Tod:': 'crwdns136881:0crwdne136881:0'
+'Im Laufe des 5. Tages (zwischen 00.00 und 23:59h) oder früher gestorben = kein Gewinn': 'crwdns136883:0crwdne136883:0'
+'In der Nacht vom 5. auf den 8. Tag gestorben = 1 Aufladung für "Freundschaft" + Auszeichnung': 'crwdns136885:0crwdne136885:0'
+'In der Nacht vom 8. auf den 10. Tag gestorben = 2 Aufladungen für "Freundschaft" + Auszeichnung': 'crwdns136887:0crwdne136887:0'
+'In der Nacht vom 10. auf den 15. Tag gestorben = 3 Aufladungen für "Freundschaft" + Auszeichnung': 'crwdns136889:0crwdne136889:0'
+'In der Nacht vom 15. auf den 20. Tag gestorben = 4 Aufladungen für "Freundschaft" + Auszeichnung': 'crwdns136891:0crwdne136891:0'
+'In der Nacht vom 20. auf den 21. Tag (oder später) gestorben = 5 Aufladungen für "Freundschaft" + Auszeichnung': 'crwdns136893:0crwdne136893:0'
+'Pandämonium-Städte gewähren 2x mehr Aufladungen für "Freundschaft".': 'crwdns136895:0crwdne136895:0'
+'Er kann auch Gegenstände für 2{img_bp} reparieren, wenn er nicht {img_tired} Erschöpft ist.': 'crwdns136899:0{img_bp}crwdnd136899:0{img_tired}crwdne136899:0'

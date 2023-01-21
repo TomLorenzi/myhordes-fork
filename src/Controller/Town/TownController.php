@@ -1983,6 +1983,8 @@ class TownController extends InventoryAwareController
     public function dashboard_report_wordofheroes_api(JSONRequestParser $parser, RateLimitingFactoryProvider $rateLimiter ): Response {
         $user = $this->getUser();
         $blackBoardEdit = $this->entity_manager->getRepository(BlackboardEdit::class)->find( $parser->get_int('bbe') );
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (!$blackBoardEdit || empty( $blackBoardEdit->getText() ) || $blackBoardEdit->getTown() !== $this->getActiveCitizen()->getTown())
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -2003,7 +2005,7 @@ class TownController extends InventoryAwareController
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
             ->setSourceUser($user)
-            ->setReason( $parser->get_int('reason', 0, 0, 13) )
+            ->setReason( $reason )
             ->setDetails( $details ?: null )
             ->setTs(new DateTime('now'))
             ->setBlackBoard( $blackBoardEdit );

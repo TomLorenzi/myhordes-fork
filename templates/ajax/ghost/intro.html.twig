@@ -26,7 +26,7 @@
                     <div class="tab tab-floater">
                         {% if canCreateTown %}
                             <div class="tab">
-                                <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('ghost_create_town_rc') }}"><img src="{{ asset('build/images/item/item_chair.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Privatstadt gründen{% endtrans %}</span></div>
+                                <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('ghost_create_town') }}"><img src="{{ asset('build/images/item/item_chair.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Privatstadt gründen{% endtrans %}</span></div>
                             </div>
                             <div class="tab selected">
                                 <div class="tab-link"><img src="{{ asset('build/images/icons/small_world.gif') }}" alt="" /><span class="hide-md hide-sm"> {% trans from 'ghost' %}Einer Stadt beitreten{% endtrans %}</span></div>
@@ -133,7 +133,7 @@
                                                             </span>
                                                         {% endif %}
                                                             {% if cdm_level != 2 %}
-                                                                <a {% if (joinable and ( joinable != 'maybe' or town|openFor(app.user) )) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled"{% endif %}>
+                                                                <a {% if town|openFor(app.user) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled"{% endif %}>
                                                                     <span class="link">{{ town.name }}</span>
                                                                     {% if town.language != 'multi' and town.language != app.user.language and joinable %}
                                                                             <img alt="!" src="{{ asset('build/images/icons/warning_anim.gif') }}" />

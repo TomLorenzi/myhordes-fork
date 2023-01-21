@@ -102,8 +102,18 @@ export const TownCreatorSectionAdvanced = () => {
 
     const advanced = globals.strings.advanced;
 
-    const job_set = new Set<string>(globals.getOption( 'rules.disabled_jobs' ) ?? []);
+    const shaman_setting = globals.getOption( 'rules.features.shaman' );
+
+    const job_set = new Set<string>(globals.getOption( 'rules.disabled_jobs' ) ?? (['role','none'].includes(globals.getOption( 'rules.features.shaman' )) ? ['shaman'] : []));
     const jobs_left = advanced.job_list.reduce( (i, {name}) => i + (job_set.has(name) ? 0 : 1), 0 )
+
+    let init = useRef(false);
+    useEffect(() => {
+        if (!init.current) {
+            init.current = true;
+            job_set.forEach( s => globals.setOption(`rules.disabled_jobs.<>.${s}`, true) )
+        }
+    })
 
     return <div>
         <h5>{ advanced.section }</h5>

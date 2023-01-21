@@ -2363,3 +2363,20 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': 'crwdns136655:0{citizen}crwdne136655:0'
 '{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': 'crwdns136657:0{citizen}crwdnd136657:0{zombies}crwdnd136657:0{duration}crwdne136657:0'
 '<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': 'crwdns136663:0{season}crwdnd136663:0{server}crwdnd136663:0{pictos}crwdnd136663:0{features}crwdne136663:0'
+'Brunnen (short)': crwdns136731:0crwdne136731:0
+'Bank (short)': crwdns136733:0crwdne136733:0
+'Bürger (short)': crwdns136735:0crwdne136735:0
+'Konstruktionen (short)': crwdns136737:0crwdne136737:0
+'Stadttor (short)': crwdns136739:0crwdne136739:0
+'Bitte wähle eine Heldentat:': 'crwdns136777:0crwdne136777:0'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'crwdns136779:0crwdne136779:0'
+'Du hast eine Heldentat erhalten!': 'crwdns136781:0crwdne136781:0'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'crwdns136783:0{citizen}crwdne136783:0'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': 'crwdns136785:0{citizen}crwdne136785:0'
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'crwdns136787:0crwdne136787:0'
+'Aufladungen für "Freundschaft"': 'crwdns136789:0crwdne136789:0'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'crwdns136791:0crwdne136791:0'
+'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem eine deiner noch ungenutzten Heldentaten schenken! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentaten kannst du in dieser Stadt nicht mehr selbst verwenden. Um jemandem eine Heldentat zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'crwdns136851:0crwdne136851:0'
+'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'crwdns136865:0crwdne136865:0'
+'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'crwdns136871:0crwdne136871:0'
+'{num} Aufladungen': 'crwdns136901:0{num}crwdne136901:0'

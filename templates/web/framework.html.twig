@@ -25,6 +25,7 @@
 
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('prime') }}
         {{ encore_entry_link_tags('fa') }}
 
         {% if app.user != null and app.user.language == "ach" %}
@@ -37,10 +38,11 @@
 
         <!-- Load JS -->
         {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('prime') }}
         {{ encore_entry_script_tags('fa', null, '_default', {'defer': true}) }}
 
         <!-- Set Favicon -->
-        <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
+        {{ include('build/favicons.html.twig') }}
 
         <!-- Set page title -->
         {% if block('title') is defined %}
@@ -151,6 +153,7 @@
                 <div>
                     <strong>{{ 'Rechtliche Informationen'|trans({}, 'global') }}</strong>
                     <div class="content">
+                        <a href="{{ url('legal_doc_default', {document: 'tos'}) }}">{{ 'Nutzungsbedingungen'|trans({}, 'global') }}</a><br/>
                         <a href="{{ url('legal_doc_default', {document: 'privacy-policy'}) }}">{{ 'Datenschutzerklärung'|trans({}, 'global') }}</a><br/>
                         <a href="{{ url('legal_doc_default', {document: 'imprint'}) }}">{{ 'Impressum'|trans({}, 'global') }}</a>
                     </div>

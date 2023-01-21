@@ -1,0 +1,54 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+    <div class="row">
+        <div class="cell rw-12">
+            {% embed "ajax/admin/users/listing_tabs.html.twig" %}{% endembed %}
+            <h5>{{'Registrierungstoken verteilen'|trans({}, "admin")}}</h5>
+
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <div class="small"><label for="message">{{ 'Nachrichtentext'|trans({},'admin') }}</label></div>
+                    <textarea name="message" id="message"></textarea>
+                    <div class="small">
+                        <p><code>{{ 'Variables: %%username%%, %%token%%, %%1%%, %%2%%, ...' }}</code></p>
+                    </div>
+                </div>
+                <div class="padded cell rw-12">
+                    <div class="small"><label for="csv">{{ 'CSV'|trans({},'admin') }}</label></div>
+                    <textarea name="csv" id="csv"></textarea>
+                    <div class="small">
+                        <p><code>{{ 'username:id (optional);token;...' }}</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="padded cell ro-11 rw-1 right">
+                    <button id="send">{{ 'Senden'|trans({},'admin') }}</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_granted("ROLE_ADMIN") %}
+        $.html.addEventListenerAll('button#send', 'click', function(){
+            $.ajax.easySend("{{ path("admin_users_distributetokens") }}", {
+                'message': document.getElementById('message').value,
+                'csv': document.getElementById('csv').value
+            }, function (ret) {
+                const d = ret.info;
+                if (d.success > 0 && d.error <= 0)
+                    $.html.notice( '{{ 'Es wurden {success} Nachrichten verschickt.'|trans({},'admin') }}'.replace('{success}', d.success) );
+                else if (d.success > 0 && d.error > 0)
+                    $.html.notice( '{{ 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.'|trans({},'admin') }}'.replace('{success}', d.success).replace('{error}', d.error) );
+                document.getElementById('csv').value = d.missmatch.join("\n");
+            })
+        })
+        {% endif %}
+    </script>
+{% endblock %}

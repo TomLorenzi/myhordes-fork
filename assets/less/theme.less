@@ -207,7 +207,7 @@ x-message {
       text-align: left; padding: 3px;
     }
 
-    &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger {
+    &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger, &.popup-general {
 
       background: #79393a;
       &>div#modal-content {
@@ -479,15 +479,10 @@ x-message {
       font-size: 8pt;
       line-height: 10pt;
       width: 110px;
-      height: 14px;
-      background-color: #5c2b20;
-      outline: 1px solid black;
-      border: 1px solid #f0d79e;
       z-index: 998;
 
       & h1 {
-        margin: 0px;
-        height: 12px;
+        margin: 0;
         padding: 0 0 0 5px;
         font-size: 7pt;
         line-height: 8pt;
@@ -496,6 +491,8 @@ x-message {
         background-color: #5c2b20;
         color: #f0d79e;
         cursor: pointer;
+        outline: 1px solid black;
+        border: 1px solid #f0d79e;
       }
 
       & #scrollMenu {
@@ -949,11 +946,12 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       span.highlight { padding-left: 3px; padding-right: 3px; white-space: nowrap; background-color: rgba(255,255,255,0.2);
         img { vertical-align: middle; margin-right: 3px; }
       }
-      &>span:first-child { display: block; background: #696486; padding: 0 3px; }
+      &>span:first-child, &>span.header { display: block; background: #696486; padding: 0 3px; }
       &>ul {
         margin: 0; padding: 0; font-size: 0; max-height: 300px; overflow-y: auto;
         &>li {
-          &.line { display: flex; align-items: center; &>*:first-child { flex-grow: 1 } }
+          &.line:not(.line-check) { display: flex; align-items: center; &>*:first-child { flex-grow: 1 } }
+          &.line.line-check { font-size: 1.2rem; display: flex; align-items: center; &>*:last-child { flex-grow: 1 } }
           &:not(.line) { cursor: pointer; }
           &:not(.line):not(.expanded) { display: inline-block;}
           &>div:not(.tooltip) { font-size: 1.2rem; display: inline-block }
@@ -1341,6 +1339,9 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   &>.text {
     color: #b37c4a; font-weight: bold; font-variant: small-caps;
   }
+  &>label>img {
+    width: 100%;
+  }
   &.selected {
     border:1px solid #f0d79e;
     color: white;
@@ -1432,6 +1433,10 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     }
   }
   &.plain .tab { float: left; }
+}
+
+.tab-floater.tab-floater-nobreak {
+  display: flex; max-width: 100%;
 }
 
 span.icon {
@@ -1730,6 +1735,7 @@ div.item-tag {
   &.item-tag-essential:after { background: url("../img/item/cat_job.gif") center/contain no-repeat }
   &.item-tag-weapon:after { background: url("../img/item/cat_weapon.gif") center/contain no-repeat }
   &.item-tag-heavy:after { background: url("../img/item/cat_heavy.gif") center/contain no-repeat }
+  &.item-tag-use-1:after { background: url("../img/icons/small_once.gif") center/contain no-repeat }
 
   &.item-tag-item-id:after { background: url("../img/icons/small_dev.png") center/contain no-repeat }
   &.item-tag-poison-deadly:after { background: url("../img/icons/death.gif") center/contain no-repeat }

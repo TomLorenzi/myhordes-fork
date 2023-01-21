@@ -29,11 +29,12 @@ parameters:
       trigger:
         type: datetime
         begin: 12-23 00:00
-        end: 12-28 00:00
+        end: 12-29 00:00
       conf:
         name: 'Weihnachten'
         priority: 101
         css: 'christmas'
+        mutate_names: 'christmas'
         event_dig:
           desert:
             group: 'christmas_dig'

@@ -129,6 +129,7 @@ class DebugCommand extends LanguageCommand
 
             ->addOption('test-estim', null, InputOption::VALUE_REQUIRED, 'Takes all the citizens in the town and make them go into the watchtower', false)
             ->addOption('keep-estims', null, InputOption::VALUE_NONE, 'If set, leaves the estimations in the DB')
+            ->addOption('estim-day', null, InputOption::VALUE_REQUIRED, 'Specific day for estimations.', 0)
         ;
         parent::configure();
     }
@@ -142,12 +143,13 @@ class DebugCommand extends LanguageCommand
                 $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 if (!isset($crow)) {
                     $command = $this->getApplication()->find('app:user:create');
+
                     for ($i = 1; $i <= 80; $i++) {
                         $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
                         $nested_input = new ArrayInput([
                             'name' => $user_name,
                             'email' => $user_name . '@localhost',
-                            'password' => $user_name,
+                            'password' => $this->randomizer->string( 32 ),
                             '--validated' => true,
                         ]);
                         $command->run($nested_input, $output);
@@ -189,7 +191,7 @@ class DebugCommand extends LanguageCommand
                         $nested_input = new ArrayInput([
                                                            'name' => $user_name,
                                                            'email' => $user_name . '@localhost',
-                                                           'password' => $user_name,
+                                                           'password' => $this->randomizer->string( 32 ),
                                                            '--validated' => true,
                                                        ]);
                         $command->run($nested_input, $output);
@@ -227,7 +229,7 @@ class DebugCommand extends LanguageCommand
                 $nested_input = new ArrayInput([
                     'name' => $user_name,
                     'email' => $user_name . '@localhost',
-                    'password' => $user_name,
+                    'password' => $this->randomizer->string( 32 ),
                     '--validated' => true,
                 ]);
                 $command->run($nested_input, $output);
@@ -583,30 +585,34 @@ class DebugCommand extends LanguageCommand
             }
 
             $citizens = $town->getCitizens();
+            $day = (int)$input->getOption('estim-day') ?: $town->getDay();
 
-            $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
+            $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $day]);
             if (!$est){
                 $output->writeln("<error>There's no estimation for the current town's day !</error>");
                 return 1;
             }
 
+            $est->getCitizens()->clear();
+            $this->entity_manager->persist($est);
+            $this->entity_manager->flush();
+
             $soulFactor = min(1 + (0.04 * $this->townHandler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
-            $output->writeln("Attack for day {$town->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
+            $output->writeln("Attack for day {$est->getDay()} : <info>{$est->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est->getZombies() * $soulFactor) . "</info>");
 
             $table = new Table( $output );
-            $table->setHeaders( ['Precision', 'MinOld1', 'MaxOld1', 'MinNew2', 'MaxNew2'] );
+            $table->setHeaders( ['Precision', 'Min', 'Max', 'Off Min', 'Off Max'] );
 
-            $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
-            $new_way = $this->townHandler->get_zombie_estimation($town, null, true);
-            $estim = round($old_way[0]->getEstimation() * 100);
+            $new_way = $this->townHandler->get_zombie_estimation($town, $day, 0);
+            $estim = round($new_way[0]->getEstimation() * 100);
 
             $table->addRow([
                 $estim,
-                $old_way[0]->getMin(),
-                $old_way[0]->getMax(),
                 $new_way[0]->getMin(),
-                $new_way[0]->getMax()
+                $new_way[0]->getMax(),
+                round( 100 * $new_way[0]->getMin() / $est->getZombies() ),
+                round( 100 * $new_way[0]->getMax() / $est->getZombies() ),
             ]);
 
             foreach ($citizens as $citizen) {
@@ -622,27 +628,30 @@ class DebugCommand extends LanguageCommand
                     return 3;
                 }
 
-                $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
-                $new_way = $this->townHandler->get_zombie_estimation($town, null, true);
-                $estim = round($old_way[0]->getEstimation() * 100);
+                $new_way = $this->townHandler->get_zombie_estimation($town, $day, 0);
+                $estim = round($new_way[0]->getEstimation() * 100);
 
                 $table->addRow([
                     $estim,
-                    $old_way[0]->getMin(),
-                    $old_way[0]->getMax(),
                     $new_way[0]->getMin(),
-                    $new_way[0]->getMax()
+                    $new_way[0]->getMax(),
+                    round( 100 * $new_way[0]->getMin() / $est->getZombies() ),
+                    round( 100 * $new_way[0]->getMax() / $est->getZombies() ),
                 ]);
-                if($old_way[0]->getEstimation() >= 1) break;
+                if($new_way[0]->getEstimation() >= 1) break;
             }
 
             $table->render();
 
-            $est2 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + 1);
+            $est2 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $day + 1);
             $output->writeln("Attack for day {$est2->getDay()} : <info>{$est2->getZombies()}</info>, soul factor is <info>$soulFactor</info>, real attack will be <info>" . ($est2->getZombies() * $soulFactor) . "</info>");
 
+            $est2->getCitizens()->clear();
+            $this->entity_manager->persist($est2);
+            $this->entity_manager->flush();
+
             $table = new Table( $output );
-            $table->setHeaders( ['Précision', 'Min1', 'Max1', 'Min2', 'Max2'] );
+            $table->setHeaders( ['Precision', 'Min', 'Max', 'Off Min', 'Off Max'] );
 
             if(!empty($this->townHandler->getBuilding($town, 'item_tagger_#02'))) {
                 foreach ($citizens as $citizen) {
@@ -657,26 +666,28 @@ class DebugCommand extends LanguageCommand
                         return 3;
                     }
 
-                    $old_way = $this->townHandler->get_zombie_estimation($town, null, false);
-                    $new_way = $this->townHandler->get_zombie_estimation($town, null, true);
-                    $estim = round($old_way[1]->getEstimation() * 100);
+                    $new_way = $this->townHandler->get_zombie_estimation($town, $day + 1, 0);
+                    $estim = round($new_way[1]->getEstimation() * 100);
 
                     $table->addRow([
                         $estim,
-                        $old_way[1]->getMin(),
-                        $old_way[1]->getMax(),
                         $new_way[1]->getMin(),
-                        $new_way[1]->getMax()
+                        $new_way[1]->getMax(),
+                        round( 100 * $new_way[1]->getMin() / $est2->getZombies() ),
+                        round( 100 * $new_way[1]->getMax() / $est2->getZombies() ),
                     ]);
-                    if($old_way[1]->getEstimation() >= 1) break;
+                    if($new_way[1]->getEstimation() >= 1) break;
                 }
             }
 
             $table->render();
-            if(!$input->getOption('keep-estims'))
+            if(!$input->getOption('keep-estims')) {
                 $est->getCitizens()->clear();
+                $est2?->getCitizens()?->clear();
+            }
 
             $this->entity_manager->persist($est);
+            if ($est2) $this->entity_manager->persist($est2);
             $this->entity_manager->flush();
         }
 

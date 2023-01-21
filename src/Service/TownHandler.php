@@ -498,7 +498,7 @@ class TownHandler
             else                                 $summary->overall_scale += 0.10;
         }
 
-        $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 15 : 5;
+        $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 10 : 5;
 
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive()) {
@@ -576,7 +576,7 @@ class TownHandler
         return $total_def;
     }
 
-    public function get_zombie_estimation(Town &$town, int $day = null, bool $new_formula = true): array {
+    public function get_zombie_estimation(Town &$town, int $day = null, $watchtower_offset = null): array {
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $day ?? $town->getDay());
         /** @var ZombieEstimation $est */
         if (!$est) return [];
@@ -591,11 +591,11 @@ class TownHandler
 
         $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
         mt_srand($est->getSeed() ?? $town->getDay() + $town->getId());
-        $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
-        $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $new_formula);
+        $cc_offset = $watchtower_offset ?? $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
+        $this->calculate_offsets($offsetMin, $offsetMax, $est->getCitizens()->count() * $ratio + $cc_offset, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ESTIM_SPREAD, 10) - $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ESTIM_INITIAL_SHIFT, 0));
 
-        $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
-        $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
+        $min = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
+        $max = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
 
         $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
@@ -631,7 +631,7 @@ class TownHandler
             $offsetMin = $est->getOffsetMin();
             $offsetMax = $est->getOffsetMax();
 
-            $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil, $new_formula);
+            $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil,  $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ESTIM_SPREAD, 10));
 
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -670,13 +670,13 @@ class TownHandler
         return $result;
     }
 
-    public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $new_formula){
+    public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $min_spread = 10){
         for ($i = 0; $i < min($nbRound, 24); $i++) {
-            if ($offsetMin + $offsetMax > 10) {
+            if ($offsetMin + $offsetMax > $min_spread) {
                 $increase_min = $this->random->chance($offsetMin / ($offsetMin + $offsetMax));
-                $alter = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                $alter = mt_rand(500, 2000) / 1000.0;
                 if ($this->random->chance(0.25)){
-                    $alterMax = $new_formula ? mt_rand(500, 2000) / 1000.0 : 1;
+                    $alterMax = mt_rand(500, 2000) / 1000.0;
                     if($offsetMin > 3)
                         $offsetMin -= $alter;
                     if($offsetMax > 3)
@@ -716,8 +716,15 @@ class TownHandler
                 $value = mt_rand($min,$max);
                 if ($value > ($min + 0.5 * ($max-$min))) $value = mt_rand($min,$max);
 
-                $off_min = mt_rand( 15, 36 );
-                $off_max = 48 - $off_min;
+                $off_min = mt_rand(
+                    $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_OFFSET_MIN, 15) - $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_INITIAL_SHIFT, 0),
+                    $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_OFFSET_MAX, 36) - $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_INITIAL_SHIFT, 0)
+                );
+
+                $off_max = $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_VARIANCE, 48) - (2*$this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_INITIAL_SHIFT, 0)) - $off_min;
+
+                $shift_min = mt_rand(0, $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_INITIAL_SHIFT, 0) * 100) / 10000;
+                $shift_max = ($this->conf->getTownConfiguration( $town )->get(TownConf::CONF_ESTIM_INITIAL_SHIFT, 0) / 100) - $shift_min;
 
                 $town->addZombieEstimation(
                     (new ZombieEstimation())
@@ -725,6 +732,8 @@ class TownHandler
                         ->setZombies( $value )
                         ->setOffsetMin( $off_min )
                         ->setOffsetMax( $off_max )
+                        ->setTargetMin( round($value - ($value * $shift_min)) )
+                        ->setTargetMax( round($value + ($value * $shift_max)) )
                 );
             }
     }

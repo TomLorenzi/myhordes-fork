@@ -452,6 +452,9 @@ class MessageTownMessageController extends MessageController
         $id = $parser->get('pmid', null);
         if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $reason = $parser->get_int('reason', 0, 0, 13);
+        if ($reason === 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         /** @var Citizen $citizen */
         if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 

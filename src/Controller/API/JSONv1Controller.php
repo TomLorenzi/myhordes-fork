@@ -101,6 +101,9 @@ class JSONv1Controller extends CoreController {
                 $data = $this->getPrototypesAPI($type);
                 break;
             case 'debug':
+                if ($this->user->getRightsElevation() <= User::USER_LEVEL_ADMIN) {
+                    break;
+                }
                 $data = $this->getDebugdata();
                 break;
             case "user":
@@ -1486,7 +1489,7 @@ class JSONv1Controller extends CoreController {
                     }
                     break;
                 case "rewards":
-                    $user_data[$field] = $this->getRewardsData();
+                    $user_data[$field] = $this->getRewardsData($user);
                     break;
             }
             if ($current_citizen) {
@@ -1567,7 +1570,7 @@ class JSONv1Controller extends CoreController {
                             $user_data[$fieldName] = $this->getPlayedMapData($user, $fieldValues['fields']);
                             break;
                         case "rewards":
-                            $user_data[$fieldName] = $this->getRewardsData($fieldValues['fields']);
+                            $user_data[$fieldName] = $this->getRewardsData($user, $fieldValues['fields']);
                             break;
                     }
                 }
@@ -1577,14 +1580,15 @@ class JSONv1Controller extends CoreController {
         return $user_data;
     }
 
-    private function getRewardsData(array $fields = []): array {
+    private function getRewardsData(User $user = null, array $fields = []): array {
         $data = [];
 
         if(empty($fields)) {
             $fields = ['id', 'rare', 'number', 'img', 'name', 'desc', 'titles'];
         }
+		if ($user === null) $user = $this->user;
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->user);
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
         foreach ($pictos as $picto) {
             $picto_data = [];
             foreach ($fields as $field) {
@@ -1784,7 +1788,7 @@ class JSONv1Controller extends CoreController {
                         $data[$field] = $citizen->getUser()->getEternalID();
                         break;
                     case "mapId":
-                        $data[$field] = $citizen->getTown()->getId();
+                        $data[$field] = $citizen->getTown()->getBaseID() !== null ? $citizen->getTown()->getBaseID() : $citizen->getTown()->getId();
                         break;
                     case "survival":
                         $data[$field] = $citizen->getDay();

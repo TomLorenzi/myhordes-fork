@@ -50,6 +50,8 @@ class LandingController extends CustomAbstractController
             return $this->redirect($this->generateUrl('public_welcome'));
         elseif (!$user->getValidated())
             return $this->redirect($this->generateUrl('public_validate'));
+        elseif ($user->tosBlocked())
+            return $this->redirect($this->generateUrl('public_accept_tos'));
         elseif ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl('soul_death'));
         else {

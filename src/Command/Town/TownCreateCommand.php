@@ -12,6 +12,7 @@ use App\Service\GameValidator;
 use App\Service\Locksmith;
 use App\Service\TownHandler;
 use App\Structures\EventConf;
+use App\Structures\TownSetup;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -84,7 +85,9 @@ class TownCreateCommand extends Command
         );
 
         $output->writeln("<info>Creating a new '$town_type' town " . ($town_name === null ? '' : "called '$town_name' ") . " (" . $town_lang . ") with $town_citizens unlucky inhabitants.</info>");
-        $town = $this->gameFactory->createTown($town_name, $town_lang, $town_citizens, $town_type, [], -1, $name_changers[0] ?? null);
+        $town = $this->gameFactory->createTown(
+            new TownSetup($town_type, name: $town_name, language: $town_lang, population: $town_citizens, nameMutator: $name_changers[0] ?? null)
+        );
 
         if ($town === null) {
             $output->writeln('<error>Town creation service terminated with an error. Please check if the town parameters are valid.</error>');

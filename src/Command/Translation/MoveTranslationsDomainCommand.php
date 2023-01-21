@@ -29,8 +29,6 @@ use Symfony\Component\Translation\MessageCatalogueInterface;
 )]
 class MoveTranslationsDomainCommand extends Command
 {
-    protected static $defaultName = 'app:translation:move-domain';
-
     private ConfMaster $confMaster;
 
     private ContainerInterface $container;

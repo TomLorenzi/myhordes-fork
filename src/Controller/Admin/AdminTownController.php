@@ -62,6 +62,7 @@ use App\Structures\BankItem;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -387,7 +388,8 @@ class AdminTownController extends AdminActionController
                 $zone,
                 null,
                 in_array($zone->getId(), $soul_zones_ids),
-                true
+                true,
+                seed: -1
             );
         }
 
@@ -452,7 +454,7 @@ class AdminTownController extends AdminActionController
 
         if (in_array($action, [
                 'release', 'quarantine', 'advance', 'nullify', 'pw_change',
-                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name',
+                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf', 'dice_name', 'set_name',
                 'dbg_fill_town', 'dbg_fill_bank', 'dgb_empty_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
                 'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas', 'dbg_enable_stranger', 'dropall',
@@ -507,16 +509,19 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist((new BlackboardEdit())->setText("")->setTime(new \DateTime())->setTown($town)->setUser($this->getUser()));
                 $this->entity_manager->persist($town);
                 break;
-            case 'dice_name':
+            case 'set_name': case 'dice_name':
                 $old_name = $town->getName();
-                $new_name = $gameFactory->createTownName( $town->getLanguage(), $schema );
+                $schema = null;
+                $new_name = $action === 'dice_name'
+                    ? $gameFactory->createTownName( $town->getLanguage(), $schema )
+                    : trim($param ?? '');
+                if (empty($new_name)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
                 $town->setName( $new_name )->setNameSchema( $schema );
                 $town->getRankingEntry()->setName( $new_name );
                 $this->entity_manager->persist($town);
                 $this->entity_manager->persist($town->getRankingEntry());
                 foreach ($town->getCitizens() as $citizen)
                     $this->entity_manager->persist($this->crow_service->createPM_moderation( $citizen->getUser(), CrowService::ModerationActionDomainRanking, CrowService::ModerationActionTargetGameName, CrowService::ModerationActionEdit, $town, $old_name ));
-
                 break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
@@ -910,7 +915,7 @@ class AdminTownController extends AdminActionController
             array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
         );
 
-        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type, [], -1, $name_changers[0] ?? null);
+        $town = $gameFactory->createTown( new TownSetup( $town_type, name: $town_name, language: $town_lang, nameMutator: $name_changers[0] ?? null ));
         if (!$town) {
             $this->logger->invoke("Town creation failed!");
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);

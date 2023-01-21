@@ -130,7 +130,7 @@ class MapMaker
 
                 $zone_list[$i+$o]
                     ->setPrototype( $target_ruin )
-                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 10), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 10) ) );
+                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 8), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 16) ) );
 
                 if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
                     $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
@@ -259,7 +259,7 @@ class MapMaker
 
         $town->getMapSize($map_x,$map_y);
 
-        $fun_cycle = function(bool $observe_despair = false) use (&$zone_db,$despair_db): int {
+        $fun_cycle = function(bool $observe_despair = false, $diagonal_spawn = true) use (&$zone_db,$despair_db): int {
             $cycle_result = 0;
             $zone_original_db = $zone_db;
             foreach ($zone_db as $x => &$zone_row)
@@ -269,11 +269,11 @@ class MapMaker
 
                     $before = $current_zone_zombies;
 
-                    // We're iterating over the 4 directly adjacent zones
+                    // We're iterating over the adjacent zones
                     $adj_zones_total = $adj_zones_infected = $neighboring_zombies = $max_neighboring_zombies = 0;
                     for ($dx = -1; $dx <= 1; $dx++)
                         if (isset($zone_original_db[$x + $dx]))
-                            for ($dy = -1; $dy <= 1; $dy++) if (abs($dx) !== abs($dy)) {
+                            for ($dy = -1; $dy <= 1; $dy++) if (($dx !== 0 || $dy !== 0) && ( $diagonal_spawn || abs($dx) !== abs($dy) )) {
                                 if (isset($zone_original_db[$x + $dx][$y + $dy])) {
                                     // If the zone exist, increase number of neighboring zones
                                     $adj_zones_total++;
@@ -289,18 +289,21 @@ class MapMaker
                             }
 
                     if ($current_zone_zombies > 0) {
-                        $avg_dif = max(0, floor($neighboring_zombies / $adj_zones_total) - $current_zone_zombies) + 2;
+                        $avg_dif = min(max(0, floor($neighboring_zombies / $adj_zones_total) - $current_zone_zombies) + 2, 2);
 
                         // If the zone already has zombies, increase count by 0 - 2
                         // We're using -1 instead of 0 to increase the bias towards 0
-                        $current_zone_zombies += max(0, mt_rand(-1, $avg_dif));
+                        $new_zeds = max(0, mt_rand(-1, $avg_dif));
+                        if ($new_zeds >= 2) $new_zeds = mt_rand(1, $avg_dif);
+
+                        $current_zone_zombies += $new_zeds;
                     } else {
                         // Otherwise, count the total number of adjacent zones with zombies
 
                         // If we have infected neighboring zones
                         if ($adj_zones_infected > 0) {
                             // Number of zones with zombies, balanced by total number of neighboring zones
-                            $target_number = (int)round($adj_zones_infected * (4.0 / $adj_zones_total));
+                            $target_number = (int)round($adj_zones_infected * (($diagonal_spawn ? 8.0 : 4.0) / $adj_zones_total));
 
                             // Depending on the number of neighboring zombies, we create a bias towards not spawning
                             // any new zombies. More neighboring zombies = less bias.
@@ -319,6 +322,9 @@ class MapMaker
                             // This created a bias towards spawning the same number of zombies as there are infected zones
                             if ($new_zeds > 0 && $new_zeds !== $target_number)
                                 $new_zeds = mt_rand(-$bias, 4);
+
+                            // Limit to 1-2, bias towards 1 if using diagonal spread
+                            if ($new_zeds > 0 && $diagonal_spawn) $new_zeds = max(1, min(2, mt_rand( -2, 3 )));
 
                             // Clamp the result to a 0 - 4 range.
                             $current_zone_zombies += max(0, min(4, $new_zeds));
@@ -367,7 +373,7 @@ class MapMaker
 
 
         for ($c = 0; $c < $cycles; $c++)
-            $fun_cycle($c == 0);
+            $fun_cycle($c == 0, $d >= 2);
 
         foreach ($town->getZones() as &$zone) {
             if ($zone->getX() === 0 && $zone->getY() === 0) continue;

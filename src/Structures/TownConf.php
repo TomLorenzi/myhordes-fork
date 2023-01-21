@@ -49,6 +49,12 @@ class TownConf extends Conf
     const CONF_MAP_BURIED_DIGS_MIN  = 'map_params.buried_ruins.digs.min';
     const CONF_MAP_BURIED_DIGS_MAX  = 'map_params.buried_ruins.digs.max';
 
+    const CONF_ESTIM_INITIAL_SHIFT  = 'estimation.shift';
+    const CONF_ESTIM_SPREAD         = 'estimation.spread';
+    const CONF_ESTIM_VARIANCE       = 'estimation.variance';
+    const CONF_ESTIM_OFFSET_MIN     = 'estimation.offset.min';
+    const CONF_ESTIM_OFFSET_MAX     = 'estimation.offset.max';
+
     const CONF_EXPLORABLES_COMPLEXITY   = 'explorable_ruin_params.complexity';
     const CONF_EXPLORABLES_CONVOLUTION  = 'explorable_ruin_params.convolution';
     const CONF_EXPLORABLES_CRUELTY      = 'explorable_ruin_params.cruelty';
@@ -102,11 +108,16 @@ class TownConf extends Conf
     const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
     const CONF_MODIFIER_RESPAWN_FACTOR       = 'modifiers.massive_respawn_factor';
     const CONF_MODIFIER_AUTOGHOUL_FROM       = 'modifiers.ghoul_infection_begin';
+    const CONF_MODIFIER_AUTOGHOUL_NEXT       = 'modifiers.ghoul_infection_next';
     const CONF_MODIFIER_DAYTIME_RANGE        = 'modifiers.daytime.range';
     const CONF_MODIFIER_DAYTIME_INVERT       = 'modifiers.daytime.invert';
     const CONF_MODIFIER_HIDE_HOME_UPGRADE    = 'modifiers.hide_home_upgrade';
     const CONF_MODIFIER_RECYCLING_AP         = 'modifiers.home_recycling.ap';
     const CONF_MODIFIER_RECYCLING_RETURN     = 'modifiers.home_recycling.return';
+    const CONF_MODIFIER_GENEROSITY_GHOUL     = 'modifiers.generosity.from_ghoul';
+    const CONF_MODIFIER_GENEROSITY_LAST     = 'modifiers.generosity.from_last_death_factor';
+    const CONF_MODIFIER_GUARDTOWER_MAX     = 'modifiers.guard_tower.max_def';
+    const CONF_MODIFIER_GUARDTOWER_UNIT    = 'modifiers.guard_tower.per_use';
 
 
     const CONF_FEATURE_CAMPING         = 'features.camping';

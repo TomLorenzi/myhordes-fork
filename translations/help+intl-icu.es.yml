@@ -346,7 +346,7 @@ Seelenrangliste: La escala de almas (Clasificación)
 'Ausnahmen und Besonderheiten': 'Reglas particulares'
 'Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.': 'No puedes unirte a una alianza que tenga como miembro a un jugador detectado como multicuenta.'
 'Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.': 'Además, no pudes ingresar a una alianza si 2 miembros (o más) de esa alianza se han conectado desde el mismo PC, en los últimos 15 días.'
-"Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support \t\nwenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.\nACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....": "Si crees que esto ha sido detectado erróneamente, contacta al soporte técnico: haremos lo necesario para ayudarte. ADVERTENCIA: te recomendamos encarecidamente que no los contactes si es que estás equivocado, ya que podrías llegar a arrepentirte."
+"Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support \t\nwenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.\nACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....": "Si crees que esto ha sido detectado erróneamente, contacta al soporte técnico: haremos lo necesario para ayudarte.<br />ADVERTENCIA: te recomendamos encarecidamente que no los contactes si es que estás equivocado, ya que podrías llegar a arrepentirte."
 'Häufig gestellte Fragen': 'Preguntas y respuestas'
 'Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?': 'Cuando el jugador que ha creado la alianza entra al pueblo, ¿TODA la alianza entra con él (incluso aquellos que no están conectados)?'
 '<strong>Nein,</strong> es werden nur eingeladene Spieler mitgenommen, die ihrerseits noch keine Stadt gewählt haben. Ob jemand off- oder online ist, spielt keine Rolle.': '<strong>No,</strong> solo los jugadores que no tengan pueblo le seguirán, sin importar si están conectados o no en ese momento.'
@@ -843,3 +843,19 @@ Gebäudeverbesserung: Mejoras en construcciones
 'Wichtig:': 'Importante:'
 'In deiner lokalen Zeitzone findet der Angriff um {time} statt. Du kannst die Zeit, die dir bis zum nächsten Angriff bleibt, jederzeit auf der Uhr oben rechts in der Benutzeroberfläche ablesen.': 'En tu hora local, el ataque ocurrirá a las {time}. Siempre puedes ver cuánto tiempo falta para el ataque en el reloj que está en la esquina superior derecha de la interfaz.'
 'Die Nacht in MyHordes erstreckt sich in deiner lokalen Zeitzone von {time0} bis {time1}. Beachte, dass diese Zeiten in speziell gekennzeichneten Event-Städten möglicherweise abweichen können.': 'La noche en MyHordes se extiende desde {time0} hasta {time1} en tu zona horaria local. Ten en cuenta que estos tiempos pueden variar en pueblos de eventos especialmente designados.'
+'XML API': 'API XML'
+'Aktuelle Dokumentation': 'Documentación actual'
+'JSON API': 'API JSON'
+Legacy-Dokumentation: Documentación heredada
+'Diese Dokumentation wird nicht mehr aktualisiert und ist möglicherweise veraltet oder unvollständig.': 'Esta documentación ya no está actualizada y puede estar desactualizada o incompleta.'
+'Pro gefressenem Mitbürger gewinnst du <strong>1 Aufladung für "Freundschaft"</strong> (Du erhältst sie nach deinem Tod als Ghul).': 'Por cada habitante devorado, ganas <strong>1 carga para "Camaradería"</strong> (se obtiene después de morir como mutante).'
+'Wenn der letzte Tote ein Held war, werden die gewonnenen Aufladungen für "Freundschaft" seinem Konto hinzugefügt.': 'Las cargas de Camaradería ganadas se agregarán a la cuenta del último muerto.'
+'Gewinntabelle für den Letzten Tod:': 'Tabla de recompensas de El Último Habitante:'
+'Im Laufe des 5. Tages (zwischen 00.00 und 23:59h) oder früher gestorben = kein Gewinn': 'Muerte durante el día 5 (entre dos ataques nocturnos) o antes = ninguna recompensa'
+'In der Nacht vom 5. auf den 8. Tag gestorben = 1 Aufladung für "Freundschaft" + Auszeichnung': 'Muerte en la noche del día 5 al 8 = 1 carga de "Camaradería" + distinción'
+'In der Nacht vom 8. auf den 10. Tag gestorben = 2 Aufladungen für "Freundschaft" + Auszeichnung': 'Muerte en la noche del día 8 al 10 = 2 cargas de "Camaradería" + distinción'
+'In der Nacht vom 10. auf den 15. Tag gestorben = 3 Aufladungen für "Freundschaft" + Auszeichnung': 'Muerte en la noche del día 10 al 15 = 3 cargas de "Camaradería" + distinción'
+'In der Nacht vom 15. auf den 20. Tag gestorben = 4 Aufladungen für "Freundschaft" + Auszeichnung': 'Muerte en la noche del día 15 al 20 = 4 cargas de "Camaradería" + distinción'
+'In der Nacht vom 20. auf den 21. Tag (oder später) gestorben = 5 Aufladungen für "Freundschaft" + Auszeichnung': 'Muerte en la noche del día 20 al 21 o después = 5 cargas de "Camaradería" + distinción'
+'Pandämonium-Städte gewähren 2x mehr Aufladungen für "Freundschaft".': 'Los pueblos del Pandemonio otorgan 2 veces más cargas por "Camaradería".'
+'Er kann auch Gegenstände für 2{img_bp} reparieren, wenn er nicht {img_tired} Erschöpft ist.': 'También puede reparar artículos por 2{img_bp} cuando no está {img_tired} Cansado.'

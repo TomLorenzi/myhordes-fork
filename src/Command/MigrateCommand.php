@@ -190,6 +190,7 @@ class MigrateCommand extends Command
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
             ->addOption('process-db-git', 'p',   InputOption::VALUE_NONE, 'Processes triggers for automated database actions')
+            ->addOption('mark-completed', null,   InputOption::VALUE_NONE, 'Used in combination with -p/--process-db-git; instead of actually performing the action, will just mark all actions as completed.')
 
             ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
             ->addOption('build-forum-search-index', null, InputOption::VALUE_NONE, 'Initializes search structures for the forum')
@@ -351,6 +352,11 @@ class MigrateCommand extends Command
                 return 3;
             }
 
+            $output->writeln("\n\n=== <info>Updating patch level</info> ===\n");
+            if (!$this->helper->capsule( 'app:migrate -p --mark-completed', $output )) {
+                $output->writeln("<error>Unable to update patch level set.</error> The server will probably work fine, but future updates may cause corruption.");
+            }
+
             $output->writeln("\n\n=== <info>Creating default user accounts and groups</info> ===\n");
 
             if (!$this->helper->capsule( 'app:migrate --repair-permissions', $output )) {
@@ -358,8 +364,13 @@ class MigrateCommand extends Command
                 return 4;
             }
 
+            if (!$this->helper->capsule( 'app:debug --add-debug-users', $output )) {
+                $output->writeln("<error>Unable to add debug users.</error>");
+                return 4;
+            }
+
             if (!$this->helper->capsule( 'app:debug --add-crow', $output )) {
-                $output->writeln("<error>Unable to add users and create crow.</error>");
+                $output->writeln("<error>Unable to create crow.</error>");
                 return 4;
             }
 
@@ -372,20 +383,46 @@ class MigrateCommand extends Command
                 $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
 
                 $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                    "Would you like to create world forums? (Y/n) ", true
+                    "Would you like to create a season? If you don't create one, the game will run in Alpha Mode. (Y/n) ", true
+                ) );
+
+                if ($result) {
+                    $num = (int)$this->getHelper('question')->ask($input, $output, new Question(
+                        "Enter season number (default: 15): ", "15"
+                    ) );
+                    $subnum = (int)$this->getHelper('question')->ask($input, $output, new Question(
+                        "Enter sub-season number (default: 0): ", "0"
+                    ) );
+
+                    if (!$this->helper->capsule("app:season:manage $num $subnum --make --activate", $output)) {
+                        return 5;
+                    }
+                }
+
+                $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                    "Would you like to create default world forums? (Y/n) ", true
                 ) );
                 if ($result) {
-                    if (!$this->helper->capsule('app:forum:create "Weltforum" 0 --icon bannerForumDiscuss', $output)) {
+                    if (!$this->helper->capsule('app:forum:create "Weltforum" 0 --icon bannerForumDiscuss.gif', $output)) {
                         return 5;
                     }
-                    if (!$this->helper->capsule('app:forum:create "Forum Monde" 0 --icon bannerForumDiscuss', $output)) {
+                    if (!$this->helper->capsule('app:forum:create "Forum Monde" 0 --icon bannerForumDiscuss.gif', $output)) {
                         return 5;
                     }
-                    if (!$this->helper->capsule('app:forum:create "World Forum" 0 --icon bannerForumDiscuss', $output)) {
+                    if (!$this->helper->capsule('app:forum:create "World Forum" 0 --icon bannerForumDiscuss.gif', $output)) {
                         return 5;
                     }
-                    if (!$this->helper->capsule('app:forum:create "Foro Mundial" 0 --icon bannerForumDiscuss', $output)) {
+                    if (!$this->helper->capsule('app:forum:create "Foro Mundial" 0 --icon bannerForumDiscuss.gif', $output)) {
                         return 5;
+                    }
+                } else {
+                    $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                        "Would you like to create a single staging forum, instead? (Y/n) ", true
+                    ) );
+                    if ($result) {
+                        if (!$this->helper->capsule('app:forum:create "Feedback & Bug Reports" 0 --icon bannerForumExplore.gif', $output)) {
+                            return 5;
+                        }
                     }
                 }
 
@@ -432,7 +469,7 @@ class MigrateCommand extends Command
                         $q->setHidden(true);
                         $password1 = $this->getHelper('question')->ask($input, $output, $q );
 
-                        $q = new Question( "Please repeat the account password(default: admin): ", 'admin' );
+                        $q = new Question( "Please repeat the account password (default: admin): ", 'admin' );
                         $q->setHidden(true);
                         $password2 = $this->getHelper('question')->ask($input, $output, $q );
 
@@ -519,7 +556,7 @@ class MigrateCommand extends Command
             foreach ($hashes as $hash)
                 if ($git_repo->count(['version' => trim($hash)]) === 0) {
                     $new++;
-                    $this->entity_manager->persist((new GitVersions())->setVersion(trim($hash))->setInstalled(false));
+                    $this->entity_manager->persist((new GitVersions())->setVersion(trim($hash))->setInstalled( $input->getOption('mark-completed') ));
                 }
 
             if ($new > 0) {

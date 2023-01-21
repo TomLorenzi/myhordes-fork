@@ -26,6 +26,10 @@ class FeatureUnlockPrototype
     private $description;
     #[ORM\Column(type: 'string', length: 190)]
     private $label;
+
+    #[ORM\Column]
+    private bool $chargedByUse = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -67,6 +71,18 @@ class FeatureUnlockPrototype
     public function setLabel(string $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function isChargedByUse(): bool
+    {
+        return $this->chargedByUse;
+    }
+
+    public function setChargedByUse(bool $chargedByUse): self
+    {
+        $this->chargedByUse = $chargedByUse;
 
         return $this;
     }

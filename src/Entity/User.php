@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -171,6 +172,15 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\OneToOne(mappedBy: 'User', cascade: ['persist', 'remove'])]
     private ?RegistrationToken $registrationToken = null;
 
+    #[ORM\Column]
+    private int $tosver = 0;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $tosgrace = null;
+
+    #[ORM\Column]
+    private int $tosgracenum = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -265,7 +275,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         if ($this->email === 'crow') $roles[] = 'ROLE_CROW';
         if ($this->email === 'anim') $roles[] = 'ROLE_ANIMAC';
 
-        if ($this->validated) $roles[] = 'ROLE_USER';
+        if ($this->validated && !$this->tosBlocked()) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
 
         if ($this->getEternalID()) $roles[] = 'ROLE_ETERNAL';
@@ -989,6 +999,54 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         }
 
         $this->registrationToken = $registrationToken;
+
+        return $this;
+    }
+
+    public function getTosver(): ?int
+    {
+        return $this->tosver;
+    }
+
+    public function setTosver(int $tosver): self
+    {
+        $this->tosver = $tosver;
+
+        return $this;
+    }
+
+    public function getTosgrace(): ?\DateTimeInterface
+    {
+        return $this->tosgrace;
+    }
+
+    public function setTosgrace(?\DateTimeInterface $tosgrace): self
+    {
+        $this->tosgrace = $tosgrace;
+
+        return $this;
+    }
+
+    public function tosBlocked(): bool {
+        return (!$this->tosAccepted() || !$this->tosUpdateAccepted()) && ($this->tosgrace === null || $this->tosgrace < new \DateTime());
+    }
+
+    public function tosAccepted(): bool {
+        return $this->tosver > 0;
+    }
+
+    public function tosUpdateAccepted(): bool {
+        return $this->tosAccepted();   // Reserved for future use
+    }
+
+    public function getTosgracenum(): ?int
+    {
+        return $this->tosgracenum;
+    }
+
+    public function setTosgracenum(int $tosgracenum): self
+    {
+        $this->tosgracenum = $tosgracenum;
 
         return $this;
     }

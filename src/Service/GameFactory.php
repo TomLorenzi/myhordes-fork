@@ -33,6 +33,7 @@ use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
@@ -193,7 +194,7 @@ class GameFactory
                     // Suffixes
                     'f' => [ ],
                     'm' => [ ],
-                    '*' => ['de Angustia|s', 'del Ojo Triste|<de los Ojos Tristes', 'de los Guardianes', 'de los Desaparecidos', 'de la Luz', 'del Gran Poder', 'de la Esperanza|<de las Esperanzas', 'del Socorro', 'del Pez Rabioso|<de los Peces Rabiosos', 'de Sol Divino|<de los Soles Divinos', 'del Oro Azul', 'de Ensueño|s', 'de la Epidemia|<de las Epidemias', 'de la Noche Profunda', 'del Caballo Blanco', 'del Morro Solar', 'del Camino Sinuoso', 'de los Topos', 'del Ave Mensajera', 'de los Mártires', 'del Humo Negro', 'del Espectro Verde', 'del Terrible Susto', 'del Mago', 'del Arquitecto Orate', 'del Chiste Malo', 'del Ingenio', 'de la Gran Mentira', 'del Gran Susto', 'del Héroe Olvidado', 'de la Luna', 'de los Ídolos', 'de los Ancestros Mayas', 'de la Injusticia', 'del Gran Guía', 'del Sueño Inspirador', 'del Cuervo Loco', 'del Grito Ahogado', 'del Troll Fantasma', 'de los Eclipses', 'del Punto Rojo', 'del Maestro Shaolín', 'del Poeta Solitario|s', 'del Espasmo|s', 'de la Justicia|s', 'de los Tuertos', 'del Nunca Jamás', 'de la Verdad Absoluta|s', 'de los Renegados', 'de los Lamentos', 'de la Lluvia Perpetua|s', 'del Veneno Vil|s', 'de la Paz|s', 'de Carroñeros', 'de la Astucia|s', 'de los Caporales', 'del Antídoto|s', 'de Carne Débil|s', 'del Por Qué|s', 'del Mal Menor|s', 'del Delirium Tremens', 'de los Pasos Perdidos', 'de los Temblores', 'del Ojo Ciego|s', 'del Quinto Elemento', 'de la Legión Púrpura|s', 'del Futuro Incierto|s', 'del Guante Caído|s', 'del Pasado Brillante', 'de Sagitario|s', 'de Géminis', 'de Capricornio|s', 'de Aries', 'de Tauro|s', 'de la Juventud|s', 'del Olvido|s', 'de la Amargura|s', 'del Alma Pura', 'de los Brazos Cruzados', 'de Fuego|s', 'del Gran Jefe', 'del Pequeño Saltamontes', 'del Hambre|s', 'de lo Perverso', 'de la Tranquilidad', 'de la Utopía|s', 'de Sabiduría|s', 'de la Independencia|s', 'del Profeta|s', 'del Primer Instinto', 'de la Brisa Fétida', 'del Pensamiento', 'de la Piel Cobriza|s', 'de los Bipolares', 'del Embrujo|s', 'del Dolor|s', 'del Rey Cuervo|s', 'del Optimismo|s', 'del Pesimismo|s', 'de lo Desconocido|s', 'de la Peste Negra|s', 'del Deseo Inútil|es', 'de la Razón|es', 'del Sentido Común|s', 'de la Hermandad|s', 'del Pacífico|s', 'de la Caridad|s', 'de la Alegría|s', 'de Murakami|s', 'del Instinto Carnal|s', 'de los Descosidos', 'de los Descalzos', 'del Amor Interesado|s', 'de la Risa Contagiante|s', 'de Lágrimas Ajenas', 'de Sangre Caliente|s', 'del Fracaso|s', 'del Miedo|s', 'de Tripas Secas', 'de los Milagros', 'de Atacama|s', 'de Baja California|s', 'de Sonora|s', 'de Sechura|s', 'de Paita|s', 'de Paracas', 'de Nazca|s', 'de Tabernas', 'de Badenas Reales', 'de Monegros', 'de Guajira|s', 'de la Esmeralda|s', 'Sin Mañana|s', 'de la Tierra del Fuego|s', 'de la Patagonia|s', 'del Carnaval|s', 'Sin Fin|s', 'de los Condenados', 'del Norte|s', 'del Sur|s', 'del Este|s', 'del Oeste|s', 'del Oriente|s', 'de Virgo|s', 'de los Últimos Héroes', 'de Orión|s', 'del Fin del Mundo|s', 'del Buen Tiempo|s', 'de la Esperanza|s', 'del Crimen Impune|s', 'del Castigo|s', 'de Corazones', 'de Mil Lágrimas', 'del Nosequé|s', 'de Kalahari|s', 'de Teneré|s', 'del Ecuador|s', 'del Gran Poder|s', 'del Otoño|s', 'del Cielo Prometido|s', 'del Sarcasmo|s', 'de Cárcamo Díaz|s', 'del Díscolo|s', 'de San Pedro', 'de San Pablo', 'de San Mateo', 'de San Quintín', 'de Judas', 'de Don Ramón|es', 'de Changó|s', 'de la Santería|s', 'de los Babasónicos', 'del Sadismo|s', 'del Silencio|s', 'del Apocalipsis', 'del Insomnio|s', 'de Cramberries', 'de los Habitantes Anónimos', 'del Cada Vez Peor|s', 'de Hendrix|s', 'de Nadie|s', 'de la Nada|s', 'de la Carcajada|<de las Carcajadas', 'del Colmo|s', 'del Pudor|s', 'del Único Camino|s', 'de la Ira|s', 'de Hard Rock|s', 'de la Redención|es', 'del Loco|s', 'de Traición|es', 'de los Rolling Stones', 'del Río Seco|s', 'del Cojo|s', 'de la Cachetada|s', 'del Calambre|s', 'de la Envidia|s', 'de la Gula|s', 'de la Avaricia', 'de la Soberbia', 'de Zombiepolares', 'del Yonofuí', 'del Queseyó', 'de Nosedonde', 'de Quiensabequé|s', 'de Malkev', 'de Ficachi', 'de Snow', 'de Binto', 'de Len Kagamine', 'de Aldesa', 'de Len Dragonick', 'de Amasijador', 'de H4RO', 'de Trendy', 'de Giar', 'de dunedain33', 'de Bossu', 'de Znarf', 'de LordLuis', 'de KamusDave', 'de AlancapoII', 'de Kraterfire', 'de Trendy'],
+                    '*' => ['de Angustia|s', 'del Ojo Triste|<de los Ojos Tristes', 'de los Guardianes', 'de los Desaparecidos', 'de la Luz', 'del Gran Poder', 'de la Esperanza|<de las Esperanzas', 'del Socorro', 'del Pez Rabioso|<de los Peces Rabiosos', 'de Sol Divino|<de los Soles Divinos', 'del Oro Azul', 'de Ensueño|s', 'de la Epidemia|<de las Epidemias', 'de la Noche Profunda', 'del Caballo Blanco', 'del Morro Solar', 'del Camino Sinuoso', 'de los Topos', 'del Ave Mensajera', 'de los Mártires', 'del Humo Negro', 'del Espectro Verde', 'del Terrible Susto', 'del Mago', 'del Arquitecto Orate', 'del Chiste Malo', 'del Ingenio', 'de la Gran Mentira', 'del Gran Susto', 'del Héroe Olvidado', 'de la Luna', 'de los Ídolos', 'de los Ancestros Mayas', 'de la Injusticia', 'del Gran Guía', 'del Sueño Inspirador', 'del Cuervo Loco', 'del Grito Ahogado', 'del Troll Fantasma', 'de los Eclipses', 'del Punto Rojo', 'del Maestro Shaolín', 'del Poeta Solitario', 'del Espasmo', 'de la Justicia', 'de los Tuertos', 'del Nunca Jamás', 'de la Verdad Absoluta|s', 'de los Renegados', 'de los Lamentos', 'de la Lluvia Perpetua', 'del Veneno Vil', 'de la Paz', 'de Carroñeros', 'de la Astucia', 'de los Caporales', 'del Antídoto', 'de Carne Débil', 'del Por Qué', 'del Mal Menor', 'del Delirium Tremens', 'de los Pasos Perdidos', 'de los Temblores', 'del Ojo Ciego', 'del Quinto Elemento', 'de la Legión Púrpura', 'del Futuro Incierto', 'del Guante Caído', 'del Pasado Brillante', 'de Sagitario', 'de Géminis', 'de Capricornio', 'de Aries', 'de Tauro', 'de la Juventud', 'del Olvido', 'de la Amargura', 'del Alma Pura', 'de los Brazos Cruzados', 'de Fuego', 'del Gran Jefe', 'del Pequeño Saltamontes', 'del Hambre', 'de lo Perverso', 'de la Tranquilidad', 'de la Utopía', 'de Sabiduría', 'de la Independencia', 'del Profeta', 'del Primer Instinto', 'de la Brisa Fétida', 'del Pensamiento', 'de la Piel Cobriza', 'de los Bipolares', 'del Embrujo', 'del Dolor', 'del Rey Cuervo', 'del Optimismo', 'del Pesimismo', 'de lo Desconocido', 'de la Peste Negra', 'del Deseo Inútil', 'de la Razón', 'del Sentido Común', 'de la Hermandad', 'del Pacífico', 'de la Caridad', 'de la Alegría', 'de Murakami', 'del Instinto Carnal', 'de los Descosidos', 'de los Descalzos', 'del Amor Interesado', 'de la Risa Contagiante', 'de Lágrimas Ajenas', 'de Sangre Caliente', 'del Fracaso', 'del Miedo', 'de Tripas Secas', 'de los Milagros', 'de Atacama', 'de Baja California', 'de Sonora', 'de Sechura', 'de Paita', 'de Paracas', 'de Nazca', 'de Tabernas', 'de Badenas Reales', 'de Monegros', 'de Guajira|s', 'de la Esmeralda|s', 'Sin Mañana', 'de la Tierra del Fuego', 'de la Patagonia', 'del Carnaval', 'Sin Fin', 'de los Condenados', 'del Norte', 'del Sur', 'del Este', 'del Oeste', 'del Oriente', 'de Virgo', 'de los Últimos Héroes', 'de Orión', 'del Fin del Mundo', 'del Buen Tiempo', 'de la Esperanza', 'del Crimen Impune', 'del Castigo', 'de Corazones', 'de Mil Lágrimas', 'del Nosequé', 'de Kalahari', 'de Teneré', 'del Ecuador', 'del Gran Poder', 'del Otoño', 'del Cielo Prometido', 'del Sarcasmo', 'de Cárcamo Díaz', 'del Díscolo', 'de San Pedro', 'de San Pablo', 'de San Mateo', 'de San Quintín', 'de Judas', 'de Don Ramón', 'de Changó', 'de la Santería', 'de los Babasónicos', 'del Sadismo', 'del Silencio', 'del Apocalipsis', 'del Insomnio', 'de Cramberries', 'de los Habitantes Anónimos', 'del Cada Vez Peor', 'de Hendrix', 'de Nadie', 'de la Nada', 'de la Carcajada|<de las Carcajadas', 'del Colmo', 'del Pudor', 'del Único Camino', 'de la Ira', 'de Hard Rock', 'de la Redención', 'del Loco', 'de Traición', 'de los Rolling Stones', 'del Río Seco', 'del Cojo', 'de la Cachetada', 'del Calambre', 'de la Envidia', 'de la Gula', 'de la Avaricia', 'de la Soberbia', 'de Zombiepolares', 'del Yonofuí', 'del Queseyó', 'de Nosedonde', 'de Quiensabequé', 'de Malkev', 'de Ficachi', 'de Snow', 'de Binto', 'de Len Kagamine', 'de Aldesa', 'de Len Dragonick', 'de Amasijador', 'de H4RO', 'de Trendy', 'de Giar', 'de dunedain33', 'de Bossu', 'de Znarf', 'de LordLuis', 'de KamusDave', 'de AlancapoII', 'de Kraterfire', 'de Trendy', 'del Brillante Warp'],
                 ]
             ]
         ],
@@ -221,8 +222,83 @@ class GameFactory
                     '*' => ['des citrouilles', 'aux citrouilles', 'du potiron', 'aux potimarrons', 'd\'Halloween', 'du chaudron', 'aux sorcières', 'de la sorcière', 'de la fête des morts', 'des morts qui dansent', 'de la citrouille creuse'],
                 ]
             ],
-            'es' => [],
-        ]
+            'es' => [// Suffixes
+                2 => [
+                'f' => [ ],
+                'm' => [ ],
+                '*' => ['de las calabazas', 'de calabazas', 'del caldero', 'de Halloween', 'de las brujas', 'de la bruja', 'del festival de los muertos', 'del día de los muertos', 'de los muertos que bailan', 'de la calabaza hueca'],
+                ]
+            ]
+        ],
+
+        'christmas' => [
+            'de' => [
+                [   // Adjectives
+                    'f' => [ 'Weihnachtliche', 'Besinnliche', 'Verschneite', 'Heilige', 'Beschenkte' ],
+                    'm' => [ 'Weihnachtlicher|-', 'Besinnlicher|-', 'Verschneiter|-', 'Heiliger|-', 'Beschenkter|-' ],
+                    'n' => [ 'Weihnachtliches|-', 'Besinnliches|-', 'Verschneites|-', 'Heiliges|-', 'Beschenktes|-' ],
+                    '*' => [],
+                ],
+                [   // Subjects
+                    'f' => [ 'Rentier|e', 'Elfe|n', 'Kalendertür|en', 'Schneeflocke|n', 'Gabe|n', 'Holzeisenbahn|en', 'Socke|n', 'Feuerzangenbowle|n' ],
+                    'm' => [ 'Weihnachtsmann|<Weihnachtsmänner', 'Weihnachtsbaum|<Weihnachtsbäume', 'Lebkuchen', 'Schornstein|e', 'Glühweintrinker', 'Eierpunscher', 'Weihnachtsmarkt|<Weihnachtsmärkte', 'Engel', 'Mistelzweig|e' ],
+                    'n' => [ 'Geschenk|e', 'Familientreffen', 'Christkind|er', 'Kalendertürchen', 'Fest|e', 'Weihnachtsfest|e' ],
+                    '*' => [],
+                ],
+                [
+                    // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    'n' => [ ],
+                    '*' => ['der weißen Weihnacht', 'im Schneegestöber', 'im Glühweinrausch', 'aus Schnee', 'im Schnee', 'mit Glühwein', 'in der Krippe', 'im Stall', 'mit Weihnachtsbaum', 'unter dem Weihnachtsbaum', 'auf dem Festplatz'],
+                ]
+            ],
+            'en' => [
+                [
+                    // Adjectives
+                    [ 'festive', 'naughty', 'icy', 'holy', 'snowy', 'merry', 'jolly', ],
+                    // Subjects
+                    [ 'reindeer', 'elves', 'gift', 'festival', 'sugarcane', 'calendar', 'snowflake', 'wooden train', 'sock', 'santa', 'gingerbread', 'chimney', 'krampus', 'angel', 'Snowman' ],
+                    // Suffixes
+                    ['of the white Christmas', 'in the snowstorm', 'with eggnog', 'in the snow', 'with spiced wine', 'of the snowmen', 'in the stable', 'under the tree', 'of the yule log', 'with hot milk', ],
+                ]
+            ],
+            'fr' => [
+                 [   // Subjects
+                    'f' => [ ],
+                    'm' => [ ],
+                    '*' => [ 'Renne|s', 'Elfe|s', 'Cadeau|x', 'Festival|-ux', 'Fête de Noyel', 'Calendrier|s', 'Flocon de neige', 'Train en bois', 'Chaussette|s', 'Papa Noyel', 'Pain d\'épice', 'Cheminée|e', 'Marché de Noël', 'Ange|s' ],
+                 ],
+                 [   // Adjectives
+                     'f' => [ 'Contemplative|s', 'Enneigée|s', 'Sainte|s' ],
+                     'm' => [ 'Contemplatif|s', 'Enneigé|s', 'Saint|s' ],
+                     '*' => [ 'Noël', 'Destinataire|s' ],
+                 ],
+                 [
+                     // Suffixes
+                     'f' => [ ],
+                     'm' => [ ],
+                     '*' => ['du Noël blanc', 'dans la rafale de neige', 'dans la ruée vers le vin chaud', 'en neige', 'dans la neige', 'avec du vin chaud', 'dans la crèche ', 'dans l\'étable', 'sous le Sapin', 'de la fête foraine'],
+                ],
+            ],
+            'es' => [
+                [   // Subjects
+                    'f' => ['Chimenea|s', 'Campanada|s',  ],
+                    'm' => ['Reno|s', 'Elfo|s', 'Regalo|s', 'Festival|es', 'Turrón|--ones', 'Copos de nieve', 'Brazo de gitano', 'Calcetín|--ines', 'San Nicolás', 'Belén', 'Papá Noel', 'Angel|es', 'Muñeco de nieve|<Muñecos de nieve', ],
+                    '*' => [ ],
+                ],
+                [   // Adjectives
+                    'f' => ['Festiva|s', 'Helada|s', 'Santa|s', 'Nevada|s', 'Pillína|s', ],
+                    'm' => ['Festivo|s', 'Helado|s', 'Santo|s', 'Nevado|s', 'Pillín|es', ],
+                    '*' => ['Jovial|es', 'Feliz|-ces', ],
+                ],
+                [  // Suffixes
+                    'f' => [ ],
+                    'm' => [ ],
+                    '*' => ['de la Navidad', 'en la tormenta de nieve', 'bajo la nieve', 'con cava', 'con galletitas', 'de los muñecos de nieve', '', 'debajo del arbolito', 'del tronco de yule', 'con leche calentita', ],
+                ]
+            ]
+        ],
     ];
 
     private function pluralize(string $expression, bool $pluralize = true) {
@@ -267,8 +343,9 @@ class GameFactory
                 $conf_section = $gender . ($plural ? 'p' : 's');
 
                 $mutator_keys = [];
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data ?? [] ) );
                 foreach ($data['sets'] as $index => &$set)
-                    if (isset( $mutator_data[$index] )) {
+                    if (isset( $mutator_data[$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$index];
                         $mutator_keys[] = $mutator;
                     } else $mutator_keys[] = null;
@@ -290,8 +367,9 @@ class GameFactory
                 $conf_section = "$base_set";
 
                 $mutator_keys = [];
+                $active_mutator_index = $this->random_generator->pick( array_keys( $mutator_data[$base_set] ?? [] ) );
                 foreach ($data['sets'][$base_set] as $index => &$set)
-                    if (isset( $mutator_data[$base_set][$index] )) {
+                    if (isset( $mutator_data[$base_set][$index] ) && $index === $active_mutator_index) {
                         $set = $mutator_data[$base_set][$index];
                         $mutator_keys[] = $mutator;
                     } else $mutator_keys[] = null;
@@ -391,27 +469,22 @@ class GameFactory
         return $this->evaluateNameSchema( $schema = $this->generateNameSchema( $language, $mutator ) ) ?? 'TOWN_NAME_GENERATOR_FAILED';
     }
 
-    public function createTown( ?string $name, ?string $language, ?int $population, string|array $type, $customConf = [], int $seed = -1, ?string $nameMutator = null ): ?Town {
-        if (is_array( $type )) {
-            $deriveFrom = $type[1] ?? $type[0];
-            $type = $type[0];
-        } else $deriveFrom = $type;
-
-        if (!$this->validator->validateTownType($type))
+    public function createTown( TownSetup $townSetup ): ?Town {
+        if (!$this->validator->validateTownType($townSetup->type))
             return null;
 
-        if ($seed > 0) mt_srand($seed);
+        if ($townSetup->seeds) mt_srand($townSetup->seed);
 
-        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $type ]);
+        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $townSetup->type ]);
 
         // Initial: Create town
         $town = new Town();
         $town
             ->setType($townClass)
-            ->setConf($customConf);
+            ->setConf($townSetup->customConf);
 
-        if ($deriveFrom !== $type)
-            $town->setDeriveConfigFrom( $deriveFrom );
+        if ($townSetup->derives)
+            $town->setDeriveConfigFrom( $townSetup->typeDeriveFrom );
 
         $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
 
@@ -419,18 +492,18 @@ class GameFactory
 
         $conf = $this->conf->getTownConfiguration($town);
 
-        if ($population === null) $population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
-        if ($population <= 0 || $population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
+        if ($townSetup->population === null) $townSetup->population = mt_rand( $conf->get(TownConf::CONF_POPULATION_MIN, 0), $conf->get(TownConf::CONF_POPULATION_MAX, 0) );
+        if ($townSetup->population <= 0 || $townSetup->population < $conf->get(TownConf::CONF_POPULATION_MIN, 0) || $townSetup->population > $conf->get(TownConf::CONF_POPULATION_MAX, 0))
             return null;
 
-        $this->translator->setLocale($language ?? 'de');
+        $this->translator->setLocale($townSetup->language ?? 'de');
 
         $schema = null;
         $town
-            ->setPopulation( $population )
-            ->setName( $name ?: $this->createTownName($language, $schema, $nameMutator) )
+            ->setPopulation( $townSetup->population )
+            ->setName( $townSetup->name ?: $this->createTownName($townSetup->nameLanguage, $schema, $townSetup->nameMutator ) )
             ->setNameSchema( $schema )
-            ->setLanguage( $language )
+            ->setLanguage( $townSetup->language )
             ->setBank( new Inventory() )
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 

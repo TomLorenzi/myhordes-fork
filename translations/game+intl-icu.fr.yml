@@ -2363,3 +2363,20 @@ Stadt/Stadttor: Ville/Portes
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '{citizen} a réussi à s''enfuir de la zone, au prix d''une <strong>blessure grave</strong> !'
 '{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} a utilisé une <strong>capacité spéciale</strong> pour tuer {zombies} zombie(s) et reprendre le contrôle pour <strong>{duration} minutes</strong> !'
 '<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Citoyen</strong>, <br />en reconnaissance de vos exploits dans la lutte contre les zombies et en récompense d’un placement dans le classement des meilleures villes de la <i>saison {season}</i> sur <i>{server}</i>, vous recevrez ce qui suit:{pictos}En outre, les outils suivants sont disponibles pour la durée de la nouvelle saison:{features}<br/><strong>Félicitations !</strong>'
+'Brunnen (short)': Puits
+'Bank (short)': Banque
+'Bürger (short)': Citoyens
+'Konstruktionen (short)': Chantiers
+'Stadttor (short)': Portes
+'Bitte wähle eine Heldentat:': 'Choisissez une action héroïque :'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'Vous n’avez plus d''actions héroïques à donner...'
+'Du hast eine Heldentat erhalten!': 'Vous avez reçu une action héroïque !'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'Dans une frénésie de générosité sans fin, {citizen} vous a donné une action héroïque :'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': '{citizen} n’est pas paresseux au point de ne pas pouvoir faire cette action héroïque lui-même, honnêtement !'
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'À la sueur de votre front, vous avez gagné les bonus suivants :'
+'Aufladungen für "Freundschaft"': 'Charges de "Camaraderie"'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Vous permet d’utiliser l’action héroïque "Camaraderie".'
+'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem eine deiner noch ungenutzten Heldentaten schenken! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentaten kannst du in dieser Stadt nicht mehr selbst verwenden. Um jemandem eine Heldentat zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'Vous pouvez, 1 fois par partie, offrir une de vos actions héroiques à un autre citoyen ! Attendez-vous à devenir un véritable messie pour beaucoup de monde... NB : les actions héroiques ainsi transmises vous seront retirés.'
+'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'Il est <strong>impossible de refaire cette action ici</strong>. Allez ailleurs, ou retentez demain.'
+'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Cliquez sur l''estimation pour la copier dans le presse-papiers.'
+'{num} Aufladungen': '{num} Charges'

@@ -554,3 +554,12 @@ Fortfahren: crwdns136669:0crwdne136669:0
 Registrierungstoken: crwdns136689:0crwdne136689:0
 'Registration Token': 'crwdns136691:0crwdne136691:0'
 'Wie viele Token möchtest du erzeugen?': 'crwdns136693:0crwdne136693:0'
+Nachricht: crwdns136729:0crwdne136729:0
+'Stadtnamen ändern': 'crwdns136751:0crwdne136751:0'
+'Registrierungstoken verteilen': 'crwdns136837:0crwdne136837:0'
+Nachrichtentext: crwdns136839:0crwdne136839:0
+CSV: crwdns136841:0crwdne136841:0
+Senden: crwdns136843:0crwdne136843:0
+'Es wurden {success} Nachrichten verschickt.': 'crwdns136845:0{success}crwdne136845:0'
+'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': 'crwdns136847:0{success}crwdnd136847:0{error}crwdne136847:0'
+Entwickler-URL: crwdns136853:0crwdne136853:0

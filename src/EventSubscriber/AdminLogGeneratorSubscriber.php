@@ -53,7 +53,7 @@ class AdminLogGeneratorSubscriber implements EventSubscriberInterface
             $route_name = $this->event->getRequest()->attributes->get('_route', '???');
 
             $flat_json_params = $json_params = [];
-            if ($this->event->getRequest()->getContentType() === 'json') {
+            if ($this->event->getRequest()->getContentTypeFormat() === 'json') {
                 $json_params =  json_decode($this->event->getRequest()->getContent(), true, 512, JSON_INVALID_UTF8_IGNORE );
                 $this->flatten_array( $json_params, $flat_json_params );
                 $flat_json_params = array_map( fn($k,$v) => $this->conf->isMasked("$.$k") ? "[$k = <fg=#a8a8c0>#MASKED</fg=#a8a8c0>]" : "[$k = <fg=#a8a8a8>$v</fg=#a8a8a8>]", array_keys( $flat_json_params ), $flat_json_params );

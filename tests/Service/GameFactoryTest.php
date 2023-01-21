@@ -7,6 +7,7 @@ use App\Service\CitizenHandler;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\RandomGenerator;
+use App\Structures\TownSetup;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Translation\Translator;
@@ -47,7 +48,7 @@ class GameFactoryTest extends KernelTestCase
             $lang =  $random->pick(['en', 'fr', 'de', 'es', 'multi']);
             $type = $random->pick(['small', 'remote', 'panda', 'invalid']);
             // Let's try to create a french remote town with a generated name and 40 citizens in it
-            $town = $gameFactory->createTown(null, $lang, 40, $type);
+            $town = $gameFactory->createTown(new TownSetup( $type, language: $lang, population: 40));
 
             if ($type !== "invalid")
                 $this->assertNotNull($town);
@@ -84,7 +85,7 @@ class GameFactoryTest extends KernelTestCase
         $random = $container->get(RandomGenerator::class);
 
         // Let's create a small town
-        $town = $gameFactory->createTown(null, "en", 40, "small");
+        $town = $gameFactory->createTown(new TownSetup('small', language: 'en', population: 40));
         $users = $this->entityManager->getRepository(User::class)->findBy([], [], $town->getPopulation());
 
         foreach ($users as $user) {
@@ -110,9 +111,9 @@ class GameFactoryTest extends KernelTestCase
         $gameFactory = $container->get(GameFactory::class);
 
         // Let's create some towns.
-        $smallTown = $gameFactory->createTown(null, "en", 40, "small");
-        $pandaTown = $gameFactory->createTown(null, "fr", 40, "panda");
-        $remoteTown = $gameFactory->createTown(null, "de", 40, "remote");
+        $smallTown = $gameFactory->createTown( new TownSetup('small',  language: 'en', population: 40));
+        $pandaTown = $gameFactory->createTown( new TownSetup('panda',  language: 'fr', population: 40));
+        $remoteTown = $gameFactory->createTown(new TownSetup('remote', language: 'de', population: 40));
 
         // Creating basic stuff.
         $bplanBoxes = ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00'];

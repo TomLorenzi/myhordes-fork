@@ -1,0 +1,132 @@
+{% extends "ajax/soul/ranking/shell.html.twig" %}
+
+{% block ranking_content %}
+    <div class="cell rw-12">
+        <div class="row season_access_text"><label for="season">{{'Zugriff auf die Rangliste einer bestimmten Saison:'|trans({}, 'soul')}}</label></div>
+        <div class="row season_access_select">
+            <div class="cell rw-4">
+                <select name="season" id="season">
+                    <option {% if (currentSeason == 'all') %}selected{% endif %} value="all">{{'Alle Saisons'|trans({}, "soul")}}</option>
+                    <option {% if (currentSeason == 'myh') %}selected{% endif %} value="myh">{{'Alle Saisons auf MyHordes'|trans({}, "soul")}}</option>
+                    {% for season in seasons %}
+                        <option value="{{season.id}}" {% if currentSeason is not null and not virtualSeason and currentSeason == season %}selected{% endif %}>
+                            {% set got  = season.number == 0 and season.subnumber <= 14 %}
+                            {% set beta = season.number == 0 and not got %}
+                            {% if got %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
+                            {% if beta %}
+                                {{ 'Beta-Saison'|trans({},'soul') }}
+                            {% else %}
+                                {{ 'Saison {n}'|trans({'{n}': season.number > 0 ? season.number : season.subNumber},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                            {% endif %}
+                        </option>
+                    {% endfor %}
+                    <option value="a" {% if currentSeason is null or currentSeason == 'a' %}selected{% endif %}>{{'Alpha-Seelen'|trans({}, "soul")}}</option>
+                </select>
+            </div>
+            <div class="cell rw-8">
+            </div>
+        </div>
+    </div>
+    <div class="cell padded rw-12">
+        {% if ranking|length > 0 %}
+            <div class="row-flex header">
+                <div class="cell padded rw-1 center">
+                    {{'Lang.'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-1 center">
+                    {{'Pos.'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-6 center">
+                    {{'Spieler'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-4 center">
+                    {{'Seelenpunkte'|trans({}, 'soul')}}
+                </div>
+            </div>
+            <div class="town-container">
+                {% set pos = offset %}
+                {% for info in ranking %}
+                    {% set player = info[0] %}
+                    {% set points = info.allPoints %}
+                    {% set pos = pos + 1 %}
+                    <div class="row-flex stretch season_entry_solo{% if player.id == user.id %} played{% endif %}{% if pos <= 5 %} top5{% else %} top5plus{% endif %}">
+                        <div class="cell rw-1 season_entry_td center soul_season_flag"><img src="{% if player.language %} {{ asset("build/images/lang/" ~ player.language ~".png") }} {% else %} {{ asset("build/images/lang/multi.png") }} {% endif %}" alt="{{ user.language }}" /></div>
+                        <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
+                        <div class="cell rw-6 season_entry_td left soul_season_name">
+                            {% set extra_class="" %}
+                            {% if pos > 5 %}{% set extra_class = 'small' %}{% endif %}
+                            {% include 'ajax/soul/playername.html.twig' with {user: player, additional_classes: ['undecorated', extra_class], globalSpace: true} only %}
+                        </div>
+                        <div class="cell rw-4 season_entry_td center soul_season_points">{{ points }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="note note-critical">{{ 'Es sind keine Spieler aufgelistet!'|trans({},'soul') }}</div> <!-- TODO: missing translation -->
+        {% endif %}
+    </div>
+    {% if user_sp is defined and user_sp > 0 and user_rank is defined and user_rank > 0 %}
+        <div class="cell padded rw-12">
+            <div class="row">
+                <div class="cell ro-4 rw-4 ro-lg-3 rw-lg-6 ro-md-2 rw-md-8 ro-sm-0 rw-sm-12">
+                    <div class="note center">
+                        <b>{{ 'Deine Platzierung'|trans({},'global') }}</b><br/>
+                        <span>{{ '{num} Seelenpunkte, Platz {rank}'|trans({'num': '<b>' ~ user_sp ~ '</b>', 'rank': user_rank},'global')|raw }}</span>
+                        {% if page_size is defined %}
+                            {% set link_page = (user_rank / page_size)|round(0,'ceil') %}
+                            {% if link_page != page %}
+                                <div><a href="#" x-ajax-href="{{ path('soul_season_solo', {page: link_page, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Zu meinem Eintrag springen'|trans({},'global') }}</a></div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block pagination_content %}
+    {% if pages > 1 %}
+        <div class="row-flex">
+            <div class="padded cell left" {% if page <= 1 %}disabled{% endif %}>
+                <img alt="<<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Anfang'|trans({},'global') }}</a>
+            </div>
+            <div class="padded cell left" {% if page <= 1 %}disabled{% endif %}>
+                <img alt="<" src="{{ asset('build/images/icons/small_prev.gif') }}" />
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page - 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Vorh.'|trans({},'global') }}</a>
+            </div>
+            <div class="padded cell grow-1 center">
+                <label><select id="pagination" class="small">
+                        {% for p in 1..pages %}
+                            <option value="{{ path('soul_season_solo', {page: p, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}" {% if p == page %}selected{% endif %}>{{ 'Seite {page}'|trans({page: p},'global') }}</option>
+                        {% endfor %}
+                    </select></label>
+            </div>
+            <div class="padded cell right" {% if page >= pages %}disabled{% endif %}>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: page + 1, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Folg.'|trans({},'global') }}</a>
+                <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+            </div>
+            <div class="padded cell right" {% if page >= pages %}disabled{% endif %}>
+                <a href="#" x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {page: pages, season: virtualSeason ? currentSeason : (currentSeason ? currentSeason.id : 'c')}) }}">{{ 'Ende'|trans({},'global') }}</a>
+                <img alt=">" src="{{ asset('build/images/icons/small_next.gif') }}" />
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script>
+        let season = document.getElementById("season");
+        if(season) season.addEventListener("change", function(){
+            $.ajax.load(null, '{{ path("soul_season_solo") }}', true, {'season': season.value});
+        })
+
+        $.html.addEventListenerAll('#pagination', 'change', (e,elem) => {
+            $.ajax.load(null, elem.value, true, {'season': season.value});
+        } )
+    </script>
+
+{% endblock %}

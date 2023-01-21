@@ -35,6 +35,7 @@ use MyHordes\Plugins\Fixtures\Ruin;
 use MyHordes\Plugins\Fixtures\RuinRoom;
 use MyHordes\Plugins\Fixtures\Town;
 use MyHordes\Plugins\Fixtures\ZoneTag;
+use MyHordes\Plugins\Management\FixtureSourceLookup;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -80,6 +81,9 @@ class FixtureChain implements CompilerPassInterface
             ItemProperty::class              => 'myhordes.fixtures.items.properties',
         ];
 
+        // Compendium
+        $compendium = $container->findDefinition( FixtureSourceLookup::class );
+
         foreach ($interfaces as $class => $tag) {
             // always first check if the service is defined
             if (!$container->has($class)) return;
@@ -90,9 +94,11 @@ class FixtureChain implements CompilerPassInterface
             // find all service IDs with the tag
             $taggedServices = $container->findTaggedServiceIds($tag);
 
-            foreach ($taggedServices as $id => $tags)
+            foreach ($taggedServices as $id => $tags) {
                 // add the transport service to the TransportChain service
-                $definition->addMethodCall('addProcessor', [new Reference($id)]);
+                $definition->addMethodCall('addProcessor', [new Reference($id), $id]);
+                $compendium->addMethodCall( 'addEntry', [ $class, $id, $tag ] );
+            }
         }
     }
 }

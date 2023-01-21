@@ -26,10 +26,17 @@ class RandomGenerator
         $this->em = $em;
     }
 
-    function chance(float $c): bool {
+    function chance(float $c, float $cap_min = 0.0, float $cap_max = 1.0 ): bool {
         if ($c >= 1.0)     return true;
         elseif ($c <= 0.0) return false;
-        return mt_rand(0,99) < (100.0*$c);
+        return mt_rand(0,99) < (100.0*max($cap_min, min($c, $cap_max)));
+    }
+
+    function string(int $length, string $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!%&=?_'): string {
+        $s = ''; $l = mb_strlen($chars);
+        for ($i = 0; $i < $length; $i++)
+            $s .= mb_substr( $chars, mt_rand(0, $l - 1), 1 );
+        return $s;
     }
 
     /**

@@ -27,6 +27,7 @@ use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use DateTime;
 use DirectoryIterator;
 use Doctrine\Common\Collections\Criteria;
@@ -42,12 +43,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
+use Zenstruck\ScheduleBundle\Schedule\SelfSchedulingCommand;
+use Zenstruck\ScheduleBundle\Schedule\Task\CommandTask;
 
 #[AsCommand(
     name: 'app:cron',
     description: 'Cron command'
 )]
-class CronCommand extends Command
+class CronCommand extends Command implements SelfSchedulingCommand
 {
     private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
@@ -361,7 +364,9 @@ class CronCommand extends Command
                         array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
                     );
 
-                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(null, $lang, null, $type, [], -1, $name_changers[0] ?? null ));
+                    $this->entityManager->persist($newTown = $this->gameFactory->createTown(
+                        new TownSetup( $type, language: $lang, nameMutator: $name_changers[0] ?? null )
+                    ));
                     $this->entityManager->flush();
 
                     $this->gps->recordTownCreated( $newTown, null, 'cron' );
@@ -819,5 +824,14 @@ class CronCommand extends Command
         }
 
 
+    }
+
+    public function schedule(CommandTask $task): void
+    {
+        $task
+            ->everyTenMinutes()
+            ->withoutOverlapping(900)
+            ->description('Legacy Cron Host')
+        ;
     }
 }

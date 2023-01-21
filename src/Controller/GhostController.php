@@ -30,6 +30,7 @@ use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Structures\TownSetup;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -84,7 +85,7 @@ class GhostController extends CustomAbstractController
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
             'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
             'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
-            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW,
+            'canCreateTown' => !$this->conf->getGlobalConf()->get( MyHordesConf::CONF_STAGING_ENABLED, false ) && ($this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW),
         ] ));
     }
 
@@ -121,13 +122,12 @@ class GhostController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/ghost/create_town", name="ghost_create_town", defaults={"react"=0})
-     * @Route("jx/ghost/create_town_rc", name="ghost_create_town_rc", defaults={"react"=1})
-     * @param int $react
+     * @Route("jx/ghost/create_town", name="ghost_create_town")
+     * @Route("jx/ghost/create_town_rc", name="ghost_create_town_rc")
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function create_town(int $react, EntityManagerInterface $em): Response
+    public function create_town(EntityManagerInterface $em): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -140,7 +140,7 @@ class GhostController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
-        return $this->render( $react ? 'ajax/ghost/create_town_rc.html.twig' : 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
+        return $this->render( 'ajax/ghost/create_town_rc.html.twig', $this->addDefaultTwigArgs(null, [
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
             'professions' => array_filter( $em->getRepository(CitizenProfession::class)->findAll(), fn(CitizenProfession $pro) => $pro->getName() !== CitizenProfession::DEFAULT ),
             'constructions' => $em->getRepository(BuildingPrototype::class)->findAll(),
@@ -412,9 +412,16 @@ class GhostController extends CustomAbstractController
             );
         }
 
+        $setup = new TownSetup(
+            'custom',
+            name:        $townname, language: $lang, typeDeriveFrom: $type, customConf: $customConf, seed: $seed,
+            nameMutator: $name_changers[0]
+        );
+
         if ($crow_permissions && $parser->get('unprivate', false))
-            $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed, $name_changers[0] ?? null);
-        else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed, $name_changers[0] ?? null))->setDeriveConfigFrom( $type );
+            $setup->type = $type;
+
+        $town = $gf->createTown($setup);
 
         $town->setCreator($user);
         if(!empty($password)) $town->setPassword($password);
@@ -531,10 +538,8 @@ class GhostController extends CustomAbstractController
         if(!empty($town->getPassword()) && $town->getPassword() !== $parser->get('pass', ''))
             return AjaxResponse::error(self::ErrorWrongTownPassword);
 
-        $allowedTownClasses = $this->getUserTownClassAccess($conf->getGlobalConf());
-        if (!$allowedTownClasses[$town->getType()->getName()]) {
+        if (!$factory->userCanEnterTown( $town, $user ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
 
         $citizen = $factory->createCitizen($town, $user, $error, $all);
         if (!$citizen) return AjaxResponse::error($error);

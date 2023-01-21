@@ -5,8 +5,12 @@ namespace App\Entity;
 use App\Interfaces\NamedEntity;
 use App\Repository\ZoneTagRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ZoneTagRepository::class)]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'zone_tag_unique', columns: ['name'])]
 class ZoneTag implements NamedEntity
 {
     const TagNone           = 0;

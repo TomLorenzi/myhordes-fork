@@ -19,22 +19,22 @@
                     </ul>
                     <div x-tab-group="picto-listing" x-tab-id="native" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}<br />
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, user: user} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="cumulative" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}<br />
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_all, user: user, plain: true} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="mh" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.soulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.heroDaysSpent }}
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.heroDaysSpent }}<br />
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_mh, user: user, plain: true} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="import" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.importedSoulPoints }}<br />
-                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.importedHeroDaysSpent }}
+                        {{ "Heldentage:"|trans({}, 'admin') }} {{ user.importedHeroDaysSpent }}<br />
                         {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_im, user: user, plain: true} %}
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="old" x-tab-target>
@@ -65,7 +65,9 @@
                                             {% if (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationNone')) %}{{ 'Dauerhaft!'|trans({},'game') }}
                                             {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationSeason')) %}{{ 'Für diese Saison'|trans({},'game') }}
                                             {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis {date}'|trans({'{date}': feature.timestamp|format_datetime('short', 'none')},'game') }}
-                                            {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}
+                                            {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}
+                                                {% if feature.prototype.chargedByUse %}{{ '{num} Aufladungen'|trans({'{num}': feature.townCount},'game') }}
+                                                {% else %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}{% endif %}
                                             {% else  %}???{% endif %}
                                         </b>
 

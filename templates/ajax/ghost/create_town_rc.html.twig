@@ -43,11 +43,6 @@
                 <div class="cell padded rw-12">
                     <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
 
-                    <div class="green-note">
-                        {{ 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.'|trans({}, 'ghost') }}
-                        <div class="right small"><a href="#" x-ajax-href="{{ path('ghost_create_town') }}">{{ 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!'|trans({}, 'ghost') }}</a></div>
-                    </div>
-
                     <hordes-town-creator data-elevation="{{ app.user.rightsElevation }}"></hordes-town-creator>
                 </div>
             </div>

@@ -27,7 +27,7 @@ Spielername: Username
 'E-Mail Adresse': 'E-Mail address'
 wiederholen: repeat
 Passwort: Password
-"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "To complete the registration and activate your account, \n\\t\\t\\t\\t\\t\\tyou must click on the activation link that will be sent to your specified email address."
+"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "To complete the registration and activate your account, \nyou must click on the activation link that will be sent to your specified email address."
 'Du hast schon einen Account?': 'Do you have an account yet?'
 Einloggen: Log in
 'Bitte gib deinen Spielernamen und dein Passwort ein.': 'Please enter your username and password.'
@@ -86,3 +86,15 @@ Pate: Sponsor
 'Der Registrierungstoken ist ungültig oder wurde bereits verwendet.': 'The registration token is invalid or has already been used.'
 Registrierungstoken: Registration token
 'Dieser Token ist für die Registrierung erforderlich.': 'A registration token is required to create an account.'
+'Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.': 'Please accept the Privacy Policy and Terms of Service.'
+'Ich habe die {privacyPolicy} und {tos} gelesen und stimme ihnen zu.': 'I have read and I agree to the {privacyPolicy} and {tos}.'
+'Nutzungsbedingungen zustimmen': 'Agree to the Terms of Service'
+'Damit du MyHordes weiter nutzen kannst, musst du unseren Nutzungsbedingungen zustimmen. Du findest die aktuellen Nutzungsbedingungen unter folgendem Link (öffnet in einem neuen Fenster):': 'In order to continue using MyHordes, you must agree to our Terms of Service. You can find the current terms of service under the following link (opens in a new window):'
+'Du musst nicht sofort zustimmen.': 'You do not need to agree right now.'
+'Ich stimme den Nutzungsbedingungen zu!': 'I agree to the Terms of Service!'
+'Später zustimmen': 'Agree later'
+'Vielen Dank, dass du den Nutzungsbedingungen zugestimmt hast.': 'Thank you for accepting our Terms of Service.'
+'Du kannst den Nutzungsbedingungen jederzeit in deinen Seeleneinstellungen zustimmen. Wir werden dich weiterhin gelegentlich daran erinnern, dass du den Nutzungsbedingungen zustimmen musst.': 'You can agree to the Terms of Service at any time in your Soul Settings. We will continue to remind you occasionally that you must agree to the Terms of Service.'
+'Du hast den Nutzungsbedingungen von MyHordes noch nicht zugestimmt. Beachte, dass du diese Warnung nicht für immer ignorieren kannst.': 'You have not yet agreed to the MyHordes Terms of Service. Note that you cannot ignore this warning forever.'
+'Zum Zustimmungsdialog wechseln': 'Open dialog to accept'
+'Klicke auf "Später zustimmen", um diesen Hinweis vorerst auszublenden. Bitte beachte jedoch, dass du diesen Hinweis nicht ewig ignorieren kannst.': 'Click "Agree later" to hide this notice for now. However, please note that you cannot ignore this notice forever.'

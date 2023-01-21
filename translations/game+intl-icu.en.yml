@@ -1825,7 +1825,7 @@ Schamanen-Ratgeber: Shamans game guide
 'Du wurdest zum Reiseleiter in der Außenwelt gewählt!': 'You''ve been elected as the Guide to the World Beyond!'
 'Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?': 'You wake up with a smile on your face... A strange sensation around here... You walk out of your tent and.. People are saluting you?'
 'Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...': 'Oh dear... What did do last night? It seems you might have partied a little too hard last night... Yeeeerrrrp it''s you who''s been named. All vestigaes of dout dissappear as you lay eyes on the town gates: A crazy urge to go exploring comes over you, not at all your thing usually..'
-'Du bist nun der Reiseleiter in der Außenwelt.': '> You are now the Guide to the World Beyond.'
+'Du bist nun der Reiseleiter in der Außenwelt.': 'You are now the Guide to the World Beyond.'
 'Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!': 'New horizons open before you, you''re no longer just an ordinary citizen, but a leader, a pioneer...'
 'Schau dir am besten gleich den {guide_help} an.': 'Take a look at {guide_help} !'
 Reiseleiter-Ratgeber: the guide to the game for Guides to the World Beyond
@@ -2363,3 +2363,20 @@ Stadt/Stadttor: Town/Doors
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '{citizen} managed to flee from the zone, although they were <strong>seriously injured</strong> in the process!'
 '{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} has used a <strong>special ability</strong>, killing {zombies} zombie(s) and gaining control of the zone for <strong>{duration}</strong>!'
 '<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Citizen</strong>,<br/>in recognition of your achievements in the fight against the zombies and as a reward for achieving first place in the ranking of the best towns in <i>season {season}</i> on <i>{server}</i> you are awarded the following:{pictos}In addition, the following tools are available to you for the duration of the new season:{features}<br/><strong>Congratulations!</strong>'
+'Brunnen (short)': Well
+'Bank (short)': Bank
+'Bürger (short)': Citizens
+'Konstruktionen (short)': Constructions
+'Stadttor (short)': Gates
+'Bitte wähle eine Heldentat:': 'Please choose a heroic action:'
+'Du hast keine Heldentaten mehr, die du spenden könntest...': 'You have no more heroic actions to gift...'
+'Du hast eine Heldentat erhalten!': 'You received a heroic action!'
+'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'In an instant of extreme generosity, {citizen} gave you a heroic action:'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': 'Come on, {citizen} is not that lazy, he is able to that heroic action by himself!'
+'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'By the sweat of your brow, you''ve earned the following bonuses:'
+'Aufladungen für "Freundschaft"': 'Charges for "Brothers in Arms"'
+'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Allows using the heroic action "Brothers in Arms".'
+'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem eine deiner noch ungenutzten Heldentaten schenken! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentaten kannst du in dieser Stadt nicht mehr selbst verwenden. Um jemandem eine Heldentat zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'Once per game, you can give 1 Heroic action to a fellow citizen! Just wait, you''''ll become a veritable messiah for the masses... NB: any heroic actions you give away will be taken from your available actions.'
+'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'It is not possible to carry out this action again here. Go somewhere else, or come back tomorrow.'
+'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Click on the estimation to copy it to the clipboard.'
+'{num} Aufladungen': '{num} Charges'
