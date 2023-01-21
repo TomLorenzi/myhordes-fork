@@ -1704,7 +1704,7 @@ class ActionHandler
                             if ($target->citizen()->getProfession()->getHeroic())
                                 $target->citizen()->getHeroicActions()->add( $target->action() );
                             else $target->citizen()->addSpecialAction( $target->action()->getSpecialActionPrototype() );
-                        }
+                        } else $execute_info_cache['message'][] = T::__('Du bist aber nicht sicher, ob er damit wirklich etwas anfangen kann...', "items");
 
                         break;
                 }
