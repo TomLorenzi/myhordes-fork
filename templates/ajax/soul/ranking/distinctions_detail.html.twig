@@ -51,7 +51,7 @@
                                     {{ pos + 1 }}
                                 </div>
                                 <div class="cell rw-6 season_entry_td left soul_season_name">
-                                    {% include 'ajax/soul/playername.html.twig' with {user: entry.user, additional_classes: ['undecorated', pos >= 5 ? 'small' : '']} only %}
+                                    {% include 'ajax/soul/playername.html.twig' with {user: entry.user, additional_classes: ['undecorated', pos >= 5 ? 'small' : ''], globalSpace: true} only %}
                                 </div>
                                 <div class="cell rw-4 season_entry_td center soul_season_points">
                                     {{ entry.count }}
