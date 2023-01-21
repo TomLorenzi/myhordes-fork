@@ -431,13 +431,13 @@ class CitizenHandler
 
     /**
      * Set the AP of a citizen.
-     * @param Citizen &$citizen The citizen on which we'll change AP
+     * @param Citizen $citizen The citizen on which we'll change AP
      * @param bool $relative Is this set relative to current citizen AP or not?
      * @param int $num The number of AP to set
      * @param int $max_bonus The bonus to apply to max AP (default null)
      * @return int The number of affected AP to citizen (may be different from what was asked because of some rules)
      */
-    public function setAP(Citizen &$citizen, bool $relative, int $num, ?int $max_bonus = null): int {
+    public function setAP(Citizen $citizen, bool $relative, int $num, ?int $max_bonus = null): int {
         $beforeAp = $citizen->getAp();
         
         if ($max_bonus !== null) {
