@@ -1723,7 +1723,7 @@ class SoulController extends CustomAbstractController
         $id = $parser->get("id");
         $user = $this->entity_manager->getRepository(User::class)->find($id ?? -1);
 
-        if (!$user || $this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))
+        if (!$user || ($action === 1 && ($this->user_handler->hasRole($user, 'ROLE_DUMMY') || !str_contains($user->getEmail(), '@'))))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($action && $this->user_handler->checkRelation($this->getUser(), $user,SocialRelation::SocialRelationTypeBlock, true))
