@@ -7,14 +7,12 @@ use App\Entity\Inventory;
 use App\Entity\RuinZone;
 use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
-use App\Service\AdminLog;
 use App\Service\ConfMaster;
 use App\Service\RandomGenerator;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
-use Graphp\Algorithms\ConnectedComponents;
 
 class MazeMaker
 {
@@ -431,12 +429,10 @@ class MazeMaker
      * @param array $origin
      * @param int $offset_distance
      * @param bool $go_up
-     * @param bool $invertDirections 
+     * @param bool $invertDirections
+     * @return RuinZone|null
      */
     public function generateRoom(int $level = 0, array $origin = [0,0], int $offset_distance = 0, bool $go_up = false, bool $invertDirections = false): ?RuinZone {
-
-        // TODO : Adapt the MT algorithm to replace the one made by brainbox (sorry brainbox :<)
-
         $cache = [];
         // Get a two dim array to map where are the corridors
         foreach ($this->targetZone->getRuinZonesOnLevel($level) as $ruinZone) {
@@ -490,16 +486,28 @@ class MazeMaker
             $place_down = $down_count > 0;
             $place_up   = !$place_down && $up_count > 0;
 
-            $room_candidates = array_filter( $room_candidates, function(RuinZone $r) use ($room_dist) {
+            $eq_room_candidates = $room_candidates = array_filter( $room_candidates, function(RuinZone $r) use ($room_dist) {
                 return $r->getRoomDistance() >= $room_dist;
             } );
 
             if ($place_up) $up_candidates = array_filter( $room_candidates, function(RuinZone $r) use ($lock_distance) {
                 return $r->getDistance() > $lock_distance;
             } );
+            elseif (!$down_count) {
+                // To ensure a equally distributed rooms, determine a distance for the room randomly, then place the
+                // room on a zone that fits the distance.
+                $max_distance = array_reduce( $room_candidates, fn( $carry, RuinZone $r ) => max( $r->getDistance(), $carry ), 0 );
+                $safeguard = 0; // Ensures there can never be an endless loop
+                do {
+                    $safeguard++;
+                    $target_distance = mt_rand( $room_distance, $max_distance );
+                    $eq_room_candidates = array_filter( $room_candidates, fn(RuinZone $r) => $r->getDistance() === $target_distance );
+                } while (empty( $eq_room_candidates ) && $safeguard < 20);
+                if (empty($eq_room_candidates)) $eq_room_candidates = $room_candidates;
+            }
 
             /** @var RuinZone $room_corridor */
-            $room_corridor = $place_down ? $cache[$origin[0]][$origin[1]] : $this->random->pick( $place_up && !empty($up_candidates) ? $up_candidates : $room_candidates, 1 );
+            $room_corridor = $place_down ? $cache[$origin[0]][$origin[1]] : $this->random->pick( $place_up && !empty($up_candidates) ? $up_candidates : $eq_room_candidates, 1 );
             $far = $room_corridor->getDistance() > $lock_distance;
 
             // Determine possible locations for the door
