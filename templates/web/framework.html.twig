@@ -42,7 +42,7 @@
         {{ encore_entry_script_tags('fa', null, '_default', {'defer': true}) }}
 
         <!-- Set Favicon -->
-        <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
+        {{ include('build/favicons.html.twig') }}
 
         <!-- Set page title -->
         {% if block('title') is defined %}

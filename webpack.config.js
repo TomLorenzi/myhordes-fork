@@ -8,8 +8,10 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
 
-let local = [];
-try { local = require('./webpack.config.local'); } catch (e) {}
+const local = fs.existsSync( 'webpack.config.local.js' )
+    ? require('./webpack.config.local')
+    : []
+;
 
 Encore
     // enable REACT
@@ -143,7 +145,42 @@ Encore
     //.addEntry('admin', './assets/js/admin.js')
 ;
 
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const config = Encore.getWebpackConfig();
 config.resolve.fallback = { ...config.resolve?.fallback ?? {}, buffer: require.resolve('buffer/'), stream: require.resolve("stream-browserify") }
-config.plugins = [ ...config.plugins ?? [], new webpack.ProvidePlugin({ Buffer: ['buffer', 'Buffer'] }), new webpack.ProvidePlugin({ process: 'process/browser' })]
+config.plugins = [
+    ...config.plugins ?? [],
+    new webpack.ProvidePlugin({ Buffer: ['buffer', 'Buffer'] }),
+    new webpack.ProvidePlugin({ process: 'process/browser' }),
+    new FaviconsWebpackPlugin({
+        logo: local?.favicon?.image ?? './assets/img/favicon.png',
+        prefix: 'favicon/',
+        devMode: 'webapp',
+        favicons: {
+            background: local?.favicon?.background ?? '#100C0B',
+            theme_color: local?.favicon?.theme_color ?? '#7e4d2a',
+            pixel_art: true
+        }
+    }),
+    new HtmlWebpackPlugin({
+        filename: '../../templates/build/favicons.html.twig',
+        templateContent: ({favicons}) => favicons,
+        inject: false,
+        templateParameters:  (compilation, assets, assetTags) => {
+            return {favicons: assetTags.headTags
+                    .filter( a =>
+                        a?.tagName === 'meta' ||
+                        (
+                            a?.tagName === 'link' &&
+                            ['icon','shortcut icon','apple-touch-icon','apple-touch-startup-image','manifest','yandex-tableau-widget']
+                                .indexOf(a?.attributes?.rel) >= 0
+                        )
+                    )
+                    .map(a => a.toString() )
+                    .join('')}
+        }
+    })
+]
 module.exports = config;

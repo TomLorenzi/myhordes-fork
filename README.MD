@@ -330,15 +330,22 @@ If you do not run MyHordes within the web root (i.e. you have it running in a fo
 module.exports = {
     // Relative path to the build folder from the MyHordes root folder
     output_path: 'public/build/',
-    
+
     // URL to the build folder from webroot
     public_path: '/myhordes/build/',
-   
+
     // Optional; should be set to false on dev servers and omitted (or set to true) on
     // production servers.
     // When set to false, massively speeds up yarn asset compilation, but will cause
     // caching issues when used in a production setup!
-    hash_filenames: false
+    hash_filenames: false,
+
+    // Override Favicon configuration
+    favicon: {
+        image: './assets/img/favicon.png',
+        background: '#100C0B',
+        theme_color: '#7e4d2a',
+    }
 };
 ```
 
