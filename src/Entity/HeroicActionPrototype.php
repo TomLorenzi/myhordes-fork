@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -24,6 +25,9 @@ class HeroicActionPrototype
     private $action;
     #[ORM\Column(type: 'boolean')]
     private $unlockable = false;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $usedMessage = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -55,6 +59,18 @@ class HeroicActionPrototype
     public function setUnlockable(bool $unlockable): self
     {
         $this->unlockable = $unlockable;
+
+        return $this;
+    }
+
+    public function getUsedMessage(): ?string
+    {
+        return $this->usedMessage;
+    }
+
+    public function setUsedMessage(?string $usedMessage): self
+    {
+        $this->usedMessage = $usedMessage;
 
         return $this;
     }

@@ -56,6 +56,7 @@ use App\Structures\BankItem;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -256,7 +257,7 @@ class InventoryAwareController extends CustomAbstractController
 
         foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'renderer' => null, 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
-        foreach ($used as $c)      $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'used' => true ];
+        foreach ($used as $c)      $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'renderer' => null, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'used' => true, 'used_message' => $c->getUsedMessage() ?? T::__('Du hast schon genug den Helden gespielt! Diese Heldentat kannst du erst im nächsten Leben wieder verbringen.', 'items') ];
 
         return $ret;
     }
