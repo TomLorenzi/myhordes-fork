@@ -7,7 +7,7 @@
       "name": "AGPL3",
       "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
     },
-    "version": "1.0.0.61"
+    "version": "1.0.0.63"
   },
   "servers": [
     {
@@ -2803,7 +2803,74 @@
             "items": {
               "type": "object",
               "properties": {
-                "items": { "$ref": "#/components/schemas/JSONItemListObject" }
+                "x": {
+                  "type": "integer",
+                  "description": "X Position on the map (when outside)",
+                  "example": 5
+                },
+                "y": {
+                  "type": "integer",
+                  "description": "Y Position on the map (when outside)",
+                  "example": -2
+                },
+                "km": {
+                  "type": "integer",
+                  "description": "Distance to town (in KM)",
+                  "example": 10
+                },
+                "zombies": {
+                  "type": "integer",
+                  "description": "Number of zombies on this zone",
+                  "example": 0
+                },
+                "is_town": {
+                  "type": "boolean",
+                  "description": "True if this is the town zone",
+                  "example": false
+                },
+                "building": {
+                  "type": "object",
+                  "properties": {
+                    "sandpile": {
+                      "type": "integer",
+                      "description": "Remaining number of sand piles that must be cleared to uncover the zone.",
+                      "example": 0
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the ruin",
+                      "example": "Abgelegenes Haus"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "Ruin type ID",
+                      "example": 1
+                    }
+                  }
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      { "$ref": "#/components/schemas/JSONItemPrototypeObject" },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "count": {
+                            "type": "integer",
+                            "description": "Item count",
+                            "example": 4
+                          },
+                          "broken": {
+                            "type": "boolean",
+                            "description": "Is this item broken?",
+                            "example": false
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
               }
             }
           }

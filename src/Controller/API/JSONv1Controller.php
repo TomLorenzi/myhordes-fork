@@ -729,7 +729,6 @@ class JSONv1Controller extends CoreController {
                     'x'                    => $zone->getX() - $x_min,
                     'y'                    => $y_max - $zone->getY(),
                     'km'                   => $this->zone_handler->getZoneKm($zone),
-                    'remaining_excavation' => $zone->getDigs(),
                     'zombies'              => $zone->getZombies(),
                     'is_town'              => $zone->getDistance() < 1,
                     'items'                => [],
@@ -763,8 +762,6 @@ class JSONv1Controller extends CoreController {
                         'name'                 => $this->translator->trans($zone->getPrototype()->getLabel(), [], "game", $town->getLanguage()),
                         'type'                 => $zone->getPrototype()->getId(),
                         'sandpile'             => $zone->getBuryCount(),
-                        'remaining_blueprint'  => $zone->getBlueprint(),
-                        'remaining_excavation' => $zone->getRuinDigs()
                     ];
                 }
                 $town_data['zone'][] = $zone_data;
