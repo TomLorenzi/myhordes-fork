@@ -254,7 +254,7 @@ class MapMaker
                     if (isset( $zone_db[$x] ) && isset($zone_db[$x][$y]) && $zone_db[$x][$y] === 0)
                         $empty_surrounding_zones[] = [$x,$y];
 
-            $picked = $this->random->pick( $empty_surrounding_zones, mt_rand( 1, 5 ), true );
+            $picked = $this->random->pick( $empty_surrounding_zones, mt_rand( 2, 5 ), true );
             foreach ($picked as [$x,$y]) $zone_db[$x][$y] = mt_rand(1, min(5, $zone_db[$zone->getX()][$zone->getY()] ));
         }
 
