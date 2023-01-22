@@ -11,8 +11,12 @@
                 <div class="cell rw-2 season_entry_td center soul_season_flag">
                     {% if entry.user.flag is not null %}
                         <div class="user-flag small"><img alt="{{ entry.user.flag }}" src="{{ asset('build/images/lang/any/' ~ entry.user.flag ~ '.svg' ) }}"/></div>
-                    {% elseif entry.user.language is not null %}
-                        <img src="{{ asset("build/images/lang/" ~ entry.user.language ~ ".png") }}" alt="{{ entry.user.language }}" />
+                    {% elseif entry.user.language is not null and entry.user.language != 'ach' %}
+                        {% if entry.user.language == 'en' %}
+                            <img src="{{ asset("build/images/lang/" ~ entry.user.language ~ ".png") }}" alt="{{ entry.user.language }}" />
+                        {% else %}
+                            <div class="user-flag small"><img alt="{{ entry.user.language }}" src="{{ asset('build/images/lang/any/' ~ entry.user.language|upper ~ '.svg' ) }}"/></div>
+                        {% endif %}
                     {% else %}
                         <img src="{{ asset("build/images/lang/multi.png") }}" alt="" />
                     {% endif %}
