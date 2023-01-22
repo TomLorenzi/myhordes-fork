@@ -1086,6 +1086,7 @@
             document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
         );
+        $.html.addEventListenerAll( 'ul.heroic_actions .already[data-used-message]', 'click', (e,elem) => $.html.error( elem.dataset.usedMessage ) );
 
         handleSpecialActions(
             document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),

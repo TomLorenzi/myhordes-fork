@@ -955,13 +955,13 @@ class ActionDataService implements FixtureProcessorInterface {
             ],
 
             'heroics' => [
-                ['name' => 'hero_generic_return', 'unlockable' => false],
-                ['name' => 'hero_generic_find', 'unlockable' => false],
-                ['name' => 'hero_generic_punch', 'unlockable' => false],
+                ['name' => 'hero_generic_return', 'unlockable' => false, 'used' => 'Ahh, es ist immer wieder schön in die Stadt zurückzukehren... Nach einer deartigen Anstrengung, kann der Wille schon mal schwach werden. Versuche es in einem nächsten Leben erneut.'],
+                ['name' => 'hero_generic_find', 'unlockable' => false, 'used' => 'Du hast heute schon verdammt viel Schwein gehabt. So viel Glück kannst du erst in deinem nächsten Leben wieder haben...'],
+                ['name' => 'hero_generic_punch', 'unlockable' => false, 'used' => 'Ahh... Das hat dir gefallen, nicht wahr? Du kannst deine Fäuste erst in deinem nächsten Leben wieder schwingen lassen...'],
                 ['name' => 'hero_generic_ap', 'unlockable' => true],
                 ['name' => 'hero_generic_immune', 'unlockable' => true],
-                ['name' => 'hero_generic_find_lucky', 'unlockable' => true],
-                ['name' => 'hero_generic_rescue', 'unlockable' => false],
+                ['name' => 'hero_generic_find_lucky', 'unlockable' => true, 'used' => 'Du hast heute schon verdammt viel Schwein gehabt. So viel Glück kannst du erst in deinem nächsten Leben wieder haben...'],
+                ['name' => 'hero_generic_rescue', 'unlockable' => false, 'used' => 'Du hast bereits versucht, einen deiner Mitbürger zu retten! Für deine nächste Rettungsaktion musst du bis zu deinem nächsten Leben warten!'],
                 ['name' => 'hero_generic_friendship', 'unlockable' => false],
             ],
 

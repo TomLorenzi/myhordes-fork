@@ -162,6 +162,7 @@
             document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
             '{{ path('beyond_ruin_heroic_controller') }}', '{{ path('exploration_dashboard') }}'
         );
+        $.html.addEventListenerAll( 'ul.heroic_actions .already[data-used-message]', 'click', (e,elem) => $.html.error( elem.dataset.usedMessage ) );
 
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),

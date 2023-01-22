@@ -1428,7 +1428,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $action['name']]);
             if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action['name'] );
-            $action_proto->setUnlockable($action['unlockable']);
+            $action_proto->setUnlockable($action['unlockable'])->setUsedMessage( $action['used'] ?? null );
 
             $out->writeln( "Compiling action set for heroic action <info>{$action['name']}</info>...", OutputInterface::VERBOSITY_DEBUG);
 
