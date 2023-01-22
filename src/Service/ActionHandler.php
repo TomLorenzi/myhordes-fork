@@ -646,6 +646,13 @@ class ActionHandler
             if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
             if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
             if ($mode <= self::ActionValidityAllow) {
+
+                if ($item->getPoison() === ItemPoisonType::Deadly && $action->getPoisonHandler() === ItemAction::PoisonHandlerConsume) {
+                    $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
+                    $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
+                    return self::ErrorNone;
+                }
+
                 $message = $tx;
                 return self::ErrorActionForbidden;
             }
