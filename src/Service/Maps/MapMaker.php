@@ -96,9 +96,8 @@ class MapMaker
         };
 
         $o = 0;
-        for ($i = 0; $i < $spawn_ruins + $conf->get(TownConf::CONF_MAP_FREE_SPAWN_COUNT, 2); $i++) {
+        for ($i = 0; $i < $spawn_ruins; $i++) {
 
-            $zombies_base = 0;
             do {
                 if (($i+$o) >= count($zone_list)) continue 2;
                 $b = $cl_get( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
@@ -111,41 +110,28 @@ class MapMaker
 
             $cl_set( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
 
-            if ($i < $spawn_ruins) {
+            //$ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance( abs($zone_list[$i]->getX()) + abs($zone_list[$i]->getY()) );
+            $ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance(round(sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )));
+            if (empty($ruin_types)) continue;
 
-                $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 18);
+            $iterations = 0;
+            do {
+                $target_ruin = $this->random->pickLocationFromList( $ruin_types );
+                $iterations++;
+            } while ( isset( $previous[$target_ruin->getId()] ) && $iterations <= $previous[$target_ruin->getId()] );
 
-                //$ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance( abs($zone_list[$i]->getX()) + abs($zone_list[$i]->getY()) );
-                $ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance(round(sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )));
-                if (empty($ruin_types)) continue;
+            if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
+            else $previous[$target_ruin->getId()]++;
 
-                $iterations = 0;
-                do {
-                    $target_ruin = $this->random->pickLocationFromList( $ruin_types );
-                    $iterations++;
-                } while ( isset( $previous[$target_ruin->getId()] ) && $iterations <= $previous[$target_ruin->getId()] );
+            $zone_list[$i+$o]
+                ->setPrototype( $target_ruin )
+                ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 8), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 16) ) );
 
-                if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
-                else $previous[$target_ruin->getId()]++;
+            if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
+                $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
 
-                $zone_list[$i+$o]
-                    ->setPrototype( $target_ruin )
-                    ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 8), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 16) ) );
-
-                if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
-                    $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
-
-                if ($this->random->chance($conf->get(TownConf::CONF_MAP_BURIED_PROB, 0.5)))
-                    $zone_list[$i+$o]->setBuryCount( mt_rand($conf->get(TownConf::CONF_MAP_BURIED_DIGS_MIN, 6), $conf->get(TownConf::CONF_MAP_BURIED_DIGS_MAX, 20)) );
-
-            } else
-                if ($this->random->chance( $conf->get(TownConf::CONF_MAP_FREE_SPAWN_PROB, 0.1) ))
-                    $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 3);
-
-            if ($zombies_base > 0) {
-                $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $zone_list[$i+$o]->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
-            }
+            if ($this->random->chance($conf->get(TownConf::CONF_MAP_BURIED_PROB, 0.5)))
+                $zone_list[$i+$o]->setBuryCount( mt_rand($conf->get(TownConf::CONF_MAP_BURIED_DIGS_MIN, 6), $conf->get(TownConf::CONF_MAP_BURIED_DIGS_MAX, 20)) );
         }
 
         $spawn_explorable_ruins = $conf->get(TownConf::CONF_NUM_EXPLORABLE_RUINS, 0);
@@ -173,10 +159,6 @@ class MapMaker
                 $spawn_zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
                 $this->maze_maker->createField();
                 $this->maze_maker->generateCompleteMaze();
-
-                $zombies_base = 1 + floor(min(1,sqrt( pow($spawn_zone->getX(),2) + pow($spawn_zone->getY(),2) )/18) * 3);
-                $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $spawn_zone->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
             }
         }
 
@@ -205,7 +187,7 @@ class MapMaker
             }
         }
 
-        $this->dailyZombieSpawn( $town, 1, self::RespawnModeNone );
+        $this->initialZombieSpawn( $town );
         foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
     }
 
@@ -234,6 +216,56 @@ class MapMaker
 
         if ($gov->myHordes()) $this->zombieSpawnGovernorMH( $town, $cycles, $mode, $override_day );
         elseif ($gov->hordes()) for ($i = 0; $i < $cycles; $i++) $this->zombieSpawnGovernorHordes( $town, $gov, $override_day );
+    }
+
+    public function initialZombieSpawn( Town $town ): void
+    {
+        $conf = $this->conf->getTownConfiguration( $town );
+
+        /** @var Zone[] $zones */
+        $zones = $town->getZones()->getValues();
+
+        $empty_zones = [];
+        $ruin_zones = [];
+        $zone_db = [];
+
+        foreach ($zones as $zone) {
+            if ($zone->getPrototype())
+                $ruin_zones[] = $zone;
+            elseif (!$zone->isTownZone()) $empty_zones[] = $zone;
+
+            if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
+            $zone_db[$zone->getX()][$zone->getY()] = 0;
+        }
+
+        for ($i = 0; $i < $conf->get(TownConf::CONF_MAP_FREE_SPAWN_COUNT, 2); $i++)
+            if ($this->random->chance( $conf->get(TownConf::CONF_MAP_FREE_SPAWN_PROB, 0.1) ))
+                $ruin_zones[] = $this->random->draw( $empty_zones );
+
+        foreach ($ruin_zones as $zone) {
+            $zombies_base = 1 + (min(1,sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) )/18) * ($zone->getPrototype()?->getExplorable() ? 3 : 18));
+            $zone_db[$zone->getX()][$zone->getY()] = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
+        }
+
+        foreach ($ruin_zones as $zone) {
+            $empty_surrounding_zones = [];
+            for ($x = $zone->getX() - 1; $x <= $zone->getX() + 1; $x++)
+                for ($y = $zone->getY() - 1; $y <= $zone->getY() + 1; $y++)
+                    if (isset( $zone_db[$x] ) && isset($zone_db[$x][$y]) && $zone_db[$x][$y] === 0)
+                        $empty_surrounding_zones[] = [$x,$y];
+
+            $ov = max(1, $zone_db[$zone->getX()][$zone->getY()] / 4);
+            $picked = $this->random->pick( $empty_surrounding_zones, min(3, mt_rand( 1, $ov ) ), true );
+
+            foreach ($picked as [$x,$y]) $zone_db[$x][$y] = mt_rand($ov >= 3 ? 3 : 1, $ov);
+        }
+
+        foreach ($zones as $zone)
+            $zone
+                ->setZombies( $zone_db[$zone->getX()][$zone->getY()] )
+                ->setInitialZombies( $zone_db[$zone->getX()][$zone->getY()] )
+                ->setScoutEstimationOffset( mt_rand(-2,2) )
+                ->setPlayerDeaths(0);
     }
 
     private function zombieSpawnGovernorMH( Town $town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ): void {
@@ -289,12 +321,9 @@ class MapMaker
                             }
 
                     if ($current_zone_zombies > 0) {
-                        $avg_dif = min(max(0, floor($neighboring_zombies / $adj_zones_total) - $current_zone_zombies) + 2, 2);
-
-                        // If the zone already has zombies, increase count by 0 - 2
-                        // We're using -1 instead of 0 to increase the bias towards 0
-                        $new_zeds = max(0, mt_rand(-1, $avg_dif));
-                        if ($new_zeds >= 2) $new_zeds = mt_rand(1, $avg_dif);
+                        $new_zeds = $this->random->chance(0.9)
+                            ? 1
+                            : ( $this->random->chance(0.5) ? 0 : 2 );
 
                         $current_zone_zombies += $new_zeds;
                     } else {
