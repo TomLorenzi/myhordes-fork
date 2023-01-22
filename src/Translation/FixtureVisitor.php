@@ -87,6 +87,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
                 $this->extractColumnData( $data['meta_requirements'] ?? [], 'text', 'items') &&
                 $this->extractColumnData( $data['actions'] ?? [], ['label','tooltip','confirmMsg','message','escort_message'], 'items') &&
                 $this->extractColumnData( $data['escort'] ?? [], ['label','tooltip'], 'items') &&
+                $this->extractColumnData( $data['heroics'] ?? [], ['used'], 'items') &&
                 $this->extractColumnData( array_column( $data['meta_results'] ?? [], 'message' ), 'text', 'items'),
             AwardTitle::class => $this->extractColumnData($data, 'title', 'game'),
             Item::class =>

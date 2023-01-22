@@ -962,7 +962,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 ['name' => 'hero_generic_immune', 'unlockable' => true],
                 ['name' => 'hero_generic_find_lucky', 'unlockable' => true, 'used' => 'Du hast heute schon verdammt viel Schwein gehabt. So viel Glück kannst du erst in deinem nächsten Leben wieder haben...'],
                 ['name' => 'hero_generic_rescue', 'unlockable' => false, 'used' => 'Du hast bereits versucht, einen deiner Mitbürger zu retten! Für deine nächste Rettungsaktion musst du bis zu deinem nächsten Leben warten!'],
-                ['name' => 'hero_generic_friendship', 'unlockable' => false],
+                ['name' => 'hero_generic_friendship', 'unlockable' => false, 'used' => 'Du hast deine Großzügigkeit in diesem Leben bereits unter Beweis gestellt!'],
             ],
 
             'specials' => [
