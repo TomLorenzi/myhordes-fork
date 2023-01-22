@@ -1997,7 +1997,7 @@ Kosten: Cost
 Dauerhaft!: Forever!
 'Für diese Saison': 'For this season'
 'Bis {date}': 'Until {date}'
-'Für {num} weitere Städte': 'For {num} more towns'
+'Für {num} weitere Städte': '{num} charges'
 'Stadttor zerstört!': 'Gates destroyed!'
 'Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.': 'During a particularly terrifying assault, the town gates were smashed then carried off into the World beyond. You would be well advised not to hang around here tonight or your town will be your tomb.'
 'Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.': 'That''s what happens when you leave a town without anyone to defend it.'
@@ -2379,4 +2379,4 @@ Stadt/Stadttor: Town/Doors
 'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem eine deiner noch ungenutzten Heldentaten schenken! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentaten kannst du in dieser Stadt nicht mehr selbst verwenden. Um jemandem eine Heldentat zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'Once per game, you can give 1 Heroic action to a fellow citizen! Just wait, you''''ll become a veritable messiah for the masses... NB: any heroic actions you give away will be taken from your available actions.'
 'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'It is not possible to carry out this action again here. Go somewhere else, or come back tomorrow.'
 'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Click on the estimation to copy it to the clipboard.'
-'{num} Aufladungen': '{num} Charges'
+'{num} Aufladungen': '{num} charges'
