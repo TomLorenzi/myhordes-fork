@@ -546,11 +546,8 @@ class UserHandler
         }
 
         // Storage limit: 1MB
-        if (strlen($payload) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576)) {
-            echo strlen($payload);
+        if (strlen($payload) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576))
             return self::ErrorAvatarInsufficientCompression;
-        }
-
 
         $name = md5( $payload );
         if (!($avatar = $user->getAvatar())) {
