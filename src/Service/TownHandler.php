@@ -633,8 +633,8 @@ class TownHandler
 
             $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil,  $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ESTIM_SPREAD, 10));
 
-            $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
-            $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
+            $min2 = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
+            $max2 = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
 
             $min2 = floor($min2 / 25) * 25;
             $max2 = ceil($max2 / 25) * 25;
