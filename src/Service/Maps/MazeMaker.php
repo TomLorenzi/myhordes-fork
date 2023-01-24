@@ -263,7 +263,7 @@ class MazeMaker
             $originOffset += $originZone->getDistance() + 1;
         }
 
-        $this->populateMaze($this->conf->getTownConfiguration( $this->targetZone->getTown() )->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) * $levels );
+        $this->populateMaze($this->targetZone, $this->conf->getTownConfiguration( $this->targetZone->getTown() )->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) * $levels );
     }
 
     // -----------------------------------------------------------------------------------------
@@ -579,16 +579,18 @@ class MazeMaker
     // Maze Population generation
     // -----------------------------------------------------------------------------------------
     /**
+     * @param Zone $zone
      * @param int $zeds
      * @param bool|false $reposition
      * @param bool $clear_bodies
-     * @param RuinZone[] $skip_zone
+     * @param RuinZone $skip_zone
      */
-    public function populateMaze( int $zeds, bool $reposition = false, bool $clear_bodies = true, array $skip_zone = [] ) {
+    public function populateMaze( Zone $zone, int $zeds, bool $reposition = false, bool $clear_bodies = true, array $skip_zone = [] ): void
+    {
 
         // TODO : Adapt the MT algorithm to replace the one made by brainbox (sorry brainbox :<)
         /** @var RuinZone[] $ruinZones */
-        $ruinZones = $this->targetZone->getRuinZones()->getValues();
+        $ruinZones = $zone->getRuinZones()->getValues();
         if ($reposition || $clear_bodies)
             foreach ($ruinZones as $ruinZone) {
                 if ($clear_bodies) $ruinZone->setKilledZombies(0);
