@@ -8,6 +8,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\TownClass;
+use App\Entity\TownRulesTemplate;
 use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Response\AjaxResponse;
@@ -108,6 +109,31 @@ class TownCreatorController extends CustomAbstractCoreController
 
                     'type' => $this->translator->trans('Stadttyp', [], 'ghost'),
                     'base' => $this->translator->trans('Vorlage', [], 'ghost'),
+                ],
+
+                'template' => [
+                    'section' => $this->translator->trans('Vorlagen', [], 'ghost'),
+                    'description' => $this->translator->trans('Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.', [], 'ghost'),
+
+                    'select' => $this->translator->trans('Ausgewählte Vorlage', [], 'ghost'),
+                    'none' => $this->translator->trans('Keine Auswahl', [], 'ghost'),
+
+                    'save' => $this->translator->trans('Aktuelle Einstellungen als neue Vorlage speichern', [], 'ghost'),
+                    'saveConfirm' => $this->translator->trans('Bitte gib deiner neuen Vorlage einen Namen.', [], 'ghost'),
+                    'saveDone' => $this->translator->trans('Deine Vorlage wurde erfolgreich erstellt.', [], 'ghost'),
+                    'saveNameError' => $this->translator->trans('Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.', [], 'ghost'),
+
+                    'update' => $this->translator->trans('Aktualisieren', [], 'ghost'),
+                    'updateConfirm' => $this->translator->trans('Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?', [], 'ghost'),
+                    'updateDone' => $this->translator->trans('Deine Vorlage wurde erfolgreich aktualisiert.', [], 'ghost'),
+
+                    'load' => $this->translator->trans('Laden', [], 'ghost'),
+                    'loadConfirm' => $this->translator->trans('Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?', [], 'ghost'),
+                    'loadDone' => $this->translator->trans('Deine Einstellungen wurden erfolgreich geladen.', [], 'ghost'),
+
+                    'delete' => $this->translator->trans('Löschen', [], 'ghost'),
+                    'deleteConfirm' => $this->translator->trans('Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?', [], 'ghost'),
+                    'deleteDone' => $this->translator->trans('Deine Vorlage wurde erfolgreich gelöscht.', [], 'ghost'),
                 ],
 
                 'difficulty' => [
@@ -355,7 +381,6 @@ class TownCreatorController extends CustomAbstractCoreController
 
         ]);
     }
-
 
     /**
      * @Route("/town-types", name="town-types", methods={"GET"})
@@ -903,6 +928,98 @@ class TownCreatorController extends CustomAbstractCoreController
         }
 
         return AjaxResponse::success( true, ['url' => $incarnated ? $this->generateUrl('game_jobs') : $this->generateUrl('ghost_welcome')] );
+    }
+
+    /**
+     * @Route("/template", name="list-template", methods={"GET"})
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function list_templates(
+        EntityManagerInterface $em,
+    ): JsonResponse {
+        return new JsonResponse(array_map(
+                                    fn(TownRulesTemplate $template) => ['uuid' => $template->getId(), 'name' => $template->getName()],
+                                    $em->getRepository(TownRulesTemplate::class)->findBy(['owner' => $this->getUser()])
+                                ));
+    }
+
+    /**
+     * @Route("/template", name="create-template", methods={"PUT"}, defaults={"create"=true})
+     * @Route("/template/{id}", name="update-template", methods={"PATCH"}, defaults={"create"=false})
+     * @param bool $create
+     * @param TownRulesTemplate|null $template
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return JsonResponse
+     */
+    public function save_template(
+        bool $create,
+        ?TownRulesTemplate $template,
+        EntityManagerInterface $em,
+        JSONRequestParser $parser
+    ): JsonResponse {
+
+        if (!$create && !$template) return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        if ($template && $template->getOwner() !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        if ($create) {
+            $name = $parser->get('name');
+            if (mb_strlen($name) < 3 || mb_strlen($name) > 64) return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
+            $template = (new TownRulesTemplate())
+                ->setOwner( $this->getUser() )
+                ->setName( $name )
+                ->setCreated( new \DateTime() );
+        }
+
+        $template
+            ->setModified( new \DateTime() )
+            ->setValidatedBy(null)
+            ->setValidationLevel( null )
+            ->setData( $this->sanitize_config( $parser->get_array('rules') ) );
+
+        try {
+            $em->persist( $template );
+            $em->flush();
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return new JsonResponse(['uuid' => $template->getId(), 'name' => $template->getName()]);
+    }
+
+    /**
+     * @Route("/template/{id}", name="delete-template", methods={"DELETE"})
+     * @param TownRulesTemplate $template
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function remove_template(
+        TownRulesTemplate $template,
+        EntityManagerInterface $em
+    ): JsonResponse {
+
+        if ($template->getOwner() !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        try {
+            $em->remove( $template );
+            $em->flush();
+        } catch (\Exception) {
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return new JsonResponse(['uuid' => $template->getId(), 'name' => $template->getName()]);
+    }
+
+    /**
+     * @Route("/template/{id}", name="load-template", methods={"GET"})
+     * @param TownRulesTemplate $template
+     * @return JsonResponse
+     */
+    public function load_template(
+        TownRulesTemplate $template
+    ): JsonResponse {
+        return new JsonResponse(['rules' => $template->getData()]);
     }
 
 }

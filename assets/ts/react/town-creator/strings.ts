@@ -51,6 +51,31 @@ export type TranslationStrings = {
         reserve_help: string
     }
 
+    template: {
+        section: string
+        description: string
+
+        select: string
+        none: string
+
+        save: string
+        saveConfirm: string
+        saveDone: string
+        saveNameError: string
+
+        update: string
+        updateConfirm: string
+        updateDone: string
+
+        load: string
+        loadConfirm: string
+        loadDone: string
+
+        delete: string
+        deleteConfirm: string
+        deleteDone: string
+    }
+
     difficulty: {
         section: string,
 
