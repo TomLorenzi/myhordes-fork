@@ -171,6 +171,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\OneToOne(mappedBy: 'User', cascade: ['persist', 'remove'])]
     private ?RegistrationToken $registrationToken = null;
 
+    #[ORM\Column]
+    private int $bonusHeroDaysSpent = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -545,7 +548,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     }
     public function getAllHeroDaysSpent(): int
     {
-        return ($this->getHeroDaysSpent() ?? 0) + ($this->getImportedHeroDaysSpent() ?? 0);
+        return ($this->getHeroDaysSpent() ?? 0) + ($this->getImportedHeroDaysSpent() ?? 0) + ($this->getBonusHeroDaysSpent() ?? 0);
     }
     public function getHeroDaysSpent(): ?int
     {
@@ -989,6 +992,18 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         }
 
         $this->registrationToken = $registrationToken;
+
+        return $this;
+    }
+
+    public function getBonusHeroDaysSpent(): ?int
+    {
+        return $this->bonusHeroDaysSpent;
+    }
+
+    public function setBonusHeroDaysSpent(int $bonusHeroDaysSpent): self
+    {
+        $this->bonusHeroDaysSpent = $bonusHeroDaysSpent;
 
         return $this;
     }

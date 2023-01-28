@@ -80,6 +80,9 @@
                                         {% if user.activeTitle or user.activeIcon %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'clear_title', id: user.id}) }}" x-confirm="CLEAR TITLE">{{ 'Titel & Icon entfernen'|trans({},'admin') }}</option>
                                         {% endif %}
+                                        {% if is_granted("ROLE_ADMIN") %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'herodays', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Heldentage setzen'|trans({},'admin') }}</option>
+                                        {% endif %}
                                     </optgroup>
                                     {% if user|is_granted('ROLE_ANIMAC') or user|is_granted('ROLE_ORACLE') %}
                                         <optgroup label="{{ 'Funktionen für Spezialrollen'|trans({},'admin') }}">
@@ -137,7 +140,6 @@
                                         {% endif %}
                                         {% if app.environment == 'dev' %}
                                             <optgroup label="Debug">
-                                                <option value="{{ url('admin_users_account_manage', {action: 'dbg_herodays', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Heldentage setzen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_users_account_manage', {action: 'dbg_soulpoints', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Seelenpunkte setzen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_users_account_manage', {action: 'dbg_confirm_deaths', id: user.id}) }}">{{ 'Alle Tode bestätigen'|trans({},'admin') }}</option>
                                             </optgroup>
@@ -160,6 +162,29 @@
                     </div>
 
                     <h5>{{ 'Info'|trans({}, 'admin') }}</h5>
+                    <div class="row">
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            <label>{{ 'Seelenpunkte'|trans({}, 'game') }}</label>
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {{ user.allSoulPoints }}
+                            <div class="small">
+                                MH: {{ user.soulPoints }} + {{ user.importedSoulPoints }}
+                            </div>
+                        </div>
+
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            <label>{{ 'Heldentage'|trans({}, 'admin') }}</label>
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {{ user.allHeroDaysSpent }}
+                            <div class="small">
+                                MH: {{ user.heroDaysSpent }} + {{ user.importedHeroDaysSpent }}
+                                {% if user.bonusHeroDaysSpent > 0 %} + BONUS: {{ user.bonusHeroDaysSpent }}
+                                {% elseif user.bonusHeroDaysSpent < 0 %} - MALUS: {{ -user.bonusHeroDaysSpent }}{% endif %}
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                             <label>{{ 'Avatar'|trans({}, 'admin') }}</label>
