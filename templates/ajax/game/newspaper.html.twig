@@ -115,13 +115,13 @@
                     $.ajax.no_history().load( content_box[0], url, false, payload )
                 };
 
-                document.getElementById("citizen-filter").addEventListener('change', function(){
+                document.getElementById("citizen-filter")?.addEventListener('change', function(){
                     let control_tab = log_boxes[i].querySelector( '.log-day-select .tab.current' );
                     let   cur = parseInt(control_tab.getAttribute( 'x-day' ));
                     fun_refresh(cur);
                 });
 
-                document.getElementById("category-filter").addEventListener('change', function(){
+                document.getElementById("category-filter")?.addEventListener('change', function(){
                     let control_tab = log_boxes[i].querySelector( '.log-day-select .tab.current' );
                     let cur = parseInt(control_tab.getAttribute( 'x-day' ));
                     fun_refresh(cur);

@@ -1050,10 +1050,10 @@ class InventoryAwareController extends CustomAbstractController
                     if ( $z->isTownZone() ) {
                         $obj['r'] = $this->asset->getUrl('build/images/ruin/town.gif');
                         if ($local) $obj['n'] = $this->getActiveCitizen()->getTown()->getName();
-                    } elseif ($z->getPrototype() && $z->getBuryCount() > 0) {
+                    } elseif ($z->getPrototype() && $z->getBuryCount() > 0 && $obj['v']) {
                         $obj['r'] = $this->asset->getUrl('build/images/ruin/burried.gif');
                         if ($local) $obj['n'] = $this->translator->trans( 'Verschüttete Ruine', [], 'game' );
-                    } elseif ($z->getPrototype()) {
+                    } elseif ($z->getPrototype() && $obj['v']) {
                         $obj['r'] = $this->asset->getUrl("build/images/ruin/{$z->getPrototype()->getIcon()}.gif");
                         if ($local) $obj['n'] = $this->translator->trans( $z->getPrototype()->getLabel(), [], 'game' );
                     }
