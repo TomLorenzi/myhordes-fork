@@ -173,6 +173,9 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private ?RegistrationToken $registrationToken = null;
 
     #[ORM\Column]
+    private int $bonusHeroDaysSpent = 0;
+
+    #[ORM\Column]
     private int $tosver = 0;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -555,7 +558,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     }
     public function getAllHeroDaysSpent(): int
     {
-        return ($this->getHeroDaysSpent() ?? 0) + ($this->getImportedHeroDaysSpent() ?? 0);
+        return ($this->getHeroDaysSpent() ?? 0) + ($this->getImportedHeroDaysSpent() ?? 0) + ($this->getBonusHeroDaysSpent() ?? 0);
     }
     public function getHeroDaysSpent(): ?int
     {
@@ -999,6 +1002,18 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         }
 
         $this->registrationToken = $registrationToken;
+
+        return $this;
+    }
+
+    public function getBonusHeroDaysSpent(): ?int
+    {
+        return $this->bonusHeroDaysSpent;
+    }
+
+    public function setBonusHeroDaysSpent(int $bonusHeroDaysSpent): self
+    {
+        $this->bonusHeroDaysSpent = $bonusHeroDaysSpent;
 
         return $this;
     }
