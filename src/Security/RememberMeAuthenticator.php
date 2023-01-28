@@ -3,6 +3,7 @@
 
 namespace App\Security;
 
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +16,16 @@ use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPasspor
 
 class RememberMeAuthenticator extends AbstractAuthenticator
 {
+    public function __construct(
+        private readonly Security $security
+    ) {}
+
     /**
      * @inheritDoc
      */
     public function supports(Request $request): bool
     {
-        return $request->cookies->has('myhordes_remember_me') && !$request->cookies->has('myhordes_session_id');
+        return $request->cookies->has('myhordes_remember_me') && !$this->security->getUser()?->getUserIdentifier();
     }
 
     /**
