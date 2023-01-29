@@ -252,11 +252,11 @@ Event-Management: Gestion d'event
 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Désactive le système de gestion d''event par défaut, entraînant l''activation de l''événement sélectionné pour la durée de la ville.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Nous avons révisé le créateur de ville et y avons ajouté de nouvelles fonctionnalités. <strong>Vous utilisez actuellement l''ancienne version du créateur.</strong> Il est toujours disponible pour le moment, mais il ne recevra aucune mise à jour et ne prend pas en charge toutes les fonctionnalités du nouveau créateur.'
 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Je suis confus et effrayé. Revenons à l''ancien créateur, s''il vous plaît !'
-Vorlagen: Vorlagen
-'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.'
-'Ausgewählte Vorlage': 'Ausgewählte Vorlage'
-'Keine Auswahl': 'Keine Auswahl'
-'Aktuelle Einstellungen als neue Vorlage speichern': 'Aktuelle Einstellungen als neue Vorlage speichern'
+Vorlagen: Modèles
+'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'Les modèles vous permettent d''enregistrer les paramètres de votre ville privée pour plus tard. Vous pouvez charger, mettre à jour ou supprimer ces paramètres à tout moment.'
+'Ausgewählte Vorlage': 'Modèles sélectionnés'
+'Keine Auswahl': 'Pas de sélection'
+'Aktuelle Einstellungen als neue Vorlage speichern': 'Enregistrer les paramètres actuels en tant que nouveau modèle'
 'Bitte gib deiner neuen Vorlage einen Namen.': 'Bitte gib deiner neuen Vorlage einen Namen.'
 'Deine Vorlage wurde erfolgreich erstellt.': 'Deine Vorlage wurde erfolgreich erstellt.'
 'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.'
