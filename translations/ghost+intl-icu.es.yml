@@ -253,19 +253,19 @@ Event-Management: Gestión de eventos
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Hemos revisado el constructor de ciudades y le hemos agregado nuevas características. <strong>Actualmente estás usando la versión anterior del creador.</strong> Todavía está disponible en este momento, pero no recibirá ninguna actualización y no es compatible con todas las funciones del nuevo creador.'
 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Estoy confundido y asustado. ¡Volvamos al viejo generador, por favor!'
 Vorlagen: Plantillas
-'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.'
-'Ausgewählte Vorlage': 'Ausgewählte Vorlage'
-'Keine Auswahl': 'Keine Auswahl'
-'Aktuelle Einstellungen als neue Vorlage speichern': 'Aktuelle Einstellungen als neue Vorlage speichern'
-'Bitte gib deiner neuen Vorlage einen Namen.': 'Bitte gib deiner neuen Vorlage einen Namen.'
-'Deine Vorlage wurde erfolgreich erstellt.': 'Deine Vorlage wurde erfolgreich erstellt.'
-'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.'
-Aktualisieren: Aktualisieren
-'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?'
-'Deine Vorlage wurde erfolgreich aktualisiert.': 'Deine Vorlage wurde erfolgreich aktualisiert.'
-Laden: Laden
-'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?'
-'Deine Einstellungen wurden erfolgreich geladen.': 'Deine Einstellungen wurden erfolgreich geladen.'
-Löschen: Löschen
-'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?'
-'Deine Vorlage wurde erfolgreich gelöscht.': 'Deine Vorlage wurde erfolgreich gelöscht.'
+'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'Las plantillas te permiten guardar la configuración seleccionada de la creación de un pueblo privado para más tarde. Puedes cargar, actualizar o borrar las plantillas en cualquier momento.'
+'Ausgewählte Vorlage': 'Plantilla seleccionada'
+'Keine Auswahl': 'Ninguna selección'
+'Aktuelle Einstellungen als neue Vorlage speichern': 'Guardar la configuración actual en una nueva plantilla'
+'Bitte gib deiner neuen Vorlage einen Namen.': 'Por favor nombre su nueva plantilla.'
+'Deine Vorlage wurde erfolgreich erstellt.': 'La plantilla ha sido creada con éxito.'
+'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'El nombre debe tener entre 1 y 64 caracteres.'
+Aktualisieren: Actualizar
+'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'El contenido de la plantilla actual será reemplazado por la configuración actualmente seleccionada. ¿Continuar?'
+'Deine Vorlage wurde erfolgreich aktualisiert.': 'La plantilla se ha actualizado con éxito.'
+Laden: Cargar
+'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'Los ajustes actuales serán reemplazados por el contenido de la plantilla seleccionada. ¿Continuar?'
+'Deine Einstellungen wurden erfolgreich geladen.': 'La configuración ha sido cargada con éxito.'
+Löschen: Borrar
+'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'La plantilla seleccionada será borrada. Esta acción es permanente. ¿Continuar?'
+'Deine Vorlage wurde erfolgreich gelöscht.': 'La plantilla ha sido borrada con éxito.'
