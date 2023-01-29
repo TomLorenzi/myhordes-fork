@@ -252,7 +252,7 @@ Event-Management: Gestión de eventos
 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Deshabilita el sistema de gestión de eventos predeterminado, lo que hace que el evento seleccionado esté habilitado durante la duración de la ciudad.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Hemos revisado el constructor de ciudades y le hemos agregado nuevas características. <strong>Actualmente estás usando la versión anterior del creador.</strong> Todavía está disponible en este momento, pero no recibirá ninguna actualización y no es compatible con todas las funciones del nuevo creador.'
 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Estoy confundido y asustado. ¡Volvamos al viejo generador, por favor!'
-Vorlagen: Vorlagen
+Vorlagen: Plantillas
 'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.'
 'Ausgewählte Vorlage': 'Ausgewählte Vorlage'
 'Keine Auswahl': 'Keine Auswahl'
