@@ -257,15 +257,15 @@ Vorlagen: Templates
 'Ausgewählte Vorlage': 'Selected templates'
 'Keine Auswahl': 'None selected'
 'Aktuelle Einstellungen als neue Vorlage speichern': 'Save the current settings as a new template'
-'Bitte gib deiner neuen Vorlage einen Namen.': 'Bitte gib deiner neuen Vorlage einen Namen.'
-'Deine Vorlage wurde erfolgreich erstellt.': 'Deine Vorlage wurde erfolgreich erstellt.'
-'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.'
-Aktualisieren: Aktualisieren
-'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?'
-'Deine Vorlage wurde erfolgreich aktualisiert.': 'Deine Vorlage wurde erfolgreich aktualisiert.'
-Laden: Laden
-'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?'
-'Deine Einstellungen wurden erfolgreich geladen.': 'Deine Einstellungen wurden erfolgreich geladen.'
-Löschen: Löschen
-'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?'
-'Deine Vorlage wurde erfolgreich gelöscht.': 'Deine Vorlage wurde erfolgreich gelöscht.'
+'Bitte gib deiner neuen Vorlage einen Namen.': 'Please enter a name for your new template.'
+'Deine Vorlage wurde erfolgreich erstellt.': 'Template created successfully.'
+'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'The name for your template must be between 3 and 64 characters long.'
+Aktualisieren: Update
+'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'The content of your current template will be replaced by the currently selected settings. Continue?'
+'Deine Vorlage wurde erfolgreich aktualisiert.': 'Your template has been successfully updated.'
+Laden: Load
+'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'The current settings will be replaced by the content of the currently selected template. Continue?'
+'Deine Einstellungen wurden erfolgreich geladen.': 'Your settings have been loaded successfully.'
+Löschen: Delete
+'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Your currently selected model will be deleted. This action cannot be undone. Continue?'
+'Deine Vorlage wurde erfolgreich gelöscht.': 'The template was deleted successfully.'
