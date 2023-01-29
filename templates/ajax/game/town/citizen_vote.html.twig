@@ -13,7 +13,7 @@
             <div class="padded cell rw-4 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
             <div class="padded cell rw-8 right">{{ 'Aktionen'|trans({},'ghost') }}</div>
         </div>
-        {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? (a.alias != null ? a.alias[2:] : a.name)|lower <=> (b.alias != null ? b.alias[2:] : b.name)|lower : (b.survivedDays <=> a.survivedDays ?: b.rankingEntry.end <=> a.rankingEntry.end)) : b.alive <=> a.alive) %}
+        {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? (a.alias != null ? a.alias : a.name)|lower <=> (b.alias != null ? b.alias : b.name)|lower : (b.survivedDays <=> a.survivedDays ?: b.rankingEntry.end <=> a.rankingEntry.end)) : b.alive <=> a.alive) %}
             {# @var \App\Entity\Citizen citizen  #}
             {% if citizen.alive %}
             <div class="row {% if citizen == me%} me{% endif %}">
