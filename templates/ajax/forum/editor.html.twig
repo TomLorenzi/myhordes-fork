@@ -163,6 +163,7 @@
                             <div class="cell hidden">
                                 <hordes-user-search
                                         id="{{ type }}-editor-users-list"
+                                        data-alias="{{ (alias is defined and alias) ? '1' : '0' }}"
                                         data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
                                         data-self="1" data-friends="1"
                                 ></hordes-user-search>

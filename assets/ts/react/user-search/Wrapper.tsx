@@ -51,7 +51,7 @@ export class HordesUserSearchBar {
 }
 
 export const UserSearchBar = (
-    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends}: {
+    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends, withAlias}: {
         title?: string,
         callback: (UserResponses)=>void,
         exclude?: number[],
@@ -59,6 +59,7 @@ export const UserSearchBar = (
         acceptCSVListSearch?: boolean,
         withSelf?: boolean,
         withFriends?: boolean,
+        withAlias?: boolean,
     }) => {
 
     const apiRef = useRef<Fetch>( new Fetch('user-search') )
@@ -134,6 +135,7 @@ export const UserSearchBar = (
                     name: s,
                     withSelf: withSelf ?? 0,
                     withFriends: withFriends ?? 1,
+                    alias: withAlias ?? 0,
                     exclude: exclude ?? []
                 }
         ).then(r => {

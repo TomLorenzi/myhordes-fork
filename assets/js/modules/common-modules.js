@@ -20,6 +20,7 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
             acceptCSVListSearch: parseInt( this.dataset.list ?? '0' ) !== 0,
             withSelf: parseInt( this.dataset.self ?? '0' ) !== 0,
             withFriends: parseInt( this.dataset.friends ?? '1' ) !== 0,
+            withAlias: parseInt( this.dataset.alias ?? '0' ) !== 0,
         }
         return true;
     }
@@ -37,8 +38,7 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
         if (this.#_extractData()) this.#_initialized?.mount(this, this.#_data);
     }
 
-    static get observedAttributes() { return ['data-title','data-exclude','data-clear','data-list','data-self','data-friends']; }
-
+    static get observedAttributes() { return ['data-title','data-exclude','data-clear','data-list','data-self','data-friends','data-alias']; }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue === newValue) return;

@@ -980,7 +980,8 @@ class MessageForumController extends MessageController
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
             'tags' => $tags,
-            'langsCodes' => $this->generatedLangsCodes
+            'langsCodes' => $this->generatedLangsCodes,
+            'alias' => !!$town_citizen
         ] );
     }
 
@@ -1120,6 +1121,7 @@ class MessageForumController extends MessageController
             'forums' => $forums,
             'forumSections' => $forum_sections,
             'select' => $default ? $default->getId() : -1,
+            'alias' => $this->getUser()->getActiveCitizen()?->getTown()?->getForum()?->getId() ?? -2,
             'user' => $user,
             'query' => $query,
             'titles' => (bool)$titles,
@@ -1230,7 +1232,8 @@ class MessageForumController extends MessageController
             'town_controls' => $thread->getForum()->getTown() !== null,
             'tags' => $tags,
             'current_tag' => $thread->getTag(),
-            'langsCodes' => $this->generatedLangsCodes
+            'langsCodes' => $this->generatedLangsCodes,
+            'alias' => !!$town_citizen
         ] );
     }
 

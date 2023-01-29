@@ -27,6 +27,7 @@
                             </div>
                         </div>
                         <hordes-user-search id="users-search"
+                                data-alias="{{ alias == select ? 1 : 0 }}"
                                 data-self="1" data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
                         ></hordes-user-search>
                     </div>
@@ -103,6 +104,10 @@
             if (url !== history.state) history.pushState( url, '', url );
             $.ajax.no_history().load(document.getElementById('search-results'), '{{ path('forum_query_controller')|e('js') }}', false, obj)
         };
+
+        document.getElementById('search-forum')?.addEventListener('change', e =>
+            document.getElementById('users-search').dataset.alias = parseInt(e.target.value) === {{ alias }} ? '1' : '0'
+        );
 
         $.html.addEventListenerAll('#search-query', 'keydown', e => e.key === 'Enter' && doSearch());
 

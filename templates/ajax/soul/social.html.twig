@@ -85,7 +85,7 @@
                         <div id="users-list-soul">
                             <h5>{{ 'Neue Freunde finden'|trans({},'soul') }}</h5>
                             <hordes-user-search id="users-search"
-                                                data-self="0" data-exclude="{{ friends|map(f => f.id)|join(',') }}"
+                                                data-self="0" data-friends="0"
                                                 data-title="{{ 'Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.'|trans({},'soul')|raw }}"
                             ></hordes-user-search>
                         </div>
