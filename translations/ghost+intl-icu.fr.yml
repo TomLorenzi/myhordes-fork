@@ -257,15 +257,15 @@ Vorlagen: Modèles
 'Ausgewählte Vorlage': 'Modèles sélectionnés'
 'Keine Auswahl': 'Pas de sélection'
 'Aktuelle Einstellungen als neue Vorlage speichern': 'Enregistrer les paramètres actuels en tant que nouveau modèle'
-'Bitte gib deiner neuen Vorlage einen Namen.': 'Bitte gib deiner neuen Vorlage einen Namen.'
-'Deine Vorlage wurde erfolgreich erstellt.': 'Deine Vorlage wurde erfolgreich erstellt.'
-'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.'
-Aktualisieren: Aktualisieren
-'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?'
-'Deine Vorlage wurde erfolgreich aktualisiert.': 'Deine Vorlage wurde erfolgreich aktualisiert.'
-Laden: Laden
-'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?'
-'Deine Einstellungen wurden erfolgreich geladen.': 'Deine Einstellungen wurden erfolgreich geladen.'
-Löschen: Löschen
-'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?'
-'Deine Vorlage wurde erfolgreich gelöscht.': 'Deine Vorlage wurde erfolgreich gelöscht.'
+'Bitte gib deiner neuen Vorlage einen Namen.': 'Veuillez donner un nom à votre nouveau modèle.'
+'Deine Vorlage wurde erfolgreich erstellt.': 'Le modèle a été créé avec succès.'
+'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'Le nom de votre modèle doit comporter entre 3 et 64 caractères.'
+Aktualisieren: Actualiser
+'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'Le contenu du modèle actuel sera remplacé par vos paramètres actuels. Continuer ?'
+'Deine Vorlage wurde erfolgreich aktualisiert.': 'Votre modèle a été mis à jour avec succès.'
+Laden: Assembler
+'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'Les paramètres actuels sont remplacés par le contenu du modèle sélectionné. Continuer ?'
+'Deine Einstellungen wurden erfolgreich geladen.': 'Vos paramètres ont été chargés avec succès.'
+Löschen: Supprimer
+'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Votre modèle sélectionné sera supprimé. Cette action ne peut pas être annulée. Continuer ?'
+'Deine Vorlage wurde erfolgreich gelöscht.': 'Votre modèle a été supprimé avec succès.'
