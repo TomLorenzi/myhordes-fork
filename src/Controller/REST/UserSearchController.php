@@ -55,7 +55,8 @@ class UserSearchController extends CustomAbstractCoreController
             'id' => $u->getId(),
             'name' => $u->getName(),
             'soul' => $this->generateUrl( 'soul_visit', ['id' => $u->getId()] ),
-            'avatarHTML' => $this->render( 'ajax/soul/playeravatar.html.twig', ['user' => $u, 'small' => true, 'attributes' => ['style' => 'margin-right: 0']])->getContent()
+            'avatarHTML' => $this->render( 'ajax/soul/playeravatar.html.twig', ['user' => $u, 'small' => true, 'attributes' => ['style' => 'margin-right: 0']])->getContent(),
+            'avatarHTMLLarge' => $this->render( 'ajax/soul/playeravatar.html.twig', ['user' => $u, 'small' => false, 'attributes' => ['style' => 'margin-right: 0']])->getContent(),
         ];
     }
 

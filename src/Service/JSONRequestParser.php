@@ -55,18 +55,24 @@ class JSONRequestParser
         return is_array($v) ? $v : $default;
     }
 
+    protected function bool_to_int($v): mixed {
+        if ($v === true) return 1;
+        elseif ($v === false) return 0;
+        else return $v;
+    }
+
     /**
      * @param string $key
      * @param int|float $default
      * @return int|float
      */
     public function get_num( string $key, $default = -1 ) {
-        $v = $this->get($key, $default);
+        $v = $this->bool_to_int( $this->get($key, $default) );
         return is_numeric($v) ? $v : $default;
     }
 
     public function get_int( string $key, ?int $default = -1, ?int $min = null, ?int $max = null ): ?int {
-        $v = $this->get($key, $default);
+        $v = $this->bool_to_int( $this->get($key, $default) );
         if (!is_numeric($v)) return $default;
         $v = intval($v);
         return (($min !== null && $v < $min) || ($max !== null && $v > $max)) ? $default : $v;

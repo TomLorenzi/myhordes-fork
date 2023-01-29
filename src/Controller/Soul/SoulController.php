@@ -337,50 +337,6 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/fuzzyfind/{url}", name="users_fuzzyfind")
-     * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @param string $url
-     * @return Response
-     */
-    public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em, $url = 'soul_visit'): Response
-    {
-        $user = $this->getUser();
-
-        if (!$parser->has_all(['name'], true))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $searchName = $parser->get('name', '');
-        $searchSkip = $parser->get_array('exclude', []);
-        // if ($url !== 'pm_manage_users' && $url !== 'plain') $searchSkip[] = $user->getId();
-
-        if ($url === 'soul_invite_friend')
-            $searchSkip = array_merge($searchSkip, $user->getFriends()->getValues(), [$user]);
-
-        $selected_group = false;
-        if ($url === 'town_add_users' && str_contains($searchName,',')) {
-            $searchNames = explode(',', $searchName);
-            $users = [];
-            foreach ($searchNames as $searchName) {
-                $r = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName)) : null;
-                if ($r && !in_array($r->getId(), $searchSkip)) $users[] = $r;
-            }
-            $selected_group = true;
-        } else $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, -1, $searchSkip) : [];
-
-        $data = [
-            'var' => $url,
-            'single_entry' => $selected_group,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','soul_invite_friend','pm_manage_users','pm_add_users','town_add_users','plain','post_add_users']) ? $users : [],
-            'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
-        ];
-
-        if ($url === 'pm_add_users') $data['gid'] = $parser->get_int('group', 0);
-
-        return $this->render( 'ajax/soul/users_list.html.twig', $data);
-    }
-
-    /**
      * @Route("jx/soul/exists", name="user_exists")
      * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
      */

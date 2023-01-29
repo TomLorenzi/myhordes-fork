@@ -171,12 +171,12 @@
                             </div>
                             <div id="pm-user-selector">
                                 <div class="row">
-                                    <div class="padded cell rw-4"><label for="pm-users-search">{{'Einen Empfänger hinzufügen'|trans({}, "soul")}}</label></div>
+                                    <div class="padded cell rw-4"><label>{{'Einen Empfänger hinzufügen'|trans({}, "soul")}}</label></div>
                                     <div class="padded cell rw-8">
-                                        <div id="pm-users-list-container">
-                                            <div><label><input type="text" id="pm-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
-                                            <div id="pm-users-list"></div>
-                                        </div>
+                                        <hordes-user-search id="pm-users-search"
+                                                            data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
+                                                            data-self="1" data-exclude=""
+                                        ></hordes-user-search>
                                     </div>
                                     <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
                                 </div>
@@ -599,60 +599,29 @@
             }
             document.getElementById('pm-right-plane').addEventListener('scroll', fun_msg_loader_control);
 
-            let typingTimer, doneTypingInterval = 500;
-            let searchBox = document.getElementById('pm-users-search');
-
             document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
 
-            let enterPressed = false;
-            const userSearchHandler = function() {
-                if (searchBox.value.length >= 3) {
+            document.getElementById('pm-users-search')?.addEventListener('hordes-user-search-callback', e => {
+
+                let skip = [e.detail[0].id];
+                $.html.forEach('#pm-selected-users>li[x-soul-id]', e => skip.push(parseInt(e.getAttribute('x-soul-id'))));
+                if (skip.length >= 100) {
+                    alert('{{'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.'|trans({},'global')|e('js')}}');
+                    return;
+                }
+                document.getElementById('pm-users-search').dataset.exclude = skip.join(',');
+
+                let li = document.createElement('li');
+                li.setAttribute('x-soul-id', e.detail[0].id);
+                li.innerHTML = '<b>' + e.detail[0].name + '</b><span><i class="fa fa-times-circle"></i></span></li>';
+                document.getElementById('pm-selected-users').append(li)
+                document.querySelector('#pm-selected-users>li[x-soul-id="' + e.detail[0].id + '"]>span').addEventListener('click', () => {
+                    li.remove();
                     let skip = [];
                     $.html.forEach('#pm-selected-users>li[x-soul-id]', e => skip.push(parseInt(e.getAttribute('x-soul-id'))));
-                    $.ajax.background().load(
-                        document.getElementById('pm-users-list'),
-                        '{{ path('users_fuzzyfind', {url: 'pm_manage_users'}) }}',
-                        false,
-                        {'name': searchBox.value, 'exclude': skip},
-                        function () {
-                            $.html.addEventListenerAll('#pm-users-list>.users-list-entry>div', 'click', function (e, elem) {
-                                if (skip.length >= 99) {
-                                    alert('{{'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.'|trans({},'global')|e('js')}}');
-                                    return;
-                                }
-                                if (!document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]')) {
-                                    let li = document.createElement('li');
-                                    li.setAttribute('x-soul-id', elem.getAttribute('x-soul-id'));
-                                    li.innerHTML = '<b>' + elem.getAttribute('x-soul-name') + '</b><span><i class="fa fa-times-circle"></i></span></li>';
-                                    document.getElementById('pm-selected-users').append(li)
-                                    document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]>span').addEventListener('click', () => li.remove());
-                                }
-                                document.getElementById('pm-users-list').innerHTML = ''
-                                searchBox.value = '';
-                            });
-                            if (enterPressed) document.querySelector( '#pm-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
-                        }
-                    );
-                }
-                else document.getElementById('pm-users-list').innerHTML = '';
-            };
-
-            const userSearchHandlerUp = function () {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
-            };
-
-            const userSearchHandlerDown = e => {
-                enterPressed = e.keyCode === 13;
-                clearTimeout(typingTimer);
-            };
-
-            if (searchBox) {
-                searchBox.addEventListener('keyup', userSearchHandlerUp);
-                searchBox.addEventListener('keydown', userSearchHandlerDown);
-                searchBox.addEventListener('focus', () => userSearchHandler());
-                searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 500));
-            }
+                    document.getElementById('pm-users-search').dataset.exclude = skip.join(',');
+                });
+            });
 
             $.html.addEventListenerAll('[x-pm-action="search"]', 'click', function () {
                 document.getElementById('conv_search_bar').classList.toggle('hidden');

@@ -166,12 +166,14 @@
         </div>
         <div class="row">
             <div class="cell padded rw-12 rw-sm-12">
-                <div id="users-list-soul">
-                    <h5>{{ 'Seele suchen'|trans({}, "soul") }}</h5>
-                    <div><label><input type="text" id="users-search" style="margin-top: 5px"/></label>
-                        <div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div>
+                <h5>{{ 'Seele suchen'|trans({}, "soul") }}</h5>
+                <div class="row">
+                    <div class="cell rw-4 rw-md-6 rw-sm-12">
+                        <hordes-user-search id="search-soul"
+                                            data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
+                                            data-self="0" data-friends="1"
+                        ></hordes-user-search>
                     </div>
-                    <div id="users-list"></div>
                 </div>
             </div>
         </div>
@@ -185,6 +187,10 @@
 {% block js %}
     {{ parent() }}
     <script>
+        document.getElementById('search-soul')?.addEventListener('hordes-user-search-callback', e =>
+            $.ajax.load(document.getElementById('content'), e.detail[0].soul, true)
+        );
+
         let season_select = document.getElementById('season');
         $.ajax.no_history().load(document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {
             season: season_select.value,
@@ -206,43 +212,5 @@
                     limit10: this.checked
                 })
             });
-
-        let typingTimer, doneTypingInterval = 500;
-        let searchBox = document.getElementById('users-search');
-
-        let enterPressed = false;
-        const userSearchHandler = function () {
-            if (searchBox.value.length >= 3)
-                $.ajax.background().load(
-                    document.getElementById('users-list'),
-                    '{{ path('users_fuzzyfind') }}',
-                    false,
-                    {'name': searchBox.value},
-                    function () {
-                        $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e, elem) {
-                            $.ajax.load(document.getElementById('content'), elem.getAttribute('x-soul-url'), true);
-                        })
-                    }
-                );
-            else document.getElementById('users-list').innerHTML = '';
-        };
-
-        const userSearchHandlerUp = function () {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
-        };
-
-        const userSearchHandlerDown = e => {
-            enterPressed = e.keyCode === 13;
-            clearTimeout(typingTimer);
-        };
-
-        if (searchBox) {
-            searchBox.addEventListener('keyup', userSearchHandlerUp);
-            searchBox.addEventListener('keydown', userSearchHandlerDown);
-            searchBox.addEventListener('focus', () => userSearchHandler());
-            searchBox.addEventListener('blur', () => setTimeout(() => document.getElementById('users-list').innerHTML = '', 500));
-        }
-
     </script>
 {% endblock %}

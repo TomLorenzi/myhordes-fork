@@ -136,3 +136,6 @@ window.addEventListener( 'load', () => {
         document.body.append( button );
     }
 }, {once: true} )
+
+// Import common modules
+require('./modules/common-modules.js');
