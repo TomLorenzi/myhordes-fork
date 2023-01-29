@@ -35,7 +35,7 @@
             }]) %}
         {% endif %}
 
-        {% for citizenInfo in wrapped_citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? (a.citizen.alias != null ? a.citizen.alias[2:] : a.citizen.name)|lower <=> (b.citizen.alias != null ? b.citizen.alias[2:] : b.citizen.name)|lower : (b.citizen.survivedDays <=> a.citizen.survivedDays ?: b.citizen.rankingEntry.end <=> a.citizen.rankingEntry.end)) : b.citizen.alive <=> a.citizen.alive) %}
+        {% for citizenInfo in wrapped_citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? (a.citizen.alias != null ? a.citizen.alias : a.citizen.name)|lower <=> (b.citizen.alias != null ? b.citizen.alias : b.citizen.name)|lower : (b.citizen.survivedDays <=> a.citizen.survivedDays ?: b.citizen.rankingEntry.end <=> a.citizen.rankingEntry.end)) : b.citizen.alive <=> a.citizen.alive) %}
             {% if citizenInfo['stranger'] is defined %}
                 {% if town.strangerEnabled %}
                     <div class="row-flex stretch" style="max-height: 100px;">
