@@ -149,7 +149,7 @@ const handleActionPopups = function( actions ) {
     for (let i = 0; i < actions.length; i++) {
         const id = actions[i].getAttribute( 'x-target-definition' );
         let popup = document.querySelector('[x-target-selection-for="' + id + '"]');
-        popup.addEventListener('click', function(e) { e.stopPropagation(); });
+        popup?.addEventListener('click', function(e) { e.stopPropagation(); });
         actions[i].addEventListener('click', function() {
             document.querySelectorAll('[x-target-definition]').forEach(e => {
                 e.classList.remove('open');
