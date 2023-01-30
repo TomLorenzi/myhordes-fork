@@ -252,3 +252,20 @@ Event-Management: Event management
 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Disables the default event management system, causing the selected event to be enabled for the duration of the town.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'We have revised our town generator and added some new features to it. <strong>You are currently using the old version of the generator.</strong> It is still available for now, but it will not receive any updates and does not support all the features of the new generator.'
 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'I am confused and scared. Back to the old generator, please!'
+Vorlagen: Templates
+'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'Templates allow you to save the selected private town settings for later use. You may load, update or delete these settings at any moment.'
+'Ausgewählte Vorlage': 'Selected templates'
+'Keine Auswahl': 'None selected'
+'Aktuelle Einstellungen als neue Vorlage speichern': 'Save the current settings as a new template'
+'Bitte gib deiner neuen Vorlage einen Namen.': 'Please enter a name for your new template.'
+'Deine Vorlage wurde erfolgreich erstellt.': 'Template created successfully.'
+'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'The name for your template must be between 3 and 64 characters long.'
+Aktualisieren: Update
+'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'The content of your current template will be replaced by the currently selected settings. Continue?'
+'Deine Vorlage wurde erfolgreich aktualisiert.': 'Your template has been successfully updated.'
+Laden: Load
+'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'The current settings will be replaced by the content of the currently selected template. Continue?'
+'Deine Einstellungen wurden erfolgreich geladen.': 'Your settings have been loaded successfully.'
+Löschen: Delete
+'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Your currently selected model will be deleted. This action cannot be undone. Continue?'
+'Deine Vorlage wurde erfolgreich gelöscht.': 'The template was deleted successfully.'
