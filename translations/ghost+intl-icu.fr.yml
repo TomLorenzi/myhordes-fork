@@ -252,3 +252,20 @@ Event-Management: Gestion d'event
 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Désactive le système de gestion d''event par défaut, entraînant l''activation de l''événement sélectionné pour la durée de la ville.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Nous avons révisé le créateur de ville et y avons ajouté de nouvelles fonctionnalités. <strong>Vous utilisez actuellement l''ancienne version du créateur.</strong> Il est toujours disponible pour le moment, mais il ne recevra aucune mise à jour et ne prend pas en charge toutes les fonctionnalités du nouveau créateur.'
 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Je suis confus et effrayé. Revenons à l''ancien créateur, s''il vous plaît !'
+Vorlagen: Modèles
+'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'Les modèles vous permettent d''enregistrer les paramètres de votre ville privée pour plus tard. Vous pouvez charger, mettre à jour ou supprimer ces paramètres à tout moment.'
+'Ausgewählte Vorlage': 'Modèles sélectionnés'
+'Keine Auswahl': 'Pas de sélection'
+'Aktuelle Einstellungen als neue Vorlage speichern': 'Enregistrer les paramètres actuels en tant que nouveau modèle'
+'Bitte gib deiner neuen Vorlage einen Namen.': 'Veuillez donner un nom à votre nouveau modèle.'
+'Deine Vorlage wurde erfolgreich erstellt.': 'Le modèle a été créé avec succès.'
+'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'Le nom de votre modèle doit comporter entre 3 et 64 caractères.'
+Aktualisieren: Actualiser
+'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'Le contenu du modèle actuel sera remplacé par vos paramètres actuels. Continuer ?'
+'Deine Vorlage wurde erfolgreich aktualisiert.': 'Votre modèle a été mis à jour avec succès.'
+Laden: Assembler
+'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'Les paramètres actuels sont remplacés par le contenu du modèle sélectionné. Continuer ?'
+'Deine Einstellungen wurden erfolgreich geladen.': 'Vos paramètres ont été chargés avec succès.'
+Löschen: Supprimer
+'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Votre modèle sélectionné sera supprimé. Cette action ne peut pas être annulée. Continuer ?'
+'Deine Vorlage wurde erfolgreich gelöscht.': 'Votre modèle a été supprimé avec succès.'

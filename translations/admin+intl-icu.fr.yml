@@ -349,7 +349,7 @@ Vorspulen: Avance rapide
 'Feature freigeben:': 'Débloquer une fonctionnalité :'
 Bearbeiten: Modifier
 Werte: Valeurs
-Hunger: Faim
+Hunger: Voracité
 'Camp Chance': 'Chances camping'
 'Camp Zähler': 'Compteurs camping'
 'Verwendung des Schwarzen Bretts verbieten': 'Utilisation du tableau noir'
@@ -563,3 +563,4 @@ Senden: Envoyer
 'Es wurden {success} Nachrichten verschickt.': '{success} messages ont été envoyés.'
 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} ont été envoyés avec succès, {error} messages contenaient des erreurs.'
 Entwickler-URL: URL de développement
+Heldentage: Jours héros
