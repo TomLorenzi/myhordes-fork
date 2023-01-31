@@ -202,8 +202,7 @@
 
                     </div>
                     <div class="cell padded rw-6 rw-sm-12">
-                        {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
-                        {% endembed %}
+                        <hordes-map id="door-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
                         {% if is_granted("ROLE_ADMIN") %}
                             <div id="zone_floor"></div>
                             <div id="dash_zone_generator" x-target="zone" x-id="">

@@ -1,0 +1,38 @@
+{% extends "ajax/ajax.html.twig" %}
+
+{% block title %}{{'Stadt {townname}'|trans({'{townname}': town.name}, 'admin')|raw}}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded rw-12">
+            <div class="tab-floater">
+                <ul class="tabs plain" >
+                    <li class="tab {% if tab == "dash" %}selected{% endif %}" x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}"><div class="tab-link"><img src="{{ asset('build/images/icons/planner.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Übersicht'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "bank" %}selected{% endif %}" x-ajax-href="{{ path('admin_town_bank', {id: town.id}) }}"><div class="tab-link"><img src="{{ asset('build/images/icons/home.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Bank'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "citizens" %}selected{% endif %}" x-ajax-href="{{ path('admin_town_citizens', {id: town.id}) }}"><div class="tab-link"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Bürger'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "register" %}selected{% endif %}" x-tab-id="register"><div class="tab-link"><img src="{{ asset('build/images/icons/small_rp.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Stadtregister'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "blackboard" %}selected{% endif %}" x-tab-id="blackboard"><div class="tab-link"><img src="{{ asset('build/images/icons/small_talk.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Schwarzes Brett'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "estimations" %}selected{% endif %}" x-tab-id="estimations"><div class="tab-link"><img src="{{ asset('build/images/item/item_scope.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Admin-Wachturm'|trans({},'admin') }}</span></div></li>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li class="tab {% if tab == "buildings" %}selected{% endif %}" x-tab-id="buildings"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_buildr.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Konstruktionen'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "explorer" %}selected{% endif %}" x-tab-id="explorer"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_explo2.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Ruinenscanner'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "config" %}selected{% endif %}" x-tab-id="config"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_rp.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Regelsatz'|trans({},'admin') }}</span></div></li>
+                {% endif %}
+                </ul>
+            </div>
+            <div>
+                {% block explorer_content %}{% endblock %}
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="cell rw-3 ro-9 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
+                    <button x-ajax-href="{{ path('admin_town_list') }}">{{ 'Stadtübersicht'|trans({},'admin') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
