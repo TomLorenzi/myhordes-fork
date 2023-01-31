@@ -1,0 +1,37 @@
+{% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
+
+{% block explorer_content %}
+	<div class="row">
+		<div class="padded cell rw-4 ro-4 rw-md-8 ro-md-2 rw-sm-12 ro-sm-0">
+			<label><select id="gazetteSelector">
+					{% for d in 1..town.day %}
+						<option {% if d == town.day %}selected{% endif %} value="{{ path('admin_town_explorer_gazette', {day: d, id: town.id}) }}">{{ 'Tag {d} {today}'|trans({d: d, today: ''}, 'game') }}</option>
+					{% endfor %}
+				</select></label>
+		</div>
+	</div>
+
+	<div id="gazette-target">
+		{% embed "ajax/game/gazette_widget.html.twig" with { gazette: gazette, council: council } %}
+		{% endembed %}
+	</div>
+
+	{% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
+	{% endembed %}
+
+	<br/>
+	<h1 class="page-head">{{ 'Register herunterladen'|trans({},'admin') }}</h1>
+	<div class="row">
+		<div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'register'}) }}"><i class="fa fa-file"></i> {{ 'Stadtregister herunterladen'|trans({},'admin') }}</a></div>
+		<div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'zones'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)'|trans({},'admin') }}</a></div>
+		<div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'citizens'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)'|trans({},'admin') }}</a></div>
+		<div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'all'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (chronologisch)'|trans({},'admin') }}</a></div>
+	</div>
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+	<script>
+		{% embed "scripts/log.js.twig" %}{% endembed %}
+
+	</script>
+{% endblock %}

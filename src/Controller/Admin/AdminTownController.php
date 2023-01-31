@@ -454,6 +454,50 @@ class AdminTownController extends AdminActionController
 		])));
 	}
 
+	/**
+	 * @Route("jx/admin/town/register/{id<\d+>}", name="admin_town_register")
+	 * @param int $id The internal ID of the town
+	 * @param GazetteService $gazetteService
+	 * @return Response
+	 */
+	public function town_explorer_register(int $id, GazetteService $gazetteService): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+
+
+		return $this->render('ajax/admin/towns/explorer_register.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "register",
+			'log' => $this->renderLog(-1, $town, false)->getContent(),
+			'gazette' => $gazetteService->renderGazette( $town, $town->getDay(), true),
+			'council' => array_map( fn(CouncilEntry $c) => [$gazetteService->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
+				fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+			)),
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/blackboard/{id<\d+>}", name="admin_town_blackboard")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_blackboard(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+
+		return $this->render('ajax/admin/towns/explorer_blackboard.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "blackboard",
+			'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
+		])));
+	}
+
     /**
      * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette")
      * @param int $id

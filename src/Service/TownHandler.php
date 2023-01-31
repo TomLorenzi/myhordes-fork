@@ -987,6 +987,10 @@ class TownHandler
 			$range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
 
 			$current_zone = ['x' => $x, 'y' => $y];
+
+			if ($admin)
+				$current_zone['id'] = $zone->getId();
+
 			if ( in_array( $zone->getId(), $soul_zones_ids) )
 				$current_zone['s'] = true;
 
@@ -995,19 +999,28 @@ class TownHandler
 				&& ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
 			) $local_zones[] = $zone;
 
-			if ($zone->getDiscoveryStatus() <= Zone::DiscoveryStateNone) {
+			if (!$admin && $zone->getDiscoveryStatus() <= Zone::DiscoveryStateNone) {
 				if ($current_zone['s'] ?? false)
 					$zones[] = $current_zone;
 				continue;
 			}
 
-			$current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
-			if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent || $admin) {
-				if ($admin || $zone->getZombieStatus() >= Zone::ZombieStateExact)
-					$current_zone['z'] = $zone->getZombies();
-				if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate)
-					$current_zone['d'] = $zone_handler->getZoneDangerLevelNumber( $zone, mt_rand(PHP_INT_MIN, PHP_INT_MAX), $upgraded_map );
+			if ($admin) {
+				$current_zone['t'] = true;
+				$current_zone['z'] = $zone->getZombies();
+				$current_zone['d'] = $zone_handler->getZoneDangerLevelNumber($zone, mt_rand(PHP_INT_MIN, PHP_INT_MAX), true);
+			} else {
+				$current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
+				if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
+					if ($zone->getZombieStatus() >= Zone::ZombieStateExact) {
+						$current_zone['z'] = $zone->getZombies();
+					}
+					if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
+						$current_zone['d'] = $zone_handler->getZoneDangerLevelNumber($zone, mt_rand(PHP_INT_MIN, PHP_INT_MAX), $upgraded_map);
+					}
+				}
 			}
+
 
 			if ($zone->isTownZone()) {
 				$current_zone['td'] = $town->getDevastated();
@@ -1016,13 +1029,23 @@ class TownHandler
 					'b' => false,
 					'e' => false,
 				];
-			} elseif ($zone->getPrototype()) $current_zone['r'] = [
-				'n' => $zone->getBuryCount() > 0
-					? $this->translator->trans( 'Verschüttete Ruine', [], 'game' )
-					: $this->translator->trans( $zone->getPrototype()->getLabel(), [], 'game' ),
-				'b' => $zone->getBuryCount() > 0,
-				'e' => $zone->getPrototype()->getExplorable()
-			];
+			} elseif ($zone->getPrototype()) {
+				if ($admin) {
+					$current_zone['r'] = [
+						'n' => $this->translator->trans( $zone->getPrototype()->getLabel(), [], 'game' ) . ($zone->getBuryCount() > 0 ? " (" . $this->translator->trans('Verschüttet', [], 'admin') . ")" : ""),
+						'b' => $zone->getBuryCount() > 0,
+						'e'=> $zone->getPrototype()->getExplorable()
+					];
+				} else {
+					$current_zone['r'] = [
+						'n' => $zone->getBuryCount() > 0
+							? $this->translator->trans( 'Verschüttete Ruine', [], 'game' )
+							: $this->translator->trans( $zone->getPrototype()->getLabel(), [], 'game' ),
+						'b' => $zone->getBuryCount() > 0,
+						'e' => $zone->getPrototype()->getExplorable()
+					];
+				}
+			}
 
 			if ($activeCitizen !== null && $activeCitizen->getZone() === $zone) $current_zone['cc'] = true;
 

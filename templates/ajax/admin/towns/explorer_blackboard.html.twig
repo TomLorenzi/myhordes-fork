@@ -1,0 +1,28 @@
+{% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
+
+{% block explorer_content %}
+	<div class="row-table">
+		<div class="row header">
+			<div class="padded cell rw-3">{{ 'Benutzername'|trans({},'admin') }}</div>
+			<div class="padded cell rw-6">{{ 'Info'|trans({},'admin') }}</div>
+			<div class="padded cell rw-3"><button x-api-trigger="{{ url('admin_town_manage', {action: 'clear_bb', id: town.id}) }}">{{ 'Löschen'|trans({},'admin') }}</button></div>
+		</div>
+		{% for entry in blackboards %}
+			<div class="row">
+				<div class="padded cell rw-3">
+					<a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a><br />
+					<i>{{ entry.time|format_datetime('medium', 'short') }}</i>
+				</div>
+				<div class="padded cell rw-9 pointer" x-blackboard-short="{{ entry.id }}">{{ entry.text }}</div>
+				<div class="padded cell rw-9 pointer" x-blackboard-preview="{{ entry.id }}" style="display:none">
+					<div class="words-of-heroes"><div class="content">{{ entry.text|nl2br }}</div></div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+	<script>
+	</script>
+{% endblock %}
