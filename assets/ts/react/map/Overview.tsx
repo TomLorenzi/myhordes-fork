@@ -138,7 +138,7 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
         `} style={{
             gridColumn: 1 + props.zone.x - props.geo.x0,
             gridRow: 1 + (props.geo.y1 - props.geo.y0) - (props.zone.y - props.geo.y0)
-        }}>
+        }} x-id={props.zone.id} x-zone-x={props.zone.x} x-zone-y={props.zone.y}>
             { props.zone.s && <div className="soul-area"><span/></div> }
             <div className="icon"/>
             <div className="overlay"/>

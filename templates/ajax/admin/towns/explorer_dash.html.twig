@@ -268,7 +268,7 @@
         for(let i = 0 ; i < zones.length ; i++) {
             zones[i].addEventListener('click', function(ev){
                 ev.preventDefault();ev.stopPropagation();
-                let target = ev.target.parentElement;
+                let target = ev.target;
                 document.getElementById("dash_zone_generator").setAttribute('x-id', target.getAttribute("x-id"));
                 // document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
                 $.ajax.easySend('{{ url('get_zone_infos', {id: town.id}) }}', {'zone_id': target.getAttribute("x-id")}, function(data){
