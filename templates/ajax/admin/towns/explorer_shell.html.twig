@@ -19,7 +19,7 @@
                 {% if is_granted("ROLE_ADMIN") %}
                     <li class="tab {% if tab == "buildings" %}selected{% endif %}" x-ajax-href="{{ path('admin_town_buildings', {id: town.id}) }}"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_buildr.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Konstruktionen'|trans({},'admin') }}</span></div></li>
                     <li class="tab {% if tab == "eruins_explorer" %}selected{% endif %}" x-ajax-href="{{ path('admin_town_eruins_explorer', {id: town.id}) }}"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_explo2.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Ruinenscanner'|trans({},'admin') }}</span></div></li>
-                    <li class="tab {% if tab == "config" %}selected{% endif %}" x-tab-id="config"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_rp.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Regelsatz'|trans({},'admin') }}</span></div></li>
+                    <li class="tab {% if tab == "config" %}selected{% endif %}" x-ajax-href="{{ path('admin_town_config', {id: town.id}) }}"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_rp.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Regelsatz'|trans({},'admin') }}</span></div></li>
                 {% endif %}
                 </ul>
             </div>

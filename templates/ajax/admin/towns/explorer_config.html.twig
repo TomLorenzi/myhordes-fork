@@ -1,0 +1,104 @@
+{% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
+
+{% block explorer_content %}
+	<div class="row-table">
+		<div class="row-flex header">
+			<div class="cell rw-4 padded">{{ 'Regel'|trans({},'admin') }}</div>
+			<div class="cell rw-4 padded">{{ 'Aktiver Wert'|trans({},'admin') }}</div>
+			<div class="cell rw-4 padded">
+				<label for="compare_conf_to">{{ 'Vergleichswert'|trans({},'admin') }}</label>
+				<br />
+				<select id="compare_conf_to">
+					<option {% if opt_conf == 'none' or opt_conf is null %}selected{% endif %} value="{{ path('admin_town_config', {id: town.id, conf: 'none'}) }}">{{ 'Keiner'|trans({},'admin') }}</option>
+					<option {% if opt_conf == 'small' %}selected{% endif %} value="{{ path('admin_town_config', {id: town.id, conf: 'small'}) }}">{{ 'Kleine Stadt'|trans({},'game') }}</option>
+					<option {% if opt_conf == 'remote' %}selected{% endif %} value="{{ path('admin_town_config', {id: town.id, conf: 'remote'}) }}">{{ 'Entfernte Regionen'|trans({},'game') }}</option>
+					<option {% if opt_conf == 'panda' %}selected{% endif %} value="{{ path('admin_town_config', {id: town.id, conf: 'panda'}) }}">{{ 'Pandämonium'|trans({},'game') }}</option>
+					<option {% if opt_conf == 'default' %}selected{% endif %} value="{{ path('admin_town_config', {id: town.id, conf: 'default'}) }}">{{ 'Basiskonfiguration'|trans({},'admin') }}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="cell rw-4 padded"><i>root</i></div>
+		</div>
+
+		{% set setting_keys_prev = [] %}
+		{% for setting in conf_keys|sort %}
+
+			{% set setting_keys = setting|split('.') %}
+
+			{% set shown_keys = [] %}
+			{% set found_breakpoint = false %}
+			{% set tab_count = 0 %}
+			{% for num, setting_key in setting_keys %}
+				{% if not found_breakpoint and setting_keys_prev|length > num and setting_key == setting_keys_prev[num] %}
+					{% set tab_count = tab_count + 1 %}
+				{% else %}
+					{% set found_breakpoint = true %}
+					{% set shown_keys = shown_keys|merge([setting_key]) %}
+				{% endif %}
+			{% endfor %}
+
+			{%- macro render_value( value ) -%}
+				{%- if value is same as(true) -%}
+					{{- 'true' -}}
+				{%- elseif value is same as(false) -%}
+					{{- 'false' -}}
+				{%- elseif value is iterable -%}
+					{{- value|json_encode(constant('JSON_PRETTY_PRINT')) -}}
+				{%- else -%}
+					{{- value -}}
+				{%- endif -%}
+			{%- endmacro -%}
+
+			{% set value      = _self.render_value( conf.raw[setting] ) %}
+			{% set value_comp = conf_compare is not null ? _self.render_value( conf_compare.raw[setting] ) : '' %}
+
+			{% for n,key in shown_keys %}
+				{% if not loop.last %}
+					<div class="row">
+						<div class="cell rw-4 padded">
+							<code class="small">
+								{% for t in 0..(n+tab_count) %}
+									―
+								{% endfor %}
+							</code>
+							<i>{{ key }}</i>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+
+
+			<div class="row">
+				<div class="cell rw-4 padded">
+					<code class="small">
+						{% for t in 0..(shown_keys|length+tab_count-1) %}
+							―
+						{% endfor %}
+					</code>
+					<span style="{{ conf_compare is not null and value_comp != value ? 'font-weight: bold; color: green;' : '' }}">{{ shown_keys|last }}</span>
+					<div class="tooltip">{{ setting }}</div>
+				</div>
+
+				<div class="cell rw-{{ conf_compare is not null ? 4 : 8 }} padded small">
+					<pre style="margin: 0">{{ value }}</pre>
+				</div>
+				{% if conf_compare is not null %}
+					<div class="cell rw-4 padded small">
+						<pre style="margin: 0; opacity: {{ value_comp == value ? 0.2 : 1 }}">{{ value_comp }}</pre>
+					</div>
+				{% endif %}
+			</div>
+
+			{% set setting_keys_prev = setting_keys %}
+		{% endfor %}
+	</div>
+
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+	<script>
+        $.html.addEventListenerAll('#compare_conf_to', 'change', (e,elem) => $.ajax.load(null, elem.value, true))
+	</script>
+{% endblock %}

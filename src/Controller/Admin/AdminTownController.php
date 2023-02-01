@@ -589,6 +589,33 @@ class AdminTownController extends AdminActionController
 	}
 
 	/**
+	 * @Route("jx/admin/town/config/{id<\d+>}/{conf?}", name="admin_town_config")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_config(int $id, ?string $conf): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		$conf_self = $this->conf->getTownConfiguration($town);
+		$conf_compare = match($conf) {
+			'small', 'remote', 'panda', 'default' => $this->conf->getTownConfigurationByType($conf),
+			default => null,
+		};
+
+		return $this->render('ajax/admin/towns/explorer_config.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "config",
+			'opt_conf' => $conf,
+			'conf' => $conf_self,
+			'conf_compare' => $conf_compare,
+			'conf_keys' => array_unique( array_merge( array_keys( $conf_self->raw() ), array_keys( $conf_compare?->raw() ?? [] ) ) ),
+		])));
+	}
+
+	/**
      * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette")
      * @param int $id
      * @param int $day
