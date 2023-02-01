@@ -271,6 +271,9 @@
 		{{ profession_control_js('input[x-id][x-target="status"]:checked', path('admin_modify_profession', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
 	{% endif %}
 	<script>
-
+        document.getElementById('townpm').addEventListener('click', function(e) {
+            document.getElementById("forum-content").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'global'}) }}', false )
+        });
 	</script>
 {% endblock %}

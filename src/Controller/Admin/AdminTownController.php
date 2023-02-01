@@ -465,8 +465,6 @@ class AdminTownController extends AdminActionController
 		$town = $this->entity_manager->getRepository(Town::class)->find($id);
 		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
 
-
-
 		return $this->render('ajax/admin/towns/explorer_register.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
 			'day' => $town->getDay(),
@@ -489,7 +487,6 @@ class AdminTownController extends AdminActionController
 		$town = $this->entity_manager->getRepository(Town::class)->find($id);
 		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
 
-
 		return $this->render('ajax/admin/towns/explorer_blackboard.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
 			'day' => $town->getDay(),
@@ -498,7 +495,100 @@ class AdminTownController extends AdminActionController
 		])));
 	}
 
-    /**
+	/**
+	 * @Route("jx/admin/town/estimations/{id<\d+>}", name="admin_town_estimations")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_estimations(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		return $this->render('ajax/admin/towns/explorer_estimations.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "estimations",
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/buildings/{id<\d+>}", name="admin_town_buildings")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_buildings(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		$root = [];
+		$dict = [];
+		$inTown = [];
+
+		foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
+			/** @var BuildingPrototype $building */
+			$dict[$building->getId()] = [];
+			if (!$building->getParent())
+				$root[] = $building;
+		}
+
+		foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
+			/** @var BuildingPrototype $building */
+			if ($building->getParent()) {
+				$dict[$building->getParent()->getId()][] = $building;
+			}
+
+			$available = $this->entity_manager->getRepository(Building::class)->findOneBy(['town' => $town, 'prototype' => $building]);
+			if ($available)
+				$inTown[$building->getId()] = $available;
+		}
+
+		return $this->render('ajax/admin/towns/explorer_buildings.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "buildings",
+			'dictBuildings' => $dict,
+			'rootBuildings' => $root,
+			'availBuldings' => $inTown,
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/eruins_explorer/{id<\d+>}", name="admin_town_eruins_explorer")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_eruins_explorer(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		$explorables = [];
+		foreach ($town->getZones() as $zone)
+			/** @var Zone $zone */
+			if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+				$explorables[$zone->getId()] = ['rz' => [], 'z' => $zone, 'x' => $zone->getExplorerStats(), 'ax' => $zone->activeExplorerStats()];
+				if ($zone->activeExplorerStats()) $explorables[$zone->getId()]['axt'] = max(0, $zone->activeExplorerStats()->getTimeout()->getTimestamp() - time());
+				$rz = $zone->getRuinZones();
+				foreach ($rz as $r) {
+					if (!isset( $explorables[$zone->getId()]['rz'][$r->getZ()] ))
+						$explorables[$zone->getId()]['rz'][$r->getZ()] = [];
+					$explorables[$zone->getId()]['rz'][$r->getZ()][] = $r;
+				}
+				ksort($explorables[$zone->getId()]['rz']);
+			}
+
+		return $this->render('ajax/admin/towns/explorer_eruins_explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "eruins_explorer",
+			'explorables' => $explorables,
+
+		])));
+	}
+
+	/**
      * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette")
      * @param int $id
      * @param int $day

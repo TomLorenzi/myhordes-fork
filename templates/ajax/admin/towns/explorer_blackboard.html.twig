@@ -24,5 +24,34 @@
 {% block js %}
 	{{ parent() }}
 	<script>
+        let fun_api_call = function(api_url, elem) {
+            if (!api_url) return;
+            const url = elem.getAttribute('x-alt-url');
+            const query = elem.getAttribute('x-query');
+            const param = elem.getAttribute('x-param');
+
+            let q_param = null;
+            if (query) {
+                q_param = prompt(query, '');
+                if (q_param === null) return;
+            } else if (param) q_param = param;
+
+            $.ajax.easySend( api_url, {param: q_param},
+                function () {
+                    $.ajax.load(null, url ? url : '{{ path('admin_town_blackboard', {id: town.id}) }}', true);
+                } );
+        }
+
+        $.html.addEventListenerAll('[x-api-trigger]', 'click', function(e,elem) {
+            fun_api_call(elem.getAttribute('x-api-trigger'),elem);
+        });
+        $.html.addEventListenerAll('[x-blackboard-short]','click', (e,elem) => {
+            elem.style.display = 'none';
+            document.querySelector('[x-blackboard-preview="' + elem.getAttribute('x-blackboard-short') + '"]').style.display = null;
+        });
+        $.html.addEventListenerAll('[x-blackboard-preview]','click', (e,elem) => {
+            elem.style.display = 'none';
+            document.querySelector('[x-blackboard-short="' + elem.getAttribute('x-blackboard-preview') + '"]').style.display = null;
+        })
 	</script>
 {% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
+
+{% block explorer_content %}
+	{% macro valuelist(prop,val,raw = false) %}
+		<div class="row">
+			<div class="padded cell rw-4 note note-lightest">{{ prop }}</div>
+			<div class="padded cell rw-8">
+				{% if val is same as(true) %}
+					{{ 'Ja'|trans({},'admin') }}
+				{% elseif val is same as(false)  %}
+					{{ 'Nein'|trans({},'admin') }}
+				{% elseif raw %}
+					{{ val|raw }}
+				{% else %}
+					{{ val }}
+				{% endif %}
+			</div>
+		</div>
+	{% endmacro %}
+	{% for exploration in explorables %}
+		<div class="row">
+			<div class="cell rw-6 rw-md-12 padded">
+				<h5>{{ exploration.z.prototype.label|trans({},'game') }} - [{{ exploration.z.x }} / {{ exploration.z.y }}]</h5>
+				<ul class="tabs plain" x-tab-group="admin-town-explorable-{{ exploration.z.id }}" x-tab-control x-tab-default="f-{{ exploration.z.id }}-0">
+					{% for floornum, floor in exploration.rz %}
+						<li class="tab" x-tab-id="f-{{ exploration.z.id }}-{{ floornum }}"><div class="tab-link"><span>{{ floornum }}</span></div></li>
+					{% endfor %}
+				</ul>
+				{% for floornum, floor in exploration.rz %}
+					<div class="adm-exploration" x-tab-group="admin-town-explorable-{{ exploration.z.id }}" x-tab-id="f-{{ exploration.z.id }}-{{ floornum }}" x-tab-target>
+						{% for rz in floor %}
+							<div class="rz {% if rz.prototype and rz.connect == 0 %}rz-{{ rz.locked ? 'locked' : 'unlocked' }}{% endif%} {% if rz.prototype and rz.connect != 0 %}rz-{{ rz.connect > 0 ? 'up' : 'down' }}{% endif%} rz-{{ rz.distance > conf.get(constant('App\\Structures\\TownConf::CONF_EXPLORABLES_LOCKDIST')) ? 'far' : 'close' }} rz-{{ rz.corridor }} {% if rz.zombies > 0 %}rz-zeds{% endif %}" style="top:{{ rz.y * 20 }}px;left:{{ rz.x * 20 }}px;">
+								{% if rz.corridor != 0 %}
+									<div class="tooltip ndynamic">
+										{{ _self.valuelist('ID'|trans({},'admin'), rz.id) }}
+										{{ _self.valuelist('Position'|trans({},'admin'), rz.x ~ ' / ' ~ rz.y) }}
+										{{ _self.valuelist('Stockwerk'|trans({},'admin'), rz.z) }}
+										{{ _self.valuelist('Distanz'|trans({},'admin'), rz.distance) }}
+										{{ _self.valuelist('Zombies'|trans({},'admin'), rz.zombies) }}
+										{% if rz.prototype and rz.connect == 0 %}
+											{% if rz.locked %}
+												{{ _self.valuelist('Abdruck'|trans({},'admin'), rz.prototype.keyImprint.label|trans({},'items')) }}
+												{{ _self.valuelist('Schlüssel'|trans({},'admin'), rz.prototype.keyItem.label|trans({},'items')) }}
+											{% else %}
+												{{ _self.valuelist('Durchsucht'|trans({},'admin'), rz.digs) }}
+											{% endif %}
+										{% endif %}
+										{% if rz.prototype and rz.connect != 0 %}
+											{{ _self.valuelist('Treppe'|trans({},'admin'), rz.connect) }}
+										{% endif %}
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				{% endfor %}
+			</div>
+			<div class="cell rw-6 rw-md-12 padded">
+				<h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
+				{% if exploration.ax %}
+					{{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.name) }}
+					{{ _self.valuelist('Position'|trans({},'admin'), exploration.ax.x ~ ' / ' ~ exploration.ax.y ) }}
+					{{ _self.valuelist('Stockwerk'|trans({},'admin'), exploration.ax.z ) }}
+					{{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
+					{{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
+					<div class="row">
+						<div class="padded cell rw-4 note note-lightest"><b>{{ 'Zeit'|trans({},'admin') }}</b></div>
+						<div class="padded cell rw-8"><span x-countdown="{{ exploration.axt }}">...</span></div>
+					</div>
+					<div class="row">
+						<div class=" padded cell rw-4 note note-lightest"><b>{{ 'Aktionen'|trans({},'admin') }}</b></div>
+						<div class=" padded cell rw-8">
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-open"></i><div class="tooltip">{{ 'Herauswerfen (ohne Verletzung)'|trans({},'admin') }}</div></button>
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-closed"></i><div class="tooltip">{{ 'Herauswerfen (mit Verletzung)'|trans({},'admin') }}</div></button>
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus"></i><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
+							{% if app.environment == 'dev' %}
+								<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus-circle"></i><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+				<h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
+				{% for x in exploration.x %}
+					<div class="row">
+						<div class="cell rw-12 padded">
+							{{ x.citizen.name }}
+							<button x-ex-action="{{ url('admin_town_manage', {action: 'ex_del', id: town.id}) }}" x-ex-session="{{ x.id }}" class="small inline float-right"><i class="fa fa-recycle"></i><div class="tooltip">{{ 'Löschen (ermöglicht erneutes Betreten der Ruine)'|trans({},'admin') }}</div></button>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+	<script>
+        $.html.addEventListenerAll('[x-ex-action][x-ex-session]', 'click', function(e,elem) {
+            $.ajax.easySend( elem.getAttribute('x-ex-action'), {param: parseInt(elem.getAttribute('x-ex-session'))},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_town_eruins_explorer', {id: town.id})|e('js') }}', true);
+                } );
+        });
+	</script>
+{% endblock %}
