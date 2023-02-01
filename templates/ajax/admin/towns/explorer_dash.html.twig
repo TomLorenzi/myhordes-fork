@@ -171,7 +171,7 @@
 
 		</div>
 		<div class="cell padded rw-6 rw-sm-12">
-			<hordes-map id="door-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
+			<hordes-map id="global-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
 			{% if is_granted("ROLE_ADMIN") %}
 				<div id="zone_floor"></div>
 				<div id="dash_zone_generator" x-target="zone" x-id="">
@@ -264,43 +264,40 @@
         });
 
 		{% if is_granted("ROLE_ADMIN") %}
-        let zones = document.querySelectorAll("#door-map .map .zone");
-        for(let i = 0 ; i < zones.length ; i++) {
-            zones[i].addEventListener('click', function(ev){
-                ev.preventDefault();ev.stopPropagation();
-                let target = ev.target;
-                document.getElementById("dash_zone_generator").setAttribute('x-id', target.getAttribute("x-id"));
-                // document.getElementById("zone_coords").innerText = "[" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
-                $.ajax.easySend('{{ url('get_zone_infos', {id: town.id}) }}', {'zone_id': target.getAttribute("x-id")}, function(data){
-                    document.querySelector("#zone_floor").innerHTML = data.view;
-                    document.querySelector("#zone_floor .inventory").classList.add('desert');
-                    document.querySelector("#zone_floor .inventory .title").innerText = "{{ 'Zone'|trans({}, 'admin') }} [" + target.getAttribute("x-zone-x") + ", " + target.getAttribute("x-zone-y") + "]";
-                    let items = document.querySelectorAll('#zone_floor .inventory .item:not(.locked)[x-item-id]');
-                    for (let i = 0; i < items.length; i++)
-                        items[i].addEventListener('click', function(ev) {
-                            let change = 'remove';
-                            const item_id = this.getAttribute('x-item-id');
-                            $.ajax.easySend('{{ path('admin_town_item', {id: town.id}) }}', {
-                                    item: item_id, change: change, qty: '1'
-                                },
-                                function () {
-                                    let itemTarget = document.querySelector('#zone_floor .inventory .item[x-item-id="' + item_id + '"]');
-                                    itemTarget.parentElement.removeChild(itemTarget);
-                                }
-                            );
-                        });
-                    document.querySelectorAll("#zone_floor .item div.tooltip").forEach( elem => $.html.handleTooltip( elem ));
-                    document.getElementById("zone_digs").value = data.zone_digs;
-                    document.getElementById("ruin_digs").value = data.ruin_digs;
-                    document.getElementById("ruin_bury").value = data.ruin_bury;
-                    document.getElementById("ruin_camp_level").value = data.camp_levl;
-                    document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
-                    document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
-                    document.getElementById("dash_zone_log").innerHTML = data.zone_log;
-					{% embed "scripts/log.js.twig" with {'base_element': "document.getElementById('dash_zone_log')"} %}{% endembed %}
-                });
+        document.addEventListener("zone-clicked", function(ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            let target = ev.explicitOriginalTarget;
+            document.getElementById("dash_zone_generator").setAttribute('x-id', target.getAttribute("x-id"));
+            $.ajax.easySend('{{ url('get_zone_infos', {id: town.id}) }}', {'zone_id': target.getAttribute("x-id")}, function(data){
+                document.querySelector("#zone_floor").innerHTML = data.view;
+                document.querySelector("#zone_floor .inventory").classList.add('desert');
+                document.querySelector("#zone_floor .inventory .title").innerText = "{{ 'Zone'|trans({}, 'admin') }} [" + data.zone_coords.x + ", " + data.zone_coords.y + "]";
+                let items = document.querySelectorAll('#zone_floor .inventory .item:not(.locked)[x-item-id]');
+                for (let i = 0; i < items.length; i++)
+                    items[i].addEventListener('click', function() {
+                        let change = 'remove';
+                        const item_id = this.getAttribute('x-item-id');
+                        $.ajax.easySend('{{ path('admin_town_item', {id: town.id}) }}', {
+                                item: item_id, change: change, qty: '1'
+                            },
+                            function () {
+                                let itemTarget = document.querySelector('#zone_floor .inventory .item[x-item-id="' + item_id + '"]');
+                                itemTarget.parentElement.removeChild(itemTarget);
+                            }
+                        );
+                    });
+                document.querySelectorAll("#zone_floor .item div.tooltip").forEach( elem => $.html.handleTooltip( elem ));
+                document.getElementById("zone_digs").value = data.zone_digs;
+                document.getElementById("ruin_digs").value = data.ruin_digs;
+                document.getElementById("ruin_bury").value = data.ruin_bury;
+                document.getElementById("ruin_camp_level").value = data.camp_levl;
+                document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
+                document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
+                document.getElementById("dash_zone_log").innerHTML = data.zone_log;
+				{% embed "scripts/log.js.twig" with {'base_element': "document.getElementById('dash_zone_log')"} %}{% endembed %}
             });
-        }
+		})
 
         let set_zone_digs = document.getElementById("zone_dig_set");
         if(set_zone_digs) set_zone_digs.addEventListener('click', function(){

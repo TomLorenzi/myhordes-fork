@@ -1388,6 +1388,7 @@ class AdminTownController extends AdminActionController
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $zone_id = $parser->get('zone_id', -1);
+		/** @var Zone $zone */
         $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
 
         if(!$zone || $zone->getTown() !== $town)
@@ -1400,6 +1401,7 @@ class AdminTownController extends AdminActionController
 
         return AjaxResponse::success(true, [
             'view' => $view,
+			'zone_coords' => ["x" => $zone->getX(), "y" => $zone->getY()],
             'zone_digs' => $zone->getDigs(),
             'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0,
             'ruin_bury' => $zone->getBuryCount(),
