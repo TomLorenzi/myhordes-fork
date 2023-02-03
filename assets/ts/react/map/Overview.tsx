@@ -114,7 +114,7 @@ type MapOverviewZoneProps = {
 }
 
 const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
-    const click_handler = ()=>{
+    const click_handler = e=>{
         let data: RuntimeMapStateAction = {};
 
         if (props.conf.enableZoneMarking)
@@ -125,7 +125,7 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
 
         if (Object.entries(data).length > 0) props.wrapDispatcher(data);
 
-        document.dispatchEvent( new CustomEvent('zone-clicked', { detail: { zone: props.zone }}) );
+        e.target.closest('hordes-map').dispatchEvent( new CustomEvent('zone-clicked', { bubbles: true, detail: { zone: props.zone }}) );
     };
 
     return (

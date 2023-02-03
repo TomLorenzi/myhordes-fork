@@ -264,7 +264,7 @@
         });
 
 		{% if is_granted("ROLE_ADMIN") %}
-        document.addEventListener("zone-clicked", function(ev) {
+        document.querySelector('hordes-map')?.addEventListener("zone-clicked", function(ev) {
             ev.preventDefault();
             ev.stopPropagation();
             let target = ev.explicitOriginalTarget;
