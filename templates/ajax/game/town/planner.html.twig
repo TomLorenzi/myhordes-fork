@@ -86,7 +86,7 @@
             $.components.dispatchEvent('planner-map', 'planning-end', {});
         });
 
-        document.getElementById('save_button').addEventListener('click', function(e) {
+        document.getElementById('save_button').addEventListener('click', function() {
             const name = document.getElementById('route_name').value;
             if (name.length > 32 || name.length < 3) {
                 $.html.error('{{ 'Bitte gib einen gültigen Namen ein (zwischen 3 und 32 Zeichen).'|trans({},'game') }}');
