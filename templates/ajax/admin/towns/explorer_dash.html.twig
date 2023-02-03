@@ -302,28 +302,28 @@
         let set_zone_digs = document.getElementById("zone_dig_set");
         if(set_zone_digs) set_zone_digs.addEventListener('click', function(){
             $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'zone', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('zone_digs').value }, function(){
-                $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                $.ajax.load(null, '{{ path('admin_town_dashboard', {id: town.id}) }}', true);
             })
         })
 
         let set_ruin_digs = document.getElementById("ruin_dig_set");
         if(set_ruin_digs) set_ruin_digs.addEventListener('click', function(){
             $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'ruin', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('ruin_digs').value }, function(){
-                $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                $.ajax.load(null, '{{ path('admin_town_dashboard', {id: town.id}) }}', true);
             })
         })
 
         let set_ruin_bury = document.getElementById("ruin_bury_set");
         if(set_ruin_bury) set_ruin_bury.addEventListener('click', function(){
             $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'bury', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('ruin_bury').value }, function(){
-                $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                $.ajax.load(null, '{{ path('admin_town_dashboard', {id: town.id}) }}', true);
             })
         })
 
         let set_ruin_camp = document.getElementById("ruin_camp_level_set");
         if(set_ruin_camp) set_ruin_camp.addEventListener('click', function(){
             $.ajax.easySend('{{ path('set_zone_attribs', {'id': town.id}) }}', {'target': 'camp', 'zone_id': document.getElementById("dash_zone_generator").getAttribute('x-id'), 'value': document.getElementById('ruin_camp_level').value }, function(){
-                $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "dash"}) }}', true);
+                $.ajax.load(null, '{{ path('admin_town_dashboard', {id: town.id}) }}', true);
             })
         })
         {% endif %}

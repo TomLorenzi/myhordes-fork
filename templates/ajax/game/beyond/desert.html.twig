@@ -491,7 +491,7 @@
                 </div>
 
                 {% if is_granted('ROLE_CROW') and app.environment == 'dev' %}
-                    <button x-ajax-href="{{ path('admin_town_explorer', {id: town.id, tab: null}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
+                    <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id, tab: null}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
                 {% endif %}
 
             </div>

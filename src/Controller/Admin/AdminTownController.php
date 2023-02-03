@@ -2478,7 +2478,7 @@ class AdminTownController extends AdminActionController
         return $this->render('ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
             'towns' => $towns,
             'nohref' => $parser->get('no-href', false),
-            'target' => 'admin_town_explorer'
+            'target' => 'admin_town_dashboard'
         ]));
     }
 }
