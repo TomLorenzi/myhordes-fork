@@ -705,6 +705,12 @@ class InventoryAwareController extends CustomAbstractController
                     $errors[] = InventoryHandler::ErrorTransferBlocked;
                     break;
                 }
+
+                if ($steal_up === false && in_array($current_item->getPrototype()->getName(), $carrier_items)) {
+                    $errors[] = InventoryHandler::ErrorTransferStealDropInvalid;
+                    break;
+                }
+
                 if ($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
                     if ( $target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune") ) {

@@ -362,6 +362,7 @@ class InventoryHandler
     const ErrorBankTheftFailed      = ErrorHelper::BaseInventoryErrors + 14;
     const ErrorTargetChestFull      = ErrorHelper::BaseInventoryErrors + 15;
     const ErrorTransferStealPMBlock = ErrorHelper::BaseInventoryErrors + 16;
+    const ErrorTransferStealDropInvalid = ErrorHelper::BaseInventoryErrors + 17;
 
     const ModalityNone             = 0;
     const ModalityTamer            = 1;
