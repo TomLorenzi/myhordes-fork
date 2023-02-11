@@ -57,7 +57,9 @@ class ActionDataService implements FixtureProcessorInterface {
                 'min_6_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 6, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 6 AP.'],
                 'min_5_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 5, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 5 AP.'],
                 'min_1_ap'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ]],
+                'no_cp'          => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'cp' => [ 'min' => 0, 'max' => 0, 'relative' => false ] ] ],
                 'min_1_cp'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'cp' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 1 CP.'],
+                'min_1_cp_hd'    => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'cp' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ] ],
                 'min_1_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 1 PM.'],
                 'min_2_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 2, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 2 PM.'],
                 'min_3_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 3, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 3 PM.'],
@@ -556,7 +558,8 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'can'       => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open_tool' ],
                 'can_t1'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open_tool' ],
-                'can_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp' ], 'result' => [ 'minus_1cp', [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open' ],
+                'can_t2'    => [ 'label' => 'Öffnen (1 BP)', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp_hd' ], 'result' => [ 'minus_1cp', [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message_key' => 'container_open' ],
+                'can_t3'    => [ 'label' => 'Öffnen', 'at00' => true, 'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'have_can_opener', 'no_cp', 'is_not_wounded_hands' ], 'result' => [ ] ],
 
                 'eat_6ap'   => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
                 'eat_7ap'   => [ 'label' => 'Essen', 'priority' => 1, 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap7', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
@@ -1011,7 +1014,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'water_can_1_#00'     => [ 'fill_watercan1', 'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2', 'watercan1_g' ],
                 'water_can_empty_#00' => [ 'fill_watercan0' ],
 
-                'can_#00'             => [ 'can', 'can_t1', 'can_t2' ],
+                'can_#00'             => [ 'can', 'can_t1', 'can_t2', 'can_t3' ],
 
                 'can_open_#00'        => [ 'eat_6ap'],
                 'bretz_#00'           => [ 'eat_6ap'],
