@@ -173,10 +173,10 @@ class RankingCommand extends Command
 
             $all_town_types[] = $town_type;
             $preset_ranking[$town_type->getName()] =
-                array_map(
-                    fn(?TownRankingProxy $town) => $town && !$town->getDisabled() && !$town->hasDisableFlag( TownRankingProxy::DISABLE_RANKING ) ? $town : null,
-                    array_map( fn(int $id) => $this->entityManager->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $id, 'imported' => true, 'language' => $base[1]]), explode(',', $base[2]))
-                );
+                array_slice(array_filter( array_map(
+                                  fn(?TownRankingProxy $town) => $town ? (!$town->getDisabled() && !$town->hasDisableFlag( TownRankingProxy::DISABLE_RANKING ) ? $town : false) : null,
+                                  array_map( fn(int $id) => $this->entityManager->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $id, 'imported' => true, 'language' => $base[1]]), explode(',', $base[2]))
+              ), fn($t) => $t !== false ), 0, 15);
 
             foreach ($preset_ranking[$town_type->getName()] as $town) {
                 /** @var TownRankingProxy $town */
