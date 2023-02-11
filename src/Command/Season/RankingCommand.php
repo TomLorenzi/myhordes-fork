@@ -358,7 +358,7 @@ class RankingCommand extends Command
                 $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_alarm)->setUser($citizen_ranking_entry[3])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
                 $plus[3]++;
             }
-            if ((!empty($citizen_ranking_entry[0]) || !empty($citizen_ranking_entry[1])) && !$already[4] && $upcoming_season) {
+            if ((!empty($citizen_ranking_entry[0])) && !$already[4] && $upcoming_season) {
                 $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_glory)->setUser($citizen_ranking_entry[3])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
                 $plus[4]++;
             }
