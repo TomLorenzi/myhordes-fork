@@ -636,13 +636,13 @@ class TownHandler
             $min2 = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
             $max2 = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
 
-            $min2 = floor($min2 / 25) * 25;
-            $max2 = ceil($max2 / 25) * 25;
-
             $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
             $min2 = round($min2 * $soulFactor);
             $max2 = round($max2 * $soulFactor);
+
+            $min2 = floor($min2 / 25) * 25;
+            $max2 = ceil($max2 / 25) * 25;
 
             $quality2 = min($calculateUntil / 24, 1);
 
