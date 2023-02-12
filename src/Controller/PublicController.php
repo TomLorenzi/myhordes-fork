@@ -674,11 +674,11 @@ class PublicController extends CustomAbstractController
                 return AjaxResponse::errorMessage($this->translator->trans('Dein EternalTwin-Benutzername enthält Elemente, die auf MyHordes nicht gestattet sind. Bitte ändere deinen Namen auf EternalTwin, um dich auf MyHordes anmelden zu können.', [], 'login') );
 
             $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
-            $new_user->setTosver(1);
 
             switch ($error) {
                 case UserFactory::ErrorNone:
                     try {
+                        $new_user->setTosver(1);
                         $this->entity_manager->persist( $new_user );
                         $new_user->setLanguage($this->getUserLanguage());
                         $this->entity_manager->persist( (new RegistrationLog())
