@@ -891,7 +891,7 @@ class PublicController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function changelog(int $id = -1): Response
+    public function changelog(int $id = -1, HTMLService $html): Response
     {
         $lang = $this->getUserLanguage();
 
@@ -903,8 +903,11 @@ class PublicController extends CustomAbstractController
                 : $this->redirectToRoute( 'public_welcome' );
         }
 
+        $latest = $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang);
+        if ($latest) $latest->setText( $html->prepareEmotes( $latest->getText() ) );
+
         return $this->render('ajax/public/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
-            'latest' => $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang),
+            'latest' => $latest,
             'current' => $changelog,
             'all' => $this->entity_manager->getRepository(Changelog::class)->findByLang( $lang )
         ]));

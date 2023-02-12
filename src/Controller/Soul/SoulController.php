@@ -426,7 +426,7 @@ class SoulController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function soul_future(Request $request, UserHandler $userHandler, int $id = 0): Response
+    public function soul_future(Request $request, UserHandler $userHandler, HTMLService $html, int $id = 0): Response
     {
         $user = $this->getUser();
 
@@ -440,10 +440,14 @@ class SoulController extends CustomAbstractController
         if ($selected === null)
             $selected = $news[0] ?? null;
 
+
+
         try {
             $userHandler->setSeenLatestChangelog( $user, $lang );
             $this->entity_manager->flush();
         } catch (Exception $e) {}
+
+        $selected?->setText( $html->prepareEmotes( $selected?->getText() ) );
 
         return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
             'news' => $news, 'selected' => $selected,
