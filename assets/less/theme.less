@@ -651,7 +651,7 @@ footer {
   width: @myhordes-content-width;
   overflow: visible;
   font-size: 1.1rem;
-  .cell-small.footer > div, .cell.footer > div {
+  .cell-small.footer > div:not(.v), .cell.footer > div:not(.v) {
     background: rgba(0,0,0,0.33);
     margin-bottom: 5px;
     strong {
