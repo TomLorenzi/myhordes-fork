@@ -1065,7 +1065,7 @@ class AdminUserController extends AdminActionController
 
         $edit = $edit_id ? $this->entity_manager->getRepository( AccountRestriction::class )->find( $edit_id ) : null;
         if ($edit) {
-            if ($this->user_handler->hasRole( $edit->getModerator(), 'ROLE_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
+            if ($this->user_handler->hasRole( $edit->getModerator(), 'ROLE_SUPER' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
                 return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
             $edit->getConfirmedBy()->clear();
         }
