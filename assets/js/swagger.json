@@ -2396,6 +2396,11 @@
             "description": "Season",
             "example": 15
           },
+          "phase": {
+            "type": "string",
+            "description": "Server phase (alpha, beta, import or native)",
+            "example": "beta"
+          },
           "dtype": {
             "type": "integer",
             "description": "Death type ID",

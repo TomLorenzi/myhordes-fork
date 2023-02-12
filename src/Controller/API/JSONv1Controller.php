@@ -1309,7 +1309,7 @@ class JSONv1Controller extends CoreController {
         $data = [];
 
         if (empty($fields)) {
-            $fields = ['id', 'mapId', 'survival', 'name', 'mapName', 'season', 'score', 'origin'];
+            $fields = ['id', 'mapId', 'survival', 'name', 'mapName', 'season', 'phase', 'score', 'origin'];
         }
 
         $mainAccount = null;
@@ -1814,6 +1814,16 @@ class JSONv1Controller extends CoreController {
                         $data[$field] = ($citizen->getTown()->getSeason()) ?
                             ($citizen->getTown()->getSeason()->getNumber() === 0) ? $citizen->getTown()->getSeason()->getSubNumber() :
                                 $citizen->getTown()->getSeason()->getNumber() : 0;
+                        break;
+                    case "phase":
+                        if ($citizen->getTown()->getSeason() === null)
+                            $data[$field] = 'alpha';
+                        elseif ($citizen->getTown()->getSeason()->getNumber() === 0 && $citizen->getTown()->getSeason()->getSubNumber() <= 14)
+                            $data[$field] = 'import';
+                        elseif ($citizen->getTown()->getSeason()->getNumber() === 0 && $citizen->getTown()->getSeason()->getSubNumber() >= 14)
+                            $data[$field] = 'beta';
+                        else
+                            $data[$field] = 'native';
                         break;
                     case "dtype":
                         $data[$field] = $citizen->getCod()->getRef();
