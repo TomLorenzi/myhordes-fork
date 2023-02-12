@@ -1945,9 +1945,11 @@ div.or {
 div.welcome-teaser {
   height: 500px; margin-right: -5px;
   &>span {
-    font-size: 37px; position: relative; display: inline-block;
-    width: 243px; top: 18px; left: 70px; transform: rotate(-1.8deg);
-    text-align: center; font-weight: bold; color: #3d0000; text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    font-size: 18px; position: relative; display: inline-block;
+    width: 241px; top: 18px; left: 70px; transform: rotate(-1.8deg);
+    text-align: center; font-weight: bold; text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    &:first-child { color: #312839; text-transform: uppercase }
+    &:last-child { color: #5b0000 }
   }
   &.teaser-1 { background: url("../img/teaser1.jpg") no-repeat top right; &>span { left: 80px; top: 25px; } }
   &.teaser-2 { background: url("../img/teaser2.jpg") no-repeat top right; }
