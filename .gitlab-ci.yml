@@ -27,6 +27,7 @@ build:
   stage: build
   script:
     # Run Composer
+    - composer require myhordes/prime:0.0.1
     - composer install
     # Install assets
     - yarn install
