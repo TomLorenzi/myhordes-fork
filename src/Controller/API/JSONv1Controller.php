@@ -1770,7 +1770,7 @@ class JSONv1Controller extends CoreController {
                 foreach ($field as $fieldName => $fieldValues)
                     switch ($fieldName) {
                         case "cleanup":
-                            $data[$fieldName] = $this->getCleanupInfos($citizen, $fieldValues['fields']);
+                            $data[$fieldName] = $this->getCleanupInfos($citizen, $fieldValues['fields'] ?? []);
                             break;
                     }
             } else {
