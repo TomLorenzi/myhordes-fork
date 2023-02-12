@@ -103,7 +103,6 @@
 </body>
 <footer class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
-        {% include "web/version_info.html.twig" with {debug, version} only %}
         <div class="row">
             <div class="padded cell footer rw-5 rw-sm-12 justify">
                 <div>
@@ -157,6 +156,10 @@
                         <a href="{{ url('legal_doc_default', {document: 'privacy-policy'}) }}">{{ 'Datenschutzerklärung'|trans({}, 'global') }}</a><br/>
                         <a href="{{ url('legal_doc_default', {document: 'imprint'}) }}">{{ 'Impressum'|trans({}, 'global') }}</a>
                     </div>
+                </div>
+
+                <div class="v">
+                    {% include "web/version_info.html.twig" with {debug, version} only %}
                 </div>
             </div>
         </div>
