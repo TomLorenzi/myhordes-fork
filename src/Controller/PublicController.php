@@ -13,6 +13,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationLog;
 use App\Entity\RegistrationToken;
+use App\Entity\Season;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
@@ -871,7 +872,8 @@ class PublicController extends CustomAbstractController
         return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs(null, [
             'lang' => $lang,
             'lastChangelog' => $this->entity_manager->getRepository(Changelog::class)->findLatestByLang( $lang ),
-            'lastNews' => $lastNews
+            'lastNews' => $lastNews,
+            'season' => $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true])
         ]));
     }
 
