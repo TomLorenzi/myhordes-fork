@@ -5,6 +5,7 @@ namespace App\Controller\REST;
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\BuildingPrototype;
+use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\TownClass;
@@ -49,13 +50,14 @@ class UserSearchController extends CustomAbstractCoreController
         return array_unique( $searchSkip );
     }
 
-    private function renderUser(User $u): array {
+    private function renderUser(User $u, ?string $alias = null): array {
         return [
             'type' => 'user',
             'id' => $u->getId(),
-            'name' => $u->getName(),
+            'name' => $alias ?? $u->getName(),
             'soul' => $this->generateUrl( 'soul_visit', ['id' => $u->getId()] ),
-            'avatarHTML' => $this->render( 'ajax/soul/playeravatar.html.twig', ['user' => $u, 'small' => true, 'attributes' => ['style' => 'margin-right: 0']])->getContent()
+            'avatarHTML' => $this->render( 'ajax/soul/playeravatar.html.twig', ['user' => $u, 'small' => true, 'attributes' => ['style' => 'margin-right: 0']])->getContent(),
+            'avatarHTMLLarge' => $this->render( 'ajax/soul/playeravatar.html.twig', ['user' => $u, 'small' => false, 'attributes' => ['style' => 'margin-right: 0']])->getContent(),
         ];
     }
 
@@ -92,8 +94,17 @@ class UserSearchController extends CustomAbstractCoreController
 
         $users = $em->getRepository(User::class)->findBySoulSearchQuery($searchName, $parser->get_int('limit', -1), $searchSkip);
 
+        $aliased_users = [];
+        if ($parser->get_int('alias', false) && $town = $this->getUser()->getActiveCitizen()?->getTown())
+            foreach ($town->getCitizens() as $citizen)
+                if ($citizen->getAlias() && !in_array( $citizen->getUser()->getId(), $searchSkip ) && !in_array( $citizen->getUser(), $users ) && str_contains( mb_strtolower( $citizen->getAlias() ), mb_strtolower( $searchName ) ) )
+                    $aliased_users[] = $citizen;
+
         return new JsonResponse(
-            array_map( fn(User $u) => $this->renderUser($u), $users )
+            array_merge(
+                array_map( fn(Citizen $u) => $this->renderUser($u->getUser(), $u->getAlias()), $aliased_users ),
+                array_map( fn(User $u) => $this->renderUser($u), $users )
+            ),
         );
     }
 

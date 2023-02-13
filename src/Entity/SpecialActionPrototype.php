@@ -4,8 +4,12 @@ namespace App\Entity;
 
 use App\Repository\SpecialActionPrototypeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: SpecialActionPrototypeRepository::class)]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'special_action_prototype_unique', columns: ['name'])]
 class SpecialActionPrototype
 {
     #[ORM\Id]
@@ -21,6 +25,9 @@ class SpecialActionPrototype
     private $icon;
     #[ORM\Column(type: 'boolean')]
     private $consumable = true;
+
+    #[ORM\OneToOne(inversedBy: 'specialActionPrototype', cascade: ['persist', 'remove'])]
+    private ?HeroicActionPrototype $proxyFor = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -62,6 +69,18 @@ class SpecialActionPrototype
     public function setConsumable(bool $consumable): self
     {
         $this->consumable = $consumable;
+
+        return $this;
+    }
+
+    public function getProxyFor(): ?HeroicActionPrototype
+    {
+        return $this->proxyFor;
+    }
+
+    public function setProxyFor(?HeroicActionPrototype $proxyFor): self
+    {
+        $this->proxyFor = $proxyFor;
 
         return $this;
     }

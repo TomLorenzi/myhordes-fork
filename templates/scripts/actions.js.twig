@@ -44,6 +44,39 @@ const handleSpecialActions = function( actions, api_path, return_path, content =
 
 const handleHeroicActions = function( actions, api_path, return_path, content = null ) {
     for (let i = 0; i < actions.length; i++) {
+        if (actions[i].hasAttribute('x-collection-target')) {
+            let targets = [], values = [];
+            let ids = {};
+
+            const message = actions[i].getAttribute('x-confirm-msg');
+
+            const update_button = () => {
+                if (targets.length > 0 && targets.filter(v=>v).length === targets.length) {
+                    actions[i].removeAttribute('disabled');
+                    actions[i].setAttribute('x-target-id', targets.join(';'))
+                    let tmp = message;
+                    values.forEach( ([key,value]) => tmp = tmp.replaceAll('{target' + key + '}', value) );
+                    actions[i].setAttribute('x-confirm-msg', tmp)
+                }
+                else {
+                    actions[i].setAttribute('disabled', '1');
+                    actions[i].setAttribute('x-target-id', '?');
+                }
+                return true;
+            }
+
+            document.querySelectorAll('input[x-collection-for="' + actions[i].getAttribute('x-collection-target') + '"]').forEach(sub => {
+                const cat = sub.value.split('-')[0];
+                if (typeof ids[cat] === 'undefined')
+                    ids[cat] = targets.length;
+                targets[ids[cat]] = null;
+                values[ids[cat]] = [cat,'?'];
+                sub.addEventListener('click', () => (targets[ids[cat]] = sub.value) && (values[ids[cat]][1] = sub.getAttribute('title')) && update_button() );
+            });
+
+            update_button();
+        }
+
         actions[i].addEventListener('click', function() {
             const target_id = this.getAttribute('x-target-id');
             const action_id = this.getAttribute('x-action-id');
@@ -116,7 +149,7 @@ const handleActionPopups = function( actions ) {
     for (let i = 0; i < actions.length; i++) {
         const id = actions[i].getAttribute( 'x-target-definition' );
         let popup = document.querySelector('[x-target-selection-for="' + id + '"]');
-        popup.addEventListener('click', function(e) { e.stopPropagation(); });
+        popup?.addEventListener('click', function(e) { e.stopPropagation(); });
         actions[i].addEventListener('click', function() {
             document.querySelectorAll('[x-target-definition]').forEach(e => {
                 e.classList.remove('open');

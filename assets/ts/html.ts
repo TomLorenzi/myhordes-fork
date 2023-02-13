@@ -161,7 +161,7 @@ export default class HTML {
             div = notification_parent.appendChild( div );
             setTimeout( node => node.classList.add('show'), 1, div );
 
-            let n = notification_parent.children.length - 3;
+            let n = notification_parent.children.length - ((window.innerWidth < 600) ? 1 : 3);
             let fc = notification_parent.firstChild;
 
             while (n > 0 && fc) {

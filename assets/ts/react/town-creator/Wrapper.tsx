@@ -12,6 +12,7 @@ import {TownCreatorSectionMods} from "./SectionMods";
 import {TownCreatorSectionAnimator} from "./SectionAnimator";
 import {TownCreatorSectionAdvanced} from "./SectionAdvanced";
 import {AtLeast} from "./Permissions";
+import {TownCreatorSectionTemplate} from "./SectionTemplate";
 
 declare var $: Global;
 
@@ -68,15 +69,15 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
 
         let search_index = dot.findIndex(v => v === '<<');
         while (search_index >= 0) {
-            dot = dot.slice(search_index+1);
+            dot = dot.slice(search_index+1) as string[];
             search_index = dot.findIndex(v => v === '<<');
         }
 
         search_index = dot.findIndex(v => v === '<');
         while (search_index >= 0) {
-            dot = search_index === 0 ? dot.slice(1) : [
+            dot = (search_index === 0 ? dot.slice(1) : [
                 ...dot.slice(0,search_index-1),...dot.slice(search_index+1)
-            ];
+            ]) as string[];
             search_index = dot.findIndex(v => v === '<');
         }
 
@@ -231,6 +232,7 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
                                             setDefaultRules={v => setDefaultRules(v)}/>
 
                     { defaultRules as TownRules && <>
+                        <TownCreatorSectionTemplate getOptions={ () => (options as TownOptions).rules } />
                         <AtLeast elevation="crow">
                             <TownCreatorSectionAnimator/>
                         </AtLeast>

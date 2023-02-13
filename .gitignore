@@ -45,6 +45,9 @@ config/packages/prod/app/*.yml
 etwin.toml
 rector.php
 
+# Dynamic templates
+templates/build/*
+
 # Misc
 .DS_Store
 .vscode/

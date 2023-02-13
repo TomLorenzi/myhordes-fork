@@ -53,6 +53,7 @@ use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
+use App\Structures\FriendshipActionTarget;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
@@ -132,6 +133,24 @@ class InventoryAwareController extends CustomAbstractController
             $this->addFlash('popup-stranger', $this->renderView('ajax/game/notifications/stranger.html.twig', ['population' => $this->getActiveCitizen()->getTown()->getPopulation()]));
             $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('stranger') );
             $this->entity_manager->persist($this->getActiveCitizen());
+            $this->entity_manager->flush();
+        } else if ( !empty( $records = array_filter( $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
+            fn($record) => is_array($record) && !( $record['seen'] ?? true ) && ( $record['valid'] ?? false )
+        ) ) ) {
+            $key = array_key_first( $records );
+            $record = $records[$key];
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find( (int)$record['from'] ?? 0 );
+            if ($citizen && $citizen->getTown() !== $this->getActiveCitizen()->getTown()) $citizen = null;
+
+            $action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $record['action'] ?? '']);
+            if ($citizen && $action)
+                $this->addFlash('popup-general', $this->renderView('ajax/game/notifications/hero_donation.html.twig', [
+                    'citizen' => $citizen, 'action' => $action]
+                ));
+
+            $this->entity_manager->persist(
+                $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->setRecord( $key, true, 'seen' )
+            );
             $this->entity_manager->flush();
         }
         return true;
@@ -238,6 +257,22 @@ class InventoryAwareController extends CustomAbstractController
                         if ($definition->getSpawner() !== ItemTargetDefinition::ItemCitizenOnZoneSBType || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800))
                             $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
                     }
+                break;
+            case ItemTargetDefinition::ItemFriendshipType:
+
+                foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+                    if ($citizen !== $this->getActiveCitizen() && $citizen->getAlive() && $citizen->getZone() === $this->getActiveCitizen()->getZone() && !$this->citizen_handler->hasStatusEffect( $citizen, 'tg_rec_heroic' ))
+                        $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/item/item_cart.gif", null, 'Player' ];
+
+                //$giftedActions = array_values(array_column( array_filter(
+                //    $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData(),
+                //    fn($entry) => $entry['valid']
+                //), 'action'));
+                $giftedActions = [];
+
+                foreach ($this->getActiveCitizen()->getHeroicActions() as $action)
+                    if ($action->getName() !== 'hero_generic_friendship' && !in_array( $action->getName(), $giftedActions ))
+                        $targets[] = [$action->getId(), $this->translator->trans($action->getAction()->getLabel(), [], 'items'), "build/images/actions/hero.gif", null, 'Action'];
 
                 break;
         }
@@ -459,6 +494,7 @@ class InventoryAwareController extends CustomAbstractController
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 65) );
             $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
             $this->citizen_handler->removeStatus($aggressor, 'tg_air_ghoul');
+            $aggressor->giveGenerosityBonus( $this->getTownConf()->get( TownConf::CONF_MODIFIER_GENEROSITY_GHOUL, 1 ) );
 
             $stat_down = false;
             if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {
@@ -669,6 +705,12 @@ class InventoryAwareController extends CustomAbstractController
                     $errors[] = InventoryHandler::ErrorTransferBlocked;
                     break;
                 }
+
+                if ($steal_up === false && in_array($current_item->getPrototype()->getName(), $carrier_items)) {
+                    $errors[] = InventoryHandler::ErrorTransferStealDropInvalid;
+                    break;
+                }
+
                 if ($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
                     if ( $target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune") ) {
@@ -932,19 +974,19 @@ class InventoryAwareController extends CustomAbstractController
     }
 
     /**
-     * @param int $id
+     * @param int|string $id
      * @param ItemTargetDefinition|null $target
      * @param Inventory[] $inventories
      * @param object|null $return
      * @return bool
      */
-    private function extract_target_object(int $id, ?ItemTargetDefinition $target, array $inventories, ?object &$return): bool {
+    private function extract_target_object(int|string $id, ?ItemTargetDefinition $target, array $inventories, ?object &$return): bool {
         $return = null;
         if (!$target) return true;
 
         switch ($target->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
-                $return = $this->entity_manager->getRepository(Item::class)->find( $id );
+                $return = $this->entity_manager->getRepository(Item::class)->find( (int)$id );
                 if (!$return) return false;
 
                 foreach ($inventories as $inventory)
@@ -953,25 +995,25 @@ class InventoryAwareController extends CustomAbstractController
 
                 return false;
             case ItemTargetDefinition::ItemTypeSelectionType:
-                $return = $this->entity_manager->getRepository(ItemPrototype::class)->find( $id );
+                $return = $this->entity_manager->getRepository(ItemPrototype::class)->find( (int)$id );
                 if (!$return) return false;
                 return true;
             case ItemTargetDefinition::ItemHeroicRescueType:
-                $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+                $return = $this->entity_manager->getRepository(Citizen::class)->find( (int)$id );
                 if ($return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
                     $return = null;
                     return false;
                 }
                 return true;
             case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
-                $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+                $return = $this->entity_manager->getRepository(Citizen::class)->find( (int)$id );
                 if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
                     $return = null;
                     return false;
                 }
                 return true;
             case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
-                $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+                $return = $this->entity_manager->getRepository(Citizen::class)->find( (int)$id );
                 if (!$return->getAlive() || $return->getZone() !== $this->getActiveCitizen()->getZone()) {
                     $return = null;
                     return false;
@@ -980,12 +1022,42 @@ class InventoryAwareController extends CustomAbstractController
                     return false;
                 }
                 return true;
+            case ItemTargetDefinition::ItemFriendshipType:
+                $action = null;
+                $player = null;
+
+                foreach ( explode( ';', $id ) as $section) {
+                    $data = explode( '-', $section, 2 );
+                    if (count($data) !== 2) return false;
+                    if ($data[0] === 'Action') $action = (int)$data[1];
+                    elseif ($data[0] === 'Player') $player = (int)$data[1];
+                }
+
+                if (!$action || !$player) return false;
+                $action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->find( $action );
+                $player = $this->entity_manager->getRepository(Citizen::class)->find( $player );
+                if (!$action || !$player) return false;
+
+                if (!$player->getAlive() || $player->getZone() !== $this->getActiveCitizen()->getZone() || $player === $this->getActiveCitizen() || !$this->getActiveCitizen()->getHeroicActions()->contains($action) || $this->citizen_handler->hasStatusEffect( $player, 'tg_rec_heroic' ))
+                    return false;
+
+                //$giftedActions = array_values(array_column( array_filter(
+                //                                                $player->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData(),
+                //                                                fn($entry) => $entry['valid']
+                //                                            ), 'action'));
+                $giftedActions = [];
+
+                if ($action->getName() === 'hero_generic_friendship' || in_array( $action->getName(), $giftedActions ))
+                    return false;
+
+                $return = new FriendshipActionTarget( $action, $player );
+                return true;
             default: return false;
         }
     }
 
     public function generic_heroic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null): Response {
-        $target_id = (int)$parser->get('target', -1);
+        $target_id = $parser->get('target', -1);
         $action_id = (int)$parser->get('action', -1);
 
         /** @var Item|ItemPrototype|null $target */
@@ -1034,7 +1106,7 @@ class InventoryAwareController extends CustomAbstractController
     }
 
     public function generic_special_action_api(JSONRequestParser $parser, ?callable $trigger_after = null): Response {
-        $target_id = (int)$parser->get('target', -1);
+        $target_id = $parser->get('target', -1);
         $action_id = (int)$parser->get('action', -1);
 
         /** @var Item|ItemPrototype|null $target */
@@ -1057,6 +1129,10 @@ class InventoryAwareController extends CustomAbstractController
             $special_action = $special->getAction();
             if ($trigger_after) $trigger_after($special_action);
             if ( $special->getConsumable() ) $citizen->removeSpecialAction($special);
+            if ( $special->getProxyFor() ) {
+                $citizen->removeHeroicAction($special->getProxyFor());
+                $citizen->addUsedHeroicAction($special->getProxyFor());
+            }
 
             // Special handler for the ARMA action
             $arma_actions = ['special_armag','special_armag_d','special_armag_n'];
@@ -1085,7 +1161,7 @@ class InventoryAwareController extends CustomAbstractController
     }
 
     public function generic_home_action_api(JSONRequestParser $parser): Response {
-        $target_id = (int)$parser->get('target', -1);
+        $target_id = $parser->get('target', -1);
         $action_id = (int)$parser->get('action', -1);
 
         /** @var Item|ItemPrototype|null $target */
@@ -1186,7 +1262,7 @@ class InventoryAwareController extends CustomAbstractController
 
     public function generic_action_api(JSONRequestParser $parser, ?callable $trigger_after = null, ?Citizen $base_citizen = null): Response {
         $item_id =   (int)$parser->get('item',   -1);
-        $target_id = (int)$parser->get('target', -1);
+        $target_id = $parser->get('target', -1);
         $action_id = (int)$parser->get('action', -1);
 
         /** @var Item|null $item */

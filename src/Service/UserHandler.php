@@ -12,6 +12,7 @@ use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\Season;
@@ -836,6 +837,21 @@ class UserHandler
         if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
             $last_words = str_replace(['{','}'], ['(',')'], $lastWords);
         else $last_words = '{gotKilled}';
+
+        if ($nextDeath->getGenerosityBonus() > 0 && !$nextDeath->getDisabled() && !$nextDeath->getTown()->getDisabled()) {
+
+            $generosity = $this->entity_manager->getRepository( FeatureUnlockPrototype::class )->findOneBy(['name' => 'f_share']);
+            /** @var FeatureUnlock $instance */
+            $instance = $this->entity_manager->getRepository(FeatureUnlock::class)->findBy([
+                'user' => $user, 'expirationMode' => FeatureUnlock::FeatureExpirationTownCount,
+                'prototype' => $this->entity_manager->getRepository( FeatureUnlockPrototype::class )->findOneBy(['name' => 'f_share'])
+            ])[0] ?? null;
+            if (!$instance) $instance = (new FeatureUnlock())->setPrototype( $generosity )->setUser( $user )
+                ->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount($nextDeath->getGenerosityBonus());
+            else $instance->setTownCount( $instance->getTownCount() + $nextDeath->getGenerosityBonus() );
+
+            $this->entity_manager->persist( $instance );
+        }
 
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1

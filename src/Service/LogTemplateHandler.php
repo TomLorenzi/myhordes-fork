@@ -325,7 +325,7 @@ class LogTemplateHandler
                         implode('', array_map( fn(FeatureUnlockPrototype $e) =>
                             '<span>' .
                             "<img alt='' src='{$this->asset->getUrl( "build/images/pictos/{$e->getIcon()}.gif" )}' />" .
-                            '<div class="tooltip"><h1>' . $this->trans->trans($e->getLabel(), [], 'game') . '</h1>' . $this->trans->trans($e->getDescription(), [], 'game')  . '</div>' .
+                            '<div class="tooltip"><h1>' . $this->trans->trans($e->getLabel(), [], 'items') . '</h1>' . $this->trans->trans($e->getDescription(), [], 'items')  . '</div>' .
                             '</span>'
                             , $features )) .
                         '</div>';

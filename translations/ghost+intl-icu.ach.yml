@@ -252,3 +252,20 @@ Event-Management: crwdns136578:0crwdne136578:0
 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'crwdns136584:0crwdne136584:0'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'crwdns136586:0crwdne136586:0'
 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'crwdns136588:0crwdne136588:0'
+Vorlagen: crwdns136931:0crwdne136931:0
+'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'crwdns136933:0crwdne136933:0'
+'Ausgewählte Vorlage': 'crwdns136935:0crwdne136935:0'
+'Keine Auswahl': 'crwdns136937:0crwdne136937:0'
+'Aktuelle Einstellungen als neue Vorlage speichern': 'crwdns136939:0crwdne136939:0'
+'Bitte gib deiner neuen Vorlage einen Namen.': 'crwdns136941:0crwdne136941:0'
+'Deine Vorlage wurde erfolgreich erstellt.': 'crwdns136943:0crwdne136943:0'
+'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'crwdns136945:0crwdne136945:0'
+Aktualisieren: crwdns136947:0crwdne136947:0
+'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'crwdns136949:0crwdne136949:0'
+'Deine Vorlage wurde erfolgreich aktualisiert.': 'crwdns136951:0crwdne136951:0'
+Laden: crwdns136953:0crwdne136953:0
+'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'crwdns136955:0crwdne136955:0'
+'Deine Einstellungen wurden erfolgreich geladen.': 'crwdns136957:0crwdne136957:0'
+Löschen: crwdns136959:0crwdne136959:0
+'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'crwdns136961:0crwdne136961:0'
+'Deine Vorlage wurde erfolgreich gelöscht.': 'crwdns136963:0crwdne136963:0'

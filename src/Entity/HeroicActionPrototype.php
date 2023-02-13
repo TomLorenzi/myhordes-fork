@@ -26,6 +26,9 @@ class HeroicActionPrototype
     #[ORM\Column(type: 'boolean')]
     private $unlockable = false;
 
+    #[ORM\OneToOne(mappedBy: 'proxyFor', cascade: ['persist', 'remove'])]
+    private ?SpecialActionPrototype $specialActionPrototype = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $usedMessage = null;
     public function getId(): ?int
@@ -59,6 +62,28 @@ class HeroicActionPrototype
     public function setUnlockable(bool $unlockable): self
     {
         $this->unlockable = $unlockable;
+
+        return $this;
+    }
+
+    public function getSpecialActionPrototype(): ?SpecialActionPrototype
+    {
+        return $this->specialActionPrototype;
+    }
+
+    public function setSpecialActionPrototype(?SpecialActionPrototype $specialActionPrototype): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($specialActionPrototype === null && $this->specialActionPrototype !== null) {
+            $this->specialActionPrototype->setProxyFor(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($specialActionPrototype !== null && $specialActionPrototype->getProxyFor() !== $this) {
+            $specialActionPrototype->setProxyFor($this);
+        }
+
+        $this->specialActionPrototype = $specialActionPrototype;
 
         return $this;
     }

@@ -4,8 +4,12 @@ namespace App\Entity;
 
 use App\Repository\RequireEventRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: RequireEventRepository::class)]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'require_event_unique', columns: ['name'])]
 class RequireEvent
 {
     #[ORM\Id]

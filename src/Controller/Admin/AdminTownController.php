@@ -41,7 +41,6 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Enum\ItemPoisonType;
 use App\Response\AjaxResponse;
-use App\Service\AdminHandler;
 use App\Service\AdminLog;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
@@ -55,6 +54,7 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\Maps\MapMaker;
+use App\Service\Maps\MazeMaker;
 use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
@@ -717,6 +717,7 @@ class AdminTownController extends AdminActionController
                                  KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler,
                                  GameProfilerService $gps, MapMaker $mapMaker): Response
     {
+
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -1067,6 +1068,9 @@ class AdminTownController extends AdminActionController
                     foreach ($citizen->getHome()->getChest()->getItems() as $item)
                         $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 }
+                break;
+            case 'admin_regenerate_ruins':
+
                 break;
             case 'set_town_base_def':
                 $town->setBaseDefense($param);
@@ -2480,5 +2484,52 @@ class AdminTownController extends AdminActionController
             'nohref' => $parser->get('no-href', false),
             'target' => 'admin_town_dashboard'
         ]));
+    }
+
+
+    /**
+     * @Route("api/admin/town/{id}/admin_regenerate_ruins", name="admin_regenerate_ruins", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @param int $id The ID of the town
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function admin_regenerate_ruins(int $id, JSONRequestParser $parser, MazeMaker $mazeMaker, AdminLog $logger): Response {
+        /** @var Town $town */
+
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $explorables = [];
+
+        foreach ($town->getZones() as $zone)
+        {
+            /** @var Zone $zone */
+            if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+                $explorables[$zone->getId()] = $zone;
+            }
+        }
+
+
+        $conf = $this->conf->getTownConfiguration( $town );
+
+        foreach ($explorables as $zone)
+        {
+
+            $mazeMaker->setTargetZone($zone);
+            $zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+
+            $mazeMaker->createField();
+            $mazeMaker->generateCompleteMaze();
+
+            try {
+                $this->entity_manager->persist($town);
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                $logger->invoke(strval($e));
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+        }
+        return AjaxResponse::success();
     }
 }

@@ -4,8 +4,12 @@ namespace App\Entity;
 
 use App\Repository\RequireDayRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: RequireDayRepository::class)]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'require_day_unique', columns: ['name'])]
 class RequireDay
 {
     #[ORM\Id]

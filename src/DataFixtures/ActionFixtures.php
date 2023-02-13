@@ -1432,9 +1432,21 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $out->writeln( "Compiling action set for heroic action <info>{$action['name']}</info>...", OutputInterface::VERBOSITY_DEBUG);
 
-            $action_proto->setAction( $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
-
+            $action_proto->setAction( $compiled_action = $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
             $manager->persist( $action_proto );
+
+            $sp_action_proto_name = "_hprx_{$action['name']}";
+            $sp_action_proto = $manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => $sp_action_proto_name]);
+            if (!$sp_action_proto) $sp_action_proto = (new SpecialActionPrototype)->setName( $sp_action_proto_name );
+            $sp_action_proto
+                ->setIcon('hero')
+                ->setConsumable(true)
+                ->setProxyFor( $action_proto );
+
+            $out->writeln( "Creating proxy special action for herioic action <info>{$action['name']}</info>...", OutputInterface::VERBOSITY_DEBUG);
+            $sp_action_proto->setAction( $compiled_action );
+
+            $manager->persist( $sp_action_proto );
         }
 
         foreach ($this->action_data_cache['specials'] as $action) {

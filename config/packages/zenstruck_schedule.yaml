@@ -1,0 +1,4 @@
+zenstruck_schedule:
+
+  # The LockFactory service to use for the without overlapping extension
+  without_overlapping_lock_factory: lock.default.factory

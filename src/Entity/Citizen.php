@@ -1079,4 +1079,9 @@ class Citizen
 
         return $this;
     }
+
+    public function giveGenerosityBonus(int $number): self {
+        $this->getRankingEntry()->setGenerosityBonus( $this->getRankingEntry()->getGenerosityBonus() + $number );
+        return $this;
+    }
 }

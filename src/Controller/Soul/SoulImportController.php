@@ -232,7 +232,7 @@ class SoulImportController extends SoulController
             ->setTwinoidID($twin_id)
             ->setCreated(new DateTime())
             ->setScope($scope)
-            ->setPayload(array_merge($data1,$data2['me']));
+            ->setPayload(array_merge($data1,$data2['me'] ?? []));
 
         try {
             $this->entity_manager->persist($import_preview);

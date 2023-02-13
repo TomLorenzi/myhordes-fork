@@ -1,9 +1,9 @@
 import * as React from "react";
+import { createRoot } from "react-dom/client";
 import {useLayoutEffect, useRef, useState} from "react";
 import {Fetch} from "../../v2/fetch";
 import {Global} from "../../defaults";
-import {Simulate} from "react-dom/test-utils";
-import input = Simulate.input;
+import Components from "../index";
 
 declare var $: Global;
 
@@ -13,6 +13,7 @@ export type UserResponse = {
     name: string
     soul: string
     avatarHTML: string
+    avatarHTMLLarge: string
 }
 
 export type UserResponses = UserResponse[]
@@ -26,13 +27,39 @@ export type GroupResponse = {
 
 export type GroupResponses = GroupResponse[]
 
+export class HordesUserSearchBar {
+
+    #_root = null;
+
+    public mount(parent: HTMLElement, props: {  }): any {
+        if (!this.#_root) this.#_root = createRoot(parent);
+        this.#_root.render(
+            <UserSearchBar
+                {...props}
+                callback={u => parent.dispatchEvent(new CustomEvent("hordes-user-search-callback", {
+                    bubbles: false, cancelable: true, detail: u
+                }))}
+            />);
+    }
+
+    public unmount() {
+        if (this.#_root) {
+            this.#_root.unmount();
+            this.#_root = null;
+        }
+    }
+}
+
 export const UserSearchBar = (
-    {title, callback, exclude, clearOnCallback, acceptCSVListSearch}: {
+    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends, withAlias}: {
         title?: string,
         callback: (UserResponses)=>void,
         exclude?: number[],
         clearOnCallback?: boolean
-        acceptCSVListSearch?: boolean
+        acceptCSVListSearch?: boolean,
+        withSelf?: boolean,
+        withFriends?: boolean,
+        withAlias?: boolean,
     }) => {
 
     const apiRef = useRef<Fetch>( new Fetch('user-search') )
@@ -43,7 +70,13 @@ export const UserSearchBar = (
     const tooltip = useRef<HTMLDivElement>();
     const tooltip_parent = useRef<HTMLDivElement>();
 
+    const container = useRef<HTMLDivElement>();
     const overlay = useRef<HTMLDivElement>();
+
+    const observer = useRef<ResizeObserver>(new ResizeObserver( entries => {
+        for (const entry of entries)
+            entry.target.classList.toggle( 'compact', (entry.contentRect?.width ?? 200) < 200 );
+    }));
 
     let [result, setResult] = useState<UserResponses|GroupResponses>([]);
     let [focus, setFocusState] = useState<boolean>(false);
@@ -51,7 +84,7 @@ export const UserSearchBar = (
 
     useLayoutEffect( () => {
         if (tooltip.current) $.html.handleTooltip( tooltip.current );
-        return () => $.html.clearTooltips( tooltip_parent.current );
+        return () => tooltip_parent.current ? $.html.clearTooltips( tooltip_parent.current ) : null;
     } );
 
     let searchTimeout = useRef<number>();
@@ -73,7 +106,8 @@ export const UserSearchBar = (
             .request().before(()=>setSearching(true)).post(
                 {
                     names: s.map(name=>name.trim()),
-                    withSelf: 0,
+                    withSelf: withSelf ?? 0,
+                    withFriends: withFriends ?? 1,
                     exclude: exclude ?? []
                 }
             ).then(r => {
@@ -99,7 +133,9 @@ export const UserSearchBar = (
             .request().before(()=>setSearching(true)).post(
                 {
                     name: s,
-                    withSelf: 0,
+                    withSelf: withSelf ?? 0,
+                    withFriends: withFriends ?? 1,
+                    alias: withAlias ?? 0,
                     exclude: exclude ?? []
                 }
         ).then(r => {
@@ -120,7 +156,8 @@ export const UserSearchBar = (
 
     const keyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") return;
-        searchTimeout.current = window.setTimeout( () => search( (e.target as HTMLInputElement).value ), 500 );
+        const s = (e.target as HTMLInputElement).value;
+        if (s.length >= 3 || result.length) searchTimeout.current = window.setTimeout( () => search( (e.target as HTMLInputElement).value ), 500 );
     }
 
     const keyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -176,7 +213,13 @@ export const UserSearchBar = (
                 wrapper.current.removeEventListener('focusout', focus_out);
             }
         }
+    })
 
+    useLayoutEffect(() => {
+        if (container.current) {
+            observer.current.observe( container.current );
+            return () => observer.current.unobserve( container.current );
+        }
     })
 
     return (
@@ -187,7 +230,7 @@ export const UserSearchBar = (
                 ) }
                 { searching && <div className="userSearchLoadIndicator"><i className="fa fa-pulse fa-spinner"></i></div> }
             </div>
-            <div className="userSearchResultsContainer">
+            <div className="userSearchResultsContainer" ref={container}>
                 <div ref={overlay} style={{opacity: 0}}>
                     <div>
                         { focus && result.map( u => u['type'] === 'group' && (u as GroupResponse).members.length > 0 && (
@@ -200,7 +243,8 @@ export const UserSearchBar = (
                         ) ) }
                         { focus && result.map( u => u['type'] === 'user' && (
                             <div key={u.id} className="users-list-entry" onClick={() => execCallback([u])}>
-                                <div dangerouslySetInnerHTML={{__html: u.avatarHTML}}/>
+                                <div className="a-small" dangerouslySetInnerHTML={{__html: u.avatarHTML}}/>
+                                <div className="a-large" dangerouslySetInnerHTML={{__html: u.avatarHTMLLarge}}/>
                                 <span>{u.name}</span>
                             </div>
                         ) ) }

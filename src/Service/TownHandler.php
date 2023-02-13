@@ -502,7 +502,7 @@ class TownHandler
             else                                 $summary->overall_scale += 0.10;
         }
 
-        $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 15 : 5;
+        $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 10 : 5;
 
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive()) {
@@ -637,16 +637,16 @@ class TownHandler
 
             $this->calculate_offsets($offsetMin, $offsetMax, $calculateUntil,  $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ESTIM_SPREAD, 10));
 
-            $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
-            $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
-
-            $min2 = floor($min2 / 25) * 25;
-            $max2 = ceil($max2 / 25) * 25;
+            $min2 = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
+            $max2 = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
 
             $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
             $min2 = round($min2 * $soulFactor);
             $max2 = round($max2 * $soulFactor);
+
+            $min2 = floor($min2 / 25) * 25;
+            $max2 = ceil($max2 / 25) * 25;
 
             $quality2 = min($calculateUntil / 24, 1);
 

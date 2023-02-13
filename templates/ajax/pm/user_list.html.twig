@@ -7,7 +7,7 @@
             {% endif %}
             <div class="row-flex wrap">
                 {% for user in active %}
-                    <div class="cell"><div class="pm-userbox" x-user-id="{{ user.id }}">
+                    <div class="cell"><div class="pm-userbox">
                         {% include "ajax/soul/playeravatar.html.twig" with {
                             user: user, background: true, whitespace: false,
                             gpm: user.avatar is not empty, no_distortion: true,
@@ -49,9 +49,11 @@
             {% if owner %}
                 <div id="pm-add-user-selector" class="hidden">
                     <h5>{{ 'Einen Empfänger hinzufügen'|trans({},'global') }}</h5>
-                    <div id="pm-add-users-list-container">
-                        <div><label><input type="text" id="pm-add-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
-                        <div id="pm-add-users-list"></div>
+                    <div>
+                        <hordes-user-search id="pm-add-users-search"
+                            data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
+                            data-self="0" data-exclude="{{ active|merge(inactive)|map(a => a.id)|join(',') }}"
+                        ></hordes-user-search>
                     </div>
                 </div>
             {% endif %}
@@ -60,7 +62,7 @@
                 <h5>{{ 'Ausgeschlossene Teilnehmer'|trans({},'global') }}</h5>
                 <div class="row-flex wrap">
                     {% for user in inactive %}
-                        <div class="cell"><div class="pm-userbox" x-user-id="{{ user.id }}">
+                        <div class="cell"><div class="pm-userbox">
                                 <div class="pm-avatar empty"></div>
                                 <div class="pm-userbox-name">{{ user.name }}</div>
                                 {% if owner %}
@@ -103,56 +105,15 @@
                     document.getElementById('pm-add-user-selector').classList.remove('hidden');
                 });
 
-                let typingTimer, doneTypingInterval = 500;
-                let searchBox = document.getElementById('pm-add-users-search');
+                document.getElementById('pm-add-users-search')?.addEventListener('hordes-user-search-callback', e => {
+                    let target = document.getElementById('pm-user-list-payload');
+                    if (!target) return;
+                    target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
 
-                document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
-
-                let enterPressed = false;
-                const userSearchHandler = function() {
-                    if (searchBox.value.length >= 3) {
-                        let skip = [];
-                        $.html.forEach('.pm-userbox[x-user-id]', e => skip.push(parseInt(e.getAttribute('x-user-id'))));
-                        $.ajax.background().load(
-                            document.getElementById('pm-add-users-list'),
-                            '{{ path('users_fuzzyfind', {url: 'pm_add_users'}) }}',
-                            false,
-                            {'name': searchBox.value, 'group': {{ gid }}, 'exclude': skip},
-                            function () {
-                                $.html.addEventListenerAll('#pm-add-users-list>.users-list-entry>div', 'click', function (e, elem) {
-                                    let target = document.getElementById('pm-user-list-payload');
-                                    if (!target) return;
-
-                                    const url = elem.getAttribute('x-var');
-                                    target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
-
-                                    $.ajax.background().easySend(url, {}, () => {
-                                        $.ajax.background().load(target, '{{ path('pm_conv_group_users', {id: gid}) }}', false);
-                                    });
-                                });
-                                if (enterPressed) document.querySelector( '#pm-add-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
-                            }
-                        );
-                    }
-                    else document.getElementById('pm-add-users-list').innerHTML = '';
-                };
-
-                const userSearchHandlerUp = function () {
-                    clearTimeout(typingTimer);
-                    typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
-                };
-
-                const userSearchHandlerDown = e => {
-                    enterPressed = e.keyCode === 13;
-                    clearTimeout(typingTimer);
-                };
-
-                if (searchBox) {
-                    searchBox.addEventListener('keyup', userSearchHandlerUp);
-                    searchBox.addEventListener('keydown', userSearchHandlerDown);
-                    searchBox.addEventListener('focus', () => userSearchHandler());
-                    searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 500));
-                }
+                    $.ajax.background().easySend('{{ path('pm_conv_group_user_add', {gid: gid, uid: '0000000000000000000000'}) }}'.replace('0000000000000000000000', e.detail[0].id), {}, () => {
+                        $.ajax.background().load(target, '{{ path('pm_conv_group_users', {id: gid}) }}', false);
+                    });
+                });
             {% endif %}
         })();
     </script>

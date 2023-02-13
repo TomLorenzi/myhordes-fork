@@ -279,9 +279,13 @@ class TownInspectorCommand extends Command
 
         if ($input->getOption('rebuild-explorables')) {
 
+            $conf = $this->conf->getTownConfiguration( $town );
             foreach ($town->getZones() as &$zone) if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 $changes = true;
-                $this->mazeMaker->generateCompleteMaze( $zone );
+                $this->mazeMaker->setTargetZone($zone);
+                $zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
+                $this->mazeMaker->createField();  
+                $this->mazeMaker->generateCompleteMaze();
 
                 foreach ($zone->getExplorerStats() as $stat) {
                     $stat->getCitizen()->removeExplorerStat($stat);

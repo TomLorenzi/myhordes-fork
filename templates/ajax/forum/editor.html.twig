@@ -161,13 +161,12 @@
                                 </div>
                             </div>
                             <div class="cell hidden">
-                                <div id="{{ type }}-editor-add-users-list-container" class="add-users-list-container">
-                                    <div>
-                                        <label><input type="text" id="{{ type }}-editor-add-users-search" class="add-users-search" /></label>
-                                        <div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div>
-                                    </div>
-                                    <div id="{{ type }}-editor-add-users-list" class="add-users-list"></div>
-                                </div>
+                                <hordes-user-search
+                                        id="{{ type }}-editor-users-list"
+                                        data-alias="{{ (alias is defined and alias) ? '1' : '0' }}"
+                                        data-title="{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}"
+                                        data-self="1" data-friends="1"
+                                ></hordes-user-search>
                             </div>
                             <div class="cell hidden">
                                 <div style="margin-left: 5px;" x-forum-action="toggle" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-add-users-close">
@@ -889,57 +888,17 @@
                 }
             })
 
-            let typingTimer, doneTypingInterval = 500;
-            let searchBox = document.getElementById('{{ type }}-editor-add-users-search');
+            document.getElementById('{{ type }}-editor-users-list')?.addEventListener('hordes-user-search-callback', e => {
+                const before = node_transfer_source.value.substring( 0, node_transfer_source.selectionStart );
+                const after = node_transfer_source.value.substring( node_transfer_source.selectionEnd );
 
-            let enterPressed = false;
-            const userSearchHandler = function() {
-                if (searchBox.value.length >= 3) {
-                    $.ajax.background().load(
-                        document.getElementById('{{ type }}-editor-add-users-list'),
-                        '{{ path('users_fuzzyfind', {url: 'post_add_users'}) }}',
-                        false,
-                        {'name': searchBox.value},
-                        function () {
-                            $.html.addEventListenerAll('#{{ type }}-editor-add-users-list>.users-list-entry>div', 'click', function (e, elem) {
+                const node = '@' + e.detail[0].name.replaceAll(/\W+/g,'') + ':' + e.detail[0].id;
 
-                                const before = node_transfer_source.value.substring( 0, node_transfer_source.selectionStart );
-                                const selected = node_transfer_source.value.substring( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd );
-                                const after = node_transfer_source.value.substring( node_transfer_source.selectionEnd );
-
-                                const node = '@' + elem.getAttribute('x-soul-name').replaceAll(/\W+/g,'') + ':' + elem.getAttribute('x-soul-id');
-
-                                node_transfer_source.value = before + node + after;
-                                node_transfer_source.setSelectionRange( before.length + node.length, before.length + node.length );
-                                node_transfer_source.focus();
-                                transfer_to_preview();
-
-                                searchBox.value = document.getElementById('{{ type }}-editor-add-users-list').innerHTML = '';
-                                document.getElementById('{{ type }}-editor-add-users-close').click();
-                            });
-                            if (enterPressed) document.querySelector( '#{{ type }}-editor-add-users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
-                        }
-                    );
-                }
-                else document.getElementById('{{ type }}-editor-add-users-list').innerHTML = '';
-            };
-
-            const userSearchHandlerUp = function () {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
-            };
-
-            const userSearchHandlerDown = e => {
-                enterPressed = e.keyCode === 13;
-                clearTimeout(typingTimer);
-            };
-
-            if (searchBox) {
-                searchBox.addEventListener('keyup', userSearchHandlerUp);
-                searchBox.addEventListener('keydown', userSearchHandlerDown);
-                searchBox.addEventListener('focus', () => userSearchHandler());
-                searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('{{ type }}-editor-add-users-list').innerHTML = '', 500));
-            }
+                node_transfer_source.value = before + node + after;
+                node_transfer_source.setSelectionRange( before.length + node.length, before.length + node.length );
+                node_transfer_source.focus();
+                transfer_to_preview();
+            });
 
             let friendlistBtn = document.getElementById("{{ type }}-editor-open-friendlist");
             let friendlist = document.getElementById("{{ type }}-editor-add-friend-list");

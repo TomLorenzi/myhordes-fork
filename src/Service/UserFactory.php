@@ -4,16 +4,24 @@
 namespace App\Service;
 
 
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRankingProxy;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Inventory;
 use App\Entity\Picto;
+use App\Entity\PictoPrototype;
+use App\Entity\Season;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
+use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -35,6 +43,7 @@ class UserFactory
     private TranslatorInterface $trans;
     private PermissionHandler $perm;
     private MailerInterface $mailer;
+    private ConfMaster $conf;
 
     const ErrorNone = 0;
     const ErrorUserExists           = ErrorHelper::BaseUserErrors + 1;
@@ -48,7 +57,7 @@ class UserFactory
 
     public function __construct( EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
-                                 PermissionHandler $p, MailerInterface $mailer)
+                                 PermissionHandler $p, MailerInterface $mailer, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->encoder = $passwordEncoder;
@@ -58,6 +67,7 @@ class UserFactory
         $this->trans = $t;
         $this->perm = $p;
         $this->mailer = $mailer;
+        $this->conf = $conf;
     }
 
     public function resetUserPassword( string $email, string $validation_key, string $password, ?int &$error ): ?User {
@@ -163,11 +173,81 @@ class UserFactory
             return null;
         }
 
+        $this->postProcessNewUser( $new_user );
+
         if (!$validated)
             $this->announceValidationToken( $this->ensureValidation( $new_user, UserPendingValidation::EMailValidation ) );
         else $this->entity_manager->persist($this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup )));
 
         return $new_user;
+    }
+
+    public function postProcessNewUser( User $user): void {
+        $conf = $this->conf->getGlobalConf();
+
+        if ($conf->get( MyHordesConf::CONF_STAGING_ENABLED, false )) {
+
+            if ( $conf->get( MyHordesConf::CONF_STAGING_TOWN_ENABLED, false )) {
+
+                $days = $conf->get( MyHordesConf::CONF_STAGING_TOWN_DAYS, 0 );
+                $score = $days * ($days + 1) / 2;
+
+                $id_offset = 100000000;
+                do {
+                    $id_identifier = mt_rand(1,$id_offset-1);
+                } while ($this->entity_manager->getRepository(TownRankingProxy::class)->count(['baseID' => $id_offset + $id_identifier]));
+
+                $user->setSoulPoints( $user->getSoulPoints() + $score );
+
+                $this->entity_manager->persist($town = (new TownRankingProxy())
+                    ->setName( 'Ghost Town' )
+                    ->setBaseID(  $id_offset + $id_identifier )
+                    ->setImported( false )
+                    ->setLanguage( 'multi' )
+                    ->setType( $this->entity_manager->getRepository(TownClass::class)->findOneBy(['name' => TownClass::DEFAULT]) )
+                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) )
+                    ->setDays( $days )
+                    ->setPopulation( 1 )
+                    ->setV1( false )
+                    ->addDisableFlag( TownRankingProxy::DISABLE_RANKING )
+                    ->addCitizen(
+                        (new CitizenRankingProxy())
+                            ->setBaseID( $id_offset + $id_identifier )
+                            ->setImportID( 0 )
+                            ->setUser( $user )
+                            ->setCod( $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => CauseOfDeath::Apocalypse] ) )
+                            ->setComment( 'Can\'t remember playing this one...' )
+                            ->setLastWords( null )
+                            ->setDay( $days )
+                            ->setConfirmed( true )
+                            ->setPoints( $days * ($days + 1) / 2 )
+                            ->setLimitedImport( false )
+                            ->setCleanupUsername(null)
+                            ->setCleanupType('')
+                    )
+                );
+
+                $this->entity_manager->persist(
+                    (new Picto())
+                        ->setPrototype($this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ptame_#00'))
+                        ->setPersisted(2)
+                        ->setUser($user)
+                        ->setCount( $score )
+                        ->setTownEntry( $town )
+                );
+            }
+
+            $user->setHeroDaysSpent( $user->getHeroDaysSpent() + $conf->get( MyHordesConf::CONF_STAGING_HERODAYS, 0 ) );
+
+            foreach ( $conf->get( MyHordesConf::CONF_STAGING_FEATURES, [] ) as $feature )
+                $this->entity_manager->persist(
+                    (new FeatureUnlock())
+                        ->setPrototype( $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => $feature]) )
+                        ->setUser( $user )
+                        ->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )
+                        ->setTownCount( 5 )
+                );
+        }
     }
 
     public function importUser( \EternalTwinClient\Object\User $etwin_user, ?string $mail, $validated, ?int &$error ): ?User {
@@ -206,6 +286,8 @@ class UserFactory
             $error = self::ErrorInvalidParams;
             return null;
         }
+
+        $this->postProcessNewUser( $new_user );
 
         if (!$validated)
             $this->announceValidationToken( $this->ensureValidation( $new_user, UserPendingValidation::EMailValidation ) );
@@ -283,9 +365,14 @@ class UserFactory
 
         if ($message === null || $headline === null) return false;
 
+        $from_domain = ($_SERVER['SERVER_NAME'] ?? 'localhost');
+        $domain_slice = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_MAIL_DOMAINCAP, 0 );
+        if ($domain_slice >= 2)
+            $from_domain = implode('.', array_slice( explode( '.', $from_domain ), -$domain_slice ));
+
         try {
             $this->mailer->send( (new Email())
-                ->from( 'The Undead Mailman <mailzombie@' . ($_SERVER['SERVER_NAME'] ?? 'localhost') . '>' )
+                ->from( "The Undead Mailman <mailzombie@{$from_domain}>" )
                 ->to( $token->getType() === UserPendingValidation::ChangeEmailValidation ? $token->getUser()->getPendingEmail() : $token->getUser()->getEmail() )
                 ->subject( "MyHordes - $headline" )
                 ->html( $message )

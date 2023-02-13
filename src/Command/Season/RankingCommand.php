@@ -173,10 +173,10 @@ class RankingCommand extends Command
 
             $all_town_types[] = $town_type;
             $preset_ranking[$town_type->getName()] =
-                array_map(
-                    fn(?TownRankingProxy $town) => $town && !$town->getDisabled() && !$town->hasDisableFlag( TownRankingProxy::DISABLE_RANKING ) ? $town : null,
-                    array_map( fn(int $id) => $this->entityManager->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $id, 'imported' => true, 'language' => $base[1]]), explode(',', $base[2]))
-                );
+                array_slice(array_filter( array_map(
+                                  fn(?TownRankingProxy $town) => $town ? (!$town->getDisabled() && !$town->hasDisableFlag( TownRankingProxy::DISABLE_RANKING ) ? $town : false) : null,
+                                  array_map( fn(int $id) => $this->entityManager->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $id, 'imported' => true, 'language' => $base[1]]), explode(',', $base[2]))
+              ), fn($t) => $t !== false ), 0, 35);
 
             foreach ($preset_ranking[$town_type->getName()] as $town) {
                 /** @var TownRankingProxy $town */
@@ -220,11 +220,14 @@ class RankingCommand extends Command
                     if ($citizen->hasDisableFlag(CitizenRankingProxy::DISABLE_RANKING)) continue;
 
                     if (!isset($citizen_ranking[$citizen->getUser()->getId()]))
-                        $citizen_ranking[$citizen->getUser()->getId()] = [[],[],$citizen->getUser(),[],[]];
+                        $citizen_ranking[$citizen->getUser()->getId()] = [[],[],[],$citizen->getUser(),[],[]];
 
                     if ($place === 0)
                         $citizen_ranking[$citizen->getUser()->getId()][0][] = $town;
-                    else $citizen_ranking[$citizen->getUser()->getId()][1][] = $town;
+                    if ($place < 15)
+                        $citizen_ranking[$citizen->getUser()->getId()][1][] = $town;
+                    if ($place < 35)
+                        $citizen_ranking[$citizen->getUser()->getId()][2][] = $town;
                 }
             }
 
@@ -233,6 +236,7 @@ class RankingCommand extends Command
 
         $io->section("Citizen Results");
 
+        $part_picto     = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winthi_#00');
         $ranking_picto     = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winbas_#00');
         $top_ranking_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_wintop_#00');
 
@@ -240,7 +244,7 @@ class RankingCommand extends Command
         $award_alarm   = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
 
         /** @var Picto[] $all_rank_pictos */
-        $all_rank_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => [$ranking_picto,$top_ranking_picto]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
+        $all_rank_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => [$part_picto,$ranking_picto,$top_ranking_picto]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
         /** @var FeatureUnlock[] $all_rank_rewards */
         $all_rank_rewards = ($upcoming_season && !$seasonal_merge)
             ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => [$award_glory,$award_alarm], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
@@ -248,36 +252,40 @@ class RankingCommand extends Command
 
         foreach ($all_rank_pictos as $rank_picto)
             if (!isset($citizen_ranking[$rank_picto->getUser()->getId()]))
-                $citizen_ranking[$rank_picto->getUser()->getId()] = [[],[],$rank_picto->getUser(),[],[]];
+                $citizen_ranking[$rank_picto->getUser()->getId()] = [[],[],[],$rank_picto->getUser(),[],[]];
         foreach ($all_rank_rewards as $rank_reward)
             if (!isset($citizen_ranking[$rank_reward->getUser()->getId()]))
-                $citizen_ranking[$rank_reward->getUser()->getId()] = [[],[],$rank_reward->getUser(),[],[]];
+                $citizen_ranking[$rank_reward->getUser()->getId()] = [[],[],[],$rank_reward->getUser(),[],[]];
 
-        usort($citizen_ranking, fn(array $a, array $b) => count($b[0]) <=> count($a[0]) ?: count($b[1]) <=> count($a[1]) ?: $a[2]->getId() <=> $b[2]->getId() );
+        usort($citizen_ranking, fn(array $a, array $b) => count($b[0]) <=> count($a[0]) ?: count($b[1]) <=> count($a[1]) ?: count($b[2]) <=> count($a[2]) ?: $a[3]->getId() <=> $b[3]->getId() );
 
         $message_cache = [];
 
         $data = [];
         foreach ($citizen_ranking as $k => $citizen_ranking_entry) {
             /** @var Picto[] $existing_top_pictos */
-            $existing_top_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => $top_ranking_picto, 'user' => $citizen_ranking_entry[2]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
+            $existing_top_pictos  = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => $top_ranking_picto, 'user' => $citizen_ranking_entry[3]]), fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
 
             /** @var Picto[] $existing_rank_pictos */
-            $existing_rank_pictos = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => $ranking_picto, 'user' => $citizen_ranking_entry[2]]),     fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
+            $existing_rank_pictos = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => $ranking_picto, 'user' => $citizen_ranking_entry[3]]),     fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
+
+            /** @var Picto[] $existing_part_pictos */
+            $existing_part_pictos = array_filter( $this->entityManager->getRepository(Picto::class)->findBy(['prototype' => $part_picto, 'user' => $citizen_ranking_entry[3]]),     fn(Picto $p) => $p->getTownEntry() !== null && $p->getTownEntry()->getSeason() === $season);
+
 
             /** @var FeatureUnlock[] $existing_alarms */
             $existing_alarms = $upcoming_season
-                ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => $award_alarm, 'user' => $citizen_ranking_entry[2], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
+                ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => $award_alarm, 'user' => $citizen_ranking_entry[3], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
                 : [];
 
             /** @var FeatureUnlock[] $existing_glory */
             $existing_glory = $upcoming_season
-                ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => $award_glory, 'user' => $citizen_ranking_entry[2], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
+                ? $this->entityManager->getRepository(FeatureUnlock::class)->findBy(['prototype' => $award_glory, 'user' => $citizen_ranking_entry[3], 'expirationMode' => FeatureUnlock::FeatureExpirationSeason, 'season' => $upcoming_season])
                 : [];
 
-            $minus = [0,0,0,0];
-            $plus  = [0,0,0,0];
-            $already = [[],[],false,false];
+            $minus = [0,0,0,0,0];
+            $plus  = [0,0,0,0,0];
+            $already = [[],[],[],false,false];
 
             foreach ($existing_top_pictos as $top_picto) {
                 if ($top_picto->getPersisted() !== 2 || !in_array($top_picto->getTownEntry(), $citizen_ranking_entry[0])) {
@@ -301,55 +309,73 @@ class RankingCommand extends Command
                 } else $already[1][] = $rank_picto->getTownEntry();
             }
 
+            foreach ($existing_part_pictos as $part_picto) {
+                if ($part_picto->getPersisted() !== 2 || !in_array($part_picto->getTownEntry(), $citizen_ranking_entry[2])) {
+                    $minus[2] += $part_picto->getCount();
+                    $this->entityManager->remove($part_picto);
+                } elseif ($part_picto->getCount() > 1) {
+                    $minus[2] += ($part_picto->getCount()-1);
+                    $this->entityManager->persist($part_picto->setCount(1));
+                    $already[2][] = $part_picto->getTownEntry();
+                } else $already[2][] = $part_picto->getTownEntry();
+            }
+
             if ($upcoming_season)
                 foreach ($existing_alarms as $n => $alarm) {
                     if ((empty($citizen_ranking_entry[0]) && !$seasonal_merge) || $n > 0) {
-                        $minus[2]++;
+                        $minus[3]++;
                         $this->entityManager->remove($alarm);
-                    } else $already[2] = true;
+                    } else $already[3] = true;
                 }
 
             if ($upcoming_season)
                 foreach ($existing_glory as $n => $glory) {
                     if ((empty($citizen_ranking_entry[0]) && empty($citizen_ranking_entry[1]) && !$seasonal_merge) || $n > 0) {
-                        $minus[3]++;
+                        $minus[4]++;
                         $this->entityManager->remove($glory);
-                    } else $already[3] = true;
+                    } else $already[4] = true;
                 }
 
             foreach ($citizen_ranking_entry[0] as $townEntry)
                 if (!in_array($townEntry,$already[0])) {
-                    $this->entityManager->persist( (new Picto())->setUser( $citizen_ranking_entry[2] )->setCount( 1 )->setPersisted( 2 )->setTownEntry( $townEntry )->setPrototype( $top_ranking_picto ) );
+                    $this->entityManager->persist( (new Picto())->setUser( $citizen_ranking_entry[3] )->setCount( 1 )->setPersisted( 2 )->setTownEntry( $townEntry )->setPrototype( $top_ranking_picto ) );
                     $plus[0]++;
                 }
 
             foreach ($citizen_ranking_entry[1] as $townEntry)
                 if (!in_array($townEntry,$already[1])) {
-                    $this->entityManager->persist( (new Picto())->setUser( $citizen_ranking_entry[2] )->setCount( 1 )->setPersisted( 2 )->setTownEntry( $townEntry )->setPrototype( $ranking_picto ) );
+                    $this->entityManager->persist( (new Picto())->setUser( $citizen_ranking_entry[3] )->setCount( 1 )->setPersisted( 2 )->setTownEntry( $townEntry )->setPrototype( $ranking_picto ) );
                     $plus[1]++;
                 }
 
-            if (!empty($citizen_ranking_entry[0]) && !$already[2] && $upcoming_season) {
-                $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_alarm)->setUser($citizen_ranking_entry[2])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
-                $plus[2]++;
-            }
-            if ((!empty($citizen_ranking_entry[0]) || !empty($citizen_ranking_entry[1])) && !$already[3] && $upcoming_season) {
-                $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_glory)->setUser($citizen_ranking_entry[2])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
+            foreach ($citizen_ranking_entry[2] as $townEntry)
+                if (!in_array($townEntry,$already[2])) {
+                    $this->entityManager->persist( (new Picto())->setUser( $citizen_ranking_entry[3] )->setCount( 1 )->setPersisted( 2 )->setTownEntry( $townEntry )->setPrototype( $part_picto ) );
+                    $plus[2]++;
+                }
+
+            if (!empty($citizen_ranking_entry[0]) && !$already[3] && $upcoming_season) {
+                $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_alarm)->setUser($citizen_ranking_entry[3])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
                 $plus[3]++;
+            }
+            if ((!empty($citizen_ranking_entry[0])) && !$already[4] && $upcoming_season) {
+                $this->entityManager->persist((new FeatureUnlock())->setPrototype($award_glory)->setUser($citizen_ranking_entry[3])->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)->setSeason($upcoming_season));
+                $plus[4]++;
             }
 
             $data[] = [
                 $k + 1,
-                $citizen_ranking_entry[2]->getId(), $citizen_ranking_entry[2]->getName(),
+                $citizen_ranking_entry[3]->getId(), $citizen_ranking_entry[3]->getName(),
                 count($citizen_ranking_entry[0]), "-{$minus[0]} / +{$plus[0]}",
                 count($citizen_ranking_entry[1]), "-{$minus[1]} / +{$plus[1]}",
-                empty($citizen_ranking_entry[0]) ? 0 : 1, "-{$minus[2]} / +{$plus[2]}",
-                (empty($citizen_ranking_entry[0]) && empty($citizen_ranking_entry[1])) ? 0 : 1, "-{$minus[3]} / +{$plus[3]}",
+                count($citizen_ranking_entry[2]), "-{$minus[2]} / +{$plus[2]}",
+                empty($citizen_ranking_entry[0]) ? 0 : 1, "-{$minus[3]} / +{$plus[3]}",
+                (empty($citizen_ranking_entry[0]) && empty($citizen_ranking_entry[1])) ? 0 : 1, "-{$minus[4]} / +{$plus[4]}",
             ];
 
-            $message_cache[] = [$citizen_ranking_entry[2]->getId(), array_map( fn(int $plus, int $minus) => $plus - $minus, $plus, $minus ) ];
+            $message_cache[] = [$citizen_ranking_entry[3]->getId(), array_map( fn(int $plus, int $minus) => $plus - $minus, $plus, $minus ) ];
         }
-        $io->table(['#', 'ID', 'User', 'Top Towns', 'Top Towns Change', 'Ranked Towns', 'Ranked Towns Change', 'Alarm', 'Alarm Change', 'Glory', 'Glory Change'], $data);
+        $io->table(['#', 'ID', 'User', 'Top Towns', 'Top Towns Change', 'Ranked Towns', 'Ranked Towns Change', 'Part. Towns', 'Part. Towns Change', 'Alarm', 'Alarm Change', 'Glory', 'Glory Change'], $data);
 
         if ($this->commandHelper->interactiveConfirm( $this->getHelper('question'), $input, $output )) {
 
@@ -363,6 +389,7 @@ class RankingCommand extends Command
 
                 $user = $this->entityManager->getRepository(User::class)->find( $citizen_ranking_entry[0] );
 
+                $part_picto        = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winthi_#00');
                 $ranking_picto     = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_winbas_#00');
                 $top_ranking_picto = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName('r_wintop_#00');
 
@@ -370,8 +397,8 @@ class RankingCommand extends Command
                 $award_alarm   = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneByName('f_alarm');
 
                 $features = [];
-                if ($citizen_ranking_entry[1][2] > 0) $features[] = $award_alarm;
-                if ($citizen_ranking_entry[1][3] > 0) $features[] = $award_glory;
+                if ($citizen_ranking_entry[1][3] > 0) $features[] = $award_alarm;
+                if ($citizen_ranking_entry[1][4] > 0) $features[] = $award_glory;
 
                 if (array_reduce( $citizen_ranking_entry[1], fn(int $carry, int $value) => max( $carry, $value ), 0 ) > 0)
                     $this->entityManager->persist( $this->crowService->createPM_seasonalRewards(
@@ -379,6 +406,7 @@ class RankingCommand extends Command
                         [
                             [$top_ranking_picto, $citizen_ranking_entry[1][0]],
                             [$ranking_picto, $citizen_ranking_entry[1][1]],
+                            [$part_picto, $citizen_ranking_entry[1][2]],
                         ],
                         $features,
                         $import_lang,

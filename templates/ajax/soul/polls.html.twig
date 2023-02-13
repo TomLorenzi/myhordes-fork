@@ -162,7 +162,7 @@
                 if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     $.ajax.easySend( elem.dataset.action, {},
                         function () {
-                            $.ajax.load( target, "{{ path('soul_polls', {id: selected.id}) }}" );
+                            $.ajax.load( target, "{{ path('soul_polls', {id: selected ? selected.id : 0}) }}" );
                         } );
             });
         {% endif  %}
@@ -173,7 +173,7 @@
             if (confirm(txt))
                 $.ajax.easySend( elem.dataset.poll, {},
                     function () {
-                        $.ajax.load( target, "{{ path('soul_polls', {id: selected.id}) }}" );
+                        $.ajax.load( target, "{{ path('soul_polls', {id: selected ? selected.id : 0}) }}" );
                     } );
         });
     </script>

@@ -4,8 +4,12 @@ namespace App\Entity;
 
 use App\Repository\HeroSkillPrototypeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: HeroSkillPrototypeRepository::class)]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'hero_skill_prototype_unique', columns: ['name'])]
 class HeroSkillPrototype
 {
     #[ORM\Id]

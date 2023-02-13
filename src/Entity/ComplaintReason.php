@@ -4,8 +4,12 @@ namespace App\Entity;
 
 use App\Repository\ComplaintReasonRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ComplaintReasonRepository::class)]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'complaint_reason_unique', columns: ['name'])]
 class ComplaintReason
 {
     #[ORM\Id]

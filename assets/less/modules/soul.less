@@ -38,7 +38,12 @@ div.tooltip.badge-tooltip {
       .users-list-entry, .users-list-group-entry {
         cursor: pointer; overflow: hidden;
         &:hover { background: rgba(255,255,255,0.2); }
+        &>div.a-large {
+          img { max-width: 30px; }
+          display: none
+        }
         &>span { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
+        .avatar, .avatarcrow { line-height: 0 }
       }
 
       .users-list-entry {
@@ -51,6 +56,10 @@ div.tooltip.badge-tooltip {
         padding: 4px;
         &>span>span:not(:last-child):after { content: ", " }
       }
+    }
+    &.compact>div {
+      .a-large { display: block !important; }
+      .a-small { display: none }
     }
   }
 }

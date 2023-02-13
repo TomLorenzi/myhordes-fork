@@ -18,6 +18,7 @@ use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
 use App\Entity\EventActivationMarker;
 use App\Entity\FoundRolePlayText;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
 use App\Entity\HomeIntrusion;
 use App\Entity\Item;
@@ -35,12 +36,14 @@ use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\ItemPoisonType;
 use App\Service\Maps\MazeMaker;
 use App\Structures\EscortItemActionSet;
+use App\Structures\FriendshipActionTarget;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
@@ -52,48 +55,26 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ActionHandler
 {
-    private EntityManagerInterface $entity_manager;
-    private StatusFactory $status_factory;
-    private CitizenHandler $citizen_handler;
-    private DeathHandler $death_handler;
-    private InventoryHandler $inventory_handler;
-    private RandomGenerator $random_generator;
-    private ItemFactory $item_factory;
-    private TranslatorInterface $translator;
-    private GameFactory $game_factory;
-    private TownHandler $town_handler;
-    private ZoneHandler $zone_handler;
-    private PictoHandler $picto_handler;
-    private Packages $assets;
-    private LogTemplateHandler $log;
-    private ConfMaster $conf;
-    private MazeMaker $maze;
-    private GameProfilerService $gps;
-
-
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, CitizenHandler $ch, InventoryHandler $ih, DeathHandler $dh,
-        RandomGenerator $rg, ItemFactory $if, TranslatorInterface $ti, GameFactory $gf, Packages $am, TownHandler $th,
-        ZoneHandler $zh, PictoHandler $ph, LogTemplateHandler $lt, ConfMaster $conf, MazeMaker $mm, GameProfilerService $gps)
-    {
-        $this->entity_manager = $em;
-        $this->status_factory = $sf;
-        $this->citizen_handler = $ch;
-        $this->inventory_handler = $ih;
-        $this->random_generator = $rg;
-        $this->item_factory = $if;
-        $this->translator = $ti;
-        $this->game_factory = $gf;
-        $this->assets = $am;
-        $this->town_handler = $th;
-        $this->death_handler = $dh;
-        $this->zone_handler = $zh;
-        $this->picto_handler = $ph;
-        $this->log = $lt;
-        $this->conf = $conf;
-        $this->maze = $mm;
-        $this->gps = $gps;
-    }
+        private readonly EntityManagerInterface $entity_manager,
+        private readonly StatusFactory $status_factory,
+        private readonly CitizenHandler $citizen_handler,
+        private readonly UserHandler $user_handler,
+        private readonly DeathHandler $death_handler,
+        private readonly InventoryHandler $inventory_handler,
+        private readonly RandomGenerator $random_generator,
+        private readonly ItemFactory $item_factory,
+        private readonly TranslatorInterface $translator,
+        private readonly GameFactory $game_factory,
+        private readonly TownHandler $town_handler,
+        private readonly ZoneHandler $zone_handler,
+        private readonly PictoHandler $picto_handler,
+        private readonly Packages $assets,
+        private readonly LogTemplateHandler $log,
+        private readonly ConfMaster $conf,
+        private readonly MazeMaker $maze,
+        private readonly GameProfilerService $gps
+    ) {}
 
     const ActionValidityNone = 1;
     const ActionValidityHidden = 2;
@@ -342,6 +323,14 @@ class ActionHandler
                         if (!$b) $current_state = min($current_state, Requirement::CrossOnFail);
                         break;
 
+                    // Guard tower
+                    case 13:
+                        $cn = $this->town_handler->getBuilding( $citizen->getTown(), 'small_watchmen_#00', true );
+                        $max = $this->conf->getTownConfiguration( $citizen->getTown() )->get( TownConf::CONF_MODIFIER_GUARDTOWER_MAX, 150 );
+                        if ($cn && $max > 0 && $cn->getTempDefenseBonus() >= $max)
+                            $current_state = min($current_state, $this_state);
+                        break;
+
                     // Vote
                     case 18: case 19:
                         if (!$citizen->getProfession()->getHeroic()) {
@@ -360,12 +349,18 @@ class ActionHandler
                         if (!$this->town_handler->is_vote_needed( $citizen->getTown(), $role ))
                             $current_state = min($current_state, Requirement::HideOnFail);
 
-                        break;
+                    break;
 
                     // Inventory space
                     case 69:
                         if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
                             $current_state = min($current_state, $this_state);
+                        break;
+
+                    // Friendship
+                    case 70:
+                        if (!$this->user_handler->checkFeatureUnlock($citizen->getUser(), 'f_share', false))
+                            $current_state = min($current_state, Requirement::HideOnFail);
                         break;
 
                     // Camourflace for hunter
@@ -543,7 +538,7 @@ class ActionHandler
     }
 
     /**
-     * @param Item|ItemPrototype|Citizen $target
+     * @param Item|ItemPrototype|Citizen|FriendshipActionTarget $target
      * @param ItemTargetDefinition $definition
      * @return bool
      */
@@ -570,6 +565,10 @@ class ActionHandler
             case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getAlive()) return false;
+                break;
+            case ItemTargetDefinition::ItemFriendshipType:
+                if (!is_a( $target, FriendshipActionTarget::class )) return false;
+                if (!$target->citizen()->getAlive() || $target->action()->getName() === 'hero_generic_friendship' || $this->citizen_handler->hasStatusEffect( $target->citizen(), 'tg_rec_heroic' )) return false;
                 break;
             default: return false;
         }
@@ -624,7 +623,7 @@ class ActionHandler
     /**
      * @param Citizen $citizen
      * @param Item|null $item
-     * @param Item|ItemPrototype|Citizen|null $target
+     * @param Item|ItemPrototype|Citizen|FriendshipActionTarget|null $target
      * @param ItemAction $action
      * @param string|null $message
      * @param array|null $remove
@@ -647,6 +646,13 @@ class ActionHandler
             if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
             if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
             if ($mode <= self::ActionValidityAllow) {
+
+                if ($item?->getPoison() === ItemPoisonType::Deadly && $action->getPoisonHandler() === ItemAction::PoisonHandlerConsume) {
+                    $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
+                    $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
+                    return self::ErrorNone;
+                }
+
                 $message = $tx;
                 return self::ErrorActionForbidden;
             }
@@ -665,7 +671,7 @@ class ActionHandler
             'target' => $target_item_prototype,
             'source_inv' => $item ? $item->getInventory() : null,
             'user' => $citizen,
-            'citizen' => is_a($target, Citizen::class) ? $target : null,
+            'citizen' => is_a($target, Citizen::class) ? $target : (is_a($target, FriendshipActionTarget::class) ? $target->citizen() : null),
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
             'items_consume' => [],
@@ -939,29 +945,29 @@ class ActionHandler
 
                     switch ($item_spawn->getSpawnTarget()) {
                         case AffectItemSpawn::DropTargetFloor:
-                            $target = [ $floor_inventory, $citizen->getInventory(), $floor_inventory ];
+                            $targetInv = [ $floor_inventory, $citizen->getInventory(), $floor_inventory ];
                             $force = true;
                             break;
                         case AffectItemSpawn::DropTargetFloorOnly:
-                            $target = [ $floor_inventory ];
+                            $targetInv = [ $floor_inventory ];
                             $force = true;
                             break;
                         case AffectItemSpawn::DropTargetRucksack:
-                            $target = [ $citizen->getInventory() ];
+                            $targetInv = [ $citizen->getInventory() ];
                             $force = true;
                             break;
                         case AffectItemSpawn::DropTargetPreferRucksack:
-                            $target = [ $citizen->getInventory(), $floor_inventory ];
+                            $targetInv = [ $citizen->getInventory(), $floor_inventory ];
                             $force = true;
                             break;
                         case AffectItemSpawn::DropTargetDefault:
                         default:
-                            $target = [$execute_info_cache['source_inv'] ?? null, $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $targetInv = [$execute_info_cache['source_inv'] ?? null, $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
                     }
 
                     if ($proto) {
-                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $target, $force)) {
+                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $targetInv, $force)) {
                             $execute_info_cache['items_spawn'][] = $proto;
                             if(!$citizen->getZone())
                                 $tags[] = "inside";
@@ -1469,10 +1475,15 @@ class ActionHandler
 
                     }
 
-                    // Increase town temp defense for the watchtower by ten
+                    // Increase town temp defense for the watchtower
                     case 13: {
                         $cn = $this->town_handler->getBuilding( $citizen->getTown(), 'small_watchmen_#00', true );
-                        if ($cn) $cn->setTempDefenseBonus( $cn->getTempDefenseBonus() + 10 );
+                        $max = $town_conf->get( TownConf::CONF_MODIFIER_GUARDTOWER_MAX, 150 );
+                        $use = $town_conf->get( TownConf::CONF_MODIFIER_GUARDTOWER_UNIT, 10 );
+
+                        if ($max <= 0) $max = PHP_INT_MAX;
+
+                        if ($cn) $cn->setTempDefenseBonus(min($max, $cn->getTempDefenseBonus() + $use));
                         break;
                     }
 
@@ -1649,6 +1660,60 @@ class ActionHandler
                             }
 
                         }
+
+
+                    case 70:
+                        if (!is_a($target, FriendshipActionTarget::class)) break;
+
+                        if (!$this->user_handler->checkFeatureUnlock($citizen->getUser(), 'f_share', true))
+                            break;
+
+                        $citizen->getHeroicActions()->removeElement( $target->action() );
+                        $citizen->getUsedHeroicActions()->add( $target->action() );
+
+                        $upgrade_actions = [];
+                        $downgrade_actions = [];
+
+                        if ($target->action()->getName() === 'hero_generic_find' )
+                            $upgrade_actions[] = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => 'hero_generic_find_lucky']);
+                        if ($target->action()->getName() === 'hero_generic_find_lucky' )
+                            $downgrade_actions[] = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => 'hero_generic_find']);
+
+                        $valid = !$this->citizen_handler->hasStatusEffect( $target->citizen(), 'tg_rec_heroic' );
+
+                        if ($valid && $target->citizen()->getProfession()->getHeroic()) {
+                            if ($target->citizen()->getHeroicActions()->contains( $target->action() ))
+                                $valid = false;
+                            foreach ( $upgrade_actions as $a ) if ($target->citizen()->getHeroicActions()->contains( $a ))
+                                $valid = false;
+                        }
+
+                        $target->citizen()->getSpecificActionCounter(
+                            ActionCounter::ActionTypeReceiveHeroic
+                        )->increment()->addRecord( [
+                                                       'action' => $target->action()->getName(),
+                                                       'from' => $citizen->getId(),
+                                                       'valid' => $valid,
+                                                       'seen' => false
+                                                   ] );
+
+                        if ($valid) {
+                            $this->picto_handler->award_picto_to( $citizen, 'r_share_#00' );
+                            $this->citizen_handler->inflictStatus( $target->citizen(), 'tg_rec_heroic' );
+
+                            foreach ( $downgrade_actions as $a ) {
+                                $target->citizen()->getHeroicActions()->removeElement( $a );
+                                $target->citizen()->getUsedHeroicActions()->removeElement( $a );
+                            }
+                            foreach ( $upgrade_actions as $a )
+                                $target->citizen()->getUsedHeroicActions()->removeElement( $a );
+
+                            if ($target->citizen()->getProfession()->getHeroic())
+                                $target->citizen()->getHeroicActions()->add( $target->action() );
+                            else $target->citizen()->addSpecialAction( $target->action()->getSpecialActionPrototype() );
+                        } else $execute_info_cache['message'][] = T::__('Du bist aber nicht sicher, ob er damit wirklich etwas anfangen kann...', "items");
+
+                        break;
                 }
 
                 if ($ap) {
@@ -1709,6 +1774,10 @@ class ActionHandler
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
+                    '{pm}'            => $execute_info_cache['pm'],
+                    '{minus_pm}'      => -$execute_info_cache['pm'],
+                    '{cp}'            => $execute_info_cache['cp'],
+                    '{minus_cp}'      => -$execute_info_cache['cp'],
 	                '{well}'          => $execute_info_cache['well'],
 	                '{zombies}'       => $execute_info_cache['zombies'],
 	                '{item}'          => $this->wrap($execute_info_cache['item']),

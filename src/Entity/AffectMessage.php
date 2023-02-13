@@ -4,8 +4,12 @@ namespace App\Entity;
 
 use App\Repository\AffectMessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: AffectMessageRepository::class)]
+#[UniqueEntity('name')]
+#[UniqueConstraint(name: 'affect_message_unique', columns: ['name'])]
 class AffectMessage
 {
     #[ORM\Id]

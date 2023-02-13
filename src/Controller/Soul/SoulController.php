@@ -337,50 +337,6 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/fuzzyfind/{url}", name="users_fuzzyfind")
-     * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @param string $url
-     * @return Response
-     */
-    public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em, $url = 'soul_visit'): Response
-    {
-        $user = $this->getUser();
-
-        if (!$parser->has_all(['name'], true))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $searchName = $parser->get('name', '');
-        $searchSkip = $parser->get_array('exclude', []);
-        // if ($url !== 'pm_manage_users' && $url !== 'plain') $searchSkip[] = $user->getId();
-
-        if ($url === 'soul_invite_friend')
-            $searchSkip = array_merge($searchSkip, $user->getFriends()->getValues(), [$user]);
-
-        $selected_group = false;
-        if ($url === 'town_add_users' && str_contains($searchName,',')) {
-            $searchNames = explode(',', $searchName);
-            $users = [];
-            foreach ($searchNames as $searchName) {
-                $r = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName)) : null;
-                if ($r && !in_array($r->getId(), $searchSkip)) $users[] = $r;
-            }
-            $selected_group = true;
-        } else $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, -1, $searchSkip) : [];
-
-        $data = [
-            'var' => $url,
-            'single_entry' => $selected_group,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','soul_invite_friend','pm_manage_users','pm_add_users','town_add_users','plain','post_add_users']) ? $users : [],
-            'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
-        ];
-
-        if ($url === 'pm_add_users') $data['gid'] = $parser->get_int('group', 0);
-
-        return $this->render( 'ajax/soul/users_list.html.twig', $data);
-    }
-
-    /**
      * @Route("jx/soul/exists", name="user_exists")
      * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
      */
@@ -470,7 +426,7 @@ class SoulController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function soul_future(Request $request, UserHandler $userHandler, int $id = 0): Response
+    public function soul_future(Request $request, UserHandler $userHandler, HTMLService $html, int $id = 0): Response
     {
         $user = $this->getUser();
 
@@ -484,10 +440,14 @@ class SoulController extends CustomAbstractController
         if ($selected === null)
             $selected = $news[0] ?? null;
 
+
+
         try {
             $userHandler->setSeenLatestChangelog( $user, $lang );
             $this->entity_manager->flush();
         } catch (Exception $e) {}
+
+        $selected?->setText( $html->prepareEmotes( $selected?->getText() ) );
 
         return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
             'news' => $news, 'selected' => $selected,
@@ -524,7 +484,7 @@ class SoulController extends CustomAbstractController
         $selected = $selected ?? $polls[0] ?? null;
 
         return $this->render( 'ajax/soul/polls.html.twig', $this->addDefaultTwigArgs("soul_future", [
-            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected->getPoll()->getAllAnswerTags() : [],
+            'all_tags' => $this->isGranted('ROLE_ADMIN') ? $selected?->getPoll()?->getAllAnswerTags() : [],
             'group' => $group, 'tag' => $tag,
             'polls' => $polls, 'selected' => $selected
         ]) );

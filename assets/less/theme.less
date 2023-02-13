@@ -207,7 +207,7 @@ x-message {
       text-align: left; padding: 3px;
     }
 
-    &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger {
+    &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger, &.popup-general {
 
       background: #79393a;
       &>div#modal-content {
@@ -479,7 +479,7 @@ x-message {
       font-size: 8pt;
       line-height: 10pt;
       width: 110px;
-      z-index: 998;
+      z-index: 99;
 
       & h1 {
         margin: 0;
@@ -651,7 +651,7 @@ footer {
   width: @myhordes-content-width;
   overflow: visible;
   font-size: 1.1rem;
-  .cell-small.footer > div, .cell.footer > div {
+  .cell-small.footer > div:not(.v), .cell.footer > div:not(.v) {
     background: rgba(0,0,0,0.33);
     margin-bottom: 5px;
     strong {
@@ -946,11 +946,12 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       span.highlight { padding-left: 3px; padding-right: 3px; white-space: nowrap; background-color: rgba(255,255,255,0.2);
         img { vertical-align: middle; margin-right: 3px; }
       }
-      &>span:first-child { display: block; background: #696486; padding: 0 3px; }
+      &>span:first-child, &>span.header { display: block; background: #696486; padding: 0 3px; }
       &>ul {
         margin: 0; padding: 0; font-size: 0; max-height: 300px; overflow-y: auto;
         &>li {
-          &.line { display: flex; align-items: center; &>*:first-child { flex-grow: 1 } }
+          &.line:not(.line-check) { display: flex; align-items: center; &>*:first-child { flex-grow: 1 } }
+          &.line.line-check { font-size: 1.2rem; display: flex; align-items: center; &>*:last-child { flex-grow: 1 } }
           &:not(.line) { cursor: pointer; }
           &:not(.line):not(.expanded) { display: inline-block;}
           &>div:not(.tooltip) { font-size: 1.2rem; display: inline-block }
@@ -1944,9 +1945,11 @@ div.or {
 div.welcome-teaser {
   height: 500px; margin-right: -5px;
   &>span {
-    font-size: 37px; position: relative; display: inline-block;
-    width: 243px; top: 18px; left: 70px; transform: rotate(-1.8deg);
-    text-align: center; font-weight: bold; color: #3d0000; text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    font-size: 18px; position: relative; display: inline-block;
+    width: 241px; top: 18px; left: 70px; transform: rotate(-1.8deg);
+    text-align: center; font-weight: bold; text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    &:first-child { color: #312839; text-transform: uppercase }
+    &:last-child { color: #5b0000 }
   }
   &.teaser-1 { background: url("../img/teaser1.jpg") no-repeat top right; &>span { left: 80px; top: 25px; } }
   &.teaser-2 { background: url("../img/teaser2.jpg") no-repeat top right; }

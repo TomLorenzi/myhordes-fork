@@ -105,10 +105,20 @@ export type TownOptions = {
     rules: TownRules
 }
 
+export type Template = {
+    uuid: string
+    name: string
+}
+
 interface TownCreationResponse extends AjaxV1Response {
     url?: string
 }
 
+interface TemplateDataResponse extends Template {}
+interface TemplateListResponse extends Array<Template> {}
+interface TemplateContentResponse {
+    rules: TownRules
+}
 export class TownCreatorAPI {
 
     private fetch: Fetch;
@@ -136,6 +146,31 @@ export class TownCreatorAPI {
         return this.fetch.from('create-town')
             .bodyDeterminesSuccess()
             .request().post(data) as Promise<TownCreationResponse>;
+    }
+
+    public listTemplates(): Promise<TemplateListResponse> {
+        return this.fetch.from('template')
+            .request().get() as Promise<TemplateListResponse>;
+    }
+
+    public getTemplate(uuid: string): Promise<TemplateContentResponse> {
+        return this.fetch.from(`template/${uuid}`)
+            .request().get() as Promise<TemplateContentResponse>;
+    }
+
+    public createTemplate(rules: TownRules, name: string): Promise<TemplateDataResponse> {
+        return this.fetch.from('template')
+            .request().put({rules, name}) as Promise<TemplateDataResponse>;
+    }
+
+    public updateTemplate(rules: TownRules, uuid: string): Promise<TemplateDataResponse> {
+        return this.fetch.from(`template/${uuid}`)
+            .request().patch({rules}) as Promise<TemplateDataResponse>;
+    }
+
+    public deleteTemplate(uuid: string): Promise<TemplateDataResponse> {
+        return this.fetch.from(`template/${uuid}`)
+            .request().delete() as Promise<TemplateDataResponse>;
     }
 
 }

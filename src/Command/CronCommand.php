@@ -43,12 +43,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
+use Zenstruck\ScheduleBundle\Schedule\SelfSchedulingCommand;
+use Zenstruck\ScheduleBundle\Schedule\Task\CommandTask;
 
 #[AsCommand(
     name: 'app:cron',
     description: 'Cron command'
 )]
-class CronCommand extends Command
+class CronCommand extends Command implements SelfSchedulingCommand
 {
     private KernelInterface $kernel;
     private EntityManagerInterface $entityManager;
@@ -822,5 +824,14 @@ class CronCommand extends Command
         }
 
 
+    }
+
+    public function schedule(CommandTask $task): void
+    {
+        $task
+            ->everyTenMinutes()
+            ->withoutOverlapping(900)
+            ->description('Legacy Cron Host')
+        ;
     }
 }

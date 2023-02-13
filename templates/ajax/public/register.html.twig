@@ -60,16 +60,21 @@
                     <div class="cell padded-small rw-6 rw-md-12"><input name="token"  id="registration_token" type="text" /></div>
                     <div class="cell padded-small rw-12"><span class="small critical warning">{{ 'Dieser Token ist für die Registrierung erforderlich.'|trans({}, 'login') }}</span></div>
                 </div>
-                {% endif %}
-
+                {% else %}
                 <p class="justify">
                     {% trans from 'login' %}
                         Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.
                     {% endtrans %}
                 </p>
+                {% endif %}
 
-                <!-- <p class="justify"><b><label for="register-privacy"><input name="privacy"  id="register-privacy" type="checkbox" /> {% trans from 'login' %}Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.{% endtrans %}</label></b></p> -->
+                <p class="justify"><b><label for="register-tos"><input name="tos" id="register-tos" required type="checkbox" />
+                    {{ 'Ich habe die {privacyPolicy} und {tos} gelesen und stimme ihnen zu.'|trans({
+                        'privacyPolicy': '<a href="' ~ url('legal_doc_default', {document: 'privacy-policy'}) ~ '" target="_blank">' ~ 'Datenschutzerklärung'|trans({}, 'global') ~ '</a>',
+                        'tos': '<a href="' ~ url('legal_doc_default', {document: 'tos'}) ~ '" target="_blank">' ~ 'Nutzungsbedingungen'|trans({}, 'global') ~ '</a>'
+                    },'login')|raw }}
+                </label></b></p>
 
                 <div class="row">
                     <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">

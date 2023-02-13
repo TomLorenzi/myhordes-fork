@@ -25,14 +25,16 @@
 
         <!-- Load CSS -->
         {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('prime') }}
         {{ encore_entry_link_tags('fa') }}
 
         <!-- Load JS -->
         {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('prime') }}
         {{ encore_entry_script_tags('fa', null, '_default', {'defer': true}) }}
 
         <!-- Set Favicon -->
-        <link rel="shortcut icon" href="{{ absolute_url(asset('build/images/favicon.ico')) }}" sizes="310x310">
+        {{ include('build/favicons.html.twig') }}
 
         <!-- Set page title -->
         <title>MyHordes</title>
@@ -77,7 +79,6 @@
 </body>
 <footer class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
-        {% include "web/version_info.html.twig" with {debug, version} only %}
         <div class="row">
             <div class="padded cell footer rw-5 rw-sm-12 justify">
                 <div>
@@ -127,9 +128,14 @@
                 <div>
                     <strong>{{ 'Rechtliche Informationen'|trans({}, 'global') }}</strong>
                     <div class="content">
-                        <a href="{{ url('legal_doc_default', {document: 'privacy-policy'}) }}">{{ 'Datenschutzerklärung'|trans({}, 'global') }}</a>
+                        <a href="{{ url('legal_doc_default', {document: 'tos'}) }}">{{ 'Nutzungsbedingungen'|trans({}, 'global') }}</a><br/>
+                        <a href="{{ url('legal_doc_default', {document: 'privacy-policy'}) }}">{{ 'Datenschutzerklärung'|trans({}, 'global') }}</a><br/>
                         <a href="{{ url('legal_doc_default', {document: 'imprint'}) }}">{{ 'Impressum'|trans({}, 'global') }}</a>
                     </div>
+                </div>
+
+                <div class="v">
+                    {% include "web/version_info.html.twig" with {debug, version} only %}
                 </div>
             </div>
         </div>

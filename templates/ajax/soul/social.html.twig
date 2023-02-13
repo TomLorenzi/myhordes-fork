@@ -84,8 +84,10 @@
                     <div class="padded cell rw-12">
                         <div id="users-list-soul">
                             <h5>{{ 'Neue Freunde finden'|trans({},'soul') }}</h5>
-                            <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.'|trans({},'soul')|raw }}</div></div>
-                            <div id="users-list"></div>
+                            <hordes-user-search id="users-search"
+                                                data-self="0" data-friends="0"
+                                                data-title="{{ 'Gib hier den Nickname des Spielers ein, den du als Freund hinzufügen möchtest.'|trans({},'soul')|raw }}"
+                            ></hordes-user-search>
                         </div>
                     </div>
                 </div>
@@ -358,45 +360,11 @@
                 } );
         });
 
-        let typingTimer, doneTypingInterval = 500;
-        let searchBox = document.getElementById('users-search');
-
-        let enterPressed = false;
-        const userSearchHandler = function() {
-            if (searchBox.value.length >= 3)
-                $.ajax.background().load(
-                    document.getElementById('users-list'),
-                    '{{ path('users_fuzzyfind', {url: 'soul_invite_friend'}) }}',
-                    false,
-                    {'name': searchBox.value},
-                    function () {
-                        $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
-                            $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': elem.getAttribute('x-soul-id')},
-                                () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
-                            );
-                        });
-                        if (enterPressed) document.querySelector( '#users-list>.users-list-entry>div' ).dispatchEvent( new Event('click') );
-                    }
-                );
-            else document.getElementById('users-list').innerHTML = '';
-        };
-
-        const userSearchHandlerUp = function () {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
-        };
-
-        const userSearchHandlerDown = e => {
-            enterPressed = e.keyCode === 13;
-            clearTimeout(typingTimer);
-        };
-
-        if (searchBox) {
-            searchBox.addEventListener('keyup', userSearchHandlerUp);
-            searchBox.addEventListener('keydown', userSearchHandlerDown);
-            searchBox.addEventListener('focus', () => userSearchHandler());
-            searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 500));
-        }
+        document.getElementById('users-search')?.addEventListener('hordes-user-search-callback', e => {
+            $.ajax.easySend( '{{ path('soul_friend_control', {action: 1}) }}', {'id': e.detail[0].id},
+                () => $.ajax.load(null, '{{ path('soul_contacts', {opt: opt}) }}')
+            );
+        });
 
         document.getElementById('social_control').addEventListener('tab-switch', e => {
             switch (e.detail.tab) {

@@ -1244,12 +1244,13 @@ class NightlyHandler
 
         $ghoul_mode  = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
         $ghoul_begin = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_AUTOGHOUL_FROM, 5);
+        $ghoul_next = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_AUTOGHOUL_NEXT, 5);
 
         // Check if we need to ghoulify someone
         if (in_array($ghoul_mode, ['airborne', 'airbnb']) && $town->getDay() >= $ghoul_begin) {
 
-            // Starting with the auto ghoul begin day, every 3 days a new ghoul is added
-            if (($town->getDay() - $ghoul_begin) % 3 === 0) {
+            // Starting with the auto ghoul begin day, every X days a new ghoul is added
+            if (($town->getDay() - $ghoul_begin) % $ghoul_next === 0) {
                 $this->log->debug("Distributing the <info>airborne ghoul infection</info>!");
                 $this->citizen_handler->pass_airborne_ghoul_infection(null,$town);
             }
@@ -1409,6 +1410,17 @@ class NightlyHandler
                     if (!empty($last_stand_pictos) && count($citizen_eligible) > 0) {
                         /** @var Citizen $winner */
                         $winner = $this->random->pick($citizen_eligible);
+
+                        if     ($winner->getSurvivedDays() <   6) $wonHeroDays = 0;
+                        elseif ($winner->getSurvivedDays() <=  8) $wonHeroDays = 1;
+                        elseif ($winner->getSurvivedDays() <= 10) $wonHeroDays = 2;
+                        elseif ($winner->getSurvivedDays() <= 15) $wonHeroDays = 3;
+                        elseif ($winner->getSurvivedDays() <= 20) $wonHeroDays = 4;
+                        else $wonHeroDays = 5;
+
+                        $wonHeroDays = floor($wonHeroDays * $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_GENEROSITY_LAST, 1) );
+                        if ($wonHeroDays > 0) $winner->giveGenerosityBonus( $wonHeroDays );
+
                         foreach ($last_stand_pictos as $last_stand_picto) {
                             $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
                             $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
@@ -1548,7 +1560,7 @@ class NightlyHandler
                 }
 
                 if ($zone->getPrototype() && $this->random->chance( $recovery_chance ) ) {
-                    $rdigs = mt_rand(1, 5);
+                    $rdigs = 5;
                     $zone->setRuinDigs( min( $zone->getRuinDigs() + $rdigs, 10 ) );
                     $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>." );
                 }

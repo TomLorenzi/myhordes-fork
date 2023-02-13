@@ -1,0 +1,13 @@
+<div class="inner-notification-header">
+    <strong>{{ 'Du hast eine Heldentat erhalten!'|trans({},'game') }}</strong>
+</div>
+<div class="inner-notification-content">
+    <p>
+        {{ 'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:'|trans({citizen: citizen.name},'game') }}
+        <br/>
+        <img alt="" src="{{ asset('build/images/actions/hero.gif') }}"/> <b>{{ action.action.label|trans({},'items') }}</b>
+    </p>
+    <p class="small">
+        {{ '{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!'|trans({citizen: citizen.name},'game')|trans({citizen: citizen.name},'game') }}
+    </p>
+</div>

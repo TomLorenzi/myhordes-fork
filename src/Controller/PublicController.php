@@ -13,6 +13,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationLog;
 use App\Entity\RegistrationToken;
+use App\Entity\Season;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
@@ -33,6 +34,8 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use phpDocumentor\Reflection\Type;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -135,6 +138,56 @@ class PublicController extends CustomAbstractController
         if ($this->getUser() && $this->getUser()->getValidated())
             return $this->redirect($this->generateUrl('initial_landing'));
         return $this->render( 'ajax/public/validate.html.twig' );
+    }
+
+    /**
+     * @Route("jx/public/accept_tos", name="public_accept_tos")
+     * @return Response
+     */
+    public function accept_tos(): Response
+    {
+        if (!$this->getUser() || ($this->getUser()->tosAccepted() && $this->getUser()->tosUpdateAccepted()))
+            return $this->redirect($this->generateUrl('initial_landing'));
+
+        return $this->render( 'ajax/public/tos_first.html.twig', [
+            'allow_grace' => $this->getUser()->getTosgracenum() < 14 || ($this->getUser()->getTosgrace() !== null && $this->getUser()->getTosgrace() > new DateTime())
+        ] );
+    }
+
+    /**
+     * @Route("api/public/tos/accept", name="api_accept_tos", defaults={"accept"=true})
+     * @Route("api/public/tos/later", name="api_defer_tos", defaults={"accept"=false})
+     * @param bool $accept
+     * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function tos_api(bool $accept): Response
+    {
+        if (!$this->getUser() || ($this->getUser()->tosAccepted() && $this->getUser()->tosUpdateAccepted()))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if (!$accept && $this->getUser()->getTosgracenum() >= 14 && ($this->getUser()->getTosgrace() === null || $this->getUser()->getTosgrace() < new DateTime()))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $user = $this->getUser();
+
+        if ($accept) {
+            $user->setTosver(1);
+            $user->setTosgracenum( 0 );
+            $user->setTosgrace( null );
+        } elseif ($this->getUser()->getTosgrace() === null || $this->getUser()->getTosgrace() < new DateTime()) {
+            $user->setTosgracenum( $user->getTosgracenum() + 1 );
+            $user->setTosgrace( (new DateTime('now'))->modify('+12hour') );
+        }
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        $token = new UsernamePasswordToken($user, 'main', $user->getRoles());
+        $this->container->get('security.token_storage')->setToken($token);
+
+        return AjaxResponse::success();
     }
 
     /**
@@ -292,7 +345,7 @@ class PublicController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
+        if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], false ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (!$userHandler->isNameValid($parser->trimmed('user', '')))
@@ -339,14 +392,15 @@ class PublicController extends CustomAbstractController
                         }
                     }
                 } ] )
-                ],
+            ],
             'mail2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
             'pass1' => new Constraints\Length(
                 ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens { limit } Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
-        ]), ['user','mail1','mail2','pass1','pass2'] );
+            'tos' => new Constraints\IsTrue(message: $translator->trans('Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.', [], 'login'))
+        ], allowExtraFields: true, allowMissingFields: false) );
 
         if ($violations->count() === 0) {
 
@@ -387,9 +441,11 @@ class PublicController extends CustomAbstractController
                 $parser->trimmed('user'),
                 $parser->trimmed('mail1'),
                 $parser->trimmed('pass1'),
-                false,
+                $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOKEN_NEEDED_FOR_REGISTRATION) && $regToken,
                 $error
             );
+
+            $user?->setTosver(1);
 
             switch ($error) {
                 case UserFactory::ErrorNone:
@@ -585,6 +641,7 @@ class PublicController extends CustomAbstractController
                     ],
                     'mail2' => new Constraints\EqualTo(
                         ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
+                    'tos' => new Constraints\IsTrue(message: $translator->trans('Bitte stimme der Datenschutzerklärung und den Nutzungsbedingungen zu.', [], 'login'))
                 ],
                 'allowExtraFields' => true,
             ]) );
@@ -622,6 +679,7 @@ class PublicController extends CustomAbstractController
             switch ($error) {
                 case UserFactory::ErrorNone:
                     try {
+                        $new_user->setTosver(1);
                         $this->entity_manager->persist( $new_user );
                         $new_user->setLanguage($this->getUserLanguage());
                         $this->entity_manager->persist( (new RegistrationLog())
@@ -814,7 +872,8 @@ class PublicController extends CustomAbstractController
         return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs(null, [
             'lang' => $lang,
             'lastChangelog' => $this->entity_manager->getRepository(Changelog::class)->findLatestByLang( $lang ),
-            'lastNews' => $lastNews
+            'lastNews' => $lastNews,
+            'season' => $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true])
         ]));
     }
 
@@ -832,7 +891,7 @@ class PublicController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function changelog(int $id = -1): Response
+    public function changelog(int $id = -1, HTMLService $html): Response
     {
         $lang = $this->getUserLanguage();
 
@@ -844,8 +903,11 @@ class PublicController extends CustomAbstractController
                 : $this->redirectToRoute( 'public_welcome' );
         }
 
+        $latest = $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang);
+        if ($latest) $latest->setText( $html->prepareEmotes( $latest->getText() ) );
+
         return $this->render('ajax/public/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
-            'latest' => $this->entity_manager->getRepository(Changelog::class)->findLatestByLang($lang),
+            'latest' => $latest,
             'current' => $changelog,
             'all' => $this->entity_manager->getRepository(Changelog::class)->findByLang( $lang )
         ]));

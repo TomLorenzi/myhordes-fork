@@ -143,12 +143,13 @@ class DebugCommand extends LanguageCommand
                 $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 if (!isset($crow)) {
                     $command = $this->getApplication()->find('app:user:create');
+
                     for ($i = 1; $i <= 80; $i++) {
                         $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
                         $nested_input = new ArrayInput([
                             'name' => $user_name,
                             'email' => $user_name . '@localhost',
-                            'password' => $user_name,
+                            'password' => $this->randomizer->string( 32 ),
                             '--validated' => true,
                         ]);
                         $command->run($nested_input, $output);
@@ -190,7 +191,7 @@ class DebugCommand extends LanguageCommand
                         $nested_input = new ArrayInput([
                                                            'name' => $user_name,
                                                            'email' => $user_name . '@localhost',
-                                                           'password' => $user_name,
+                                                           'password' => $this->randomizer->string( 32 ),
                                                            '--validated' => true,
                                                        ]);
                         $command->run($nested_input, $output);
@@ -228,7 +229,7 @@ class DebugCommand extends LanguageCommand
                 $nested_input = new ArrayInput([
                     'name' => $user_name,
                     'email' => $user_name . '@localhost',
-                    'password' => $user_name,
+                    'password' => $this->randomizer->string( 32 ),
                     '--validated' => true,
                 ]);
                 $command->run($nested_input, $output);

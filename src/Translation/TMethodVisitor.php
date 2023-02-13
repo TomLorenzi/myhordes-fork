@@ -59,9 +59,9 @@ final class TMethodVisitor extends AbstractVisitor implements NodeVisitor
         }
 
         $name = (string)$node->name;
-        $class = $node instanceof Node\Expr\StaticCall ? (string)$node->class : 'T';
+        $class = $node instanceof Node\Expr\StaticCall ? (string)$node->class : T::class;
 
-        $argName = $class === 'T' ? match ($name) {
+        $argName = $class === T::class ? match ($name) {
             '__' => 's',
             'trans', 't' => 'message',
             default => null
