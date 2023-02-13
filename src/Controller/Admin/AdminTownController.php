@@ -2487,13 +2487,14 @@ class AdminTownController extends AdminActionController
     }
 
 
-    /**
-     * @Route("api/admin/town/{id}/admin_regenerate_ruins", name="admin_regenerate_ruins", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
-     * @param int $id The ID of the town
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
+	/**
+	 * @Route("api/admin/town/{id}/admin_regenerate_ruins", name="admin_regenerate_ruins", requirements={"id"="\d+"})
+	 * @AdminLogProfile(enabled=true)
+	 * @param int               $id The ID of the town
+	 * @param JSONRequestParser $parser
+	 * @param MazeMaker         $mazeMaker
+	 * @return Response
+	 */
     public function admin_regenerate_ruins(int $id, JSONRequestParser $parser, MazeMaker $mazeMaker, AdminLog $logger): Response {
         /** @var Town $town */
 
