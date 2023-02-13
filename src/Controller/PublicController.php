@@ -891,7 +891,7 @@ class PublicController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function changelog(int $id = -1, HTMLService $html): Response
+    public function changelog(HTMLService $html, int $id = -1): Response
     {
         $lang = $this->getUserLanguage();
 
