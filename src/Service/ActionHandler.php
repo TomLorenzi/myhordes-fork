@@ -990,8 +990,9 @@ class ActionHandler
 					$item_req = $requirement->getItem();
 					break;
 				}
+				$poison = $item_req !== null ? $item_req->getAllowPoison() : false;
                 $items = $this->inventory_handler->fetchSpecificItems( $source,
-                    [new ItemRequest( name: $item_consume->getPrototype()->getName(), count: $item_consume->getCount(), poison: $item_req->getAllowPoison() )]);
+                    [new ItemRequest( name: $item_consume->getPrototype()->getName(), count: $item_consume->getCount(), poison: $poison )]);
 
                 foreach ($items as $consume_item) {
 
