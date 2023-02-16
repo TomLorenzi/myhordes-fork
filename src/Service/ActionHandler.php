@@ -983,8 +983,15 @@ class ActionHandler
 
             if ($item_consume = $result->getConsume()) {
                 $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
+				$requirements = $action->getRequirements();
+				$item_req = null;
+				foreach ($requirements as $requirement) {
+					if ($requirement->getItem() === null || $requirement->getItem()->getPrototype() !== $item_consume->getPrototype()) continue;
+					$item_req = $requirement->getItem();
+					break;
+				}
                 $items = $this->inventory_handler->fetchSpecificItems( $source,
-                    [new ItemRequest( name: $item_consume->getPrototype()->getName(), count: $item_consume->getCount(), poison: false )]);
+                    [new ItemRequest( name: $item_consume->getPrototype()->getName(), count: $item_consume->getCount(), poison: $item_req->getAllowPoison() )]);
 
                 foreach ($items as $consume_item) {
 
