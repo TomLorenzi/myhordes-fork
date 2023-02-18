@@ -45,7 +45,7 @@
                                         {% if entry.user.language == 'en' %}
                                             <img src="{{ asset("build/images/lang/" ~ entry.user.language ~ ".png") }}" alt="{{ entry.user.language }}" />
                                         {% else %}
-                                            <div class="user-flag small"><img alt="{{ entry.user.language }}" src="{{ asset('build/images/lang/any/' ~ entry.user.language|upper ~ '.svg' ) }}"/></div>
+                                            <div {{ { 'user-flag': true, 'small': pos >= 5 }|classes }}><img alt="{{ entry.user.language }}" src="{{ asset('build/images/lang/any/' ~ entry.user.language|upper ~ '.svg' ) }}"/></div>
                                         {% endif %}
                                     {% else %}
                                         <img src="{{ asset("build/images/lang/multi.png") }}" alt="" />
