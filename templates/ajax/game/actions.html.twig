@@ -36,7 +36,7 @@
                     {% endfor %}
                     <ul>
                         <li class="line expanded">
-                            <div class="button small" x-action-id="{{ action_id }}" x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="?" x-collection-target="{{ target_for }}">{{ 'Auswahl bestätigen'|trans({},'global') }}</div>
+                            <div class="button small" x-action-id="{{ action_id }}" x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({}, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="?" x-collection-target="{{ target_for }}">{{ 'Auswahl bestätigen'|trans({},'global') }}</div>
                         </li>
                     </ul>
                 {% else %}
