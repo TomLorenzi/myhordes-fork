@@ -89,7 +89,7 @@
 </div>
 <div id="tooltip_container"></div>
 <div id="loadzone" x-stack="0">
-    <div><img src="{{ asset('build/images/anims/loading.gif') }}" alt=""></div>
+    <div></div>
 </div>
 <div id="modal-backdrop">
     <div id="modal">
@@ -191,7 +191,7 @@
 
         $.html.setInitParams({
             userPopupEndpoint: '{{ path('soul_tooltip') }}',
-            userPopupLoadingAnimation: '{{ asset('build/images/anims/loading.gif') }}'
+            userPopupLoadingAnimation: '{{ asset('build/images/anims/loading_wheel.gif') }}'
         })
 
         $.html.addEventListenerAll('#post-office','click', function(e,elem) {
