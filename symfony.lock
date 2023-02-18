@@ -117,9 +117,6 @@
     "egulias/email-validator": {
         "version": "2.1.17"
     },
-    "friendsofphp/proxy-manager-lts": {
-        "version": "v1.0.0"
-    },
     "graphp/algorithms": {
         "version": "v0.8.2"
     },
@@ -250,9 +247,6 @@
     },
     "sebastian/recursion-context": {
         "version": "4.0.4"
-    },
-    "sebastian/resource-operations": {
-        "version": "3.0.3"
     },
     "sebastian/type": {
         "version": "2.3.2"
