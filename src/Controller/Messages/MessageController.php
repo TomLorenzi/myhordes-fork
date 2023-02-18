@@ -138,6 +138,7 @@ class MessageController extends CustomAbstractController
             $results[$entry->getTag()] = [
                 'display' => $url_only ? $entry->getPath() : "<img alt='{$entry->getTag()}' src='{$this->asset->getUrl( $entry->getPath() )}'/>",
                 'i18n' => $entry->getI18n(),
+                'orderIndex' => $entry->getOrderIndex()
             ];
         }
         return $results;
