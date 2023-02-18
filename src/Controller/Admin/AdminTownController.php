@@ -518,6 +518,7 @@ class AdminTownController extends AdminActionController
                 if (empty($new_name)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
                 $town->setName( $new_name )->setNameSchema( $schema );
                 $town->getRankingEntry()->setName( $new_name );
+                $town->getForum()?->setTitle( $new_name );
                 $this->entity_manager->persist($town);
                 $this->entity_manager->persist($town->getRankingEntry());
                 foreach ($town->getCitizens() as $citizen)

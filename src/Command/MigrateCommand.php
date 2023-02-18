@@ -227,6 +227,7 @@ class MigrateCommand extends Command
 
             ->addOption('fix-soul-picto-count', null, InputOption::VALUE_NONE, '')
             ->addOption('fix-fixtures', null, InputOption::VALUE_NONE, 'Fix fixtures with duplicate keys')
+            ->addOption('fix-town-forum-names', null, InputOption::VALUE_NONE, 'Fix town forum names')
         ;
     }
 
@@ -1380,6 +1381,18 @@ class MigrateCommand extends Command
 
         }
 
+        if ($input->getOption('fix-town-forum-names')) {
+            $this->helper->leChunk($output, Town::class, 5, [], true, false, function(Town $town) {
+
+                if ($town->getForum()->getTitle() !== $town->getName())
+                    $this->entity_manager->persist( $town->getForum()->setTitle( $town->getName() ) );
+
+                return false;
+
+            }, true);
+        }
+
         return 99;
     }
+
 }
