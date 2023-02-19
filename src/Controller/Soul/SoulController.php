@@ -189,10 +189,6 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        // Get all the picto & count points
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
-        $top3 = array_slice($pictos, 0, 3);
-    	$points = $this->user_handler->getPoints($user);
         $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
         $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
 
@@ -210,10 +206,7 @@ class SoulController extends CustomAbstractController
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'user' => $user,
-            'pictos' => $pictos,
-            'top3' => $top3,
             'features' => $features,
-            'points' => round($points),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
             'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),
@@ -239,23 +232,8 @@ class SoulController extends CustomAbstractController
         if($user === null)
             return $this->redirect($this->generateUrl('soul_me'));
 
-        // Get all the picto & count points
-        $pictos_mh = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false);
-        $pictos_im = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true);
-        $pictos_old = $this->entity_manager->getRepository(Picto::class)->findOldByUser($user);
-
-        $points_mh = $this->user_handler->getPoints($user, false);
-        $points_im = $this->user_handler->getPoints($user, true);
-        $points_old = $this->user_handler->getPoints($user, null, true);
-
         return $this->render( 'ajax/soul/pictos.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $user,
-            'pictos_mh' => $pictos_mh,
-            'pictos_import' => $pictos_im,
-            'pictos_old' => $pictos_old,
-            'points_mh' => round($points_mh),
-            'points_import' => round($points_im),
-            'points_old' => round($points_old),
         ]));
     }
 
@@ -1380,10 +1358,6 @@ class SoulController extends CustomAbstractController
     	if($user === null || $user === $current_user) 
             return $this->redirect($this->generateUrl('soul_me'));
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
-        $top3 = array_slice($pictos, 0, 3);
-    	$points = $this->user_handler->getPoints($user);
-
         $returnUrl = null; // TODO: get the referer, it can be empty!
         if(empty($returnUrl))
             $returnUrl = $this->generateUrl('soul_me');
@@ -1396,9 +1370,6 @@ class SoulController extends CustomAbstractController
 
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
-            'pictos' => $pictos,
-            'top3' => $top3,
-            'points' => round($points),
             'seasons' => $this->entity_manager->getRepository(Season::class)->findPastAndPresent(),
             'returnUrl' => $returnUrl,
             'citizen_id' => $citizen_id,

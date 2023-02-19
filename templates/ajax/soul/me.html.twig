@@ -27,8 +27,8 @@
             </div>
         </div>
         <div class="cell rw-5 rw-sm-12 center">
-            {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, points: points, user: app.user} %}
-            <br />
+            <hordes-distinctions data-plain="0" data-source="soul" data-user="{{ app.user.id }}"></hordes-distinctions>
+            <br/>
             <a href="#" class="small" x-ajax-href="{{ path('soul_pictos_all', {id: app.user.id}) }}" >{{ 'Details'|trans({},'soul') }}</a>
         </div>
         <div class="cell padded rw-7 rw-sm-12">

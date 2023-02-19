@@ -20,25 +20,25 @@
                     <div x-tab-group="picto-listing" x-tab-id="native" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
                         {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}<br />
-                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, user: user} %}
+                        <hordes-distinctions data-plain="0" data-source="soul" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="cumulative" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.allSoulPoints }}<br />
                         {{ "Heldentage:"|trans({}, 'admin') }} {{ user.allHeroDaysSpent }}<br />
-                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_all, user: user, plain: true} %}
+                        <hordes-distinctions data-plain="1" data-source="all" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="mh" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.soulPoints }}<br />
                         {{ "Heldentage:"|trans({}, 'admin') }} {{ user.heroDaysSpent }}<br />
-                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_mh, user: user, plain: true} %}
+                        <hordes-distinctions data-plain="1" data-source="mh" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="import" x-tab-target>
                         {{ "Seelenpunkte:"|trans({}, 'admin') }} {{ user.importedSoulPoints }}<br />
                         {{ "Heldentage:"|trans({}, 'admin') }} {{ user.importedHeroDaysSpent }}<br />
-                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_im, user: user, plain: true} %}
+                        <hordes-distinctions data-plain="1" data-source="imported" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                     <div x-tab-group="picto-listing" x-tab-id="old" x-tab-target>
-                        {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_old, user: user, plain: true} %}
+                        <hordes-distinctions data-plain="1" data-source="old" data-user="{{ user.id }}"></hordes-distinctions>
                     </div>
                 </div>
                 <div class="cell rw-2 rw-sm-12">
