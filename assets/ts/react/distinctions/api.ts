@@ -29,7 +29,13 @@ export type ResponseDistinctions = {
     points: number|null,
     pictos: DistinctionPicto[]|null,
     awards: DistinctionAward[]|null
-    top3: number[]|null
+    top3: Top3|null
+}
+
+export type Top3 = number[]
+
+export type ResponseUpdateTop3 = {
+    updated: Top3
 }
 
 export class SoulDistinctionAPI {
@@ -50,6 +56,11 @@ export class SoulDistinctionAPI {
             return new Promise<ResponseDistinctions>((_,reject) => reject(null))
         else return this.fetch.from(`${user}/${source}`)
             .request().get() as Promise<ResponseDistinctions>;
+    }
+
+    public top3(user: number, data: number[]): Promise<ResponseUpdateTop3> {
+        return this.fetch.from(`${user}/top3`)
+            .request().patch({data}) as Promise<ResponseUpdateTop3>;
     }
 
 }

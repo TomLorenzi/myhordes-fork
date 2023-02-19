@@ -9,6 +9,7 @@ use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\User;
+use App\Enum\UserSetting;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -117,6 +118,17 @@ class DistinctionController extends CustomAbstractCoreController
                 ];
             }
 
+        $top3 = null;
+        if ($source === 'soul') {
+            $natural_top3 = array_slice( array_keys( $picto_db ), 0, 3);
+            while(count($natural_top3) < 3) $natural_top3[] = null;
+
+            $user_top3 = array_values(array_slice($user->getSetting( UserSetting::DistinctionTop3 ), 0, 3));
+            while(count($user_top3) < 3) $user_top3[] = null;
+
+            $top3 = array_map( fn($u,$n) => (($picto_db[$u] ?? null) ? $u : null) ?? $n ?? null, $user_top3, $natural_top3 );
+        }
+
         return new JsonResponse([
             'points' => match ($source) {
                 'soul'      => round($userHandler->getPoints( $user )),
@@ -127,11 +139,37 @@ class DistinctionController extends CustomAbstractCoreController
             },
             'pictos' => array_values($picto_db),
             'awards' => array_values($award_db ?? []),
-            'top3' => match ($source) {
-                'soul' => array_slice( array_keys( $picto_db ), 0, 3),
-                default => null
-            }
+            'top3' => $top3
         ]);
 
+    }
+
+    /**
+     * @Route("/{id}/top3", name="patch_top3", methods={"PATCH"})
+     * @param User $user
+     * @param UserHandler $userHandler
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return JsonResponse
+     */
+    public function patchTop3(
+        User $user,
+        UserHandler $userHandler,
+        EntityManagerInterface $em,
+        JSONRequestParser $parser
+    ): JsonResponse {
+        if ($user !== $this->getUser()) return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        $data = array_map(
+            fn($c) => $em->getRepository(PictoPrototype::class)->find($c ?? -1)?->getId() ?? null,
+            array_values(array_slice($parser->get_array('data', [null,null,null]), 0, 3))
+        );
+
+        while(count($data) < 3) $data[] = null;
+
+        $em->persist( $user->setSetting( UserSetting::DistinctionTop3, $data ) );
+        $em->flush();
+
+        return new JsonResponse(['updated' => $data]);
     }
 }

@@ -63,6 +63,7 @@ customElements.define('hordes-distinctions', class HordesDistinctionsElement ext
             source: this.dataset.source ?? 'soul',
             plain: parseInt( this.dataset.plain ?? '0' ) !== 0,
             user: parseInt( this.dataset.user ?? '0' ),
+            interactive: parseInt( this.dataset.interactive ?? '0' ) !== 0,
         }
         return true;
     }
@@ -80,7 +81,7 @@ customElements.define('hordes-distinctions', class HordesDistinctionsElement ext
         if (this.#_extractData()) this.#_initialized?.mount(this, this.#_data);
     }
 
-    static get observedAttributes() { return ['data-source', 'data-plain', 'data-user']; }
+    static get observedAttributes() { return ['data-source', 'data-plain', 'data-user', 'data-interactive']; }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue === newValue) return;
