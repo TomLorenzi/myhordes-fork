@@ -1,6 +1,6 @@
 ---
 'Deine Route wurde gespeichert.': 'Tu ruta ha sido guardada.'
-'Du hast deine Beschreibung geändert.': 'Has cambiado tu anuncio personal.'
+'Du hast deine Beschreibung geändert.': 'Has cambiado tu anuncio personal. Ahora es visible en El Anuario de los Habitantes.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} ha añadido <strong>{item}</strong>, y con ello obtuvimos <strong>{num} Raciones de Agua.</strong>'
 '{citizen} hat an dem Bauprojekt {plan} mitgearbeitet und dabei {ap} ausgegeben.': '{citizen} ha trabajado en la construcción {plan} gastando {ap} en el proceso.'
 'Durch die Konstruktion von {building} hat die Stadt folgende Gegenstände erhalten: {list}': 'La construcción {building} ha dado al pueblo los siguientes objetos: {list}'
@@ -960,7 +960,7 @@ Hinterhältigkeit: Perfidia
 'Süße Rache': 'Venganza sórdida'
 'Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!': 'Si eres desterrado el día 3 o posteriores automáticamente recibes dos frasco veneno (puede usarse para envenenar la comida y el agua).'
 Proficamper: Campista Experto
-'Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.': 'Reduce las penalidades por acampar repetidamente.'
+'Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.': 'Reduce las penalizaciones por acampar repetidamente.'
 'Erfahrener Junkie': 'Medicina Preventiva'
 'Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.': 'Comienzas la partida con un Paracetoid 7g.'
 Bürgermeister: Alcalde
@@ -1567,7 +1567,7 @@ Wählen: Elegir
 'Beta-Tester der neuen Zeit': 'Beta-tester de próxima generación'
 'Keine Fehler hi&e%12;r': 'Sin bugs a&q%12;uí'
 'Patient Null': 'Paciente cero'
-'Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.': 'Desde lo más alto de la torre, examinas el desierto que rodea el pueblo para calcular la cantidad de zombies presentes y su desplazamiento... <br />Después de varias horas de intensa reflexión, escribes esos datos en el <strong>Registro de la Torre de Vigilancia.</strong>.<hr />Esa información, sumada a la de los demás habitantes, debería darte un pronóstico acertado del ataque.'
+'Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.': 'Desde lo más alto de la torre, examinas el desierto que rodea el pueblo para calcular la cantidad de zombies presentes y su desplazamiento... <br />Después de varias horas de intensa reflexión, escribes esos datos en el <strong>Registro de la Torre de Vigilancia</strong>.<hr />Esa información, sumada a la de los demás habitantes, debería darte un pronóstico acertado del ataque.'
 'Auf den Aufstand hinarbeiten': 'Organizar una insurrección'
 'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.': 'Elige <strong>el objeto que deseas robar</strong>. <strong>¡Pero cuidado!</strong> Podrías ser descubierto y deberás asumir todas las consecuencias...'
 'Einen Gegenstand stehlen': 'Entrar para robar un objeto'
@@ -1640,7 +1640,7 @@ Corvid-Spezialist: Especialista en córvidos
 Kraaaah!: '¡Wraaaaahh!'
 'Er war Leber ...': 'Era una calavera...'
 'Hey wir können die Zombies von hier oben sehen': '¡Puedo ver a los zombies desde aquí arriba!'
-'Fröhlicher Hamster': 'Hampster feliz'
+'Fröhlicher Hamster': 'Hámster feliz'
 'Showman aus der Anderen Welt!': 'Empresario del Ultramundo!'
 '5. Rad am Wagen': 'Quinta rueda de la caravana'
 'Mir ist schwindelig': 'Estoy mareado'
@@ -2361,8 +2361,8 @@ Stadt/Stadttor: Pueblo/Portal
 'Schade, dass das die anderen dich nicht mehr sehen können! Du bist ohne Zweifel ein ausgezeichneter Nachtwächter!': 'Es una pena que los demás ya no puedan verte. Es usted, sin duda, un excelente vigilia nocturno.'
 'Nachtwächter {citizen} trug keine Waffe bei sich??!! War das Nachlässigkeit?': '¿El centinela {citizen} no llevaba armas? ¿Habrá sido un descuido?'
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '¡{citizen} logro escapar la zona, aunque fue <strong>gravemente herido</strong>!'
-'{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} ha usado <strong>una habilidad especial</strong>, que ha matado a {zombies} zombis y ha recuperado así el control de la zona durante <strong>{duration}</strong>.'
-'<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Habitante</strong>,<br/>en reconocimiento a tus logros en la lucha contra los zombis y como recompensa por alcanzar el primer puesto en el ranking de los mejores pueblos en la <i>temporada {season}</i> del <i>{server}</i>, se te otorga lo siguiente: {pictos}Además, las siguientes herramientas estarán a tu disposición durante la nueva temporada:{features}<br/><strong>¡Enhorabuena!</strong>'
+'{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} ha usado <strong>una habilidad especial</strong>, que ha matado a {zombies} zombies, recuperando así el control de la zona durante <strong>{duration}</strong>.'
+'<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Habitante</strong>,<br/>en reconocimiento a tus logros en la lucha contra los zombies y como recompensa por alcanzar el primer puesto en el ranking de los mejores pueblos en la <i>temporada {season}</i> del <i>{server}</i>, se te otorga lo siguiente: {pictos}Además, las siguientes herramientas estarán a tu disposición durante la nueva temporada:{features}<br/><strong>¡Enhorabuena!</strong>'
 'Brunnen (short)': Pozo
 'Bank (short)': Almacén
 'Bürger (short)': Habitantes
