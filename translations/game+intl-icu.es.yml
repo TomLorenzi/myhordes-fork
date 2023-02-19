@@ -954,7 +954,7 @@ Weitsichtig: Precavido
 'Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.': 'Comienzas las partidas con 2 doggy bag en vez de 1.'
 Panzerschrank: Erudito
 'Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.': 'Otorga 1 punto de control adicional en el ultramundo.'
-Hinterhältigkeit: Perfidia
+Hinterhältigkeit: Traidor
 'Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.': 'Duplica el efecto de manipulador (en vez tachar 2 líneas podrás tachar 4).'
 'Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).': 'Te protege de morir durante un ataque zombie por infección, sed o adicción.'
 'Süße Rache': 'Venganza sórdida'
@@ -1148,7 +1148,7 @@ Schokoladenkreuz: Cruz de chocolate
 'Deine privaten Nachrichten': 'Tu mensajería privada'
 'In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.': 'Esta sección muestra las extensiones posibles en tu casa.'
 'In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).': 'Esta sección muestra el equipamiento instalado en tu casa (muebles, defensas...).'
-'Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...': 'Cuando estás rodeado de zombis en el desierto, te congelas de miedo y no puedes hacer nada... Tienes que encontrar drogas o algo más para <strong>calmar tus nervios</strong> y escapar de este infierno... al menos todavía puedes buscar ayuda en el foro...'
+'Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...': 'Cuando estás rodeado de zombies en el desierto, te congelas de miedo y no puedes hacer nada... Tienes que encontrar drogas o algo más para <strong>calmar tus nervios</strong> y escapar de este infierno... al menos todavía puedes buscar ayuda en el foro...'
 'Das Passwort ist falsch.': 'La contraseña es incorrecta.'
 Pfadfinder: Furtivo
 Ninja: Maestro de la oscuridad
@@ -1540,7 +1540,7 @@ Katapult-Bediener: Operador de la Catapulta
 'Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...': 'Mientras tanto, los cuerpos de los antiguos habitantes que quedaron tirados en el pueblo han vuelto a la vida...'
 'Sind wir noch in der Alpha?': '¿Ya salimos de la versión Alfa?'
 'Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.': 'Esta es una Distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.'
-'{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...': 'Se vieron {count} zombis en el pueblo pero no atacaron a nadie: qué bendición...'
+'{count} Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...': 'Se vieron {count} zombies en el pueblo, pero no atacaron a nadie: qué bendición...'
 '[ Es riecht nach Tannenzapfen... ]': '[ ¿Quién fue el asqueroso...? ]'
 'Zahlreiche Diebstähle begangen': 'Demasiados robos cometidos'
 'Verbraucht zuviel Wasser': 'Consume demasiada agua'
@@ -1760,7 +1760,7 @@ Wegweiser: Linterna de luz diurna
 '{username} hat dich angegriffen und verletzt!': '{username} te atacó y te hirió!'
 'Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!': 'Justo cuando estabas a punto de ponerte cómodo, fuiste atacado por {username}. Has recibido una paliza, pero también le has dado lo suyo. Desgraciadamente, ¡has resultado herido en el ataque!'
 Verletzt: Herido
-'Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...': 'Tenemos dos noticias para ti. La buena: ¡pudiste defenderte de los {count} zombis! Lo malo: te hirieron...'
+'Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...': 'Tenemos dos noticias para ti. La buena: ¡pudiste defenderte de los {count} zombies! Lo malo: te hirieron...'
 'Du verlässt deinen Posten?...': '¿Abandonas el puesto? En fin, eres tú quien decide...'
 'Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...': 'Bravo, has decidido correr el riesgo de salvar a tus compañeros en peligro desde esta noche...'
 'Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.': 'Aviso: Aun siendo centinela, puedes volver a ser un simple habitante.'
@@ -1985,7 +1985,7 @@ Material: Utilizar
 'Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.': 'El ambiente se vuelve insoportable... No puedes seguir así; sin saber cómo, encuentras la salida, pero te lastimas en la fuga.'
 Superheld: Superhéroe
 'Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.': 'La estimación de hoy debe completarse primero para calcular la estimación del día siguiente.'
-'Durch die Konstruktion von {building} wurden eine Menge Zombies in der Außenwelt vernichtet!': '¡La construcción de {building} destruyó muchos zombis en el mundo exterior!'
+'Durch die Konstruktion von {building} wurden eine Menge Zombies in der Außenwelt vernichtet!': '¡El uso de {building} ha destruido una buena cantidad de zombies en el Ultramundo!'
 '<strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!': '<strong>¡Advertencia!</strong> Entrar en el pueblo requiere <div class="ap">1</div> (¡los costos se deben a la construcción del <strong>laberinto</strong>)!'
 'Unser {building} hat reichhaltigen Ertrag gebracht: {items}': 'Nuestro {building} ha generado abundantes ganancias: {items}'
 Name: Nombre
@@ -2158,7 +2158,7 @@ heute: hoy
 Fortfahren...: Continuar...
 'Was ist mit ihm passiert?': '¿Qué le sucedió?'
 'Was ist mit dem Körper geschehen?': '¿Qué sucedió con su cadáver?'
-'Inmitten dieser Zombiehorde konnten wir <i class="dagger">†</i> {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!': '¡En medio de esta horda de zombis pudimos descubrir a <i class="dagger">†</i> {citizen}! Después de su muerte en el mundo exterior, este habitante, recién convertido en zombi, ¡debe haber hecho nuevos amigos!'
+'Inmitten dieser Zombiehorde konnten wir <i class="dagger">†</i> {citizen} entdecken! Nach seinem Tod in der Aussenwelt hat dieser frisch in einen Zombie verwandelte Mitbürger wohl neue Freunde gefunden!': '¡En medio de esta horda de zombis pudimos descubrir a <i class="dagger">†</i> {citizen}! Después de su muerte en el mundo exterior, este habitante, recién convertido en zombie, ¡debe haber hecho nuevos amigos!'
 'Von der Stadtverteidigung aufgehalten, kehrte <i class="dagger">†</i> {citizen} grunzend und torkelnd zu seinen neuen verschimmelten Freunden zurück...': 'Sostenido por las defensas del pueblo, <i class="dagger">†</i> {citizen} gruñó y se tambaleó hacia sus nuevos amigos mohosos...'
 'Der Angriff traf auch unsere Verteidigungsgegenstände! Wir haben insgesamt {num} verloren: {list}': '¡El ataque también golpeó nuestras defensas! Perdimos un total de {num}: {list}'
 'vor wenigen Augenblicken': 'hace unos momentos'
@@ -2171,8 +2171,8 @@ Fortfahren...: Continuar...
 'Barhändiger Stripper': 'Stripper con las manos desnudas'
 'Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.': 'Para reparar completamente este edificio, aún tenemos que invertir {remaining} PA.'
 'Niemand ist in der Nähe der Stadt (maximal 2 Felder).': 'No hay nadie cerca del pueblo (2 casillas de distancia máxima).'
-'Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.': 'Algunos habitantes resultaron heridos al intentar oponerse a la horda de zombis.'
-'Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.': 'Algunos habitantes se congelan de miedo mientras intentan enfrentarse a la horda de zombis.'
+'Einige Bürger wurden beim Versuch, sich der Zombiehorde entgegenzustellen, verletzt.': 'Algunos habitantes resultaron heridos al intentar oponerse a la horda de zombies.'
+'Einige Bürger sind beim Versuch, sich der Zombiehorde entgegenzustellen, vor Angst erstarrt.': 'Algunos habitantes se congelan de miedo mientras intentan enfrentarse a la horda de zombies.'
 'Beim Graben ist {citizen} auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...': 'Mientras excavaba, {citizen} se encontró con una especie de... ¡escondite secreto con {items}! Probablemente fue creado por un conhabitante desterrado...'
 'Beim Durchwühlen des Mülls, der am Stadtrand herumliegt, findest du schließlich folgendes: {item}.<hr />Du hast <strong>1 Aktionspunkt(e)</strong> verbraucht.': 'Hurgando en la basura que abunda alrededor del pueblo, lograste encontrar {item}.<hr />Has utilizado <strong>1 Punto de Acción</strong>.'
 'Es ist dir gelungen, {item} von {victim} zu stehlen <strong>ohne entdeckt zu werden</strong>. Nicht schlecht!': 'Has robado {item} a {victim} <strong>sin que nadie se dé cuenta</strong>. ¡Qué hábil eres, eh!'
@@ -2356,12 +2356,12 @@ Stadt/Stadttor: Pueblo/Portal
 '{citizen} hat soeben gemeldet, dass das Stadttor automatisch geschlossen wurde.': '{citizen} nos comenta que las puertas se han cerrado automáticamente.'
 '{num} ehemalige Mitbürger, deren Leichen wir gestern noch entsorgt haben, haben uns heute einen Besuch abgestattet. Wie grotesk!': '{num} antiguos ciudadanos nos han visitado durante el ataque, y eso qué nos habíamos librado de sus cuerpos hace poco... ¡Qué grotesco!'
 'Wir haben heute <i class="dagger">†</i> {citizen} wiedererkannt. Seine Leiche hatten wir gestern erst weggeworfen!': '¡Podíamos reconocer a <i class="dagger">†</i> {citizen}, cuyo cadáver había sido sacado fuera ayer! Ahh la amistad...'
-'Du hast Glück gehabt. Die Zombies wurden noch einmal von den Verteidigungsanlagen der Stadt aufgehalten!': 'De la que os salváis. ¡Los zombis fueron detenidos una vez más por las defensas del pueblo!'
-'Mit deinem letzten Aufbäumen vor dem Tod ist es dir gelungen, die Zombies alt aussehen zu lassen! Bravo!': 'Con un último y valiente esfuerzo habéis conseguido sobrepasar a los zombis. ¡Bravo!'
+'Du hast Glück gehabt. Die Zombies wurden noch einmal von den Verteidigungsanlagen der Stadt aufgehalten!': 'De la que os salváis. ¡Los zombies fueron detenidos una vez más por las defensas del pueblo!'
+'Mit deinem letzten Aufbäumen vor dem Tod ist es dir gelungen, die Zombies alt aussehen zu lassen! Bravo!': 'Con un último y valiente esfuerzo habéis conseguido sobrepasar a los zombies. ¡Bravo!'
 'Schade, dass das die anderen dich nicht mehr sehen können! Du bist ohne Zweifel ein ausgezeichneter Nachtwächter!': 'Es una pena que los demás ya no puedan verte. Es usted, sin duda, un excelente vigilia nocturno.'
 'Nachtwächter {citizen} trug keine Waffe bei sich??!! War das Nachlässigkeit?': '¿El centinela {citizen} no llevaba armas? ¿Habrá sido un descuido?'
 '{citizen} ist es gelungen, die Zone zu verlassen. Allerdings wurde er dabei <strong>schwer verletzt</strong>!': '¡{citizen} logro escapar la zona, aunque fue <strong>gravemente herido</strong>!'
-'{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} ha usado <strong>una habilidad especial</strong>, que ha matado a {zombies} zombies, recuperando así el control de la zona durante <strong>{duration}</strong>.'
+'{citizen} hat eine <strong>Spezialfähigkeit</strong> eingesetzt, {zombies} Zombie(s) getötet und damit die Kontrolle über die Zone für <strong>{duration}</strong> wiedererlangt!': '{citizen} ha utilizado una <strong>capacidad especial</strong> para matar {zombies} zombies y retomar el control de la zona durante <strong>{duration}</strong>!'
 '<strong>Bürger</strong>,<br/>in Anerkennung deiner Leistungen im Kampf gegen die Zombies und als Belohnung für das Erreichen einer Platzierung im Ranking der besten Städte in <i>Saison {season}</i> auf <i>{server}</i> wird dir folgendes verliehen:{pictos}Zudem stehen dir für die Dauer der neuen Saison folgende Hilfsmittel zur Verfügung:{features}<br/><strong>Herzlichen Glückwunsch!</strong>': '<strong>Habitante</strong>,<br/>en reconocimiento a tus logros en la lucha contra los zombies y como recompensa por alcanzar el primer puesto en el ranking de los mejores pueblos en la <i>temporada {season}</i> del <i>{server}</i>, se te otorga lo siguiente: {pictos}Además, las siguientes herramientas estarán a tu disposición durante la nueva temporada:{features}<br/><strong>¡Enhorabuena!</strong>'
 'Brunnen (short)': Pozo
 'Bank (short)': Almacén
