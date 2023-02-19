@@ -1,0 +1,30 @@
+{% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
+
+{% block explorer_content %}
+	<div class="row-table">
+		<div class="row header">
+			<div class="cell rw-1 rw-sm-0 padded"></div>
+			<div class="cell rw-1 rw-sm-0 padded">{{ 'ID'|trans({},'admin') }}</div>
+			<div class="cell rw-1 rw-sm-0 padded">{{ 'Tag'|trans({},'admin') }}</div>
+			<div class="cell rw-2 rw-sm-12 padded">{{ 'Angriff'|trans({},'admin') }}</div>
+			<div class="cell rw-2 rw-sm-0 padded">{{ 'Bereich Min'|trans({},'admin') }}</div>
+			<div class="cell rw-2 rw-sm-0 padded">{{ 'Bereich Max'|trans({},'admin') }}</div>
+		</div>
+		{% for est in town.zombieEstimations %}
+			<div class="row {% if est.day == town.day %}bold{% endif %}">
+				<div class="padded cell rw-1 rw-sm-2">{% if est.day == town.day %}<i class="fa fa-arrow-right"></i>{% endif %}</div>
+				<div class="padded cell rw-1 rw-sm-0">{{ est.id }}</div>
+				<div class="padded cell rw-1 rw-sm-10">{{ est.day }}</div>
+				{% if is_granted("ROLE_ADMIN") or est.day < town.day %}
+					<div class="padded cell rw-2 rw-sm-4">{{ est.zombies }}</div>
+					<div class="padded cell rw-2 rw-sm-4">{{ est.offsetMin }}%</div>
+					<div class="padded cell rw-2 rw-sm-4">{{ est.offsetMax }}%</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+{% endblock %}

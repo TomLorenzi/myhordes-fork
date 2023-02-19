@@ -671,7 +671,7 @@ class MessageTownMessageController extends MessageController
             return AjaxResponse::success( true, ['url' =>
                 $type === 'pm'
                     ? $this->generateUrl('admin_users_citizen_view', ['id' => $recipients[0]->getUser()->getId()])
-                    : $this->generateUrl('admin_town_explorer', ['id' => $parser->get('recipient', '')])
+                    : $this->generateUrl('admin_town_dashboard', ['id' => $parser->get('recipient', '')])
             ] );
         }
     }

@@ -1,0 +1,279 @@
+{% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
+
+{% from "ajax/admin/widget/displays.twig" import widget_citizen %}
+{% from "ajax/admin/widget/controls.twig" import widget_item_creator as item_creator, widget_item_creator_js as item_creator_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_picto_creator as picto_creator, widget_picto_creator_js as picto_creator_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_status_control as status_control, widget_status_control_js as status_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_role_control as role_control, widget_role_control_js as role_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_point_control as point_control, widget_point_control_js as point_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_profession_control as profession_control, widget_profession_control_js as profession_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_teleport_control as teleport_control, widget_teleport_control_js as teleport_control_js %}
+
+{% block explorer_content %}
+	<div class="row">
+		<div class="cell padded rw-6 rw-md-12">
+			<div class="row-table citizens-list">
+				<div class="row header">
+					<div class="padded cell rw-1">
+						<label class="pointer">
+							{{'Rucksack'|trans({}, 'admin')|slice(0,1)}}
+							<input class="hidden" type="checkbox" x-all="1" x-target="rucksack" />
+						</label>
+						<div class="tooltip help">{{'Rucksack'|trans({}, 'admin')}}</div>
+					</div>
+					<div class="padded cell rw-1">
+						<label class="pointer">
+							{{'Truhe'|trans({}, 'admin')|slice(0,1)}}
+							<input class="hidden" type="checkbox" x-all="1" x-target="chest" />
+						</label>
+						<div class="tooltip help">{{'Truhe'|trans({}, 'admin')}}</div>
+					</div>
+					<div class="padded cell rw-1">
+						<label class="pointer">
+							{{'Zone'|trans({}, 'admin')|slice(0,1)}}
+							<input class="hidden" type="checkbox" x-all="1" x-target="zone" />
+						</label>
+						<div class="tooltip help">{{'Zone'|trans({}, 'admin')}}</div>
+					</div>
+					<div class="padded cell left rw-9">
+						<label class="pointer">
+							{{ 'Bürger'|trans({},'game') }}
+							<input class="hidden" type="checkbox" x-all="1" x-target="status" />
+						</label>
+					</div>
+				</div>
+				{% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.name|lower <=> b.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
+					{# @var \App\Entity\Citizen citizen  #}
+					<div x-citizen-id="{{ citizen.id }}" class="row-flex stretch pointer citizen-main" style="max-height: 100px; overflow: hidden">
+						<div class="cell rw-1">
+							{% if citizen.alive %}
+								<label><input type="checkbox" x-id="{{ citizen.id }}" x-target="rucksack" /></label>
+								<div class="tooltip normal">
+									<em>{{ 'Rucksack'|trans({},'admin') }}</em><br />
+									{% for item in citizen.inventory.items %}
+										{# @var \App\Entity\Item item #}
+										<img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+						<div class="cell rw-1">
+							<label><input type="checkbox" x-id="{{ citizen.home.id }}" x-target="chest" /></label>
+							<div class="tooltip normal">
+								{% if citizen.home.chest.items|length == 0 %}
+									<em>{{ 'Leere Truhe'|trans({},'admin') }}</em>
+								{% else %}
+									<em>{{ 'Truhe'|trans({},'admin') }}</em><br />
+								{% endif %}
+								{% for item in citizen.home.chest.items %}
+									{# @var \App\Entity\Item item #}
+									<img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+								{% endfor %}
+							</div>
+						</div>
+						<div class="cell rw-1">
+							{% if citizen.alive and citizen.zone and (citizen.zone.x != 0 or citizen.zone.y != 0) %}
+								<label><input type="checkbox" x-id="{{ citizen.zone.id }}" x-target="zone" /></label>
+								<div class="tooltip normal">
+									{% if citizen.zone.floor.items|length == 0 %}
+										<em>{{ 'Leere Zone'|trans({},'admin') }}</em>
+									{% else %}
+										<em>{{ 'Zone'|trans({},'admin') }}</em><br />
+									{% endif %}
+									{% for item in citizen.zone.floor.items %}
+										{# @var \App\Entity\Item item #}
+										<img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+						<div class="cell rw-1">
+							{% if citizen.alive %}
+								<label><input type="checkbox" x-id="{{ citizen.id }}" x-target="status" /></label>
+								<div class="tooltip normal">{{ widget_citizen(citizen) }}</div>
+							{% endif %}
+						</div>
+						<div style="align-self: center" class="cell factor-0">
+							{% if citizen.user.language is null %}
+								<img style="width: 16px" class="float-right" src="{{ asset("build/images/lang/multi.png") }}" alt="multi" />
+							{% else %}
+								<img style="width: 16px" class="float-right" src="{{ asset("build/images/lang/" ~ citizen.user.language ~ ".png") }}" alt="{{ citizen.user.language }}" />
+							{% endif %}
+						</div>
+						{% include 'ajax/soul/playeravatar.html.twig' with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0','rw-sm-0'], attributes: {style: 'flex-basis: 92px;', ('x-ajax-href'): url('admin_users_citizen_view', {id: citizen.user.id})}} only %}
+						<div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+
+						<div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
+							{% if citizen.banished %}
+								<img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+							{% endif %}
+							{% if not citizen.alive %}
+								<span>
+										<img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+										<div class="tooltip">
+											{{ citizen.causeOfDeath.label|trans({}, 'game') }} - {{ 'Tag'|trans({}, "admin") }} {{ citizen.survivedDays }}
+										</div>
+									</span>
+							{% endif %}
+
+							{% if citizen.profession.heroic %}
+								<img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
+							{% else %}
+								<img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+							{% endif %}
+							<img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
+							<a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
+								<b class="citizen-name">{{ citizen.name }}</b>
+							</a>&nbsp;
+							{% for role in citizen.roles %}
+								<img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">&nbsp;
+							{% endfor %}
+							{% if citizen.alive %}
+								<span class="zone">
+										{% if citizen.zone %}
+											[{{citizen.zone.x}},{{citizen.zone.y}}]
+										{% endif %}
+										</span>
+							{% endif %}
+							{% if citizen.home.description is not null or (citizen.lastWords is not null and citizen.lastWords != '') %}
+								<div>
+									<img src="{{ asset('build/images/forum/r_forum.gif') }}" alt="" />
+									<div class="tooltip normal">
+										{% if citizen.home.description is not null and citizen.home.description != '' %}
+											{{ 'Persönliche Beschreibung:'|trans({},'admin') }} {{ citizen.home.description }}<br />
+										{% endif %}
+										{% if not citizen.alive and citizen.lastWords is not null and citizen.lastWords != '' %}
+											{{ "Letzte Worte:"|trans({}, 'admin') }} {{ citizen.lastWords }}
+										{% endif %}
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+					<div x-citizen-id="{{ citizen.id }}" class="row hidden citizen-details">
+						<div class="cell rw-12">
+							<div class="row">
+								<div class="padded cell rw-12 hidden">
+									<div class="invTargetDesc lightbox"></div>
+									<button data-clear="citizen-custom-message" class="small inline float-right">{{ 'Löschen'|trans({},'admin') }}</button>
+								</div>
+								<div class="padded cell rw-6"><div class="invTargetRucksack"></div></div>
+								<div class="padded cell rw-6"><div class="invTargetChest"></div></div>
+								<div class="padded cell rw-12 soul"><div class="invTargetPictos"></div></div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="row-flex v-center space">
+				<div class="padded cell factor-0 center">
+					<img src="{{ asset("build/images/lang/" ~ town.language ~ ".png") }}" alt="{{ town.language }}" /><br/>
+					{{ 'Stadt'|trans({}, 'game') }}
+				</div>
+				<div class="cell factor-1"></div>
+				{% for lang, count in citizen_langs_alive %}
+					<div class="padded cell factor-0 center">
+						<img src="{{ asset("build/images/lang/" ~ lang ~ ".png") }}" alt="{{ lang }}" /><br/>
+						<b>{{ count }}</b><br />
+						<span class="small">{{ citizen_langs[lang] }}</span>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="cell rw-6 rw-md-12 padded">
+			{% if is_granted("ROLE_ADMIN") %}
+				<div class="padded cell">
+					{{ item_creator(itemPrototypes, 'ctz') }}
+					<hr />
+					{{ teleport_control() }}
+					<hr />
+					{{ picto_creator(pictoPrototypes) }}
+					<hr />
+					{{ profession_control(citizenProfessions) }}
+					<hr />
+					<div class="row">
+						<div class="cell rw-6 rw-md-12">{{ status_control(citizenStati) }}</div>
+						<div class="cell rw-6 rw-md-12">{{ role_control(citizenRoles) }}</div>
+					</div>
+					<hr />
+					{{ point_control() }}
+				</div>
+				<div class="padded cell">
+					<h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
+					<ul>
+						{% for culprit, complaint in complaints %}
+							<li>{{ 'Gegen {culprit}'|trans({'{culprit}': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
+								<ul>
+									{% for cmp in complaint|sort((a,b) => a.autor.name <=> b.autor.name) %}
+										<li>{{ cmp.autor.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
+									{% endfor %}
+								</ul>
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="log">
+						<div class="log-content">
+							{% for log_complaint in all_complaints %}
+								<div class="log-entry log-entry log-entry-type-8 log-entry-class-{{ log_complaint.on ? 1 : 3 }}">
+									<span class="log-part-time" style="width: 120px">{{ log_complaint.time|format_datetime('medium', 'short') }}</span>
+									<span class="log-part-content">
+												<span>{{ log_complaint.from.name }}</span> <i class="fa fa-arrow-right"></i> <span>{{ log_complaint.to.name }}</span>
+												(<i>{{ log_complaint.reason.text|trans({}, 'game') }}</i>)
+											</span>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="padded cell">
+					<h5>{{ 'Stimmen'|trans({}, 'admin') }}</h5>
+					<ul>
+						{% for role in citizenRoles %}
+							{% if role.votable %}
+								<li>{{ role.label|trans({}, 'game')|raw }}
+									<ul>
+										{% for target, autors in votes[role.id]|sort %}
+											<li>{{ 'Für {target}'|trans({"{target}": target}, 'admin') }}
+												<ul>
+													{% for autor in autors %}
+														<li>{{ autor.name }}</li>
+													{% endfor %}
+												</ul>
+											</li>
+										{% endfor %}
+									</ul>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+				<br />
+			{% endif %}
+			{% if is_granted("ROLE_ADMIN") %}
+				<button id="dropall">{{ 'Alle Gegenstände aller Bürger ablegen'|trans({},'admin') }}</button>
+			{% endif %}
+			<button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
+			<input type="hidden" id="pmidrecipient" value="{{ town.id }}">
+			<div id="forum-content"></div>
+
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+	{% if is_granted("ROLE_ADMIN") %}
+		{{ item_creator_js('input[x-id][x-target="rucksack"]:checked,input[x-id][x-target="chest"]:checked,input[x-id][x-target="zone"]:checked', path('admin_spawn_item', {id: town.id}), path('admin_town_citizens', {id: town.id}), 'ctz') }}
+		{{ teleport_control_js('input[x-id][x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
+		{{ picto_creator_js(path('admin_town_give_picto', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
+		{{ status_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
+		{{ role_control_js('input[x-id][x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
+		{{ point_control_js('input[x-id][x-target="status"]:checked', path('admin_town_alter_pp', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
+		{{ profession_control_js('input[x-id][x-target="status"]:checked', path('admin_modify_profession', {id: town.id}), path('admin_town_citizens', {id: town.id})) }}
+	{% endif %}
+	<script>
+        document.getElementById('townpm').addEventListener('click', function(e) {
+            document.getElementById("forum-content").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'global'}) }}', false )
+        });
+	</script>
+{% endblock %}
