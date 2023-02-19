@@ -1774,7 +1774,7 @@ class TownController extends InventoryAwareController
             'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 5 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
             'door_section'      => 'door',
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $time ) )
+            'map_public_json'   => json_encode( $th->get_public_map_blob( $town, $this->getActiveCitizen(), 'door-preview', $time ) )
         ]) );
     }
 
@@ -1803,7 +1803,7 @@ class TownController extends InventoryAwareController
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown()),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+            'map_public_json'   => json_encode( $this->town_handler->get_public_map_blob( $this->getActiveCitizen()->getTown(), $this->getActiveCitizen(), 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
         ]));
     }
 
@@ -1825,7 +1825,7 @@ class TownController extends InventoryAwareController
             'door_section'      => 'planner',
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-planner', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+            'map_public_json'   => json_encode( $this->town_handler->get_public_map_blob($this->getActiveCitizen()->getTown(), $this->getActiveCitizen(), 'door-planner', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
         ]) );
     }
 
