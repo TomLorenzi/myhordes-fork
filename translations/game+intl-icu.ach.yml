@@ -2380,3 +2380,6 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'crwdns136865:0crwdne136865:0'
 'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'crwdns136871:0crwdne136871:0'
 '{num} Aufladungen': 'crwdns136901:0{num}crwdne136901:0'
+'Bürger (list)': 'crwdns136971:0crwdne136971:0'
+'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'crwdns136967:0crwdne136967:0'
+'Du kannst diesen Gegenstand hier nicht ablegen.': 'crwdns136969:0crwdne136969:0'
