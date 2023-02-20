@@ -529,7 +529,8 @@ class HTMLConverterFromBlocks {
                 case 'img':
                     let src = block.getAttribute('src');
                     let alt = block.getAttribute('alt') ?? '';
-                    if (src) ret += HTMLConverterFromBlocks.rangeBlock(alt, 'image', src)
+                    if (src && src.startsWith('/build/images/') && alt) ret += alt;
+                    else if (src) ret += HTMLConverterFromBlocks.rangeBlock(alt, 'image', src)
                     break;
                 case 'link':
                     let href = block.getAttribute('href');
