@@ -527,8 +527,9 @@ class HTMLConverterFromBlocks {
                     ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( block, 'quote' );
                     break;
                 case 'img':
+                    let src = block.getAttribute('src');
                     let alt = block.getAttribute('alt') ?? '';
-                    if (alt) ret += alt;
+                    if (src) ret += HTMLConverterFromBlocks.rangeBlock(alt, 'image', src)
                     break;
                 case 'link':
                     let href = block.getAttribute('href');

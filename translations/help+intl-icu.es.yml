@@ -198,9 +198,9 @@ Außenweltgebäude: Los edificios exteriores
 'Deine Überlebenschancen hängen von zahlreichen Faktoren ab:': 'Tu supervivencia depende además de varios factores:'
 'Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).': 'La presencia de zombies en los alrededores (el peligro puede reducirse si eres un Explorador y estás camuflado).'
 'Anwesenheit anderer Bürger, die sich <strong>vor dir</strong> hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.': 'La presencia de  otros habitantes escondidos allí mismo <strong>antes que tú</strong> (el peligro es mayor porque se es más discreto solo que a 5, por ejemplo).'
-'Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).': 'La presencia de un edificio desenterrado (bonus o penalidad según el edificio. Si acampas en el campo abierto, el peligro aumenta).'
+'Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).': 'La presencia de un edificio desenterrado (bonus o penalización según el edificio. Si acampas en campo abierto, el peligro aumenta).'
 'Präsenz eines <strong> nicht freigeschaufelten</strong> Gebäudes (Vorteil).': 'La presencia de un edificio <strong>enterrado</strong> (bonus).'
-'Die Stadt wurde <strong>zerstört</strong> (großer Nachteil)': 'Pueblo <strong>devastado</strong> (penalidad importante).'
+'Die Stadt wurde <strong>zerstört</strong> (großer Nachteil)': 'Pueblo <strong>devastado</strong> (penalización importante).'
 'Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!': 'Distancia del pueblo: Mientras más lejos estés durante el ataque, ¡mejor será para ti!'
 'Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.': 'Equipamientos especiales (bonus).'
 'Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.': 'Pandemonio: Es muy difícil acampar en un pueblo del Pandemonio.'
@@ -258,7 +258,7 @@ Bein: Pierna
 Auge: Ojo
 'Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.': 'Tus probabilidades de encontrar un objeto en una búsqueda (desierto o edificio) son muy reducidas.'
 Fuß: Pie
-'Bringt dir keine Nachteile.': 'No tiene penalidades adicionales.'
+'Bringt dir keine Nachteile.': 'No tiene penalizaciones adicionales.'
 'Der Rucksack': 'Tu mochila'
 'Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.': 'En ella llevas tus raciones de alimentos, agua y armas. Su capacidad es limitada... tiene 4 compartimentos + 1 reservado a tu ropa de habitante.'
 "<strong>Helden</strong> verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!\nAußerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.": "Si estás en <strong>modo Héroe</strong>, ¡contarás con un compartimento suplementario! Transportarás <strong>además </strong>, la vestimenta de habitante y el uniforme de un oficio."
@@ -345,7 +345,7 @@ Seelenrangliste: La escala de almas (Clasificación)
 'Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.': 'Sin olvidar que: Si el creador abandona la alianza, ésta desaparece.'
 'Ausnahmen und Besonderheiten': 'Reglas particulares'
 'Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.': 'No puedes unirte a una alianza que tenga como miembro a un jugador detectado como multicuenta.'
-'Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.': 'Además, no pudes ingresar a una alianza si 2 miembros (o más) de esa alianza se han conectado desde el mismo PC, en los últimos 15 días.'
+'Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.': 'Además, no puedes ingresar a una alianza si 2 miembros (o más) de esa alianza se han conectado desde el mismo PC, en los últimos 15 días.'
 "Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support \t\nwenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.\nACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....": "Si crees que esto ha sido detectado erróneamente, contacta al soporte técnico: haremos lo necesario para ayudarte.<br />ADVERTENCIA: te recomendamos encarecidamente que no los contactes si es que estás equivocado, ya que podrías llegar a arrepentirte."
 'Häufig gestellte Fragen': 'Preguntas y respuestas'
 'Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?': 'Cuando el jugador que ha creado la alianza entra al pueblo, ¿TODA la alianza entra con él (incluso aquellos que no están conectados)?'
@@ -749,7 +749,7 @@ Nutzungsbedingungen: Condiciones de uso
 Weiter...: Siguiente...
 'An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.': 'Aquí se muestran los objetos que puedes usar.'
 '<strong>Klick auf einen Link, um einen Gegenstand zu verwenden (z.B.: eine Kiste öffnen, Essen, Trinken usw...).</strong>': '<strong>Has clic en un enlace para usar un objeto (por ejemplo: abrir una caja, comer, beber, etc.)</strong>'
-'"MyHordes" ist ein Survivalspiel, das in der Gruppe gespielt wird. Die Welt, in der ihr "lebt", ist von entsetzlichen Kreaturen bevölkert, den sogenannten <strong>Zombies</strong>.': '"MyHordes" es un juego de <strong>cooperación y supervivencia.</strong> El mundo en el que vives está habitado por horribles criaturas llamadas <strong>Zombis</strong>.'
+'"MyHordes" ist ein Survivalspiel, das in der Gruppe gespielt wird. Die Welt, in der ihr "lebt", ist von entsetzlichen Kreaturen bevölkert, den sogenannten <strong>Zombies</strong>.': '"MyHordes" es un juego de <strong>cooperación y supervivencia.</strong> El mundo en el que vives está habitado por horribles criaturas llamadas <strong>Zombies</strong>.'
 'Jeden Abend <strong>um Mitternacht</strong> strömen diese Kreaturen in die Stadt, um euch aufzufressen.': 'Cada <strong>noche</strong>, estas criaturas se reunirán en masa para atacar tu pueblo'
 '<strong>Das einzige, was euch zum Überleben bleibt, ist Wasser!</strong>': '<strong>¡Lo único que te hace falta para sobrevivir es agua!</strong>'
 'Wasser besitzt neben seiner lebenserhaltenden Funktion auch die Eigenschaft gegen die Wüstenkreaturen wirksam zu sein.': 'El agua, además de ser un recurso vital, es tu principal arma para combatir a esos monstruos'

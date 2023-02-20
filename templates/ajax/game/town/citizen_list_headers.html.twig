@@ -1,6 +1,6 @@
 <ul class="tabs plain">
     <li class="tab {% if active_tab is defined and active_tab == 'list' %}selected{% endif %}">
-        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens') }}">{{ 'Bürger (list)'|trans({},'game') }}</div>
     </li>
 
     {% if not town.chaos %}

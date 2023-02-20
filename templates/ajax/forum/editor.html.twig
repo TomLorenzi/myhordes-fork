@@ -200,7 +200,7 @@
                     {% endif %}
                     <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
                         <div class="forum-button-bar">
-                            {% for tag,url in emotes %}
+                            {% for tag,url in emotes|sort((a,b) => a.orderIndex <=> b.orderIndex) %}
                                 <div x-forum-action="edit" x-text-emote="{% if url['i18n'] %}{{ asset(url['display']|replace({'{lang}': emote_lang})) }}{% else %}{{ asset(url['display']) }}{% endif %}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{% if url['i18n'] %}{{ asset(url['display']|replace({'{lang}': emote_lang })) }}{% else %}{{ asset(url['display']) }}{% endif %}"></div>
                             {% endfor %}
                         </div>

@@ -59,10 +59,10 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'drug_random_#00'           => 8,
                 'disinfect_#00'             => 3,
                 'drug_#00'                  => 10,
-                'vodka_#00'                 => 10,
+                'vodka_#00'                 => 7, //original : 10 (0,8446%)
                 //'vodka_de_#00'            => 10,
                 'pet_rat_#00'               => 7,
-                'rhum_#00'                  => 5,
+                'rhum_#00'                  => 3, //original : 3 (0,4223%)
                 'hmeat_#00'                 => 2,
                 'bandage_#00'               => 3,
                 'xanax_#00'                 => 4,
@@ -163,7 +163,7 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'cinema_#00'                => 1,
 
                 // Die Verdammten
-                'fest_#00'                  => 10,
+                'fest_#00'                  => 4, //original : 10 (0,8446%)
                 'bretz_#00'                 => 8,
                 'tekel_#00'                 => 8,
             ),

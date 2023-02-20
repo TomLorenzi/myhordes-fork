@@ -124,6 +124,7 @@ class MigrateCommand extends Command
         //'02450bd175f6937e4c3d9641d1249beff1a414b3' => [ ['app:media:compress', [] ] ]
         '8a87dbab808e1222eda7d7a9e3677096d40a43f3' => [ ['app:migrate', ['--fix-soul-picto-count' => true] ] ],
         '4fa1ae01cc1262eb707769291a0ba43ca9579134' => [ ["app:migrate", ['--fix-fixtures' => true ] ] ],
+        '26fbeee45f182a400a8c051ce2f2a5b93cd99dcf' => [ ["app:migrate", ['--fix-town-forum-names' => true ] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -227,6 +228,7 @@ class MigrateCommand extends Command
 
             ->addOption('fix-soul-picto-count', null, InputOption::VALUE_NONE, '')
             ->addOption('fix-fixtures', null, InputOption::VALUE_NONE, 'Fix fixtures with duplicate keys')
+            ->addOption('fix-town-forum-names', null, InputOption::VALUE_NONE, 'Fix town forum names')
         ;
     }
 
@@ -1380,6 +1382,18 @@ class MigrateCommand extends Command
 
         }
 
+        if ($input->getOption('fix-town-forum-names')) {
+            $this->helper->leChunk($output, Town::class, 5, [], true, false, function(Town $town) {
+
+                if ($town->getForum()->getTitle() !== $town->getName())
+                    $this->entity_manager->persist( $town->getForum()->setTitle( $town->getName() ) );
+
+                return false;
+
+            }, true);
+        }
+
         return 99;
     }
+
 }
