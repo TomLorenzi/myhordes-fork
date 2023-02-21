@@ -101,7 +101,7 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'car_door_part_#00'         => 1,
 
                 // Misc
-                'bag_#00'                   => 12,
+                'bag_#00'                   => 8, //original : 12 (1.02%)
                 'cart_part_#00'             => 3,
                 'repair_kit_part_raw_#00'   => 3,
                 'repair_one_#00'            => 9,
@@ -165,7 +165,7 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 // Die Verdammten
                 'fest_#00'                  => 4, //original : 10 (0,8446%)
                 'bretz_#00'                 => 8,
-                'tekel_#00'                 => 8,
+                'tekel_#00'                 => 4, //original : 8 (0.682%)
             ),
             'christmas_dig' => [
                 'christmas_suit_1_#00'      => 8,
