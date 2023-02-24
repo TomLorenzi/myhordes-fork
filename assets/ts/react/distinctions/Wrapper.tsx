@@ -42,7 +42,10 @@ const Distinctions = (
     const [strings, setStrings] = useState<TranslationStrings>(null)
     const [data, setData] = useState<ResponseDistinctions>(null)
     const [showingAwards, setShowingAwards] = useState<boolean>(false);
-    const [dragging, setDragging] = useState<{ x: number, y: number, id: number, orig: {x: number, y: number} }>(null);
+    const [dragging, setDragging] = useState<{ id: number }>(null);
+
+    const currentNode = useRef<HTMLDivElement>();
+    const currentDrag = useRef<{ cur: { x: number, y: number }, orig: {x: number, y: number}, handled: boolean }>( { cur: { x: 0, y: 0 }, orig: {x: 0, y: 0}, handled: false } );
 
     useEffect( () => {
         apiRef.current.index().then(s => setStrings(s.strings) );
@@ -63,7 +66,9 @@ const Distinctions = (
 
     const ev_pointerDown = (id: number): PointerEventHandler<HTMLDivElement> => {
         return event => {
-            setDragging({id, x: 0, y: 0, orig: { x: event.pageX, y: event.pageY }} );
+            currentNode.current = (event.target as HTMLDivElement).closest('.picto') as HTMLDivElement;
+            currentDrag.current = { cur: {x: 0, y: 0}, orig: {x: event.pageX, y: event.pageY}, handled: false }
+            setDragging({id} );
             event.preventDefault();
         }
     }
@@ -86,6 +91,16 @@ const Distinctions = (
                 setData( {...data, top3: d.updated} );
             })
 
+            currentDrag.current.handled = true;
+            const target = currentNode.current;
+            const animation = target.animate([
+                {transform: 'scale(1)', opacity: 1, left: `${currentDrag.current.cur.x}px`, top: `${currentDrag.current.cur.y}px`,  pointerEvents: 'none'},
+                {transform: 'scale(0)', opacity: 0, left: `${currentDrag.current.cur.x}px`, top: `${currentDrag.current.cur.y}px`,  pointerEvents: 'none', offset: 0.45},
+                {transform: 'scale(0)', opacity: 0, left: "0", top: "0",  pointerEvents: 'none', offset: 0.55},
+                {transform: 'scale(1)', opacity: 1, left: "0", top: "0", pointerEvents: 'none'}
+            ], {duration: 1000, easing: 'ease-out'});
+            animation.oncancel = animation.onfinish = () => target.style.pointerEvents = target.style.left = target.style.top = null;
+
             event.preventDefault();
         }
     }
@@ -95,11 +110,20 @@ const Distinctions = (
 
         const ev_pointerUp = function(this: HTMLBodyElement, event: PointerEvent) {
             setDragging(null );
+            if (!currentDrag.current.handled) {
+                const target = currentNode.current;
+                const animation = target.animate([
+                    {left: `${currentDrag.current.cur.x}px`, top: `${currentDrag.current.cur.y}px`, pointerEvents: 'none'},
+                    {left: "0", top: "0", pointerEvents: 'none'}
+                ], {duration: 100, easing: 'ease-out'});
+                animation.oncancel = animation.onfinish = () => target.style.pointerEvents = target.style.left = target.style.top = null;
+            }
             event.preventDefault();
         }
 
         const ev_pointerMove = function(this: HTMLBodyElement, event: PointerEvent) {
-            setDragging({...dragging, x: event.pageX - dragging.orig.x, y: event.pageY - dragging.orig.y });
+            currentNode.current.style.left = `${currentDrag.current.cur.x = event.pageX - currentDrag.current.orig.x}px`;
+            currentNode.current.style.top  = `${currentDrag.current.cur.y = event.pageY - currentDrag.current.orig.y}px`;
             event.preventDefault();
         }
 
@@ -169,7 +193,6 @@ const Distinctions = (
                                 <div
                                     key={p.id} className={`picto ${p.rare ? 'rare' : ''} ${interactive ? 'draggable' : ''} ${p.id === dragging?.id ? 'dragging' : ''}`}
                                     onPointerDown={interactive ? ev_pointerDown(p.id) : ()=>{}}
-                                    style={ p.id === dragging?.id ? {left: `${dragging.x}px`, top: `${dragging.y}px`} : {} }
                                 >
                                     <div>
                                         <img alt="" src={p.icon}/><br/>
