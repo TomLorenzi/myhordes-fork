@@ -26,9 +26,9 @@
                       x-ajax-href="{{ path('soul_heroskill') }}">{{ 'Alle freigeschalteten Vorteile anzeigen'|trans({}, 'game') }}</span>
             </div>
         </div>
-        <div class="cell rw-5 rw-sm-12 center">
+        <div class="cell rw-5 rw-sm-12 center padded ">
             <hordes-distinctions data-plain="0" data-source="soul" data-user="{{ app.user.id }}" data-interactive="1"></hordes-distinctions>
-            <br/>
+            <div class="help small"><span class="small">{{ 'Hinweis: Du kannst auswählen, welche 3 Auszeichnungen du anderen Spielern präsentieren möchtest, indem du eine deiner Auszeichnungen in die dafür vorgesehene Box ziehst.'|trans({}, 'soul') }}</span></div>
             <a href="#" class="small" x-ajax-href="{{ path('soul_pictos_all', {id: app.user.id}) }}" >{{ 'Details'|trans({},'soul') }}</a>
         </div>
         <div class="cell padded rw-7 rw-sm-12">
