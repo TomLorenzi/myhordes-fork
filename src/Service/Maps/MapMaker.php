@@ -251,7 +251,7 @@ class MapMaker
             $empty_surrounding_zones = [];
             for ($x = $zone->getX() - 1; $x <= $zone->getX() + 1; $x++)
                 for ($y = $zone->getY() - 1; $y <= $zone->getY() + 1; $y++)
-                    if (isset( $zone_db[$x] ) && isset($zone_db[$x][$y]) && $zone_db[$x][$y] === 0)
+                    if (isset( $zone_db[$x] ) && isset($zone_db[$x][$y]) && $zone_db[$x][$y] === 0 && ($x !== 0 || $y !== 0))
                         $empty_surrounding_zones[] = [$x,$y];
 
             $picked = $this->random->pick( $empty_surrounding_zones, mt_rand( 2, 5 ), true );
@@ -260,8 +260,8 @@ class MapMaker
 
         foreach ($zones as $zone)
             $zone
-                ->setZombies( $zone_db[$zone->getX()][$zone->getY()] )
-                ->setInitialZombies( $zone_db[$zone->getX()][$zone->getY()] )
+                ->setZombies( $zone->isTownZone() ? 0 : $zone_db[$zone->getX()][$zone->getY()] )
+                ->setInitialZombies( $zone->isTownZone() ? 0 : $zone_db[$zone->getX()][$zone->getY()] )
                 ->setScoutEstimationOffset( mt_rand(-2,2) )
                 ->setPlayerDeaths(0);
     }
@@ -412,8 +412,8 @@ class MapMaker
             if ($zone->getX() === 0 && $zone->getY() === 0) continue;
 
             $zombies = max( 0, $zone_db[$zone->getX()][$zone->getY()] );
-            $zone->setZombies( max(0, floor($zombies - $despair_db[$zone->getX()][$zone->getY()] )));
-            $zone->setInitialZombies( $zombies );
+            $zone->setZombies( $zone->isTownZone() ? 0 : max(0, floor($zombies - $despair_db[$zone->getX()][$zone->getY()] )));
+            $zone->setInitialZombies( $zone->isTownZone() ? 0 : $zombies );
             $zone->setPlayerDeaths(0 );
         }
     }
