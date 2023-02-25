@@ -10,6 +10,50 @@ export interface AjaxV1Response {
     message?: string,
 }
 
+class FetchCacheEntry {
+
+    private content: any = null;
+    private generator: (() => Promise<any>)|null = null;
+    private resolvers: ((v:any) => void)[] = [];
+    private rejectors: ((v:any) => void)[] = [];
+
+    constructor( fn: () => Promise<any> ) {
+        this.generator = fn;
+    }
+
+    /**
+     * Returns a promise to the cached value. Will cause the promise generator to be executed on first access.
+     */
+    public get data(): Promise<any> {
+        return new Promise<any>((resolve,reject) => {
+            // If the generator is still cached, we have no result yet
+            if (this.generator) {
+                // Push the resolver / rejector to the queue
+                this.resolvers.push(resolve);
+                this.rejectors.push(reject);
+                // If this function was called for the first time, execute the promise generator
+                if (this.resolvers.length === 1) this.generator()
+                    .then(result => {
+                        // If the internal promise is resolved, store the result, delete the generator (as it is no
+                        // longer needed) and execute all cached resolvers
+                        this.content = result;
+                        this.generator = null;
+                        this.resolvers.forEach( f => f(result) );
+                        this.resolvers = this.rejectors = [];
+                    }).catch(result => {
+                        // If the internal promise is rejected, execute all cached rejectors. Afterwards, a call to this
+                        // function may re-run the promise generator
+                        this.rejectors.forEach( f => f(result) );
+                        this.resolvers = this.rejectors = [];
+                    });
+            // Without a generator, simply resolve to the cached data value
+            } else resolve(this.content);
+        });
+    }
+}
+
+let fetch_catch = new Map<string,FetchCacheEntry>;
+
 class FetchBuilder {
 
     private readonly url: string;
@@ -17,6 +61,9 @@ class FetchBuilder {
     private readonly f_then: (Response) => Promise<any>
     private readonly f_catch: (any) => Promise<any>
     private f_before: (()=>void)[]
+
+    private cache_id: string|null = null;
+    private use_cache: boolean = false;
 
     constructor(url: string, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
         this.url = url;
@@ -35,16 +82,38 @@ class FetchBuilder {
         }
     }
 
+
     private execute(method: string, body?: object): Promise<any> {
         this.f_before.map(fn=>fn());
-        return fetch( this.url, body ? {
-                method,
-                body: JSON.stringify( body ),
-                ...this.request
+
+        const make_promise = () => fetch( this.url, body ? {
+            method,
+            body: JSON.stringify( body ),
+            ...this.request
         } : {
             method,
             ...this.request
-        } ).then(this.f_then, this.f_catch)
+        } );
+
+        // If cache is enable, we check if the same request has previously been executed. If not, we create a new cache
+        // entry that will resolve itself as soon as it is accessed. Otherwise, we will return the existing entry (that
+        // may already be pending or even resolved)
+        if (this.use_cache) {
+            const full_identifier = `${method}//${this.url}${body ? `//${JSON.stringify( body )}` : ''}${this.cache_id ? `//${this.cache_id}` : ''}`;
+            if (fetch_catch.has( full_identifier ))
+                return fetch_catch.get(full_identifier).data;
+            else {
+                const entry = new FetchCacheEntry(make_promise);
+                fetch_catch.set( full_identifier, entry );
+                return entry.data;
+            }
+        } else return make_promise().then(this.f_then, this.f_catch);
+    }
+
+    public withCache(identifier: string|null = null): FetchBuilder {
+        this.use_cache = true;
+        this.cache_id = identifier;
+        return this;
     }
 
     public before(fn: ()=>void): FetchBuilder { this.f_before.push( fn ); return this; }

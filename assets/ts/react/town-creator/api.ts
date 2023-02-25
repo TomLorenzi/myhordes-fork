@@ -129,7 +129,7 @@ export class TownCreatorAPI {
 
     public index(): Promise<ResponseIndex> {
         return this.fetch.from('/')
-            .request().get() as Promise<ResponseIndex>;
+            .request().withCache().get() as Promise<ResponseIndex>;
     }
 
     public townList(): Promise<ResponseTownList> {

@@ -48,7 +48,7 @@ export class SoulDistinctionAPI {
 
     public index(): Promise<ResponseIndex> {
         return this.fetch.from('/')
-            .request().get() as Promise<ResponseIndex>;
+            .request().withCache().get() as Promise<ResponseIndex>;
     }
 
     public data(user: number, source: string = 'soul'): Promise<ResponseDistinctions> {
