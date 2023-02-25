@@ -24,16 +24,26 @@ class FetchCacheEntry {
     private enhanceResponse(r: Response): Response {
         let json = null;
         let json_cached = false;
+        let promise = null;
+        let promises = [], rejectors = [];
         return new Proxy<Response>( r, {
             get(target: Response, p: string|symbol): any {
                 if (p === 'json') {
-                    if (json_cached) return ()=>new Promise<any>(e => e( json ));
-                    else return ()=>new Promise<any>(e =>
-                        target.json().then(v => {
-                            json_cached = true;
-                            return json = v;
-                        }).then(v => e(v))
-                    );
+                    return ()=>new Promise<any>((p,r) => {
+                        if (json_cached) p(json);
+                        else {
+                            promises.push(p);
+                            rejectors.push(r);
+                            if (promise === null) {
+                                promise = new Promise<any>(e =>
+                                    target.json().then(v => {
+                                        json_cached = true;
+                                        promises.forEach(f=>f(json = v));
+                                    }).catch(v => rejectors.forEach(f=>f(v)))
+                                );
+                            }
+                        }
+                    })
                 }
                 return target[p];
             }
@@ -232,6 +242,7 @@ export class Fetch {
         let data = undefined;
         try {
             data = await response.json();
+            console.log('data', data);
         } catch (_) {}
 
         let error_code = data?.error ?? null;
