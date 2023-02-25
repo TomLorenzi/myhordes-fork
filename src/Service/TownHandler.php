@@ -671,12 +671,17 @@ class TownHandler
     }
 
     public function calculate_offsets(&$offsetMin, &$offsetMax, $nbRound, $min_spread = 10){
-        for ($i = 0; $i < min($nbRound, 24); $i++) {
+        $end = min($nbRound, 24);
+
+        for ($i = 0; $i < $end; $i++) {
+            $spendable = (max(0, $offsetMin - 3) + max(0, $offsetMax - 3)) / ($end - $i);
+            $calc_next = fn() => mt_rand( floor($spendable * 250), floor($spendable * 1000) ) / 1000.0;
+
             if ($offsetMin + $offsetMax > $min_spread) {
                 $increase_min = $this->random->chance($offsetMin / ($offsetMin + $offsetMax));
-                $alter = mt_rand(500, 2000) / 1000.0;
+                $alter = $calc_next();
                 if ($this->random->chance(0.25)){
-                    $alterMax = mt_rand(500, 2000) / 1000.0;
+                    $alterMax = $calc_next();
                     if($offsetMin > 3)
                         $offsetMin -= $alter;
                     if($offsetMax > 3)
