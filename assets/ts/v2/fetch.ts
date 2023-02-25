@@ -21,10 +21,29 @@ class FetchCacheEntry {
         this.generator = fn;
     }
 
+    private enhanceResponse(r: Response): Response {
+        let json = null;
+        let json_cached = false;
+        return new Proxy<Response>( r, {
+            get(target: Response, p: string|symbol): any {
+                if (p === 'json') {
+                    if (json_cached) return ()=>new Promise<any>(e => e( json ));
+                    else return ()=>new Promise<any>(e =>
+                        target.json().then(v => {
+                            json_cached = true;
+                            return json = v;
+                        }).then(v => e(v))
+                    );
+                }
+                return target[p];
+            }
+        } )
+    }
+
     /**
      * Returns a promise to the cached value. Will cause the promise generator to be executed on first access.
      */
-    public get data(): Promise<any> {
+    public get resolve(): Promise<any> {
         return new Promise<any>((resolve,reject) => {
             // If the generator is still cached, we have no result yet
             if (this.generator) {
@@ -36,9 +55,10 @@ class FetchCacheEntry {
                     .then(result => {
                         // If the internal promise is resolved, store the result, delete the generator (as it is no
                         // longer needed) and execute all cached resolvers
-                        this.content = result;
+                        const proxy = this.enhanceResponse(result);
+                        this.content = proxy;
                         this.generator = null;
-                        this.resolvers.forEach( f => f(result) );
+                        this.resolvers.forEach( f => f(proxy) );
                         this.resolvers = this.rejectors = [];
                     }).catch(result => {
                         // If the internal promise is rejected, execute all cached rejectors. Afterwards, a call to this
@@ -101,11 +121,11 @@ class FetchBuilder {
         if (this.use_cache) {
             const full_identifier = `${method}//${this.url}${body ? `//${JSON.stringify( body )}` : ''}${this.cache_id ? `//${this.cache_id}` : ''}`;
             if (fetch_catch.has( full_identifier ))
-                return fetch_catch.get(full_identifier).data;
+                return fetch_catch.get(full_identifier).resolve.then(this.f_then, this.f_catch);
             else {
                 const entry = new FetchCacheEntry(make_promise);
                 fetch_catch.set( full_identifier, entry );
-                return entry.data;
+                return entry.resolve.then(this.f_then, this.f_catch);
             }
         } else return make_promise().then(this.f_then, this.f_catch);
     }

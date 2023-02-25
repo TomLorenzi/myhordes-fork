@@ -4,7 +4,13 @@
     "downlevelIteration": true,
     "target": "es2018",
     "moduleResolution": "node",
-    "lib": ["dom", "ScriptHost","es2021"],
+    "lib": [
+      "dom",
+      "ScriptHost",
+      "es6",
+      "es2020",
+      "es2021"
+    ],
     "jsx": "react"
   }
 }
