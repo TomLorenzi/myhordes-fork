@@ -95,10 +95,10 @@ const Distinctions = (
             const target = currentNode.current;
             const animation = target.animate([
                 {transform: 'scale(1)', opacity: 1, left: `${currentDrag.current.cur.x}px`, top: `${currentDrag.current.cur.y}px`,  pointerEvents: 'none'},
-                {transform: 'scale(0)', opacity: 0, left: `${currentDrag.current.cur.x}px`, top: `${currentDrag.current.cur.y}px`,  pointerEvents: 'none', offset: 0.45},
-                {transform: 'scale(0)', opacity: 0, left: "0", top: "0",  pointerEvents: 'none', offset: 0.55},
+                {transform: 'scale(0)', opacity: 0, left: `${currentDrag.current.cur.x}px`, top: `${currentDrag.current.cur.y}px`,  pointerEvents: 'none', offset: 0.90},
+                {transform: 'scale(0)', opacity: 0, left: "0", top: "0",  pointerEvents: 'none', offset: 0.95},
                 {transform: 'scale(1)', opacity: 1, left: "0", top: "0", pointerEvents: 'none'}
-            ], {duration: 1000, easing: 'ease-out'});
+            ], {duration: 500, easing: 'ease-out'});
             animation.oncancel = animation.onfinish = () => target.style.pointerEvents = target.style.left = target.style.top = null;
 
             event.preventDefault();
