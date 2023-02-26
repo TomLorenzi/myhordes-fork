@@ -17,6 +17,8 @@ use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneActivityMarker;
+use App\Enum\ZoneActivityMarkerType;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
 use App\Translation\T;
@@ -221,6 +223,8 @@ class ZoneHandler
             return $active === $t->getCitizen() || ($t->getCitizen()->getEscortSettings() && $t->getCitizen()->getEscortSettings()->getLeader() === $active);
         }) : $dig_timers_relevant;
 
+        $all_events = $this->conf->getCurrentEvents( $zone->getTown() );
+
         foreach ($active_dig_timers as &$executable_timer ) {
 
             $current_citizen = $executable_timer->getCitizen();
@@ -233,13 +237,34 @@ class ZoneHandler
                 $executable_timer->setDigCache(null);
             else foreach ($executable_timer->getDigCache() as $time => $mode) {
 
-                $item_prototype = match ($mode) {
-                    -1 => null,
-                    0 => $this->random_generator->pickItemPrototypeFromGroup($empty_group, $conf),
-                    1 => $this->random_generator->pickItemPrototypeFromGroup($base_group, $conf),
-                    2 => $this->random_generator->pickItemPrototypeFromGroup($event_group ?? $base_group, $conf),
-                    default => null,
-                };
+                $redraw = false; $redraw_count = 0; $itemMarkerType = null;
+
+                do {
+                    $redraw_count++;
+                    $item_prototype = match ($mode) {
+                        -1 => null,
+                        0 => $this->random_generator->pickItemPrototypeFromGroup($empty_group, $conf, $all_events),
+                        1 => $this->random_generator->pickItemPrototypeFromGroup($base_group, $conf, $all_events),
+                        2 => $this->random_generator->pickItemPrototypeFromGroup($event_group ?? $base_group, $conf, $all_events),
+                        default => null,
+                    };
+
+                    $itemMarkerType = $item_prototype ? ZoneActivityMarkerType::scavengedItemIncurs( $item_prototype ) : null;
+                    $itemLimit = $itemMarkerType?->configuredLimit( $conf ) ?? -1;
+
+                    if ($itemLimit >= 0 && $itemMarkerType)
+                        $redraw = $zone->getTown()->getTownZone()->getActivityMarkersFor( $itemMarkerType )->count() >= $itemLimit;
+                    else $redraw = false;
+
+                    if ($redraw && $redraw_count >= 10) $item_prototype = null;
+
+                } while ($redraw && $redraw_count < 10);
+
+                if ($itemMarkerType && $item_prototype) $this->entity_manager->persist($zone->getTown()->getTownZone()->addActivityMarker( (new ZoneActivityMarker())
+                    ->setCitizen( $current_citizen )
+                    ->setTimestamp( new DateTime() )
+                    ->setType( $itemMarkerType )
+                ));
 
                 $zone_update = true;
 

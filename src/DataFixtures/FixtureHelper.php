@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
+use App\Enum\DropMod;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -21,15 +22,18 @@ class FixtureHelper extends Fixture
         else $group->getEntries()->clear();
 
         foreach ($data as $key => $entry) {
-            if (is_array($entry))
-                list($name,$count) = [$entry['item'],$entry['count']];
-            else list($name,$count) = [$key,$entry];
+            if (is_array($entry) && isset($entry['item']))
+                list($name,$count,$mod) = [$entry['item'],$entry['count'],$entry['mod'] ?? DropMod::None];
+            elseif (is_array($entry))
+                list($name,$count,$mod) = [$key,$entry[0],$entry[1]];
+            else list($name,$count,$mod) = [$key,$entry,DropMod::None];
 
             $pt = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
             if ($pt === null) throw new \Exception("Cannot locate item prototype '$name'!");
             $group->addEntry(
                 (new ItemGroupEntry())
                     ->setChance( (int)$count )
+                    ->setModContent($mod)
                     ->setPrototype( $pt )
             );
         }

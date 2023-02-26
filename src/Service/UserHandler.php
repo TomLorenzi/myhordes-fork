@@ -682,7 +682,8 @@ class UserHandler
                 $member->getUser()->getLastActionTimestamp() !== null &&
                 ($timeout <= 0 || $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - $timeout)) &&
                 $member->getUser()->getActiveCitizen() === null &&
-                !$this->getConsecutiveDeathLock($member->getUser())
+                !$this->getConsecutiveDeathLock($member->getUser()) &&
+                !$this->isRestricted( $member->getUser(), AccountRestriction::RestrictionGameplay )
             ) {
                 if ($member->getUser() === $user) $active = true;
                 else $valid_members[] = $member->getUser();

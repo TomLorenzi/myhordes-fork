@@ -317,18 +317,20 @@ class WebController extends CustomAbstractController
      * @GateKeeperProfile("skip")
      * @return Response
      */
-    public function rescue_mode_lang_ach( ): Response
+    public function rescue_mode_lang_ach( SessionInterface $session ): Response
     {
         if (!$this->isGranted('ROLE_USER'))
             return $this->redirect($this->generateUrl('home'));
 
         if (!($user = $this->getUser())) return $this->redirect($this->generateUrl('home'));
         
-        if ($user->getLanguage() === 'ach')
-            $user->setLanguage( $this->getUserLanguage( true ) );
+        if ($user->getLanguage() === 'ach') {
+            $user->setLanguage($this->getUserLanguage(true));
 
-        $this->entity_manager->persist( $user );
-        $this->entity_manager->flush();
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+            $session->set('_user_lang',$user->getLanguage());
+        }
 
         return $this->redirect($this->generateUrl('home'));
     }

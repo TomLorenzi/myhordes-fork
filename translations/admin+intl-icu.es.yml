@@ -325,7 +325,7 @@ Ref-Name: Nombre de referencia
 'Gesponsort von': 'Patrocinado por'
 'Gesponsorte Spieler': 'Jugadores patrocinados'
 'Zombie-Spread ausführen': 'Activar repoblación de zombies'
-'Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).': 'Formato: "{x0}/{y0}:{x1}/{y1},{zombies}" (zona) o "{x}/{y},{zombies}" (zona única), por ejemplo "-1/3:-4/2,5". Se puede utilizar "all" en lugar de una posición. En lugar de un valor numérico para el número de zombies, puedes utilizar "today" (número de zombis después del último ataque) o "initial" (número de zombis en el día 1).'
+'Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).': 'Formato: "{x0}/{y0}:{x1}/{y1},{zombies}" (zona) o "{x}/{y},{zombies}" (zona única), por ejemplo "-1/3:-4/2,5". Se puede utilizar "all" en lugar de una posición. En lugar de un valor numérico para el número de zombies, puedes utilizar "today" (número de zombies después del último ataque) o "initial" (número de zombies en el día 1).'
 'Zombies setzen': 'Establecer el número de zombies'
 'Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)': 'Basado en el día (dejar en blanco para usar el día actual)'
 Gruppen: Grupos

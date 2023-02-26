@@ -2,6 +2,7 @@
 
 namespace MyHordes\Fixtures\Service;
 
+use App\Enum\DropMod;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ItemGroupDataService implements FixtureProcessorInterface {
@@ -59,10 +60,10 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'drug_random_#00'           => 8,
                 'disinfect_#00'             => 3,
                 'drug_#00'                  => 10,
-                'vodka_#00'                 => 10,
+                'vodka_#00'                 => 7, //original : 10 (0,8446%)
                 //'vodka_de_#00'            => 10,
                 'pet_rat_#00'               => 7,
-                'rhum_#00'                  => 5,
+                'rhum_#00'                  => 3, //original : 3 (0,4223%)
                 'hmeat_#00'                 => 2,
                 'bandage_#00'               => 3,
                 'xanax_#00'                 => 4,
@@ -75,7 +76,7 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'chama_#00'                 => 1,
                 'beta_drug_bad_#00'         => 1,
                 'water_can_empty_#00'       => 1,
-                'cadaver_#00'               => 1,
+                'cadaver_#00'               => [1, DropMod::Ghouls],
 
                 // Boxes
                 'chest_#00'                 => 8,
@@ -101,7 +102,7 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'car_door_part_#00'         => 1,
 
                 // Misc
-                'bag_#00'                   => 12,
+                'bag_#00'                   => 8, //original : 12 (1.02%)
                 'cart_part_#00'             => 3,
                 'repair_kit_part_raw_#00'   => 3,
                 'repair_one_#00'            => 9,
@@ -130,10 +131,10 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'pilegun_upkit_#00'         => 1,
                 'money_#00'                 => 1,
                 'wood_log_#00'              => 2,
-                'sheet_#00'                 => 1,
-                'out_def_#00'               => 2,
-                'smelly_meat_#00'           => 1,
-                'maglite_off_#00'           => 1,
+                'sheet_#00'                 => [1, DropMod::Camp],
+                'out_def_#00'               => [2, DropMod::Camp],
+                'smelly_meat_#00'           => [1, DropMod::Camp],
+                'maglite_off_#00'           => [1, DropMod::NightMode],
                 'smoke_bomb_#00'            => 9,
                 'bplan_drop_#00'            => 15,
 
@@ -143,56 +144,51 @@ class ItemGroupDataService implements FixtureProcessorInterface {
                 'book_gen_box_#00'          => 2,
                 'postal_box_#00'            => 1,
                 'rp_twin_#00'               => 1,
-                'badge_#00'                 => 3,
+                'badge_#00'                 => [3, DropMod::Anzac],
 
                 // Items added Sept 2013
-                'wire_#00'                  => 8,
-                'oilcan_#00'                => 12,
-                'lens_#00'                  => 4,
-                'diode_#00'                 => 5,
-                'angryc_#00'                => 4,
-                'chudol_#00'                => 4,
-                'lilboo_#00'                => 5,
-                'ryebag_#00'                => 6,
-                'bquies_#00'                => 3,
-                'cdelvi_#00'                => 1,
-                'cdbrit_#00'                => 1,
-                'cdphil_#00'                => 1,
-                'catbox_#00'                => 2,
-                'pet_snake2_#00'            => 4,
-                'cinema_#00'                => 1,
+                'wire_#00'                  => [ 8, DropMod::HordesS6],
+                'oilcan_#00'                => [12, DropMod::HordesS6],
+                'lens_#00'                  => [ 4, DropMod::HordesS6],
+                'diode_#00'                 => [ 5, DropMod::HordesS6],
+                'angryc_#00'                => [ 4, DropMod::HordesS6],
+                'chudol_#00'                => [ 4, DropMod::HordesS6],
+                'lilboo_#00'                => [ 5, DropMod::HordesS6],
+                'ryebag_#00'                => [ 6, DropMod::HordesS6],
+                'bquies_#00'                => [ 3, DropMod::HordesS6],
+                'cdelvi_#00'                => [ 1, DropMod::HordesS6],
+                'cdbrit_#00'                => [ 1, DropMod::HordesS6],
+                'cdphil_#00'                => [ 1, DropMod::HordesS6],
+                'catbox_#00'                => [ 2, DropMod::HordesS6],
+                'pet_snake2_#00'            => [ 4, DropMod::HordesS6],
+                'cinema_#00'                => [ 1, DropMod::HordesS6],
 
                 // Die Verdammten
-                'fest_#00'                  => 10,
-                'bretz_#00'                 => 8,
-                'tekel_#00'                 => 8,
+                'fest_#00'                  => [4, DropMod::RegionalDV], //original : 10 (0,8446%)
+                'bretz_#00'                 => [8, DropMod::RegionalDV],
+                'tekel_#00'                 => [4, DropMod::RegionalDV], //original : 8 (0.682%)
+
+                // Custom town conf: Poison
+
+                // Inline christmas dig
+                'christmas_suit_1_#00'      => [ 8, DropMod::EventChristmas],
+                'christmas_suit_2_#00'      => [ 7, DropMod::EventChristmas],
+                'christmas_suit_3_#00'      => [ 6, DropMod::EventChristmas],
+                'sand_ball_#00'             => [10, DropMod::EventChristmas],
+                'renne_#00'                 => [10, DropMod::EventChristmas],
+                'food_xmas_#00'             => [ 5, DropMod::EventChristmas],
+
+                // Inline easter dig
+                'paques_#00'                => [25, DropMod::EventEaster],
+
+                // Inline StPatrick
+                'hurling_stick_#00'         => [25, DropMod::EventStPatrick],
+                'leprechaun_suit_#00'       => [ 7, DropMod::EventStPatrick],
+                'guiness_#00'               => [20, DropMod::EventStPatrick],
+
+                // Inline Halloween
+                'pumpkin_raw_#00'           => [5, DropMod::EventHalloween],
             ),
-            'christmas_dig' => [
-                'christmas_suit_1_#00'      => 8,
-                'christmas_suit_2_#00'      => 7,
-                'christmas_suit_3_#00'      => 6,
-                'sand_ball_#00'             => 10,
-                'renne_#00'                 => 10,
-                'food_xmas_#00'             => 5,
-            ],
-            'christmas_dig_post' => [
-                'postal_box_#01'            => 3,
-                'postal_box_xl_#00'         => 1,
-            ],
-            'easter_dig' => [
-                'paques_#00'                => 207,
-            ],
-            'stpatrick_dig' => [
-                'hurling_stick_#00'         => 25,
-                'leprechaun_suit_#00'       => 7,
-                'guiness_#00'               => 20,
-            ],
-            'stpatrick_dig_fair' => [
-                'hurling_stick_#00'         => 2,
-            ],
-            'halloween_dig' => [
-                'pumpkin_raw_#00'           => 5,
-            ],
             'trash_good' => [
                 'fence_#00'                 => 10,
                 'wood2_#00'                 => 3,

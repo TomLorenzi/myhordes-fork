@@ -12,8 +12,10 @@ use App\Entity\ItemPrototype;
 use App\Entity\Result;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Enum\DropMod;
 use App\Interfaces\RandomEntry;
 use App\Interfaces\RandomGroup;
+use App\Structures\EventConf;
 use App\Structures\PropertyFilter;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -110,25 +112,39 @@ class RandomGenerator
         return $g[array_key_last($g)];
     }
 
-    function pickEntryFromRandomGroup( RandomGroup $g ): ?RandomEntry {
-        return $this->pickEntryFromRandomArray( $g->getEntries()->getValues() );
+    function pickEntryFromRandomGroup( RandomGroup $g, callable $filter = null ): ?RandomEntry {
+        return $this->pickEntryFromRandomArray( $filter === null
+            ? $g->getEntries()->getValues()
+            : $g->getEntries()->filter( $filter )->getValues()
+        );
     }
 
-    function pickItemPrototypeFromGroup(ItemGroup $g, ?TownConf $tc = null): ?ItemPrototype {
+    /**
+     * @param ItemGroup $g
+     * @param TownConf|null $tc
+     * @param EventConf[]|array $eventConfs
+     * @return ItemPrototype|null
+     */
+    function pickItemPrototypeFromGroup(ItemGroup $g, ?TownConf $tc = null, array $eventConfs = []): ?ItemPrototype {
         if ($tc && $g->getName() && ($replace = $tc->getSubKey(TownConf::CONF_OVERRIDE_ITEM_GROUP, $g->getName())) )
             return $this->pickItemPrototypeFromGroup( $this->em->getRepository(ItemGroup::class)->findOneByName($replace), $tc );
 
+        $modContent =  $tc?->dropMods() ?? DropMod::defaultMods();
+        foreach ($eventConfs as $ev) $modContent = array_merge( $modContent, $ev->dropMods() );
+
         /** @var ItemGroupEntry|null $result */
-        $result = $this->pickEntryFromRandomGroup($g);
+        $result = $this->pickEntryFromRandomGroup($g, fn(ItemGroupEntry $e) => in_array( $e->getModContent(), $modContent ));
         return $result?->getPrototype();
     }
 
-    function resolveChance( $group, $principal ): float {
+    function resolveChance( $group, $principal, ?array $modList = null ): float {
         $chance = 0.0; $sum = 0.0;
 
+        if ($modList === null) $modList = DropMod::defaultMods();
         if (!$group) return 0.0;
 
-        if (is_object($group) && is_a( $group, RandomGroup::class )) $group = $group->getEntries()->getValues();
+        if (is_object($group) && is_a( $group, ItemGroup::class )) $group = $group->getEntries()->filter( fn(ItemGroupEntry $i) => in_array( $i->getModContent(), $modList ) )->getValues();
+        elseif (is_object($group) && is_a( $group, RandomGroup::class )) $group = $group->getEntries()->getValues();
         if (is_array($group)) {
             foreach ( $group as $entry ) {
                 $sum += abs($entry->getChance() ?? 0);

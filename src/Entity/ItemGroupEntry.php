@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\DropMod;
 use App\Interfaces\RandomEntry;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
@@ -22,6 +23,11 @@ class ItemGroupEntry implements RandomEntry
     #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', inversedBy: 'entries', fetch: 'EAGER')]
     #[ORM\JoinColumn(nullable: false)]
     private $itemGroup;
+
+    #[ORM\Column(type: 'integer', nullable: false, enumType: DropMod::class)]
+    private DropMod $modContent = DropMod::None;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +59,18 @@ class ItemGroupEntry implements RandomEntry
     public function setItemGroup(?ItemGroup $itemGroup): self
     {
         $this->itemGroup = $itemGroup;
+
+        return $this;
+    }
+
+    public function getModContent(): DropMod
+    {
+        return $this->modContent;
+    }
+
+    public function setModContent(DropMod $modContent): self
+    {
+        $this->modContent = $modContent;
 
         return $this;
     }

@@ -6,6 +6,8 @@ use App\Enum\GameProfileEntryType;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
@@ -284,6 +286,24 @@ class Town
 
         return $this;
     }
+
+    /**
+     * @param int $x
+     * @param int $y
+     * @return ?Zone
+     */
+    public function getZone(int $x, int $y): ?Zone
+    {
+        $criteria = new Criteria();
+        $criteria->andWhere( new Comparison( 'x', Comparison::EQ, $x ) );
+        $criteria->andWhere( new Comparison( 'y', Comparison::EQ, $y ) );
+        return $this->zones->matching( $criteria )->first() ?: null;
+    }
+
+    public function getTownZone(): Zone {
+        return $this->getZone(0,0);
+    }
+
     public function getDoor(): ?bool
     {
         return $this->door;

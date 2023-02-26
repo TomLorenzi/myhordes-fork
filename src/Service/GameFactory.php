@@ -3,6 +3,7 @@
 
 namespace App\Service;
 
+use App\Entity\AccountRestriction;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
@@ -587,6 +588,11 @@ class GameFactory
         }
 
         if (!$internal && $this->user_handler->getConsecutiveDeathLock($user)) {
+            $error = ErrorHelper::ErrorPermissionError;
+            return false;
+        }
+
+        if (!$internal && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplay )) {
             $error = ErrorHelper::ErrorPermissionError;
             return false;
         }
