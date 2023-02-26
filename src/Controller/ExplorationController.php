@@ -372,6 +372,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
                 if ($itemLimit >= 0 && $itemMarkerType)
                     $redraw = $ruinZone->getZone()->getActivityMarkersFor( $itemMarkerType )->count() >= ($itemLimit * ($ruinZone->getZ()+1));
+                else $redraw = false;
 
                 if ($redraw && $redraw_count >= 10) $prototype = null;
 

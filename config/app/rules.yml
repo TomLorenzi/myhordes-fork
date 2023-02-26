@@ -19,6 +19,8 @@ parameters:
         refresh_max: 8
         fill_max: 10
         throttle_at: 10
+        plan_limits:
+          bag: 3
       ruin_items:
         min: 8
         max: 16
