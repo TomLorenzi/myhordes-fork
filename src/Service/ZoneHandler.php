@@ -221,6 +221,8 @@ class ZoneHandler
             return $active === $t->getCitizen() || ($t->getCitizen()->getEscortSettings() && $t->getCitizen()->getEscortSettings()->getLeader() === $active);
         }) : $dig_timers_relevant;
 
+        $all_events = $this->conf->getCurrentEvents( $zone->getTown() );
+
         foreach ($active_dig_timers as &$executable_timer ) {
 
             $current_citizen = $executable_timer->getCitizen();
@@ -235,9 +237,9 @@ class ZoneHandler
 
                 $item_prototype = match ($mode) {
                     -1 => null,
-                    0 => $this->random_generator->pickItemPrototypeFromGroup($empty_group, $conf),
-                    1 => $this->random_generator->pickItemPrototypeFromGroup($base_group, $conf),
-                    2 => $this->random_generator->pickItemPrototypeFromGroup($event_group ?? $base_group, $conf),
+                    0 => $this->random_generator->pickItemPrototypeFromGroup($empty_group, $conf, $all_events),
+                    1 => $this->random_generator->pickItemPrototypeFromGroup($base_group, $conf, $all_events),
+                    2 => $this->random_generator->pickItemPrototypeFromGroup($event_group ?? $base_group, $conf, $all_events),
                     default => null,
                 };
 

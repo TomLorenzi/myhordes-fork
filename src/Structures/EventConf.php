@@ -5,6 +5,7 @@ namespace App\Structures;
 
 use App\Entity\Citizen;
 use App\Entity\Town;
+use App\Enum\DropMod;
 use Symfony\Component\HttpFoundation\Response;
 
 class EventConf extends Conf
@@ -14,6 +15,7 @@ class EventConf extends Conf
 
     const EVENT_CSS = 'css';
     const EVENT_MUTATE_NAME = 'mutate_names';
+    const EVENT_MODS_ENABLED = 'mods.enable';
 
     const EVENT_DIG_DESERT_GROUP  = 'event_dig.desert.group';
     const EVENT_DIG_DESERT_CHANCE = 'event_dig.desert.chance';
@@ -98,5 +100,11 @@ class EventConf extends Conf
 
     public function hook_disable_citizen(Citizen $citizen): bool {
         return call_user_func( $this->get(self::EVENT_HOOK_DISABLE_CITIZEN, 'App\Structures\EventConf::True'), $citizen);
+    }
+
+    public function dropMods(): array {
+        $base = [];
+        foreach ($this->get( self::EVENT_MODS_ENABLED, [] ) as $modId) $base[] = DropMod::tryFrom( $modId );
+        return array_filter( $base, fn(?DropMod $d) => $d !== null );
     }
 }

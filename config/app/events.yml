@@ -35,12 +35,8 @@ parameters:
         priority: 101
         css: 'christmas'
         mutate_names: 'christmas'
-        event_dig:
-          desert:
-            group: 'christmas_dig'
-            chance: 0.05
-          ruins:
-            - { name: 'post', group: 'christmas_dig_post', chance: 0.25 }
+        mods:
+          enable: [ 102 ]
         hooks:
           night_after: 'App\Structures\Hook::night_xmas'
           night_none: 'App\Structures\Hook::night_xmas'
@@ -54,12 +50,8 @@ parameters:
         name: 'St. Patrick'
         priority: 102
         css: 'stpatrick'
-        event_dig:
-          desert:
-            group: 'stpatrick_dig'
-            chance: 0.15
-          ruins:
-            - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.25 }
+        mods:
+          enable: [ 103 ]
       public: true
     easter:
       trigger:
@@ -70,10 +62,8 @@ parameters:
         name: 'Ostern'
         priority: 103
         css: 'easter'
-        event_dig:
-          desert:
-            group: 'easter_dig'
-            chance: 0.15
+        mods:
+          enable: [ 101 ]
         hooks:
           enable_town: 'App\Structures\Hook::enable_easter'
           disable_town: 'App\Structures\Hook::disable_easter'
@@ -88,10 +78,8 @@ parameters:
         priority: 104
         css: 'halloween'
         mutate_names: 'halloween'
-        event_dig:
-          desert:
-            group: 'halloween_dig'
-            chance: 0.4
+        mods:
+          enable: [ 104 ]
       public: true
     contamination:
       trigger:

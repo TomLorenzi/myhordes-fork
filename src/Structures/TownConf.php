@@ -3,6 +3,7 @@
 
 namespace App\Structures;
 
+use App\Enum\DropMod;
 use DateTime;
 
 class TownConf extends Conf
@@ -175,5 +176,19 @@ class TownConf extends Conf
         $range = $this->get(TownConf::CONF_MODIFIER_DAYTIME_RANGE, [7,18]);
         return $this->get(TownConf::CONF_MODIFIER_DAYTIME_INVERT, false) !==
             ($h < $range[0] || $h > $range[1]);
+    }
+
+    public function dropMods(): array {
+        $base = DropMod::defaultMods();
+        $remove = [];
+
+        if (in_array( 'with-toxin', $this->get( self::CONF_OVERRIDE_NAMED_DROPS ) ))
+            $base[] = DropMod::Infective;
+
+        if ($this->get( self::CONF_FEATURE_GHOUL_MODE, 'normal' ) === 'childtown') $remove[] = DropMod::Ghouls;
+        if (!$this->get( self::CONF_FEATURE_NIGHTMODE, true )) $remove[] = DropMod::NightMode;
+        if (!$this->get( self::CONF_FEATURE_CAMPING, false )) $remove[] = DropMod::Camp;
+
+        return array_filter( $base, fn(DropMod $d) => !in_array( $d, $remove) );
     }
 }

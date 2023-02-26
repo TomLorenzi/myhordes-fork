@@ -155,14 +155,16 @@ class NightlyHandler
         $base_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => 'base_dig']);
         $items_found = [];
 
+        $conf = $this->conf->getTownConfiguration($town);
+
         for ($i = 0; $i < $ap_for_digging; $i++) {
             /** @var Zone $zone */
             $zone = $this->random->pick( $this->random->pickEntryFromRawRandomArray( [ [$close_zones, 1], [$medium_zones, 2], [$far_zones, 1] ] ) );
             if ($zone && $zone->getDigs() > 0 && $this->random->chance( 0.6 )) {
-                $items_found[] = $this->random->pickItemPrototypeFromGroup( $base_group );
+                $items_found[] = $this->random->pickItemPrototypeFromGroup( $base_group, $conf, $this->conf->getCurrentEvents( $town ) );
                 $zone->setDigs( $zone->getDigs() - 1 );
             } elseif ($zone && $zone->getDigs() <= 0 && $this->random->chance( 0.3 ))
-                $items_found[] = $this->random->pickItemPrototypeFromGroup( $empty_group );
+                $items_found[] = $this->random->pickItemPrototypeFromGroup( $empty_group, $conf, $this->conf->getCurrentEvents( $town ) );
         }
 
         $this->log->debug( 'The stranger has found <info>' . count($items_found) . '</info> items.' );

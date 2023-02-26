@@ -937,7 +937,7 @@ class ActionHandler
                     if ($p = $item_spawn->getPrototype())
                         $proto = $p;
                     elseif ($g = $item_spawn->getItemGroup())
-                        $proto = $this->random_generator->pickItemPrototypeFromGroup( $g, $town_conf );
+                        $proto = $this->random_generator->pickItemPrototypeFromGroup( $g, $town_conf, $this->conf->getCurrentEvents( $citizen->getTown() ) );
 
                     if ($proto) $tags[] = 'spawned';
 
@@ -1893,7 +1893,7 @@ class ActionHandler
 
         $this->citizen_handler->deductAPBP( $citizen, $ap, $used_ap, $used_bp );
 
-        $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ) );
+        $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getCurrentEvents( $citizen->getTown() ) );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
         $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_item );
 
