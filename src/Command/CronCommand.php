@@ -464,7 +464,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 } catch (Exception $e) {}
 
                 // Enable or disable events
-                if (!$this->conf_master->checkEventActivation($town)) {
+                if (!$town->getManagedEvents() && !$this->conf_master->checkEventActivation($town)) {
                     $last_op = 'ev_a';
                     if ($this->townHandler->updateCurrentEvents($town, $events)) {
                         $this->entityManager->persist($town);
