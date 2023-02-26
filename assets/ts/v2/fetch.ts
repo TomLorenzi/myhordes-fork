@@ -242,7 +242,6 @@ export class Fetch {
         let data = undefined;
         try {
             data = await response.json();
-            console.log('data', data);
         } catch (_) {}
 
         let error_code = data?.error ?? null;
