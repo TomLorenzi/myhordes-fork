@@ -262,37 +262,43 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Dompteur',
                 'description' => 'Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.',
                 'icon' => 'r_jtamer',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'Aufklärer',
                 'description' => 'Anzahl der Tage, die du als Aufklärer gespielt hast.',
                 'icon' => 'r_jrangr',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'Einsiedler',
                 'description' => 'Anzahl der Tage, die du als Einsiedler gespielt hast.',
                 'icon' => 'r_jermit',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'Buddler',
                 'description' => 'Anzahl der Tage, die du als Buddler gespielt hast.',
                 'icon' => 'r_jcolle',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'Wächter',
                 'description' => 'Anzahl der Tage, die du als Wächter gespielt hast.',
                 'icon' => 'r_jguard',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'Techniker',
                 'description' => 'Anzahl der Tage, die du als Techniker gespielt hast.',
                 'icon' => 'r_jtech',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'In deinem Bett gestorben',
@@ -499,7 +505,8 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Schamane',
                 'description' => 'Anzahl der Tage, die du als Schamane gespielt hast.',
                 'icon' => 'r_jsham',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'Reicher Guru',
@@ -673,7 +680,8 @@ class PictoDataService implements FixtureProcessorInterface {
                 'label' => 'Einwohner',
                 'description' => 'Anzahl der Tage, die du als Einwohner gespielt hast.',
                 'icon' => 'r_jbasic',
-                'rare' => false
+                'rare' => false,
+                'priority' => 1,
             ],
             [
                 'label' => 'Buddler - Gewinner des DdA',
