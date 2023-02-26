@@ -2380,6 +2380,7 @@ Stadt/Stadttor: Ville/Portes
 'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'Il est <strong>impossible de refaire cette action ici</strong>. Allez ailleurs, ou retentez demain.'
 'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Cliquez sur l''estimation pour la copier dans le presse-papiers.'
 '{num} Aufladungen': '{num} charges'
-'Bürger (list)': 'Citoyens'
+'Bürger (list)': Citoyens
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr/><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>'
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'Vous ne pouvez pas déposer cet objet ici.'
+Tarnexperte: Tarnexperte
