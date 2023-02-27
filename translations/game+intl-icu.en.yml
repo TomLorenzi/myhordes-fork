@@ -2380,6 +2380,7 @@ Stadt/Stadttor: Town/Doors
 'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'It is not possible to carry out this action again here. Go somewhere else, or come back tomorrow.'
 'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Click on the estimation to copy it to the clipboard.'
 '{num} Aufladungen': '{num} charges'
-'Bürger (list)': 'Citizens'
+'Bürger (list)': Citizens
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'This action is blocked for <strong>approximately 15 minutes</strong> (anti-abuse system).<hr/><strong>Warning: if you try to repeat this action before this time, the duration of the restriction will be extended!</strong>'
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'You cannot drop this object here.'
+Tarnexperte: Camo Chief
