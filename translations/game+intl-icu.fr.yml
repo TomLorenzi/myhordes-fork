@@ -744,7 +744,7 @@ Headshot: Balle dans la tête
 'In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.': 'Utilisez ce sujet pour discuter autour des évolutions du jour que vous souhaitez développer...'
 'In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.': 'Utilisez ce sujet pour discuter autour de l''atelier et de la production de ressources en ville...'
 'In diesem Thread dreht sich alles um zukünftige Bauprojekte.': 'Utilisez ce sujet pour discuter autour des chantiers à construire...'
-'{citizen} hat es regnen lassen! Ihm habt ihr {num} Rationen reinen Wassers im Brunnen zu verdanken!': "{citizen} fait tomber de la pluie et grâce à lui le puits a regagné {num} rations d'eau potable !\n"
+'{citizen} hat es regnen lassen! Ihm habt ihr {num} Rationen reinen Wassers im Brunnen zu verdanken!': '{citizen} fait tomber de la pluie et grâce à lui le puits a regagné {num} rations d''eau potable !'
 '{citizen} hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.': '{citizen} a passé de longues minutes à aménager une planque avec tout ce qui pouvait lui passer sous la main.'
 '{citizen} hat {item} aufgestellt, um das Versteck zu verbessern.': '{citizen} a aménagé une cachette avec {item}.'
 '{citizen} hat sich für heute Nacht ein Versteck gesucht ...': '{citizen} a décidé de se trouver une planque pour passer la nuit. Souhaitons-lui bonne chance !'
