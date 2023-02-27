@@ -744,7 +744,7 @@ Headshot: Balle dans la tête
 'In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.': 'Utilisez ce sujet pour discuter autour des évolutions du jour que vous souhaitez développer...'
 'In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.': 'Utilisez ce sujet pour discuter autour de l''atelier et de la production de ressources en ville...'
 'In diesem Thread dreht sich alles um zukünftige Bauprojekte.': 'Utilisez ce sujet pour discuter autour des chantiers à construire...'
-'{citizen} hat es regnen lassen! Ihm habt ihr {num} Rationen reinen Wassers im Brunnen zu verdanken!': "{citizen} fait tomber de la pluie et grâce à lui le puits a regagné {num} rations d'eau potable !\n"
+'{citizen} hat es regnen lassen! Ihm habt ihr {num} Rationen reinen Wassers im Brunnen zu verdanken!': '{citizen} fait tomber de la pluie et grâce à lui le puits a regagné {num} rations d''eau potable !'
 '{citizen} hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.': '{citizen} a passé de longues minutes à aménager une planque avec tout ce qui pouvait lui passer sous la main.'
 '{citizen} hat {item} aufgestellt, um das Versteck zu verbessern.': '{citizen} a aménagé une cachette avec {item}.'
 '{citizen} hat sich für heute Nacht ein Versteck gesucht ...': '{citizen} a décidé de se trouver une planque pour passer la nuit. Souhaitons-lui bonne chance !'
@@ -2380,6 +2380,7 @@ Stadt/Stadttor: Ville/Portes
 'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'Il est <strong>impossible de refaire cette action ici</strong>. Allez ailleurs, ou retentez demain.'
 'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Cliquez sur l''estimation pour la copier dans le presse-papiers.'
 '{num} Aufladungen': '{num} charges'
-'Bürger (list)': 'Citoyens'
+'Bürger (list)': Citoyens
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr/><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>'
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'Vous ne pouvez pas déposer cet objet ici.'
+Tarnexperte: Chef-Camouflage
