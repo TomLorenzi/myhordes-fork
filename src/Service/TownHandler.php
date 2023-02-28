@@ -674,7 +674,7 @@ class TownHandler
         $end = min($nbRound, 24);
 
         for ($i = 0; $i < $end; $i++) {
-            $spendable = (max(0, $offsetMin - 3) + max(0, $offsetMax - 3)) / ($end - $i);
+            $spendable = (max(0, $offsetMin - 3) + max(0, $offsetMax - 3)) / (24 - $i);
             $calc_next = fn() => mt_rand( floor($spendable * 250), floor($spendable * 1000) ) / 1000.0;
 
             if ($offsetMin + $offsetMax > $min_spread) {
