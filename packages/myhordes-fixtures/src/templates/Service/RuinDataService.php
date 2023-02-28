@@ -3,6 +3,7 @@
 namespace MyHordes\Fixtures\Service;
 
 use App\Enum\ArrayMergeDirective;
+use App\Enum\DropMod;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class RuinDataService implements FixtureProcessorInterface {
@@ -483,6 +484,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'chama_#00' => 7,
                 'food_candies_#00' => 5,
                 'chudol_#00' => 2,
+                'hurling_stick_#00'  => [2, DropMod::EventStPatrick],
             ], 'desc' => 'Orte wie dieser sind heutzutage ein Geschenk des Himmels... Hier gibt es garantiert alles an Plastikspielzeug, was man sich wünschen kann... und vielleicht noch ein paar andere nützliche Gadgets.'],
 
             // id 12
@@ -625,6 +627,7 @@ class RuinDataService implements FixtureProcessorInterface {
                 'cards_#00' => 1,
                 'chair_basic_#00' => 3,
                 'table_#00' => 3,
+                'postal_box_#01' => [3, DropMod::EventChristmas],
             ], 'desc' => 'Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...'],
 
             // id 33
@@ -903,9 +906,9 @@ class RuinDataService implements FixtureProcessorInterface {
             'deserted_bunker' => ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
                 "explorable_skin" => 'bunker', "explorable_desc" => null, "empty" => 1,
                 "drops" => [
-                    'bbplan_u_#00' => 12,
-                    'bbplan_r_#00' => 7,
-                    'bbplan_e_#00' => 6,
+                    'bbplan_u_#00' => 14,
+                    'bbplan_r_#00' => 8,
+                    'bbplan_e_#00' => 7,
                     'water_#00' => 4,
                     'concrete_wall_#00' => 21,
                     'wood_bad_#00' => 4,
@@ -939,19 +942,16 @@ class RuinDataService implements FixtureProcessorInterface {
                     'bumpKey_#00' => 3,
                     'repair_kit_part_raw_#00' => 2,
                     'classicKey_#00' => 3,
-                ], 'namedDrops' => [
-                    'with-toxin' => [ 'operator' => ArrayMergeDirective::Append, 'drops' => [
-                        'infect_poison_part_#00' => 10
-                    ] ]
+                    'infect_poison_part_#00' => [10, DropMod::Infective]
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
 
             // id 101
             'deserted_hotel' => ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
                 "explorable_skin" => 'hotel', "explorable_desc" => null, "empty" => 1,
                 "drops" => [
-                    'hbplan_u_#00' => 6000,
-                    'hbplan_r_#00' => 4000,
-                    'hbplan_e_#00' => 2000,
+                    'hbplan_u_#00' => 6900,
+                    'hbplan_r_#00' => 4600,
+                    'hbplan_e_#00' => 2300,
                     'water_#00' => 9000,
                     'bumpKey_#00' => 3000,
                     'classicKey_#00' => 3000,
@@ -981,10 +981,7 @@ class RuinDataService implements FixtureProcessorInterface {
                     'teddy_#00' => 2000,
                     'carpet_#00' => 2000,
                     'game_box_#00' => 2000,
-                ], 'namedDrops' => [
-                    'with-toxin' => [ 'operator' => ArrayMergeDirective::Append, 'drops' => [
-                        'infect_poison_part_#00' => 5
-                    ] ]
+                    'infect_poison_part_#00' => [5000, DropMod::Infective]
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
 
             // id 102
@@ -1016,10 +1013,7 @@ class RuinDataService implements FixtureProcessorInterface {
                     'bed_#00' => 2,
                     'bumpKey_#00' => 3,
                     'vagoul_#00' => 3,
-                ], 'namedDrops' => [
-                    'with-toxin' => [ 'operator' => ArrayMergeDirective::Append, 'drops' => [
-                        'infect_poison_part_#00' => 15
-                    ] ]
+                    'infect_poison_part_#00' => [15, DropMod::Infective]
                 ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
         ]);
     }

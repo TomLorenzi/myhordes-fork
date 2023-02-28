@@ -365,13 +365,14 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             $redraw = false; $redraw_count = 0; $itemMarkerType = null;
             do {
                 $redraw_count++;
-                $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf() ) : null;
+                $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group, $this->getTownConf(), $this->conf->getCurrentEvents( $citizen->getTown() ) ) : null;
 
                 $itemMarkerType = $prototype ? ZoneActivityMarkerType::scavengedItemIncurs( $prototype ) : null;
                 $itemLimit = $itemMarkerType?->configuredLimit( $this->getTownConf() ) ?? -1;
 
                 if ($itemLimit >= 0 && $itemMarkerType)
                     $redraw = $ruinZone->getZone()->getActivityMarkersFor( $itemMarkerType )->count() >= ($itemLimit * ($ruinZone->getZ()+1));
+                else $redraw = false;
 
                 if ($redraw && $redraw_count >= 10) $prototype = null;
 

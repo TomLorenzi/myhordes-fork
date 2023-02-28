@@ -3,6 +3,7 @@
 
 namespace App\Structures;
 
+use App\Enum\DropMod;
 use DateTime;
 
 class TownConf extends Conf
@@ -69,7 +70,8 @@ class TownConf extends Conf
     const CONF_EXPLORABLES_PLAN_LIMIT_U = 'explorable_ruin_params.plan_limits.unusual';
     const CONF_EXPLORABLES_PLAN_LIMIT_R = 'explorable_ruin_params.plan_limits.rare';
     const CONF_EXPLORABLES_PLAN_LIMIT_E = 'explorable_ruin_params.plan_limits.epic';
-    const CONF_EXPLORABLES_FLOORS       = 'explorable_ruin_params.floors';
+    const CONF_SCAVENGING_PLAN_LIMIT_B = 'zone_items.plan_limits.bag';
+    const CONF_EXPLORABLES_FLOORS      = 'explorable_ruin_params.floors';
 
     const CONF_TIMES_DIG_NORMAL     = 'times.digging.normal';
     const CONF_TIMES_DIG_COLLEC     = 'times.digging.collec';
@@ -175,5 +177,19 @@ class TownConf extends Conf
         $range = $this->get(TownConf::CONF_MODIFIER_DAYTIME_RANGE, [7,18]);
         return $this->get(TownConf::CONF_MODIFIER_DAYTIME_INVERT, false) !==
             ($h < $range[0] || $h > $range[1]);
+    }
+
+    public function dropMods(): array {
+        $base = DropMod::defaultMods();
+        $remove = [];
+
+        if (in_array( 'with-toxin', $this->get( self::CONF_OVERRIDE_NAMED_DROPS ) ))
+            $base[] = DropMod::Infective;
+
+        if ($this->get( self::CONF_FEATURE_GHOUL_MODE, 'normal' ) === 'childtown') $remove[] = DropMod::Ghouls;
+        if (!$this->get( self::CONF_FEATURE_NIGHTMODE, true )) $remove[] = DropMod::NightMode;
+        if (!$this->get( self::CONF_FEATURE_CAMPING, false )) $remove[] = DropMod::Camp;
+
+        return array_filter( $base, fn(DropMod $d) => !in_array( $d, $remove) );
     }
 }

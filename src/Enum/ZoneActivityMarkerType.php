@@ -17,6 +17,7 @@ enum ZoneActivityMarkerType: int {
     case ExplorableBlueprintU = 101;
     case ExplorableBlueprintR = 102;
     case ExplorableBlueprintE = 103;
+    case ScavengeBlueprintBag = 104;
 
     public function daily(): bool {
         return match($this) {
@@ -37,6 +38,7 @@ enum ZoneActivityMarkerType: int {
             'hbplan_u_#00', 'bbplan_u_#00', 'mbplan_u_#00' => self::ExplorableBlueprintU,
             'hbplan_r_#00', 'bbplan_r_#00', 'mbplan_r_#00' => self::ExplorableBlueprintR,
             'hbplan_e_#00', 'bbplan_e_#00', 'mbplan_e_#00' => self::ExplorableBlueprintE,
+            'bplan_drop_#00' => self::ScavengeBlueprintBag,
             default => null
         };
     }
@@ -46,6 +48,7 @@ enum ZoneActivityMarkerType: int {
             ZoneActivityMarkerType::ExplorableBlueprintU => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_U, -1 ),
             ZoneActivityMarkerType::ExplorableBlueprintR => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_R, -1 ),
             ZoneActivityMarkerType::ExplorableBlueprintE => $conf->get( TownConf::CONF_EXPLORABLES_PLAN_LIMIT_E, -1 ),
+            ZoneActivityMarkerType::ScavengeBlueprintBag => $conf->get( TownConf::CONF_SCAVENGING_PLAN_LIMIT_B, -1 ),
             default => -1
         };
     }

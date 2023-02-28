@@ -120,20 +120,27 @@ const resizer = function() {
 window.addEventListener("resize", resizer);
 window.addEventListener('load', resizer, {once: true});
 window.addEventListener( 'load', () => {
-    if (document.querySelector('#crowdin-jipt-mask')) {
+    if (document.querySelector('html.lang-base-ach')) {
         console.log('do');
         let button = document.createElement('button');
         button.style.display = 'inline-block';
-        button.style.width = 'auto';
-        button.style.position = 'fixed';
-        button.style.right = '10px';
-        button.style.bottom = '10px';
         button.innerText = 'Exit In-Context Translation';
-        button.style.zIndex = '2047483650';
-        button.addEventListener('click', () => {
-            window.location.assign( url + '/r/ach' );
-        })
-        document.body.append( button );
+        let a = document.createElement('a');
+        a.href = url + '/r/ach';
+        a.target = '_self';
+        a.style.zIndex = '2047483650';
+        a.style.zIndex = '2047483650';
+        a.style.width = 'auto';
+        a.style.position = 'fixed';
+        a.style.right = '10px';
+        a.style.bottom = '10px';
+        a.style.display = 'block';
+        a.appendChild( button );
+        //button.addEventListener('click', () => {
+        //    window.location.assign( url + '/r/ach' );
+        //    window.location.reload();
+        //})
+        document.body.append( a );
     }
 }, {once: true} )
 

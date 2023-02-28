@@ -82,7 +82,7 @@
                         <span class="invasion">{{ 'Tor ist offen!'|trans({},'game') }}</span>
                     {% endif %}
                     {% if gazette.invasion > 0 %}
-                        <br><span class="invasion hide-sm">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>
+                        <br><span class="invasion">{{ gazette.invasion }} {{ 'Zombies sind eingedrungen.'|trans({},'game') }}</span>
                     {% endif %}
                 </div>
                 <div class="nightstat nightstat-deaths">
@@ -92,7 +92,7 @@
                         <span class="count">{{ 'Keine Opfer'|trans({},'game') }}</span>
                     {% endif %}
                     {% if gazette.terror > 0 %}
-                        <br><span class="terror hide-sm">{{ gazette.terror }} {{ 'vor Angst erstarrt'|trans({},'game') }}</span>
+                        <br><span class="terror">{{ gazette.terror }} {{ 'vor Angst erstarrt'|trans({},'game') }}</span>
                     {% endif %}
                 </div>
             </div>

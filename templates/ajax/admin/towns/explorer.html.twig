@@ -1235,7 +1235,7 @@
             }
         })
 
-        document.getElementById('ruin-regenerate').addEventListener('click', function() {
+        document.getElementById('ruin-regenerate')?.addEventListener('click', function() {
                 if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     $.ajax.easySend( "{{ path('admin_regenerate_ruins', {id: town.id}) }}", {},
                         function () {

@@ -250,7 +250,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             if ($a === 'single' && $b === 'single') return 0;
             if ($a === 'single') return -1;
             if ($b === 'single') return 1;
-            return $p[$b]->getRare() <=> $p[$a]->getRare() ?: $p[$a]->getId() <=> $p[$b]->getId();
+            return $p[$b]->getRare() <=> $p[$a]->getRare() ?: $p[$a]->getPriority() <=> $p[$b]->getPriority() ?: $p[$a]->getId() <=> $p[$b]->getId();
         });
 
         foreach ($g as &$list) usort( $list, function( Award $a, Award $b ) {
