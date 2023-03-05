@@ -291,7 +291,7 @@ class SoulRankingController extends SoulController
                 $entry['user'] = $this->entity_manager->getRepository(User::class)->find( (int)$entry['user'] );
         }
 
-        $ranking = array_values( array_filter( $ranking, fn($a) => $a['prototype']->getName() !== "r_ptame_#00" && !empty( $a['ranking'] ) && ( $a['ranking'][0]['count'] > 1 || count($a['ranking']) < 2 ) ) );
+        $ranking = array_values( array_filter( $ranking, fn($a) => $a['prototype']->getName() !== "r_ptame_#00" && !empty( $a['ranking'] ) && ( $a['prototype']->isSpecial() || $a['ranking'][0]['count'] > 1 || count($a['ranking']) < 2 ) ) );
 
 
         //if (!$ranking || !$pages)

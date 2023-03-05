@@ -814,7 +814,7 @@ class UserHandler
         $levenshtein_max = mb_strlen( $closestDistance[1] ) <= 5 ? 1 : 2;
 
         $too_long = strlen($name) > 16;
-        return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
+        return !preg_match('/[^\p{L}\w]/u', $name) && strlen($name) >= 3 && !$too_long && $closestDistance[0] > $levenshtein_max;
     }
 
     public function getMaximumEntryHidden(User $user): int {

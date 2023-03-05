@@ -911,10 +911,10 @@ class TownController extends InventoryAwareController
         $pump = $th->getBuilding( $town, 'small_water_#00', true );
 
         $allow_take = 1;
-        if ($pump && !$this->getActiveCitizen()->getBanished()) {
+        if ($pump) {
             if($town->getChaos()) {
                 $allow_take = 3;
-            } else if  (!$this->getActiveCitizen()->getBanished()) {
+            } else {
                 $allow_take = 2;
             }
         }
@@ -960,12 +960,13 @@ class TownController extends InventoryAwareController
 
             $pump = $this->town_handler->getBuilding($town, 'small_water_#00', true);
 
-            $limit = ($pump && !$this->getActiveCitizen()->getBanished()) ? ($town->getChaos() ? 3 : 2) : 1;
+            $limit = $pump ? ($town->getChaos() ? 3 : 2) : 1;
             if ($direction == 'up') {
                 if ($town->getWell() <= 0) return AjaxResponse::error(self::ErrorWellEmpty);
 
                 $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeWell);
 
+                if ($this->getActiveCitizen()->getBanished() && $counter->getCount() >= 1) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableBanished);
                 if ($counter->getCount() >= $limit) return AjaxResponse::error(self::ErrorWellLimitHit);
 
                 $inv_target = $citizen->getInventory();
@@ -1341,7 +1342,7 @@ class TownController extends InventoryAwareController
         // If no slavery is allowed, block banished citizens from working on the construction site (except for repairs)
         // If slavery is allowed and the citizen is banished, permit slavery bonus
         if (!$slavery_allowed && $citizen->getBanished() && !$building->getComplete())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
         $slave_bonus = $citizen->getBanished() && !$building->getComplete();
 
         // Check if all parent buildings are completed
@@ -1566,6 +1567,9 @@ class TownController extends InventoryAwareController
         if ($citizen->getBuildingVote() || $citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        if ($citizen->getBanished())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
+
         if (!$parser->has_all(['id'], true))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         $id = (int)$parser->get('id');
@@ -1609,7 +1613,7 @@ class TownController extends InventoryAwareController
         $town = $citizen->getTown();
 
         if ($citizen->getBanished())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
 
         if (!($action = $parser->get('action')) || !in_array($action, ['open','close']))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -1935,7 +1939,7 @@ class TownController extends InventoryAwareController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
         if ($this->getActiveCitizen()->getBanished())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished);
 
         if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication) || $this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionBlackboard))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -2152,7 +2156,7 @@ class TownController extends InventoryAwareController
 
         $citizen = $this->getActiveCitizen();
 
-        if ($citizen->getBanished()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+        if ($citizen->getBanished()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished);
 
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );

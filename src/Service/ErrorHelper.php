@@ -46,5 +46,7 @@ class ErrorHelper
     const ErrorNoMP                      = 59;
     const ErrorActionNotAvailableImpersonator = 60;
 
+    const ErrorActionNotAvailableBanished = 62;
+
     const ErrorBlockedByUser             = 71;
 }
