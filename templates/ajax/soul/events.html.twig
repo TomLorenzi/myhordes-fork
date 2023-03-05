@@ -7,6 +7,10 @@
 
     {% include "ajax/soul/future_shell.html.twig" with { future_tab: "events" } %}
 
+    <h1 class="page-head">{{ 'Community-Events'|trans({}, 'soul') }}</h1>
+
+    <hordes-event-creator data-creator="{{ is_granted('ROLE_ADMIN') or is_granted('ROLE_CROW') or is_granted('ROLE_ANIMAC') or is_granted('ROLE_ORACLE') ? '1' : '0' }}"></hordes-event-creator>
+
     <h1 class="page-head">{{ 'Saisonale Events'|trans({}, 'soul') }}</h1>
     <div class="row">
         <div class="padded cell rw-12">
