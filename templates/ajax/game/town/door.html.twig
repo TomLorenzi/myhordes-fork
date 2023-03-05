@@ -102,20 +102,20 @@
             {% endif %}
             <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
                 <div class="actions-box">
-            {% if not banished %}
-                {% if town.door %}
-                    <div style="margin-bottom: 5px;">
-                        <button id="door_closer" {% if town.devastated %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />{% trans from 'game' %}Tor schließen{% endtrans %} (<div class="ap">1</div>)</button>
-                        {% if town.devastated %}
-                            <div class="tooltip">{{ 'Das Stadttor ist zerstört!'|trans({},'game') }}</div>
-                        {% else %}
-                            <div class="tooltip help">{{ 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.'|trans({},'game') }}</div>
-                        {% endif %}
-                    </div>
-                {% else %}
-                    <button id="door_opener" {% if door_locked %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />{% trans from 'game' %}Tor öffnen{% endtrans %} (<div class="ap">1</div>)</button>
-                {% endif %}
+
+            {% if town.door %}
+                <div style="margin-bottom: 5px;">
+                    <button id="door_closer" {% if town.devastated %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />{% trans from 'game' %}Tor schließen{% endtrans %} (<div class="ap">1</div>)</button>
+                    {% if town.devastated %}
+                        <div class="tooltip">{{ 'Das Stadttor ist zerstört!'|trans({},'game') }}</div>
+                    {% else %}
+                        <div class="tooltip help">{{ 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.'|trans({},'game') }}</div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <button id="door_opener" {% if door_locked %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />{% trans from 'game' %}Tor öffnen{% endtrans %} (<div class="ap">1</div>)</button>
             {% endif %}
+
             {% if show_ventilation %}
                 <button id="door_exit_hero" {% if not allow_ventilation or not can_go_out %}disabled{% endif %}>
                     <img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern (out){% endtrans %}
