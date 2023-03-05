@@ -859,3 +859,4 @@ Legacy-Dokumentation: Documentation historique
 'In der Nacht vom 20. auf den 21. Tag (oder später) gestorben = 5 Aufladungen für "Freundschaft" + Auszeichnung': 'mort dans la nuit du jour 20 au jour 21 ou après = 5 charges pour "Camaraderie" + distinction'
 'Pandämonium-Städte gewähren 2x mehr Aufladungen für "Freundschaft".': 'Les villes du Pandémonium accordent 2x plus de charges pour "Camaraderie".'
 'Er kann auch Gegenstände für 2{img_bp} reparieren, wenn er nicht {img_tired} Erschöpft ist.': 'Il peut également réparer des objets pour 3{img_bp} lorsqu''il n''est pas {img_tired} Fatigué.'
+'Spieler mit mehr als 100 Seelenpunkten erhalten Punkte für Auszeichnungen nur dann, wenn sie mindestens 8 Tage in der Stadt verbracht haben.': 'Les récompenses ne sont attribuées qu''au bout du huitième jour pour les joueurs possédant plus de 100 points d''âme (ou les atteignant à leur mort).'
