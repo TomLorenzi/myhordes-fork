@@ -859,3 +859,4 @@ Legacy-Dokumentation: crwdns136861:0crwdne136861:0
 'In der Nacht vom 20. auf den 21. Tag (oder später) gestorben = 5 Aufladungen für "Freundschaft" + Auszeichnung': 'crwdns136893:0crwdne136893:0'
 'Pandämonium-Städte gewähren 2x mehr Aufladungen für "Freundschaft".': 'crwdns136895:0crwdne136895:0'
 'Er kann auch Gegenstände für 2{img_bp} reparieren, wenn er nicht {img_tired} Erschöpft ist.': 'crwdns136899:0{img_bp}crwdnd136899:0{img_tired}crwdne136899:0'
+'Spieler mit mehr als 100 Seelenpunkten erhalten Punkte für Auszeichnungen nur dann, wenn sie mindestens 8 Tage in der Stadt verbracht haben.': 'crwdns136977:0crwdne136977:0'

@@ -859,3 +859,4 @@ Legacy-Dokumentation: Documentación heredada
 'In der Nacht vom 20. auf den 21. Tag (oder später) gestorben = 5 Aufladungen für "Freundschaft" + Auszeichnung': 'Muerte en la noche del día 20 al 21 o después = 5 cargas de "Camaradería" + distinción'
 'Pandämonium-Städte gewähren 2x mehr Aufladungen für "Freundschaft".': 'Los pueblos del Pandemonio otorgan 2 veces más cargas por "Camaradería".'
 'Er kann auch Gegenstände für 2{img_bp} reparieren, wenn er nicht {img_tired} Erschöpft ist.': 'También puede reparar objetos por 3{img_bp} cuando no está {img_tired} Cansado.'
+'Spieler mit mehr als 100 Seelenpunkten erhalten Punkte für Auszeichnungen nur dann, wenn sie mindestens 8 Tage in der Stadt verbracht haben.': 'Hay distinciones a partir del dia 8 para los jugadores que tengan más de 100 Puntos de Alma (o los alcancen al morir).'

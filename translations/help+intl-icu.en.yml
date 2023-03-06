@@ -859,3 +859,4 @@ Legacy-Dokumentation: Legacy documentation
 'In der Nacht vom 20. auf den 21. Tag (oder später) gestorben = 5 Aufladungen für "Freundschaft" + Auszeichnung': 'dead during the night between day 20 and 21 or thereafter = 5 charges for "Brothers in Arms" + distinction'
 'Pandämonium-Städte gewähren 2x mehr Aufladungen für "Freundschaft".': 'Hardcore towns grant 2x more "Brothers in Arms" charges.'
 'Er kann auch Gegenstände für 2{img_bp} reparieren, wenn er nicht {img_tired} Erschöpft ist.': 'He can also repair items for 3{img_bp} when he''s not {img_tired} exhausted.'
+'Spieler mit mehr als 100 Seelenpunkten erhalten Punkte für Auszeichnungen nur dann, wenn sie mindestens 8 Tage in der Stadt verbracht haben.': 'Experienced players (those with more than 100 Soul Points) will only receive rewards and distinctions if the town makes it to day 8.'
