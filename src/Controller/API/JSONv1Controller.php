@@ -1312,32 +1312,11 @@ class JSONv1Controller extends CoreController {
             $fields = ['id', 'mapId', 'survival', 'name', 'mapName', 'season', 'phase', 'score', 'origin'];
         }
 
-        $mainAccount = null;
-        foreach ($user->getTwinoidImports() as $twinoidImport) {
-            if ($twinoidImport->getMain()) {
-                switch ($twinoidImport->getScope()) {
-                    case "www.hordes.fr":
-                        $mainAccount = 'fr';
-                        break;
-                    case "www.die2nite.com":
-                        $mainAccount = 'en';
-                        break;
-                    case "www.dieverdammten.de":
-                        $mainAccount = 'de';
-                        break;
-                    case "www.zombinoia.com":
-                        $mainAccount = 'es';
-                        break;
-                }
-            }
-        }
-
 		/** @var CitizenRankingProxy $pastLife */
 		foreach ($this->user->getPastLifes() as $pastLife) {
             if ($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) {
                 continue;
             }
-
 
             // This does not work; getCadaversInformation requires a Citizen, not a CitizenRankingProxy
             // Commenting it out until it is fixed to prevent crashes
