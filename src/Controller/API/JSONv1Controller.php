@@ -1332,7 +1332,8 @@ class JSONv1Controller extends CoreController {
             }
         }
 
-        foreach ($user->getPastLifes() as $pastLife) {
+		/** @var CitizenRankingProxy $pastLife */
+		foreach ($user->getPastLifes() as $pastLife) {
             if ($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) {
                 continue;
             }
@@ -1343,7 +1344,8 @@ class JSONv1Controller extends CoreController {
             if(in_array('origin',$fields)){
                 $codeOrigin = '';
                 if($pastLife->getTown()->getImported()){
-                    $codeOrigin = $mainAccount . "-" .
+
+                    $codeOrigin = $pastLife->getImportLang() . "-" .
                         ($pastLife->getTown()->getSeason() ?
                             ($pastLife->getTown()->getSeason()->getNumber() === 0 ?
                                 $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber()) : 0);
