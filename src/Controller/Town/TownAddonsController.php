@@ -80,8 +80,11 @@ class TownAddonsController extends TownController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
-        if ($citizen->getDailyUpgradeVote() || $citizen->getBanished() || $town->getDevastated())
+        if ($citizen->getDailyUpgradeVote() || $town->getDevastated())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($citizen->getBanished())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
 
         if (!$parser->has_all(['id'], true))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -265,8 +268,10 @@ class TownAddonsController extends TownController
         $town = $citizen->getTown();
 
         // Check if citizen is banished or workshop is not build
-        if ($citizen->getBanished() || !$th->getBuilding($town, 'small_refine_#00', true))
+        if (!$th->getBuilding($town, 'small_refine_#00', true))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if ($citizen->getBanished())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
 
         // Get recipe ID
         if (!$parser->has_all(['id'], true))
