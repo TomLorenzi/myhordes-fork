@@ -1332,10 +1332,12 @@ class JSONv1Controller extends CoreController {
             }
         }
 
-        foreach ($this->user->getPastLifes() as $pastLife) {
+		/** @var CitizenRankingProxy $pastLife */
+		foreach ($this->user->getPastLifes() as $pastLife) {
             if ($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) {
                 continue;
             }
+
 
             // This does not work; getCadaversInformation requires a Citizen, not a CitizenRankingProxy
             // Commenting it out until it is fixed to prevent crashes
@@ -1343,7 +1345,8 @@ class JSONv1Controller extends CoreController {
             if(in_array('origin',$fields)){
                 $codeOrigin = '';
                 if($pastLife->getTown()->getImported()){
-                    $codeOrigin = $mainAccount . "-" .
+
+                    $codeOrigin = $pastLife->getImportLang() . "-" .
                         ($pastLife->getTown()->getSeason() ?
                             ($pastLife->getTown()->getSeason()->getNumber() === 0 ?
                                 $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber()) : 0);
