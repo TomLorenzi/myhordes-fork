@@ -24,11 +24,11 @@ class TownConf extends Conf
     const CONF_POPULATION_MIN        = 'population.min';
     const CONF_POPULATION_MAX        = 'population.max';
 
-	const CONF_MARGIN_CUSTOM_ENABLED = 'margin_custom.enabled';
-	const CONF_MARGIN_CUSTOM_NORTH	 = 'margin_custom.north';
-	const CONF_MARGIN_CUSTOM_SOUTH	 = 'margin_custom.south';
-	const CONF_MARGIN_CUSTOM_WEST	 = 'margin_custom.west';
-	const CONF_MARGIN_CUSTOM_EAST	 = 'margin_custom.east';
+    const CONF_MARGIN_CUSTOM_ENABLED = 'margin_custom.enabled';
+    const CONF_MARGIN_CUSTOM_NORTH	 = 'margin_custom.north';
+    const CONF_MARGIN_CUSTOM_SOUTH	 = 'margin_custom.south';
+    const CONF_MARGIN_CUSTOM_WEST	 = 'margin_custom.west';
+    const CONF_MARGIN_CUSTOM_EAST	 = 'margin_custom.east';
 
     const CONF_ZONE_ITEMS_MIN        = 'zone_items.min';
     const CONF_ZONE_ITEMS_MAX        = 'zone_items.max';

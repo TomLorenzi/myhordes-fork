@@ -173,10 +173,10 @@ class TownCreatorController extends CustomAbstractCoreController
                         ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')],
                         ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
                     ],
-					'position_north' => $this->translator->trans('Nördlicher Abstand', [], 'ghost'),
-					'position_south' => $this->translator->trans('Südlicher Abstand', [], 'ghost'),
-					'position_west' => $this->translator->trans('Westlicher Abstand', [], 'ghost'),
-					'position_east' => $this->translator->trans('Östlicher Abstand', [], 'ghost'),
+                    'position_north' => $this->translator->trans('Nördlicher Abstand', [], 'ghost'),
+                    'position_south' => $this->translator->trans('Südlicher Abstand', [], 'ghost'),
+                    'position_west' => $this->translator->trans('Westlicher Abstand', [], 'ghost'),
+                    'position_east' => $this->translator->trans('Östlicher Abstand', [], 'ghost'),
                 ],
 
                 'mods' => [
@@ -510,32 +510,32 @@ class TownCreatorController extends CustomAbstractCoreController
                 case 'central':
                     $conf['map']['margin'] = 0.50;
                     break;
-				case '_custom':
-					if($margin_custom) {
-						$margin_custom['enabled'] = true;
-					}
+                case '_custom':
+                    if($margin_custom) {
+                        $margin_custom['enabled'] = true;
+                    }
             }
         }
 
-		if($margin_custom && $margin_custom['enabled']) {
-			$margin_custom['north'] = $margin_custom['north'] ?? 25;
-			$margin_custom['south'] = $margin_custom['south'] ?? 25;
-			$margin_custom['west'] = $margin_custom['west'] ?? 25;
-			$margin_custom['east'] = $margin_custom['east'] ?? 25;
+        if($margin_custom && $margin_custom['enabled']) {
+            $margin_custom['north'] = $margin_custom['north'] ?? 25;
+            $margin_custom['south'] = $margin_custom['south'] ?? 25;
+            $margin_custom['west'] = $margin_custom['west'] ?? 25;
+            $margin_custom['east'] = $margin_custom['east'] ?? 25;
 
-			if(min($margin_custom['north'], 100 - $margin_custom['south']) 	!= $margin_custom['north']
-			|| min($margin_custom['south'], 100 - $margin_custom['north']) 	!= $margin_custom['south']
-			|| min($margin_custom['west'], 	100 - $margin_custom['east']) 	!= $margin_custom['west']
-			|| min($margin_custom['east'], 	100 - $margin_custom['west']) 	!= $margin_custom['east']) {
-				throw new Exception();
-			}
+            if(min($margin_custom['north'], 100 - $margin_custom['south']) 	!= $margin_custom['north']
+            || min($margin_custom['south'], 100 - $margin_custom['north']) 	!= $margin_custom['south']
+            || min($margin_custom['west'], 	100 - $margin_custom['east']) 	!= $margin_custom['west']
+            || min($margin_custom['east'], 	100 - $margin_custom['west']) 	!= $margin_custom['east']) {
+                throw new Exception();
+            }
 
-			foreach($margin_custom as $k => $v) {
-				$margin_custom[$k] = $v / 100;
-			} 
-			$margin_custom['enabled'] = true;
-			$conf['margin_custom'] = $margin_custom;
-		}
+            foreach($margin_custom as $k => $v) {
+                $margin_custom[$k] = $v / 100;
+            } 
+            $margin_custom['enabled'] = true;
+            $conf['margin_custom'] = $margin_custom;
+        }
 
         if ($well_preset) {
             $conf['well'] = $conf['well'] ?? [];
@@ -876,14 +876,14 @@ class TownCreatorController extends CustomAbstractCoreController
 
         $base = $primaryConf->getHasPreset() ? $primaryConf : $templateConf;
 
-		try {
-			$rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
-		} catch(Exception $e) {
+        try {
+            $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
+        } catch(Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-		}
+        }
 
         $template = $this->conf->getTownConfigurationByType( $base, !$primaryConf->getHasPreset() )->getData();
-		
+        
         $this->scrub_config( $rules, $template );
         $this->fix_rules( $header, $rules, $em );
         $this->elevation_needed( $header, $rules, $user->getRightsElevation() );

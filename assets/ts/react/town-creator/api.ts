@@ -27,13 +27,13 @@ export type TownRules = {
     explorable_ruins: number|string
 
     mapMarginPreset: string
-	margin_custom: {
-		enabled: boolean,
-		north: number,
-		south: number,
-		west: number,
-		east: number
-	}
+    margin_custom: {
+        enabled: boolean,
+        north: number,
+        south: number,
+        west: number,
+        east: number
+    }
 
     features: {
         attacks: string
