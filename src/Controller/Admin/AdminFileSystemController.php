@@ -81,7 +81,7 @@ class AdminFileSystemController extends AdminActionController
      */
     public function townlog(int $id, string $type): Response
     {
-        if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
+        if (!$this->isGranted('ROLE_CROW')) return new Response('', 403);
 
         if (!in_array($type, ['register', 'zones', 'all', 'citizens'])) return new Response('', 404);
 
