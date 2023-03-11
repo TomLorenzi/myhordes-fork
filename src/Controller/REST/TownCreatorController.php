@@ -170,8 +170,13 @@ class TownCreatorController extends CustomAbstractCoreController
                     'position_presets' => [
                         ['value' => 'normal',  'label' => $this->translator->trans('Normal', [], 'ghost')],
                         ['value' => 'close',   'label' => $this->translator->trans('Eher Zentral', [], 'ghost')],
-                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')]
+                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')],
+                        ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
                     ],
+					'position_north' => $this->translator->trans('Nördlicher Abstand', [], 'ghost'),
+					'position_south' => $this->translator->trans('Südlicher Abstand', [], 'ghost'),
+					'position_west' => $this->translator->trans('Westlicher Abstand', [], 'ghost'),
+					'position_east' => $this->translator->trans('Östlicher Abstand', [], 'ghost'),
                 ],
 
                 'mods' => [
@@ -459,6 +464,9 @@ class TownCreatorController extends CustomAbstractCoreController
         unset( $conf['mapMarginPreset'] );
         unset( $conf['map']['margin'] );
 
+        $margin_custom = $conf['margin_custom'] ?? null;
+        unset( $conf['margin_custom'] );
+
         $well_preset = $conf['wellPreset'] ?? null;
         unset( $conf['wellPreset'] );
 
@@ -502,8 +510,32 @@ class TownCreatorController extends CustomAbstractCoreController
                 case 'central':
                     $conf['map']['margin'] = 0.50;
                     break;
+				case '_custom':
+					if($margin_custom) {
+						$margin_custom['enabled'] = true;
+					}
             }
         }
+
+		if($margin_custom && $margin_custom['enabled']) {
+			$margin_custom['north'] = $margin_custom['north'] ?? 25;
+			$margin_custom['south'] = $margin_custom['south'] ?? 25;
+			$margin_custom['west'] = $margin_custom['west'] ?? 25;
+			$margin_custom['east'] = $margin_custom['east'] ?? 25;
+
+			if(min($margin_custom['north'], 100 - $margin_custom['south']) 	!= $margin_custom['north']
+			|| min($margin_custom['south'], 100 - $margin_custom['north']) 	!= $margin_custom['south']
+			|| min($margin_custom['west'], 	100 - $margin_custom['east']) 	!= $margin_custom['west']
+			|| min($margin_custom['east'], 	100 - $margin_custom['west']) 	!= $margin_custom['east']) {
+				throw new Exception();
+			}
+
+			foreach($margin_custom as $k => $v) {
+				$margin_custom[$k] = $v / 100;
+			} 
+			$margin_custom['enabled'] = true;
+			$conf['margin_custom'] = $margin_custom;
+		}
 
         if ($well_preset) {
             $conf['well'] = $conf['well'] ?? [];
@@ -843,9 +875,15 @@ class TownCreatorController extends CustomAbstractCoreController
             return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
 
         $base = $primaryConf->getHasPreset() ? $primaryConf : $templateConf;
-        $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
+
+		try {
+			$rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
+		} catch(Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+		}
 
         $template = $this->conf->getTownConfigurationByType( $base, !$primaryConf->getHasPreset() )->getData();
+		
         $this->scrub_config( $rules, $template );
         $this->fix_rules( $header, $rules, $em );
         $this->elevation_needed( $header, $rules, $user->getRightsElevation() );

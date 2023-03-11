@@ -15,6 +15,22 @@ export const TownCreatorSectionDifficulty = () => {
 
     const difficulty = globals.strings.difficulty;
 
+	enum Direction { north, south, west, east };
+	const handleCustomMarginChange = (input: HTMLInputElement, direction: Direction) => {
+		const margin =  parseInt(input.value);
+
+		const direction_opposite = direction + ((direction % 2) === 1 ? -1 : 1);
+		const margin_opposite = parseInt(globals.getOption( 'rules.margin_custom.'+Direction[direction_opposite]) ?? 25);
+		let input_opposite = document.getElementsByName('margin_custom_'+Direction[direction_opposite])[0] as HTMLInputElement;
+		console.log(Direction[direction], Direction[direction_opposite]);
+
+		const max_value = 100 - margin_opposite;
+		input.max = max_value.toString();
+		input_opposite.max = (100 - margin).toString();
+
+		globals.setOption('rules.margin_custom.'+Direction[direction], margin);
+	}
+
     return <div data-map-property="rules">
         <h5>{ difficulty.section }</h5>
 
@@ -75,6 +91,26 @@ export const TownCreatorSectionDifficulty = () => {
                           options={ difficulty.position_presets.map( m => ({ value: m.value, title: m.label }) ) }
             />
         </AtLeast>
+        { globals.getOption( 'rules.mapMarginPreset' ) === '_custom' && (
+            <AtLeast elevation="crow">
+				<OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.north' ) as string ?? '25' } propName="margin_custom_north"
+								inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_north }
+								onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.north)}
+				/>
+                <OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.south' ) as string ?? '25' } propName="margin_custom_south"
+                                inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_south }
+                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.south)}
+                />
+                <OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.west' ) as string ?? '25' } propName="margin_custom_west"
+                                inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_west }
+                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.west)}
+                />
+                <OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.east' ) as string ?? '25' } propName="margin_custom_east"
+                                inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_east }
+                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.east)}
+                />
+            </AtLeast>
+        ) }
 
         { /* Attack Settings */ }
         <OptionSelect value={ globals.getOption( 'rules.features.attacks' ) } propName="features.attacks" propTitle={ difficulty.attacks }
