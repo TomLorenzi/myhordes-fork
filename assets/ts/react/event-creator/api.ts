@@ -16,6 +16,21 @@ export type EventMeta = {
     description: string
 }
 
+export type TownPresetUUID = {
+    uuid: string
+}
+
+export interface TownPreset extends TownPresetUUID {
+    name: string|null
+    lang: string,
+    'type': string
+}
+
+export interface TownPresetData extends TownPresetUUID {
+    header: object
+    rules: object
+}
+
 export type ResponseIndex = {
     strings: TranslationStrings
 }
@@ -31,6 +46,14 @@ export type ResponseList = {
 export type ResponseListMeta = {
     meta: EventMeta[]
 }
+
+export type ResponseListTowns = {
+    towns: TownPreset[]
+}
+
+export type ResponseTown = TownPresetData
+
+export type ResponseTownUUID = TownPresetUUID
 
 export type ResponseMeta = {
     meta: EventMeta
@@ -77,6 +100,31 @@ export class EventCreationAPI {
     public deleteMeta(uuid: string, lang: string): Promise<boolean> {
         return this.fetch.from(`/${uuid}/meta/${lang}`)
             .request().delete().then(() => true);
+    }
+
+    public listTowns(uuid: string): Promise<ResponseListTowns> {
+        return this.fetch.from(`/${uuid}/towns`)
+            .request().get() as Promise<ResponseListTowns>;
+    }
+
+    public getTown(uuid: string, town: string): Promise<ResponseTown> {
+        return this.fetch.from(`/${uuid}/town/${town}`)
+            .request().get() as Promise<ResponseTown>;
+    }
+
+    public createTown(uuid: string, header: object, rules: object): Promise<ResponseTownUUID> {
+        return this.fetch.from(`/${uuid}/town`)
+            .request().put({header,rules}) as Promise<ResponseTownUUID>;
+    }
+
+    public updateTown(uuid: string, town: string, header: object, rules: object): Promise<ResponseTownUUID> {
+        return this.fetch.from(`/${uuid}/town/${town}`)
+            .request().patch({header,rules}) as Promise<ResponseTownUUID>;
+    }
+
+    public deleteTown(uuid: string, town: string): Promise<boolean> {
+        return this.fetch.from(`/${uuid}/town/${town}`)
+            .request().delete().then(() => true)
     }
 
 }

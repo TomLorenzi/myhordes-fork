@@ -37,9 +37,13 @@ class CommunityEvent
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: CommunityEventMeta::class, orphanRemoval: true)]
     private Collection $metas;
 
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: CommunityEventTownPreset::class, orphanRemoval: true)]
+    private Collection $townPresets;
+
     public function __construct()
     {
         $this->metas = new ArrayCollection();
+        $this->townPresets = new ArrayCollection();
     }
 
     public function getId(): ?Uuid
@@ -134,5 +138,35 @@ class CommunityEvent
                 default => ['de','en','fr','es'],
             }, fn($c, $lang) => $c ?? ($this->getMetas()->matching( (new Criteria())->where( Criteria::expr()->eq( 'lang', $lang ) ) )->first() ?: null), null )
             : ($this->getMetas()->matching( (new Criteria())->where( Criteria::expr()->eq( 'lang', $name ) ) )->first() ?: null);
+    }
+
+    /**
+     * @return Collection<int, CommunityEventTownPreset>
+     */
+    public function getTownPresets(): Collection
+    {
+        return $this->townPresets;
+    }
+
+    public function addTownPreset(CommunityEventTownPreset $town): self
+    {
+        if (!$this->townPresets->contains($town)) {
+            $this->townPresets->add($town);
+            $town->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTownPreset(CommunityEventTownPreset $town): self
+    {
+        if ($this->townPresets->removeElement($town)) {
+            // set the owning side to null (unless already changed)
+            if ($town->getEvent() === $this) {
+                $town->setEvent(null);
+            }
+        }
+
+        return $this;
     }
 }

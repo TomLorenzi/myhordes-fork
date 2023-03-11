@@ -1,10 +1,10 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 import Components, {ReactData} from "../index";
 import {Global} from "../../defaults";
 import {ResponseIndex, ResponseTownList, SysConfig, TownCreatorAPI, TownOptions, TownRules} from "./api";
-import {ChangeEvent, useEffect, useRef, useState} from "react";
+import {ChangeEvent, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {TownCreatorSectionHead} from "./SectionHead";
 import {TranslationStrings} from "./strings";
 import {TownCreatorSectionDifficulty} from "./SectionDifficulty";
@@ -17,18 +17,26 @@ import {TownCreatorSectionTemplate} from "./SectionTemplate";
 declare var $: Global;
 
 export class HordesTownCreator {
-    public static mount(parent: HTMLElement, props: { elevation: number }): void {
-        ReactDOM.render(<TownCreatorWrapper {...props} />, parent, () => Components.vitalize( parent ));
+
+    #_root = null;
+
+    public mount(parent: HTMLElement, props: { elevation: number, eventMode: boolean }): void {
+        if (!this.#_root) this.#_root = createRoot(parent);
+        this.#_root.render( <TownCreatorWrapper {...props} /> );
     }
 
-    public static unmount(parent: HTMLElement): void {
-        if (ReactDOM.unmountComponentAtNode( parent )) $.components.degenerate(parent);
+    public unmount(parent: HTMLElement): void {
+        if (this.#_root) {
+            this.#_root.unmount();
+            this.#_root = null;
+        }
     }
 }
 
 type TownCreatorGlobals = {
     api: TownCreatorAPI,
     elevation: number,
+    eventMode: boolean,
 
     strings: TranslationStrings,
     config: SysConfig,
@@ -41,9 +49,11 @@ type TownCreatorGlobals = {
 
 export const Globals = React.createContext<TownCreatorGlobals>(null);
 
-const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
+const TownCreatorWrapper = ( {elevation, eventMode}: {elevation: number, eventMode: boolean} ) => {
 
     const apiRef = useRef<TownCreatorAPI>();
+
+    const wrapper = useRef<HTMLDivElement>();
 
     const [index, setIndex] = useState<ResponseIndex>(null)
     const [townTownTypeList, setTownTypeList] = useState<ResponseTownList>()
@@ -63,6 +73,13 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
             setDefaultRules(null);
         }
     }, [] )
+
+    const fun_announce = options => {
+        wrapper.current.dispatchEvent( new CustomEvent(
+            'rules-changed',
+            { bubbles: true, cancelable: false, detail: {options, ready: !!defaultRules } }
+        ) )
+    }
 
     const processDot = ( dot: string|string[] ) => {
         if (typeof dot === "string") return processDot( dot.split('.') );
@@ -204,7 +221,10 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
             removeOption( dot_p.join('.') );
         } else {
             const obj = { ...options };
-            if ( fun(obj, dot_p, value) !== value) setOptions( obj );
+            if ( fun(obj, dot_p, value) !== value) {
+                setOptions(obj);
+                if (eventMode) fun_announce(obj);
+            };
         }
     }
 
@@ -219,54 +239,61 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
         }
 
         const obj = { ...options };
-        if ( fun(obj, processDot(dot)) ) setOptions( obj );
+        if ( fun(obj, processDot(dot)) ) {
+            setOptions(obj);
+            if (eventMode) fun_announce(obj);
+        }
     }
 
+    useLayoutEffect( () => Components.vitalize( wrapper.current ) )
+
     return (
-        <Globals.Provider value={{ api: apiRef.current, strings: index?.strings, config: index?.config,
-            default_rules: defaultRules as TownRules, elevation,
-            setOption, getOption, removeOption }}>
-            { townTownTypeList && index && (
-                <form data-disabled={blocked ? 'disabled' : ''}>
-                    <TownCreatorSectionHead townTypes={townTownTypeList} setBlocked={setBlocked}
-                                            setDefaultRules={v => setDefaultRules(v)}/>
+        <div ref={wrapper}>
+            <Globals.Provider value={{ api: apiRef.current, strings: index?.strings, config: index?.config,
+                default_rules: defaultRules as TownRules, elevation, eventMode,
+                setOption, getOption, removeOption }}>
+                { townTownTypeList && index && (
+                    <form data-disabled={blocked ? 'disabled' : ''}>
+                        <TownCreatorSectionHead townTypes={townTownTypeList} setBlocked={setBlocked}
+                                                setDefaultRules={v => setDefaultRules(v)}/>
 
-                    { defaultRules as TownRules && <>
-                        <TownCreatorSectionTemplate getOptions={ () => (options as TownOptions).rules } />
-                        <AtLeast elevation="crow">
-                            <TownCreatorSectionAnimator/>
-                        </AtLeast>
-                        <TownCreatorSectionMods/>
-                        <TownCreatorSectionDifficulty/>
-                        <AtLeast elevation="crow">
-                            <TownCreatorSectionAdvanced/>
-                        </AtLeast>
-                        <div className="row">
-                            <div className="cell padded rw-12">
-                                { getOption('rules.open_town_limit') === 2 && (
-                                    <>
-                                        <div className="warning">
-                                            <strong>{ index.strings.common.notice } </strong>
-                                            { index.strings.common.negate }
-                                        </div>
-                                        <br/>
-                                    </>
-                                ) }
-                                <button type="button" onClick={() => {
-                                    if (!confirm( index.strings.common.confirm )) return;
+                        { defaultRules as TownRules && <>
+                            <TownCreatorSectionTemplate getOptions={ () => (options as TownOptions).rules } />
+                            <AtLeast elevation="crow">
+                                <TownCreatorSectionAnimator/>
+                            </AtLeast>
+                            <TownCreatorSectionMods/>
+                            <TownCreatorSectionDifficulty/>
+                            <AtLeast elevation="crow">
+                                <TownCreatorSectionAdvanced/>
+                            </AtLeast>
+                            { !eventMode && (
+                                <div className="row">
+                                    <div className="cell padded rw-12">
+                                        { getOption('rules.open_town_limit') === 2 && (
+                                            <>
+                                                <div className="warning">
+                                                    <strong>{ index.strings.common.notice } </strong>
+                                                    { index.strings.common.negate }
+                                                </div>
+                                                <br/>
+                                            </>
+                                        ) }
+                                        <button type="button" onClick={() => {
+                                            if (!confirm( index.strings.common.confirm )) return;
 
-                                    apiRef.current.createTown(options as TownOptions)
-                                        .then( r => $.ajax.load(null, r.url, true) )
+                                            apiRef.current.createTown(options as TownOptions)
+                                                .then( r => $.ajax.load(null, r.url, true) )
 
-                                }}>{ index.strings.common.create }</button>
-                            </div>
-                        </div>
-                    </> }
-                </form>
-            ) }
-            { !(townTownTypeList && index) && <div className="center">
-                <i className="fa fa-spin fa-circle-notch"></i>
-            </div> }
-        </Globals.Provider>
+                                        }}>{ index.strings.common.create }</button>
+                                    </div>
+                                </div>
+                            ) }
+                        </> }
+                    </form>
+                ) }
+                { !(townTownTypeList && index) && <div className="loading"></div> }
+            </Globals.Provider>
+        </div>
     )
 };

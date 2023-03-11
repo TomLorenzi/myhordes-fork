@@ -144,4 +144,4 @@ window.addEventListener( 'load', () => {
 }, {once: true} )
 
 // Import common modules
-require('./modules/common-modules.js');
+require('../ts/modules/common-modules.ts');

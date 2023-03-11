@@ -8,16 +8,21 @@ use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\CommunityEvent;
 use App\Entity\CommunityEventMeta;
+use App\Entity\CommunityEventTownPreset;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\TownClass;
 use App\Entity\User;
 use App\Enum\UserSetting;
+use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -257,7 +262,132 @@ class EventController extends CustomAbstractCoreController
             }
         }
 
-
         return new JsonResponse();
+    }
+
+    /**
+     * @Route("/{id}/towns", name="list-town-presets", methods={"GET"})
+     * @param CommunityEvent $event
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function list_town_presets(
+        CommunityEvent $event,
+        EntityManagerInterface $em,
+    ): JsonResponse {
+        return new JsonResponse(['towns' => array_map(
+                                    fn(CommunityEventTownPreset $preset) => [
+                                        'uuid' => $preset->getId(),
+                                        'name' => $preset->getHeader()['townName'] ?? null,
+                                        'lang' => $preset->getHeader()['townLang'] ?? 'multi',
+                                        'type' => $this->translator->trans(
+                                            $em->getRepository(TownClass::class)->findOneBy(['name' => $preset->getHeader()['townType'] ?? TownClass::DEFAULT])->getLabel() ?? '',
+                                            [], 'game'
+                                        )
+                                    ],
+                                    $event->getTownPresets()->toArray()
+                                )]);
+    }
+
+    /**
+     * @Route("/{id}/town/{preset}", name="get-town-preset", methods={"GET"})
+     * @param CommunityEvent $event
+     * @param CommunityEventTownPreset $preset
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function get_town_preset(
+        #[MapEntity(id: 'id')]
+        CommunityEvent $event,
+        #[MapEntity(id: 'preset')]
+        CommunityEventTownPreset $preset,
+    ): JsonResponse {
+        if ($event->getOwner() !== $this->getUser())
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        return new JsonResponse([
+            'uuid' => $preset->getId(),
+            'header' => $preset->getHeader(),
+            'rules'  => $preset->getRules(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/town", name="create-town-preset", methods={"PUT"}, defaults={"create"=true})
+     * @Route("/{id}/town/{preset}", name="update-town-preset", methods={"PATCH"}, defaults={"create"=false})
+     * @param bool $create
+     * @param CommunityEvent $event
+     * @param CommunityEventTownPreset|null $preset
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @param SanitizeTownConfigAction $sanitizeTownConfigAction
+     * @return JsonResponse
+     */
+    public function save_template(
+        bool $create,
+        #[MapEntity(id: 'id')]
+        CommunityEvent $event,
+        #[MapEntity(id: 'preset')]
+        ?CommunityEventTownPreset $preset,
+        EntityManagerInterface $em,
+        JSONRequestParser $parser,
+        SanitizeTownConfigAction $sanitizeTownConfigAction
+    ): JsonResponse {
+
+        if (!$create && !$preset) return new JsonResponse([], Response::HTTP_NOT_FOUND);
+        if ($event->getOwner() !== $this->getUser())
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        $header = $parser->get_array('header');
+        $rules = $parser->get_array('rules');
+
+        $user_slots = [];
+        if (!$sanitizeTownConfigAction( $header, $rules, $user_slots ) || !empty($user_slots))
+            return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
+
+        if ($create) {
+            $preset = (new CommunityEventTownPreset());
+            $event->addTownPreset( $preset );
+        }
+
+        $preset->setHeader( $header )->setRules( $rules );
+
+        try {
+            $em->persist( $preset );
+            $em->flush();
+        } catch (Exception $e) {
+            return new JsonResponse(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return new JsonResponse(['uuid' => $preset->getId()]);
+    }
+
+    /**
+     * @Route("/{id}/town/{preset}", name="delete-town-preset", methods={"DELETE"})
+     * @param CommunityEvent $event
+     * @param CommunityEventTownPreset $preset
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function remove_template(
+        #[MapEntity(id: 'id')]
+        CommunityEvent $event,
+        #[MapEntity(id: 'preset')]
+        CommunityEventTownPreset $preset,
+        EntityManagerInterface $em
+    ): JsonResponse {
+
+        if ($event->getOwner() !== $this->getUser())
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        try {
+            $event->removeTownPreset( $preset );
+            $em->remove( $preset );
+            $em->flush();
+        } catch (Exception) {
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return new JsonResponse(['uuid' => $event->getId()]);
     }
 }

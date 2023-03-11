@@ -16,7 +16,7 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
 
     const head = globals.strings.head;
 
-    const type_default = (globals.elevation < 3 ? townTypes : [])
+    const type_default = ((globals.elevation < 3 || globals.eventMode) ? townTypes : [])
         .reduce( (value, object) => !object.preset ? object.id : value, -1 )
 
     const appliedDefaults: {dot: string, default: any|string}[] = [
@@ -105,32 +105,36 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
             />
         )}
 
-        { /* Town Code */ }
-        <OptionFreeText propTitle={head.code} propTip={head.code_help}
-                        value={globals.getOption( 'head.townCode' )} propName="townCode"
-        />
 
-        { /* Reserved spaces */ }
-        <OptionCoreTemplate propName="head.reserve" propTitle="" wide={ reservedPlaces.length > 0 || enableReservedPlaces }>
-            { reservedPlaces.length === 0 && !enableReservedPlaces && <button onClick={()=>setEnableReservedPlaces(true)}>{ head.reserve }</button> }
-            { (reservedPlaces.length > 0 || enableReservedPlaces) && (
-                <>
-                    <div className="save-spots-container">
-                        { reservedPlaces.length === 0 && <div className="placeholder">{ head.reserve_none }</div> }
-                        { reservedPlaces.length > 0 && <>
-                            <div className="placeholder">{ head.reserve_num } { reservedPlaces.length }</div>
-                            { reservedPlaces.map( u => <div key={u.id} className="town-reserved-spot">{ u.name }<span onClick={()=>removeReserved(u)}><i className="fa fa-times-circle pointer"></i></span></div> ) }
-                        </> }
-                    </div>
-                    <h5>{ head.reserve_add }</h5>
-                    <UserSearchBar callback={u=>addReserved(u)} exclude={reservedPlaces.map(u=>u.id)} clearOnCallback={true} acceptCSVListSearch={true}/>
-                    <div className="help" dangerouslySetInnerHTML={{__html: head.reserve_help}}/>
-                </>
-            ) }
-        </OptionCoreTemplate>
+        <AtLeast notForEvents={true}>
+            { /* Town Code */ }
+            <OptionFreeText propTitle={head.code} propTip={head.code_help}
+                            value={globals.getOption( 'head.townCode' )} propName="townCode"
+            />
 
-        { /* Number of citizens */ }
+            { /* Reserved spaces */ }
+            <OptionCoreTemplate propName="head.reserve" propTitle="" wide={ reservedPlaces.length > 0 || enableReservedPlaces }>
+                { reservedPlaces.length === 0 && !enableReservedPlaces && <button onClick={()=>setEnableReservedPlaces(true)}>{ head.reserve }</button> }
+                { (reservedPlaces.length > 0 || enableReservedPlaces) && (
+                    <>
+                        <div className="save-spots-container">
+                            { reservedPlaces.length === 0 && <div className="placeholder">{ head.reserve_none }</div> }
+                            { reservedPlaces.length > 0 && <>
+                                <div className="placeholder">{ head.reserve_num } { reservedPlaces.length }</div>
+                                { reservedPlaces.map( u => <div key={u.id} className="town-reserved-spot">{ u.name }<span onClick={()=>removeReserved(u)}><i className="fa fa-times-circle pointer"></i></span></div> ) }
+                            </> }
+                        </div>
+                        <h5>{ head.reserve_add }</h5>
+                        <UserSearchBar callback={u=>addReserved(u)} exclude={reservedPlaces.map(u=>u.id)} clearOnCallback={true} acceptCSVListSearch={true}/>
+                        <div className="help" dangerouslySetInnerHTML={{__html: head.reserve_help}}/>
+                    </>
+                ) }
+            </OptionCoreTemplate>
+        </AtLeast>
+
+
         <AtLeast elevation="crow">
+            { /* Number of citizens */ }
             <OptionFreeText type="number" propTitle={head.citizens} propHelp={head.citizens_help}
                             inputArgs={{min: 10, max: 80}}
                             value={(globals.getOption( 'head.townPop' ) as string) ?? '40'} propName="townPop"
@@ -142,13 +146,16 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
             />
 
             { /* Town Type */ }
-            <OptionSelect propTitle={head['type']} type="number"
-                          value={`${globals.getOption( 'head.townType' ) ?? -1}`} propName="townType"
-                          options={ [
-                              ...( globals.getOption( 'head.townType' ) == -1 ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
-                              ...townTypes.map( town => ({ value: `${town.id}`, title: town.name }) )
-                          ] }
-            />
+            <AtLeast notForEvents={true}>
+                <OptionSelect propTitle={head.type} type="number"
+                              value={`${globals.getOption( 'head.townType' ) ?? -1}`} propName="townType"
+                              options={ [
+                                  ...( globals.getOption( 'head.townType' ) == -1 ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
+                                  ...townTypes.map( town => ({ value: `${town.id}`, title: town.name }) )
+                              ] }/>
+            </AtLeast>
+
+
         </AtLeast>
 
         { /* Town Preset */ }

@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import {useLayoutEffect, useRef, useState} from "react";
 import {Fetch} from "../../v2/fetch";
 import {Global} from "../../defaults";
-import Components from "../index";
 
 declare var $: Global;
 

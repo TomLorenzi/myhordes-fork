@@ -123,6 +123,14 @@ export default class Ajax {
         }
     }
 
+    public load_dynamic_modules(target: Document|HTMLElement) {
+        // Check content source for non-defined nodes
+        target.querySelectorAll(':not(:defined)').forEach( e =>
+            // @ts-ignore
+            ((window.c?.modules ?? {})[e.localName] ?? []).forEach( src => this.fetch_module(src) )
+        );
+    }
+
     private render( url: string, target: HTMLElement, result_document: Document, push_history: boolean, replace_history: boolean ) {
         // Get URL
         if (push_history) history.pushState( url, '', url );
@@ -142,11 +150,7 @@ export default class Ajax {
             fragment.remove();
         }
 
-        // Check content source for non-defined nodes
-        result_document.querySelectorAll(':not(:defined)').forEach( e =>
-            // @ts-ignore
-            ((window.c?.modules ?? {})[e.localName] ?? []).forEach( src => this.fetch_module(src) )
-        );
+        this.load_dynamic_modules(result_document);
 
         // Get content, style and script tags
         let content_source = result_document.querySelectorAll('html>body>:not(script):not(x-message)');
