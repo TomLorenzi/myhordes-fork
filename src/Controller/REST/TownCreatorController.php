@@ -881,12 +881,7 @@ class TownCreatorController extends CustomAbstractCoreController
             return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
 
         $base = $primaryConf->getHasPreset() ? $primaryConf : $templateConf;
-
-        try {
-            $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
-        } catch(Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+        $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
 
         $template = $this->conf->getTownConfigurationByType( $base, !$primaryConf->getHasPreset() )->getData();
 
