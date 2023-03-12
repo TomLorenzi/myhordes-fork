@@ -81,7 +81,10 @@ class EventController extends CustomAbstractCoreController
                     'table_act' => $this->translator->trans('Aktionen', [], 'global'),
 
                     'add' => $this->translator->trans('Stadt hinzufügen', [], 'global'),
-                    'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Stadt löschen möchtest?', [], 'global')
+                    'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Stadt löschen möchtest?', [], 'global'),
+
+                    'town_create' => $this->translator->trans('Neue Stadt anlegen', [], 'global'),
+                    'town_edit' => $this->translator->trans('Stadt bearbeiten', [], 'global'),
                 ],
 
                 'editor' => [

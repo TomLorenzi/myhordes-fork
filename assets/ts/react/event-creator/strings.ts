@@ -42,6 +42,9 @@ export type TranslationStrings = {
 
         add: string,
         delete_confirm: string
+
+        town_create: string,
+        town_edit: string,
     }
 
     editor: {

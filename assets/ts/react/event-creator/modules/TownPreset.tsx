@@ -49,7 +49,7 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
     return (
         <>
             { activeTownEditor === true && <>
-                <h5>MAKE TOWN</h5>
+                <h5>{ globals.strings.towns.town_create }</h5>
                 <div className="row">
                     <div className="cell rw-12">
                         <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={uuid} town={null}/>
@@ -67,7 +67,7 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
             </> }
 
             { activeTownEditor && activeTownEditor !== true && <>
-                <h5>EDIT TOWN</h5>
+                <h5>{ globals.strings.towns.town_edit }</h5>
                 <div className="row">
                     <div className="cell rw-12">
                         <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={uuid} town={activeTownEditor as string}/>
