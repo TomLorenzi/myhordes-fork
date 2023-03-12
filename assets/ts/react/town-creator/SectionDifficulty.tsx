@@ -15,6 +15,25 @@ export const TownCreatorSectionDifficulty = () => {
 
     const difficulty = globals.strings.difficulty;
 
+    enum Direction { north, south, west, east };
+	const getOppositeDir = (direction: Direction) => {
+		return direction + ((direction % 2) === 1 ? -1 : 1);
+	};
+    const handleCustomMarginChange = (input: HTMLInputElement, direction: Direction) => {
+        const direction_opposite = getOppositeDir(direction);
+
+        const margin = parseInt(input.value);
+        const margin_opposite = parseInt(globals.getOption( 'rules.margin_custom.'+Direction[direction_opposite]) ?? 25);
+
+        let input_opposite = document.getElementsByName('margin_custom_'+Direction[direction_opposite])[0] as HTMLInputElement;
+
+        const max_value = 100 - margin_opposite;
+        input.max = max_value.toString();
+        input_opposite.max = (100 - margin).toString();
+
+        globals.setOption('rules.margin_custom.'+Direction[direction], margin);
+    }
+
     return <div data-map-property="rules">
         <h5>{ difficulty.section }</h5>
 
@@ -75,6 +94,27 @@ export const TownCreatorSectionDifficulty = () => {
                           options={ difficulty.position_presets.map( m => ({ value: m.value, title: m.label }) ) }
             />
         </AtLeast>
+        { globals.getOption( 'rules.mapMarginPreset' ) === '_custom' && (
+            <AtLeast elevation="crow">
+				{
+					Object.keys(Direction).map((dir_str) => {
+						const dir = Direction[dir_str];
+						if(typeof dir !== 'number') return;
+						
+						return (
+							<OptionFreeText 
+								type="number"
+								value={ globals.getOption( `rules.margin_custom.${dir_str}` ) as string ?? '25' }
+								propName={`margin_custom_${dir_str}`}
+								inputArgs={{min: 0, max: 100}}
+								propTitle={ difficulty[`position_${dir_str}`] }
+								onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, dir as Direction)}
+							/>
+						);
+					})
+				}
+            </AtLeast>
+        ) }
 
         { /* Attack Settings */ }
         <OptionSelect value={ globals.getOption( 'rules.features.attacks' ) } propName="features.attacks" propTitle={ difficulty.attacks }
