@@ -553,17 +553,6 @@ class TownAddonsController extends TownController
             $total_def += ($counsel_def = 20 * $count);
 
         $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
-
-        $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
-
-        $estims = $this->town_handler->get_zombie_estimation($town);
-        $zeds_today = [
-            $has_zombie_est_today, // Can see
-            $estims[0]->getMin(), // Min
-            $estims[0]->getMax(),  // Max
-            round($estims[0]->getEstimation()*100) // Progress
-        ];
-
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
@@ -573,9 +562,7 @@ class TownAddonsController extends TownController
             'total_def' => $total_def,
             'has_counsel' => $has_counsel,
             'counsel_def' => $counsel_def,
-            'door_section' => 'nightwatch',
-            'zeds_today' => $zeds_today,
-            'def' => $this->town_handler->calculate_town_def($town, $defSummary),
+            'door_section' => 'nightwatch'
         ]) );
     }
 
