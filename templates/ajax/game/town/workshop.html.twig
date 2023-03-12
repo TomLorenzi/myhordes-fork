@@ -81,10 +81,10 @@
             {# @var recipe \App\Entity\Recipe #}
             {% if source[recipe.id] > 0 %}
                 <div class="row-flex recipe">
-                    <div class="padded cell rw-1 grow-0 shrink-0">
+                    <div class="padded cell rw-2 grow-0 shrink-0">
                         <span class="small">{{ source[recipe.id] }}</span>
                     </div>
-                    <div class="padded cell rw-2 grow-0 shrink-0">
+                    <div class="padded cell rw-1 grow-0 shrink-0">
                         {% for entry in recipe.source.entries %}
                             {# @var entry \App\Entity\ItemGroupEntry #}
                             <span>
