@@ -33,10 +33,10 @@ export const HordesEventCreatorViewer = ( {creator,editor}: {
                     <b className="cell grow-1">{ event.name ?? globals.strings.list.default_event }</b>
                     { editor && event.own && <>
                         <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
-                            <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.list.edit_icon} onClick={() => editor(event.uuid)} />
+                            <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={() => editor(event.uuid)} />
                         </span>
                         <span className="cell padded-small shrink-0" title={globals.strings.common.delete}>
-                            <img className="pointer" alt={globals.strings.common.delete} src={globals.strings.list.delete_icon} onClick={() => {
+                            <img className="pointer" alt={globals.strings.common.delete} src={globals.strings.common.delete_icon} onClick={() => {
                                 if (confirm( globals.strings.list.delete_confirm )) {
                                     setEvents(events.filter(e => e.uuid !== event.uuid));
                                     globals.api.delete(event.uuid).catch( () => refresh(true) );

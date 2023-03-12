@@ -14,7 +14,10 @@ export type TranslationStrings = {
         save: string,
         cancel: string,
         edit: string,
+        edit_icon: string,
+
         delete: string,
+        delete_icon: string,
 
         flags: LangStrings,
         langs: LangStrings,
@@ -23,13 +26,26 @@ export type TranslationStrings = {
     list: {
         no_events: string,
         default_event: string,
-        edit_icon: string,
 
-        delete_icon: string,
         delete_confirm: string,
     }
 
+    towns: {
+        title: string,
+
+        no_towns: string,
+        default_town: string,
+
+        table_lang: string,
+        table_town: string,
+        table_act: string,
+
+        add: string,
+        delete_confirm: string
+    }
+
     editor: {
+        title: string,
         edit: string,
         add_meta: string,
 

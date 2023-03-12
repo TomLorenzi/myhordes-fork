@@ -55,7 +55,9 @@ class EventController extends CustomAbstractCoreController
                     'save' => $this->translator->trans('Speichern', [], 'global'),
                     'cancel' => $this->translator->trans('Abbrechen', [], 'global'),
                     'edit' => $this->translator->trans('Bearbeiten', [], 'global'),
+                    'edit_icon' => $assets->getUrl('build/images/forum/edit.png'),
                     'delete' => $this->translator->trans('Löschen', [], 'global'),
+                    'delete_icon' => $assets->getUrl('build/images/icons/small_remove.gif'),
 
                     'flags' => array_map( fn($l) => $assets->getUrl("build/images/lang/{$l}.png"), ['de'=>'de','en'=>'en','fr'=>'fr','es'=>'es','multi'=>'multi'] ),
                     'langs' => array_map( fn($l) => $this->translator->trans( $l, [], 'global' ), ['de'=>'Deutsch','en'=>'Englisch','fr'=>'Französisch','es'=>'Spanisch','multi'=>'???'] ),
@@ -65,13 +67,25 @@ class EventController extends CustomAbstractCoreController
                     'no_events' => $this->translator->trans('Aktuell sind keine Community-Events geplant.', [], 'global'),
                     'default_event' => $this->translator->trans('Neues Event', [], 'global'),
 
-                    'edit_icon' => $assets->getUrl('build/images/forum/edit.png'),
-
-                    'delete_icon' => $assets->getUrl('build/images/icons/small_remove.gif'),
                     'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Event löschen möchtest?', [], 'global')
                 ],
 
+                'towns' => [
+                    'title' => $this->translator->trans('Event-Städte', [], 'global'),
+
+                    'no_towns' => $this->translator->trans('Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.', [], 'global'),
+                    'default_town' => $this->translator->trans('Automatisch generierter Name', [], 'global'),
+
+                    'table_lang' => $this->translator->trans('Sprache', [], 'global'),
+                    'table_town' => $this->translator->trans('Stadt', [], 'game'),
+                    'table_act' => $this->translator->trans('Aktionen', [], 'global'),
+
+                    'add' => $this->translator->trans('Stadt hinzufügen', [], 'global'),
+                    'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Stadt löschen möchtest?', [], 'global')
+                ],
+
                 'editor' => [
+                    'title' => $this->translator->trans('Allgemeine Event-Informationen', [], 'global'),
                     'edit' => $this->translator->trans('Event bearbeiten', [], 'global'),
                     'add_meta' => $this->translator->trans('Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.', [], 'global'),
 
@@ -281,7 +295,7 @@ class EventController extends CustomAbstractCoreController
                                         'name' => $preset->getHeader()['townName'] ?? null,
                                         'lang' => $preset->getHeader()['townLang'] ?? 'multi',
                                         'type' => $this->translator->trans(
-                                            $em->getRepository(TownClass::class)->findOneBy(['name' => $preset->getHeader()['townType'] ?? TownClass::DEFAULT])->getLabel() ?? '',
+                                            $em->getRepository(TownClass::class)->findOneBy(['name' => $preset->getHeader()['townBase'] ?? $preset->getHeader()['townType'] ?? TownClass::DEFAULT])->getLabel() ?? '',
                                             [], 'game'
                                         )
                                     ],

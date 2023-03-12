@@ -269,9 +269,9 @@ class SanitizeTownConfigAction
 
     protected function fix_rules( array &$head, array &$rules ): void {
         // Apply town type settings
-        $head['townType'] = $em->getRepository( TownClass::class )->find( $head['townType'] )?->getName() ?? 'custom';
+        $head['townType'] = $this->em->getRepository( TownClass::class )->find( $head['townType'] )?->getName() ?? 'custom';
         if ($head['townType'] !== 'custom') $head['townBase'] = $head['townType'];
-        else $head['townBase'] = $em->getRepository( TownClass::class )->find( $head['townBase'] )?->getName() ?? TownClass::DEFAULT;
+        else $head['townBase'] = $this->em->getRepository( TownClass::class )->find( $head['townBase'] )?->getName() ?? TownClass::DEFAULT;
         if ($head['townBase'] === 'custom') $head['townBase'] = TownClass::DEFAULT;
 
         $lang = $head['townLang'] ?? 'multi';
@@ -346,11 +346,11 @@ class SanitizeTownConfigAction
 
         // Ensure all unlocked buildings are valid (exist and are unlockable by a blueprint), and no building is doubled
         if (isset( $rules['unlocked_buildings'] ))
-            $rules['unlocked_buildings'] = array_filter( array_unique( $rules['unlocked_buildings'] ), fn(string $building) => !in_array($building, $rules['disabled_buildings'] ?? []) && $this->building_prototype_is_selectable($em->getRepository(BuildingPrototype::class)->findOneBy(['name' => $building]) ) );
+            $rules['unlocked_buildings'] = array_filter( array_unique( $rules['unlocked_buildings'] ), fn(string $building) => !in_array($building, $rules['disabled_buildings'] ?? []) && $this->building_prototype_is_selectable($this->em->getRepository(BuildingPrototype::class)->findOneBy(['name' => $building]) ) );
 
         // Ensure all initially constructed buildings are valid (exist and are either unlockable by a blueprint or unlocked by default), and no building is doubled
         if (isset( $rules['initial_buildings'] ))
-            $rules['initial_buildings'] = array_filter( array_unique( $rules['initial_buildings'] ), fn(string $building) => !in_array($building, $rules['disabled_buildings'] ?? []) && $this->building_prototype_is_selectable($em->getRepository(BuildingPrototype::class)->findOneBy(['name' => $building]), true ) );
+            $rules['initial_buildings'] = array_filter( array_unique( $rules['initial_buildings'] ), fn(string $building) => !in_array($building, $rules['disabled_buildings'] ?? []) && $this->building_prototype_is_selectable($this->em->getRepository(BuildingPrototype::class)->findOneBy(['name' => $building]), true ) );
     }
 
     protected function scrub_config( array &$subject, array $reference ): void
