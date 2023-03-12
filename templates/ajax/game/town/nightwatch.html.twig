@@ -43,7 +43,6 @@
             {% for watcher in watchers %}
             <div class="row small {% if watcher.citizen == me %} me{% endif %}">
             <div class="cell padded rw-3 center ellipsis">
-                <img src="{{ asset('build/images/professions/' ~ watcher.citizen.profession.icon ~ '.gif') }}" alt="{{ watcher.citizen.profession.label|trans({},'items') }}"> 
                 <a href="#" x-ajax-href="{{ path('town_visit', {id: watcher.citizen.id}) }}">{{watcher.citizen.name}}</a>
                 <div class="tooltip normal">{{ watcher.citizen.name }}</div>
             </div>
