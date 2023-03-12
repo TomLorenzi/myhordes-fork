@@ -16,13 +16,16 @@ export const TownCreatorSectionDifficulty = () => {
     const difficulty = globals.strings.difficulty;
 
     enum Direction { north, south, west, east };
+	const getOppositeDir = (direction: Direction) => {
+		return direction + ((direction % 2) === 1 ? -1 : 1);
+	};
     const handleCustomMarginChange = (input: HTMLInputElement, direction: Direction) => {
-        const margin =  parseInt(input.value);
+        const direction_opposite = getOppositeDir(direction);
 
-        const direction_opposite = direction + ((direction % 2) === 1 ? -1 : 1);
+        const margin = parseInt(input.value);
         const margin_opposite = parseInt(globals.getOption( 'rules.margin_custom.'+Direction[direction_opposite]) ?? 25);
+
         let input_opposite = document.getElementsByName('margin_custom_'+Direction[direction_opposite])[0] as HTMLInputElement;
-        console.log(Direction[direction], Direction[direction_opposite]);
 
         const max_value = 100 - margin_opposite;
         input.max = max_value.toString();
@@ -93,22 +96,23 @@ export const TownCreatorSectionDifficulty = () => {
         </AtLeast>
         { globals.getOption( 'rules.mapMarginPreset' ) === '_custom' && (
             <AtLeast elevation="crow">
-                <OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.north' ) as string ?? '25' } propName="margin_custom_north"
-                                inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_north }
-                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.north)}
-                />
-                <OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.south' ) as string ?? '25' } propName="margin_custom_south"
-                                inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_south }
-                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.south)}
-                />
-                <OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.west' ) as string ?? '25' } propName="margin_custom_west"
-                                inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_west }
-                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.west)}
-                />
-                <OptionFreeText type="number" value={ globals.getOption( 'rules.margin_custom.east' ) as string ?? '25' } propName="margin_custom_east"
-                                inputArgs={{min: 0, max: 100}} propTitle={ difficulty.position_east }
-                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, Direction.east)}
-                />
+				{
+					Object.keys(Direction).map((dir_str) => {
+						const dir = Direction[dir_str];
+						if(typeof dir !== 'number') return;
+
+						return (
+							<OptionFreeText
+								type="number"
+								value={ globals.getOption( `rules.margin_custom.${dir_str}` ) as string ?? '25' }
+								propName={`margin_custom_${dir_str}`}
+								inputArgs={{min: 0, max: 100}}
+								propTitle={ `${difficulty[`position_${dir_str}`]} (%)` }
+								onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, dir as Direction)}
+							/>
+						);
+					})
+				}
             </AtLeast>
         ) }
 

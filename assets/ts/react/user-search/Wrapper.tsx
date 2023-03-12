@@ -62,7 +62,7 @@ export const UserSearchBar = (
         withAlias?: boolean,
     }) => {
 
-    const apiRef = useRef<Fetch>( new Fetch('user-search') )
+    const apiRef = useRef<Fetch>( new Fetch('user/search') )
 
     const wrapper = useRef<HTMLDivElement>();
     const input = useRef<HTMLInputElement>();

@@ -518,21 +518,24 @@ class TownCreatorController extends CustomAbstractCoreController
         }
 
         if($margin_custom && $margin_custom['enabled']) {
-            $margin_custom['north'] = $margin_custom['north'] ?? 25;
-            $margin_custom['south'] = $margin_custom['south'] ?? 25;
-            $margin_custom['west'] = $margin_custom['west'] ?? 25;
-            $margin_custom['east'] = $margin_custom['east'] ?? 25;
+			$dirs = ['north', 'south', 'west', 'east'];
+			function getOpposingDir($dir_i) {
+				return $dir_i + (($dir_i % 2) === 1 ? -1 : 1);
+			}
+			foreach($dirs as $dir_i => $dir) {
+				$margin_custom[$dir] = $margin_custom[$dir] ?? 25;
+			}
+			foreach($dirs as $dir_i => $dir) {
+				$shortest_margin_in_dir = min($margin_custom[$dir], 100 - $margin_custom[$dirs[getOpposingDir($dir_i)]]);
 
-            if(min($margin_custom['north'], 100 - $margin_custom['south']) 	!= $margin_custom['north']
-            || min($margin_custom['south'], 100 - $margin_custom['north']) 	!= $margin_custom['south']
-            || min($margin_custom['west'], 	100 - $margin_custom['east']) 	!= $margin_custom['west']
-            || min($margin_custom['east'], 	100 - $margin_custom['west']) 	!= $margin_custom['east']) {
-                throw new Exception();
-            }
+				if($shortest_margin_in_dir != $margin_custom[$dir]) {
+					// The opposing margin cannot overlap this margin (ex: 25% margin west and 80% margin east)
+					throw new Exception();
+				}
 
-            foreach($margin_custom as $k => $v) {
-                $margin_custom[$k] = $v / 100;
-            } 
+				$margin_custom[$dir] /= 100;
+			}
+
             $margin_custom['enabled'] = true;
             $conf['margin_custom'] = $margin_custom;
         }
@@ -883,7 +886,7 @@ class TownCreatorController extends CustomAbstractCoreController
         }
 
         $template = $this->conf->getTownConfigurationByType( $base, !$primaryConf->getHasPreset() )->getData();
-        
+
         $this->scrub_config( $rules, $template );
         $this->fix_rules( $header, $rules, $em );
         $this->elevation_needed( $header, $rules, $user->getRightsElevation() );

@@ -121,7 +121,6 @@ window.addEventListener("resize", resizer);
 window.addEventListener('load', resizer, {once: true});
 window.addEventListener( 'load', () => {
     if (document.querySelector('html.lang-base-ach')) {
-        console.log('do');
         let button = document.createElement('button');
         button.style.display = 'inline-block';
         button.innerText = 'Exit In-Context Translation';

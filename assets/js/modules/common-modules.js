@@ -5,6 +5,7 @@
 
 // Import the actual react code
 import {HordesUserSearchBar} from "../../ts/react/user-search/Wrapper";
+import {HordesDistinctions} from "../../ts/react/distinctions/Wrapper";
 
 // Define web component <hordes-user-search />
 customElements.define('hordes-user-search', class HordesUserSearchElement extends HTMLElement {
@@ -39,6 +40,48 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
     }
 
     static get observedAttributes() { return ['data-title','data-exclude','data-clear','data-list','data-self','data-friends','data-alias']; }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (oldValue === newValue) return;
+        if (this.#_extractData()) this.#_initialized?.mount(this, this.#_data);
+    }
+
+    constructor() {
+        super();
+        this.addEventListener('x-react-degenerate', () => this.#_initialized?.unmount());
+        this.#_initialize();
+    }
+}, {  });
+
+customElements.define('hordes-distinctions', class HordesDistinctionsElement extends HTMLElement {
+    #_initialized = null;
+
+    #_data = {}
+
+    #_extractData() {
+        this.#_data = {
+            source: this.dataset.source ?? 'soul',
+            plain: parseInt( this.dataset.plain ?? '0' ) !== 0,
+            user: parseInt( this.dataset.user ?? '0' ),
+            interactive: parseInt( this.dataset.interactive ?? '0' ) !== 0,
+        }
+        return true;
+    }
+
+    #_initialize() {
+        if (this.#_initialized || !this.isConnected) return;
+        if (this.#_extractData()) {
+            this.#_initialized = new HordesDistinctions;
+            this.#_initialized.mount(this, this.#_data);
+        }
+    }
+
+    adoptedCallback() {
+        this.#_initialize();
+        if (this.#_extractData()) this.#_initialized?.mount(this, this.#_data);
+    }
+
+    static get observedAttributes() { return ['data-source', 'data-plain', 'data-user', 'data-interactive']; }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue === newValue) return;

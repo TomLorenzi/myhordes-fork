@@ -19,6 +19,7 @@ export type MapCoordinate = {
 }
 
 export interface MapZone extends MapCoordinate {
+    id?: number,    // zone id
     z?: number,     // Exact number of zombies
     d?: number,     // Danger level
     r?: MapZoneRuin,
@@ -33,6 +34,7 @@ export interface MapZone extends MapCoordinate {
 }
 
 export interface LocalZone {
+    id: number,     // DB ID of the zone
     xr: number,     // Relative X coordinate (current citizen position is 0/0)
     yr: number,     // Relative Y coordinate (current citizen position is 0/0)
     x?: number,     // Absolute X coordinate

@@ -454,10 +454,10 @@ class CrowService {
                     'url' => match ( $class ) {
                         Post::class => $this->url_generator->generate( 'forum_jump_view', [ 'pid' => $object->getId() ], UrlGeneratorInterface::ABSOLUTE_URL ),
                         PrivateMessage::class, GlobalPrivateMessage::class => $this->url_generator->generate('admin_reports', [ 'tab' => 'reports' ], UrlGeneratorInterface::ABSOLUTE_URL ),
-                        BlackboardEdit::class => $this->url_generator->generate( 'admin_town_explorer', ['id' => $object->getTown()->getId(), 'tab' => 'blackboard'], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        BlackboardEdit::class => $this->url_generator->generate( 'admin_town_dashboard', ['id' => $object->getTown()->getId(), 'tab' => 'blackboard'], UrlGeneratorInterface::ABSOLUTE_URL ),
                         CitizenRankingProxy::class => match ($report->getSpecification()) {
                             AdminReportSpecification::None => 'no content',
-                            AdminReportSpecification::CitizenAnnouncement => $object->getCitizen() ? $this->url_generator->generate( 'admin_town_explorer', ['id' => $object->getCitizen()->getTown()->getId(), 'tab' => 'citizens'], UrlGeneratorInterface::ABSOLUTE_URL ) : 'deleted',
+                            AdminReportSpecification::CitizenAnnouncement => $object->getCitizen() ? $this->url_generator->generate( 'admin_town_dashboard', ['id' => $object->getCitizen()->getTown()->getId(), 'tab' => 'citizens'], UrlGeneratorInterface::ABSOLUTE_URL ) : 'deleted',
                             AdminReportSpecification::CitizenLastWords, AdminReportSpecification::CitizenTownComment => $this->url_generator->generate( 'soul_view_town', ['sid' => $object->getUser()->getId(), 'idtown' => $object->getTown()->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
                         },
                         User::class => $this->url_generator->generate( 'soul_visit', ['id' => $object->getId()], UrlGeneratorInterface::ABSOLUTE_URL  ),
