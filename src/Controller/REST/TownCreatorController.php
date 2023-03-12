@@ -525,19 +525,22 @@ class TownCreatorController extends CustomAbstractCoreController
 			foreach($dirs as $dir_i => $dir) {
 				$margin_custom[$dir] = $margin_custom[$dir] ?? 25;
 			}
-			foreach($dirs as $dir_i => $dir) {
-				$shortest_margin_in_dir = min($margin_custom[$dir], 100 - $margin_custom[$dirs[getOpposingDir($dir_i)]]);
 
-				if($shortest_margin_in_dir != $margin_custom[$dir]) {
-					// The opposing margin cannot overlap this margin (ex: 25% margin west and 80% margin east)
-					throw new Exception();
-				}
+            try {
+                foreach($dirs as $dir_i => $dir) {
+                    $shortest_margin_in_dir = min($margin_custom[$dir], 100 - $margin_custom[$dirs[getOpposingDir($dir_i)]]);
 
-				$margin_custom[$dir] /= 100;
-			}
+                    if($shortest_margin_in_dir != $margin_custom[$dir]) {
+                        // The opposing margin cannot overlap this margin (ex: 25% margin west and 80% margin east)
+                        throw new Exception();
+                    }
 
-            $margin_custom['enabled'] = true;
-            $conf['margin_custom'] = $margin_custom;
+                    $margin_custom[$dir] /= 100;
+                }
+
+                $margin_custom['enabled'] = true;
+                $conf['margin_custom'] = $margin_custom;
+            } catch (Exception) {}
         }
 
         if ($well_preset) {
