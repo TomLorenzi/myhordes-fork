@@ -71,6 +71,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'need_selection' => "[ {$this->translator->trans('Bitte auswählen', [], 'global')} ]",
                     'notice' => $this->translator->trans('Achtung!', [], 'ghost'),
                     'negate' => $this->translator->trans('Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.', [], 'ghost'),
+                    'incorrect_fields' => $this->translator->trans('Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.', [], 'ghost'),
                 ],
 
                 'head' => [
@@ -518,29 +519,21 @@ class TownCreatorController extends CustomAbstractCoreController
         }
 
         if($margin_custom && $margin_custom['enabled']) {
-			$dirs = ['north', 'south', 'west', 'east'];
-			function getOpposingDir($dir_i) {
-				return $dir_i + (($dir_i % 2) === 1 ? -1 : 1);
-			}
-			foreach($dirs as $dir_i => $dir) {
-				$margin_custom[$dir] = $margin_custom[$dir] ?? 25;
-			}
+            $dirs = ['north', 'south', 'west', 'east'];
+            function getOpposingDir($dir_i) {
+                return $dir_i + (($dir_i % 2) === 1 ? -1 : 1);
+            }
+            // init the values to default if needed
+            foreach($dirs as $dir_i => $dir) {
+                $margin_custom[$dir] = $margin_custom[$dir] ?? 25;
+            }
+            // cap the margins to their opposed direction's margin and transform to %
+            foreach($dirs as $dir_i => $dir) {
+                $margin_custom[$dir] = min($margin_custom[$dir], 100 - $margin_custom[$dirs[getOpposingDir($dir_i)]]) / 100;
+            }
 
-            try {
-                foreach($dirs as $dir_i => $dir) {
-                    $shortest_margin_in_dir = min($margin_custom[$dir], 100 - $margin_custom[$dirs[getOpposingDir($dir_i)]]);
-
-                    if($shortest_margin_in_dir != $margin_custom[$dir]) {
-                        // The opposing margin cannot overlap this margin (ex: 25% margin west and 80% margin east)
-                        throw new Exception();
-                    }
-
-                    $margin_custom[$dir] /= 100;
-                }
-
-                $margin_custom['enabled'] = true;
-                $conf['margin_custom'] = $margin_custom;
-            } catch (Exception) {}
+            $margin_custom['enabled'] = true;
+            $conf['margin_custom'] = $margin_custom;
         }
 
         if ($well_preset) {

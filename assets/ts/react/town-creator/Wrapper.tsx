@@ -37,6 +37,9 @@ type TownCreatorGlobals = {
     setOption: (dot: string|ChangeEvent, value?: any|null) => void
     getOption: (dot: string) => any
     removeOption: (dot: string) => any
+    
+    addFieldCheck: (check: () => boolean) => void
+    removeFieldCheck: (check: () => boolean) => void
 }
 
 export const Globals = React.createContext<TownCreatorGlobals>(null);
@@ -52,6 +55,8 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
 
     const [blocked, setBlocked] = useState<boolean>(false);
 
+    const [fieldChecks, setFieldChecks] = useState<(() => boolean)[]>([]);
+
     useEffect( () => {
         apiRef.current = new TownCreatorAPI();
         apiRef.current.index().then( index => setIndex(index) );
@@ -61,8 +66,12 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
             setTownTypeList(null);
             setOptions(null);
             setDefaultRules(null);
+            setFieldChecks(null);
         }
     }, [] )
+
+    const addFieldCheck = (check: () => boolean) => fieldChecks.push(check);
+    const removeFieldCheck = (check: () => boolean) => setFieldChecks(fieldChecks.filter(existingCheck => existingCheck !== check));
 
     const processDot = ( dot: string|string[] ) => {
         if (typeof dot === "string") return processDot( dot.split('.') );
@@ -222,10 +231,14 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
         if ( fun(obj, processDot(dot)) ) setOptions( obj );
     }
 
+    const checkFields = (): boolean => {
+        return fieldChecks.reduce((state, fieldCheck) => state && fieldCheck(), true);
+    }
+
     return (
         <Globals.Provider value={{ api: apiRef.current, strings: index?.strings, config: index?.config,
             default_rules: defaultRules as TownRules, elevation,
-            setOption, getOption, removeOption }}>
+            setOption, getOption, removeOption, addFieldCheck, removeFieldCheck }}>
             { townTownTypeList && index && (
                 <form data-disabled={blocked ? 'disabled' : ''}>
                     <TownCreatorSectionHead townTypes={townTownTypeList} setBlocked={setBlocked}
@@ -254,6 +267,11 @@ const TownCreatorWrapper = ( {elevation}: {elevation: number} ) => {
                                 ) }
                                 <button type="button" onClick={() => {
                                     if (!confirm( index.strings.common.confirm )) return;
+
+                                    if (!checkFields()) {
+                                        alert( index.strings.common.incorrect_fields );
+                                        return;
+                                    }
 
                                     apiRef.current.createTown(options as TownOptions)
                                         .then( r => $.ajax.load(null, r.url, true) )

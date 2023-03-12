@@ -15,10 +15,20 @@ export const TownCreatorSectionDifficulty = () => {
 
     const difficulty = globals.strings.difficulty;
 
+    /* Inputs */
+    const WELL = "well"
+    const MAP_PRESET = "mapPreset"
+    const MAP = "map"
+    const RUINS = "ruins"
+    const EXPLORABLE_RUINS = "explorable_ruins"
+    const MAP_MARGIN_PRESET = "mapMarginPreset"
+    const MARGIN_CUSTOM_PREFIX = "margin_custom_"
+    const FEATURES_ATTACKS = "features.attacks"
+
     enum Direction { north, south, west, east };
-	const getOppositeDir = (direction: Direction) => {
-		return direction + ((direction % 2) === 1 ? -1 : 1);
-	};
+    const getOppositeDir = (direction: Direction) => {
+        return direction + ((direction % 2) === 1 ? -1 : 1);
+    };
     const handleCustomMarginChange = (input: HTMLInputElement, direction: Direction) => {
         const direction_opposite = getOppositeDir(direction);
 
@@ -34,11 +44,43 @@ export const TownCreatorSectionDifficulty = () => {
         globals.setOption('rules.margin_custom.'+Direction[direction], margin);
     }
 
+    const checkCustomMargins = () => {        
+        for(const [dir, dir_str] of Object.entries(Direction)) {
+            const dir_str_opposite = Direction[getOppositeDir(parseInt(dir))];
+
+            const margin = parseInt(globals.getOption(`rules.margin_custom.${dir_str}`) ?? 25);
+            const margin_opposite = parseInt(globals.getOption(`rules.margin_custom.${dir_str_opposite}`) ?? 25);
+
+            if((100 - margin_opposite) < margin) return false;
+        }
+        return true;
+    }
+
+    const getInputByName = (name: string) => document.getElementsByName(name)[0];
+
+    useEffect(() => {
+        const fieldCheck = () => {
+            try {
+                const marginPreset = (getInputByName(MAP_MARGIN_PRESET) as HTMLInputElement).value;
+                
+                if(marginPreset === '_custom') {
+                    if(!checkCustomMargins()) return false;
+                }
+            } catch(e) {
+                return false;
+            }
+            return true;
+        }
+
+        globals.addFieldCheck(fieldCheck);
+        return () => globals.removeFieldCheck(fieldCheck);
+    }, [])
+
     return <div data-map-property="rules">
         <h5>{ difficulty.section }</h5>
 
         { /* Well Level */ }
-        <OptionCoreTemplate propName="well" propHelp={difficulty.well_help} propTitle={difficulty.well}>
+        <OptionCoreTemplate propName={WELL} propHelp={difficulty.well_help} propTitle={difficulty.well}>
             <select name="wellPreset" value={globals.getOption( 'rules.wellPreset' ) ?? ''} onChange={globals.setOption}>
                 { difficulty.well_presets.map( option => <React.Fragment key={option.value}>
                     <option value={option.value}>{ option.label }</option>
@@ -65,12 +107,12 @@ export const TownCreatorSectionDifficulty = () => {
         </OptionCoreTemplate>
 
         { /* Map Settings */ }
-        <OptionSelect value={ globals.getOption( 'rules.mapPreset' ) } propName="mapPreset" propTitle={ difficulty.map }
+        <OptionSelect value={ globals.getOption( 'rules.mapPreset' ) } propName={MAP_PRESET} propTitle={ difficulty.map }
                       options={ difficulty.map_presets.filter(globals.elevation < 3 ? v=> ['small','normal'].includes(v.value) : ()=>true).map( m => ({ value: m.value, title: m.label }) ) }
         />
         { globals.getOption( 'rules.mapPreset' ) === '_custom' && (
             <AtLeast elevation="crow">
-                <OptionFreeText type="number" value={ globals.getOption( 'rules.map.min' ) as string ?? '26' } propName="map"
+                <OptionFreeText type="number" value={ globals.getOption( 'rules.map.min' ) as string ?? '26' } propName={MAP}
                                 inputArgs={{min: 10, max: 35}} propTitle={ difficulty.map_exact }
                                 onChange={e => {
                                     const v =  parseInt((e.target as HTMLInputElement).value);
@@ -79,10 +121,10 @@ export const TownCreatorSectionDifficulty = () => {
                                 }}
 
                 />
-                <OptionFreeText type="number" value={ globals.getOption( 'rules.ruins' ) as string ?? '20' } propName="ruins"
+                <OptionFreeText type="number" value={ globals.getOption( 'rules.ruins' ) as string ?? '20' } propName={RUINS}
                                 inputArgs={{min: 0, max: 30}} propTitle={ difficulty.map_ruins }
                 />
-                <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruins' ) as string ?? '1' } propName="explorable_ruins"
+                <OptionFreeText type="number" value={ globals.getOption( 'rules.explorable_ruins' ) as string ?? '1' } propName={EXPLORABLE_RUINS}
                                 inputArgs={{min: 0, max: 3}} propTitle={ difficulty.map_e_ruins }
                 />
             </AtLeast>
@@ -90,34 +132,35 @@ export const TownCreatorSectionDifficulty = () => {
 
         { /* Position Settings */ }
         <AtLeast elevation="crow">
-            <OptionSelect value={ globals.getOption( 'rules.mapMarginPreset' ) ?? 'normal' } propName="mapMarginPreset" propTitle={ difficulty.position }
+            <OptionSelect value={ globals.getOption( 'rules.mapMarginPreset' ) ?? 'normal' } propName={MAP_MARGIN_PRESET} propTitle={ difficulty.position }
                           options={ difficulty.position_presets.map( m => ({ value: m.value, title: m.label }) ) }
             />
         </AtLeast>
         { globals.getOption( 'rules.mapMarginPreset' ) === '_custom' && (
             <AtLeast elevation="crow">
-				{
-					Object.keys(Direction).map((dir_str) => {
-						const dir = Direction[dir_str];
-						if(typeof dir !== 'number') return;
+                {
+                    Object.keys(Direction).map((dir_str) => {
+                        const dir = Direction[dir_str];
+                        if(typeof dir !== 'number') return;
 
-						return (
-							<OptionFreeText
-								type="number"
-								value={ globals.getOption( `rules.margin_custom.${dir_str}` ) as string ?? '25' }
-								propName={`margin_custom_${dir_str}`}
-								inputArgs={{min: 0, max: 100}}
-								propTitle={ `${difficulty[`position_${dir_str}`]} (%)` }
-								onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, dir as Direction)}
-							/>
-						);
-					})
-				}
+                        return (
+                            <OptionFreeText
+                                type="number"
+                                value={ globals.getOption( `rules.margin_custom.${dir_str}` ) as string ?? '25' }
+                                key={`${MARGIN_CUSTOM_PREFIX}${dir_str}`}
+                                propName={`${MARGIN_CUSTOM_PREFIX}${dir_str}`}
+                                inputArgs={{min: 0, max: 100}}
+                                propTitle={ `${difficulty[`position_${dir_str}`]} (%)` }
+                                onChange={e => handleCustomMarginChange(e.target as HTMLInputElement, dir as Direction)}
+                            />
+                        );
+                    })
+                }
             </AtLeast>
         ) }
 
         { /* Attack Settings */ }
-        <OptionSelect value={ globals.getOption( 'rules.features.attacks' ) } propName="features.attacks" propTitle={ difficulty.attacks }
+        <OptionSelect value={ globals.getOption( 'rules.features.attacks' ) } propName={FEATURES_ATTACKS} propTitle={ difficulty.attacks }
                       options={ difficulty.attacks_presets.map( m => ({ value: m.value, title: m.label }) ) }
         />
 
