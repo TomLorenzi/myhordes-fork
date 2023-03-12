@@ -177,7 +177,7 @@ class AdminTownController extends AdminActionController
     }
 
 	/**
-	 * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer")
+	 * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer", priority=0)
 	 * @param int $id
 	 * @param string|null $tab The tab we want to display
 	 * @param string|null $conf
@@ -189,7 +189,7 @@ class AdminTownController extends AdminActionController
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+        if ($town === null) return $this->redirectToRoute('admin_town_list');
 
         $explorables = [];
 
@@ -615,8 +615,8 @@ class AdminTownController extends AdminActionController
 		])));
 	}
 
-	/**
-     * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette")
+    /**
+     * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette", priority=1)
      * @param int $id
      * @param int $day
      * @param GazetteService $gazetteService
@@ -2494,6 +2494,7 @@ class AdminTownController extends AdminActionController
 	 * @param int               $id The ID of the town
 	 * @param JSONRequestParser $parser
 	 * @param MazeMaker         $mazeMaker
+	 * @param AdminLog          $logger
 	 * @return Response
 	 */
     public function admin_regenerate_ruins(int $id, JSONRequestParser $parser, MazeMaker $mazeMaker, AdminLog $logger): Response {

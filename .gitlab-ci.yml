@@ -104,7 +104,7 @@ test:
 quodana:
   stage: test-translate
   image:
-    name: jetbrains/qodana-js:2022.3-eap
+    name: jetbrains/qodana-js:2023.1-eap
     entrypoint: [ "" ]
   variables:
     QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
