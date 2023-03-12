@@ -13,7 +13,9 @@ customElements.define('hordes-town-creator', class HordesTownCreatorElement exte
     protected generateProps(): object {
         return {
             elevation: parseInt(this.dataset.elevation ?? '0'),
-            eventMode: parseInt(this.dataset.eventMode ?? '0') !== 0
+            eventMode: parseInt(this.dataset.eventMode ?? '0') !== 0,
+            presetHead:  this.dataset.presetHead  ? JSON.parse( this.dataset.presetHead ) : null,
+            presetRules: this.dataset.presetRules ? JSON.parse( this.dataset.presetRules ) : null
         };
     }
 

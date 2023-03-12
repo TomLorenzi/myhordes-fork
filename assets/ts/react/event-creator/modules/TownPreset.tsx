@@ -2,7 +2,7 @@ import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "../Wrapper";
 import * as React from "react";
 import Components from "../../index";
-import {TownPreset} from "../api";
+import {TownPreset, TownPresetData} from "../api";
 import {Flag} from "../Common";
 
 declare global {
@@ -52,7 +52,7 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                 <h5>MAKE TOWN</h5>
                 <div className="row">
                     <div className="cell rw-12">
-                        <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={null}/>
+                        <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={uuid} town={null}/>
                     </div>
                     <div className="cell rw-6">
                         <button onClick={()=> {
@@ -70,7 +70,7 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                 <h5>EDIT TOWN</h5>
                 <div className="row">
                     <div className="cell rw-12">
-                        <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={activeTownEditor as string}/>
+                        <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={uuid} town={activeTownEditor as string}/>
                     </div>
                     <div className="cell rw-6">
                         <button onClick={()=> {
@@ -107,7 +107,7 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                             </div>
                             <div className="padded cell rw-2 right">
                                 <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
-                                    <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} />
+                                    <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={()=>setActiveTownEditor(town.uuid)} />
                                 </span>
                                 <span className="cell padded-small shrink-0" title={globals.strings.common.delete}>
                                     <img className="pointer" alt={globals.strings.common.delete} src={globals.strings.common.delete_icon} onClick={() => {
@@ -132,16 +132,18 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
     )
 };
 
-const HordesEventTownPresetEditor = ( {uuid, update}: {
-    uuid: string|null,
+const HordesEventTownPresetEditor = ( {uuid, town, update}: {
+    uuid: string,
+    town: string|null,
     update: (TownPresetData) => void,
 } ) => {
+
+    const globals = useContext(Globals)
 
     let wrapper = useRef<HTMLDivElement>();
     useLayoutEffect( () => {
         Components.vitalize( wrapper.current )
         const listener = event => {
-            console.log(event);
             update(event.detail.ready ? {
                 header: event.detail.options.head,
                 rules: event.detail.options.rules
@@ -151,11 +153,22 @@ const HordesEventTownPresetEditor = ( {uuid, update}: {
         const w = wrapper.current;
         w.addEventListener('rules-changed', listener);
         return () => w.removeEventListener('rules-changed', listener)
-    } )
+    } );
+
+    const [ preset, setPreset ] = useState<TownPresetData>(null);
+
+    useEffect(() => {
+        if (town !== null) {
+            globals.api.getTown(uuid, town).then(v => setPreset(v));
+            return () => setPreset(null);
+        }
+    }, [town])
 
     return (
             <div ref={wrapper}>
-                <hordes-town-creator data-event-mode="1" data-elevation="3"></hordes-town-creator>
+                { town === null && <hordes-town-creator data-event-mode="1" data-elevation="3"/> }
+                { town !== null && preset === null && <div className="loading"/> }
+                { town !== null && preset !== null && <hordes-town-creator data-event-mode="1" data-elevation="3" data-preset-head={JSON.stringify( preset.header )} data-preset-rules={JSON.stringify( preset.rules )}/> }
             </div>
         )
 }

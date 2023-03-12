@@ -20,7 +20,7 @@ export class HordesTownCreator {
 
     #_root = null;
 
-    public mount(parent: HTMLElement, props: { elevation: number, eventMode: boolean }): void {
+    public mount(parent: HTMLElement, props: { elevation: number, eventMode: boolean, presetHead: any|null, presetRules: any|null }): void {
         if (!this.#_root) this.#_root = createRoot(parent);
         this.#_root.render( <TownCreatorWrapper {...props} /> );
     }
@@ -49,7 +49,7 @@ type TownCreatorGlobals = {
 
 export const Globals = React.createContext<TownCreatorGlobals>(null);
 
-const TownCreatorWrapper = ( {elevation, eventMode}: {elevation: number, eventMode: boolean} ) => {
+const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {elevation: number, eventMode: boolean, presetHead: any|null, presetRules: any|null} ) => {
 
     const apiRef = useRef<TownCreatorAPI>();
 
@@ -65,7 +65,21 @@ const TownCreatorWrapper = ( {elevation, eventMode}: {elevation: number, eventMo
     useEffect( () => {
         apiRef.current = new TownCreatorAPI();
         apiRef.current.index().then( index => setIndex(index) );
-        apiRef.current.townList().then( list => setTownTypeList(list) );
+        apiRef.current.townList().then( list => {
+            setTownTypeList(list);
+            if (presetHead || presetRules) {
+                setOptions({head: presetHead, rules: presetRules});
+                if (presetHead) {
+                    setBlocked(true);
+
+                    const preset = list.find( v=>v.id === (parseInt(presetHead.townType) ?? -1) )?.preset ?? true;
+                    apiRef.current.townRulesPreset(preset ? parseInt(presetHead.townType) : parseInt(presetHead.townBase), !preset).then(v => {
+                        setDefaultRules(v);
+                        setBlocked(false);
+                    });
+                }
+            }
+        } );
         return () => {
             setIndex(null);
             setTownTypeList(null);
@@ -255,7 +269,7 @@ const TownCreatorWrapper = ( {elevation, eventMode}: {elevation: number, eventMo
                 { townTownTypeList && index && (
                     <form data-disabled={blocked ? 'disabled' : ''}>
                         <TownCreatorSectionHead townTypes={townTownTypeList} setBlocked={setBlocked}
-                                                setDefaultRules={v => setDefaultRules(v)}/>
+                                                setDefaultRules={v => setDefaultRules(v)} applyDefaults={!presetHead}/>
 
                         { defaultRules as TownRules && <>
                             <TownCreatorSectionTemplate getOptions={ () => (options as TownOptions).rules } />

@@ -11,7 +11,7 @@ import {UserResponse, UserResponses, UserSearchBar} from "../user-search/Wrapper
 
 declare var $: Global;
 
-export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}: {townTypes: ResponseTownList, setDefaultRules: (rules: TownRules) => void, setBlocked: (block: boolean) => void} ) => {
+export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked, applyDefaults}: {townTypes: ResponseTownList, setDefaultRules: (rules: TownRules) => void, setBlocked: (block: boolean) => void, applyDefaults: boolean} ) => {
     const globals = useContext(Globals)
 
     const head = globals.strings.head;
@@ -19,12 +19,12 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
     const type_default = ((globals.elevation < 3 || globals.eventMode) ? townTypes : [])
         .reduce( (value, object) => !object.preset ? object.id : value, -1 )
 
-    const appliedDefaults: {dot: string, default: any|string}[] = [
+    const appliedDefaults: {dot: string, default: any|string}[] = applyDefaults ? [
         { dot: 'head.townLang', default: globals.config.default_lang },
         { dot: 'head.townNameLang', default: globals.config.default_lang },
         { dot: 'head.townType', default: type_default},
         { dot: 'head.townBase', default: -1},
-    ];
+    ] : [];
 
     const [enableReservedPlaces, setEnableReservedPlaces] = useState<boolean>(false);
     const [reservedPlaces, setReservedPlaces] = useState<UserResponses>([]);
@@ -42,6 +42,9 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
 
         const type_id = globals.getOption( 'head.townType' ) ?? -1;
         const base_id = globals.getOption( 'head.townBase' ) ?? -1;
+
+        console.log(type_id, base_id)
+
         const id = fun_typeHasPreset( type_id )
             ? parseInt( `${type_id}`)
             : (fun_typeHasPreset( base_id )

@@ -315,13 +315,23 @@ class EventController extends CustomAbstractCoreController
         CommunityEvent $event,
         #[MapEntity(id: 'preset')]
         CommunityEventTownPreset $preset,
+        EntityManagerInterface $em,
     ): JsonResponse {
         if ($event->getOwner() !== $this->getUser())
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
+        if (!$event->getTownPresets()->contains( $preset ))
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
+
+        $fun_resolve_type = fn(string $name) => $em->getRepository(TownClass::class)->findOneBy(['name' => $name])?->getId() ?? null;
+
+        $header = $preset->getHeader();
+        if (isset($header['townType'])) $header['townType'] = $fun_resolve_type($header['townType']);
+        if (isset($header['townBase'])) $header['townBase'] = $fun_resolve_type($header['townBase']);
+
         return new JsonResponse([
             'uuid' => $preset->getId(),
-            'header' => $preset->getHeader(),
+            'header' => $header,
             'rules'  => $preset->getRules(),
         ]);
     }
@@ -337,7 +347,7 @@ class EventController extends CustomAbstractCoreController
      * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
-    public function save_template(
+    public function save_town_preset(
         bool $create,
         #[MapEntity(id: 'id')]
         CommunityEvent $event,
@@ -351,6 +361,9 @@ class EventController extends CustomAbstractCoreController
         if (!$create && !$preset) return new JsonResponse([], Response::HTTP_NOT_FOUND);
         if ($event->getOwner() !== $this->getUser())
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        if (!$create && !$event->getTownPresets()->contains( $preset ))
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
 
         $header = $parser->get_array('header');
         $rules = $parser->get_array('rules');
@@ -383,7 +396,7 @@ class EventController extends CustomAbstractCoreController
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
-    public function remove_template(
+    public function remove_town_preset(
         #[MapEntity(id: 'id')]
         CommunityEvent $event,
         #[MapEntity(id: 'preset')]
@@ -393,6 +406,9 @@ class EventController extends CustomAbstractCoreController
 
         if ($event->getOwner() !== $this->getUser())
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        if (!$event->getTownPresets()->contains( $preset ))
+            return new JsonResponse([], Response::HTTP_NOT_FOUND);
 
         try {
             $event->removeTownPreset( $preset );
