@@ -22,7 +22,7 @@ verlassen: 'left'
 'Durch die Verbesserung von {building} hat die Stadt folgende Gegenstände erhalten: {items}': 'By upgrading the construction {building}, the town received: {items}'
 'Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: {item}': '{item} has been discovered thanks to the Architect''s Study. It has been deposited in the bank.'
 'Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}': '{building} has produced: {items}. They have been deposited in the bank.'
-'Die letzte Anzeige hat das Fass zum Überlaufen gebracht. {citizen} wurde von den Bürgern der Stadt verbannt!': 'The last complaint was the too-much one. {citizen} has been shunned from the town!'
+'Die letzte Anzeige hat das Fass zum Überlaufen gebracht. {citizen} wurde von den Bürgern der Stadt verbannt!': 'The latest complaint was the last straw. {citizen} has been shunned from the town!'
 'Du kannst die Stadt von hier aus nicht betreten.': 'You cannot enter the town.'
 'Du kannst diese Zone von hier aus nicht betreten.': 'You cannot enter in this zone from here.'
 'Zombies blockieren deine Zone!': 'We are suffering an excess of zombies!'
@@ -246,7 +246,7 @@ Bandagiert: Healed
 Atombunker: Nuclear Bunker
 'Atomic Cafe': 'Mac''s Atomic Cafe'
 Autobahnraststätte: Motorway Services
-Autowracks: Disused Car Park
+Autowracks: Wrecked Cars
 'Bar der verlorenen Hoffnungen': 'The ''Shattered Illusions'' Bar'
 Baumarkt: Home Depot
 Baustellencontainer: Construction Site Shelter
@@ -406,7 +406,7 @@ Kopfschuss: Shot in the head
 'Hier wohnte ein Bürger, der  sich außerhalb der Stadt niedergelassen hat, weil er den Streitigkeiten und dem Verrat, die das Stadtleben mit sich bringt, entfliehen wollte. Die Hälfte seiner Leiche liegt immer noch im Wohnzimmer.': 'This was home to a citizen who decided to settle down outside the town, thinking they would survive for longer unaffected by the quarrels and betrayals inherent in town life. Half of their corpse is still in the living room.'
 'Einer der vielen Albi Supermarkt, die um das Jahr 2010 herum aus dem Boden schossen und später dann verschwanden... spezialisiert darauf, Dinge so billig wie möglich zu verscherbeln. Hier findest du alles finden, was du brauchst - egal ob du einfach pleite bist oder eisern auf ein neues Stück Seife sparst, kaufe bei ALBI ein!': 'One of the many Smith''s Superstores that proliferated around the year 2010 then disappeared... specialising in making things as cheap as possible, you should be able to find whatever you need here. Whether you''re potless or just being tighter than two coats of paint, shop at Smiths!'
 'Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...': 'Some actions cannot be forgiven. Take, for example, the case of the cavern: your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn''t have to cry for long...'
-'Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.': 'An old pump which is rusting away, but is nonetheless capable of drawing water in the desert... The only problem is that even if you manage to get it working, the water will gererally be undrinkable and will need to be purified in town with the appropriate equipment..'
+'Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.': 'An old pump which is rusting away, but is nonetheless capable of drawing water in the desert... The only problem is that even if you manage to get it working, the water will generally be undrinkable and will need to be purified in town with the appropriate equipment...'
 'Ein altes Fahrradverleihlager, das mit Metallstücken, Werkzeugen und allen Arten von Schutt übersät ist.': 'An old bicycle hire warehouse, littered with pieces of metal, tools and all kinds of debris.'
 "Dieser Rangierbahnhof war einmal das zentrale Drehkreuz des Landes. Waren aus aller Herren Länder wurden hier rund um die Uhr umgeladen und in alle Himmelsrichtungen versendet. Das 'weitverzweigte Netzt' ist heute noch ungefähr 150 Meter lang, vorausgesetzt man zählt die Gleisüberbleibsel da hinten noch mit.": "The turntable in the middle of this rail depot constantly dispatched and received merchandise from all over the world, 24 hours a day. Today, all that remains is a 150 metre long section, maybe a bit more if you include the remaining rails."
 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?': 'The remains which litter the corridors of this improvised hospital must be what is left of the patients. It''s difficult to say how many must have died here on the night of the attack... Maybe if you count the number of arms on the ground and divide by two ?'
@@ -423,7 +423,7 @@ Kopfschuss: Shot in the head
 'Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !': 'The home of a certain Duke R. Cooke, and if one is to believe the plaque on the door... a home for Heroes... this place is much bigger than a villa, it''s a fully equipped fortress!'
 'Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.': 'The burnt remains of a small forest. It was probably a nice area beforehand... Now you''re just hoping you won''t have to spend the night here.'
 "Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'": "An old mine which has not resisted the ravages of time well. God knows what caprice could have led people to look so deep underground to find something useful. Especially when you only just have to scratch the surface to find some delicious cockroaches to crunch on! You start to feel hungry just thinking about it..."
-'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.': 'This mineral extraction zone bears all the hallmarks of a terrible accident: the hillside seems to have collapsed onto the workers, machins and buildings below.'
+'Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.': 'This mineral extraction zone bears all the hallmarks of a terrible accident: the hillside seems to have collapsed onto the workers, machines and buildings below.'
 'Das Ganze sieht wie eine komische runde Metallscheibe aus, die mal zu einen Flugzeugcockpit gehörte. Aber du bist dir nicht ganz sicher, denn es könnte sich auch um ein Mähdrescherteil handeln...': 'It looks like a large metal disk with what appears to be some kind of cockpit mounted on top. It could also be some type of high-tech combine harvester.'
 'E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...': 'PI-KEYA: These enormous stores used to be in every city (always rather annoyingly situated on the outskirts). They specialised in the manufacture and sale of cheap furniture, usually with one bolt / screw / fastener missing. It is said that the poor quality of their products was one of the reasons for society going to ruin...'
 'Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...': 'A dilapidated family crypt. You can only just make out the entrance, as it''s almost completely obscured by decaying vegetation. Apparently the bodies got up and left some time ago...'
@@ -440,7 +440,7 @@ Kopfschuss: Shot in the head
 'Dieser Krankenwagen ist mitten auf der Straße stehen geblieben. Er hat keine Reifen mehr und auch der Motor fehlt... Außerdem finden sich keinerlei Anzeichen für einen Kampf oder Unfall... Höchst seltsam...': 'This ambulance has been abandoned in the middle of the road. The wheels are gone, as is the engine... There are no signs of a struggle, and no signs of an accident. There are no bodies either come to that...'
 'Die letzte Inventur hat hier schon vor einiger Zeit stattgefunden... Die 30 Leichen, die in Halle 2 hängen, lassen darauf vermuten, dass mit den Bilanzen etwas nicht stimmte. Dem Umfang ihrer Bäuche nach zu urteilen, handelt es sich wahrscheinlich um den Verwaltungsrat. War es ein kollektiver Selbstmord? Ihr gefesselten Hände sprechen nicht dafür.': 'This was the storage unit for a department store which went to the wall some time ago. So this would lead you to think that the thirty corpses hanging in stockroom 2 were the board of directors. Now you just need to work out if it was a mass suicide (the fact that they all have their hands tied together confuses you though...).'
 'Ein unterirdisches Parkhaus, das fast vollständig vom Sand begraben wurde - der ideale Ort, um alleine zu sterben. Niemand wird dich hören...': 'An almost completely buried underground parking lot. An ideal venue to ''go quietly into the night'' as long as nobody hears you...'
-'Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...': 'This miltary vehicle is like the metaphorical food can. The soldier is inside, playing the role of a sardine, and a hundred zombies outside are playing the hungry citizen. The citizen wins...'
+'Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...': 'This military vehicle is like the metaphorical food can. The soldier is inside, playing the role of a sardine, and a hundred zombies outside are playing the hungry citizen. The citizen wins...'
 "Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: 'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...'.": "You ask yourself what kind of person would enjoy spending a night in a shabby hole like this motel. No doubt some sleazy sales rep whose dodgy past will catch up with him sooner or later. I really must check out room 215, you think to yourself, without really knowing why'."
 'Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !': 'The soldiers stationed here were prepared for anything: weapons, supplies, and a 150m security perimeter. Anything except their lieutenant eating them during the night. Joking aside, with a solid wall and a healthy dictatorship, (from a survival point of view) there''s nothing like it!'
 'Dieses Gebäude scheint von den turbulenten Ereignissen der Vergangenheit verschont worden zu sein. Es ist noch vollkommen intakt und erinnert an ein klassisches Postbüro mit doppelten Schalterfenstern und durchsiebtem Sprechfenster. Hier wirst du kaum etwas Nützliches finden außer etwas zum Lesen...': 'This building seems to have resisted the ravages of time, a vestige of the postal service of years ago. It''s unlikely that you''ll find anything of great interest here, unless you like reading...'
@@ -490,7 +490,7 @@ Nachricht: Status message
 Ja: "Yes"
 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was {citizen} bei sich aufbewahrt...': 'The contents of this house are hidden by curtains over the windows... how rude!'
 'Unsere Verteidigung :': 'Our defences:'
-'Geschätzter Angriff :': 'Estimated Attack:'
+'Geschätzter Angriff :': 'Estimated attack:'
 Unbekannt: Unknown
 'Morgiger Angriff :': 'Tomorrow''s Attack:'
 'Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.': 'Our defences should be strong enough to withstand tonight''s attack.'
@@ -514,7 +514,7 @@ Geschlossen: Closed
 Grundbefestigungsmauer: Basic Defences
 Verteidigungsgegenstände: Defensive Objects
 Nachtwächter: Watchmen
-'Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.': 'Note: Defensive objects (wooden boards, etc...) should be placed in the Bank.'
+'Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.': 'Note: Defensive objects (wooden boards, etc.) should be placed in the Bank.'
 'Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.': 'This place allows you to sacrifice objects from the bank to <strong>temporarily</strong> improve the city''s defense.'
 'Jeder so zerstörte Gegenstand kostet dich {ap}.': 'Each item destroyed this way will cost you {ap}.'
 'Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.': 'Due to your banishment you can no longer use the dump.'
@@ -528,7 +528,7 @@ Installieren: Install
 'Du kannst helfen und dich der heutigen Nachtwache anschließen!': 'You can help by joining the watchmen tonight!'
 'Am Ende der Schlacht zerfiel das Gebäude {buildingName} zu Staub.': 'At the end of the battle, the {buildingName} crumbled to dust.'
 Gefahr: Danger
-'Tod durch Radioaktivität': 'Atomic deaths'
+'Tod durch Radioaktivität': 'Atomic death'
 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.': 'Number of existences entirely vaporized by the all-powerful atom.'
 Heldentaten: Heroic Actions
 'Anzahl deiner wirklich außergewöhnlichen Heldentaten.': 'Number of truly extraordinary things you''ve done.'
@@ -911,11 +911,11 @@ Zonenmarkierer: Zone marker
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.': 'The building {plan} received {damage} damage points and was totally destroyed by the zombies.'
 'Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...': 'As you start walking, a very sharp pain seizes your leg. You fall on the ground, moaning. You lose an Action Point ...'
 'Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...': 'Some of your victim''s health issues have passed to you ...'
-'Verlassener Bunker': 'Abandonned Bunker'
+'Verlassener Bunker': 'Abandoned Bunker'
 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...': 'Bunkers are old refuges built by the military to contain the pandemic. If the soldiers at the time were still human, they would surely have advised their officers against trying to "educate" the first carriers of the virus.'
-'Verlassenes Hotel': 'Abandonned Hotel'
+'Verlassenes Hotel': 'Abandoned Hotel'
 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...': 'Formerly luxury hotels, which no doubt welcomed some highly privileged guests over the years. However, it didn''t take long for these buildings to come under attack from the two hordes, firstly the horde of immigrants from contaminated countries and secondly their putrefied pursuers.'
-'Verlassenes Hospital': 'Abandonned Hospital'
+'Verlassenes Hospital': 'Abandoned Hospital'
 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...': 'This dilapidated building seems to have once been a hospital. When you discover an entrance into the building, musty stench hits you. You grimace, but here you could almost certainly find something useful...'
 '[nichts]': '[ nothing ]'
 Seelenpunkte: Soul Value
@@ -1280,7 +1280,7 @@ Archäologielehrling: Archaeologist
 Archäologe: Sand Shifter
 Grabungsleiter: Ruin Restorer
 'Furchtloser Camper': 'Unshakeable Camper'
-'Waisenkind der Wüste': 'Desert Orphant'
+'Waisenkind der Wüste': 'Desert Orphan'
 'Unglaubliche Entschlossenheit': 'Incredible determination'
 'Der letzte Überlebende': 'The Last Survivor'
 'Lebensmüder Kundschafter': 'Extreme Explorer'
@@ -2372,7 +2372,7 @@ Stadt/Stadttor: Town/Doors
 'Du hast keine Heldentaten mehr, die du spenden könntest...': 'You have no more heroic actions to gift...'
 'Du hast eine Heldentat erhalten!': 'You received a heroic action!'
 'In einem Rausch endloser Großzügigkeit hat {citizen} dir eine seiner Heldentaten geschenkt:': 'In an instant of extreme generosity, {citizen} gave you a heroic action:'
-'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': 'Come on, {citizen} is not that lazy, he is able to that heroic action by himself!'
+'{citizen} ist nicht zu faul, diese Heldentat selbst zu vollbringen, ehrlich!': 'Come on, {citizen} is not that lazy, they are able to do that heroic action by themselves!'
 'Im Schweiße deines Angesichts hast du dir folgende Boni verdient:': 'By the sweat of your brow, you''ve earned the following bonuses:'
 'Aufladungen für "Freundschaft"': 'Charges for "Brothers in Arms"'
 'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Allows using the heroic action "Brothers in Arms".'
