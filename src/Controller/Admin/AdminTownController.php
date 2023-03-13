@@ -172,7 +172,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer")
+     * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer", priority=0)
      * @param int $id
      * @param string|null $tab The tab we want to display
      * @param string|null $conf
@@ -343,7 +343,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette")
+     * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette", priority=1)
      * @param int $id
      * @param int $day
      * @param GazetteService $gazetteService
