@@ -696,7 +696,7 @@ Saisonende: End of the season
 'Der Mitternachtsangriff hat NICHT stattgefunden.': 'that the 00h00 (server time) attack did not take place,'
 'Du hast keine neuen {img_ap} bekommen und dein Gesundheitszustand hat sich nicht geändert.': 'that you have not regained your {img_ap} and that your state of health has not changed,'
 'Der gestrige Tag ist nicht vorbei, sondern wird heute fortgesetzt.': 'that yesterday has not been completed, and therefore continues on to today,'
-etc...: etc...
+etc...: etc.
 'Sobald das Problem behoben wurde, wird die Quarantäne aufgehoben.': 'As soon as the problem has been solved and everything has returned to normal, the quarantine will be lifted.'
 'Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.': 'The attack which didn''t occur at 00h00 (server time) will take place the following night.'
 "Wenn du auf einen Spieler stößt, der sich daneben benimmt oder ausfallend wird (Beleidigungen, Regelverstöße...) kannst du uns ganz einfach auf seine Nachricht(en) aufmerksam machen.\n<strong>Klicke dazu einfach auf den Link \"Melden\". Er befindet sich neben dem Datum der Nachricht.</strong>": 'If a player of MyHordes is being abusive on the forums (insults, off-topic posts...), you can report the message(s) they have posted. <strong>Simply click on the "(Report)" link which can be found at the right-bottom of the message in question.</strong>'
@@ -850,7 +850,7 @@ Legacy-Dokumentation: Legacy documentation
 'Diese Dokumentation wird nicht mehr aktualisiert und ist möglicherweise veraltet oder unvollständig.': 'This documentation is no longer updated and may be out of date or incomplete.'
 'Pro gefressenem Mitbürger gewinnst du <strong>1 Aufladung für "Freundschaft"</strong> (Du erhältst sie nach deinem Tod als Ghul).': 'For each fellow citizen eaten, you gain <strong>1 charge for "Brothers in Arms"</strong> (you get it after you die as a ghoul).'
 'Wenn der letzte Tote ein Held war, werden die gewonnenen Aufladungen für "Freundschaft" seinem Konto hinzugefügt.': 'The charges won for "Friendship" will be added to his account.'
-'Gewinntabelle für den Letzten Tod:': 'Last Man Standing awards table'
+'Gewinntabelle für den Letzten Tod:': 'Last Man Standing awards table:'
 'Im Laufe des 5. Tages (zwischen 00.00 und 23:59h) oder früher gestorben = kein Gewinn': 'dead during day 5 (between 0h and 23h59) or before = no award'
 'In der Nacht vom 5. auf den 8. Tag gestorben = 1 Aufladung für "Freundschaft" + Auszeichnung': 'dead during the night between day 5 and 8 = 1 charge for "Brother in Arms" + distinction'
 'In der Nacht vom 8. auf den 10. Tag gestorben = 2 Aufladungen für "Freundschaft" + Auszeichnung': 'dead during the night between day 8 and 10 = 2 charges for "Brother in Arms" + distinction'
