@@ -2,8 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use _PHPStan_c0c409264\Nette\NotImplementedException;
-use _PHPStan_c0c409264\Nette\NotSupportedException;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\LogEntryTemplate;
