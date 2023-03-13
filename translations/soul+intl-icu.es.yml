@@ -182,7 +182,7 @@ Tage: Dias
 'Folgende Begründung wurde für deine Sperre hinterlegt:': 'El siguiente motivo fue depositado para tu prohibición:'
 'Es wurde keine Begründung für diese Sperre hinterlegt.': 'No se dio ninguna razón para esta prohibición..'
 EternalTwin-Nutzer: Usuario de Eternaltwin
-'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'Éste jugador está utilizando una cuenta de Eternaltwin.'
+'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!': 'Este jugador está utilizando una cuenta de Eternaltwin.'
 'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.': 'El perfil seleccionado no ha podido ser importado, ya que está enlazado a otra cuenta de MyHordes.'
 'MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!': 'MyHordes es una orgullosa parte de la Red Eternaltwin!'
 'Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.': 'Para poder seguir jugando a MyHordes en un futuro, debes de enlazar tu cuenta de MyHordes con una cuenta de Eternaltwin.'
@@ -334,7 +334,7 @@ Koalitionseinladung: Invitación a la alianza
 'Versende einen Einladungs-Link:': 'Invítales a unirse a ti desde esta dirección:'
 oder: O
 'Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:': 'Pídele que ingrese tu nick en el espacio "Patrocinador" del formulario de inscripción:'
-'Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).': 'Utiliza uno de los banners como firma de tu correo electrónico, en Facebook, en tu blog o en un foro (¡quienes hagan clic en él quedarán registrados autiomáticamente cuando se inscriban!).'
+'Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).': 'Utiliza uno de los banners como firma de tu correo electrónico, en Facebook, en tu blog o en un foro (¡Aquellos que hagan clic en él quedarán registrados automáticamente cuando se inscriban!).'
 'HTML Code': 'Código HTML'
 BBCode: BBCode
 Empfänger: Destinatario
@@ -366,7 +366,7 @@ Validierungs-Token: Token de validación
 'Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.': 'Deberá validar su nueva dirección de correo electrónico antes de poder usarla.'
 'Validierung erneut senden': 'Reenviar validación'
 'Änderung der E-Mail Adresse abbrechen': 'Cancelar el cambio de la dirección de correo electrónico'
-'Bürger, Willkommen in der Hölle!': 'Ciudadanos, ¡bienvenidos al infierno!'
+'Bürger, Willkommen in der Hölle!': 'Habitantes, ¡bienvenidos al infierno!'
 'Dies ist eine Event-Stadt.': 'Este es un pueblo de eventos.'
 Animateur: Animador
 'Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.': 'Esta ficha pertenece a un animador. Los animadores organizan y coordinan eventos comunitarios.'
@@ -501,7 +501,7 @@ Deaktiviert: Desactivado
 'Zum Schutz vor Spam wirst du unabhängig von dieser Einstellung keine Benachrichtigung erhalten, wenn in einem Post mehr als 5 Spieler (10 in Stadtforen) markiert sind.': 'Para evitar el spam, independientemente de esta configuración, no recibirás una notificación si más de 5 jugadores (10 en los foros de ciudades) son etiquetados en un mensaje.'
 'Der angegebene Spielername ist zu lang.': 'El nombre de jugador elegido es demasiado largo. Elija un nombre con 16 caracteres o menos.'
 'Saisonale Events': 'Eventos de temporada'
-'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Los eventos de temporada añaden nuevo contenido al juego en todas las ciudades por un tiempo limitado. Estos eventos son activados automáticamente y desactivados a la hora especificada.'
+'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Los eventos de temporada añaden nuevo contenido al juego en todos los pueblos por un tiempo limitado. Estos eventos son activados automáticamente y desactivados a la hora especificada.'
 'Laufende Events': 'Actualidades'
 'Endet in {days} Tagen, am {date}': 'Se termina {days, plural, =0 {pronto} one {dentro de un día} other {en # días} }, el {date}'
 'Wird durch einen Administrator beendet.': 'Anulado por un Administrador.'
