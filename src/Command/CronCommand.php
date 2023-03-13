@@ -619,9 +619,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
                     $filename .= match ($compression) {
                         "xz" => ".xz",
                         "gzip" => ".gz",
-                        "bzip2" => ".bz2",
-                        "lbzip2" => ".bz2",
-                        "pbzip2" => ".bz2",
+                        "bzip2", "lbzip2", "pbzip2" => ".bz2",
                         null => ""
                     };
 

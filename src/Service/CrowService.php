@@ -403,8 +403,7 @@ class CrowService {
                 Post::class => $object->getOwner(),
                 PrivateMessage::class => $object->getOwner()?->getUser(),
                 GlobalPrivateMessage::class => $object->getSender(),
-                BlackboardEdit::class => $object->getUser(),
-                CitizenRankingProxy::class => $object->getUser(),
+                BlackboardEdit::class, CitizenRankingProxy::class => $object->getUser(),
                 User::class => $object,
                 default => null
             };

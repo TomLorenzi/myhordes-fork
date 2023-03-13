@@ -530,9 +530,7 @@ class Town
         return $this;
     }
     /**
-     * @param LifecycleEventArgs $args
-     * @throws ORMException
-     */
+     * @param LifecycleEventArgs $args */
     #[ORM\PostPersist]
     public function lifeCycle_postPersist(LifecycleEventArgs $args) : void
     {
@@ -545,10 +543,9 @@ class Town
     }
     /**
      * @param LifecycleEventArgs $args
-     * @throws ORMException
      */
     #[ORM\PreRemove]
-    public function lifeCycle_preRemove(LifecycleEventArgs $args)
+    public function lifeCycle_preRemove(LifecycleEventArgs $args): void
     {
         $g = $args->getEntityManager()->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $this->getId()] );
         if ($g) $args->getEntityManager()->remove($g);
