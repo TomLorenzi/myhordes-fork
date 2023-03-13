@@ -157,7 +157,7 @@ class DebugCommand extends LanguageCommand
                     $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 }
 
-                if ($crow->getRightsElevation() > User::USER_LEVEL_BASIC || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
+                if ($crow->getRightsElevation() > User::USER_LEVEL_BASIC || !str_ends_with($crow->getEmail(), "@localhost")) {
                     $output->writeln('<error>User 66 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }
@@ -199,7 +199,7 @@ class DebugCommand extends LanguageCommand
                     $animacteur = $this->entity_manager->getRepository(User::class)->find(67);
                 }
 
-                if ($animacteur->getRightsElevation() > User::USER_LEVEL_BASIC || !strstr($animacteur->getEmail(), "@localhost") === "@localhost") {
+                if ($animacteur->getRightsElevation() > User::USER_LEVEL_BASIC || !str_ends_with($animacteur->getEmail(), "@localhost")) {
                     $output->writeln('<error>User 67 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }
