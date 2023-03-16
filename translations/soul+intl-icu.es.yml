@@ -367,7 +367,7 @@ Validierungs-Token: Token de validación
 'Validierung erneut senden': 'Reenviar validación'
 'Änderung der E-Mail Adresse abbrechen': 'Cancelar el cambio de la dirección de correo electrónico'
 'Bürger, Willkommen in der Hölle!': 'Habitantes, ¡bienvenidos al infierno!'
-'Dies ist eine Event-Stadt.': 'Este es un pueblo de eventos.'
+'Dies ist eine Event-Stadt.': 'Este es un pueblo de evento.'
 Animateur: Animador
 'Diese Karteikarte gehört einem Animateur. Animateure organisieren und koordinieren Community-Events.': 'Esta ficha pertenece a un animador. Los animadores organizan y coordinan eventos comunitarios.'
 'Auf MyHordes erworbene Auszeichnungen': 'Distinciones ganadas en MyHordes'
@@ -502,7 +502,7 @@ Deaktiviert: Desactivado
 'Der angegebene Spielername ist zu lang.': 'El nombre de jugador elegido es demasiado largo. Elija un nombre con 16 caracteres o menos.'
 'Saisonale Events': 'Eventos de temporada'
 'Saisonale Events fügen für eine begrenzte Zeit neue Spielinhalte zu allen Städten hinzu. Diese Events werden zu den angegebenen Zeiten automatisch aktiviert und deaktiviert.': 'Los eventos de temporada añaden nuevo contenido al juego en todos los pueblos por un tiempo limitado. Estos eventos son activados automáticamente y desactivados a la hora especificada.'
-'Laufende Events': 'Actualidades'
+'Laufende Events': 'Eventos en Curso'
 'Endet in {days} Tagen, am {date}': 'Se termina {days, plural, =0 {pronto} one {dentro de un día} other {en # días} }, el {date}'
 'Wird durch einen Administrator beendet.': 'Anulado por un Administrador.'
 'Zukünftige Events': 'Próximos Eventos'
