@@ -71,6 +71,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'need_selection' => "[ {$this->translator->trans('Bitte auswählen', [], 'global')} ]",
                     'notice' => $this->translator->trans('Achtung!', [], 'ghost'),
                     'negate' => $this->translator->trans('Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.', [], 'ghost'),
+                    'incorrect_fields' => $this->translator->trans('Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.', [], 'ghost'),
                 ],
 
                 'head' => [
@@ -170,8 +171,13 @@ class TownCreatorController extends CustomAbstractCoreController
                     'position_presets' => [
                         ['value' => 'normal',  'label' => $this->translator->trans('Normal', [], 'ghost')],
                         ['value' => 'close',   'label' => $this->translator->trans('Eher Zentral', [], 'ghost')],
-                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')]
+                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')],
+                        ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
                     ],
+                    'position_north' => $this->translator->trans('Nördlicher Abstand', [], 'ghost'),
+                    'position_south' => $this->translator->trans('Südlicher Abstand', [], 'ghost'),
+                    'position_west' => $this->translator->trans('Westlicher Abstand', [], 'ghost'),
+                    'position_east' => $this->translator->trans('Östlicher Abstand', [], 'ghost'),
                 ],
 
                 'mods' => [
@@ -459,6 +465,9 @@ class TownCreatorController extends CustomAbstractCoreController
         unset( $conf['mapMarginPreset'] );
         unset( $conf['map']['margin'] );
 
+        $margin_custom = $conf['margin_custom'] ?? null;
+        unset( $conf['margin_custom'] );
+
         $well_preset = $conf['wellPreset'] ?? null;
         unset( $conf['wellPreset'] );
 
@@ -502,7 +511,29 @@ class TownCreatorController extends CustomAbstractCoreController
                 case 'central':
                     $conf['map']['margin'] = 0.50;
                     break;
+                case '_custom':
+                    if($margin_custom) {
+                        $margin_custom['enabled'] = true;
+                    }
             }
+        }
+
+        if($margin_custom && $margin_custom['enabled']) {
+            $dirs = ['north', 'south', 'west', 'east'];
+            function getOpposingDir($dir_i) {
+                return $dir_i + (($dir_i % 2) === 1 ? -1 : 1);
+            }
+            // init the values to default if needed
+            foreach($dirs as $dir_i => $dir) {
+                $margin_custom[$dir] = $margin_custom[$dir] ?? 25;
+            }
+            // cap the margins to their opposed direction's margin and transform to %
+            foreach($dirs as $dir_i => $dir) {
+                $margin_custom[$dir] = min($margin_custom[$dir], 100 - $margin_custom[$dirs[getOpposingDir($dir_i)]]) / 100;
+            }
+
+            $margin_custom['enabled'] = true;
+            $conf['margin_custom'] = $margin_custom;
         }
 
         if ($well_preset) {
@@ -846,6 +877,7 @@ class TownCreatorController extends CustomAbstractCoreController
         $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
 
         $template = $this->conf->getTownConfigurationByType( $base, !$primaryConf->getHasPreset() )->getData();
+
         $this->scrub_config( $rules, $template );
         $this->fix_rules( $header, $rules, $em );
         $this->elevation_needed( $header, $rules, $user->getRightsElevation() );
