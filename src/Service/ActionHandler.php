@@ -353,8 +353,15 @@ class ActionHandler
 
                     // Inventory space
                     case 69:
-                        if ($citizen->getZone() === null && $this->inventory_handler->getFreeSize($citizen->getInventory()) <= 0 && $this->inventory_handler->getFreeSize($citizen->getHome()->getChest()) <= 0)
-                            $current_state = min($current_state, $this_state);
+                        $inv_full = $this->inventory_handler->getFreeSize( $citizen->getInventory() ) <= 0;
+                        $trunk_full = $citizen->getZone() === null && $this->inventory_handler->getFreeSize( $citizen->getHome()->getChest() ) <= 0;
+
+                        if ($inv_full && ($citizen->getZone() || $trunk_full)) $current_state = min($current_state, $this_state);
+
+                        if ($inv_full && $trunk_full)
+                            $messages[] = $this->translator->trans('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.', ['item' => $this->wrap( $item->getPrototype() )], 'items');
+                        elseif ($inv_full && $citizen->getZone())
+                            $messages[] = $this->translator->trans('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', ['item' => $this->wrap( $item->getPrototype() )], 'items');
                         break;
 
                     // Friendship

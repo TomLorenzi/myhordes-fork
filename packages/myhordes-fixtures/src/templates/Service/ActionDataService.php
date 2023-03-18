@@ -98,7 +98,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'not_drunk'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'drunk' ] ]],
                 'not_hungover' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hungover' ] ]],
 
-                'room_for_item' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [69] ], 'text' => 'Hierfür hast du keinen Platz.'],
+                'room_for_item' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [69] ]],
                 'can_use_friendship' =>  [ 'type' => Requirement::HideOnFail, 'collection' => ['custom' => [70] ]],
                 'guard_tower_not_max' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [13] ], 'text' => 'Du hast das Gefühl, dass du die Organisation der Verteidigung der Stadt nicht weiter verbessern kannst.'],
 
@@ -208,6 +208,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'must_be_day' => [ 'collection' =>    [ 'custom' => [1] ] ],
                 'must_be_night'  => [ 'collection' => [ 'custom' => [2] ] ],
                 'must_be_aprils_fools'  => [ 'collection' => [ 'custom' => [3] ] ],
+
+                'must_have_inventory_space'  => [ 'collection' => [ 'custom' => [4] ] ],
 
                 'custom_vote_shaman' => [ 'collection' => [ 'custom' => [18] ] ],
                 'custom_vote_guide'  => [ 'collection' => [ 'custom' => [19] ] ],
