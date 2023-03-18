@@ -120,10 +120,10 @@ Erweitert: Extendido
 'Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.': 'El modo nocturno está activado pero Alumbrado Público no está disponible.'
 'Der Nachtmodus ist deaktiviert.': 'El modo nocturno está desactivado.'
 'Eine Reservierung hinzufügen': 'Agregar una reserva'
-'Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.': 'Aquí puede determinar qué jugadores pueden jugar en su ciudad privada. ¡Otros jugadores no pueden entrar a la ciudad! Como fundador de una ciudad, siempre puedes jugar contigo mismo en tu ciudad privada. Si solo ingresa 39 jugadores, sería el ciudadano número 40.'
+'Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.': 'Aquí puede determinar qué jugadores pueden jugar en su pueblo privado. ¡Otros jugadores no pueden entrar al pueblo! Como fundador de un pueblo, siempre puedes jugar contigo mismo en tu pueblo privado. Si solo ingresan 39 jugadores, sería el habitante número 40.'
 'So geht''s: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).': 'Así es como funciona: escribe el nombre de un jugador en el campo. Luego selecciónelo entre los nombres que aparecen. Luego haga clic en "Agregar". Repita para todos los jugadores que desee agregar a la lista. Alternativamente, puede ingresar una lista separada por comas de nombres de jugadores para agregar varios jugadores a la vez. Si ha asignado una contraseña, no olvide enviarla a los jugadores (por ejemplo, en un mensaje privado).'
 '<strong>Hinweis:</strong> Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, <strong>mehr als nur 39 Spieler</strong> anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.': '<strong>Nota:</strong> tenga en cuenta que esta lista no se puede cambiar más adelante. Por lo tanto, es recomendable ingresar <strong>más de 39 jugadores</strong>. Entonces tienes una reserva en caso de que uno o más jugadores no puedan participar.'
-'<strong>Hinweis:</strong> Wenn du <strong>weniger als 39 Spieler</strong> angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.': '<strong>Nota:</strong> Si ingresa <strong>menos de 39 jugadores</strong>, la ciudad se abrirá automáticamente para todos los jugadores tan pronto como todos los jugadores de la lista hayan ingresado a la ciudad.'
+'<strong>Hinweis:</strong> Wenn du <strong>weniger als 39 Spieler</strong> angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.': '<strong>Nota:</strong> Si ingresan <strong>menos de 39 jugadores</strong>, el pueblo se abrirá automáticamente para todos los jugadores tan pronto como todos los jugadores de la lista hayan ingresado al pueblo.'
 '<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>': '<strong>Si 40 jugadores no han entrado en la ciudad antes de la medianoche del día siguiente, se negará automáticamente. Todos los jugadores que ya han llegado a la ciudad son libres para otras ciudades nuevamente.</strong>'
 'Ghule sind deaktiviert.': 'Los mutantes están desactivados.'
 Aerogen: Aerogénico
@@ -152,7 +152,7 @@ Einwohnerzahl: Población
 Tagesphase: Hora del día
 'Die eingestellte Zeit gibt die Dauer der Nacht an.': 'La hora establecida controla la duración de la noche.'
 Nachtphase: Fase nocturna
-'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?': 'Este pueblo tiene un cupo limitado. Los miembros de su alianza no pueden seguirlo automáticamente cuando ingrese a esta ciudad. ¿Continuar?'
+'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?': 'Este pueblo tiene un cupo limitado. Los miembros de tu alianza no pueden seguirte automáticamente cuando ingreses a este pueblo. ¿Continuar?'
 'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?': 'Los siguientes miembros de la alianza no pueden seguirte a el pueblo seleccionado. ¿Continuar?'
 'Spielhilfe ansehen': 'Ver la ayuda del juego'
 'Spielen, Lernen und STERBEN!': '¡Juega, aprende y MUERE!'
@@ -189,7 +189,7 @@ Fortsetzen...: Continuar...
 'Zum Login zurückkehren': 'Volver a la página de inicio de sesión'
 'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'Requiere por lo menos {sp} puntos de alma para unirse a este pueblo. Para obtener puntos de alma, sigua jugando en otros pueblos.'
 'Grundlegende Einstellungen': 'Ajustes básicos'
-'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Deje el campo vacío para generar automáticamente el nombre de la ciudad.'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'Deje el campo vacío para generar automáticamente el nombre del pueblo.'
 'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'Semilla que permite la generación de un mapa masterizado. Permite en caso de evento generar tarjetas similares. Ponga un entero positivo para activarlo. RECUERDEN CAMBIAR ESTE ENTERO DE UN EVENTO A OTRO!'
 Vorlage: Modelo
 Schwierigkeitslevel: Nivel de dificultad
@@ -211,25 +211,25 @@ Camping: Acampada
 Gebäudeschaden: Desgaste de edificios
 'Verbesserte Müllhalde': 'Vertedero Mejorado'
 'Externe APIs': 'Aplicaciones externas'
-'Externe Anwendungen für diese Stadt aktivieren.': 'Habilitar aplicaciones externas para esta ciudad.'
+'Externe Anwendungen für diese Stadt aktivieren.': 'Habilitar aplicaciones externas para este pueblo.'
 'Seelenpunkt-Beschränkung deaktivieren': 'Deshabilitar limitaciones de puntos de alma'
 'Paradies der Giftmörder': 'Paraíso de los envenenadores'
 'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'Cambió la forma en que el juego maneja los elementos envenenados para hacerlos más difíciles de detectar.'
-'Stadtstart planen': 'Programar el lanzamiento de la ciudad'
+'Stadtstart planen': 'Programar el lanzamiento del pueblo'
 'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'Si desea abrir la ciudad en un momento posterior, puede ingresarla aquí (en el horario del servidor). Solo cuando se alcance este tiempo, la ciudad estará disponible. IMPORTANTE: ¡La opción "Encarnado en la ciudad" impide una salida planificada de la ciudad!'
 'Vergabe von Auszeichnungen': 'Asignación estricta de recompensas'
 Alle: Todo
-'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Los jugadores recibirán todos los elogios ganados en esa ciudad.'
+'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'Los jugadores recibirán todas las distinciones ganadas en este pueblo.'
 Reduziert: Reducido
-'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Los jugadores recibirán un tercio de las distinciones ganados en esa ciudad.'
-'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'Los jugadores no recibirán ninguna distinción obtenida en esta ciudad.'
+'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'Los jugadores recibirán un tercio de las distinciones ganadas en este pueblo.'
+'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'Los jugadores no recibirán ninguna distinción obtenida en este pueblo.'
 'Auszeichnungen beschränken': 'Limitar las distinciones'
 'Keine Beschränkung': 'Sin restricciones'
 'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'Las distinciones se distribuyen de acuerdo con las reglas normales.'
 'Strikte Vergabe': 'Distribución estricta'
 'Vergabe von Seelenpunkten': 'Otorgar puntos de alma'
-'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Los jugadores reciben puntos de alma por participar en esta ciudad.'
-'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Los jugadores NO recibirán puntos de alma por participar en esta ciudad.'
+'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'Los jugadores recibirán puntos de alma por participar en este pueblo.'
+'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'Los jugadores NO recibirán puntos de alma por participar en este pueblo.'
 Teilnahme: Participación
 'Verkörperung in der Stadt': 'Encarnado en la ciudad'
 'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'Encarnado en la ciudad durante su creación.'
@@ -240,15 +240,15 @@ Verwaltung: Administración
 'Erweiterte Einstellungen': 'Ajustes avanzados'
 'Manuelles Event-Management': 'Gestión manual de eventos'
 'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'Deshabilita la gestión normal de eventos de la ciudad y, en su lugar, determina manualmente qué contenido de eventos está disponible durante la duración de la ciudad.'
-'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Hemos rediseñado nuestro creador de ciudades para agregar nuevas funciones. Puede probar el nuevo creador si lo desea, o continuar usando el antiguo por ahora.'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'Hemos rediseñado nuestro creador de pueblos para agregar nuevas funciones. Puede probar el nuevo creador si lo desea, o continuar usando el antiguo por ahora.'
 'Den neuen Generator ausprobieren': 'Prueba el nuevo creador'
 'Erneutes Buddeln': 'Excavaciones repetidas'
-'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'Permite a los ciudadanos excavar de nuevo en las zonas que han visitado anteriormente.'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'Permite a los habitantes excavar de nuevo en las zonas que han visitado anteriormente.'
 Matroschka-Taschen: Bolsas de Matroska
 'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'Los jugadores pueden llevar múltiples extensiones de bolsa al mismo tiempo, aunque la bonificación de extensión solo se otorga una vez.'
 Event-Management: Gestión de eventos
 'Verwendet die normale Event-Verwaltung der Stadt.': 'Utiliza el sistema de gestión de eventos predeterminado.'
-'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'Desactiva el sistema de gestión de eventos predeterminado, de modo que la ciudad no tendrá ningún evento.'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'Desactiva el sistema de gestión de eventos predeterminado, de modo que el pueblo no tendrá ningún evento.'
 'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'Deshabilita el sistema de gestión de eventos predeterminado, lo que hace que el evento seleccionado esté habilitado durante la duración de la ciudad.'
 'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'Hemos revisado el constructor de ciudades y le hemos agregado nuevas características. <strong>Actualmente estás usando la versión anterior del creador.</strong> Todavía está disponible en este momento, pero no recibirá ninguna actualización y no es compatible con todas las funciones del nuevo creador.'
 'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'Estoy confundido y asustado. ¡Volvamos al viejo generador, por favor!'
