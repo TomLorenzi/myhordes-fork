@@ -3,6 +3,7 @@ import {Globals} from "../Wrapper";
 import * as React from "react";
 import {EventConfig, EventMeta} from "../api";
 import {Flag} from "../Common";
+import {EditorGlobals} from "../Creator";
 
 declare global {
     namespace JSX {
@@ -16,6 +17,7 @@ export const HordesEventCreatorModuleMeta = ( {uuid}: {
     uuid: string
 } ) => {
     const globals = useContext(Globals)
+    const editorGlobals = useContext(EditorGlobals)
 
     let [meta, setMeta] = useState<EventMeta[]>(null);
     let [config, setConfig] = useState<EventConfig>(null);
@@ -39,15 +41,17 @@ export const HordesEventCreatorModuleMeta = ( {uuid}: {
                 }}/>
                 <div className="row">
                     { ['en','fr','de','es'].map( lang => <div key={lang} className="padded cell rw-12">
-                        <HordesEventMetaEditor lang={lang} uuid={uuid} meta={ meta?.find( m => m.lang === lang ) ?? null } replace={(m:EventMeta|null) => {
-                            let metaClone = [...meta];
-                            if (m !== null) {
-                                const i = meta.findIndex( mm => mm.lang === lang );
-                                if (i<0) metaClone.push( m );
-                                else metaClone[i] = m;
-                            } else metaClone = metaClone.filter( mm => mm.lang !== lang )
-                            setMeta(metaClone);
-                        }} />
+                        { (editorGlobals.writable || meta?.find( m => m.lang === lang )) && <>
+                            <HordesEventMetaEditor lang={lang} uuid={uuid} meta={ meta?.find( m => m.lang === lang ) ?? null } replace={(m:EventMeta|null) => {
+                                let metaClone = [...meta];
+                                if (m !== null) {
+                                    const i = meta.findIndex( mm => mm.lang === lang );
+                                    if (i<0) metaClone.push( m );
+                                    else metaClone[i] = m;
+                                } else metaClone = metaClone.filter( mm => mm.lang !== lang )
+                                setMeta(metaClone);
+                            }} />
+                        </> }
                     </div> ) }
                 </div>
             </>  }
@@ -60,6 +64,7 @@ const HordesEventConfigEditor = ( {config, setConfig}: {
     setConfig: (EventConfig)=>void
 } ) => {
     const globals = useContext(Globals);
+    const editorGlobals = useContext(EditorGlobals);
 
     const min = new Date();
     min.setDate(min.getDate() + 14)
@@ -72,7 +77,7 @@ const HordesEventConfigEditor = ( {config, setConfig}: {
                 <label htmlFor="te_startDate">{ globals.strings.editor.schedule }</label>
             </div>
             <div className="cell padded rw-3 rw-md-6 rw-sm-12">
-                <input type="date" defaultValue={config.startDate} name="te_startDate"
+                <input type="date" defaultValue={config.startDate} name="te_startDate" readOnly={!editorGlobals.writable}
                        min={`${min.getFullYear()}-${`${min.getMonth()+1}`.padStart(2,'0')}-${`${min.getDate()}`.padStart(2,'0')}`}
                        max={`${max.getFullYear()}-${`${max.getMonth()+1}`.padStart(2,'0')}-${`${max.getDate()}`.padStart(2,'0')}`}
                        onChange={e=>e.target.validity.valid ? setConfig({startDate: e.target.value}) : null}/>
@@ -88,6 +93,7 @@ const HordesEventMetaEditor = ( {lang, uuid, meta, replace}: {
     replace: (EventMeta)=>void
 } ) => {
     const globals = useContext(Globals)
+    const editorGlobals = useContext(EditorGlobals)
 
     const editorTitle = useRef<HTMLInputElement>();
     const editorDescription = useRef<HTMLTextAreaElement>();
@@ -122,7 +128,7 @@ const HordesEventMetaEditor = ( {lang, uuid, meta, replace}: {
                             </> }
                     </> }
                 </div>
-                { meta && !editing && <div className="cell shrink-0">
+                { meta && !editing && editorGlobals.writable && <div className="cell shrink-0">
                     <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
                         <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={() => setEditing(true)} />
                     </span>

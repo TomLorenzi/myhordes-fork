@@ -4,6 +4,7 @@ import * as React from "react";
 import Components from "../../index";
 import {TownPreset, TownPresetData} from "../api";
 import {Flag} from "../Common";
+import {EditorGlobals} from "../Creator";
 
 declare global {
     namespace JSX {
@@ -17,6 +18,7 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
     uuid: string,
 } ) => {
     const globals = useContext(Globals)
+    const editorGlobals = useContext(EditorGlobals)
 
     let [townList, setTownList] = useState<TownPreset[]|null>(null);
     let [activeTownEditor, setActiveTownEditor] = useState<string|boolean>(false);
@@ -105,28 +107,33 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                                     <br/><span className="small townPassword">{ globals.strings.towns.password }: <pre>{ town.password }</pre></span>
                                 </> }
                             </div>
-                            <div className="padded cell rw-2 right">
+                            { editorGlobals.writable && <>
+                                <div className="padded cell rw-2 right">
                                 <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
                                     <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={()=>setActiveTownEditor(town.uuid)} />
                                 </span>
-                                <span className="cell padded-small shrink-0" title={globals.strings.common.delete}>
-                                    <img className="pointer" alt={globals.strings.common.delete} src={globals.strings.common.delete_icon} onClick={() => {
-                                        if (confirm( globals.strings.towns.delete_confirm )) {
-                                            setTownList( townList.filter(e => e.uuid !== town.uuid) )
-                                            globals.api.deleteTown(uuid, town.uuid).catch( () => refresh() );
-                                        }
-                                    }} />
-                                </span>
-                            </div>
+                                    <span className="cell padded-small shrink-0" title={globals.strings.common.delete}>
+                                        <img className="pointer" alt={globals.strings.common.delete} src={globals.strings.common.delete_icon} onClick={() => {
+                                            if (confirm( globals.strings.towns.delete_confirm )) {
+                                                setTownList( townList.filter(e => e.uuid !== town.uuid) )
+                                                globals.api.deleteTown(uuid, town.uuid).catch( () => refresh() );
+                                            }
+                                        }} />
+                                    </span>
+                                </div>
+                            </> }
+
                         </div>
                     ) ) }
 
                 </div> }
-                <div className="row">
-                    <div className="cell rw-4 ro-8 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
-                        <button onClick={()=>setActiveTownEditor(true)}>{ globals.strings.towns.add }</button>
+                { editorGlobals.writable && <>
+                    <div className="row">
+                        <div className="cell rw-4 ro-8 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
+                            <button onClick={()=>setActiveTownEditor(true)}>{ globals.strings.towns.add }</button>
+                        </div>
                     </div>
-                </div>
+                </> }
             </> }
         </>
     )

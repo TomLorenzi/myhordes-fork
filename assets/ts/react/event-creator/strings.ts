@@ -12,6 +12,7 @@ export type TranslationStrings = {
         cancel_create: string,
         init_verification: string,
         cancel_verification: string,
+        do_verification: string,
 
         save: string,
         cancel: string,
@@ -20,6 +21,9 @@ export type TranslationStrings = {
 
         delete: string,
         delete_icon: string,
+
+        online_icon: string,
+        offline_icon: string,
 
         flags: LangStrings,
         langs: LangStrings,

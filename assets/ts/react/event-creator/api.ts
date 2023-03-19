@@ -8,7 +8,7 @@ export type EventCore = {
     short: string|null
     own: boolean,
     published: boolean,
-    expires: boolean,
+    ended: boolean,
     start: string|null,
     proposed: boolean,
 }
@@ -99,6 +99,11 @@ export class EventCreationAPI {
     public cancelProposal(uuid: string): Promise<ResponseCreate> {
         return this.fetch.from(`/${uuid}/proposal`)
             .request().delete() as Promise<ResponseCreate>;
+    }
+
+    public publish(uuid: string): Promise<ResponseCreate> {
+        return this.fetch.from(`/${uuid}/publish`)
+            .request().put() as Promise<ResponseCreate>;
     }
 
     public getConfig(uuid: string): Promise<EventConfig> {

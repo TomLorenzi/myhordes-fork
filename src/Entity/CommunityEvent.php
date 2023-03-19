@@ -29,9 +29,6 @@ class CommunityEvent
     private ?\DateTimeInterface $created = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $expires = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $starts = null;
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: CommunityEventMeta::class, orphanRemoval: true)]
@@ -45,6 +42,9 @@ class CommunityEvent
 
     #[ORM\Column]
     private bool $proposed = false;
+
+    #[ORM\Column]
+    private bool $ended = false;
 
     public function __construct()
     {
@@ -77,18 +77,6 @@ class CommunityEvent
     public function setCreated(\DateTimeInterface $created): self
     {
         $this->created = $created;
-
-        return $this;
-    }
-
-    public function getExpires(): ?\DateTimeInterface
-    {
-        return $this->expires;
-    }
-
-    public function setExpires(?\DateTimeInterface $expires): self
-    {
-        $this->expires = $expires;
 
         return $this;
     }
@@ -206,6 +194,18 @@ class CommunityEvent
     public function setProposed(bool $proposed): self
     {
         $this->proposed = $proposed;
+
+        return $this;
+    }
+
+    public function isEnded(): bool
+    {
+        return $this->ended;
+    }
+
+    public function setEnded(bool $ended): self
+    {
+        $this->ended = $ended;
 
         return $this;
     }

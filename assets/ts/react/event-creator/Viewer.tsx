@@ -28,8 +28,8 @@ export const HordesEventCreatorViewer = ( {creator,editor}: {
             { events !== null && !events?.length && <span className="small">{ globals.strings.list.no_events }</span> }
             { events?.map(event => <React.Fragment key={event.uuid}>
                     <HordesEventCreatorEventListing event={event}
-                                                    editEvent={(editor && event.own) ? ()=>editor(event) : null}
-                                                    deleteEvent={(editor && event.own) ? ()=>{
+                                                    editEvent={(editor && (event.own || (globals.is_reviewer && event.proposed))) ? ()=>editor(event) : null}
+                                                    deleteEvent={(editor && (event.own || (globals.is_reviewer && event.proposed))) ? ()=>{
                                                         setEvents(events.filter(e => e.uuid !== event.uuid));
                                                         globals.api.delete(event.uuid).catch( () => refresh(true) );
                                                     } : null}/>
@@ -65,8 +65,11 @@ const HordesEventCreatorEventListing = ( {event,editEvent,deleteEvent}: {
     }, [showDetails]);
 
     return (
-        <div className="note note-event-custom">
+        <div className={`note ${event.own ? 'green-note' : ''} note-event-custom`}>
             <div className="row row-flex v-center">
+                { !event.published && event.proposed && <i className="fas fa-envelope-circle-check"/> }
+                { !event.published && <img alt="" src={globals.strings.common.offline_icon}/> }
+                { event.published && <img alt="" src={globals.strings.common.online_icon}/> }
                 <b className="cell grow-1">{ event.name ?? globals.strings.list.default_event }</b>
                 { editEvent && <>
                     <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>

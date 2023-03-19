@@ -53,6 +53,7 @@ class EventController extends CustomAbstractCoreController
                     'cancel_create' => $this->translator->trans('Zurück zur Übersicht', [], 'global'),
                     'init_verification' => $this->translator->trans('Event-Verifizierung beantragen', [], 'global'),
                     'cancel_verification' => $this->translator->trans('Event-Verifizierung abbrechen', [], 'global'),
+                    'do_verification' => $this->translator->trans('Event freischalten', [], 'global'),
 
                     'save' => $this->translator->trans('Speichern', [], 'global'),
                     'cancel' => $this->translator->trans('Abbrechen', [], 'global'),
@@ -60,6 +61,9 @@ class EventController extends CustomAbstractCoreController
                     'edit_icon' => $assets->getUrl('build/images/forum/edit.png'),
                     'delete' => $this->translator->trans('Löschen', [], 'global'),
                     'delete_icon' => $assets->getUrl('build/images/icons/small_remove.gif'),
+
+                    'online_icon' => $assets->getUrl('build/images/icons/player_online.gif'),
+                    'offline_icon' => $assets->getUrl('build/images/icons/player_offline.gif'),
 
                     'flags' => array_map( fn($l) => $assets->getUrl("build/images/lang/{$l}.png"), ['de'=>'de','en'=>'en','fr'=>'fr','es'=>'es','multi'=>'multi'] ),
                     'langs' => array_map( fn($l) => $this->translator->trans( $l, [], 'global' ), ['de'=>'Deutsch','en'=>'Englisch','fr'=>'Französisch','es'=>'Spanisch','multi'=>'???'] ),
@@ -107,33 +111,50 @@ class EventController extends CustomAbstractCoreController
         ]);
     }
 
+    protected function eventIsEditable(CommunityEvent $event, bool $forVerificationCancellation = false): bool {
+        if (!$this->eventIsExplorable($event) || $event->getStarts() !== null) return false;
+        if (!$forVerificationCancellation && !$this->isGranted('ROLE_CROW') && $event->isProposed()) return false;
+        return true;
+    }
+
+    protected function eventIsExplorable(CommunityEvent $event): bool {
+        return $event->getOwner() === $this->getUser() || ($event->isProposed() && $this->isGranted('ROLE_CROW'));
+    }
+
     /**
      * @Route("", name="list", methods={"GET"})
      * @param EntityManagerInterface $em
+     * @param UserHandler $userHandler
      * @return JsonResponse
      */
     public function listEvents(
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        UserHandler $userHandler
     ): JsonResponse {
 
+        $can_view_proposals = $userHandler->hasRoles( $this->getUser(), ['ROLE_ADMIN','ROLE_CROW'], true );
+
         $is_owner = Criteria::expr()->eq('owner', $this->getUser() );
+        $is_proposed = Criteria::expr()->eq('proposed', true );
 
         $events = $em->getRepository(CommunityEvent::class)->matching(
             (Criteria::create())
                 // Is owner or event is public
-                ->andWhere( Criteria::expr()->orX(
-                    $is_owner,
-                    Criteria::expr()->neq('starts', null )
-                ) )
+                ->andWhere( !$can_view_proposals
+                    ? Criteria::expr()->orX(
+                        $is_owner,
+                        Criteria::expr()->neq('starts', null )
+                    )
+                    : Criteria::expr()->orX(
+                        $is_owner,
+                        $is_proposed,
+                        Criteria::expr()->neq('starts', null )
+                    )
+                )
                 // Is owner or is not started or TODO is participant
                 ->andWhere( Criteria::expr()->orX(
                     $is_owner,
-                    Criteria::expr()->gt( 'starts', new \DateTime() )
-                ) )
-                // Not expired or no expiration
-                ->andWhere( Criteria::expr()->orX(
-                    Criteria::expr()->gt( 'expires', new \DateTime() ),
-                    Criteria::expr()->isNull( 'expires' )
+                    Criteria::expr()->neq('ended', true )
                 ) )
         );
 
@@ -147,9 +168,9 @@ class EventController extends CustomAbstractCoreController
                 'description' => $meta?->getDescription(),
                 'own' => $owning,
                 'start' => $e->getStarts() ?? $e->getConfiguredStartDate() ?? null,
+                'ended' => $e->getStarts() ? $e->isEnded() : false,
                 'proposed' => $e->isProposed(),
-                'published' => $e->getStarts() !== null,
-                'expires' => $e->getExpires() !== null,
+                'published' => $e->getStarts() !== null
             ];
 
             return $return;
@@ -172,7 +193,6 @@ class EventController extends CustomAbstractCoreController
         $em->persist( $event = (new CommunityEvent())
             ->setOwner( $this->getUser() )
             ->setCreated( new \DateTime() )
-            ->setExpires( (new \DateTime())->add( \DateInterval::createFromDateString('48hours') ) )
         );
 
         try {
@@ -205,11 +225,8 @@ class EventController extends CustomAbstractCoreController
         bool $option,
         EntityManagerInterface $em
     ): JsonResponse {
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsEditable( $event, $option === false ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
-
-        if ($event->getStarts() !== null)
-            return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
 
         if ($event->isProposed() !== $option) {
 
@@ -240,6 +257,35 @@ class EventController extends CustomAbstractCoreController
     }
 
     /**
+     * @Route("/{id}/publish", name="set_published", methods={"PUT"})
+     * @param CommunityEvent $event
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function publishEvent(
+        CommunityEvent $event,
+        EntityManagerInterface $em
+    ): JsonResponse {
+        if (!$this->eventIsEditable( $event ) || !$this->isGranted('ROLE_CROW'))
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        $date = $event->getConfiguredStartDate();
+        if ($date < (new \DateTime())->modify( 'tomorrow' ))
+            $date = (new \DateTime())->modify( 'tomorrow' );
+
+        $event->setStarts( $date );
+        $em->persist( $event );
+
+        try {
+            $em->flush();
+        } catch (\Throwable $e) {
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return new JsonResponse(['uuid' => $event->getId()]);
+    }
+
+    /**
      * @Route("/{id}/config", name="get_config", methods={"GET"})
      * @param CommunityEvent $event
      * @return JsonResponse
@@ -247,7 +293,7 @@ class EventController extends CustomAbstractCoreController
     public function getEventConfig(
         CommunityEvent $event
     ): JsonResponse {
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsExplorable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         return new JsonResponse($this->renderConfig($event));
@@ -265,7 +311,7 @@ class EventController extends CustomAbstractCoreController
         JSONRequestParser $parser,
         EntityManagerInterface $em
     ): JsonResponse {
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsEditable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $startDate = $parser->get_dateTime('startDate');
@@ -295,7 +341,7 @@ class EventController extends CustomAbstractCoreController
         CommunityEvent $event,
         EntityManagerInterface $em
     ): JsonResponse {
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsEditable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         try {
@@ -344,7 +390,7 @@ class EventController extends CustomAbstractCoreController
         EntityManagerInterface $em,
         JSONRequestParser $parser,
     ): JsonResponse {
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsEditable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         if (!$parser->has_all(['name','desc','short'])) return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -382,7 +428,7 @@ class EventController extends CustomAbstractCoreController
         string $lang,
         EntityManagerInterface $em
     ): JsonResponse {
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsEditable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         $meta = $event->getMeta($lang);
@@ -410,6 +456,9 @@ class EventController extends CustomAbstractCoreController
         CommunityEvent $event,
         EntityManagerInterface $em,
     ): JsonResponse {
+        if (!$this->eventIsExplorable( $event ))
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
         return new JsonResponse(['towns' => array_map(
                                     fn(CommunityEventTownPreset $preset) => [
                                         'uuid' => $preset->getId(),
@@ -439,7 +488,7 @@ class EventController extends CustomAbstractCoreController
         CommunityEventTownPreset $preset,
         EntityManagerInterface $em,
     ): JsonResponse {
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsExplorable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         if (!$event->getTownPresets()->contains( $preset ))
@@ -481,7 +530,7 @@ class EventController extends CustomAbstractCoreController
     ): JsonResponse {
 
         if (!$create && !$preset) return new JsonResponse([], Response::HTTP_NOT_FOUND);
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsEditable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         if (!$create && !$event->getTownPresets()->contains( $preset ))
@@ -526,7 +575,7 @@ class EventController extends CustomAbstractCoreController
         EntityManagerInterface $em
     ): JsonResponse {
 
-        if ($event->getOwner() !== $this->getUser())
+        if (!$this->eventIsEditable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
         if (!$event->getTownPresets()->contains( $preset ))

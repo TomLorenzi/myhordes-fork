@@ -42,7 +42,7 @@ class TownCreatorController extends CustomAbstractCoreController
      */
     public function index(EntityManagerInterface $em, Packages $asset): JsonResponse {
 
-        $all_events = array_map(
+        $all_events = array_values(array_map(
             function(string $name) {
                 $title_key = "event_{$name}_title";
                 $desc_key = "event_{$name}_description";
@@ -57,7 +57,7 @@ class TownCreatorController extends CustomAbstractCoreController
                 ];
             },
             array_filter( $this->conf->getAllEventNames(), fn(string $name) => $this->conf->eventIsPublic( $name ) || $this->getUser()->getRightsElevation() >= User::USER_LEVEL_CROW )
-        );
+        ));
 
         return new JsonResponse([
             'strings' => [
