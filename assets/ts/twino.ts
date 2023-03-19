@@ -479,7 +479,7 @@ class HTMLConverterFromBlocks {
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
                             const xid = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
-                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replace(/\W+/,'') : block.nodeText) + (xid ? (':' + xid) : '') )
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replaceAll(/[^\p{L}\d_-]/gu,'') : block.nodeText) + (xid ? (':' + xid) : '') )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
