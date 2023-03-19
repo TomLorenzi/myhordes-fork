@@ -8,7 +8,13 @@ export type EventCore = {
     short: string|null
     own: boolean,
     published: boolean,
-    expires: boolean
+    expires: boolean,
+    start: string|null,
+    proposed: boolean,
+}
+
+export type EventConfig = {
+    startDate?: string,
 }
 
 export type EventMeta = {
@@ -25,7 +31,8 @@ export type TownPresetUUID = {
 export interface TownPreset extends TownPresetUUID {
     name: string|null
     lang: string,
-    'type': string
+    'type': string,
+    password: string|null,
 }
 
 export interface TownPresetData extends TownPresetUUID {
@@ -82,6 +89,26 @@ export class EventCreationAPI {
     public create(): Promise<ResponseCreate> {
         return this.fetch.from('/')
             .request().put() as Promise<ResponseCreate>;
+    }
+
+    public propose(uuid: string): Promise<ResponseCreate> {
+        return this.fetch.from(`/${uuid}/proposal`)
+            .request().put() as Promise<ResponseCreate>;
+    }
+
+    public cancelProposal(uuid: string): Promise<ResponseCreate> {
+        return this.fetch.from(`/${uuid}/proposal`)
+            .request().delete() as Promise<ResponseCreate>;
+    }
+
+    public getConfig(uuid: string): Promise<EventConfig> {
+        return this.fetch.from(`/${uuid}/config`)
+            .request().get() as Promise<EventConfig>;
+    }
+
+    public editConfig(uuid: string, config: EventConfig): Promise<EventConfig> {
+        return this.fetch.from(`/${uuid}/config`)
+            .request().patch(config) as Promise<EventConfig>;
     }
 
     public delete(uuid: string): Promise<boolean> {

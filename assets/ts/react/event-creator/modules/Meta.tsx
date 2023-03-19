@@ -1,7 +1,7 @@
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Globals} from "../Wrapper";
 import * as React from "react";
-import {EventMeta} from "../api";
+import {EventConfig, EventMeta} from "../api";
 import {Flag} from "../Common";
 
 declare global {
@@ -18,32 +18,68 @@ export const HordesEventCreatorModuleMeta = ( {uuid}: {
     const globals = useContext(Globals)
 
     let [meta, setMeta] = useState<EventMeta[]>(null);
+    let [config, setConfig] = useState<EventConfig>(null);
 
     useEffect(() => {
         globals.api.listMeta( uuid ).then( r => setMeta(r.meta) );
         return () => setMeta(null);
     }, [uuid]);
 
+    useEffect(() => {
+        globals.api.getConfig( uuid ).then( r => setConfig(r) );
+        return () => setConfig(null);
+    }, [uuid]);
+
     return (
         <>
-            <h5>{ globals.strings.editor.title }</h5>
-            <div className="row">
-                { meta === null && <div className="loading"></div> }
-                { meta !== null && ['en','fr','de','es'].map( lang => <div key={lang} className="padded cell rw-12">
-                    <HordesEventMetaEditor lang={lang} uuid={uuid} meta={ meta?.find( m => m.lang === lang ) ?? null } replace={(m:EventMeta|null) => {
-                        let metaClone = [...meta];
-                        if (m !== null) {
-                            const i = meta.findIndex( mm => mm.lang === lang );
-                            if (i<0) metaClone.push( m );
-                            else metaClone[i] = m;
-                        } else metaClone = metaClone.filter( mm => mm.lang !== lang )
-                        setMeta(metaClone);
-                    }} />
-                </div> ) }
-            </div>
+            { (config === null || meta === null) && <div className="loading"></div> }
+            { (config !== null && meta !== null) && <>
+                <HordesEventConfigEditor config={config} setConfig={c=>{
+                    globals.api.editConfig( uuid, c ).then( r => setConfig(r) );
+                }}/>
+                <div className="row">
+                    { ['en','fr','de','es'].map( lang => <div key={lang} className="padded cell rw-12">
+                        <HordesEventMetaEditor lang={lang} uuid={uuid} meta={ meta?.find( m => m.lang === lang ) ?? null } replace={(m:EventMeta|null) => {
+                            let metaClone = [...meta];
+                            if (m !== null) {
+                                const i = meta.findIndex( mm => mm.lang === lang );
+                                if (i<0) metaClone.push( m );
+                                else metaClone[i] = m;
+                            } else metaClone = metaClone.filter( mm => mm.lang !== lang )
+                            setMeta(metaClone);
+                        }} />
+                    </div> ) }
+                </div>
+            </>  }
         </>
     )
 };
+
+const HordesEventConfigEditor = ( {config, setConfig}: {
+    config: EventConfig,
+    setConfig: (EventConfig)=>void
+} ) => {
+    const globals = useContext(Globals);
+
+    const min = new Date();
+    min.setDate(min.getDate() + 14)
+    const max = new Date();
+    max.setDate(max.getDate() + 194)
+
+    return <>
+        <div className="row">
+            <div className="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
+                <label htmlFor="te_startDate">{ globals.strings.editor.schedule }</label>
+            </div>
+            <div className="cell padded rw-3 rw-md-6 rw-sm-12">
+                <input type="date" defaultValue={config.startDate} name="te_startDate"
+                       min={`${min.getFullYear()}-${`${min.getMonth()+1}`.padStart(2,'0')}-${`${min.getDate()}`.padStart(2,'0')}`}
+                       max={`${max.getFullYear()}-${`${max.getMonth()+1}`.padStart(2,'0')}-${`${max.getDate()}`.padStart(2,'0')}`}
+                       onChange={e=>e.target.validity.valid ? setConfig({startDate: e.target.value}) : null}/>
+            </div>
+        </div>
+    </>
+}
 
 const HordesEventMetaEditor = ( {lang, uuid, meta, replace}: {
     lang: string,

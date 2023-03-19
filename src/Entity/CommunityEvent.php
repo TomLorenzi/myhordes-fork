@@ -40,6 +40,12 @@ class CommunityEvent
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: CommunityEventTownPreset::class, orphanRemoval: true)]
     private Collection $townPresets;
 
+    #[ORM\Column]
+    private array $config = [];
+
+    #[ORM\Column]
+    private bool $proposed = false;
+
     public function __construct()
     {
         $this->metas = new ArrayCollection();
@@ -166,6 +172,40 @@ class CommunityEvent
                 $town->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getConfig(): array
+    {
+        return $this->config;
+    }
+
+    protected function setConfig(array $config): self
+    {
+        $this->config = $config;
+
+        return $this;
+    }
+
+    public function getConfiguredStartDate(): ?\DateTimeInterface {
+        return ($this->getConfig()['startDate'] ?? null) ? (new \DateTime())->setTimestamp( $this->config['startDate'] ) : null;
+    }
+
+    public function setConfiguredStartDate(\DateTimeInterface $date): void {
+        $conf = $this->getConfig();
+        $conf['startDate'] = $date->getTimestamp();
+        $this->setConfig($conf);
+    }
+
+    public function isProposed(): bool
+    {
+        return $this->proposed;
+    }
+
+    public function setProposed(bool $proposed): self
+    {
+        $this->proposed = $proposed;
 
         return $this;
     }

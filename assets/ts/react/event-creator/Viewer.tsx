@@ -6,7 +6,7 @@ import {EventCore, EventCreationAPI} from "./api";
 
 export const HordesEventCreatorViewer = ( {creator,editor}: {
     creator: (()=>void)|null,
-    editor: ((e:string)=>void)|null
+    editor: ((e:EventCore)=>void)|null
 }) => {
     const globals = useContext(Globals)
 
@@ -28,7 +28,7 @@ export const HordesEventCreatorViewer = ( {creator,editor}: {
             { events !== null && !events?.length && <span className="small">{ globals.strings.list.no_events }</span> }
             { events?.map(event => <React.Fragment key={event.uuid}>
                     <HordesEventCreatorEventListing event={event}
-                                                    editEvent={(editor && event.own) ? ()=>editor(event.uuid) : null}
+                                                    editEvent={(editor && event.own) ? ()=>editor(event) : null}
                                                     deleteEvent={(editor && event.own) ? ()=>{
                                                         setEvents(events.filter(e => e.uuid !== event.uuid));
                                                         globals.api.delete(event.uuid).catch( () => refresh(true) );

@@ -33,7 +33,6 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
 
     const send_payload = () => {
         if (!townEditorPayload) return;
-        console.log(townEditorPayload);
         const rq = (activeTownEditor === true)
             ? globals.api.createTown( uuid, townEditorPayload.header, townEditorPayload.rules )
             : globals.api.updateTown( uuid, activeTownEditor as string, townEditorPayload.header, townEditorPayload.rules )
@@ -49,7 +48,6 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
     return (
         <>
             { activeTownEditor === true && <>
-                <h5>{ globals.strings.towns.town_create }</h5>
                 <div className="row">
                     <div className="cell rw-12">
                         <HordesEventTownPresetEditor update={e => setTownEditorPayload(e)} uuid={uuid} town={null}/>
@@ -103,7 +101,9 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                                 { town.name && <i>{ town.name }</i> }
                                 { !town.name && <span className="small">[ { globals.strings.towns.default_town } ]</span> }
                                 <br /><span className="small">{ town['type'] }</span>
-
+                                { town.password && <>
+                                    <br/><span className="small townPassword">{ globals.strings.towns.password }: <pre>{ town.password }</pre></span>
+                                </> }
                             </div>
                             <div className="padded cell rw-2 right">
                                 <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>

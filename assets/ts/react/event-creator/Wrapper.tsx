@@ -43,7 +43,7 @@ const EventCreatorWrapper = ( {creator}: {creator: boolean} ) => {
 
     const [strings, setStrings] = useState<TranslationStrings>(null)
 
-    const [showCreator, setShowCreator] = useState<string>(null)
+    const [showCreator, setShowCreator] = useState<{ uuid: string, event?: EventCore }>(null)
 
     useEffect( () => {
         apiRef.current = new EventCreationAPI();
@@ -71,12 +71,15 @@ const EventCreatorWrapper = ( {creator}: {creator: boolean} ) => {
                             startLoad();
                             apiRef.current.create()
                                 .then( r => {
-                                    setShowCreator(r.uuid);
+                                    setShowCreator(r);
                                     doneLoad();
                                 } )
                                 .catch( () => doneLoad() )
-                        } : null } editor={ creator ? e => setShowCreator(e) : null } /> }
-                        { showCreator && <HordesEventCreatorWizard uuid={ showCreator } cancel={ creator ? ()=>setShowCreator(null) : null } /> }
+                        } : null } editor={ creator ? e => setShowCreator({uuid: e.uuid, event: e}) : null } /> }
+                        { showCreator && <HordesEventCreatorWizard uuid={ showCreator.uuid }
+                                                                   proposed={ showCreator.event?.proposed ?? false }
+                                                                   published={ showCreator.event?.published ?? false }
+                                                                   cancel={ creator ? ()=>setShowCreator(null) : null } /> }
                     </> }
                 </div>
             </div>

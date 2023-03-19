@@ -10,6 +10,8 @@ export type TranslationStrings = {
     common: {
         create: string,
         cancel_create: string,
+        init_verification: string,
+        cancel_verification: string,
 
         save: string,
         cancel: string,
@@ -34,6 +36,7 @@ export type TranslationStrings = {
 
     towns: {
         title: string,
+        password: string,
 
         no_towns: string,
         default_town: string,
@@ -53,6 +56,8 @@ export type TranslationStrings = {
         title: string,
         edit: string,
         add_meta: string,
+
+        schedule: string,
 
         field_title: string,
         field_short: string,

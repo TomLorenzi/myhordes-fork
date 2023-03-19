@@ -245,7 +245,7 @@ export class Fetch {
         } catch (_) {}
 
         let error_code = data?.error ?? null;
-        const error_message = data?.error === 'message' ? (data?.message) ?? null : null;
+        const error_message = (error_code === 'message' || error_code === null) ? (data?.message) ?? null : null;
         const success_data = data?.success ?? null;
 
         if (!response.ok || typeof data === "undefined" || (options.body_success && (!success_data || error_message))) {
@@ -261,7 +261,7 @@ export class Fetch {
                 }
 
                 if (options.error_messages)
-                    $.html.error(`${error_message ?? c.errors[error_code ?? 'com'] ?? c.errors['com']} (${response.status})`);
+                    $.html.error(error_message ?? c.errors[error_code ?? '__'] ?? `${c.errors['com']} (HTTP-${response.status})`);
                 throw error_code ?? 'com';
             }
 

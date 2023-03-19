@@ -51,6 +51,8 @@ class EventController extends CustomAbstractCoreController
                 'common' => [
                     'create' => $this->translator->trans('Eigenes Event organisieren', [], 'global'),
                     'cancel_create' => $this->translator->trans('Zurück zur Übersicht', [], 'global'),
+                    'init_verification' => $this->translator->trans('Event-Verifizierung beantragen', [], 'global'),
+                    'cancel_verification' => $this->translator->trans('Event-Verifizierung abbrechen', [], 'global'),
 
                     'save' => $this->translator->trans('Speichern', [], 'global'),
                     'cancel' => $this->translator->trans('Abbrechen', [], 'global'),
@@ -74,6 +76,7 @@ class EventController extends CustomAbstractCoreController
 
                 'towns' => [
                     'title' => $this->translator->trans('Event-Städte', [], 'global'),
+                    'password' => $this->translator->trans('Zugangscode', [], 'ghost'),
 
                     'no_towns' => $this->translator->trans('Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.', [], 'global'),
                     'default_town' => $this->translator->trans('Automatisch generierter Name', [], 'global'),
@@ -94,10 +97,12 @@ class EventController extends CustomAbstractCoreController
                     'edit' => $this->translator->trans('Event bearbeiten', [], 'global'),
                     'add_meta' => $this->translator->trans('Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.', [], 'global'),
 
+                    'schedule' => $this->translator->trans('Geplanter Startzeitpunkt', [], 'global'),
+
                     'field_title' =>  $this->translator->trans('Event-Titel', [], 'global'),
                     'field_short' =>  $this->translator->trans('Kurzbeschreibung', [], 'global'),
                     'field_description' =>  $this->translator->trans('Beschreibung und Regeln des Events', [], 'global'),
-                ]
+                ],
             ]
         ]);
     }
@@ -134,15 +139,20 @@ class EventController extends CustomAbstractCoreController
 
         return new JsonResponse( ['events' => array_map( function(CommunityEvent $e) {
             $meta = $e->getMeta( $this->getUserLanguage(), true );
-            return [
+            $owning = $e->getOwner() === $this->getUser();
+            $return = [
                 'uuid' => $e->getId(),
                 'name' => $meta?->getName(),
                 'short' => $meta?->getShort(),
                 'description' => $meta?->getDescription(),
-                'own' => $e->getOwner() === $this->getUser(),
+                'own' => $owning,
+                'start' => $e->getStarts() ?? $e->getConfiguredStartDate() ?? null,
+                'proposed' => $e->isProposed(),
                 'published' => $e->getStarts() !== null,
                 'expires' => $e->getExpires() !== null,
             ];
+
+            return $return;
         }, $events->toArray() ) ] );
     }
 
@@ -174,16 +184,115 @@ class EventController extends CustomAbstractCoreController
         return new JsonResponse(['uuid' => $event->getId()]);
     }
 
+    protected function renderConfig(CommunityEvent $event): array {
+        $conf = [
+            'startDate' => $event->getConfiguredStartDate()?->format('Y-m-d') ?? null
+        ];
+
+        return array_filter( $conf, fn($v) => $v !== null );
+    }
+
+    /**
+     * @Route("/{id}/proposal", name="set_proposal", methods={"PUT"}, defaults={"option"=true})
+     * @Route("/{id}/proposal", name="remove_proposal", methods={"DELETE"}, defaults={"option"=false})
+     * @param CommunityEvent $event
+     * @param bool $option
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function editEventProposal(
+        CommunityEvent $event,
+        bool $option,
+        EntityManagerInterface $em
+    ): JsonResponse {
+        if ($event->getOwner() !== $this->getUser())
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        if ($event->getStarts() !== null)
+            return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
+
+        if ($event->isProposed() !== $option) {
+
+            if ($option) {
+                if (!$event->getMeta( '', true))
+                    return new JsonResponse(['message' => $this->translator->trans('Du musst mindestens eine Event-Beschreibung hinzufügen.', [], 'global')], Response::HTTP_NOT_ACCEPTABLE);
+                if (!$event->getConfiguredStartDate())
+                    return new JsonResponse(['message' => $this->translator->trans('Du musst ein Startdatum für dein Event festlegen.', [], 'global')], Response::HTTP_NOT_ACCEPTABLE);
+
+                $minDate = (new \DateTime())->add( \DateInterval::createFromDateString('14days') );
+                $maxDate = (new \DateTime())->add( \DateInterval::createFromDateString('194days') );
+
+                if ($event->getConfiguredStartDate() < $minDate || $event->getConfiguredStartDate() > $maxDate)
+                    return new JsonResponse(['message' => $this->translator->trans('Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen', ['minDays' => 14, 'maxDays' => 194], 'global')], Response::HTTP_NOT_ACCEPTABLE);
+            }
+
+            $event->setProposed( $option );
+            $em->persist( $event );
+
+            try {
+                $em->flush();
+            } catch (\Throwable $e) {
+                return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        return new JsonResponse(['uuid' => $event->getId()]);
+    }
+
+    /**
+     * @Route("/{id}/config", name="get_config", methods={"GET"})
+     * @param CommunityEvent $event
+     * @return JsonResponse
+     */
+    public function getEventConfig(
+        CommunityEvent $event
+    ): JsonResponse {
+        if ($event->getOwner() !== $this->getUser())
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        return new JsonResponse($this->renderConfig($event));
+    }
+
+    /**
+     * @Route("/{id}/config", name="edit_config", methods={"PATCH"})
+     * @param CommunityEvent $event
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function updateEventConfig(
+        CommunityEvent $event,
+        JSONRequestParser $parser,
+        EntityManagerInterface $em
+    ): JsonResponse {
+        if ($event->getOwner() !== $this->getUser())
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        $startDate = $parser->get_dateTime('startDate');
+        if ($startDate && ($startDate < new \DateTime() || $startDate > (new \DateTime())->add(\DateInterval::createFromDateString('1year'))))
+            $startDate = null;
+
+        if ($startDate) $event->setConfiguredStartDate( $startDate );
+
+        $em->persist( $event );
+
+        try {
+            $em->flush();
+        } catch (\Throwable $e) {
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return new JsonResponse($this->renderConfig($event));
+    }
+
     /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
      * @param CommunityEvent $event
-     * @param UserHandler $userHandler
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
     public function deleteEvent(
         CommunityEvent $event,
-        UserHandler $userHandler,
         EntityManagerInterface $em
     ): JsonResponse {
         if ($event->getOwner() !== $this->getUser())
@@ -243,10 +352,13 @@ class EventController extends CustomAbstractCoreController
         $meta = $event->getMeta($lang);
         if (!$meta) $event->addMeta( $meta = (new CommunityEventMeta())
             ->setLang( $lang )
+        );
+
+        $meta
             ->setName( mb_substr( $parser->trimmed( 'name' ), 0, 128 ) )
             ->setDescription( $parser->trimmed('desc') )
             ->setShort( $parser->trimmed('short') )
-        );
+        ;
 
         $em->persist($meta);
         try {
@@ -303,6 +415,7 @@ class EventController extends CustomAbstractCoreController
                                         'uuid' => $preset->getId(),
                                         'name' => $preset->getHeader()['townName'] ?? null,
                                         'lang' => $preset->getHeader()['townLang'] ?? 'multi',
+                                        'password' => $preset->getHeader()['townCode'] ?? null,
                                         'type' => $this->translator->trans(
                                             $em->getRepository(TownClass::class)->findOneBy(['name' => $preset->getHeader()['townBase'] ?? $preset->getHeader()['townType'] ?? TownClass::DEFAULT])->getLabel() ?? '',
                                             [], 'game'
