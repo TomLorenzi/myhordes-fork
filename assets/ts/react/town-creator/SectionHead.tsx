@@ -108,13 +108,12 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked,
             />
         )}
 
+        { /* Town Code */ }
+        <OptionFreeText propTitle={head.code} propTip={head.code_help}
+                        value={globals.getOption( 'head.townCode' )} propName="townCode"
+        />
 
         <AtLeast notForEvents={true}>
-            { /* Town Code */ }
-            <OptionFreeText propTitle={head.code} propTip={head.code_help}
-                            value={globals.getOption( 'head.townCode' )} propName="townCode"
-            />
-
             { /* Reserved spaces */ }
             <OptionCoreTemplate propName="head.reserve" propTitle="" wide={ reservedPlaces.length > 0 || enableReservedPlaces }>
                 { reservedPlaces.length === 0 && !enableReservedPlaces && <button onClick={()=>setEnableReservedPlaces(true)}>{ head.reserve }</button> }
