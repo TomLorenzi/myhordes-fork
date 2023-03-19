@@ -5,6 +5,7 @@ export type EventCore = {
     uuid: string,
     name: string|null
     description: string|null
+    short: string|null
     own: boolean,
     published: boolean,
     expires: boolean
@@ -13,6 +14,7 @@ export type EventCore = {
 export type EventMeta = {
     lang: string,
     name: string
+    short: string
     description: string
 }
 
@@ -92,9 +94,9 @@ export class EventCreationAPI {
             .request().get() as Promise<ResponseListMeta>;
     }
 
-    public setMeta(uuid: string, lang: string, name: string, desc: string): Promise<ResponseMeta> {
+    public setMeta(uuid: string, lang: string, name: string, desc: string, short: string): Promise<ResponseMeta> {
         return this.fetch.from(`/${uuid}/meta/${lang}`)
-            .request().patch({name,desc}) as Promise<ResponseMeta>;
+            .request().patch({name,desc,short}) as Promise<ResponseMeta>;
     }
 
     public deleteMeta(uuid: string, lang: string): Promise<boolean> {

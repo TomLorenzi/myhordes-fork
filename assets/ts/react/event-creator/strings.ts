@@ -28,6 +28,8 @@ export type TranslationStrings = {
         default_event: string,
 
         delete_confirm: string,
+
+        more_info: string,
     }
 
     towns: {
@@ -53,6 +55,7 @@ export type TranslationStrings = {
         add_meta: string,
 
         field_title: string,
+        field_short: string,
         field_description: string
     }
 }

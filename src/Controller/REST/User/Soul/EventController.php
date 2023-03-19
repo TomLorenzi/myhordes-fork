@@ -67,7 +67,9 @@ class EventController extends CustomAbstractCoreController
                     'no_events' => $this->translator->trans('Aktuell sind keine Community-Events geplant.', [], 'global'),
                     'default_event' => $this->translator->trans('Neues Event', [], 'global'),
 
-                    'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Event löschen möchtest?', [], 'global')
+                    'delete_confirm' => $this->translator->trans('Bist du sicher, dass du dieses Event löschen möchtest?', [], 'global'),
+
+                                        'more_info' => $this->translator->trans('Weitere Informationen und Regeln anzeigen.', [], 'global'),
                 ],
 
                 'towns' => [
@@ -93,7 +95,8 @@ class EventController extends CustomAbstractCoreController
                     'add_meta' => $this->translator->trans('Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.', [], 'global'),
 
                     'field_title' =>  $this->translator->trans('Event-Titel', [], 'global'),
-                    'field_description' =>  $this->translator->trans('Beschreibung des Events', [], 'global'),
+                    'field_short' =>  $this->translator->trans('Kurzbeschreibung', [], 'global'),
+                    'field_description' =>  $this->translator->trans('Beschreibung und Regeln des Events', [], 'global'),
                 ]
             ]
         ]);
@@ -134,6 +137,7 @@ class EventController extends CustomAbstractCoreController
             return [
                 'uuid' => $e->getId(),
                 'name' => $meta?->getName(),
+                'short' => $meta?->getShort(),
                 'description' => $meta?->getDescription(),
                 'own' => $e->getOwner() === $this->getUser(),
                 'published' => $e->getStarts() !== null,
@@ -200,6 +204,7 @@ class EventController extends CustomAbstractCoreController
             'lang' => $meta->getLang(),
             'name' => $meta->getName(),
             'description' => $meta->getDescription(),
+            'short' => $meta->getShort(),
         ];
     }
 
@@ -233,13 +238,14 @@ class EventController extends CustomAbstractCoreController
         if ($event->getOwner() !== $this->getUser())
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
 
-        if (!$parser->has_all(['name','desc'])) return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
+        if (!$parser->has_all(['name','desc','short'])) return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
 
         $meta = $event->getMeta($lang);
         if (!$meta) $event->addMeta( $meta = (new CommunityEventMeta())
             ->setLang( $lang )
             ->setName( mb_substr( $parser->trimmed( 'name' ), 0, 128 ) )
             ->setDescription( $parser->trimmed('desc') )
+            ->setShort( $parser->trimmed('short') )
         );
 
         $em->persist($meta);

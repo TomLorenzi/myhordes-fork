@@ -27,6 +27,9 @@ class CommunityEventMeta
     #[ORM\JoinColumn(nullable: false)]
     private ?CommunityEvent $event = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $short = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +79,18 @@ class CommunityEventMeta
     public function setEvent(?CommunityEvent $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getShort(): ?string
+    {
+        return $this->short;
+    }
+
+    public function setShort(string $short): self
+    {
+        $this->short = $short;
 
         return $this;
     }

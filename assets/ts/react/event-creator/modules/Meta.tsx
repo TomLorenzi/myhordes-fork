@@ -55,6 +55,7 @@ const HordesEventMetaEditor = ( {lang, uuid, meta, replace}: {
 
     const editorTitle = useRef<HTMLInputElement>();
     const editorDescription = useRef<HTMLTextAreaElement>();
+    const editorShort = useRef<HTMLTextAreaElement>();
 
     let [editing, setEditing] = useState<boolean>(false);
 
@@ -67,16 +68,18 @@ const HordesEventMetaEditor = ( {lang, uuid, meta, replace}: {
                     { (meta !== null || editing) && <>
                             { !editing && <>
                                 <div className="small"><b>{ meta?.name }</b></div>
+                                <div className="small"><i>{ meta?.short }</i></div>
                                 <div className="small"><i>{ meta?.description }</i></div>
                             </> }
                             { editing && <>
                                 <input type="text" placeholder={globals.strings.editor.field_title} defaultValue={ meta?.name ?? '' } ref={editorTitle} />
+                                <textarea style={{resize: 'none', minHeight: '45px'}} placeholder={globals.strings.editor.field_short} defaultValue={ meta?.short ?? '' } ref={editorShort}></textarea>
                                 <textarea style={{resize: 'none'}} placeholder={globals.strings.editor.field_description} defaultValue={ meta?.description ?? '' } ref={editorDescription}></textarea>
                                 <div className="row">
                                     <div className="padded cell"><button className="small" onClick={() => setEditing(false)}>{ globals.strings.common.cancel }</button></div>
                                     <div className="padded cell right"><button onClick={() => {
                                         setEditing(false);
-                                        globals.api.setMeta( uuid, lang, editorTitle.current.value, editorDescription.current.value ).then(m => replace(m.meta))
+                                        globals.api.setMeta( uuid, lang, editorTitle.current.value, editorDescription.current.value, editorShort.current.value ).then(m => replace(m.meta))
                                         replace({name: editorTitle.current.value, desc: editorDescription.current.value});
                                     }} className="small">{ globals.strings.common.save }</button></div>
                                 </div>
