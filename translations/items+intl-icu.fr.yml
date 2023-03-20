@@ -970,3 +970,5 @@ Freundschaft: Camaraderie
 'Ahh... Das hat dir gefallen, nicht wahr? Du kannst deine Fäuste erst in deinem nächsten Leben wieder schwingen lassen...': 'Ahh... Vous y prenez goût ? Pourtant il vous faudra patienter votre prochaine incarnation pour user de vos poings...'
 'Du hast bereits versucht, einen deiner Mitbürger zu retten! Für deine nächste Rettungsaktion musst du bis zu deinem nächsten Leben warten!': 'Vous avez déjà tenté de sauver un de vos concitoyens ! Pourtant il vous faudra patienter votre prochaine incarnation pour vous prendre pour LE Héros !'
 'Du hast deine Großzügigkeit in diesem Leben bereits unter Beweis gestellt!': 'Vous avez déjà prouvé votre générosité dans cette vie !'
+'Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.': 'Il vous faut de la <strong>place dans votre coffre</strong> pour récupérer le contenu de {item}.'
+'Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.': 'Il vous faut de la <strong>place dans votre sac à dos</strong> pour récupérer le contenu de {item}.'
