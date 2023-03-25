@@ -198,6 +198,9 @@ class SanitizeTownConfigAction
         unset( $conf['mapMarginPreset'] );
         unset( $conf['map']['margin'] );
 
+        $margin_custom = $conf['margin_custom'] ?? null;
+        unset( $conf['margin_custom'] );
+
         $well_preset = $conf['wellPreset'] ?? null;
         unset( $conf['wellPreset'] );
 
@@ -241,7 +244,29 @@ class SanitizeTownConfigAction
                 case 'central':
                     $conf['map']['margin'] = 0.50;
                     break;
+                case '_custom':
+                    if($margin_custom) {
+                        $margin_custom['enabled'] = true;
+                    }
             }
+        }
+
+        if($margin_custom && $margin_custom['enabled']) {
+            $dirs = ['north', 'south', 'west', 'east'];
+            function getOpposingDir($dir_i) {
+                return $dir_i + (($dir_i % 2) === 1 ? -1 : 1);
+            }
+            // init the values to default if needed
+            foreach($dirs as $dir_i => $dir) {
+                $margin_custom[$dir] = $margin_custom[$dir] ?? 25;
+            }
+            // cap the margins to their opposed direction's margin and transform to %
+            foreach($dirs as $dir_i => $dir) {
+                $margin_custom[$dir] = min($margin_custom[$dir], 100 - $margin_custom[$dirs[getOpposingDir($dir_i)]]) / 100;
+            }
+
+            $margin_custom['enabled'] = true;
+            $conf['margin_custom'] = $margin_custom;
         }
 
         if ($well_preset) {
