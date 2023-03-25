@@ -54,6 +54,7 @@ class EventController extends CustomAbstractCoreController
                     'init_verification' => $this->translator->trans('Event-Verifizierung beantragen', [], 'global'),
                     'cancel_verification' => $this->translator->trans('Event-Verifizierung abbrechen', [], 'global'),
                     'do_verification' => $this->translator->trans('Event freischalten', [], 'global'),
+                    'verification_pending' => $this->translator->trans('Verifizierung beantragt', [], 'global'),
 
                     'save' => $this->translator->trans('Speichern', [], 'global'),
                     'cancel' => $this->translator->trans('Abbrechen', [], 'global'),

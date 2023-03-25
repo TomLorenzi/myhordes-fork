@@ -29,7 +29,7 @@ export const HordesEventCreatorViewer = ( {creator,editor}: {
             { events?.map(event => <React.Fragment key={event.uuid}>
                     <HordesEventCreatorEventListing event={event}
                                                     editEvent={(editor && (event.own || (globals.is_reviewer && event.proposed))) ? ()=>editor(event) : null}
-                                                    deleteEvent={(editor && (event.own || (globals.is_reviewer && event.proposed))) ? ()=>{
+                                                    deleteEvent={(editor && ((event.own && !event.proposed) || (globals.is_reviewer && event.proposed))) ? ()=>{
                                                         setEvents(events.filter(e => e.uuid !== event.uuid));
                                                         globals.api.delete(event.uuid).catch( () => refresh(true) );
                                                     } : null}/>
@@ -67,7 +67,7 @@ const HordesEventCreatorEventListing = ( {event,editEvent,deleteEvent}: {
     return (
         <div className={`note ${event.own ? 'green-note' : ''} note-event-custom`}>
             <div className="row row-flex v-center">
-                { !event.published && event.proposed && <i className="fas fa-envelope-circle-check"/> }
+                { !event.published && event.proposed && <i className="fas fa-envelope-circle-check" title={globals.strings.common.verification_pending}/> }
                 { !event.published && <img alt="" src={globals.strings.common.offline_icon}/> }
                 { event.published && <img alt="" src={globals.strings.common.online_icon}/> }
                 <b className="cell grow-1">{ event.name ?? globals.strings.list.default_event }</b>

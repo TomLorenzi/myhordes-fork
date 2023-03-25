@@ -13,6 +13,7 @@ export type TranslationStrings = {
         init_verification: string,
         cancel_verification: string,
         do_verification: string,
+        verification_pending: string,
 
         save: string,
         cancel: string,
