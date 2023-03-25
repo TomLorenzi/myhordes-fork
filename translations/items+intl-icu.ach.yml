@@ -969,3 +969,5 @@ Freundschaft: crwdns136825:0crwdne136825:0
 'Ahh... Das hat dir gefallen, nicht wahr? Du kannst deine Fäuste erst in deinem nächsten Leben wieder schwingen lassen...': 'crwdns136923:0crwdne136923:0'
 'Du hast bereits versucht, einen deiner Mitbürger zu retten! Für deine nächste Rettungsaktion musst du bis zu deinem nächsten Leben warten!': 'crwdns136925:0crwdne136925:0'
 'Du hast deine Großzügigkeit in diesem Leben bereits unter Beweis gestellt!': 'crwdns136927:0crwdne136927:0'
+'Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.': 'crwdns136981:0{item}crwdne136981:0'
+'Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.': 'crwdns136983:0{item}crwdne136983:0'

@@ -596,7 +596,6 @@ class RuinDataService implements FixtureProcessorInterface {
                 'mecanism_#00' => 10,
                 'bed_#00' => 10,
                 'door_carpet_#00' => 10,
-                'door_carpet_#00' => 10,
                 'pet_snake_#00' => 10,
                 'lawn_part_#00' => 3,
                 'chest_#00' => 7,

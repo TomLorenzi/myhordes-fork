@@ -45,6 +45,9 @@ type TownCreatorGlobals = {
     setOption: (dot: string|ChangeEvent, value?: any|null) => void
     getOption: (dot: string) => any
     removeOption: (dot: string) => any
+
+    addFieldCheck: (check: () => boolean) => void
+    removeFieldCheck: (check: () => boolean) => void
 }
 
 export const Globals = React.createContext<TownCreatorGlobals>(null);
@@ -61,6 +64,8 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
     const [defaultRules, setDefaultRules] = useState<TownRules|null>(null)
 
     const [blocked, setBlocked] = useState<boolean>(false);
+
+    const [fieldChecks, setFieldChecks] = useState<(() => boolean)[]>([]);
 
     useEffect( () => {
         apiRef.current = new TownCreatorAPI();
@@ -85,8 +90,12 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
             setTownTypeList(null);
             setOptions(null);
             setDefaultRules(null);
+            setFieldChecks(null);
         }
     }, [] )
+
+    const addFieldCheck = (check: () => boolean) => fieldChecks.push(check);
+    const removeFieldCheck = (check: () => boolean) => setFieldChecks(fieldChecks.filter(existingCheck => existingCheck !== check));
 
     const fun_announce = options => {
         wrapper.current.dispatchEvent( new CustomEvent(
@@ -261,11 +270,15 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
 
     useLayoutEffect( () => Components.vitalize( wrapper.current ) )
 
+    const checkFields = (): boolean => {
+        return fieldChecks.reduce((state, fieldCheck) => state && fieldCheck(), true);
+    }
+
     return (
         <div ref={wrapper}>
             <Globals.Provider value={{ api: apiRef.current, strings: index?.strings, config: index?.config,
                 default_rules: defaultRules as TownRules, elevation, eventMode,
-                setOption, getOption, removeOption }}>
+                setOption, getOption, removeOption, addFieldCheck, removeFieldCheck }}>
                 { townTownTypeList && index && (
                     <form data-disabled={blocked ? 'disabled' : ''}>
                         <TownCreatorSectionHead townTypes={townTownTypeList} setBlocked={setBlocked}
@@ -295,6 +308,11 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
                                         ) }
                                         <button type="button" onClick={() => {
                                             if (!confirm( index.strings.common.confirm )) return;
+
+                                            if (!checkFields()) {
+                                                alert( index.strings.common.incorrect_fields );
+                                                return;
+                                            }
 
                                             apiRef.current.createTown(options as TownOptions)
                                                 .then( r => $.ajax.load(null, r.url, true) )

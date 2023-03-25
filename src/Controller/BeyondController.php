@@ -387,7 +387,7 @@ class BeyondController extends InventoryAwareController
             'town' => $town,
             'show_ventilation'  => $is_on_zero && $th->getBuilding($town, 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'show_sneaky' => $is_on_zero && $this->getActiveCitizen()->hasRole('ghoul'),
+            'show_sneaky' => $is_on_zero && $this->getActiveCitizen()->hasRole('ghoul') && $town->getDoor(),
             'enter_costs_ap' => $require_ap,
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) && !$citizen_tired,

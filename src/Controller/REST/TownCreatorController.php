@@ -68,6 +68,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'need_selection' => "[ {$this->translator->trans('Bitte auswählen', [], 'global')} ]",
                     'notice' => $this->translator->trans('Achtung!', [], 'ghost'),
                     'negate' => $this->translator->trans('Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.', [], 'ghost'),
+                    'incorrect_fields' => $this->translator->trans('Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.', [], 'ghost'),
                 ],
 
                 'head' => [
@@ -167,8 +168,13 @@ class TownCreatorController extends CustomAbstractCoreController
                     'position_presets' => [
                         ['value' => 'normal',  'label' => $this->translator->trans('Normal', [], 'ghost')],
                         ['value' => 'close',   'label' => $this->translator->trans('Eher Zentral', [], 'ghost')],
-                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')]
+                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')],
+                        ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
                     ],
+                    'position_north' => $this->translator->trans('Nördlicher Abstand', [], 'ghost'),
+                    'position_south' => $this->translator->trans('Südlicher Abstand', [], 'ghost'),
+                    'position_west' => $this->translator->trans('Westlicher Abstand', [], 'ghost'),
+                    'position_east' => $this->translator->trans('Östlicher Abstand', [], 'ghost'),
                 ],
 
                 'mods' => [
