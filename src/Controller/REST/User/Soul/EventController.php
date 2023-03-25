@@ -12,6 +12,7 @@ use App\Entity\CommunityEventTownPreset;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\TownClass;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
@@ -55,6 +56,8 @@ class EventController extends CustomAbstractCoreController
                     'cancel_verification' => $this->translator->trans('Event-Verifizierung abbrechen', [], 'global'),
                     'do_verification' => $this->translator->trans('Event freischalten', [], 'global'),
                     'verification_pending' => $this->translator->trans('Verifizierung beantragt', [], 'global'),
+                    'start_pending' => $this->translator->trans('Start geplant', [], 'global'),
+                    'mark_end' => $this->translator->trans('Event beenden', [], 'global'),
 
                     'save' => $this->translator->trans('Speichern', [], 'global'),
                     'cancel' => $this->translator->trans('Abbrechen', [], 'global'),
@@ -97,6 +100,16 @@ class EventController extends CustomAbstractCoreController
 
                     'town_create' => $this->translator->trans('Neue Stadt anlegen', [], 'global'),
                     'town_edit' => $this->translator->trans('Stadt bearbeiten', [], 'global'),
+
+                    'town_instance_online' => $this->translator->trans('Stadtinstanz bereit', [], 'global'),
+                    'town_instance_offline' => $this->translator->trans('Stadtinstanz beendet', [], 'global'),
+
+                    'citizens' => $this->translator->trans('Einwohnerzahl', [], 'ghost'),
+                    'alive' => $this->translator->trans('Am Leben', [], 'global'),
+                    'day' => $this->translator->trans('Tag', [], 'global'),
+
+                    'forum_link' => $this->translator->trans('Zum Forum', [], 'game'),
+                    'ranking_link' => $this->translator->trans('Zur Chronik', [], 'global'),
                 ],
 
                 'editor' => [
@@ -118,6 +131,11 @@ class EventController extends CustomAbstractCoreController
     protected function eventIsEditable(CommunityEvent $event, bool $forVerificationCancellation = false): bool {
         if (!$this->eventIsExplorable($event) || $event->getStarts() !== null) return false;
         if (!$forVerificationCancellation && !$this->isGranted('ROLE_CROW') && $event->isProposed()) return false;
+        return true;
+    }
+
+    protected function eventCanBeEnded(CommunityEvent $event): bool {
+        if (!$this->eventIsExplorable($event) || $event->getStarts() === null) return false;
         return true;
     }
 
@@ -155,6 +173,10 @@ class EventController extends CustomAbstractCoreController
                         Criteria::expr()->neq('starts', null )
                     )
                 )
+                ->andWhere( Criteria::expr()->orX(
+                    Criteria::expr()->isNull('starts' ),
+                    Criteria::expr()->gte('starts', (new \DateTime())->modify( '-100day' ) )
+                ) )
                 // Is owner or is not started or TODO is participant
                 ->andWhere( Criteria::expr()->orX(
                     $is_owner,
@@ -162,9 +184,21 @@ class EventController extends CustomAbstractCoreController
                 ) )
         );
 
+        $events = $events->toArray();
+        usort( $events, function(CommunityEvent $a, CommunityEvent $b) {
+            if ($a->isEnded() !== $b->isEnded()) return $a->isEnded() ? 1 : -1;
+            if (($a->getOwner() === $this->getUser()) !== ($b->getOwner() === $this->getUser())) return $a->getOwner() === $this->getUser() ? -1 : 1;
+            if (($a->getStarts() === null) !== ($b->getStarts() === null)) return $a->getStarts() === null ? -1 : 1;
+            if ($a->getStarts() && $b->getStarts()) return $b->getStarts() <=> $a->getStarts();
+            return $b->getCreated() <=> $a->getCreated();
+        } );
+
         return new JsonResponse( ['events' => array_map( function(CommunityEvent $e) {
             $meta = $e->getMeta( $this->getUserLanguage(), true );
             $owning = $e->getOwner() === $this->getUser();
+
+            $started = $e->getStarts() && $e->getStarts() >= (new \DateTime());
+
             $return = [
                 'uuid' => $e->getId(),
                 'name' => $meta?->getName(),
@@ -172,13 +206,15 @@ class EventController extends CustomAbstractCoreController
                 'description' => $meta?->getDescription(),
                 'own' => $owning,
                 'start' => $e->getStarts() ?? $e->getConfiguredStartDate() ?? null,
-                'ended' => $e->getStarts() ? $e->isEnded() : false,
+                'daysLeft' => $started ? ceil(($e->getStarts()->getTimestamp() - (new \DateTime())->getTimestamp()) / (60 * 60 * 24)) : null,
+                'started' => $started,
+                'ended' => $started ? $e->isEnded() : false,
                 'proposed' => $e->isProposed(),
                 'published' => $e->getStarts() !== null
             ];
 
             return $return;
-        }, $events->toArray() ) ] );
+        }, $events ) ] );
     }
 
     /**
@@ -278,6 +314,32 @@ class EventController extends CustomAbstractCoreController
             $date = (new \DateTime())->modify( 'tomorrow' );
 
         $event->setStarts( $date );
+        $em->persist( $event );
+
+        try {
+            $em->flush();
+        } catch (\Throwable $e) {
+            return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return new JsonResponse(['uuid' => $event->getId()]);
+    }
+
+    /**
+     * @Route("/{id}/end", name="set_ended", methods={"PUT"})
+     * @param CommunityEvent $event
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function endEvent(
+        CommunityEvent $event,
+        EntityManagerInterface $em
+    ): JsonResponse {
+
+        if (!$this->eventCanBeEnded( $event ))
+            return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        $event->setEnded( true );
         $em->persist( $event );
 
         try {
@@ -450,6 +512,27 @@ class EventController extends CustomAbstractCoreController
         return new JsonResponse();
     }
 
+    protected function getTownInstanceData(CommunityEventTownPreset $preset, EntityManagerInterface $em): ?array {
+        if ($preset->getTownId() === null) return null;
+
+        /** @var TownRankingProxy $ranking */
+        $ranking = $em->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $preset->getTownId(), 'imported' => false]);
+
+        return [
+            'ranking_link' => ($ranking && ( $preset->getTown() === null || $preset->getTown()?->getCitizenCount() > 0 ))
+                ? $this->generateUrl('soul_view_town', ['sid' => $preset->getEvent()->getOwner()->getId(), 'idtown' => $ranking->getId(), 'return_path' => 'soul_events'])
+                : null,
+            'forum_link' => $preset->getTown()?->getForum()
+                ? $this->generateUrl( 'forum_view', ['id' => $preset->getTown()?->getForum()?->getId()] )
+                : null,
+            'active' => $preset->getTown() !== null,
+            'population' => $preset->getTown()?->getPopulation(),
+            'filled' => $preset->getTown()?->getCitizenCount(),
+            'living' => $preset->getTown()?->getAliveCitizenCount(),
+            'day' => $preset->getTown()?->getDay() ?? $ranking?->getDays() ?? null
+        ];
+    }
+
     /**
      * @Route("/{id}/towns", name="list-town-presets", methods={"GET"})
      * @param CommunityEvent $event
@@ -472,7 +555,8 @@ class EventController extends CustomAbstractCoreController
                                         'type' => $this->translator->trans(
                                             $em->getRepository(TownClass::class)->findOneBy(['name' => $preset->getHeader()['townBase'] ?? $preset->getHeader()['townType'] ?? TownClass::DEFAULT])->getLabel() ?? '',
                                             [], 'game'
-                                        )
+                                        ),
+                                        'instance' => $this->getTownInstanceData( $preset, $em )
                                     ],
                                     $event->getTownPresets()->toArray()
                                 )]);

@@ -26,6 +26,13 @@ class CommunityEventTownPreset
     #[ORM\JoinColumn(nullable: false)]
     private ?CommunityEvent $event = null;
 
+    #[ORM\OneToOne(inversedBy: 'communityEventTownPreset', cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    private ?Town $town = null;
+
+    #[ORM\Column(name: 'base_id', nullable: true)]
+    private ?int $townId = null;
+
     public function getId(): ?Uuid
     {
         return $this->id;
@@ -63,6 +70,30 @@ class CommunityEventTownPreset
     public function setEvent(?CommunityEvent $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getTown(): ?Town
+    {
+        return $this->town;
+    }
+
+    public function setTown(?Town $town): self
+    {
+        $this->town = $town;
+
+        return $this;
+    }
+
+    public function getTownId(): ?int
+    {
+        return $this->townId;
+    }
+
+    public function setTownId(?int $townId): self
+    {
+        $this->townId = $townId;
 
         return $this;
     }

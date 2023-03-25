@@ -12,6 +12,8 @@ use App\Structures\EventConf;
 use App\Structures\TownSetup;
 use App\Traits\Actions\ActionResults\Citizen as RCitizen;
 use App\Traits\Actions\ActionResults\CitizenResult;
+use App\Traits\Actions\ActionResults\ErrorCode;
+use App\Traits\Actions\ActionResults\Optional;
 use App\Traits\Actions\ActionResults\Town as RTown;
 use App\Traits\Actions\ActionResults\ErrorCode as RError;
 use App\Traits\Actions\ActionResults\TownResult;
@@ -124,7 +126,7 @@ class CreateTownFromConfigAction
         }
 
         /** @var TownResult|CitizenResult $result */
-        $result = (new class { use TownResult, CitizenResult; })->withTown($town);
+        $result = (new class { use Optional, TownResult, CitizenResult; })->withTown($town);
         if ($incarnated) $result->withCitizen($citizen);
 
         return $result;

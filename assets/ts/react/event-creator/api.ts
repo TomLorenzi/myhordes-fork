@@ -8,6 +8,7 @@ export type EventCore = {
     short: string|null
     own: boolean,
     published: boolean,
+    started: boolean,
     ended: boolean,
     start: string|null,
     proposed: boolean,
@@ -33,6 +34,17 @@ export interface TownPreset extends TownPresetUUID {
     lang: string,
     'type': string,
     password: string|null,
+    instance: TownPresetInstance|null
+}
+
+export interface TownPresetInstance  {
+    ranking_link: string|null
+    forum_link: string|null,
+    active: boolean|null,
+    population: number|null,
+    filled: number|null,
+    living: number|null,
+    day: number|null,
 }
 
 export interface TownPresetData extends TownPresetUUID {
@@ -103,6 +115,11 @@ export class EventCreationAPI {
 
     public publish(uuid: string): Promise<ResponseCreate> {
         return this.fetch.from(`/${uuid}/publish`)
+            .request().put() as Promise<ResponseCreate>;
+    }
+
+    public finish(uuid: string): Promise<ResponseCreate> {
+        return this.fetch.from(`/${uuid}/end`)
             .request().put() as Promise<ResponseCreate>;
     }
 

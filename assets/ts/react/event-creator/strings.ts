@@ -14,6 +14,8 @@ export type TranslationStrings = {
         cancel_verification: string,
         do_verification: string,
         verification_pending: string,
+        start_pending: string,
+        mark_end: string,
 
         save: string,
         cancel: string,
@@ -57,6 +59,16 @@ export type TranslationStrings = {
 
         town_create: string,
         town_edit: string,
+
+        town_instance_online: string,
+        town_instance_offline: string,
+
+        citizens: string,
+        alive: string,
+        day: string,
+
+        forum_link: string,
+        ranking_link: string,
     }
 
     editor: {

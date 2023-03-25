@@ -80,6 +80,7 @@ const EventCreatorWrapper = ( {creator, reviewer}: {creator: boolean, reviewer: 
                         { showCreator && <HordesEventCreatorWizard uuid={ showCreator.uuid }
                                                                    proposed={ showCreator.event?.proposed ?? false }
                                                                    published={ showCreator.event?.published ?? false }
+                                                                   started={ showCreator.event?.started && !showCreator.event?.ended }
                                                                    cancel={ creator ? ()=>setShowCreator(null) : null } /> }
                     </> }
                 </div>

@@ -16,6 +16,7 @@ class UserGroup
     const GroupTypeDefaultOracleGroup = 5;
     const GroupTypeDefaultAnimactorGroup = 6;
     const GroupTownInhabitants = 10;
+    const GroupTownAnimaction = 11;
     const GroupSmallCoalition = 101;
     const GroupMessageGroup = 201;
     const GroupOfficialGroup = 301;
@@ -31,7 +32,7 @@ class UserGroup
     private $ref1;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $ref2;
-    #[ORM\OneToOne(targetEntity: Shoutbox::class, mappedBy: 'userGroup', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'userGroup', targetEntity: Shoutbox::class, cascade: ['persist', 'remove'])]
     private $shoutbox;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $ref3;

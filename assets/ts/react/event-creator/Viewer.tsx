@@ -68,8 +68,9 @@ const HordesEventCreatorEventListing = ( {event,editEvent,deleteEvent}: {
         <div className={`note ${event.own ? 'green-note' : ''} note-event-custom`}>
             <div className="row row-flex v-center">
                 { !event.published && event.proposed && <i className="fas fa-envelope-circle-check" title={globals.strings.common.verification_pending}/> }
-                { !event.published && <img alt="" src={globals.strings.common.offline_icon}/> }
-                { event.published && <img alt="" src={globals.strings.common.online_icon}/> }
+                { event.ended && <img alt="" src={globals.strings.common.offline_icon}/> }
+                { event.published && !event.started && <i className="fas fa-envelope-circle-check" title={globals.strings.common.start_pending}/> }
+                { event.started && !event.ended && <img alt="" src={globals.strings.common.online_icon}/> }
                 <b className="cell grow-1">{ event.name ?? globals.strings.list.default_event }</b>
                 { editEvent && <>
                     <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>

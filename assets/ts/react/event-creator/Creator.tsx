@@ -14,11 +14,12 @@ type EventCreatorEditGlobals = {
 
 export const EditorGlobals = React.createContext<EventCreatorEditGlobals>(null);
 
-export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published}: {
+export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, started}: {
     cancel: ()=>void,
     uuid: string,
     proposed?: boolean,
     published?: boolean,
+    started?: boolean,
 } ) => {
     const globals = useContext(Globals)
 
@@ -36,6 +37,14 @@ export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published}: {
             <hr className="section"/>
 
             <div className="row">
+
+                { started && <>
+                    <div className="padded cell rw-4 ro-8 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
+                        <button onClick={()=>{
+                            globals.api.finish( uuid ).then(() => cancel())
+                        }}>{ globals.strings.common.mark_end }</button>
+                    </div>
+                </> }
 
                 { !published && <>
 

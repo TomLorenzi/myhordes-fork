@@ -108,29 +108,41 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                                 <Flag lang={town.lang}/>
                             </div>
                             <div className="padded cell rw-9 rw-md-8">
-                                { town.name && <i>{ town.name }</i> }
-                                { !town.name && <span className="small">[ { globals.strings.towns.default_town } ]</span> }
-                                <br /><span className="small">{ town['type'] }</span>
+                                <div>
+                                    { town.instance !== null && town.instance.active && <img alt="" src={globals.strings.common.online_icon}/> }
+                                    { town.instance !== null && !town.instance.active && <img alt="" src={globals.strings.common.offline_icon}/> }
+                                    { town.name && <i>{ town.name }</i> }
+                                    { !town.name && <span className="small">[ { globals.strings.towns.default_town } ]</span> }
+                                </div>
+                                <div className="small">
+                                    { town['type'] }
+                                    { town.instance !== null && <>
+                                        {town.instance.filled !== null && town.instance.population !== null && `; ${globals.strings.towns.citizens}: ${town.instance.filled}/${town.instance.population}`}
+                                        {town.instance.filled > 0 && `; ${globals.strings.towns.alive}: ${town.instance.living}`}
+                                        {town.instance.day !== null && `; ${globals.strings.towns.day}: ${town.instance.day}`}
+                                    </> }
+                                </div>
                                 { town.password && <>
-                                    <br/><span className="small townPassword">{ globals.strings.towns.password }: <pre>{ town.password }</pre></span>
+                                    <div className="small townPassword">{ globals.strings.towns.password }: <pre>{ town.password }</pre></div>
                                 </> }
                             </div>
-                            { editorGlobals.writable && <>
-                                <div className="padded cell rw-2 right">
-                                <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
-                                    <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={()=>setActiveTownEditor(town.uuid)} />
-                                </span>
-                                    <span className="cell padded-small shrink-0" title={globals.strings.common.delete}>
-                                        <img className="pointer" alt={globals.strings.common.delete} src={globals.strings.common.delete_icon} onClick={() => {
-                                            if (confirm( globals.strings.towns.delete_confirm )) {
-                                                setTownList( townList.filter(e => e.uuid !== town.uuid) )
-                                                globals.api.deleteTown(uuid, town.uuid).catch( () => refresh() );
-                                            }
-                                        }} />
+                            <div className="padded cell rw-2 right">
+                                { town.instance?.ranking_link && <div className="small"><a target="_blank" href={town.instance?.ranking_link}>{ globals.strings.towns.ranking_link }</a></div> }
+                                { town.instance?.forum_link && <div className="small"><a target="_blank" href={town.instance?.forum_link}>{ globals.strings.towns.forum_link }</a></div> }
+                                { editorGlobals.writable && <>
+                                    <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
+                                        <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={()=>setActiveTownEditor(town.uuid)} />
                                     </span>
-                                </div>
-                            </> }
-
+                                        <span className="cell padded-small shrink-0" title={globals.strings.common.delete}>
+                                            <img className="pointer" alt={globals.strings.common.delete} src={globals.strings.common.delete_icon} onClick={() => {
+                                                if (confirm( globals.strings.towns.delete_confirm )) {
+                                                    setTownList( townList.filter(e => e.uuid !== town.uuid) )
+                                                    globals.api.deleteTown(uuid, town.uuid).catch( () => refresh() );
+                                                }
+                                            }} />
+                                        </span>
+                                </> }
+                            </div>
                         </div>
                     ) ) }
 
