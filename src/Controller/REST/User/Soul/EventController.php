@@ -80,6 +80,8 @@ class EventController extends CustomAbstractCoreController
 
                 'towns' => [
                     'title' => $this->translator->trans('Event-Städte', [], 'global'),
+                    'help1' => $this->translator->trans('Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.', [], 'global'),
+                    'help2' => $this->translator->trans('Deiner Kreativität sind somit keine Grenzen gesetzt!', [], 'global'),
                     'password' => $this->translator->trans('Zugangscode', [], 'ghost'),
 
                     'no_towns' => $this->translator->trans('Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.', [], 'global'),
@@ -98,6 +100,7 @@ class EventController extends CustomAbstractCoreController
 
                 'editor' => [
                     'title' => $this->translator->trans('Allgemeine Event-Informationen', [], 'global'),
+                    'help' => $this->translator->trans('Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.', [], 'global'),
                     'edit' => $this->translator->trans('Event bearbeiten', [], 'global'),
                     'add_meta' => $this->translator->trans('Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.', [], 'global'),
 

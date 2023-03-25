@@ -49,6 +49,14 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
 
     return (
         <>
+            <div className="row">
+                <div className="cell rw-12">
+                    <div className="help">
+                        { globals.strings.towns.help1 }&nbsp;
+                        <b>{ globals.strings.towns.help2 }</b>
+                    </div>
+                </div>
+            </div>
             { activeTownEditor === true && <>
                 <div className="row">
                     <div className="cell rw-12">

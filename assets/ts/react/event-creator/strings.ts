@@ -41,6 +41,8 @@ export type TranslationStrings = {
     towns: {
         title: string,
         password: string,
+        help1: string,
+        help2: string,
 
         no_towns: string,
         default_town: string,
@@ -58,6 +60,7 @@ export type TranslationStrings = {
 
     editor: {
         title: string,
+        help: string,
         edit: string,
         add_meta: string,
 

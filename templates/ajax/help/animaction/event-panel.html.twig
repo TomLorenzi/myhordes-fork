@@ -1,0 +1,39 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Events erstellen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Anleitung für Animateure'|trans({},'help')|raw }}</div>
+<h1>{{ 'Events erstellen'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'Animateure haben die Möglichkeit, Events mit besonderen Regeln zu erstellen, welche in der Eventauflistung erscheinen.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Wie erstelle ich ein Event?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Als Animateur siehst du unter der Event-Auflistung (Deine Seele > Zukunft > Events) eine Schaltfläche "Eigenes Event erstellen". Hiermit kannst du in die Konfigurationsansicht deines neuen Events wechseln.'|trans({},'help')|raw }}
+</p>
+<p>
+    {{ 'Dir stehen dort unter anderem Folgende Optionen zur Verfügung:'|trans({},'help')|raw }}
+</p>
+<ul>
+    <li> {{ 'Das <i>Startdatum</i> deines Events.'|trans({},'help')|raw }}</li>
+    <li> {{ '<i>Titel</i>, <i>Kurzbeschreibung</i> und <i>Regelbeschreibung</i> in allen unterstützten sprachen. Mindestens eine Sprache muss vollständig ausgefüllt werden.'|trans({},'help')|raw }}</li>
+    <li> {{ 'Das Anlegen von<i>Event-Städten</i>, welche zusammen mit deinem Event gestartet werden.'|trans({},'help')|raw }}</li>
+</ul>
+
+<h2>{{ 'Wie starte ich ein Event?'|trans({},'help')|raw }}</h2>
+<p>
+    {{ 'Bevor das Event anderen Spielern angezeigt wird und beginnen kann, muss es zunächst von einem Administrator oder Raben geprüft werden. Klicke hierfür auf die Schaltfläche "Event-Verifizierung beantragen". Die Raben und Administratoren werden dann über dein Event informiert.'|trans({},'help')|raw }}
+</p>
+<div class="critical">
+    {{ '<strong>Achtung: </strong>Sobald du die Verifizierung deines Events beantragt hast, kannst du <strong>keine weiteren Änderungen</strong> vornehmen! Zwar kannst du den Antrag zurückziehen, wir bitten dich jedoch darum, dies nur im absoluten Notfall zu tun.'|trans({},'help')|raw }}
+</div>
+<p>
+    {{ 'Die Raben oder Administratoren werden daraufhin dein Event prüfen und entweder freischalten oder Kontakt mit dir aufnehmen, wenn Änderungen notwendig sind.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Wie beende ich ein Event?'|trans({},'help')|raw }}</h2>
+<ul>
+    <li> {{ '<i>Bevor du eine Verifizierung beantragt hast</i>, kannst du dein Event einfach löschen.'|trans({},'help')|raw }}</li>
+    <li> {{ 'Um ein Event <i>nach der Verifizierung, aber vor dessen Start</i> abzubrechen, musst du den Technischen Support kontaktieren.'|trans({},'help')|raw }}</li>
+    <li> {{ '<i>Nach dem Start</i> des Events kannst du es in dessen Einstellungen jederzeit als "Beendet" markieren. Zudem wird es automatisch <i>mit dem Ende der letzten Event-Stadt</i> oder nach <i>60 Tagen</i> als "Beendet" markiert (je nachdem, was zuerst eintritt).'|trans({},'help')|raw }}</li>
+</ul>
+<div class="clear"></div>
+{% endblock %}

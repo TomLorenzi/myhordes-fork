@@ -34,6 +34,13 @@ export const HordesEventCreatorModuleMeta = ( {uuid}: {
 
     return (
         <>
+            <div className="row">
+                <div className="cell rw-12">
+                    <div className="help">
+                        { globals.strings.editor.help }
+                    </div>
+                </div>
+            </div>
             { (config === null || meta === null) && <div className="loading"></div> }
             { (config !== null && meta !== null) && <>
                 <HordesEventConfigEditor config={config} setConfig={c=>{
@@ -67,7 +74,7 @@ const HordesEventConfigEditor = ( {config, setConfig}: {
     const editorGlobals = useContext(EditorGlobals);
 
     const min = new Date();
-    min.setDate(min.getDate() + 14)
+    min.setDate(min.getDate() + 15)
     const max = new Date();
     max.setDate(max.getDate() + 194)
 
