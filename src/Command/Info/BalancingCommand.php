@@ -37,7 +37,7 @@ class BalancingCommand extends LanguageCommand
     protected function configure()
     {
         $this
-            ->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate, group-spawnrate, ruin-pawnrate]')
+			->addArgument('what', InputArgument::REQUIRED, 'What would you like to know? [item-spawnrate, group-spawnrate, ruin-spawnrate]')
             ->addArgument('for',  InputArgument::OPTIONAL, 'What object would you like to know about?')
 
             ->addOption('named-drop', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Adds a named drop overwrite to the resolver.')
@@ -120,6 +120,7 @@ class BalancingCommand extends LanguageCommand
         if (!$input->hasArgument('for')) throw new \Exception('Subject required.');
         $resolved = $this->helper->resolve_string( $input->getArgument('for') ?? '', $class, $label, $this->getHelper('question'), $input, $output);
         if (!$resolved) throw new \Exception('Subject invalid.');
+		$output->writeln("Your query has been resolved to <info>{$this->translate($resolved->getLabel(), 'game')}</info>");
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $resolved;
     }
