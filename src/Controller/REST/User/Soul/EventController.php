@@ -59,6 +59,12 @@ class EventController extends CustomAbstractCoreController
                     'start_pending' => $this->translator->trans('Start geplant', [], 'global'),
                     'mark_end' => $this->translator->trans('Event beenden', [], 'global'),
 
+                    'planned_string' => $this->translator->trans('Vorläufiges Startdatum am {date}', [], 'global'),
+                    'start_string_singular' => $this->translator->trans('Event startet morgen, am {date}', [], 'global'),
+                    'start_string_plural' => $this->translator->trans('Event startet in {days} Tagen, am {date}', [], 'global'),
+                    'start_string_running' => $this->translator->trans('Event läuft seit {date}', [], 'global'),
+                    'end_string' => $this->translator->trans('Event beendet', [], 'global'),
+
                     'save' => $this->translator->trans('Speichern', [], 'global'),
                     'cancel' => $this->translator->trans('Abbrechen', [], 'global'),
                     'edit' => $this->translator->trans('Bearbeiten', [], 'global'),
@@ -71,6 +77,12 @@ class EventController extends CustomAbstractCoreController
 
                     'flags' => array_map( fn($l) => $assets->getUrl("build/images/lang/{$l}.png"), ['de'=>'de','en'=>'en','fr'=>'fr','es'=>'es','multi'=>'multi'] ),
                     'langs' => array_map( fn($l) => $this->translator->trans( $l, [], 'global' ), ['de'=>'Deutsch','en'=>'Englisch','fr'=>'Französisch','es'=>'Spanisch','multi'=>'???'] ),
+                ],
+
+                'messages' => [
+                    'verification_started' => $this->translator->trans('Verifizierung erfolgreich beantragt. Dein Event wird in Kürze von einem Raben oder Administrator geprüft.', [], 'global'),
+                    'verification_cancelled' => $this->translator->trans('Dein Antrag auf Verifizierung wurde erfolgreich zurückgezogen.', [], 'global'),
+                    'verification_confirmed' => $this->translator->trans('Event erfolgreich verifiziert.', [], 'global'),
                 ],
 
                 'list' => [
@@ -189,7 +201,7 @@ class EventController extends CustomAbstractCoreController
             if ($a->isEnded() !== $b->isEnded()) return $a->isEnded() ? 1 : -1;
             if (($a->getOwner() === $this->getUser()) !== ($b->getOwner() === $this->getUser())) return $a->getOwner() === $this->getUser() ? -1 : 1;
             if (($a->getStarts() === null) !== ($b->getStarts() === null)) return $a->getStarts() === null ? -1 : 1;
-            if ($a->getStarts() && $b->getStarts()) return $b->getStarts() <=> $a->getStarts();
+            if ($a->getStarts() && $b->getStarts()) return $a->getStarts() <=> $b->getStarts();
             return $b->getCreated() <=> $a->getCreated();
         } );
 
@@ -197,7 +209,7 @@ class EventController extends CustomAbstractCoreController
             $meta = $e->getMeta( $this->getUserLanguage(), true );
             $owning = $e->getOwner() === $this->getUser();
 
-            $started = $e->getStarts() && $e->getStarts() >= (new \DateTime());
+            $started = $e->getStarts() && $e->getStarts() <= (new \DateTime());
 
             $return = [
                 'uuid' => $e->getId(),
@@ -205,12 +217,17 @@ class EventController extends CustomAbstractCoreController
                 'short' => $meta?->getShort(),
                 'description' => $meta?->getDescription(),
                 'own' => $owning,
-                'start' => $e->getStarts() ?? $e->getConfiguredStartDate() ?? null,
-                'daysLeft' => $started ? ceil(($e->getStarts()->getTimestamp() - (new \DateTime())->getTimestamp()) / (60 * 60 * 24)) : null,
+                'start' => ($e->getStarts() ?? $e->getConfiguredStartDate())?->format(\DateTimeInterface::ATOM),
+                'daysLeft' => ($e->getStarts() && !$started) ? ceil(($e->getStarts()->getTimestamp() - (new \DateTime())->getTimestamp()) / (60 * 60 * 24)) : null,
                 'started' => $started,
                 'ended' => $started ? $e->isEnded() : false,
                 'proposed' => $e->isProposed(),
                 'published' => $e->getStarts() !== null
+            ];
+
+            if ($this->isGranted('ROLE_CROW')) $return['owner'] = [
+                'id' => $e->getOwner()->getId(),
+                'name' => $e->getOwner()->getName(),
             ];
 
             return $return;

@@ -29,7 +29,7 @@ export const HordesEventCreatorViewer = ( {creator,editor}: {
             { events?.map(event => <React.Fragment key={event.uuid}>
                     <HordesEventCreatorEventListing event={event}
                                                     editEvent={(editor && (event.own || (globals.is_reviewer && event.proposed))) ? ()=>editor(event) : null}
-                                                    deleteEvent={(editor && ((event.own && !event.proposed) || (globals.is_reviewer && event.proposed))) ? ()=>{
+                                                    deleteEvent={(editor && !event.published && ((event.own && !event.proposed) || (globals.is_reviewer && event.proposed))) ? ()=>{
                                                         setEvents(events.filter(e => e.uuid !== event.uuid));
                                                         globals.api.delete(event.uuid).catch( () => refresh(true) );
                                                     } : null}/>
@@ -64,14 +64,21 @@ const HordesEventCreatorEventListing = ( {event,editEvent,deleteEvent}: {
         ], {duration: 250, easing: "ease-in-out"})
     }, [showDetails]);
 
+    const t = event.start ? new Date(event.start) : null;
+
     return (
         <div className={`note ${event.own ? 'green-note' : ''} note-event-custom`}>
             <div className="row row-flex v-center">
-                { !event.published && event.proposed && <i className="fas fa-envelope-circle-check" title={globals.strings.common.verification_pending}/> }
-                { event.ended && <img alt="" src={globals.strings.common.offline_icon}/> }
-                { event.published && !event.started && <i className="fas fa-envelope-circle-check" title={globals.strings.common.start_pending}/> }
-                { event.started && !event.ended && <img alt="" src={globals.strings.common.online_icon}/> }
-                <b className="cell grow-1">{ event.name ?? globals.strings.list.default_event }</b>
+                { event.own || globals.is_reviewer && <>
+                    { !event.published && event.proposed && <i className="fas fa-envelope-circle-check" title={globals.strings.common.verification_pending}/> }
+                    { event.ended && <img alt="" src={globals.strings.common.offline_icon}/> }
+                    { event.published && !event.started && <i className="fas fa-clock" title={globals.strings.common.start_pending}/> }
+                    { event.started && !event.ended && <img alt="" src={globals.strings.common.online_icon}/> }
+                </> }
+                <div className="cell grow-1">
+                    <b>{ event.name ?? globals.strings.list.default_event }</b>
+                    { !event.own && event.owner && <>&nbsp;<span className="username" x-user-id={event.owner.id}>{ event.owner.name }</span></> }
+                </div>
                 { editEvent && <>
                     <span className="cell padded-small shrink-0" title={globals.strings.common.edit}>
                         <img className="pointer" alt={globals.strings.common.edit} src={globals.strings.common.edit_icon} onClick={() => editEvent()} />
@@ -94,6 +101,29 @@ const HordesEventCreatorEventListing = ( {event,editEvent,deleteEvent}: {
                 }}>{ globals.strings.list.more_info }</a> }
             </div> }
             { event.description && <div className={`small ${showDetails ? '' : 'hidden'}`} ref={description}>{ event.description }</div> }
+
+            { !event.published && t && <div className="small">
+                <b>{ globals.strings.common.planned_string
+                    .replace('{date}', t.toLocaleDateString())
+                }</b>
+            </div> }
+
+            { event.published && !event.started && event.daysLeft && t && <div className="small">
+                <b>{ (event.daysLeft === 1 ? globals.strings.common.start_string_singular : globals.strings.common.start_string_plural)
+                    .replace('{days}', `${event.daysLeft}`)
+                    .replace('{date}', t.toLocaleDateString())
+                }</b>
+            </div> }
+
+            { event.published && event.started && !event.ended && t && <div className="small">
+                <b>{ globals.strings.common.start_string_running
+                    .replace('{date}', t.toLocaleDateString())
+                }</b>
+            </div> }
+
+            { event.published && event.ended && <div className="small">
+                <b>{ globals.strings.common.end_string }</b>
+            </div> }
         </div>
     )
 };

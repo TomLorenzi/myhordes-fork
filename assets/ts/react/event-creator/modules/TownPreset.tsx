@@ -109,8 +109,8 @@ export const HordesEventCreatorModuleTownPreset = ( {uuid}: {
                             </div>
                             <div className="padded cell rw-9 rw-md-8">
                                 <div>
-                                    { town.instance !== null && town.instance.active && <img alt="" src={globals.strings.common.online_icon}/> }
-                                    { town.instance !== null && !town.instance.active && <img alt="" src={globals.strings.common.offline_icon}/> }
+                                    { town.instance !== null && town.instance.active && <img title={globals.strings.towns.town_instance_online} alt="" src={globals.strings.common.online_icon}/> }
+                                    { town.instance !== null && !town.instance.active && <img title={globals.strings.towns.town_instance_offline} alt="" src={globals.strings.common.offline_icon}/> }
                                     { town.name && <i>{ town.name }</i> }
                                     { !town.name && <span className="small">[ { globals.strings.towns.default_town } ]</span> }
                                 </div>

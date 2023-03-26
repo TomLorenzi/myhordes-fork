@@ -17,6 +17,12 @@ export type TranslationStrings = {
         start_pending: string,
         mark_end: string,
 
+        planned_string: string,
+        start_string_singular: string,
+        start_string_plural: string,
+        start_string_running: string,
+        end_string: string,
+
         save: string,
         cancel: string,
         edit: string,
@@ -31,6 +37,12 @@ export type TranslationStrings = {
         flags: LangStrings,
         langs: LangStrings,
     },
+
+    messages: {
+        verification_started: string,
+        verification_cancelled: string,
+        verification_confirmed: string,
+    }
 
     list: {
         no_events: string,

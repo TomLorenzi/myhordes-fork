@@ -1,6 +1,11 @@
 import {TranslationStrings} from "./strings";
 import {Fetch} from "../../v2/fetch";
 
+type EventOwner = {
+    id: number,
+    name: string
+}
+
 export type EventCore = {
     uuid: string,
     name: string|null
@@ -9,9 +14,11 @@ export type EventCore = {
     own: boolean,
     published: boolean,
     started: boolean,
+    daysLeft: number|null,
     ended: boolean,
     start: string|null,
     proposed: boolean,
+    owner: EventOwner|null
 }
 
 export type EventConfig = {

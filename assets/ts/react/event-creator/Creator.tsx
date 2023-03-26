@@ -7,6 +7,9 @@ import {HordesEventCreatorModuleMeta} from "./modules/Meta";
 import {HordesEventCreatorModuleTownPreset} from "./modules/TownPreset";
 import {Tab, TabbedSection} from "../tab-list/TabList";
 import {TranslationStrings} from "./strings";
+import {Global} from "../../defaults";
+
+declare var $: Global;
 
 type EventCreatorEditGlobals = {
     writable: boolean
@@ -51,7 +54,10 @@ export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, st
                     { !proposed && <>
                         <div className="padded cell rw-4 ro-8 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0">
                             <button onClick={()=>{
-                                globals.api.propose( uuid ).then(() => cancel())
+                                globals.api.propose( uuid ).then(() => {
+                                    $.html.notice( globals.strings.messages.verification_started )
+                                    cancel()
+                                })
                             }}>{ globals.strings.common.init_verification }</button>
                         </div>
                     </> }
@@ -60,13 +66,19 @@ export const HordesEventCreatorWizard = ( {cancel, uuid, proposed, published, st
                         { globals.is_reviewer && <>
                             <div className="padded cell rw-4 rw-md-6 rw-sm-12 ro-4 ro-md-0">
                                 <button onClick={()=>{
-                                    globals.api.publish( uuid ).then(() => cancel())
+                                    globals.api.publish( uuid ).then(() => {
+                                        $.html.notice( globals.strings.messages.verification_confirmed )
+                                        cancel()
+                                    })
                                 }}>{ globals.strings.common.do_verification }</button>
                             </div>
                         </> }
                         <div className={`padded cell rw-4 rw-md-6 rw-sm-12 ${globals.is_reviewer ? '' : 'ro-8 ro-md-6 ro-sm-0'}`}>
                             <button onClick={()=>{
-                                globals.api.cancelProposal( uuid ).then(() => cancel())
+                                globals.api.cancelProposal( uuid ).then(() => {
+                                    $.html.notice( globals.strings.messages.verification_cancelled )
+                                    cancel()
+                                })
                             }}>{ globals.strings.common.cancel_verification }</button>
                         </div>
                     </> }
