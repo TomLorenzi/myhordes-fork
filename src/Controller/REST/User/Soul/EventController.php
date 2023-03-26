@@ -16,8 +16,13 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
+use App\Service\ConfMaster;
+use App\Service\CrowService;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
+use App\Structures\MyHordesConf;
+use DiscordWebhooks\Client;
+use DiscordWebhooks\Embed;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -28,6 +33,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use function App\Controller\REST\User\mb_strlen;
 use function App\Controller\REST\User\str_contains;
@@ -275,12 +281,14 @@ class EventController extends CustomAbstractCoreController
      * @param CommunityEvent $event
      * @param bool $option
      * @param EntityManagerInterface $em
+     * @param ConfMaster $conf
      * @return JsonResponse
      */
     public function editEventProposal(
         CommunityEvent $event,
         bool $option,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        UrlGeneratorInterface $urlGenerator
     ): JsonResponse {
         if (!$this->eventIsEditable( $event, $option === false ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -308,6 +316,49 @@ class EventController extends CustomAbstractCoreController
             } catch (\Throwable $e) {
                 return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
             }
+
+            if ($endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_ANIM_MAIL_DCHOOK )) {
+                $discord = (new Client($endpoint))
+                    ->message(
+                        $option
+                            ? ':black_joker: **Please validate my community event.**'
+                            : ':x: I\'m retracting my previous event validation request.'
+                    )->username( $event->getOwner()->getName() );
+
+                if ($event->getOwner()->getAvatar()) $discord->avatar(
+                    $urlGenerator->generate( 'app_web_avatar', ['uid' => $event->getOwner()->getId(), 'name' => $event->getOwner()->getAvatar()->getFilename(), 'ext' => $event->getOwner()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL )
+                );
+
+                $discord->embed( (new Embed())
+                    ->color('B434EB')
+                    ->title('Event configuration')
+                    ->field('Start date', $event->getConfiguredStartDate()->format( "D, d M Y" ), true)
+                    ->field('Towns', $event->getTownPresets()->count(), true)
+                    ->footer( $event->getId() )
+                );
+
+                $flag_lang = function (string $lang) {
+                    return match ($lang) {
+                        'en' => ':flag_us:',
+                        default => ":flag_$lang:"
+                    };
+                };
+
+                if ($option)
+                    foreach ($event->getMetas() as $meta)
+                        $discord->embed( (new Embed())
+                            ->color('6BF2F0')
+                            ->title("{$flag_lang($meta->getLang())} Event information")
+                            ->field('Name', $meta->getName(), true)
+                            ->field('Short Description', mb_substr($meta->getShort(), 0, 1500), true)
+                        );
+
+                try {
+                    $discord->send();
+                } catch (Exception) {}
+            }
+
+
         }
 
         return new JsonResponse(['uuid' => $event->getId()]);
@@ -317,11 +368,13 @@ class EventController extends CustomAbstractCoreController
      * @Route("/{id}/publish", name="set_published", methods={"PUT"})
      * @param CommunityEvent $event
      * @param EntityManagerInterface $em
+     * @param CrowService $crow
      * @return JsonResponse
      */
     public function publishEvent(
         CommunityEvent $event,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        CrowService $crow
     ): JsonResponse {
         if (!$this->eventIsEditable( $event ) || !$this->isGranted('ROLE_CROW'))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -332,6 +385,13 @@ class EventController extends CustomAbstractCoreController
 
         $event->setStarts( $date );
         $em->persist( $event );
+
+        $notification = $crow->createPM_moderation(
+            $event->getOwner(),
+            CrowService::ModerationActionDomainEvents, CrowService::ModerationActionTargetEventValidation, CrowService::ModerationActionSolve,
+            $event
+        );
+        if ($notification) $em->persist($notification);
 
         try {
             $em->flush();
@@ -422,10 +482,18 @@ class EventController extends CustomAbstractCoreController
      */
     public function deleteEvent(
         CommunityEvent $event,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        CrowService $crow
     ): JsonResponse {
         if (!$this->eventIsEditable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
+
+        $notification = $event->getOwner() !== $this->getUser() ? $crow->createPM_moderation(
+            $event->getOwner(),
+            CrowService::ModerationActionDomainEvents, CrowService::ModerationActionTargetEvent, CrowService::ModerationActionDelete,
+            $event
+        ) : null;
+        if ($notification) $em->persist($notification);
 
         try {
             $em->remove( $event );
