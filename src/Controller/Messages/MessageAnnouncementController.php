@@ -276,6 +276,22 @@ class MessageAnnouncementController extends MessageController
     }
 
     /**
+     * @Route("api/admin/com/changelogs/del_c/{id<\d+>}", name="admin_changelog_del_changelog")
+     * @param Changelog $changelog
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function delete_changelog_api(Changelog $changelog, EntityManagerInterface $em): Response {
+        if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $changelog->getAuthor())
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $em->remove($changelog);
+        $em->flush();
+
+        return AjaxResponse::success( );
+    }
+
+    /**
      * @Route("api/admin/com/changelogs/del_a/{id<\d+>}", name="admin_changelog_del_announcement")
      * @param int $id
      * @param EntityManagerInterface $em
