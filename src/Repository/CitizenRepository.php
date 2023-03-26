@@ -107,16 +107,12 @@ class CitizenRepository extends ServiceEntityRepository
 
     public function findCitizensWithStatus(CitizenStatus $status)
     {
-        try {
-            return $this->createQueryBuilder('c')
-                ->innerJoin('c.status', 's')
-                ->andWhere('s = :status')
-                ->setParameter('status', $status)
-                ->getQuery()
-                ->getResult();
-        } catch (NonUniqueResultException $e) {
-            return null;
-        }
+		return $this->createQueryBuilder('c')
+			->innerJoin('c.status', 's')
+			->andWhere('s = :status')
+			->setParameter('status', $status)
+			->getQuery()
+			->getResult();
     }
 
     public function getStatByLang() {

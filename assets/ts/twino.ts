@@ -80,7 +80,7 @@ class TwinoRegexResult {
 
         switch (type) {
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
-            case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}|(?:\B|\b)@([\w_-]+)(?::(\d+))?(?:\B|\b)/g;
+            case TwinoRegexResult.TypeInset:   return /\{([a-zA-Z]+)\}|\{([a-zA-Z]+),([\w,]*)\}|\{([a-zA-Z]+)(\d+)\}|(?:\B|\b)@([\p{L}\d_-]+)(?::(\d+))?(?:\B|\b)/gu;
             case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
             default: throw Error( 'No regex defined for this type of TRR!' )
         }
@@ -479,7 +479,7 @@ class HTMLConverterFromBlocks {
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
                             const xid = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
-                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replace(/\W+/,'') : block.nodeText) + (xid ? (':' + xid) : '') )
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', (xid ? block.nodeText.replaceAll(/[^\p{L}\d_-]/gu,'') : block.nodeText) + (xid ? (':' + xid) : '') )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
@@ -497,7 +497,7 @@ class HTMLConverterFromBlocks {
                 case 'div':
                     if (block.hasClass('cref')) {
                         let id = block.getAttribute('x-user-id') ?? block.getAttribute('x-id');
-                        ret += '@' + ( id ? block.nodeText.replaceAll(/\W/g,'') : block.nodeText) + ( id ? (':' + id) : '' );
+                        ret += '@' + ( id ? block.nodeText.replaceAll(/[^\p{L}\d_-]/gu,'') : block.nodeText) + ( id ? (':' + id) : '' );
                     } else if (block.hasClass('spoiler'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
                     else if (block.hasClass('sideNote'))

@@ -48,7 +48,7 @@ Hinweis: Aviso
 Spiel: Juego
 Statistiken: Estadísticas
 '{points} Punkte': '{points} Puntos'
-'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Este jugador aún no ha ganado ningún premio...'
+'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'Este jugador aún no ha ganado ninguna distinción...'
 Seelenpunktzahl: Puntos de alma
 'Aktuelles Leben': 'Pueblo actual'
 Saison: Temporada
@@ -62,7 +62,7 @@ Punkte: Puntos
 'Weiter zu': 'Continuar hacia'
 'Du hast keine Externe ID.': 'No tienes ID externo.'
 'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'Sin esto <strong>no puedes usar aplicaciones externas</strong>. Para configurar un ID externo, ve a Tu alma > Configuración y genera un ID.'
-Verzeichnis: Anuario
+Verzeichnis: Directorio
 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'Los siguientes enlaces dirigen hacia sitios web elaborados por la comunidad. Proponen información y herramientas complementarias al juego:'
 'Dazu hast Du kein Recht.': 'No tienes derecho a hacer esto.'
 Moderation: Moderación
@@ -120,7 +120,7 @@ Version: Versión
 Sprache: Idioma
 Vertraulich: Confidencial
 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'Este identificador debe proporcionarse a todos los sitios a los que desee permitir el acceso (solo lectura) a la información del juego guardada en su cuenta MyHordes: información sobre su ciudad, lista de ciudadanos, mapa del mundo, etc.'
-'Diese Punkte werden für die Seelenrangliste verwendet.': 'Estos puntos son tomados en cuenta para la Escala de Almas.'
+'Diese Punkte werden für die Seelenrangliste verwendet.': 'Estos puntos son tomados en cuenta para la Clasificación de Almas.'
 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.': 'Ganarás puntos al final de cada partida en función de la cantidad de días sobrevividos.'
 'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'Si se da el caso de que esto no cambie para la media noche, no habrá ningún ataque Zombi. El día se extenderá artificialmente.'
 Bestätigen: Confirmar
@@ -482,3 +482,4 @@ Nutzungsbedingungen: Condiciones de uso
 'Hier kannst du eine URL für eine Test- oder Entwicklungsumgebung hinterlegen (z.B. "localhost"). Du siehst dann einen zusätzlichen Button, der dich auf diese Umgebung weiterleitet. Diese URL sowie der zusätzliche Button sind ausschließlich für dich sichtbar.': 'Aquí puede ingresar una URL para un entorno de prueba o desarrollo (por ejemplo, "localhost"). Luego verá un botón adicional que lo redirigirá a este entorno. Esta URL y el botón adicional solo son visibles para usted.'
 Kopiert!: '¡Copiado!'
 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': '¡Es imposible hacer eso si has sido <strong>desterrado de la comunidad</strong>!'
+'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Cada <strong>objeto de defensa</strong> colocado en el Almacén le da <strong>{def, select, 1 {1 punto} other {{def} puntos}} de defensa al pueblo</strong>.'

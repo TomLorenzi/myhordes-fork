@@ -1332,7 +1332,7 @@ class JSONv1Controller extends CoreController {
             }
         }
 
-        foreach ($this->user->getPastLifes() as $pastLife) {
+        foreach ($user->getPastLifes() as $pastLife) {
             if ($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) {
                 continue;
             }

@@ -11,7 +11,7 @@ import {UserResponse, UserResponses, UserSearchBar} from "../user-search/Wrapper
 
 declare var $: Global;
 
-export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}: {townTypes: ResponseTownList, setDefaultRules: (rules: TownRules) => void, setBlocked: (block: boolean) => void} ) => {
+export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked, applyDefaults}: {townTypes: ResponseTownList, setDefaultRules: (rules: TownRules) => void, setBlocked: (block: boolean) => void, applyDefaults: boolean} ) => {
     const globals = useContext(Globals)
 
     const head = globals.strings.head;
@@ -27,15 +27,15 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
     const TOWN_TYPE         = "townType";
     const TOWN_BASE         = "townBase";
 
-    const type_default = (globals.elevation < 3 ? townTypes : [])
+    const type_default = ((globals.elevation < 3 || globals.eventMode) ? townTypes : [])
         .reduce( (value, object) => !object.preset ? object.id : value, -1 )
 
-    const appliedDefaults: {dot: string, default: any|string}[] = [
+    const appliedDefaults: {dot: string, default: any|string}[] = applyDefaults ? [
         { dot: 'head.townLang', default: globals.config.default_lang },
         { dot: 'head.townNameLang', default: globals.config.default_lang },
         { dot: 'head.townType', default: type_default},
         { dot: 'head.townBase', default: -1},
-    ];
+    ] : [];
 
     const [enableReservedPlaces, setEnableReservedPlaces] = useState<boolean>(false);
     const [reservedPlaces, setReservedPlaces] = useState<UserResponses>([]);
@@ -141,27 +141,30 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
                         value={globals.getOption( 'head.townCode' )} propName={TOWN_CODE}
         />
 
-        { /* Reserved spaces */ }
-        <OptionCoreTemplate propName={HEAD_RESERVE} propTitle="" wide={ reservedPlaces.length > 0 || enableReservedPlaces }>
-            { reservedPlaces.length === 0 && !enableReservedPlaces && <button onClick={()=>setEnableReservedPlaces(true)}>{ head.reserve }</button> }
-            { (reservedPlaces.length > 0 || enableReservedPlaces) && (
-                <>
-                    <div className="save-spots-container">
-                        { reservedPlaces.length === 0 && <div className="placeholder">{ head.reserve_none }</div> }
-                        { reservedPlaces.length > 0 && <>
-                            <div className="placeholder">{ head.reserve_num } { reservedPlaces.length }</div>
-                            { reservedPlaces.map( u => <div key={u.id} className="town-reserved-spot">{ u.name }<span onClick={()=>removeReserved(u)}><i className="fa fa-times-circle pointer"></i></span></div> ) }
-                        </> }
-                    </div>
-                    <h5>{ head.reserve_add }</h5>
-                    <UserSearchBar callback={u=>addReserved(u)} exclude={reservedPlaces.map(u=>u.id)} clearOnCallback={true} acceptCSVListSearch={true}/>
-                    <div className="help" dangerouslySetInnerHTML={{__html: head.reserve_help}}/>
-                </>
-            ) }
-        </OptionCoreTemplate>
+        <AtLeast notForEvents={true}>
+            { /* Reserved spaces */ }
+            <OptionCoreTemplate propName={HEAD_RESERVE} propTitle="" wide={ reservedPlaces.length > 0 || enableReservedPlaces }>
+                { reservedPlaces.length === 0 && !enableReservedPlaces && <button onClick={()=>setEnableReservedPlaces(true)}>{ head.reserve }</button> }
+                { (reservedPlaces.length > 0 || enableReservedPlaces) && (
+                    <>
+                        <div className="save-spots-container">
+                            { reservedPlaces.length === 0 && <div className="placeholder">{ head.reserve_none }</div> }
+                            { reservedPlaces.length > 0 && <>
+                                <div className="placeholder">{ head.reserve_num } { reservedPlaces.length }</div>
+                                { reservedPlaces.map( u => <div key={u.id} className="town-reserved-spot">{ u.name }<span onClick={()=>removeReserved(u)}><i className="fa fa-times-circle pointer"></i></span></div> ) }
+                            </> }
+                        </div>
+                        <h5>{ head.reserve_add }</h5>
+                        <UserSearchBar callback={u=>addReserved(u)} exclude={reservedPlaces.map(u=>u.id)} clearOnCallback={true} acceptCSVListSearch={true}/>
+                        <div className="help" dangerouslySetInnerHTML={{__html: head.reserve_help}}/>
+                    </>
+                ) }
+            </OptionCoreTemplate>
+        </AtLeast>
 
-        { /* Number of citizens */ }
+
         <AtLeast elevation="crow">
+            { /* Number of citizens */ }
             <OptionFreeText type="number" propTitle={head.citizens} propHelp={head.citizens_help}
                             inputArgs={{min: 10, max: 80}}
                             value={(globals.getOption( 'head.townPop' ) as string) ?? '40'} propName={TOWN_POP}
@@ -173,13 +176,15 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
             />
 
             { /* Town Type */ }
-            <OptionSelect propTitle={head['type']} type="number"
-                          value={`${globals.getOption( 'head.townType' ) ?? -1}`} propName={TOWN_TYPE}
-                          options={ [
-                              ...( globals.getOption( 'head.townType' ) == -1 ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
-                              ...townTypes.map( town => ({ value: `${town.id}`, title: town.name }) )
-                          ] }
-            />
+            <AtLeast notForEvents={true}>
+                <OptionSelect propTitle={head.type} type="number"
+                              value={`${globals.getOption( 'head.townType' ) ?? -1}`} propName={TOWN_TYPE}
+                              options={ [
+                                  ...( globals.getOption( 'head.townType' ) == -1 ? [{value: '-1', title: globals.strings.common.need_selection}] : [] ),
+                                  ...townTypes.map( town => ({ value: `${town.id}`, title: town.name }) )
+                              ] }/>
+            </AtLeast>
+
         </AtLeast>
 
         { /* Town Preset */ }
