@@ -212,6 +212,7 @@ class TownHandler
                             $this->entity_manager->persist($complaint);
                         }
                         $citizen->setBanished(false);
+                        $this->citizen_handler->inflictStatus( $citizen, 'tg_unban_altar' );
                         $this->entity_manager->persist($citizen);
                     }
                 break;
