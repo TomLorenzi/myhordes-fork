@@ -28,6 +28,7 @@ class GlobalPrivateMessage
     #[ORM\Column(type: 'text', nullable: true)]
     private $text;
     #[ORM\ManyToOne(targetEntity: LogEntryTemplate::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private $template;
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $seen;
