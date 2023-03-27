@@ -59,8 +59,13 @@
       }
       &#newspage-back {
         width: 90%; margin-left: 0; transform: rotateY(-180deg); z-index: 1; opacity: 0; pointer-events: none;
-        .nightstat { font-size: 3vw; }
-        #buildingdetails { top: 55%; }
+        .nightstat {
+          font-size: 3vw !important;
+          &.nightstat-defense > .invasion:last-child {
+            position: relative; width: 160%; left: -30%;
+          }
+        }
+        #buildingdetails { top: 60%; font-size: 2.5vw; width: calc(98% - 25px); }
       }
     }
   }
