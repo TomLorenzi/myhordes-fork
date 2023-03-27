@@ -488,7 +488,7 @@
 
                 if(textEditor.value !== '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
 
-                textEditor.value += (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/\W/, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
+                textEditor.value += (quote ? (author ? ('[quote=' + (author_id > 0 ? author.replace(/[^\p{L}\d_-]/gu, '') : author) + (author_id > 0 ? (':' + author_id) : '') + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                 textEditor.focus();
             };
