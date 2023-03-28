@@ -10,7 +10,7 @@
                 <div class="cell grow-0" style="padding-bottom: 10px;">
                     <div class="forum-control">
                         <div class="forum-header-bar">
-                            <b><i class="fa fa-caret-right"></i> {{ 'Aktionen'|trans({},'global') }}</b>
+                            <b><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /> {{ 'Aktionen'|trans({},'global') }}</b>
                         </div>
                         <div class="forum-button-bar row-flex stretch">
                             {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
@@ -76,7 +76,7 @@
                 <div id="pm-forum-actions-container" class="cell grow-0 hidden" style="padding-bottom: 10px;">
                     <div class="forum-control">
                         <div class="forum-header-bar">
-                            <b><i class="fa fa-caret-right"></i> {{ 'Diese Konversation'|trans({},'global') }}</b>
+                            <b><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /> {{ 'Diese Konversation'|trans({},'global') }}</b>
                         </div>
                         <div class="forum-button-bar" style="font-size: 0.8em">
                             <div class="row-flex wrap">
