@@ -1312,8 +1312,7 @@ class JSONv1Controller extends CoreController {
             $fields = ['id', 'mapId', 'survival', 'name', 'mapName', 'season', 'phase', 'score', 'origin'];
         }
 
-		/** @var CitizenRankingProxy $pastLife */
-		foreach ($this->user->getPastLifes() as $pastLife) {
+        foreach ($user->getPastLifes() as $pastLife) {
             if ($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) {
                 continue;
             }

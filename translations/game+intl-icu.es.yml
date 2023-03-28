@@ -369,7 +369,7 @@ Werkstatt: Taller
 Übersicht: Vista general del pueblo
 'Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.': 'Te encuentras ante un vasto horizonte desolado. El Ultramundo. Hay otros condenados como tú recorriendo el desierto, escarbando en sus ruinas. Muchos de ellos no volverán jamás.'
 'Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...': '¿Decidirás seguir adelante o esconderte detrás de las murallas fortificadas? Algunos creen que es mejor ser cauteloso y considerar todas las opciones, otros sostienen que el corazón débil nunca ganó a la doncella justa... Quizás la verdad esté en algún lugar entre los dos...'
-'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'Las noches son heladas en el desierto... Una densa nube de polvo lo envuelve todo y se oyen gemidos apesadumbrados a tu alrededor. De vez en cuando distingue una figura borrosa moviéndose en las sombras. Esperemos que sea solo tu imaginación...'
+'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'Las noches son heladas en el desierto... Una densa nube de polvo lo envuelve todo y oyes sollozos lúgubres a tu alrededor. De vez en cuando distingues una figura borrosa moviéndose entre las sombras. Ojalá solo sea tu imaginación...'
 'Die Zone untersuchen': 'Inspecciona la zona'
 'Du schaust dir die Gegend etwas genauer an...': 'Inspecciona los alrededores...'
 'Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.': 'Dormir en un lugar semejante equivale a suicidarse, así de simple. Piénsalo.'
@@ -380,7 +380,7 @@ Werkstatt: Taller
 'Du weist nicht, was gerade geschehen ist... plötzlich warst du einfach nicht mehr am leben.': 'No sabes que sucedió... de la nada has perdido tu miserable vida.'
 Zombieangriff: '¡Ataque Nocturno!'
 'Du hattest dich daheim eingebunkert und dachtest so überleben zu können... Als sie vor deiner Türe grunzten und schnüffelten, warst du dann mucksmäuschenstill. Leider hattest du ein Fenster nicht ausreichend vernagelt, sodass sie schließlich in dein Wohnzimmer stolperten. Vor Angst erstarrt hast du dann keinen Ton mehr rausgebracht und musstest ansehen, wie sie dich ins Schlafzimmer zerrten, um sich an deinen inneren Organen zu laben und dich langsam zu verspeisen.': 'Encerrado en tu casa, rezabas para que no pasen... Les oíste gruñir, olfatear tu puerta... De pronto una ventana mal protegida voló en pedazos. Gritaste, te pusieron contra la pared. Lentamente te devoraron. Nadie vino para ayudarte. Nadie...'
-'Außerhalb der Stadt verschwunden': '¡Desapareciste en el Ultramundo!'
+'Außerhalb der Stadt verschwunden': '¡Desaparecido en el Ultramundo!'
 'Kurz nach Mitternacht wurde es unheimlich still... so, als ob jegliches Leben mit einem Schlag ausgelöscht worden wäre. Die Nacht kam dir noch eisiger als sonst vor... und plötzlich sahst du sie: Dutzende, hunderte, und alle schwankten auf dich zu! Ihre Hände reckten sich nach dir. Sie ergriffen, zogen und rissen dich auseinander... Dann haben sie dich mitgenommmen und sich an dir bis zum frühen Morgen gütlich getan.': 'Poco después del ataque un pesado silencio te rodeó, como si toda la vida se extinguiera sin remedio. La noche se volvió glacial... Y los viste por decenas... centenas tambaleándose hacia ti... Te acorralaron, te jalaron, te arrastraron toda la noche, hasta devorarte aún vivo antes del amanecer.'
 Dehydration: Deshidratación
 'Dehydratation ist wirklich was Übles. Muskelspasmen, Atemprobleme und unaushaltbare Gliederschmerzen treten in der finalen Phase auf. Du hast nach etwas Trinkbarem gesucht - überall.... Vergeblich. Deine Mitbürger behaupten sogar, dich dabei gesehen zu haben, wie du in den letzten Minuten schaufelweise Sand in dich geschüttet hättest... Herrje...': 'Morir de sed es atroz. En las últimas horas, tu piel ha comenzado a secarse y a quebrarse, tu lengua se ha hinchado. Algunos dicen haberte visto tragando arena a manos llenas, hasta atragantarte...'
@@ -483,7 +483,7 @@ Katapult: Catapulta
 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...': 'Te echas a buscar y no encuentras nada. ¡Grrrr!...'
 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!': 'Luego de cierto esfuerzo, logras encontrar {item}, te preguntas cómo llegó aquí...'
 'Du kannst nur einen Behälter auf einmal tragen.': 'Solo puedes llevar contigo un contenedor a la vez.'
-'Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?': 'El desierto parece infinito... ¿Cuántos habrán perdido la vida en ese mar de arena? ¿Tendrás tú el mismo destino?'
+'Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?': 'El desierto parece infinito... ¿Cuántos habrán perdido la vida en este vasto mar de arena? ¿Tendrás tú el mismo destino?'
 'Sie sind allein in dieser Gegend...': 'Estás solo en esta zona.'
 Nachricht: Anuncio personal
 'Draußen?': '¿Afuera?'
@@ -655,7 +655,7 @@ Batteriewerferfabrikant: Super lanzapilas
 'Sie sind ein wahrer Überlebenskünstler der Hölle.': 'Eres un verdadero superviviente del infierno'
 Hausarbeiten: Trabajador hogareño
 'Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.': 'Cantidad de pequeños trabajos hechos en casa.'
-Kettensägen: Sierras elécticas
+Kettensägen: Sierras eléctricas
 'Anzahl an Kettensägen, die du gebaut hast.': 'Cantidad de sierras eléctricas que has armado.'
 Stadtwächter: Centinela
 'Anzahl der Nächte, die du als Stadtwächter überlebt hast.': 'Cantidad de noches que sobreviviste como Centinela.'
@@ -978,7 +978,7 @@ Draußen: Fuera
 'Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...': '¡Cuando comenzabas tu búsqueda, descubriste una espcie de... escondite que contiene: {items}! Hmmm... Seguramente fue hecho por otro desterrado...'
 Sauerstoff: Oxígeno
 Stadtverteidigung: Defensas del pueblo
-'Details ansehen': 'Ver el detalle'
+'Details ansehen': 'Ver detalles'
 Lage: Estado
 'Stadttor geöffnet': 'Portal abierto'
 'Wer ist draußen?': '¿Quién está afuera?'
@@ -1133,7 +1133,7 @@ Schlachtenbummler: Titán de choque
 'Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...': 'Este anuncio es <strong>visible para todos en la página de Habitantes</strong>, cerca de tu nombre. Úsalo para hablar un poco de ti, de tu estado de ánimo, pensamientos, comparte un mensaje con todo el mundo...'
 'In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du <strong>mit deinen Gegenständen ausführen kannst</strong>. In der rechten Spalte kannst du den <strong>Inhalt deines Rucksacks</strong> und <strong>deiner Truhe</strong> ansehen.': 'La columna de la izquierda presenta las <strong>acciones que puedes realizar</strong>. La de la derecha muestra el <strong>contenido de tu mochila</strong> y <strong>del baúl de tu casa</strong>.'
 'Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.': 'Si esta opción está marcada, un héroe que acepte desplazarte no podrá alejarte del pueblo. Solo podrá acercarte a él.'
-'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)': 'Si esta opción está marcada, un héroe que acepte desplazarte podrá obligarte a sacar o colocar un objeto. NOTA: Algunos objetos "personales" no podraán ser retirados de ninguna manera (por ejemplo: las armas)'
+'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)': 'Si esta opción está marcada, un héroe que acepte desplazarte podrá obligarte a sacar o colocar un objeto. NOTA: Algunos objetos "personales" no podrán ser retirados de ninguna manera (por ejemplo: las armas)'
 Explosion: Explosión
 '???': '???'
 Schokoladenkreuz: Cruz de chocolate
@@ -1632,7 +1632,7 @@ Sandverkäufer: Vendedor de Arena
 "Dauermitglied in Micky's Club": "Miembro permanente del Club de Mickey"
 'Niemals ohne meinen Eimer': 'Nunca sin mi cubo'
 'Ein Korn fehlt noch': 'Todavia falta un grano'
-'Taube aus der Unterwelt': 'Paloma del Inframundo'
+'Taube aus der Unterwelt': 'Paloma del Ultramundo'
 Corvid-Spezialist: Especialista en córvidos
 'Phoenix des Unterholzes': 'Fénix del Ultramundo'
 'Edit Piaf': 'Edit Piaf'
@@ -1787,7 +1787,7 @@ Ansehen: Ver
 'Eine Expedition Erstellen': 'Crear una expedición'
 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...': 'El contenido de esta vivienda está escondido por cortinas en las ventanas...'
 'Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.': 'Esta casa está <strong>protegida</strong> (con cerradura u otro...) y no se puede ingresar.'
-'Zeit bis zum nächsten Zombieangriff': 'Tiempo restante para el próximo ataque zombi.'
+'Zeit bis zum nächsten Zombieangriff': 'Tiempo restante para el próximo ataque zombie.'
 'Das Register filtern': 'Filtrar el Registro'
 'Bürger:': 'Habitante:'
 'Alles sehen': 'Ver todo'
@@ -1800,7 +1800,7 @@ Baustelle: Construcciones
 'Wie gebraucht man diese Karte?': '¿Cómo funciona este mapa?'
 'Brauchst du Hilfe? Benutze den {modelink}!': '¿Eres nuevo en el juego? ¿Te sientes perdido? ¡Utiliza el {modelink}!'
 Anfängermodus: Modo Aprendizaje
-'Handbuch zur Aussenwelt': 'Guía del Ultramundo'
+'Handbuch zur Aussenwelt': 'La Guía del Ultramundo'
 "Wenn du \"MyHordes\" zum ersten Mal spielst, empfehlen wir dir den Links <strong>Wie soll ich spielen?</strong> zu folgen,\n                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.": "Si estás jugando a \"MyHordes\" por primera vez, te recomendamos que sigas los enlaces bajo <strong>¿Cómo jugar?</strong> ubicados\n                en la izquierda superior del sitio web. Las instrucciones interactivas te explicarán paso a paso los conceptos básicos del juego en menos de 5 minutos."
 'Du kannst jederzeit die {helplink} im oberen Abschnitt der Seite aufsuchen.': 'Recuerda que siempre puedes visitar la {helplink} en la parte superior de la página.'
 'komplette Spielhilfe': 'Guía completa del juego'
@@ -1851,7 +1851,7 @@ Reiseleiter-Ratgeber: Guía del Guía del Ultramundo
 'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.': 'Hay muchas posibilidades de que resucite esta noche y trate de atacarnos.'
 '<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>': '<em>Puedes mejorar tu vivienda y así gozar de una mejor defensa. <strong>Ponte a pensar:</strong> ¿No sería mejor utilizar tus recursos para mejorar el pueblo?</em>'
 '<strong>Achtung:</strong> Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!': '<strong>Atención: </strong>¡Sin agua, algunas mejoras (como el Sistema de Riego) no funcionarán durante el ataque!'
-'Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...': '¡Atención! <strong>Tomar más de una ración de agua al dia</strong> es una acción que perjudica al resto de tus compañeros. Por lo tanto, será anotada en rojo en el Gran Registro'
+'Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...': '¡Atención! <strong>Tomar más de una ración de agua al día</strong> es una acción que perjudica al resto de tus compañeros. Por lo tanto, será anotada en rojo en el Gran Registro...'
 'Haus von {citizen}': 'Casa de {citizen}'
 'Das Grab von {citizen}': 'La tumba de {citizen}'
 'Das Haus': 'Su vivienda'
@@ -2046,7 +2046,7 @@ Deko-Punkte: puntos de decoración
 'Kein Wasser mehr!': '¡No hay más agua!'
 '<strong>Verlust der Zonenkontrolle</strong>: Die Suchen von {citizen} wurden unterbrochen!': '<strong>Pérdida de control</strong>: las búsquedas de {citizen} han sido interrumpidas!'
 '{citizen} hat die Zone verlassen, <strong>die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.</strong>': '{citizen} se marchó, <strong>la zona quedará bajo el control de los zombies en unos minutos si no se hace nada</strong>.'
-'<span>Es ist soweit: Der Schmaus kann beginnen!</span>': '<span>Más tiempo: ¡Que empiece el festín!</span>'
+'<span>Es ist soweit: Der Schmaus kann beginnen!</span>': '<span>Es la hora. ¡Que empiece el festín!</span>'
 'Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.': 'Estabas a punto de refugiarte en tu casa, cuando de repente te das cuenta de que algo va mal en el reactor del que los demás habitantes están tan orgullosos... ahora han sido aniquilados por una explosión ensordecedora. Cuando recuperas la conciencia, yaces en un enorme cráter que antes era tu pueblo; la sangre te hierve y la piel se te derrite. Sólo después de unos minutos de dolor insoportable dejas este mundo.'
 'Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.': 'Tu queja fue bien recibida, pero <strong>no será de mucha ayuda</strong> en la situación actual. <hr>El pueblo se ha hundido en un <strong>caos</strong> total... Con tan pocos supervivientes <strong>se han violado las leyes del pueblo</strong>.'
 'Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.': 'Has denunciado a <strong>{citizen}</strong>. Si acumula demasiadas, <strong>{citizen} será desterrado de la comunidad</strong>, o colgado si una horca existe.'
@@ -2189,7 +2189,7 @@ Fortfahren...: Continuar...
 'Jeder Mensch zählt 2 Punkte, Zombies zählen je 1 Punkt.': 'Cada humano vale 2 puntos, cada zombie vale 1 punto.'
 'Wenn die Gesamtpunktzahl aller Menschen in einer Zone <strong>mindestens so groß</strong> wie die der Zombies ist, kann dir nichts geschehen... vorerst zumindest.': 'Mientras los puntos humanos sean <strong>superiores o iguales</strong> a los puntos zombies, no correrás peligro.'
 'Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.': 'Esta entrada de registro <strong>no</strong> se puede tachar.'
-'Klicke hier, um seine Informationen anzuzeigen': 'Haz clic aquí para ver tu información'
+'Klicke hier, um seine Informationen anzuzeigen': 'Haz clic aquí para ver su información'
 'Ganz genau, das bist du!': 'Sí, este eres tú...'
 'gesichertes Haus': 'casa protegida'
 'In dieses Haus kann <strong>nicht eingebrochen</strong> werden. Es ist durch ein Schloss oder etwas anderes gesichert...': '<strong>No se puede entrar en esta casa</strong> Está protegida por un candado o algo más...'
@@ -2321,7 +2321,7 @@ Schaufelführer: Pala de cabeza
 'Ich bin ein Biest!': '¡Soy una fiera!'
 'DdA Beste Buddler': 'DdO Mejor Excavador'
 Stadt/Stadttor: Pueblo/Portal
-'Duell der Achter': 'Duelo de Ocho'
+'Duell der Achter': 'Duelo de los Ocho'
 'Ehrenpreis für die Teilname am Duell der Achter Event!': '¡Recompensa honorífica por participar en Duelo de Ocho!'
 'Kategorien anzeigen': 'Ver las categorías de objetos'
 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Un moderador ha reabierto tu tema {threadname}: {link_post}'
@@ -2378,7 +2378,7 @@ Stadt/Stadttor: Pueblo/Portal
 'Ermöglicht es dir, die Heldentat "Freundschaft" einzusetzen.': 'Permite usar la acción heroica "Camaradería".'
 'Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem eine deiner noch ungenutzten Heldentaten schenken! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentaten kannst du in dieser Stadt nicht mehr selbst verwenden. Um jemandem eine Heldentat zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.': 'Puedes dar 1 Acción heroica a cualquier habitante. Serás convertido en un auténtico mesías para muchas personas... NB: La Acción heroica que des será descontada de tus Acciones heroicas restantes.'
 'Du kannst diese Aktion <strong>hier nicht mehr ausführen</strong>. Gehe woanders hin oder versuche es morgen noch einmal.': 'Es <strong>imposible volver a realizar esta acción aquí</strong>. Hazlo en otro lugar, o inténtalo mañana.'
-'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Haga clic en el presupuesto para copiarlo en el portapapeles.'
+'Klicke auf die Vorhersage, um sie in die Zwischenablage zu kopieren.': 'Haz clic en el pronóstico para copiarlo al portapapeles.'
 '{num} Aufladungen': '{num} Cargas'
 'Bürger (list)': El Anuario de los Habitantes
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'Esta acción está bloqueada durante <strong>15 minutos aproximadamente</strong> (protección anti-abusos).<hr/><strong>Atención: Si intentas repetir esta acción al final del plazo, ¡la duración del bloqueo será prolongada!</strong>'

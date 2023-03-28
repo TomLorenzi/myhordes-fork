@@ -2280,7 +2280,7 @@ Verbannten-Ratgeber: Guide du bannissement
 'Heute Nacht wird ein Angriff stattfinden, selbst wenn die Stadt noch keine Einwohnerzahl von {population} erreicht hat.': 'Il y aura une attaque ce soir, même si la ville n''a pas atteint {population} citoyens.'
 'Du solltest anfangen, Vorbereitungen für die Verteidigung der Stadt zu treffen.': 'Vous devriez commencer à préparer les défenses de la ville !'
 'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Ho ho ho.': 'Grâce à votre <strong>costume</strong>, vous avez pu voler {item} à {victim} sans être vu(e).<hr />Hô hô hô.'
-'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!': 'Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victim} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à toi !'
+'Dank deines Kostüms konntest du {item} von {victim} stehlen, <strong>ohne erkannt zu werden</strong>.<hr/>Was für ein guter Morgen!': 'Grâce à votre <strong>costume</strong>, vous avez réussi à voler {item} à {victim} <strong>et personne n’a vu quoi que ce soit</strong>.<hr />Bonne matinée à vous !'
 'Du kannst diese Aktion nicht durchführen, während in der Stadt <strong>Chaos</strong> herrscht.': 'Il est impossible de faire cela en période de <strong>chaos</strong> !'
 'Du kannst keinen Bürger bestehlen, dem <strong>du heute einen Gegenstand per Post</strong> gesendet hast (Missbrauchschutz).': 'Vous ne pouvez pas cambrioler un citoyen <strong>à qui vous avez envoyé un objet par courrier aujourd''hui</strong> (mesure anti-abus).'
 'auf {coa_invite} antworten': 'Répondre à {coa_invite} en coalition'
