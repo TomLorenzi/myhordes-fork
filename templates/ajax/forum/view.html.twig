@@ -130,7 +130,7 @@
                                 <img style="height: 15px; width: auto;" alt="forum.worldForumLanguage" src="{{ asset('build/images/lang/' ~ forum.worldForumLanguage ~ '.png') }}" >
                                 <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
                             {% endif %}
-                            <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
+                            <b><img alt=">" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ forum.title }}</b>
                         </div>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
