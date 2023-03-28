@@ -61,7 +61,7 @@
 
                         <div id="group-member-container">
                             {% for member in members %}
-                                <div><b>{{ member.name }}</b><div class="float-right pointer" x-member-id="{{ member.id }}"><i class="fa fa-trash"></i></div></div>
+                                <div><b>{{ member.name }}</b><div class="float-right pointer" x-member-id="{{ member.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div></div>
                             {% endfor %}
                         </div>
 

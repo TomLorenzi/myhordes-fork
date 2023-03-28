@@ -399,7 +399,7 @@
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ChangeEmailValidation') %} ChangeEmailValidation
                                         {% else                                                                                  %} {{ token.type }} {% endif %})
-                                            <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
+                                            <div x-delete-token="{{ token.id }}" class="button small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -413,7 +413,7 @@
                                     {% for other_user in list.users %}
                                         {% if other_user.id != user.id %}
                                             <div>
-                                                {{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span>
+                                                {{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></span>
                                                 <div class="tooltip">
                                                     <div>
                                                         {% if list.creator %}
