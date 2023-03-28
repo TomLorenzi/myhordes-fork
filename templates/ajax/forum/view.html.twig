@@ -125,10 +125,10 @@
                     <div class="forum-control">
                         <div class="forum-header-bar">
                             <a href="#" x-ajax-href="{{ url('forum_list') }}">{{ 'Alle Foren'|trans({},'global') }}</a>
-                            <span><i class="fa fa-caret-right"></i></span>
+                            <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
                             {% if forum.worldForumLanguage %}
                                 <img style="height: 15px; width: auto;" alt="forum.worldForumLanguage" src="{{ asset('build/images/lang/' ~ forum.worldForumLanguage ~ '.png') }}" >
-                                <span><i class="fa fa-caret-right"></i></span>
+                                <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
                             {% endif %}
                             <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
                         </div>
