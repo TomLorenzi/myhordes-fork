@@ -26,7 +26,7 @@
                                 {{ 'Niemand'|trans({},'admin') }}
                             {% endif %}
                         </span>
-                        <button id="app_owner_edit" class="small inline float-right"><i class="fa fa-edit"></i></button>
+                        <button id="app_owner_edit" class="small inline float-right"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
                         <button id="app_owner_clear" class="small inline float-right {% if current_app is null or current_app.owner is null %}hidden{% endif %}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
                         <input id="app_owner" type="hidden" value="{{ current_app is not null and current_app.owner is not null ? current_app.owner.id : '-1' }}" />
                     </div>
@@ -60,7 +60,7 @@
                     <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_icon">{{ 'Icon'|trans({},'admin') }}</label></div>
                     <div class="cell padded rw-4 rw-md-6">
                         <img id="app_icon" style="height: 16px; width: 16px;" alt="-" src="{{ (current_app is not null and current_app.imageName is not null) ? path('app_web_app_icon', { aid: current_app.id, name: current_app.imageName, ext: current_app.imageFormat }) : '' }}" />
-                        <label for="app_icon_select" id="app_icon_edit" class="small inline float-right button"><i class="fa fa-edit"></i></label>
+                        <label for="app_icon_select" id="app_icon_edit" class="small inline float-right button"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></label>
                         <button id="app_icon_clear" class="small inline float-right {% if current_app is null or current_app.imageName is null %}hidden{% endif %}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
                     </div>
                 </div>

@@ -46,7 +46,7 @@
                         <div class="avatar {{ current_group is null ? 'hidden' : '' }}">
                             <img id="group-icon" alt="[ {{ 'Avatar'|trans({},'admin') }} ]" src="{{ (current_group is not null) ? path('app_web_group_icon', { gid: current_group.usergroup.id, name: current_group.avatarName, ext: current_group.avatarExt }) : '' }}" />
                         </div>
-                        <label for="group-icon-select" id="group-icon-edit" class="small inline float-right button"><i class="fa fa-edit"></i></label>
+                        <label for="group-icon-select" id="group-icon-edit" class="small inline float-right button"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></label>
                     </div>
                 </div>
                 <div class="row">

@@ -40,7 +40,7 @@
                         </div>
                         <div class="padded cell rw-1 rw-sm-2 right">
                             {% if is_granted("ROLE_ADMIN") %}
-                                <button x-ajax-href="{{ path('admin_group_edit', {id: group.id}) }}" class="small inline"><i class="fa fa-edit"></i></button>
+                                <button x-ajax-href="{{ path('admin_group_edit', {id: group.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
                             {% endif %}
                         </div>
                     </div>

@@ -115,7 +115,7 @@
                                     <button {% if not is_granted("ROLE_ADMIN") %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: 0}) }}"><i class="fa fa-recycle"></i> <span class="hide-md hide-sm">{{ 'Entkoppeln'|trans({}, 'admin') }}</span></button>
                                 </div>
                                 <div class="cell padded rw-3">
-                                    <button id="x-pm"><i class="fa fa-edit"></i> <span class="hide-md hide-sm">{{ 'PM vom Raben'|trans({}, 'admin') }}</span></button>
+                                    <button id="x-pm"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /> <span class="hide-md hide-sm">{{ 'PM vom Raben'|trans({}, 'admin') }}</span></button>
                                 </div>
                                 <div class="cell padded rw-3">
                                     <button x-ajax-href="{{ path("admin_town_explorer", {id: town.id}) }}"><i class="fa fa-eye"></i> <span class="hide-md hide-sm">{{ 'Stadt ansehen'|trans({}, 'admin') }}</span></button>
