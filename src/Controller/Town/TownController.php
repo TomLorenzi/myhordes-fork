@@ -2270,10 +2270,11 @@ class TownController extends InventoryAwareController
         return AjaxResponse::success();
     }
 
-    /**
-     * @Route("api/town/insurrect", name="town_insurrect")
-     * @return Response
-     */
+	/**
+	 * @Route("api/town/insurrect", name="town_insurrect")
+	 * @param GameProfilerService $gps
+	 * @return Response
+	 */
     public function do_insurrection(GameProfilerService $gps): Response
     {
         /** @var Citizen $citizen */
@@ -2282,16 +2283,31 @@ class TownController extends InventoryAwareController
         /** @var Town $town */
         $town = $citizen->getTown();
 
-        if ($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") || $town->getInsurrectionProgress() >= 100)
+        if ($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") || $town->getInsurrectionProgress() >= 100 || !$citizen->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
-        $non_shunned = 0;
 
-        //TODO: This needs huuuuge statistics
-        foreach ($town->getCitizens() as $foreinCitizen)
-            if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
+		// From Hordes' Data:
+		// https://github.com/motion-twin/WebGamesArchives/blob/main/Hordes/src/handler/CityActions.hx#L2556
+		$non_shunned = 0;
+		$shunned = 0;
+		$insurrectionProgress = 5;
+        foreach ($town->getCitizens() as $foreinCitizen)  {
+			if (!$foreinCitizen->getAlive()) continue;
+            if (!$foreinCitizen->getBanished())
+				$non_shunned++;
+			else
+				$shunned++;
+		}
 
-        $insurrectionProgress = intval(round(50 / $non_shunned));
+		if ($non_shunned === 0)
+			$insurrectionProgress = 100;
+		else {
+			$ratio = $shunned/$non_shunned;
+			$insurrectionProgress = ($insurrectionProgress * 0.3) + (0.7 * $insurrectionProgress * $ratio);
+			$insurrectionProgress *= $shunned;
+			$insurrectionProgress /= 10;
+		}
 
         $gps->recordInsurrectionProgress($town, $citizen, $insurrectionProgress, $non_shunned);
 
