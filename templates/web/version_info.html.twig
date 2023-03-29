@@ -9,7 +9,7 @@
                     <br />Help translate MyHordes on <a href="https://crwd.in/myhordes">Crowdin</a>!
                 </div>
                 <div class="padded-small cell version shrink-0">
-                    <div class="version-badge-global"><i class="fas fa-globe-europe"></i>&nbsp;<b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b></div>
+                    <div class="version-badge-global"><img alt="" src="{{ asset('build/images/icons/small_world.gif') }}" />&nbsp;<b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b></div>
                     {% if version.isPreRelease %}
                         {% set prerelease = version.preRelease.toString|split('.') %}
                         {% if prerelease|length > 0 %}
@@ -27,7 +27,7 @@
     <div class="debug_info_release">
         <div class="version">
             <div class="version-badge-global">
-                <i class="fas fa-globe-europe"></i>&nbsp;<b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b>
+                <img alt="" src="{{ asset('build/images/icons/small_world.gif') }}" />&nbsp;<b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b>
                 {% if version.isPreRelease %}
                     {% set prerelease = version.preRelease.toString|split('.') %}
                     {% if prerelease|length > 0 %}
