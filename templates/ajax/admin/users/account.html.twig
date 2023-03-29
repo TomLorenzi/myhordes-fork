@@ -313,7 +313,7 @@
                                     {% if spon is not null %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: spon.sponsor.id}) }}">{{ spon.sponsor.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% else %}-{% endif %}
                                 </div>
@@ -331,13 +331,13 @@
                                     {% for entry in spon_active %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                     {% for entry in spon_inactive %}
                                         <div>
                                             <strike><a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a></strike>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                 </div>
