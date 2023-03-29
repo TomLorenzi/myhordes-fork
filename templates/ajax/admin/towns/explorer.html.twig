@@ -674,9 +674,9 @@
                                         <div class=" padded cell rw-8">
                                             <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-open"></i><div class="tooltip">{{ 'Herauswerfen (ohne Verletzung)'|trans({},'admin') }}</div></button>
                                             <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-closed"></i><div class="tooltip">{{ 'Herauswerfen (mit Verletzung)'|trans({},'admin') }}</div></button>
-                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus"></i><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
                                             {% if app.environment == 'dev' %}
-                                                <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus-circle"></i><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
+                                                <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
                                             {% endif %}
                                         </div>
                                     </div>
