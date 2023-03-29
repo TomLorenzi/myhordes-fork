@@ -170,7 +170,7 @@
                             <div class="padded cell rw-8"><span class="small">{{ snippet.text }}</span></div>
                             <div class="padded cell rw-1 right">
                                 <button data-purpose="edit" data-snippet-id="{{ snippet.id }}" data-snippet-lang="{{ snippet.lang }}" data-snippet="{{ snippet.text }}" data-snippet-short="{{ snippet.short }}" class="small inline"><i class="fa fa-pen"></i></button>
-                                <button data-purpose="cancel" data-snippet-id="{{ snippet.id }}" class="small inline hidden"><i class="fa fa-times"></i></button>
+                                <button data-purpose="cancel" data-snippet-id="{{ snippet.id }}" class="small inline hidden"><img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
                                 <button x-delete-snippet-url="{{ path('admin_reports_remove_snippet', {id: snippet.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
                             </div>
                         </div>
