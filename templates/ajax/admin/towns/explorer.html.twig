@@ -868,7 +868,7 @@
                                     {% if not fromTown.complete %}
                                         <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><i class="fa fa-check"></i></button>
                                     {% else %}
-                                        <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><i class="fa fa-times"></i></button>
+                                        <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
                                     {% endif %}
                                 </div>
                             {% endif %}
