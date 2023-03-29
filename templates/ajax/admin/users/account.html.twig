@@ -364,9 +364,9 @@
                                 <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
                                 {% for soul in user.twinoidImports %}
                                     {% if soul.main %}
-                                        <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
+                                        <div><img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
                                     {% else %}
-                                        <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope|replace({'www.': ''}) }}</i></div>
+                                        <div><img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <i>{{ soul.scope|replace({'www.': ''}) }}</i></div>
                                     {% endif %}
                                 {% endfor %}
                             {% else %} - {% endif %}
