@@ -293,9 +293,9 @@
                     {% if not in_town %}<button x-control="global" class="small inline hide-tags map_button map_button_left"><div>{% trans from 'game' %}Global{% endtrans %}</div></button>{% endif %}
                 </div>
                 <div class="float-right">
-                    <button x-control="plus"   class="small inline map_button map_button_icon map_button_right"><i class="fa fa-plus"></i></button>
+                    <button x-control="plus"   class="small inline map_button map_button_icon map_button_right"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /></button>
                     <button x-control="center" {% if default_zoom == 0 %}disabled{% endif %} class="small inline map_button map_button_icon map_button_right"><i class="fa fa-map-marker-alt"></i></button>
-                    <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline map_button map_button_icon map_button_right"><i class="fa fa-minus"></i></button>
+                    <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline map_button map_button_icon map_button_right"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}" /></button>
                     {% if map.routes|length > 0 %}
                         <button x-control="routes" class="small inline map_button map_button_right route_button"><div>{% trans from 'game' %}Routen{% endtrans %}</div></button>
                     {% endif %}

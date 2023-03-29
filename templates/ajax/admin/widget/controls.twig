@@ -346,7 +346,7 @@
                 </select>
             </div>
             <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'statuswidget','give')}}"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{'Status vergeben'|trans({}, 'admin')}}</div></button></div>
-            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'statuswidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Status entfernen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'statuswidget','take')}}"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}" /><div class="tooltip">{{'Status entfernen'|trans({}, 'admin')}}</div></button></div>
         </div>
     </div>
 {% endmacro %}
@@ -393,7 +393,7 @@
                 </select>
             </div>
             <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'rolewidget','give')}}"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{'Rolle vergeben'|trans({}, 'admin')}}</div></button></div>
-            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'rolewidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Rolle entfernen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'rolewidget','take')}}"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}" /><div class="tooltip">{{'Rolle entfernen'|trans({}, 'admin')}}</div></button></div>
         </div>
     </div>
 {% endmacro %}
@@ -438,7 +438,7 @@
             </div>
             <div class="padded cell grow-0 shrink-0"><button x-control="1"  id="{{ _self.gen_id(prefix,'pointwidget','give')}}"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{'Hinzufügen'|trans({}, 'admin')}}</div></button></div>
             <div class="padded cell grow-0 shrink-0"><button x-control="0"  id="{{ _self.gen_id(prefix,'pointwidget','set')}}"> <i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
-            <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'pointwidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'pointwidget','take')}}"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}" /><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
         </div>
     </div>
 {% endmacro %}
@@ -570,7 +570,7 @@
                 {{ citizen.home.prototype.label|trans({},'buildings') }}
             </div>
             <div class="padded cell grow-0 shrink-0">
-                <button x-dif="-1" id="{{ _self.gen_id(prefix,'homewidget','home-level-minus')}}"><i class="fa fa-minus"></i></button>
+                <button x-dif="-1" id="{{ _self.gen_id(prefix,'homewidget','home-level-minus')}}"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}" /></button>
             </div><div class="padded cell grow-0 shrink-0">
                 <button x-dif="1" id="{{ _self.gen_id(prefix,'homewidget','home-level-plus')}}"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /></button>
             </div>
@@ -587,7 +587,7 @@
                         <b>{{ existing_upgrade.prototype.label|trans({},'buildings') }}</b> <i>({{ existing_upgrade.level }})</i>
                     </div>
                     <div class="padded cell grow-0 shrink-0">
-                        <button x-dif="-1" {{ _self.gen_attr(prefix,'homewidget','home-upgrade-minus', existing_upgrade.id)}}><i class="fa fa-minus"></i></button>
+                        <button x-dif="-1" {{ _self.gen_attr(prefix,'homewidget','home-upgrade-minus', existing_upgrade.id)}}><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}" /></button>
                     </div><div class="padded cell grow-0 shrink-0">
                         <button x-dif="1" {{ _self.gen_attr(prefix,'homewidget','home-upgrade-plus', existing_upgrade.id)}}><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /></button>
                     </div>
@@ -677,7 +677,7 @@
         <div class="row-flex">
             <div class="padded cell grow-1 shrink-1"><label><input id="{{ _self.gen_id(prefix,'aliaswidget','alias-change')}}" type="text" placeholder="{{'Kein Alias ​​angegeben'|trans({}, 'admin')}}" value="{{ citizen.alias[2:] }}" /></label></div>
             <div class="padded cell grow-0 shrink-0"><button x-control="0"  id="{{ _self.gen_id(prefix,'aliaswidget','set')}}"> <i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
-            <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'aliaswidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'aliaswidget','take')}}"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}" /><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
         </div>
     </div>
 {% endmacro %}
