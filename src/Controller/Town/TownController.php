@@ -163,7 +163,7 @@ class TownController extends InventoryAwareController
     public function dashboard(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
-            return $this->redirect($this->generateUrl('game_newspaper'));
+            return $this->redirectToRoute('game_newspaper');
 
         $town = $this->getActiveCitizen()->getTown();
 
