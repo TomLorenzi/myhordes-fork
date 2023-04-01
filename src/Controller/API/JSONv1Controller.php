@@ -1312,27 +1312,8 @@ class JSONv1Controller extends CoreController {
             $fields = ['id', 'mapId', 'survival', 'name', 'mapName', 'season', 'phase', 'score', 'origin'];
         }
 
-        $mainAccount = null;
-        foreach ($user->getTwinoidImports() as $twinoidImport) {
-            if ($twinoidImport->getMain()) {
-                switch ($twinoidImport->getScope()) {
-                    case "www.hordes.fr":
-                        $mainAccount = 'fr';
-                        break;
-                    case "www.die2nite.com":
-                        $mainAccount = 'en';
-                        break;
-                    case "www.dieverdammten.de":
-                        $mainAccount = 'de';
-                        break;
-                    case "www.zombinoia.com":
-                        $mainAccount = 'es';
-                        break;
-                }
-            }
-        }
-
-        foreach ($user->getPastLifes() as $pastLife) {
+		/** @var CitizenRankingProxy $pastLife */
+		foreach ($user->getPastLifes() as $pastLife) {
             if ($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) {
                 continue;
             }
@@ -1343,7 +1324,8 @@ class JSONv1Controller extends CoreController {
             if(in_array('origin',$fields)){
                 $codeOrigin = '';
                 if($pastLife->getTown()->getImported()){
-                    $codeOrigin = $mainAccount . "-" .
+
+                    $codeOrigin = $pastLife->getImportLang() . "-" .
                         ($pastLife->getTown()->getSeason() ?
                             ($pastLife->getTown()->getSeason()->getNumber() === 0 ?
                                 $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber()) : 0);
