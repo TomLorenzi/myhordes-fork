@@ -111,6 +111,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     private ?int $importedHeroDaysSpent = null;
 
     #[ORM\ManyToOne(targetEntity: Changelog::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?Changelog $latestChangelog = null;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: ConnectionIdentifier::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]

@@ -35,17 +35,17 @@
             <div class="row">
                 <div class="padded cell rw-4 rw-sm-12 center">
                     <h5 class="hide-desktop">{{ 'Auf MyHordes erworbene Auszeichnungen'|trans({},'soul') }}</h5>
-                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_mh, points: points_mh, user: user, plain: true} %}
+                    <hordes-distinctions data-plain="1" data-source="mh" data-user="{{ user.id }}"></hordes-distinctions>
                 </div>
 
                 <div class="padded cell rw-4 rw-sm-12 center">
                     <h5 class="hide-desktop">{{ 'Importierte Auszeichnungen'|trans({},'soul') }}</h5>
-                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_import, points: points_import, user: user, plain: true} %}
+                    <hordes-distinctions data-plain="1" data-source="imported" data-user="{{ user.id }}"></hordes-distinctions>
                 </div>
 
                 <div class="padded cell rw-4 rw-sm-12 center">
                     <h5 class="hide-desktop">{{ 'Alte Auszeichnungen'|trans({},'soul') }}</h5>
-                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos_old, points: points_old, user: user, plain: true} %}
+                    <hordes-distinctions data-plain="1" data-source="old" data-user="{{ user.id }}"></hordes-distinctions>
                 </div>
             </div>
 

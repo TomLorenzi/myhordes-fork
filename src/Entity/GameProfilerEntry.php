@@ -3,9 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GameProfilerEntryRepository;
-use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PostPersistEventArgs;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\ORMException;
 
 #[ORM\Entity(repositoryClass: GameProfilerEntryRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -143,20 +142,19 @@ class GameProfilerEntry
         return $this;
     }
     /**
-     * @param LifecycleEventArgs $args
-     * @throws ORMException
+     * @param PostPersistEventArgs $args
      */
     #[ORM\PostPersist]
-    public function lifeCycle_postPersist(LifecycleEventArgs $args) : void
+    public function lifeCycle_postPersist(PostPersistEventArgs $args) : void
     {
         if ($this->town === null) {
             $this->setTown( $this->getTempTown()?->getRankingEntry() );
             $this->setTempTown( null );
 
-            if ($this->town === null) $args->getEntityManager()->remove($this);
-            else $args->getEntityManager()->persist($this);
+            if ($this->town === null) $args->getObjectManager()->remove($this);
+            else $args->getObjectManager()->persist($this);
 
-            $args->getEntityManager()->flush();
+            $args->getObjectManager()->flush();
         }
     }
 }

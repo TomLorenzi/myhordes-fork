@@ -9,6 +9,13 @@
     {% embed "ajax/game/town/door_tabs.html.twig" with {'door_section': door_section, 'has_battlement': has_battlement} %}
     {% endembed %}
 
+    <div class="row-flex wrap town-summary defense-detail">
+        <div class="padded cell rw-4 ellipsis row-header">{{'Stadtverteidigung'|trans({}, 'game')}} :</div>
+        <div class="padded cell rw-8 ellipsis row-detail">{{ def }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
+        <div class="padded cell rw-4 ellipsis row-header">{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</div>
+        <div class="padded cell rw-8 ellipsis row-detail">{{ zeds_today[1] }} - {{ zeds_today[2] }} <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
+    </div>
+
     <div class="help">
          {% if is_watcher %}
             <p>{{'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:'|trans({}, 'game')}}</p>
@@ -43,6 +50,7 @@
             {% for watcher in watchers %}
             <div class="row small {% if watcher.citizen == me %} me{% endif %}">
             <div class="cell padded rw-3 center ellipsis">
+                <img src="{{ asset('build/images/professions/' ~ watcher.citizen.profession.icon ~ '.gif') }}" alt="{{ watcher.citizen.profession.label|trans({},'items') }}"> 
                 <a href="#" x-ajax-href="{{ path('town_visit', {id: watcher.citizen.id}) }}">{{watcher.citizen.name}}</a>
                 <div class="tooltip normal">{{ watcher.citizen.name }}</div>
             </div>

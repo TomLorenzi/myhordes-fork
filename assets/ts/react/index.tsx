@@ -1,4 +1,5 @@
 import {Global} from "../defaults";
+import {HordesTownCreator} from "./town-creator/Wrapper";
 
 declare var $: Global;
 
@@ -75,6 +76,7 @@ export default class Components {
     private io_registry: ReactIORegistry = {};
 
     public static vitalize(parent: HTMLElement) {
+        $.ajax.load_dynamic_modules( parent );
         let tooltips = parent.querySelectorAll('div.tooltip');
         for (let t = 0; t < tooltips.length; t++)
             $.html.handleTooltip( tooltips[t] as HTMLElement );
@@ -172,5 +174,59 @@ export default class Components {
         if ((parent as HTMLElement).matches(':not(:defined)'))
             customElements.whenDefined(parent.localName).then(deferrable);
         else deferrable();
+    }
+}
+
+export interface ShimLoader {
+    mount(HTMLElement,object): void,
+    unmount(HTMLElement): void,
+}
+
+export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
+
+    private initialized: ReactType|null = null;
+    private data: object = {}
+
+    protected abstract generateProps(): object|null;
+    protected abstract generateInstance(): ReactType;
+    protected static observedAttributeNames(): string[] { return []; };
+
+    private extractData() {
+        const extracted = this.generateProps();
+        this.data = extracted ?? {}
+        return extracted !== null;
+    }
+
+
+    private initialize() {
+        if (this.initialized || !this.isConnected) return;
+        if (this.extractData()) {
+            this.initialized = this.generateInstance();
+            this.initialized.mount(this, this.data);
+        }
+    }
+
+    connectedCallback() {
+        this.initialize();
+        if (this.extractData()) this.initialized?.mount(this, this.data);
+    }
+
+    disconnectedCallback() {
+        this.initialized?.unmount(this);
+        this.initialized = null;
+        this.data = {};
+    }
+
+    static get observedAttributes() { return this.observedAttributeNames(); }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (oldValue === newValue) return;
+        if (this.extractData()) this.initialized?.mount(this, this.data);
+    }
+
+    public constructor() {
+        super();
+        this.addEventListener('x-react-degenerate', () => this.initialized?.unmount(this));
+        this.initialize();
     }
 }

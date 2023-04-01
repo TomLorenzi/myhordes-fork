@@ -151,7 +151,7 @@
                         </div>
                         <div class="cell-small padded rw-1 rw-sm-2 center">
                             {% if user.activeCitizen %}
-                                <a target="_blank" title="{{ user.activeCitizen.town.name }}" href="{{ path('admin_town_explorer', {id: user.activeCitizen.town.id}) }}"><img alt="[X]" src="{{ asset('build/images/icons/tickOn.gif') }}"/><div class="tooltip">{{ user.activeCitizen.town.name }}</div></a>
+                                <a target="_blank" title="{{ user.activeCitizen.town.name }}" href="{{ path('admin_town_dashboard', {id: user.activeCitizen.town.id}) }}"><img alt="[X]" src="{{ asset('build/images/icons/tickOn.gif') }}"/><div class="tooltip">{{ user.activeCitizen.town.name }}</div></a>
                             {% else %}
                                 <img alt="[ ]" src="{{ asset('build/images/icons/tickOff.gif') }}"/>
                             {% endif %}

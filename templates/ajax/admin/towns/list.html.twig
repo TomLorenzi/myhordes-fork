@@ -69,7 +69,7 @@
                             </div>
                         {% endif %}
                         <div class="cell padded rw-3 rw-sm-4 right">
-                            <button x-ajax-href="{{ path('admin_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
+                            <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
                         </div>
                     </div>
                 {% endfor %}

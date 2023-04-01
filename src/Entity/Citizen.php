@@ -5,9 +5,8 @@ namespace App\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PostPersistEventArgs;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\ORMException;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\CitizenRepository')]
 #[ORM\HasLifecycleCallbacks]
@@ -844,11 +843,10 @@ class Citizen
         return $this;
     }
     /**
-     * @param LifecycleEventArgs $args
-     * @throws ORMException
+     * @param PostPersistEventArgs $args
      */
     #[ORM\PostPersist]
-    public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args)
+    public function lifeCycle_createCitizenRankingProxy(PostPersistEventArgs $args): void
     {
         $args->getObjectManager()->persist( CitizenRankingProxy::fromCitizen($this) );
         $args->getObjectManager()->flush();

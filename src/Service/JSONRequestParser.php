@@ -55,6 +55,13 @@ class JSONRequestParser
         return is_array($v) ? $v : $default;
     }
 
+    public function get_dateTime( string $key, \DateTimeInterface $default = null): ?\DateTimeInterface {
+        if (!$this->has($key)) return $default;
+        try {
+            return new \DateTime($this->get($key));
+        } catch (\Throwable) { return $default; }
+    }
+
     protected function bool_to_int($v): mixed {
         if ($v === true) return 1;
         elseif ($v === false) return 0;

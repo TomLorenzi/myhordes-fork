@@ -26,9 +26,9 @@
                       x-ajax-href="{{ path('soul_heroskill') }}">{{ 'Alle freigeschalteten Vorteile anzeigen'|trans({}, 'game') }}</span>
             </div>
         </div>
-        <div class="cell rw-5 rw-sm-12 center">
-            {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, points: points, user: app.user} %}
-            <br />
+        <div class="cell rw-5 rw-sm-12 center padded ">
+            <hordes-distinctions data-plain="0" data-source="soul" data-user="{{ app.user.id }}" data-interactive="1"></hordes-distinctions>
+            <div class="help small"><span class="small">{{ 'Hinweis: Du kannst auswählen, welche 3 Auszeichnungen du anderen Spielern präsentieren möchtest, indem du eine deiner Auszeichnungen in die dafür vorgesehene Box ziehst.'|trans({}, 'soul') }}</span></div>
             <a href="#" class="small" x-ajax-href="{{ path('soul_pictos_all', {id: app.user.id}) }}" >{{ 'Details'|trans({},'soul') }}</a>
         </div>
         <div class="cell padded rw-7 rw-sm-12">
@@ -80,34 +80,36 @@
                             <i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i>
                         </p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
 
-            {% if features is not empty %}
-                <ul class="inventory soul">
-                    <li class="title">{{ 'Spiritueller Rucksack'|trans({},'game') }}</li>
-                    {% for feature in features %}
-                        <li class="item">
-                            <span class="item-icon"><img alt=""
-                                                         src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}"/></span>
-                            <div class="tooltip normal">
-                                <h1>{{ feature.prototype.label|trans({},'items') }} <img alt=""
-                                                                                         src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}"/>
-                                </h1>
-                                {{ feature.prototype.description|trans({},'items') }}
-                                <hr>
-                                <span class="small">
-                                    {{ 'Freigeschaltet:'|trans({},'game') }}
-                                    <b>
-                                        {% if (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationNone')) %}{{ 'Dauerhaft!'|trans({},'game') }}
-                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationSeason')) %}{{ 'Für diese Saison'|trans({},'game') }}
-                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis {date}'|trans({'{date}': feature.timestamp|format_datetime('short', 'none')},'game') }}
-                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}
-                                        {% else %}???{% endif %}
-                                    </b>
-                                </span>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+
+            <ul class="inventory soul">
+                <li class="title">{{ 'Spiritueller Rucksack'|trans({},'game') }}</li>
+                {% if features is not empty %}
+                    <li class="category inline-block"><em class="small">{{ 'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...'|trans({}, 'game') }}</em></li>
+                {% endif %}
+                {% for feature in features %}
+                    <li class="item">
+                        <span class="item-icon"><img alt=""
+                                                     src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}"/></span>
+                        <div class="tooltip normal">
+                            <h1>{{ feature.prototype.label|trans({},'items') }} <img alt=""
+                                                                                     src="{{ asset('build/images/pictos/' ~ feature.prototype.icon ~ '.gif') }}"/>
+                            </h1>
+                            {{ feature.prototype.description|trans({},'items') }}
+                            <hr>
+                            <span class="small">
+                                {{ 'Freigeschaltet:'|trans({},'game') }}
+                                <b>
+                                    {% if (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationNone')) %}{{ 'Dauerhaft!'|trans({},'game') }}
+                                    {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationSeason')) %}{{ 'Für diese Saison'|trans({},'game') }}
+                                    {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis {date}'|trans({'{date}': feature.timestamp|format_datetime('short', 'none')},'game') }}
+                                    {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}
+                                    {% else %}???{% endif %}
+                                </b>
+                            </span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
 
             {% if app.user.activeCitizen is not null and app.user.activeCitizen.alive %}
                 <div class="current">

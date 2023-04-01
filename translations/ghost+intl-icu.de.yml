@@ -268,3 +268,8 @@ Laden: Laden
 Löschen: Löschen
 'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?'
 'Deine Vorlage wurde erfolgreich gelöscht.': 'Deine Vorlage wurde erfolgreich gelöscht.'
+'Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.': 'Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.'
+'Nördlicher Abstand': 'Nördlicher Abstand'
+'Südlicher Abstand': 'Südlicher Abstand'
+'Westlicher Abstand': 'Westlicher Abstand'
+'Östlicher Abstand': 'Östlicher Abstand'

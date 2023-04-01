@@ -5,9 +5,13 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
+use App\Entity\CitizenRole;
+use App\Entity\CitizenStatus;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
+use App\Entity\PictoPrototype;
 use App\Entity\User;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -184,4 +188,81 @@ class AdminActionController extends CustomAbstractController
 
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
     }
+
+	public function getOrderedItemPrototypes($lang): array {
+		if (apcu_enabled()) {
+			$itemPrototypes = apcu_fetch("item_prototypes_" . $lang);
+			if (false === $itemPrototypes) {
+				$itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+				usort($itemPrototypes, function ($a, $b) use($lang) {
+					return strcmp($this->translator->trans($a->getLabel(), [], 'items', $lang), $this->translator->trans($b->getLabel(), [], 'items', $lang));
+				});
+				apcu_store("item_prototypes_" . $lang, $itemPrototypes);
+			}
+		} else {
+			$itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+			usort($itemPrototypes, function ($a, $b) use($lang) {
+				return strcmp($this->translator->trans($a->getLabel(), [], 'items', $lang), $this->translator->trans($b->getLabel(), [], 'items', $lang));
+			});
+		}
+		return $itemPrototypes;
+	}
+
+	public function getOrderedCitizenStatus($lang): array {
+		if (apcu_enabled()) {
+			$citizenStati = apcu_fetch("citizen_status_" . $lang);
+			if (false === $citizenStati) {
+				$citizenStati = $this->entity_manager->getRepository(CitizenStatus::class)->findAll();
+				usort($citizenStati, function ($a, $b) use ($lang) {
+					return strcmp($this->translator->trans($a->getLabel(), [], 'game', $lang), $this->translator->trans($b->getLabel(), [], 'game', $lang));
+				});
+				apcu_store("citizen_status_" . $lang, $citizenStati);
+			}
+		} else {
+			$citizenStati = $this->entity_manager->getRepository(CitizenStatus::class)->findAll();
+			usort($citizenStati, function ($a, $b) use ($lang) {
+				return strcmp($this->translator->trans($a->getLabel(), [], 'game', $lang), $this->translator->trans($b->getLabel(), [], 'game', $lang));
+			});
+		}
+		return $citizenStati;
+	}
+
+	public function getOrderedCitizenRoles($lang): array {
+		if (apcu_enabled()) {
+			$citizenRoles = apcu_fetch("citizen_roles_" . $lang);
+			if (false === $citizenRoles) {
+				$citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+				usort($citizenRoles, function ($a, $b) use ($lang) {
+					return strcmp($this->translator->trans($a->getLabel(), [], 'game', $lang), $this->translator->trans($b->getLabel(), [], 'game', $lang));
+				});
+				apcu_store("citizen_roles_" . $lang, $citizenRoles);
+			}
+		} else {
+			$citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+
+			usort($citizenRoles, function ($a, $b) use ($lang) {
+				return strcmp($this->translator->trans($a->getLabel(), [], 'game', $lang), $this->translator->trans($b->getLabel(), [], 'game', $lang));
+			});
+		}
+		return $citizenRoles;
+	}
+
+	public function getOrderedPictoPrototypes($lang): array {
+		if (apcu_enabled()) {
+			$pictoProtos = apcu_fetch("pictos_prototypes_" . $lang);
+			if (false === $pictoProtos) {
+				$pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+				usort($pictoProtos, function ($a, $b) use ($lang) {
+					return strcmp($this->translator->trans($a->getLabel(), [], 'game', $lang), $this->translator->trans($b->getLabel(), [], 'game', $lang));
+				});
+				apcu_store("pictos_prototypes_" . $lang, $pictoProtos);
+			}
+		} else {
+			$pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+			usort($pictoProtos, function ($a, $b) use ($lang) {
+				return strcmp($this->translator->trans($a->getLabel(), [], 'game', $lang), $this->translator->trans($b->getLabel(), [], 'game', $lang));
+			});
+		}
+		return $pictoProtos;
+	}
 }

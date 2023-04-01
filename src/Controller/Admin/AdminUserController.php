@@ -33,6 +33,7 @@ use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
+use App\Entity\UserSwapPivot;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
 use App\Service\AdminHandler;
@@ -245,6 +246,7 @@ class AdminUserController extends AdminActionController
             'spon'          => $this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]),
             'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
             'spon_inactive' => array_filter( $all_sponsored, fn(UserSponsorship $s) =>  $this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') || !$s->getUser()->getValidated() ),
+            'swap_pivots' => $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['principal' => $user])
         ]));
     }
 
@@ -425,7 +427,7 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
                 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-                'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'initiate_pw_reset', 'name_manual', 'name_auto', 'herodays',
+                'shadow', 'whitelist', 'unwhitelist', 'link', 'unlink', 'etwin_reset', 'initiate_pw_reset', 'name_manual', 'name_auto', 'herodays',
                 'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history',
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -695,6 +697,32 @@ class AdminUserController extends AdminActionController
                         if ($wl->getUsers()->count() < 2) $this->entity_manager->remove($wl);
                         else $this->entity_manager->persist($wl);
                 }
+                break;
+
+            case 'link':
+                $id = (int)$param;
+                if ($id === $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $other_user = $this->entity_manager->getRepository(User::class)->find($id);
+                if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $existing_pivot = $this->entity_manager->getRepository(UserSwapPivot::class)->findOneBy(['principal' => $user, 'secondary' => $other_user]);
+                if ($existing_pivot) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $this->entity_manager->persist( (new UserSwapPivot())
+                    ->setPrincipal( $user )->setSecondary( $other_user )
+                );
+                break;
+
+            case 'unlink':
+                $id = (int)$param;
+                $other_user = $this->entity_manager->getRepository(User::class)->find($id);
+                if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $existing_pivot = $this->entity_manager->getRepository(UserSwapPivot::class)->findOneBy(['principal' => $user, 'secondary' => $other_user]);
+                if (!$existing_pivot) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $this->entity_manager->remove( $existing_pivot );
                 break;
 
             //'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
@@ -1358,11 +1386,6 @@ class AdminUserController extends AdminActionController
 
         return $this->render( 'ajax/admin/users/pictos.html.twig', $this->addDefaultTwigArgs("admin_users_pictos", [
             'user' => $user,
-            'pictos' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user),
-            'pictos_all' => $this->entity_manager->getRepository(Picto::class)->findByUser($user),
-            'pictos_mh' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false),
-            'pictos_im' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true),
-            'pictos_old' => $this->entity_manager->getRepository(Picto::class)->findOldByUser($user),
             'pictoPrototypes' => $this->isGranted("ROLE_ADMIN", $user) ? $protos : array_filter($protos, fn(PictoPrototype $p) => $p->getCommunity()),
             'features' => $features,
             'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll(),

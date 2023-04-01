@@ -70,6 +70,7 @@
                                                 <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
                                             {% endif %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>
+                                            <option value="{{ url('admin_users_account_manage', {action: 'link', id: user.id}) }}" x-confirm="LINK" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Sekundäraccount verknüpfen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         {% if user.avatar is not null %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'clear_avatar', id: user.id}) }}" x-confirm="CLEAR AVATAR">{{ 'Avatar entfernen'|trans({},'admin') }}</option>
@@ -404,6 +405,7 @@
                                     {% endfor %}
                                 </div>
                             {% endif %}
+
                             <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                                 {{ 'Multi-Account Whitelist'|trans({}, 'admin') }}
                             </div>
@@ -433,6 +435,20 @@
                                             </div>
                                         {% endif %}
                                     {% endfor %}
+                                {% endfor %}
+                            </div>
+
+                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                {{ 'Sekundäre Accounts'|trans({}, 'admin') }}
+                            </div>
+                            <div class="cell padded rw-9 rw-sm-12">
+                                {% if swap_pivots|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                                {% for pivot in swap_pivots %}
+                                    {% if pivot.secondary.id != user.id %}
+                                        <div>
+                                            {{ pivot.secondary.name }} <span class="pointer" data-unlink="{{ pivot.secondary.id }}"><i class="fa fa-trash"></i></span>
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         {% endif %}
@@ -497,6 +513,12 @@
             });
             $.html.addEventListenerAll('[x-unwhitelist]', 'click', function(e,elem) {
                 $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'unwhitelist'}) }}', {param: elem.getAttribute('x-unwhitelist')},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
+                    } );
+            });
+            $.html.addEventListenerAll('[data-unlink]', 'click', function(e,elem) {
+                $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'unlink'}) }}', {param: elem.dataset.unlink},
                     function () {
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );
