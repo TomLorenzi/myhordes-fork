@@ -470,14 +470,17 @@ x-message {
       }
     }
 
-    & #modeCommand {
+    & #modeCommand, & #pivotSwapCommand {
       position: absolute;
-      top: 10px;
+
       margin-left: 60px;
       font-size: 8pt;
       line-height: 10pt;
       width: 110px;
-      z-index: 997;
+
+
+      &#modeCommand { top: 10px; z-index: 997; }
+      &#pivotSwapCommand { top: 38px; z-index: 996; }
 
       & h1 {
         margin: 0;

@@ -315,6 +315,7 @@ class WebController extends CustomAbstractController
     /**
      * @Route("/r/ach", name="revert_ach_language")
      * @GateKeeperProfile("skip")
+     * @param SessionInterface $session
      * @return Response
      */
     public function rescue_mode_lang_ach( SessionInterface $session ): Response
@@ -324,6 +325,30 @@ class WebController extends CustomAbstractController
 
         if (!($user = $this->getUser())) return $this->redirect($this->generateUrl('home'));
         
+        if ($user->getLanguage() === 'ach') {
+            $user->setLanguage($this->getUserLanguage(true));
+
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+            $session->set('_user_lang',$user->getLanguage());
+        }
+
+        return $this->redirect($this->generateUrl('home'));
+    }
+
+    /**
+     * @Route("/r/pivot/{id}", name="pivot_user_account")
+     * @GateKeeperProfile("skip")
+     * @param SessionInterface $session
+     * @return Response
+     */
+    public function pivot_user_account( SessionInterface $session ): Response
+    {
+        if (!$this->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('home'));
+
+        if (!($user = $this->getUser())) return $this->redirect($this->generateUrl('home'));
+
         if ($user->getLanguage() === 'ach') {
             $user->setLanguage($this->getUserLanguage(true));
 
