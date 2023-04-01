@@ -1033,7 +1033,7 @@ Beschreibung: Detalles
 'Horde der Zombies': Turba de Zombies
 Mark.: Marca.
 'Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.': 'Estás en un pueblo privado. Algunas reglas especiales se aplican a este tipo de pueblos. '
-Einrichtung: Instalaciones
+Einrichtung: Decoración
 'Dies ist eine offizielle Nachricht.': 'Este es un mensaje oficial.'
 'Lade Forum...': 'Cargando foro...'
 'Das folgende Bauprojekt wurde empfohlen:': 'El pueblo propone construir: '
@@ -2384,3 +2384,4 @@ Stadt/Stadttor: Pueblo/Portal
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'Esta acción está bloqueada durante <strong>15 minutos aproximadamente</strong> (protección anti-abusos).<hr/><strong>Atención: Si intentas repetir esta acción al final del plazo, ¡la duración del bloqueo será prolongada!</strong>'
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'No puedes dejar estos objetos aquí.'
 Tarnexperte: Amo del Camuflaje
+'Einrichtung (Tab)': 'Instalaciones'
