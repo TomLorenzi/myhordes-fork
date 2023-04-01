@@ -821,11 +821,11 @@ export default class HTML {
                 if (setting === '') {
                     renderTableRows(sorted_rows = [...rows].sort(sortInvert ? column.sortDescFunction : column.sortAscFunction));
                     elem.dataset['sortSetting'] = '1';
-                    elem.innerHTML = (sortInvert ? '<i class="fa fa-caret-down"></i>' : '<i class="fa fa-caret-up"></i>') + '&nbsp;' + elem.dataset['originalText'];
+                    elem.innerHTML = (sortInvert ? '<i class="h-icon caret-down"></i>' : '<i class="h-icon caret-up"></i>') + '&nbsp;' + elem.dataset['originalText'];
                 } else if (setting === '1') {
                     renderTableRows(sorted_rows = [...rows].sort(sortInvert ? column.sortAscFunction : column.sortDescFunction));
                     elem.dataset['sortSetting'] = '-1';
-                    elem.innerHTML = (sortInvert ? '<i class="fa fa-caret-up"></i>' : '<i class="fa fa-caret-down"></i>') + '&nbsp;' + elem.dataset['originalText'];
+                    elem.innerHTML = (sortInvert ? '<i class="h-icon caret-up"></i>' : '<i class="h-icon caret-down"></i>') + '&nbsp;' + elem.dataset['originalText'];
                 } else {
                     renderTableRows(sorted_rows = [...rows]);
                     elem.dataset['sortSetting'] = '';
