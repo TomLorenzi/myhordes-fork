@@ -159,8 +159,10 @@
     }
   }
   #apps h1 img { height: 32px; width: 32px; image-rendering: pixelated }
-  #modeCommand {
-    height: 36px !important; top: 60px !important; left: 10px; margin-left: 0 !important;
+  #modeCommand, #pivotSwapCommand {
+    height: 36px !important; left: 10px; margin-left: 0 !important;
+    &#modeCommand { top: 60px !important;  }
+    &#pivotSwapCommand { top: 96px !important;  }
     h1 { padding: 4px !important; }
   }
   #wrapper > #content #apps #apps-list ul li.app-external { width: 100% !important; }

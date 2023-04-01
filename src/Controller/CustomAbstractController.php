@@ -8,6 +8,7 @@ use App\Entity\ExternalApp;
 use App\Entity\GlobalPoll;
 use App\Entity\Quote;
 use App\Entity\User;
+use App\Entity\UserSwapPivot;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\InventoryHandler;
@@ -83,6 +84,7 @@ class CustomAbstractController extends CustomAbstractCoreController {
 
         $data['adminActions'] = AdminActionController::getAdminActions();
         $data['comActions']   = AdminActionController::getCommunityActions();
+        $data['swapPivots']   = $this->getUser() ? $this->entity_manager->getRepository(UserSwapPivot::class)->findBy( ['principal' => $this->getUser()] ) : [];
 
         $data["poll"] = array_values(array_filter(
                 $this->entity_manager->getRepository(GlobalPoll::class)->findByState(false, true, false),
