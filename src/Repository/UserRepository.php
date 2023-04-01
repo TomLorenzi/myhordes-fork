@@ -6,6 +6,7 @@ use App\Entity\RememberMeTokens;
 use App\Entity\Season;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Enum\UserAccountType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
@@ -67,24 +68,28 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         } catch (NonUniqueResultException $e) { return null; }
     }
 
-    public function findOneByNameOrDisplayName(string $value, bool $filter_special_users = true, $take_first = false): ?User
+    /**
+     * @param string $value
+     * @param bool|UserAccountType[] $filter_special_users
+     * @param bool $take_first
+     * @return User|null
+     */
+    public function findOneByNameOrDisplayName(string $value, bool|array $filter_special_users = true, bool $take_first = false): ?User
     {
         try {
-            return $filter_special_users
-                ? $this->createQueryBuilder('u')
-                    ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
-                    ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
-                    ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
-                    ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
-                    ->andWhere('u.email != u.name')
-                    ->orderBy('u.id','ASC')
-                    ->setMaxResults( $take_first ? 1 : null )
-                    ->getQuery()->getOneOrNullResult()
-                : $this->createQueryBuilder('u')
-                    ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
-                    ->orderBy('u.id','ASC')
-                    ->setMaxResults( $take_first ? 1 : null )
-                    ->getQuery()->getOneOrNullResult();
+            $qb = $this->createQueryBuilder('u')
+                ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value);
+
+            if ($filter_special_users === true) $filter_special_users = UserAccountType::filterable();
+            elseif ($filter_special_users === false) $filter_special_users = [];
+
+            foreach ($filter_special_users as $filter)
+                if ($filter->canBeFiltered())
+                    $filter->applyFilter( $qb );
+
+            return $qb->orderBy('u.id','ASC')
+                ->setMaxResults( $take_first ? 1 : null )
+                ->getQuery()->getOneOrNullResult();
         } catch (NonUniqueResultException $e) { return null; }
     }
 
@@ -93,21 +98,21 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
      * @param bool $filter_special_users
      * @return int
      */
-    public function countByNameOrDisplayName(string $value, bool $filter_special_users = true): int
+    public function countByNameOrDisplayName(string $value, bool|array $filter_special_users = true): int
     {
         try {
-            return $filter_special_users
-                ? $this->createQueryBuilder('u')
-                    ->select('COUNT(u.id)')
-                    ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
-                    ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
-                    ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
-                    ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
-                    ->andWhere('u.email != u.name')
-                    ->getQuery()->getSingleScalarResult()
-                : $this->createQueryBuilder('u')
-                    ->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value)
-                    ->getQuery()->getSingleScalarResult();
+            $qb = $this->createQueryBuilder('u')
+                ->select('COUNT(u.id)')->andWhere('u.name = :val OR u.displayName = :val')->setParameter('val', $value);
+
+            if ($filter_special_users === true) $filter_special_users = UserAccountType::filterable();
+            elseif ($filter_special_users === false) $filter_special_users = [];
+
+            foreach ($filter_special_users as $filter)
+                if ($filter->canBeFiltered())
+                    $filter->applyFilter( $qb );
+
+            return $qb->getQuery()->getSingleScalarResult();
+
         } catch (\Throwable $t) { return 0; }
     }
 
@@ -126,18 +131,22 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
      * @param string $name
      * @param int $limit
      * @param array $skip
+     * @param bool|UserAccountType[] $filter_special_users
      * @return User[] Returns an array of User objects
      */
-    public function findBySoulSearchQuery(string $name, int $limit = 10, array $skip = [])
+    public function findBySoulSearchQuery(string $name, int $limit = 10, array $skip = [], bool|array $filter_special_users = true): array
     {
         $skip = array_filter(array_map( fn($u) => is_a($u, User::class) ? $u->getId() : $u, $skip));
 
+        if ($filter_special_users === true) $filter_special_users = UserAccountType::filterable();
+        elseif ($filter_special_users === false) $filter_special_users = [];
+
         $qb = $this->createQueryBuilder('u')
-            ->andWhere('u.name LIKE :val OR u.displayName LIKE :val')->setParameter('val', "%{$name}%")
-            ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
-            ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
-            ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
-            ->andWhere('u.email != u.name');
+            ->andWhere('u.name LIKE :val OR u.displayName LIKE :val')->setParameter('val', "%{$name}%");
+
+        foreach ($filter_special_users as $filter)
+            if ($filter->canBeFiltered())
+                $filter->applyFilter( $qb );
 
         if (!empty($skip)) $qb->andWhere('u.id NOT IN (:skip)')->setParameter('skip', $skip);
         if ($limit > 0) $qb->setMaxResults($limit);
