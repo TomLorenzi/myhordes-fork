@@ -11,6 +11,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\TownClass;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
+use App\Enum\UserAccountType;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
@@ -89,10 +90,15 @@ class UserSearchController extends CustomAbstractCoreController
 
         $searchSkip = $this->build_search_skip_list( $parser );
 
+        $filters = match ( $parser->trimmed('context') ) {
+            'forum-search' => UserAccountType::usable(),
+            default => true
+        };
+
         $limit = $parser->get_int('limit', -1);
         if ($limit === 0) return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
 
-        $users = $em->getRepository(User::class)->findBySoulSearchQuery($searchName, $parser->get_int('limit', -1), $searchSkip);
+        $users = $em->getRepository(User::class)->findBySoulSearchQuery($searchName, $parser->get_int('limit', -1), $searchSkip, $filters);
 
         $aliased_users = [];
         if ($parser->get_int('alias', false) && $town = $this->getUser()->getActiveCitizen()?->getTown())
@@ -120,6 +126,11 @@ class UserSearchController extends CustomAbstractCoreController
 
         $searchSkip = $this->build_search_skip_list( $parser );
 
+        $filters = match ( $parser->trimmed('context') ) {
+            'forum-search' => UserAccountType::usable(),
+            default => true
+        };
+
         $limit = $parser->get_int('limit', -1);
         if ($limit === 0) return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
 
@@ -127,7 +138,7 @@ class UserSearchController extends CustomAbstractCoreController
         $users = [];
         foreach ($searchNames as $searchName) {
             $trimmed = trim($searchName);
-            $r = mb_strlen($trimmed) >= 3 ? $em->getRepository(User::class)->findOneByNameOrDisplayName($trimmed) : null;
+            $r = mb_strlen($trimmed) >= 3 ? $em->getRepository(User::class)->findOneByNameOrDisplayName($trimmed, $filters) : null;
             if ($r && !in_array($r->getId(), $searchSkip)) $users[] = $r;
         }
 
