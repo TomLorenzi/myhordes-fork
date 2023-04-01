@@ -413,7 +413,8 @@ class CrowService {
         if ($endpoint) {
 
             $id = md5($class . '##' . $object->getId() . "##" . $report->getId());
-            $report_path = "{$this->report_path}/{$id}/discord";
+            $report_dir = "{$this->report_path}/{$id}";
+            $report_path = "{$report_dir}/discord";
 
             $user = match ( $class ) {
                 Post::class => $object->getOwner(),
@@ -453,8 +454,8 @@ class CrowService {
                         Post::class, PrivateMessage::class, GlobalPrivateMessage::class =>
                         strip_tags(
                             preg_replace(
-                                ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/'],
-                                ["\n", '${1}:', '[**', '**]'],
+                                ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/', '/<a href="(.*?)">(.*?)<\/a>/'],
+                                ["\n", '${1}:', '[**', '**]', '${2} (${1})'],
                                 $html->prepareEmotes( $object->getText())
                             )
                         ),
@@ -513,6 +514,7 @@ class CrowService {
                     return;
                 }
 
+                mkdir( $report_dir, recursive: true );
                 file_put_contents( $report_path, "".time() );
             }
 
