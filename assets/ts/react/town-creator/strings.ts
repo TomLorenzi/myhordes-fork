@@ -19,6 +19,8 @@ export type TranslationStrings = {
         negate: string
 
 		incorrect_fields: string
+
+        delete_icon: string
     }
 
     head: {

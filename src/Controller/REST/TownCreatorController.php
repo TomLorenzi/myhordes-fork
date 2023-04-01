@@ -69,6 +69,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'notice' => $this->translator->trans('Achtung!', [], 'ghost'),
                     'negate' => $this->translator->trans('Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.', [], 'ghost'),
                     'incorrect_fields' => $this->translator->trans('Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.', [], 'ghost'),
+                    'delete_icon' => $asset->getUrl( "build/images/icons/small_remove.gif" )
                 ],
 
                 'head' => [
