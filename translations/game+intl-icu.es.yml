@@ -233,7 +233,7 @@ Kater: Resaca
 'Verwundung - Auge': 'Herido: Ojo'
 'Verwundung - Fuß': 'Herido: Pie'
 Ghul: '¡Mutante!'
-Bandagiert: Convaleciente
+Bandagiert: Vendado
 'Abgelegenes Haus': 'Casa de un habitante'
 'Albi Supermarkt': 'Tienda Don Chicho'
 'Alte Höhle': 'Cueva'
@@ -922,7 +922,7 @@ Seelenpunkte: Puntos de Alma
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'Cantidad de Puntos de Alma que has ganado en tus reencarnaciones.'
 "Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!": "¡Uno menos! El cadáver de † {disposed} ha sido echado fuera por {citizen}."
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': '{citizen} ha usado agua para quemar el cuerpo de † {disposed}.'
-'{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': 'El habitante {citizen} ha hecho llover y ha matado a {kills} Zombies.'
+'{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': 'El Chamán {citizen} ha hecho llover y ha matado a {kills} Zombies.'
 'Der Bürger {citizen} hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt {items}.': '¡El habitante {citizen} ha descubierto un escondite de objetos (tal vez de un desterrado)! Contenía: {items}.'
 Tipp-Ex: Manipulador
 'Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)': 'Te permite borrar 2 líneas de cualquier registro durante una partida (haz clic en el icono junto a la línea que deseas eliminar.).'
