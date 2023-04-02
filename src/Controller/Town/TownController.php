@@ -42,8 +42,11 @@ use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
 use App\Enum\ZoneActivityMarkerType;
+use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
+use App\Event\Game\Town\Basic\Well\WellExtractionExecuteEvent;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
+use App\Service\EventFactory;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -62,7 +65,11 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -946,11 +953,12 @@ class TownController extends InventoryAwareController
      * @Route("api/town/well/item", name="town_well_item_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
-     * @param ItemFactory $factory
-     * @param BankAntiAbuseService $ba
+     * @param EventFactory $e
      * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, BankAntiAbuseService $ba): Response {
+    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, EventFactory $e, EventDispatcherInterface $dispatcher): Response {
         $direction = $parser->get('direction', '');
 
         if (in_array($direction, ['up','down'])) {
@@ -960,52 +968,25 @@ class TownController extends InventoryAwareController
 
             $pump = $this->town_handler->getBuilding($town, 'small_water_#00', true);
 
-            $limit = $pump ? ($town->getChaos() ? 3 : 2) : 1;
             if ($direction == 'up') {
-                if ($town->getWell() <= 0) return AjaxResponse::error(self::ErrorWellEmpty);
 
-                $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeWell);
+                $dispatcher->dispatch( $checkEvent = $e->gameInteractionEvent( WellExtractionCheckEvent::class )->setup( 1 ) );
 
-                if ($this->getActiveCitizen()->getBanished() && $counter->getCount() >= 1) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableBanished);
-                if ($counter->getCount() >= $limit) return AjaxResponse::error(self::ErrorWellLimitHit);
+                if ($checkEvent->markModified()) $this->entity_manager->flush();
 
-                $inv_target = $citizen->getInventory();
-                $inv_source = null;
-                $item = $factory->createItem( 'water_#00' );
+                if (!$checkEvent->hasError())
+                    $dispatcher->dispatch( $executeEvent = $e->gameInteractionEvent( WellExtractionExecuteEvent::class )->setup( $checkEvent ) );
+                else $executeEvent = null;
 
-                if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen )) {
-                    $ba->increaseBankCount($citizen);
-                    $this->entity_manager->flush();
-                    return AjaxResponse::error(InventoryHandler::ErrorBankLimitHit);
-                }
+                if ($executeEvent?->markModified()) $this->entity_manager->flush();
 
-                if (($error = $handler->transferItem(
-                    $citizen,
-                    $item,$inv_source, $inv_target
-                )) === InventoryHandler::ErrorNone) {
-                    if ($counter->getCount() > 0) {
-                        $flash = $this->translator->trans("Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...", ['{item}' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
-                        $ba->increaseBankCount( $citizen );
-                    } else {
-                        $flash = $this->translator->trans("Du hast deine tägliche Ration erhalten: {item}", ['{item}' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
-                    }
-
-                    $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
-                    $counter->increment();
-                    $town->setWell( $town->getWell()-1 );
-                    try {
-                        $this->entity_manager->persist($item);
-                        $this->entity_manager->persist($town);
-                        $this->entity_manager->persist($citizen);
-                        $this->entity_manager->persist($counter);
-                        $this->entity_manager->flush();
-                    } catch (Exception $e) {
-                        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-                    }
-
+                foreach (array_merge( $checkEvent->getMessages(), $executeEvent?->getMessages() ?? [] ) as $flash)
                     $this->addFlash('notice', $flash);
-                    return AjaxResponse::success();
-                } else return AjaxResponse::error($error);
+
+                if ($checkEvent->hasError() || $executeEvent?->hasError())
+                    return AjaxResponse::error( $checkEvent->getErrorCode() ?? $executeEvent->getErrorCode() ?? ErrorHelper::ErrorInternalError );
+                else return AjaxResponse::success();
+
             } else {
 
                 if(!$pump) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
