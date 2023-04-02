@@ -264,7 +264,8 @@ class MessageAnnouncementController extends MessageController
         if(empty($title) || empty($content)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $announcement = (new Announcement())
-            ->setTitle($title)->setText($content)->setLang($lang)->setSender($author)->setTimestamp(new DateTime());
+            ->setTitle($title)->setText($content)->setLang($lang)->setSender($author)->setTimestamp(new DateTime())
+            ->setValidated( $this->isGranted( 'ROLE_CROW' ) || $this->isGranted( 'ROLE_ADMIN' ) );
 
         if (!$this->preparePost($author,null,$announcement))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -293,15 +294,11 @@ class MessageAnnouncementController extends MessageController
 
     /**
      * @Route("api/admin/com/changelogs/del_a/{id<\d+>}", name="admin_changelog_del_announcement")
-     * @param int $id
+     * @param Announcement $announcement
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function delete_announcement_api(int $id, EntityManagerInterface $em): Response {
-        $announcement = $em->getRepository(Announcement::class)->find($id);
-
-        if (!$announcement) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
+    public function delete_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
         if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $announcement->getSender())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -309,5 +306,34 @@ class MessageAnnouncementController extends MessageController
         $em->flush();
 
         return AjaxResponse::success( );
+    }
+
+    /**
+     * @Route("api/admin/com/changelogs/validate/{id<\d+>}", name="admin_changelog_val_announcement")
+     * @param Announcement $announcement
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function validate_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
+        if (!$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$announcement->isValidated()) {
+            $em->persist( $announcement->setValidated(true)->setValidatedBy( $this->getUser() ) );
+            $em->flush();
+        }
+
+        return AjaxResponse::success( );
+    }
+
+    /**
+     * @Route("api/admin/com/changelogs/render/{id<\d+>}", name="admin_changelog_render_announcement")
+     * @param Announcement $announcement
+     * @return Response
+     */
+    public function render_announcement_api(Announcement $announcement): Response {
+        return AjaxResponse::success( additional: [
+            'html' => $this->html->prepareEmotes( $announcement->getText(), $announcement->getSender() )
+                                                  ] );
     }
 }

@@ -27,6 +27,12 @@ class Announcement
     private $title;
     #[ORM\Column(type: 'string', length: 8)]
     private $lang;
+
+    #[ORM\Column]
+    private ?bool $validated = null;
+
+    #[ORM\ManyToOne]
+    private ?User $validatedBy = null;
     public function __construct()
     {
         $this->readBy = new ArrayCollection();
@@ -103,6 +109,30 @@ class Announcement
     public function setLang(string $lang): self
     {
         $this->lang = $lang;
+
+        return $this;
+    }
+
+    public function isValidated(): ?bool
+    {
+        return $this->validated;
+    }
+
+    public function setValidated(bool $validated): self
+    {
+        $this->validated = $validated;
+
+        return $this;
+    }
+
+    public function getValidatedBy(): ?User
+    {
+        return $this->validatedBy;
+    }
+
+    public function setValidatedBy(?User $validatedBy): self
+    {
+        $this->validatedBy = $validatedBy;
 
         return $this;
     }

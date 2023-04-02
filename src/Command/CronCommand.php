@@ -317,7 +317,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
                     ->setText( $template->renderBlock('content', $vars) )
                     ->setTimestamp( new DateTime() )
                     ->setLang( $lang )
-                    ->setSender( $the_crow );
+                    ->setSender( $the_crow )
+                    ->setValidated(true);
 
                 $this->entityManager->persist($announcement);
 

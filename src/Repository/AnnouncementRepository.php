@@ -26,6 +26,7 @@ class AnnouncementRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('a')
             ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
+            ->andWhere('a.validated = :validated')->setParameter('validated', true)
             ->orderBy('a.timestamp', 'DESC');
 
         if ($archive !== null)
@@ -44,6 +45,7 @@ class AnnouncementRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
+            ->andWhere('a.validated = :validated')->setParameter('validated', true)
             ->orderBy('a.timestamp', 'DESC')
             ->setMaxResults( 1 )
             ->getQuery()->getOneOrNullResult();
@@ -54,6 +56,7 @@ class AnnouncementRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('a')->select('COUNT(a.id)')
             ->andWhere(':user NOT MEMBER OF a.readBy')->setParameter('user', $user)
             ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
+            ->andWhere('a.validated = :validated')->setParameter('validated', true)
             ->andWhere('a.timestamp > :cut')->setParameter('cut', new DateTime('-60days'));
 
         try {
@@ -66,6 +69,7 @@ class AnnouncementRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('a')
             ->andWhere(':user NOT MEMBER OF a.readBy')->setParameter('user', $user)
             ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
+            ->andWhere('a.validated = :validated')->setParameter('validated', true)
             ->andWhere('a.timestamp > :cut')->setParameter('cut', $newer_then ?? new DateTime('-60days'))
             ->orderBy('a.timestamp', 'DESC');
 
