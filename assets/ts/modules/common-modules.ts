@@ -24,6 +24,7 @@ customElements.define('hordes-user-search', class HordesUserSearchElement extend
             withSelf: parseInt( this.dataset.self ?? '0' ) !== 0,
             withFriends: parseInt( this.dataset.friends ?? '1' ) !== 0,
             withAlias: parseInt( this.dataset.alias ?? '0' ) !== 0,
+            context: this.dataset.context ?? 'common',
         }
     }
 
