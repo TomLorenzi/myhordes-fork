@@ -28,8 +28,8 @@ class Announcement
     #[ORM\Column(type: 'string', length: 8)]
     private $lang;
 
-    #[ORM\Column]
-    private ?bool $validated = null;
+    #[ORM\Column(options: ['default' => true])]
+    private bool $validated = true;
 
     #[ORM\ManyToOne]
     private ?User $validatedBy = null;
