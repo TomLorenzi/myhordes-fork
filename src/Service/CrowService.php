@@ -455,7 +455,7 @@ class CrowService {
                         strip_tags(
                             preg_replace(
                                 ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/', '/<a href="(.*?)">(.*?)<\/a>/'],
-                                ["\n", '${1}:', '[**', '**]', '${2} (${1})'],
+                                ["\n", '${1}:', '[**', '**]', '[${2}](${1})'],
                                 $html->prepareEmotes( $object->getText())
                             )
                         ),

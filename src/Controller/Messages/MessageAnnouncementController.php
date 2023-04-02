@@ -13,11 +13,16 @@ use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
+use App\Structures\MyHordesConf;
 use DateTime;
+use DiscordWebhooks\Client;
+use DiscordWebhooks\Embed;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -254,7 +259,7 @@ class MessageAnnouncementController extends MessageController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser, UrlGeneratorInterface $urlGenerator): Response {
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
         $lang      = $parser->get('lang', 'de');
@@ -272,6 +277,33 @@ class MessageAnnouncementController extends MessageController
 
         $em->persist($announcement);
         $em->flush();
+
+        if ($endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_ANIM_MAIL_DCHOOK )) {
+            $discord = (new Client($endpoint))
+                ->message(":black_joker: **Please validate my announcement.**");
+
+            $discord->embed( (new Embed())
+                                 ->color('B434EB')
+                                 ->title($announcement->getTitle())
+                                 ->description(mb_substr(strip_tags(
+                                                   preg_replace(
+                                                       ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/', '/<a href="(.*?)">(.*?)<\/a>/'],
+                                                       ["\n", '${1}:', '[**', '**]', '[${2}](${1})'],
+                                                       $this->html->prepareEmotes( $announcement->getText())
+                                                   )
+                                               ), 0, 2000))
+                                 ->field('Language', $announcement->getLang(), true)
+                                 ->author(
+                                     $this->getUser()->getName(),
+                                     $urlGenerator->generate( 'admin_users_account_view', ['id' => $this->getUser()->getId()], UrlGeneratorInterface::ABSOLUTE_URL ),
+                                     $this->getUser()->getAvatar() ? $urlGenerator->generate( 'app_web_avatar', ['uid' => $this->getUser()->getId(), 'name' => $this->getUser()->getAvatar()->getFilename(), 'ext' => $this->getUser()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL ) : ''
+                                 )
+            );
+
+            try {
+                $discord->send();
+            } catch (Exception) {}
+        }
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_changelogs', ['tab' => 'announcement'])] );
     }
