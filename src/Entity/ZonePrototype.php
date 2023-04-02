@@ -235,4 +235,9 @@ class ZonePrototype implements RandomEntry
 
         return $this;
     }
+
+	public static function getTranslationDomain(): ?string
+	{
+		return 'game';
+	}
 }
