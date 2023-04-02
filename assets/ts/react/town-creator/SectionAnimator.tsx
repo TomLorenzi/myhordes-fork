@@ -6,6 +6,7 @@ import {useContext, useEffect, useRef} from "react";
 import {Globals} from "./Wrapper";
 import {OptionCoreTemplate, OptionFreeText, OptionSelect, OptionToggleMulti} from "./Input";
 import {number} from "prop-types";
+import {AtLeast} from "./Permissions";
 
 declare var $: Global;
 
@@ -18,14 +19,16 @@ export const TownCreatorSectionAnimator = () => {
         <h5>{ animation.section }</h5>
 
         { /* Scheduler Settings */ }
-        <OptionFreeText propTitle={animation.schedule} type={ "datetime-local" } propHelp={animation.schedule_help}
-                      value={ globals.getOption( 'head.townSchedule' ) } propName="head.townSchedule"
-                      onChange={e => {
-                          globals.setOption('head.townSchedule', (e.target as HTMLInputElement).value);
-                          if ((globals.getOption( 'head.townIncarnation' ) ?? 'none') === 'incarnate')
-                              globals.setOption( 'head.townIncarnation', 'none' );
-                      }}
-        />
+        <AtLeast notForEvents={true}>
+            <OptionFreeText propTitle={animation.schedule} type={ "datetime-local" } propHelp={animation.schedule_help}
+                            value={ globals.getOption( 'head.townSchedule' ) } propName="head.townSchedule"
+                            onChange={e => {
+                                globals.setOption('head.townSchedule', (e.target as HTMLInputElement).value);
+                                if ((globals.getOption( 'head.townIncarnation' ) ?? 'none') === 'incarnate')
+                                    globals.setOption( 'head.townIncarnation', 'none' );
+                            }}
+            />
+        </AtLeast>
 
         { /* SP Settings */ }
         <OptionSelect propTitle={animation.sp}
@@ -59,15 +62,17 @@ export const TownCreatorSectionAnimator = () => {
         ) }
 
         { /* Participation Settings */ }
-        <OptionSelect propTitle={animation.participation}
-                      value={globals.getOption( 'head.townIncarnation' ) ?? 'none'} propName="<.head.townIncarnation"
-                      options={ animation.participation_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
-                      onChange={e => {
-                          const v = (e.target as HTMLSelectElement).value;
-                          globals.setOption('head.townIncarnation', v);
-                          if (v === 'incarnate') globals.removeOption( 'head.townSchedule' );
-                      }}
-        />
+        <AtLeast notForEvents={true}>
+            <OptionSelect propTitle={animation.participation}
+                          value={globals.getOption( 'head.townIncarnation' ) ?? 'none'} propName="<.head.townIncarnation"
+                          options={ animation.participation_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
+                          onChange={e => {
+                              const v = (e.target as HTMLSelectElement).value;
+                              globals.setOption('head.townIncarnation', v);
+                              if (v === 'incarnate') globals.removeOption( 'head.townSchedule' );
+                          }}
+            />
+        </AtLeast>
 
         { /* Management Settings */ }
         <OptionToggleMulti propName="features.<" options={[

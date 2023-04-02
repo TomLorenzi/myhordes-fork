@@ -27,6 +27,13 @@ export type TownRules = {
     explorable_ruins: number|string
 
     mapMarginPreset: string
+    margin_custom: {
+        enabled: boolean,
+        north: number,
+        south: number,
+        west: number,
+        east: number
+    }
 
     features: {
         attacks: string
@@ -129,7 +136,7 @@ export class TownCreatorAPI {
 
     public index(): Promise<ResponseIndex> {
         return this.fetch.from('/')
-            .request().get() as Promise<ResponseIndex>;
+            .request().withCache().get() as Promise<ResponseIndex>;
     }
 
     public townList(): Promise<ResponseTownList> {

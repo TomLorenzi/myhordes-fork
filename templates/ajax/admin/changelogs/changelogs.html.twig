@@ -23,23 +23,26 @@
                         <div class="cell padded rw-8 rw-lg-6 rw-sm-12">
                             <span>{{ "Titel" |trans({}, 'admin') }}</span>
                         </div>
-                        <div class="cell padded rw-1 rw-lg-2 hide-sm">
+                        <div class="cell padded rw-2 rw-lg-3 hide-sm">
                             <span>{{ "Version" |trans({}, 'admin') }}</span>
                         </div>
-                        <div class="cell padded rw-1 rw-lg-2 hide-sm">
-                            <span>{{ "Sprache" |trans({}, 'admin') }}</span>
+                        <div class="cell padded rw-2 rw-lg-3 right hide-sm">
+                            <span>{{ "Aktionen" |trans({}, 'admin') }}</span>
                         </div>
                     </div>
                     {% for new in news %}
                         <div class="row">
                             <div class="cell padded rw-8 rw-lg-6 rw-sm-12">
+                                <img alt="{{ new.lang }}" src="{{ asset('build/images/lang/' ~ new.lang ~ '.png' ) }}"/>
                                 {{ new.title }}
                             </div>
-                            <div class="cell padded rw-1 rw-lg-2 rw-sm-8">
+                            <div class="cell padded rw-2 rw-lg-3 rw-sm-8">
                                 <span>{{ new.version }}</span>
                             </div>
-                            <div class="cell padded rw-1 rw-lg-2 rw-sm-4">
-                                <span>{{ new.lang }}</span>
+                            <div class="cell padded rw-2 rw-lg-3 rw-sm-4 right">
+                                {% if is_granted('ROLE_ADMIN') or new.author == app.user %}
+                                    <span data-return="{{ path('admin_changelogs', {tab: 'changelog'}) }}" data-url="{{ path('admin_changelog_del_changelog', {id: new.id}) }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"></span>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
@@ -60,26 +63,29 @@
             <div x-tab-group="admin-announcements" x-tab-id="announcement" x-tab-target>
                 <div class="row-table">
                     <div class="row header">
-                        <div class="cell padded rw-8 rw-sm-12">
+                        <div class="cell padded rw-10">
                             <span>{{ "Titel" |trans({}, 'admin') }}</span>
                         </div>
-                        <div class="cell padded rw-2 hide-sm">
-                            <span>{{ "Sprache" |trans({}, 'admin') }}</span>
+                        <div class="cell padded rw-2 hide-sm right">
+                            <span>{{ "Aktionen" |trans({}, 'admin') }}</span>
                         </div>
                     </div>
                     {% for new in announces %}
                         <div class="row">
-                            <div class="cell padded rw-8 rw-sm-12">
-                                {{ new.title }}
+                            <div class="cell padded rw-10">
+                                <img alt="{{ new.lang }}" src="{{ asset('build/images/lang/' ~ new.lang ~ '.png' ) }}"/>
+                                <span {{ {'style': new.validated ? '' : 'opacity: 0.5'}|attributes }}>{{ new.title }}</span>
                             </div>
-                            <div class="cell padded rw-2 rw-sm-6">
-                                <span>{{ new.lang }}</span>
-                            </div>
-                            <div class="cell padded rw-2 rw-sm-6 right">
-                                {% if is_granted('ROLE_CROW') or new.sender == app.user %}
-                                    <button class="small inline" x-trash-announce="{{ path('admin_changelog_del_announcement', {id: new.id}) }}"><i class="fa fa-trash"></i></button>
+                            <div class="cell padded rw-2 right">
+                                {% if is_granted('ROLE_ADMIN') and not new.validated %}
+                                    <span data-return="{{ path('admin_changelogs', {tab: 'announcement'}) }}" data-url="{{ path('admin_changelog_val_announcement', {id: new.id}) }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/done.png') }}"></span>
                                 {% endif %}
+                                {% if is_granted('ROLE_ADMIN') or new.sender == app.user %}
+                                    <span data-return="{{ path('admin_changelogs', {tab: 'announcement'}) }}" data-url="{{ path('admin_changelog_del_announcement', {id: new.id}) }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"></span>
+                                {% endif %}
+                                <span data-load="{{ path('admin_changelog_render_announcement', {id: new.id}) }}" data-load-into-all="[id^='pm-loader-target-']" data-load-into="#pm-loader-target-{{ new.id }}" class="pointer"><img alt="" src="{{ asset('build/images/icons/small_more.gif') }}"></span>
                             </div>
+                            <div id="pm-loader-target-{{ new.id }}" class="cell padded rw-12 pm-message-content"></div>
                         </div>
                     {% endfor %}
                 </div>
@@ -116,12 +122,24 @@
                 $.ajax.no_history().load( target, '{{ path('admin_new_announcement_editor_controller') }}', false )
             });
 
-            $.html.addEventListenerAll('button[x-trash-announce]' ,'click', function(e,elem) {
+            $.html.addEventListenerAll('*[data-url]' ,'click', function(e,elem) {
                 if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    $.ajax.easySend( elem.getAttribute('x-trash-announce'), {},
+                    $.ajax.easySend( elem.dataset.url, {},
                         function () {
-                            $.ajax.load(null, '{{ path('admin_changelogs', {tab: 'announcement'}) }}', true);
+                            $.ajax.load(null, elem.dataset.return ?? '{{ path('admin_changelogs') }}', true);
                         } );
+            });
+
+            $.html.addEventListenerAll('*[data-load][data-load-into]' ,'click', function(e,elem) {
+                if (elem.dataset.loadIntoAll)
+                    $.html.forEach( elem.dataset.loadIntoAll, e => e.innerHTML = '' );
+
+                const target = document.querySelector( elem.dataset.loadInto );
+                if (!target) return;
+
+                target.appendChild( $.html.createElement( '<div class="loading"></div>' ) );
+
+                $.ajax.easySend( elem.dataset.load, {}, data => target.innerHTML = data?.html ?? '' );
             });
         })();
 

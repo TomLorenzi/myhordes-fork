@@ -13,6 +13,13 @@
             <span data-indirect="{{ url('help_partial', {'name': currentSection} ) }}" class="link hidden">{{ text }}</span>
         </li>
     {% endmacro %}
+    {% macro search_entry_dir(dir,section,currentDir,currentSection,text,icon,main,link_only=false) %}
+        <li data-dir="{{ currentDir }}" data-section="{{ currentSection }}" class="{% if main %}main{% endif%} {% if not link_only and section == currentSection and dir == currentDir %}active{% endif %}">
+            <img src="{{ asset(icon) }}" alt="">
+            <span data-direct="1" class="link" x-ajax-href="{{ url('help_classified', {'name': currentSection, 'sect': currentDir}) }}">{{ text }}</span>
+            <span data-indirect="{{ url('help_partial_sect', {'name': currentSection, 'sect': currentDir} ) }}" class="link hidden">{{ text }}</span>
+        </li>
+    {% endmacro %}
 
     <div class="row">
         <div class="padded-small map-box cell rw-4 rw-sm-12">
@@ -139,6 +146,15 @@
                         </ul>
                     </li>
 
+                    {% if is_granted('ROLE_ANIMAC') or is_granted('ROLE_ORACLE') %}
+                        {{ _self.search_entry_dir(directory,section,'animaction','event-panel','Für Animateure'|trans({},'help'),'build/images/icons/small_hero_up.gif',true,true) }}
+
+                        <li class="sublist">
+                            <ul>
+                                {{ _self.search_entry_dir(directory,section,'animaction','event-panel','Events erstellen'|trans({},'help'),'build/images/icons/small_middot.gif',false) }}
+                            </ul>
+                        </li>
+                    {% endif %}
 
                 </ul>
 			</div>
@@ -178,7 +194,10 @@
                 $.html.forEach('.HelpList li span[data-direct]', elem=>elem.classList.toggle('hidden',data.filtered));
                 $.html.forEach('.HelpList li span[data-indirect]', elem=>elem.classList.toggle('hidden',!data.filtered));
                 document.getElementById('search_reset').classList.toggle('hidden', !data.filtered);
-                data.result.forEach( section => document.querySelector('[data-section="' + section + '"]').classList.remove('hidden') );
+                data.result.forEach( ([dir,section]) => document.querySelector(dir
+                    ? '[data-dir="' + dir + '"][data-section="' + section + '"]'
+                    : '[data-section="' + section + '"]:not([data-dir])')
+                    .classList.remove('hidden') );
             });
         });
         document.getElementById('search_reset').addEventListener('click', () => {

@@ -9,17 +9,14 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\TownClass;
 use App\Entity\TownRulesTemplate;
-use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Ghost\CreateTownFromConfigAction;
+use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\ErrorHelper;
-use App\Service\GameFactory;
-use App\Service\GameProfilerService;
 use App\Service\JSONRequestParser;
-use App\Service\TownHandler;
 use App\Service\UserHandler;
-use App\Structures\EventConf;
-use App\Structures\TownSetup;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -45,7 +42,7 @@ class TownCreatorController extends CustomAbstractCoreController
      */
     public function index(EntityManagerInterface $em, Packages $asset): JsonResponse {
 
-        $all_events = array_map(
+        $all_events = array_values(array_map(
             function(string $name) {
                 $title_key = "event_{$name}_title";
                 $desc_key = "event_{$name}_description";
@@ -60,7 +57,7 @@ class TownCreatorController extends CustomAbstractCoreController
                 ];
             },
             array_filter( $this->conf->getAllEventNames(), fn(string $name) => $this->conf->eventIsPublic( $name ) || $this->getUser()->getRightsElevation() >= User::USER_LEVEL_CROW )
-        );
+        ));
 
         return new JsonResponse([
             'strings' => [
@@ -71,6 +68,7 @@ class TownCreatorController extends CustomAbstractCoreController
                     'need_selection' => "[ {$this->translator->trans('Bitte auswählen', [], 'global')} ]",
                     'notice' => $this->translator->trans('Achtung!', [], 'ghost'),
                     'negate' => $this->translator->trans('Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.', [], 'ghost'),
+                    'incorrect_fields' => $this->translator->trans('Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.', [], 'ghost'),
                 ],
 
                 'head' => [
@@ -170,8 +168,13 @@ class TownCreatorController extends CustomAbstractCoreController
                     'position_presets' => [
                         ['value' => 'normal',  'label' => $this->translator->trans('Normal', [], 'ghost')],
                         ['value' => 'close',   'label' => $this->translator->trans('Eher Zentral', [], 'ghost')],
-                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')]
+                        ['value' => 'central', 'label' => $this->translator->trans('Zentral', [], 'ghost')],
+                        ['value' => '_custom', 'label' => $this->translator->trans('Eigene Einstellung', [], 'ghost')]
                     ],
+                    'position_north' => $this->translator->trans('Nördlicher Abstand', [], 'ghost'),
+                    'position_south' => $this->translator->trans('Südlicher Abstand', [], 'ghost'),
+                    'position_west' => $this->translator->trans('Westlicher Abstand', [], 'ghost'),
+                    'position_east' => $this->translator->trans('Östlicher Abstand', [], 'ghost'),
                 ],
 
                 'mods' => [
@@ -388,9 +391,6 @@ class TownCreatorController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     public function town_types(EntityManagerInterface $em): JsonResponse {
-
-        $towns = $em->getRepository(TownClass::class)->findAll();
-
         return new JsonResponse(array_map(
             function(TownClass $town) {
 
@@ -405,134 +405,15 @@ class TownCreatorController extends CustomAbstractCoreController
         );
     }
 
-    protected function sanitize_config(array $conf): array {
-        static $unset_props = [
-            'ruin_items', 'zone_items', 'explorable_ruin_params', 'map_params',
-            'allow_local_conf',
-            'bank_abuse', 'spiritual_guide', 'times',
-            'distribute_items', 'distribution_distance',
-            'instant_pictos',
-            'open_town_grace', 'population',
-            'stranger_citizen_limit', 'stranger_day_limit',
-        ];
-
-        static $unset_features = [
-            'last_death', 'last_death_day', 'survival_picto', 'words_of_heros'
-        ];
-
-        static $unset_modules = [
-            'assemble_items_from_floor', 'citizen_attack',
-            'complaints', 'destroy_defense_objects_attack', 'ghoul_infection_begin', 'ghoul_infection_next', 'hide_home_upgrade',
-            'infection_death_chance', 'massive_respawn_factor', 'meaty_bones_within_town',
-            'preview_item_assemblage', 'red_soul_max_factor', 'sandball_nastyness',
-            'watchtower_estimation_offset', 'watchtower_estimation_threshold', 'wind_distance',
-            'wound_terror_penalty', 'camping', 'generosity', 'guard_tower'
-        ];
-
-        foreach ($unset_props as $prop) unset ($conf[$prop]);
-        foreach ($unset_features as $prop) unset ($conf['features'][$prop]);
-        foreach ($unset_modules as $prop) unset ($conf['modifiers'][$prop]);
-
-        unset( $conf['features']['escort']['max'] );
-
-        return $conf;
-    }
-
-    protected function sanitize_outgoing_config(array $conf): array {
-        static $unset_props = [
-            'well', 'map', 'ruins'
-        ];
-
-        $conf = $this->sanitize_config( $conf );
-
-        foreach ($unset_props as $prop) unset ($conf[$prop]);
-        return $conf;
-    }
-
-    protected function sanitize_incoming_config(array $conf, TownClass $base): array {
-        $conf = $this->sanitize_config($conf);
-
-        $map_preset = $conf['mapPreset'] ?? null;
-        unset( $conf['mapPreset'] );
-
-        $map_margin_preset = $conf['mapMarginPreset'] ?? null;
-        unset( $conf['mapMarginPreset'] );
-        unset( $conf['map']['margin'] );
-
-        $well_preset = $conf['wellPreset'] ?? null;
-        unset( $conf['wellPreset'] );
-
-        if ($map_preset) {
-            $conf['map'] = $conf['map'] ?? [];
-            switch ($map_preset) {
-                case 'small':
-                    $tc = $this->conf->getTownConfigurationByType( TownClass::EASY )->getData();
-                    $conf['map']['min'] = $tc['map']['min'] ?? 12;
-                    $conf['map']['max'] = $tc['map']['max'] ?? 14;
-                    $conf['ruins'] = $tc['ruins'] ?? 7;
-                    $conf['explorable_ruins'] = $tc['explorable_ruins'] ?? 0;
-                    break;
-                case 'normal':
-                    $tc = $this->conf->getTownConfigurationByType( $base )->getData();
-                    $conf['map']['min'] = $tc['map']['min'] ?? 25;
-                    $conf['map']['max'] = $tc['map']['max'] ?? 27;
-                    $conf['ruins'] = $tc['ruins'] ?? 20;
-                    $conf['explorable_ruins'] = $tc['explorable_ruins'] ?? 1;
-                    break;
-                case 'large':
-                    $tc = $this->conf->getTownConfigurationByType( $base )->getData();
-                    $conf['map']['min'] = 32;
-                    $conf['map']['max'] = 35;
-                    $conf['ruins'] = 30;
-                    $conf['explorable_ruins'] = ($tc['explorable_ruins'] ?? 1) + 1;
-                    break;
-            }
-        }
-
-        if ($map_margin_preset) {
-            $conf['map'] = $conf['map'] ?? [];
-            switch ($map_margin_preset) {
-                case 'normal':
-                    $tc = $this->conf->getTownConfigurationByType( $base )->getData();
-                    $conf['map']['margin'] = $tc['map']['margin'] ?? 0.25;
-                    break;
-                case 'close':
-                    $conf['map']['margin'] = 0.33;
-                    break;
-                case 'central':
-                    $conf['map']['margin'] = 0.50;
-                    break;
-            }
-        }
-
-        if ($well_preset) {
-            $conf['well'] = $conf['well'] ?? [];
-            switch ($well_preset) {
-                case 'normal':
-                    $tc = $this->conf->getTownConfigurationByType( TownClass::DEFAULT )->getData();
-                    $conf['well']['min'] = $tc['well']['min'] ?? 90;
-                    $conf['well']['max'] = $tc['well']['max'] ?? 180;
-                    break;
-                case 'low':
-                    $tc = $this->conf->getTownConfigurationByType( TownClass::HARD )->getData();
-                    $conf['well']['min'] = $tc['well']['min'] ?? 60;
-                    $conf['well']['max'] = $tc['well']['max'] ?? 90;
-                    break;
-            }
-        }
-
-        return $conf;
-
-    }
-
     /**
      * @Route("/town-rules/{id}", name="town-rules", methods={"GET"}, defaults={"private"=false})
      * @Route("/town-rules/private/{id}", name="private-town-rules", methods={"GET"}, defaults={"private"=true})
      * @param TownClass $townClass
      * @param bool $private
+     * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
-    public function town_type_rules(TownClass $townClass, bool $private): JsonResponse {
+    public function town_type_rules(TownClass $townClass, bool $private, SanitizeTownConfigAction $sanitizeTownConfigAction): JsonResponse {
         if ($townClass->getHasPreset()) {
 
             $preset = $this->conf->getTownConfigurationByType($townClass, $private)->getData();
@@ -540,281 +421,27 @@ class TownCreatorController extends CustomAbstractCoreController
             $preset['wellPreset'] = $townClass->getName() === TownClass::HARD ? 'low' : 'normal';
             $preset['mapPreset']  = $townClass->getName() === TownClass::EASY ? 'small' : 'normal';
 
-            return new JsonResponse( $this->sanitize_outgoing_config( $preset ) );
+            return new JsonResponse( $sanitizeTownConfigAction->sanitize_outgoing_config( $preset ) );
         }
 
         return new JsonResponse([], Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 
-    private function building_prototype_is_selectable(?BuildingPrototype $prototype, bool $for_construction = false ): bool {
-        return !(!$prototype || $prototype->getBlueprint() >= 5 || (!$for_construction && $prototype->getBlueprint() <= 0));
-    }
-
-    protected function fix_rules( array &$head, array &$rules, EntityManagerInterface $em ): void {
-        // Apply town type settings
-        $head['townType'] = $em->getRepository( TownClass::class )->find( $head['townType'] )?->getName() ?? 'custom';
-        if ($head['townType'] !== 'custom') $head['townBase'] = $head['townType'];
-        else $head['townBase'] = $em->getRepository( TownClass::class )->find( $head['townBase'] )?->getName() ?? TownClass::DEFAULT;
-        if ($head['townBase'] === 'custom') $head['townBase'] = TownClass::DEFAULT;
-
-        $lang = $head['townLang'] ?? 'multi';
-        if ($lang !== 'multi' && !in_array( $lang, $this->generatedLangsCodes )) unset( $head['townLang'] );
-
-        $lang_name = $head['townNameLang'] ?? $lang;
-        if ($lang_name !== 'multi' && !in_array( $lang_name, $this->generatedLangsCodes )) unset( $head['townNameLang'] );
-
-        // Make sure the event value is valid
-        if (($head['event'] ?? 'auto') === 'auto') unset( $head['event'] );
-        elseif ($head['event'] !== 'none' && !in_array( $head['event'], $this->conf->getAllEventNames() )) $head['event'] = 'none';
-
-        // Remove setting objects for custom constructions / jobs if the option to use them is disabled
-        if (!isset($head['customJobs'])) unset($rules['disabled_jobs']);
-        if (!isset($head['customConstructions'])) {
-            unset($rules['initial_buildings']);
-            unset($rules['unlocked_buildings']);
-            unset($rules['disabled_buildings']);
-        }
-
-        // Fix town schedule
-        if ( !empty($head['townSchedule'] ) ) {
-            try {
-                $head['townSchedule'] = new \DateTime($head['townSchedule']);
-                if ($head['townSchedule'] <= new \DateTime()) unset( $head['townSchedule'] );
-            } catch (\Throwable) {
-                unset( $head['townSchedule'] );
-            }
-        }
-
-        // Town population
-        if (!is_int( $head['townPop'] ?? 'x' )) unset( $head['townPop'] );
-        if (isset($head['townPop'])) {
-            $head['townPop'] = max(10, min($head['townPop'], 80));
-            $rules['population']['min'] = $rules['population']['max'] = $head['townPop'];
-        }
-        unset( $head['townPop'] );
-
-        // Town Seed
-        if (!is_int( $head['townSeed'] ?? 'x' ) || (int)$head['townSeed'] <= 0) unset( $head['townSeed'] );
-
-        // Ensure map min/max is between 10 and 35
-        if (!is_int( $rules['map']['min'] ?? 'x' )) unset( $rules['map']['min'] ); if (!is_int( $rules['map']['max'] ?? 'x' )) unset( $rules['map']['max'] );
-        if ( ($rules['map']['min'] ?? 10) < 10 ) $rules['map']['min'] = 10; if ( ($rules['map']['max'] ?? 10) < 10 ) $rules['map']['max'] = 10;
-        if ( ($rules['map']['min'] ?? 10) > 35 ) $rules['map']['min'] = 35; if ( ($rules['map']['max'] ?? 10) > 35 ) $rules['map']['max'] = 35;
-        if ( ($rules['map']['min'] ?? 0) > ($rules['map']['max'] ?? 0) ) $rules['map']['min'] = $rules['map']['max'];
-
-        // Ensure map margin is between 0.25 and 0.5
-        if (!is_float( $rules['map']['margin'] ?? 'x' )) unset( $rules['map']['margin'] );
-        if ( ($rules['map']['margin'] ?? 0.25) < 0.25 ) $rules['map']['margin'] = 0.25;
-        if ( ($rules['map']['margin'] ?? 0.25) > 0.50 ) $rules['map']['margin'] = 0.50;
-
-        // Ensure # of ruins / e-ruins is between 0-30 / 0-5
-        if (!is_int( $rules['ruins'] ?? 'x' )) unset( $rules['ruins'] );
-        if ( ($rules['ruins'] ?? 0) < 0 ) $rules['ruins'] = 0;
-        if ( ($rules['ruins'] ?? 0) > 30 ) $rules['ruins'] = 30;
-        if (!is_int( $rules['explorable_ruins'] ?? 'x' )) unset( $rules['explorable_ruins'] );
-        if ( ($rules['explorable_ruins'] ?? 0) < 0 ) $rules['explorable_ruins'] = 0;
-        if ( ($rules['explorable_ruins'] ?? 0) > 5 ) $rules['explorable_ruins'] = 5;
-
-        // Ensure well min/max is above 0
-        if (!is_int( $rules['well']['min'] ?? 'x' )) unset( $rules['well']['min'] ); if (!is_int( $rules['well']['max'] ?? 'x' )) unset( $rules['well']['max'] );
-        if ( ($rules['well']['min'] ?? 0) < 0 ) $rules['well']['min'] = 0; if ( ($rules['well']['max'] ?? 0) < 0 ) $rules['well']['max'] = 0;
-        if ( ($rules['well']['min'] ?? 0) > ($rules['well']['max'] ?? 0) ) $rules['well']['min'] = $rules['well']['max'];
-
-        // Ensure all jobs are valid, and no job is doubled
-        if (isset( $rules['disabled_jobs'] ))
-            $rules['disabled_jobs'] = array_filter( array_unique( $rules['disabled_jobs'] ), fn(string $job) => $job !== CitizenProfession::DEFAULT && $em->getRepository(CitizenProfession::class)->findOneBy(['name' => $job]) );
-
-        // Ensure all disabled buildings are valid (exist), and no building is doubled
-        if (isset( $rules['disabled_buildings'] ))
-            $rules['disabled_buildings'] = array_filter( array_unique( $rules['disabled_buildings'] ), fn(string $building) => $em->getRepository(BuildingPrototype::class)->findOneBy(['name' => $building]) );
-
-        // Ensure all unlocked buildings are valid (exist and are unlockable by a blueprint), and no building is doubled
-        if (isset( $rules['unlocked_buildings'] ))
-            $rules['unlocked_buildings'] = array_filter( array_unique( $rules['unlocked_buildings'] ), fn(string $building) => !in_array($building, $rules['disabled_buildings'] ?? []) && $this->building_prototype_is_selectable($em->getRepository(BuildingPrototype::class)->findOneBy(['name' => $building]) ) );
-
-        // Ensure all initially constructed buildings are valid (exist and are either unlockable by a blueprint or unlocked by default), and no building is doubled
-        if (isset( $rules['initial_buildings'] ))
-            $rules['initial_buildings'] = array_filter( array_unique( $rules['initial_buildings'] ), fn(string $building) => !in_array($building, $rules['disabled_buildings'] ?? []) && $this->building_prototype_is_selectable($em->getRepository(BuildingPrototype::class)->findOneBy(['name' => $building]), true ) );
-    }
-
-    protected function elevation_needed( array &$head, array &$rules, ?int $trimTo = null ): int {
-
-        $elevation = User::USER_LEVEL_BASIC;
-
-        // Non-private town needs CROW permissions
-        if ($head['townType'] !== 'custom') $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) $head['townType'] = 'custom';
-
-        // Custom town name needs CROW permissions
-        if (!empty($head['townName'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($head['townName']);
-
-        // Custom town seed needs CROW permissions
-        if (isset($head['townSeed'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($head['townSeed']);
-
-        // Event tag needs CROW permissions
-        if ($head['townEventTag'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($head['townEventTag']);
-
-        // Custom event needs CROW permissions
-        if ($head['event'] ?? null) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($head['event']);
-
-        // Crow options
-        if ($rules['features']['give_all_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_all_pictos']);
-        if ($rules['features']['enable_pictos'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['enable_pictos']);
-        if ($rules['features']['give_soulpoints'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['give_soulpoints']);
-        if ($rules['modifiers']['strict_picto_distribution'] ?? false) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['modifiers']['strict_picto_distribution']);
-        if (!($rules['lock_door_until_full'] ?? true)) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['lock_door_until_full']);
-        if (isset($rules['open_town_limit'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['open_town_limit']);
-
-        // Custom job and role settings require CROW permissions
-        if (!empty($rules['disabled_jobs']) && $rules['disabled_jobs'] !== ['shaman']) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['disabled_jobs']);
-        if (!empty($rules['disabled_roles']) && $rules['disabled_roles'] !== ['shaman']) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['disabled_roles']);
-
-        // Custom building settings require CROW permissions
-        if (!empty($rules['initial_buildings'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['initial_buildings']);
-        if (!empty($rules['unlocked_buildings'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['unlocked_buildings']);
-        if (!empty($rules['disabled_buildings'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset($rules['disabled_buildings']);
-
-        // Using the town schedule setting requires CROW permissions
-        if (!empty($head['townSchedule'])) $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) unset( $head['townSchedule'] );
-
-        // Using any other than the "incarnate" setting requires CROW permissions
-        if (!empty($head['townIncarnation']) && $head['townIncarnation'] !== 'incarnate') $elevation = max($elevation, User::USER_LEVEL_CROW);
-        if ($trimTo < User::USER_LEVEL_CROW) $head['townIncarnation'] = 'incarnate';
-
-        // Deviating population numbers need CROW permissions
-        if (($rules['population']['min'] ?? 40) !== 40 || ($rules['population']['max'] ?? 40) !== 40) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) $rules['population']['min'] = $rules['population']['max'] = 40;
-        }
-
-        // Maps larger than 27x27 need CROW permissions
-        if (max($rules['map']['min'] ?? 0, $rules['map']['max'] ?? 0) > 27) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) $rules['map']['min'] = $rules['map']['max'] = 27;
-        }
-
-        // Maps with non-standard town position need CROW permissions
-        if (($rules['map']['margin'] ?? 0.25) !== 0.25) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) $rules['map']['margin'] = 0.25;
-        }
-
-        // More than 3 explorable ruins need CROW permissions
-        if (($rules['explorable_ruins'] ?? 0) > 3) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) $rules['explorable_ruins'] = 3;
-        }
-
-        // Well with more than 300 rations need CROW permissions
-        if (max($rules['well']['min'] ?? 0, $rules['well']['max'] ?? 0) > 300) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) $rules['well']['min'] = $rules['well']['max'] = 300;
-        }
-
-        // Initial chest items need CROW permissions
-        if (!empty( $rules['initial_chest'] )) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['initial_chest']);
-        }
-
-        // An open town limit other than 2 requires CROW permissions
-        if ( ($rules['open_town_limit'] ?? 2) !== 2 ) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['open_town_limit']);
-        }
-
-        // Citizen aliases require CROW permissions
-        if ( ($rules['features']['citizen_alias'] ?? false) ) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['citizen_alias']);
-        }
-
-        // FFA requires CROW permissions
-        if ( ($rules['features']['free_for_all'] ?? false) ) {
-            $elevation = max($elevation, User::USER_LEVEL_CROW);
-            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_for_all']);
-        }
-
-        return $elevation;
-    }
-
-    protected function move_lists( &$rules ) {
-
-        $lists = ['disabled_jobs', 'disabled_roles', 'initial_buildings', 'unlocked_buildings', 'disabled_buildings'];
-
-        foreach ($lists as $list)
-            if (isset( $rules[$list] ))
-                $rules[$list] = ['replace' => $rules[$list]];
-    }
-
-    protected function scrub_config( array &$subject, array $reference ) {
-
-        if (empty($subject)) return;
-
-        $ref_is_associative = !empty($reference) && array_keys($reference) !== range(0, count($reference) - 1);
-
-        if (!$ref_is_associative) {
-            $subject = array_values( $subject );
-            $item_ref = array_reduce( $reference, fn( array $carry, $item ) => is_array( $item ) ? array_merge_recursive( $carry, $item ) : $carry, [] );
-
-            // If the reference array does not contain objects, filter all object values from the subject
-            if (empty($item_ref)) $subject = array_filter( $subject, fn($item) => !is_array($item) );
-            else {
-                // If the reference array contains objects, filter all non-object values from the subject
-                // Then, scrub each element according to the item reference
-                $subject = array_filter( $subject, fn($item) => is_array($item) );
-                foreach ($subject as &$sub) $this->scrub_config($sub, $item_ref);
-            }
-
-        } else {
-
-            $props = array_keys( $subject );
-
-            foreach ( $props as $prop ) {
-                // Remove all object keys not present in the reference array
-                if (!array_key_exists($prop, $reference)) unset( $subject[$prop] );
-                // Remove object keys where the object state mismatches between reference and subject
-                elseif (is_array( $subject[$prop] ) !== is_array( $reference[$prop] )) unset( $subject[$prop] );
-                // Recurse into sub-objects
-                elseif (is_array( $subject[$prop] )) $this->scrub_config( $subject[$prop], $reference[$prop] );
-            }
-        }
-
-
-    }
-
     /**
      * @Route("/create-town", name="create-town", methods={"POST"})
      * @param JSONRequestParser $parser
+     * @param SanitizeTownConfigAction $sanitizeTownConfigAction
+     * @param CreateTownFromConfigAction $createTownFromConfigAction
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
-     * @param GameFactory $gameFactory
-     * @param GameProfilerService $profiler
-     * @param TownHandler $townHandler
      * @return JsonResponse
      */
-    public function create_town(JSONRequestParser $parser,
-                                EntityManagerInterface $em,
-                                UserHandler $userHandler,
-                                GameFactory $gameFactory,
-                                GameProfilerService $profiler,
-                                TownHandler $townHandler): JsonResponse {
+    public function create_town(JSONRequestParser        $parser,
+                                SanitizeTownConfigAction $sanitizeTownConfigAction,
+                                CreateTownFromConfigAction $createTownFromConfigAction,
+                                EntityManagerInterface   $em,
+                                UserHandler              $userHandler
+    ): JsonResponse {
 
         $user = $this->getUser();
 
@@ -826,108 +453,16 @@ class TownCreatorController extends CustomAbstractCoreController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
 
         $header = $parser->get_array('head');
+        $rules = $parser->get_array('rules');
 
-        /** @var ?TownClass $primaryConf */
-        $primaryConf = $em->getRepository( TownClass::class )->find( $header['townType'] ?? -1 );
-        if (!$primaryConf) return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
-
-        /** @var ?TownClass $templateConf */
-        $templateConf = $em->getRepository( TownClass::class )->find( $header['townBase'] ?? -1 );
-        if (!$primaryConf->getHasPreset() && !$templateConf?->getHasPreset()) return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
-
-        $user_slots = array_filter($em->getRepository(User::class)->findBy(['id' => array_map(fn($a) => (int)$a, $header['reserve'] ?? [])]), function(User $u) {
-            return $u->getEmail() !== 'crow' && $u->getEmail() !== $u->getUsername() && !str_ends_with($u->getName(), '@localhost');
-        });
-
-        if (count($user_slots) !== count($header['reserve'] ?? []))
+        $user_slots = [];
+        if (!$sanitizeTownConfigAction( $header, $rules, $user_slots, $user ))
             return new JsonResponse($header, Response::HTTP_UNPROCESSABLE_ENTITY);
 
-        $base = $primaryConf->getHasPreset() ? $primaryConf : $templateConf;
-        $rules = $this->sanitize_incoming_config( $parser->get_array('rules'), $base );
+        $result = $createTownFromConfigAction($header, $rules, creator: $user, userSlots: $user_slots);
+        if ($result->hasError()) return AjaxResponse::error( $result->error() );
 
-        $template = $this->conf->getTownConfigurationByType( $base, !$primaryConf->getHasPreset() )->getData();
-        $this->scrub_config( $rules, $template );
-        $this->fix_rules( $header, $rules, $em );
-        $this->elevation_needed( $header, $rules, $user->getRightsElevation() );
-
-        $this->move_lists( $rules );
-
-        $seed = $header['townSeed'] ?? -1;
-
-        if ($header['event'] ?? null) {
-            $current_events = $header['event'] === 'none' ? [] : [ $this->conf->getEvent( $header['event'] ) ];
-        } else $current_events = $this->conf->getCurrentEvents();
-
-        $name_changers = array_values(
-            array_map( fn(EventConf $e) => $e->get( EventConf::EVENT_MUTATE_NAME ), array_filter($current_events,fn(EventConf $e) => $e->active() && $e->get( EventConf::EVENT_MUTATE_NAME )))
-        );
-
-        $town = $gameFactory->createTown(new TownSetup( $header['townType'],
-            name:           $header['townName'] ?? null,
-            language:       $header['townLang'] ?? 'multi',
-            nameLanguage:   $header['townNameLang'] ?? null,
-            typeDeriveFrom: $header['townBase'] ?? null,
-            customConf:     $rules,
-            seed:           $seed,
-            nameMutator:    $name_changers[0] ?? null
-        ));
-
-        $town->setCreator($user);
-        if(!empty($header['townCode'])) $town->setPassword($header['townCode']);
-        if ($header['event'] ?? null) $town->setManagedEvents( true );
-
-        foreach ($user_slots as $user_slot)
-            $em->persist((new TownSlotReservation())->setTown($town)->setUser($user_slot));
-
-        $em->persist($town);
-
-        if (!empty( $header['townSchedule'] )) $town->setScheduledFor( $header['townSchedule'] );
-
-        try {
-            $em->flush();
-            $profiler->recordTownCreated( $town, $user, 'custom' );
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        if ($header['townEventTag'] ?? false) {
-            $em->persist($town->getRankingEntry()->setEvent(true));
-            $em->flush();
-        }
-
-        if (!empty(array_filter($current_events, fn(EventConf $e) => $e->active()))) {
-            if (!$townHandler->updateCurrentEvents($town, $current_events)) {
-                $em->clear();
-            } else try {
-                $em->persist($town);
-                $em->flush();
-            } catch (Exception $e) {}
-        }
-
-        $incarnation = $header['townIncarnation'] ?? ($user->getRightsElevation() < User::USER_LEVEL_CROW ? 'incarnate' : 'none');
-        $incarnated = $incarnation === 'incarnate';
-
-        if ($incarnated) {
-            $citizen = $gameFactory->createCitizen($town, $user, $error, $all);
-            if (!$citizen) return AjaxResponse::error($error);
-            try {
-                $em->persist($citizen);
-                $em->flush();
-                foreach ($all as $new_citizen)
-                    $profiler->recordCitizenJoined( $new_citizen, $new_citizen === $citizen ? 'create' : 'follow' );
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
-
-            try {
-                $em->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
-        }
-
-        return AjaxResponse::success( true, ['url' => $incarnated ? $this->generateUrl('game_jobs') : $this->generateUrl('ghost_welcome')] );
+        return AjaxResponse::success( true, ['url' => $result->citizen() ? $this->generateUrl('game_jobs') : $this->generateUrl('ghost_welcome')] );
     }
 
     /**
@@ -951,13 +486,15 @@ class TownCreatorController extends CustomAbstractCoreController
      * @param TownRulesTemplate|null $template
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param SanitizeTownConfigAction $sanitizeTownConfigAction
      * @return JsonResponse
      */
     public function save_template(
         bool $create,
         ?TownRulesTemplate $template,
         EntityManagerInterface $em,
-        JSONRequestParser $parser
+        JSONRequestParser $parser,
+        SanitizeTownConfigAction $sanitizeTownConfigAction
     ): JsonResponse {
 
         if (!$create && !$template) return new JsonResponse([], Response::HTTP_NOT_FOUND);
@@ -969,19 +506,19 @@ class TownCreatorController extends CustomAbstractCoreController
             $template = (new TownRulesTemplate())
                 ->setOwner( $this->getUser() )
                 ->setName( $name )
-                ->setCreated( new \DateTime() );
+                ->setCreated( new DateTime() );
         }
 
         $template
-            ->setModified( new \DateTime() )
+            ->setModified( new DateTime() )
             ->setValidatedBy(null)
             ->setValidationLevel( null )
-            ->setData( $this->sanitize_config( $parser->get_array('rules') ) );
+            ->setData( $sanitizeTownConfigAction->sanitize_config( $parser->get_array('rules') ) );
 
         try {
             $em->persist( $template );
             $em->flush();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return new JsonResponse(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
@@ -1004,7 +541,7 @@ class TownCreatorController extends CustomAbstractCoreController
         try {
             $em->remove( $template );
             $em->flush();
-        } catch (\Exception) {
+        } catch (Exception) {
             return new JsonResponse([], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 

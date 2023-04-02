@@ -382,7 +382,6 @@
             node_transfer_source.addEventListener('keydown', e => {
                 if (e.ctrlKey || e.metaKey) {
                     const button = document.querySelector('[x-forum-action="edit"][x-control-shortcut="' + e.key.toLowerCase() + '"], [x-forum-action="send"][x-control-shortcut="' + e.key.toLowerCase() + '"]');
-                    console.log(button);
                     if (button) {
                         button.dispatchEvent( new Event('click', { bubbles: false, cancelable: true }) );
                         e.preventDefault();
@@ -782,7 +781,6 @@
                                     if(sent_items.length > 0) {
                                         target_payload.items = [];
                                         for (let i = 0; i < sent_items.length; i++) {
-                                            console.log(sent_items[i]);
                                             target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
                                         }
                                     }

@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import {useLayoutEffect, useRef, useState} from "react";
 import {Fetch} from "../../v2/fetch";
 import {Global} from "../../defaults";
-import Components from "../index";
 
 declare var $: Global;
 
@@ -51,7 +50,7 @@ export class HordesUserSearchBar {
 }
 
 export const UserSearchBar = (
-    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends, withAlias}: {
+    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends, withAlias, context}: {
         title?: string,
         callback: (UserResponses)=>void,
         exclude?: number[],
@@ -60,9 +59,10 @@ export const UserSearchBar = (
         withSelf?: boolean,
         withFriends?: boolean,
         withAlias?: boolean,
+        context?: string,
     }) => {
 
-    const apiRef = useRef<Fetch>( new Fetch('user-search') )
+    const apiRef = useRef<Fetch>( new Fetch('user/search') )
 
     const wrapper = useRef<HTMLDivElement>();
     const input = useRef<HTMLInputElement>();
@@ -108,7 +108,8 @@ export const UserSearchBar = (
                     names: s.map(name=>name.trim()),
                     withSelf: withSelf ?? 0,
                     withFriends: withFriends ?? 1,
-                    exclude: exclude ?? []
+                    exclude: exclude ?? [],
+                    context: context ?? 'common'
                 }
             ).then(r => {
                 setSearching(false);
@@ -136,7 +137,8 @@ export const UserSearchBar = (
                     withSelf: withSelf ?? 0,
                     withFriends: withFriends ?? 1,
                     alias: withAlias ?? 0,
-                    exclude: exclude ?? []
+                    exclude: exclude ?? [],
+                    context: context ?? 'common'
                 }
         ).then(r => {
             setSearching(false);

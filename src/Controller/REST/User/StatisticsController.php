@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\REST;
+namespace App\Controller\REST\User;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
@@ -11,10 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * @Route("/rest/v1/user-stats", name="rest_user_stats_", condition="request.headers.get('Accept') === 'application/json'")
+ * @Route("/rest/v1/user-stats", name="rest_user_stats_lgc_", condition="request.headers.get('Accept') === 'application/json'")
+ * @Route("/rest/v1/user/stats", name="rest_user_stats_", condition="request.headers.get('Accept') === 'application/json'")
  * @GateKeeperProfile("skip")
  */
-class UserStatisticsController extends CustomAbstractCoreController
+class StatisticsController extends CustomAbstractCoreController
 {
     /**
      * @Route("/daily-active-users", name="list-dau", methods={"GET"}, defaults={"dateDiff"="24hour"})

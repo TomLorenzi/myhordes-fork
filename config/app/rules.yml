@@ -12,6 +12,14 @@ parameters:
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27, margin: 0.25 }
       population: { min: 40, max:  40 }
+
+      margin_custom:
+        enabled: false
+        north: 25
+        south: 25
+        west: 25
+        east: 25
+
       zone_items:
         min: 5
         max: 10

@@ -13,6 +13,8 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 #[ORM\Entity(repositoryClass: TownRankingProxyRepository::class)]
 #[Table]
 #[UniqueConstraint(name: 'town_ranking_proxy_id_unique', columns: ['base_id', 'imported', 'language'])]
+#[ORM\Index(columns: ['base_id'], name: 'town_ranking_proxy_by_base_idx')]
+#[ORM\Index(columns: ['base_id', 'imported'], name: 'town_ranking_proxy_by_base_imported_idx')]
 class TownRankingProxy
 {
     const DISABLE_NOTHING = 0;
