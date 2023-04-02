@@ -321,13 +321,9 @@ class EventController extends CustomAbstractCoreController
                 $discord = (new Client($endpoint))
                     ->message(
                         $option
-                            ? ':black_joker: **Please validate my community event.**'
+                            ? ":black_joker: **Please validate my community event.**"
                             : ':x: I\'m retracting my previous event validation request.'
-                    )->username( $event->getOwner()->getName() );
-
-                if ($event->getOwner()->getAvatar()) $discord->avatar(
-                    $urlGenerator->generate( 'app_web_avatar', ['uid' => $event->getOwner()->getId(), 'name' => $event->getOwner()->getAvatar()->getFilename(), 'ext' => $event->getOwner()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL )
-                );
+                    );
 
                 $discord->embed( (new Embed())
                     ->color('B434EB')
@@ -335,6 +331,11 @@ class EventController extends CustomAbstractCoreController
                     ->field('Start date', $event->getConfiguredStartDate()->format( "D, d M Y" ), true)
                     ->field('Towns', $event->getTownPresets()->count(), true)
                     ->footer( $event->getId() )
+                    ->author(
+                        $event->getOwner()->getName(),
+                        $urlGenerator->generate( 'admin_users_account_view', ['id' => $event->getOwner()->getId()], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        $event->getOwner()->getAvatar() ? $urlGenerator->generate( 'app_web_avatar', ['uid' => $event->getOwner()->getId(), 'name' => $event->getOwner()->getAvatar()->getFilename(), 'ext' => $event->getOwner()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL ) : ''
+                    )
                 );
 
                 $flag_lang = function (string $lang) {
