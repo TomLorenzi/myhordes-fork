@@ -387,7 +387,7 @@ Fund: Hallazgo
 'Zweite Lunge': 'Segundo aliento'
 'Den Tod besiegen': 'Vencer a la muerte'
 Rettung: Rescate
-'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!': '¡Dando pruebas de tu valentía, has enfrentado los peligros del Ultramundo, salvado a {citizen} y has vuelto ileso!'
+'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!': '¡Dando pruebas de tu valentía, has enfrentado los peligros del Ultramundo, has salvado a {citizen} y has vuelto ileso!'
 '{action}: {item}': '{action}: {item}'
 'Das Wasser gibt dir einmal pro Tag deine Aktionpunkte zurück oder löscht alternativ deinen Durst (unbegrenzt).': 'El agua te hace recuperar Puntos de Acción (1 vez al día) y calmará tu sed (sin limitaciones diarias).'
 'Die Batterie ist für vieles nützlich. Allerdings ist sie auch ziemlich schnell leer ...': 'Sirve para muchas cosas, pero se descarga muy rápido...'
@@ -942,7 +942,7 @@ Eintrittskarte: Boleto de admisión
 Toxin: Toxina
 'Du hältst das Fläschchen an deine Nase....WOOOW! Der Gestank alleine könnte ein Pferd töten.': 'Acercas la sustancia a tu nariz y la hueles un poco... Puajjj! Parece que podría matar incluso a un caballo.'
 'So viel zum Survivalbuch. Kein Wunder, dass dieses Buch nicht über die Grundstufe hinausgekommen ist... Du hast absolut nichts gefunden, aber das wusstest du wahrscheinlich schon.': 'Puede haber sido un libro de supervivencia o un manual de estrategia anti-zombies, pero solo es un curso de bordado... Nada que te pueda servir.'
-'Du hast <strong>heute bereits getrunken</strong>: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.': '<strong>Ya has bebido una vez hoy</strong>. Hoy el agua solo te servirá para apagar tu sed.'
+'Du hast <strong>heute bereits getrunken</strong>: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.': '<strong>Ya has bebido una vez hoy</strong>. Hoy el agua solo te servirá para calmar tu sed.'
 'Du trinkst deine Wasserration in einem Zug aus. Ah! Das tut gut!': 'Tragas de un solo tirón tu ración de agua... ¡Ahhh, cuánto bien hace!'
 '<t-flare_ok>Die Leuchtrakete hat neue Informationen zu folgender Zone geliefert: {zone}</t-flare_ok><t-flare_ok_ruin>Mit Hilfe der Leuchrakete wurde ein neues Gebäude entdeckt: {zone_ruin}. Seine Koordinaten lauten: {zone}</t-flare_ok_ruin><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>': '<t-flare_ok>¡La bengala ha revelado informaciones de la zona: {zone}</t-flare_ok><t-flare_ok_ruin>La bengala ha revelado un nuevo edificio: {zone_ruin} en las coordenadas {zone}.</t-flare_ok_ruin><t-flare_fail>No hay más zona por descubrir.</t-flare_fail>'
 '<t-zone>Du hast ein neues Gebäude bei den Koordinaten {zone} entdeckt!</t-zone><nt-zone>Du suchst den gesamten Horizont mit deinen Adleraugen ab. Aber es scheint keine weiteren Gebäude zu entdecken zu geben.</nt-zone>': '<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Examinas el horizonte con tu mirada experta pero parece que no hay edificios que descibrir.</nt-zone>'
