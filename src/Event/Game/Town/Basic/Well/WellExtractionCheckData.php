@@ -4,6 +4,8 @@ namespace App\Event\Game\Town\Basic\Well;
 
 class WellExtractionCheckData
 {
+    use WellUpgradesTrait;
+
     /**
      * @param int $taking
      * @return WellExtractionCheckEvent

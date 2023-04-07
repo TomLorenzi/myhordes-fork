@@ -78,15 +78,15 @@ abstract class GameInteractionEvent extends Event
         return $this;
     }
 
-    public function pushMessage(string $message, int $priority = 0): static {
+    public function pushMessage(string $message, string $type = 'notice', int $priority = 0): static {
         if (!isset( $this->messages[$priority] )) $this->messages[$priority] = [];
-        $this->messages[$priority][] = $message;
+        $this->messages[$priority][] = [$type,$message];
         return $this;
     }
 
-    public function pushError(int $code, ?string $message = null, int $priority = 0): static {
-        $this->pushErrorCode($code, $priority);
-        if ($message !== null) $this->pushMessage($message, $priority);
+    public function pushError(int $code, ?string $message = null, int $priority = 0, bool $cancelCommonEffects = true): static {
+        $this->pushErrorCode($code, $priority, $cancelCommonEffects);
+        if ($message !== null) $this->pushMessage($message, 'error', $priority);
         return $this;
     }
 

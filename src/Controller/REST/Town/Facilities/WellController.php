@@ -7,6 +7,8 @@ use App\Annotations\Semaphore;
 use App\Controller\CustomAbstractCoreEventController;
 use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Event\Game\Town\Basic\Well\WellExtractionExecuteEvent;
+use App\Event\Game\Town\Basic\Well\WellInsertionCheckEvent;
+use App\Event\Game\Town\Basic\Well\WellInsertionExecuteEvent;
 use App\Service\EventFactory;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -24,7 +26,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class WellController extends CustomAbstractCoreEventController
 {
     /**
-     * @Route("/", name="retrieve", methods={"GET"})
+     * @Route("", name="retrieve", methods={"GET"})
      * @param EventFactory $e
      * @return JsonResponse
      * @throws ContainerExceptionInterface
@@ -35,6 +37,19 @@ class WellController extends CustomAbstractCoreEventController
             $e->gameInteractionEvent( WellExtractionCheckEvent::class )->setup( 1 ),
             WellExtractionExecuteEvent::class
         );
+    }
 
+    /**
+     * @Route("", name="insert", methods={"PUT"})
+     * @param EventFactory $e
+     * @return JsonResponse
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function insert(EventFactory $e): JsonResponse {
+        return $this->processEventChain(
+            $e->gameInteractionEvent( WellInsertionCheckEvent::class ),
+            WellInsertionExecuteEvent::class
+        );
     }
 }

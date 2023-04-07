@@ -13,7 +13,6 @@ use App\Service\BankAntiAbuseService;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\LogTemplateHandler;
-use App\Service\TownHandler;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerExceptionInterface;
@@ -41,13 +40,9 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
         private readonly ContainerInterface $container,
     ) {}
 
-    public function test() {}
-
     public static function getSubscribedServices(): array
     {
         return [
-            BankAntiAbuseService::class,
-            TownHandler::class,
             BankAntiAbuseService::class,
             EntityManagerInterface::class,
             LogTemplateHandler::class,
@@ -60,13 +55,8 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
         $event->already_taken = $event->citizen->getSpecificActionCounter(ActionCounter::ActionTypeWell)->getCount();
     }
 
-    /**
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
-     */
     public function onCheckPumpExtension(WellExtractionCheckEvent $event ): void {
-        if ($this->container->get(TownHandler::class)->getBuilding($event->town, 'small_water_#00', true))
-            $event->allowed_to_take += $event->town->getChaos() ? 2 : 1;
+        if ($event->pump_is_built) $event->allowed_to_take += $event->town->getChaos() ? 2 : 1;
     }
 
     public function onCheckWellLevel( WellExtractionCheckEvent $event ): void {
@@ -81,7 +71,13 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
 
     public function onCheckAllowedRations( WellExtractionCheckEvent $event ): void {
         if (($event->already_taken + $event->trying_to_take) > $event->allowed_to_take)
-            $event->pushErrorCode( TownController::ErrorWellLimitHit )->stopPropagation();
+            $event->pushError( TownController::ErrorWellLimitHit,
+                message: $this->container->get(TranslatorInterface::class)->trans(
+                    'Du kannst nicht <strong>mehr als {max} Rationen Wasser pro Tag</strong> entnehmen.',
+                    ['max' => $event->allowed_to_take],
+                    'game'
+                )
+            )->stopPropagation();
     }
 
     /**
@@ -124,7 +120,7 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
             ($event->check->already_taken + $event->check->trying_to_take) > 1
             ? T::__('Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...', 'game')
             : T::__('Du hast deine tägliche Ration erhalten: {item}', 'game')
-        , 'game', ['item' => ItemProducerTrait::class]);
+        ,'notice', 'game', ['item' => ItemProducerTrait::class]);
     }
 
     /**

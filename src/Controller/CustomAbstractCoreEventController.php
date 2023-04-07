@@ -74,11 +74,23 @@ class CustomAbstractCoreEventController extends AbstractController {
                 array_merge( $carry[2], $e->getMessages() )
             ], [false,null,[]] );
 
-        foreach ($messages as $message)
-            $this->addFlash('notice', $message);
 
-        if ($hasError)
-            return AjaxResponse::error( $error ?? ErrorHelper::ErrorInternalError );
-        else return AjaxResponse::success();
+        if ($hasError) {
+            $error_messages = [];
+            foreach ($messages as list($type, $message))
+                if ($type === 'error') $error_messages[] = $message;
+                else $this->addFlash($type, $message);
+
+            return AjaxResponse::error(empty($error_messages)
+                ? ($error ?? ErrorHelper::ErrorInternalError)
+                : 'message',[
+                'message' => empty($error_messages) ? null : implode('<hr/>', $error_messages)
+            ]);
+        } else {
+            foreach ($messages as list($type,$message))
+                $this->addFlash($type, $message);
+
+            return AjaxResponse::success();
+        }
     }
 }

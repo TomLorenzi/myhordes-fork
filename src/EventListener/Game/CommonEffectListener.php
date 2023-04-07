@@ -81,7 +81,7 @@ final class CommonEffectListener implements ServiceSubscriberInterface
             return array_values($a);
         };
 
-        foreach ( $event->getFlashMessages() as list( $message, $domain, $args ) )
+        foreach ( $event->getFlashMessages() as list( $type, $message, $domain, $args ) )
             $event->pushMessage( $this->container->get(TranslatorInterface::class)->trans(
                 $message,
                 array_map( function(mixed $entry) use (&$event, $traits, &$fun_accumulate_items) {
@@ -105,7 +105,7 @@ final class CommonEffectListener implements ServiceSubscriberInterface
 
                 }, $args ),
                 $domain
-            ));
+            ), $type);
     }
 
     /**
