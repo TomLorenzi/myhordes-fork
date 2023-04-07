@@ -1430,17 +1430,21 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/welcomeToNowhere", name="soul_death")
+     * @Route("jx/soul/welcomeToNowhere", name="soul_death", defaults={"latest"=true})
+     * @Route("jx/soul/obituary/{id}", name="soul_obituary", defaults={"latest"=false})
+     * @param bool $latest
+     * @param CitizenRankingProxy|null $nextDeath
      * @return Response
      */
-    public function soul_death_page(): Response
+    public function soul_death_page(bool $latest, ?CitizenRankingProxy $nextDeath = null): Response
     {
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
-        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
-        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
-            return $this->redirect($this->generateUrl('initial_landing'));
+        if ($latest) $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+
+        if ($nextDeath === null || $nextDeath?->getTown()?->getImported() || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()) || $nextDeath->getUser() !== $user)
+            return $this->redirectToRoute('initial_landing');
 
         $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($user, $nextDeath->getTown());
         $pictosWonDuringTown = [];
@@ -1454,7 +1458,7 @@ class SoulController extends CustomAbstractController
                 $pictosNotWonDuringTown[] = $picto;
         }
 
-        $canSeeGazette = $nextDeath->getTown() !== null;
+        $canSeeGazette = $latest && $nextDeath->getTown() !== null;
         if($canSeeGazette){
             $citizensAlive = false;
             foreach ($nextDeath->getTown()->getCitizens() as $citizen) {
@@ -1478,7 +1482,8 @@ class SoulController extends CustomAbstractController
             'day' => $nextDeath->getDay(),
             'pictos' => $pictosWonDuringTown,
             'gazette' => $canSeeGazette,
-            'denied_pictos' => $pictosNotWonDuringTown
+            'denied_pictos' => $pictosNotWonDuringTown,
+            'obituary' => !$latest
         ]) );
     }
 
