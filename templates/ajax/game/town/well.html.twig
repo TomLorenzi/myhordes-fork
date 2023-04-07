@@ -49,7 +49,7 @@
                 {% if pump is null %}
                     {{'Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!'|trans({}, 'game')}} {{ help_btn('Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.'|trans({}, 'game')) }}
                 {% else %}
-                        ({{'Die Stadt verfügt über eine {pumpname}.'|trans({'{pumpname}': pump.prototype.label|trans({}, 'buildings')}, 'game')}})
+                        ({{'Die Stadt verfügt über eine {pumpname}.'|trans({'{pumpname}': 'Pumpe'|trans({}, 'buildings')}, 'game')}})
                 {% endif %}
                 </strong>
             </div>
@@ -65,18 +65,17 @@
             {% endif %}
             <p class="actions-box">
                 {% if first_take or pump is null %}
-                    <button x-well-confirm="0" x-well-direction="up" {% if not allow_take or rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Deine Ration Wasser erhalten{% endtrans %}</button>
+                    <button data-fetch="{{ path('rest_town_facilities_well_retrieve') }}" data-fetch-method="get" data-fetch-load="{{ path('town_well') }}" {% if not allow_take or rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Deine Ration Wasser erhalten'|trans({},'game') }}</button>
                 {% else %}
-                    <button x-well-confirm="1" x-well-direction="up" {% if rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Eine weitere Ration erhalten{% endtrans %}</button>
+                    <button data-fetch="{{ path('rest_town_facilities_well_retrieve') }}" data-fetch-method="get" data-fetch-load="{{ path('town_well') }}" data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global')|e('js') }}" {% if rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Eine weitere Ration erhalten'|trans({},'game') }}</button>
                 {% endif %}
-
 
             {% if pump is not null %}
                 {% if not first_take %}
                     <div class="note note-critical">{{'Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...'|trans({}, 'game')|raw}}</div>
                 {% endif %}
                 <p>
-                    <button x-well-confirm="1" x-well-direction="down"><img alt="" src="{{ asset('build/images/icons/small_well.gif') }}" />{% trans from 'game' %}Wasser hinzufügen{% endtrans %}</button>
+                    <button data-fetch="{{ path('rest_town_facilities_well_insert') }}" data-fetch-method="put" data-fetch-load="{{ path('town_well') }}" data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global')|e('js') }}"><img alt="" src="{{ asset('build/images/icons/small_well.gif') }}" />{{ 'Wasser hinzufügen'|trans({},'game') }}</button>
                 </p>
             {% endif %}
 
@@ -99,31 +98,5 @@
     {{ parent() }}
     <script>
         {% embed "scripts/log.js.twig" %}{% endembed %}
-
-        const take_water = function( dir ) {
-            $.ajax.easySend( '{{ path('town_well_item_controller') }}', {
-                    direction: dir
-                },
-                function () {
-                    $.ajax.load(null, '{{ path('town_well') }}', true);
-                } );
-        };
-        let wellButtons = document.querySelectorAll('*[x-well-confirm]:not([disabled])');
-        for (let i = 0; i < wellButtons.length; i++)
-            wellButtons[i].addEventListener('click', function() {
-                if (this.getAttribute('x-well-confirm') === '1') {
-                    {% if not allow_take %}
-                        if (this.getAttribute('x-well-direction') === 'up') {
-                            $.html.error('{{ 'Du kannst nicht <strong>mehr als {max} Rationen Wasser pro Tag</strong> entnehmen.'|trans({'{max}': maximum},'game')|e('js') }}');
-                            return;
-                        }
-                    {% else %}
-                        if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                            return;
-                    {% endif %}
-                }
-
-                take_water( this.getAttribute('x-well-direction') );
-            });
     </script>
 {% endblock %}

@@ -153,7 +153,7 @@ class FetchBuilder {
     public post(body?: object): Promise<any> { return this.execute('POST', body); }
     public patch(body?: object): Promise<any> { return this.execute('PATCH', body); }
     public put(body?: object): Promise<any> { return this.execute('PUT', body); }
-
+    public method(method: string, body?: object): Promise<any> { return this.execute(method.toUpperCase(), body); }
 }
 
 class FetchOptions {
@@ -196,10 +196,12 @@ export class Fetch {
         return url.match(/^\/?(.*?)\/?$/)[1];
     }
 
-    constructor(rest_endpoint?: string, version: number = 1) {
+    constructor(rest_endpoint?: string, version: false|number = 1) {
         const base_url = this.remove_slashes( document.querySelector('base[href]').getAttribute('href') ?? '' );
 
-        this.rest = `${window.location.protocol}//${window.location.host}/${base_url ? `${base_url}/rest` : 'rest'}/v${version}/${this.remove_slashes( rest_endpoint ?? '' )}`;
+        this.rest = version === false
+            ? rest_endpoint
+            : `${window.location.protocol}//${window.location.host}/${base_url ? `${base_url}/rest` : 'rest'}/v${version}/${this.remove_slashes( rest_endpoint ?? '' )}`;
     }
 
     private handle_response_headers( response: Response ) {
