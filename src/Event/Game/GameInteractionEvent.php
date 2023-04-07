@@ -17,6 +17,7 @@ use Symfony\Contracts\EventDispatcher\Event;
  * @property-read TownConf $townConfig
  * @property-read MyHordesConf $gameConfig
  * @property-read mixed $data
+ * @property-read bool $common
  */
 abstract class GameInteractionEvent extends Event
 {
@@ -31,6 +32,10 @@ abstract class GameInteractionEvent extends Event
     private array $messages = [];
 
     private bool $state_modified = false;
+
+    private bool $persist = true;
+
+    private bool $process_common_effects = true;
 
     private readonly mixed $data_mixin;
 
@@ -50,6 +55,7 @@ abstract class GameInteractionEvent extends Event
             'citizen' => $this->citizen,
             'town' => $this->citizen->getTown(),
             'data' => $this->data_mixin,
+            'common' => $this->process_common_effects,
             default => $this->data_mixin->$name
         };
     }
@@ -65,9 +71,10 @@ abstract class GameInteractionEvent extends Event
         return $name === 'setup' ? $this : $r;
     }
 
-    public function pushErrorCode(int $code, int $priority = 0): static {
+    public function pushErrorCode(int $code, int $priority = 0, bool $cancelCommonEffects = true): static {
         if (!isset( $this->error_codes[$priority] )) $this->error_codes[$priority] = [];
         $this->error_codes[$priority][] = $code;
+        if ($cancelCommonEffects) $this->process_common_effects = false;
         return $this;
     }
 
@@ -107,7 +114,16 @@ abstract class GameInteractionEvent extends Event
         return $this;
     }
 
+    public function cancelPersist(): static {
+        $this->persist = false;
+        return $this;
+    }
+
     public function wasModified(): bool {
         return $this->state_modified;
+    }
+
+    public function shouldPersist(): bool {
+        return $this->persist;
     }
 }

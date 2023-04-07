@@ -1,4 +1,5 @@
 import {Const, Global} from "./defaults";
+import {dataDrivenFunctions} from "./v2/applicator";
 
 interface ajaxResponse { error: string, success: any }
 interface ajaxCallback { (data: ajaxResponse, code: number): void }
@@ -349,7 +350,7 @@ export default class Ajax {
         $.components.prune();
         $.html.restoreTutorialStage();
 
-
+        dataDrivenFunctions( target );
     }
 
     push_history( url: string ) {

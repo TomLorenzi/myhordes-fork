@@ -12,7 +12,7 @@ class WellExtractionCheckData
     public function setup( int $taking = 1 ): void {
         $this->trying_to_take = $taking;
     }
-    public readonly int $trying_to_take;
+    public int $trying_to_take = 1;
 
     public int $already_taken = 0;
 

@@ -3,13 +3,14 @@
 namespace App\Event\Game\Town\Basic\Well;
 
 use App\Entity\Item;
+use App\Event\Traits\FlashMessageTrait;
+use App\Event\Traits\ItemProducerTrait;
 
 class WellExtractionExecuteData
 {
-    public readonly WellExtractionCheckData $check;
+    use ItemProducerTrait, FlashMessageTrait;
 
-    /** @var Item[] */
-    public array $created_items = [];
+    public readonly WellExtractionCheckData $check;
 
     /**
      * @param WellExtractionCheckData $check
@@ -18,9 +19,5 @@ class WellExtractionExecuteData
      */
     public function setup(WellExtractionCheckData|WellExtractionCheckEvent $check): void {
         $this->check = is_a( $check, WellExtractionCheckData::class ) ? $check : $check->data;
-    }
-
-    public function addItem( Item $item ): void {
-        $this->created_items[] = $item;
     }
 }

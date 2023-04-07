@@ -8,12 +8,13 @@ use App\Controller\Town\TownController;
 use App\Entity\ActionCounter;
 use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Event\Game\Town\Basic\Well\WellExtractionExecuteEvent;
+use App\Event\Traits\ItemProducerTrait;
 use App\Service\BankAntiAbuseService;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
-use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -40,14 +41,14 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
         private readonly ContainerInterface $container,
     ) {}
 
+    public function test() {}
+
     public static function getSubscribedServices(): array
     {
         return [
             BankAntiAbuseService::class,
             TownHandler::class,
             BankAntiAbuseService::class,
-            ItemFactory::class,
-            InventoryHandler::class,
             EntityManagerInterface::class,
             LogTemplateHandler::class,
             TranslatorInterface::class
@@ -101,26 +102,8 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
         if ($event->check->trying_to_take <= 0) $event->stopPropagation();
     }
 
-    /**
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
-     */
     public function onItemTransfer(WellExtractionExecuteEvent $event ): void {
-
-        $factory = $this->container->get(ItemFactory::class);
-        $handler = $this->container->get(InventoryHandler::class);
-
-        for ($i = 0; $i < $event->check->trying_to_take; ++$i) {
-            $event->addItem( $item = $factory->createItem( 'water_#00' ) );
-            if (($error = $handler->transferItem(
-                $event->citizen,
-                $item,null, $event->citizen->getInventory()
-            )) !== InventoryHandler::ErrorNone) {
-                $event->pushErrorCode( $error )->stopPropagation();
-            }
-        }
-
-        $event->markModified();
+        $event->addItem( 'water_#00', $event->check->trying_to_take );
     }
 
     /**
@@ -136,20 +119,12 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
         $event->markModified();
     }
 
-    /**
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
-     */
     public function onFlashMessages(WellExtractionExecuteEvent $event ): void {
-        $log = $this->container->get(LogTemplateHandler::class);
-        $i = 0;
-        foreach ($event->created_items as $item)
-            if (($event->check->already_taken + ($i++)) >= 1)
-                $event->pushMessage( $this->container->get(TranslatorInterface::class)->trans("Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...",
-                                                                                  ['{item}' => $log->wrap($log->iconize($item), 'tool')], 'game') );
-            else
-                $event->pushMessage( $this->container->get(TranslatorInterface::class)->trans("Du hast deine tägliche Ration erhalten: {item}",
-                                                                                              ['{item}' => $log->wrap($log->iconize($item), 'tool')], 'game') );
+        $event->addFlashMessage(
+            ($event->check->already_taken + $event->check->trying_to_take) > 1
+            ? T::__('Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...', 'game')
+            : T::__('Du hast deine tägliche Ration erhalten: {item}', 'game')
+        , 'game', ['item' => ItemProducerTrait::class]);
     }
 
     /**
