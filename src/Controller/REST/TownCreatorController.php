@@ -109,11 +109,29 @@ class TownCreatorController extends CustomAbstractCoreController
 
                     'type' => $this->translator->trans('Stadttyp', [], 'ghost'),
                     'base' => $this->translator->trans('Vorlage', [], 'ghost'),
+
+                    'participation' => $this->translator->trans('Teilnahme', [], 'ghost'),
+                    'participation_presets' => [
+                        ['value' => 'incarnate', 'label' => $this->translator->trans('Verkörperung in der Stadt', [], 'ghost'), 'help' => $this->translator->trans('Verkörpert dich in der Stadt bei ihrer Entstehung.', [], 'ghost')],
+                        ['value' => 'none',      'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.', [], 'ghost')],
+                    ],
+
+                    'schedule' => $this->translator->trans('Stadtstart planen', [], 'ghost'),
+                    'schedule_help' => $this->translator->trans('Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!', [], 'ghost'),
+
+                    'management' => [
+                        'section' => $this->translator->trans('Verwaltung', [], 'ghost'),
+
+                        'event_tag' => $this->translator->trans('Als Event-Stadt markieren', [], 'ghost'),
+                        'event_tag_help' => $this->translator->trans('Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.', [], 'ghost'),
+                    ],
+
                 ],
 
                 'template' => [
                     'section' => $this->translator->trans('Vorlagen', [], 'ghost'),
                     'description' => $this->translator->trans('Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.', [], 'ghost'),
+                    'description_2' => $this->translator->trans('Beachte, das die "Grundlegenden Einstellungen", die du oben getätigst hast, NICHT in der Vorlage gespeichert werden!', [], 'ghost'),
 
                     'select' => $this->translator->trans('Ausgewählte Vorlage', [], 'ghost'),
                     'none' => $this->translator->trans('Keine Auswahl', [], 'ghost'),
@@ -285,9 +303,6 @@ class TownCreatorController extends CustomAbstractCoreController
                 'animation' => [
                     'section' => $this->translator->trans('Raben-Optionen', [], 'ghost'),
 
-                    'schedule' => $this->translator->trans('Stadtstart planen', [], 'ghost'),
-                    'schedule_help' => $this->translator->trans('Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!', [], 'ghost'),
-
                     'pictos' => $this->translator->trans('Vergabe von Auszeichnungen', [], 'ghost'),
                     'pictos_presets' => [
                         ['value' => 'all',     'label' => $this->translator->trans('Alle', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.', [], 'ghost')],
@@ -307,17 +322,8 @@ class TownCreatorController extends CustomAbstractCoreController
                         ['value' => 'none', 'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.', [], 'ghost')],
                     ],
 
-                    'participation' => $this->translator->trans('Teilnahme', [], 'ghost'),
-                    'participation_presets' => [
-                        ['value' => 'incarnate', 'label' => $this->translator->trans('Verkörperung in der Stadt', [], 'ghost'), 'help' => $this->translator->trans('Verkörpert dich in der Stadt bei ihrer Entstehung.', [], 'ghost')],
-                        ['value' => 'none',      'label' => $this->translator->trans('Keine', [], 'ghost'), 'help' => $this->translator->trans('Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.', [], 'ghost')],
-                    ],
-
                     'management' => [
                         'section' => $this->translator->trans('Verwaltung', [], 'ghost'),
-
-                        'event_tag' => $this->translator->trans('Als Event-Stadt markieren', [], 'ghost'),
-                        'event_tag_help' => $this->translator->trans('Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.', [], 'ghost'),
 
                         'negate' => $this->translator->trans('Nach 2 Tagen negieren', [], 'ghost'),
                         'negate_help' => $this->translator->trans('Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.', [], 'ghost'),

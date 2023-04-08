@@ -93,7 +93,7 @@ export const TownCreatorSectionTemplate = ({getOptions}) => {
     return <div>
         <h5>{ globals.strings.template.section }</h5>
 
-        <div className="help">{ globals.strings.template.description }</div>
+        <div className="help">{ globals.strings.template.description }{ ' ' }<strong>{ globals.strings.template.description_2 }</strong></div>
 
         <div className={ (templateListLoaded || dataTransfer) ? '' : 'disabled' } >
             <div className="row">
