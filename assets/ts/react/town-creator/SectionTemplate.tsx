@@ -76,13 +76,24 @@ export const TownCreatorSectionTemplate = ({getOptions}) => {
         }
     }
 
+    const arrayEqual = (v1: any[]|Set<any>, v2: any[]|Set<any>) => {
+        console.log(v1, v2);
+        const a = (v1 instanceof Set) ? Array.from(v1) : v1;
+        const b = (v2 instanceof Set) ? Array.from(v2) : v2;
+        return a.length === b.length && a.reduce((carry: any, current: any) => carry && b.includes(current), true);
+    }
+
     const loadTemplate = () => {
         if (confirm(globals.strings.template.loadConfirm)) {
             setDataTransfer(true);
             globals.api.getTemplate(selectedTemplate)
                 .then(data => {
-                    globals.setOption('head.customJobs', true)
-                    globals.setOption('head.customConstructions', true)
+                    globals.setOption('head.customJobs', !arrayEqual( data.rules.disabled_jobs, globals.default_rules.disabled_jobs ))
+                    globals.setOption('head.customConstructions',
+                        (data.rules.disabled_buildings && !arrayEqual( data.rules.disabled_buildings, globals.default_rules.disabled_buildings )) ||
+                        (data.rules.initial_buildings && !arrayEqual( data.rules.initial_buildings, globals.default_rules.initial_buildings )) ||
+                        (data.rules.unlocked_buildings && !arrayEqual( data.rules.unlocked_buildings, globals.default_rules.unlocked_buildings ))
+                    )
                     globals.setOption('rules', data.rules)
                     $.html.notice(globals.strings.template.loadDone);
                     setDataTransfer(false);
