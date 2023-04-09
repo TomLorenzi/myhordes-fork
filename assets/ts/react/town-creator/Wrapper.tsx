@@ -194,7 +194,7 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
             return setOption( dot_constructor.join('.'), value );
         }
 
-        const fun = (obj: object, dot: string[], value: any) => {
+        const fun = (obj: object, dot: string[], value: any, default_value: any) => {
             if (dot.length === 0) return value;
             else if (dot.length === 1) {
                 const v = typeof obj[dot[0]] === "object" ? JSON.parse( JSON.stringify( obj[dot[0]] ) ) : obj[dot[0]];
@@ -203,7 +203,7 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
             } else {
                 // Set access
                 if (dot.length === 3 && dot[1] === '<>') {
-                    if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = new Set<string>();
+                    if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = new Set<string>( default_value ?? [] );
                     else if (typeof obj[dot[0]] === "object") obj[dot[0]] = new Set<string>(obj[dot[0]]);
 
                     const v = (obj[dot[0]] as Set<string>).has( dot[2] );
@@ -216,7 +216,7 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
 
                 // Array access
                 } else if (dot.length === 3 && dot[1] === '[]') {
-                    if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = [];
+                    if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = Array.from( default_value ?? [] );
                     else if (typeof obj[dot[0]] === "object") obj[dot[0]] = Array.from( obj[dot[0]] );
 
                     if (value) {
@@ -233,7 +233,7 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
                 }
 
                 else if (typeof obj[dot[0]] === "undefined") obj[dot[0]] = {};
-                return fun(obj[dot[0]], dot.slice(1), value);
+                return fun(obj[dot[0]], dot.slice(1), value, default_value);
             }
         }
 
@@ -243,8 +243,11 @@ const TownCreatorWrapper = ( {elevation, eventMode, presetHead, presetRules}: {e
         if (defaultRules && dot_p[0] === 'rules' && dot_p.length > 1 && dot_p.findIndex(v => v === '<>' || v === '[]') < 0 && value === getOptionFrom( defaultRules, dot_p.slice(1) )) {
             removeOption( dot_p.join('.') );
         } else {
+            const defaultValue = dot_p[0] === 'rules' && dot_p.findIndex(v => v === '<>' || v === '[]') > 1 ?
+                getOptionFrom( defaultRules, dot_p.slice(1, dot_p.findIndex(v => v === '<>' || v === '[]')) ) : undefined;
+
             const obj = { ...options };
-            if ( fun(obj, dot_p, value) !== value) {
+            if ( fun(obj, dot_p, value, defaultValue) !== value) {
                 setOptions(obj);
                 if (eventMode) fun_announce(obj);
             };

@@ -50,7 +50,23 @@
     {% set first_buttons = true %}
     {% block buttons %}
         <div class="{% if first_buttons %}forum-control{% endif %}">
-            {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
+            {% if first_buttons %}
+                <div class="forum-header-bar">
+                    <i class="fa fa-comments"></i>
+                    {% if paranoid and thread.owner and thread.owner != app.user and not thread.translatable %}
+                        {% set mode = (app.user.id + thread.id + thread.owner.id) % 12 %}
+                        {% if mode == 0 %}
+                            {{ 'Hängt {user}!'|trans({'{user}': app.user.activeCitizen.alias ?? app.user.name},'game') }}
+                        {% elseif mode == 1 %}
+                            {{ '{user} wir kriegen dich!'|trans({'{user}': app.user.activeCitizen.alias ?? app.user.name},'game') }}
+                        {% else %}
+                            {{ title }}
+                        {% endif %}
+                    {% else %}
+                        {{ title }}
+                    {% endif %}
+                </div>
+            {% endif %}
             <div class="row-flex wrap stretch">
                 <div class="cell padded grow-1 left">
                     {% if permission.moderate() %}
