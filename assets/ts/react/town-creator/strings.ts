@@ -49,11 +49,25 @@ export type TranslationStrings = {
         reserve_num: string
         reserve_add: string
         reserve_help: string
+
+        schedule: string
+        schedule_help: string
+
+        participation: string,
+        participation_presets: {value: string, label: string, help: string}[]
+
+        management: {
+            section: string
+
+            event_tag: string
+            event_tag_help: string
+        }
     }
 
     template: {
         section: string
         description: string
+        description_2: string
 
         select: string
         none: string
@@ -186,9 +200,6 @@ export type TranslationStrings = {
     animation: {
         section: string
 
-        schedule: string
-        schedule_help: string
-
         pictos: string
         pictos_presets: {value: string, label: string, help: string}[]
 
@@ -198,14 +209,8 @@ export type TranslationStrings = {
         sp: string
         sp_presets: {value: string, label: string, help: string}[]
 
-        participation: string,
-        participation_presets: {value: string, label: string, help: string}[]
-
         management: {
             section: string
-
-            event_tag: string
-            event_tag_help: string
 
             negate: string
             negate_help: string

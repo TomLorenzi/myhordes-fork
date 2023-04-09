@@ -141,6 +141,32 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
                             value={(globals.getOption( 'head.townSeed' ) as string) ?? '-1'} propName="townSeed"
             />
 
+            { /* Management Settings */ }
+            <OptionToggleMulti propName="features.<" options={[
+                { value: globals.getOption( 'head.townEventTag' ) as boolean, name: '<.head.townEventTag', title: head.management.event_tag, help: head.management.event_tag_help },
+            ]} propTitle={head.management.section}/>
+
+            { /* Participation Settings */ }
+            <OptionSelect propTitle={head.participation}
+                          value={globals.getOption( 'head.townIncarnation' ) ?? 'none'} propName="<.head.townIncarnation"
+                          options={ head.participation_presets.map( preset => ({ value: preset.value, title: preset.label, help: preset.help }) ) }
+                          onChange={e => {
+                              const v = (e.target as HTMLSelectElement).value;
+                              globals.setOption('head.townIncarnation', v);
+                              if (v === 'incarnate') globals.removeOption( 'head.townSchedule' );
+                          }}
+            />
+
+            { /* Scheduler Settings */ }
+            <OptionFreeText propTitle={head.schedule} type={ "datetime-local" } propHelp={head.schedule_help}
+                            value={ globals.getOption( 'head.townSchedule' ) } propName="head.townSchedule"
+                            onChange={e => {
+                                globals.setOption('head.townSchedule', (e.target as HTMLInputElement).value);
+                                if ((globals.getOption( 'head.townIncarnation' ) ?? 'none') === 'incarnate')
+                                    globals.setOption( 'head.townIncarnation', 'none' );
+                            }}
+            />
+
             { /* Town Type */ }
             <OptionSelect propTitle={head['type']} type="number"
                           value={`${globals.getOption( 'head.townType' ) ?? -1}`} propName="townType"
@@ -161,6 +187,5 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked}
                           ] }
             />
         ) }
-
     </div>;
 };
