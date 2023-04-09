@@ -905,7 +905,7 @@ Archiv: Archives
 Zonenmarkierer: Marqueur de zone
 'Tor ist offen!': 'La porte est ouverte !'
 'Zombies sind eingedrungen.': 'zombies sont entrés.'
-'vor Angst erstarrt': 'Terrorisés'
+'vor Angst erstarrt': 'Terrorisé(s)'
 'Du wirst heute Nacht sterben!': 'Vous mourrez ce soir !'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen.': 'Le bâtiment {plan} a subi {damage} points de dégâts.'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.': 'Le bâtiment {plan} a subi {damage} points de dégâts et a été totalement dévasté par les zombies !.'
@@ -1884,8 +1884,8 @@ Reiseleiter-Ratgeber: guide du jeu pour les Guides de l'Outre-Monde
 'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': "{citizen} étant mort(e), il y a de fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même..."
 'Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!': 'Cette action est interdite en <strong>période de chaos</strong> !'
 'Die Bürger der Stadt haben entschieden, {citizen} zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!': 'Les citoyens ont décidé de crucifier {citizen} ! La croix en chocolat a été mangée par les citoyens au cours de ce tragique évènement !'
-'Hängt {user}!': 'Pendez {user}!'
-'{user} wir kriegen dich!': '{user} on aura ta peau !!'
+'Hängt {user}!': 'Pendez {user} !'
+'{user} wir kriegen dich!': 'On aura ta peau {user} !'
 'am {d}.{m}.{Y}, um {H}:{i}': 'le {d}/{m}/{Y} à {H}:{i}'
 'Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!': 'Alors que vous avanciez furtivement, <strong>un zombie de la zone vous a entendu</strong> et s''est retourné dans votre direction !<hr/>Vous avez été <strong>repéré(e)</strong> !<hr/>Vous n''êtes <strong>plus camouflé(e)</strong> !'
 'Deine <strong>Tarnung ist aufgeflogen</strong>!': 'Vous n''êtes <strong>plus camouflé(e)</strong> !'
