@@ -44,7 +44,7 @@ const RouteRenderer = ( props: { route: MapCoordinate[], color: string, opacity:
 const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
     return (
             <div className="svg">
-                <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                     {props.marking && (
                         <rect x={props.marking.x} y={props.marking.y}
                               height={1} width={1}
