@@ -513,21 +513,39 @@ class UserHandler
         return true;
     }
 
-    public function setUserBaseAvatar( User $user, $payload, int $imagick_setting = self::ImageProcessingForceImagick, string $ext = null, int $x = 100, int $y = 100 ): int {
+    public function setUserBaseAvatar( User $user, $payload, int $imagick_setting = self::ImageProcessingForceImagick, string $ext = null, int $x = 100, int $y = 100, array $crop = null, bool $fillSmall = false ): int {
+
+        if ($fillSmall && !$user->getAvatar())
+            return self::ErrorAvatarBackendUnavailable;
 
         if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)) return self::ErrorAvatarTooLarge;
 
-        $e = $imagick_setting === self::ImageProcessingDisableImagick
-            ? MediaService::ErrorBackendMissing
-            : $this->media->resizeImage( $payload, function(int &$w, int &$h, bool &$fit, int $animated): bool {
+        $fun_dimensions = function(int &$w, int &$h, bool &$fit, int $animated) use ($fillSmall): bool {
             if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
                 return false;
 
+            if (!$fillSmall) {
                 if ( max($w,$h) > 200 || (min($w,$h) < 90 && !$animated) )
-                $w = $h = min(200,max(90,$w,$h));
+                    $w = $h = min(200,max(90,$w,$h));
+            } else {
+                $w = min(180, max( $w, 90 ));
+                $h = round($w / 3);
+                $fit = false;
+                return true;
+            }
+
 
             return $fit = true;
-        }, $w_final, $h_final, $processed_format );
+        };
+
+        if ($crop)
+            $e = $imagick_setting === self::ImageProcessingDisableImagick
+                ? MediaService::ErrorBackendMissing
+                : $this->media->cropImage( $payload, $crop['width'], $crop['height'], $crop['x'], $crop['y'], $fun_dimensions, $w_final, $h_final, $processed_format );
+        else
+            $e = $imagick_setting === self::ImageProcessingDisableImagick
+                ? MediaService::ErrorBackendMissing
+                : $this->media->resizeImage( $payload, $fun_dimensions, $w_final, $h_final, $processed_format );
 
         switch ($e) {
             case MediaService::ErrorNone:
@@ -551,20 +569,24 @@ class UserHandler
             return self::ErrorAvatarInsufficientCompression;
 
         $name = md5( $payload );
-        if (!($avatar = $user->getAvatar())) {
-            $avatar = new Avatar();
-            $user->setAvatar($avatar);
-        }
+        if (!$fillSmall) {
+            if (!($avatar = $user->getAvatar())) {
+                $avatar = new Avatar();
+                $user->setAvatar($avatar);
+            }
 
-        $avatar
-            ->setChanged(new DateTime())
-            ->setFilename( $name )
+            $avatar
+                ->setChanged(new DateTime())
+                ->setFilename( $name )
+                ->setSmallName( $name )
+                ->setFormat( $processed_format ?? 'null' )
+                ->setImage( $payload )
+                ->setX( $w_final ?? 0 )
+                ->setY( $h_final ?? 0 )
+                ->setSmallImage( null );
+        } else $user->getAvatar()
             ->setSmallName( $name )
-            ->setFormat( $processed_format ?? 'null' )
-            ->setImage( $payload )
-            ->setX( $w_final ?? 0 )
-            ->setY( $h_final ?? 0 )
-            ->setSmallImage( null );
+            ->setSmallImage( $payload );
 
         return self::NoError;
     }
@@ -574,9 +596,6 @@ class UserHandler
 
         if (!$avatar || $avatar->isClassic())
             return self::ErrorAvatarFormatUnsupported;
-
-        // Processing limit: 3MB
-        if ($payload !== null && strlen( $payload ) > 3145728) return self::ErrorAvatarTooLarge;
 
         if ($payload === null) {
             if (
