@@ -41,7 +41,7 @@ Baupläne: Planos de construcciones
 'Die Verbannten': 'Los desterrados'
 'Das Chaos': 'El caos'
 'Das Katapult': 'La catapulta'
-'Kleine Karten': 'Pueblos normales'
+'Kleine Karten': 'Pueblos amateur'
 'Zerstörte Stadt': 'Pueblo devastado'
 'Städte des Pandämoniums': 'Los pueblos del Pandemonio'
 Privatstädte: Los pueblos privados
@@ -605,7 +605,7 @@ Hängung: Ejecución
 'Wenn kein Bürger gefunden wurde, werden erneut die Helden der Stadt herangezogen.': 'Si no hay candidatos, los héroes del pueblo.'
 'Wenn danach immer noch kein Verantwortlicher gefunden wurde, übernehmen die aktivsten Spieler des jeweiligen Tages diese Aufgabe.': 'Si aún así no hay candidatos, los habitantes activos del día.'
 'Sollten sich schließlich alle um diese Aufgabe drücken, trifft es einen zufällig ausgewählten Bürger.': 'En último recurso, un habitante al azar será seleccionado.'
-"Kleine Städte (Kartentyp \"Kleine Karte\") sind für die neuen Spieler bei \"Die Verdammten\" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. \nDiese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.": "Los pueblos normales acogen a los habitantes novatos de MyHordes. Están abiertas a todos y permite un juego con riesgos menores."
+"Kleine Städte (Kartentyp \"Kleine Karte\") sind für die neuen Spieler bei \"Die Verdammten\" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. \nDiese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.": "Los pueblos amateur acogen a los habitantes novatos de MyHordes. Están abiertos a todos y permite un juego con riesgos menores."
 'Punkte für Auszeichnungen erhalten nur jene Spieler, die mehr als 100 Seelenpunkte haben und die mindestens 8 Tage in der Stadt verbracht haben.': 'Hay distinciones a partir del dia 8 para los jugadores que tengan más de 100 Puntos de Alma (o los alcancen al morir).'
 'Denk daran, im Gegensatz zu den 5-Tage-Regel in Kleinen Städten werden für erfahrene Spieler keine Auszeichnungen vor dem 8. Tag vergeben. Nach dem finalen Angriff (niemand mehr am Leben) werden die Belohnungen verteilt.': 'Entonces, si eres un jugador experimentado y aterrizas en un pueblo amateur, ¡haz que cuente! Ayuda a los principiantes y busca esas recompensas.'
 'Spiritueller Führer': 'Guía Espiritual'
