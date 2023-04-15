@@ -13,7 +13,7 @@ use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
-use App\Service\MediaService;
+use App\Service\Media\ImageService;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
 use App\Structures\MyHordesConf;
@@ -92,7 +92,7 @@ class AdminGroupController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function update_group(int $id, JSONRequestParser $parser, MediaService $media, PermissionHandler $perm): Response
+    public function update_group(int $id, JSONRequestParser $parser, PermissionHandler $perm): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -157,18 +157,11 @@ class AdminGroupController extends CustomAbstractController
             if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-            if ($media->resizeImage( $payload, function(int &$w, int &$h, bool &$fit, int $animated): bool {
-                    if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
-                        return false;
+            $image = ImageService::createImageFromData( $payload );
+            ImageService::resize( $image, 200, 200, bestFit: true );
+            $payload = ImageService::save( $image, $image->animated ? 'WEBP' : 'AVIF' );
 
-                    if ( max($w,$h) > 200 || ((min($w,$h) < 90) && !$animated) )
-                        $w = $h = min(200,max(90,$w,$h));
-
-                    return $fit = true;
-                }, $w_final, $h_final, $processed_format ) !== MediaService::ErrorNone)
-                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-            $group_meta->setIcon($payload)->setAvatarName(md5($payload))->setAvatarExt( strtolower( $processed_format ) );
+            $group_meta->setIcon($payload)->setAvatarName(md5($payload))->setAvatarExt( strtolower( $image->animated ? 'WEBP' : 'AVIF' ) );
         }
 
         try {

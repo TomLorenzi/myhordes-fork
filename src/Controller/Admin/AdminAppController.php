@@ -9,7 +9,7 @@ use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
-use App\Service\MediaService;
+use App\Service\Media\ImageService;
 use App\Service\RandomGenerator;
 use App\Structures\MyHordesConf;
 use App\Translation\T;
@@ -96,10 +96,9 @@ class AdminAppController extends AdminActionController
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
-     * @param MediaService $media
      * @return Response
      */
-    public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand, MediaService $media): Response
+    public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -133,10 +132,11 @@ class AdminAppController extends AdminActionController
                 if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                if ($media->resizeImageSimple( $payload, 16, 16, $processed_format, false ) !== MediaService::ErrorNone)
-                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $image = ImageService::createImageFromData( $payload );
+                ImageService::resize( $image, 16, 16, bestFit: true );
+                $payload = ImageService::save( $image );
 
-                $app->setImage($payload)->setImageName(md5($payload))->setImageFormat( strtolower( $processed_format ) );
+                $app->setImage($payload)->setImageName(md5($payload))->setImageFormat( strtolower( $image->format ) );
 
             }
         }

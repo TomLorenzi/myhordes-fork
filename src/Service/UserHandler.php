@@ -53,17 +53,15 @@ class UserHandler
     private RoleHierarchyInterface $roles;
     private ContainerInterface $container;
     private CrowService $crow;
-    private MediaService $media;
     private TranslatorInterface $translator;
     private ConfMaster $conf;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, MediaService $media, TranslatorInterface  $translator, ConfMaster $conf)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->container = $c;
         $this->roles = $roles;
         $this->crow = $crow;
-        $this->media = $media;
         $this->translator = $translator;
         $this->conf = $conf;
     }
@@ -511,132 +509,6 @@ class UserHandler
         ) return false;
 
         return true;
-    }
-
-    public function setUserBaseAvatar( User $user, $payload, int $imagick_setting = self::ImageProcessingForceImagick, string $ext = null, int $x = 100, int $y = 100, array $crop = null, bool $fillSmall = false ): int {
-
-        if ($fillSmall && !$user->getAvatar())
-            return self::ErrorAvatarBackendUnavailable;
-
-        if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)) return self::ErrorAvatarTooLarge;
-
-        $fun_dimensions = function(int &$w, int &$h, bool &$fit, int $animated) use ($fillSmall): bool {
-            if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
-                return false;
-
-            if (!$fillSmall) {
-                if ( max($w,$h) > 200 || (min($w,$h) < 90 && !$animated) )
-                    $w = $h = min(200,max(90,$w,$h));
-            } else {
-                $w = min(180, max( $w, 90 ));
-                $h = round($w / 3);
-                $fit = false;
-                return true;
-            }
-
-
-            return $fit = true;
-        };
-
-        if ($crop)
-            $e = $imagick_setting === self::ImageProcessingDisableImagick
-                ? MediaService::ErrorBackendMissing
-                : $this->media->cropImage( $payload, $crop['width'], $crop['height'], $crop['x'], $crop['y'], $fun_dimensions, $w_final, $h_final, $processed_format );
-        else
-            $e = $imagick_setting === self::ImageProcessingDisableImagick
-                ? MediaService::ErrorBackendMissing
-                : $this->media->resizeImage( $payload, $fun_dimensions, $w_final, $h_final, $processed_format );
-
-        switch ($e) {
-            case MediaService::ErrorNone:
-                break;
-            case MediaService::ErrorBackendMissing:
-                if ($imagick_setting === self::ImageProcessingForceImagick)
-                    return self::ErrorAvatarBackendUnavailable;
-                $processed_format = $ext;
-                $w_final = $x ?: 100;
-                $h_final = $y ?: 100;
-                break;
-            case MediaService::ErrorInputBroken: return self::ErrorAvatarImageBroken;
-            case MediaService::ErrorInputUnsupported: return self::ErrorAvatarFormatUnsupported;
-            case MediaService::ErrorDimensionMismatch: return self::ErrorAvatarResolutionUnacceptable;
-            case MediaService::ErrorProcessingFailed: default:
-                return self:: ErrorAvatarProcessingFailed;
-        }
-
-        // Storage limit: 1MB
-        if (strlen($payload) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576))
-            return self::ErrorAvatarInsufficientCompression;
-
-        $name = md5( $payload );
-        if (!$fillSmall) {
-            if (!($avatar = $user->getAvatar())) {
-                $avatar = new Avatar();
-                $user->setAvatar($avatar);
-            }
-
-            $avatar
-                ->setChanged(new DateTime())
-                ->setFilename( $name )
-                ->setSmallName( $name )
-                ->setFormat( $processed_format ?? 'null' )
-                ->setImage( $payload )
-                ->setX( $w_final ?? 0 )
-                ->setY( $h_final ?? 0 )
-                ->setSmallImage( null );
-        } else $user->getAvatar()
-            ->setSmallName( $name )
-            ->setSmallImage( $payload );
-
-        return self::NoError;
-    }
-
-    public function setUserSmallAvatar( User $user, $payload = null, ?int $x = null, ?int $y = null, ?int $dx = null, ?int $dy = null ): int {
-        $avatar = $user->getAvatar();
-
-        if (!$avatar || $avatar->isClassic())
-            return self::ErrorAvatarFormatUnsupported;
-
-        if ($payload === null) {
-            if (
-                $x < 0 || $dx < 0 || $x + $dx > $avatar->getX() ||
-                $y < 0 || $dy < 0 || $y + $dy > $avatar->getY()
-            ) return self::ErrorAvatarFormatUnsupported;
-
-            $payload = stream_get_contents( $avatar->getImage() );
-            $e = $this->media->cropImage( $payload, $dx, $dy, $x, $y, function(int &$w, int &$h, bool &$fit): bool {
-                    if ($w < 90 || $h < 30 || ($h/$w != 3))
-                        $w = ($h = max(30, $h)) * 3;
-
-                    $fit = true;
-                    return true;
-                }, $w_final, $h_final, $processed_format, false );
-
-            switch ($e) {
-                case MediaService::ErrorNone:
-                    break;
-                case MediaService::ErrorBackendMissing:
-                    return self::ErrorAvatarBackendUnavailable;
-                case MediaService::ErrorInputBroken: return self::ErrorAvatarImageBroken;
-                case MediaService::ErrorInputUnsupported: return self::ErrorAvatarFormatUnsupported;
-                case MediaService::ErrorDimensionMismatch: return self::ErrorAvatarResolutionUnacceptable;
-                case MediaService::ErrorProcessingFailed: default:
-                return self:: ErrorAvatarProcessingFailed;
-            }
-
-            if ($processed_format !== $avatar->getFormat())
-                return self::ErrorAvatarFormatUnsupported;
-        }
-
-        if (strlen($payload) > 1048576) return self::ErrorAvatarInsufficientCompression;
-
-        $name = md5( (new DateTime())->getTimestamp() );
-
-        $avatar
-            ->setSmallName( $name )
-            ->setSmallImage( $payload );
-
-        return self::NoError;
     }
 
     public function getCoalitionMembership(User $user): ?UserGroupAssociation {

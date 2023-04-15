@@ -553,6 +553,8 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                     <div className="relative avatar full">
                         <img alt="" src={source} style={{maxHeight: '75vh'}}/>
                         <div className={"image-selector" + (!editSmallSection ? ' active' : '')} ref={selector}>
+                            <div className="circle-preview"><div/></div>
+                            { !specifySmallSection && <div className="small-preview"><div/></div> }
                             { !editSmallSection && <>
                                 <div className="move-handle" data-handle-x="+" data-handle-y="+"/>
                                 <div className="corner-handle" data-handle-x="1" data-handle-y="1"/>

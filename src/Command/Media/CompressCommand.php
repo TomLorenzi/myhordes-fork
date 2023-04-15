@@ -6,7 +6,7 @@ namespace App\Command\Media;
 
 use App\Entity\Avatar;
 use App\Service\CommandHelper;
-use App\Service\MediaService;
+use App\Service\Media\ImageService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -20,12 +20,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class CompressCommand extends Command
 {
-    private MediaService $media;
     private CommandHelper $helper;
 
-    public function __construct(MediaService $m, CommandHelper $h)
+    public function __construct(CommandHelper $h)
     {
-        $this->media = $m;
         $this->helper = $h;
 
         parent::__construct();
@@ -47,7 +45,7 @@ class CompressCommand extends Command
 
         $simulate = $input->getOption('estimate');
 
-        $this->helper->leChunk( $output, Avatar::class, 50, [], true, false, function(Avatar $a) use (&$table, $simulate) {
+        $this->helper->leChunk( $output, Avatar::class, 5, [], true, false, function(Avatar $a) use (&$table, $simulate) {
 
             $f = $a->getFormat();
             if (!isset($table[$f])) $table[$f] = [
@@ -65,7 +63,18 @@ class CompressCommand extends Command
             $table[$f]['number']++;
             $table[$f]['original']+=$original;
 
-            $success = $this->media->updateImageFormat( $data, $format );
+            $image = ImageService::createImageFromData( $data );
+            $format = null;
+            foreach ( ImageService::getCompressionOptions( $image ) as $test_format ) {
+                if ($test_format === null) continue;
+                $tmp = ImageService::save( $image, $test_format );
+                if ($tmp && strlen( $data ) > strlen( $tmp )) {
+                    $format = $test_format;
+                    $data = $tmp;
+                }
+            }
+
+            $success = $format !== null;
             $compressed = strlen( $data );
 
             if ($success) {
@@ -82,7 +91,7 @@ class CompressCommand extends Command
                     $table[$f]['original']+=strlen( $data );
                     $table[$f]['s_original']+=strlen( $data );
 
-                    $this->media->updateImageFormat( $data, $format, true );
+                    $data = ImageService::convertImageData( $data, $format );
 
                     $table[$f]['compressed']+=strlen( $data );
                     $table[$f]['s_compressed']+=strlen( $data );

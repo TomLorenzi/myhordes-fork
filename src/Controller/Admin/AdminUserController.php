@@ -43,7 +43,7 @@ use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
-use App\Service\MediaService;
+use App\Service\Media\ImageService;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
@@ -1452,11 +1452,10 @@ class AdminUserController extends AdminActionController
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
-     * @param MediaService $media
      * @param CrowService $crow
      * @return Response
      */
-    public function user_manage_unique_award(int $id, JSONRequestParser $parser, MediaService $media, CrowService $crow): Response {
+    public function user_manage_unique_award(int $id, JSONRequestParser $parser, CrowService $crow): Response {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1497,17 +1496,16 @@ class AdminUserController extends AdminActionController
             if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-            if ($media->resizeImageSimple( $payload, 16, 16, $processed_format, false ) !== MediaService::ErrorNone)
-                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            $image = ImageService::createImageFromData( $payload );
+            ImageService::resize( $image, 16, 16, bestFit: true );
+            $payload = ImageService::save( $image );
 
             $this->entity_manager->persist( $award
-                                                ->setUser($user)
-                                                ->setCustomIcon($payload)
-                                                ->setCustomIconName(md5($payload))
-                                                ->setCustomIconFormat(strtolower( $processed_format ))
+                ->setUser($user)
+                ->setCustomIcon($payload)
+                ->setCustomIconName(md5($payload))
+                ->setCustomIconFormat(strtolower( $image->format ))
             );
-
-
         }
 
         try {
