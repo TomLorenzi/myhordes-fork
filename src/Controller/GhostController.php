@@ -10,6 +10,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
+use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownClass;
@@ -75,7 +76,13 @@ class GhostController extends CustomAbstractController
         $coa_members = $this->user_handler->getAvailableCoalitionMembers($user, $count, $active);
         $cdm_lock = $this->user_handler->getConsecutiveDeathLock( $user, $cdm_warn );
 
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+        $tickets = $user->getTeamTicketsFor( $season, '!' )->count();
+        $cap_left = ($cap >= 0) ? max(0, $cap - $tickets) : -1;
+
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs(null, [
+            'cap_left'           => $cap_left,
             'warnCoaInactive'    => $count > 0 && !$active,
             'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
             'warnCoaEmpty'       => $count > 1 && empty($coa_members),

@@ -43,6 +43,7 @@ parameters:
     anti-grief:
       min-sp: 20
       reg-limit: 2
+      foreign-cap: 1
     animail:
       discord: ~
     modmail:

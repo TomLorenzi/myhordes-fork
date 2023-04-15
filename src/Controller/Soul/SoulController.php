@@ -633,6 +633,8 @@ class SoulController extends CustomAbstractController
         elseif ($b_max_size >= 1024)    $b_max_size = round($b_max_size/1024, 0) . ' KB';
         else                            $b_max_size = $b_max_size . ' B';
 
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
@@ -642,6 +644,9 @@ class SoulController extends CustomAbstractController
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)],
             'langs' => $this->allLangs,
+            'team_tickets_in' => $season ? $user->getTeamTicketsFor( $season, '' )->count() : 0,
+            'team_tickets_out' => $season ? $user->getTeamTicketsFor( $season, '!' )->count() : 0,
+            'team_tickets_limit' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3),
         ]) );
     }
 
@@ -747,6 +752,35 @@ class SoulController extends CustomAbstractController
 
             $user->setLastNameChange(new DateTime());
         }
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/team", name="api_soul_team")
+     * @param JSONRequestParser $parser
+     * @param HTMLService $html
+     * @return Response
+     */
+    public function soul_set_team(JSONRequestParser $parser, HTMLService $html): Response {
+        $user = $this->getUser();
+
+        $team  = $parser->get('team', '');
+
+        if ($team !== '' && ($team === 'ach' || !in_array( $team, $this->allLangsCodes )))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($team !== '' && $team !== $user->getTeam()) {
+            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+            $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+            if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        }
+
+        if ($team !== '') $user->setTeam($team);
 
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
