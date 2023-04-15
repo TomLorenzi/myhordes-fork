@@ -62,7 +62,6 @@ class UserHandler
         $this->container = $c;
         $this->roles = $roles;
         $this->crow = $crow;
-        $this->media = $media;
         $this->translator = $translator;
         $this->conf = $conf;
     }
