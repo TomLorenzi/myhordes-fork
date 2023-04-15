@@ -16,7 +16,9 @@ use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\Media\ImageService;
 use App\Service\UserHandler;
+use App\Structures\Image;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
@@ -132,14 +134,19 @@ class AvatarController extends AbstractController
         return new JsonResponse();
     }
 
-    private function validateCrop(?array $crop): ?array {
+    private function validateCrop(?array $crop, ?Image $image = null): ?array {
         if (!$crop) return null;
 
         try {
             list('height' => $h, 'width' => $w, 'x' => $x, 'y' => $y) = $crop;
             if ($h < 0 || $w < 0 || $x < 0 || $y < 0) return null;
-            return $crop;
 
+            if ($image) {
+                if (($x + $w > $image->width) || ($y + $h > $image->height)) return null;
+                if ($x === 0 && $y === 0 && $w === $image->width && $h === $image->height) return null;
+            }
+
+            return $crop;
         } catch (\Throwable $t) {
             return null;
         }
@@ -154,30 +161,76 @@ class AvatarController extends AbstractController
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
-    public function uploadMedia(JSONRequestParser$parser, UserHandler $userHandler, ConfMaster $conf, EntityManagerInterface $em): JsonResponse {
+    public function uploadMedia(JSONRequestParser $parser, UserHandler $userHandler, ConfMaster $conf, EntityManagerInterface $em): JsonResponse {
         $payload = $parser->get_base64('data');
         $mime = $parser->get('mime');
 
-        $cropDefault = $this->validateCrop( $parser->get_array( 'crop' )['default'] ?? null );
-        $cropSmall = $this->validateCrop( $parser->get_array( 'crop' )['small'] ?? null );
-
         $user = $this->getUser();
-
         if ($userHandler->isRestricted($user, AccountRestriction::RestrictionProfileAvatar))
             return new JsonResponse(status: Response::HTTP_FORBIDDEN);
 
         if (!$payload) return new JsonResponse(status: Response::HTTP_BAD_REQUEST);
 
-        $raw_processing = $conf->getGlobalConf()->get(MyHordesConf::CONF_RAW_AVATARS, false);
-        $error = $userHandler->setUserBaseAvatar($user, $payload, $raw_processing ? UserHandler::ImageProcessingPreferImagick : UserHandler::ImageProcessingForceImagick, $raw_processing ? $mime : null, crop: $cropDefault);
-        if ($error !== UserHandler::NoError)
-            return new JsonResponse(['error' => $error]);
+        if (strlen( $payload ) > $conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728))
+            return new JsonResponse(['error' => UserHandler::ErrorAvatarTooLarge]);
 
-        if ($cropSmall && !$user->getAvatar()->isClassic()) {
-            $error = $userHandler->setUserBaseAvatar($user, $payload, $raw_processing ? UserHandler::ImageProcessingPreferImagick : UserHandler::ImageProcessingForceImagick, $raw_processing ? $mime : null, crop: $cropSmall, fillSmall: true);
-            if ($error !== UserHandler::NoError)
-                return new JsonResponse(['error' => $error]);
+        $image = ImageService::createImageFromData( $payload );
+        if (!$image) return new JsonResponse(['error' => UserHandler::ErrorAvatarFormatUnsupported]);
+
+        $cropDefault = $this->validateCrop( $parser->get_array( 'crop' )['default'] ?? null, $image );
+        $cropSmall = $this->validateCrop( $parser->get_array( 'crop' )['small'] ?? null, $image );
+
+        if ($cropSmall) {
+            list('height' => $h, 'width' => $w, 'x' => $x, 'y' => $y) = $cropSmall;
+            $small_image = ImageService::cloneImage( $image );
+            ImageService::crop( $small_image, $x, $y, $w, $h );
+            $final_w = max( 90, min( $w, 180 ) );
+            $final_h = round( $final_w / 3 );
+            ImageService::resize( $small_image, $final_w, $final_h );
+        } else $small_image = null;
+
+        if ($cropDefault) {
+            list('height' => $h, 'width' => $w, 'x' => $x, 'y' => $y) = $cropDefault;
+            ImageService::crop( $image, $x, $y, $w, $h );
         }
+
+        $final_d = min(200, max( $image->width, $image->height ));
+        if (max( $image->width, $image->height ) > $final_d)
+            ImageService::resize( $image, $final_d, $final_d, bestFit: true );
+
+        $converter_formats = ImageService::getCompressionOptions( $image );
+
+        $format = null;
+        $data = null;
+        foreach ($converter_formats as $test_format) {
+            if (!($test_data = ImageService::save( $image, $test_format ))) continue;
+            if ($data === null || strlen( $data ) > strlen( $test_data )) {
+                $format = $test_format;
+                $data = $test_data;
+            }
+        }
+
+        if (!$data) return new JsonResponse(['error' => UserHandler::ErrorAvatarFormatUnsupported]);
+
+        if (strlen($data) > $conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_STORAGE, 1048576))
+            return new JsonResponse(['error' => UserHandler::ErrorAvatarInsufficientCompression]);
+
+        if (!($avatar = $user->getAvatar())) {
+            $avatar = new Avatar();
+            $user->setAvatar($avatar);
+        }
+
+        $avatar
+            ->setChanged(new \DateTime())
+            ->setFilename( md5( $data ) )
+            ->setFormat( strtolower( $format ?? $image->format ) )
+            ->setImage( $data )
+            ->setX( $image->width )
+            ->setY( $image->height );
+
+        if ($small_image && $small_data = ImageService::save( $small_image, $format ?? $image->format ))
+            $avatar->setSmallName( md5($small_data) )->setSmallImage( $small_data );
+        else $avatar->setSmallName( null )->setSmallImage( null );
 
         $em->persist( $user );
         $em->flush();
