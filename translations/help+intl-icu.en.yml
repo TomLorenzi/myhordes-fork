@@ -877,3 +877,18 @@ Legacy-Dokumentation: Legacy documentation
 '<i>Bevor du eine Verifizierung beantragt hast</i>, kannst du dein Event einfach löschen.': '<i>Before you have requested verification</i>, you can simply delete your event.'
 'Um ein Event <i>nach der Verifizierung, aber vor dessen Start</i> abzubrechen, musst du den Technischen Support kontaktieren.': 'To cancel an event <i>after verification but before it starts</i>, you must contact Technical Support.'
 '<i>Nach dem Start</i> des Events kannst du es in dessen Einstellungen jederzeit als "Beendet" markieren. Zudem wird es automatisch <i>mit dem Ende der letzten Event-Stadt</i> oder nach <i>60 Tagen</i> als "Beendet" markiert (je nachdem, was zuerst eintritt).': '<i>After the event has started</i>, you can mark it as "Finished" at any time. It will automatically be marked as finished<i>once the last event town dies</i> or after <i>60 days have passed</i> (depending on which happens first).'
+Teams: Teams
+'Dein Team': 'Your Team'
+"Auf 'MyHordes' existieren verschiedene Gemeinschaften, die lose durch ihre Sprache kategorisiert werden.": "Different communities exist on 'MyHordes', loosely categorized by their language."
+'Damit das Städteranking für alle Spieler fair bleibt, musst du dich früher oder später einer dieser Gemeinschaften anschließen.': 'In order to keep the town ranking fair for all players, you will have to join one of these communities sooner or later.'
+'Wie trete ich einem Team bei?': 'How do I join a team?'
+'Du kannst dein Team in deinen Seeleneinstellungen unter dem Punkt "Dein Team" auswählen, indem du das Bearbeiten-Symbol anklickst.': 'You can select your team in your soul settings under the "Your Team" item by clicking the edit icon.'
+'Daraufhin erhälst du eine Übersicht aller Gemeinschaften unter denen du auswählen kannst.': 'You will then see an overview of all the communities you can choose from.'
+'Welche Auswirkungen hat es, wenn ich einem team beitrete?': 'What are the implications of joining a team?'
+'Deine Team-Auswahl signalisiert, mit welcher Gemeinschaft du hauptsächlich zusammenspielen möchtest.': 'Your team selection signals which community you mainly want to play with.'
+'Die Anzahl der Städte eines fremden Teams, die du betreten kannst, wird dementsprechend begrenzt. Ist dieses Limit erreicht, kannst du für den Rest der Saison ausschließlich in Städten deines eigenen Teams spielen.': 'The number of towns of a foreign team that you can enter will be limited accordingly. Once this limit is reached, you can only play in your own team''s towns for the rest of the season.'
+'In deinen Seeleneinstellungen kannst du sehen, wie viele Städte du in dieser Saison bereits in fremden Städten gespielt hast.': 'In your soul settings you can see how many of your towns in this season were foreign towns.'
+'<strong>Achtung:</strong> Kleine Städte, Privatstädte an (die meisten) Event-Städte sind von dieser Begrenzung ausgenommen.': '<strong>Notice:</strong> Small towns, private towns and (most) event towns are excluded from this limitation.'
+'Kann ich mein Team wechseln?': 'Can I change my team?'
+'Du kannst dein Team jederzeit wechseln, solange die Anzahl der Städte in deinem alten Team das Limit für fremde Städte nicht übersteigt.': 'You can change your team at any time as long as the number of towns in your old team does not exceed the limit for foreign towns.'
+'Um dein Team nach Erreichen dieses Limits zu wechseln, kannst du <strong>in begründeten Fällen</strong> den Technischen Support kontaktieren.': 'To change your team after reaching this limit, you can <strong>in justified cases</strong> contact the Technical Support.'

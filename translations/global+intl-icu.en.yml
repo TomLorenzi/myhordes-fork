@@ -526,3 +526,4 @@ Kurzbeschreibung: Short description
 'Du musst mindestens eine Event-Beschreibung hinzufügen.': 'You must add at least one event description.'
 'Du musst ein Startdatum für dein Event festlegen.': 'You need to set a start date for your event.'
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'The start date of your event must be at least {minDays} days and at most {maxDays} days in the future'
+'Account wechseln': 'Switch accounts'
