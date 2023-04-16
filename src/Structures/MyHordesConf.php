@@ -20,6 +20,8 @@ class MyHordesConf extends Conf
 
     const CONF_MOD_MAIL_DCHOOK = 'modmail.discord';
 
+    const CONF_ANIM_MAIL_DCHOOK = 'animail.discord';
+
     const CONF_FATAL_MAIL_TARGET = 'fatalmail.target';
     const CONF_FATAL_MAIL_SOURCE = 'fatalmail.source';
     const CONF_FATAL_MAIL_DCHOOK = 'fatalmail.discord';
@@ -58,6 +60,8 @@ class MyHordesConf extends Conf
 
     const CONF_ANTI_GRIEF_SP  = 'anti-grief.min-sp';
     const CONF_ANTI_GRIEF_REG = 'anti-grief.reg-limit';
+
+    const CONF_ANTI_GRIEF_FOREIGN_CAP    = 'anti-grief.foreign-cap';
 
     const CONF_IMPORT_ENABLED = 'soul_import.enabled';
     const CONF_IMPORT_READONLY = 'soul_import.readonly';

@@ -19,6 +19,7 @@ enum UserSetting: string {
     case NotifyMeOnFriendRequest        = 'notify-on-friend-request';
     case ReorderActionButtonsBeyond     = 'reorder-action-buttons-beyond';
     case ReorderTownLocationButtons     = 'reorder-location-buttons-town';
+    case DistinctionTop3     = 'distinctions-top-3';
 
     /**
      * @return UserSetting[]
@@ -31,7 +32,7 @@ enum UserSetting: string {
         ];
     }
 
-    public function defaultValue(): int|bool|null
+    public function defaultValue(): int|bool|array|null
     {
         /** @noinspection PhpDuplicateMatchArmBodyInspection */
         return match ($this) {
@@ -51,6 +52,7 @@ enum UserSetting: string {
             UserSetting::NotifyMeOnFriendRequest       => true,
             UserSetting::ReorderActionButtonsBeyond    => false,
             UserSetting::ReorderTownLocationButtons    => true,
+            UserSetting::DistinctionTop3               => [null,null,null],
         };
     }
 }

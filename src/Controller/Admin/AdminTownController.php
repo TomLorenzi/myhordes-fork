@@ -52,11 +52,14 @@ use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
+use App\Service\LogTemplateHandler;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
+use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
+use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Structures\EventConf;
@@ -73,6 +76,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -80,7 +85,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class AdminTownController extends AdminActionController
 {
-    /**
+	/**
      * @Route("jx/admin/town/list", name="admin_town_list")
      * @return Response
      */
@@ -171,19 +176,20 @@ class AdminTownController extends AdminActionController
         return $final;
     }
 
-    /**
-     * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer", priority=0)
-     * @param int $id
-     * @param string|null $tab The tab we want to display
-     * @param string|null $conf
-     * @param GazetteService $gazetteService
-     * @return Response
-     */
-    public function town_explorer(int $id, ?string $tab, ?string $conf, GazetteService $gazetteService): Response
+	/**
+	 * @Route("jx/admin/town/{id<\d+>}/{tab?}/{conf?}", name="admin_town_explorer", priority=0)
+	 * @param int $id
+	 * @param string|null $tab The tab we want to display
+	 * @param string|null $conf
+	 * @param GazetteService $gazetteService
+	 * @param TownHandler $townHandler
+	 * @return Response
+	 */
+    public function town_explorer(int $id, ?string $tab, ?string $conf, GazetteService $gazetteService, TownHandler $townHandler): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+        if ($town === null) return $this->redirectToRoute('admin_town_list');
 
         $explorables = [];
 
@@ -200,27 +206,6 @@ class AdminTownController extends AdminActionController
                 }
                 ksort($explorables[$zone->getId()]['rz']);
             }
-
-        $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
-        usort($pictoProtos, function ($a, $b) {
-            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
-        });
-
-        $itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
-        usort($itemPrototypes, function ($a, $b) {
-            return strcmp($this->translator->trans($a->getLabel(), [], 'items'), $this->translator->trans($b->getLabel(), [], 'items'));
-        });
-
-        $citizenStati = $this->entity_manager->getRepository(CitizenStatus::class)->findAll();
-        usort($citizenStati, function ($a, $b) {
-            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
-        });
-
-        $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
-
-        usort($citizenRoles, function ($a, $b) {
-            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
-        });
 
         $disabled_profs = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, []);
         $professions = array_filter($this->entity_manager->getRepository( CitizenProfession::class )->findSelectable(),
@@ -317,10 +302,10 @@ class AdminTownController extends AdminActionController
             'log' => $this->renderLog(-1, $town, false)->getContent(),
             'day' => $town->getDay(),
             'bank' => $this->renderInventoryAsBank($town->getBank()),
-            'itemPrototypes' => $itemPrototypes,
-            'pictoPrototypes' => $pictoProtos,
-            'citizenStati' => $citizenStati,
-            'citizenRoles' => $citizenRoles,
+            'itemPrototypes' => $this->getOrderedItemPrototypes($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+            'pictoPrototypes' => $this->getOrderedPictoPrototypes($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+			'citizenStati' => $this->getOrderedCitizenStatus($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+            'citizenRoles' => $this->getOrderedCitizenRoles($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
             'citizenProfessions' => $professions,
             'tab' => $tab,
             'complaints' => $complaints,
@@ -338,11 +323,299 @@ class AdminTownController extends AdminActionController
             'current_event' => $this->conf->getCurrentEvents($town),
             'citizen_langs' => $langs,
             'citizen_langs_alive' => $langs_alive,
-            'langs' => array_merge($this->generatedLangsCodes, ['multi'])
-        ], $this->get_map_blob($town))));
+            'langs' => array_merge($this->generatedLangsCodes, ['multi']),
+            'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', true))
+        ])));
     }
 
-    /**
+	/**
+	 * @Route("jx/admin/town/dash/{id<\d+>}", name="admin_town_dashboard")
+	 * @param int $id The internal ID of the town
+	 * @param TownHandler $townHandler
+	 * @return Response
+	 */
+	public function town_explorer_dash(int $id, TownHandler $townHandler): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		return $this->render('ajax/admin/towns/explorer_dash.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'itemPrototypes' => $this->getOrderedItemPrototypes($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+			'tab' => "dash",
+			'events' => $this->conf->getAllEvents(),
+			'current_event' => $this->conf->getCurrentEvents($town),
+			'langs' => array_merge($this->generatedLangsCodes, ['multi']),
+			'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', true))
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/bank/{id<\d+>}", name="admin_town_bank")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_bank(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+
+		return $this->render('ajax/admin/towns/explorer_bank.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'itemPrototypes' => $this->getOrderedItemPrototypes($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+			'tab' => "bank",
+			'bank' => $this->renderInventoryAsBank($town->getBank()),
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/citizens/{id<\d+>}", name="admin_town_citizens")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_citizens(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		$disabled_profs = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, []);
+		$professions = array_filter($this->entity_manager->getRepository( CitizenProfession::class )->findSelectable(),
+			fn(CitizenProfession $p) => !in_array($p->getName(),$disabled_profs)
+		);
+
+		$complaints = [];
+		$votes = [];
+		$roles = [];
+
+		/** @var CitizenRole $votableRole */
+		foreach ($this->entity_manager->getRepository(CitizenRole::class)->findVotable() as $votableRole) {
+			$votes[$votableRole->getId()] = [];
+			$roles[$votableRole->getId()] = $votableRole;
+		}
+
+		foreach ($town->getCitizens() as $citizen) {
+			$comp = $this->entity_manager->getRepository(Complaint::class)->findBy(['culprit' => $citizen]);
+			if (count($comp) > 0)
+				$complaints[$citizen->getUser()->getName()] = $comp;
+
+			foreach ($roles as $roleId => $role) {
+				/** @var CitizenVote $vote */
+				$vote = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role);
+				if ($vote) {
+					if(isset($votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()])) {
+						$votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()][] = $vote->getAutor();
+					} else {
+						$votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()] = [
+							$vote->getAutor()
+						];
+					}
+				}
+			}
+		}
+
+		$all_complaints = array_map( fn(ActionEventLog $a) => [
+			'on' => $a->getType() === ActionEventLog::ActionEventComplaintIssued,
+			'from' => $a->getCitizen(),
+			'to' => $this->entity_manager->getRepository(Citizen::class)->find($a->getOpt1()),
+			'reason' => $this->entity_manager->getRepository(ComplaintReason::class)->find($a->getOpt2()),
+			'time' => $a->getTimestamp()
+		], $this->entity_manager->getRepository(ActionEventLog::class)->findBy([
+			'type' => [ActionEventLog::ActionEventComplaintIssued,ActionEventLog::ActionEventComplaintRedacted],
+			'citizen' => $town->getCitizens()->getValues(),
+		], ['timestamp' => 'DESC']));
+
+		$langs = [];
+		$langs_alive = [];
+		foreach ($town->getCitizens() as $citizen) {
+			$lang = $citizen->getUser()->getLanguage() ?? 'multi';
+			if (!isset($langs[$lang]))
+				$langs[$lang] = $langs_alive[$lang] = 0;
+			$langs[$lang]++;
+			if ($citizen->getActive()) $langs_alive[$lang]++;
+		}
+
+		return $this->render('ajax/admin/towns/explorer_citizen.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "citizens",
+			"itemPrototypes" => $this->getOrderedItemPrototypes($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+			'citizenStati' => $this->getOrderedCitizenStatus($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+			'citizenRoles' => $this->getOrderedCitizenRoles($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+			'pictoPrototypes' => $this->getOrderedPictoPrototypes($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
+			'citizenProfessions' => $professions,
+			'citizen_langs' => $langs,
+			'citizen_langs_alive' => $langs_alive,
+			'complaints' => $complaints,
+			'all_complaints' => $all_complaints,
+			'votes' => $votes,
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/register/{id<\d+>}", name="admin_town_register")
+	 * @param int $id The internal ID of the town
+	 * @param GazetteService $gazetteService
+	 * @return Response
+	 */
+	public function town_explorer_register(int $id, GazetteService $gazetteService): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		return $this->render('ajax/admin/towns/explorer_register.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "register",
+			'log' => $this->renderLog(-1, $town, false)->getContent(),
+			'gazette' => $gazetteService->renderGazette( $town, $town->getDay(), true),
+			'council' => array_map( fn(CouncilEntry $c) => [$gazetteService->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
+				fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
+			)),
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/blackboard/{id<\d+>}", name="admin_town_blackboard")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_blackboard(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		return $this->render('ajax/admin/towns/explorer_blackboard.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "blackboard",
+			'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/estimations/{id<\d+>}", name="admin_town_estimations")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_estimations(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		return $this->render('ajax/admin/towns/explorer_estimations.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "estimations",
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/buildings/{id<\d+>}", name="admin_town_buildings")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_buildings(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		$root = [];
+		$dict = [];
+		$inTown = [];
+
+		foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
+			/** @var BuildingPrototype $building */
+			$dict[$building->getId()] = [];
+			if (!$building->getParent())
+				$root[] = $building;
+		}
+
+		foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
+			/** @var BuildingPrototype $building */
+			if ($building->getParent()) {
+				$dict[$building->getParent()->getId()][] = $building;
+			}
+
+			$available = $this->entity_manager->getRepository(Building::class)->findOneBy(['town' => $town, 'prototype' => $building]);
+			if ($available)
+				$inTown[$building->getId()] = $available;
+		}
+
+		return $this->render('ajax/admin/towns/explorer_buildings.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "buildings",
+			'dictBuildings' => $dict,
+			'rootBuildings' => $root,
+			'availBuldings' => $inTown,
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/eruins_explorer/{id<\d+>}", name="admin_town_eruins_explorer")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_eruins_explorer(int $id): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		$explorables = [];
+		foreach ($town->getZones() as $zone)
+			/** @var Zone $zone */
+			if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+				$explorables[$zone->getId()] = ['rz' => [], 'z' => $zone, 'x' => $zone->getExplorerStats(), 'ax' => $zone->activeExplorerStats()];
+				if ($zone->activeExplorerStats()) $explorables[$zone->getId()]['axt'] = max(0, $zone->activeExplorerStats()->getTimeout()->getTimestamp() - time());
+				$rz = $zone->getRuinZones();
+				foreach ($rz as $r) {
+					if (!isset( $explorables[$zone->getId()]['rz'][$r->getZ()] ))
+						$explorables[$zone->getId()]['rz'][$r->getZ()] = [];
+					$explorables[$zone->getId()]['rz'][$r->getZ()][] = $r;
+				}
+				ksort($explorables[$zone->getId()]['rz']);
+			}
+
+		return $this->render('ajax/admin/towns/explorer_eruins_explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "eruins_explorer",
+			'explorables' => $explorables,
+
+		])));
+	}
+
+	/**
+	 * @Route("jx/admin/town/config/{id<\d+>}/{conf?}", name="admin_town_config")
+	 * @param int $id The internal ID of the town
+	 * @return Response
+	 */
+	public function town_explorer_config(int $id, ?string $conf): Response {
+		/** @var Town $town */
+		$town = $this->entity_manager->getRepository(Town::class)->find($id);
+		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+		$conf_self = $this->conf->getTownConfiguration($town);
+		$conf_compare = match($conf) {
+			'small', 'remote', 'panda', 'default' => $this->conf->getTownConfigurationByType($conf),
+			default => null,
+		};
+
+		return $this->render('ajax/admin/towns/explorer_config.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+			'town' => $town,
+			'day' => $town->getDay(),
+			'tab' => "config",
+			'opt_conf' => $conf,
+			'conf' => $conf_self,
+			'conf_compare' => $conf_compare,
+			'conf_keys' => array_unique( array_merge( array_keys( $conf_self->raw() ), array_keys( $conf_compare?->raw() ?? [] ) ) ),
+		])));
+	}
+
+	/**
      * @Route("jx/admin/town/{id<\d+>}/gazette/{day<\d+>}", name="admin_town_explorer_gazette", priority=1)
      * @param int $id
      * @param int $day
@@ -1124,7 +1397,7 @@ class AdminTownController extends AdminActionController
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             }
         }
-        
+
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
@@ -1242,6 +1515,7 @@ class AdminTownController extends AdminActionController
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $zone_id = $parser->get('zone_id', -1);
+		/** @var Zone $zone */
         $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
 
         if(!$zone || $zone->getTown() !== $town)
@@ -1254,6 +1528,7 @@ class AdminTownController extends AdminActionController
 
         return AjaxResponse::success(true, [
             'view' => $view,
+			'zone_coords' => ["x" => $zone->getX(), "y" => $zone->getY()],
             'zone_digs' => $zone->getDigs(),
             'ruin_digs' => $zone->getPrototype() !== null ? $zone->getRuinDigs() : 0,
             'ruin_bury' => $zone->getBuryCount(),
@@ -2213,18 +2488,20 @@ class AdminTownController extends AdminActionController
         return $this->render('ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
             'towns' => $towns,
             'nohref' => $parser->get('no-href', false),
-            'target' => 'admin_town_explorer'
+            'target' => 'admin_town_dashboard'
         ]));
     }
-    
 
-    /**
-     * @Route("api/admin/town/{id}/admin_regenerate_ruins", name="admin_regenerate_ruins", requirements={"id"="\d+"})
-     * @AdminLogProfile(enabled=true)
-     * @param int $id The ID of the town
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
+
+	/**
+	 * @Route("api/admin/town/{id}/admin_regenerate_ruins", name="admin_regenerate_ruins", requirements={"id"="\d+"})
+	 * @AdminLogProfile(enabled=true)
+	 * @param int               $id The ID of the town
+	 * @param JSONRequestParser $parser
+	 * @param MazeMaker         $mazeMaker
+	 * @param AdminLog          $logger
+	 * @return Response
+	 */
     public function admin_regenerate_ruins(int $id, JSONRequestParser $parser, MazeMaker $mazeMaker, AdminLog $logger): Response {
         /** @var Town $town */
 
@@ -2250,9 +2527,9 @@ class AdminTownController extends AdminActionController
             $mazeMaker->setTargetZone($zone);
             $zone->setExplorableFloors($conf->get(TownConf::CONF_EXPLORABLES_FLOORS, 1));
 
-            $mazeMaker->createField();  
+            $mazeMaker->createField();
             $mazeMaker->generateCompleteMaze();
-            
+
             try {
                 $this->entity_manager->persist($town);
                 $this->entity_manager->flush();

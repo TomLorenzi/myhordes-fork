@@ -8,6 +8,7 @@ use App\Entity\ExternalApp;
 use App\Entity\GlobalPoll;
 use App\Entity\Quote;
 use App\Entity\User;
+use App\Entity\UserSwapPivot;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\InventoryHandler;
@@ -76,13 +77,19 @@ class CustomAbstractController extends CustomAbstractCoreController {
         $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
         shuffle($quotes);
 
+        $allLangs = [];
+        foreach ($this->generatedLangs as $lang)
+            $allLangs[$lang['code']] = $lang;
+
         $data["langsCodes"] = $this->generatedLangsCodes;
+        $data["allLangs"] = $allLangs;
         $data['quote'] = $quotes[0];
 
         $data['apps'] = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['active' => true]);
 
         $data['adminActions'] = AdminActionController::getAdminActions();
         $data['comActions']   = AdminActionController::getCommunityActions();
+        $data['swapPivots']   = $this->getUser() ? $this->entity_manager->getRepository(UserSwapPivot::class)->findBy( ['principal' => $this->getUser()] ) : [];
 
         $data["poll"] = array_values(array_filter(
                 $this->entity_manager->getRepository(GlobalPoll::class)->findByState(false, true, false),

@@ -1,40 +1,26 @@
 <?php
 
-namespace App\Controller\REST;
+namespace App\Controller\REST\User;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
-use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
-use App\Entity\CitizenProfession;
-use App\Entity\CitizenRankingProxy;
-use App\Entity\TownClass;
-use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Enum\UserAccountType;
-use App\Response\AjaxResponse;
-use App\Service\ErrorHelper;
-use App\Service\GameFactory;
-use App\Service\GameProfilerService;
 use App\Service\JSONRequestParser;
-use App\Service\TownHandler;
-use App\Service\UserHandler;
-use App\Structures\EventConf;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * @Route("/rest/v1/user-search", name="rest_user_search_", condition="request.headers.get('Accept') === 'application/json'")
+ * @Route("/rest/v1/user/search", name="rest_user_search_", condition="request.headers.get('Accept') === 'application/json'")
  * @IsGranted("ROLE_USER")
  * @GateKeeperProfile("skip")
  */
-class UserSearchController extends CustomAbstractCoreController
+class SearchController extends CustomAbstractCoreController
 {
 
     private function build_search_skip_list( JSONRequestParser $parser ): array {

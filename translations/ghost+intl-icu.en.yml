@@ -1,4 +1,3 @@
----
 'Die gewählte Stadt ist bereits voll.': 'The selected town is full.'
 'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'You can''t join more than one town at a time.'
 'Du bist dieser Stadt bereits beigetreten.': 'You have already joined this town.'
@@ -269,3 +268,18 @@ Laden: Load
 Löschen: Delete
 'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'Your currently selected model will be deleted. This action cannot be undone. Continue?'
 'Deine Vorlage wurde erfolgreich gelöscht.': 'The template was deleted successfully.'
+'Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.': 'The city cannot be created with these parameters, some fields are either incomplete or invalid.'
+'Nördlicher Abstand': 'Northern margin'
+'Südlicher Abstand': 'South margin'
+'Westlicher Abstand': 'West margin'
+'Östlicher Abstand': 'East margin'
+'Beachte, das die "Grundlegenden Einstellungen", die du oben getätigst hast, NICHT in der Vorlage gespeichert werden!': 'Note that the "Basic settings" you have set above will NOT be saved in the template!'
+'Team-Beschränkung deaktivieren': 'Disable team limitations'
+'Diese Stadt gehört keinem Team an.': 'This town does not belong to a team.'
+'Du bist bisher keinem Team beigetreten.': 'You have not joined a team yet.'
+'Team wählen': 'Select team'
+'{members} Mitglieder, {souls} verlorene Seelen': '{members} members, {souls} lost souls'
+'Du hast das Limit für das Betreten von Städte aus anderen Teams erreicht. Bis zum Ende dieser Saison kannst du nur Städte deines eigenen Teams betreten.': 'You have reached the limit for entering towns from other teams. Until the end of this season you can only enter towns from your own team.'
+'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.': 'You must choose a team before you can enter more towns.'
+'Diese Stadt ist {lang_town}, aber dein aktuelles Team ist {team_user}.': 'This city is {lang_town}, but your current team is {team_user}.'
+'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.': 'To keep the ranking fair for all communities, the number of a foreign team''s towns you can enter is limited. Currently you can still enter {tickets_left} more towns belonging to a foreign team.'

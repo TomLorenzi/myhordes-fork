@@ -1,4 +1,3 @@
----
 'Dein Name muss mindestens { limit } Zeichen umfassen.': 'Tu nombre debe tener al menos { limit } caracteres.'
 'Dein Name kann höchstens { limit } Zeichen umfassen.': 'Tu nombre solo puede tener hasta { limit } caracteres.'
 'Die eingegebene E-Mail Adresse ist nicht gültig.': 'La dirección de correo electrónico ingresada no es válida.'
@@ -27,7 +26,7 @@ Spielername: Nombre de usuario
 'E-Mail Adresse': 'Dirección de correo electrónico'
 wiederholen: repetir
 Passwort: Contraseña
-"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "Para completar el registro y activar tu cuenta, \n\\t\\t\\t\\t\\t\\tdebes hacer clic en el enlace de activación que se enviará a la dirección de correo electrónico especificada."
+"Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen\n                        Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.": "Para completar el registro y activar tu cuenta, \n\t\t\t\t\t\tdebes hacer clic en el enlace de activación que se enviará a la dirección de correo electrónico especificada."
 'Du hast schon einen Account?': '¿Ya tienes una cuenta?'
 Einloggen: Iniciar sesión
 'Bitte gib deinen Spielernamen und dein Passwort ein.': 'Por favor, ingresa tu nombre de usuario y contraseña.'

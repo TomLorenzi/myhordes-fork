@@ -42,8 +42,10 @@ use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
 use App\Enum\ZoneActivityMarkerType;
+use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
+use App\Service\EventFactory;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -62,6 +64,9 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -163,7 +168,7 @@ class TownController extends InventoryAwareController
     public function dashboard(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
-            return $this->redirect($this->generateUrl('game_newspaper'));
+            return $this->redirectToRoute('game_newspaper');
 
         $town = $this->getActiveCitizen()->getTown();
 
@@ -900,31 +905,25 @@ class TownController extends InventoryAwareController
     /**
      * @Route("jx/town/well", name="town_well")
      * @param TownHandler $th
+     * @param EventDispatcherInterface $dispatcher
+     * @param EventFactory $e
      * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function well(TownHandler $th): Response
+    public function well(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $e): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
 
-        $town = $this->getActiveCitizen()->getTown();
-        $pump = $th->getBuilding( $town, 'small_water_#00', true );
-
-        $allow_take = 1;
-        if ($pump) {
-            if($town->getChaos()) {
-                $allow_take = 3;
-            } else {
-                $allow_take = 2;
-            }
-        }
+        $dispatcher->dispatch($event = $e->gameInteractionEvent( WellExtractionCheckEvent::class )->setup( 0 ));
 
         return $this->render( 'ajax/game/town/well.html.twig', $this->addDefaultTwigArgs('well', [
             'rations_left' => $this->getActiveCitizen()->getTown()->getWell(),
-            'first_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) === 0,
-            'allow_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) < $allow_take,
-            'maximum' => $allow_take,
-            'pump' => $pump,
+            'first_take' => $event->already_taken === 0,
+            'allow_take' => $event->already_taken < $event->allowed_to_take,
+            'maximum' => $event->allowed_to_take,
+            'pump' => $event->pump_is_built,
 
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
@@ -941,123 +940,6 @@ class TownController extends InventoryAwareController
             return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWell, null);
     }
-
-    /**
-     * @Route("api/town/well/item", name="town_well_item_controller")
-     * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
-     * @param ItemFactory $factory
-     * @param BankAntiAbuseService $ba
-     * @return Response
-     */
-    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, BankAntiAbuseService $ba): Response {
-        $direction = $parser->get('direction', '');
-
-        if (in_array($direction, ['up','down'])) {
-            $citizen = $this->getActiveCitizen();
-
-            $town = $citizen->getTown();
-
-            $pump = $this->town_handler->getBuilding($town, 'small_water_#00', true);
-
-            $limit = $pump ? ($town->getChaos() ? 3 : 2) : 1;
-            if ($direction == 'up') {
-                if ($town->getWell() <= 0) return AjaxResponse::error(self::ErrorWellEmpty);
-
-                $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeWell);
-
-                if ($this->getActiveCitizen()->getBanished() && $counter->getCount() >= 1) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableBanished);
-                if ($counter->getCount() >= $limit) return AjaxResponse::error(self::ErrorWellLimitHit);
-
-                $inv_target = $citizen->getInventory();
-                $inv_source = null;
-                $item = $factory->createItem( 'water_#00' );
-
-                if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen )) {
-                    $ba->increaseBankCount($citizen);
-                    $this->entity_manager->flush();
-                    return AjaxResponse::error(InventoryHandler::ErrorBankLimitHit);
-                }
-
-                if (($error = $handler->transferItem(
-                    $citizen,
-                    $item,$inv_source, $inv_target
-                )) === InventoryHandler::ErrorNone) {
-                    if ($counter->getCount() > 0) {
-                        $flash = $this->translator->trans("Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...", ['{item}' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
-                        $ba->increaseBankCount( $citizen );
-                    } else {
-                        $flash = $this->translator->trans("Du hast deine tägliche Ration erhalten: {item}", ['{item}' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
-                    }
-
-                    $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
-                    $counter->increment();
-                    $town->setWell( $town->getWell()-1 );
-                    try {
-                        $this->entity_manager->persist($item);
-                        $this->entity_manager->persist($town);
-                        $this->entity_manager->persist($citizen);
-                        $this->entity_manager->persist($counter);
-                        $this->entity_manager->flush();
-                    } catch (Exception $e) {
-                        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-                    }
-
-                    $this->addFlash('notice', $flash);
-                    return AjaxResponse::success();
-                } else return AjaxResponse::error($error);
-            } else {
-
-                if(!$pump) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
-                $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_#00', 1, null, false)] );
-                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_1_#00')] );
-                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_2_#00')] );
-                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_3_#00')] );
-                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('potion_#00')] );
-                if (empty($items)) return AjaxResponse::error(self::ErrorWellNoWater);
-
-                $morph = null;
-                switch ($items[0]->getPrototype()->getName()) {
-                    case 'water_can_3_#00': $morph = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('water_can_2_#00'); break;
-                    case 'water_can_2_#00': $morph = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('water_can_1_#00'); break;
-                    case 'water_can_1_#00': $morph = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('water_can_empty_#00'); break;
-                    default: break;
-                }
-
-                $inv_target = null;
-                $inv_source = $citizen->getInventory();
-
-                if (($error = $morph !== null ? InventoryHandler::ErrorNone : $handler->transferItem(
-                        $citizen,
-                        $items[0],$inv_source, $inv_target
-                    )) === InventoryHandler::ErrorNone) {
-                    $town->setWell( $town->getWell()+1 );
-                    try {
-                        $this->entity_manager->persist( $this->log->wellAdd( $citizen, $items[0]->getPrototype(), 1) );
-
-                        $this->addFlash('info', $this->translator->trans('Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+1 Einheit</strong>)', [
-                            'item' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $items[0]->getPrototype()->getIcon() . '.gif' )}' /> {$this->translator->trans($items[0]->getPrototype()->getLabel(),[],'items')}</span>"
-                        ], 'game'));
-
-                        if ($morph === null) $this->entity_manager->remove($items[0]);
-                        else {
-                            $items[0]->setPrototype($morph);
-                            $this->entity_manager->persist($items[0]);
-                        }
-                        $this->entity_manager->persist($town);
-                        $this->entity_manager->flush();
-                    } catch (Exception $e) {
-                        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-                    }
-                    return AjaxResponse::success();
-                } else return AjaxResponse::error($error);
-            }
-        }
-
-        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-    }
-
 
     /**
      * @Route("jx/town/bank", name="town_bank")
@@ -1778,7 +1660,7 @@ class TownController extends InventoryAwareController
             'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 5 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
             'door_section'      => 'door',
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $time ) )
+            'map_public_json'   => json_encode( $th->get_public_map_blob( $town, $this->getActiveCitizen(), 'door-preview', $time ) )
         ]) );
     }
 
@@ -1807,7 +1689,7 @@ class TownController extends InventoryAwareController
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown()),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+            'map_public_json'   => json_encode( $this->town_handler->get_public_map_blob( $this->getActiveCitizen()->getTown(), $this->getActiveCitizen(), 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
         ]));
     }
 
@@ -1829,7 +1711,7 @@ class TownController extends InventoryAwareController
             'door_section'      => 'planner',
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-planner', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+            'map_public_json'   => json_encode( $this->town_handler->get_public_map_blob($this->getActiveCitizen()->getTown(), $this->getActiveCitizen(), 'door-planner', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
         ]) );
     }
 
@@ -2270,10 +2152,11 @@ class TownController extends InventoryAwareController
         return AjaxResponse::success();
     }
 
-    /**
-     * @Route("api/town/insurrect", name="town_insurrect")
-     * @return Response
-     */
+	/**
+	 * @Route("api/town/insurrect", name="town_insurrect")
+	 * @param GameProfilerService $gps
+	 * @return Response
+	 */
     public function do_insurrection(GameProfilerService $gps): Response
     {
         /** @var Citizen $citizen */
@@ -2282,16 +2165,31 @@ class TownController extends InventoryAwareController
         /** @var Town $town */
         $town = $citizen->getTown();
 
-        if ($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") || $town->getInsurrectionProgress() >= 100)
+        if ($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") || $town->getInsurrectionProgress() >= 100 || !$citizen->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
-        $non_shunned = 0;
 
-        //TODO: This needs huuuuge statistics
-        foreach ($town->getCitizens() as $foreinCitizen)
-            if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
+		// From Hordes' Data:
+		// https://github.com/motion-twin/WebGamesArchives/blob/main/Hordes/src/handler/CityActions.hx#L2556
+		$non_shunned = 0;
+		$shunned = 0;
+		$insurrectionProgress = 5;
+        foreach ($town->getCitizens() as $foreinCitizen)  {
+			if (!$foreinCitizen->getAlive()) continue;
+            if (!$foreinCitizen->getBanished())
+				$non_shunned++;
+			else
+				$shunned++;
+		}
 
-        $insurrectionProgress = intval(round(50 / $non_shunned));
+		if ($non_shunned === 0)
+			$insurrectionProgress = 100;
+		else {
+			$ratio = $shunned/$non_shunned;
+			$insurrectionProgress = ($insurrectionProgress * 0.3) + (0.7 * $insurrectionProgress * $ratio);
+			$insurrectionProgress *= $shunned;
+			$insurrectionProgress /= 10;
+		}
 
         $gps->recordInsurrectionProgress($town, $citizen, $insurrectionProgress, $non_shunned);
 

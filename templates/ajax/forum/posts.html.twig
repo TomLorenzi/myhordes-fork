@@ -306,7 +306,7 @@
 
                     <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.owner.id }}" x-post-content-author="{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true, globalSpace: post.thread.forum.town is null} only %}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
-                        {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
+                        {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' and post.owner != app.user %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
                             {% if mode == 0 %}
                                 <br/>{{ 'Hängt {user}!'|trans({'{user}': app.user.activeCitizen.alias ?? app.user.name},'game') }}

@@ -128,6 +128,8 @@ div.tooltip.badge-tooltip {
         width: 270px; max-width: 100%; background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat, url("../../img/soul/rewardsBg_back.gif") top/100% repeat-y;
         padding-bottom: 0 !important; margin-left: 3px; display: inline-block;
 
+        .loading { margin-top: 55px; }
+
         .distinctions-head {
             padding-top: 45px; color: #f0d79e; font-variant: small-caps; font-weight: bold; font-size: 2rem;
         }
@@ -145,6 +147,8 @@ div.tooltip.badge-tooltip {
                 display: inline-block;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.5);
                 padding: 5px;
+                background: transparent;
+                transition: background-color 0.5s ease-in-out;
 
                 .counter-wrapper {
                     position: absolute;
@@ -161,8 +165,8 @@ div.tooltip.badge-tooltip {
                         padding: 2px 4px;
                         .count {
                             background: url("../../fonts/fontBitmap.png") no-repeat; line-height: 0; font-size: 0; width: 5px; height: 8px; display: inline-block;
-                            .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
-                            .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
+                            .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[num="@{i}"],&[data-num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
+                            .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[num="@{i}"], &[data-num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
                             .pictoBitmapFont();
                         }
                     }
@@ -182,7 +186,7 @@ div.tooltip.badge-tooltip {
                 &.rare {
                     border-color: #FFE96C;
                     border-bottom-color: #FFFFB9;
-                    box-shadow: inset 0px 0px 4px #fe7d00, 0px 0px 4px #fe7d00, 0px 2px 4px #1d2028;
+                    box-shadow: inset 0 0 4px #fe7d00, 0 0 4px #fe7d00, 0 2px 4px #1d2028;
 
                     .counter {
                         border-color: #FFE653;
@@ -192,6 +196,17 @@ div.tooltip.badge-tooltip {
                         color: #feb500;
                     }
                 }
+            }
+
+            &.targeting {
+              .picto {
+                background: rgba(92, 0, 69, 0.5);
+
+                &:hover {
+                  cursor: pointer;
+                  background: #FFE96C;
+                }
+              }
             }
         }
 
@@ -203,7 +218,11 @@ div.tooltip.badge-tooltip {
                 margin-top: 10px;
             }
 
-            .picto { display: inline-block; width: 32px; height: 32px; font-size: 1rem; padding-top: 3px; position: relative; }
+            .picto {
+              display: inline-block; width: 32px; height: 32px; font-size: 1rem; padding-top: 3px; position: relative; margin: 0 2px;
+              &.draggable { cursor: move }
+              &.dragging { z-index: 100; pointer-events: none }
+            }
             .rare { background: url("../../img/pictos/rewardBg_rare.gif") no-repeat; }
             .not-persisted { outline: 1px solid red; }
             .persisted { outline: 1px solid green; }
@@ -211,8 +230,8 @@ div.tooltip.badge-tooltip {
                 margin-top: -9.8px; position: absolute; bottom: 5px; left: 0; right: 0; font-size: 0; line-height: 0;
                 .count {
                     background: url("../../fonts/fontBitmap.png") no-repeat; line-height: 0; font-size: 0; width: 5px; height: 8px; display: inline-block;
-                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
-                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
+                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[num="@{i}"], &[data-num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
+                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[num="@{i}"], &[data-num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
                     .pictoBitmapFont();
                 }
             }
@@ -234,7 +253,7 @@ div.tooltip.badge-tooltip {
             }
             .title-list {
               text-decoration: none; color: white; list-style: none; text-align: initial; font-variant: small-caps;
-              font-size: 75%; max-height: 500px; overflow-y: auto; overflow-x: hidden;
+              font-size: 75%; max-height: 500px; overflow-y: auto; overflow-x: hidden; padding-left: 0;
                 li {
                     border-bottom: 1px dashed #633424; cursor: default;
                     &.chapter {
@@ -754,4 +773,79 @@ div#user-tooltip {
   &.small>img:first-child { width: 20px; height: 16px; left: 2px; top: 1px; }
 
   &:after { content: " "; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("../../img/lang/mask.png") center/cover no-repeat }
+}
+
+.townPassword pre {
+  padding: 3px; border-radius: 3px; background: rgba(0,0,0,0.1); display: inline-block; margin: 0;
+}
+
+hr.section {
+  border: 0.5px solid #ddab76;
+  box-shadow: 0 0 4px black;
+}
+
+.image-selector {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.6); box-shadow: 0 0 4px black;
+  overflow: visible;
+
+  &.active { border: 2px solid rgba(255,255,255,0.6); }
+  &:not(.active) { border: 1px solid rgba(255,255,255,0.6); opacity: 0.45; }
+
+  .corner-handle {
+    position: absolute; z-index: 10;
+    height: 12px; width: 12px; border-radius: 100%;
+    background: white; opacity: 0.5; box-shadow: 0 0 2px black;
+
+    &[data-handle-x="1"][data-handle-y="1"] { top: 0; right: 0; transform: translate(6px,-6px); cursor: ne-resize; }
+    &[data-handle-x="1"][data-handle-y="-1"] { bottom: 0; right: 0; transform: translate(6px,6px); cursor: se-resize; }
+    &[data-handle-x="-1"][data-handle-y="1"] { top: 0; left: 0; transform: translate(-6px,-6px); cursor: nw-resize; }
+    &[data-handle-x="-1"][data-handle-y="-1"] { bottom: 0; left: 0; transform: translate(-6px,6px); cursor: sw-resize; }
+  }
+
+  .edge-handle {
+    position: absolute; z-index: 5; border-radius: 2px;
+    background: white;
+    opacity: 0;  box-shadow: 0 0 2px black;
+
+    &[data-handle-x="0"] {
+      left: 0; right: 0; height: 6px;
+      &[data-handle-y="1"] { top: 0; transform: translate(0,-3px); cursor: n-resize; }
+      &[data-handle-y="-1"] { bottom: 0; transform: translate(0,3px); cursor: s-resize; }
+    }
+
+    &[data-handle-y="0"] {
+      top: 0; bottom: 0; width: 6px;
+      &[data-handle-x="1"] { right: 0; transform: translate(3px,0); cursor: e-resize; }
+      &[data-handle-x="-1"] { left: 0; transform: translate(-3px,0); cursor: w-resize; }
+    }
+  }
+
+  .move-handle {
+    position: absolute; z-index: 2;
+    top: 3px; left: 3px; bottom: 3px; right: 3px;
+    opacity: 0; cursor: move;
+  }
+
+  .corner-handle, .edge-handle {
+    transition: opacity 0.5s ease-in-out;
+    &:hover {opacity: 0.8};
+  }
+
+  .circle-preview, .small-preview {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+    div {
+      width: auto; height: auto; max-width: 100%; max-height: 100%;
+      position: relative; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      border: 1px dotted white;
+    }
+  }
+
+  .circle-preview div {
+    aspect-ratio: 1/1; border-radius: 100%;
+  }
+
+  .small-preview div {
+    aspect-ratio: 3/1;
+  }
 }

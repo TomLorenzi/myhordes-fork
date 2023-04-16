@@ -73,14 +73,7 @@ class UserInfoCommand extends Command
 
             ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
             ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
-
-            ->addOption('set-avatar',   'a',   InputOption::VALUE_REQUIRED, 'Enter a local file name to use as an avatar for this user.')
             ->addOption('remove-avatar', null,  InputOption::VALUE_NONE,  'Removes a user avatar.')
-            ->addOption('avatar-ext',   null,  InputOption::VALUE_OPTIONAL, 'Specify the file extension for --set-avatar. If omitted, the extension will be automatically determined.')
-            ->addOption('avatar-small', null,  InputOption::VALUE_NONE,     'If used with --set-avatar, the given avatar will be used as small avatar if a normal avatar is already set. If used with --remove-avatar, only the small avatar will be deleted.')
-            ->addOption('avatar-x',     null,  InputOption::VALUE_REQUIRED, 'Sets the image width. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
-            ->addOption('avatar-y',     null,  InputOption::VALUE_REQUIRED, 'Sets the image height. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
-            ->addOption('avatar-magick', null,  InputOption::VALUE_REQUIRED, 'When setting an avatar, "auto" will attempt to use Imagick (default), "force" will enforce Imagick and "raw" will disable Imagick.')
             ->addOption('custom-awards', null,  InputOption::VALUE_NONE, 'Lists all custom award titles for a user.')
             ->addOption('add-custom-award', null,  InputOption::VALUE_REQUIRED, 'Adds a new custom award title to a user.')
             ->addOption('remove-custom-award', null,  InputOption::VALUE_REQUIRED, 'Removes a new custom award title from a user.');
@@ -303,46 +296,12 @@ class UserInfoCommand extends Command
                 $a = $user->getAvatar();
                 if ($a !== null) {
 
-                    if ($input->getOption('avatar-small')) {
-                        $a->setSmallImage(null)->setSmallName($a->getFilename());
-                        $this->entityManager->persist($a);
-                        $output->writeln('Small avatar has been reset.');
-                    } else {
-                        $user->setAvatar(null);
-                        $this->entityManager->remove($a);
-                        $output->writeln('Avatar has been deleted.');
-                    }
+                    $user->setAvatar(null);
+                    $this->entityManager->remove($a);
+                    $output->writeln('Avatar has been deleted.');
 
                     $this->entityManager->flush();
                 } else $output->writeln('User does not have an avatar.');
-            } elseif ($avatar = $input->getOption('set-avatar')) {
-
-                if (!file_exists($avatar))
-                    throw new \Exception('File not found.');
-
-                $m = $input->getOption('avatar-magick');
-                switch ($m) {
-                    case "force":
-                        $m = UserHandler::ImageProcessingForceImagick;
-                        break;
-                    case "raw":
-                        $m = UserHandler::ImageProcessingDisableImagick;
-                        break;
-                    default:
-                        $m = UserHandler::ImageProcessingPreferImagick;
-                        break;
-                }
-
-                $ext = strtolower($input->getOption('avatar-ext') ?: pathinfo($avatar, PATHINFO_EXTENSION));
-                $error = $input->getOption('avatar-small')
-                    ? $this->user_handler->setUserSmallAvatar($user, file_get_contents($avatar))
-                    : $this->user_handler->setUserBaseAvatar($user, file_get_contents($avatar), $m, $ext, (int)$input->getOption('avatar-x'), (int)$input->getOption('avatar-y'));
-
-                if ($error !== UserHandler::NoError) throw new \Exception("Error: $error");
-
-                $output->writeln("Avatar updated.");
-                $this->entityManager->persist($user);
-                $this->entityManager->flush();
             }
 
             if ($title = $input->getOption('add-custom-award')) {

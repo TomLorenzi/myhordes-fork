@@ -863,7 +863,6 @@
                                     document.getElementById('pm-new-thread-controls').classList.remove('hidden');
                                     let li = document.createElement("li");
                                     li.setAttribute("x-soul-id", "{{ command[1]|e('js') }}");
-                                    console.log(li);
                                     document.getElementById("pm-selected-users").appendChild(li);
 
                                     $.html.forEach('#global-pm-forum-editor-title', e => e.focus());

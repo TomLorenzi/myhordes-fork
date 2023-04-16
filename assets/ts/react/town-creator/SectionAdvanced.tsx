@@ -124,7 +124,7 @@ export const TownCreatorSectionAdvanced = () => {
                       options={ [
                           { value: 'auto', title: advanced.event_auto, help: advanced.event_auto_help },
                           { value: 'none', title: advanced.event_none, help: advanced.event_none_help },
-                          ...advanced.event_list.map( preset => ({ value: preset.id, title: preset.label, help: advanced.event_any_help + ' ' + preset.desc }) )
+                          ...(advanced?.event_list?.map( preset => ({ value: preset.id, title: preset.label, help: advanced.event_any_help + ' ' + preset.desc }) ) ?? [])
                       ] }
         />
 

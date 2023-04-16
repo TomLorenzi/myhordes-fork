@@ -17,6 +17,8 @@ export type TranslationStrings = {
 
         notice: string
         negate: string
+
+		incorrect_fields: string
     }
 
     head: {
@@ -106,6 +108,11 @@ export type TranslationStrings = {
         position: string,
         position_presets: {value: string, label: string}[],
 
+        position_north: string,
+        position_south: string,
+        position_west: string,
+        position_east: string,
+
         attacks: string,
         attacks_presets: {value: string, label: string}[],
     }
@@ -165,6 +172,9 @@ export type TranslationStrings = {
 
             ffa: string
             ffa_help: string
+
+            fft: string
+            fft_help: string
         }
 
         special: {

@@ -43,6 +43,9 @@ parameters:
     anti-grief:
       min-sp: 20
       reg-limit: 2
+      foreign-cap: 4
+    animail:
+      discord: ~
     modmail:
       discord: ~
     fatalmail:

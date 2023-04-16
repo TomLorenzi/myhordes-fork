@@ -114,7 +114,7 @@ type MapOverviewZoneProps = {
 }
 
 const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
-    const click_handler = ()=>{
+    const click_handler = e=>{
         let data: RuntimeMapStateAction = {};
 
         if (props.conf.enableZoneMarking)
@@ -124,6 +124,8 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
             data.routeEditorPush = props.zone;
 
         if (Object.entries(data).length > 0) props.wrapDispatcher(data);
+
+        e.target.closest('hordes-map').dispatchEvent( new CustomEvent('zone-clicked', { bubbles: true, detail: { zone: props.zone }}) );
     };
 
     return (
@@ -138,7 +140,7 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
         `} style={{
             gridColumn: 1 + props.zone.x - props.geo.x0,
             gridRow: 1 + (props.geo.y1 - props.geo.y0) - (props.zone.y - props.geo.y0)
-        }}>
+        }} x-id={props.zone.id}>
             { props.zone.s && <div className="soul-area"><span/></div> }
             <div className="icon"/>
             <div className="overlay"/>
