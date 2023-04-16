@@ -156,8 +156,9 @@
     (()=>{
         const headline = document.getElementById('gazette-headline');
         window.setTimeout( () => {
-            if (headline && headline.clientWidth > 370)
-                headline.style.transform = 'scaleX(' + (370/headline.clientWidth) + ')'
+            const limit = (headline?.parentElement?.clientWidth ?? 370) * 0.9;
+            if (headline?.clientWidth > limit)
+                headline.style.transform = 'scaleX(' + (limit/headline.clientWidth) + ')'
         }, 1 )
 
     })();

@@ -237,94 +237,121 @@
                 </div>
 
                 <h5>
+                    {{ 'Dein Team'|trans({},'soul') }}
+                    {{ help_btn('Damit das Ranking am Ende einer Season fair bleibt, musst du dich einer der existierenden Gemeinschaften zuordnen. Die Anzahl der Städte, die du pro Season mit einer anderen als deiner gewählten Gemeinschaft spielen kannst, ist begrenzt. Solange du dieses Limit noch nicht erreicht hast, kannst du deine Gemeinschaft jederzeit wechseln.'|trans({},'soul')) }}
+                </h5>
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest">
+                            <label>{{ 'Aktuelles Team'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <div class="row-flex v-center">
+                            <input id="user_team" type="hidden" value="{% if app.user.team is null %}{% else %}{{ app.user.team }}{% endif %}">
+                            {% if app.user.team is not null %}
+                                <img id="user_current_team" class="pointer" alt="{{ app.user.team }}" src="{{ asset('build/images/lang/' ~ app.user.team ~ '.png' ) }}"/>
+                            {% else %}
+                                <img id="user_current_team" alt="" src="" class="hidden pointer"/>
+                            {% endif %}
+                            {% if team_tickets_limit < 0 or team_tickets_in < team_tickets_limit %}
+                                <span id="show_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
+                            {% endif %}
+                        </div>
+                        <div id="team_sel" class="row-flex wrap v-center gap-small space" style="display: none; margin-top: 5px;">
+                            {% for flag in langs %}
+                                {% if flag['code'] != 'ach' %}
+                                    <img alt="{{ flag['label'] }}" title="{{ flag['label'] }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
+                                {% endif %}
+                            {% endfor %}
+                            <span id="hide_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
+                        </div>
+                    </div>
+                </div>
+                {% if app.user.team %}
+                    <div class="row">
+                        <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                            <div class="note note-lightest">
+                                <label>{{ 'Städte in meinem Team'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-4">
+                            <i class="small"><b>{{ team_tickets_in }}</b></i>
+                        </div>
+                        {% if team_tickets_limit >= 0 %}
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                                {% if team_tickets_in < team_tickets_limit %}
+                                    <div class="note green-note no-margin">{{ 'Du kannst dein Team aktuell wechseln, wenn du möchtest.'|trans({},'soul') }}</div>
+                                {% else %}
+                                    <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte für dein Team gespielt, um dein Team noch wechseln zu können.'|trans({},'soul') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                            <div class="note note-lightest">
+                                <label>{{ 'Städte in anderen Teams'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-4">
+                            <i class="small">
+                                {{ team_tickets_out }}
+                                {% if team_tickets_limit >= 0 %}
+                                    / <b>{{ team_tickets_limit }}</b>
+                                {% endif %}
+                            </i>
+                        </div>
+                        {% if team_tickets_limit >= 0 %}
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                                {% if team_tickets_out < team_tickets_limit %}
+                                    <div class="note green-note no-margin">{{ 'Du kannst aktuell weiterhin Städte eines anderen Teams betreten.'|trans({},'soul') }}</div>
+                                {% else %}
+                                    <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte von anderen Teams gespielt. Bis zum Ende der Saison kannst du nur noch Städte deines eigenen Teams betreten.'|trans({},'soul') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                            <div class="note note-lightest">
+                                <label>{{ 'Bereits gespielte Städte'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-4">
+                            <i class="small">
+                                {{ team_tickets_out }}
+                                {% if team_tickets_limit >= 0 %}
+                                    / <b>{{ team_tickets_limit }}</b>
+                                {% endif %}
+                            </i>
+                        </div>
+                        <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                            {% if team_tickets_out < team_tickets_limit %}
+                                <div class="note green-note no-margin">{{ 'Du kannst aktuell weiterhin Städte betreten, ohne ein Team wählen zu müssen.'|trans({},'soul') }}</div>
+                            {% else %}
+                                <div class="note note-critical no-margin">{{ 'Bevor du weitere Städte betreten kannst, musst du dich einem Team anschließen.'|trans({},'soul') }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
+                        <button id="save_team" class="hidden">{{ 'Speichern'|trans({},'global') }}</button>
+                    </div>
+                </div>
+
+                <h5>
                     {{ 'Dein Avatar'|trans({},'soul') }}
                     {{ help_btn(
                         'Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.'|trans({size: avatar_max_size[0]},'soul') ~ '<br />' ~
                         'Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).'|trans({},'soul') ~ '<br />' ~
                         'Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.'|trans({size: avatar_max_size[1]},'soul')  ~ '<br /><br />' ~
-                        'Die folgenden Bildformate werden unterstützt:'|trans({},'soul') ~ ' <b>JPEG</b>, <b>GIF</b>, <b>BMP</b>, <b>PNG</b>, ' ~ '<b>WEBP (' ~ 'nur Baseline-Format'|trans({},'soul') ~ ')</b>'
+                        'Die folgenden Bildformate werden unterstützt:'|trans({},'soul') ~ ' <b>JPEG</b>, <b>GIF</b>, <b>BMP</b>, <b>PNG</b>, <b>WEBP</b>, <b>AVIF</b>'
                     ) }}
                 </h5>
-                <div class="row">
-                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
-                        <div class="note note-lightest">
-                            <label for="user_title">{{ 'Avatar'|trans({}, 'global') }}</label>
-                        </div>
-                    </div>
-                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                        <div class="row">
-                            <div class="padded cell rw-3 rw-lg-4 rw-md-12">
-                                {% if app.user.avatar is not null %}
-                                    <div class="center">
-                                        {% if not app.user.avatar.classic %}
-                                            <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
-                                        {% endif %}
-                                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, no_distortion: true} only %}
-                                    </div>
-                                {% else %}
-                                    <div class="help">
-                                        {{ 'Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen'|trans({},'soul') }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="padded cell rw-9 rw-lg-8 rw-md-12">
-                                {% if app.user.avatar is not null and not app.user.avatar.classic %}
-                                    <div class="hide-md hide-sm">
-                                        <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                                        {% include "ajax/soul/playeravatar.html.twig" with {user: app.user, small: true, no_distortion: true} only %}
-                                    </div>
-                                    <div class="hide-desktop hide-lg center">
-                                        <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                                        <div class="avatar small no-arma">
-                                            <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
-                                        </div>
-                                    </div>
-                                    <br />
-                                {% endif %}
-
-                                <input class="hidden" type="file" id="avatar_file_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
-
-                                {% if app.user.avatar is not null %}
-                                    <label {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
-                                    <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
-
-                                    {% if not app.user.avatar.classic %}
-                                        <button {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="hide-sm hide-md" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
-                                        <div class="row hide-lg hide-desktop">
-                                            <div class="help">
-                                                {% trans from 'soul' %}
-                                                    Öffne MyHordes in einem größeren Fenster oder auf einem Gerät mit einem größeren Bildschirm, um den Bildausschnitt für die komprimierte Anzeige einzustellen.
-                                                {% endtrans %}
-                                            </div>
-                                        </div>
-                                        <div id="avatar_com_edit" class="row hidden hide-sm hide-md">
-                                            <div class="padded cell rw-6 rw-lg-12">
-                                                <div class="help">
-                                                    {% trans from 'soul' %}
-                                                        Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll. Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
-                                                    {% endtrans %}
-                                                </div>
-                                            </div>
-                                            <div class="padded cell rw-6 rw-lg-12 center">
-                                                <div class="avatar no-arma full">
-                                                    <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
-                                                    <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
-                                                </div>
-                                                <div class="right">
-                                                    <button id="avatar_com_save" class="inline small">{{ 'Speichern'|trans({},'global') }}</button>
-                                                    <button x-avatar-com-toggle class="inline small">{{ 'Abbrechen'|trans({},'global') }}</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    {% endif %}
-                                {% else %}
-                                    <label {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="button" for="avatar_file_select">{{ 'Profilbild hochladen'|trans({},'soul') }}</label>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <hordes-avatar-creator data-max-size="{{ avatar_max_size[2] }}"></hordes-avatar-creator>
             </div>
 
             <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="security">
@@ -815,14 +842,6 @@
                 } )
         });
 
-        let del_btn = document.getElementById('avatar_del')
-        if (del_btn) del_btn.addEventListener('click', function() {
-            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                $.ajax.easySend( '{{ path('api_soul_avatar') }}', {up: 0},
-                    function () {
-                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                    } )
-        });
         $.html.addEventListenerAll('[x-setting]', 'change', function(e,elem) {
             $.ajax.easySend( '{{ path('api_soul_common') }}', {
                     sma: document.getElementById('setting_prefer_classic_avatars').checked,
@@ -872,115 +891,6 @@
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });
-        {% endif %}
-
-        document.getElementById('avatar_file_select').addEventListener('change', function(e) {
-            if (e.target.files.length !== 1) {
-                $.html.error('{{ 'Bitte wähle nur eine einzige Datei aus.'|trans({},'soul')|e('js') }}');
-                return;
-            }
-            /** @var file File */
-            const file = e.target.files[0];
-            if (file.size >= {{ avatar_max_size[2] }}) {
-                $.html.error('{{ 'Die Datei ist zu groß.'|trans({},'soul')|e('js') }}');
-                return;
-            }
-
-            const type_info = file.type.split('/',2);
-            if (type_info.length < 2 || type_info[0] !== 'image') {
-                $.html.error('{{ 'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul')|e('js') }}');
-                return;
-            }
-
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                $.ajax.easySend( '{{ path('api_soul_avatar') }}', {up: 1, mime: type_info[1], image: btoa(e.target.result)},
-                    function () {
-                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                    } )
-            };
-            reader.readAsBinaryString(file);
-        });
-
-        {% if app.user.avatar and not app.user.avatar.classic %}
-            $.html.addEventListenerAll('[x-avatar-com-toggle]', 'click', function(e,elem) {
-                let controls = document.getElementById('avatar_com_edit');
-                let button   = document.getElementById('avatar_com');
-                if (controls.classList.contains('hidden')) {
-                    controls.classList.remove('hidden')
-                    button.classList.add('hidden')
-                } else {
-                    controls.classList.add('hidden')
-                    button.classList.remove('hidden')
-                }
-            });
-
-            let sc_px = 0, sc_py = 0;
-            let sc_dx = Math.min({{ app.user.avatar.x }}, {{ app.user.avatar.y*3 }}), sc_dy = Math.min({{ app.user.avatar.x/3 }}, {{ app.user.avatar.y }});
-
-            $.html.addEventListenerAll('#avatar_com_save', 'click', function(e) {
-                e.preventDefault();
-                $.ajax.easySend( '{{ path('api_soul_small_avatar') }}', {x: sc_px, y: sc_py, dx: sc_dx, dy: sc_dy},
-                    function () {
-                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                    } )
-            });
-
-            let dc = document.getElementById('crop_bar');
-            if (dc) {
-                dc.style.width = sc_dx + 'px';
-                dc.style.height  = sc_dy + 'px';
-            }
-
-            $.html.addEventListenerAll('#crop_bar', 'wheel', function(e,elem) {
-                e.preventDefault();
-                e.stopPropagation();
-                const d = e.deltaY / Math.abs(e.deltaY);
-
-                sc_dx = Math.max(45, Math.min(sc_dx - d*2, elem.parentElement.clientWidth ));
-                sc_dy = sc_dx / 3;
-                elem.style.width = sc_dx + 'px';
-                elem.style.height  = sc_dy + 'px';
-
-                sc_px = Math.max(0, Math.min(sc_px + d, elem.parentElement.clientWidth - elem.clientWidth ));
-                sc_py = Math.max(0, Math.min(sc_py + d/3, elem.parentElement.clientHeight - elem.clientHeight))
-
-                elem.style.left = sc_px + 'px';
-                elem.style.top  = sc_py + 'px';
-            });
-
-            $.html.addEventListenerAll('#crop_bar', 'mousemove', function(e,elem) {
-
-                if (e.buttons & 1) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    sc_dx = Math.max(45, Math.min(sc_dx + e.movementX/2, elem.parentElement.clientWidth ))
-                    sc_dy = sc_dx / 3;
-                    elem.style.width = sc_dx + 'px';
-                    elem.style.height  = sc_dy + 'px';
-
-                    sc_px = Math.max(0, Math.min(sc_px - e.movementX/2, elem.parentElement.clientWidth - elem.clientWidth ))
-                    sc_py = Math.max(0, Math.min(sc_py - e.movementY/2, elem.parentElement.clientHeight - elem.clientHeight))
-                    elem.style.left = sc_px + 'px';
-                    elem.style.top  = sc_py + 'px';
-                }
-            } )
-
-            $.html.addEventListenerAll('#crop_bar>div', 'mousemove', function(e,elem) {
-
-                let cb = elem.parentElement;
-                if (e.buttons & 1) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    sc_px = Math.max(0, Math.min(sc_px + e.movementX, cb.parentElement.clientWidth - cb.clientWidth ))
-                    sc_py = Math.max(0, Math.min(sc_py + e.movementY, cb.parentElement.clientHeight - cb.clientHeight))
-
-                    cb.style.left = sc_px + 'px';
-                    cb.style.top  = sc_py + 'px';
-                }
-            } )
         {% endif %}
 
         $.html.addEventListenerAll('#user_displayname', 'input', () => $.html.forEach('#name-warning-box', e => e.classList.remove('hidden')))
@@ -1053,6 +963,43 @@
             document.getElementById('user_flag').value = id;
             document.getElementById('show_flag_sel').style.display = null;
             document.getElementById('flag_sel').style.display = 'none';
+        });
+
+        $.html.addEventListenerAll('#show_team_sel', 'click', (e,elem) => {
+            elem.style.display = 'none';
+            document.getElementById('team_sel').style.display = null;
+        });
+        $.html.addEventListenerAll('#hide_team_sel', 'click', () => {
+            document.getElementById('show_team_sel').style.display = null;
+            document.getElementById('team_sel').style.display = 'none';
+        });
+        $.html.addEventListenerAll('[data-team]', 'click', (e,elem) => {
+            const id = elem.dataset.team;
+            let target = document.getElementById('user_current_team');
+            if (id === '') {
+                target.setAttribute('src','');
+                target.setAttribute('alt','');
+                target.classList.add('hidden');
+            } else {
+                target.setAttribute('src',elem.getAttribute('src'));
+                target.setAttribute('alt',id);
+                target.classList.remove('hidden');
+            }
+            document.getElementById('user_team').value = id;
+            document.getElementById('show_team_sel').style.display = null;
+            document.getElementById('team_sel').style.display = 'none';
+            document.getElementById('save_team')?.classList.remove('hidden');
+        });
+
+        $.html.addEventListenerAll('#save_team', 'click', () => {
+            const team = document.getElementById('user_team').value;
+
+            $.ajax.easySend('{{ path('api_soul_team')|e('js') }}', {
+                team
+            }, () => {
+                $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
+                $.ajax.load(null, '{{ path('soul_settings')|e('js') }}');
+            });
         });
 
         document.getElementById('user_desc').value = $.html.twinoParser.parseFrom('{{ user_desc|e('js') }}', $.html.twinoParser.OpModeRaw);

@@ -55,6 +55,7 @@ export type TownRules = {
         citizen_alias: boolean|string
         xml_feed: boolean|string
         free_for_all: boolean|string
+        free_from_teams: boolean|string
 
         give_all_pictos: boolean|string
         enable_pictos: boolean|string

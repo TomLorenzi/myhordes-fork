@@ -1,218 +1,217 @@
----
-TDG_PRE_00_: crwdns72042:0crwdne72042:0
-TDG_PRE_10_: crwdns72044:0crwdne72044:0
-TDG_PRE_20_: crwdns72046:0crwdne72046:0
-TDG_PRE_30_: crwdns72048:0crwdne72048:0
-TDG_PRE_40_: crwdns72050:0crwdne72050:0
-TDG_PRE_50_: crwdns72052:0crwdne72052:0
-TDG_PRE_01_: crwdns72054:0crwdne72054:0
-TDG_PRE_11_: crwdns72056:0crwdne72056:0
-TDG_PRE_21_: crwdns72058:0crwdne72058:0
-TDG_PRE_31_: crwdns72060:0crwdne72060:0
-TDG_PRE_41_: crwdns72062:0crwdne72062:0
-TDG_PRE_51_: crwdns72064:0crwdne72064:0
-TDG_PRE_02_: crwdns72066:0crwdne72066:0
-TDG_PRE_12_: crwdns72068:0crwdne72068:0
-TDG_PRE_22_: crwdns72070:0crwdne72070:0
-TDG_PRE_32_: crwdns72072:0crwdne72072:0
-TDG_PRE_42_: crwdns72074:0crwdne72074:0
-TDG_PRE_52_: crwdns72076:0crwdne72076:0
-TDG_PRE_03_: crwdns72078:0crwdne72078:0
-TDG_PRE_13_: crwdns72080:0crwdne72080:0
-TDG_PRE_23_: crwdns72082:0crwdne72082:0
-TDG_PRE_33_: crwdns72084:0crwdne72084:0
-TDG_PRE_43_: crwdns72086:0crwdne72086:0
-TDG_PRE_53_: crwdns72088:0crwdne72088:0
-TDG_PRE_04_: crwdns72090:0crwdne72090:0
-TDG_PRE_14_: crwdns72092:0crwdne72092:0
-TDG_PRE_24_: crwdns72094:0crwdne72094:0
-TDG_PRE_34_: crwdns72096:0crwdne72096:0
-TDG_PRE_44_: crwdns72098:0crwdne72098:0
-TDG_PRE_54_: crwdns72100:0crwdne72100:0
-TDG_PRE_05_: crwdns72102:0crwdne72102:0
-TDG_PRE_15_: crwdns72104:0crwdne72104:0
-TDG_PRE_25_: crwdns72106:0crwdne72106:0
-TDG_PRE_35_: crwdns72108:0crwdne72108:0
-TDG_PRE_45_: crwdns72110:0crwdne72110:0
-TDG_PRE_55_: crwdns72112:0crwdne72112:0
-TDG_PRE_06_: crwdns72114:0crwdne72114:0
-TDG_PRE_16_: crwdns72116:0crwdne72116:0
-TDG_PRE_26_: crwdns72118:0crwdne72118:0
-TDG_PRE_36_: crwdns72120:0crwdne72120:0
-TDG_PRE_46_: crwdns72122:0crwdne72122:0
-TDG_PRE_56_: crwdns72124:0crwdne72124:0
-TDG_PRE_07_: crwdns72126:0crwdne72126:0
-TDG_PRE_17_: crwdns72128:0crwdne72128:0
-TDG_PRE_27_: crwdns72130:0crwdne72130:0
-TDG_PRE_37_: crwdns72132:0crwdne72132:0
-TDG_PRE_47_: crwdns72134:0crwdne72134:0
-TDG_PRE_57_: crwdns72136:0crwdne72136:0
-TDG_PRE_08_: crwdns72138:0crwdne72138:0
-TDG_PRE_18_: crwdns72140:0crwdne72140:0
-TDG_PRE_28_: crwdns72142:0crwdne72142:0
-TDG_PRE_38_: crwdns72144:0crwdne72144:0
-TDG_PRE_48_: crwdns72146:0crwdne72146:0
-TDG_PRE_58_: crwdns72148:0crwdne72148:0
-TDG_PRE_09_: crwdns72150:0crwdne72150:0
-TDG_PRE_19_: crwdns72152:0crwdne72152:0
-TDG_PRE_29_: crwdns72154:0crwdne72154:0
-TDG_PRE_39_: crwdns72156:0crwdne72156:0
-TDG_PRE_49_: crwdns72158:0crwdne72158:0
-TDG_PRE_59_: crwdns72160:0crwdne72160:0
-TDG_SUF_00: 'crwdns72162:0crwdne72162:0'
-TDG_SUF_10: 'crwdns72164:0crwdne72164:0'
-TDG_SUF_20: 'crwdns72166:0crwdne72166:0'
-TDG_SUF_30: 'crwdns72168:0crwdne72168:0'
-TDG_SUF_40: 'crwdns72170:0crwdne72170:0'
-TDG_SUF_50: 'crwdns72172:0crwdne72172:0'
-TDG_SUF_01: 'crwdns72174:0crwdne72174:0'
-TDG_SUF_11: 'crwdns72176:0crwdne72176:0'
-TDG_SUF_21: 'crwdns72178:0crwdne72178:0'
-TDG_SUF_31: 'crwdns72180:0crwdne72180:0'
-TDG_SUF_41: 'crwdns72182:0crwdne72182:0'
-TDG_SUF_51: 'crwdns72184:0crwdne72184:0'
-TDG_SUF_02: 'crwdns72186:0crwdne72186:0'
-TDG_SUF_12: 'crwdns72188:0crwdne72188:0'
-TDG_SUF_22: 'crwdns72190:0crwdne72190:0'
-TDG_SUF_32: 'crwdns72192:0crwdne72192:0'
-TDG_SUF_42: 'crwdns72194:0crwdne72194:0'
-TDG_SUF_52: 'crwdns72196:0crwdne72196:0'
-TDG_SUF_03: 'crwdns72198:0crwdne72198:0'
-TDG_SUF_13: 'crwdns72200:0crwdne72200:0'
-TDG_SUF_23: 'crwdns72202:0crwdne72202:0'
-TDG_SUF_33: 'crwdns72204:0crwdne72204:0'
-TDG_SUF_43: 'crwdns72206:0crwdne72206:0'
-TDG_SUF_53: 'crwdns72208:0crwdne72208:0'
-TDG_SUF_04: 'crwdns72210:0crwdne72210:0'
-TDG_SUF_14: 'crwdns72212:0crwdne72212:0'
-TDG_SUF_24: 'crwdns72214:0crwdne72214:0'
-TDG_SUF_34: 'crwdns72216:0crwdne72216:0'
-TDG_SUF_44: 'crwdns72218:0crwdne72218:0'
-TDG_SUF_54: 'crwdns72220:0crwdne72220:0'
-TDG_SUF_05: 'crwdns72222:0crwdne72222:0'
-TDG_SUF_15: 'crwdns72224:0crwdne72224:0'
-TDG_SUF_25: 'crwdns72226:0crwdne72226:0'
-TDG_SUF_35: 'crwdns72228:0crwdne72228:0'
-TDG_SUF_45: 'crwdns72230:0crwdne72230:0'
-TDG_SUF_55: 'crwdns72232:0crwdne72232:0'
-TDG_SUF_06: 'crwdns72234:0crwdne72234:0'
-TDG_SUF_16: 'crwdns72236:0crwdne72236:0'
-TDG_SUF_26: 'crwdns72238:0crwdne72238:0'
-TDG_SUF_36: 'crwdns72240:0crwdne72240:0'
-TDG_SUF_46: 'crwdns72242:0crwdne72242:0'
-TDG_SUF_56: 'crwdns72244:0crwdne72244:0'
-TDG_SUF_07: 'crwdns72246:0crwdne72246:0'
-TDG_SUF_17: 'crwdns72248:0crwdne72248:0'
-TDG_SUF_27: 'crwdns72250:0crwdne72250:0'
-TDG_SUF_37: 'crwdns72252:0crwdne72252:0'
-TDG_SUF_47: 'crwdns72254:0crwdne72254:0'
-TDG_SUF_57: 'crwdns72256:0crwdne72256:0'
-TDG_SUF_08: 'crwdns72258:0crwdne72258:0'
-TDG_SUF_18: 'crwdns72260:0crwdne72260:0'
-TDG_SUF_28: 'crwdns72262:0crwdne72262:0'
-TDG_SUF_38: 'crwdns72264:0crwdne72264:0'
-TDG_SUF_48: 'crwdns72266:0crwdne72266:0'
-TDG_SUF_58: 'crwdns72268:0crwdne72268:0'
-TDG_SUF_09: 'crwdns72270:0crwdne72270:0'
-TDG_SUF_19: 'crwdns72272:0crwdne72272:0'
-TDG_SUF_29: 'crwdns72274:0crwdne72274:0'
-TDG_SUF_39: 'crwdns72276:0crwdne72276:0'
-TDG_SUF_49: 'crwdns72278:0crwdne72278:0'
-TDG_SUF_59: 'crwdns72280:0crwdne72280:0'
-'Krankenhaus Beinapp': 'crwdns72282:0crwdne72282:0'
-Aesthetyxiations-Abteilung: crwdns72284:0crwdne72284:0
-'Krankenhaus Krankenstedt': 'crwdns72286:0crwdne72286:0'
-'Waldorf Klinik': 'crwdns72288:0crwdne72288:0'
-'STD Behandlungszentrum Bohlen': 'crwdns72290:0crwdne72290:0'
-'Bill S. Preston Memorial Hospital': 'crwdns72292:0crwdne72292:0'
-'Klinik von Dr. Quack Salber': 'crwdns72294:0crwdne72294:0'
-Wasserallergie-Behandlungszentrum: crwdns72296:0crwdne72296:0
-'Klinikum Altenburg': 'crwdns72298:0crwdne72298:0'
-'Stadtkrankenhaus am Dorfplatz': 'crwdns72300:0crwdne72300:0'
-Blanko-Penisverkleinerungsklinik: crwdns72302:0crwdne72302:0
-'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'crwdns72304:0crwdne72304:0'
-'Bordeaux Grace': 'crwdns72306:0crwdne72306:0'
-'George und Ralph Kinderkrankenhaus': 'crwdns72308:0crwdne72308:0'
-'Charlton Eston Hotel': 'crwdns72310:0crwdne72310:0'
-'Motel Zauberstübchen': 'crwdns72312:0crwdne72312:0'
-'Rabble Lodge': 'crwdns72314:0crwdne72314:0'
-"Gasthof 'Zum Spanner'": "crwdns136274:0crwdne136274:0"
-'Zur Erbrochenen Krone': 'crwdns72318:0crwdne72318:0'
-'Terminal Hotel': 'crwdns72320:0crwdne72320:0'
-'Hotel Von Otto': 'crwdns72322:0crwdne72322:0'
-'S+M B+B': 'crwdns72324:0crwdne72324:0'
-'Hotel Peculiar': 'crwdns72326:0crwdne72326:0'
-'Liza Defloration Hotel': 'crwdns72328:0crwdne72328:0'
-'Santas Absteige': 'crwdns72330:0crwdne72330:0'
-'Chez Clem Hotel': 'crwdns72332:0crwdne72332:0'
-'Drei Eingänge Hotel + Spa': 'crwdns72334:0crwdne72334:0'
-'Hostel Partout': 'crwdns72336:0crwdne72336:0'
-'Bumbling Inn': 'crwdns72338:0crwdne72338:0'
-'Vajazzl Inn': 'crwdns72340:0crwdne72340:0'
-'Hotel Venga': 'crwdns72342:0crwdne72342:0'
-'Verlassener Bunker': 'crwdns72344:0crwdne72344:0'
-Thermonuklear-Bunker: crwdns72346:0crwdne72346:0
-Garrison-Haus: crwdns72348:0crwdne72348:0
-'Bastion der Angst': 'crwdns72350:0crwdne72350:0'
-'Bunker der Wut': 'crwdns72352:0crwdne72352:0'
-'Fallout Shelter': 'crwdns72354:0crwdne72354:0'
-'Keine Hoffnung ohne Öffnung!': 'crwdns72356:0crwdne72356:0'
-Schattenfort: crwdns72358:0crwdne72358:0
-'Verlassene Trooper-Station': 'crwdns72360:0crwdne72360:0'
-Verwesungsversteck: crwdns72362:0crwdne72362:0
-Knochenkeller: crwdns72364:0crwdne72364:0
-'Geheimes Testlabor': 'crwdns72366:0crwdne72366:0'
-'Area 52.1 Bunker': 'crwdns72368:0crwdne72368:0'
-'Area 33 Bunker': 'crwdns72370:0crwdne72370:0'
-Quarantäne-Zone: crwdns72372:0crwdne72372:0
-'Zum Schlafen Reichts Motel': 'crwdns72374:0crwdne72374:0'
-Psychose: crwdns72376:0crwdne72376:0
-Demenz: crwdns72378:0crwdne72378:0
-Leid: crwdns72380:0crwdne72380:0
-Trinke: crwdns72382:0crwdne72382:0
-Schlaf: crwdns72384:0crwdne72384:0
-Blut: crwdns72386:0crwdne72386:0
-Wut: crwdns72388:0crwdne72388:0
-Hass: crwdns72390:0crwdne72390:0
-Töte: crwdns72392:0crwdne72392:0
-'Töte sie': 'crwdns72394:0crwdne72394:0'
-Mord: crwdns72396:0crwdne72396:0
-Drogen: crwdns72398:0crwdne72398:0
-'Der Tod wartet': 'crwdns72400:0crwdne72400:0'
-'Du wirst sterben': 'crwdns72402:0crwdne72402:0'
-'Du wirst heute sterben': 'crwdns72404:0crwdne72404:0'
-'Folge den Schatten': 'crwdns72406:0crwdne72406:0'
-Alpträume: crwdns72408:0crwdne72408:0
-Verstümmelung: crwdns72410:0crwdne72410:0
-'Keine Hoffnung': 'crwdns72412:0crwdne72412:0'
-'Sie beobachten dich': 'crwdns72414:0crwdne72414:0'
-'Sie wollen dich töten': 'crwdns72416:0crwdne72416:0'
-'Traue niemandem': 'crwdns72418:0crwdne72418:0'
-'Lauf lauf weg': 'crwdns72420:0crwdne72420:0'
-'Hör nicht auf sie': 'crwdns72422:0crwdne72422:0'
-'Sie werden dich töten': 'crwdns72424:0crwdne72424:0'
-'Dein Nachbar will deinen Tod': 'crwdns72426:0crwdne72426:0'
-'Sie wollen dich hängen': 'crwdns72428:0crwdne72428:0'
-'Sie werden dich umbringen': 'crwdns72430:0crwdne72430:0'
-'Bleib hier': 'crwdns72432:0crwdne72432:0'
-'Koste ihr Blut': 'crwdns72434:0crwdne72434:0'
-'Wir beobachten dich': 'crwdns72436:0crwdne72436:0'
-'Sie sind VERRÜCKT': 'crwdns72438:0crwdne72438:0'
-'Wir wollen deine Haut': 'crwdns72440:0crwdne72440:0'
-'Koste ihr Fleisch': 'crwdns72442:0crwdne72442:0'
-'Iss ihn': 'crwdns72444:0crwdne72444:0'
-'Töte ihn': 'crwdns72446:0crwdne72446:0'
-'Lass ihn zahlen': 'crwdns72448:0crwdne72448:0'
-'Räche dich': 'crwdns72450:0crwdne72450:0'
-'Verrate sie': 'crwdns72452:0crwdne72452:0'
-'Ohne Gnade': 'crwdns72454:0crwdne72454:0'
-'Ich bin nicht verrückt': 'crwdns72456:0crwdne72456:0'
-'Ich sehe nichts': 'crwdns72458:0crwdne72458:0'
-'Sie sind wahnsinnig': 'crwdns72460:0crwdne72460:0'
-'Bis zum Tod': 'crwdns72462:0crwdne72462:0'
-'Töte sie alle': 'crwdns72464:0crwdne72464:0'
-'Sie werden sterben': 'crwdns72466:0crwdne72466:0'
-'Lass sie sterben': 'crwdns72468:0crwdne72468:0'
-'Verschlinge sie': 'crwdns72470:0crwdne72470:0'
-'Gib auf': 'crwdns72472:0crwdne72472:0'
-'Alles... ist ... OK …': 'crwdns72474:0crwdne72474:0'
+TDG_PRE_00_: crwdns146101:0crwdne146101:0
+TDG_PRE_10_: crwdns146103:0crwdne146103:0
+TDG_PRE_20_: crwdns146105:0crwdne146105:0
+TDG_PRE_30_: crwdns146107:0crwdne146107:0
+TDG_PRE_40_: crwdns146109:0crwdne146109:0
+TDG_PRE_50_: crwdns146111:0crwdne146111:0
+TDG_PRE_01_: crwdns146113:0crwdne146113:0
+TDG_PRE_11_: crwdns146115:0crwdne146115:0
+TDG_PRE_21_: crwdns146117:0crwdne146117:0
+TDG_PRE_31_: crwdns146119:0crwdne146119:0
+TDG_PRE_41_: crwdns146121:0crwdne146121:0
+TDG_PRE_51_: crwdns146123:0crwdne146123:0
+TDG_PRE_02_: crwdns146125:0crwdne146125:0
+TDG_PRE_12_: crwdns146127:0crwdne146127:0
+TDG_PRE_22_: crwdns146129:0crwdne146129:0
+TDG_PRE_32_: crwdns146131:0crwdne146131:0
+TDG_PRE_42_: crwdns146133:0crwdne146133:0
+TDG_PRE_52_: crwdns146135:0crwdne146135:0
+TDG_PRE_03_: crwdns146137:0crwdne146137:0
+TDG_PRE_13_: crwdns146139:0crwdne146139:0
+TDG_PRE_23_: crwdns146141:0crwdne146141:0
+TDG_PRE_33_: crwdns146143:0crwdne146143:0
+TDG_PRE_43_: crwdns146145:0crwdne146145:0
+TDG_PRE_53_: crwdns146147:0crwdne146147:0
+TDG_PRE_04_: crwdns146149:0crwdne146149:0
+TDG_PRE_14_: crwdns146151:0crwdne146151:0
+TDG_PRE_24_: crwdns146153:0crwdne146153:0
+TDG_PRE_34_: crwdns146155:0crwdne146155:0
+TDG_PRE_44_: crwdns146157:0crwdne146157:0
+TDG_PRE_54_: crwdns146159:0crwdne146159:0
+TDG_PRE_05_: crwdns146161:0crwdne146161:0
+TDG_PRE_15_: crwdns146163:0crwdne146163:0
+TDG_PRE_25_: crwdns146165:0crwdne146165:0
+TDG_PRE_35_: crwdns146167:0crwdne146167:0
+TDG_PRE_45_: crwdns146169:0crwdne146169:0
+TDG_PRE_55_: crwdns146171:0crwdne146171:0
+TDG_PRE_06_: crwdns146173:0crwdne146173:0
+TDG_PRE_16_: crwdns146175:0crwdne146175:0
+TDG_PRE_26_: crwdns146177:0crwdne146177:0
+TDG_PRE_36_: crwdns146179:0crwdne146179:0
+TDG_PRE_46_: crwdns146181:0crwdne146181:0
+TDG_PRE_56_: crwdns146183:0crwdne146183:0
+TDG_PRE_07_: crwdns146185:0crwdne146185:0
+TDG_PRE_17_: crwdns146187:0crwdne146187:0
+TDG_PRE_27_: crwdns146189:0crwdne146189:0
+TDG_PRE_37_: crwdns146191:0crwdne146191:0
+TDG_PRE_47_: crwdns146193:0crwdne146193:0
+TDG_PRE_57_: crwdns146195:0crwdne146195:0
+TDG_PRE_08_: crwdns146197:0crwdne146197:0
+TDG_PRE_18_: crwdns146199:0crwdne146199:0
+TDG_PRE_28_: crwdns146201:0crwdne146201:0
+TDG_PRE_38_: crwdns146203:0crwdne146203:0
+TDG_PRE_48_: crwdns146205:0crwdne146205:0
+TDG_PRE_58_: crwdns146207:0crwdne146207:0
+TDG_PRE_09_: crwdns146209:0crwdne146209:0
+TDG_PRE_19_: crwdns146211:0crwdne146211:0
+TDG_PRE_29_: crwdns146213:0crwdne146213:0
+TDG_PRE_39_: crwdns146215:0crwdne146215:0
+TDG_PRE_49_: crwdns146217:0crwdne146217:0
+TDG_PRE_59_: crwdns146219:0crwdne146219:0
+TDG_SUF_00: 'crwdns146221:0crwdne146221:0'
+TDG_SUF_10: 'crwdns146223:0crwdne146223:0'
+TDG_SUF_20: 'crwdns146225:0crwdne146225:0'
+TDG_SUF_30: 'crwdns146227:0crwdne146227:0'
+TDG_SUF_40: 'crwdns146229:0crwdne146229:0'
+TDG_SUF_50: 'crwdns146231:0crwdne146231:0'
+TDG_SUF_01: 'crwdns146233:0crwdne146233:0'
+TDG_SUF_11: 'crwdns146235:0crwdne146235:0'
+TDG_SUF_21: 'crwdns146237:0crwdne146237:0'
+TDG_SUF_31: 'crwdns146239:0crwdne146239:0'
+TDG_SUF_41: 'crwdns146241:0crwdne146241:0'
+TDG_SUF_51: 'crwdns146243:0crwdne146243:0'
+TDG_SUF_02: 'crwdns146245:0crwdne146245:0'
+TDG_SUF_12: 'crwdns146247:0crwdne146247:0'
+TDG_SUF_22: 'crwdns146249:0crwdne146249:0'
+TDG_SUF_32: 'crwdns146251:0crwdne146251:0'
+TDG_SUF_42: 'crwdns146253:0crwdne146253:0'
+TDG_SUF_52: 'crwdns146255:0crwdne146255:0'
+TDG_SUF_03: 'crwdns146257:0crwdne146257:0'
+TDG_SUF_13: 'crwdns146259:0crwdne146259:0'
+TDG_SUF_23: 'crwdns146261:0crwdne146261:0'
+TDG_SUF_33: 'crwdns146263:0crwdne146263:0'
+TDG_SUF_43: 'crwdns146265:0crwdne146265:0'
+TDG_SUF_53: 'crwdns146267:0crwdne146267:0'
+TDG_SUF_04: 'crwdns146269:0crwdne146269:0'
+TDG_SUF_14: 'crwdns146271:0crwdne146271:0'
+TDG_SUF_24: 'crwdns146273:0crwdne146273:0'
+TDG_SUF_34: 'crwdns146275:0crwdne146275:0'
+TDG_SUF_44: 'crwdns146277:0crwdne146277:0'
+TDG_SUF_54: 'crwdns146279:0crwdne146279:0'
+TDG_SUF_05: 'crwdns146281:0crwdne146281:0'
+TDG_SUF_15: 'crwdns146283:0crwdne146283:0'
+TDG_SUF_25: 'crwdns146285:0crwdne146285:0'
+TDG_SUF_35: 'crwdns146287:0crwdne146287:0'
+TDG_SUF_45: 'crwdns146289:0crwdne146289:0'
+TDG_SUF_55: 'crwdns146291:0crwdne146291:0'
+TDG_SUF_06: 'crwdns146293:0crwdne146293:0'
+TDG_SUF_16: 'crwdns146295:0crwdne146295:0'
+TDG_SUF_26: 'crwdns146297:0crwdne146297:0'
+TDG_SUF_36: 'crwdns146299:0crwdne146299:0'
+TDG_SUF_46: 'crwdns146301:0crwdne146301:0'
+TDG_SUF_56: 'crwdns146303:0crwdne146303:0'
+TDG_SUF_07: 'crwdns146305:0crwdne146305:0'
+TDG_SUF_17: 'crwdns146307:0crwdne146307:0'
+TDG_SUF_27: 'crwdns146309:0crwdne146309:0'
+TDG_SUF_37: 'crwdns146311:0crwdne146311:0'
+TDG_SUF_47: 'crwdns146313:0crwdne146313:0'
+TDG_SUF_57: 'crwdns146315:0crwdne146315:0'
+TDG_SUF_08: 'crwdns146317:0crwdne146317:0'
+TDG_SUF_18: 'crwdns146319:0crwdne146319:0'
+TDG_SUF_28: 'crwdns146321:0crwdne146321:0'
+TDG_SUF_38: 'crwdns146323:0crwdne146323:0'
+TDG_SUF_48: 'crwdns146325:0crwdne146325:0'
+TDG_SUF_58: 'crwdns146327:0crwdne146327:0'
+TDG_SUF_09: 'crwdns146329:0crwdne146329:0'
+TDG_SUF_19: 'crwdns146331:0crwdne146331:0'
+TDG_SUF_29: 'crwdns146333:0crwdne146333:0'
+TDG_SUF_39: 'crwdns146335:0crwdne146335:0'
+TDG_SUF_49: 'crwdns146337:0crwdne146337:0'
+TDG_SUF_59: 'crwdns146339:0crwdne146339:0'
+'Krankenhaus Beinapp': 'crwdns146341:0crwdne146341:0'
+Aesthetyxiations-Abteilung: crwdns146343:0crwdne146343:0
+'Krankenhaus Krankenstedt': 'crwdns146345:0crwdne146345:0'
+'Waldorf Klinik': 'crwdns146347:0crwdne146347:0'
+'STD Behandlungszentrum Bohlen': 'crwdns146349:0crwdne146349:0'
+'Bill S. Preston Memorial Hospital': 'crwdns146351:0crwdne146351:0'
+'Klinik von Dr. Quack Salber': 'crwdns146353:0crwdne146353:0'
+Wasserallergie-Behandlungszentrum: crwdns146355:0crwdne146355:0
+'Klinikum Altenburg': 'crwdns146357:0crwdne146357:0'
+'Stadtkrankenhaus am Dorfplatz': 'crwdns146359:0crwdne146359:0'
+Blanko-Penisverkleinerungsklinik: crwdns146361:0crwdne146361:0
+'Chronische Erschöpfungsheilanstalt Dr. Sloth': 'crwdns146363:0crwdne146363:0'
+'Bordeaux Grace': 'crwdns146365:0crwdne146365:0'
+'George und Ralph Kinderkrankenhaus': 'crwdns146367:0crwdne146367:0'
+'Charlton Eston Hotel': 'crwdns146369:0crwdne146369:0'
+'Motel Zauberstübchen': 'crwdns146371:0crwdne146371:0'
+'Rabble Lodge': 'crwdns146373:0crwdne146373:0'
+"Gasthof 'Zum Spanner'": "crwdns146375:0crwdne146375:0"
+'Zur Erbrochenen Krone': 'crwdns146377:0crwdne146377:0'
+'Terminal Hotel': 'crwdns146379:0crwdne146379:0'
+'Hotel Von Otto': 'crwdns146381:0crwdne146381:0'
+'S+M B+B': 'crwdns146383:0crwdne146383:0'
+'Hotel Peculiar': 'crwdns146385:0crwdne146385:0'
+'Liza Defloration Hotel': 'crwdns146387:0crwdne146387:0'
+'Santas Absteige': 'crwdns146389:0crwdne146389:0'
+'Chez Clem Hotel': 'crwdns146391:0crwdne146391:0'
+'Drei Eingänge Hotel + Spa': 'crwdns146393:0crwdne146393:0'
+'Hostel Partout': 'crwdns146395:0crwdne146395:0'
+'Bumbling Inn': 'crwdns146397:0crwdne146397:0'
+'Vajazzl Inn': 'crwdns146399:0crwdne146399:0'
+'Hotel Venga': 'crwdns146401:0crwdne146401:0'
+'Verlassener Bunker': 'crwdns146403:0crwdne146403:0'
+Thermonuklear-Bunker: crwdns146405:0crwdne146405:0
+Garrison-Haus: crwdns146407:0crwdne146407:0
+'Bastion der Angst': 'crwdns146409:0crwdne146409:0'
+'Bunker der Wut': 'crwdns146411:0crwdne146411:0'
+'Fallout Shelter': 'crwdns146413:0crwdne146413:0'
+'Keine Hoffnung ohne Öffnung!': 'crwdns146415:0crwdne146415:0'
+Schattenfort: crwdns146417:0crwdne146417:0
+'Verlassene Trooper-Station': 'crwdns146419:0crwdne146419:0'
+Verwesungsversteck: crwdns146421:0crwdne146421:0
+Knochenkeller: crwdns146423:0crwdne146423:0
+'Geheimes Testlabor': 'crwdns146425:0crwdne146425:0'
+'Area 52.1 Bunker': 'crwdns146427:0crwdne146427:0'
+'Area 33 Bunker': 'crwdns146429:0crwdne146429:0'
+Quarantäne-Zone: crwdns146431:0crwdne146431:0
+'Zum Schlafen Reichts Motel': 'crwdns146433:0crwdne146433:0'
+Psychose: crwdns146435:0crwdne146435:0
+Demenz: crwdns146437:0crwdne146437:0
+Leid: crwdns146439:0crwdne146439:0
+Trinke: crwdns146441:0crwdne146441:0
+Schlaf: crwdns146443:0crwdne146443:0
+Blut: crwdns146445:0crwdne146445:0
+Wut: crwdns146447:0crwdne146447:0
+Hass: crwdns146449:0crwdne146449:0
+Töte: crwdns146451:0crwdne146451:0
+'Töte sie': 'crwdns146453:0crwdne146453:0'
+Mord: crwdns146455:0crwdne146455:0
+Drogen: crwdns146457:0crwdne146457:0
+'Der Tod wartet': 'crwdns146459:0crwdne146459:0'
+'Du wirst sterben': 'crwdns146461:0crwdne146461:0'
+'Du wirst heute sterben': 'crwdns146463:0crwdne146463:0'
+'Folge den Schatten': 'crwdns146465:0crwdne146465:0'
+Alpträume: crwdns146467:0crwdne146467:0
+Verstümmelung: crwdns146469:0crwdne146469:0
+'Keine Hoffnung': 'crwdns146471:0crwdne146471:0'
+'Sie beobachten dich': 'crwdns146473:0crwdne146473:0'
+'Sie wollen dich töten': 'crwdns146475:0crwdne146475:0'
+'Traue niemandem': 'crwdns146477:0crwdne146477:0'
+'Lauf lauf weg': 'crwdns146479:0crwdne146479:0'
+'Hör nicht auf sie': 'crwdns146481:0crwdne146481:0'
+'Sie werden dich töten': 'crwdns146483:0crwdne146483:0'
+'Dein Nachbar will deinen Tod': 'crwdns146485:0crwdne146485:0'
+'Sie wollen dich hängen': 'crwdns146487:0crwdne146487:0'
+'Sie werden dich umbringen': 'crwdns146489:0crwdne146489:0'
+'Bleib hier': 'crwdns146491:0crwdne146491:0'
+'Koste ihr Blut': 'crwdns146493:0crwdne146493:0'
+'Wir beobachten dich': 'crwdns146495:0crwdne146495:0'
+'Sie sind VERRÜCKT': 'crwdns146497:0crwdne146497:0'
+'Wir wollen deine Haut': 'crwdns146499:0crwdne146499:0'
+'Koste ihr Fleisch': 'crwdns146501:0crwdne146501:0'
+'Iss ihn': 'crwdns146503:0crwdne146503:0'
+'Töte ihn': 'crwdns146505:0crwdne146505:0'
+'Lass ihn zahlen': 'crwdns146507:0crwdne146507:0'
+'Räche dich': 'crwdns146509:0crwdne146509:0'
+'Verrate sie': 'crwdns146511:0crwdne146511:0'
+'Ohne Gnade': 'crwdns146513:0crwdne146513:0'
+'Ich bin nicht verrückt': 'crwdns146515:0crwdne146515:0'
+'Ich sehe nichts': 'crwdns146517:0crwdne146517:0'
+'Sie sind wahnsinnig': 'crwdns146519:0crwdne146519:0'
+'Bis zum Tod': 'crwdns146521:0crwdne146521:0'
+'Töte sie alle': 'crwdns146523:0crwdne146523:0'
+'Sie werden sterben': 'crwdns146525:0crwdne146525:0'
+'Lass sie sterben': 'crwdns146527:0crwdne146527:0'
+'Verschlinge sie': 'crwdns146529:0crwdne146529:0'
+'Gib auf': 'crwdns146531:0crwdne146531:0'
+'Alles... ist ... OK …': 'crwdns146533:0crwdne146533:0'

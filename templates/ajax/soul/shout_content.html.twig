@@ -16,7 +16,7 @@
                 {% endif %}
             </div>
         {% endif %}
-        <div class="shout-entry shout-entry-class-{{ entry.type }}">
+        <div class="shout-entry shout-entry-class-{{ entry.type }} shout-entry-{{ lastRef >= entry.id ? 'seen' : 'new' }}">
             <span class="shout-part-time">{{ entry.timestamp.format('G:i') }}</span>
             <span class="shout-part-content">
                 {% if entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeChat') %}

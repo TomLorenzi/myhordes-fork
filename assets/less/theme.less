@@ -1832,8 +1832,13 @@ div.daily-attack {
 
 .avatar, .avatarcrow {
   display: inline-block; box-shadow: 0 0 5px rgba(0,0,0,0.7); position: relative;
-  &:not(.small):not(.full)>img { max-width: 100px; max-height: 100px; }
+  &:not(.small):not(.full):not(.round)>img { max-width: 100px; max-height: 100px; }
   &.small>img { width: 90px; height: 30px; object-fit: cover }
+  &.full>img { max-width: 100% }
+  &.round {
+    border-radius: 100%; overflow: hidden;
+    &>img { width: 40px; height: 40px; object-fit: cover }
+  }
   &.full>div.crop {
     z-index: 1;
     &>div { cursor: grab; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }

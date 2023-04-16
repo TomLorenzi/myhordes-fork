@@ -1,5 +1,4 @@
 import {Global} from "../defaults";
-import {HordesTownCreator} from "./town-creator/Wrapper";
 
 declare var $: Global;
 

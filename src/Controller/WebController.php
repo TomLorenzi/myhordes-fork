@@ -19,6 +19,7 @@ use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
+use App\Service\Media\ImageService;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManager;
@@ -27,6 +28,7 @@ use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\HeaderUtils;
@@ -40,6 +42,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -65,7 +68,7 @@ class WebController extends CustomAbstractController
     public static array $supporters = [
         'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
         'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
-        'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Ross',
+        'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Aeon',
         'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus'
     ];
 
@@ -470,11 +473,22 @@ class WebController extends CustomAbstractController
         return $request->headers->get('If-None-Match') === $name ? new Response("",304) : null;
     }
 
-    private function image_output($data, string $name, string $ext): Response {
+    private function image_output($data, string $name, string $ext, ?string $identifier = null): Response {
         // HEIC images should be referred to as AVIF towards the browser
         if ($ext === 'heic') $ext = 'avif';
 
-        $response = new Response(stream_get_contents( $data ));
+        // If the image is in avif format, we must convert it to webp for MS Edge users
+        if ($ext === 'avif' && !in_array('image/avif', Request::createFromGlobals()->getAcceptableContentTypes())) {
+            $ext = 'webp';
+
+            if ($identifier) {
+                $response = new Response( (new FilesystemAdapter())->get("mh_image_processor_$identifier", fn() =>
+                    ImageService::convertImageData( stream_get_contents( $data ), 'webp' )
+                ) );
+            } else $response = new Response(ImageService::convertImageData( stream_get_contents( $data ), 'webp' ));
+
+        } else $response = new Response(stream_get_contents( $data ));
+
         $disposition = HeaderUtils::makeDisposition(
             HeaderUtils::DISPOSITION_INLINE,
             "{$name}.{$ext}"
@@ -507,7 +521,7 @@ class WebController extends CustomAbstractController
             return $this->redirectToRoute( 'app_web_avatar', ['uid' => $uid, 'name' => $name, 'ext' => $user->getAvatar()->getFormat()] );
 
         $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
-        return $this->image_output($target, $name, $ext);
+        return $this->image_output($target, $name, $ext, "{$uid}-{$name}-{$ext}");
     }
 
     /**

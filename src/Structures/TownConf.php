@@ -150,6 +150,7 @@ class TownConf extends Conf
     const CONF_FEATURE_LAST_DEATH_DAY  = 'features.last_death_day';
     const CONF_FEATURE_SURVIVAL_PICTO  = 'features.survival_picto';
     const CONF_FEATURE_NO_SP_REQUIRED  = 'features.free_for_all';
+    const CONF_FEATURE_NO_TEAMS  = 'features.free_from_teams';
 
     const CONF_GUIDE_ENABLED    = 'spiritual_guide.enabled';
     const CONF_GUIDE_SP_LIMIT   = 'spiritual_guide.sp_limit';

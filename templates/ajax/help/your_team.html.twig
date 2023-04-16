@@ -1,0 +1,40 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Dein Team'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Dein Team'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'Auf \'MyHordes\' existieren verschiedene Gemeinschaften, die lose durch ihre Sprache kategorisiert werden.'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>
+{{ 'Damit das Städteranking für alle Spieler fair bleibt, musst du dich früher oder später einer dieser Gemeinschaften anschließen.'|trans({},'help')|raw }}
+</strong>
+</p>
+<h2>{{ 'Wie trete ich einem Team bei?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Du kannst dein Team in deinen Seeleneinstellungen unter dem Punkt "Dein Team" auswählen, indem du das Bearbeiten-Symbol anklickst.'|trans({},'help')|raw }}
+{{ 'Daraufhin erhälst du eine Übersicht aller Gemeinschaften unter denen du auswählen kannst.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Welche Auswirkungen hat es, wenn ich einem team beitrete?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Deine Team-Auswahl signalisiert, mit welcher Gemeinschaft du hauptsächlich zusammenspielen möchtest.'|trans({},'help')|raw }}
+{{ 'Die Anzahl der Städte eines fremden Teams, die du betreten kannst, wird dementsprechend begrenzt. Ist dieses Limit erreicht, kannst du für den Rest der Saison ausschließlich in Städten deines eigenen Teams spielen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'In deinen Seeleneinstellungen kannst du sehen, wie viele Städte du in dieser Saison bereits in fremden Städten gespielt hast.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<div class="critical">
+<p>
+{{ '<strong>Achtung:</strong> Kleine Städte, Privatstädte an (die meisten) Event-Städte sind von dieser Begrenzung ausgenommen.'|trans({},'help')|raw }}
+</p>
+</div>
+<h2>{{ 'Kann ich mein Team wechseln?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Du kannst dein Team jederzeit wechseln, solange die Anzahl der Städte in deinem alten Team das Limit für fremde Städte nicht übersteigt.'|trans({},'help')|raw }}
+{{ 'Um dein Team nach Erreichen dieses Limits zu wechseln, kannst du <strong>in begründeten Fällen</strong> den Technischen Support kontaktieren.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'death_and_soul_points'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</strong></a>
+{% endblock %}

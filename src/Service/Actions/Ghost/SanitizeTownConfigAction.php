@@ -131,6 +131,12 @@ class SanitizeTownConfigAction
             if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_for_all']);
         }
 
+        // FFT requires CROW permissions
+        if ( ($rules['features']['free_from_teams'] ?? false) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_from_teams']);
+        }
+
         return $elevation;
     }
 
