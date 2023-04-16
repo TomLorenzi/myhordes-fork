@@ -51,7 +51,7 @@
                             {% include "ajax/soul/playeravatar.html.twig" with {user: post.owner, small: true} only %}
                             {% include 'ajax/soul/playername.html.twig' with {user: post.owner} only %} {{ post.translate ? ('') : (_self.icon_master(post))}}:
                             {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
-                            {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
+                            {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' and post.owner != app.user %}
                                 {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
                                 {% if mode == 0 %}
                                     <br/>{{ 'Hängt {user}!'|trans({'{user}': app.user.activeCitizen.alias ?? app.user.name},'game') }}
