@@ -37,8 +37,10 @@
                 </div>
             </div>
 
+            {% set hasCoaInfo = warnCoaInactive or warnCoaEmpty or warnCoaNotComplete or coa is not empty %}
+
             <div class="relative row">
-                <div class="cell rw-6 rw-md-12">
+                <div {{ {cell: true, 'rw-md-12': true, 'rw-6': hasCoaInfo, 'rw-12': not hasCoaInfo}|classes  }}>
                     <div class="row">
                         <div class="cell rw-12 padded">
                             <h5 class="relative">
@@ -78,7 +80,7 @@
                     </div></div>
 
                 </div>
-                {% if warnCoaInactive or warnCoaEmpty or warnCoaNotComplete or coa is not empty %}
+                {% if hasCoaInfo %}
                     <div class="cell rw-6 rw-md-12">
                     <div class="row">
 
@@ -187,7 +189,7 @@
                                                             </span>
                                                         {% endif %}
                                                             {% if cdm_level != 2 %}
-                                                                <a {% if town|openFor(app.user) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-ticket="{{ town.rankingEntry.event ? '0' : '1' }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled"{% endif %}>
+                                                                <a {% if town|openFor(app.user) and (not town|whitelisted or town|whitelisted(app.user)) %}x-coa-restricted="{{ (coa is not empty and (town|whitelisted or town.password)) ? 1 : 0 }}" x-coa-discard="{{ coa|filter( member => not town|openFor(member) )|map( member => member.name )|join(';') }}" x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-town-ticket="{{ (town.rankingEntry.event or town|conf(constant('App\\Structures\\TownConf::CONF_FEATURE_NO_TEAMS'),true)) ? '0' : '1' }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled"{% endif %}>
                                                                     <span class="link">{{ town.name }}</span>
                                                                     {% if town.language != 'multi' and town.language != app.user.language and joinable %}
                                                                             <img alt="!" src="{{ asset('build/images/icons/warning_anim.gif') }}" />
