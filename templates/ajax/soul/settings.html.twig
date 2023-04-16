@@ -254,7 +254,7 @@
                             {% else %}
                                 <img id="user_current_team" alt="" src="" class="hidden pointer"/>
                             {% endif %}
-                            {% if team_tickets_in < team_tickets_limit %}
+                            {% if team_tickets_limit < 0 or team_tickets_in < team_tickets_limit %}
                                 <span id="show_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
                             {% endif %}
                         </div>
@@ -278,13 +278,15 @@
                         <div class="padded cell rw-1 rw-md-2 rw-sm-4">
                             <i class="small"><b>{{ team_tickets_in }}</b></i>
                         </div>
-                        <div class="padded cell rw-8 rw-md-6 rw-sm-8">
-                            {% if team_tickets_in < team_tickets_limit %}
-                                <div class="note green-note no-margin">{{ 'Du kannst dein Team aktuell wechseln, wenn du möchtest.'|trans({},'soul') }}</div>
-                            {% else %}
-                                <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte für dein Team gespielt, um dein Team noch wechseln zu können.'|trans({},'soul') }}</div>
-                            {% endif %}
-                        </div>
+                        {% if team_tickets_limit >= 0 %}
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                                {% if team_tickets_in < team_tickets_limit %}
+                                    <div class="note green-note no-margin">{{ 'Du kannst dein Team aktuell wechseln, wenn du möchtest.'|trans({},'soul') }}</div>
+                                {% else %}
+                                    <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte für dein Team gespielt, um dein Team noch wechseln zu können.'|trans({},'soul') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="row">
                         <div class="padded cell rw-3 rw-md-4 rw-sm-12">
@@ -300,13 +302,15 @@
                                 {% endif %}
                             </i>
                         </div>
-                        <div class="padded cell rw-8 rw-md-6 rw-sm-8">
-                            {% if team_tickets_out < team_tickets_limit %}
-                                <div class="note green-note no-margin">{{ 'Du kannst aktuell weiterhin Städte eines anderen Teams betreten.'|trans({},'soul') }}</div>
-                            {% else %}
-                                <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte von anderen Teams gespielt. Bis zum Ende der Saison kannst du nur noch Städte deines eigenen Teams betreten.'|trans({},'soul') }}</div>
-                            {% endif %}
-                        </div>
+                        {% if team_tickets_limit >= 0 %}
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                                {% if team_tickets_out < team_tickets_limit %}
+                                    <div class="note green-note no-margin">{{ 'Du kannst aktuell weiterhin Städte eines anderen Teams betreten.'|trans({},'soul') }}</div>
+                                {% else %}
+                                    <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte von anderen Teams gespielt. Bis zum Ende der Saison kannst du nur noch Städte deines eigenen Teams betreten.'|trans({},'soul') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     </div>
                 {% else %}
                     <div class="row">
