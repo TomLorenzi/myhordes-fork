@@ -172,6 +172,9 @@ export type TranslationStrings = {
 
             ffa: string
             ffa_help: string
+
+            fft: string
+            fft_help: string
         }
 
         special: {

@@ -185,6 +185,12 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     #[ORM\Column]
     private int $tosgracenum = 0;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: TeamTicket::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $teamTickets;
+
+    #[ORM\Column(length: 2, nullable: true)]
+    private ?string $team = null;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -198,6 +204,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
         $this->forumThreadSubscriptions = new ArrayCollection();
         $this->friends = new ArrayCollection();
         $this->mutedForums = new ArrayCollection();
+        $this->teamTickets = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -1063,6 +1070,64 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     public function setTosgracenum(int $tosgracenum): self
     {
         $this->tosgracenum = $tosgracenum;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TeamTicket>
+     */
+    public function getTeamTickets(): Collection
+    {
+        return $this->teamTickets;
+    }
+
+    /**
+     * @param Season $season
+     * @param string|null $team
+     * @return Collection<int, TeamTicket>
+     */
+    public function getTeamTicketsFor(Season $season, ?string $team = null): Collection
+    {
+        $criteria = (new Criteria())->andWhere( new Comparison( 'season', Comparison::EQ, $season ) );
+        if ($team === '!' && $this->getTeam() !== null) $criteria->andWhere( new Comparison('team', Comparison::NEQ, $this->team ) );
+        elseif ($team === '' && $this->getTeam() !== null) $criteria->andWhere( new Comparison('team', Comparison::EQ, $this->team ) );
+        elseif ($team === '' && $this->getTeam() === null) return new ArrayCollection();
+        elseif ($team !== null && str_starts_with( $team, '!' )) $criteria->andWhere( new Comparison('team', Comparison::NEQ, substr($team, 1) ) );
+        elseif ($team !== null) $criteria->andWhere( new Comparison('team', Comparison::EQ, $team ) );
+        return $this->teamTickets->matching( $criteria );
+    }
+
+    public function addTeamTicket(TeamTicket $teamTicket): self
+    {
+        if (!$this->teamTickets->contains($teamTicket)) {
+            $this->teamTickets->add($teamTicket);
+            $teamTicket->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTeamTicket(TeamTicket $teamTicket): self
+    {
+        if ($this->teamTickets->removeElement($teamTicket)) {
+            // set the owning side to null (unless already changed)
+            if ($teamTicket->getUser() === $this) {
+                $teamTicket->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTeam(): ?string
+    {
+        return $this->team;
+    }
+
+    public function setTeam(?string $team): self
+    {
+        $this->team = $team;
 
         return $this;
     }

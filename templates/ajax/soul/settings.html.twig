@@ -237,12 +237,118 @@
                 </div>
 
                 <h5>
+                    {{ 'Dein Team'|trans({},'soul') }}
+                    {{ help_btn('Damit das Ranking am Ende einer Season fair bleibt, musst du dich einer der existierenden Gemeinschaften zuordnen. Die Anzahl der Städte, die du pro Season mit einer anderen als deiner gewählten Gemeinschaft spielen kannst, ist begrenzt. Solange du dieses Limit noch nicht erreicht hast, kannst du deine Gemeinschaft jederzeit wechseln.'|trans({},'soul')) }}
+                </h5>
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest">
+                            <label>{{ 'Aktuelles Team'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <div class="row-flex v-center">
+                            <input id="user_team" type="hidden" value="{% if app.user.team is null %}{% else %}{{ app.user.team }}{% endif %}">
+                            {% if app.user.team is not null %}
+                                <img id="user_current_team" class="pointer" alt="{{ app.user.team }}" src="{{ asset('build/images/lang/' ~ app.user.team ~ '.png' ) }}"/>
+                            {% else %}
+                                <img id="user_current_team" alt="" src="" class="hidden pointer"/>
+                            {% endif %}
+                            {% if team_tickets_limit < 0 or team_tickets_in < team_tickets_limit %}
+                                <span id="show_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
+                            {% endif %}
+                        </div>
+                        <div id="team_sel" class="row-flex wrap v-center gap-small space" style="display: none; margin-top: 5px;">
+                            {% for flag in langs %}
+                                {% if flag['code'] != 'ach' %}
+                                    <img alt="{{ flag['label'] }}" title="{{ flag['label'] }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
+                                {% endif %}
+                            {% endfor %}
+                            <span id="hide_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
+                        </div>
+                    </div>
+                </div>
+                {% if app.user.team %}
+                    <div class="row">
+                        <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                            <div class="note note-lightest">
+                                <label>{{ 'Städte in meinem Team'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-4">
+                            <i class="small"><b>{{ team_tickets_in }}</b></i>
+                        </div>
+                        {% if team_tickets_limit >= 0 %}
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                                {% if team_tickets_in < team_tickets_limit %}
+                                    <div class="note green-note no-margin">{{ 'Du kannst dein Team aktuell wechseln, wenn du möchtest.'|trans({},'soul') }}</div>
+                                {% else %}
+                                    <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte für dein Team gespielt, um dein Team noch wechseln zu können.'|trans({},'soul') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                            <div class="note note-lightest">
+                                <label>{{ 'Städte in anderen Teams'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-4">
+                            <i class="small">
+                                {{ team_tickets_out }}
+                                {% if team_tickets_limit >= 0 %}
+                                    / <b>{{ team_tickets_limit }}</b>
+                                {% endif %}
+                            </i>
+                        </div>
+                        {% if team_tickets_limit >= 0 %}
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                                {% if team_tickets_out < team_tickets_limit %}
+                                    <div class="note green-note no-margin">{{ 'Du kannst aktuell weiterhin Städte eines anderen Teams betreten.'|trans({},'soul') }}</div>
+                                {% else %}
+                                    <div class="note note-critical no-margin">{{ 'Du hast in dieser Saison bereits zu viele Städte von anderen Teams gespielt. Bis zum Ende der Saison kannst du nur noch Städte deines eigenen Teams betreten.'|trans({},'soul') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                            <div class="note note-lightest">
+                                <label>{{ 'Bereits gespielte Städte'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-4">
+                            <i class="small">
+                                {{ team_tickets_out }}
+                                {% if team_tickets_limit >= 0 %}
+                                    / <b>{{ team_tickets_limit }}</b>
+                                {% endif %}
+                            </i>
+                        </div>
+                        <div class="padded cell rw-8 rw-md-6 rw-sm-8">
+                            {% if team_tickets_out < team_tickets_limit %}
+                                <div class="note green-note no-margin">{{ 'Du kannst aktuell weiterhin Städte betreten, ohne ein Team wählen zu müssen.'|trans({},'soul') }}</div>
+                            {% else %}
+                                <div class="note note-critical no-margin">{{ 'Bevor du weitere Städte betreten kannst, musst du dich einem Team anschließen.'|trans({},'soul') }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
+                        <button id="save_team" class="hidden">{{ 'Speichern'|trans({},'global') }}</button>
+                    </div>
+                </div>
+
+                <h5>
                     {{ 'Dein Avatar'|trans({},'soul') }}
                     {{ help_btn(
                         'Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.'|trans({size: avatar_max_size[0]},'soul') ~ '<br />' ~
                         'Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).'|trans({},'soul') ~ '<br />' ~
                         'Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.'|trans({size: avatar_max_size[1]},'soul')  ~ '<br /><br />' ~
-                        'Die folgenden Bildformate werden unterstützt:'|trans({},'soul') ~ ' <b>JPEG</b>, <b>GIF</b>, <b>BMP</b>, <b>PNG</b>, ' ~ '<b>WEBP (' ~ 'nur Baseline-Format'|trans({},'soul') ~ ')</b>'
+                        'Die folgenden Bildformate werden unterstützt:'|trans({},'soul') ~ ' <b>JPEG</b>, <b>GIF</b>, <b>BMP</b>, <b>PNG</b>, <b>WEBP</b>, <b>AVIF</b>'
                     ) }}
                 </h5>
                 <hordes-avatar-creator data-max-size="{{ avatar_max_size[2] }}"></hordes-avatar-creator>
@@ -857,6 +963,43 @@
             document.getElementById('user_flag').value = id;
             document.getElementById('show_flag_sel').style.display = null;
             document.getElementById('flag_sel').style.display = 'none';
+        });
+
+        $.html.addEventListenerAll('#show_team_sel', 'click', (e,elem) => {
+            elem.style.display = 'none';
+            document.getElementById('team_sel').style.display = null;
+        });
+        $.html.addEventListenerAll('#hide_team_sel', 'click', () => {
+            document.getElementById('show_team_sel').style.display = null;
+            document.getElementById('team_sel').style.display = 'none';
+        });
+        $.html.addEventListenerAll('[data-team]', 'click', (e,elem) => {
+            const id = elem.dataset.team;
+            let target = document.getElementById('user_current_team');
+            if (id === '') {
+                target.setAttribute('src','');
+                target.setAttribute('alt','');
+                target.classList.add('hidden');
+            } else {
+                target.setAttribute('src',elem.getAttribute('src'));
+                target.setAttribute('alt',id);
+                target.classList.remove('hidden');
+            }
+            document.getElementById('user_team').value = id;
+            document.getElementById('show_team_sel').style.display = null;
+            document.getElementById('team_sel').style.display = 'none';
+            document.getElementById('save_team')?.classList.remove('hidden');
+        });
+
+        $.html.addEventListenerAll('#save_team', 'click', () => {
+            const team = document.getElementById('user_team').value;
+
+            $.ajax.easySend('{{ path('api_soul_team')|e('js') }}', {
+                team
+            }, () => {
+                $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
+                $.ajax.load(null, '{{ path('soul_settings')|e('js') }}');
+            });
         });
 
         document.getElementById('user_desc').value = $.html.twinoParser.parseFrom('{{ user_desc|e('js') }}', $.html.twinoParser.OpModeRaw);

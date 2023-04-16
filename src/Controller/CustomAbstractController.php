@@ -77,7 +77,12 @@ class CustomAbstractController extends CustomAbstractCoreController {
         $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
         shuffle($quotes);
 
+        $allLangs = [];
+        foreach ($this->generatedLangs as $lang)
+            $allLangs[$lang['code']] = $lang;
+
         $data["langsCodes"] = $this->generatedLangsCodes;
+        $data["allLangs"] = $allLangs;
         $data['quote'] = $quotes[0];
 
         $data['apps'] = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['active' => true]);

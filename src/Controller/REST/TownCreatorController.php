@@ -271,6 +271,9 @@ class TownCreatorController extends CustomAbstractCoreController
 
                         'ffa' => $this->translator->trans('Seelenpunkt-Beschränkung deaktivieren', [], 'ghost'),
                         'ffa_help' => $this->translator->trans('Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.', [], 'ghost'),
+
+                        'fft' => $this->translator->trans('Team-Beschränkung deaktivieren', [], 'ghost'),
+                        'fft_help' => $this->translator->trans('Diese Stadt gehört keinem Team an.', [], 'ghost'),
                     ],
 
                     'special' => [
