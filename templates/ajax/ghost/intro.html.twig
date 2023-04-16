@@ -37,12 +37,92 @@
                 </div>
             </div>
 
+            <div class="relative row">
+                <div class="cell rw-6 rw-md-12">
+                    <div class="row">
+                        <div class="cell rw-12 padded">
+                            <h5 class="relative">
+                                {{ 'Dein Team'|trans({},'soul') }}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row-flex">
+                        {% if app.user.team is null %}
+                            <div class="cell padded grow-1">
+                                <div class="note note-warning">
+                                    {{ 'Du bist bisher keinem Team beigetreten.'|trans({},'ghost') }}
+                                    <a x-ajax-href="{{ path('soul_settings') }}" href="#">{{ 'Team wählen'|trans({},'ghost') }}</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="cell padded grow-0 shrink-0">
+                                <span class="language"><img src="{{ asset("build/images/lang/" ~ app.user.team ~ ".png") }}" alt="{{ app.user.team }}" /></span>
+                            </div>
+                            <div class="cell padded grow-1 small">
+                                <strong>{{ allLangs[app.user.team].label|trans({},'global') }}</strong><br/>
+                                <i>{{ '{members} Mitglieder, {souls} verlorene Seelen'|trans({members: team_members, souls: team_souls},'ghost') }}</i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="row"><div class="cell rw-12 padded">
+                        {% if cap_left == 0 %}
+                            <div class="note note-warning">
+                                {% if app.user.team %}
+                                    {{ 'Du hast das Limit für das Betreten von Städte aus anderen Teams erreicht. Bis zum Ende dieser Saison kannst du nur Städte deines eigenen Teams betreten.'|trans({},'ghost') }}
+                                {% else %}
+                                    {{ 'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.'|trans({},'ghost') }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {{ help_lnk('Teams'|trans({}, 'help'), 'help', {'name': 'your_team'}) }}
+                    </div></div>
+
+                </div>
+                {% if warnCoaInactive or warnCoaEmpty or warnCoaNotComplete or coa is not empty %}
+                    <div class="cell rw-6 rw-md-12">
+                    <div class="row">
+
+                        <div class="cell rw-12 padded">
+                            <h5 class="relative">
+                                {{ 'Koalition'|trans({},'soul') }}
+                            </h5>
+
+                            {% set coa_link = '<a href="#" x-ajax-href="' ~ path('soul_coalitions') ~ '">' ~ ('Koalition'|trans({},'soul')) ~ '</a>' %}
+
+                            {% if warnCoaInactive %}
+                                <div class="note note-critical">
+                                    {{ 'Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.'|trans({ coalition: coa_link },'ghost')|raw }}
+                                </div>
+                            {% elseif warnCoaEmpty %}
+                                <div class="note note-critical">
+                                    {{ 'Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.'|trans({ coalition: coa_link },'ghost')|raw }}
+                                </div>
+                            {% elseif warnCoaNotComplete %}
+                                <div class="note note-critical">
+                                    {{ 'Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.'|trans({ coalition: coa_link },'ghost')|raw }}
+                                </div>
+                            {% endif %}
+
+                            {% if coa is not empty %}
+                                <div class="note">
+                                    {{ 'Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:'|trans({ coalition: coa_link },'ghost')|raw }}<br />
+                                    <ul class="list no-margin">
+                                        {% for member in coa %}
+                                            <li><strong>{{ member.name }}</strong></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
             <div class="row">
                 <div class="padded cell rw-12">
                     <div class="row">
                         <div class="cell rw-12">
-
-
                             {% if cdm_level == 2 %}
 
                                 <div class="note note-warning">
@@ -59,46 +139,6 @@
                                         {% endtrans %}
                                     </div>
                                 {% endif %}
-
-                                {% if cap_left == 0 %}
-                                    <div class="note note-warning">
-                                        {% if app.user.team %}
-                                            {{ 'Du hast das Limit für das Betreten von Städte aus anderen Teams erreicht. Bis zum Ende dieser Saison kannst du nur Städte deines eigenen Teams betreten.'|trans({},'ghost') }}
-                                        {% else %}
-                                            {{ 'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.'|trans({},'ghost') }}
-                                            <a x-ajax-href="{{ path('soul_settings') }}" href="#">{{ 'Team wählen'|trans({},'ghost') }}</a>
-                                        {% endif %}
-
-                                    </div>
-                                {% endif %}
-
-                                {% set coa_link = '<a href="#" x-ajax-href="' ~ path('soul_coalitions') ~ '">' ~ ('Koalition'|trans({},'soul')) ~ '</a>' %}
-
-                                {% if warnCoaInactive %}
-                                    <div class="note note-critical">
-                                        {{ 'Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.'|trans({ coalition: coa_link },'ghost')|raw }}
-                                    </div>
-                                {% elseif warnCoaEmpty %}
-                                    <div class="note note-critical">
-                                        {{ 'Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.'|trans({ coalition: coa_link },'ghost')|raw }}
-                                    </div>
-                                {% elseif warnCoaNotComplete %}
-                                    <div class="note note-critical">
-                                        {{ 'Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.'|trans({ coalition: coa_link },'ghost')|raw }}
-                                    </div>
-                                {% endif %}
-
-                                {% if coa is not empty %}
-                                    <div class="note">
-                                        {{ 'Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:'|trans({ coalition: coa_link },'ghost')|raw }}<br />
-                                        <ul class="list no-margin">
-                                        {% for member in coa %}
-                                            <li><strong>{{ member.name }}</strong></li>
-                                        {% endfor %}
-                                        </ul>
-                                    </div>
-                                {% endif %}
-
                             {% endif %}
 
                             <div class="town-random hide-sm hide-md">
@@ -236,7 +276,7 @@
             const coa_restriction = elem.getAttribute('x-coa-restricted') === '1';
             const coa_discard = elem.getAttribute('x-coa-discard') ? elem.getAttribute('x-coa-discard').split(';') : [];
 
-            if (town_ticketed && user_team !== town_lang) {
+            if (town_ticketed && user_team !== town_lang && user_team) {
                 const user_team_rep = window.c.langs[user_team] ? window.c.langs[user_team] : user_team;
                 const town_lang_rep = window.c.langs[town_lang.split('_')[0]] ? window.c.langs[town_lang.split('_')[0]] : town_lang;
                 let message =

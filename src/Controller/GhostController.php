@@ -12,6 +12,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
+use App\Entity\TeamTicket;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownSlotReservation;
@@ -83,6 +84,8 @@ class GhostController extends CustomAbstractController
 
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs(null, [
             'cap_left'           => $cap_left,
+            'team_members'       => $user->getTeam() ? $this->entity_manager->getRepository(User::class)->count(['team' => $user->getTeam()]) : 0,
+            'team_souls'         => $user->getTeam() ? $this->entity_manager->getRepository(TeamTicket::class)->count(['team' => $user->getTeam()]) : 0,
             'warnCoaInactive'    => $count > 0 && !$active,
             'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
             'warnCoaEmpty'       => $count > 1 && empty($coa_members),
