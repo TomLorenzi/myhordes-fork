@@ -42,7 +42,7 @@ parameters:
           probability: 0.1
         buried_ruins:
           probability: 0.5
-          digs: { min: 6, max: 20 }
+          digs: { min: 1, max: 19 }
 
       explorable_ruin_params:
         complexity: 0.9

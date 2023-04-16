@@ -131,7 +131,7 @@ class MapMaker
                 $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
 
             if ($this->random->chance($conf->get(TownConf::CONF_MAP_BURIED_PROB, 0.5)))
-                $zone_list[$i+$o]->setBuryCount( mt_rand($conf->get(TownConf::CONF_MAP_BURIED_DIGS_MIN, 6), $conf->get(TownConf::CONF_MAP_BURIED_DIGS_MAX, 20)) );
+                $zone_list[$i+$o]->setBuryCount( mt_rand($conf->get(TownConf::CONF_MAP_BURIED_DIGS_MIN, 1), $conf->get(TownConf::CONF_MAP_BURIED_DIGS_MAX, 19)) );
         }
 
         $spawn_explorable_ruins = $conf->get(TownConf::CONF_NUM_EXPLORABLE_RUINS, 0);
