@@ -370,8 +370,8 @@ Werkstatt: Taller
 'Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.': 'Te encuentras ante un vasto horizonte desolado. El Ultramundo. Hay otros condenados como tú recorriendo el desierto, escarbando en sus ruinas. Muchos de ellos no volverán jamás.'
 'Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...': '¿Decidirás seguir adelante o esconderte detrás de las murallas fortificadas? Algunos creen que es mejor ser cauteloso y considerar todas las opciones, otros sostienen que el corazón débil nunca ganó a la doncella justa... Quizás la verdad esté en algún lugar entre los dos...'
 'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'Las noches son heladas en el desierto... Una densa nube de polvo lo envuelve todo y oyes sollozos lúgubres a tu alrededor. De vez en cuando distingues una figura borrosa moviéndose entre las sombras. Ojalá solo sea tu imaginación...'
-'Die Zone untersuchen': 'Inspecciona la zona'
-'Du schaust dir die Gegend etwas genauer an...': 'Inspecciona los alrededores...'
+'Die Zone untersuchen': 'Inspeccionar la zona'
+'Du schaust dir die Gegend etwas genauer an...': 'Inspeccionas los alrededores...'
 'Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.': 'Dormir en un lugar semejante equivale a suicidarse, así de simple. Piénsalo.'
 "Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.": "Crees que tus posibilidades de sobrevivir aquí son casi nulas... ¿Cianuro?"
 'Rucksack auf dem Boden ausleeren': 'Vaciar mochila en el suelo'
@@ -494,7 +494,7 @@ Ja: Si
 Unbekannt: Desconocido
 'Morgiger Angriff :': 'El ataque de mañana:'
 'Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.': 'Nuestras defensas son lo suficientemente fuertes para resistir el ataque de esta noche.'
-'Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.': '¡No tenemos idea de la cantidad de zombies que se aproximan!'
+'Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.': '¡No tenemos ni idea de la cantidad de zombies que se aproximan!'
 'Meine täglichen Aufgaben': 'Mis tareas cotidianas de supervivencia'
 'Einen Blick ins Forum werfen.': 'Coordina con tus vecinos en el Foro'
 'Meine Ration Wasser im Brunnen entnehmen (optional).': 'Toma tu ración de agua en el pozo (opcional)'
