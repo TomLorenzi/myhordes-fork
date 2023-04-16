@@ -600,7 +600,7 @@ class GameFactory
 
         $conf = $this->conf->getGlobalConf();
 
-        if (!$town->getRankingEntry()->getEvent() && $town->getLanguage() !== 'multi' && $town->getLanguage() !== $user->getTeam()) {
+        if (!$internal && !$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_TEAMS ) && !$town->getRankingEntry()->getEvent() && $town->getLanguage() !== 'multi' && $town->getLanguage() !== $user->getTeam()) {
             $cap = $conf->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
             if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $town->getSeason(), '!' )->count())
                 return false;
@@ -696,7 +696,7 @@ class GameFactory
         $entry_cache = [];
         foreach ($followers as $joining_user) {
 
-            if ($town->getLanguage() !== null && $town->getLanguage() !== 'multi' && $town->getRankingEntry() && !$town->getRankingEntry()->getEvent() && $town->getSeason())
+            if (!$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_TEAMS ) && $town->getLanguage() !== null && $town->getLanguage() !== 'multi' && $town->getRankingEntry() && !$town->getRankingEntry()->getEvent() && $town->getSeason())
                 $this->entity_manager->persist(
                     (new TeamTicket())
                         ->setTown( $town->getRankingEntry() )

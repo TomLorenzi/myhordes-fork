@@ -185,6 +185,7 @@ parameters:
         last_death_day: 5
         survival_picto: null
         free_for_all: false
+        free_from_teams: false
 
       disabled_jobs: ['shaman']
       disabled_roles: []
@@ -250,6 +251,7 @@ parameters:
       features:
         shaman: 'none'
         nightmode: false
+        free_from_teams: true
       
       disabled_roles: ['shaman']
 
@@ -301,3 +303,4 @@ parameters:
       features:
         give_all_pictos: false
         give_soulpoints: false
+        free_from_teams: true
