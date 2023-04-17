@@ -11,7 +11,8 @@ class JSONRequestParser
     protected $trimmed_data = null;
 
     protected function deep_trim( &$value ): void {
-        if (is_string($value)) $value = trim($value);
+        //Replace all whitespace chars with regular spaces for trim to remove them
+        if (is_string($value)) $value = trim(preg_replace('/\s+/', ' ', $value));
         else if (is_array($value) || is_object($value)) foreach ($value as &$v) $this->deep_trim( $v );
     }
 
