@@ -126,7 +126,7 @@ deploy_staging:
     - apt-get update -yqq
     - apt-get install -yqq sshpass
     - export SSHPASS=$SSH_PASSWORD
-    - sshpass -e ssh -p 2244 -o stricthostkeychecking=no deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan.dev/myhordes/www && bin/console app:migrate -g --remote origin --branch Dev-Ludofloria --environment dev --phar --release'
+    - sshpass -e ssh -p 2244 -o stricthostkeychecking=no deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan.dev/myhordes/www && bin/console app:migrate -g --remote origin --branch master --environment dev --phar --release'
     - unset SSHPASS
   only:
     - master
