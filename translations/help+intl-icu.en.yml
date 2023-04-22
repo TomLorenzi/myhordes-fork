@@ -877,8 +877,8 @@ Legacy-Dokumentation: Legacy documentation
 '<i>Bevor du eine Verifizierung beantragt hast</i>, kannst du dein Event einfach löschen.': '<i>Before you have requested verification</i>, you can simply delete your event.'
 'Um ein Event <i>nach der Verifizierung, aber vor dessen Start</i> abzubrechen, musst du den Technischen Support kontaktieren.': 'To cancel an event <i>after verification but before it starts</i>, you must contact Technical Support.'
 '<i>Nach dem Start</i> des Events kannst du es in dessen Einstellungen jederzeit als "Beendet" markieren. Zudem wird es automatisch <i>mit dem Ende der letzten Event-Stadt</i> oder nach <i>60 Tagen</i> als "Beendet" markiert (je nachdem, was zuerst eintritt).': '<i>After the event has started</i>, you can mark it as "Finished" at any time. It will automatically be marked as finished <i>once the last event town dies</i>, or after <i>60 days have passed</i> (depending on which happens first).'
-Teams: Teams
-'Dein Team': 'Your Team'
+Teams: Communities
+'Dein Team': 'Your Community'
 "Auf 'MyHordes' existieren verschiedene Gemeinschaften, die lose durch ihre Sprache kategorisiert werden.": "Different communities exist on 'MyHordes', loosely categorized by their language."
 'Damit das Städteranking für alle Spieler fair bleibt, musst du dich früher oder später einer dieser Gemeinschaften anschließen.': 'In order to keep the town ranking fair for all players, you will have to join one of these communities sooner or later.'
 'Wie trete ich einem Team bei?': 'How do I join a community?'
