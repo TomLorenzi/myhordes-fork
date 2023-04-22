@@ -3,13 +3,17 @@
 
 namespace App\EventSubscriber;
 
+use App\Messages\Discord\DiscordMessage;
 use App\Service\ConfMaster;
 use App\Structures\MyHordesConf;
+use DiscordWebhooks\Client;
+use DiscordWebhooks\Embed;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
@@ -23,9 +27,11 @@ class ExceptionSubscriber implements EventSubscriberInterface
     private ?array $gitlabIssueMail;
 
     private MailerInterface $mail;
+    private MessageBusInterface $bus;
 
-    public function __construct( ConfMaster $conf, ParameterBagInterface $params, MailerInterface $mailer ) {
+    public function __construct( ConfMaster $conf, ParameterBagInterface $params, MailerInterface $mailer, MessageBusInterface $bus ) {
         $this->mail = $mailer;
+        $this->bus = $bus;
 
         $this->report_path = "{$params->get('kernel.project_dir')}/var/reports";
 
@@ -50,34 +56,14 @@ class ExceptionSubscriber implements EventSubscriberInterface
         if (!file_exists($report_path)) mkdir( $report_path, 0777, true );
 
         if ($this->discordEndpoint && !file_exists($discord_file)) {
-            $payload = [
-                'content' =>
-                    ":sos: **Reporting an exception in MyHordes**\n" .
-                    "```fix\n[{$event->getThrowable()->getMessage()}]\n```\n" .
-                    "*{$event->getThrowable()->getFile()}*\nLine *{$event->getThrowable()->getLine()}*\n\n" .
-                    "See attached stack trace for more information."
-            ];
 
-            try {
-                $curl = curl_init();
-                curl_setopt_array($curl, [
-                    CURLOPT_VERBOSE => false,
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_POST => true,
-                    CURLOPT_URL => $this->discordEndpoint,
-                    CURLOPT_TIMEOUT => 5,
-                    CURLOPT_POSTFIELDS => [
-                        'payload_json' => new \CURLStringFile( json_encode( $payload, JSON_FORCE_OBJECT ), '', 'application/json' ),
-                        'files[0]'  => new \CURLStringFile( $event->getThrowable()->getTraceAsString(), 'stack.txt', 'text/plain' ),
-                    ],
-                ]);
-
-                $response = curl_exec($curl);
-                $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-                if (!($response === false || $status < 200 || $status > 299))
-                    file_put_contents( $discord_file, "".time() );
-            } catch (Throwable $e) {}
+            $this->bus->dispatch( new DiscordMessage(
+                (new Client( $this->discordEndpoint ))
+                    ->message(":sos: **Reporting an exception in MyHordes**\n" .
+                              "```fix\n[{$event->getThrowable()->getMessage()}]\n```\n" .
+                              "*{$event->getThrowable()->getFile()}*\nLine *{$event->getThrowable()->getLine()}*\n\n"
+                    )
+            ) );
 
         }
 
