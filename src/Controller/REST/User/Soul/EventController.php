@@ -2,21 +2,14 @@
 
 namespace App\Controller\REST\User\Soul;
 
-use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
-use App\Entity\Award;
-use App\Entity\Citizen;
 use App\Entity\CommunityEvent;
 use App\Entity\CommunityEventMeta;
 use App\Entity\CommunityEventTownPreset;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
-use App\Entity\User;
-use App\Enum\UserSetting;
+use App\Messages\Discord\DiscordMessage;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
-use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
@@ -32,9 +25,9 @@ use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use function App\Controller\REST\User\mb_strlen;
 use function App\Controller\REST\User\str_contains;
 
@@ -281,14 +274,15 @@ class EventController extends CustomAbstractCoreController
      * @param CommunityEvent $event
      * @param bool $option
      * @param EntityManagerInterface $em
-     * @param ConfMaster $conf
+     * @param UrlGeneratorInterface $urlGenerator
      * @return JsonResponse
      */
     public function editEventProposal(
         CommunityEvent $event,
         bool $option,
         EntityManagerInterface $em,
-        UrlGeneratorInterface $urlGenerator
+        UrlGeneratorInterface $urlGenerator,
+        MessageBusInterface $bus
     ): JsonResponse {
         if (!$this->eventIsEditable( $event, $option === false ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -354,9 +348,7 @@ class EventController extends CustomAbstractCoreController
                             ->field('Short Description', mb_substr($meta->getShort(), 0, 1500), true)
                         );
 
-                try {
-                    $discord->send();
-                } catch (Exception) {}
+                $bus->dispatch( new DiscordMessage( $discord ) );
             }
 
 

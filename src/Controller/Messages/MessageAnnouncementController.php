@@ -9,6 +9,7 @@ use App\Entity\ForumPollAnswer;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPoll;
 use App\Entity\User;
+use App\Messages\Discord\DiscordMessage;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
@@ -18,9 +19,9 @@ use DateTime;
 use DiscordWebhooks\Client;
 use DiscordWebhooks\Embed;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -257,9 +258,11 @@ class MessageAnnouncementController extends MessageController
      * @Route("api/admin/com/changelogs/new_announcement", name="admin_changelog_new_announcement")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param UrlGeneratorInterface $urlGenerator
+     * @param MessageBusInterface $bus
      * @return Response
      */
-    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser, UrlGeneratorInterface $urlGenerator): Response {
+    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser, UrlGeneratorInterface $urlGenerator, MessageBusInterface $bus): Response {
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
         $lang      = $parser->get('lang', 'de');
@@ -300,9 +303,7 @@ class MessageAnnouncementController extends MessageController
                                  )
             );
 
-            try {
-                $discord->send();
-            } catch (Exception) {}
+            $bus->dispatch( new DiscordMessage( $discord ) );
         }
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_changelogs', ['tab' => 'announcement'])] );
