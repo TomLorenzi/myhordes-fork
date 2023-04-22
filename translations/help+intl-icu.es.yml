@@ -370,7 +370,7 @@ Seelenrangliste: La escala de almas (Clasificación)
 'Sie halten Zombies davon ab, bei dir einzudringen.': 'Impiden a los zombies de devorarte en la noche.'
 'Sie verbessern allgemein die Verteidigung der Stadt.': 'Aumenta las defensas del pueblo.'
 'Deine Einrichtung verbessern': 'Mejorar tu habitación'
-'Neben deinem Haus selbst kannst du auch deine Einrichtung verschönern und verbessern. Auch diese <strong>Maßnahmen</strong> bringen dir einige Vorteile, wie zum Beispiel mehr Aufbewahrungsmöglichkeiten, besserer Diebstahlschutz u.v.m!': 'Tu casa requiere ser construida y mejorada. Zombinoia presenta un sistema de <strong>Construcciones</strong> que te permite mejorar tus defensas, aumentar tu capacidad de almacenamiento... ¡y hasta convertirte en obrero!'
+'Neben deinem Haus selbst kannst du auch deine Einrichtung verschönern und verbessern. Auch diese <strong>Maßnahmen</strong> bringen dir einige Vorteile, wie zum Beispiel mehr Aufbewahrungsmöglichkeiten, besserer Diebstahlschutz u.v.m!': 'Tu casa requiere ser construida y mejorada. MyHordes presenta un sistema de <strong>Construcciones</strong> que te permite mejorar tus defensas, aumentar tu capacidad de almacenamiento... ¡y hasta convertirte en obrero!'
 'Jede Einrichtungsverbesserung benötigt <strong>APs</strong> und/oder <strong>Materialien</strong>.': 'Para mejorar tu casa deberás invertir <strong>Puntos de Acción</strong> y/o <strong>recursos</strong>.'
 'Hierbei gibt es verschiedene Verbesserungsarten:': 'Existen varios tipos de mejoras:'
 '<strong>Stauraum</strong>: Vergrößert deinen Lagerplatz.': '<strong>Almacén</strong>: Aumenta tu capacidad de almacenamiento.'
@@ -877,11 +877,11 @@ Legacy-Dokumentation: Documentación heredada
 '<i>Bevor du eine Verifizierung beantragt hast</i>, kannst du dein Event einfach löschen.': '<i>Antes de haber pedido la verificación</i>, puedes simplemente borrar tu evento.'
 'Um ein Event <i>nach der Verifizierung, aber vor dessen Start</i> abzubrechen, musst du den Technischen Support kontaktieren.': 'Para cancelar un evento <i>después de su verificación, pero antes de que haya empezado</i>, deberás contactar con el Soporte Técnico.'
 '<i>Nach dem Start</i> des Events kannst du es in dessen Einstellungen jederzeit als "Beendet" markieren. Zudem wird es automatisch <i>mit dem Ende der letzten Event-Stadt</i> oder nach <i>60 Tagen</i> als "Beendet" markiert (je nachdem, was zuerst eintritt).': '<i>Una vez que el evento haya finalizado</i>, podrás marcarlo como "Finalizado" en cualquier momento. Será marcado como finalizado automáticamente <i>cuando el último pueblo del evento muera</i> o cuando <i>hayan pasado 60 días</i> (dependiendo de lo que ocurra primero).'
-Teams: Equipos
-'Dein Team': 'Tu equipo'
-"Auf 'MyHordes' existieren verschiedene Gemeinschaften, die lose durch ihre Sprache kategorisiert werden.": "Auf 'MyHordes' existieren verschiedene Gemeinschaften, die lose durch ihre Sprache kategorisiert werden."
+Teams: Comunidades
+'Dein Team': 'Tu comunidad'
+"Auf 'MyHordes' existieren verschiedene Gemeinschaften, die lose durch ihre Sprache kategorisiert werden.": "Diferentes comunidades existen en 'MyHordes', categorizadas generalmente por su idioma. "
 'Damit das Städteranking für alle Spieler fair bleibt, musst du dich früher oder später einer dieser Gemeinschaften anschließen.': 'Damit das Städteranking für alle Spieler fair bleibt, musst du dich früher oder später einer dieser Gemeinschaften anschließen.'
-'Wie trete ich einem Team bei?': 'Wie trete ich einer Gemeinschaft bei?'
+'Wie trete ich einem Team bei?': '¿Cómo unirse a una comunidad?'
 'Du kannst dein Team in deinen Seeleneinstellungen unter dem Punkt "Dein Team" auswählen, indem du das Bearbeiten-Symbol anklickst.': 'Du kannst deine Gemeinschaft in deinen Seeleneinstellungen unter dem Punkt "Deine Gemeinschaft" auswählen, indem du das Bearbeiten-Symbol anklickst.'
 'Daraufhin erhälst du eine Übersicht aller Gemeinschaften unter denen du auswählen kannst.': 'Daraufhin erhälst du eine Übersicht aller Gemeinschaften unter denen du auswählen kannst.'
 'Welche Auswirkungen hat es, wenn ich einem team beitrete?': 'Welche Auswirkungen hat es, wenn ich einer Gemeinschaft beitrete?'
