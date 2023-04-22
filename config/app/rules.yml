@@ -251,7 +251,6 @@ parameters:
       features:
         shaman: 'none'
         nightmode: false
-        free_from_teams: true
       
       disabled_roles: ['shaman']
 
