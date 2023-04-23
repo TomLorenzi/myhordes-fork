@@ -653,6 +653,7 @@ class EventController extends CustomAbstractCoreController
         #[MapEntity(id: 'preset')]
         CommunityEventTownPreset $preset,
         EntityManagerInterface $em,
+        SanitizeTownConfigAction $sanitizer
     ): JsonResponse {
         if (!$this->eventIsExplorable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -669,7 +670,7 @@ class EventController extends CustomAbstractCoreController
         return new JsonResponse([
             'uuid' => $preset->getId(),
             'header' => $header,
-            'rules'  => $preset->getRules(),
+            'rules'  => $sanitizer->restore_lists( $preset->getRules() ),
         ]);
     }
 
