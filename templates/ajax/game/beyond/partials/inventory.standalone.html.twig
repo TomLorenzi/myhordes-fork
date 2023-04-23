@@ -1,0 +1,22 @@
+{% use "ajax/game/partials/header_inventory.html.twig" with html as html_header %}
+{% use "ajax/game/beyond/partials/inventory.html.twig" %}
+
+<div x-render-target="#header-rucksack-items">
+    {{ block('html_header') }}
+</div>
+
+<div x-render-target="#inventory_partial_html">
+    {{ block('html') }}
+</div>
+
+<div x-clear-target="[data-escort-inventory='1']"></div>
+{% for other_citizen in other_citizens|filter(o => o.escortSettings and o.escortSettings.allowInventoryAccess and o.escortSettings.leader == citizen) %}
+    <div x-render-target="#escort-inv-{{ other_citizen.id }}">
+        {{ block('html_escort') }}
+    </div>
+{% endfor %}
+
+<script>
+    {{ block('includes') }}
+    {{ block('js') }}
+</script>
