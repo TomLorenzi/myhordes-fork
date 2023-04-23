@@ -1,6 +1,11 @@
 {% use "ajax/game/partials/header_inventory.html.twig" with html as html_header %}
 {% use "ajax/game/beyond/partials/inventory.html.twig" %}
 
+<div x-render-target="#wb-item-action-section">
+    {% embed "ajax/game/actions.html.twig" with {'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
+    {% endembed %}
+</div>
+
 <div x-render-target="#header-rucksack-items">
     {{ block('html_header') }}
 </div>
@@ -19,4 +24,7 @@
 <script>
     {{ block('includes') }}
     {{ block('js') }}
+
+    {{ include('scripts/actions_animate.js.twig') }}
+    item_action_collapse('actions','x-item-action-toggle');
 </script>

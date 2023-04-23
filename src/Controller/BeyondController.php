@@ -188,9 +188,7 @@ class BeyondController extends InventoryAwareController
             'scavenger_sense' => $scavenger_sense,
             'heroics' => $this->getHeroicActions(),
             'specials' => $this->getSpecialActions(),
-            'actions' => $this->getItemActions(),
             'camping' => $this->getCampingActions(),
-            'recipes' => $this->getItemCombinations(false),
             'km' => $this->zone_handler->getZoneKm($zone),
             'town_ap' => $this->zone_handler->getZoneAp($zone),
             'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
@@ -232,8 +230,7 @@ class BeyondController extends InventoryAwareController
     /**
      * @Route("jx/beyond/desert/{sect}", name="beyond_dashboard")
      * @param TownHandler $th
-     * @param bool $inline
-     * @param string|null $sect
+     * @param string $sect
      * @return Response
      */
     public function desert(TownHandler $th, string $sect = ''): Response
@@ -434,17 +431,40 @@ class BeyondController extends InventoryAwareController
             'rucksack_sizes' => $rucksack_sizes,
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
             'zone_blocked' => !$this->zone_handler->check_cp($citizen->getZone(), $cp),
+            'active_scout_mode' => $this->inventory_handler->countSpecificItems(
+                    $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
+                ) > 0,
+        ];
+    }
+
+    protected function desert_partial_item_action_args(): array {
+
+        return [
+            'actions' => $this->getItemActions(),
+            'recipes' => $this->getItemCombinations(false),
+            'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
+            'active_scout_mode' => $this->inventory_handler->countSpecificItems(
+                    $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
+                ) > 0,
         ];
     }
 
     /**
      * @Route("jx/beyond/partial/desert/inventory", name="beyond_dashboard_partial_inventory")
-     * @param TownHandler $th
      * @return Response
      */
-    public function desert_partial_inventory(TownHandler $th, string $sect = ''): Response
+    public function desert_partial_inventory(): Response
     {
         return $this->render( 'ajax/game/beyond/partials/inventory.standalone.html.twig', $this->desert_partial_inventory_args() );
+    }
+
+    /**
+     * @Route("jx/beyond/partial/desert/actions", name="beyond_dashboard_partial_item_actions")
+     * @return Response
+     */
+    public function desert_partial_item_actions(): Response
+    {
+        return $this->render( 'ajax/game/beyond/partials/item-actions.standalone.html.twig', $this->desert_partial_item_action_args() );
     }
 
     /**
