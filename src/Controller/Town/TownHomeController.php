@@ -13,6 +13,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\Item;
 use App\Entity\ItemGroupEntry;
+use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
@@ -193,7 +194,7 @@ class TownHomeController extends TownController
         $criteria->andWhere($criteria->expr()->eq('culprit', $citizen));
 
         // Render
-        return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
+        return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', array_merge([
             'home' => $home,
             'tab' => $tab,
             'subtab' => $subtab,
@@ -202,8 +203,6 @@ class TownHomeController extends TownController
             'special_actions' => $this->getSpecialActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(true),
-            'chest' => $home->getChest(),
-            'chest_size' => $this->inventory_handler->getSize($home->getChest()),
             'next_level' => $home_next_level,
             'next_level_req' => $home_next_level_requirement,
             'upgrades' => $upgrade_proto,
@@ -227,7 +226,29 @@ class TownHomeController extends TownController
             'possible_dests' => $possible_dests,
             'dest_citizen' => $destCitizen,
             'sendable_items' => $sendable_items,
-        ]) );
+        ], $this->house_partial_inventory_args())) );
+    }
+
+    protected function house_partial_inventory_args(): array {
+        $citizen = $this->getActiveCitizen();
+
+        return [
+            'citizen' => $citizen,
+            'rucksack' => $citizen->getInventory(),
+            'chest' => $citizen->getHome()->getChest(),
+            'rucksack_size' => $this->inventory_handler->getSize( $citizen->getInventory() ),
+            'chest_size' => $this->inventory_handler->getSize($citizen->getHome()->getChest()),
+        ];
+    }
+
+
+    /**
+     * @Route("jx/town/partial/house/inventory", name="house_partial_inventory")
+     * @return Response
+     */
+    public function house_partial_inventory(): Response
+    {
+        return $this->render( 'ajax/game/town/partials/inventory.standalone.html.twig', $this->house_partial_inventory_args() );
     }
 
     /**
