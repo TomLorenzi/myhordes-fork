@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Enum\GameProfileEntryType;
+use App\Enum\TownRevisionType;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -107,6 +108,10 @@ class Town
 
     #[ORM\Column(length: 128, nullable: true)]
     private ?string $nameSchema = null;
+
+    #[ORM\OneToMany(mappedBy: 'town', targetEntity: TownAspectRevision::class, cascade: ['persist','remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $revisions;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -117,6 +122,7 @@ class Town
         $this->_townLogEntries = new ArrayCollection();
         $this->gazettes = new ArrayCollection();
         $this->profilerVersion = GameProfileEntryType::latest_version();
+        $this->revisions = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -258,13 +264,15 @@ class Town
 
         return $this;
     }
+
     /**
-     * @return Collection|Zone[]
+     * @return Collection<int, Zone>
      */
     public function getZones(): Collection
     {
         return $this->zones;
     }
+
     public function addZone(Zone $zone): self
     {
         if (!$this->zones->contains($zone)) {
@@ -274,6 +282,7 @@ class Town
 
         return $this;
     }
+
     public function removeZone(Zone $zone): self
     {
         if ($this->zones->contains($zone)) {
@@ -285,6 +294,24 @@ class Town
         }
 
         return $this;
+    }
+
+    /**
+     * @param int $x0
+     * @param int $x1
+     * @param int $y0
+     * @param int $y1
+     * @return Collection<int, Zone>
+     */
+    public function getZoneRect(int $x0, int $x1, int $y0, int $y1): Collection
+    {
+        return $this->zones->matching(
+            (new Criteria())
+                ->andWhere( new Comparison( 'x', Comparison::GTE, $x0 ) )
+                ->andWhere( new Comparison( 'x', Comparison::LTE, $x1 ) )
+                ->andWhere( new Comparison( 'y', Comparison::GTE, $y0 ) )
+                ->andWhere( new Comparison( 'y', Comparison::LTE, $y1 ) )
+        );
     }
 
     /**
@@ -744,5 +771,50 @@ class Town
         $this->nameSchema = $nameSchema;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, TownAspectRevision>
+     */
+    public function getRevisions(): Collection
+    {
+        return $this->revisions;
+    }
+
+    public function addRevision(TownAspectRevision $revision): self
+    {
+        if (!$this->revisions->contains($revision)) {
+            $this->revisions->add($revision);
+            $revision->setTown($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRevision(TownAspectRevision $revision): self
+    {
+        if ($this->revisions->removeElement($revision)) {
+            // set the owning side to null (unless already changed)
+            if ($revision->getTown() === $this) {
+                $revision->setTown(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRevision( TownRevisionType $type, ?int $identifier = null ): TownAspectRevision {
+        $revision = $this->getRevisions()->matching( (new Criteria())
+            ->andWhere( new Comparison( 'type', Comparison::EQ, $type ) )
+            ->andWhere( new Comparison( 'identifier', Comparison::EQ, $identifier ) )
+        )->first() ?: null;
+
+        if ($revision === null)
+            $this->addRevision( $revision = (new TownAspectRevision())
+                ->setType( $type )
+                ->setIdentifier( $identifier )
+            );
+
+        return $revision;
     }
 }
