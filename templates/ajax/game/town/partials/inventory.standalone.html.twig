@@ -1,0 +1,16 @@
+{% use "ajax/game/partials/header_inventory.html.twig" with html as html_header %}
+{% use "ajax/game/town/partials/inventory.html.twig" %}
+
+
+<div x-render-target="#header-rucksack-items">
+    {{ block('html_header') }}
+</div>
+
+<div x-render-target="#inventory_partial_html">
+    {{ block('html') }}
+</div>
+
+<script>
+    {{ block('includes') }}
+    {{ block('js') }}
+</script>

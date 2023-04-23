@@ -1,20 +1,4 @@
-const item_action_collapse = function( boxClass,toggleClass ) {
-    let box = document.querySelectorAll('.' + boxClass);
-    let box_hide = document.querySelectorAll('[' + toggleClass + '="0"]');
-    let box_show = document.querySelectorAll('[' + toggleClass + '="1"]');
-
-    if (box_show.length > 0) for (let i = 0; i < box.length; i++) box[i].style.display = 'none';
-    for (let i = 0; i < box_hide.length; i++) box_hide[i].addEventListener('click', function() {
-        for (let j = 0; j < box.length; j++) box[j].style.display = 'none';
-        for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = 'none';
-        for (let j = 0; j < box_show.length; j++) box_show[j].style.display = null;
-    })
-    for (let i = 0; i < box_show.length; i++) box_show[i].addEventListener('click', function() {
-        for (let j = 0; j < box.length; j++) box[j].style.display = null;
-        for (let j = 0; j < box_hide.length; j++) box_hide[j].style.display = null;
-        for (let j = 0; j < box_show.length; j++) box_show[j].style.display = 'none';
-    })
-}
+{{ include('scripts/actions_animate.js.twig') }}
 
 item_action_collapse('actions','x-item-action-toggle');
 item_action_collapse('heroic_actions','x-heroic-toggle');

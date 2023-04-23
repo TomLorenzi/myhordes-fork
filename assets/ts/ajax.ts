@@ -128,8 +128,14 @@ export default class Ajax {
         if (push_history) history.pushState( url, '', url );
         if (replace_history) history.replaceState( url, '', url );
 
-        // First move content with a specific TARGET selector
+        // If there is a CLEAR target, remove content from the targeted elements
         let fragment = null;
+        while (fragment = result_document.querySelector<HTMLElement>('[x-clear-target]')) {
+            $.html.forEach( fragment.getAttribute('x-clear-target'), elem => elem.innerHTML = '' );
+            fragment.remove();
+        }
+
+        // First move content with a specific TARGET selector
         while (fragment = result_document.querySelector<HTMLElement>('[x-render-target]')) {
             let frag_target = document.querySelector<HTMLElement>( fragment.getAttribute('x-render-target') );
             if (!frag_target) console.warn('Rendered HTML contains an invalid fragment target: ', frag_target, ' Discarding.')
