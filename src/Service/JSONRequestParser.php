@@ -11,8 +11,8 @@ class JSONRequestParser
     protected $trimmed_data = null;
 
     protected function deep_trim( &$value ): void {
-        //Replace all whitespace chars with regular spaces for trim to remove them
-        if (is_string($value)) $value = trim(preg_replace('/\s+/', ' ', $value));
+        // Remove all space characters (based on the Unicode "Space Separator - Zs" category ) from the beginning and end of the string
+        if (is_string($value)) $value = preg_replace('/^\p{Zs}+|\p{Zs}+$/u', '', $value);
         else if (is_array($value) || is_object($value)) foreach ($value as &$v) $this->deep_trim( $v );
     }
 
