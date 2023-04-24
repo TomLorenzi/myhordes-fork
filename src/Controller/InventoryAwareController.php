@@ -977,13 +977,17 @@ class InventoryAwareController extends CustomAbstractController
     }
 
     public function get_public_map_blob( $displayType, $class = 'day' ): array {
-        $town = $this->getActiveCitizen()->getTown();
+        $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
 
         $citizen_is_shaman =
             ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman')
                 || $this->getActiveCitizen()->getProfession()->getName() == 'shaman');
 
-        $upgraded_map = $this->town_handler->getBuilding($town, 'item_electro_#00', true) !== null;
+        $soul_zones_ids = $citizen_is_shaman
+            ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $this->getActiveCitizen()->getTown() ) )
+            : [];
+
+        $upgraded_map = $this->town_handler->getBuilding($this->getActiveCitizen()->getTown(), 'item_electro_#00', true) !== null;
 
         $local_zones = [];
         $citizen_zone = $this->getActiveCitizen()->getZone();
@@ -992,98 +996,77 @@ class InventoryAwareController extends CustomAbstractController
         $scout_sense     = $this->getActiveCitizen()->getProfession()->getName() === 'hunter';
 
         $citizen_zone_cache = [];
-        foreach ($town->getCitizens() as $citizen)
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone() !== null) {
                 if (!isset($citizen_zone_cache[$citizen->getZone()->getId()])) $citizen_zone_cache[$citizen->getZone()->getId()] = [$citizen];
                 else $citizen_zone_cache[$citizen->getZone()->getId()][] = $citizen;
             }
 
-        $cache = new FilesystemAdapter();
+        $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
+        mt_srand($this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $this->getActiveCitizen()->getTown(), 'day' => $this->getActiveCitizen()->getTown()->getDay()])?->getSeed() ?? 0);
 
-        ['z' => $zones, 'rx' => $range_x, 'ry' => $range_y] = $cache->get(
-            "cache_town_public_map_blob_{$town->getId()}_{$town->getRevision( TownRevisionType::MapOverall )->getRevision()}_{$citizen_is_shaman}_{$upgraded_map}"
-            , function (ItemInterface $item) use ($town, $citizen_is_shaman, $upgraded_map) {
+        foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
+            $x = $zone->getX();
+            $y = $zone->getY();
 
-            $item->expiresAfter(60);
+            $range_x = [ min($range_x[0], $x), max($range_x[1], $x) ];
+            $range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
 
-            $rand_backup = mt_rand(PHP_INT_MIN, PHP_INT_MAX);
-            mt_srand($this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()])?->getSeed() ?? 0);
+            $current_zone = ['x' => $x, 'y' => $y];
+            if ( in_array( $zone->getId(), $soul_zones_ids) )
+                $current_zone['s'] = true;
 
-            $soul_zones_ids = $citizen_is_shaman
-                ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $town ) )
-                : [];
+            if ($citizen_zone !== null
+                && max( abs( $citizen_zone->getX() - $zone->getX() ), abs( $citizen_zone->getY() - $zone->getY() ) ) <= 2
+                && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
+            ) $local_zones[] = $zone;
 
-            $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
-            foreach ($town->getZones() as $zone) {
-                $x = $zone->getX();
-                $y = $zone->getY();
-
-                $range_x = [ min($range_x[0], $x), max($range_x[1], $x) ];
-                $range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
-
-                $current_zone = ['x' => $x, 'y' => $y];
-                if ( in_array( $zone->getId(), $soul_zones_ids) )
-                    $current_zone['s'] = true;
-
-                if ($zone->getDiscoveryStatus() <= Zone::DiscoveryStateNone) {
-                    if ($current_zone['s'] ?? false)
-                        $zones[] = $current_zone;
-                    continue;
-                }
-
-                $current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
-                if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
-                    if ($zone->getZombieStatus() >= Zone::ZombieStateExact)
-                        $current_zone['z'] = $zone->getZombies();
-                    if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate)
-                        $current_zone['d'] = $this->zone_handler->getZoneDangerLevelNumber( $zone, mt_rand(PHP_INT_MIN, PHP_INT_MAX), $upgraded_map );
-                }
-
-                if ($zone->isTownZone()) {
-                    $current_zone['td'] = $this->getActiveCitizen()->getTown()->getDevastated();
-                    $current_zone['r'] = [
-                        'n' => $this->getActiveCitizen()->getTown()->getName(),
-                        'b' => false,
-                        'e' => false,
-                    ];
-                } elseif ($zone->getPrototype()) $current_zone['r'] = [
-                    'n' => $zone->getBuryCount() > 0
-                        ? T::__('Verschüttete Ruine', 'game' )
-                        : $zone->getPrototype()->getLabel(),
-                    'b' => $zone->getBuryCount() > 0,
-                    'e' => $zone->getPrototype()->getExplorable()
-                ];
-
-                if ($this->getActiveCitizen()->getZone() === $zone) $current_zone['cc'] = true;
-
-                if (!$zone->isTownZone() && !$this->getActiveCitizen()->getVisitedZones()->contains( $zone ))
-                    $current_zone['g'] = true;
-
-                if (!$zone->isTownZone() && $zone->getTag()) $current_zone['tg'] = $zone->getTag()->getRef();
-                if (!$zone->isTownZone() && $this->getActiveCitizen()->getZone() === null
-                    && !$this->getActiveCitizen()->getTown()->getChaos()
-                    && !empty( $citizen_zone_cache[$zone->getId()] ?? [] ) )
-                    $current_zone['c'] = array_map( fn(Citizen $c) => $c->getName(), $citizen_zone_cache[$zone->getId()] );
-                elseif ($zone->isTownZone())
-                    $current_zone['co'] = count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
-
-                $zones[] = $current_zone;
+            if ($zone->getDiscoveryStatus() <= Zone::DiscoveryStateNone) {
+                if ($current_zone['s'] ?? false)
+                    $zones[] = $current_zone;
+                continue;
             }
 
-            mt_srand($rand_backup);
-            return ['z' => $zones, 'rx' => $range_x, 'ry' => $range_y];
-        });
+            $current_zone['t'] = $zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent;
+            if ($zone->getDiscoveryStatus() >= Zone::DiscoveryStateCurrent) {
+                if ($zone->getZombieStatus() >= Zone::ZombieStateExact)
+                    $current_zone['z'] = $zone->getZombies();
+                if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate)
+                    $current_zone['d'] = $this->zone_handler->getZoneDangerLevelNumber( $zone, mt_rand(PHP_INT_MIN, PHP_INT_MAX), $upgraded_map );
+            }
 
+            if ($zone->isTownZone()) {
+                $current_zone['td'] = $this->getActiveCitizen()->getTown()->getDevastated();
+                $current_zone['r'] = [
+                    'n' => $this->getActiveCitizen()->getTown()->getName(),
+                    'b' => false,
+                    'e' => false,
+                ];
+            } elseif ($zone->getPrototype()) $current_zone['r'] = [
+                'n' => $zone->getBuryCount() > 0
+                    ? $this->translator->trans( 'Verschüttete Ruine', [], 'game' )
+                    : $this->translator->trans( $zone->getPrototype()->getLabel(), [], 'game' ),
+                'b' => $zone->getBuryCount() > 0,
+                'e' => $zone->getPrototype()->getExplorable()
+            ];
 
-        if ($citizen_zone !== null)
-            foreach ($town->getZoneRect( $citizen_zone->getX() - 2, $citizen_zone->getX() + 2, $citizen_zone->getY() - 2, $citizen_zone->getY() + 2 ) as $zone)
-                if (
-                    max( abs( $citizen_zone->getX() - $zone->getX() ), abs( $citizen_zone->getY() - $zone->getY() ) ) <= 2
-                    && ( abs( $citizen_zone->getX() - $zone->getX() ) + abs( $citizen_zone->getY() - $zone->getY() ) ) < 4
-                ) $local_zones[] = $zone;
+            if ($this->getActiveCitizen()->getZone() === $zone) $current_zone['cc'] = true;
 
-        foreach ($zones as &$z)
-            if (isset($z['r']['n'])) $z['r']['n'] = $this->translator->trans($z['r']['n'], [], 'game');
+            if (!$zone->isTownZone() && !$this->getActiveCitizen()->getVisitedZones()->contains( $zone ))
+                $current_zone['g'] = true;
+
+            if (!$zone->isTownZone() && $zone->getTag()) $current_zone['tg'] = $zone->getTag()->getRef();
+            if (!$zone->isTownZone() && $this->getActiveCitizen()->getZone() === null
+                && !$this->getActiveCitizen()->getTown()->getChaos()
+                && !empty( $citizen_zone_cache[$zone->getId()] ?? [] ) )
+                $current_zone['c'] = array_map( fn(Citizen $c) => $c->getName(), $citizen_zone_cache[$zone->getId()] );
+            elseif ($zone->isTownZone())
+                $current_zone['co'] = count( array_filter( $this->getActiveCitizen()->getTown()->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
+
+            $zones[] = $current_zone;
+        }
+
+        mt_srand($rand_backup);
 
         $all_tags = [];
         $last = 0;
