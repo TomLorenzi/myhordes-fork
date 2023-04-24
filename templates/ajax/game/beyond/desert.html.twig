@@ -515,6 +515,21 @@
                     <div id="inventory_partial_html">
                         {{ block('inventory_partial_html') }}
                     </div>
+
+                    <h5><label for="zone-marker">{{"Zonenmarkierer"|trans({}, 'game')}}</label> <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+                    <div class="row-flex v-center">
+                        {% if not zone.tag is null and zone.tag.ref > 0 %}
+                            <div class="cell"><img alt="{{ zone.tag.icon }}" src="{{ asset("build/images/tags/" ~ zone.tag.icon ~ ".gif") }}" style="margin-right: 5px;" /></div>
+                        {% endif %}
+                        <div class="cell grow-1">
+                            <select id="zone-marker" class="full-width">
+                                {% for tag in zone_tags %}
+                                    <option value="{{tag.ref}}" {% if tag == zone.tag %}selected{% endif %}>{{tag.label|trans({}, 'game')}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
                 </div>
             {% endif %}
         </div>
