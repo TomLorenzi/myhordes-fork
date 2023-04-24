@@ -21,10 +21,16 @@
     </div>
 {% endfor %}
 
+<div x-render-target="#beyond_log_content">
+    {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('beyond_desert_log_controller') } %}
+    {% endembed %}
+</div>
+
 <script>
     {{ block('includes') }}
     {{ block('js') }}
 
+    {{ include("scripts/log.js.twig") }}
     {{ include('scripts/actions_animate.js.twig') }}
     item_action_collapse('actions','x-item-action-toggle');
 </script>

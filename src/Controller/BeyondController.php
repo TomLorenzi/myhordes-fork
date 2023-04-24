@@ -382,7 +382,6 @@ class BeyondController extends InventoryAwareController
             'dig_ruin' => $this->getActiveCitizen()->getZone()->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $this->getActiveCitizen() ) === null,
             'actions' => $this->getItemActions(),
             'other_citizens' => $zone->getCitizens(),
-            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 20, true )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',
@@ -414,8 +413,8 @@ class BeyondController extends InventoryAwareController
         });
 
         $has_hidden_items =
-            ($this->getActiveCitizen()->getBanished() || $citizen->getTown()->getChaos()) &&
-            !$this->getActiveCitizen()->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
+            ($citizen->getBanished() || $citizen->getTown()->getChaos()) &&
+            !$citizen->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
 
         return [
             'citizen' => $citizen,
@@ -431,6 +430,7 @@ class BeyondController extends InventoryAwareController
             'rucksack_sizes' => $rucksack_sizes,
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
             'zone_blocked' => !$this->zone_handler->check_cp($citizen->getZone(), $cp),
+            'log' => ($citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0) ? '' : $this->renderLog( -1, null, $citizen->getZone(), null, 20, true )->getContent(),
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0,

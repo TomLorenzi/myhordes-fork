@@ -1074,6 +1074,7 @@ class InventoryAwareController extends CustomAbstractController
             return ['z' => $zones, 'rx' => $range_x, 'ry' => $range_y];
         });
 
+
         if ($citizen_zone !== null)
             foreach ($town->getZoneRect( $citizen_zone->getX() - 2, $citizen_zone->getX() + 2, $citizen_zone->getY() - 2, $citizen_zone->getY() + 2 ) as $zone)
                 if (
@@ -1082,8 +1083,7 @@ class InventoryAwareController extends CustomAbstractController
                 ) $local_zones[] = $zone;
 
         foreach ($zones as &$z)
-            if (isset($z['n'])) $z['n'] = $this->translator->trans( $z['n'], [], 'game' );
-
+            if (isset($z['r']['n'])) $z['r']['n'] = $this->translator->trans($z['r']['n'], [], 'game');
 
         $all_tags = [];
         $last = 0;
