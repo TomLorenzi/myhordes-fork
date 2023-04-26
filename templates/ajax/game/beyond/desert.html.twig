@@ -460,7 +460,7 @@
                         {% endif %}
                     {% endif %}
 
-                    <div id="wb-item-action-section">
+                    <div id="wb-item-action-section" style="display: contents">
                         {% embed "ajax/game/actions.html.twig" with {'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
                         {% endembed %}
                     </div>
