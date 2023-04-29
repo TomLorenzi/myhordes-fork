@@ -36,6 +36,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Enum\AdminReportSpecification;
+use App\Enum\TownRevisionType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -63,8 +64,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\RateLimiter\RateLimiterFactory;
+use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
