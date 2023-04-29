@@ -1,14 +1,11 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 import {PointerEventHandler, useEffect, useLayoutEffect, useRef, useState} from "react";
-import {Global} from "../../defaults";
 import Components from "../index";
 import {TranslationStrings} from "./strings";
 import {DistinctionAward, DistinctionPicto, ResponseDistinctions, SoulDistinctionAPI} from "./api";
-import {number} from "prop-types";
-import HTML from "../../html";
+import {Tooltip} from "../tooltip/Wrapper";
 
-declare var $: Global;
 
 export class HordesDistinctions {
 
@@ -202,10 +199,10 @@ const Distinctions = (
                                             { `${p.count}`.split('').map((s,i) => <span key={i} className="count" data-num={s}>{s}</span> ) }
                                         </div>
                                     </div>
-                                    <div className="tooltip forum-tooltip">
+                                    <Tooltip additionalClasses="forum-tooltip">
                                         <h1>{ p.label } ({p.count})</h1>
                                         <em>{ p.description }</em>
-                                    </div>
+                                    </Tooltip>
                                 </div>
                             ) }
                         </div>
@@ -229,20 +226,22 @@ const Distinctions = (
                                         <img alt="" src={(p as DistinctionPicto).icon}/>
                                         &nbsp;
                                         {(p as DistinctionPicto).label}
-                                        <div className="tooltip forum-tooltip">
+                                        <Tooltip additionalClasses="forum-tooltip">
                                             <h1>{ (p as DistinctionPicto).label }</h1>
                                             <em>{ (p as DistinctionPicto).description }</em>
-                                        </div>
+                                        </Tooltip>
                                     </> }
                                 </li>
 
                                 { (awards as DistinctionAward[]).map( award => <li key={award.id}>
                                     "{ award.label }"
-                                    <div className="tooltip forum-tooltip">
-                                        { award.id > 0 && award.picto && <em>{ (p as DistinctionPicto).label } × { award.picto.count }</em> }
-                                        { award.id > 0 && award.picto === null && <em>{ strings?.awards?.single_desc }</em> }
-                                        { award.id === 0 && <em>{ strings?.awards?.unique_desc }</em> }
-                                    </div>
+                                    <Tooltip additionalClasses="forum-tooltip">
+                                        <>
+                                            { award.id > 0 && award.picto && <em>{ (p as DistinctionPicto).label } × { award.picto.count }</em> }
+                                            { award.id > 0 && award.picto === null && <em>{ strings?.awards?.single_desc }</em> }
+                                            { award.id === 0 && <em>{ strings?.awards?.unique_desc }</em> }
+                                        </>
+                                    </Tooltip>
                                 </li> ) }
                             </>) }
                         </ul>

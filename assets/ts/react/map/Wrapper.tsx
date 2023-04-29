@@ -1,7 +1,6 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 
-import Components, {ReactData} from "../index";
+import {ReactData} from "../index";
 
 import {
     MapCoordinate,
@@ -16,6 +15,7 @@ import {useEffect, useRef} from "react";
 import {Global} from "../../defaults";
 import LocalZoneView from "./ZoneView";
 import Client from "../../client";
+import {createRoot} from "react-dom/client";
 
 declare var $: Global;
 
@@ -58,12 +58,19 @@ const processRoute = (route: MapCoordinate[], complex: boolean) => {
 }
 
 export class HordesMap {
-    public static mount(parent: HTMLElement, data: object): void {
-        ReactDOM.render(<MapWrapper {...$.components.kickstart(parent,data) as ReactData<MapCoreProps>} />, parent, () => Components.vitalize( parent ));
+
+    #_root = null;
+
+    public mount(parent: HTMLElement, props: object): any {
+        if (!this.#_root) this.#_root = createRoot(parent);
+        this.#_root.render( <MapWrapper {...$.components.kickstart(parent,props) as ReactData<MapCoreProps>}/> );
     }
 
-    public static unmount(parent: HTMLElement): void {
-        if (ReactDOM.unmountComponentAtNode( parent )) $.components.degenerate(parent);
+    public unmount() {
+        if (this.#_root) {
+            this.#_root.unmount();
+            this.#_root = null;
+        }
     }
 }
 

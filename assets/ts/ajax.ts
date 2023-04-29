@@ -205,9 +205,6 @@ export default class Ajax {
         // React container cache
         let container_cache = {};
 
-        // Clear the tooltips
-        $.html.clearTooltips( target );
-
         // Save react mounts
         $.html.forEach( '[id][data-react-mount]', c => {
             if (react_mounts[c.id]) {

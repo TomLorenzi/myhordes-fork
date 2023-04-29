@@ -76,9 +76,6 @@ export default class Components {
 
     public static vitalize(parent: HTMLElement) {
         $.ajax.load_dynamic_modules( parent );
-        let tooltips = parent.querySelectorAll('div.tooltip');
-        for (let t = 0; t < tooltips.length; t++)
-            $.html.handleTooltip( tooltips[t] as HTMLElement );
     }
 
     prune() {
@@ -190,6 +187,14 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     protected abstract generateInstance(): ReactType;
     protected static observedAttributeNames(): string[] { return []; };
 
+    protected selfMount(data: object = {}): void {
+        this.initialized?.mount(this, { ...this.data, ...data } );
+    }
+
+    protected selfUnmount(): void {
+        this.initialized?.unmount(this)
+    }
+
     private extractData() {
         const extracted = this.generateProps();
         this.data = extracted ?? {}
@@ -201,17 +206,17 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
         if (this.initialized || !this.isConnected) return;
         if (this.extractData()) {
             this.initialized = this.generateInstance();
-            this.initialized.mount(this, this.data);
+            this.selfMount();
         }
     }
 
     connectedCallback() {
         this.initialize();
-        if (this.extractData()) this.initialized?.mount(this, this.data);
+        if (this.extractData()) this.selfMount();
     }
 
     disconnectedCallback() {
-        this.initialized?.unmount(this);
+        this.selfUnmount();
         this.initialized = null;
         this.data = {};
     }
@@ -220,12 +225,12 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue === newValue) return;
-        if (this.extractData()) this.initialized?.mount(this, this.data);
+        if (this.extractData()) this.selfMount();
     }
 
     public constructor() {
         super();
-        this.addEventListener('x-react-degenerate', () => this.initialized?.unmount(this));
+        this.addEventListener('x-react-degenerate', () => this.selfUnmount());
         this.initialize();
     }
 }
