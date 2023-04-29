@@ -6,6 +6,8 @@ import {
     MapControlProps,
 } from "./typedef";
 import ZoneControlParent from "./HUD";
+import {useContext} from "react";
+import {Globals} from "./Wrapper";
 
 const LocalZone = ( props: { zone: LocalZone, key: string } ) => {
 
@@ -117,7 +119,7 @@ const LocalZoneView = ( props: LocalZoneProps ) => {
                 { (props.fx ? [0,1,2,3,4] : []).map(i => <div key={i} className="retro-effect hide-lg hide-md hide-sm"/>) }
                 <LocalZoneGrid cache={cache}/>
             </div>
-            <ZoneControlParent strings={props.strings} fx={props.fx} movement={props.movement} planes={surroundings}
+            <ZoneControlParent fx={props.fx} movement={props.movement} planes={surroundings}
                                activeRoute={props.activeRoute} wrapDispatcher={props.wrapDispatcher} marker={props.marker}
                                dx={props.dx} dy={props.dy}
             />

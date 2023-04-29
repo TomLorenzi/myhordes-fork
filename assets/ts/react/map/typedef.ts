@@ -131,7 +131,6 @@ export type RuntimeMapStateAction = {
 export type MapOverviewParentProps = {
     settings: RuntimeMapSettings,
     map: MapData,
-    strings: RuntimeMapStrings,
     marking: MapCoordinate | undefined,
     wrapDispatcher: (RuntimeMapStateAction)=>void,
     routeEditor: MapCoordinate[],
@@ -150,7 +149,6 @@ export type MapOverviewParentState = {}
 export type MapRouteListProps = {
     visible: boolean,
     routes: MapRoute[],
-    strings: RuntimeMapStrings,
     activeRoute: number | undefined,
     wrapDispatcher: (RuntimeMapStateAction)=>void
 }
@@ -160,8 +158,6 @@ export type MapRouteListState = {
 }
 
 export type MapControlProps = {
-    strings: RuntimeMapStrings,
-
     markEnabled: boolean,
     globalEnabled: boolean,
     showRoutes: boolean,
@@ -185,7 +181,6 @@ export type LocalControlProps = {
     fx: boolean,
     planes: LocalZoneSurroundings,
     movement: boolean,
-    strings: RuntimeMapStrings,
     activeRoute: MapRoute | null,
     wrapDispatcher: (RuntimeMapStateAction)=>void,
     dx: number,
@@ -197,7 +192,6 @@ export type LocalZoneProps = {
     fx: boolean,
     plane: LocalZone[],
     movement: boolean,
-    strings: RuntimeMapStrings,
     activeRoute: MapRoute | null,
     wrapDispatcher: (RuntimeMapStateAction)=>void,
     dx: number,

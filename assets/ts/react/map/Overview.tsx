@@ -8,8 +8,9 @@ import {
     RuntimeMapSettings, RuntimeMapStateAction,
     RuntimeMapStrings
 } from "./typedef";
-import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Tooltip} from "../tooltip/Wrapper";
+import {Globals} from "./Wrapper";
 
 export type MapOverviewParentStateAction = {
     zoom?: number
@@ -63,15 +64,16 @@ const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
 }
 
 type MapOverviewZoneTooltipProps = {
-    zone: MapZone,
-    strings: RuntimeMapStrings,
+    zone: MapZone
 }
 
 const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
+    const globals = useContext(Globals)
+
     const [horror, setHorror] = useState<string>(null)
     const timer = useRef<number>(null);
 
-    const getHorrorValue = () => (props.strings.horror ?? [null])[ Math.floor( Math.random() * (props.strings.horror?.length ?? 0) ) ];
+    const getHorrorValue = () => (globals.strings.horror ?? [null])[ Math.floor( Math.random() * (globals.strings.horror?.length ?? 0) ) ];
 
     useEffect(() => {
         if (horror) timer.current = window.setTimeout( () => setHorror( null ), 500 );
@@ -97,11 +99,11 @@ const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
                         </div>
                     ) }
                     <div className="row">
-                        <div className="cell rw-6 left">{props.strings.zone}</div>
+                        <div className="cell rw-6 left">{globals.strings.zone}</div>
                         <div className="cell rw-6 right">[{props.zone.x} / {props.zone.y}]</div>
                     </div>
                     <div className="row">
-                        <div className="cell rw-6 left">{props.strings.distance}</div>
+                        <div className="cell rw-6 left">{globals.strings.distance}</div>
                         <div className="cell rw-6 right">
                             <div className="ap">{ Math.abs( props.zone.x ) + Math.abs( props.zone.y ) }</div>
                         </div>
@@ -113,12 +115,12 @@ const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
                     ) }
                     { typeof props.zone.d !== "undefined" && props.zone.d > 0 && (
                         <div className="row">
-                            <div className="cell rw-12">{ typeof props.strings.danger[props.zone.d-1] !== "undefined" ? props.strings.danger[props.zone.d-1] : props.strings.danger[ props.strings.danger.length - 1 ] }</div>
+                            <div className="cell rw-12">{ typeof globals.strings.danger[props.zone.d-1] !== "undefined" ? globals.strings.danger[props.zone.d-1] : globals.strings.danger[ globals.strings.danger.length - 1 ] }</div>
                         </div>
                     ) }
-                    { typeof props.strings.tags[ props.zone.tg ?? 0 ] !== "undefined" && props.strings.tags[ props.zone.tg ?? 0 ] && (
+                    { typeof globals.strings.tags[ props.zone.tg ?? 0 ] !== "undefined" && globals.strings.tags[ props.zone.tg ?? 0 ] && (
                         <div className="row">
-                            <div className="cell rw-12">{ props.strings.tags[ props.zone.tg ?? 0 ] }</div>
+                            <div className="cell rw-12">{ globals.strings.tags[ props.zone.tg ?? 0 ] }</div>
                         </div>
                     ) }
                 </>
@@ -131,7 +133,6 @@ type MapOverviewZoneProps = {
     key: string,
     geo: MapGeometry,
     zone: MapZone,
-    strings: RuntimeMapStrings,
     conf: RuntimeMapSettings,
     wrapDispatcher: (RuntimeMapStateAction)=>void
 }
@@ -170,7 +171,7 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
             { props.zone.tg && <div className={`tag tag-${props.zone.tg}`}/> }
             { props.zone.z && <div className="count">{props.zone.z}</div> }
             { (props.zone.c ?? []).length > 0 && <div className="citizen_marker"/> }
-            <MapOverviewZoneTooltip zone={props.zone} strings={props.strings} />
+            <MapOverviewZoneTooltip zone={props.zone} />
         </div>
     )
 }
@@ -194,7 +195,7 @@ const MapOverviewGrid = React.memo(( props: MapOverviewGridProps ) => {
             }}>
                 {Object.entries(cache).map(([k,z]) =>
                     <MapOverviewZone key={k} geo={props.map.geo}
-                                     zone={z as MapZone} strings={props.strings} conf={props.settings}
+                                     zone={z as MapZone} conf={props.settings}
                                      wrapDispatcher={props.wrapDispatcher}
                     />)}
             </div>
@@ -284,12 +285,12 @@ const MapOverviewParent = ( props: MapOverviewParentProps ) => {
              onPointerDown={props.zoom > 0 ? down : null} onPointerMove={props.zoom > 0 ? move : null}
              onPointerUp={props.zoom > 0 ? up : null} onPointerLeave={props.zoom > 0 ? up : null}
         >
-            <MapOverviewRoutePainter map={props.map} settings={props.settings} strings={props.strings}
+            <MapOverviewRoutePainter map={props.map} settings={props.settings}
                                      scrollAreaRef={props.scrollAreaRef} zoomChanged={props.zoomChanged}
                                      marking={props.marking} wrapDispatcher={props.wrapDispatcher} etag={props.etag}
                                      routeEditor={props.routeEditor} routeViewer={props.routeViewer} zoom={props.zoom}
             />
-            <MapOverviewGrid map={props.map} settings={props.settings} strings={props.strings} marking={props.marking}
+            <MapOverviewGrid map={props.map} settings={props.settings} marking={props.marking}
                              wrapDispatcher={props.wrapDispatcher} routeEditor={props.routeEditor} etag={props.etag}
                              zoom={props.zoom} routeViewer={props.routeViewer} scrollAreaRef={props.scrollAreaRef}
                              zoomChanged={props.zoomChanged}/>
