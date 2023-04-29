@@ -87,6 +87,7 @@ export type RuntimeMapStrings = {
     map: string,
     close: string,
     position: string,
+    horror: string[],
 }
 
 export type RuntimeMapSettings = {

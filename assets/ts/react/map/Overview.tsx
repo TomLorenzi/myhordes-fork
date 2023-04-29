@@ -4,12 +4,12 @@ import {
     MapCoordinate,
     MapGeometry, MapOverviewGridProps,
     MapOverviewParentProps,
-    MapOverviewParentState,
     MapZone,
     RuntimeMapSettings, RuntimeMapStateAction,
     RuntimeMapStrings
 } from "./typedef";
-import {useLayoutEffect} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {Tooltip} from "../tooltip/Wrapper";
 
 export type MapOverviewParentStateAction = {
     zoom?: number
@@ -68,39 +68,62 @@ type MapOverviewZoneTooltipProps = {
 }
 
 const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
+    const [horror, setHorror] = useState<string>(null)
+    const timer = useRef<number>(null);
+
+    const getHorrorValue = () => (props.strings.horror ?? [null])[ Math.floor( Math.random() * (props.strings.horror?.length ?? 0) ) ];
+
+    useEffect(() => {
+        if (horror) timer.current = window.setTimeout( () => setHorror( null ), 500 );
+        return () => {
+            if (timer.current) {
+                window.clearTimeout( timer.current );
+                timer.current = null;
+            }
+        };
+    }, [horror])
+
     return (
-        <div className="tooltip tooltip-map">
-            { props.zone.r && (
-                <div className="row">
-                    <div className="cell rw-12 bold">{ props.zone.r.n }</div>
-                </div>
-            ) }
-            <div className="row">
-                <div className="cell rw-6 left">{props.strings.zone}</div>
-                <div className="cell rw-6 right">[{props.zone.x} / {props.zone.y}]</div>
-            </div>
-            <div className="row">
-                <div className="cell rw-6 left">{props.strings.distance}</div>
-                <div className="cell rw-6 right">
-                    <div className="ap">{ Math.abs( props.zone.x ) + Math.abs( props.zone.y ) }</div>
-                </div>
-            </div>
-            { (props.zone.c ?? []).length > 0 && (
-                <div className="row">
-                    { props.zone.c.map((c,i)=><div key={i} className="cell ro-6 rw-6 right">{c}</div>) }
-                </div>
-            ) }
-            { typeof props.zone.d !== "undefined" && props.zone.d > 0 && (
-                <div className="row">
-                    <div className="cell rw-12">{ typeof props.strings.danger[props.zone.d-1] !== "undefined" ? props.strings.danger[props.zone.d-1] : props.strings.danger[ props.strings.danger.length - 1 ] }</div>
-                </div>
-            ) }
-            { typeof props.strings.tags[ props.zone.tg ?? 0 ] !== "undefined" && props.strings.tags[ props.zone.tg ?? 0 ] && (
-                <div className="row">
-                    <div className="cell rw-12">{ props.strings.tags[ props.zone.tg ?? 0 ] }</div>
-                </div>
-            ) }
-        </div>
+        <Tooltip additionalClasses="tooltip-map"
+                 onShowTooltip={ () => (Math.random() > 0.9) && setHorror( getHorrorValue() ) }
+                 onHideTooltip={ () => horror && setHorror(null) }
+        >
+            { horror }
+            { !horror &&
+                <>
+                    { props.zone.r && (
+                        <div className="row">
+                            <div className="cell rw-12 bold">{ props.zone.r.n }</div>
+                        </div>
+                    ) }
+                    <div className="row">
+                        <div className="cell rw-6 left">{props.strings.zone}</div>
+                        <div className="cell rw-6 right">[{props.zone.x} / {props.zone.y}]</div>
+                    </div>
+                    <div className="row">
+                        <div className="cell rw-6 left">{props.strings.distance}</div>
+                        <div className="cell rw-6 right">
+                            <div className="ap">{ Math.abs( props.zone.x ) + Math.abs( props.zone.y ) }</div>
+                        </div>
+                    </div>
+                    { (props.zone.c ?? []).length > 0 && (
+                        <div className="row">
+                            { props.zone.c.map((c,i)=><div key={i} className="cell ro-6 rw-6 right">{c}</div>) }
+                        </div>
+                    ) }
+                    { typeof props.zone.d !== "undefined" && props.zone.d > 0 && (
+                        <div className="row">
+                            <div className="cell rw-12">{ typeof props.strings.danger[props.zone.d-1] !== "undefined" ? props.strings.danger[props.zone.d-1] : props.strings.danger[ props.strings.danger.length - 1 ] }</div>
+                        </div>
+                    ) }
+                    { typeof props.strings.tags[ props.zone.tg ?? 0 ] !== "undefined" && props.strings.tags[ props.zone.tg ?? 0 ] && (
+                        <div className="row">
+                            <div className="cell rw-12">{ props.strings.tags[ props.zone.tg ?? 0 ] }</div>
+                        </div>
+                    ) }
+                </>
+            }
+        </Tooltip>
     )
 }
 

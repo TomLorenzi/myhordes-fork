@@ -7,6 +7,7 @@
 import {HordesUserSearchBar} from "../react/user-search/Wrapper";
 import {HordesDistinctions} from "../react/distinctions/Wrapper";
 import {Shim} from "../react";
+import {HordesTooltip} from "../react/tooltip/Wrapper";
 
 // Define web component <hordes-user-search />
 customElements.define('hordes-user-search', class HordesUserSearchElement extends Shim<HordesUserSearchBar> {
@@ -51,6 +52,34 @@ customElements.define('hordes-distinctions', class HordesDistinctionsElement ext
 
     protected static observedAttributeNames() {
         return ['data-source', 'data-plain', 'data-user', 'data-interactive'];
+    }
+
+}, {  });
+
+customElements.define('hordes-tooltip', class HordesTooltipElement extends Shim<HordesTooltip> {
+
+    private originalChildren: ChildNode[]|null = null;
+
+    protected selfMount(): void {
+        if (!this.originalChildren?.length)
+            this.originalChildren = Array.from(this.childNodes);
+        super.selfMount( {children: this.originalChildren} );
+    }
+
+    protected generateInstance(): HordesTooltip {
+        return new HordesTooltip();
+    }
+
+    protected generateProps(): object | null {
+        return {
+            additionalClasses: this.classList.toString(),
+            textContent: this.dataset.content ?? null,
+            'for': (this.dataset.parent && document.querySelector(this.dataset.parent)) ?? this.parentElement
+        }
+    }
+
+    protected static observedAttributeNames() {
+        return ['class', 'data-content', 'data-parent'];
     }
 
 }, {  });
