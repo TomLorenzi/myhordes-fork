@@ -191,6 +191,8 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     private initialized: ReactType|null = null;
     private data: object = {}
 
+    protected allow_migration: boolean = false;
+
     protected abstract generateProps(): object|null;
     protected abstract generateInstance(): ReactType;
     protected static observedAttributeNames(): string[] { return []; };
@@ -224,9 +226,11 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     }
 
     disconnectedCallback() {
-        this.selfUnmount();
-        this.initialized = null;
-        this.data = {};
+        if (!this.allow_migration) {
+            this.selfUnmount();
+            this.initialized = null;
+            this.data = {};
+        }
     }
 
     static get observedAttributes() { return this.observedAttributeNames(); }

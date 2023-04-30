@@ -78,6 +78,7 @@ export class HordesMap {
 type MapGlobals = {
     //api: EventCreationAPI,
     strings: RuntimeMapStrings,
+    etag: number,
 }
 
 export const Globals = React.createContext<MapGlobals>(null);
@@ -218,8 +219,10 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
     const api = new BeyondMapAPI();
 
     useEffect(() => {
-        api.map( props.data.endpoint ).then( v => setMap(v) );
-        api.routes( props.data.endpoint ).then( v => setRoutes(v) );
+        Promise.all([api.map( props.data.endpoint ), api.routes( props.data.endpoint )]).then( ([m,r]) => {
+            setMap(m as MapData);
+            setRoutes(r as MapRoute[]);
+        } )
     }, [props.data.etag])
 
     useEffect(() => {
@@ -227,7 +230,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
     }, [])
 
     return (
-        <Globals.Provider value={{ strings }}>
+        <Globals.Provider value={{ strings, etag: props.data.etag }}>
             <div draggable={false} className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}>
                 <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
                     <div className="frame-plane">

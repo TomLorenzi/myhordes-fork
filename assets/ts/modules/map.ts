@@ -9,6 +9,8 @@ import {Shim} from "../react";
 
 customElements.define('hordes-map', class HordesMapElement extends Shim<HordesMap> {
 
+    protected allow_migration: boolean = true;
+
     protected generateInstance(): HordesMap {
         return new HordesMap();
     }
