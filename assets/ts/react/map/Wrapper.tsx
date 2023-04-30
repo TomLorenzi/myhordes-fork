@@ -232,6 +232,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
     return (
         <Globals.Provider value={{ strings, etag: props.data.etag }}>
             <div draggable={false} className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}>
+                { (!map || !strings) && <div className={'map-load-container'}/> }
                 <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
                     <div className="frame-plane">
                         { ['tl','tr','bl','br','t0l','t1','t0r','l0t','l1','l0m','l0b','l2','r0t','r1','r0b','b']
@@ -257,12 +258,12 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
 
                     { props.data.fx && [0,1,2,3,4].map(k=><div key={k} className="retro-effect"/>) }
                 </div>
-                { strings && <MapControls
+                <MapControls
                     markEnabled={state.markEnabled} globalEnabled={state.globalEnabled} wrapDispatcher={dispatch}
                     showRoutes={routes.length > 0} showRoutesPanel={state.showPanel} zoom={state.zoom}
                     scrollAreaRef={scrollPlaneRef} showGlobalButton={state.conf.enableGlobalButton}
                     showZoneViewerButtons={state.conf.enableLocalView}
-                /> }
+                />
             </div>
         </Globals.Provider>
         )

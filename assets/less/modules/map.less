@@ -490,6 +490,11 @@ div.map_area {
 
 div.react_map_area {
   position: relative;
+
+  div.map-load-container {
+    top: 0; bottom: 15px; width: 100%; z-index: 10; position: absolute; background: url("../../img/background/loading.png") center/cover no-repeat;
+  }
+
   div.map {
     z-index: 5;
     font-size: 0; background: @myhordes-map-background; overflow: hidden; padding-top: 100%; position: relative;
