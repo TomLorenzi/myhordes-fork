@@ -2,8 +2,16 @@ import {Global} from "../defaults";
 
 declare var $: Global;
 
-export interface ReactData<Type=object> {
-    data: Type,
+type ReactMapBootstrapData = {
+    displayType: string,
+    className: string,
+    etag: number,
+    endpoint: string,
+    fx: boolean,
+}
+
+export interface ReactData {
+    data: ReactMapBootstrapData,
     eventGateway: (event: string, data: object)=>void,
     eventRegistrar: (event: string, callback: ReactIOEventListener, remove:boolean)=>void
 }

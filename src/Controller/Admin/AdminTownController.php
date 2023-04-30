@@ -324,7 +324,7 @@ class AdminTownController extends AdminActionController
             'citizen_langs' => $langs,
             'citizen_langs_alive' => $langs_alive,
             'langs' => array_merge($this->generatedLangsCodes, ['multi']),
-            'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', true))
+            'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', "admin/{$town->getId()}", true))
         ])));
     }
 
@@ -347,7 +347,7 @@ class AdminTownController extends AdminActionController
 			'events' => $this->conf->getAllEvents(),
 			'current_event' => $this->conf->getCurrentEvents($town),
 			'langs' => array_merge($this->generatedLangsCodes, ['multi']),
-			'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', true))
+			'map_public_json' => json_encode($townHandler->get_public_map_blob($town, null, 'door-planner', 'day', "admin/{$town->getId()}", true))
 		])));
 	}
 

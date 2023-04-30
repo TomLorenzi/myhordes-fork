@@ -5,8 +5,7 @@ import {
     MapGeometry, MapOverviewGridProps,
     MapOverviewParentProps,
     MapZone,
-    RuntimeMapSettings, RuntimeMapStateAction,
-    RuntimeMapStrings
+    RuntimeMapSettings, RuntimeMapStateAction
 } from "./typedef";
 import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Tooltip} from "../tooltip/Wrapper";

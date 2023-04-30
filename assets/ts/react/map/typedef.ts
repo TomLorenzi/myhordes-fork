@@ -60,7 +60,7 @@ export type MapRoute = {
     stops: MapCoordinate[],
 }
 
-type MapData = {
+export type MapData = {
     geo: MapGeometry,
     zones: MapZone[],
     local: LocalZone[],
@@ -72,22 +72,7 @@ export type MapCoreProps = {
     etag: number,
     fx: boolean,
     map: MapData;
-    routes: MapRoute[],
-    strings: RuntimeMapStrings,
-}
-
-export type RuntimeMapStrings = {
-    zone: string,
-    distance: string,
-    danger: string[],
-    tags: string[],
-    mark: string,
-    'global': string,
-    routes: string,
-    map: string,
-    close: string,
-    position: string,
-    horror: string[],
+    routes: MapRoute[]
 }
 
 export type RuntimeMapSettings = {

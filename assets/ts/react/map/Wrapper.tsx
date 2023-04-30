@@ -4,22 +4,23 @@ import {ReactData} from "../index";
 
 import {
     MapCoordinate,
-    MapCoreProps,
+    MapCoreProps, MapData, MapRoute,
     RuntimeMapState,
-    RuntimeMapStateAction, RuntimeMapStrings
+    RuntimeMapStateAction
 } from "./typedef";
 import MapOverviewParent from "./Overview";
 import MapRouteList from "./RouteList";
 import MapControls from "./Controls";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Global} from "../../defaults";
 import LocalZoneView from "./ZoneView";
 import Client from "../../client";
 import {createRoot} from "react-dom/client";
+import {BeyondMapAPI, RuntimeMapStrings} from "./api";
 
 declare var $: Global;
 
-interface ReactDataMapCore extends ReactData<MapCoreProps> {}
+interface ReactDataMapCore extends ReactData {}
 
 interface EventDataPlanningBegin { complex: boolean }
 interface EventDataSelectRoute { route: number|boolean }
@@ -63,7 +64,7 @@ export class HordesMap {
 
     public mount(parent: HTMLElement, props: object): any {
         if (!this.#_root) this.#_root = createRoot(parent);
-        this.#_root.render( <MapWrapper {...$.components.kickstart(parent,props) as ReactData<MapCoreProps>}/> );
+        this.#_root.render( <MapWrapper {...$.components.kickstart(parent,props) as ReactData}/> );
     }
 
     public unmount() {
@@ -208,39 +209,57 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
         } else return ()=>{};
     });
 
+    const [strings, setStrings] = useState<RuntimeMapStrings>( null );
+    const [map, setMap] = useState<MapData>( null );
+    const [routes, setRoutes] = useState<MapRoute[]>( [] );
 
-    const activeRoute = props.data.routes.filter(r=>r.id===state.activeRoute)[0] ?? null;
+    const activeRoute = routes.filter(r=>r.id===state.activeRoute)[0] ?? null;
+
+    const api = new BeyondMapAPI();
+
+    useEffect(() => {
+        api.map( props.data.endpoint ).then( v => setMap(v) );
+        api.routes( props.data.endpoint ).then( v => setRoutes(v) );
+    }, [props.data.etag])
+
+    useEffect(() => {
+        api.index().then( v => setStrings(v) );
+    }, [])
 
     return (
-        <Globals.Provider value={{ strings: props.data.strings }}>
+        <Globals.Provider value={{ strings }}>
             <div draggable={false} className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}>
                 <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
                     <div className="frame-plane">
                         { ['tl','tr','bl','br','t0l','t1','t0r','l0t','l1','l0m','l0b','l2','r0t','r1','r0b','b']
                             .map(s=><div key={s} className={s}/>) }
                     </div>
-                    <MapOverviewParent map={props.data.map} settings={state.conf}
-                                       marking={state.activeZone} wrapDispatcher={dispatch} etag={props.data.etag}
-                                       routeEditor={state.routeEditor} zoom={state.zoom} zoomChanged={state.zoomChanged}
-                                       routeViewer={activeRoute?.stops ?? []}
-                                       scrollAreaRef={scrollPlaneRef}
-                    />
-                    <MapRouteList visible={state.showPanel} routes={props.data.routes}
-                                  activeRoute={state.activeRoute} wrapDispatcher={dispatch}
-                    />
-                    { state.conf.enableLocalView && (
-                        <LocalZoneView fx={props.data.fx} plane={props.data.map.local}
-                                       activeRoute={activeRoute} dx={dx} dy={dy} wrapDispatcher={dispatch} marker={state.activeZone ?? null}
-                                       movement={state.conf.enableMovementControls && props.data.displayType !== 'beyond-static'} />
-                    ) }
+                    { map && strings && <MapOverviewParent map={map} settings={state.conf}
+                        marking={state.activeZone} wrapDispatcher={dispatch} etag={props.data.etag}
+                        routeEditor={state.routeEditor} zoom={state.zoom} zoomChanged={state.zoomChanged}
+                        routeViewer={activeRoute?.stops ?? []}
+                        scrollAreaRef={scrollPlaneRef}
+                    /> }
+
+                    { strings && <>
+                        <MapRouteList visible={state.showPanel} routes={routes}
+                                      activeRoute={state.activeRoute} wrapDispatcher={dispatch}
+                        />
+                        { state.conf.enableLocalView && map && (
+                            <LocalZoneView fx={props.data.fx} plane={map.local}
+                                           activeRoute={activeRoute} dx={dx} dy={dy} wrapDispatcher={dispatch} marker={state.activeZone ?? null}
+                                           movement={state.conf.enableMovementControls && props.data.displayType !== 'beyond-static'} />
+                        ) }
+                    </> }
+
                     { props.data.fx && [0,1,2,3,4].map(k=><div key={k} className="retro-effect"/>) }
                 </div>
-                <MapControls
+                { strings && <MapControls
                     markEnabled={state.markEnabled} globalEnabled={state.globalEnabled} wrapDispatcher={dispatch}
-                    showRoutes={props.data.routes.length > 0} showRoutesPanel={state.showPanel} zoom={state.zoom}
+                    showRoutes={routes.length > 0} showRoutesPanel={state.showPanel} zoom={state.zoom}
                     scrollAreaRef={scrollPlaneRef} showGlobalButton={state.conf.enableGlobalButton}
                     showZoneViewerButtons={state.conf.enableLocalView}
-                />
+                /> }
             </div>
         </Globals.Provider>
         )
