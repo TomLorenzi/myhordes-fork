@@ -1,4 +1,5 @@
 import {Const, Global} from "./defaults";
+import {SecureStorage} from "./v2/security";
 
 interface ajaxResponse { error: string, success: any }
 interface ajaxCallback { (data: ajaxResponse, code: number): void }
@@ -446,6 +447,7 @@ export default class Ajax {
         request.open('POST', url);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-Request-Intent', 'WebNavigation');
+        request.setRequestHeader('X-Toaster', SecureStorage.partial_token());
 
         const target_id = target.getAttribute('x-target-id') ?? target.getAttribute('id') ?? '';
         if (target_id) request.setRequestHeader('X-Render-Target', target_id);
@@ -497,6 +499,7 @@ export default class Ajax {
         request.open('POST', url);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-Request-Intent', 'JSONDataExchange');
+        request.setRequestHeader('X-Toaster', SecureStorage.partial_token());
         request.setRequestHeader('Content-Type', 'application/json');
         request.setRequestHeader('Accept', 'application/json');
         request.send( JSON.stringify(data) );

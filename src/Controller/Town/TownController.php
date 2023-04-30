@@ -4,6 +4,7 @@ namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
 use App\Annotations\Semaphore;
+use App\Annotations\Toaster;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
@@ -314,6 +315,7 @@ class TownController extends InventoryAwareController
 
     /**
      * @Route("jx/town/visit/{id}", name="town_visit", requirements={"id"="\d+"})
+     * @Toaster(full=false)
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
