@@ -1,7 +1,6 @@
 import {Const, Global} from "./defaults";
 
 import TwinoAlikeParser from "./twino"
-import {DOMElement} from "react";
 
 declare var $: Global;
 declare var c: Const;
