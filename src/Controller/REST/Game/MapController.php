@@ -3,6 +3,7 @@
 namespace App\Controller\REST\Game;
 
 use App\Annotations\GateKeeperProfile;
+use App\Annotations\Toaster;
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\Citizen;
 use App\Entity\Town;
@@ -116,6 +117,7 @@ class MapController extends CustomAbstractCoreController
 
     /**
      * @Route("/radar/map", name="radar", methods={"GET"})
+     * @Toaster()
      * @GateKeeperProfile(only_alive=true, only_beyond=true)
      * @param RenderMapAction $renderer
      * @return JsonResponse
@@ -136,6 +138,7 @@ class MapController extends CustomAbstractCoreController
 
     /**
      * @Route("/satellite/map", name="satellite", methods={"GET"})
+     * @Toaster()
      * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
      * @param RenderMapAction $renderer
      * @return JsonResponse

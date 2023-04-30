@@ -33,7 +33,7 @@ let $ = {
 };
 window.$ = $;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('tokenExchangeCompleted', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
     $.html.init();
     if (!document.body.classList.contains('page-attract'))
@@ -145,3 +145,4 @@ window.addEventListener( 'load', () => {
 
 // Import common modules
 require('../ts/modules/common-modules.ts');
+require('../ts/toaster');

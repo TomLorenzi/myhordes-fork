@@ -1,6 +1,7 @@
 // Make v1 API available
 import {Const, Global} from "../defaults"
 import {bool, string} from "prop-types";
+import {SecureStorage} from "./security";
 declare var c: Const;
 declare const $: Global;
 
@@ -94,6 +95,7 @@ class FetchBuilder {
 
     private cache_id: string|null = null;
     private use_cache: boolean = false;
+    private send_token: boolean = false;
 
     constructor(url: string, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
         this.url = url;
@@ -116,10 +118,12 @@ class FetchBuilder {
     private execute(method: string, body?: object): Promise<any> {
         this.f_before.map(fn=>fn());
 
+        if (this.send_token) this.request.headers['X-Toaster'] = SecureStorage.token();
+
         const make_promise = () => fetch( this.url, body ? {
             method,
             body: JSON.stringify( body ),
-            ...this.request
+            ...this.request,
         } : {
             method,
             ...this.request
@@ -143,6 +147,11 @@ class FetchBuilder {
     public withCache(identifier: string|null = null): FetchBuilder {
         this.use_cache = true;
         this.cache_id = identifier;
+        return this;
+    }
+
+    public secure(): FetchBuilder {
+        this.send_token = true;
         return this;
     }
 

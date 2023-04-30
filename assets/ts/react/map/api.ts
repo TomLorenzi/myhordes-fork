@@ -30,7 +30,7 @@ export class BeyondMapAPI {
 
     public map(endpoint: string): Promise<MapData> {
         return this.fetch.from(`/${endpoint}/map`)
-            .request().get() as Promise<MapData>;
+            .request().secure().get() as Promise<MapData>;
     }
 
     public routes(endpoint: string): Promise<MapRoute[]> {
