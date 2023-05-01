@@ -1419,8 +1419,9 @@ class NightlyHandler
                         elseif ($winner->getSurvivedDays() <= 15) $wonHeroDays = 3;
                         elseif ($winner->getSurvivedDays() <= 20) $wonHeroDays = 4;
                         else $wonHeroDays = 5;
-
-                        $wonHeroDays = floor($wonHeroDays * $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_GENEROSITY_LAST, 1) );
+                        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true))
+                            $wonHeroDays = floor($wonHeroDays * $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_GENEROSITY_LAST, 1) );
+                        else $wonHeroDays = 0;
                         if ($wonHeroDays > 0) $winner->giveGenerosityBonus( $wonHeroDays );
 
                         foreach ($last_stand_pictos as $last_stand_picto) {
