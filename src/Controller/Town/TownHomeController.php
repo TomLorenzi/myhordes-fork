@@ -72,37 +72,6 @@ class TownHomeController extends TownController
         if ($home_next_level && $home_next_level->getRequiredBuilding())
             $home_next_level_requirement = $th->getBuilding( $town, $home_next_level->getRequiredBuilding(), true ) ? null : $home_next_level->getRequiredBuilding();
 
-        // Home extension caches
-        $upgrade_proto = [];
-        $upgrade_proto_lv = [];
-        $upgrade_cost = [];
-
-        // If the current house level supports extensions ...
-        if ($home->getPrototype()->getAllowSubUpgrades()) {
-
-            // Get all extension prototypes
-            $all_protos = $em->getRepository(CitizenHomeUpgradePrototype::class)->findAll();
-
-            // Iterate over prototypes to fill caches
-            foreach ($all_protos as $proto) {
-
-                // Get the actual extension instance
-                $n = $em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home, $proto );
-
-                // Add prototype object, current level (0 if not built yet), and building costs for next level
-                $upgrade_proto[$proto->getId()] = $proto;
-                $upgrade_proto_lv[$proto->getId()] = $n ? $n->getLevel() : 0;
-                $upgrade_cost[$proto->getId()] = $em->getRepository(CitizenHomeUpgradeCosts::class)->findOneByPrototype( $proto, $upgrade_proto_lv[$proto->getId()] + 1 );
-            }
-        }
-
-        // Calculate home defense
-        $th->calculate_home_def($home, $summary);
-
-        // Calculate decoration
-        $decoItems = [];
-        $deco = $this->citizen_handler->getDecoPoints($citizen, $decoItems);
-
         $can_send_global_pm = !$citizen->getBanished() && $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
 
         $possible_dests = [];
@@ -205,17 +174,9 @@ class TownHomeController extends TownController
             'recipes' => $this->getItemCombinations(true),
             'next_level' => $home_next_level,
             'next_level_req' => $home_next_level_requirement,
-            'upgrades' => $upgrade_proto,
-            'upgrade_levels' => $upgrade_proto_lv,
-            'upgrade_costs' => $upgrade_cost,
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
 
             'devastated' => $town->getDevastated(),
-
-            'def' => $summary,
-            'deco' => $deco,
-            'decoItems' => $decoItems,
-            'protected' => $this->citizen_handler->houseIsProtected($this->getActiveCitizen(), true),
 
             'log' => $this->renderLog( -1, $citizen, false, null, 5 )->getContent(),
             'day' => $town->getDay(),
@@ -232,12 +193,51 @@ class TownHomeController extends TownController
     protected function house_partial_inventory_args(): array {
         $citizen = $this->getActiveCitizen();
 
+        // Calculate home defense
+        $this->town_handler->calculate_home_def($citizen->getHome(), $summary);
+
+        // Calculate decoration
+        $decoItems = [];
+        $deco = $this->citizen_handler->getDecoPoints($citizen, $decoItems);
+
+        // Home extension caches
+        $upgrade_proto = [];
+        $upgrade_proto_lv = [];
+        $upgrade_cost = [];
+
+        // If the current house level supports extensions ...
+        if ($citizen->getHome()->getPrototype()->getAllowSubUpgrades()) {
+
+            // Get all extension prototypes
+            $all_protos = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findAll();
+
+            // Iterate over prototypes to fill caches
+            foreach ($all_protos as $proto) {
+
+                // Get the actual extension instance
+                $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $citizen->getHome(), $proto );
+
+                // Add prototype object, current level (0 if not built yet), and building costs for next level
+                $upgrade_proto[$proto->getId()] = $proto;
+                $upgrade_proto_lv[$proto->getId()] = $n ? $n->getLevel() : 0;
+                $upgrade_cost[$proto->getId()] = $this->entity_manager->getRepository(CitizenHomeUpgradeCosts::class)->findOneByPrototype( $proto, $upgrade_proto_lv[$proto->getId()] + 1 );
+            }
+        }
+
         return [
+            'home' => $citizen->getHome(),
             'citizen' => $citizen,
             'rucksack' => $citizen->getInventory(),
             'chest' => $citizen->getHome()->getChest(),
             'rucksack_size' => $this->inventory_handler->getSize( $citizen->getInventory() ),
             'chest_size' => $this->inventory_handler->getSize($citizen->getHome()->getChest()),
+            'def' => $summary,
+            'deco' => $deco,
+            'decoItems' => $decoItems,
+            'upgrades' => $upgrade_proto,
+            'upgrade_levels' => $upgrade_proto_lv,
+            'upgrade_costs' => $upgrade_cost,
+            'protected' => $this->citizen_handler->houseIsProtected($this->getActiveCitizen(), true),
         ];
     }
 
@@ -430,7 +430,6 @@ class TownHomeController extends TownController
         }
 
         // Show confirmation
-        $this->addFlash( 'notice', $t->trans('Du hast deine Beschreibung geändert.', [], 'game') );
         return AjaxResponse::success();
     }
 
