@@ -588,7 +588,7 @@ Drogenerfahrungen: Expérimentations
 Expertenexpeditionen: Explorations très lointaines
 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones éloignées que vous avez explorés.'
 Großzügigkeit: Générosité
-'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros que vous avez offert à un autre citoyen dans le besoin.'
+'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros/actions héroïques que vous avez offert à un autre citoyen dans le besoin.'
 'Spiritueller Führer': 'Guide Spirituel'
 'Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.': 'Jours passés en tant que guide pour les noobs en Région non éloignée.'
 Laborant: Laborantin
@@ -2384,4 +2384,5 @@ Stadt/Stadttor: Ville/Portes
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr/><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>'
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'Vous ne pouvez pas déposer cet objet ici.'
 Tarnexperte: Chef-Camouflage
-'Einrichtung (Tab)': 'Aménagements'
+'Einrichtung (Tab)': Aménagements
+'Offizieller AP-Versorger': 'Fournisseur officiel de PA'
