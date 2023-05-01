@@ -1207,10 +1207,16 @@ class BeyondController extends InventoryAwareController
                 $up_inv   = $citizen->getInventory();
             }
             else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        } else $up_inv   = $this->getActiveCitizen()->getInventory();
+        } else {
+            $up_inv = $this->getActiveCitizen()->getInventory();
+            $citizen = $this->getActiveCitizen();
+        }
 
-        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
+        if (!$this->zone_handler->check_cp( $citizen->getZone() ) && $this->get_escape_timeout( $citizen ) < 0 && $this->uncoverHunter($citizen))
+            $this->addFlash( 'collapse', $citizen === $this->getActiveCitizen()
+                ? $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game')
+                : $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['name' => $citizen], 'game')
+            );
         return $this->generic_item_api( $up_inv, $down_inv, $escort === null, $parser, $handler, $this->getActiveCitizen());
     }
 

@@ -28,7 +28,7 @@
                         {# @var town \src\Entity\TownRankingProxy #}
                         <div class="cell rw-1 season_entry_td center"><img class="fit" style="max-width: 32px;" src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
                         <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
-                        <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
+                        <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" data-alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
                         <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
                         <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
                     </div>
@@ -41,7 +41,7 @@
                                     {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated'], globalSpace: true} only %} <span style="color: #f0d79e">({{ denizen.day }})</span>
                                     </span>{% if not loop.last %},{% endif %}
                                 {% endfor %}
-                                {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
+                                {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" data-alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
                             </div>
                             <div class="cell rw-4 center"></div>
                         </div>
@@ -129,11 +129,17 @@
         })
 
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
-            let old_src = elem.getAttribute('src');
-            let new_src = elem.getAttribute('alt-src');
-            elem.setAttribute('src', new_src);
-            elem.setAttribute('alt-src', old_src);
             const id = elem.getAttribute('x-town-toggle');
+
+            document.querySelectorAll('[x-town-toggle="' + id + '"]').forEach( e => {
+                if (e.dataset.altSrc) {
+                    let old_src = e.getAttribute('src');
+                    let new_src = e.dataset.altSrc
+                    e.setAttribute('src', new_src);
+                    e.dataset.altSrc = old_src;
+                }
+            } )
+
             document.querySelectorAll('[x-town-tohide="' + id + '"]').forEach(function( target ) {
                 // We hide all the other details
                 document.querySelectorAll('[x-town-tohide]:not([x-town-tohide="' + id + '"])').forEach(function(target2){
@@ -141,9 +147,9 @@
                         target2.classList.add('hidden');
                         let img = document.querySelector('img[x-town-toggle="' + target2.getAttribute("x-town-tohide") + '"]');
                         let old_src = img.getAttribute('src');
-                        let new_src = img.getAttribute('alt-src');
+                        let new_src = img.dataset.altSrc
                         img.setAttribute('src', new_src);
-                        img.setAttribute('alt-src', old_src);
+                        img.dataset.altSrc = old_src;
                     }
                 });
                 if (target.classList.contains('hidden')) target.classList.remove('hidden');
