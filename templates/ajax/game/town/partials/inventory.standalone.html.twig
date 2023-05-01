@@ -1,6 +1,14 @@
 {% use "ajax/game/partials/header_inventory.html.twig" with html as html_header %}
+{% use "ajax/game/town/partials/item-stats.html.twig" %}
 {% use "ajax/game/town/partials/inventory.html.twig" %}
 
+<div x-render-target="#dashboard-overview">
+    {{ block('html_dashboard') }}
+</div>
+
+<div x-render-target="#home-item-values">
+    {{ block('html_values') }}
+</div>
 
 <div x-render-target="#header-rucksack-items">
     {{ block('html_header') }}
@@ -13,4 +21,5 @@
 <script>
     {{ block('includes') }}
     {{ block('js') }}
+    {{ block('dashboard_js') }}
 </script>

@@ -394,7 +394,7 @@ class TownHandler
      * @param HomeDefenseSummary|null $summary The defense summary
      * @return integer The total home defense
      */
-    public function calculate_home_def( CitizenHome &$home, ?HomeDefenseSummary &$summary = null): int {
+    public function calculate_home_def( CitizenHome $home, ?HomeDefenseSummary &$summary = null): int {
         $town = $home->getCitizen()->getTown();
 
         $summary = new HomeDefenseSummary();
