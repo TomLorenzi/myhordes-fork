@@ -246,3 +246,7 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
         this.initialize();
     }
 }
+
+export abstract class PersistentShim<ReactType extends ShimLoader> extends Shim<ReactType> {
+    protected allow_migration: boolean = true;
+}

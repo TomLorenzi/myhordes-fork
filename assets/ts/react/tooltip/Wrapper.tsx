@@ -60,7 +60,7 @@ export const Tooltip = (
         }
     } )
 
-    return <><div ref={locationProxy}><TooltipImplementation
+    return <><div style={{display: "none"}} ref={locationProxy}><TooltipImplementation
         forParent={parent}
         additionalClasses={props.additionalClasses}
         textContent={props.textContent}

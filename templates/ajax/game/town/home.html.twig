@@ -138,6 +138,9 @@
                 {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_house_log_controller') } %}
                 {% endembed %}
             </div>
+            <div class="cell rw-12">
+                <hordes-log data-react-mount="home-log" data-day="{{ home.citizen.town.day }}" data-etag="{{ date().timestamp }}" data-citizen="{{ home.citizen.id }}" data-domain="town"></hordes-log>
+            </div>
         </div>
     </div>
 

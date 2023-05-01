@@ -88,7 +88,8 @@ let fetch_catch = new Map<string,FetchCacheEntry>;
 class FetchBuilder {
 
     private readonly url: string;
-    private request: RequestInit;
+    private readonly params: URLSearchParams|null;
+    private readonly request: RequestInit;
     private readonly f_then: (Response) => Promise<any>
     private readonly f_catch: (any) => Promise<any>
     private f_before: (()=>void)[]
@@ -97,8 +98,9 @@ class FetchBuilder {
     private use_cache: boolean = false;
     private send_token: boolean = false;
 
-    constructor(url: string, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
+    constructor(url: string, params: URLSearchParams|null, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
         this.url = url;
+        this.params = params;
         this.f_then = f_then;
         this.f_catch = f_catch;
         this.f_before = [];
@@ -120,7 +122,7 @@ class FetchBuilder {
 
         if (this.send_token) this.request.headers['X-Toaster'] = SecureStorage.token();
 
-        const make_promise = () => fetch( this.url, body ? {
+        const make_promise = () => fetch( this.params ? `${this.url}?${this.params}` : this.url, body ? {
             method,
             body: JSON.stringify( body ),
             ...this.request,
@@ -175,6 +177,7 @@ class FetchOptionBuilder {
     private readonly processor: (Response, FetchOptions) => Promise<any>;
     private readonly error_handler: (any, FetchOptions) => Promise<any>;
     private readonly url: string;
+    private queryParams: URLSearchParams|null;
     private readonly options: FetchOptions;
 
     constructor(url: string, processor: (Response, FetchOptions) => Promise<any>, handler: (any, FetchOptions) => Promise<any>) {
@@ -182,6 +185,7 @@ class FetchOptionBuilder {
         this.processor = processor;
         this.error_handler = handler;
         this.options = new FetchOptions();
+        this.queryParams = null;
     }
 
     public withErrorMessages(): FetchOptionBuilder { this.options.error_messages = true; return this; }
@@ -192,8 +196,16 @@ class FetchOptionBuilder {
 
     public bodyDeterminesSuccess(b: boolean = true): FetchOptionBuilder { this.options.body_success = b; return this; }
 
+    public param( name: string, value: any, condition: boolean = true ) {
+        if (condition) {
+            if (!this.queryParams) this.queryParams = new URLSearchParams();
+            this.queryParams.set(name,value);
+        }
+        return this;
+    }
+
     public request(): FetchBuilder {
-        return new FetchBuilder( this.url, (r: Response) => this.processor(r, this.options), r => this.error_handler(r, this.options) );
+        return new FetchBuilder( this.url, this.queryParams, (r: Response) => this.processor(r, this.options), r => this.error_handler(r, this.options) );
     }
 }
 
