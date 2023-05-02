@@ -193,7 +193,7 @@ class ActionHandler
                     }
                 } else {
                     if (!empty($this->inventory_handler->fetchSpecificItems( $source,
-                        [new ItemRequest($item_str, 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
+                        [new ItemRequest($item_str, 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
                     ))) {
                         if (!$is_prop) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
                         $current_state = min( $current_state, $this_state );
@@ -997,7 +997,9 @@ class ActionHandler
 					$item_req = $requirement->getItem();
 					break;
 				}
-				$poison = $item_req?->getAllowPoison() ? null : false;
+                // ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false ))
+
+				$poison = ($item_req?->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false;
                 $items = $this->inventory_handler->fetchSpecificItems( $source,
                     [new ItemRequest( name: $item_consume->getPrototype()->getName(), count: $item_consume->getCount(), poison: $poison )]);
 
