@@ -13,6 +13,8 @@ export type TranslationStrings = {
         hide: string
         hidden: string
         warning: string
+        'protected': string
+        manipulated: string
         falsify: string
         more: string
         flavour: string[]

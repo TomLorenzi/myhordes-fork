@@ -10,12 +10,19 @@ export interface LogEntry {
     timestamp: number,
     timestring: string,
     'class': number
-    'type': number
+    'type': number,
+    'protected': boolean,
     id: number,
     hidden: boolean,
     hiddenBy?: LogEntryFaker
     text?: string
     hideable?: boolean
+}
+
+export interface LogEntryResponse {
+    entries: LogEntry[],
+    total: number,
+    manipulations: number
 }
 
 export class LogAPI {
@@ -39,13 +46,18 @@ export class LogAPI {
         filter: number[] = [],
         below: number = -1,
         above: number = -1,
-    ): Promise<LogEntry[]> {
+    ): Promise<LogEntryResponse> {
         return this.fetch.from(domain === 'beyond' ? `${domain}?` : `${domain}/${citizen}`)
             .param('day', day, day > 0)
             .param('limit', limit, limit > 0)
             .param('filter', filter.join(','), filter.length > 0)
             .param('below', below, below > 0)
             .param('above', above, above > 0)
-            .request().secure().get() as Promise<LogEntry[]>;
+            .request().secure().get() as Promise<LogEntryResponse>;
+    }
+
+    public deleteLog( id: number ): Promise<LogEntryResponse> {
+        return this.fetch.from(`${id}`)
+            .request().secure().delete() as Promise<LogEntryResponse>;
     }
 }
