@@ -85,6 +85,21 @@ const HordesLogWrapper = (props: mountProps) => {
         }
     } );
 
+    useEffect( () => {
+        cache.current = [];
+        if (sleeping) return;
+        const day = currentDay;
+        setPlaceholder(true);
+        setLoading(true);
+        api.logs(props.domain, props.citizen, day, props.entries, props.category, -1, -1)
+            .then(v => {
+                applyData(day, v.entries, true, v.entries.length >= v.total);
+                setManipulations( v.manipulations );
+                setLoading(false);
+                setPlaceholder(false);
+            })
+    }, [props.domain,props.category,props.citizen] );
+
     const applyData = (day: number, entries: LogEntry[], before: boolean, completed: boolean) => {
         const new_target = (cache.current[day] ?? null) === null ? { entries: [], completed } : {...cache.current[day]};
 

@@ -223,7 +223,6 @@ class GameController extends CustomAbstractController
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
-            'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizenRoleList,
             'votesNeeded' => $in_town ? $votesNeeded : [],
@@ -234,28 +233,6 @@ class GameController extends CustomAbstractController
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
             ))
         ]));
-    }
-
-    /**
-     * @Route("api/game/raventimes/log", name="game_newspaper_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_newspaper_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-
-        $citizen_id = $parser->get('citizen', -1);
-        $citizen = null;
-        if($citizen_id > 0) {
-            /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($citizen_id);
-            if ($citizen->getTown() !== $this->getActiveCitizen()->getTown())
-                $citizen = null;
-        }
-
-        $type_id = $parser->get('category', -1);
-        return $this->renderLog((int)$parser->get('day', -1), $citizen, false, $type_id >= 0 ? $type_id : null, null);
     }
 
     /**

@@ -1,5 +1,6 @@
 import {Const, Global} from "./defaults";
 import {SecureStorage} from "./v2/security";
+import {EventConnector} from "./v2/events";
 
 interface ajaxResponse { error: string, success: any }
 interface ajaxCallback { (data: ajaxResponse, code: number): void }
@@ -353,7 +354,7 @@ export default class Ajax {
         $.components.prune();
         $.html.restoreTutorialStage();
 
-
+        EventConnector.handle( target );
     }
 
     push_history( url: string ) {
