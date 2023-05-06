@@ -51,6 +51,7 @@ const HordesLogWrapper = (props: mountProps) => {
     const api = new LogAPI();
 
     const [loading, setLoading] = useState<boolean>( false );
+    const [placeholder, setPlaceholder] = useState<boolean>( false );
     const [interactive, setInteractive] = useState<boolean>( true );
     const [strings, setStrings] = useState<TranslationStrings>( null );
     const [sleeping, setSleeping] = useState<boolean>( true );
@@ -110,7 +111,8 @@ const HordesLogWrapper = (props: mountProps) => {
         if (sleeping) return;
         const day = currentDay;
         const target = cache.current[day] ?? null;
-        setCurrentData( target ? {...target} : null );
+        if (target) setCurrentData( {...target} );
+        else setPlaceholder(true);
         if (target === null || currentDay === props.day) {
             setLoading(true);
             api.logs(props.domain, props.citizen, day, (target === null && day === props.day) ? props.entries : -1, props.category, -1, target === null ? -1 : (target.entries[0]?.id ?? -1))
@@ -118,6 +120,7 @@ const HordesLogWrapper = (props: mountProps) => {
                     applyData(day, v.entries, true, v.entries.length >= v.total);
                     setManipulations( v.manipulations );
                     setLoading(false);
+                    setPlaceholder(false);
                 })
         }
     }, [props.etag,currentDay,sleeping] );
@@ -147,7 +150,7 @@ const HordesLogWrapper = (props: mountProps) => {
         <div ref={container} className="log-container" data-disabled={(interactive || loading) ? 'none' : 'blocked'}>
             <div className="log">
                 <HordesLogContentContainer day={currentDay} today={currentDay === props.day} manipulate={manipulations > 0}
-                    loading={loading} data={currentData}
+                    loading={loading} data={currentData} placeholder={placeholder}
                     loadMore={()=>loadMore(currentDay)}
                     deleteEntry={(n)=>deleteEntry(n)}
                 />
@@ -164,7 +167,8 @@ interface logContainerProps {
     loading: boolean,
     loadMore: ()=>void,
     deleteEntry: (number)=>void,
-    manipulate: boolean
+    manipulate: boolean,
+    placeholder?: boolean
 }
 
 const HordesLogContentContainer = (props: logContainerProps) => {
@@ -178,7 +182,7 @@ const HordesLogContentContainer = (props: logContainerProps) => {
 
     const getFlavour = () => (globals.strings?.content.flavour ?? [null])[ Math.floor( Math.random() * (globals.strings?.content.flavour.length ?? 0) ) ];
 
-    return <div className="log-content">
+    return <div className="log-content" style={props.placeholder ? {opacity: 0.25} : null}>
         <div className="log-day-header">{ globals.strings?.content.header.replace('{d}', `${props.day}`).replace('{today}', props.today ? `(${globals.strings?.content.header_part_today})` : '') }</div>
         { props.data?.entries.map( entry => <div key={entry.id} className={`log-entry log-entry-type-${ entry['type'] } log-entry-class-${ entry['class'] }`}>
             <span className="log-part-time">{entry.timestring}</span>

@@ -466,7 +466,6 @@ class TownController extends InventoryAwareController
             'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
-            'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 5 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
@@ -479,27 +478,6 @@ class TownController extends InventoryAwareController
             'intruding' => $intrusion === null ? 0 : ( $intrusion->getSteal() ? 1 : -1 ),
             'recycle_ap' => $recycleAP
         ]) );
-    }
-
-    /**
-     * @Route("api/town/visit/{id}/log", name="town_visit_log_controller")
-     * @param int $id
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_visit_api(int $id, JSONRequestParser $parser): Response {
-        if ($id === $this->getActiveCitizen()->getId())
-            return $this->redirect($this->generateUrl('town_house_log_controller'));
-
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-
-        /** @var Citizen $c */
-        $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
-        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
-            $c = null;
-
-        return $this->renderLog((int)$parser->get('day', -1), $c, false, null, $c ===  null ? 0 : null);
     }
 
     /**
