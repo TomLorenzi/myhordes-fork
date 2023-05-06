@@ -33,6 +33,7 @@ customElements.define('hordes-log', class HordesLogElement extends PersistentShi
             domain: this.dataset.domain ?? 'any',
             etag: parseInt(this.dataset.etag ?? '0') ?? 0,
             day: parseInt(this.dataset.day ?? '0') ?? 0,
+            entries: parseInt(this.dataset.entries ?? '5') ?? 5,
             citizen: parseInt(this.dataset.citizen ?? '-1') ?? -1,
             category: (this.dataset.category ?? '-1').split(',').map( v => parseInt(v) ).filter(v=>v>=0),
         }

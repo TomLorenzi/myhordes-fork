@@ -906,20 +906,8 @@ class TownController extends InventoryAwareController
             'maximum' => $allow_take,
             'pump' => $pump,
 
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
-    }
-
-    /**
-     * @Route("api/town/well/log", name="town_well_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_well_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWell, null);
     }
 
     /**

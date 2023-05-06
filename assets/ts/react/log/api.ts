@@ -47,7 +47,7 @@ export class LogAPI {
         below: number = -1,
         above: number = -1,
     ): Promise<LogEntryResponse> {
-        return this.fetch.from(domain === 'beyond' ? `${domain}?` : `${domain}/${citizen}`)
+        return this.fetch.from(citizen <= 0 ? `${domain}` : `${domain}/${citizen}`)
             .param('day', day, day > 0)
             .param('limit', limit, limit > 0)
             .param('filter', filter.join(','), filter.length > 0)
