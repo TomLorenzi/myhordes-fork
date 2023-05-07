@@ -1381,7 +1381,7 @@ class BeyondController extends InventoryAwareController
                     else continue;
                 }
 
-                $timer->setPassive( false )->setTimestamp( new DateTime('-1sec') );
+                $timer->setPassive( false )->setTimestamp( new DateTime('-1sec') )->setNonAutomatic(true);
                 $this->entity_manager->persist( $target_citizen );
                 $this->entity_manager->persist( $timer );
             } catch (Exception $e) {
