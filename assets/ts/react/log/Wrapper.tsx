@@ -141,6 +141,9 @@ const HordesLogWrapper = (props: mountProps) => {
         if (replaced.length > 0)
             entries = entries.filter( f => !replaced.find( ff => ff === f.id ) )
 
+        if (new_target.entries.length > 0 && entries.find(f => f.retro))
+            setRefreshID(refreshID + 1);
+
         if (entries.length > 0) {
             new_target.entries = before ? [...entries, ...new_target.entries] : [...new_target.entries, ...entries];
             new_target.completed = new_target.completed || (completed && !before);

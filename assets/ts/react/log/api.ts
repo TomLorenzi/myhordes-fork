@@ -17,7 +17,8 @@ export interface LogEntry {
     hidden: boolean,
     hiddenBy?: LogEntryFaker
     text?: string
-    hideable?: boolean
+    hideable?: boolean,
+    retro: boolean
 }
 
 export interface LogEntryResponse {
