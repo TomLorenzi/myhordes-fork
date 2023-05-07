@@ -430,7 +430,6 @@ class BeyondController extends InventoryAwareController
             'rucksack_sizes' => $rucksack_sizes,
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
             'zone_blocked' => !$this->zone_handler->check_cp($citizen->getZone(), $cp),
-            'log' => ($citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0) ? '' : $this->renderLog( -1, null, $citizen->getZone(), null, 20, true )->getContent(),
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0,
@@ -465,18 +464,6 @@ class BeyondController extends InventoryAwareController
     public function desert_partial_item_actions(): Response
     {
         return $this->render( 'ajax/game/beyond/partials/item-actions.standalone.html.twig', $this->desert_partial_item_action_args() );
-    }
-
-    /**
-     * @Route("api/beyond/desert/log", name="beyond_desert_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_desert_api(JSONRequestParser $parser): Response {
-        $zone = $this->getActiveCitizen()->getZone();
-        if (!$zone || ($zone->getX() === 0 && $zone->getY() === 0))
-            return $this->renderLog((int)$parser->get('day', -1), null, null, null, 0, true);
-        return $this->renderLog((int)$parser->get('day', -1), null, $zone, null, null, true);
     }
 
     protected function activeCitizenIsNotEscorted() {

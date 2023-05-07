@@ -34,10 +34,29 @@ export class EventConnector {
                 } )
             })
         )
+    }
 
+    /**
+     * Searches for nodes that have `data-trigger-event-name`, triggers an event of the given name on the document
+     * object and removed the node from the DOM. The node can optionally have a `data-trigger-event-data` attribute
+     * containing JSON that is decoded and passed as the detail data with the event.
+     * @param node
+     * @private
+     */
+    private static domEventTriggerEvents(node: HTMLElement) {
+        node.querySelectorAll('[data-trigger-event-name]').forEach( (eventNode: HTMLElement) => {
+            const data = JSON.parse(eventNode.dataset.triggerEventData ?? 'null');
+            const event = data
+                ? new Event( eventNode.dataset.triggerEventName, {bubbles: false} )
+                : new CustomEvent( eventNode.dataset.triggerEventName, {bubbles: false, detail: data} );
+
+            document.dispatchEvent( event );
+            eventNode.remove();
+        } )
     }
 
     public static handle(node: HTMLElement) {
+        this.domEventTriggerEvents(node);
         this.dataValueTransferEvents(node);
     }
 

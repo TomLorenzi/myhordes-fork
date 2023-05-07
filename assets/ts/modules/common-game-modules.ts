@@ -36,11 +36,17 @@ customElements.define('hordes-log', class HordesLogElement extends PersistentShi
             entries: parseInt(this.dataset.entries ?? '5') ?? 5,
             citizen: parseInt(this.dataset.citizen ?? '-1') ?? -1,
             category: (this.dataset.category ?? '-1').split(',').map( v => parseInt(v) ).filter(v=>v>=0),
+            indicators: parseInt(this.dataset.indicators ?? '0') !== 0,
+            inlineDays: parseInt(this.dataset.inlineDays ?? '0') !== 0,
+            zone: parseInt(this.dataset.zone ?? '0'),
         }
     }
 
     protected static observedAttributeNames() {
-        return ['data-day','data-etag','data-citizen','data-category','data-domain'];
+        return [
+            'data-day','data-etag','data-citizen','data-category','data-domain','data-entries','data-indicators',
+            'data-zone','data-inline-days'
+        ];
     }
 
 }, {  });

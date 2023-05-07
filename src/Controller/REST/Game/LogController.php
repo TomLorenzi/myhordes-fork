@@ -92,20 +92,26 @@ class LogController extends CustomAbstractCoreController
         ]);
     }
 
-    protected function applyFilters(Request $request, Citizen $context, ?Criteria $criteria = null, bool $limits = true ): Criteria {
-        $day = $request->query->get('day', $context->getTown()->getDay());
+    protected function applyFilters(Request $request, Citizen $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
+        $day = $request->query->get('day', 0);
         $limit = $request->query->get('limit', -1);
         $threshold_top = $request->query->get('below', PHP_INT_MAX);
         $threshold_bottom = $request->query->get('above', 0);
-        
-        return ($criteria ?? Criteria::create())
+
+        $criteria = ($criteria ?? Criteria::create())
             ->andWhere( Criteria::expr()->eq('town', $context->getTown()) )
             ->andWhere( Criteria::expr()->gt('id', $threshold_bottom) )
             ->andWhere( Criteria::expr()->lt('id', $threshold_top) )
-            ->andWhere( Criteria::expr()->eq('day', $day) )
             ->andWhere( Criteria::expr()->eq('zone', $context->getZone()) )
             ->setMaxResults(($limit > 0 && $limits) ? $limit : null)
             ->orderBy( ['timestamp' => Criteria::DESC, 'id' => Criteria::DESC] );
+
+        if ($day <= 0 && !$allow_inline_days) $day = $context->getTown()->getDay();
+        if ($day > 0) $criteria->andWhere( Criteria::expr()->eq('day', $day) );
+
+        if (!$admin) $criteria->andWhere( Criteria::expr()->eq('adminOnly', false) );
+
+        return $criteria;
     }
 
     /**
@@ -122,7 +128,7 @@ class LogController extends CustomAbstractCoreController
 
             $entityVariables = $entry->getVariables();
             $json = [
-                'timestamp'  => $entry->getTimestamp(),
+                'timestamp'  => $entry->getTimestamp()->getTimestamp(),
                 'timestring' => $entry->getTimestamp()->format('G:i'),
                 'class'     => $template->getClass(),
                 'type'      => $template->getType(),
@@ -130,6 +136,7 @@ class LogController extends CustomAbstractCoreController
                 'id'        => $entry->getId(),
                 'hidden'    => $entry->getHidden(),
                 'hideable'  => !$admin && !$entry->getHidden() && $canHide,
+                'day'       => $entry->getDay()
             ];
 
             if ($entry->getHidden() && !$admin) $json['text'] = null;
@@ -165,11 +172,11 @@ class LogController extends CustomAbstractCoreController
         return new JsonResponse([
             'entries' => $this->renderLogEntries(
                 $em->getRepository(TownLogEntry::class)->matching(
-                    $this->applyFilters( $request, $this->getUser()->getActiveCitizen() )
+                    $this->applyFilters( $request, $this->getUser()->getActiveCitizen(), allow_inline_days: true )
                 ), canHide: false
             ),
             'total' => $em->getRepository(TownLogEntry::class)->matching(
-                $this->applyFilters( $request, $this->getUser()->getActiveCitizen(), limits: false )
+                $this->applyFilters( $request, $this->getUser()->getActiveCitizen(), limits: false, allow_inline_days: true )
             )->count(),
             'manipulations' => 0
         ]);

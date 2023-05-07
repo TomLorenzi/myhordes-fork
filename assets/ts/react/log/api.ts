@@ -13,6 +13,7 @@ export interface LogEntry {
     'type': number,
     'protected': boolean,
     id: number,
+    day: number,
     hidden: boolean,
     hiddenBy?: LogEntryFaker
     text?: string
