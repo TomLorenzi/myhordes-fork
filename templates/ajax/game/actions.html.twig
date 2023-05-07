@@ -98,8 +98,8 @@
 
                 <div>
                     {{ 'Befiehl {dogname}, deinen Rucksackinhalt in die Stadt zu bringen:'|trans({'dogname': app.user|dogname}, 'items') }}
-                    <div>{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_tamer_1' or a.action.name == 'hero_tamer_2' ) ) }}</div>
                     <div>{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_tamer_1b' or a.action.name == 'hero_tamer_2b' ) ) }}</div>
+                    <div>{{ _self.inline_action_renderer( scout, actions|filter(a => a.action.name == 'hero_tamer_1' or a.action.name == 'hero_tamer_2' ) ) }}</div>
                 </div>
 
                 {% if actions|filter(a => a.action.name == 'hero_tamer_3' ) is not empty %}
