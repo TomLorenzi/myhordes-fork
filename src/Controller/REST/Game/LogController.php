@@ -4,6 +4,7 @@ namespace App\Controller\REST\Game;
 
 use App\Annotations\GateKeeperProfile;
 use App\Annotations\Toaster;
+use App\Controller\BeyondController;
 use App\Controller\CustomAbstractCoreController;
 use App\Entity\ActionCounter;
 use App\Entity\Citizen;
@@ -18,6 +19,9 @@ use App\Service\Actions\Game\RenderMapAction;
 use App\Service\Actions\Game\RenderMapRouteAction;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
+use App\Service\ErrorHelper;
+use App\Service\HTMLService;
+use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
@@ -65,6 +69,11 @@ class LogController extends CustomAbstractCoreController
                 'day' => $this->translator->trans('Tag', [], 'game'),
             ],
 
+            'chat' => [
+                'placeholder' => $this->translator->trans('Deine Nachricht', [], 'global'),
+                'send' => $this->translator->trans('Senden', [], 'game'),
+            ],
+
             'content' => [
                 'header' => $this->translator->trans('Tag {d} {today}', [], 'game'),
                 'header_part_today' => $this->translator->trans('heute', [], 'game'),
@@ -82,7 +91,7 @@ class LogController extends CustomAbstractCoreController
                 'protected' => $this->translator->trans('Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.', [], 'game'),
                 'manipulated' => $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch {times} mal tun.', [], 'game'),
 
-                'hiddenBy' => $this->translator->trans('Versteckt von {player}', [], 'game'),
+                'hiddenBy' => $this->translator->trans('Versteckt von {player}', [], 'admin'),
 
                 'more' => $this->translator->trans('Alle Einträge anzeigen', [], 'game'),
                 'flavour' => [
@@ -325,5 +334,38 @@ class LogController extends CustomAbstractCoreController
                                     'total' => $em->getRepository(TownLogEntry::class)->matching( $countCriteria )->count(),
                                     'manipulations' => 0
                                 ]);
+    }
+
+    /**
+     * @Route("/chat/{id}", name="chat", methods={"PUT"})
+     * @Toaster()
+     * @GateKeeperProfile(only_alive=true, only_beyond=true)
+     * @param Zone $zone
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param HTMLService $html
+     * @param CitizenHandler $citizenHandler
+     * @param LogTemplateHandler $log
+     * @return JsonResponse
+     */
+    public function chat(Zone $zone, JSONRequestParser $parser, EntityManagerInterface $em, HTMLService $html, CitizenHandler $citizenHandler, LogTemplateHandler $log): JsonResponse {
+        $active_citizen = $this->getUser()->getActiveCitizen();
+        if ($active_citizen->getZone() !== $zone) return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
+
+        $message = $parser->get('msg', null);
+        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getUser(), 0, ['core_rp'], $message, $active_citizen->getTown(), $insight) || $insight->text_length < 2 || $insight->text_length > 256 )
+            return new JsonResponse(['error' => BeyondController::ErrorChatMessageInvalid], Response::HTTP_NOT_ACCEPTABLE);
+
+        $message = $html->htmlDistort( $message,
+                                       ($citizenHandler->hasStatusEffect($active_citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
+                                       ($citizenHandler->hasStatusEffect($active_citizen, 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
+                                       ($citizenHandler->hasStatusEffect($active_citizen, 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
+            , $active_citizen->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
+
+
+        $em->persist( $log->beyondChat( $active_citizen, $message ) );
+        $em->flush(  );
+
+        return AjaxResponse::success();
     }
 }

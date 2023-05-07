@@ -27,6 +27,11 @@ export interface LogEntryResponse {
     manipulations: number
 }
 
+export interface ChatResponse {
+    success?: boolean,
+    error?: string|number
+}
+
 export class LogAPI {
 
     private fetch: Fetch;
@@ -61,5 +66,10 @@ export class LogAPI {
     public deleteLog( id: number ): Promise<LogEntryResponse> {
         return this.fetch.from(`${id}`)
             .request().secure().delete() as Promise<LogEntryResponse>;
+    }
+
+    public chat( zone: number, html: string ): Promise<ChatResponse> {
+        return this.fetch.from(`chat/${zone}`).withErrorMessages()
+            .request().secure().put({msg: html}) as Promise<ChatResponse>;
     }
 }

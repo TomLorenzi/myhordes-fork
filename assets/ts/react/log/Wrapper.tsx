@@ -17,7 +17,8 @@ interface mountProps {
     entries: number,
     indicators: boolean
     inlineDays: boolean
-    zone: number
+    zone: number,
+    chat: boolean
 }
 
 interface DailyCache {
@@ -192,6 +193,7 @@ const HordesLogWrapper = (props: mountProps) => {
     }
 
     return <Globals.Provider value={{api, strings}}>
+        { props.chat && <HordesChatContainer zone={props.zone} refresh={()=>setUpdateID(updateID+1)}/> }
         <div ref={container} className="log-container" data-disabled={(interactive || loading) ? 'none' : 'blocked'}>
             <div className="log">
                 <HordesLogContentContainer day={currentDay} today={currentDay === props.day} manipulate={manipulations > 0}
@@ -281,6 +283,35 @@ const HordesLogDaySelector = ({selectedDay, days, setDay}: {selectedDay: number,
     return <div className="log-day-select">
         <div>
             { [...Array(days).keys()].reverse().map(d=>d+1).map(d => <React.Fragment key={d}><div onClick={()=>setDay(d)} className={`tab ${d === selectedDay ? 'current' : ''}`}>{ globals.strings?.wrapper.day } {d}</div>&nbsp;</React.Fragment>) }
+        </div>
+    </div>
+}
+
+const HordesChatContainer = ({refresh, zone}: {refresh: ()=>void, zone: number}) => {
+
+    const globals = useContext(Globals);
+    const input = useRef<HTMLInputElement>();
+
+    const [loading, setLoading] = useState<boolean>(false);
+
+    const sendMessage = () => {
+        setLoading(true);
+        globals.api.chat( zone, $.html.twinoParser.parseToString( input.current.value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()} ) )
+            .then( v => {
+                setLoading(false);
+                if (v.success) {
+                    input.current.value = '';
+                    refresh();
+                }
+            } ).catch(() => setLoading(false));
+    }
+
+    return <div className="row-flex gap my stretch" data-disabled={loading ? 'disabled' : ''}>
+        <div className="cell grow-1">
+            <label><input ref={input} type="text" placeholder={globals.strings?.chat.placeholder}/></label>
+        </div>
+        <div className="cell grow-0">
+            <button onClick={()=>sendMessage()}>{globals.strings?.chat.send}</button>
         </div>
     </div>
 }

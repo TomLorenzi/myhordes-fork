@@ -3,6 +3,11 @@ export type TranslationStrings = {
         day: string
     }
 
+    chat: {
+        placeholder: string
+        send: string
+    }
+
     content: {
         header: string
         header_part_today: string

@@ -585,38 +585,6 @@ class BeyondController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/beyond/desert/chat", name="beyond_desert_chat_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function chat_desert_api(JSONRequestParser $parser, HTMLService $html): Response {
-        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        if ($this->getActiveCitizen()->getZone()->isTownZone())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $message = $parser->get('msg', null);
-        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, $this->getActiveCitizen()->getTown(), $insight) || $insight->text_length < 2 || $insight->text_length > 256 )
-            return AjaxResponse::error(self::ErrorChatMessageInvalid);
-
-        $message = $html->htmlDistort( $message,
-            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
-            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
-            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-            , $this->getActiveCitizen()->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
-
-        try {
-            $this->entity_manager->persist( $this->log->beyondChat( $this->getActiveCitizen(), $message ) );
-            $this->entity_manager->flush(  );
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
      * @Route("api/beyond/desert/exit/{special}", name="beyond_desert_exit_controller")
      * @param string $special
      * @param TownHandler $th
