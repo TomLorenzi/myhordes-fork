@@ -223,7 +223,9 @@
 						</div>
 					</div>
 				</div>
-				<div id="dash_zone_log"></div>
+                <div id="dash_zone_log" class="hidden">
+                    <hordes-log id="admin-log" data-day="{{ town.day }}" data-react-mount="beyond-log" data-etag="{{ date().timestamp }}" data-domain="admin/0" data-entries="150" data-indicators="1" data-inline-days="1"></hordes-log>
+                </div>
 			{% endif %}
 		</div>
 	</div>
@@ -294,8 +296,8 @@
                 document.getElementById("ruin_camp_level").value = data.camp_levl;
                 document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
                 document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
-                document.getElementById("dash_zone_log").innerHTML = data.zone_log;
-				{% embed "scripts/log.js.twig" with {'base_element': "document.getElementById('dash_zone_log')"} %}{% endembed %}
+                document.getElementById("admin-log").dataset.domain = 'admin/' + target.getAttribute("x-id");
+                document.getElementById("dash_zone_log").classList.toggle('hidden', false);
             });
 		})
 

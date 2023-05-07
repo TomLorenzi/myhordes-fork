@@ -26,6 +26,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Asset\Packages;
@@ -92,17 +93,23 @@ class LogController extends CustomAbstractCoreController
         ]);
     }
 
-    protected function applyFilters(Request $request, Citizen $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
+    /**
+     * @throws Exception
+     */
+    protected function applyFilters(Request $request, Citizen|Zone $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
         $day = $request->query->get('day', 0);
         $limit = $request->query->get('limit', -1);
         $threshold_top = $request->query->get('below', PHP_INT_MAX);
         $threshold_bottom = $request->query->get('above', 0);
 
+        if (!$admin && is_a($context, Zone::class))
+            throw new Exception('Cannot use zone context when not in admin mode!');
+
         $criteria = ($criteria ?? Criteria::create())
             ->andWhere( Criteria::expr()->eq('town', $context->getTown()) )
             ->andWhere( Criteria::expr()->gt('id', $threshold_bottom) )
             ->andWhere( Criteria::expr()->lt('id', $threshold_top) )
-            ->andWhere( Criteria::expr()->eq('zone', $context->getZone()) )
+            ->andWhere( Criteria::expr()->eq('zone', is_a($context, Zone::class) ? $context : $context->getZone()) )
             ->setMaxResults(($limit > 0 && $limits) ? $limit : null)
             ->orderBy( ['timestamp' => Criteria::DESC, 'id' => Criteria::DESC] );
 
@@ -183,6 +190,29 @@ class LogController extends CustomAbstractCoreController
         ]);
     }
 
+    /**
+     * @Route("/admin/{id}", name="admin", methods={"GET"})
+     * @IsGranted("ROLE_CROW")
+     * @param Zone $zone
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     * @throws Exception
+     */
+    public function admin(Zone $zone, Request $request, EntityManagerInterface $em): JsonResponse {
+        return new JsonResponse([
+            'entries' => $this->renderLogEntries(
+                $em->getRepository(TownLogEntry::class)->matching(
+                    $this->applyFilters( $request, $zone, allow_inline_days: true, admin: true )
+                ), canHide: false, admin: true
+            ),
+            'total' => $em->getRepository(TownLogEntry::class)->matching(
+                $this->applyFilters( $request, $zone, limits: false, allow_inline_days: true, admin: true )
+            )->count(),
+            'manipulations' => 0
+        ]);
+    }
+
     protected function getManipulationsLeft(Citizen $citizen, UserHandler $userHandler): int {
         return $citizen->getAlive() && $citizen->getProfession()->getHeroic() && $userHandler->hasSkill($this->getUser(), 'manipulator')
             ? max(0, ($userHandler->getMaximumEntryHidden($this->getUser()) - $citizen->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog)))
@@ -199,6 +229,7 @@ class LogController extends CustomAbstractCoreController
      * @param Citizen|null $citizen
      * @param UserHandler $userHandler
      * @return JsonResponse
+     * @throws Exception
      */
     public function town(Request $request, EntityManagerInterface $em, UserHandler $userHandler, ?Citizen $citizen = null): JsonResponse {
 

@@ -1534,12 +1534,6 @@ class AdminTownController extends AdminActionController
             'ruin_bury' => $zone->getBuryCount(),
             'camp_levl' => $zone->getImprovementLevel(),
             'ruin_camp' => $zone->getPrototype()?->getCampingLevel(),
-            'zone_log' => $this->renderView("ajax/admin/towns/log.html.twig", [
-                'additional_log_params' => [ 'zone_id' => $zone_id ],
-                'log_content' => $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone)->getContent(),
-                'log_source' => $this->urlGenerator->generate('get_zone_info_log', ['id' => $id]),
-                'day' => $parser->has('day') ? $parser->get('day') : $town->getDay()
-            ]),
         ]);
     }
 
