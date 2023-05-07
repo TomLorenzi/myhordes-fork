@@ -263,6 +263,7 @@ const HordesLogContentContainer = (props: logContainerProps) => {
                         </span>
                     }
                     <span className="container" dangerouslySetInnerHTML={{__html: (entry.hidden && !entry.text) ? globals.strings?.content.hidden : entry.text}}></span>
+                    { entry.hidden && entry.hiddenBy && <span>&nbsp;{ globals.strings?.content.hiddenBy.replace('{player}',`${entry.hiddenBy.name} [${entry.hiddenBy.id}]`) }</span> }
                 </span>
             </div>
         </React.Fragment> )}

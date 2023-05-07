@@ -82,6 +82,8 @@ class LogController extends CustomAbstractCoreController
                 'protected' => $this->translator->trans('Dieser Registereintrag kann <strong>nicht</strong> gefälscht werden.', [], 'game'),
                 'manipulated' => $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch {times} mal tun.', [], 'game'),
 
+                'hiddenBy' => $this->translator->trans('Versteckt von {player}', [], 'game'),
+
                 'more' => $this->translator->trans('Alle Einträge anzeigen', [], 'game'),
                 'flavour' => [
                     $this->translator->trans('Akteneinsicht wird beantragt...', [], 'game'),
@@ -96,20 +98,27 @@ class LogController extends CustomAbstractCoreController
     /**
      * @throws Exception
      */
-    protected function applyFilters(Request $request, Citizen|Zone $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
+    protected function applyFilters(Request $request, Citizen|Zone|Town $context, ?Criteria $criteria = null, bool $limits = true, bool $allow_inline_days = false, bool $admin = false ): Criteria {
         $day = $request->query->get('day', 0);
         $limit = $request->query->get('limit', -1);
         $threshold_top = $request->query->get('below', PHP_INT_MAX);
         $threshold_bottom = $request->query->get('above', 0);
 
-        if (!$admin && is_a($context, Zone::class))
-            throw new Exception('Cannot use zone context when not in admin mode!');
+        if (!$admin && (is_a($context, Zone::class) || is_a($context, Town::class)))
+            throw new Exception('Cannot use non-citizen bound context when not in admin mode!');
+
+        $town = is_a($context, Town::class) ? $context : $context->getTown();
+        $zone = match (true) {
+            is_a($context, Zone::class) => $context,
+            is_a($context, Citizen::class) => $context->getZone(),
+            default => null
+        };
 
         $criteria = ($criteria ?? Criteria::create())
-            ->andWhere( Criteria::expr()->eq('town', $context->getTown()) )
+            ->andWhere( Criteria::expr()->eq('town', $town) )
             ->andWhere( Criteria::expr()->gt('id', $threshold_bottom) )
             ->andWhere( Criteria::expr()->lt('id', $threshold_top) )
-            ->andWhere( Criteria::expr()->eq('zone', is_a($context, Zone::class) ? $context : $context->getZone()) )
+            ->andWhere( Criteria::expr()->eq('zone', $zone ) )
             ->setMaxResults(($limit > 0 && $limits) ? $limit : null)
             ->orderBy( ['timestamp' => Criteria::DESC, 'id' => Criteria::DESC] );
 
@@ -161,7 +170,7 @@ class LogController extends CustomAbstractCoreController
 
             if ($admin && $entry->getHidden()) $json['hiddenBy'] = [
                 'name' => $entry->getHiddenBy()?->getName(),
-                'id' => $entry->getHiddenBy()?->getId()
+                'id' => $entry->getHiddenBy()?->getUser()->getId()
             ];
 
             return $json;
@@ -175,6 +184,7 @@ class LogController extends CustomAbstractCoreController
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
+     * @throws Exception
      */
     public function beyond(Request $request, EntityManagerInterface $em): JsonResponse {
         return new JsonResponse([
@@ -185,29 +195,6 @@ class LogController extends CustomAbstractCoreController
             ),
             'total' => $em->getRepository(TownLogEntry::class)->matching(
                 $this->applyFilters( $request, $this->getUser()->getActiveCitizen(), limits: false, allow_inline_days: true )
-            )->count(),
-            'manipulations' => 0
-        ]);
-    }
-
-    /**
-     * @Route("/admin/{id}", name="admin", methods={"GET"})
-     * @IsGranted("ROLE_CROW")
-     * @param Zone $zone
-     * @param Request $request
-     * @param EntityManagerInterface $em
-     * @return JsonResponse
-     * @throws Exception
-     */
-    public function admin(Zone $zone, Request $request, EntityManagerInterface $em): JsonResponse {
-        return new JsonResponse([
-            'entries' => $this->renderLogEntries(
-                $em->getRepository(TownLogEntry::class)->matching(
-                    $this->applyFilters( $request, $zone, allow_inline_days: true, admin: true )
-                ), canHide: false, admin: true
-            ),
-            'total' => $em->getRepository(TownLogEntry::class)->matching(
-                $this->applyFilters( $request, $zone, limits: false, allow_inline_days: true, admin: true )
             )->count(),
             'manipulations' => 0
         ]);
@@ -287,5 +274,56 @@ class LogController extends CustomAbstractCoreController
             'total' => 1,
             'manipulations' => $manipulations - 1
         ]);
+    }
+
+    /**
+     * @Route("/admin/zone/{id}", name="admin_zone", methods={"GET"})
+     * @IsGranted("ROLE_CROW")
+     * @param Zone $zone
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     * @throws Exception
+     */
+    public function adminZone(Zone $zone, Request $request, EntityManagerInterface $em): JsonResponse {
+        return new JsonResponse([
+                                    'entries' => $this->renderLogEntries(
+                                        $em->getRepository(TownLogEntry::class)->matching(
+                                            $this->applyFilters( $request, $zone, allow_inline_days: true, admin: true )
+                                        ), canHide: false, admin: true
+                                    ),
+                                    'total' => $em->getRepository(TownLogEntry::class)->matching(
+                                        $this->applyFilters( $request, $zone, limits: false, allow_inline_days: true, admin: true )
+                                    )->count(),
+                                    'manipulations' => 0
+                                ]);
+    }
+
+    /**
+     * @Route("/admin/town/{id}", name="admin_town", methods={"GET"})
+     * @IsGranted("ROLE_CROW")
+     * @param Town $town
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     * @throws Exception
+     */
+    public function adminTown(Town $town, Request $request, EntityManagerInterface $em): JsonResponse {
+
+        $filter = $request->query->get('filter', '');
+        $criteria = $this->applyFilters( $request, $town, admin: true );
+        $countCriteria = $this->applyFilters( $request, $town, limits: false, admin: true );
+
+        foreach ([$criteria,$countCriteria] as &$c) {
+            if (!empty($filter)) $c->andWhere(Criteria::expr()->in('logEntryTemplate', $em->getRepository(LogEntryTemplate::class)->findByTypes(
+                explode(',', $filter)
+            )));
+        }
+
+        return new JsonResponse([
+                                    'entries' => $this->renderLogEntries( $em->getRepository(TownLogEntry::class)->matching( $criteria ), canHide: false, admin: true ),
+                                    'total' => $em->getRepository(TownLogEntry::class)->matching( $countCriteria )->count(),
+                                    'manipulations' => 0
+                                ]);
     }
 }

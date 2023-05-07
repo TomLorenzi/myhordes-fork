@@ -12,6 +12,7 @@ export type TranslationStrings = {
         silence: string
         hide: string
         hidden: string
+        hiddenBy: string
         warning: string
         'protected': string
         manipulated: string
