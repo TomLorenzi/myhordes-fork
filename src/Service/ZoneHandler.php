@@ -76,7 +76,8 @@ class ZoneHandler
             $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY());
 
             foreach ($citizen->getInventory()->getItems() as $item)
-                $this->inventory_handler->moveItem( $citizen, $citizen->getInventory(), $item, [$ruinZone->getFloor()] );
+                if (!$item->getEssential())
+                    $this->inventory_handler->forceMoveItem( $ruinZone->getFloor(), $item );
 
             if ($wound) $this->citizen_handler->inflictWound( $citizen );
 
