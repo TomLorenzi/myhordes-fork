@@ -160,11 +160,6 @@ class BeyondController extends InventoryAwareController
 
         $trash_count = ($this->getActiveCitizen()->getBanished() || $this->getActiveCitizen()->getTown()->getDevastated()) ? $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeTrash) : 0;
 
-        $escort_actions = [];
-        foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
-            $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
-
-
         $zone_players = count($zone->getCitizens());
 
         if ($zone->isTownZone()) {
@@ -193,7 +188,6 @@ class BeyondController extends InventoryAwareController
             'town_ap' => $this->zone_handler->getZoneAp($zone),
             'lock_trash' => $trash_count >= ( $this->getActiveCitizen()->getProfession()->getName() === 'collec' ? 4 : 3 ),
             'citizen_hidden' => $citizen_hidden,
-            'escort_actions' => $escort_actions,
             'can_explore' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() &&
                 !$this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), ['terror'] ) &&
                 !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) &&
@@ -416,6 +410,10 @@ class BeyondController extends InventoryAwareController
             ($citizen->getBanished() || $citizen->getTown()->getChaos()) &&
             !$citizen->getZone()->getFloor()->getItems()->filter(function(Item $i) { return $i->getHidden(); })->isEmpty();
 
+        $escort_actions = [];
+        foreach ($this->getActiveCitizen()->getValidLeadingEscorts() as $escort)
+            $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
+
         return [
             'citizen' => $citizen,
             'conf' => $this->getTownConf(),
@@ -430,6 +428,7 @@ class BeyondController extends InventoryAwareController
             'rucksack_sizes' => $rucksack_sizes,
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
             'zone_blocked' => !$this->zone_handler->check_cp($citizen->getZone(), $cp),
+            'escort_actions' => $escort_actions,
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0,
@@ -1337,7 +1336,7 @@ class BeyondController extends InventoryAwareController
                     else continue;
                 }
 
-                $timer->setPassive( false )->setTimestamp( new DateTime('-1sec') );
+                $timer->setPassive( false )->setTimestamp( new DateTime('-1sec') )->setNonAutomatic(true);
                 $this->entity_manager->persist( $target_citizen );
                 $this->entity_manager->persist( $timer );
             } catch (Exception $e) {

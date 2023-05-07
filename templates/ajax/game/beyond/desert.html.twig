@@ -109,7 +109,8 @@
     includes as inventory_partial_includes,
     js as inventory_partial_js,
     html as inventory_partial_html,
-    html_escort as inventory_partial_html_escort
+    html_escort as inventory_partial_html_escort,
+    html_escort_actions as inventory_partial_html_escort_actions
 %}
 
 {# @var zone \App\Entity\Zone #}
@@ -636,20 +637,10 @@
                                     <div class="ap small">{{ other_citizen.ap }}</div>
                                 </div>
                                 <div class="padded cell rw-4 rw-lg-12 rw-md-4 rw-sm-12 right">
-                                    {% if allow_floor_access %}
-                                        {% for escort_action in escort_actions[other_citizen.id] %}
-                                            {# @var \App\Structures\EscortItemActionSet escort_action #}
-                                            {% if other_citizen.escortSettings.allowInventoryAccess %}
-                                                <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group="{{ other_citizen.escortSettings.allowInventoryAccess ? '1' : '0' }}" x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
-                                                    {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
-                                                </button>
-                                            {% elseif escort_action.hasAvailableActions %}
-                                                <button class="small inline" x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" x-provoking-id="p" x-action-id="p" x-action-confirm="1"><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
-                                                    {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
-                                                </button>
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
+                                    <div class="inline-block" id="escort-act-{{ other_citizen.id }}">
+                                        {{ block('inventory_partial_html_escort_actions') }}
+                                    </div>
+
                                     {% if zone.x != 0 or zone.y != 0 %}
                                         <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
                                             <div class="tooltip">{{ '{citizen} befehlen die Umgebung abzusuchen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>

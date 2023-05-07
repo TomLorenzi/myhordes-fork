@@ -40,6 +40,25 @@
     {% endif %}
 {% endblock %}
 
+{% block html_escort_actions %}
+    {% if allow_floor_access %}
+        <div>
+            {% for escort_action in escort_actions[other_citizen.id] %}
+                {# @var \App\Structures\EscortItemActionSet escort_action #}
+                {% if other_citizen.escortSettings.allowInventoryAccess %}
+                    <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group="{{ other_citizen.escortSettings.allowInventoryAccess ? '1' : '0' }}" x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
+                        {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
+                    </button>
+                {% elseif escort_action.hasAvailableActions %}
+                    <button class="small inline" x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" x-provoking-id="p" x-action-id="p" x-action-confirm="1"><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
+                        {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
+                    </button>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
 {% block includes %}
     {% embed "scripts/inventory.js.twig" %}{% endembed %}
 {% endblock %}

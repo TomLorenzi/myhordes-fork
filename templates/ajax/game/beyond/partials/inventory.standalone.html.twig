@@ -21,6 +21,9 @@
     <div x-render-target="#escort-inv-{{ other_citizen.id }}">
         {{ block('html_escort') }}
     </div>
+    <div x-render-target="#escort-act-{{ other_citizen.id }}">
+        {{ block('html_escort_actions') }}
+    </div>
 {% endfor %}
 
 <script>
