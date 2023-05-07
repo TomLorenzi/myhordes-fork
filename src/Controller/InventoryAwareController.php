@@ -164,60 +164,6 @@ class InventoryAwareController extends CustomAbstractController
         return true;
     }
 
-    protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null, $silence_indicators = false ): Response {
-        $entries = [];
-
-        # Try to fetch one more log to check if we must display the "show more entries" message
-        $nb_to_fetch = (is_null($max) or $max <= 0) ? $max : $max + 1;
-
-        /** @var TownLogEntry $entity */
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-            $this->getActiveCitizen()->getTown(),
-            $day, $citizen, $zone, $type, $nb_to_fetch ) as $idx=>$entity) {
-
-                /** @var LogEntryTemplate $template */
-                $template = $entity->getLogEntryTemplate();
-                if (!$template)
-                    continue;
-                $entityVariables = $entity->getVariables();
-                if($citizen !== null && $entity->getHidden())
-                    continue;
-                $entries[$idx] = [
-                    'timestamp' => $entity->getTimestamp(),
-                    'class'     => $template->getClass(),
-                    'type'      => $template->getType(),
-                    'id'        => $entity->getId(),
-                    'hidden'    => $entity->getHidden(),
-                ];
-
-                $variableTypes = $template->getVariableTypes();
-                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
-                try {
-                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
-                }
-                catch (Exception $e) {
-                    $entries[$idx]['text'] = "null";
-                }
-            }
-
-        if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
-
-        $show_more_entries = false;
-        if ($nb_to_fetch != $max) {
-            $show_more_entries = count($entries) > $max;
-            $entries = array_slice($entries, 0, $max);
-        }
-
-        return $this->render( 'ajax/game/log_content.html.twig', [
-            'show_silence' => $silence_indicators,
-            'day' => $day,
-            'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
-            'entries' => $entries,
-            'show_more_entries' => $show_more_entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
-        ] );
-    }
-
     /**
      * @param Inventory[] $inventories
      * @param ItemTargetDefinition $definition
