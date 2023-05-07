@@ -46,6 +46,7 @@ h2.page-head {
 .page-head > strong { color: white }
 
 *[disabled],*[data-disabled="disabled"]:not(form) { pointer-events: none; filter: saturate(0%) contrast(50%) brightness(110%); }
+*[data-disabled="blocked"]:not(form) { pointer-events: none; }
 *.no-interaction { pointer-events: none; }
 form[data-disabled="disabled"] {
   input, select, textarea, button, div.button { pointer-events: none; filter: saturate(0%) contrast(50%) brightness(110%); }

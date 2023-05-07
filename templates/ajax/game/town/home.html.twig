@@ -135,8 +135,7 @@
         <div class="row">
             <h5>{{ 'Mein Register'|trans({},'game') }} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
             <div class="cell rw-12">
-                {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_house_log_controller') } %}
-                {% endembed %}
+                <hordes-log id="home-log" data-react-mount="home-log" data-day="{{ home.citizen.town.day }}" data-etag="{{ date().timestamp }}" data-citizen="{{ home.citizen.id }}" data-domain="citizen"></hordes-log>
             </div>
         </div>
     </div>
@@ -480,7 +479,6 @@
     {{ parent() }}
     <script>
         {% embed "scripts/actions.js.twig" %}{% endembed %};
-        {% embed "scripts/log.js.twig" %}{% endembed %}
 
         {{ block('inventory_partial_includes') }}
         {{ block('inventory_partial_js') }}

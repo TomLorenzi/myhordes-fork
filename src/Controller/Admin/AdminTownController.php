@@ -132,18 +132,6 @@ class AdminTownController extends AdminActionController
         ]));
     }
 
-    /**
-     * @Route("api/admin/raventimes/log", name="admin_newspaper_log_controller")
-     * @AdminLogProfile(enabled=true)
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_newspaper_api(JSONRequestParser $parser): Response {
-        $town_id = $parser->get('town', -1);
-        $town = $this->entity_manager->getRepository(Town::class)->find($town_id);
-        return $this->renderLog((int)$parser->get('day', -1), $town, false, null, null);
-    }
-
     protected function renderInventoryAsBank( Inventory $inventory ) {
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
@@ -299,7 +287,6 @@ class AdminTownController extends AdminActionController
             'conf_compare' => $conf_compare,
             'conf_keys' => array_unique( array_merge( array_keys( $conf_self->raw() ), array_keys( $conf_compare?->raw() ?? [] ) ) ),
             'explorables' => $explorables,
-            'log' => $this->renderLog(-1, $town, false)->getContent(),
             'day' => $town->getDay(),
             'bank' => $this->renderInventoryAsBank($town->getBank()),
             'itemPrototypes' => $this->getOrderedItemPrototypes($this->getUser()->getAdminLang() ?? $this->getUser()->getLanguage()),
@@ -469,7 +456,6 @@ class AdminTownController extends AdminActionController
 			'town' => $town,
 			'day' => $town->getDay(),
 			'tab' => "register",
-			'log' => $this->renderLog(-1, $town, false)->getContent(),
 			'gazette' => $gazetteService->renderGazette( $town, $town->getDay(), true),
 			'council' => array_map( fn(CouncilEntry $c) => [$gazetteService->parseCouncilLog( $c ), $c->getCitizen()], array_filter( $this->entity_manager->getRepository(CouncilEntry::class)->findBy(['town' => $town, 'day' => $town->getDay()], ['ord' => 'ASC']),
 				fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
@@ -1534,35 +1520,7 @@ class AdminTownController extends AdminActionController
             'ruin_bury' => $zone->getBuryCount(),
             'camp_levl' => $zone->getImprovementLevel(),
             'ruin_camp' => $zone->getPrototype()?->getCampingLevel(),
-            'zone_log' => $this->renderView("ajax/admin/towns/log.html.twig", [
-                'additional_log_params' => [ 'zone_id' => $zone_id ],
-                'log_content' => $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone)->getContent(),
-                'log_source' => $this->urlGenerator->generate('get_zone_info_log', ['id' => $id]),
-                'day' => $parser->has('day') ? $parser->get('day') : $town->getDay()
-            ]),
         ]);
-    }
-
-    /**
-     * @Route("jx/admin/town/{id<\d+>}/get_zone_info_log", priority=1, name="get_zone_info_log")
-     * @AdminLogProfile(enabled=true)
-     * @Security("is_granted('ROLE_ADMIN')")
-     * Returns the floor of a given zone
-     * @param int $id Town ID
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function get_zone_info_log(int $id, JSONRequestParser  $parser): Response {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) return new Response('');
-
-        $zone_id = $parser->get('zone_id', -1);
-        $zone = $this->entity_manager->getRepository(Zone::class)->find($zone_id);
-
-        if(!$zone || $zone->getTown() !== $town)
-            return new Response('');
-
-        return $this->renderLog($parser->has('day') ? $parser->get('day') : $town->getDay(), $town, $zone);
     }
 
     /**

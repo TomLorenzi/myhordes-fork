@@ -430,7 +430,6 @@ class BeyondController extends InventoryAwareController
             'rucksack_sizes' => $rucksack_sizes,
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
             'zone_blocked' => !$this->zone_handler->check_cp($citizen->getZone(), $cp),
-            'log' => ($citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0) ? '' : $this->renderLog( -1, null, $citizen->getZone(), null, 20, true )->getContent(),
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0,
@@ -465,18 +464,6 @@ class BeyondController extends InventoryAwareController
     public function desert_partial_item_actions(): Response
     {
         return $this->render( 'ajax/game/beyond/partials/item-actions.standalone.html.twig', $this->desert_partial_item_action_args() );
-    }
-
-    /**
-     * @Route("api/beyond/desert/log", name="beyond_desert_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_desert_api(JSONRequestParser $parser): Response {
-        $zone = $this->getActiveCitizen()->getZone();
-        if (!$zone || ($zone->getX() === 0 && $zone->getY() === 0))
-            return $this->renderLog((int)$parser->get('day', -1), null, null, null, 0, true);
-        return $this->renderLog((int)$parser->get('day', -1), null, $zone, null, null, true);
     }
 
     protected function activeCitizenIsNotEscorted() {
@@ -595,38 +582,6 @@ class BeyondController extends InventoryAwareController
         }
 
         return $r;
-    }
-
-    /**
-     * @Route("api/beyond/desert/chat", name="beyond_desert_chat_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function chat_desert_api(JSONRequestParser $parser, HTMLService $html): Response {
-        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        if ($this->getActiveCitizen()->getZone()->isTownZone())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $message = $parser->get('msg', null);
-        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, $this->getActiveCitizen()->getTown(), $insight) || $insight->text_length < 2 || $insight->text_length > 256 )
-            return AjaxResponse::error(self::ErrorChatMessageInvalid);
-
-        $message = $html->htmlDistort( $message,
-            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
-            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'terror') ? HTMLService::ModulationTerror : HTMLService::ModulationNone) |
-            ($this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'wound1') ? HTMLService::ModulationHead : HTMLService::ModulationNone)
-            , $this->getActiveCitizen()->getTown()->getRealLanguage($this->generatedLangsCodes) ?? $this->getUserLanguage(), $d );
-
-        try {
-            $this->entity_manager->persist( $this->log->beyondChat( $this->getActiveCitizen(), $message ) );
-            $this->entity_manager->flush(  );
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
     }
 
     /**

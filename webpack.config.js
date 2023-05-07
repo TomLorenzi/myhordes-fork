@@ -95,7 +95,7 @@ Encore
 
     .addEntry('module-ruffle', './assets/js/modules/ruffle.js')
 
-    .addEntry('module-map', './assets/ts/modules/map.ts')
+    .addEntry('module-game', './assets/ts/modules/common-game-modules.ts')
     .addEntry('module-town-creator', './assets/ts/modules/town-creator.ts')
     .addEntry('module-event-creator', './assets/ts/modules/event-creator.ts')
     .addEntry('module-avatar-creator', './assets/ts/modules/avatar-creator.ts')

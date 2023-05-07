@@ -97,52 +97,6 @@ class AdminActionController extends CustomAbstractController
         return $data;
     }
 
-    protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {
-        $entries = [];
-
-        # Try to fetch one more log to check if we must display the "show more entries" message
-        $nb_to_fetch = (is_null($max) or $max <= 0) ? $max : $max + 1;
-
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-            $town, $day, null, $zone, $type, $nb_to_fetch, null ) as $idx => $entity) {
-
-                /** @var LogEntryTemplate $template */
-                $template = $entity->getLogEntryTemplate();
-                if (!$template)
-                    continue;
-                $entityVariables = $entity->getVariables();
-                $entries[$idx]['timestamp'] = $entity->getTimestamp();
-                $entries[$idx]['class'] = $template->getClass();
-                $entries[$idx]['type'] = $template->getType();
-                $entries[$idx]['id'] = $entity->getId();
-                $entries[$idx]['hidden'] = $entity->getHidden();
-                $entries[$idx]['hiddenBy'] = $entity->getHiddenBy();
-
-                $variableTypes = $template->getVariableTypes();
-                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
-
-                try {
-                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
-                }
-                catch (Exception $e) {
-                    $entries[$idx]['text'] = "null";
-                }             
-            }
-
-        $show_more_entries = false;
-        if ($nb_to_fetch != $max) {
-            $show_more_entries = count($entries) > $max;
-            $entries = array_slice($entries, 0, $max);
-        }
-
-        return $this->render( 'ajax/admin/towns/log_content.html.twig', [
-            'entries' => $entries,
-            'show_more_entries' => $show_more_entries,
-            'canHideEntry' => false,
-            'day' => $day
-        ] );
-    }
-
     /**
      * @Route("jx/admin/com/dash", name="admin_dashboard")
      * @param ParameterBagInterface $params

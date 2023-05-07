@@ -178,7 +178,6 @@ class TownHomeController extends TownController
 
             'devastated' => $town->getDevastated(),
 
-            'log' => $this->renderLog( -1, $citizen, false, null, 5 )->getContent(),
             'day' => $town->getDay(),
 
             'can_send_global_pm' => $can_send_global_pm,
@@ -249,17 +248,6 @@ class TownHomeController extends TownController
     public function house_partial_inventory(): Response
     {
         return $this->render( 'ajax/game/town/partials/inventory.standalone.html.twig', $this->house_partial_inventory_args() );
-    }
-
-    /**
-     * @Route("api/town/house/log", name="town_house_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_house_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), $this->getActiveCitizen(), false, null, null);
     }
 
     /**
