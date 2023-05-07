@@ -308,7 +308,9 @@ const HordesChatContainer = ({refresh, zone}: {refresh: ()=>void, zone: number})
 
     return <div className="row-flex gap my stretch" data-disabled={loading ? 'disabled' : ''}>
         <div className="cell grow-1">
-            <label><input ref={input} type="text" placeholder={globals.strings?.chat.placeholder}/></label>
+            <label><input
+                onKeyDown={e => e.code === "Enter" && sendMessage()}
+                ref={input} type="text" placeholder={globals.strings?.chat.placeholder}/></label>
         </div>
         <div className="cell grow-0">
             <button onClick={()=>sendMessage()}>{globals.strings?.chat.send}</button>
