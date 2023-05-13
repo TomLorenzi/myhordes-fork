@@ -98,7 +98,7 @@
     let backbtn = document.getElementById("backbtn");
     if(backbtn) backbtn.addEventListener('click', function(e){
         e.preventDefault();
-        const dest = "{% if thread.archived %}{{ path('town_house_messages', {'archived'}) }}{% else %}{{ path('town_house_messages', {'subtab': 'received'}) }}{% endif %}";
+        const dest = "{% if thread.archived %}{{ path('town_house_messages', {'subtab': 'archived'}) }}{% else %}{{ path('town_house_messages', {'subtab': 'received'}) }}{% endif %}";
         $.ajax.load(null, dest, true);
     });
 
