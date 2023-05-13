@@ -9,11 +9,14 @@
     {% embed "ajax/game/town/door_tabs.html.twig" with {'door_section': door_section, 'has_battlement': has_battlement} %}
     {% endembed %}
 
+
     <div class="row-flex wrap town-summary defense-detail">
         <div class="padded cell rw-4 ellipsis row-header">{{'Stadtverteidigung'|trans({}, 'game')}} :</div>
         <div class="padded cell rw-8 ellipsis row-detail">{{ def }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
-        <div class="padded cell rw-4 ellipsis row-header">{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</div>
-        <div class="padded cell rw-8 ellipsis row-detail">{{ zeds_today[1] }} - {{ zeds_today[2] }} <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
+        {% if (zeds_today[3] >= conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33)) and zeds_today[0] %}
+            <div class="padded cell rw-4 ellipsis row-header">{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</div>
+            <div class="padded cell rw-8 ellipsis row-detail">{{ zeds_today[1] }} - {{ zeds_today[2] }} <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
+        {% endif %}
     </div>
 
     <div class="help">
