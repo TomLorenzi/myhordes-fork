@@ -66,7 +66,8 @@ const Distinctions = (
             currentNode.current = (event.target as HTMLDivElement).closest('.picto') as HTMLDivElement;
             currentDrag.current = { cur: {x: 0, y: 0}, orig: {x: event.pageX, y: event.pageY}, handled: false }
             setDragging({id} );
-            document.body.style.overflow = 'hidden';
+            if (window.innerWidth - document.querySelector('html').clientWidth <= 0)
+                document.body.style.overflow = 'hidden';
             event.preventDefault();
         }
     }
