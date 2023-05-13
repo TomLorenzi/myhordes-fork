@@ -45,6 +45,8 @@ const AvatarCreatorWrapper = ( {maxSize}: {maxSize: number} ) => {
     const [loading, setLoading] = useState<boolean>(false)
     const [editMode, setEditMode] = useState<{ mime: string, data: ArrayBuffer }>(null)
 
+    const [editBlockedByResolution, setEditBlockedByResolution] = useState<boolean>(false);
+
     useEffect( () => {
         apiRef.current = new AvatarCreatorAPI();
         apiRef.current.index().then( index => setIndex(index) );
@@ -83,7 +85,7 @@ const AvatarCreatorWrapper = ( {maxSize}: {maxSize: number} ) => {
                     reader.readAsArrayBuffer(file);
                 }}/>
                 { index && media && <>
-                    <AvatarDisplay media={media}/>
+                    <AvatarDisplay media={media} defaultResolutionCallback={(x,y) => setEditBlockedByResolution(Math.max(x,y) < 100)}/>
                 </> }
                 { loading && <div className="loading"/> }
                 { !loading && <>
@@ -94,23 +96,25 @@ const AvatarCreatorWrapper = ( {maxSize}: {maxSize: number} ) => {
                                     { index.strings.common.action_edit }
                                 </button>
                             </div>
-                            <div className="padded cell rw-4 rw-md-6 rw-sm-12">
-                                <button onClick={()=>{
-                                    setLoading(true);
-                                    fetch( media.default?.url || media.round?.url || media.small?.url, {
-                                        method: "GET"
-                                    } ).then( response => {
-                                        response.blob()
-                                            .then( blob => blob.arrayBuffer() )
-                                            .then( blob => {
-                                                setEditMode({mime: response.headers.get('Content-Type'), data: blob});
-                                                setLoading(false);
-                                            })
-                                    })
-                                }}>
-                                    { index.strings.common.action_modify }
-                                </button>
-                            </div>
+                            { media.default && !editBlockedByResolution &&
+                                <div className="padded cell rw-4 rw-md-6 rw-sm-12">
+                                    <button onClick={()=>{
+                                        setLoading(true);
+                                        fetch( media.default?.url || media.round?.url || media.small?.url, {
+                                            method: "GET"
+                                        } ).then( response => {
+                                            response.blob()
+                                                .then( blob => blob.arrayBuffer() )
+                                                .then( blob => {
+                                                    setEditMode({mime: response.headers.get('Content-Type'), data: blob});
+                                                    setLoading(false);
+                                                })
+                                        })
+                                    }}>
+                                        { index.strings.common.action_modify }
+                                    </button>
+                                </div>
+                            }
                             <div className="padded cell rw-4 rw-md-6 rw-sm-12">
                                 <button onClick={async () => {
                                     if (confirm(index.strings.common.confirm)) {
@@ -159,7 +163,7 @@ const byteToText = (bytes: number) => {
     else return `${Math.floor(bytes/104857.6)/10} MiB`
 }
 
-const AvatarDisplay = ({media}:{media:ResponseMedia}) => {
+const AvatarDisplay = ({media,defaultResolutionCallback}:{media:ResponseMedia, defaultResolutionCallback: (x: number, y: number) => void}) => {
 
     const globals = useContext(Globals)
     const [defaultImageDimensions, setDefaultImageDimensions] = useState<ImageDimensions>(null)
@@ -167,7 +171,10 @@ const AvatarDisplay = ({media}:{media:ResponseMedia}) => {
     const [smallImageDimensions, setSmallImageDimensions] = useState<ImageDimensions>(null)
 
     useEffect(() => {
-        if (media.default) getMediaDimensions(media.default.url, d=>setDefaultImageDimensions(d));
+        if (media.default) getMediaDimensions(media.default.url, d=> {
+            setDefaultImageDimensions(d);
+            defaultResolutionCallback(d.x,d.y)
+        });
         if (media.round) getMediaDimensions(media.round.url, d=>setRoundImageDimensions(d));
         if (media.small) getMediaDimensions(media.small.url, d=>setSmallImageDimensions(d));
     }, [])

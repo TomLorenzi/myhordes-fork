@@ -91,8 +91,8 @@ class AvatarController extends AbstractController
 
     private function renderAvatar(User $user, bool $small): ?array {
         $avatar = $user->getAvatar();
-        $stream = $small ? $avatar?->getSmallImage() : $avatar?->getImage();
-        if (!$stream || (!$small && $avatar->isClassic()) || ($small && !$avatar->getSmallName())) return null;
+        $stream = ($small && !$avatar?->isClassic()) ? $avatar?->getSmallImage() : $avatar?->getImage();
+        if (!$stream || (!$small && $avatar->isClassic())) return null;
 
 
         return [
