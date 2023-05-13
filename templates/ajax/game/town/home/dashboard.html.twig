@@ -1,0 +1,106 @@
+{% extends "ajax/game/town/home/frame.html.twig" %}
+
+{% use "ajax/game/town/partials/item-stats.html.twig" with html_dashboard as dashboard %}
+
+{% use "ajax/game/town/partials/inventory.html.twig" with
+    includes as inventory_partial_includes,
+    js as inventory_partial_js,
+    html as inventory_partial_html
+%}
+
+{% block home_content %}
+    <div class="dashboard" id="dashboard-overview">
+        {{ block('dashboard') }}
+    </div>
+
+    <div class="help">
+        {% trans from 'game' %}
+            In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du <strong>mit deinen Gegenständen ausführen kannst</strong>. In der rechten Spalte kannst du den <strong>Inhalt deines Rucksacks</strong> und <strong>deiner Truhe</strong> ansehen.
+        {% endtrans %}
+    </div>
+
+    <div class="row">
+        <div class="padded cell rw-6 rw-md-12 citizen-home actions-box">
+            <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
+            {% embed "ajax/game/actions.html.twig" with {'special_action_list': home_actions, 'prefix': 'home'} %}
+            {% endembed %}
+            {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
+            {% endembed %}
+
+            <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %} <a class="help-button"><div class="tooltip help">{% trans from 'global' %}Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..{% endtrans %}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+            {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
+            {% endembed %}
+
+            {% if is_granted('ROLE_CROW') and app.environment == 'dev' %}
+                <button id="suicid" class="mt-1"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
+                <button x-ajax-href="{{ path('admin_users_account_view', {id: home.citizen.user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
+            {% endif %}
+        </div>
+
+        <div class="padded cell rw-6 rw-md-12">
+            <div id="inventory_partial_html">
+                {{ block('inventory_partial_html') }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5>{{ 'Mein Register'|trans({},'game') }} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
+        <div class="cell rw-12">
+            <hordes-log id="home-log" data-react-mount="home-log" data-day="{{ home.citizen.town.day }}" data-etag="{{ date().timestamp }}" data-citizen="{{ home.citizen.id }}" data-domain="citizen"></hordes-log>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% embed "scripts/actions.js.twig" %}{% endembed %};
+
+        {{ block('inventory_partial_includes') }}
+        {{ block('inventory_partial_js') }}
+
+        handleHeroicActions(
+            document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
+            '{{ path('town_house_heroic_controller') }}', '{{ path('town_house_dash') }}'
+        );
+        $.html.addEventListenerAll( 'ul.heroic_actions .already[data-used-message]', 'click', (e,elem) => $.html.error( elem.dataset.usedMessage ) );
+
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions.prefix-home [x-action-id]:not([disabled])'),
+            '{{ path('town_house_special_action_controller', {'sect': 'home'}) }}', '{{ path('town_house_dash') }}'
+        );
+
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions:not(.prefixed) [x-action-id]:not([disabled])'),
+            '{{ path('town_house_special_action_controller', {'sect': 'special'}) }}', '{{ path('town_house_dash') }}'
+        );
+
+        handleActions(
+            document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
+            '{{ path('town_house_action_controller') }}', '{{ path('town_house_dash') }}'
+        );
+
+        handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.special_actions>li[x-target-definition]') );
+
+        handleRecipes(
+            document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
+            '{{ path('town_house_recipe_controller') }}', '{{ path('town_house_dash') }}'
+        );
+
+        {{ block('dashboard_js') }}
+
+        {% if is_granted('ROLE_CROW') %}
+        let suicidbtn = document.getElementById('suicid');
+        if(suicidbtn) suicidbtn.addEventListener('click', function(){
+            if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                $.ajax.easySend( '{{ path('town_home_suicid') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+        });
+        {% endif %}
+    </script>
+{% endblock %}

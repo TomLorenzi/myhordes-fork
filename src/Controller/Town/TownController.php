@@ -326,7 +326,7 @@ class TownController extends InventoryAwareController
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         if ($id === $this->getActiveCitizen()->getId())
-            return $this->redirect($this->generateUrl('town_house'));
+            return $this->redirect($this->generateUrl('town_house_dash'));
 
         /** @var Citizen $c */
         $c = $em->getRepository(Citizen::class)->find( $id );
