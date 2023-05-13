@@ -70,6 +70,7 @@ class AvatarController extends AbstractController
 
                     'action_delete' => $trans->trans('Profilbild löschen', [], 'soul'),
                     'action_edit' => $trans->trans('Neues Profilbild hochladen', [], 'soul'),
+                    'action_modify' => $trans->trans('Profilbild bearbeiten', [], 'soul'),
                     'action_create' => $trans->trans('Profilbild hochladen', [], 'soul'),
                     'action_cancel' => $trans->trans('Abbrechen', [], 'global'),
                     'action_upload' => $trans->trans('Profilbild speichern', [], 'soul'),

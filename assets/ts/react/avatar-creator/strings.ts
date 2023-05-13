@@ -17,6 +17,7 @@ export type TranslationStrings = {
 
         action_delete: string,
         action_edit: string,
+        action_modify: string,
         action_create: string,
         action_cancel: string,
         action_upload: string,

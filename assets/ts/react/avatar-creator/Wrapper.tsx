@@ -95,6 +95,23 @@ const AvatarCreatorWrapper = ( {maxSize}: {maxSize: number} ) => {
                                 </button>
                             </div>
                             <div className="padded cell rw-4 rw-md-6 rw-sm-12">
+                                <button onClick={()=>{
+                                    setLoading(true);
+                                    fetch( media.default?.url || media.round?.url || media.small?.url, {
+                                        method: "GET"
+                                    } ).then( response => {
+                                        response.blob()
+                                            .then( blob => blob.arrayBuffer() )
+                                            .then( blob => {
+                                                setEditMode({mime: response.headers.get('Content-Type'), data: blob});
+                                                setLoading(false);
+                                            })
+                                    })
+                                }}>
+                                    { index.strings.common.action_modify }
+                                </button>
+                            </div>
+                            <div className="padded cell rw-4 rw-md-6 rw-sm-12">
                                 <button onClick={async () => {
                                     if (confirm(index.strings.common.confirm)) {
                                         setLoading(true);
