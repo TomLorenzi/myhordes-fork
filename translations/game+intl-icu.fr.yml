@@ -587,7 +587,7 @@ Drogenerfahrungen: Expérimentations
 Expertenexpeditionen: Explorations très lointaines
 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones éloignées que vous avez explorés.'
 Großzügigkeit: Générosité
-'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros que vous avez offert à un autre citoyen dans le besoin.'
+'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros/actions héroïques que vous avez offert à un autre citoyen dans le besoin.'
 'Spiritueller Führer': 'Guide Spirituel'
 'Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.': 'Jours passés en tant que guide pour les noobs en Région non éloignée.'
 Laborant: Laborantin
@@ -2384,6 +2384,7 @@ Stadt/Stadttor: Ville/Portes
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'Vous ne pouvez pas déposer cet objet ici.'
 Tarnexperte: Chef-Camouflage
 'Einrichtung (Tab)': Aménagements
+'Offizieller AP-Versorger': 'Fournisseur officiel de PA'
 'Community-Events verwalten': 'Gérer les événements communautaires'
 'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Votre événement communautaire "{eventName}" a été validé par un modérateur et peut maintenant commencer à l’heure prévue.'
 'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Votre événement communautaire "{eventName}" a été supprimé par un modérateur.'
