@@ -533,7 +533,9 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                         }}/> {globals.strings.common.edit_manual}</label></div>
                     </div>
                 </div>
-                { specifySmallSection && <>
+            </div>
+            { specifySmallSection && <>
+                <div className="row">
                     <div className="padded cell rw-3 rw-md-4 rw-sm-12">
                         <div className="note note-lightest">
                             { globals.strings.common.edit_now }
@@ -545,8 +547,8 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                             <div className="cell"><label className="small"><input checked={editSmallSection} type="radio" name="editSmallSection" value="small" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_small}</label></div>
                         </div>
                     </div>
-                </> }
-            </div>
+                </div>
+            </> }
             <div className="row">
                 <div className="padded cell rw-4 rw-md-6 rw-sm-12">
                     <div className="small">
