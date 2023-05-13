@@ -210,13 +210,38 @@
                                             {% if award.customTitle is not null %}
                                                 <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.customTitle }}</option>
                                             {% elseif award.prototype is not null and award.prototype.title is not null %}
-                                                <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game')|raw }}</option>
+                                                <option {{ {
+                                                        'data-name-default': award.prototype.title|trans({},'game'),
+                                                        'data-name-lde': award.prototype.title|trans({},'game','de'),
+                                                        'data-name-len': award.prototype.title|trans({},'game','en'),
+                                                        'data-name-lfr': award.prototype.title|trans({},'game','fr'),
+                                                        'data-name-les': award.prototype.title|trans({},'game','es'),
+                                                }|attributes }} {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">
+                                                    {{ award|translated_title(app.user,app.user) }}
+                                                </option>
                                             {% endif %}
                                         {% endfor %}
                                     </optgroup>
                                 {% endif %}
 
                             {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest">
+                            <label for="user_title_lang">{{ 'Andere Spieler sehen deinen Titel in ...'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                    <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <select id="user_title_lang">
+                            <option {% if app.user.setting( constant("\\App\\Enum\\UserSetting::TitleLanguage") ) == '_them' %}selected{% endif%} value="_them">{{ 'ihrer eigenen Sprache'|trans({},'soul') }}</option>
+                            <option {% if app.user.setting( constant("\\App\\Enum\\UserSetting::TitleLanguage") ) == '_me' %}selected{% endif%} value="_me">{{ 'meiner Sprache'|trans({},'soul') }}</option>
+                            <option {% if app.user.setting( constant("\\App\\Enum\\UserSetting::TitleLanguage") ) == 'de' %}selected{% endif%} value="de">{{ 'Deutsch'|trans({},'global') }}</option>
+                            <option {% if app.user.setting( constant("\\App\\Enum\\UserSetting::TitleLanguage") ) == 'en' %}selected{% endif%} value="en">{{ 'Englisch'|trans({},'global') }}</option>
+                            <option {% if app.user.setting( constant("\\App\\Enum\\UserSetting::TitleLanguage") ) == 'es' %}selected{% endif%} value="es">{{ 'Spanisch'|trans({},'global') }}</option>
+                            <option {% if app.user.setting( constant("\\App\\Enum\\UserSetting::TitleLanguage") ) == 'fr' %}selected{% endif%} value="fr">{{ 'Französisch'|trans({},'global') }}</option>
                         </select>
                     </div>
                 </div>
@@ -895,8 +920,16 @@
 
         $.html.addEventListenerAll('#user_displayname', 'input', () => $.html.forEach('#name-warning-box', e => e.classList.remove('hidden')))
 
+        $.html.addEventListenerAll('#user_title_lang', 'change', () => {
+            const lang = document.getElementById('user_title_lang').value;
+            $.html.forEach( '#user_title option[data-name-default]', e => {
+                e.innerText = e.dataset['nameL' + lang] ?? e.dataset['nameDefault'];
+            } );
+        })
+
         $.html.addEventListenerAll('#save_profile_header', 'click', () => {
             const title = parseInt(document.getElementById('user_title').value);
+            const title_lang = document.getElementById('user_title_lang').value;
             const icon  = parseInt(document.getElementById('user_icon').value);
             const flag  = document.getElementById('user_flag').value;
             const pronounSel = document.querySelector('input[name="user_pronoun"]:checked');
@@ -908,7 +941,7 @@
             }
 
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
-                title, icon, flag, pronoun,
+                title, title_lang, icon, flag, pronoun,
                 desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()}),
                 displayName: document.getElementById('user_displayname').value
             }, () => {
