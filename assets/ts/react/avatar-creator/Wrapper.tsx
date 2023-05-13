@@ -7,6 +7,7 @@ import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, 
 import {TranslationStrings} from "./strings";
 import {Global} from "../../defaults";
 import {number} from "prop-types";
+import {Tooltip} from "../tooltip/Wrapper";
 
 declare var $: Global;
 
@@ -44,6 +45,8 @@ const AvatarCreatorWrapper = ( {maxSize}: {maxSize: number} ) => {
 
     const [loading, setLoading] = useState<boolean>(false)
     const [editMode, setEditMode] = useState<{ mime: string, data: ArrayBuffer }>(null)
+
+    const [editBlockedByResolution, setEditBlockedByResolution] = useState<boolean>(false);
 
     useEffect( () => {
         apiRef.current = new AvatarCreatorAPI();
@@ -83,7 +86,7 @@ const AvatarCreatorWrapper = ( {maxSize}: {maxSize: number} ) => {
                     reader.readAsArrayBuffer(file);
                 }}/>
                 { index && media && <>
-                    <AvatarDisplay media={media}/>
+                    <AvatarDisplay media={media} defaultResolutionCallback={(x,y) => setEditBlockedByResolution(Math.max(x,y) < 100)}/>
                 </> }
                 { loading && <div className="loading"/> }
                 { !loading && <>
@@ -94,6 +97,25 @@ const AvatarCreatorWrapper = ( {maxSize}: {maxSize: number} ) => {
                                     { index.strings.common.action_edit }
                                 </button>
                             </div>
+                            { media.default && !editBlockedByResolution &&
+                                <div className="padded cell rw-4 rw-md-6 rw-sm-12">
+                                    <button onClick={()=>{
+                                        setLoading(true);
+                                        fetch( media.default?.url || media.round?.url || media.small?.url, {
+                                            method: "GET"
+                                        } ).then( response => {
+                                            response.blob()
+                                                .then( blob => blob.arrayBuffer() )
+                                                .then( blob => {
+                                                    setEditMode({mime: response.headers.get('Content-Type'), data: blob});
+                                                    setLoading(false);
+                                                })
+                                        })
+                                    }}>
+                                        { index.strings.common.action_modify }
+                                    </button>
+                                </div>
+                            }
                             <div className="padded cell rw-4 rw-md-6 rw-sm-12">
                                 <button onClick={async () => {
                                     if (confirm(index.strings.common.confirm)) {
@@ -142,7 +164,7 @@ const byteToText = (bytes: number) => {
     else return `${Math.floor(bytes/104857.6)/10} MiB`
 }
 
-const AvatarDisplay = ({media}:{media:ResponseMedia}) => {
+const AvatarDisplay = ({media,defaultResolutionCallback}:{media:ResponseMedia, defaultResolutionCallback: (x: number, y: number) => void}) => {
 
     const globals = useContext(Globals)
     const [defaultImageDimensions, setDefaultImageDimensions] = useState<ImageDimensions>(null)
@@ -150,7 +172,10 @@ const AvatarDisplay = ({media}:{media:ResponseMedia}) => {
     const [smallImageDimensions, setSmallImageDimensions] = useState<ImageDimensions>(null)
 
     useEffect(() => {
-        if (media.default) getMediaDimensions(media.default.url, d=>setDefaultImageDimensions(d));
+        if (media.default) getMediaDimensions(media.default.url, d=> {
+            setDefaultImageDimensions(d);
+            defaultResolutionCallback(d.x,d.y)
+        });
         if (media.round) getMediaDimensions(media.round.url, d=>setRoundImageDimensions(d));
         if (media.small) getMediaDimensions(media.small.url, d=>setSmallImageDimensions(d));
     }, [])
@@ -485,6 +510,8 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
         selectorSmall.current.style.right = `${right}px`
     }
 
+    const format = useRef<HTMLSelectElement>();
+
     return <div>
         { (!imageDimensions || loading) && <div className="loading"/> }
         { imageDimensions && !loading && <>
@@ -492,37 +519,55 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                 <div className="padded cell rw-12">
                     <div className="help">{ globals.strings.common.edit_help }<br/>{ globals.strings.common.edit_help2 }</div>
                 </div>
+            </div>
+            <div className="row">
+                <div className="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div className="note note-lightest">
+                        { globals.strings.common.compression }
+                        &nbsp;
+                        <a className="help-button">
+                            { globals.strings.common.help }
+                            <Tooltip additionalClasses="help" html={globals.strings.common.compression_help}/>
+                        </a>
+                    </div>
+                </div>
+                <div className="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <select ref={format}>
+                        <option value="avif">{ globals.strings.common.compression_avif }</option>
+                        <option value="webp">{ globals.strings.common.compression_webp }</option>
+                    </select>
+                </div>
+            </div>
+            <div className="row">
                 <div className="padded cell rw-3 rw-md-4 rw-sm-12">
                     <div className="note note-lightest">
                         { globals.strings.common.format_small }
                     </div>
                 </div>
-                <div className="cell rw-9 rw-md-8 rw-sm-12">
-                    <div className="row-flex wrap">
-                        <div className="cell"><label className="small"><input checked={!specifySmallSection} type="radio" name="specifySmallSection" value="no" onChange={e=> {
-                            setSpecifySmallSection(e.target.value === 'yes')
-                            if (e.target.value !== 'yes') setEditSmallSection(false);
-                        }}/> {globals.strings.common.edit_auto}</label></div>
-                        <div className="cell"><label className="small"><input checked={specifySmallSection} type="radio" name="specifySmallSection" value="yes" onChange={e=> {
-                            setSpecifySmallSection(e.target.value === 'yes')
-                            if (e.target.value !== 'yes') setEditSmallSection(false);
-                        }}/> {globals.strings.common.edit_manual}</label></div>
-                    </div>
+                <div className="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <div><label className="small"><input checked={!specifySmallSection} type="radio" name="specifySmallSection" value="no" onChange={e=> {
+                        setSpecifySmallSection(e.target.value === 'yes')
+                        if (e.target.value !== 'yes') setEditSmallSection(false);
+                    }}/> {globals.strings.common.edit_auto}</label></div>
+                    <div><label className="small"><input checked={specifySmallSection} type="radio" name="specifySmallSection" value="yes" onChange={e=> {
+                        setSpecifySmallSection(e.target.value === 'yes')
+                        if (e.target.value !== 'yes') setEditSmallSection(false);
+                    }}/> {globals.strings.common.edit_manual}</label></div>
                 </div>
-                { specifySmallSection && <>
+            </div>
+            { specifySmallSection && <>
+                <div className="row">
                     <div className="padded cell rw-3 rw-md-4 rw-sm-12">
                         <div className="note note-lightest">
                             { globals.strings.common.edit_now }
                         </div>
                     </div>
-                    <div className="cell rw-9 rw-md-8 rw-sm-12">
-                        <div className="row-flex wrap">
-                            <div className="cell"><label className="small"><input checked={!editSmallSection} type="radio" name="editSmallSection" value="default" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_default}</label></div>
-                            <div className="cell"><label className="small"><input checked={editSmallSection} type="radio" name="editSmallSection" value="small" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_small}</label></div>
-                        </div>
+                    <div className="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <div><label className="small"><input checked={!editSmallSection} type="radio" name="editSmallSection" value="default" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_default}</label></div>
+                        <div><label className="small"><input checked={editSmallSection} type="radio" name="editSmallSection" value="small" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_small}</label></div>
                     </div>
-                </> }
-            </div>
+                </div>
+            </> }
             <div className="row">
                 <div className="padded cell rw-4 rw-md-6 rw-sm-12">
                     <div className="small">
@@ -596,7 +641,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                             y: imageDimensions.y - metaSmall.current.y0 - metaSmall.current.y1,
                             width: metaSmall.current.x1,
                             height: metaSmall.current.y1,
-                        } : null ).then(()=> {
+                        } : null, format.current?.value ).then(()=> {
                             confirm();
                             setLoading(false);
                         });

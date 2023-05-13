@@ -52,10 +52,10 @@ class ImageService
         }
     }
 
-    public static function getCompressionOptions(Image $image): array {
+    public static function getCompressionOptions(Image $image, string $preset = 'avif'): array {
         $converter_formats = [];
         if (in_array($image->format, ['WEBP','GIF','PNG','JPEG'])) $converter_formats[] = null;
-        if ($image->format !== 'AVIF' && !$image->animated ) $converter_formats[] = 'AVIF';
+        if ($image->format !== 'AVIF' && !$image->animated && $preset === 'avif' ) $converter_formats[] = 'AVIF';
         if ($image->format !== 'WEBP' ) $converter_formats[] = 'WEBP';
 
         return $converter_formats;
