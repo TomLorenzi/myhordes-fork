@@ -270,7 +270,7 @@ class MessageTownMessageController extends MessageController
                 $message = $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game');
 
             $this->addFlash( 'notice',  $message);
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house_messages', ['subtab' => 'received'])] );
         }
 
 
