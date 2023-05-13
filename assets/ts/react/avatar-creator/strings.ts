@@ -1,5 +1,7 @@
 export type TranslationStrings = {
     common: {
+        help: string,
+
         no_avatar: string
 
         edit_help: string,
@@ -31,5 +33,10 @@ export type TranslationStrings = {
         edit_auto: string,
         edit_manual: string,
         edit_now: string,
+
+        compression: string,
+        compression_help: string,
+        compression_avif: string,
+        compression_webp: string,
     },
 }

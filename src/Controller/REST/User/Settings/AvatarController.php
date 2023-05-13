@@ -53,6 +53,8 @@ class AvatarController extends AbstractController
         return new JsonResponse([
             'strings' => [
                 'common' => [
+                    'help' => $trans->trans('Hilfe', [], 'global'),
+
                     'no_avatar' => $trans->trans('Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen', [], 'soul'),
 
                     'edit_help' => $trans->trans('Wenn du möchtest, kannst du deinen Avatar vor dem Speichern noch zuschneiden. Ziehe dafür einfach das weiße Auswahlrechteck auf den Bildausschnitt, den du als Avatar verwenden möchtest. Du kannst auch den komprimierten 90/30-Bereich einzeln bearbeiten.', [], 'soul'),
@@ -83,7 +85,12 @@ class AvatarController extends AbstractController
 
                     'edit_auto' => $trans->trans('Komprimierten Ausschnitt automatisch festlegen', [], 'soul'),
                     'edit_manual' => $trans->trans('Ich möchte den komprimierten Ausschnitt selbst festlegen', [], 'soul'),
-                    'edit_now' => $trans->trans('Bearbeiten', [], 'soul')
+                    'edit_now' => $trans->trans('Bearbeiten', [], 'soul'),
+
+                    'compression' => $trans->trans('Bildformat', [], 'soul'),
+                    'compression_help' => $trans->trans('Die empfohlene Einstellung erzeugt in den allermeisten Fällen ein Bild in bestmöglicher Qualität. In seltenen Fällen, insbesondere bei sehr dunklen Bildern, kann das Ergebnis jedoch verwaschen aussehen. Versuche in diesem Fall, die alternative Option auszuwählen.', [], 'soul'),
+                    'compression_avif' => $trans->trans('Empfohlen (bevorzugt AV1)', [], 'soul'),
+                    'compression_webp' => $trans->trans('Alternativ (bevorzugt WebP)', [], 'soul'),
                 ],
             ]
         ]);
@@ -165,6 +172,7 @@ class AvatarController extends AbstractController
     public function uploadMedia(JSONRequestParser $parser, UserHandler $userHandler, ConfMaster $conf, EntityManagerInterface $em): JsonResponse {
         $payload = $parser->get_base64('data');
         $mime = $parser->get('mime');
+        $format = $parser->get('format', 'avif');
 
         $user = $this->getUser();
         if ($userHandler->isRestricted($user, AccountRestriction::RestrictionProfileAvatar))
@@ -199,7 +207,7 @@ class AvatarController extends AbstractController
         if (max( $image->width, $image->height ) > $final_d)
             ImageService::resize( $image, $final_d, $final_d, bestFit: true );
 
-        $converter_formats = ImageService::getCompressionOptions( $image );
+        $converter_formats = ImageService::getCompressionOptions( $image, $format );
 
         $format = null;
         $data = null;

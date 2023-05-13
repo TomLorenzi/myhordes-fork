@@ -7,6 +7,7 @@ import {ChangeEvent, MouseEventHandler, useContext, useEffect, useLayoutEffect, 
 import {TranslationStrings} from "./strings";
 import {Global} from "../../defaults";
 import {number} from "prop-types";
+import {Tooltip} from "../tooltip/Wrapper";
 
 declare var $: Global;
 
@@ -509,6 +510,8 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
         selectorSmall.current.style.right = `${right}px`
     }
 
+    const format = useRef<HTMLSelectElement>();
+
     return <div>
         { (!imageDimensions || loading) && <div className="loading"/> }
         { imageDimensions && !loading && <>
@@ -516,22 +519,40 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                 <div className="padded cell rw-12">
                     <div className="help">{ globals.strings.common.edit_help }<br/>{ globals.strings.common.edit_help2 }</div>
                 </div>
+            </div>
+            <div className="row">
+                <div className="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div className="note note-lightest">
+                        { globals.strings.common.compression }
+                        &nbsp;
+                        <a className="help-button">
+                            { globals.strings.common.help }
+                            <Tooltip additionalClasses="help" html={globals.strings.common.compression_help}/>
+                        </a>
+                    </div>
+                </div>
+                <div className="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <select ref={format}>
+                        <option value="avif">{ globals.strings.common.compression_avif }</option>
+                        <option value="webp">{ globals.strings.common.compression_webp }</option>
+                    </select>
+                </div>
+            </div>
+            <div className="row">
                 <div className="padded cell rw-3 rw-md-4 rw-sm-12">
                     <div className="note note-lightest">
                         { globals.strings.common.format_small }
                     </div>
                 </div>
-                <div className="cell rw-9 rw-md-8 rw-sm-12">
-                    <div className="row-flex wrap">
-                        <div className="cell"><label className="small"><input checked={!specifySmallSection} type="radio" name="specifySmallSection" value="no" onChange={e=> {
-                            setSpecifySmallSection(e.target.value === 'yes')
-                            if (e.target.value !== 'yes') setEditSmallSection(false);
-                        }}/> {globals.strings.common.edit_auto}</label></div>
-                        <div className="cell"><label className="small"><input checked={specifySmallSection} type="radio" name="specifySmallSection" value="yes" onChange={e=> {
-                            setSpecifySmallSection(e.target.value === 'yes')
-                            if (e.target.value !== 'yes') setEditSmallSection(false);
-                        }}/> {globals.strings.common.edit_manual}</label></div>
-                    </div>
+                <div className="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <div><label className="small"><input checked={!specifySmallSection} type="radio" name="specifySmallSection" value="no" onChange={e=> {
+                        setSpecifySmallSection(e.target.value === 'yes')
+                        if (e.target.value !== 'yes') setEditSmallSection(false);
+                    }}/> {globals.strings.common.edit_auto}</label></div>
+                    <div><label className="small"><input checked={specifySmallSection} type="radio" name="specifySmallSection" value="yes" onChange={e=> {
+                        setSpecifySmallSection(e.target.value === 'yes')
+                        if (e.target.value !== 'yes') setEditSmallSection(false);
+                    }}/> {globals.strings.common.edit_manual}</label></div>
                 </div>
             </div>
             { specifySmallSection && <>
@@ -541,11 +562,9 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                             { globals.strings.common.edit_now }
                         </div>
                     </div>
-                    <div className="cell rw-9 rw-md-8 rw-sm-12">
-                        <div className="row-flex wrap">
-                            <div className="cell"><label className="small"><input checked={!editSmallSection} type="radio" name="editSmallSection" value="default" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_default}</label></div>
-                            <div className="cell"><label className="small"><input checked={editSmallSection} type="radio" name="editSmallSection" value="small" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_small}</label></div>
-                        </div>
+                    <div className="padded cell rw-9 rw-md-8 rw-sm-12">
+                        <div><label className="small"><input checked={!editSmallSection} type="radio" name="editSmallSection" value="default" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_default}</label></div>
+                        <div><label className="small"><input checked={editSmallSection} type="radio" name="editSmallSection" value="small" onChange={e=>setEditSmallSection(e.target.value === 'small')}/> {globals.strings.common.format_small}</label></div>
                     </div>
                 </div>
             </> }
@@ -622,7 +641,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                             y: imageDimensions.y - metaSmall.current.y0 - metaSmall.current.y1,
                             width: metaSmall.current.x1,
                             height: metaSmall.current.y1,
-                        } : null ).then(()=> {
+                        } : null, format.current?.value ).then(()=> {
                             confirm();
                             setLoading(false);
                         });
