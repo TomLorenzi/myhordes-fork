@@ -5,12 +5,14 @@ namespace App\Twig;
 
 
 use App\Entity\Award;
+use App\Entity\AwardPrototype;
 use App\Entity\Item;
 use App\Entity\Town;
 use App\Entity\TownSlotReservation;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\User;
+use App\Enum\UserSetting;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
@@ -27,6 +29,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+use function PHPUnit\Framework\matches;
 
 class Extensions extends AbstractExtension implements GlobalsInterface
 {
@@ -75,6 +78,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFilter('dogname',  [$this, 'dogname']),
             new TwigFilter('color',  [$this, 'color']),
             new TwigFilter('textcolor',  [$this, 'color_tx']),
+            new TwigFilter('translated_title',  [$this, 'translatedTitle']),
         ];
     }
 
@@ -296,5 +300,28 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             (bool)$this->townHandler->getBuilding($town, 'small_ikea_#00', true),
             (bool)$this->townHandler->getBuilding($town, 'small_armor_#00', true)
         );
+    }
+
+    public function translatedTitle(string|Award|AwardPrototype|User $subject, User $object, ?User $object2 = null): string {
+
+        /** @var $owner User */
+        /** @var $me User */
+        [$base, $owner, $me] = match (true) {
+            is_string( $subject ) => [$subject, $object, $object2],
+            is_a( $subject, Award::class ) => [$subject->getPrototype()?->getTitle(), $object, $object2],
+            is_a( $subject, AwardPrototype::class ) => [$subject->getTitle(), $object, $object2],
+            is_a( $subject, User::class ) => [$subject->getActiveTitle()?->getPrototype()?->getTitle(), $subject, $object],
+            default => [null,null,null]
+        };
+
+        if ($base === null) return '';
+        $lang = match ($owner?->getSetting( UserSetting::TitleLanguage )) {
+            null, '_them' => $me?->getLanguage(),
+            '_me' => $owner?->getLanguage() ?? $me?->getLanguage(),
+            'de', 'en', 'fr', 'es' => $owner?->getSetting( UserSetting::TitleLanguage ),
+            default => null
+        };
+
+        return $this->translator->trans($base, [], 'game', $lang);
     }
 }

@@ -667,6 +667,7 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
 
         $title = $parser->get_int('title', -1);
+        $title_lang = $parser->get('title_lang', null);
         $icon  = $parser->get_int('icon', -1);
         $flag  = $parser->get('flag', '');
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
@@ -675,6 +676,12 @@ class SoulController extends CustomAbstractController
 
         if ($pronoun !== 'none' && $user->getUseICU() !== true)
             $user->setUseICU(true);
+
+        if ($title_lang !== null) {
+            if ( !in_array( $title_lang, array_merge( $this->generatedLangsCodes, ['_me', '_them'] ) ) )
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            $user->setSetting( UserSetting::TitleLanguage, $title_lang );
+        }
 
         switch ($pronoun) {
             case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
