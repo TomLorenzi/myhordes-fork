@@ -253,7 +253,7 @@ div.ruin_map_area {
     };
     &>.zone-plane-ui {
       top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; position: absolute;
-      outline: 1px solid #205319; outline-offset: -4px;
+      outline-offset: -4px;
       &>.name {
         position: absolute; top: 5px; left: 8px; width: 50%; display: block; z-index: 10; color: #205319;
         font-size: 1.25rem; text-shadow: 0 0 5px #205319; font-family: "visitor2"; text-align: left;
@@ -268,6 +268,14 @@ div.ruin_map_area {
       &>.scanner {
         position: absolute; width: 13%; height: 9%; background: url("../../img/explore/scanner.gif") center/contain no-repeat;
         right: 2%; bottom: 2%; opacity: 0.5;
+      }
+      &>.scanner-fx {
+        position: absolute; width: 100%; height: 100%; background: url("../../img/explore/scan_fx_1.gif") center/contain no-repeat;
+        top: 0; left: 0; opacity: 0.3; transform: scale(1.45);
+      }
+      &>.frame {
+        position: absolute; width: 100%; height: 100%; background: url("../../img/explore/frame.png") center/100% 100% no-repeat;
+        top: 0; left: 0; opacity: 1;
       }
     }
   }
