@@ -70,60 +70,6 @@ class GameController extends CustomAbstractController
         return $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($this->getUser());
     }
 
-    protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
-        $entries = [];
-
-        # Try to fetch one more log to check if we must display the "show more entries" message
-        $nb_to_fetch = (is_null($max) or $max <= 0) ? $max : $max + 1;
-
-        /** @var TownLogEntry $entity */
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-            $this->getActiveCitizen()->getTown(),$day, $citizen, $zone, $type, $nb_to_fetch ) as $idx=>$entity) {
-
-            /** @var LogEntryTemplate $template */
-            $template = $entity->getLogEntryTemplate();
-            if (!$template)
-                continue;
-            $entityVariables = $entity->getVariables();
-            $entries[$idx] = [
-                'timestamp' => $entity->getTimestamp(),
-                'class'     => $template->getClass(),
-                'type'      => $template->getType(),
-                'id'        => $entity->getId(),
-                'hidden'    => $entity->getHidden(),
-            ];
-
-            $variableTypes = $template->getVariableTypes();
-            $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
-
-            try {
-                $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
-            }
-            catch (Exception $e) {
-                $entries[$idx]['text'] = "null";
-            }             
-        }
-
-        if ($day < 0) $day = $this->getActiveCitizen()->getTown()->getDay();
-
-        $show_more_entries = false;
-        if ($nb_to_fetch != $max) {
-            $show_more_entries = count($entries) > $max;
-            $entries = array_slice($entries, 0, $max);
-        }
-
-        $args = $this->addDefaultTwigArgs(null, [
-                'day' => $day,
-                'today' => $day === $this->getActiveCitizen()->getTown()->getDay(),
-                'entries' => $entries,
-                'show_more_entries' => $show_more_entries,
-                'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $this->user_handler->getMaximumEntryHidden($this->getUser()),
-            ]
-        );
-
-        return $this->render( 'ajax/game/log_content.html.twig', $args);
-    }
-
     /**
      * @Route("jx/game/landing", name="game_landing")
      * @return Response
@@ -223,7 +169,6 @@ class GameController extends CustomAbstractController
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
-            'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $this->gazette_service->renderGazette($town),
             'citizensWithRole' => $citizenRoleList,
             'votesNeeded' => $in_town ? $votesNeeded : [],
@@ -234,28 +179,6 @@ class GameController extends CustomAbstractController
                 fn(CouncilEntry $c) => ($c->getTemplate() && $c->getTemplate()->getText() !== null)
             ))
         ]));
-    }
-
-    /**
-     * @Route("api/game/raventimes/log", name="game_newspaper_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_newspaper_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-
-        $citizen_id = $parser->get('citizen', -1);
-        $citizen = null;
-        if($citizen_id > 0) {
-            /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($citizen_id);
-            if ($citizen->getTown() !== $this->getActiveCitizen()->getTown())
-                $citizen = null;
-        }
-
-        $type_id = $parser->get('category', -1);
-        return $this->renderLog((int)$parser->get('day', -1), $citizen, false, $type_id >= 0 ? $type_id : null, null);
     }
 
     /**

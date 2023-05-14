@@ -928,7 +928,7 @@ class MessageForumController extends MessageController
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
-            'town' => $forum->getTown() ? $forum->getTown() : false,
+            'town' => $forum->getTown() ?: false,
 
             'permission' => $this->getPermissionObject($permissions),
 

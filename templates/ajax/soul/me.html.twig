@@ -83,7 +83,7 @@
 
             <ul class="inventory soul">
                 <li class="title">{{ 'Spiritueller Rucksack'|trans({},'game') }}</li>
-                {% if features is not empty %}
+                {% if features is empty %}
                     <li class="category inline-block"><em class="small">{{ 'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...'|trans({}, 'game') }}</em></li>
                 {% endif %}
                 {% for feature in features %}

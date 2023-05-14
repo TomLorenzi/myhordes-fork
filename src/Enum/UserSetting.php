@@ -20,6 +20,7 @@ enum UserSetting: string {
     case ReorderActionButtonsBeyond     = 'reorder-action-buttons-beyond';
     case ReorderTownLocationButtons     = 'reorder-location-buttons-town';
     case DistinctionTop3     = 'distinctions-top-3';
+    case TitleLanguage     = 'title-language';
 
     /**
      * @return UserSetting[]
@@ -32,7 +33,7 @@ enum UserSetting: string {
         ];
     }
 
-    public function defaultValue(): int|bool|array|null
+    public function defaultValue(): int|bool|array|string|null
     {
         /** @noinspection PhpDuplicateMatchArmBodyInspection */
         return match ($this) {
@@ -53,6 +54,7 @@ enum UserSetting: string {
             UserSetting::ReorderActionButtonsBeyond    => false,
             UserSetting::ReorderTownLocationButtons    => true,
             UserSetting::DistinctionTop3               => [null,null,null],
+            UserSetting::TitleLanguage                 => '_them',
         };
     }
 }

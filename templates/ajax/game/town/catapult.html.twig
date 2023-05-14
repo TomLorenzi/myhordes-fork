@@ -65,8 +65,7 @@
     <div class="row">
         <h5>{% trans from 'game' %}Katapultregister{% endtrans %} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
         <div class="cell rw-12">
-            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_catapult_log_controller') } %}
-            {% endembed %}
+            <hordes-log id="catapult-log" data-react-mount="catapult-log" data-day="{{ day }}" data-etag="{{ date().timestamp }}" data-category="{{ constant('App\\Entity\\LogEntryTemplate::TypeCatapult') }}" data-domain="town"></hordes-log>
         </div>
     </div>
 
@@ -74,8 +73,6 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/log.js.twig" %}{% endembed %}
-
         {% if is_catapult_master %}
             $.html.addEventListenerAll('#cata_do', 'click', function () {
                 const item = parseInt(document.getElementById('cata_what').value);

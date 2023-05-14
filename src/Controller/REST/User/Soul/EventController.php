@@ -2,21 +2,14 @@
 
 namespace App\Controller\REST\User\Soul;
 
-use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractCoreController;
-use App\Entity\Award;
-use App\Entity\Citizen;
 use App\Entity\CommunityEvent;
 use App\Entity\CommunityEventMeta;
 use App\Entity\CommunityEventTownPreset;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
-use App\Entity\User;
-use App\Enum\UserSetting;
+use App\Messages\Discord\DiscordMessage;
 use App\Service\Actions\Ghost\SanitizeTownConfigAction;
-use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
@@ -32,9 +25,9 @@ use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use function App\Controller\REST\User\mb_strlen;
 use function App\Controller\REST\User\str_contains;
 
@@ -281,14 +274,15 @@ class EventController extends CustomAbstractCoreController
      * @param CommunityEvent $event
      * @param bool $option
      * @param EntityManagerInterface $em
-     * @param ConfMaster $conf
+     * @param UrlGeneratorInterface $urlGenerator
      * @return JsonResponse
      */
     public function editEventProposal(
         CommunityEvent $event,
         bool $option,
         EntityManagerInterface $em,
-        UrlGeneratorInterface $urlGenerator
+        UrlGeneratorInterface $urlGenerator,
+        MessageBusInterface $bus
     ): JsonResponse {
         if (!$this->eventIsEditable( $event, $option === false ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -321,13 +315,9 @@ class EventController extends CustomAbstractCoreController
                 $discord = (new Client($endpoint))
                     ->message(
                         $option
-                            ? ':black_joker: **Please validate my community event.**'
+                            ? ":black_joker: **Please validate my community event.**"
                             : ':x: I\'m retracting my previous event validation request.'
-                    )->username( $event->getOwner()->getName() );
-
-                if ($event->getOwner()->getAvatar()) $discord->avatar(
-                    $urlGenerator->generate( 'app_web_avatar', ['uid' => $event->getOwner()->getId(), 'name' => $event->getOwner()->getAvatar()->getFilename(), 'ext' => $event->getOwner()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL )
-                );
+                    );
 
                 $discord->embed( (new Embed())
                     ->color('B434EB')
@@ -335,6 +325,11 @@ class EventController extends CustomAbstractCoreController
                     ->field('Start date', $event->getConfiguredStartDate()->format( "D, d M Y" ), true)
                     ->field('Towns', $event->getTownPresets()->count(), true)
                     ->footer( $event->getId() )
+                    ->author(
+                        $event->getOwner()->getName(),
+                        $urlGenerator->generate( 'admin_users_account_view', ['id' => $event->getOwner()->getId()], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        $event->getOwner()->getAvatar() ? $urlGenerator->generate( 'app_web_avatar', ['uid' => $event->getOwner()->getId(), 'name' => $event->getOwner()->getAvatar()->getFilename(), 'ext' => $event->getOwner()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL ) : ''
+                    )
                 );
 
                 $flag_lang = function (string $lang) {
@@ -353,9 +348,7 @@ class EventController extends CustomAbstractCoreController
                             ->field('Short Description', mb_substr($meta->getShort(), 0, 1500), true)
                         );
 
-                try {
-                    $discord->send();
-                } catch (Exception) {}
+                $bus->dispatch( new DiscordMessage( $discord ) );
             }
 
 
@@ -660,6 +653,7 @@ class EventController extends CustomAbstractCoreController
         #[MapEntity(id: 'preset')]
         CommunityEventTownPreset $preset,
         EntityManagerInterface $em,
+        SanitizeTownConfigAction $sanitizer
     ): JsonResponse {
         if (!$this->eventIsExplorable( $event ))
             return new JsonResponse([], Response::HTTP_FORBIDDEN);
@@ -676,7 +670,7 @@ class EventController extends CustomAbstractCoreController
         return new JsonResponse([
             'uuid' => $preset->getId(),
             'header' => $header,
-            'rules'  => $preset->getRules(),
+            'rules'  => $sanitizer->restore_lists( $preset->getRules() ),
         ]);
     }
 

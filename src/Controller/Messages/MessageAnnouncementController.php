@@ -9,15 +9,21 @@ use App\Entity\ForumPollAnswer;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPoll;
 use App\Entity\User;
+use App\Messages\Discord\DiscordMessage;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
+use App\Structures\MyHordesConf;
 use DateTime;
+use DiscordWebhooks\Client;
+use DiscordWebhooks\Embed;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -252,9 +258,11 @@ class MessageAnnouncementController extends MessageController
      * @Route("api/admin/com/changelogs/new_announcement", name="admin_changelog_new_announcement")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param UrlGeneratorInterface $urlGenerator
+     * @param MessageBusInterface $bus
      * @return Response
      */
-    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function create_announcement_api(EntityManagerInterface $em, JSONRequestParser $parser, UrlGeneratorInterface $urlGenerator, MessageBusInterface $bus): Response {
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
         $lang      = $parser->get('lang', 'de');
@@ -264,13 +272,39 @@ class MessageAnnouncementController extends MessageController
         if(empty($title) || empty($content)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $announcement = (new Announcement())
-            ->setTitle($title)->setText($content)->setLang($lang)->setSender($author)->setTimestamp(new DateTime());
+            ->setTitle($title)->setText($content)->setLang($lang)->setSender($author)->setTimestamp(new DateTime())
+            ->setValidated( $this->isGranted( 'ROLE_CROW' ) || $this->isGranted( 'ROLE_ADMIN' ) );
 
         if (!$this->preparePost($author,null,$announcement))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $em->persist($announcement);
         $em->flush();
+
+        if ($endpoint = $this->conf->getGlobalConf()->get( MyHordesConf::CONF_ANIM_MAIL_DCHOOK )) {
+            $discord = (new Client($endpoint))
+                ->message(":black_joker: **Please validate my announcement.**");
+
+            $discord->embed( (new Embed())
+                                 ->color('B434EB')
+                                 ->title($announcement->getTitle())
+                                 ->description(mb_substr(strip_tags(
+                                                   preg_replace(
+                                                       ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/', '/<a href="(.*?)">(.*?)<\/a>/'],
+                                                       ["\n", '${1}:', '[**', '**]', '[${2}](${1})'],
+                                                       $this->html->prepareEmotes( $announcement->getText())
+                                                   )
+                                               ), 0, 2000))
+                                 ->field('Language', $announcement->getLang(), true)
+                                 ->author(
+                                     $this->getUser()->getName(),
+                                     $urlGenerator->generate( 'admin_users_account_view', ['id' => $this->getUser()->getId()], UrlGeneratorInterface::ABSOLUTE_URL ),
+                                     $this->getUser()->getAvatar() ? $urlGenerator->generate( 'app_web_avatar', ['uid' => $this->getUser()->getId(), 'name' => $this->getUser()->getAvatar()->getFilename(), 'ext' => $this->getUser()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL ) : ''
+                                 )
+            );
+
+            $bus->dispatch( new DiscordMessage( $discord ) );
+        }
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('admin_changelogs', ['tab' => 'announcement'])] );
     }
@@ -293,15 +327,11 @@ class MessageAnnouncementController extends MessageController
 
     /**
      * @Route("api/admin/com/changelogs/del_a/{id<\d+>}", name="admin_changelog_del_announcement")
-     * @param int $id
+     * @param Announcement $announcement
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function delete_announcement_api(int $id, EntityManagerInterface $em): Response {
-        $announcement = $em->getRepository(Announcement::class)->find($id);
-
-        if (!$announcement) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
+    public function delete_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
         if (!$this->isGranted('ROLE_ADMIN') && $this->getUser() !== $announcement->getSender())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -309,5 +339,34 @@ class MessageAnnouncementController extends MessageController
         $em->flush();
 
         return AjaxResponse::success( );
+    }
+
+    /**
+     * @Route("api/admin/com/changelogs/validate/{id<\d+>}", name="admin_changelog_val_announcement")
+     * @param Announcement $announcement
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function validate_announcement_api(Announcement $announcement, EntityManagerInterface $em): Response {
+        if (!$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$announcement->isValidated()) {
+            $em->persist( $announcement->setValidated(true)->setValidatedBy( $this->getUser() ) );
+            $em->flush();
+        }
+
+        return AjaxResponse::success( );
+    }
+
+    /**
+     * @Route("api/admin/com/changelogs/render/{id<\d+>}", name="admin_changelog_render_announcement")
+     * @param Announcement $announcement
+     * @return Response
+     */
+    public function render_announcement_api(Announcement $announcement): Response {
+        return AjaxResponse::success( additional: [
+            'html' => $this->html->prepareEmotes( $announcement->getText(), $announcement->getSender() )
+                                                  ] );
     }
 }

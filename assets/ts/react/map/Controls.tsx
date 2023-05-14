@@ -3,8 +3,12 @@ import * as React from "react";
 import {
     MapControlProps,
 } from "./typedef";
+import {useContext} from "react";
+import {Globals} from "./Wrapper"
 
 const MapControls = ( props: MapControlProps ) => {
+
+    const globals = useContext(Globals)
 
     const zoom_handler = (n:number) => {
         if (props.zoom === 0 && n === 1 && props.scrollAreaRef.current) {
@@ -29,24 +33,24 @@ const MapControls = ( props: MapControlProps ) => {
             <div className="tilemap_controls">
                 <div className="row">
                     <div className="float-left">
-                        { props.showZoneViewerButtons && (
+                        { props.showZoneViewerButtons && globals.strings?.close && (
                             <button onClick={()=>props.wrapDispatcher({showViewer: true, showPanel: false})}
                                 className="small inline map_button map_button_left">
-                                <div>{ props.strings.close }</div>
+                                <div>{ globals.strings?.close }</div>
                             </button>
                         ) }
                         <button
                             className={`small inline ${props.markEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_left`}
                             onClick={()=>props.wrapDispatcher({markEnabled: !props.markEnabled})}
                         >
-                            <div>{props.strings.mark}</div>
+                            <div>{globals.strings?.mark && globals.strings?.global}</div>
                         </button>
                         { props.showGlobalButton && (
                             <button
                                 className={`small inline ${props.globalEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_left`}
                                 onClick={()=>props.wrapDispatcher({globalEnabled: !props.globalEnabled})}
                             >
-                                <div>{props.strings.global}</div>
+                                <div>{globals.strings?.global}</div>
                             </button>
                         ) }
                     </div>
@@ -66,12 +70,12 @@ const MapControls = ( props: MapControlProps ) => {
                         >
                             &nbsp;
                         </button>
-                        { props.showRoutes && (
+                        { props.showRoutes && globals.strings?.routes && (
                             <button
                                 className="small inline map_button map_button_right route_button"
                                 onClick={()=>props.wrapDispatcher({showPanel: !props.showRoutesPanel})}
                             >
-                                <div>{props.strings.routes}</div>
+                                <div>{globals.strings?.routes}</div>
                             </button>
                         ) }
 
@@ -80,10 +84,10 @@ const MapControls = ( props: MapControlProps ) => {
             </div>
             { props.showZoneViewerButtons && (
                 <div className="zonemap_controls">
-                    <button onClick={()=>props.wrapDispatcher({showViewer: false})}
-                        className="small inline map-icon map_button map_button_left">
-                        <div>{ props.strings.map }</div>
-                    </button>
+                    { globals.strings?.map && <button onClick={() => props.wrapDispatcher({showViewer: false})}
+                             className="small inline map-icon map_button map_button_left">
+                        <div>{globals.strings?.map}</div>
+                    </button> }
                 </div>
             ) }
         </div>

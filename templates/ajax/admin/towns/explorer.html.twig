@@ -96,9 +96,14 @@
                                         </optgroup>
                                     {% endif %}
                                     <optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
-                                        {% if is_granted("ROLE_ADMIN") %}
-                                            <option value="{{ url('admin_town_manage', {action: 'set_name', id: town.id}) }}" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Stadtnamen ändern'|trans({},'admin') }}</option>
+                                        {% if is_granted("ROLE_CROW") %}
+                                            {% if is_granted("ROLE_ADMIN") or town.type.name == 'custom' %}
+                                                <option value="{{ url('admin_town_manage', {action: 'set_name', id: town.id}) }}" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Stadtnamen ändern'|trans({},'admin') }}</option>
+                                            {% endif %}
                                             <option value="{{ url('admin_town_manage', {action: 'dice_name', id: town.id}) }}">{{ 'Stadtnamen regenerieren'|trans({},'admin') }}</option>
+                                        {% endif %}
+
+                                        {% if is_granted("ROLE_ADMIN") %}
                                             <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
                                             {% if town.open %}
                                                 {% if town.password is not null %}
@@ -254,7 +259,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="dash_zone_log"></div>
+                            <div id="dash_zone_log" class="hidden">
+                                <hordes-log id="admin-log" data-day="{{ town.day }}" data-react-mount="beyond-log" data-etag="{{ date().timestamp }}" data-domain="admin/zone/0" data-entries="150" data-indicators="1" data-inline-days="1"></hordes-log>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
@@ -555,8 +562,11 @@
                     {% endembed %}
                 </div>
 
-                {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
-                {% endembed %}
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <hordes-log id="admin-log" data-day="{{ town.day }}" data-react-mount="admin-log" data-etag="{{ date().timestamp }}" data-domain="admin/town/{{ town.id }}" data-entries="150"></hordes-log>
+                    </div>
+                </div>
 
                 <br/>
                 <h1 class="page-head">{{ 'Register herunterladen'|trans({},'admin') }}</h1>
@@ -933,8 +943,6 @@
         {{ profession_control_js('input[x-id][x-target="status"]:checked', path('admin_modify_profession', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
     {% endif %}
     <script>
-        {% embed "scripts/log.js.twig" %}{% endembed %}
-
         (function() {
             $.html.addEventListenerAll('input[x-all][x-target]', 'click', (e,elem) => {
                 $.html.forEach( 'input[x-id][x-target="' + elem.getAttribute('x-target') + '"]', c => c.checked = elem.checked );
@@ -1130,8 +1138,8 @@
                         document.getElementById("ruin_camp_level").value = data.camp_levl;
                         document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
                         document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
-                        document.getElementById("dash_zone_log").innerHTML = data.zone_log;
-                        {% embed "scripts/log.js.twig" with {'base_element': "document.getElementById('dash_zone_log')"} %}{% endembed %}
+                        document.getElementById("admin-log").dataset.domain = 'admin/zone/' + target.getAttribute("x-id");
+                        document.getElementById("dash_zone_log").classList.toggle('hidden', false);
                     });
                 });
             }

@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Votre expédition a été sauvegardée.'
 'Du hast deine Beschreibung geändert.': 'Vous avez modifié votre annonce personnelle. Elle est visible dans l''annuaire des Citoyens.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} a versé {item} dans le puits et a ajouté {num} ration(s) d''eau.'
@@ -588,7 +587,7 @@ Drogenerfahrungen: Expérimentations
 Expertenexpeditionen: Explorations très lointaines
 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Nombre de bâtiments dans des zones éloignées que vous avez explorés.'
 Großzügigkeit: Générosité
-'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros que vous avez offert à un autre citoyen dans le besoin.'
+'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Nombre de jours de mode héros/actions héroïques que vous avez offert à un autre citoyen dans le besoin.'
 'Spiritueller Führer': 'Guide Spirituel'
 'Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.': 'Jours passés en tant que guide pour les noobs en Région non éloignée.'
 Laborant: Laborantin
@@ -621,7 +620,7 @@ Nachrichten: Messages
 'Großmutter, was hast du für große Zähne... Grrrooooaaar!': 'Mère-grand, comme vous avez de grandes dents... GROAR !'
 Dehydrationstode: Morts par Déshydratation
 'Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !': 'Nombre de morts par déshydratation terminale. Oui oui, l''eau, c''est important.'
-'Tödliche Infektionen': 'Morts par Infection'
+'Tödliche Infektionen': 'Mort par infection'
 'Anzahl der Infektionen, die dich das Leben gekostet haben.': 'Nombre d''extinctions des suites d''une infection virulente.'
 'Tod durch Entzug': 'Morts par Manque'
 "Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...": "Nuits que vous n'avez pas passées, par manque de drogue."
@@ -905,7 +904,7 @@ Archiv: Archives
 Zonenmarkierer: Marqueur de zone
 'Tor ist offen!': 'La porte est ouverte !'
 'Zombies sind eingedrungen.': 'zombies sont entrés.'
-'vor Angst erstarrt': 'Terrorisés'
+'vor Angst erstarrt': 'Terrorisé(s)'
 'Du wirst heute Nacht sterben!': 'Vous mourrez ce soir !'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen.': 'Le bâtiment {plan} a subi {damage} points de dégâts.'
 'Das Bauwerk {plan} hat {damage} Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.': 'Le bâtiment {plan} a subi {damage} points de dégâts et a été totalement dévasté par les zombies !.'
@@ -1884,8 +1883,8 @@ Reiseleiter-Ratgeber: guide du jeu pour les Guides de l'Outre-Monde
 'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.': "{citizen} étant mort(e), il y a de fortes chances que son corps puisse être contaminé par les agents infectieux de <em>{townname}</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même..."
 'Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!': 'Cette action est interdite en <strong>période de chaos</strong> !'
 'Die Bürger der Stadt haben entschieden, {citizen} zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!': 'Les citoyens ont décidé de crucifier {citizen} ! La croix en chocolat a été mangée par les citoyens au cours de ce tragique évènement !'
-'Hängt {user}!': 'Pendez {user}!'
-'{user} wir kriegen dich!': '{user} on aura ta peau !!'
+'Hängt {user}!': 'Pendez {user} !'
+'{user} wir kriegen dich!': 'On aura ta peau {user} !'
 'am {d}.{m}.{Y}, um {H}:{i}': 'le {d}/{m}/{Y} à {H}:{i}'
 'Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!': 'Alors que vous avanciez furtivement, <strong>un zombie de la zone vous a entendu</strong> et s''est retourné dans votre direction !<hr/>Vous avez été <strong>repéré(e)</strong> !<hr/>Vous n''êtes <strong>plus camouflé(e)</strong> !'
 'Deine <strong>Tarnung ist aufgeflogen</strong>!': 'Vous n''êtes <strong>plus camouflé(e)</strong> !'
@@ -2384,3 +2383,17 @@ Stadt/Stadttor: Ville/Portes
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'Cette action est bloquée pendant <strong>15 minutes environ</strong> (protection anti-abus).<hr/><strong>Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</strong>'
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'Vous ne pouvez pas déposer cet objet ici.'
 Tarnexperte: Chef-Camouflage
+'Einrichtung (Tab)': Aménagements
+'Offizieller AP-Versorger': 'Fournisseur officiel de PA'
+'Community-Events verwalten': 'Gérer les événements communautaires'
+'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Votre événement communautaire "{eventName}" a été validé par un modérateur et peut maintenant commencer à l’heure prévue.'
+'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Votre événement communautaire "{eventName}" a été supprimé par un modérateur.'
+'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'Même de loin, vous pouvez entendre des acclamations et des cris de joie résonner dans les ruelles. Personne n’aurait cru cela possible...'
+'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'Après l’achèvement de l’autel, le Corbeau est apparu dans votre ville damnée et, dans Son infinie miséricorde, a libéré tous les bannis.'
+'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'Le Corbeau vous a accordé une seconde chance et vous a libéré des chaînes du bannissement. Comment allez-vous utiliser votre liberté retrouvée ?'
+'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'Si vous faites plus d''efforts, vous pourrez peut-être emporter quelque chose avec vous dans votre prochaine vie...'
+'Das Ende deines Lebens in <strong>{town}</strong>': 'La fin de votre vie dans <strong>{town}</strong>'
+'Du hast {sp} Seelenpunkte erhalten.': 'Vous avez obtenu {sp} points d''âme.'
+'Du hast keine Seelenpunkte erhalten.': 'Vous n’avez pas obtenu de points d’âme.'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'Maman t''a toujours dit que les affaires des autres sont comme une boîte de chocolat. Eh bien, dans ce cas, le chocolat était hautement explosif et vos entrailles ont décidé de repeindre les murs. Considérez-vous comme chanceux : vous n''aurez pas à être celui qui nettoiera.'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'Ce qui est amusant avec la crucifixion, c''est que vous pouvez vous dire que c''est parce que vous étiez trop important, plutôt que parce que tout le monde vous détestait. Au moins, ils semblaient avoir aimé le chocolat : la croix a été dévorée peu de temps après votre mort...'

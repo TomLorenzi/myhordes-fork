@@ -1,4 +1,3 @@
----
 'Diesen Bürger töten?': '¿Matar a este habitante?'
 Status: Estados
 Dauer: Duración
@@ -564,3 +563,6 @@ Senden: Enviar
 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} mensajes fueron enviados, {error} mensajes contienen errores.'
 Entwickler-URL: URL de desarollo
 Heldentage: Días de héroe
+'Sekundäraccount verknüpfen': 'Vincular cuenta secundaria'
+'Sekundäre Accounts': 'Cuentas secundarias'
+'Team setzen': 'Establecer comunidad'

@@ -1,4 +1,6 @@
 import {Const, Global} from "./defaults";
+import {SecureStorage} from "./v2/security";
+import {EventConnector} from "./v2/events";
 
 interface ajaxResponse { error: string, success: any }
 interface ajaxCallback { (data: ajaxResponse, code: number): void }
@@ -136,8 +138,14 @@ export default class Ajax {
         if (push_history) history.pushState( url, '', url );
         if (replace_history) history.replaceState( url, '', url );
 
-        // First move content with a specific TARGET selector
+        // If there is a CLEAR target, remove content from the targeted elements
         let fragment = null;
+        while (fragment = result_document.querySelector<HTMLElement>('[x-clear-target]')) {
+            $.html.forEach( fragment.getAttribute('x-clear-target'), elem => elem.innerHTML = '' );
+            fragment.remove();
+        }
+
+        // First move content with a specific TARGET selector
         while (fragment = result_document.querySelector<HTMLElement>('[x-render-target]')) {
             let frag_target = document.querySelector<HTMLElement>( fragment.getAttribute('x-render-target') );
             if (!frag_target) console.warn('Rendered HTML contains an invalid fragment target: ', frag_target, ' Discarding.')
@@ -198,9 +206,6 @@ export default class Ajax {
 
         // React container cache
         let container_cache = {};
-
-        // Clear the tooltips
-        $.html.clearTooltips( target );
 
         // Save react mounts
         $.html.forEach( '[id][data-react-mount]', c => {
@@ -349,7 +354,7 @@ export default class Ajax {
         $.components.prune();
         $.html.restoreTutorialStage();
 
-
+        EventConnector.handle( target );
     }
 
     push_history( url: string ) {
@@ -443,6 +448,7 @@ export default class Ajax {
         request.open('POST', url);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-Request-Intent', 'WebNavigation');
+        request.setRequestHeader('X-Toaster', SecureStorage.partial_token());
 
         const target_id = target.getAttribute('x-target-id') ?? target.getAttribute('id') ?? '';
         if (target_id) request.setRequestHeader('X-Render-Target', target_id);
@@ -494,6 +500,7 @@ export default class Ajax {
         request.open('POST', url);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-Request-Intent', 'JSONDataExchange');
+        request.setRequestHeader('X-Toaster', SecureStorage.partial_token());
         request.setRequestHeader('Content-Type', 'application/json');
         request.setRequestHeader('Accept', 'application/json');
         request.send( JSON.stringify(data) );

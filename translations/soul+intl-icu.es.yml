@@ -1,4 +1,3 @@
----
 E-Mail-Adresse: Dirección de correo electrónico
 'Externe ID für Apps': 'ID externo para aplicaciones'
 'Neue ID generieren': 'Generar nuevo ID'
@@ -193,7 +192,7 @@ EternalTwin-Nutzer: Usuario de Eternaltwin
 'Hierfür musst du einer Koalition angehören.': 'Para ello, debes pertenecer a una alianza.'
 'Du bist bereits Mitglied einer Koalition.': 'Tu eres miembro de una alianza.'
 'Deine Koalition ist bereits voll.': 'Tu alianza ya está llena.'
-'Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.': '<strong>¿Has encontrado el equipo ideal?</strong>¿Deseas compartir el mismo pueblo con <strong>habitantes de confianza</strong>? ¡Entonces, las <strong>Alianzas</strong> son ideales para ti! Son ''equipos'' de <strong>5</strong> habitantes que exploran juntos el mundo de Zombinoia.'
+'Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.': '<strong>¿Has encontrado el equipo ideal?</strong> ¿Deseas compartir el mismo pueblo con <strong>habitantes de confianza</strong>? ¡Entonces, las <strong>Alianzas</strong> son ideales para ti! Son ''equipos'' de <strong>5</strong> habitantes que exploran juntos el mundo de MyHordes.'
 'Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>': 'El principio es muy simple: Cuando formas parte de una alianza, <strong>el primero que se une a una partida lleva consigo a todos los miembros disponibles junto con él.</strong>'
 'Du möchtest deine eigene Koalition erstellen?': '¿Crear tu propia alianza?'
 'Meine Koalition erstellen': '¡Crea tu alianza!'
@@ -306,7 +305,7 @@ Heldenerfahrung: Días de héroe
 'Kein freier Platz': 'Sin espacio libre'
 Koalitionsmitglied: Miembro de la alianza
 'Noch nicht bestätigt...': 'Todavia no esta confirmado...'
-Koalitionseinladung: Invitación a la alianza
+Koalitionseinladung: Invitar a la alianza
 'Die Freundschaftswerbung': 'Patrocinio'
 'Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!': '¡Disfruta de ventajas excepcionales invitando a tus amigos a jugar en "MyHordes"!'
 'Lass dich überraschen!': '¡Déjate sorprender!'
@@ -344,7 +343,7 @@ Empfänger: Destinatario
 'Du kannst das Schwarze Brett nicht verwenden.': 'No puede utilizar el tablón de anuncios.'
 'Neue Übersetzungen verwenden': 'Utilizar nuevas traducciones'
 'Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.': 'Con el nuevo sistema de traducción, los textos se representan con mayor precisión en su idioma (por ejemplo, el uso apropiado de formas singulares y plurales). Desmarca esta opción para ver la traduccion original.'
-'Dein Spielername': 'Su nombre de usuario'
+'Dein Spielername': 'Tu nombre de usuario'
 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.': '¡ATENCIÓN! Los cambios son limitados, trata de elegir uno definitivo. Para que los demás jugadores te reconozcan, habrá un historial de tus cambios de nick en tu perfil.'
 'Du kannst deinen Spielernamen aktuell nicht ändern.': 'Actualmente no puedes cambiar tu nombre de jugador.'
 'Ändern des Spielernamens': 'Cambiar el nombre del jugador'
@@ -526,3 +525,30 @@ Layout: Diseño
 'Gesamtzahl geworbener Spieler': 'Número total de jugadores patrocinados'
 'Reguläre Auszeichnungen': 'Distinciones Comunes'
 'Besondere Auszeichnungen': 'Distinciones Destacadas'
+Community-Events: Eventos de la Comunidad
+'Hinweis: Du kannst auswählen, welche 3 Auszeichnungen du anderen Spielern präsentieren möchtest, indem du eine deiner Auszeichnungen in die dafür vorgesehene Box ziehst.': 'Nota: Puedes escoger qué 3 distinciones deseas mostrar a otros jugadores arrastrándolas a la caja.'
+'Wenn du möchtest, kannst du deinen Avatar vor dem Speichern noch zuschneiden. Ziehe dafür einfach das weiße Auswahlrechteck auf den Bildausschnitt, den du als Avatar verwenden möchtest. Du kannst auch den komprimierten 90/30-Bereich einzeln bearbeiten.': 'Si lo deseas, puedes recortar tu avatar antes de guardarlo. Para ello, simplemente arrastra el rectángulo de selección blanco sobre la sección de la imagen que deseas utilizar como avatar. También puedes editar el área comprimida ''''90/30'''' individualmente.'
+'Bist du fertig, klicke auf "Profilbild speichern" um deinen Avatar hochzuladen.': 'Cuando hayas terminado, haz clic en "Guardar imagen de perfil" para subir tu avatar.'
+'Hochgeladenes Bild': 'Imagen cargada'
+'Runde Anzeige': 'Pantalla redonda'
+'{x} × {y} Pixel, {size}': '{x} x {y} píxeles, {size}'
+'Größe {x} × {y} Pixel': '{x} x {y} píxeles'
+'Nicht hochgeladen': 'Aún no cargada'
+'Automatisch erzeugt': 'Generado automáticamente'
+'Profilbild speichern': 'Guardar imagen de perfil'
+'Komprimierten Ausschnitt automatisch festlegen': 'Establecer automáticamente el área comprimida'
+'Ich möchte den komprimierten Ausschnitt selbst festlegen': 'Me gustaría definir yo mismo el área comprimida'
+Bearbeiten: Editar
+'Dein Team': 'Tu comunidad'
+'Todesanzeige dieser Partie ansehen': 'Ver el obituario de este pueblo'
+'Damit das Ranking am Ende einer Season fair bleibt, musst du dich einer der existierenden Gemeinschaften zuordnen. Die Anzahl der Städte, die du pro Season mit einer anderen als deiner gewählten Gemeinschaft spielen kannst, ist begrenzt. Solange du dieses Limit noch nicht erreicht hast, kannst du deine Gemeinschaft jederzeit wechseln.': 'Para que la clasificación sea justa al final de una temporada, debes elegir una de las comunidades existentes. El número de pueblos que puedes jugar por temporada con una comunidad distinta a la que hayas elegido es limitado. Mientras no hayas alcanzado este límite, puedes cambiar de comunidad en cualquier momento.'
+'Aktuelles Team': 'Comunidad actual'
+'Städte in meinem Team': 'Pueblos en mi comunidad'
+'Du kannst dein Team aktuell wechseln, wenn du möchtest.': 'Actualmente, puedes cambiar de comunidad si lo deseas.'
+'Du hast in dieser Saison bereits zu viele Städte für dein Team gespielt, um dein Team noch wechseln zu können.': 'Ya has jugado en demasiados pueblos para tu comunidad esta temporada como para poder elegir otra.'
+'Städte in anderen Teams': 'Pueblos en otras comunidades'
+'Du kannst aktuell weiterhin Städte eines anderen Teams betreten.': 'Aún puedes unirte a pueblos de otra comunidad.'
+'Du hast in dieser Saison bereits zu viele Städte von anderen Teams gespielt. Bis zum Ende der Saison kannst du nur noch Städte deines eigenen Teams betreten.': 'Ya has jugado en demasiados pueblos de otras comunidades esta temporada. Hasta el final de la temporada, solo podrás unirte a pueblos de tu propia comunidad.'
+'Bereits gespielte Städte': 'Pueblos ya jugados'
+'Du kannst aktuell weiterhin Städte betreten, ohne ein Team wählen zu müssen.': 'Por ahora, puedes seguir uniéndote a pueblos sin tener que elegir una comunidad.'
+'Bevor du weitere Städte betreten kannst, musst du dich einem Team anschließen.': 'Debes unirte a una comunidad antes de poder entrar a más pueblos.'

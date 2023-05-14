@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ app.request.locale|e('html_attr') }}" class="lang-base-{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}" x-ajax-landing="{{ ajax_landing }}" data-ticket="{{ ticket }}">
 <head>
     {% block html_head %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -53,6 +53,7 @@
     {% endblock %}
 </head>
 <body onclick class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
+<div id="partial-proxy" class="hidden"></div>
 <div id="notifications"></div>
 <div id="post-office">
     <div id="post-office-box">
@@ -87,18 +88,7 @@
 
     <div id="footer"></div>
 </div>
-<div id="tooltip_container"></div>
-<div id="loadzone" x-stack="0">
-    <div></div>
-</div>
-<div id="modal-backdrop">
-    <div id="modal">
-        <div id="modal-title"></div>
-        <div id="modal-content"></div>
-        <div id="modal-actions"></div>
-    </div>
-</div>
-
+{% include "partials/containers.html.twig" with {} only %}
 </body>
 <footer class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
@@ -210,7 +200,6 @@
         $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
             let post = document.getElementById('post-office');
             if (post) {
-                $.html.clearTooltips( post );
                 post.classList.remove('visible');
                 document.body.style.overflow = null;
                 $.msg.togglePing(true);

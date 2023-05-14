@@ -12,6 +12,7 @@ use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Security\RegisterNewTokenAction;
 use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -19,6 +20,7 @@ use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
+use App\Service\Media\ImageService;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManager;
@@ -27,6 +29,7 @@ use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\HeaderUtils;
@@ -40,6 +43,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -65,18 +69,21 @@ class WebController extends CustomAbstractController
     public static array $supporters = [
         'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
         'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
-        'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Ross',
+        'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Aeon',
         'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus'
     ];
 
     private VersionManager $version_manager;
     private KernelInterface $kernel;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
+    private RegisterNewTokenAction $tokenizer;
+
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, RegisterNewTokenAction $tt)
     {
         parent::__construct($conf, $e, $tk, $ch, $ih, $translator);
         $this->version_manager = $v;
         $this->kernel = $k;
+        $this->tokenizer = $tt;
     }
 
     private function handleDomainRedirection(): ?Response {
@@ -91,7 +98,7 @@ class WebController extends CustomAbstractController
         return null;
     }
 
-    private function render_web_framework(string $ajax_landing, $allow_attract_page = false): Response {
+    private function render_web_framework(Request $request, string $ajax_landing, $allow_attract_page = false): Response {
         try {
             $version = $this->version_manager->getVersion();
             $is_debug_version =
@@ -111,6 +118,7 @@ class WebController extends CustomAbstractController
         shuffle($supporters);
 
         return $this->render( ($this->getUser() || !$allow_attract_page) ? 'web/framework.html.twig' : 'web/attract.html.twig', [
+            'ticket' => ($this->tokenizer)($request),
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => array_map(function($dev) {
                 $dev[3] = match ($dev[1]) {
@@ -175,13 +183,15 @@ class WebController extends CustomAbstractController
 
         ] );
     }
+
     /**
      * @Route("/", name="home")
+     * @param Request $r
      * @return Response
      */
-    public function framework(): Response
+    public function framework(Request $r): Response
     {
-        return $this->handleDomainRedirection() ?? $this->render_web_framework($this->generateUrl('initial_landing'), true);
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($r, $this->generateUrl('initial_landing'), true);
     }
 
 
@@ -237,11 +247,11 @@ class WebController extends CustomAbstractController
      * @param SessionInterface $s
      * @return Response
      */
-    public function refer_incoming(string $name, SessionInterface $s): Response
+    public function refer_incoming(Request $rq, string $name, SessionInterface $s): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
         $s->set('refer', $name);
-        return $this->render_web_framework($this->generateUrl('public_register'));
+        return $this->render_web_framework($rq, $this->generateUrl('public_register'));
     }
 
     /**
@@ -402,7 +412,7 @@ class WebController extends CustomAbstractController
      * @param ConfMaster $conf
      * @return Response
      */
-    public function framework_import(ConfMaster $conf): Response
+    public function framework_import(Request $r, ConfMaster $conf): Response
     {
         $request = Request::createFromGlobals();
         $state = explode('#',$request->query->get('state'));
@@ -421,8 +431,8 @@ class WebController extends CustomAbstractController
         }
 
         switch ($state) {
-            case 'import': return $this->render_web_framework($this->generateUrl('soul_import', ['code' => $code]));
-            case 'etwin-login': return $this->render_web_framework($this->generateUrl('etwin_login', ['code' => $code]));
+            case 'import': return $this->render_web_framework($r, $this->generateUrl('soul_import', ['code' => $code]));
+            case 'etwin-login': return $this->render_web_framework($r, $this->generateUrl('etwin_login', ['code' => $code]));
             default: return new Response('Error: Invalid state, can\'t redirect!');
         }
 
@@ -460,7 +470,7 @@ class WebController extends CustomAbstractController
             return false;
         };
 
-        return $this->handleDomainRedirection() ?? $this->render_web_framework(Request::createFromGlobals()->getBasePath() . "/jx/{$ajax}{$bag}", $whitelisted( $ajax ));
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($q, $q->getBasePath() . "/jx/{$ajax}{$bag}", $whitelisted( $ajax ));
     }
 
     private function check_cache(string $name): ?Response {
@@ -470,11 +480,22 @@ class WebController extends CustomAbstractController
         return $request->headers->get('If-None-Match') === $name ? new Response("",304) : null;
     }
 
-    private function image_output($data, string $name, string $ext): Response {
+    private function image_output($data, string $name, string $ext, ?string $identifier = null): Response {
         // HEIC images should be referred to as AVIF towards the browser
         if ($ext === 'heic') $ext = 'avif';
 
-        $response = new Response(stream_get_contents( $data ));
+        // If the image is in avif format, we must convert it to webp for MS Edge users
+        if ($ext === 'avif' && !in_array('image/avif', Request::createFromGlobals()->getAcceptableContentTypes())) {
+            $ext = 'webp';
+
+            if ($identifier) {
+                $response = new Response( (new FilesystemAdapter())->get("mh_image_processor_$identifier", fn() =>
+                    ImageService::convertImageData( stream_get_contents( $data ), 'webp' )
+                ) );
+            } else $response = new Response(ImageService::convertImageData( stream_get_contents( $data ), 'webp' ));
+
+        } else $response = new Response(stream_get_contents( $data ));
+
         $disposition = HeaderUtils::makeDisposition(
             HeaderUtils::DISPOSITION_INLINE,
             "{$name}.{$ext}"
@@ -507,7 +528,7 @@ class WebController extends CustomAbstractController
             return $this->redirectToRoute( 'app_web_avatar', ['uid' => $uid, 'name' => $name, 'ext' => $user->getAvatar()->getFormat()] );
 
         $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
-        return $this->image_output($target, $name, $ext);
+        return $this->image_output($target, $name, $ext, "{$uid}-{$name}-{$ext}");
     }
 
     /**

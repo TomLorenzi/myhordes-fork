@@ -131,6 +131,12 @@ class SanitizeTownConfigAction
             if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_for_all']);
         }
 
+        // FFT requires CROW permissions
+        if ( ($rules['features']['free_from_teams'] ?? false) ) {
+            $elevation = max($elevation, User::USER_LEVEL_CROW);
+            if ($trimTo < User::USER_LEVEL_CROW) unset($rules['features']['free_from_teams']);
+        }
+
         return $elevation;
     }
 
@@ -142,6 +148,18 @@ class SanitizeTownConfigAction
         foreach ($lists as $list)
             if (isset( $rules[$list] ))
                 $rules[$list] = ['replace' => $rules[$list]];
+    }
+
+    public function restore_lists( $rules ): array
+    {
+
+        $lists = ['disabled_jobs', 'disabled_roles', 'initial_buildings', 'unlocked_buildings', 'disabled_buildings'];
+
+        foreach ($lists as $list)
+            if (isset( $rules[$list] ) && isset( $rules[$list]['replace'] ))
+                $rules[$list] = $rules[$list]['replace'];
+
+        return $rules;
     }
 
     public function sanitize_config(array $conf): array {

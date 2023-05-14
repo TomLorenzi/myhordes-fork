@@ -27,6 +27,10 @@ class DigTimer
     private $passive = false;
     #[ORM\Column(type: 'array', nullable: true)]
     private $digCache = [];
+
+    #[ORM\Column]
+    private bool $nonAutomatic = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,6 +82,18 @@ class DigTimer
     public function setDigCache(?array $digCache): self
     {
         $this->digCache = $digCache;
+
+        return $this;
+    }
+
+    public function isNonAutomatic(): ?bool
+    {
+        return $this->nonAutomatic;
+    }
+
+    public function setNonAutomatic(bool $nonAutomatic): self
+    {
+        $this->nonAutomatic = $nonAutomatic;
 
         return $this;
     }

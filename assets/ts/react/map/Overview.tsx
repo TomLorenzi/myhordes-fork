@@ -4,12 +4,12 @@ import {
     MapCoordinate,
     MapGeometry, MapOverviewGridProps,
     MapOverviewParentProps,
-    MapOverviewParentState,
     MapZone,
-    RuntimeMapSettings, RuntimeMapStateAction,
-    RuntimeMapStrings
+    RuntimeMapSettings, RuntimeMapStateAction
 } from "./typedef";
-import {useLayoutEffect} from "react";
+import {useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
+import {Tooltip} from "../tooltip/Wrapper";
+import {Globals} from "./Wrapper";
 
 export type MapOverviewParentStateAction = {
     zoom?: number
@@ -44,7 +44,7 @@ const RouteRenderer = ( props: { route: MapCoordinate[], color: string, opacity:
 const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
     return (
             <div className="svg">
-                <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                     {props.marking && (
                         <rect x={props.marking.x} y={props.marking.y}
                               height={1} width={1}
@@ -63,44 +63,68 @@ const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
 }
 
 type MapOverviewZoneTooltipProps = {
-    zone: MapZone,
-    strings: RuntimeMapStrings,
+    zone: MapZone
 }
 
 const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
+    const globals = useContext(Globals)
+
+    const [horror, setHorror] = useState<string>(null)
+    const timer = useRef<number>(null);
+
+    const getHorrorValue = () => (globals.strings.horror ?? [null])[ Math.floor( Math.random() * (globals.strings.horror?.length ?? 0) ) ];
+
+    useEffect(() => {
+        if (horror) timer.current = window.setTimeout( () => setHorror( null ), 500 );
+        return () => {
+            if (timer.current) {
+                window.clearTimeout( timer.current );
+                timer.current = null;
+            }
+        };
+    }, [horror])
+
     return (
-        <div className="tooltip tooltip-map">
-            { props.zone.r && (
-                <div className="row">
-                    <div className="cell rw-12 bold">{ props.zone.r.n }</div>
-                </div>
-            ) }
-            <div className="row">
-                <div className="cell rw-6 left">{props.strings.zone}</div>
-                <div className="cell rw-6 right">[{props.zone.x} / {props.zone.y}]</div>
-            </div>
-            <div className="row">
-                <div className="cell rw-6 left">{props.strings.distance}</div>
-                <div className="cell rw-6 right">
-                    <div className="ap">{ Math.abs( props.zone.x ) + Math.abs( props.zone.y ) }</div>
-                </div>
-            </div>
-            { (props.zone.c ?? []).length > 0 && (
-                <div className="row">
-                    { props.zone.c.map((c,i)=><div key={i} className="cell ro-6 rw-6 right">{c}</div>) }
-                </div>
-            ) }
-            { typeof props.zone.d !== "undefined" && props.zone.d > 0 && (
-                <div className="row">
-                    <div className="cell rw-12">{ typeof props.strings.danger[props.zone.d-1] !== "undefined" ? props.strings.danger[props.zone.d-1] : props.strings.danger[ props.strings.danger.length - 1 ] }</div>
-                </div>
-            ) }
-            { typeof props.strings.tags[ props.zone.tg ?? 0 ] !== "undefined" && props.strings.tags[ props.zone.tg ?? 0 ] && (
-                <div className="row">
-                    <div className="cell rw-12">{ props.strings.tags[ props.zone.tg ?? 0 ] }</div>
-                </div>
-            ) }
-        </div>
+        <Tooltip additionalClasses="tooltip-map"
+                 onShowTooltip={ () => (Math.random() > 0.9) && setHorror( getHorrorValue() ) }
+                 onHideTooltip={ () => horror && setHorror(null) }
+        >
+            { horror }
+            { !horror &&
+                <>
+                    { props.zone.r && (
+                        <div className="row">
+                            <div className="cell rw-12 bold">{ props.zone.r.n }</div>
+                        </div>
+                    ) }
+                    <div className="row">
+                        <div className="cell rw-6 left">{globals.strings.zone}</div>
+                        <div className="cell rw-6 right">[{props.zone.x} / {props.zone.y}]</div>
+                    </div>
+                    <div className="row">
+                        <div className="cell rw-6 left">{globals.strings.distance}</div>
+                        <div className="cell rw-6 right">
+                            <div className="ap">{ Math.abs( props.zone.x ) + Math.abs( props.zone.y ) }</div>
+                        </div>
+                    </div>
+                    { (props.zone.c ?? []).length > 0 && (
+                        <div className="row">
+                            { props.zone.c.map((c,i)=><div key={i} className="cell ro-6 rw-6 right">{c}</div>) }
+                        </div>
+                    ) }
+                    { typeof props.zone.d !== "undefined" && props.zone.d > 0 && (
+                        <div className="row">
+                            <div className="cell rw-12">{ typeof globals.strings.danger[props.zone.d-1] !== "undefined" ? globals.strings.danger[props.zone.d-1] : globals.strings.danger[ globals.strings.danger.length - 1 ] }</div>
+                        </div>
+                    ) }
+                    { typeof globals.strings.tags[ props.zone.tg ?? 0 ] !== "undefined" && globals.strings.tags[ props.zone.tg ?? 0 ] && (
+                        <div className="row">
+                            <div className="cell rw-12">{ globals.strings.tags[ props.zone.tg ?? 0 ] }</div>
+                        </div>
+                    ) }
+                </>
+            }
+        </Tooltip>
     )
 }
 
@@ -108,7 +132,6 @@ type MapOverviewZoneProps = {
     key: string,
     geo: MapGeometry,
     zone: MapZone,
-    strings: RuntimeMapStrings,
     conf: RuntimeMapSettings,
     wrapDispatcher: (RuntimeMapStateAction)=>void
 }
@@ -147,7 +170,7 @@ const MapOverviewZone = ( props: MapOverviewZoneProps ) => {
             { props.zone.tg && <div className={`tag tag-${props.zone.tg}`}/> }
             { props.zone.z && <div className="count">{props.zone.z}</div> }
             { (props.zone.c ?? []).length > 0 && <div className="citizen_marker"/> }
-            <MapOverviewZoneTooltip zone={props.zone} strings={props.strings} />
+            <MapOverviewZoneTooltip zone={props.zone} />
         </div>
     )
 }
@@ -171,7 +194,7 @@ const MapOverviewGrid = React.memo(( props: MapOverviewGridProps ) => {
             }}>
                 {Object.entries(cache).map(([k,z]) =>
                     <MapOverviewZone key={k} geo={props.map.geo}
-                                     zone={z as MapZone} strings={props.strings} conf={props.settings}
+                                     zone={z as MapZone} conf={props.settings}
                                      wrapDispatcher={props.wrapDispatcher}
                     />)}
             </div>
@@ -261,12 +284,12 @@ const MapOverviewParent = ( props: MapOverviewParentProps ) => {
              onPointerDown={props.zoom > 0 ? down : null} onPointerMove={props.zoom > 0 ? move : null}
              onPointerUp={props.zoom > 0 ? up : null} onPointerLeave={props.zoom > 0 ? up : null}
         >
-            <MapOverviewRoutePainter map={props.map} settings={props.settings} strings={props.strings}
+            <MapOverviewRoutePainter map={props.map} settings={props.settings}
                                      scrollAreaRef={props.scrollAreaRef} zoomChanged={props.zoomChanged}
                                      marking={props.marking} wrapDispatcher={props.wrapDispatcher} etag={props.etag}
                                      routeEditor={props.routeEditor} routeViewer={props.routeViewer} zoom={props.zoom}
             />
-            <MapOverviewGrid map={props.map} settings={props.settings} strings={props.strings} marking={props.marking}
+            <MapOverviewGrid map={props.map} settings={props.settings} marking={props.marking}
                              wrapDispatcher={props.wrapDispatcher} routeEditor={props.routeEditor} etag={props.etag}
                              zoom={props.zoom} routeViewer={props.routeViewer} scrollAreaRef={props.scrollAreaRef}
                              zoomChanged={props.zoomChanged}/>

@@ -49,19 +49,7 @@
 </head>
 <body data-host="pm">
 <div id="notifications"></div>
-<div id="post-office-content" class="master"></div>
-<div id="tooltip_container"></div>
-<div id="loadzone" x-stack="0">
-    <div></div>
-</div>
-<div id="modal-backdrop">
-    <div id="modal">
-        <div id="modal-title"></div>
-        <div id="modal-content"></div>
-        <div id="modal-actions"></div>
-    </div>
-</div>
-
+{% include "partials/containers.html.twig" with {} only %}
 </body>
 <footer>
     {% block footer %}

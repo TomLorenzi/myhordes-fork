@@ -1,271 +1,285 @@
----
-'Die gewählte Stadt ist bereits voll.': 'crwdns67042:0crwdne67042:0'
-'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'crwdns67044:0crwdne67044:0'
-'Du bist dieser Stadt bereits beigetreten.': 'crwdns67046:0crwdne67046:0'
-Stadtname: crwdns67048:0crwdne67048:0
-Aktionen: crwdns67050:0crwdne67050:0
-'Aktuell gibt es keine Stadt diesen Typs.': 'crwdns67052:0crwdne67052:0'
-'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.': 'crwdns67054:0{lang_town}crwdnd67054:0{lang_user}crwdne67054:0'
-'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?': 'crwdns67056:0crwdne67056:0'
-'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten': 'crwdns67058:0{town_name}crwdne67058:0'
-'Deine Seele genügt den Anforderungen für diesen Stadttypen.': 'crwdns67060:0crwdne67060:0'
-"<p>\n                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...\n                    </p>\n                    <p>\n                    Was tust du, solange der Angriff tobt?\n                    </p>": "crwdns67062:0crwdne67062:0"
-'Was hat das zu bedeuten?': 'crwdns67064:0crwdne67064:0'
-'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!': 'crwdns67066:0crwdne67066:0'
-'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.': 'crwdns67068:0crwdne67068:0'
-'Und ja, es wird Tote geben...': 'crwdns67070:0crwdne67070:0'
-'Worauf warten Sie noch?': 'crwdns67072:0crwdne67072:0'
-'Privatstadt gründen': 'crwdns67074:0crwdne67074:0'
-'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'crwdns67076:0crwdne67076:0'
-'Name der Stadt': 'crwdns67078:0crwdne67078:0'
-Zugangscode: crwdns67080:0crwdne67080:0
-Stadttyp: crwdns67082:0crwdne67082:0
-Ghule: crwdns67084:0crwdne67084:0
-'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'crwdns136875:0crwdne136875:0'
-Normal: crwdns67088:0crwdne67088:0
-'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'crwdns67090:0crwdne67090:0'
-Blutdurst: crwdns67092:0crwdne67092:0
-'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.': 'crwdns67094:0crwdne67094:0'
-'Stadt der Kuscheltiere': 'crwdns67096:0crwdne67096:0'
-Wasservorrat: crwdns67098:0crwdne67098:0
-'Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300': 'crwdns67100:0crwdne67100:0'
-Einstellungen: crwdns67102:0crwdne67102:0
-'XML Feed für diese Stadt deaktivieren': 'crwdns67104:0crwdne67104:0'
-Event-Stadt: crwdns67106:0crwdne67106:0
-Spezialregeln: crwdns67108:0crwdne67108:0
-'Keine Spezialregeln': 'crwdns67110:0crwdne67110:0'
-Keine: crwdns67112:0crwdne67112:0
-'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!': 'crwdns67114:0crwdne67114:0'
-'Keine Startgebäude': 'crwdns67116:0crwdne67116:0'
-'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.': 'crwdns67118:0crwdne67118:0'
-'Kontaminierte Zone': 'crwdns67120:0crwdne67120:0'
-Stadtmodifikationen: crwdns67122:0crwdne67122:0
-'Exploration:': 'crwdns67124:0crwdne67124:0'
-'Begehbare Ruinen aktivieren': 'crwdns67126:0crwdne67126:0'
-'Seelen & Schamane:': 'crwdns67128:0crwdne67128:0'
-'Eskorte:': 'crwdns67130:0crwdne67130:0'
-'Eskorten aktivieren': 'crwdns67132:0crwdne67132:0'
-'Verbannung:': 'crwdns67134:0crwdne67134:0'
-'Verbannung aktivieren': 'crwdns67136:0crwdne67136:0'
-'Nachtmodus:': 'crwdns67138:0crwdne67138:0'
-'Camping:': 'crwdns67140:0crwdne67140:0'
-'Camping in der Wildnis aktivieren': 'crwdns67142:0crwdne67142:0'
-'Gebäudeschaden:': 'crwdns67144:0crwdne67144:0'
-'Gebäudeschaden aktivieren': 'crwdns67146:0crwdne67146:0'
-'Nachtwache:': 'crwdns67148:0crwdne67148:0'
-'Verbesserte Müllhalde:': 'crwdns67150:0crwdne67150:0'
-'Verbesserte Müllhalde aktivieren': 'crwdns67152:0crwdne67152:0'
-'Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt': 'crwdns67154:0crwdne67154:0'
-Angriffe: crwdns67156:0crwdne67156:0
-'Stärke der Angriffe': 'crwdns67158:0crwdne67158:0'
-'Leiche Angriffe': 'crwdns67160:0crwdne67160:0'
-'Schwere Angriffe': 'crwdns67162:0crwdne67162:0'
-Spiel-Optionen: crwdns67164:0crwdne67164:0
-'Abstimmung aller Piktogramme:': 'crwdns67166:0crwdne67166:0'
-'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.': 'crwdns67168:0crwdne67168:0'
-'Seelenpunkte vergeben:': 'crwdns67170:0crwdne67170:0'
-'Gibt Ihnen Seelenpunkte.': 'crwdns67172:0crwdne67172:0'
-Achtung!: crwdns67174:0crwdne67174:0
-'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.': 'crwdns67176:0crwdne67176:0'
-'Diese Stadt gründen': 'crwdns67178:0crwdne67178:0'
-Platzreservierung: crwdns67180:0crwdne67180:0
-'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?': 'crwdns67182:0crwdne67182:0'
-Karten-Seed: crwdns67184:0crwdne67184:0
-'Der Schamane wird gewählt und die Seelen werden gequält.': 'crwdns67186:0crwdne67186:0'
-'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.': 'crwdns67188:0crwdne67188:0'
-Job: crwdns67190:0crwdne67190:0
-'Der Schamane und die Seelen werden deaktiviert.': 'crwdns67192:0crwdne67192:0'
-Deaktiviert: crwdns67194:0crwdne67194:0
-'Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.': 'crwdns67196:0crwdne67196:0'
-'Die Nachtwache ist von Anfang an verfügbar.': 'crwdns67198:0crwdne67198:0'
-Sofort: crwdns67200:0crwdne67200:0
-'Die Nachtwache ist deaktiviert.': 'crwdns67202:0crwdne67202:0'
-'Verkörperung in der Stadt:': 'crwdns67204:0crwdne67204:0'
-'Verkörpert dich in der Stadt bei ihrer Entstehung': 'crwdns67206:0crwdne67206:0'
-'Verfügbare Berufe': 'crwdns67208:0crwdne67208:0'
-'Bitte gib das Stadtpasswort ein :': 'crwdns67210:0crwdne67210:0'
-'Nicht als Privatstadt erstellen:': 'crwdns67212:0crwdne67212:0'
-'Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!': 'crwdns67214:0crwdne67214:0'
-'Kein XML Feed:': 'crwdns67216:0crwdne67216:0'
-"Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.\n                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.\n                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !": "crwdns67218:0crwdne67218:0"
-'Strikte Vergabe von Auszeichnungen:': 'crwdns67220:0crwdne67220:0'
-'Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.': 'crwdns67222:0crwdne67222:0'
-'Nach 2 Tagen negieren:': 'crwdns67224:0crwdne67224:0'
-'Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.': 'crwdns67226:0crwdne67226:0'
-'Tor versperren:': 'crwdns67228:0crwdne67228:0'
-'Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.': 'crwdns67230:0crwdne67230:0'
-'Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.': 'crwdns67232:0crwdne67232:0'
-'In dieser Stadt ist kein Platz mehr für dich und deine Koalition.': 'crwdns67234:0crwdne67234:0'
-'Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.': 'crwdns67236:0crwdne67236:0'
-'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.': 'crwdns67238:0crwdne67238:0'
-'Wiedergeburt: Privatstadt gründen': 'crwdns67240:0crwdne67240:0'
-'Wiedergeburt: Wahl der Partie': 'crwdns67242:0crwdne67242:0'
-Kartengröße: crwdns67244:0crwdne67244:0
-Automatisch: crwdns67246:0crwdne67246:0
-'Kleine Karte': 'crwdns67248:0crwdne67248:0'
-'Normale Karte': 'crwdns67250:0crwdne67250:0'
-'Riesige Karte': 'crwdns67252:0crwdne67252:0'
-'Eigene Einstellung': 'crwdns67254:0crwdne67254:0'
-'Exakte Kartengröße': 'crwdns67256:0crwdne67256:0'
-'Anzahl Ruinen': 'crwdns67258:0crwdne67258:0'
-'Anzahl Begehbare Ruinen': 'crwdns67260:0crwdne67260:0'
-'Position der Stadt': 'crwdns67262:0crwdne67262:0'
-'Eher Zentral': 'crwdns67264:0crwdne67264:0'
-Zentral: crwdns67266:0crwdne67266:0
-'Spielmodifikationen:': 'crwdns67268:0crwdne67268:0'
-Raben-Optionen: crwdns67270:0crwdne67270:0
-Events: crwdns67272:0crwdne67272:0
-'Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.': 'crwdns67274:0crwdne67274:0'
-Erweitert: crwdns67276:0crwdne67276:0
-'Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.': 'crwdns67278:0crwdne67278:0'
-'Der Nachtmodus ist deaktiviert.': 'crwdns67280:0crwdne67280:0'
-'Eine Reservierung hinzufügen': 'crwdns67282:0crwdne67282:0'
-'Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.': 'crwdns67284:0crwdne67284:0'
-'So geht''s: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).': 'crwdns67286:0crwdne67286:0'
-'<strong>Hinweis:</strong> Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, <strong>mehr als nur 39 Spieler</strong> anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.': 'crwdns67288:0crwdne67288:0'
-'<strong>Hinweis:</strong> Wenn du <strong>weniger als 39 Spieler</strong> angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.': 'crwdns67290:0crwdne67290:0'
-'<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>': 'crwdns67292:0crwdne67292:0'
-'Ghule sind deaktiviert.': 'crwdns67294:0crwdne67294:0'
-Aerogen: crwdns67296:0crwdne67296:0
-'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'crwdns67298:0crwdne67298:0'
-'Blutdurst und Aerogen': 'crwdns67300:0crwdne67300:0'
-'Diese Stadt ist durch ein Passwort geschützt.': 'crwdns67302:0crwdne67302:0'
-'Für diese Stadt gilt eine Platzreservierung.': 'crwdns67304:0crwdne67304:0'
-'Einer Stadt beitreten': 'crwdns67306:0crwdne67306:0'
-'Wähle dein nächstes Leben:': 'crwdns67308:0crwdne67308:0'
-'Ein neues Leben beginnen': 'crwdns67310:0crwdne67310:0'
-'...und mit 39 Mitbürgern in der Hölle schmoren': 'crwdns67312:0crwdne67312:0'
-'Das Leben nach dem Tod': 'crwdns67314:0crwdne67314:0'
-'Meine Seele ansehen': 'crwdns67316:0crwdne67316:0'
-'Spendenseite aufrufen': 'crwdns67318:0crwdne67318:0'
-'Willkommen in der Hölle!': 'crwdns67320:0crwdne67320:0'
-'Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.': 'crwdns67322:0crwdne67322:0'
-'Spiel betreten': 'crwdns67324:0crwdne67324:0'
-Einwohnerzahl: crwdns67326:0crwdne67326:0
-'Muss zwischen 10 und 80 liegen.': 'crwdns67328:0crwdne67328:0'
-'Bürger-Aliase:': 'crwdns67330:0crwdne67330:0'
-'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen': 'crwdns67332:0crwdne67332:0'
-'Dein Name': 'crwdns67334:0crwdne67334:0'
-'Zeitzone:': 'crwdns67336:0crwdne67336:0'
-'Die eingestellte Zeit gibt die Dauer des Tages an.': 'crwdns67338:0crwdne67338:0'
-'Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.': 'crwdns67340:0crwdne67340:0'
-Tagesphase: crwdns67342:0crwdne67342:0
-'Die eingestellte Zeit gibt die Dauer der Nacht an.': 'crwdns67344:0crwdne67344:0'
-Nachtphase: crwdns67346:0crwdne67346:0
-'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?': 'crwdns67348:0crwdne67348:0'
-'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?': 'crwdns67350:0crwdne67350:0'
-'Spielhilfe ansehen': 'crwdns67352:0crwdne67352:0'
-'Spielen, Lernen und STERBEN!': 'crwdns67354:0crwdne67354:0'
-'Als Event-Stadt markieren': 'crwdns67356:0crwdne67356:0'
-'Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.': 'crwdns67358:0crwdne67358:0'
-'Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.': 'crwdns67360:0crwdne67360:0'
-'Jeder Spieler erhält 1x Betapropin beim Start der Stadt.': 'crwdns67362:0crwdne67362:0'
-'Beta-Funktionen aktivieren': 'crwdns67364:0crwdne67364:0'
-'Eine Stadt aussuchen': 'crwdns67366:0crwdne67366:0'
-'Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.': 'crwdns67368:0{coalition}crwdne67368:0'
-'Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.': 'crwdns67370:0{coalition}crwdne67370:0'
-'Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.': 'crwdns67372:0{coalition}crwdne67372:0'
-'Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:': 'crwdns67374:0{coalition}crwdne67374:0'
-'Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.': 'crwdns67376:0crwdne67376:0'
-'Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!': 'crwdns67378:0crwdne67378:0'
-'Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!': 'crwdns67380:0crwdne67380:0'
-'Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...': 'crwdns67382:0crwdne67382:0'
-'Sein Zuhause verlassen...': 'crwdns67384:0crwdne67384:0'
-'Zur Partieauswahl zurückkehren': 'crwdns67386:0crwdne67386:0'
-'Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).': 'crwdns67388:0crwdne67388:0'
-Kombiniert: crwdns67390:0crwdne67390:0
-'Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.': 'crwdns67392:0crwdne67392:0'
-'Toxin aktivieren': 'crwdns67394:0crwdne67394:0'
-'Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.': 'crwdns67396:0crwdne67396:0'
-'Hungrige Ghule': 'crwdns67398:0crwdne67398:0'
-'Seelenpunkt-Beschränkung deaktivieren:': 'crwdns67400:0crwdne67400:0'
-'Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.': 'crwdns67402:0crwdne67402:0'
-'Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.': 'crwdns67404:0crwdne67404:0'
-'Individuelle Konfiguration': 'crwdns67406:0crwdne67406:0'
-'Verfügbare Konstruktionen': 'crwdns67408:0crwdne67408:0'
-'Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.': 'crwdns67410:0crwdne67410:0'
-Fortsetzen...: crwdns136092:0crwdne136092:0
-'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'crwdns136094:0crwdne136094:0'
-'Zum Login zurückkehren': 'crwdns136096:0crwdne136096:0'
-'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'crwdns136362:0{sp}crwdne136362:0'
-'Grundlegende Einstellungen': 'crwdns136460:0crwdne136460:0'
-'Leer lassen, um Stadtnamen automatisch zu generieren.': 'crwdns136462:0crwdne136462:0'
-'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'crwdns136464:0crwdne136464:0'
-Vorlage: crwdns136466:0crwdne136466:0
-Schwierigkeitslevel: crwdns136468:0crwdne136468:0
-Gering: crwdns136470:0crwdne136470:0
-'Eigener Wert': 'crwdns136472:0crwdne136472:0'
-'Eigener Bereich': 'crwdns136474:0crwdne136474:0'
-'Leichte Angriffe': 'crwdns136476:0crwdne136476:0'
-'Seelen & Schamane': 'crwdns136478:0crwdne136478:0'
-Nachtwache: crwdns136480:0crwdne136480:0
-Nachtmodus: crwdns136482:0crwdne136482:0
-Zeitzone: crwdns136484:0crwdne136484:0
-Spielmodifikationen: crwdns136486:0crwdne136486:0
-Bürger-Aliase: crwdns136488:0crwdne136488:0
-'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'crwdns136490:0crwdne136490:0'
-Exploration: crwdns136492:0crwdne136492:0
-Eskorte: crwdns136494:0crwdne136494:0
-Verbannung: crwdns136496:0crwdne136496:0
-Camping: crwdns136498:0crwdne136498:0
-Gebäudeschaden: crwdns136500:0crwdne136500:0
-'Verbesserte Müllhalde': 'crwdns136502:0crwdne136502:0'
-'Externe APIs': 'crwdns136504:0crwdne136504:0'
-'Externe Anwendungen für diese Stadt aktivieren.': 'crwdns136506:0crwdne136506:0'
-'Seelenpunkt-Beschränkung deaktivieren': 'crwdns136508:0crwdne136508:0'
-'Paradies der Giftmörder': 'crwdns136510:0crwdne136510:0'
-'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'crwdns136512:0crwdne136512:0'
-'Stadtstart planen': 'crwdns136514:0crwdne136514:0'
-'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'crwdns136516:0crwdne136516:0'
-'Vergabe von Auszeichnungen': 'crwdns136518:0crwdne136518:0'
-Alle: crwdns136520:0crwdne136520:0
-'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'crwdns136522:0crwdne136522:0'
-Reduziert: crwdns136524:0crwdne136524:0
-'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'crwdns136526:0crwdne136526:0'
-'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'crwdns136528:0crwdne136528:0'
-'Auszeichnungen beschränken': 'crwdns136530:0crwdne136530:0'
-'Keine Beschränkung': 'crwdns136532:0crwdne136532:0'
-'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'crwdns136534:0crwdne136534:0'
-'Strikte Vergabe': 'crwdns136536:0crwdne136536:0'
-'Vergabe von Seelenpunkten': 'crwdns136538:0crwdne136538:0'
-'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'crwdns136540:0crwdne136540:0'
-'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'crwdns136542:0crwdne136542:0'
-Teilnahme: crwdns136544:0crwdne136544:0
-'Verkörperung in der Stadt': 'crwdns136546:0crwdne136546:0'
-'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'crwdns136548:0crwdne136548:0'
-'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'crwdns136550:0crwdne136550:0'
-Verwaltung: crwdns136552:0crwdne136552:0
-'Nach 2 Tagen negieren': 'crwdns136554:0crwdne136554:0'
-'Tor versperren': 'crwdns136556:0crwdne136556:0'
-'Erweiterte Einstellungen': 'crwdns136558:0crwdne136558:0'
-'Manuelles Event-Management': 'crwdns136560:0crwdne136560:0'
-'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'crwdns136562:0crwdne136562:0'
-'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'crwdns136564:0crwdne136564:0'
-'Den neuen Generator ausprobieren': 'crwdns136566:0crwdne136566:0'
-'Erneutes Buddeln': 'crwdns136570:0crwdne136570:0'
-'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'crwdns136572:0crwdne136572:0'
-Matroschka-Taschen: crwdns136574:0crwdne136574:0
-'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'crwdns136576:0crwdne136576:0'
-Event-Management: crwdns136578:0crwdne136578:0
-'Verwendet die normale Event-Verwaltung der Stadt.': 'crwdns136580:0crwdne136580:0'
-'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'crwdns136582:0crwdne136582:0'
-'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'crwdns136584:0crwdne136584:0'
-'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'crwdns136586:0crwdne136586:0'
-'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'crwdns136588:0crwdne136588:0'
-Vorlagen: crwdns136931:0crwdne136931:0
-'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'crwdns136933:0crwdne136933:0'
-'Ausgewählte Vorlage': 'crwdns136935:0crwdne136935:0'
-'Keine Auswahl': 'crwdns136937:0crwdne136937:0'
-'Aktuelle Einstellungen als neue Vorlage speichern': 'crwdns136939:0crwdne136939:0'
-'Bitte gib deiner neuen Vorlage einen Namen.': 'crwdns136941:0crwdne136941:0'
-'Deine Vorlage wurde erfolgreich erstellt.': 'crwdns136943:0crwdne136943:0'
-'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'crwdns136945:0crwdne136945:0'
-Aktualisieren: crwdns136947:0crwdne136947:0
-'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'crwdns136949:0crwdne136949:0'
-'Deine Vorlage wurde erfolgreich aktualisiert.': 'crwdns136951:0crwdne136951:0'
-Laden: crwdns136953:0crwdne136953:0
-'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'crwdns136955:0crwdne136955:0'
-'Deine Einstellungen wurden erfolgreich geladen.': 'crwdns136957:0crwdne136957:0'
-Löschen: crwdns136959:0crwdne136959:0
-'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'crwdns136961:0crwdne136961:0'
-'Deine Vorlage wurde erfolgreich gelöscht.': 'crwdns136963:0crwdne136963:0'
+'Die gewählte Stadt ist bereits voll.': 'crwdns151549:0crwdne151549:0'
+'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.': 'crwdns151551:0crwdne151551:0'
+'Du bist dieser Stadt bereits beigetreten.': 'crwdns151553:0crwdne151553:0'
+Stadtname: crwdns151555:0crwdne151555:0
+Aktionen: crwdns151557:0crwdne151557:0
+'Aktuell gibt es keine Stadt diesen Typs.': 'crwdns151559:0crwdne151559:0'
+'Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.': 'crwdns151561:0{lang_town}crwdnd151561:0{lang_user}crwdne151561:0'
+'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?': 'crwdns151563:0crwdne151563:0'
+'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten': 'crwdns151565:0{town_name}crwdne151565:0'
+'Deine Seele genügt den Anforderungen für diesen Stadttypen.': 'crwdns151567:0crwdne151567:0'
+"<p>\n                    Deine Stadt wird gerade von den Zombies <strong>angegriffen</strong>! Du hörst wie sie <strong>grunzend</strong> gegen eure Hütten schlagen. Dazwischen immer wieder <strong>Hilferufe</strong> und Schreie... Sie scheinen überall zu sein...\n                    </p>\n                    <p>\n                    Was tust du, solange der Angriff tobt?\n                    </p>": "crwdns151569:0crwdne151569:0"
+'Was hat das zu bedeuten?': 'crwdns151571:0crwdne151571:0'
+'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!': 'crwdns151573:0crwdne151573:0'
+'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.': 'crwdns151575:0crwdne151575:0'
+'Und ja, es wird Tote geben...': 'crwdns151577:0crwdne151577:0'
+'Worauf warten Sie noch?': 'crwdns151579:0crwdne151579:0'
+'Privatstadt gründen': 'crwdns151581:0crwdne151581:0'
+'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.': 'crwdns151583:0crwdne151583:0'
+'Name der Stadt': 'crwdns151585:0crwdne151585:0'
+Zugangscode: crwdns151587:0crwdne151587:0
+Stadttyp: crwdns151589:0crwdne151589:0
+Ghule: crwdns151591:0crwdne151591:0
+'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.': 'crwdns151593:0crwdne151593:0'
+Normal: crwdns151595:0crwdne151595:0
+'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'crwdns151597:0crwdne151597:0'
+Blutdurst: crwdns151599:0crwdne151599:0
+'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.': 'crwdns151601:0crwdne151601:0'
+'Stadt der Kuscheltiere': 'crwdns151603:0crwdne151603:0'
+Wasservorrat: crwdns151605:0crwdne151605:0
+'Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300': 'crwdns151607:0crwdne151607:0'
+Einstellungen: crwdns151609:0crwdne151609:0
+'XML Feed für diese Stadt deaktivieren': 'crwdns151611:0crwdne151611:0'
+Event-Stadt: crwdns151613:0crwdne151613:0
+Spezialregeln: crwdns151615:0crwdne151615:0
+'Keine Spezialregeln': 'crwdns151617:0crwdne151617:0'
+Keine: crwdns151619:0crwdne151619:0
+'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!': 'crwdns151621:0crwdne151621:0'
+'Keine Startgebäude': 'crwdns151623:0crwdne151623:0'
+'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.': 'crwdns151625:0crwdne151625:0'
+'Kontaminierte Zone': 'crwdns151627:0crwdne151627:0'
+Stadtmodifikationen: crwdns151629:0crwdne151629:0
+'Exploration:': 'crwdns151631:0crwdne151631:0'
+'Begehbare Ruinen aktivieren': 'crwdns151633:0crwdne151633:0'
+'Seelen & Schamane:': 'crwdns151635:0crwdne151635:0'
+'Eskorte:': 'crwdns151637:0crwdne151637:0'
+'Eskorten aktivieren': 'crwdns151639:0crwdne151639:0'
+'Verbannung:': 'crwdns151641:0crwdne151641:0'
+'Verbannung aktivieren': 'crwdns151643:0crwdne151643:0'
+'Nachtmodus:': 'crwdns151645:0crwdne151645:0'
+'Camping:': 'crwdns151647:0crwdne151647:0'
+'Camping in der Wildnis aktivieren': 'crwdns151649:0crwdne151649:0'
+'Gebäudeschaden:': 'crwdns151651:0crwdne151651:0'
+'Gebäudeschaden aktivieren': 'crwdns151653:0crwdne151653:0'
+'Nachtwache:': 'crwdns151655:0crwdne151655:0'
+'Verbesserte Müllhalde:': 'crwdns151657:0crwdne151657:0'
+'Verbesserte Müllhalde aktivieren': 'crwdns151659:0crwdne151659:0'
+'Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt': 'crwdns151661:0crwdne151661:0'
+Angriffe: crwdns151663:0crwdne151663:0
+'Stärke der Angriffe': 'crwdns151665:0crwdne151665:0'
+'Leiche Angriffe': 'crwdns151667:0crwdne151667:0'
+'Schwere Angriffe': 'crwdns151669:0crwdne151669:0'
+Spiel-Optionen: crwdns151671:0crwdne151671:0
+'Abstimmung aller Piktogramme:': 'crwdns151673:0crwdne151673:0'
+'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.': 'crwdns151675:0crwdne151675:0'
+'Seelenpunkte vergeben:': 'crwdns151677:0crwdne151677:0'
+'Gibt Ihnen Seelenpunkte.': 'crwdns151679:0crwdne151679:0'
+Achtung!: crwdns151681:0crwdne151681:0
+'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.': 'crwdns151683:0crwdne151683:0'
+'Diese Stadt gründen': 'crwdns151685:0crwdne151685:0'
+Platzreservierung: crwdns151687:0crwdne151687:0
+'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?': 'crwdns151689:0crwdne151689:0'
+Karten-Seed: crwdns151691:0crwdne151691:0
+'Der Schamane wird gewählt und die Seelen werden gequält.': 'crwdns151693:0crwdne151693:0'
+'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.': 'crwdns151695:0crwdne151695:0'
+Job: crwdns151697:0crwdne151697:0
+'Der Schamane und die Seelen werden deaktiviert.': 'crwdns151699:0crwdne151699:0'
+Deaktiviert: crwdns151701:0crwdne151701:0
+'Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.': 'crwdns151703:0crwdne151703:0'
+'Die Nachtwache ist von Anfang an verfügbar.': 'crwdns151705:0crwdne151705:0'
+Sofort: crwdns151707:0crwdne151707:0
+'Die Nachtwache ist deaktiviert.': 'crwdns151709:0crwdne151709:0'
+'Verkörperung in der Stadt:': 'crwdns151711:0crwdne151711:0'
+'Verkörpert dich in der Stadt bei ihrer Entstehung': 'crwdns151713:0crwdne151713:0'
+'Verfügbare Berufe': 'crwdns151715:0crwdne151715:0'
+'Bitte gib das Stadtpasswort ein :': 'crwdns151717:0crwdne151717:0'
+'Nicht als Privatstadt erstellen:': 'crwdns151719:0crwdne151719:0'
+'Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!': 'crwdns151721:0crwdne151721:0'
+'Kein XML Feed:': 'crwdns151723:0crwdne151723:0'
+"Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.\n                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.\n                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !": "crwdns151725:0crwdne151725:0"
+'Strikte Vergabe von Auszeichnungen:': 'crwdns151727:0crwdne151727:0'
+'Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.': 'crwdns151729:0crwdne151729:0'
+'Nach 2 Tagen negieren:': 'crwdns151731:0crwdne151731:0'
+'Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.': 'crwdns151733:0crwdne151733:0'
+'Tor versperren:': 'crwdns151735:0crwdne151735:0'
+'Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.': 'crwdns151737:0crwdne151737:0'
+'Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.': 'crwdns151739:0crwdne151739:0'
+'In dieser Stadt ist kein Platz mehr für dich und deine Koalition.': 'crwdns151741:0crwdne151741:0'
+'Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.': 'crwdns151743:0crwdne151743:0'
+'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.': 'crwdns151745:0crwdne151745:0'
+'Wiedergeburt: Privatstadt gründen': 'crwdns151747:0crwdne151747:0'
+'Wiedergeburt: Wahl der Partie': 'crwdns151749:0crwdne151749:0'
+Kartengröße: crwdns151751:0crwdne151751:0
+Automatisch: crwdns151753:0crwdne151753:0
+'Kleine Karte': 'crwdns151755:0crwdne151755:0'
+'Normale Karte': 'crwdns151757:0crwdne151757:0'
+'Riesige Karte': 'crwdns151759:0crwdne151759:0'
+'Eigene Einstellung': 'crwdns151761:0crwdne151761:0'
+'Exakte Kartengröße': 'crwdns151763:0crwdne151763:0'
+'Anzahl Ruinen': 'crwdns151765:0crwdne151765:0'
+'Anzahl Begehbare Ruinen': 'crwdns151767:0crwdne151767:0'
+'Position der Stadt': 'crwdns151769:0crwdne151769:0'
+'Eher Zentral': 'crwdns151771:0crwdne151771:0'
+Zentral: crwdns151773:0crwdne151773:0
+'Spielmodifikationen:': 'crwdns151775:0crwdne151775:0'
+Raben-Optionen: crwdns151777:0crwdne151777:0
+Events: crwdns151779:0crwdne151779:0
+'Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.': 'crwdns151781:0crwdne151781:0'
+Erweitert: crwdns151783:0crwdne151783:0
+'Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.': 'crwdns151785:0crwdne151785:0'
+'Der Nachtmodus ist deaktiviert.': 'crwdns151787:0crwdne151787:0'
+'Eine Reservierung hinzufügen': 'crwdns151789:0crwdne151789:0'
+'Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.': 'crwdns151791:0crwdne151791:0'
+'So geht''s: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).': 'crwdns151793:0crwdne151793:0'
+'<strong>Hinweis:</strong> Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, <strong>mehr als nur 39 Spieler</strong> anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.': 'crwdns151795:0crwdne151795:0'
+'<strong>Hinweis:</strong> Wenn du <strong>weniger als 39 Spieler</strong> angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.': 'crwdns151797:0crwdne151797:0'
+'<strong>Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.</strong>': 'crwdns151799:0crwdne151799:0'
+'Ghule sind deaktiviert.': 'crwdns151801:0crwdne151801:0'
+Aerogen: crwdns151803:0crwdne151803:0
+'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.': 'crwdns151805:0crwdne151805:0'
+'Blutdurst und Aerogen': 'crwdns151807:0crwdne151807:0'
+'Diese Stadt ist durch ein Passwort geschützt.': 'crwdns151809:0crwdne151809:0'
+'Für diese Stadt gilt eine Platzreservierung.': 'crwdns151811:0crwdne151811:0'
+'Einer Stadt beitreten': 'crwdns151813:0crwdne151813:0'
+'Wähle dein nächstes Leben:': 'crwdns151815:0crwdne151815:0'
+'Ein neues Leben beginnen': 'crwdns151817:0crwdne151817:0'
+'...und mit 39 Mitbürgern in der Hölle schmoren': 'crwdns151819:0crwdne151819:0'
+'Das Leben nach dem Tod': 'crwdns151821:0crwdne151821:0'
+'Meine Seele ansehen': 'crwdns151823:0crwdne151823:0'
+'Spendenseite aufrufen': 'crwdns151825:0crwdne151825:0'
+'Willkommen in der Hölle!': 'crwdns151827:0crwdne151827:0'
+'Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.': 'crwdns151829:0crwdne151829:0'
+'Spiel betreten': 'crwdns151831:0crwdne151831:0'
+Einwohnerzahl: crwdns151833:0crwdne151833:0
+'Muss zwischen 10 und 80 liegen.': 'crwdns151835:0crwdne151835:0'
+'Bürger-Aliase:': 'crwdns151837:0crwdne151837:0'
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen': 'crwdns151839:0crwdne151839:0'
+'Dein Name': 'crwdns151841:0crwdne151841:0'
+'Zeitzone:': 'crwdns151843:0crwdne151843:0'
+'Die eingestellte Zeit gibt die Dauer des Tages an.': 'crwdns151845:0crwdne151845:0'
+'Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.': 'crwdns151847:0crwdne151847:0'
+Tagesphase: crwdns151849:0crwdne151849:0
+'Die eingestellte Zeit gibt die Dauer der Nacht an.': 'crwdns151851:0crwdne151851:0'
+Nachtphase: crwdns151853:0crwdne151853:0
+'Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?': 'crwdns151855:0crwdne151855:0'
+'Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?': 'crwdns151857:0crwdne151857:0'
+'Spielhilfe ansehen': 'crwdns151859:0crwdne151859:0'
+'Spielen, Lernen und STERBEN!': 'crwdns151861:0crwdne151861:0'
+'Als Event-Stadt markieren': 'crwdns151863:0crwdne151863:0'
+'Event-Städte werden nicht ins Ranking aufgenommen und erhalten eine spezielle Markierung in der Stadtliste.': 'crwdns151865:0crwdne151865:0'
+'Dies ist eine Event-Stadt, sie wird nach ihrem Ende nicht im Ranking erscheinen. Möglicherweise gelten unübliche Regeln für diese Stadt.': 'crwdns151867:0crwdne151867:0'
+'Jeder Spieler erhält 1x Betapropin beim Start der Stadt.': 'crwdns151869:0crwdne151869:0'
+'Beta-Funktionen aktivieren': 'crwdns151871:0crwdne151871:0'
+'Eine Stadt aussuchen': 'crwdns151873:0crwdne151873:0'
+'Achtung: Du stehst deiner {coalition} NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.': 'crwdns151875:0{coalition}crwdne151875:0'
+'Achtung: Im Moment steht kein Mitglied deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.': 'crwdns151877:0{coalition}crwdne151877:0'
+'Achtung: Im Moment stehen nicht alle Mitglieder deiner {coalition} zur Verfügung, um dir in eine Stadt zu folgen.': 'crwdns151879:0{coalition}crwdne151879:0'
+'Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner {coalition} dir folgen:': 'crwdns151881:0{coalition}crwdne151881:0'
+'Die Sprache dieser Stadt stimmt nicht mit deiner Spracheinstellung überein. Wenn du dieser Stadt beitrittst, musst du im Stadtforum die Sprache der Stadt verwenden.': 'crwdns151883:0crwdne151883:0'
+'Die Verwendung einer anderen Sprache im Stadtforum kann zu Sanktionen seitens der Moderation führen!': 'crwdns151885:0crwdne151885:0'
+'Die verhungerte <strong>Zombiehorde</strong> ist diese Nacht über deine Stadt hereingebrochen!': 'crwdns151887:0crwdne151887:0'
+'Die "gute" Nachricht: Du bist noch <strong>am Leben</strong>...': 'crwdns151889:0crwdne151889:0'
+'Sein Zuhause verlassen...': 'crwdns151891:0crwdne151891:0'
+'Zur Partieauswahl zurückkehren': 'crwdns151893:0crwdne151893:0'
+'Beide Schamanen-Modi sind gleichzeitig aktiviert (experimentell!).': 'crwdns151895:0crwdne151895:0'
+Kombiniert: crwdns151897:0crwdne151897:0
+'Ermöglicht es, in begehbaren Ruinen den Gegenstand "Blutdurchtränkter Verband" zu finden, aus dem Toxin hergestellt werden kann.': 'crwdns151899:0crwdne151899:0'
+'Toxin aktivieren': 'crwdns151901:0crwdne151901:0'
+'Ist diese Option aktiviert, haben frisch in Ghule verwandelte Bürger bereits Hunger.': 'crwdns151903:0crwdne151903:0'
+'Hungrige Ghule': 'crwdns151905:0crwdne151905:0'
+'Seelenpunkt-Beschränkung deaktivieren:': 'crwdns151907:0crwdne151907:0'
+'Jeder Spieler kann dieser Stadt beitreten, unabhängig davon wie viele Seelenpunkte er oder sie bereits erworben hat.': 'crwdns151909:0crwdne151909:0'
+'Üblicherweise werden die verfügbaren Berufe in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Schamanen-Modus. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Berufe stattdessen manuell ein- oder ausschalten.': 'crwdns151911:0crwdne151911:0'
+'Individuelle Konfiguration': 'crwdns151913:0crwdne151913:0'
+'Verfügbare Konstruktionen': 'crwdns151915:0crwdne151915:0'
+'Üblicherweise werden die verfügbaren Konstruktionen in einer Stadt durch andere Optionen gesteuert, zum Beispiel den Stadt-Typ. Mit dieser Option kannst du die automatischen Einstellungen ausser Kraft setzen und die Konstruktionen stattdessen manuell konfigurieren.': 'crwdns151917:0crwdne151917:0'
+Fortsetzen...: crwdns151919:0crwdne151919:0
+'Die <strong>Zombiehorde</strong> scheint sich für heute zurückgezogen zu haben...': 'crwdns151921:0crwdne151921:0'
+'Zum Login zurückkehren': 'crwdns151923:0crwdne151923:0'
+'Du benötigst mindestens {sp} Seelenpunkte, um dieser Stadt beitreten zu können. Sammele Seelenpunkte, indem du andere Städte spielst.': 'crwdns151925:0{sp}crwdne151925:0'
+'Grundlegende Einstellungen': 'crwdns151927:0crwdne151927:0'
+'Leer lassen, um Stadtnamen automatisch zu generieren.': 'crwdns151929:0crwdne151929:0'
+'Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren. Gib eine positive ganze Zahl ein, um es zu aktivieren. DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN!': 'crwdns151931:0crwdne151931:0'
+Vorlage: crwdns151933:0crwdne151933:0
+Schwierigkeitslevel: crwdns151935:0crwdne151935:0
+Gering: crwdns151937:0crwdne151937:0
+'Eigener Wert': 'crwdns151939:0crwdne151939:0'
+'Eigener Bereich': 'crwdns151941:0crwdne151941:0'
+'Leichte Angriffe': 'crwdns151943:0crwdne151943:0'
+'Seelen & Schamane': 'crwdns151945:0crwdne151945:0'
+Nachtwache: crwdns151947:0crwdne151947:0
+Nachtmodus: crwdns151949:0crwdne151949:0
+Zeitzone: crwdns151951:0crwdne151951:0
+Spielmodifikationen: crwdns151953:0crwdne151953:0
+Bürger-Aliase: crwdns151955:0crwdne151955:0
+'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen.': 'crwdns151957:0crwdne151957:0'
+Exploration: crwdns151959:0crwdne151959:0
+Eskorte: crwdns151961:0crwdne151961:0
+Verbannung: crwdns151963:0crwdne151963:0
+Camping: crwdns151965:0crwdne151965:0
+Gebäudeschaden: crwdns151967:0crwdne151967:0
+'Verbesserte Müllhalde': 'crwdns151969:0crwdne151969:0'
+'Externe APIs': 'crwdns151971:0crwdne151971:0'
+'Externe Anwendungen für diese Stadt aktivieren.': 'crwdns151973:0crwdne151973:0'
+'Seelenpunkt-Beschränkung deaktivieren': 'crwdns151975:0crwdne151975:0'
+'Paradies der Giftmörder': 'crwdns151977:0crwdne151977:0'
+'Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.': 'crwdns151979:0crwdne151979:0'
+'Stadtstart planen': 'crwdns151981:0crwdne151981:0'
+'Wenn du die Stadt erst zu einem zukünftigen Zeitpunkt eröffnen möchtest, kannst du diesen hier eingeben (in Serverzeit). Erst wenn dieser Zeitpunkt erreicht ist, wird die Stadt zur Verfügung stehen. WICHTIG: Die Option "Verkörperung in der Stadt" schließt einen geplanten Stadtstart aus!': 'crwdns151983:0crwdne151983:0'
+'Vergabe von Auszeichnungen': 'crwdns151985:0crwdne151985:0'
+Alle: crwdns151987:0crwdne151987:0
+'Spieler erhalten alle Auszeichnungen, die sie in der Stadt verdient haben.': 'crwdns151989:0crwdne151989:0'
+Reduziert: crwdns151991:0crwdne151991:0
+'Spieler erhalten ein Drittel der Auszeichnungen, die sie in der Stadt verdient haben.': 'crwdns151993:0crwdne151993:0'
+'Spieler erhalten keine Auszeichnungen für diese Stadt.': 'crwdns151995:0crwdne151995:0'
+'Auszeichnungen beschränken': 'crwdns151997:0crwdne151997:0'
+'Keine Beschränkung': 'crwdns151999:0crwdne151999:0'
+'Vergabe von Auszeichnungen erfolgt nach normalen Regeln.': 'crwdns152001:0crwdne152001:0'
+'Strikte Vergabe': 'crwdns152003:0crwdne152003:0'
+'Vergabe von Seelenpunkten': 'crwdns152005:0crwdne152005:0'
+'Spieler erhalten Seelenpunkte für die Teilnahme an dieser Stadt.': 'crwdns152007:0crwdne152007:0'
+'Spieler erhalten KEINE Seelenpunkte für die Teilnahme an dieser Stadt.': 'crwdns152009:0crwdne152009:0'
+Teilnahme: crwdns152011:0crwdne152011:0
+'Verkörperung in der Stadt': 'crwdns152013:0crwdne152013:0'
+'Verkörpert dich in der Stadt bei ihrer Entstehung.': 'crwdns152015:0crwdne152015:0'
+'Du wirst weder verkörpert, noch erhälst du Zugang zum Stadtforum.': 'crwdns152017:0crwdne152017:0'
+Verwaltung: crwdns152019:0crwdne152019:0
+'Nach 2 Tagen negieren': 'crwdns152021:0crwdne152021:0'
+'Tor versperren': 'crwdns152023:0crwdne152023:0'
+'Erweiterte Einstellungen': 'crwdns152025:0crwdne152025:0'
+'Manuelles Event-Management': 'crwdns152027:0crwdne152027:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.': 'crwdns152029:0crwdne152029:0'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. Du kannst den neuen Generator testen wenn du möchtest, oder vorerst den alten Generator weiter verwenden.': 'crwdns152031:0crwdne152031:0'
+'Den neuen Generator ausprobieren': 'crwdns152033:0crwdne152033:0'
+'Erneutes Buddeln': 'crwdns152035:0crwdne152035:0'
+'Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.': 'crwdns152037:0crwdne152037:0'
+Matroschka-Taschen: crwdns152039:0crwdne152039:0
+'Spieler können mehrere Rucksackerweiterungen gleichzeitig tragen. Es wird jedoch kein zusätzlicher Platz im Rucksack freigeschaltet.': 'crwdns152041:0crwdne152041:0'
+Event-Management: crwdns152043:0crwdne152043:0
+'Verwendet die normale Event-Verwaltung der Stadt.': 'crwdns152045:0crwdne152045:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt, sodass keine Events aktiviert werden.': 'crwdns152047:0crwdne152047:0'
+'Deaktiviert die normale Event-Verwaltung der Stadt und aktiviert stattdessen das ausgewählte Event für die gesamte Dauer der Stadt.': 'crwdns152049:0crwdne152049:0'
+'Wir haben unseren Stadtgenerator überarbeitet und ihm einige neue Funktionen hinzugefügt. <strong>Du verwendest aktuell die alte Version des Generators.</strong> Diese ist vorerst weiter verfügbar, erhält jedoch keinerlei Aktualisierungen mehr und unterstützt nicht alle Funktionen des neuen Generators.': 'crwdns152051:0crwdne152051:0'
+'Ich bin verwirrt und verängstigt. Zurück zum alten Generator, bitte!': 'crwdns152053:0crwdne152053:0'
+Vorlagen: crwdns152055:0crwdne152055:0
+'Mithilfe von Vorlagen kannst du deine Privatstadt-Einstellungen für später speichern. Du kannst diese Einstellungen jederzeit laden, aktualisieren oder löschen.': 'crwdns152057:0crwdne152057:0'
+'Ausgewählte Vorlage': 'crwdns152059:0crwdne152059:0'
+'Keine Auswahl': 'crwdns152061:0crwdne152061:0'
+'Aktuelle Einstellungen als neue Vorlage speichern': 'crwdns152063:0crwdne152063:0'
+'Bitte gib deiner neuen Vorlage einen Namen.': 'crwdns152065:0crwdne152065:0'
+'Deine Vorlage wurde erfolgreich erstellt.': 'crwdns152067:0crwdne152067:0'
+'Der Name deiner Vorlage muss zwischen 3 und 64 Zeichen lang sein.': 'crwdns152069:0crwdne152069:0'
+Aktualisieren: crwdns152071:0crwdne152071:0
+'Der Inhalt der aktuellen Vorlage wird durch deine aktuellen Einstellungen ersetzt. Fortfahren?': 'crwdns152073:0crwdne152073:0'
+'Deine Vorlage wurde erfolgreich aktualisiert.': 'crwdns152075:0crwdne152075:0'
+Laden: crwdns152077:0crwdne152077:0
+'Eine aktuellen Einstellungen werden durch den Inhalt der gewählten Vorlage ersetzt. Fortfahren?': 'crwdns152079:0crwdne152079:0'
+'Deine Einstellungen wurden erfolgreich geladen.': 'crwdns152081:0crwdne152081:0'
+Löschen: crwdns152083:0crwdne152083:0
+'Deine ausgewählte Vorlage wird gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden. Fortfahren?': 'crwdns152085:0crwdne152085:0'
+'Deine Vorlage wurde erfolgreich gelöscht.': 'crwdns152087:0crwdne152087:0'
+'Die Stadt kann mit diesen Parametern nicht erstellt werden, einige Felder sind entweder unvollständig oder ungültig.': 'crwdns152089:0crwdne152089:0'
+'Nördlicher Abstand': 'crwdns152091:0crwdne152091:0'
+'Südlicher Abstand': 'crwdns152093:0crwdne152093:0'
+'Westlicher Abstand': 'crwdns152095:0crwdne152095:0'
+'Östlicher Abstand': 'crwdns152097:0crwdne152097:0'
+'Beachte, das die "Grundlegenden Einstellungen", die du oben getätigst hast, NICHT in der Vorlage gespeichert werden!': 'crwdns167879:0crwdne167879:0'
+'Team-Beschränkung deaktivieren': 'crwdns167939:0crwdne167939:0'
+'Diese Stadt gehört keinem Team an.': 'crwdns167941:0crwdne167941:0'
+'Du bist bisher keinem Team beigetreten.': 'crwdns167943:0crwdne167943:0'
+'Team wählen': 'crwdns167945:0crwdne167945:0'
+'{members} Mitglieder, {souls} verlorene Seelen': 'crwdns167889:0{members}crwdnd167889:0{souls}crwdne167889:0'
+'Du hast das Limit für das Betreten von Städte aus anderen Teams erreicht. Bis zum Ende dieser Saison kannst du nur Städte deines eigenen Teams betreten.': 'crwdns167947:0crwdne167947:0'
+'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.': 'crwdns167949:0crwdne167949:0'
+'Diese Stadt ist {lang_town}, aber dein aktuelles Team ist {team_user}.': 'crwdns167951:0{lang_town}crwdnd167951:0{team_user}crwdne167951:0'
+'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.': 'crwdns167953:0{tickets_left}crwdne167953:0'

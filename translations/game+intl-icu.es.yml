@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Tu ruta ha sido guardada.'
 'Du hast deine Beschreibung geändert.': 'Has cambiado tu anuncio personal. Ahora es visible en El Anuario de los Habitantes.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} ha añadido <strong>{item}</strong>, y con ello obtuvimos <strong>{num} Raciones de Agua.</strong>'
@@ -233,7 +232,7 @@ Kater: Resaca
 'Verwundung - Auge': 'Herido: Ojo'
 'Verwundung - Fuß': 'Herido: Pie'
 Ghul: '¡Mutante!'
-Bandagiert: Convaleciente
+Bandagiert: Vendado
 'Abgelegenes Haus': 'Casa de un habitante'
 'Albi Supermarkt': 'Tienda Don Chicho'
 'Alte Höhle': 'Cueva'
@@ -370,8 +369,8 @@ Werkstatt: Taller
 'Du lässt deinen Blick schweifen. Direkt vor dir erstreckt sich die gottverlassene Landschaft der Außenwelt. Du denkst an die anderen Stadtbewohner, die sich gerade draußen befinden und in den Ruinen graben. Du malst dir die Leiden all derer aus, die nicht mehr zurückkehren werden.': 'Te encuentras ante un vasto horizonte desolado. El Ultramundo. Hay otros condenados como tú recorriendo el desierto, escarbando en sus ruinas. Muchos de ellos no volverán jamás.'
 'Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...': '¿Decidirás seguir adelante o esconderte detrás de las murallas fortificadas? Algunos creen que es mejor ser cauteloso y considerar todas las opciones, otros sostienen que el corazón débil nunca ganó a la doncella justa... Quizás la verdad esté en algún lugar entre los dos...'
 'Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...': 'Las noches son heladas en el desierto... Una densa nube de polvo lo envuelve todo y oyes sollozos lúgubres a tu alrededor. De vez en cuando distingues una figura borrosa moviéndose entre las sombras. Ojalá solo sea tu imaginación...'
-'Die Zone untersuchen': 'Inspecciona la zona'
-'Du schaust dir die Gegend etwas genauer an...': 'Inspecciona los alrededores...'
+'Die Zone untersuchen': 'Inspeccionar la zona'
+'Du schaust dir die Gegend etwas genauer an...': 'Inspeccionas los alrededores...'
 'Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.': 'Dormir en un lugar semejante equivale a suicidarse, así de simple. Piénsalo.'
 "Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.": "Crees que tus posibilidades de sobrevivir aquí son casi nulas... ¿Cianuro?"
 'Rucksack auf dem Boden ausleeren': 'Vaciar mochila en el suelo'
@@ -494,7 +493,7 @@ Ja: Si
 Unbekannt: Desconocido
 'Morgiger Angriff :': 'El ataque de mañana:'
 'Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.': 'Nuestras defensas son lo suficientemente fuertes para resistir el ataque de esta noche.'
-'Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.': '¡No tenemos idea de la cantidad de zombies que se aproximan!'
+'Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.': '¡No tenemos ni idea de la cantidad de zombies que se aproximan!'
 'Meine täglichen Aufgaben': 'Mis tareas cotidianas de supervivencia'
 'Einen Blick ins Forum werfen.': 'Coordina con tus vecinos en el Foro'
 'Meine Ration Wasser im Brunnen entnehmen (optional).': 'Toma tu ración de agua en el pozo (opcional)'
@@ -922,7 +921,7 @@ Seelenpunkte: Puntos de Alma
 'Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.': 'Cantidad de Puntos de Alma que has ganado en tus reencarnaciones.'
 "Und wieder 'ne Leiche weniger! {citizen} wurde von † {disposed} entsorgt!": "¡Uno menos! El cadáver de † {disposed} ha sido echado fuera por {citizen}."
 '{citizen} hat mit etwas Wasser † {disposed} "verbrannt".': '{citizen} ha usado agua para quemar el cuerpo de † {disposed}.'
-'{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': 'El habitante {citizen} ha hecho llover y ha matado a {kills} Zombies.'
+'{citizen} hat es Regnen lassen und damit {kills} Zombies erledigt.': 'El Chamán {citizen} ha hecho llover y ha matado a {kills} Zombies.'
 'Der Bürger {citizen} hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt {items}.': '¡El habitante {citizen} ha descubierto un escondite de objetos (tal vez de un desterrado)! Contenía: {items}.'
 Tipp-Ex: Manipulador
 'Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)': 'Te permite borrar 2 líneas de cualquier registro durante una partida (haz clic en el icono junto a la línea que deseas eliminar.).'
@@ -1033,7 +1032,7 @@ Beschreibung: Detalles
 'Horde der Zombies': Turba de Zombies
 Mark.: Marca.
 'Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.': 'Estás en un pueblo privado. Algunas reglas especiales se aplican a este tipo de pueblos. '
-Einrichtung: Instalaciones
+Einrichtung: Decoración
 'Dies ist eine offizielle Nachricht.': 'Este es un mensaje oficial.'
 'Lade Forum...': 'Cargando foro...'
 'Das folgende Bauprojekt wurde empfohlen:': 'El pueblo propone construir: '
@@ -1097,7 +1096,7 @@ Community-Auszeichnung: Organización de Choque
 Schlachtenbummler: Titán de choque
 'Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.': 'Una Distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.'
 'Shock of heroes': 'Choque de héroes'
-'Ehrenpreis für die Teilname am Shock of Heroes Event!': '¡Recompensa honorífica por participar en Choque de Héroes!'
+'Ehrenpreis für die Teilname am Shock of Heroes Event!': '¡Recompensa honorífica por participar al Choque de Héroes!'
 'Ultimativer Tod des SoH': 'Héroe de Leyenda'
 'Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!': 'Esta Distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.'
 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!': '¡Victoria como Ermitaño durante el Choque de Héroes!'
@@ -2322,7 +2321,7 @@ Schaufelführer: Pala de cabeza
 'DdA Beste Buddler': 'DdO Mejor Excavador'
 Stadt/Stadttor: Pueblo/Portal
 'Duell der Achter': 'Duelo de los Ocho'
-'Ehrenpreis für die Teilname am Duell der Achter Event!': '¡Recompensa honorífica por participar en Duelo de Ocho!'
+'Ehrenpreis für die Teilname am Duell der Achter Event!': '¡Recompensa honorífica por participar al Duelo de los Ocho!'
 'Kategorien anzeigen': 'Ver las categorías de objetos'
 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Un moderador ha reabierto tu tema {threadname}: {link_post}'
 'Das Neuste aus aller Welt: {announcement}, {date}': 'Actualidades del mundo: {announcement}, {date}'
@@ -2384,3 +2383,17 @@ Stadt/Stadttor: Pueblo/Portal
 'Diese Aktion ist für ungefähr <strong>15 Minuten</strong> nicht möglich (Missbrauchsschutz).<hr/><strong>Achtung: Wenn du die Aktion innerhalb der angezeigten Zeit noch einmal ausführst, verlängert sich die Sperrzeit!</strong>': 'Esta acción está bloqueada durante <strong>15 minutos aproximadamente</strong> (protección anti-abusos).<hr/><strong>Atención: Si intentas repetir esta acción al final del plazo, ¡la duración del bloqueo será prolongada!</strong>'
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'No puedes dejar estos objetos aquí.'
 Tarnexperte: Amo del Camuflaje
+'Einrichtung (Tab)': Instalaciones
+'Offizieller AP-Versorger': 'Proveedor oficial de PA'
+'Community-Events verwalten': 'Administrar Eventos Comunitarios'
+'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Tu evento comunitario "{eventName}" ha sido verificado por un moderador e iniciará correctamente en la fecha establecida.'
+'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Tu evento comunitario "{eventName}" ha sido eliminado por un moderador.'
+'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'Incluso de lejos, se pueden oír vítores y gritos de alegría recorriendo todas las calles del pueblo. Nadie hubiese pensado que esto fuese posible...'
+'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'Tras la construcción del altar, El Cuervo apareció en medio de la plaza del pueblo y, en su infinita misericordia, perdonó a todos los desterrados.'
+'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'El Cuervo te ha otorgado una segunda oportunidad y te liberó de los grilletes del destierro. ¿Cómo usarás esta nueva oportunidad?'
+'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'Si te esfuerzas lo suficiente, quizás puedas llevarte algo a tu próxima vida...'
+'Das Ende deines Lebens in <strong>{town}</strong>': 'El fin de tu vida en <strong>{town}</strong>'
+'Du hast {sp} Seelenpunkte erhalten.': 'Has obtenido {sp} puntos de alma.'
+'Du hast keine Seelenpunkte erhalten.': 'No has obtenido ningún punto de alma.'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'Mamá siempre te decía que las cosas de los demás son como una caja de bombones. Pues bien, en este caso, el bombón era un explosivo de gran potencia, y tus entrañas han decidido repintar la muralla. Considérate afortunado: no tendrás que ser tú quien lo limpie.'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'Lo curioso de la crucifixión es que puedes decirte a ti mismo que fue porque eras demasiado importante, y no porque todo el mundo te odiara. Al menos pareció gustarles el chocolate: la cruz se comió poco después de tu muerte...'

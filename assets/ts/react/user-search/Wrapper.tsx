@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import {useLayoutEffect, useRef, useState} from "react";
 import {Fetch} from "../../v2/fetch";
 import {Global} from "../../defaults";
+import {Tooltip} from "../tooltip/Wrapper";
 
 declare var $: Global;
 
@@ -50,7 +51,7 @@ export class HordesUserSearchBar {
 }
 
 export const UserSearchBar = (
-    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends, withAlias}: {
+    {title, callback, exclude, clearOnCallback, acceptCSVListSearch, withSelf, withFriends, withAlias, context}: {
         title?: string,
         callback: (UserResponses)=>void,
         exclude?: number[],
@@ -59,15 +60,13 @@ export const UserSearchBar = (
         withSelf?: boolean,
         withFriends?: boolean,
         withAlias?: boolean,
+        context?: string,
     }) => {
 
     const apiRef = useRef<Fetch>( new Fetch('user/search') )
 
     const wrapper = useRef<HTMLDivElement>();
     const input = useRef<HTMLInputElement>();
-
-    const tooltip = useRef<HTMLDivElement>();
-    const tooltip_parent = useRef<HTMLDivElement>();
 
     const container = useRef<HTMLDivElement>();
     const overlay = useRef<HTMLDivElement>();
@@ -80,11 +79,6 @@ export const UserSearchBar = (
     let [result, setResult] = useState<UserResponses|GroupResponses>([]);
     let [focus, setFocusState] = useState<boolean>(false);
     let [searching, setSearching] = useState<boolean>(false);
-
-    useLayoutEffect( () => {
-        if (tooltip.current) $.html.handleTooltip( tooltip.current );
-        return () => tooltip_parent.current ? $.html.clearTooltips( tooltip_parent.current ) : null;
-    } );
 
     let searchTimeout = useRef<number>();
     let focusTimeout = useRef<number>();
@@ -107,7 +101,8 @@ export const UserSearchBar = (
                     names: s.map(name=>name.trim()),
                     withSelf: withSelf ?? 0,
                     withFriends: withFriends ?? 1,
-                    exclude: exclude ?? []
+                    exclude: exclude ?? [],
+                    context: context ?? 'common'
                 }
             ).then(r => {
                 setSearching(false);
@@ -135,7 +130,8 @@ export const UserSearchBar = (
                     withSelf: withSelf ?? 0,
                     withFriends: withFriends ?? 1,
                     alias: withAlias ?? 0,
-                    exclude: exclude ?? []
+                    exclude: exclude ?? [],
+                    context: context ?? 'common'
                 }
         ).then(r => {
             setSearching(false);
@@ -225,7 +221,7 @@ export const UserSearchBar = (
         <div className="userSearchWrapper" ref={wrapper}>
             <div className="userSearchInputContainer"><label><input type="text" ref={input} onKeyDown={e=>keyDown(e)} onKeyUp={e=>keyUp(e)}/></label>
                 { title && (
-                    <div className="tooltip help" ref={tooltip} dangerouslySetInnerHTML={{__html: title}}/>
+                    <Tooltip additionalClasses="help" html={title} />
                 ) }
                 { searching && <div className="userSearchLoadIndicator"><i className="fa fa-pulse fa-spinner"></i></div> }
             </div>

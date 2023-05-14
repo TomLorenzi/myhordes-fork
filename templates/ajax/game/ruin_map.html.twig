@@ -85,6 +85,8 @@
             <div class="timer">
                 {{ 'Sauerstoff'|trans({},'game') }}:<br />
                 <div class="ox"><span x-countdown-interval="250" x-countdown-handler="handle" x-countdown="{{ map.timeout }}" x-on-expire="reload">{{ (map.timeout/3)|round(0,'floor') }}</span></div></div>
+            <div class="scanner-fx"></div>
+            <div class="frame"></div>
             <div class="scanner"></div>
         </div>
     </div>

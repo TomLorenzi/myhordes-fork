@@ -83,6 +83,7 @@
                                         {% endif %}
                                         {% if is_granted("ROLE_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'herodays', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Heldentage setzen'|trans({},'admin') }}</option>
+                                            <option value="{{ url('admin_users_account_manage', {action: 'team', id: user.id}) }}" x-query="{{ 'Team'|trans({},'admin') }}">{{ 'Team setzen'|trans({},'admin') }}</option>
                                         {% endif %}
                                     </optgroup>
                                     {% if user|is_granted('ROLE_ANIMAC') or user|is_granted('ROLE_ORACLE') %}
@@ -203,14 +204,14 @@
                         </div>
 
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                            <b><label>{{ 'Titel'|trans({}, 'admin') }}</label></b>
+                            <label>{{ 'Titel'|trans({}, 'admin') }}</label>
                         </div>
 
                         <div class="cell padded rw-3 rw-sm-12">
                             {% if user.activeTitle or user.activeIcon %}
                                 <div>
                                     {% if user.activeIcon %}<img alt="" src="{{ user.activeIcon.customIcon ? url('app_web_customicon', {uid: user.id, aid: user.activeIcon.id, name: user.activeIcon.customIconName, ext: user.activeIcon.customIconFormat}) : asset('build/images/icons/title/' ~ user.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                    {% if user.activeTitle %} {{ user.activeTitle.customTitle ?? user.activeTitle.prototype.title|trans({},'game')|raw }}{% endif %}
+                                    {% if user.activeTitle %} {{ user.activeTitle.customTitle ?? user|translated_title(app.user)|raw }}{% endif %}
                                 </div>
                             {% else %}
                                 <div>---</div>
@@ -221,6 +222,30 @@
                                 <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>"{{ user_desc|raw }}"</div></div>
                             </div>
                         {% endif %}
+
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            <label>{{ 'Sprache'|trans({}, 'admin') }}</label>
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {% if user.language == 'ach' %}
+                                <div>---</div>
+                            {% elseif user.language is not null %}
+                                <img src="{{ asset("build/images/lang/" ~ user.language ~ ".png") }}" alt="{{ user.language }}" />
+                            {% else %}
+                                <div>---</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            <label>{{ 'Team'|trans({}, 'admin') }}</label>
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {% if user.team is not null %}
+                                <img src="{{ asset("build/images/lang/" ~ user.team ~ ".png") }}" alt="{{ user.team }}" />
+                            {% else %}
+                                <div>---</div>
+                            {% endif %}
+                        </div>
                     </div>
 
                     <h5>{{ 'Kartei'|trans({}, 'admin') }}</h5>

@@ -10,7 +10,9 @@ use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
+use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
+use App\Entity\TeamTicket;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownSlotReservation;
@@ -75,7 +77,15 @@ class GhostController extends CustomAbstractController
         $coa_members = $this->user_handler->getAvailableCoalitionMembers($user, $count, $active);
         $cdm_lock = $this->user_handler->getConsecutiveDeathLock( $user, $cdm_warn );
 
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+        $tickets = $user->getTeamTicketsFor( $season, '!' )->count();
+        $cap_left = ($cap >= 0) ? max(0, $cap - $tickets) : -1;
+
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs(null, [
+            'cap_left'           => $cap_left,
+            'team_members'       => $user->getTeam() ? $this->entity_manager->getRepository(User::class)->count(['team' => $user->getTeam()]) : 0,
+            'team_souls'         => $user->getTeam() ? $this->entity_manager->getRepository(TeamTicket::class)->count(['team' => $user->getTeam()]) : 0,
             'warnCoaInactive'    => $count > 0 && !$active,
             'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
             'warnCoaEmpty'       => $count > 1 && empty($coa_members),
@@ -85,7 +95,7 @@ class GhostController extends CustomAbstractController
             'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
             'userCantJoinReason' => $this->getUserTownClassAccessLimitReason($this->conf->getGlobalConf()),
             'sp_limits' => $this->getTownClassAccessLimits($this->conf->getGlobalConf()),
-            'canCreateTown' => !$this->conf->getGlobalConf()->get( MyHordesConf::CONF_STAGING_ENABLED, false ) && ($this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW),
+            'canCreateTown' => /*!$this->conf->getGlobalConf()->get( MyHordesConf::CONF_STAGING_ENABLED, false ) &&*/ ($this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::USER_LEVEL_CROW),
         ] ));
     }
 

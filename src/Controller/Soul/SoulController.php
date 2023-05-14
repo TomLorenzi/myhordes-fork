@@ -633,6 +633,8 @@ class SoulController extends CustomAbstractController
         elseif ($b_max_size >= 1024)    $b_max_size = round($b_max_size/1024, 0) . ' KB';
         else                            $b_max_size = $b_max_size . ' B';
 
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'et_ready' => $etwin->isReady(),
             'user_desc' => $user_desc ? $user_desc->getText() : null,
@@ -642,6 +644,9 @@ class SoulController extends CustomAbstractController
             'importer_readonly' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_IMPORT_READONLY, false),
             'avatar_max_size' => [$a_max_size, $b_max_size,$this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD, 3145728)],
             'langs' => $this->allLangs,
+            'team_tickets_in' => $season ? $user->getTeamTicketsFor( $season, '' )->count() : 0,
+            'team_tickets_out' => $season ? $user->getTeamTicketsFor( $season, '!' )->count() : 0,
+            'team_tickets_limit' => $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3),
         ]) );
     }
 
@@ -662,6 +667,7 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
 
         $title = $parser->get_int('title', -1);
+        $title_lang = $parser->get('title_lang', null);
         $icon  = $parser->get_int('icon', -1);
         $flag  = $parser->get('flag', '');
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
@@ -670,6 +676,12 @@ class SoulController extends CustomAbstractController
 
         if ($pronoun !== 'none' && $user->getUseICU() !== true)
             $user->setUseICU(true);
+
+        if ($title_lang !== null) {
+            if ( !in_array( $title_lang, array_merge( $this->generatedLangsCodes, ['_me', '_them'] ) ) )
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            $user->setSetting( UserSetting::TitleLanguage, $title_lang );
+        }
 
         switch ($pronoun) {
             case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
@@ -747,6 +759,35 @@ class SoulController extends CustomAbstractController
 
             $user->setLastNameChange(new DateTime());
         }
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/team", name="api_soul_team")
+     * @param JSONRequestParser $parser
+     * @param HTMLService $html
+     * @return Response
+     */
+    public function soul_set_team(JSONRequestParser $parser, HTMLService $html): Response {
+        $user = $this->getUser();
+
+        $team  = $parser->get('team', '');
+
+        if ($team !== '' && ($team === 'ach' || !in_array( $team, $this->allLangsCodes )))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($team !== '' && $team !== $user->getTeam()) {
+            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+            $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+            if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        }
+
+        if ($team !== '') $user->setTeam($team);
 
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
@@ -1088,80 +1129,6 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/avatar", name="api_soul_avatar")
-     * @param JSONRequestParser $parser
-     * @param ConfMaster $conf
-     * @return Response
-     */
-    public function soul_settings_avatar(JSONRequestParser $parser, ConfMaster $conf): Response {
-
-        $payload = $parser->get_base64('image');
-        $upload = (int)$parser->get('up', 1);
-        $mime = $parser->get('mime');
-
-        $user = $this->getUser();
-
-        if ($upload) {
-            if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileAvatar))
-                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-            if (!$payload) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-            
-            $raw_processing = $conf->getGlobalConf()->get(MyHordesConf::CONF_RAW_AVATARS, false);
-            $error = $this->user_handler->setUserBaseAvatar($user, $payload, $raw_processing ? UserHandler::ImageProcessingPreferImagick : UserHandler::ImageProcessingForceImagick, $raw_processing ? $mime : null);
-            if ($error !== UserHandler::NoError)
-                return AjaxResponse::error($error);
-
-            $this->entity_manager->persist( $user );
-        } elseif ($user->getAvatar()) {
-
-            $this->entity_manager->remove($user->getAvatar());
-            $user->setAvatar(null);
-        }
-
-        try {
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/settings/avatar/crop", name="api_soul_small_avatar")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function soul_settings_small_avatar(JSONRequestParser $parser): Response
-    {
-        if (!$parser->has_all(['x', 'y', 'dx', 'dy'], false))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $user = $this->getUser();
-        if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileAvatar))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        $x  = (int)floor((float)$parser->get('x', 0));
-        $y  = (int)floor((float)$parser->get('y', 0));
-        $dx = (int)floor((float)$parser->get('dx', 0));
-        $dy = (int)floor((float)$parser->get('dy', 0));
-
-        $error = $this->user_handler->setUserSmallAvatar($user, null, $x, $y, $dx, $dy);
-        if ($error !== UserHandler::NoError) return AjaxResponse::error( $error );
-
-        $this->entity_manager->persist($user);
-
-        try {
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
      * @Route("api/soul/settings/change_account_details", name="api_soul_change_account_details")
      * @param UserPasswordHasherInterface $passwordEncoder
      * @param JSONRequestParser $parser
@@ -1430,17 +1397,21 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/welcomeToNowhere", name="soul_death")
+     * @Route("jx/soul/welcomeToNowhere", name="soul_death", defaults={"latest"=true})
+     * @Route("jx/soul/obituary/{id}", name="soul_obituary", defaults={"latest"=false})
+     * @param bool $latest
+     * @param CitizenRankingProxy|null $nextDeath
      * @return Response
      */
-    public function soul_death_page(): Response
+    public function soul_death_page(bool $latest, ?CitizenRankingProxy $nextDeath = null): Response
     {
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
-        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
-        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
-            return $this->redirect($this->generateUrl('initial_landing'));
+        if ($latest) $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+
+        if ($nextDeath === null || $nextDeath?->getTown()?->getImported() || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()) || $nextDeath->getUser() !== $user)
+            return $this->redirectToRoute('initial_landing');
 
         $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($user, $nextDeath->getTown());
         $pictosWonDuringTown = [];
@@ -1454,7 +1425,7 @@ class SoulController extends CustomAbstractController
                 $pictosNotWonDuringTown[] = $picto;
         }
 
-        $canSeeGazette = $nextDeath->getTown() !== null;
+        $canSeeGazette = $latest && $nextDeath->getTown() !== null;
         if($canSeeGazette){
             $citizensAlive = false;
             foreach ($nextDeath->getTown()->getCitizens() as $citizen) {
@@ -1478,7 +1449,8 @@ class SoulController extends CustomAbstractController
             'day' => $nextDeath->getDay(),
             'pictos' => $pictosWonDuringTown,
             'gazette' => $canSeeGazette,
-            'denied_pictos' => $pictosNotWonDuringTown
+            'denied_pictos' => $pictosNotWonDuringTown,
+            'obituary' => !$latest
         ]) );
     }
 

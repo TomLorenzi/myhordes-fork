@@ -1,0 +1,94 @@
+{% extends "ajax/game/town/town.html.twig" %}
+
+{% block title %}{{'Mein Zuhause (Truhe)'|trans({}, 'game')}}{% endblock %}
+{% block tutorial %}
+    <div x-tutorial-content="3.text5" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Alle deine Gegenstände werden <strong>in der Truhe</strong> aufbewahrt. Klick auf einen <strong>Gegenstand</strong>, um ihn mitzunehmen...
+            {% endtrans %}</p>
+        </div>
+    </div>
+    <div x-tutorial-content="3.text6" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Ausgerüstete Gegenstände werden in deinem <strong>Rucksack</strong> aufbewahrt.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Wenn du einen Gegenstand gegen einen anderen aus deiner Truhe tauschen möchtest, brauchst du ihn nur anzuklicken.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="3.text7">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="3.text7" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                <strong>Klick auf einen Link, um einen Gegenstand zu verwenden (z.B.: eine Kiste öffnen, Essen, Trinken usw...).</strong>
+            {% endtrans %}</p>
+            <button x-advance-tutorial="3.text8">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-home time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
+    </div>
+
+    {# @var home \App\Entity\CitizenHome #}
+    {# @var chest \App\Entity\Inventory #}
+    {# @var def \App\Structures\HomeDefenseSummary #}
+
+    <ul class="tabs plain">
+        <li class="tab">
+            <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />
+        </li>
+        <li {{ {'tab': true, 'selected': tab == "dash"}|classes }}>
+            <div class="tab-link" x-ajax-sticky="" x-ajax-href="{{ path('town_house_dash') }}">
+                <img class="hide-desktop" alt="" src="{{ asset('build/images/icons/home.gif') }}">
+                <span class="hide-lg hide-md hide-sm">{{ 'Truhe und Aktionen'|trans({},'game') }}</span>
+            </div>
+        </li>
+        <li {{ {'tab': true, 'selected': tab == "messages"}|classes }}>
+            <div class="tab-link" x-ajax-sticky="" x-ajax-href="{{ path('town_house_messages', {subtab: "received"}) }}">
+                {% if new_message %}
+                    <img alt="" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" />
+                {% else %}
+                    <img class="hide-desktop" alt="" src="{{ asset('build/images/icons/small_mail.gif') }}" />
+                {% endif %}
+                <span class="hide-lg hide-md hide-sm">{{ 'Nachrichten'|trans({},'game') }}</span>
+                <div class="tooltip normal">{{ 'Deine privaten Nachrichten'|trans({},'game') }}</div>
+            </div>
+        </li>
+        {% if complaints|length > 0 %}
+            <li {{ {'tab': true, 'selected': tab == "complaints"}|classes }}>
+                <div class="tab-link" x-ajax-sticky="" x-ajax-href="{{ path('town_house_complaints') }}">
+                    <img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}">
+                    <span class="hide-lg hide-md hide-sm">{{ 'Anzeigen'|trans({},'game') }}</span>
+                </div>
+            </li>
+        {% endif %}
+        <li {{ {'tab': true, 'selected': tab == "build"}|classes }}>
+            <div class="tab-link" x-ajax-sticky="" x-ajax-href="{{ path('town_house_build') }}">
+                <img alt="" src="{{ asset('build/images/icons/small_home_up.gif') }}">
+                <span class="hide-lg hide-md hide-sm">{{ 'Bauarbeiten'|trans({},'game') }}</span>
+                <div class="tooltip normal">{{ 'In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.'|trans({},'game') }}</div>
+            </div>
+        </li>
+        <li {{ {'tab': true, 'selected': tab == "values"}|classes }}>
+            <div class="tab-link" x-ajax-sticky="" x-ajax-href="{{ path('town_house_values') }}">
+                <img class="hide-desktop" alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}">
+                <span class="hide-lg hide-md hide-sm">{{ 'Einrichtung (Tab)'|trans({}, 'game') }}</span>
+                <div class="tooltip normal">{{ 'In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).'|trans({},'game') }}</div>
+            </div>
+        </li>
+    </ul>
+
+    {% block home_content %}
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends "ajax/game/town/home/frame.html.twig" %}
+
+{% block home_content %}
+    {# @var next_level \App\Entity\CitizenHomePrototype #}
+    {% if next_level %}
+        <h5>{% trans from 'game' %}Mein Haus ausbauen{% endtrans %}</h5>
+
+        <div class="help">
+            {% trans from 'game' %}
+                Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.
+            {% endtrans %}
+            <br /><br />
+            {# {% if not home.prototype.allowSubUpgrades %} #}
+            {% trans from 'game' %}
+                Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.
+            {% endtrans %}
+            {# {% endif %} #}
+        </div>
+
+        {% if town.devastated %}
+            <div class="note note-critical">{{ 'Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.'|trans({},'game') }}</div>
+        {% else %}
+            {# @var next_level_req \App\Entity\BuildingPrototype #}
+            <div class="row">
+                <div class="padded cell rw-5 rw-md-12">
+                    <button id="upgrade_home_level" {% if devastated %}disabled{% endif %}>
+                        <img alt="" src="{{ asset('build/images/icons/home.gif') }}" />
+                        {% trans from 'game' %}Bauen{% endtrans %}: <b>{{ next_level.label|trans({}, 'buildings') }}</b>
+                        {% if (next_level.ap > 0) %}(<div class="ap">{{ next_level.ap }}</div>){% endif %}
+                    </button>
+                    {% if not devastated %}
+                        {{ tooltip('<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>'|trans({}, 'game'), 'normal') }}
+                    {% endif %}
+                </div>
+                <div class="padded cell rw-7 rw-md-12">
+                    <div class="note">
+                        {% if next_level_req %}
+                            {% trans from 'game' %}
+                                Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:
+                            {% endtrans %}
+                            <b>{{ next_level_req.label|trans({},'buildings') }}</b>
+                        {% elseif next_level.resources %}
+                            {% trans from 'game' %}
+                                Für diesen Ausbau benötigst du folgende Gegenstände:
+                            {% endtrans %}<br />
+                            {% for res in next_level.resources.entries %}
+                                <span class="entity">
+                                    <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif' ) }}">
+                                    x {{ res.chance }}
+                                    {% embed "ajax/game/item_proto_tooltip.html.twig" with {"item": res.prototype} %}{% endembed %}
+                                </span>
+                            {% endfor %}
+                        {% else %}
+                            {% trans from 'game' %}
+                                Für diesen Ausbau werden keine Gegenstände benötigt.
+                            {% endtrans %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if home.prototype.allowSubUpgrades %}
+        <h5>{% trans from 'game' %}Bauarbeiten{% endtrans %}</h5>
+
+        {% if home.citizen.profession.heroic %}
+            <div class="help">
+                {% trans from 'game' %}
+                    Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.
+                {% endtrans %}
+            </div>
+        {% else %}
+            <div class="help">
+                {% trans from 'game' %}
+                    Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.
+                {% endtrans %}
+            </div>
+        {% endif %}
+
+
+        <div class="row-table">
+            <div class="row header">
+                <div class="padded cell {% if home.citizen.profession.heroic %}rw-8{% else %}rw-12{% endif %}">{{ 'Name'|trans({},'game') }}</div>
+                {% if home.citizen.profession.heroic %}
+                    <div class="padded cell rw-4">{{ 'Kosten'|trans({},'game') }}</div>
+                {% endif %}
+            </div>
+            {% for id,upgrade in upgrades|sort((a,b) => a.label|trans({},'buildings') <=> b.label|trans({},'buildings')) %}
+                {# @var upgrade \App\Entity\CitizenHomeUpgradePrototype #}
+                <div class="row {% if upgrade_levels[id] != 0 %}highlight{% endif %}">
+                    <div class="padded cell {% if home.citizen.profession.heroic %}rw-8{% else %}rw-12{% endif %}">
+                        <img alt="" src="{{ asset('build/images/home/' ~ upgrade.icon ~ '.gif') }}" /> <b>{{ upgrade.label|trans({},'buildings') }} {% if upgrade_levels[id] > 1 or (upgrade_levels[id] > 0 and upgrade_costs[id] ) %}{{ upgrade_levels[id] }}{% endif %}</b>
+                        <div class="justify">
+                            <span class="small">{{ upgrade.description|trans({},'buildings') }}</span>
+                        </div>
+                    </div>
+                    {% if home.citizen.profession.heroic %}
+                        <div class="padded cell rw-4">
+                            {% set costs = upgrade_costs[id] %}
+                            {# @var costs \App\Entity\CitizenHomeUpgradeCosts #}
+                            {% if costs %}
+                                <div class="center">
+                                    <span class="small">{% trans from 'game' %}Erfordert{% endtrans %}:</span><br/>
+                                    {% if costs.ap > 0 %}
+                                        <div class="ap">{{ costs.ap }}</div>
+                                        {% if costs.resources %}<b class="small">+</b>{% endif %}
+                                    {% endif %}
+                                    {% if costs.resources %}
+                                        {% for res in costs.resources.entries %}
+                                            {# @var res \App\Entity\ItemGroupEntry #}
+                                            <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif') }}" />
+                                            {% if not loop.last %}<b class="small">+</b>{% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                    <p><button x-upgrade-id="{{ id }}" {% if devastated %}disabled{% endif %}>
+                                            {% if upgrade_levels[id] == 0 %}
+                                                {% trans from 'game' %}Einbauen{% endtrans %}
+                                            {% else %}
+                                                {% trans with {'{level}': upgrade_levels[id]+1} from 'game' %}Upgrade auf St. {level}{% endtrans %}
+                                            {% endif %}
+                                        </button></p>
+                                </div>
+                            {% else %}
+                                <div class="center"><span class="small">{% trans from 'game' %}Kein weiterer Ausbau möglich{% endtrans %}</span></div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+        let upgrade_btn = document.getElementById( 'upgrade_home_level' );
+        if (upgrade_btn) upgrade_btn.addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('town_house_upgrade_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house_build') }}', true);
+                } );
+        });
+
+        {% if home.citizen.profession.heroic %}
+            let upgrade_btns = document.querySelectorAll('button[x-upgrade-id]');
+            for (let i = 0; i < upgrade_btns.length; i++)
+                upgrade_btns[i].addEventListener('click', function() {
+                    $.ajax.easySend( '{{ path('town_house_extend_controller') }}', {id: upgrade_btns[i].getAttribute('x-upgrade-id')},
+                        function () {
+                            $.ajax.load(null, '{{ path('town_house_build') }}', true);
+                        } );
+                });
+        {% endif %}
+    </script>
+{% endblock %}

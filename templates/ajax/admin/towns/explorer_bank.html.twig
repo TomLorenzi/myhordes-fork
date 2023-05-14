@@ -28,7 +28,7 @@
 {% block js %}
 	{{ parent() }}
 	{% if is_granted("ROLE_ADMIN") %}
-		{{ item_creator_js('[x-id][x-target="zone"]', path('admin_spawn_item', {id: town.id}), path('admin_town_dashboard', {id: town.id}), 'zone') }}
+        {{ item_creator_js('[x-id][x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_bank', {id: town.id}), 'bnk') }}
 	{% endif %}
 	<script>
         let items = document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]');

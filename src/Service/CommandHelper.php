@@ -179,6 +179,8 @@ class CommandHelper
                 else if ($e->getRuinZone())     return "Inventory #{$e->getId()} (Ruin Floor of {$e->getRuinZone()->getX()}/{$e->getRuinZone()->getY()} at {$e->getRuinZone()->getZone()->getX()}/{$e->getRuinZone()->getZone()->getY()} in {$e->getRuinZone()->getZone()->getTown()->getName()})";
                 else if ($e->getRuinZoneRoom()) return "Inventory #{$e->getId()} (Room Floor of {$e->getRuinZoneRoom()->getX()}/{$e->getRuinZoneRoom()->getY()} at {$e->getRuinZoneRoom()->getZone()->getX()}/{$e->getRuinZoneRoom()->getZone()->getY()} in {$e->getRuinZoneRoom()->getZone()->getTown()->getName()})";
                 else return "Inventory #{$e->getId()} (unknown)";
+			case ZonePrototype::class:
+				return "Ruin Prototype #{$e->getId()} <comment>{$this->trans->trans($e->getLabel(), [], $e::getTranslationDomain(), $this->language)}</comment> ({$e->getLabel()})";
             default:
                 $cls_ex = explode('\\', get_class($e));
                 $niceName =  preg_replace('/(\w)([ABCDEFGHIJKLMNOPQRSTUVWXYZ\d])/', '$1 $2', array_pop($cls_ex));

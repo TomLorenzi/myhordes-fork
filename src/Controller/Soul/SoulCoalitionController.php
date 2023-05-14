@@ -88,6 +88,8 @@ class SoulCoalitionController extends SoulController
                 $entries = $this->entity_manager->getRepository(ShoutboxEntry::class)->findFromShoutbox($shoutbox, new DateTime('-60day'), 100);
         }
 
+        $last_ref = $user_coalition?->getRef1() ?? 0;
+
         if (!empty($entries)) {
             $rm = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $user]);
             if (!$rm) $rm = (new ShoutboxReadMarker())->setUser($user);
@@ -99,10 +101,15 @@ class SoulCoalitionController extends SoulController
                     $this->entity_manager->flush();
                 } catch (Exception $e) {}
             }
+
+            $user_coalition->setRef1( $entries[0]->getId() );
+            $this->entity_manager->persist( $user_coalition );
+            try { $this->entity_manager->flush(); } catch (\Throwable) {}
         }
 
         return $this->render( 'ajax/soul/shout_content.html.twig', [
             'entries' => $entries,
+            'lastRef' => $last_ref
         ] );
     }
 

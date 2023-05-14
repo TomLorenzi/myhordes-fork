@@ -129,7 +129,7 @@
                                     <div class="cell padded rw-6 rw-md-12">{{ status_control(citizenStati) }}</div>
                                     <div class="cell padded rw-6 rw-md-12">{{ role_control(citizenRoles) }}</div>
                                     <div class="cell padded rw-12">{{ home_control(user_citizen,home_upgrades) }}</div>
-                                    {% if town.conf and town.conf.features and town.conf.features.citizen_alias %}
+                                    {% if town.conf and (town.conf.features is defined) and town.conf.features.citizen_alias %}
                                         <div class="cell padded rw-12">{{ alias_control(user_citizen) }}</div>
                                     {% endif %}
                                 {% endif %}

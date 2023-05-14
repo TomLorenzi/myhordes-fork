@@ -22,6 +22,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserDescription;
 use App\Enum\AdminReportSpecification;
+use App\Messages\Discord\DiscordMessage;
 use App\Structures\MyHordesConf;
 use DateTime;
 use DiscordWebhooks\Client;
@@ -30,6 +31,7 @@ use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Finder\Glob;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -64,19 +66,21 @@ class CrowService {
     private ConfMaster $conf;
     private ?string $report_path;
     private TranslatorInterface $trans;
+    private MessageBusInterface $bus;
 
 
     private function getCrowAccount(): User {
         return $this->em->getRepository(User::class)->find(66);
     }
 
-    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params, ConfMaster $conf, UrlGeneratorInterface $url_generator, TranslatorInterface $trans )
+    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params, ConfMaster $conf, UrlGeneratorInterface $url_generator, TranslatorInterface $trans, MessageBusInterface $bus )
     {
         $this->em = $em;
         $this->conf = $conf;
         $this->trans = $trans;
         $this->url_generator = $url_generator;
         $this->report_path = "{$params->get('kernel.project_dir')}/var/reports";
+        $this->bus = $bus;
     }
 
     /**
@@ -455,7 +459,7 @@ class CrowService {
                         strip_tags(
                             preg_replace(
                                 ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/', '/<a href="(.*?)">(.*?)<\/a>/'],
-                                ["\n", '${1}:', '[**', '**]', '${2} (${1})'],
+                                ["\n", '${1}:', '[**', '**]', '[${2}](${1})'],
                                 $html->prepareEmotes( $object->getText())
                             )
                         ),
@@ -504,15 +508,12 @@ class CrowService {
                     $report->getSourceUser()->getAvatar() ? $this->url_generator->generate( 'app_web_avatar', ['uid' => $report->getSourceUser()->getId(), 'name' => $report->getSourceUser()->getAvatar()->getFilename(), 'ext' => $report->getSourceUser()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL ) : ''
                 );
 
-                try {
-                    $discord
-                        ->message(":loudspeaker: **{$text}**" . ($note ? "\n{$note}" : '') . "\n\n")
-                        ->embed( $message_embed )
-                        ->embed( $report_embed )
-                        ->send();
-                } catch (\Exception) {
-                    return;
-                }
+                $discord
+                    ->message(":loudspeaker: **{$text}**" . ($note ? "\n{$note}" : '') . "\n\n")
+                    ->embed( $message_embed )
+                    ->embed( $report_embed );
+
+                $this->bus->dispatch( new DiscordMessage( $discord ) );
 
                 mkdir( $report_dir, recursive: true );
                 file_put_contents( $report_path, "".time() );
