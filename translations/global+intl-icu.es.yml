@@ -516,7 +516,7 @@ Event-Städte: Pueblos de evento
 'Am Leben': 'Vivo'
 'Zur Chronik': 'A las crónicas'
 'Allgemeine Event-Informationen': 'Información general del evento'
-'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Aquí puedes establecer las configuraciones básicas de tu evento, como su nombre, una descripción o la fecha de inicio.'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Aquí puedes establecer las configuraciones básicas de tu evento, como su nombre, una descripción o la fecha de inicio. Tenga en cuenta que no puede programar un evento con más de 194 días de anticipación, de lo contrario, puede verse afectado por los cambios de temporada.'
 'Event bearbeiten': 'Editar evento'
 'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'Haz clic aquí para añadir una descripción sobre el evento en {lang}.'
 'Geplanter Startzeitpunkt': 'Hora de inicio prevista'
