@@ -516,7 +516,7 @@ Event-Städte: Event towns
 'Am Leben': 'Alive'
 'Zur Chronik': 'To the chronicles'
 'Allgemeine Event-Informationen': 'General event information'
-'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Here you can set general options for your event, such as its name, description or start time.'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Here you can set general options for your event, such as its name, description or start time. Note that you can''t schedule an event more that 194 days in advance else it can be affected by season changes.'
 'Event bearbeiten': 'Edit event'
 'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'Click here to add an event description in {lang}.'
 'Geplanter Startzeitpunkt': 'Planned start'
