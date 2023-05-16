@@ -1096,7 +1096,7 @@ Community-Auszeichnung: Organización de Choque
 Schlachtenbummler: Titán de choque
 'Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.': 'Una Distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.'
 'Shock of heroes': 'Choque de héroes'
-'Ehrenpreis für die Teilname am Shock of Heroes Event!': '¡Recompensa honorífica por participar en Choque de Héroes!'
+'Ehrenpreis für die Teilname am Shock of Heroes Event!': '¡Recompensa honorífica por participar al Choque de Héroes!'
 'Ultimativer Tod des SoH': 'Héroe de Leyenda'
 'Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!': 'Esta Distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.'
 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!': '¡Victoria como Ermitaño durante el Choque de Héroes!'
@@ -2321,7 +2321,7 @@ Schaufelführer: Pala de cabeza
 'DdA Beste Buddler': 'DdO Mejor Excavador'
 Stadt/Stadttor: Pueblo/Portal
 'Duell der Achter': 'Duelo de los Ocho'
-'Ehrenpreis für die Teilname am Duell der Achter Event!': '¡Recompensa honorífica por participar en Duelo de Ocho!'
+'Ehrenpreis für die Teilname am Duell der Achter Event!': '¡Recompensa honorífica por participar al Duelo de los Ocho!'
 'Kategorien anzeigen': 'Ver las categorías de objetos'
 'Ein Moderator hat deinen Thread "{threadname}" wieder geöffnet: {link_post}': 'Un moderador ha reabierto tu tema {threadname}: {link_post}'
 'Das Neuste aus aller Welt: {announcement}, {date}': 'Actualidades del mundo: {announcement}, {date}'
@@ -2384,13 +2384,16 @@ Stadt/Stadttor: Pueblo/Portal
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'No puedes dejar estos objetos aquí.'
 Tarnexperte: Amo del Camuflaje
 'Einrichtung (Tab)': Instalaciones
+'Offizieller AP-Versorger': 'Proveedor oficial de PA'
 'Community-Events verwalten': 'Administrar Eventos Comunitarios'
 'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Tu evento comunitario "{eventName}" ha sido verificado por un moderador e iniciará correctamente en la fecha establecida.'
 'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Tu evento comunitario "{eventName}" ha sido eliminado por un moderador.'
 'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'Incluso de lejos, se pueden oír vítores y gritos de alegría recorriendo todas las calles del pueblo. Nadie hubiese pensado que esto fuese posible...'
 'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'Tras la construcción del altar, El Cuervo apareció en medio de la plaza del pueblo y, en su infinita misericordia, perdonó a todos los desterrados.'
 'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'El Cuervo te ha otorgado una segunda oportunidad y te liberó de los grilletes del destierro. ¿Cómo usarás esta nueva oportunidad?'
-'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...'
-'Das Ende deines Lebens in <strong>{town}</strong>': 'Das Ende deines Lebens in <strong>{town}</strong>'
-'Du hast {sp} Seelenpunkte erhalten.': 'Du hast {sp} Seelenpunkte erhalten.'
-'Du hast keine Seelenpunkte erhalten.': 'Du hast keine Seelenpunkte erhalten.'
+'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'Si te esfuerzas lo suficiente, quizás puedas llevarte algo a tu próxima vida...'
+'Das Ende deines Lebens in <strong>{town}</strong>': 'El fin de tu vida en <strong>{town}</strong>'
+'Du hast {sp} Seelenpunkte erhalten.': 'Has obtenido {sp} puntos de alma.'
+'Du hast keine Seelenpunkte erhalten.': 'No has obtenido ningún punto de alma.'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'Mamá siempre te decía que las cosas de los demás son como una caja de bombones. Pues bien, en este caso, el bombón era un explosivo de gran potencia, y tus entrañas han decidido repintar la muralla. Considérate afortunado: no tendrás que ser tú quien lo limpie.'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'Lo curioso de la crucifixión es que puedes decirte a ti mismo que fue porque eras demasiado importante, y no porque todo el mundo te odiara. Al menos pareció gustarles el chocolate: la cruz se comió poco después de tu muerte...'

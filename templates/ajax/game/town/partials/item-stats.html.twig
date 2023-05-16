@@ -1,0 +1,51 @@
+{% block html_dashboard %}
+    <div class="row">
+        <div class="padded cell rw-2 rw-lg-6 center">
+            <em>{{ 'Dekoration'|trans({}, 'game') }}</em><br />
+            <span class="counter">{{ deco }} <img src="{{ asset('build/images/icons/small_deco.gif') }}" alt="" /></span>
+        </div>
+        <div class="padded cell rw-4 rw-lg-6 center def-estimation">
+            <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
+            <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
+            {{ help_btn(
+                'Behausung'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.house_defense},'game') ~ '</strong><br />' ~
+                'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.upgrades_defense},'game') ~ '</strong><br />' ~
+                'Verteidigungsgegenstände'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.item_defense},'game') ~ '</strong><br />' ~
+                'Heldenbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_defense},'game') ~ '</strong><br />' ~
+                (def.job_guard_defense > 0 ? ('Wächterbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_guard_defense},'game') ~ '</strong><br />') : '') ~
+            '<hr />' ~
+            'Total'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.sum},'game') ~ '</strong>' ~
+            '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
+            ) }}
+        </div>
+        <div class="padded cell rw-6 rw-lg-12 left medium" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}disabled{% endif %}>
+            <label><input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}"></label>
+            <div class="small">
+                <button style="margin-top: 3px;" class="inline small" id="desc_edit_button">{{ 'Speichern'|trans({},'game') }}</button>
+                <a id="desc_remove_button" href="">{{ 'Löschen'|trans({},'game') }}</a>
+            </div>
+            <div class="tooltip help">
+                {{ 'Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...'|trans({}, 'game')|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<script>
+    {% block dashboard_js %}
+        $.html.addEventListenerAll('#desc_edit_button', 'click', e => {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_describe_controller') }}', {desc: document.getElementById('desc_edit').value},
+                () => $.html.notice('{{ 'Du hast deine Beschreibung geändert.'|trans({},'game')|e('js') }}'));
+        })
+
+        $.html.addEventListenerAll('#desc_remove_button', 'click', e => {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('town_house_describe_controller') }}', {desc: null},
+                () => {
+                    document.getElementById('desc_edit').value = '';
+                    $.html.notice('{{ 'Du hast deine Beschreibung geändert.'|trans({},'game')|e('js') }}');
+                });
+        })
+    {% endblock %}
+</script>

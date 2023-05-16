@@ -1,6 +1,7 @@
 // Make v1 API available
 import {Const, Global} from "../defaults"
 import {bool, string} from "prop-types";
+import {SecureStorage} from "./security";
 declare var c: Const;
 declare const $: Global;
 
@@ -87,16 +88,19 @@ let fetch_catch = new Map<string,FetchCacheEntry>;
 class FetchBuilder {
 
     private readonly url: string;
-    private request: RequestInit;
+    private readonly params: URLSearchParams|null;
+    private readonly request: RequestInit;
     private readonly f_then: (Response) => Promise<any>
     private readonly f_catch: (any) => Promise<any>
     private f_before: (()=>void)[]
 
     private cache_id: string|null = null;
     private use_cache: boolean = false;
+    private send_token: boolean = false;
 
-    constructor(url: string, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
+    constructor(url: string, params: URLSearchParams|null, f_then: (Response) => Promise<any>, f_catch: (any) => Promise<any>) {
         this.url = url;
+        this.params = params;
         this.f_then = f_then;
         this.f_catch = f_catch;
         this.f_before = [];
@@ -116,10 +120,12 @@ class FetchBuilder {
     private execute(method: string, body?: object): Promise<any> {
         this.f_before.map(fn=>fn());
 
-        const make_promise = () => fetch( this.url, body ? {
+        if (this.send_token) this.request.headers['X-Toaster'] = SecureStorage.token();
+
+        const make_promise = () => fetch( this.params ? `${this.url}?${this.params}` : this.url, body ? {
             method,
             body: JSON.stringify( body ),
-            ...this.request
+            ...this.request,
         } : {
             method,
             ...this.request
@@ -146,6 +152,11 @@ class FetchBuilder {
         return this;
     }
 
+    public secure(): FetchBuilder {
+        this.send_token = true;
+        return this;
+    }
+
     public before(fn: ()=>void): FetchBuilder { this.f_before.push( fn ); return this; }
 
     public get(): Promise<any> { return this.execute('GET'); }
@@ -166,6 +177,7 @@ class FetchOptionBuilder {
     private readonly processor: (Response, FetchOptions) => Promise<any>;
     private readonly error_handler: (any, FetchOptions) => Promise<any>;
     private readonly url: string;
+    private queryParams: URLSearchParams|null;
     private readonly options: FetchOptions;
 
     constructor(url: string, processor: (Response, FetchOptions) => Promise<any>, handler: (any, FetchOptions) => Promise<any>) {
@@ -173,6 +185,7 @@ class FetchOptionBuilder {
         this.processor = processor;
         this.error_handler = handler;
         this.options = new FetchOptions();
+        this.queryParams = null;
     }
 
     public withErrorMessages(): FetchOptionBuilder { this.options.error_messages = true; return this; }
@@ -183,8 +196,16 @@ class FetchOptionBuilder {
 
     public bodyDeterminesSuccess(b: boolean = true): FetchOptionBuilder { this.options.body_success = b; return this; }
 
+    public param( name: string, value: any, condition: boolean = true ) {
+        if (condition) {
+            if (!this.queryParams) this.queryParams = new URLSearchParams();
+            this.queryParams.set(name,value);
+        }
+        return this;
+    }
+
     public request(): FetchBuilder {
-        return new FetchBuilder( this.url, (r: Response) => this.processor(r, this.options), r => this.error_handler(r, this.options) );
+        return new FetchBuilder( this.url, this.queryParams, (r: Response) => this.processor(r, this.options), r => this.error_handler(r, this.options) );
     }
 }
 

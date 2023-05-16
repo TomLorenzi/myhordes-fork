@@ -47,10 +47,9 @@ export class AvatarCreatorAPI {
             .request().delete().then(() => true);
     }
 
-    public uploadMedia(mime,data,cropDefault = null,cropSmall = null): Promise<boolean> {
-        console.log(cropDefault,cropSmall);
+    public uploadMedia(mime,data,cropDefault = null,cropSmall = null,format=null): Promise<boolean> {
         return this.fetch.from('/media')
-            .request().put({mime,data,crop: {
+            .request().put({mime,data,format,crop: {
                 default: cropDefault,
                 small: cropSmall
             }}).then(() => true);

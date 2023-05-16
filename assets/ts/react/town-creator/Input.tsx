@@ -9,6 +9,7 @@ import {
 } from "react";
 import {Globals} from "./Wrapper";
 import {Global} from "../../defaults";
+import {Tooltip} from "../tooltip/Wrapper";
 
 declare var $: Global;
 
@@ -31,24 +32,16 @@ interface OptionArgs extends OptionTemplateArgs {
 export const OptionCoreTemplate = (props: OptionCoreTemplateArgs) => {
     const globals = useContext(Globals)
 
-    const tooltip = useRef<HTMLDivElement>();
-    const tooltip_parent = useRef<HTMLDivElement>();
-
-    useLayoutEffect( () => {
-        if (tooltip.current) $.html.handleTooltip( tooltip.current );
-        return () => $.html.clearTooltips( tooltip_parent.current );
-    } );
-
     return (
         <div className="row">
-            <div ref={tooltip_parent} className={`cell padded rw-3 rw-md-6 rw-sm-12 ${ props.propTitle ? 'note note-lightest' : '' }`}>
+            <div className={`cell padded rw-3 rw-md-6 rw-sm-12 ${ props.propTitle ? 'note note-lightest' : '' }`}>
                 { props.propTitle && (
                     <label htmlFor={props.propName} style={{display: 'inline-flex', columnGap: '6px', alignItems: 'center' }}>
                         { props.propTitle }
                         { props.propTip && (
                             <a className="help-button">
                                 { globals.strings.common.help }
-                                <div className="tooltip help" ref={tooltip} dangerouslySetInnerHTML={{__html: props.propTip}}/>
+                                <Tooltip additionalClasses="help" html={props.propTip}/>
                             </a>
                         ) }
                     </label>

@@ -161,7 +161,7 @@
                 <button x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" />{{'Seine Seele ansehen'|trans({ref: owner}, 'game')}}</button>
 
                 {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}
-                    <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
+                    <button x-ajax-href="{{ path('town_house_messages', {subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
                 {% endif %}
                 {% if not owner.zone %}
                     <button x-attack-citizen {% if not can_attack %}disabled{% endif %}>
@@ -402,8 +402,7 @@
     <div class="row">
         <h5>{{ '{citizen}s Register'|trans({'{citizen}': owner.name},'game') }} <a class="float-right link" x-ajax-href="{{ path("game_newspaper") }}">{{ 'Das Gesamtregister ansehen'|trans({}, 'game') }}<div class="tooltip normal">{{ 'Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...'|trans({}, 'game')|raw }}</div></a></h5>
         <div class="cell rw-12">
-            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_visit_log_controller', {'id': owner.id}) } %}
-            {% endembed %}
+            <hordes-log id="foreign-home-log" data-react-mount="foreign-home-log" data-day="{{ owner.town.day }}" data-etag="{{ date().timestamp }}" data-citizen="{{ owner.id }}" data-domain="citizen"></hordes-log>
         </div>
     </div>
     {% endif %}
@@ -428,7 +427,6 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% embed "scripts/log.js.twig" %}{% endembed %};
         {% embed "scripts/inventory.js.twig" %}{% endembed %};
 
         {% if owner.alive %}

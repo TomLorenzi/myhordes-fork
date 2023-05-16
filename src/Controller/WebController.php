@@ -12,6 +12,7 @@ use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Response\AjaxResponse;
+use App\Service\Actions\Security\RegisterNewTokenAction;
 use App\Service\AdminHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -75,11 +76,14 @@ class WebController extends CustomAbstractController
     private VersionManager $version_manager;
     private KernelInterface $kernel;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
+    private RegisterNewTokenAction $tokenizer;
+
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, RegisterNewTokenAction $tt)
     {
         parent::__construct($conf, $e, $tk, $ch, $ih, $translator);
         $this->version_manager = $v;
         $this->kernel = $k;
+        $this->tokenizer = $tt;
     }
 
     private function handleDomainRedirection(): ?Response {
@@ -94,7 +98,7 @@ class WebController extends CustomAbstractController
         return null;
     }
 
-    private function render_web_framework(string $ajax_landing, $allow_attract_page = false): Response {
+    private function render_web_framework(Request $request, string $ajax_landing, $allow_attract_page = false): Response {
         try {
             $version = $this->version_manager->getVersion();
             $is_debug_version =
@@ -114,6 +118,7 @@ class WebController extends CustomAbstractController
         shuffle($supporters);
 
         return $this->render( ($this->getUser() || !$allow_attract_page) ? 'web/framework.html.twig' : 'web/attract.html.twig', [
+            'ticket' => ($this->tokenizer)($request),
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => array_map(function($dev) {
                 $dev[3] = match ($dev[1]) {
@@ -178,13 +183,15 @@ class WebController extends CustomAbstractController
 
         ] );
     }
+
     /**
      * @Route("/", name="home")
+     * @param Request $r
      * @return Response
      */
-    public function framework(): Response
+    public function framework(Request $r): Response
     {
-        return $this->handleDomainRedirection() ?? $this->render_web_framework($this->generateUrl('initial_landing'), true);
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($r, $this->generateUrl('initial_landing'), true);
     }
 
 
@@ -240,11 +247,11 @@ class WebController extends CustomAbstractController
      * @param SessionInterface $s
      * @return Response
      */
-    public function refer_incoming(string $name, SessionInterface $s): Response
+    public function refer_incoming(Request $rq, string $name, SessionInterface $s): Response
     {
         if ($r = $this->handleDomainRedirection()) return $r;
         $s->set('refer', $name);
-        return $this->render_web_framework($this->generateUrl('public_register'));
+        return $this->render_web_framework($rq, $this->generateUrl('public_register'));
     }
 
     /**
@@ -405,7 +412,7 @@ class WebController extends CustomAbstractController
      * @param ConfMaster $conf
      * @return Response
      */
-    public function framework_import(ConfMaster $conf): Response
+    public function framework_import(Request $r, ConfMaster $conf): Response
     {
         $request = Request::createFromGlobals();
         $state = explode('#',$request->query->get('state'));
@@ -424,8 +431,8 @@ class WebController extends CustomAbstractController
         }
 
         switch ($state) {
-            case 'import': return $this->render_web_framework($this->generateUrl('soul_import', ['code' => $code]));
-            case 'etwin-login': return $this->render_web_framework($this->generateUrl('etwin_login', ['code' => $code]));
+            case 'import': return $this->render_web_framework($r, $this->generateUrl('soul_import', ['code' => $code]));
+            case 'etwin-login': return $this->render_web_framework($r, $this->generateUrl('etwin_login', ['code' => $code]));
             default: return new Response('Error: Invalid state, can\'t redirect!');
         }
 
@@ -463,7 +470,7 @@ class WebController extends CustomAbstractController
             return false;
         };
 
-        return $this->handleDomainRedirection() ?? $this->render_web_framework(Request::createFromGlobals()->getBasePath() . "/jx/{$ajax}{$bag}", $whitelisted( $ajax ));
+        return $this->handleDomainRedirection() ?? $this->render_web_framework($q, $q->getBasePath() . "/jx/{$ajax}{$bag}", $whitelisted( $ajax ));
     }
 
     private function check_cache(string $name): ?Response {

@@ -76,7 +76,8 @@ class ZoneHandler
             $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY());
 
             foreach ($citizen->getInventory()->getItems() as $item)
-                $this->inventory_handler->moveItem( $citizen, $citizen->getInventory(), $item, [$ruinZone->getFloor()] );
+                if (!$item->getEssential())
+                    $this->inventory_handler->forceMoveItem( $ruinZone->getFloor(), $item );
 
             if ($wound) $this->citizen_handler->inflictWound( $citizen );
 
@@ -308,7 +309,8 @@ class ZoneHandler
                     }
                 } else {
                     // Uncomment to have the dig message show up when the dig happened, not when the user logged back in
-                    $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype/*, (new DateTime())->setTimestamp($time) */) );
+                    if (!$executable_timer->isNonAutomatic())
+                        $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype/*, (new DateTime())->setTimestamp($time) */) );
                 }
 
                 // Banished citizen's stash check
@@ -334,7 +336,7 @@ class ZoneHandler
         }
 
         if ($zone_update) $this->entity_manager->persist($zone);
-        foreach ($all_dig_timers as $timer) $this->entity_manager->persist( $timer );
+        foreach ($all_dig_timers as $timer) $this->entity_manager->persist( $timer->setNonAutomatic(false) );
 
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){

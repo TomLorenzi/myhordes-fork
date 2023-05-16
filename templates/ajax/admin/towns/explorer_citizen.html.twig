@@ -275,5 +275,64 @@
             document.getElementById("forum-content").innerHTML = "";
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'global'}) }}', false )
         });
+
+        $.html.addEventListenerAll( '[x-citizen-id] [data-clear]', 'click', (e,elem) => {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            const id = parseInt(elem.closest('[x-citizen-id]').getAttribute('x-citizen-id'));
+            $.ajax.easySend('{{ path('clear_citizen_attribs', {id: town.id}) }}', {id, clear: elem.dataset.clear},
+                () => $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true)
+            );
+        } );
+
+        {% if is_granted("ROLE_ADMIN") %}
+        $.html.addEventListenerAll('.citizen-main[x-citizen-id]', 'click',  (e,elem) => {
+            if (e.target.tagName === 'INPUT') return;
+            const details = document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"]');
+
+            if (details.classList.contains('hidden')) {
+                $.html.forEach('.citizen-details[x-citizen-id]', elem => elem.classList.add('hidden'));
+                details.classList.remove('hidden');
+
+                const refresh = () => {
+                    $.ajax.easySend('{{ url('get_citizen_infos', {id: town.id}) }}', {'citizen_id': elem.getAttribute('x-citizen-id')}, data => {
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetDesc').innerText = data.desc;
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetDesc').parentNode?.classList.toggle('hidden', !data.desc)
+
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack').innerHTML = data.rucksack;
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack .inventory').classList.add('rucksack');
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetRucksack .inventory .title').innerText = '{{ 'Rucksack'|trans({},'game')|e('js') }}';
+
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest').innerHTML = data.chest;
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest .inventory').classList.add('chest');
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetChest .inventory .title').innerText = '{{ 'Truhe'|trans({},'game')|e('js') }}';
+
+                        document.querySelector('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetPictos').innerHTML = data.pictos;
+                        let tooltips = document.querySelectorAll('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .invTargetPictos .tooltip');
+                        for(let i = 0 ; i < tooltips.length ; i++)
+                            $.html.handleTooltip(tooltips[i]);
+
+                        let items = document.querySelectorAll('.citizen-details[x-citizen-id="' + elem.getAttribute('x-citizen-id') + '"] .inventory .item:not(.locked)[x-item-id]');
+                        for (let i = 0; i < items.length; i++)
+                            items[i].addEventListener('click', function(ev) {
+                                let change = 'remove';
+                                const item_id = this.getAttribute('x-item-id');
+                                $.ajax.easySend('{{ path('admin_town_item', {id: town.id}) }}', {
+                                        item: item_id, change, qty: '1'
+                                    },
+                                    refresh
+                                );
+                            });
+                    });
+                };
+                refresh();
+            } else {
+                $.html.forEach('.citizen-details[x-citizen-id]', elem => elem.classList.add('hidden'));
+                document.querySelector(".citizen-details[x-citizen-id] .invTargetRucksack").innerHTML = '';
+                document.querySelector(".citizen-details[x-citizen-id] .invTargetChest").innerHTML = '';
+                document.querySelector(".citizen-details[x-citizen-id] .invTargetPictos").innerHTML = '';
+            }
+        })
+        {% endif %}
 	</script>
 {% endblock %}

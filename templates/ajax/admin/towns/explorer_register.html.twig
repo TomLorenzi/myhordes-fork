@@ -16,8 +16,11 @@
 		{% endembed %}
 	</div>
 
-	{% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
-	{% endembed %}
+    <div class="row">
+        <div class="padded cell rw-12">
+            <hordes-log id="admin-log" data-day="{{ town.day }}" data-react-mount="admin-log" data-etag="{{ date().timestamp }}" data-domain="admin/town/{{ town.id }}" data-entries="150"></hordes-log>
+        </div>
+    </div>
 
 	<br/>
 	<h1 class="page-head">{{ 'Register herunterladen'|trans({},'admin') }}</h1>
@@ -31,7 +34,8 @@
 {% block js %}
 	{{ parent() }}
 	<script>
-		{% embed "scripts/log.js.twig" %}{% endembed %}
-
+        $.html.addEventListenerAll('#gazetteSelector', 'change', (e,elem) => {
+            $.ajax.no_history().load( document.getElementById('gazette-target'), elem.value, false )
+        })
 	</script>
 {% endblock %}

@@ -2384,6 +2384,7 @@ Stadt/Stadttor: crwdns145941:0crwdne145941:0
 'Du kannst diesen Gegenstand hier nicht ablegen.': 'crwdns146065:0crwdne146065:0'
 Tarnexperte: crwdns146067:0crwdne146067:0
 'Einrichtung (Tab)': crwdns167815:0crwdne167815:0
+'Offizieller AP-Versorger': 'crwdns167971:0crwdne167971:0'
 'Community-Events verwalten': 'crwdns146069:0crwdne146069:0'
 'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'crwdns146071:0{eventName}crwdne146071:0'
 'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'crwdns146073:0{eventName}crwdne146073:0'
@@ -2394,3 +2395,5 @@ Tarnexperte: crwdns146067:0crwdne146067:0
 'Das Ende deines Lebens in <strong>{town}</strong>': 'crwdns167819:0{town}crwdne167819:0'
 'Du hast {sp} Seelenpunkte erhalten.': 'crwdns167821:0{sp}crwdne167821:0'
 'Du hast keine Seelenpunkte erhalten.': 'crwdns167823:0crwdne167823:0'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'crwdns167955:0crwdne167955:0'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'crwdns167957:0crwdne167957:0'

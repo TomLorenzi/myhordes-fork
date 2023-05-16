@@ -3,7 +3,7 @@
     {% if badger.activeTitle or badger.activeIcon %}
         <div class="badge-title">
             {% if badger.activeIcon %}<img alt="" src="{{ badger.activeIcon.customIcon ? url('app_web_customicon', {uid: badger.id, aid: badger.activeIcon.id, name: badger.activeIcon.customIconName, ext: badger.activeIcon.customIconFormat}) : asset('build/images/icons/title/' ~ badger.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-            {% if badger.activeTitle %}<span>{{ badger.activeTitle.customTitle ?? badger.activeTitle.prototype.title|trans({},'game')|raw }}</span>{% endif %}
+            {% if badger.activeTitle %}<span>{{ badger.activeTitle.customTitle ?? badger|translated_title(app.user)|raw }}</span>{% endif %}
         </div><br />
     {% endif %}
 

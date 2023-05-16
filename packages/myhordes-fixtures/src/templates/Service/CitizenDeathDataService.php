@@ -129,13 +129,13 @@ class CitizenDeathDataService implements FixtureProcessorInterface {
                 'ref' => CauseOfDeath::ExplosiveDoormat,
                 'label' => 'Explosion',
                 'icon' => 'exploded',
-                'desc' => '???',
+                'desc' => 'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.',
             ],
             [
                 'ref' => CauseOfDeath::ChocolateCross,
                 'label' => 'Schokoladenkreuz',
                 'icon' => 'crucifixion',
-                'desc' => '???',
+                'desc' => 'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...',
                 'pictos' => ['r_paques_#00']
             ],
             [

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\TownRevisionType;
 use App\Enum\ZoneActivityMarkerType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -50,7 +51,7 @@ class Zone
     #[ORM\OneToOne(targetEntity: 'App\Entity\Inventory', inversedBy: 'zone', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private $floor;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: 'zones')]
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: 'zones', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private $town;
     #[ORM\OneToMany(targetEntity: 'App\Entity\Citizen', mappedBy: 'zone', fetch: 'LAZY')]
@@ -151,6 +152,7 @@ class Zone
     public function setZombies(int $zombies): self
     {
         $this->zombies = $zombies;
+        $this->getTown()?->getRevision( TownRevisionType::MapOverall )?->touch();
 
         return $this;
     }
@@ -188,6 +190,8 @@ class Zone
             $citizen->setZone($this);
         }
 
+        $this->getTown()?->getRevision( TownRevisionType::MapOverall )?->touch();
+
         return $this;
     }
     public function removeCitizen(Citizen $citizen): self
@@ -199,6 +203,8 @@ class Zone
                 $citizen->setZone(null);
             }
         }
+
+        $this->getTown()?->getRevision( TownRevisionType::MapOverall )?->touch();
 
         return $this;
     }
@@ -320,6 +326,7 @@ class Zone
     public function setDiscoveryStatus(int $discoveryStatus): self
     {
         $this->discoveryStatus = $discoveryStatus;
+        $this->getTown()?->getRevision( TownRevisionType::MapOverall )?->touch();
 
         return $this;
     }
@@ -330,6 +337,7 @@ class Zone
     public function setZombieStatus(int $zombieStatus): self
     {
         $this->zombieStatus = $zombieStatus;
+        $this->getTown()?->getRevision( TownRevisionType::MapOverall )?->touch();
 
         return $this;
     }
@@ -356,6 +364,7 @@ class Zone
     public function setBuryCount(int $buryCount): self
     {
         $this->buryCount = $buryCount;
+        $this->getTown()?->getRevision( TownRevisionType::MapOverall )?->touch();
 
         return $this;
     }
@@ -405,6 +414,7 @@ class Zone
     public function setTag(?ZoneTag $tag): self
     {
         $this->tag = $tag;
+        $this->getTown()?->getRevision( TownRevisionType::MapOverall )?->touch();
 
         return $this;
     }

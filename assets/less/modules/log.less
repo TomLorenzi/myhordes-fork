@@ -43,8 +43,8 @@
         &:before, &:after { display: block; width: 10px; position: absolute; top: 0; }
         &:before{ content: '['; left: 0; } &:after{ content: ']'; right: 0; }
       }
-      &>span.log-part-content {
-        &>span { 
+      &>span.log-part-content, span.log-part-content>span.container {
+        &>span:not(.container) {
           color: white; font-weight: bold; font-variant: small-caps; &>img { vertical-align: text-top }
           &.jobName {
             font-weight: normal;

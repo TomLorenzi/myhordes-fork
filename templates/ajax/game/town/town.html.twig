@@ -263,7 +263,7 @@
                     </div>
 
                     <div {{ {'row': true, 'town-menu': true, 'night': conf.isNightTime, 'hide-sm ': app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderTownLocationButtons") ) and app.user.expert}|classes }}>
-                        <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text6"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
+                        <div x-ajax-href="{{ path('town_house_dash') }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text6"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
                             <div></div>
                             <div>
                                 <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %} {% if new_message %}<img alt="!" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}
@@ -303,7 +303,7 @@
                     <div class="row">
                         {% if app.user.setting( constant("\\App\\Enum\\UserSetting::ReorderTownLocationButtons") ) and app.user.expert %}
                             <div {{ {'cell rw-12 hide-md hide-lg hide-desktop town-addons': true, 'night': conf.isNightTime}|classes }}>
-                                <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" class="town-addon {% if menu_section == 'house' %}selected{% endif %} town-addon-house">
+                                <div x-ajax-href="{{ path('town_house_dash') }}" class="town-addon {% if menu_section == 'house' %}selected{% endif %} town-addon-house">
                                     <div></div>
                                     <span><img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% if new_message %}<img alt="!" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}</span>
                                 </div>

@@ -150,6 +150,18 @@ class SanitizeTownConfigAction
                 $rules[$list] = ['replace' => $rules[$list]];
     }
 
+    public function restore_lists( $rules ): array
+    {
+
+        $lists = ['disabled_jobs', 'disabled_roles', 'initial_buildings', 'unlocked_buildings', 'disabled_buildings'];
+
+        foreach ($lists as $list)
+            if (isset( $rules[$list] ) && isset( $rules[$list]['replace'] ))
+                $rules[$list] = $rules[$list]['replace'];
+
+        return $rules;
+    }
+
     public function sanitize_config(array $conf): array {
         static $unset_props = [
             'ruin_items', 'zone_items', 'explorable_ruin_params', 'map_params',

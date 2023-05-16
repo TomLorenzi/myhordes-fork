@@ -71,6 +71,7 @@ class AwardTitleDataService implements FixtureProcessorInterface {
             ['title'=>'Wüstenstadt-Dealer', 'unlockquantity'=>250, 'associatedtag'=>':lab:', 'associatedpicto'=>'r_drgmkr_#00'],
             ['title'=>'Ich koste alle meine Produkte', 'unlockquantity'=>500, 'associatedtag'=>':lab:', 'associatedpicto'=>'r_drgmkr_#00'],
             ['title'=>'Rauchts? Dann ist es meins.', 'unlockquantity'=>1000, 'associatedtag'=>':lab:', 'associatedpicto'=>'r_drgmkr_#00'],
+            ['title'=>'Offizieller AP-Versorger', 'unlockquantity'=>2000, 'associatedtag'=>':lab:', 'associatedpicto'=>'r_drgmkr_#00'],
             ['title'=>'X-Men Leser', 'unlockquantity'=>15, 'associatedtag'=>':hero:', 'associatedpicto'=>'r_heroac_#00'],
             ['title'=>'Aussergewöhnlicher Bürger', 'unlockquantity'=>30, 'associatedtag'=>':hero:', 'associatedpicto'=>'r_heroac_#00'],
             ['title'=>'Wunder', 'unlockquantity'=>50, 'associatedtag'=>':hero:', 'associatedpicto'=>'r_heroac_#00'],

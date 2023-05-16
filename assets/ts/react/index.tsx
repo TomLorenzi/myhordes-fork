@@ -2,8 +2,16 @@ import {Global} from "../defaults";
 
 declare var $: Global;
 
-export interface ReactData<Type=object> {
-    data: Type,
+type ReactMapBootstrapData = {
+    displayType: string,
+    className: string,
+    etag: number,
+    endpoint: string,
+    fx: boolean,
+}
+
+export interface ReactData {
+    data: ReactMapBootstrapData,
     eventGateway: (event: string, data: object)=>void,
     eventRegistrar: (event: string, callback: ReactIOEventListener, remove:boolean)=>void
 }
@@ -76,9 +84,6 @@ export default class Components {
 
     public static vitalize(parent: HTMLElement) {
         $.ajax.load_dynamic_modules( parent );
-        let tooltips = parent.querySelectorAll('div.tooltip');
-        for (let t = 0; t < tooltips.length; t++)
-            $.html.handleTooltip( tooltips[t] as HTMLElement );
     }
 
     prune() {
@@ -186,9 +191,19 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
     private initialized: ReactType|null = null;
     private data: object = {}
 
+    protected allow_migration: boolean = false;
+
     protected abstract generateProps(): object|null;
     protected abstract generateInstance(): ReactType;
     protected static observedAttributeNames(): string[] { return []; };
+
+    protected selfMount(data: object = {}): void {
+        this.initialized?.mount(this, { ...this.data, ...data } );
+    }
+
+    protected selfUnmount(): void {
+        this.initialized?.unmount(this)
+    }
 
     private extractData() {
         const extracted = this.generateProps();
@@ -201,31 +216,37 @@ export abstract class Shim<ReactType extends ShimLoader> extends HTMLElement {
         if (this.initialized || !this.isConnected) return;
         if (this.extractData()) {
             this.initialized = this.generateInstance();
-            this.initialized.mount(this, this.data);
+            this.selfMount();
         }
     }
 
     connectedCallback() {
         this.initialize();
-        if (this.extractData()) this.initialized?.mount(this, this.data);
+        if (this.extractData()) this.selfMount();
     }
 
     disconnectedCallback() {
-        this.initialized?.unmount(this);
-        this.initialized = null;
-        this.data = {};
+        if (!this.allow_migration) {
+            this.selfUnmount();
+            this.initialized = null;
+            this.data = {};
+        }
     }
 
     static get observedAttributes() { return this.observedAttributeNames(); }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue === newValue) return;
-        if (this.extractData()) this.initialized?.mount(this, this.data);
+        if (this.extractData()) this.selfMount();
     }
 
     public constructor() {
         super();
-        this.addEventListener('x-react-degenerate', () => this.initialized?.unmount(this));
+        this.addEventListener('x-react-degenerate', () => this.selfUnmount());
         this.initialize();
     }
+}
+
+export abstract class PersistentShim<ReactType extends ShimLoader> extends Shim<ReactType> {
+    protected allow_migration: boolean = true;
 }
