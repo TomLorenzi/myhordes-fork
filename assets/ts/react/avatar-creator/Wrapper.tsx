@@ -369,7 +369,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
 
         const onMouseDown = (e: PointerEvent) => {
             const target = (e.target as HTMLDivElement);
-            
+
             dragging.current.x0 = target.dataset.handleX === '+' || parseInt((e.target as HTMLDivElement).dataset.handleX ?? '0') < 0;
             dragging.current.x1 = target.dataset.handleX === '+' || parseInt((e.target as HTMLDivElement).dataset.handleX ?? '0') > 0;
             dragging.current.y0 = target.dataset.handleY === '+' || parseInt((e.target as HTMLDivElement).dataset.handleY ?? '0') < 0;
@@ -432,18 +432,28 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
 
                 const useAspectGeometry = e.shiftKey || editSmallSection;
 
-                geo.x0 = useAspectGeometry ? aspectGeometry.current.x0 : freeGeometry.current.x0;
-                geo.x1 = useAspectGeometry ? aspectGeometry.current.x1 : freeGeometry.current.x1;
-                geo.y0 = useAspectGeometry ? aspectGeometry.current.y0 : freeGeometry.current.y0;
-                geo.y1 = useAspectGeometry ? aspectGeometry.current.y1 : freeGeometry.current.y1;
-                updateSelector(true);
+                const tmp = {
+                    x0: useAspectGeometry ? aspectGeometry.current.x0 : freeGeometry.current.x0,
+                    x1: useAspectGeometry ? aspectGeometry.current.x1 : freeGeometry.current.x1,
+                    y0: useAspectGeometry ? aspectGeometry.current.y0 : freeGeometry.current.y0,
+                    y1: useAspectGeometry ? aspectGeometry.current.y1 : freeGeometry.current.y1
+                }
 
-                mta.x0 = Math.round( geo.x0 / sel.parentElement.clientWidth * imageDimensions.x );
-                mta.x1 = Math.round( (geo.x1 - geo.x0) / sel.parentElement.clientWidth * imageDimensions.x );
-                mta.y0 = Math.round( geo.y0 / sel.parentElement.clientHeight * imageDimensions.y );
-                mta.y1 = Math.round( (geo.y1 - geo.y0) / sel.parentElement.clientHeight * imageDimensions.y );
+                if (tmp.x0 >= 0 && tmp.x1 <= sel.parentElement.clientWidth && tmp.y0 >= 0 && tmp.y1 <= sel.parentElement.clientHeight) {
+                    geo.x0 = tmp.x0;
+                    geo.x1 = tmp.x1;
+                    geo.y0 = tmp.y0;
+                    geo.y1 = tmp.y1;
 
-                updateDimensionDisplay();
+                    updateSelector(true);
+
+                    mta.x0 = Math.round( geo.x0 / sel.parentElement.clientWidth * imageDimensions.x );
+                    mta.x1 = Math.round( (geo.x1 - geo.x0) / sel.parentElement.clientWidth * imageDimensions.x );
+                    mta.y0 = Math.round( geo.y0 / sel.parentElement.clientHeight * imageDimensions.y );
+                    mta.y1 = Math.round( (geo.y1 - geo.y0) / sel.parentElement.clientHeight * imageDimensions.y );
+
+                    updateDimensionDisplay();
+                }
 
                 e.preventDefault();
             }
@@ -595,7 +605,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                     </div>
                 </div>
                 <div className="padded cell rw-12 center">
-                    <div className="relative avatar full">
+                    <div className="relative avatar full" style={{touchAction: "none"}}>
                         <img alt="" src={source} style={{maxHeight: '75vh'}}/>
                         <div className={"image-selector" + (!editSmallSection ? ' active' : '')} ref={selector}>
                             <div className="circle-preview"><div/></div>
