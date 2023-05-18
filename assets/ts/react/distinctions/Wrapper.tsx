@@ -66,8 +66,6 @@ const Distinctions = (
             currentNode.current = (event.target as HTMLDivElement).closest('.picto') as HTMLDivElement;
             currentDrag.current = { cur: {x: 0, y: 0}, orig: {x: event.pageX, y: event.pageY}, handled: false }
             setDragging({id} );
-            if (window.innerWidth - document.querySelector('html').clientWidth <= 0)
-                document.body.style.overflow = 'hidden';
             event.preventDefault();
         }
     }
@@ -117,7 +115,6 @@ const Distinctions = (
                 ], {duration: 100, easing: 'ease-out'});
                 animation.oncancel = animation.onfinish = () => target.style.pointerEvents = target.style.left = target.style.top = null;
             }
-            document.body.style.overflow = null;
             event.preventDefault();
         }
 
@@ -138,7 +135,7 @@ const Distinctions = (
     }, [ dragging ] )
 
     return (
-        <div className="distinctions" ref={wrapper}>
+        <div className="distinctions" ref={wrapper} style={interactive ? {touchAction: "none"} : {}}>
             <div className="distinctions-head center">
                 { !plain && load_complete && strings?.common?.header }
             </div>
