@@ -526,3 +526,5 @@ Kurzbeschreibung: Short description
 'Du musst ein Startdatum für dein Event festlegen.': 'You need to set a start date for your event.'
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'The start date of your event must be at least {minDays} days and at most {maxDays} days in the future'
 'Account wechseln': 'Switch accounts'
+'Mehr Ergebnisse anzeigen': 'Mehr Ergebnisse anzeigen'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'
