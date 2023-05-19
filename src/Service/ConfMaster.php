@@ -17,21 +17,23 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ConfMaster
 {
-    private EntityManagerInterface $entityManager;
-
     private array $global;
     private array $game_rules;
-    private array $events;
 
     private ?MyHordesConf $global_conf = null;
     private ?array $event_conf = null;
     private array $event_cache = [];
 
-    public function __construct( array $global, array $local, array $rules, array $events, EntityManagerInterface $em) {
+    public function __construct(
+        array $global,
+        array $local,
+        array $rules,
+        array $rules_local,
+        private readonly array $events,
+        private readonly EntityManagerInterface $entityManager
+    ) {
         $this->global = array_merge($global,$local);
-        $this->game_rules = $rules;
-        $this->events = $events;
-        $this->entityManager = $em;
+        $this->game_rules = array_replace_recursive($rules, $rules_local);
     }
 
     public function getGlobalConf(): MyHordesConf {
