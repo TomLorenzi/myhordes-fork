@@ -199,6 +199,9 @@ export type TranslationStrings = {
             super_poison: string
             super_poison_help: string
 
+            strange_soil: string
+            strange_soil_help: string
+
             redig: string
             redig_help: string
 

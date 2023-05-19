@@ -189,6 +189,11 @@ export const TownCreatorSectionMods = () => {
             } },
             { value: globals.getOption( 'rules.modifiers.allow_redig' ) as boolean, name: '<<.rules.modifiers.allow_redig', title: mods.special.redig, help: mods.special.redig_help },
             { value: globals.getOption( 'rules.modifiers.carry_extra_bag' ) as boolean, name: '<<.rules.modifiers.carry_extra_bag', title: mods.special.carry_bag, help: mods.special.carry_bag_help },
+            { value: globals.getOption( 'rules.modifiers.strange_soil' ) as boolean && globals.getOption( 'rules.modifiers.poison.transgress' ) as boolean, name: 'strange_soil', title: mods.special.strange_soil, help: mods.special.strange_soil_help, onChange: e => {
+                    const v = (e.target as HTMLInputElement).checked;
+                    globals.setOption( 'rules.modifiers.strange_soil', v );
+                    globals.setOption( 'rules.modifiers.poison.transgress', v );
+                } },
         ]} propTitle={mods.special.section}/>
     </div>;
 };

@@ -159,6 +159,7 @@ parameters:
         guard_tower:
           per_use: 10
           max_def: 150
+        strange_soil: false
 
       features:
         camping: true

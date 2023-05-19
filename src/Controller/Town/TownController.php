@@ -42,6 +42,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
+use App\Enum\ItemPoisonType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
@@ -918,7 +919,7 @@ class TownController extends InventoryAwareController
      * @param BankAntiAbuseService $ba
      * @return Response
      */
-    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, BankAntiAbuseService $ba): Response {
+    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, BankAntiAbuseService $ba, ConfMaster $conf): Response {
         $direction = $parser->get('direction', '');
 
         if (in_array($direction, ['up','down'])) {
@@ -940,6 +941,8 @@ class TownController extends InventoryAwareController
                 $inv_target = $citizen->getInventory();
                 $inv_source = null;
                 $item = $factory->createItem( 'water_#00' );
+                if ($conf->getTownConfiguration( $town )->get( TownConf::CONF_MODIFIER_STRANGE_SOIL, false ))
+                    $item->setPoison( ItemPoisonType::Strange );
 
                 if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen )) {
                     $ba->increaseBankCount($citizen);

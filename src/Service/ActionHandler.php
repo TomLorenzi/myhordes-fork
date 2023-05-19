@@ -644,6 +644,7 @@ class ActionHandler
 
         $kill_by_poison   = $item && ($item->getPoison() === ItemPoisonType::Deadly) && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
         $infect_by_poison = $item && ($item->getPoison() === ItemPoisonType::Infectious) && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
+        $random_by_poison = $item && ($item->getPoison() === ItemPoisonType::Strange) && ($action->getPoisonHandler() & ItemAction::PoisonHandlerConsume);
         $spread_poison = ItemPoisonType::None;
 
         $town_conf = $this->conf->getTownConfiguration( $citizen->getTown() );
@@ -1769,14 +1770,40 @@ class ActionHandler
             if($res !== self::ErrorNone) return $res;
         }
 
-        if ($spread_poison->poisoned()) $item->setPoison( $spread_poison );
+        if ($spread_poison->poisoned())
+            $item->setPoison($spread_poison->mix( $spread_poison ));
+
         if ($kill_by_poison && $citizen->getAlive()) {
             $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
             $execute_info_cache['message'] = [];
-        }
-        if ($infect_by_poison) {
+        } elseif ($infect_by_poison && $citizen->getAlive()) {
             $this->citizen_handler->inflictStatus( $citizen, 'infection' );
+        } elseif ($random_by_poison && $citizen->getAlive() && $this->random_generator->chance(0.5)) {
+
+            switch ($this->random_generator->pick([1,2,2,2])) {
+                // Add drugged status
+                case 1:
+                    $this->picto_handler->award_picto_to($citizen, 'r_drug_#00');
+                    if (!$this->citizen_handler->hasStatusEffect($citizen, 'drugged')) {
+                        $this->citizen_handler->inflictStatus($citizen, 'drugged');
+                        $execute_info_cache['message'][] = T::__('Aber eine Frage bleibt: Waren diese fliegenden grünen Mäuse schon immer da?','items');
+                    } elseif (!$this->citizen_handler->hasStatusEffect($citizen, 'addict')) {
+                        $this->citizen_handler->inflictStatus($citizen, 'addict');
+                        $execute_info_cache['message'][] = T::__('Sofort nach dem herunterschlucken verspürst du das Verlangen nach mehr... du bist nun <b>drogenabhängig</b>!','items');
+                    }
+
+                // Add drunk status
+                case 2:
+                    $this->picto_handler->award_picto_to($citizen, 'r_alcool_#00');
+                    $this->citizen_handler->removeStatus($citizen, 'hungover');
+                    $this->citizen_handler->removeStatus($citizen, 'tg_no_hangover');
+                    if (!$this->citizen_handler->hasStatusEffect($citizen, 'drunk')) {
+                        $this->citizen_handler->inflictStatus($citizen, 'drunk');
+                        $execute_info_cache['message'][] = T::__('Plötzlich fängt alles um dich herum an, sich zu drehen ...','items');
+                    }
+            }
+
         }
 
         if(!empty($execute_info_cache['message'])) {

@@ -28,6 +28,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Enum\ItemPoisonType;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\EventConf;
@@ -587,10 +588,11 @@ class NightlyHandler
                 }, $local ) ) );
             }
 
-
+        $strange = $this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_STRANGE_SOIL, false );
         foreach ($daily_items as $item_id => $count)
             for ($i = 0; $i < $count; $i++) {
                 $item = $this->item_factory->createItem( $item_id );
+                if ($strange) $item->setPoison( ItemPoisonType::Strange );
                 $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
                 $tx[] = "<info>{$item->getPrototype()->getLabel()}</info>";
             }
