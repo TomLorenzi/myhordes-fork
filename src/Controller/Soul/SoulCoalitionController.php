@@ -350,6 +350,49 @@ class SoulCoalitionController extends SoulController
     }
 
     /**
+     * @Route("api/soul/coalition/rename", name="soul_rename_coalition")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function api_soul_rename_coalition(JSONRequestParser $parser): Response
+    {
+        $user = $this->getUser();
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->user_handler->getCoalitionMembership($user);
+        if ($user_coalition === null || $user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $new_name = $parser->trimmed('name');
+        if (mb_strlen( $new_name ) < 3 || mb_strlen( $new_name ) > 32)
+            return AjaxResponse::error( mb_strlen( $new_name ) > 32 ? self::ErrorCoalitionNameTooLong : self::ErrorCoalitionNameTooShort );
+
+        $this->entity_manager->persist( $user_coalition->getAssociation()->setName( $new_name ) );
+
+        /** @var Shoutbox|null $shoutbox */
+        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
+            $shoutbox->addEntry(
+                (new ShoutboxEntry())
+                    ->setType( ShoutboxEntry::SBEntryTypeNameChange )
+                    ->setTimestamp( new DateTime() )
+                    ->setUser1( $user )
+                    ->setText( $new_name )
+            );
+            $this->entity_manager->persist($shoutbox);
+        }
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/coalition/invite/{id<\d+>}", name="soul_invite_coalition")
      * @param ConfMaster $conf
      * @param int $id
