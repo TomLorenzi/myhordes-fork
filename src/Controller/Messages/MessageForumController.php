@@ -1006,6 +1006,7 @@ class MessageForumController extends MessageController
         } else $search_user = null;
 
         $query_chars = str_split($json->get('query', ''));
+        $last = $json->get_int('last', null);
 
         $q = ''; $starts_with = $ends_with = $is = $in = $not_in = []; $qp = false; $neg = false; $esc = false;
 
@@ -1049,8 +1050,6 @@ class MessageForumController extends MessageController
             $start = str_starts_with( $s, '^' );
             $end = str_ends_with( $s, '^' );
 
-
-
             if ($start && $end) $is[] = mb_substr( $s, 1, -1 );
             elseif ($start) $starts_with[] = mb_substr( $s, 1 );
             elseif ($end) $ends_with[] = mb_substr( $s, 0, -1 );
@@ -1065,7 +1064,10 @@ class MessageForumController extends MessageController
 
         $result = [];
 
-        $qb_con = function (QueryBuilder $q, string $t) use ($in,$starts_with,$ends_with,$is,$not_in) {
+        $qb_con = function (QueryBuilder $q, string $t, string $d) use ($in,$starts_with,$ends_with,$is,$not_in,$last) {
+
+            if ($last)
+                $q->andWhere( "{$d} < :date" )->setParameter('date', (new DateTime())->setTimestamp( $last ));
 
             foreach ($in as $k => $entry) $q->andWhere("{$t} LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
             foreach ($not_in as $k => $entry) $q->andWhere("t.title NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
@@ -1116,7 +1118,7 @@ class MessageForumController extends MessageController
             if ($forum) $queryBuilder->andWhere('t.forum = :forum')->setParameter('forum', $forum);
             else $queryBuilder->andWhere('t.forum IN (:forum)')->setParameter('forum', $domain);
 
-            $qb_con($queryBuilder, 't.title');
+            $qb_con($queryBuilder, 't.title', 't.date');
 
             $queryBuilder->orderBy('t.lastPost', 'DESC')->setMaxResults(26);
 
@@ -1135,11 +1137,13 @@ class MessageForumController extends MessageController
         if ($forum) $queryBuilder->andWhere('p.searchForum = :forum')->setParameter('forum', $forum);
         else $queryBuilder->andWhere('p.searchForum IN (:forum)')->setParameter('forum', $domain);
 
-        $qb_con($queryBuilder, 'p.searchText');
+        $qb_con($queryBuilder, 'p.searchText', 'p.date');
 
         $queryBuilder->orderBy('p.date', 'DESC')->setMaxResults(26);
 
         $result = array_merge($result, $queryBuilder->getQuery()->execute());
+
+        usort($result, fn(Post $a, Post $b) => $b->getDate() <=> $a->getDate());
 
         $more = count($result) > 25;
         $result = array_slice($result, 0, 25);
