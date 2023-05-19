@@ -283,3 +283,5 @@ Löschen: Löschen
 'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.': 'Du musst eine Team Gemeinschaft, bevor du weitere Städte betreten kannst.'
 'Diese Stadt ist {lang_town}, aber dein aktuelles Team ist {team_user}.': 'Diese Stadt ist {lang_town}, aber deine aktuelle Gemeinschaft ist {team_user}.'
 'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.': 'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Gemeinschaften, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte einer fremden Gemeinschaft betreten.'
+'Eigenartiger Boden': 'Eigenartiger Boden'
+'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...'

@@ -298,6 +298,9 @@ class TownCreatorController extends CustomAbstractCoreController
                         'super_poison' => $this->translator->trans('Paradies der Giftmörder', [], 'ghost'),
                         'super_poison_help' => $this->translator->trans('Verändert das Verhalten im Bezug auf vergiftete Gegenstände und erschwert deren Erkennung.', [], 'ghost'),
 
+                        'strange_soil' => $this->translator->trans('Eigenartiger Boden', [], 'ghost'),
+                        'strange_soil_help' => $this->translator->trans('Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...', [], 'ghost'),
+
                         'redig' => $this->translator->trans('Erneutes Buddeln', [], 'ghost'),
                         'redig_help' => $this->translator->trans('Ermöglicht es, auf bereits besuchten Zonen erneut zu buddeln.', [], 'ghost'),
 
