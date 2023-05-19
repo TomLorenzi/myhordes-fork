@@ -526,5 +526,5 @@ Kurzbeschreibung: Brève description
 'Du musst ein Startdatum für dein Event festlegen.': 'Vous devez définir une date de début pour votre événement.'
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'La date de début de votre événement doit être au moins {minDays} jours et au maximum {maxDays} jours dans le futur'
 'Account wechseln': 'Changer de compte'
-'Mehr Ergebnisse anzeigen': 'Mehr Ergebnisse anzeigen'
+'Mehr Ergebnisse anzeigen': 'Afficher plus de résultats'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'
