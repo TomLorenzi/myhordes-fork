@@ -306,7 +306,7 @@ class HTMLService {
             '//pre|//span[@class=\'inline-code\']' =>
                 function (DOMNode $d) use(&$emotes) {
                     foreach ($emotes as $emote)
-                        $d->nodeValue = htmlentities(str_replace( $emote, str_replace(':', ':​', $emote),  $d->nodeValue));
+                        $d->textContent = str_replace($emote, str_replace(':', ':​', $emote), $d->textContent);
                 },
 
             // Replace URLs
