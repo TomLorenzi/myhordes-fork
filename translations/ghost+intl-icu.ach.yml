@@ -283,3 +283,5 @@ Löschen: crwdns152083:0crwdne152083:0
 'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.': 'crwdns167949:0crwdne167949:0'
 'Diese Stadt ist {lang_town}, aber dein aktuelles Team ist {team_user}.': 'crwdns167951:0{lang_town}crwdnd167951:0{team_user}crwdne167951:0'
 'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.': 'crwdns167953:0{tickets_left}crwdne167953:0'
+'Eigenartiger Boden': 'crwdns168007:0crwdne168007:0'
+'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'crwdns168009:0crwdne168009:0'
