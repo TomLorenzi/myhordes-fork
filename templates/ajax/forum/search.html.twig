@@ -72,6 +72,7 @@
                         <ul style="padding-left: 10px; margin: 0;">
                             <li>{{ 'Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"'|trans({}, 'global') }}</li>
                             <li>{{ 'Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen'|trans({}, 'global')|raw }}</li>
+                            <li>{{ 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'|trans({}, 'global') }}</li>
                             <li>{{ 'Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\\!'|trans({}, 'global') }}</li>
                         </ul>
                     </div>
@@ -92,17 +93,44 @@
     {{ parent() }}
     {{ include('ajax/flash.html.twig') }}
     <script>
-        const doSearch = () => {
-            const obj = {
+        const t = document.getElementById('search-results');
+        const searchCallback = (obj,node = null) => () => {
+            if (node !== null) {
+                Array.from(node.children).forEach(e => {
+                    t.appendChild(e);
+                });
+                node.remove();
+            }
+
+            t.querySelectorAll('button[data-purpose="more"][data-last]').forEach(elem => {
+                elem.addEventListener('click', () => {
+                    elem.remove();
+                    doSearch(obj, elem.dataset.last, false)
+                })
+            });
+        }
+
+        const doSearch = (obj = null, last = null, replace = true) => {
+            obj = obj ?? {
                 fid: parseInt(document.querySelector('#search-forum').value),
                 query: document.querySelector('#search-query').value,
                 opt_title: document.querySelector('#search-opt-title').checked ? 1 : 0,
-                user: document.querySelector('[x-selected-user]') ? parseInt(document.querySelector('[x-selected-user]').getAttribute('x-selected-user')) : -1
+                user: document.querySelector('[x-selected-user]') ? parseInt(document.querySelector('[x-selected-user]').getAttribute('x-selected-user')) : -1,
             }
+
+            let submit = JSON.parse(JSON.stringify(obj));
+            submit.last = last;
 
             const url = '{{ path('forum_search_wrapper_controller') }}?f=' + obj.fid + '&ot=' + obj.opt_title + '&u=' + obj.user + '&q=' + encodeURIComponent(obj.query);
             if (url !== history.state) history.pushState( url, '', url );
-            $.ajax.no_history().load(document.getElementById('search-results'), '{{ path('forum_query_controller')|e('js') }}', false, obj)
+
+            if (replace)
+                $.ajax.no_history().load(t, '{{ path('forum_query_controller')|e('js') }}', false, submit, searchCallback(obj))
+            else {
+                const d = document.createElement('div');
+                t.appendChild(d);
+                $.ajax.no_history().load(d, '{{ path('forum_query_controller')|e('js') }}', false, submit, searchCallback(obj,d));
+            }
         };
 
         document.getElementById('search-forum')?.addEventListener('change', e =>
@@ -111,7 +139,7 @@
 
         $.html.addEventListenerAll('#search-query', 'keydown', e => e.key === 'Enter' && doSearch());
 
-        $.html.addEventListenerAll('#search-begin-btn', 'click', doSearch);
+        $.html.addEventListenerAll('#search-begin-btn', 'click', () => doSearch());
 
         $.html.addEventListenerAll('#search_selected_user img', 'click', () => {
             let e = document.getElementById('search_selected_user');
