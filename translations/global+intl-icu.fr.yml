@@ -84,7 +84,6 @@ Vorschau: Aperçu
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Au moment de passer à l''action, votre blessure vous arrache un hurlement et vous arrête net. Soignez-vous avant de pouvoir faire ça...'
 Autor: Auteur
 Datum: Date
-Züruck: Retour
 Archivieren: Archiver
 Fett: Gras
 Kursiv: Italique
@@ -516,7 +515,7 @@ Event-Städte: Villes événement
 'Am Leben': 'Vivant'
 'Zur Chronik': 'Vers les chroniques'
 'Allgemeine Event-Informationen': 'Informations générales sur l’événement'
-'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Ici, vous pouvez définir des options générales pour votre événement, telles que son nom, sa description ou sa date de début.'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Ici, vous pouvez définir des options générales pour votre événement, telles que son nom, sa description ou sa date de début. Notez que vous ne pouvez pas programmer un événement plus de 194 jours à l''avance, sinon il peut être affecté par les changements de saison.'
 'Event bearbeiten': 'Modifier un événement'
 'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'Cliquez ici pour ajouter une description de l’événement en {lang}.'
 'Geplanter Startzeitpunkt': 'Date planifiée'

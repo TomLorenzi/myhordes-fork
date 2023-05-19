@@ -42,7 +42,7 @@ Ausführen: Execute
 'Alle anzeigen': 'View all'
 Users: Users
 Städte: Towns
-Zukunft: Updates
+Zukunft: Upd-Announces
 Auszeichnungen: Distinctions
 Admin-Wachturm: Admin Watchtower
 Ruinenscanner: Ruin scanner
@@ -566,3 +566,4 @@ Heldentage: Hero days
 'Sekundäraccount verknüpfen': 'Connect secondary account'
 'Sekundäre Accounts': 'Secondary accounts'
 'Team setzen': 'Set community'
+'Versteckt von {player}': 'Hidden from {player}'
