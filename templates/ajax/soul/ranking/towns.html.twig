@@ -41,7 +41,9 @@
                                     {% include 'ajax/soul/playername.html.twig' with {user: denizen.user, additional_classes: ['undecorated'], globalSpace: true} only %} <span style="color: #f0d79e">({{ denizen.day }})</span>
                                     </span>{% if not loop.last %},{% endif %}
                                 {% endfor %}
-                                {% if town.citizens|filter(a => a.day == town.days)|length >4 %}<img x-town-toggle-list="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" data-alt-src="{{ asset('build/images/icons/small_less.gif') }}" />{% endif %}
+                                {% if town.citizens|filter(a => a.day == town.days)|length >4 %}
+                                    <img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" data-alt-src="{{ asset('build/images/icons/small_less.gif') }}" />
+                                {% endif %}
                             </div>
                             <div class="cell rw-4 center"></div>
                         </div>
