@@ -126,6 +126,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_GENEROSITY_LAST     = 'modifiers.generosity.from_last_death_factor';
     const CONF_MODIFIER_GUARDTOWER_MAX     = 'modifiers.guard_tower.max_def';
     const CONF_MODIFIER_GUARDTOWER_UNIT    = 'modifiers.guard_tower.per_use';
+    const CONF_MODIFIER_STRANGE_SOIL        = 'modifiers.strange_soil';
 
 
     const CONF_FEATURE_CAMPING         = 'features.camping';

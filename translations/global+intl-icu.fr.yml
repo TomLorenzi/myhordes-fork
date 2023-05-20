@@ -84,7 +84,6 @@ Vorschau: Aperçu
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Au moment de passer à l''action, votre blessure vous arrache un hurlement et vous arrête net. Soignez-vous avant de pouvoir faire ça...'
 Autor: Auteur
 Datum: Date
-Züruck: Retour
 Archivieren: Archiver
 Fett: Gras
 Kursiv: Italique
@@ -516,7 +515,7 @@ Event-Städte: Villes événement
 'Am Leben': 'Vivant'
 'Zur Chronik': 'Vers les chroniques'
 'Allgemeine Event-Informationen': 'Informations générales sur l’événement'
-'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Ici, vous pouvez définir des options générales pour votre événement, telles que son nom, sa description ou sa date de début.'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Ici, vous pouvez définir des options générales pour votre événement, telles que son nom, sa description ou sa date de début. Notez que vous ne pouvez pas programmer un événement plus de 194 jours à l''avance, sinon il peut être affecté par les changements de saison.'
 'Event bearbeiten': 'Modifier un événement'
 'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'Cliquez ici pour ajouter une description de l’événement en {lang}.'
 'Geplanter Startzeitpunkt': 'Date planifiée'
@@ -527,3 +526,5 @@ Kurzbeschreibung: Brève description
 'Du musst ein Startdatum für dein Event festlegen.': 'Vous devez définir une date de début pour votre événement.'
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'La date de début de votre événement doit être au moins {minDays} jours et au maximum {maxDays} jours dans le futur'
 'Account wechseln': 'Changer de compte'
+'Mehr Ergebnisse anzeigen': 'Afficher plus de résultats'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utilisez "^" pour rechercher uniquement les mots qui commencent ou se terminent par une suite de lettres spécifique. Par exemple, vous trouverez le mot "lance-pile" avec "lance^", mais pas "pile".'

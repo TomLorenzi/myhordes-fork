@@ -42,7 +42,7 @@ Ausführen: Exécuter
 'Alle anzeigen': 'Voir tout'
 Users: Utilisateurs
 Städte: Villes
-Zukunft: Évolutions
+Zukunft: Évos-Annonces
 Auszeichnungen: Distinctions
 Admin-Wachturm: TDG
 Ruinenscanner: Ruines
@@ -566,3 +566,5 @@ Heldentage: Jours héros
 'Sekundäraccount verknüpfen': 'Lier un compte secondaire'
 'Sekundäre Accounts': 'Comptes secondaires'
 'Team setzen': 'Définir la communauté'
+'Versteckt von {player}': 'Caché de {player}'
+Verdächtig: Suspect

@@ -33,6 +33,8 @@
                     {% endif %}
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeTown') %}
                     {{ '<b>{u1}</b> hat sich soeben in die Stadt "<b>{town}</b>" eingeschrieben!'|trans({'{u1}': entry.user1.name, '{town}': entry.text},'soul')|raw }}
+                {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeNameChange') %}
+                    {{ '<b>{u1}</b> hat die Koalition in "<b>{name}</b>" umbenannt.'|trans({'{u1}': entry.user1.name, '{name}': entry.text},'soul')|raw }}
                 {% else %}
                     ???
                 {% endif %}

@@ -35,7 +35,7 @@
     </div>
 
     {% if more %}
-        <div class="note">{{ 'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.'|trans({},'global') }}</div>
+        <button data-purpose="more" data-last="{{ (posts|last).date.timestamp }}">{{ 'Mehr Ergebnisse anzeigen'|trans({},'global') }}</button>
     {% endif %}
 {% endblock %}
 {% block js %}

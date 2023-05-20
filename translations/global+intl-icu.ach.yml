@@ -84,7 +84,6 @@ Vorschau: crwdns146785:0crwdne146785:0
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'crwdns146787:0crwdne146787:0'
 Autor: crwdns146789:0crwdne146789:0
 Datum: crwdns146791:0crwdne146791:0
-Züruck: crwdns146793:0crwdne146793:0
 Archivieren: crwdns146795:0crwdne146795:0
 Fett: crwdns146797:0crwdne146797:0
 Kursiv: crwdns146799:0crwdne146799:0
@@ -527,3 +526,5 @@ Kurzbeschreibung: crwdns147667:0crwdne147667:0
 'Du musst ein Startdatum für dein Event festlegen.': 'crwdns147673:0crwdne147673:0'
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'crwdns147675:0{minDays}crwdnd147675:0{maxDays}crwdne147675:0'
 'Account wechseln': 'crwdns152389:0crwdne152389:0'
+'Mehr Ergebnisse anzeigen': 'crwdns167995:0crwdne167995:0'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'crwdns167997:0crwdne167997:0'

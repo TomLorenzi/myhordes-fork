@@ -168,4 +168,5 @@ services:
             $global: '%myhordes%'
             $local:  '%local%'
             $rules:  '%rules%'
+            $rules_local:  '%rules_local%'
             $events: '%events%'

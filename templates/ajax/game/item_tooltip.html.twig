@@ -31,6 +31,7 @@
         <div class="item-tag item-tag-item-id">{{ item.id }}</div>
         {% if item.poison.value == 1 %}<div class="item-tag item-tag-poison-deadly">{{ 'Vergiftet'|trans({},'admin') }}</div>{% endif %}
         {% if item.poison.value == 2 %}<div class="item-tag item-tag-poison-infect">{{ 'Infiziert'|trans({},'admin') }}</div>{% endif %}
+        {% if item.poison.value == 3 %}<div class="item-tag item-tag-poison-strange">{{ 'Verdächtig'|trans({},'admin') }}</div>{% endif %}
         {% if item.firstPick %}<div class="item-tag item-tag-first-pick">{{ 'Noch nicht aufgehoben'|trans({},'admin') }}</div>{% endif %}
     {% endif %}
 </div>
