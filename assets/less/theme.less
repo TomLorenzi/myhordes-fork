@@ -208,15 +208,28 @@ x-message {
     &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger, &.popup-general, &.popup-altar {
 
       background: #79393a;
+
+      &.popup-shaman {
+        &>div#modal-content>.inner-notification-content>p:first-child {
+          background: #7e4d2a;
+          margin: -10px -10px 10px -10px;
+          padding: 10px;
+          border-bottom: 1px solid #b37c4a;
+          box-shadow: 0 0 3px black;
+
+          &:after {clear: both; content: " "; display: block}
+        }
+      }
+
       &>div#modal-content {
         padding: 0; font-size: 0.8em;
         &>.inner-notification-header  {
-          background: #3d3149; padding: 5px;
+          background: #3d3149; padding: 5px; position: relative;
           &>img { margin: 0 10px 10px 0; border: 2px solid black; }
         }
         &>.inner-notification-content {
           color: white; padding: 10px;
-          &>img { margin: 0 10px 10px 0; }
+          img.float-left { margin: 0 10px 10px 0; }
         }
         & p { margin: 14px 0;  text-align: justify }
         & ul.bluelist {
