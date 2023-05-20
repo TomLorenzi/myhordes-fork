@@ -117,7 +117,7 @@
         {% endif %}
 
         <b class="title {% if entry.system %}crow-note{% endif %}">{% if message_title_pre %}{{ message_title_pre }}<br />{% endif %}{{ entry.title }}</b>
-        {% if entry.pinned > 0 %}<i class="fa fa-thumbtack"></i>{% endif %}
+        {% if entry.pinned > 0 %}<img alt="" src="{{ asset('build/images/icons/pin3.png') }}">{% endif %}
         {% if message_type == 'f' %}
             {% for message_partner in entry.users|filter(u => u != entry.owner) %}
                 {% if loop.index0 < 5 %}

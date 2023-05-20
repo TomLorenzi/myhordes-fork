@@ -95,13 +95,13 @@
                                 {% endif %}
                                 <div class="cell">
                                     <div x-pm-action="pin-single" class="pm-button" id="pin-single-button">
-                                        <i class="fa fa-thumbtack"></i> {{ 'Anpinnen'|trans({},'global') }}
+                                        <img alt="" src="{{ asset('build/images/icons/pin3.png') }}"> {{ 'Anpinnen'|trans({},'global') }}
                                     </div>
                                 </div>
                                 <div class="cell">
                                     <div x-pm-action="unpin-single" class="pm-button" id="unpin-single-button">
                                         <span style="display: inline-block; transform: rotate(45deg); padding-right: 4px">
-                                            <i class="fa fa-thumbtack"></i>
+                                            <img alt="" src="{{ asset('build/images/icons/pin3.png') }}">
                                         </span>
                                         {{ 'Loslösen'|trans({},'global') }}
                                     </div>
