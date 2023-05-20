@@ -84,7 +84,6 @@ Vorschau: Vorschau
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...'
 Autor: Autor
 Datum: Datum
-Züruck: Züruck
 Archivieren: Archivieren
 Fett: Fett
 Kursiv: Kursiv
@@ -527,3 +526,5 @@ Kurzbeschreibung: Kurzbeschreibung
 'Du musst ein Startdatum für dein Event festlegen.': 'Du musst ein Startdatum für dein Event festlegen.'
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen'
 'Account wechseln': 'Account wechseln'
+'Mehr Ergebnisse anzeigen': 'Mehr Ergebnisse anzeigen'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'
