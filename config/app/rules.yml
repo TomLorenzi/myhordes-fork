@@ -1,4 +1,5 @@
 parameters:
+  rules_local: []
   rules:
     default:
       allow_local_conf: true
