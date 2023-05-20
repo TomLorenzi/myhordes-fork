@@ -283,5 +283,5 @@ Löschen: Delete
 'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.': 'You must choose a community before you can enter more towns.'
 'Diese Stadt ist {lang_town}, aber dein aktuelles Team ist {team_user}.': 'This city is {lang_town}, but your current community is {team_user}.'
 'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.': 'To keep the ranking fair for all communities, the number of a foreign communities towns you can enter is limited. Currently you can still enter {tickets_left} more towns belonging to a foreign community.'
-'Eigenartiger Boden': 'Eigenartiger Boden'
-'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...'
+'Eigenartiger Boden': 'Strange Soil'
+'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'The soil on which the city was built is contaminated with chemicals. This has an impact on the quality of the well water and thus also on the agriculture...'
