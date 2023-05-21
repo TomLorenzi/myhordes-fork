@@ -2175,6 +2175,7 @@ class TownController extends InventoryAwareController
                 if ($count > 0) {
                     $has_recycled = true;
                     $p = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_name);
+                    if (!$p) continue;
                     $item_list_p[] = ['item' => $p, 'count' => $count];
                     $item_list[] = "<span class='tool'><img alt='' src='{$asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->translator->trans($p->getLabel(), [], 'items')}" . ($count > 1 ? " x $count" : '') . "</span>";
                 }
