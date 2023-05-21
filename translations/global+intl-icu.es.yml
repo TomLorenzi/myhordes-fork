@@ -527,4 +527,4 @@ Kurzbeschreibung: Descripción breve
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'La fecha de inicio de tu evento debe ser como mínimo de {minDays} días y como máximo de {maxDays} días en el futuro'
 'Account wechseln': 'Cambiar de cuenta'
 'Mehr Ergebnisse anzeigen': 'Ver más resultados'
-'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utiliza "^" para buscar únicamente palabras que empiecen o terminen con una palabra concreta. Por ejemplo, "corto^" encontrará la palabra "ultracorto", pero no "cortísimo".'
