@@ -21,7 +21,6 @@ class StatisticsController extends CustomAbstractCoreController
      * @Route("/daily-active-users", name="list-dau", methods={"GET"}, defaults={"dateDiff"="24hour"})
      * @Route("/monthly-active-users", name="list-mau", methods={"GET"}, defaults={"dateDiff"="30day"})
      * @Route("/yearly-active-users", name="list-yau", methods={"GET"}, defaults={"dateDiff"="1year"})
-     * @Cache(smaxage="43200", mustRevalidate=false, public=true)
      * @param UserStatCollectionService $stats
      * @param string $dateDiff
      * @return JsonResponse

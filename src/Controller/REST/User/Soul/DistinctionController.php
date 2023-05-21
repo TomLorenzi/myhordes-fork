@@ -33,7 +33,7 @@ class DistinctionController extends CustomAbstractCoreController
 
     /**
      * @Route("", name="base", methods={"GET"})
-     * @Cache(smaxage="43200", mustRevalidate=false, public=true)
+     * @Route("/index", name="base_index", methods={"GET"})
      * @param Packages $assets
      * @return JsonResponse
      */
