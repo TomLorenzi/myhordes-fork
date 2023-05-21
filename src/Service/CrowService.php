@@ -7,6 +7,7 @@ use App\Entity\Award;
 use App\Entity\BlackboardEdit;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\CommunityEvent;
 use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
 use App\Entity\GlobalPrivateMessage;
@@ -21,12 +22,16 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserDescription;
 use App\Enum\AdminReportSpecification;
+use App\Messages\Discord\DiscordMessage;
 use App\Structures\MyHordesConf;
 use DateTime;
+use DiscordWebhooks\Client;
+use DiscordWebhooks\Embed;
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Finder\Glob;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -36,6 +41,7 @@ class CrowService {
     const ModerationActionDomainGlobalPM = 3;
     const ModerationActionDomainAccount = 101;
     const ModerationActionDomainRanking = 201;
+    const ModerationActionDomainEvents = 301;
 
     const ModerationActionTargetThread = 1;
     const ModerationActionTargetPost = 2;
@@ -43,6 +49,8 @@ class CrowService {
     const ModerationActionTargetGameBan = 102;
     const ModerationActionTargetAnyBan = 103;
     const ModerationActionTargetGameName = 201;
+    const ModerationActionTargetEvent = 301;
+    const ModerationActionTargetEventValidation = 302;
 
     const ModerationActionEdit = 1;
     const ModerationActionDelete = 2;
@@ -58,19 +66,21 @@ class CrowService {
     private ConfMaster $conf;
     private ?string $report_path;
     private TranslatorInterface $trans;
+    private MessageBusInterface $bus;
 
 
     private function getCrowAccount(): User {
         return $this->em->getRepository(User::class)->find(66);
     }
 
-    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params, ConfMaster $conf, UrlGeneratorInterface $url_generator, TranslatorInterface $trans )
+    public function __construct(EntityManagerInterface $em, ParameterBagInterface $params, ConfMaster $conf, UrlGeneratorInterface $url_generator, TranslatorInterface $trans, MessageBusInterface $bus )
     {
         $this->em = $em;
         $this->conf = $conf;
         $this->trans = $trans;
         $this->url_generator = $url_generator;
         $this->report_path = "{$params->get('kernel.project_dir')}/var/reports";
+        $this->bus = $bus;
     }
 
     /**
@@ -364,6 +374,16 @@ class CrowService {
                 break;
             }
 
+            case self::ModerationActionDomainEvents:
+                if (!is_a($object, CommunityEvent::class)) return null;
+                switch ("{$target}.{$action}") {
+                    case self::ModerationActionTargetEvent .'.'. self::ModerationActionDelete: $name = 'gpm_mod_eventDeleted'; break;
+                    case self::ModerationActionTargetEventValidation .'.'. self::ModerationActionSolve:   $name = 'gpm_mod_eventValidated'; break;
+                    default: return null;
+                }
+                $data = [ 'eventName' => $object->getMeta('en')?->getName() ?? '---' ];
+                break;
+
             default: break;
         }
 
@@ -384,7 +404,7 @@ class CrowService {
 
     /**
      * @param string $text
-     * @param Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy $object
+     * @param Post|GlobalPrivateMessage|PrivateMessage|BlackboardEdit|CitizenRankingProxy|User $object
      * @param AdminReport $report
      * @param string|null $note
      * @return void
@@ -397,7 +417,8 @@ class CrowService {
         if ($endpoint) {
 
             $id = md5($class . '##' . $object->getId() . "##" . $report->getId());
-            $report_path = "{$this->report_path}/{$id}/discord";
+            $report_dir = "{$this->report_path}/{$id}";
+            $report_path = "{$report_dir}/discord";
 
             $user = match ( $class ) {
                 Post::class => $object->getOwner(),
@@ -420,9 +441,11 @@ class CrowService {
                 global $kernel;
                 $html = $kernel->getContainer()->get(HTMLService::class);
 
-                $message_embed = [
-                    'color' => 16733440,
-                    'title' => match ( $class ) {
+                $discord = new Client($endpoint);
+
+                $message_embed = (new Embed())
+                    ->color('FF5500')
+                    ->title( match ( $class ) {
                         Post::class => $object->getThread()->getTitle(),
                         PrivateMessage::class => $object->getPrivateMessageThread()->getTitle(),
                         GlobalPrivateMessage::class => $object->getReceiverGroup()->getName(),
@@ -430,16 +453,16 @@ class CrowService {
                         CitizenRankingProxy::class => 'Citizens',
                         User::class => $object->getName(),
                         default => 'untitled'
-                    },
-                    'description' => match ( $class ) {
+                    } )
+                    ->description(match ( $class ) {
                         Post::class, PrivateMessage::class, GlobalPrivateMessage::class =>
-                            strip_tags(
-                                preg_replace(
-                                    ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/'],
-                                    ["\n", '${1}:', '[**', '**]'],
-                                    $html->prepareEmotes( $object->getText())
-                                )
-                            ),
+                        strip_tags(
+                            preg_replace(
+                                ['/(?:<br ?\/?>)+/', '/<span class="quoteauthor">([\w\d ._-]+)<\/span>/',  '/<blockquote>/', '/<\/blockquote>/', '/<a href="(.*?)">(.*?)<\/a>/'],
+                                ["\n", '${1}:', '[**', '**]', '[${2}](${1})'],
+                                $html->prepareEmotes( $object->getText())
+                            )
+                        ),
                         BlackboardEdit::class => $object->getText(),
                         CitizenRankingProxy::class => match ($report->getSpecification()) {
                             AdminReportSpecification::None => 'no content',
@@ -449,68 +472,51 @@ class CrowService {
                         },
                         User::class => strip_tags( preg_replace('/<br ?\/?>/', "\n", $html->prepareEmotes( $this->em->getRepository(UserDescription::class)->findOneBy(['user' => $user])?->getText() ?? '[no description]' ) ) ),
                         default => 'no content'
-                    },
-                    'url' => match ( $class ) {
+                    })
+                    ->url(match ( $class ) {
                         Post::class => $this->url_generator->generate( 'forum_jump_view', [ 'pid' => $object->getId() ], UrlGeneratorInterface::ABSOLUTE_URL ),
                         PrivateMessage::class, GlobalPrivateMessage::class => $this->url_generator->generate('admin_reports', [ 'tab' => 'reports' ], UrlGeneratorInterface::ABSOLUTE_URL ),
-                        BlackboardEdit::class => $this->url_generator->generate( 'admin_town_explorer', ['id' => $object->getTown()->getId(), 'tab' => 'blackboard'], UrlGeneratorInterface::ABSOLUTE_URL ),
+                        BlackboardEdit::class => $this->url_generator->generate( 'admin_town_dashboard', ['id' => $object->getTown()->getId(), 'tab' => 'blackboard'], UrlGeneratorInterface::ABSOLUTE_URL ),
                         CitizenRankingProxy::class => match ($report->getSpecification()) {
                             AdminReportSpecification::None => 'no content',
-                            AdminReportSpecification::CitizenAnnouncement => $object->getCitizen() ? $this->url_generator->generate( 'admin_town_explorer', ['id' => $object->getCitizen()->getTown()->getId(), 'tab' => 'citizens'], UrlGeneratorInterface::ABSOLUTE_URL ) : 'deleted',
+                            AdminReportSpecification::CitizenAnnouncement => $object->getCitizen() ? $this->url_generator->generate( 'admin_town_dashboard', ['id' => $object->getCitizen()->getTown()->getId(), 'tab' => 'citizens'], UrlGeneratorInterface::ABSOLUTE_URL ) : 'deleted',
                             AdminReportSpecification::CitizenLastWords, AdminReportSpecification::CitizenTownComment => $this->url_generator->generate( 'soul_view_town', ['sid' => $object->getUser()->getId(), 'idtown' => $object->getTown()->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
                         },
                         User::class => $this->url_generator->generate( 'soul_visit', ['id' => $object->getId()], UrlGeneratorInterface::ABSOLUTE_URL  ),
                         default => 'no content'
-                    },
-                ];
+                    });
 
-                if ($user) $message_embed['author'] = [
-                    'name' => $user->getName(),
-                    'url' => $this->url_generator->generate( 'admin_users_account_view', ['id' => $user->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
-                ];
-                if ($user?->getAvatar())
-                    $message_embed['author']['icon_url'] = $this->url_generator->generate( 'app_web_avatar', ['uid' => $user->getId(), 'name' => $user->getAvatar()->getFilename(), 'ext' => $user->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL );
+
+                if ($user) $message_embed->author(
+                    $user->getName(),
+                    $this->url_generator->generate( 'admin_users_account_view', ['id' => $user->getId()], UrlGeneratorInterface::ABSOLUTE_URL ),
+                    $user->getAvatar() ? $this->url_generator->generate( 'app_web_avatar', ['uid' => $user->getId(), 'name' => $user->getAvatar()->getFilename(), 'ext' => $user->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL ) : ''
+                );
 
                 if ($report->getReason() >= 0 && $report->getReason() < count($complaint_list))
                     $reason = $this->trans->trans( $complaint_list[$report->getReason()], [], 'global', 'en' );
                 else $reason = $this->trans->trans( 'Keinen Grund angeben', [], 'global', 'en' );
 
-                $report_embed = [
-                    'color' => 6947071,
-                    'title' => $reason,
-                    'description' => $report->getDetails() ?? 'No description',
-                ];
+                $report_embed = (new Embed())
+                    ->color('	6A00FF')
+                    ->title($reason)
+                    ->description($report->getDetails() ?? 'No description');
 
-                if ($report->getSourceUser()) $report_embed['author'] = [
-                    'name' => $report->getSourceUser()->getName(),
-                    'url' => $this->url_generator->generate( 'admin_users_account_view', ['id' => $report->getSourceUser()->getId()], UrlGeneratorInterface::ABSOLUTE_URL )
-                ];
-                if ($report->getSourceUser()?->getAvatar())
-                    $report_embed['author']['icon_url'] = $this->url_generator->generate( 'app_web_avatar', ['uid' => $report->getSourceUser()->getId(), 'name' => $report->getSourceUser()->getAvatar()->getFilename(), 'ext' => $report->getSourceUser()->getAvatar()->getFormat()], UrlGeneratorInterface::ABSOLUTE_URL );
+                if ($report->getSourceUser()) $report_embed->author(
+                    $report->getSourceUser()->getName(),
+                    $this->url_generator->generate( 'admin_users_account_view', ['id' => $report->getSourceUser()->getId()], UrlGeneratorInterface::ABSOLUTE_URL ),
+                    $report->getSourceUser()->getAvatar() ? $this->url_generator->generate( 'app_web_avatar', ['uid' => $report->getSourceUser()->getId(), 'name' => $report->getSourceUser()->getAvatar()->getFilename(), 'ext' => $report->getSourceUser()->getAvatar()->getFormat()],UrlGeneratorInterface::ABSOLUTE_URL ) : ''
+                );
 
-                $payload = [
-                    'content' => ":loudspeaker: **{$text}**" . ($note ? "\n{$note}" : '') . "\n\n",
-                    'embeds' => [ $message_embed, $report_embed ]
-                ];
+                $discord
+                    ->message(":loudspeaker: **{$text}**" . ($note ? "\n{$note}" : '') . "\n\n")
+                    ->embed( $message_embed )
+                    ->embed( $report_embed );
 
-                $curl = curl_init();
-                curl_setopt_array($curl, [
-                    CURLOPT_VERBOSE => false,
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_POST => true,
-                    CURLOPT_URL => $endpoint,
-                    CURLOPT_TIMEOUT => 5,
-                    CURLOPT_POSTFIELDS => [
-                        'payload_json' => new \CURLStringFile( json_encode( $payload ), '', 'application/json' ),
-                    ],
-                ]);
+                $this->bus->dispatch( new DiscordMessage( $discord ) );
 
-                $response = curl_exec($curl);
-                $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-                if (!($response === false || $status < 200 || $status > 299))
-                    file_put_contents( $report_path, "".time() );
-
+                mkdir( $report_dir, recursive: true );
+                file_put_contents( $report_path, "".time() );
             }
 
         }

@@ -159,8 +159,10 @@
     }
   }
   #apps h1 img { height: 32px; width: 32px; image-rendering: pixelated }
-  #modeCommand {
-    height: 36px !important; top: 60px !important; left: 10px; margin-left: 0 !important;
+  #modeCommand, #pivotSwapCommand {
+    height: 36px !important; left: 10px; margin-left: 0 !important;
+    &#modeCommand { top: 60px !important;  }
+    &#pivotSwapCommand { top: 96px !important;  }
     h1 { padding: 4px !important; }
   }
   #wrapper > #content #apps #apps-list ul li.app-external { width: 100% !important; }
@@ -174,6 +176,21 @@
       left: 0 !important;
       background: url("../img/game-bar/panel_tl.png") 0 0 no-repeat,url("../img/game-bar/panel_bl.png") 0 100% no-repeat,url("../img/game-bar/panel_l.png") 0 0 repeat-y !important;
     };
+  }
+
+  .row > .cell.town-addons {
+    &:not(.night)>.town-addon-house>div:first-child { background: url("../img/background/town/menu_home_small.png") center/cover no-repeat }
+    &:not(.night)>.town-addon-well>div:first-child { background: url("../img/background/town/menu_well_small.png") center/cover no-repeat }
+    &:not(.night)>.town-addon-bank>div:first-child { background: url("../img/background/town/menu_bank_small.png") center/cover no-repeat }
+    &:not(.night)>.town-addon-citizens>div:first-child { background: url("../img/background/town/menu_houses_small.png") center/cover no-repeat }
+    &:not(.night)>.town-addon-construct>div:first-child { background: url("../img/background/town/menu_construction_small.png") center/cover no-repeat }
+    &:not(.night)>.town-addon-door>div:first-child { background: url("../img/background/town/menu_door_small.png") center/cover no-repeat }
+    &.night>.town-addon-house>div:first-child { background: url("../img/background/town/menu_home_small.png") center/cover no-repeat }
+    &.night>.town-addon-well>div:first-child { background: url("../img/background/town/menu_well_small.png") center/cover no-repeat }
+    &.night>.town-addon-bank>div:first-child { background: url("../img/background/town/menu_bank_small.png") center/cover no-repeat }
+    &.night>.town-addon-citizens>div:first-child { background: url("../img/background/town/menu_houses_small.png") center/cover no-repeat }
+    &.night>.town-addon-construct>div:first-child { background: url("../img/background/town/menu_construction_small.png") center/cover no-repeat }
+    &.night>.town-addon-door>div:first-child { background: url("../img/background/town/menu_door_small.png") center/cover no-repeat }
   }
 
   .soul .news .content {

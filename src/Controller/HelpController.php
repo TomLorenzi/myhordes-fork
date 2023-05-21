@@ -7,6 +7,8 @@ use App\Entity\OfficialGroup;
 use App\Response\AjaxResponse;
 use App\Service\JSONRequestParser;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,39 +19,47 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HelpController extends CustomAbstractController
 {
-    /**
-     * @Route("jx/help/{name}", name="help")
-     * @param string $name
-     * @return Response
-     */
-    public function help(string $name = 'welcome'): Response
-    {
-        if ($name === 'shell') return $this->redirect($this->generateUrl('help'));
+    private function renderHelpPage(string $page, ?string $section = null, bool $partial = false): Response {
+        if ($page === 'shell') $this->redirectToRoute('help');
         try {
-            $support_groups = $this->getUser() ? $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]) : [];
-            return $this->render( "ajax/help/$name.html.twig", $this->addDefaultTwigArgs(null, [
-                'section' => $name,
-                'timezone' => date_default_timezone_get(),
-                'support' => count($support_groups) === 1 ? $support_groups[0] : null
-            ]));
+            if ($partial)
+                return $this->renderBlocks( $section ? "ajax/help/$section/$page.html.twig" : "ajax/help/$page.html.twig", ["helpContent"], [], [], false, null, true);
+            else {
+                $support_groups = $this->getUser() ? $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => $this->getUserLanguage(), 'semantic' => OfficialGroup::SEMANTIC_SUPPORT]) : [];
+                return $this->render( $section ? "ajax/help/$section/$page.html.twig" : "ajax/help/$page.html.twig", $this->addDefaultTwigArgs(null, [
+                    'directory' => $section,
+                    'section' => $page,
+                    'timezone' => date_default_timezone_get(),
+                    'support' => count($support_groups) === 1 ? $support_groups[0] : null
+                ]));
+            }
         } catch (Exception $e){
-            return $this->redirect($this->generateUrl('help'));
+            return $this->redirectToRoute('help');
         }
     }
 
+    private function validateSection(?string $section): bool {
+        return match ($section) {
+            null => true,
+            'crows' => $this->isGranted('ROLE_CROW'),
+            'animaction' => $this->isGranted('ROLE_ANIMAC') || $this->isGranted('ROLE_ORACLE'),
+            default => false
+        };
+    }
+
     /**
-     * @Route("jx/help/partial/{name}", name="help_partial", priority=1)
+     * @Route("jx/help/{name}", name="help", defaults={"sect"=null,"partial"=false})
+     * @Route("jx/help/{sect}/{name}", name="help_classified", defaults={"partial"=false})
+     * @Route("jx/help/partial/{name}", name="help_partial", defaults={"sect"=null,"partial"=true}, priority=1)
+     * @Route("jx/help/partial/{sect}/{name}", name="help_partial_sect", defaults={"partial"=true}, priority=1)
+     * @param string|null $sect
      * @param string $name
+     * @param bool $partial
      * @return Response
      */
-    public function help_partial(string $name = 'welcome'): Response
+    public function help(?string $sect = null, string $name = 'welcome', bool $partial = false): Response
     {
-        if ($name === 'shell') return $this->redirect($this->generateUrl('help'));
-        try {
-            return $this->renderBlocks( "ajax/help/$name.html.twig", ["helpContent"], [], [], false, null, true);
-        } catch (Exception $e){
-            return new Response('');
-        }
+        return $this->validateSection($sect) ? $this->renderHelpPage($name, $sect, $partial) : $this->redirectToRoute('help');
     }
 
     /**
@@ -57,20 +67,25 @@ class HelpController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @param KernelInterface $kernel
      * @return Response
-     * @throws \Psr\Container\ContainerExceptionInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function help_search(JSONRequestParser $parser, KernelInterface $kernel): Response
     {
+        $dirs = [null];
+        if ($this->isGranted('ROLE_CROW')) $dirs[] = 'crows';
+        if ($this->isGranted('ROLE_ANIMAC') || $this->isGranted('ROLE_ORACLE')) $dirs[] = 'animaction';
+
         $sections = [];
-        foreach (scandir("{$kernel->getProjectDir()}/templates/ajax/help") as $f)
-            if ($f !== '.' && $f !== '..' && $f !== 'shell.html.twig' && str_ends_with($f, '.html.twig')) $sections[] = substr($f, 0, -10);
+        foreach ($dirs as $dir)
+            foreach (scandir($dir !== null ? "{$kernel->getProjectDir()}/templates/ajax/help/$dir" : "{$kernel->getProjectDir()}/templates/ajax/help") as $f)
+                if ($f !== '.' && $f !== '..' && $f !== 'shell.html.twig' && str_ends_with($f, '.html.twig')) $sections[] = [$dir, substr($f, 0, -10)];
 
         $twig = $this->container->get('twig');
         $query = $parser->trimmed('query', '');
 
         if (mb_strlen($query) > 3)
-            $sections_filtered = array_filter( $sections, fn(string $section) => mb_strpos( strtolower(strip_tags( $twig->load( "ajax/help/$section.html.twig" )->renderBlock( 'helpContent', []) )), strtolower($query) ) !== false );
+            $sections_filtered = array_filter( $sections, fn(array $section) => mb_strpos( strtolower(strip_tags( $twig->load( $section[0] ? "ajax/help/{$section[0]}/{$section[1]}.html.twig" : "ajax/help/{$section[1]}.html.twig" )->renderBlock( 'helpContent', []) )), strtolower($query) ) !== false );
         else $sections_filtered = $sections;
 
         return AjaxResponse::success( true,  ['result' => array_values($sections_filtered), 'filtered' => count($sections_filtered) !== count($sections)] );

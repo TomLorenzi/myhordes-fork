@@ -3,11 +3,14 @@ import * as React from "react";
 import {
     LocalZone,
     LocalZoneProps, LocalZoneSurroundings,
-    MapControlProps,
+    MapControlProps, MapOverviewGridProps,
 } from "./typedef";
 import ZoneControlParent from "./HUD";
+import {useContext, useLayoutEffect, useRef} from "react";
+import {Globals} from "./Wrapper";
 
-const LocalZone = ( props: { zone: LocalZone, key: string } ) => {
+// React.memo(( props: MapOverviewGridProps ) => {
+const LocalZone = React.memo(( props: { zone: LocalZone, key: string } ) => {
 
     const defaultPositions:{x:number,y:number}[] = [];
     const [citizenPositions, setCitizenPositions] = React.useState(defaultPositions);
@@ -55,7 +58,9 @@ const LocalZone = ( props: { zone: LocalZone, key: string } ) => {
             </div>
     );
 
-}
+}, (prevProps: { zone: LocalZone }, nextProps: { zone: LocalZone }) => {
+    return Object.entries(prevProps.zone).map(([k,v]) => nextProps.zone[k] === v).filter(v=>!v).length === 0;
+});
 
 const LocalCensorZone = ( props: { zone: LocalZone, key: string } ) => {
     return (
@@ -85,7 +90,13 @@ const LocalZoneGrid = ( props: { cache: { [key: string]: LocalZone; } } ) => {
     )
 }
 
-const LocalZoneView = ( props: LocalZoneProps ) => {
+const LocalZoneView = React.memo( ( props: LocalZoneProps ) => {
+    const globals = useContext(Globals)
+
+    const plane = useRef<HTMLDivElement>(null);
+    const prevState = useRef<{left: string, top: string}>({left: '-200%', top:  '-200%'});
+    const prevEtag = useRef<number>(null);
+
     let cache = {};
     let surroundings: LocalZoneSurroundings = {n:null,s:null,e:null,w:null,'0':null};
 
@@ -106,24 +117,38 @@ const LocalZoneView = ( props: LocalZoneProps ) => {
             cache[`${yr}-${xr}`] = {xr,yr}
     }) )
 
-    let style={
+    const style = {
         left: `${-200 + props.dx * -40}%`,
         top:  `${-200 + props.dy *  40}%`,
-    }
+    };
+
+    useLayoutEffect(() => {
+        plane.current.animate([
+            {...prevState.current},
+            prevState.current = style
+        ], {easing: "ease", duration: prevEtag.current === globals.etag ? 1250 : 1});
+        prevEtag.current = globals.etag;
+    }, [props.dx, props.dy])
 
     return (
         <>
-            <div className={`zone-plane ${props.fx ? 'retro' : ''}`} style={style}>
+            <div className={`zone-plane ${props.fx ? 'retro' : ''}`} ref={plane} style={style}>
                 { (props.fx ? [0,1,2,3,4] : []).map(i => <div key={i} className="retro-effect hide-lg hide-md hide-sm"/>) }
                 <LocalZoneGrid cache={cache}/>
             </div>
-            <ZoneControlParent strings={props.strings} fx={props.fx} movement={props.movement} planes={surroundings}
+            <ZoneControlParent fx={props.fx} movement={props.movement} planes={surroundings}
                                activeRoute={props.activeRoute} wrapDispatcher={props.wrapDispatcher} marker={props.marker}
                                dx={props.dx} dy={props.dy}
             />
         </>
 
     )
-}
+}, (prevProps: LocalZoneProps, nextProps: LocalZoneProps) => {
+    let div =
+        Object.entries(prevProps).map(([k,v]) => [k, typeof v, nextProps[k] === v]).filter(([k,t,v]) => !v);
+
+    // This prevents the local zone display from re-rendering after the etag is updated, but before the new map data is loaded.
+    return div.length === 1 && (div[0][0] === 'dx' || div[0][0] === 'dy') && nextProps[div[0][0]] === 0;
+});
 
 export default LocalZoneView;

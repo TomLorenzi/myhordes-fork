@@ -33,6 +33,7 @@ use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
+use App\Entity\UserSwapPivot;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
 use App\Service\AdminHandler;
@@ -42,7 +43,7 @@ use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
-use App\Service\MediaService;
+use App\Service\Media\ImageService;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
@@ -72,6 +73,7 @@ class AdminUserController extends AdminActionController
     /**
      * @Route("jx/admin/users", name="admin_users")
      * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
      * @return Response
      */
     public function users(JSONRequestParser $parser, EntityManagerInterface $em): Response {
@@ -245,6 +247,7 @@ class AdminUserController extends AdminActionController
             'spon'          => $this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]),
             'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
             'spon_inactive' => array_filter( $all_sponsored, fn(UserSponsorship $s) =>  $this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') || !$s->getUser()->getValidated() ),
+            'swap_pivots' => $this->entity_manager->getRepository(UserSwapPivot::class)->findBy(['principal' => $user])
         ]));
     }
 
@@ -425,8 +428,8 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
                 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'twin_main_full_import', 'delete', 'rename',
-                'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'initiate_pw_reset', 'name_manual', 'name_auto', 'herodays',
-                'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history',
+                'shadow', 'whitelist', 'unwhitelist', 'link', 'unlink', 'etwin_reset', 'initiate_pw_reset', 'name_manual', 'name_auto', 'herodays',
+                'team', 'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor', 'mh_unreset', 'forget_name_history',
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -612,6 +615,12 @@ class AdminUserController extends AdminActionController
                 $this->entity_manager->persist($user);
                 break;
 
+            case 'team':
+                if (!in_array( $param, $this->generatedLangsCodes )) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setTeam( $param );
+                $this->entity_manager->persist($user);
+                break;
+
             case 'shadow':
                 if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -695,6 +704,32 @@ class AdminUserController extends AdminActionController
                         if ($wl->getUsers()->count() < 2) $this->entity_manager->remove($wl);
                         else $this->entity_manager->persist($wl);
                 }
+                break;
+
+            case 'link':
+                $id = (int)$param;
+                if ($id === $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $other_user = $this->entity_manager->getRepository(User::class)->find($id);
+                if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $existing_pivot = $this->entity_manager->getRepository(UserSwapPivot::class)->findOneBy(['principal' => $user, 'secondary' => $other_user]);
+                if ($existing_pivot) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $this->entity_manager->persist( (new UserSwapPivot())
+                    ->setPrincipal( $user )->setSecondary( $other_user )
+                );
+                break;
+
+            case 'unlink':
+                $id = (int)$param;
+                $other_user = $this->entity_manager->getRepository(User::class)->find($id);
+                if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $existing_pivot = $this->entity_manager->getRepository(UserSwapPivot::class)->findOneBy(['principal' => $user, 'secondary' => $other_user]);
+                if (!$existing_pivot) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $this->entity_manager->remove( $existing_pivot );
                 break;
 
             //'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
@@ -1358,11 +1393,6 @@ class AdminUserController extends AdminActionController
 
         return $this->render( 'ajax/admin/users/pictos.html.twig', $this->addDefaultTwigArgs("admin_users_pictos", [
             'user' => $user,
-            'pictos' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user),
-            'pictos_all' => $this->entity_manager->getRepository(Picto::class)->findByUser($user),
-            'pictos_mh' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, false),
-            'pictos_im' => $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user, true),
-            'pictos_old' => $this->entity_manager->getRepository(Picto::class)->findOldByUser($user),
             'pictoPrototypes' => $this->isGranted("ROLE_ADMIN", $user) ? $protos : array_filter($protos, fn(PictoPrototype $p) => $p->getCommunity()),
             'features' => $features,
             'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll(),
@@ -1429,11 +1459,10 @@ class AdminUserController extends AdminActionController
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
-     * @param MediaService $media
      * @param CrowService $crow
      * @return Response
      */
-    public function user_manage_unique_award(int $id, JSONRequestParser $parser, MediaService $media, CrowService $crow): Response {
+    public function user_manage_unique_award(int $id, JSONRequestParser $parser, CrowService $crow): Response {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1474,17 +1503,16 @@ class AdminUserController extends AdminActionController
             if (strlen( $payload ) > $this->conf->getGlobalConf()->get(MyHordesConf::CONF_AVATAR_SIZE_UPLOAD))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-            if ($media->resizeImageSimple( $payload, 16, 16, $processed_format, false ) !== MediaService::ErrorNone)
-                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            $image = ImageService::createImageFromData( $payload );
+            ImageService::resize( $image, 16, 16, bestFit: true );
+            $payload = ImageService::save( $image );
 
             $this->entity_manager->persist( $award
-                                                ->setUser($user)
-                                                ->setCustomIcon($payload)
-                                                ->setCustomIconName(md5($payload))
-                                                ->setCustomIconFormat(strtolower( $processed_format ))
+                ->setUser($user)
+                ->setCustomIcon($payload)
+                ->setCustomIconName(md5($payload))
+                ->setCustomIconFormat(strtolower( $image->format ))
             );
-
-
         }
 
         try {

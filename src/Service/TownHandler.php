@@ -17,9 +17,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\EventActivationMarker;
-use App\Entity\Gazette;
-use App\Entity\GazetteEntryTemplate;
-use App\Entity\GazetteLogEntry;
+use App\Entity\ExpeditionRoute;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Inventory;
@@ -29,16 +27,17 @@ use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
+use App\Entity\ZoneTag;
 use App\Enum\ZoneActivityMarkerType;
 use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
 use App\Structures\TownConf;
 use App\Structures\WatchtowerEstimation;
-use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
+use Symfony\Component\Asset\Packages;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class TownHandler
@@ -54,11 +53,14 @@ class TownHandler
     private ConfMaster $conf;
     private CrowService $crowService;
     private TranslatorInterface $translator;
+	private Packages $asset;
+	private ContainerInterface $container;
+
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
         TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
-        CrowService $armbrust, TranslatorInterface $translator)
+        CrowService $armbrust, TranslatorInterface $translator, ContainerInterface $container, Packages $asset)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -71,6 +73,8 @@ class TownHandler
         $this->random = $rand;
         $this->crowService = $armbrust;
         $this->translator = $translator;
+		$this->asset = $asset;
+		$this->container = $container;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -99,10 +103,10 @@ class TownHandler
         if ( $town->getDoor() && !$town->getDevastated() && (($s = $attack ? 0 : $this->timeKeeper->secondsUntilNextAttack(null, true))) <= 1800 ) {
 
             $close_ts = null;
-            if ($this->getBuilding( $town, 'small_door_closed_#02', true )) {
+            if ($this->getBuilding( $town, 'small_door_closed_#02' )) {
                 if ($s <= 60)
                     $close_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('1min'));
-            } elseif ($this->getBuilding( $town, 'small_door_closed_#01', true )) {
+            } elseif ($this->getBuilding( $town, 'small_door_closed_#01' )) {
                 if ($s <= 1800)
                     $close_ts = $this->timeKeeper->getCurrentAttackTime()->sub(DateInterval::createFromDateString('30min'));
             }
@@ -110,7 +114,7 @@ class TownHandler
             if ($close_ts !== null) {
                 $town->setDoor( false );
                 $this->entity_manager->persist( $this->log->doorControlAuto( $town, false, $close_ts) );
-                $zeroZero = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town, 0, 0);
+                $zeroZero = $this->entity_manager->getRepository(Zone::class)->findOneBy(['town' => $town, 'x' => 0, 'y' => 0]);
                 $proxy = $town->getCitizens()[0] ?? null;
                 if ($zeroZero && $proxy) {
                     $zeroZero->addActivityMarker( (new ZoneActivityMarker())
@@ -208,6 +212,7 @@ class TownHandler
                             $this->entity_manager->persist($complaint);
                         }
                         $citizen->setBanished(false);
+                        $this->citizen_handler->inflictStatus( $citizen, 'tg_unban_altar' );
                         $this->entity_manager->persist($citizen);
                     }
                 break;
@@ -948,4 +953,14 @@ class TownHandler
             if ($c->getHome()->getPrototype()->getLevel() > 0)
                 $this->entity_manager->persist( $c->getHome()->setPrototype($lv0_home) );
     }
+
+	public function get_public_map_blob(Town $town, ?Citizen $activeCitizen, string $displayType, string $class = "day", string $endpoint = "radar", bool $admin = false): array {
+		return [
+			'displayType' => $displayType,
+			'className' => $class,
+			'etag'  => time(),
+            'endpoint' => $endpoint,
+			'fx' => !$admin && !$activeCitizen->getUser()->getDisableFx(),
+		];
+	}
 }

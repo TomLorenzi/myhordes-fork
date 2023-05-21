@@ -93,6 +93,7 @@
 
 div.ruin_map_area {
   div.map {
+    filter: contrast(1.1);
     font-size: 0; background: @myhordes-map-background; overflow: hidden; padding-top: 100%; position: relative;
     border: 1px solid @myhordes-smalltext;
     &:before,&:after {
@@ -104,9 +105,75 @@ div.ruin_map_area {
       opacity: 0.9; background: radial-gradient(circle, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,1.0) 100%);
     }
     &.in_room:before { opacity: 0.5; }
-    &:after {background: url("../../img/anims/noise.gif") repeat; opacity: 0.04; z-index: 5; pointer-events: none }
+    &:after {background: url("../../img/anims/noise.gif") repeat; opacity: 0.09; z-index: 5; pointer-events: none; mix-blend-mode: multiply; }
     &>.zone-plane, &>.zone-plane-controls {
       transition: opacity 0.25s ease, transform 0.25s ease, top 0.75s ease, left 0.75s ease; position: absolute;
+    }
+
+    &>.effect-plane {
+
+      position: absolute; inset: 0;
+
+      &>div {
+        z-index: 3; pointer-events: none;
+        opacity: 0.07; position: absolute; inset: -50%;
+        background: #74b14f; mix-blend-mode: color-dodge;
+        mask: url("../../img/explore/frames.gif") center/50% no-repeat alpha add, url("../../img/explore/white.png") center/100% no-repeat alpha add;
+
+        @keyframes fow_spin_1 {
+            0% { transform:rotate( 90deg) scale(0.8); }
+           50% { transform:rotate(270deg) scale(0.7); }
+          100% { transform:rotate(450deg) scale(0.8); }
+        }
+        @keyframes fow_spin_2 {
+            0% { transform:rotate(  0deg) scale(1.0); }
+           50% { transform:rotate(180deg) scale(1.2); }
+          100% { transform:rotate(360deg) scale(1.0); }
+        }
+        @keyframes fow_spin_3 {
+            0% { transform:rotate(180deg) scale(1.3); }
+           50% { transform:rotate(360deg) scale(1.0); }
+          100% { transform:rotate(540deg) scale(1.3); }
+        }
+        @keyframes fow_spin_4 {
+            0% { transform:rotate(270deg) scale(1.1); }
+           50% { transform:rotate(450deg) scale(0.7); }
+          100% { transform:rotate(630deg) scale(1.1); }
+        }
+        @keyframes fow_spin_5 {
+            0% { transform:rotate(  0deg) scale(1.3); }
+           50% { transform:rotate(180deg) scale(1.4); }
+          100% { transform:rotate(360deg) scale(1.3); }
+        }
+        @keyframes fow_spin_6 {
+            0% { transform:rotate( 90deg) scale(1.2); }
+           50% { transform:rotate(270deg) scale(1.5); }
+          100% { transform:rotate(450deg) scale(1.2); }
+        }
+        @keyframes fow_spin_7 {
+            0% { transform:rotate(180deg) scale(1.4); }
+           50% { transform:rotate(360deg) scale(1.3); }
+          100% { transform:rotate(540deg) scale(1.4); }
+        }
+
+        &:nth-child(1) { animation:fow_spin_1 70s linear infinite; }
+        &:nth-child(2) { animation:fow_spin_2 57s reverse linear infinite; }
+        &:nth-child(3) { animation:fow_spin_3 83s linear infinite; }
+        &:nth-child(4) { animation:fow_spin_4 99s reverse linear infinite; }
+        &:nth-child(5) {
+          animation:fow_spin_5 60s linear infinite;
+          background: black; opacity: 0.1; mix-blend-mode: multiply;
+        }
+        &:nth-child(6) {
+          animation:fow_spin_6 70s reverse linear infinite;
+          background: black; opacity: 0.1; mix-blend-mode: multiply;
+        }
+        &:nth-child(7) {
+          animation:fow_spin_7 80s reverse linear infinite;
+          background: black; opacity: 0.1; mix-blend-mode: multiply;
+        }
+      }
+
     }
 
     &>.frame-plane {
@@ -253,7 +320,7 @@ div.ruin_map_area {
     };
     &>.zone-plane-ui {
       top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; position: absolute;
-      outline: 1px solid #205319; outline-offset: -4px;
+      outline-offset: -4px;
       &>.name {
         position: absolute; top: 5px; left: 8px; width: 50%; display: block; z-index: 10; color: #205319;
         font-size: 1.25rem; text-shadow: 0 0 5px #205319; font-family: "visitor2"; text-align: left;
@@ -268,6 +335,14 @@ div.ruin_map_area {
       &>.scanner {
         position: absolute; width: 13%; height: 9%; background: url("../../img/explore/scanner.gif") center/contain no-repeat;
         right: 2%; bottom: 2%; opacity: 0.5;
+      }
+      &>.scanner-fx {
+        position: absolute; width: 100%; height: 100%; background: url("../../img/explore/scan_fx_1.gif") center/contain no-repeat;
+        top: 0; left: 0; opacity: 0.3; transform: scale(1.45);
+      }
+      &>.frame {
+        position: absolute; width: 100%; height: 100%; background: url("../../img/explore/frame.png") center/100% 100% no-repeat;
+        top: 0; left: 0; opacity: 1;
       }
     }
   }

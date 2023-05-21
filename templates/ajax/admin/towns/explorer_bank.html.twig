@@ -1,0 +1,48 @@
+{% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
+{% from "ajax/admin/widget/controls.twig" import widget_item_creator as item_creator, widget_item_creator_js as item_creator_js %}
+{% block explorer_content %}
+	<div class="row">
+		<div x-target="bank" x-id="{{ town.id }}" class="padded cell rw-6 rw-md-12">
+			{% if is_granted("ROLE_ADMIN") %}
+				<div class="lightbox">
+					{{ 'Aktion bei Klick:'|trans({}, 'admin') }}
+					<div class="note note-lightest">
+						<input type="radio" name="itemAction" id="add" value="add" checked /><label for="add">{{ 'Hinzufügen'|trans({}, 'admin') }}</label>
+						<input type="radio" name="itemAction" id="remove" value="remove" /><label for="remove">{{ 'Entfernen' |trans({}, 'global') }}</label>
+						x <input type="number" id="itemActionQty" value="1" class="inline" />
+					</div>
+				</div>
+			{% endif %}
+			{% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true, 'debug': is_granted("ROLE_ADMIN")} %}
+				{% block class %}bank{% endblock %}
+				{% block title %}{% endblock %}
+			{% endembed %}
+		</div>
+		<div class="padded cell rw-6 rw-md-12">
+			{% if is_granted("ROLE_ADMIN") %}
+				{{ item_creator(itemPrototypes, 'bnk', true) }}
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+	{{ parent() }}
+	{% if is_granted("ROLE_ADMIN") %}
+        {{ item_creator_js('[x-id][x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_bank', {id: town.id}), 'bnk') }}
+	{% endif %}
+	<script>
+        let items = document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]');
+        for (let i = 0; i < items.length; i++)
+            items[i].addEventListener('click', function(ev) {
+                let change = document.querySelector('input[name=itemAction]:checked').value;
+                const item_id = this.getAttribute('x-item-id');
+                $.ajax.easySend('{{ path('admin_town_item', {id: town.id}) }}', {
+                        item: item_id, change: change, qty: document.getElementById('itemActionQty').value
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_town_bank', {id: town.id}) }}', true);
+                    }
+                );
+            });
+	</script>
+{% endblock %}

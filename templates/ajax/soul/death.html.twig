@@ -5,18 +5,34 @@
     <div class="row">
         <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
             <div class="death_header">
-                <div>{{ 'Herzlichen Glückwunsch, du bist TOT!'|trans({},'game') }}</div>
+                <div>
+                    {% if obituary %}
+                        {{ 'Das Ende deines Lebens in <strong>{town}</strong>'|trans({town: dead_citizen.town.name|upper},'game')|raw }}
+                    {% else %}
+                        {{ 'Herzlichen Glückwunsch, du bist TOT!'|trans({},'game') }}
+                    {% endif %}
+
+                </div>
                 <div>{{ dead_citizen.cod.label|trans({},'game') }}</div>
             </div>
             <div class="death_footer">
                 {% if not dead_citizen.disabled and not dead_citizen.town.disabled %}
-                    {% if sp > 0 %}
-                        {{ 'Du hast {sp} Seelenpunkte gewonnen!'|trans({'{sp}':sp},'game') }}
-                    {% elseif (day <= 1) %}
-                        {{ 'Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).'|trans({},'game') }}
+                    {% if obituary %}
+                        {% if sp > 0 %}
+                            {{ 'Du hast {sp} Seelenpunkte erhalten.'|trans({'{sp}':sp},'game') }}
+                        {% else %}
+                            {{ 'Du hast keine Seelenpunkte erhalten.'|trans({},'game') }}
+                        {% endif %}
                     {% else %}
-                        {{ 'Du hast keine Seelenpunkte gewonnen.'|trans({},'game') }}
+                        {% if sp > 0 %}
+                            {{ 'Du hast {sp} Seelenpunkte gewonnen!'|trans({'{sp}':sp},'game') }}
+                        {% elseif (day <= 1) %}
+                            {{ 'Du hast keine Seelenpunkte gewonnen (am ersten Tag gestorben).'|trans({},'game') }}
+                        {% else %}
+                            {{ 'Du hast keine Seelenpunkte gewonnen.'|trans({},'game') }}
+                        {% endif %}
                     {% endif %}
+
                 {% endif %}
             </div>
 
@@ -26,10 +42,12 @@
                 <div class="cell rw-6 rw-sm-12 death-desc">
                     <img class="fit" alt="" src="{{ asset('build/images/death/' ~ dead_citizen.cod.icon ~ '.jpg') }}" />
                     <div class="small-note">{{ dead_citizen.cod.description|trans({},'game') }}</div>
-                    <div>
-                        <button {% if gazette %}x-ajax-href="{{ path('game_newspaper') }}"{% else %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
-                        {% if not gazette %}<div class="tooltip">{{ 'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.'|trans({}, 'game') }}</div>{% endif %}
-                    </div>
+                    {% if not obituary %}
+                        <div>
+                            <button {% if gazette %}x-ajax-href="{{ path('game_newspaper') }}"{% else %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
+                            {% if not gazette %}<div class="tooltip">{{ 'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.'|trans({}, 'game') }}</div>{% endif %}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="cell rw-6 rw-sm-12">
                     <div class="death_list">
@@ -95,42 +113,51 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="padded cell rw-12">
-                    <h5>{{ 'Begrüße den Tod wie es sich gehört...'|trans({},'game') }}</h5>
-                </div>
-                <div class="padded cell rw-12">
-                    <div class="note">
-                        <b>{{ 'Der Tod in "MyHordes" ist nicht weiter schlimm!'|trans({},'game') }}</b>
-                        {{ 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!'|trans({},'game') }}
+            {% if obituary %}
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <button x-ajax-href="{{ path('soul_view_town', {idtown: dead_citizen.town.id}) }}">{{ 'Zurück zur Übersicht'|trans({},'soul') }}</button>
                     </div>
                 </div>
-                <div class="rebirth padded rw-12 cell row">
-                    {% if dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Poison') and dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten') and dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Strangulation') %}
-                        <div class="cell rw-4 rebirth_label">
-                            <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
+            {% else %}
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <h5>{{ 'Begrüße den Tod wie es sich gehört...'|trans({},'game') }}</h5>
+                    </div>
+                    <div class="padded cell rw-12">
+                        <div class="note">
+                            <b>{{ 'Der Tod in "MyHordes" ist nicht weiter schlimm!'|trans({},'game') }}</b>
+                            {{ 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!'|trans({},'game') }}
                         </div>
-                        <div class="cell rw-8">
-                            <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionComments')) %}disabled{% endif %} />
-                        </div>
-                        <div class="cell rw-12 rebirth_btn">
-                            <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>
-                        </div>
-                    {% else %}
-                        <div class="note note-critical" style="font-variant: small-caps">{{ 'Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!'|trans({}, 'game')|raw }}</div>
-                        <div class="cell rw-12 rebirth_btn">
-                            <button id="rebirth_btn">{{ 'Fortfahren...'|trans({},'game') }}</button>
-                        </div>
-                    {% endif %}
+                    </div>
+                    <div class="rebirth padded rw-12 cell row">
+                        {% if dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Poison') and dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::GhulEaten') and dead_citizen.cod.ref != constant('App\\Entity\\CauseOfDeath::Strangulation') %}
+                            <div class="cell rw-4 rebirth_label">
+                                <label for="last_words">{{'Deine letzten Worte:'|trans({}, 'game')}}</label>
+                            </div>
+                            <div class="cell rw-8">
+                                <input type="text" name="last_words" id="last_words" placeholder="{{ '' }}" {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionComments')) %}disabled{% endif %} />
+                            </div>
+                            <div class="cell rw-12 rebirth_btn">
+                                <button id="rebirth_btn">{{ 'Wiedergeboren werden'|trans({},'game') }}</button>
+                            </div>
+                        {% else %}
+                            <div class="note note-critical" style="font-variant: small-caps">{{ 'Ermordet zu werden ist äußerst ärgerlich (ja, wirklich!). Aber wir bitten dich dringend, <u>die Identität deines Mörders gegenüber deinen ehemaligen Mitbürgern nicht aufzudecken</u>... Lass ihnen das Vergnügen, selbst ermitteln zu müssen!'|trans({}, 'game')|raw }}</div>
+                            <div class="cell rw-12 rebirth_btn">
+                                <button id="rebirth_btn">{{ 'Fortfahren...'|trans({},'game') }}</button>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
+
         </div>
     </div>
 {% endblock %}
 {% block js %}
     {{parent()}}
     <script>
-        document.getElementById('rebirth_btn').addEventListener('click', function() {
+        document.getElementById('rebirth_btn')?.addEventListener('click', function() {
             if (confirm('{{ 'Bist du sicher?'|trans({},'global') }}')) {
                 var lastWords = "";
                 if(document.getElementById("last_words") !== null)

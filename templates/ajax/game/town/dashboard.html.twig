@@ -97,7 +97,7 @@
                 <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }},</li>
                 {% endif %}
                 {% if new_message %}
-                    <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
+                    <li x-ajax-href="{{ path('town_house_messages', {subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" />,</li>
                 {% endif %}
                 {% if has_pending_coa_invite %}<li>{{ 'auf {coa_invite} antworten'|trans({'coa_invite': '<a x-ajax-href="' ~ path('soul_coalitions') ~ '">' ~ 'Koalitionseinladungen'|trans({},'soul') ~ '</a>'}, 'game')|raw }},</li>{% endif %}
                 {% if new_coa_message %}
@@ -112,7 +112,7 @@
                 {% endfor %}
                 {% if has_watchtower %}<li x-ajax-href="{{ path('town_watchtower') }}" {% if has_estimated %} class="checked"{% endif %}>{{ 'An der Angriffsabschätzung teilnehmen'|trans({}, 'game') }},</li>{% endif %}
                 {% if not town.devastated and has_levelable_building and not citizen.banished %}<li x-ajax-href="{{ path('town_upgrades') }}" {% if active_citizen.dailyUpgradeVote %} class="checked"{% endif %}>{{ 'Für ein Tagesprojekt abstimmen.'|trans({}, 'game') }},</li>{% endif %}
-				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house', {'tab': 'build' }) }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }},</li>{% endif %}
+				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house_build') }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }},</li>{% endif %}
                 {% if citizen.banished %}<li{% if not can_do_insurrection %} class="checked"{% endif %}>{{ 'Einen Aufstand der Verbannten vorbereiten (optional).'|trans({}, 'game') }},</li>{% endif %}
                 <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}{% if additional_bullet_points|length > 0 %},{% else %}.{% endif %}</li>
                 {% for message, checked in additional_bullet_points %}
@@ -145,7 +145,7 @@
             <div class="padded cell rw-6 rw-md-8 rw-sm-12 actions-box">
                 <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Lesen Sie das Mitteilungsblatt{% endtrans %}</button>
                 {% if is_granted('ROLE_CROW') and app.environment == 'dev' %}
-                    <button x-ajax-href="{{ path('admin_town_explorer', {id: town.id, tab: null}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
+                    <button x-ajax-href="{{ path('admin_town_dashboard', {id: town.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
                 {% endif %}
             </div>
 

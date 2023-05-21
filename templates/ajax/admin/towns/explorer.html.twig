@@ -207,8 +207,7 @@
 
                     </div>
                     <div class="cell padded rw-6 rw-sm-12">
-                        {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
-                        {% endembed %}
+                        <hordes-map id="door-map" data-react-mount="map" data-map="{{ map_public_json }}"></hordes-map>
                         {% if is_granted("ROLE_ADMIN") %}
                             <div id="zone_floor"></div>
                             <div id="dash_zone_generator" x-target="zone" x-id="">
@@ -260,7 +259,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="dash_zone_log"></div>
+                            <div id="dash_zone_log" class="hidden">
+                                <hordes-log id="admin-log" data-day="{{ town.day }}" data-react-mount="beyond-log" data-etag="{{ date().timestamp }}" data-domain="admin/zone/0" data-entries="150" data-indicators="1" data-inline-days="1"></hordes-log>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
@@ -500,7 +501,7 @@
                                             <div class="log-entry log-entry log-entry-type-8 log-entry-class-{{ log_complaint.on ? 1 : 3 }}">
                                                 <span class="log-part-time" style="width: 120px">{{ log_complaint.time|format_datetime('medium', 'short') }}</span>
                                                 <span class="log-part-content">
-                                                    <span>{{ log_complaint.from.name }}</span> <i class="fa fa-arrow-right"></i> <span>{{ log_complaint.to.name }}</span>
+                                                    <span>{{ log_complaint.from.name }}</span> <img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <span>{{ log_complaint.to.name }}</span>
                                                     (<i>{{ log_complaint.reason.text|trans({}, 'game') }}</i>)
                                                 </span>
                                             </div>
@@ -561,16 +562,19 @@
                     {% endembed %}
                 </div>
 
-                {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
-                {% endembed %}
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <hordes-log id="admin-log" data-day="{{ town.day }}" data-react-mount="admin-log" data-etag="{{ date().timestamp }}" data-domain="admin/town/{{ town.id }}" data-entries="150"></hordes-log>
+                    </div>
+                </div>
 
                 <br/>
                 <h1 class="page-head">{{ 'Register herunterladen'|trans({},'admin') }}</h1>
                 <div class="row">
-                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'register'}) }}"><i class="fa fa-file"></i> {{ 'Stadtregister herunterladen'|trans({},'admin') }}</a></div>
-                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'zones'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)'|trans({},'admin') }}</a></div>
-                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'citizens'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)'|trans({},'admin') }}</a></div>
-                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'all'}) }}"><i class="fa fa-file"></i> {{ 'Stadt- und Zonenregister herunterladen (chronologisch)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'register'}) }}"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ 'Stadtregister herunterladen'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'zones'}) }}"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Zonen)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'citizens'}) }}"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ 'Stadt- und Zonenregister herunterladen (gruppiert nach Bürgern)'|trans({},'admin') }}</a></div>
+                    <div class="padded cell rw-12"><a href="{{ path('admin_townlog', {id: town.id, type: 'all'}) }}"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ 'Stadt- und Zonenregister herunterladen (chronologisch)'|trans({},'admin') }}</a></div>
                 </div>
             </div>
 
@@ -608,7 +612,7 @@
                     </div>
                     {% for est in town.zombieEstimations %}
                         <div class="row {% if est.day == town.day %}bold{% endif %}">
-                            <div class="padded cell rw-1 rw-sm-2">{% if est.day == town.day %}<i class="fa fa-arrow-right"></i>{% endif %}</div>
+                            <div class="padded cell rw-1 rw-sm-2">{% if est.day == town.day %}<img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" />{% endif %}</div>
                             <div class="padded cell rw-1 rw-sm-0">{{ est.id }}</div>
                             <div class="padded cell rw-1 rw-sm-10">{{ est.day }}</div>
                             {% if is_granted("ROLE_ADMIN") or est.day < town.day %}
@@ -679,9 +683,9 @@
                                         <div class=" padded cell rw-8">
                                             <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-open"></i><div class="tooltip">{{ 'Herauswerfen (ohne Verletzung)'|trans({},'admin') }}</div></button>
                                             <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-closed"></i><div class="tooltip">{{ 'Herauswerfen (mit Verletzung)'|trans({},'admin') }}</div></button>
-                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus"></i><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
                                             {% if app.environment == 'dev' %}
-                                                <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus-circle"></i><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
+                                                <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -869,11 +873,11 @@
                                     </div>
                                 </div>
                                 <div class="padded cell rw-4 rw-lg-7 rw-sm-12 right">
-                                    <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><i class="fa fa-edit"></i></button>
+                                    <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></button>
                                     {% if not fromTown.complete %}
                                         <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><i class="fa fa-check"></i></button>
                                     {% else %}
-                                        <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><i class="fa fa-times"></i></button>
+                                        <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
                                     {% endif %}
                                 </div>
                             {% endif %}
@@ -939,8 +943,6 @@
         {{ profession_control_js('input[x-id][x-target="status"]:checked', path('admin_modify_profession', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
     {% endif %}
     <script>
-        {% embed "scripts/log.js.twig" %}{% endembed %}
-
         (function() {
             $.html.addEventListenerAll('input[x-all][x-target]', 'click', (e,elem) => {
                 $.html.forEach( 'input[x-id][x-target="' + elem.getAttribute('x-target') + '"]', c => c.checked = elem.checked );
@@ -1136,8 +1138,8 @@
                         document.getElementById("ruin_camp_level").value = data.camp_levl;
                         document.querySelector("#ruin_camp_base>span").innerText = data.ruin_camp;
                         document.getElementById("ruin_camp_base").classList.toggle('hidden', data.ruin_camp === null);
-                        document.getElementById("dash_zone_log").innerHTML = data.zone_log;
-                        {% embed "scripts/log.js.twig" with {'base_element': "document.getElementById('dash_zone_log')"} %}{% endembed %}
+                        document.getElementById("admin-log").dataset.domain = 'admin/zone/' + target.getAttribute("x-id");
+                        document.getElementById("dash_zone_log").classList.toggle('hidden', false);
                     });
                 });
             }

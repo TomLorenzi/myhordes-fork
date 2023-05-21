@@ -167,8 +167,9 @@ export const TownCreatorSectionMods = () => {
                 } );
             } },
             {value: globals.getOption( 'rules.features.xml_feed' ) as boolean, name: "xml_feed", title: mods.modules.api, help: mods.modules.api_help },
-            {value: globals.getOption( 'rules.features.free_for_all' ) as boolean, name: "free_for_all", title: mods.modules.ffa, help: mods.modules.ffa_help }
-        ].filter( globals.elevation < 3 ? option=>!['citizen_alias','free_for_all'].includes(option.name) : ()=>true )} propTitle={mods.modules.section}/>
+            {value: globals.getOption( 'rules.features.free_for_all' ) as boolean, name: "free_for_all", title: mods.modules.ffa, help: mods.modules.ffa_help },
+            {value: globals.getOption( 'rules.features.free_from_teams' ) as boolean, name: "free_from_teams", title: mods.modules.fft, help: mods.modules.fft_help }
+        ].filter( globals.elevation < 3 ? option=>!['citizen_alias','free_for_all','free_from_teams'].includes(option.name) : ()=>true )} propTitle={mods.modules.section}/>
 
         { /* Special rules */ }
         <OptionToggleMulti propName="features" options={[
@@ -188,6 +189,11 @@ export const TownCreatorSectionMods = () => {
             } },
             { value: globals.getOption( 'rules.modifiers.allow_redig' ) as boolean, name: '<<.rules.modifiers.allow_redig', title: mods.special.redig, help: mods.special.redig_help },
             { value: globals.getOption( 'rules.modifiers.carry_extra_bag' ) as boolean, name: '<<.rules.modifiers.carry_extra_bag', title: mods.special.carry_bag, help: mods.special.carry_bag_help },
+            { value: globals.getOption( 'rules.modifiers.strange_soil' ) as boolean && globals.getOption( 'rules.modifiers.poison.transgress' ) as boolean, name: 'strange_soil', title: mods.special.strange_soil, help: mods.special.strange_soil_help, onChange: e => {
+                    const v = (e.target as HTMLInputElement).checked;
+                    globals.setOption( 'rules.modifiers.strange_soil', v );
+                    globals.setOption( 'rules.modifiers.poison.transgress', v );
+                } },
         ]} propTitle={mods.special.section}/>
     </div>;
 };

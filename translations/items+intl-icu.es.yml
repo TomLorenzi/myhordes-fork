@@ -1,4 +1,3 @@
----
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'Lanzas los dados y obtienes {dc1}, {dc2} y {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Bravo, obtienes un Trío! ¡Es genial!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': '¡Formas una escalera!<hr />Eso te pone tan contento que <strong>ganas 1PA</strong>.'
@@ -972,3 +971,7 @@ Freundschaft: Camaradería
 'Du hast deine Großzügigkeit in diesem Leben bereits unter Beweis gestellt!': '¡Ya has demostrado tu generosidad en esta vida!'
 'Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.': 'Necesitas <strong>espacio en tu baúl</strong> para guardar el contenido de {item}.'
 'Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.': 'Necesias <strong>espacio en tu mochila</strong> para guardar el contenido de {item}.'
+'<nt-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</nt-kills><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>': '<nt-kills>Este gato es fenomenal, no le teme a nada, ¡ni siquiera a ti! De pronto te salta al cuello y clava sus filudas garras en tu carne.</nt-kills><t-kills>Este gato es increíble, no le teme a nada, ni a la pestilencia de los zombies. Mejor que el conejo de Duracell y los Monty Python reunidos, este felino limpiará la zona por ti.</t-kills>'
+'Aber eine Frage bleibt: Waren diese fliegenden grünen Mäuse schon immer da?': 'No obstante, aún queda una pregunta por responder: ¿siempre estuvieron ahí estos ratones verdes voladores?'
+'Sofort nach dem herunterschlucken verspürst du das Verlangen nach mehr... du bist nun <b>drogenabhängig</b>!': 'Nada más tragarlo, empiezas a querer más... ¡Ahora eres un <b>adicto</b>!'
+'Plötzlich fängt alles um dich herum an, sich zu drehen ...': 'De repente, todo a tu alrededor empieza a dar vueltas...'

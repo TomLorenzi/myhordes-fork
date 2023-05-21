@@ -170,7 +170,7 @@
                             </div>
                             <div class="cell hidden">
                                 <div style="margin-left: 5px;" x-forum-action="toggle" x-text-modal-node="@" class="forum-button" id="{{ type }}-editor-add-users-close">
-                                    <i class="fas fa-times"></i><span class="forum-button-tooltip">{{ 'Abbrechen'|trans({},'global') }}</span>
+                                    <img alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" /><span class="forum-button-tooltip">{{ 'Abbrechen'|trans({},'global') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -183,8 +183,8 @@
             <div class="row">
                 <div x-extended class="padded cell rw-12">
                     <ul class="tabs plain no-bottom-margin" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
-                        <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
-                        <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
+                        <li class="tab" x-tab-id="emotes"><div class="tab-link"><img alt="" src="{{ asset('build/images/forum/smile.gif') }}"></div></li>
+                        <li class="tab" x-tab-id="games"><div class="tab-link"><img alt="" src="{{ asset('build/images/forum/dices_alone.gif') }}"></i></div></li>
                         {% if town_controls %}
                             <li class="tab" x-tab-id="rp_player"><div class="tab-link"><i class="fa fa-user"></i></div></li>
                         {% endif %}
@@ -382,7 +382,6 @@
             node_transfer_source.addEventListener('keydown', e => {
                 if (e.ctrlKey || e.metaKey) {
                     const button = document.querySelector('[x-forum-action="edit"][x-control-shortcut="' + e.key.toLowerCase() + '"], [x-forum-action="send"][x-control-shortcut="' + e.key.toLowerCase() + '"]');
-                    console.log(button);
                     if (button) {
                         button.dispatchEvent( new Event('click', { bubbles: false, cancelable: true }) );
                         e.preventDefault();
@@ -782,7 +781,6 @@
                                     if(sent_items.length > 0) {
                                         target_payload.items = [];
                                         for (let i = 0; i < sent_items.length; i++) {
-                                            console.log(sent_items[i]);
                                             target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
                                         }
                                     }

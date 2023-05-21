@@ -19,6 +19,14 @@
                 <button class="center" x-ajax-href="{{ base_path }}">{{ 'Zurück zur Kartei von {player}'|trans({ player: '<strong>'~user_name~'</strong>' },'soul')|raw }}</button>
             {% else %}
                 <button class="center" x-ajax-href="{{ path('soul_game_history') }}">{{ 'Übersicht meiner Partien'|trans({},'soul') }}</button>
+                {% if not town.imported %}
+                    {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true) %}
+                        {% if citizen.user == app.user %}
+                            <button class="center" x-ajax-href="{{ path('soul_obituary', {id: citizen.id}) }}">{{ 'Todesanzeige dieser Partie ansehen'|trans({},'soul') }}</button>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
             {% endif %}
 
         </div>

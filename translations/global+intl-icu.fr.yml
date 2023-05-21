@@ -1,4 +1,3 @@
----
 'Allgemeiner Fehler.': 'Erreur générale.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'Le forum sélectionné n''existe pas ou vous n''avez pas l''autorisation d''y accéder.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Votre texte doit contenir au moins 2 caractères.'
@@ -85,7 +84,6 @@ Vorschau: Aperçu
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Au moment de passer à l''action, votre blessure vous arrache un hurlement et vous arrête net. Soignez-vous avant de pouvoir faire ça...'
 Autor: Auteur
 Datum: Date
-Züruck: Retour
 Archivieren: Archiver
 Fett: Gras
 Kursiv: Italique
@@ -483,3 +481,50 @@ Nutzungsbedingungen: Conditions d’utilisation
 Kopiert!: Copié !
 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': 'Impossible de faire cela alors que vous avez été <strong>banni(e) de la communauté</strong> !'
 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Chaque <strong>objet de défense</strong> placé dans la Banque apporte <strong>{def, select, 1 {1 point} other {{def} points}} de défense à la ville</strong>.'
+'Eigenes Event organisieren': 'Organisez un événement'
+'Zurück zur Übersicht': 'Retour à l''aperçu'
+'Event-Verifizierung beantragen': 'Demander la validation de l''événement'
+'Event-Verifizierung abbrechen': 'Annuler la validation de l''événement'
+'Event freischalten': 'Valider un événement'
+'Verifizierung beantragt': 'Validation demandée'
+'Start geplant': 'Début prévu'
+'Event beenden': 'Fin de l’événement'
+'Vorläufiges Startdatum am {date}': 'Date de début provisoire le {date}'
+'Event startet morgen, am {date}': 'L’événement commence demain, le {date}'
+'Event startet in {days} Tagen, am {date}': 'L’événement commence dans {days} jours, le {date}'
+'Event läuft seit {date}': 'Événement en cours depuis le {date}'
+'Event beendet': 'Événement terminé'
+'Verifizierung erfolgreich beantragt. Dein Event wird in Kürze von einem Raben oder Administrator geprüft.': 'Validation demandée avec succès. Votre événement sera validé par un corbeau ou un administrateur sous peu.'
+'Dein Antrag auf Verifizierung wurde erfolgreich zurückgezogen.': 'Votre demande de validation a été retirée avec succès.'
+'Event erfolgreich verifiziert.': 'Événement validé avec succès.'
+'Aktuell sind keine Community-Events geplant.': 'À l’heure actuelle, aucun événement communautaire n’est prévu.'
+'Neues Event': 'Nouvel événement'
+'Bist du sicher, dass du dieses Event löschen möchtest?': 'Êtes-vous sûr de vouloir supprimer cet événement ?'
+'Weitere Informationen und Regeln anzeigen.': 'Voir les détails.'
+Event-Städte: Villes événement
+'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'Ici, vous pouvez créer des villes pour votre événement, qui seront lancées en même temps que l’événement. Vous avez à votre disposition presque toutes les options que les corbeaux ont pour créer des villes.'
+'Deiner Kreativität sind somit keine Grenzen gesetzt!': 'Il n’y a pas de limites à votre créativité !'
+'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'Actuellement, aucune ville n’est automatiquement créée avec le début de l’événement.'
+'Automatisch generierter Name': 'Nom généré automatiquement'
+'Stadt hinzufügen': 'Ajouter une ville'
+'Bist du sicher, dass du dieses Stadt löschen möchtest?': 'Êtes-vous sûr de vouloir supprimer cette ville ?'
+'Neue Stadt anlegen': 'Créer une nouvelle ville'
+'Stadt bearbeiten': 'Modifier une ville'
+'Stadtinstanz bereit': 'Instance de ville prête'
+'Stadtinstanz beendet': 'Instance de ville terminée'
+'Am Leben': 'Vivant'
+'Zur Chronik': 'Vers les chroniques'
+'Allgemeine Event-Informationen': 'Informations générales sur l’événement'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Ici, vous pouvez définir des options générales pour votre événement, telles que son nom, sa description ou sa date de début. Notez que vous ne pouvez pas programmer un événement plus de 194 jours à l''avance, sinon il peut être affecté par les changements de saison.'
+'Event bearbeiten': 'Modifier un événement'
+'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'Cliquez ici pour ajouter une description de l’événement en {lang}.'
+'Geplanter Startzeitpunkt': 'Date planifiée'
+Event-Titel: Titre de l'événement
+Kurzbeschreibung: Brève description
+'Beschreibung und Regeln des Events': 'Description et règles de cet événement'
+'Du musst mindestens eine Event-Beschreibung hinzufügen.': 'Vous devez ajouter au moins une description d’événement.'
+'Du musst ein Startdatum für dein Event festlegen.': 'Vous devez définir une date de début pour votre événement.'
+'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'La date de début de votre événement doit être au moins {minDays} jours et au maximum {maxDays} jours dans le futur'
+'Account wechseln': 'Changer de compte'
+'Mehr Ergebnisse anzeigen': 'Afficher plus de résultats'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utilisez "^" pour rechercher uniquement les mots qui commencent ou se terminent par une suite de lettres spécifique. Par exemple, vous trouverez le mot "herbe" avec "^herb", mais pas "désherbant".'

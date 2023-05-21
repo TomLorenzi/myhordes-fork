@@ -68,13 +68,11 @@
                             let nn = document.createElement('span');
                             nn.style.color = n.tagName.slice(3);
                             nn.innerHTML = n.innerHTML;
-                            console.log(n.innerHTML);
                             n.parentElement.insertBefore( nn, n );
                             n.remove();
                         }
                     });
                 } while (change);
-                console.log();
             }
             else if (content !== null && !html) n.innerText = content;
             return n;

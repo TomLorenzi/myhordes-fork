@@ -28,8 +28,8 @@
                                 {% set group = [] %}
                                 {% for multi in table.users %}
                                     {% set group = group|merge([multi.id]) %}
-                                    <span class="small pointer" x-whitelist-alt="{{ url('admin_users_account_view', {id: multi.id}) }}" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}" {% if multi|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}style="color:red; font-weight: bold"{% endif%} >
-                                        <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: multi.id}) }}">{{ multi.name }}</a>
+                                    <span class="small pointer" x-whitelist-alt="{{ url('admin_users_account_view', {id: multi.id}) }}" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}" >
+                                        <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: multi.id}) }}" {% if multi|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}style="color:red; font-weight: bold"{% endif%}>{{ multi.name }}</a>
                                         {% if is_granted('ROLE_ADMIN') %}
                                             <div class="tooltip">
                                                 <i>({{ multi.id }})</i> <b>{{ multi.email }}</b>

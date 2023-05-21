@@ -240,20 +240,8 @@ class TownAddonsController extends TownController
             'need_ap' => 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0),
             'source' => $source_db, 'result' => $result_db,
 
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWorkshop, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
-    }
-
-    /**
-     * @Route("api/town/workshop/log", name="town_workshop_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_workshop_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWorkshop, null);
     }
 
     /**
@@ -377,7 +365,6 @@ class TownAddonsController extends TownController
             'items' => $cache,
             'dump_def' => $dump->getTempDefenseBonus(),
             'total_def' => $th->calculate_town_def( $town ),
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDump, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ]) );
     }
@@ -451,17 +438,6 @@ class TownAddonsController extends TownController
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
-    }
-
-    /**
-     * @Route("api/dump/log", name="town_dump_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_dump_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDump, null);
     }
 
     /**
@@ -553,6 +529,17 @@ class TownAddonsController extends TownController
             $total_def += ($counsel_def = 20 * $count);
 
         $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
+
+        $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
+
+        $estims = $this->town_handler->get_zombie_estimation($town);
+        $zeds_today = [
+            $has_zombie_est_today, // Can see
+            $estims[0]->getMin(), // Min
+            $estims[0]->getMax(),  // Max
+            round($estims[0]->getEstimation()*100) // Progress
+        ];
+
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
@@ -562,7 +549,9 @@ class TownAddonsController extends TownController
             'total_def' => $total_def,
             'has_counsel' => $has_counsel,
             'counsel_def' => $counsel_def,
-            'door_section' => 'nightwatch'
+            'door_section' => 'nightwatch',
+            'zeds_today' => $zeds_today,
+            'def' => $this->town_handler->calculate_town_def($town, $defSummary),
         ]) );
     }
 
@@ -647,20 +636,8 @@ class TownAddonsController extends TownController
             'catapult_improved' => $th->getBuilding( $town, 'item_courroie_#01', true ) !== null,
             'catapult_master' => $cata_master,
             'is_catapult_master' => $this->getActiveCitizen()->hasRole('cata'),
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeCatapult, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ]) );
-    }
-
-    /**
-     * @Route("api/town/catapult/log", name="town_catapult_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_catapult_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeCatapult, null);
     }
 
     /**

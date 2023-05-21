@@ -6,7 +6,8 @@ import {
     MapCoordinate,
 } from "./typedef";
 
-import {useRef} from "react";
+import {useContext, useRef} from "react";
+import {Globals} from "./Wrapper";
 
 type ZoneControlArrowProps = {
     direction: string;
@@ -39,6 +40,8 @@ const ZoneControlMovementArrow = ( props: ZoneControlArrowProps ) => {
 }
 
 const ZoneControlParent = ( props: LocalControlProps ) => {
+    const globals = useContext(Globals)
+
     let m = false;
 
     let routeDirectionCache = {n:false,s:false,e:false,w:false};
@@ -156,7 +159,7 @@ const ZoneControlParent = ( props: LocalControlProps ) => {
                 </>
             ) }
             { typeof props.planes["0"]?.x !== "undefined" && typeof props.planes["0"]?.y !== "undefined" && props.dx === 0 && props.dy === 0 && (
-                <div className="current-location">{`${props.strings.position} ${props.planes["0"].x} / ${props.planes["0"].y}`}</div>
+                <div className="current-location">{`${globals.strings.position} ${props.planes["0"].x} / ${props.planes["0"].y}`}</div>
             ) }
         </div>
     )

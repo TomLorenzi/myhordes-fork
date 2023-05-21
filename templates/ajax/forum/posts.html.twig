@@ -256,7 +256,7 @@
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
                             <span class="small">
                                 {% if post.owner.activeIcon %}<img alt="" src="{{ post.owner.activeIcon.customIcon ? url('app_web_customicon', {uid: post.owner.id, aid: post.owner.activeIcon.id, name: post.owner.activeIcon.customIconName, ext: post.owner.activeIcon.customIconFormat}) : asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner.activeTitle.prototype.title|trans({},'game')|raw }}</i>{% endif %}
+                                {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.customTitle ?? post.owner|translated_title(app.user)|raw }}</i>{% endif %}
                             </span>
                         {% endif %}
                         {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'{at_00}': '<span class="hide-sm hide-md">' ~ 'in der Stadt oder am Stadttor'|trans({},'game') ~ '</span><span class="hide-lg hide-desktop">' ~ 'Stadt/Stadttor'|trans({}, 'game') ~ '</span>' })|raw }}</div>{% endif %}

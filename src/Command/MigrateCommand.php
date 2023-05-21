@@ -125,6 +125,7 @@ class MigrateCommand extends Command
         '8a87dbab808e1222eda7d7a9e3677096d40a43f3' => [ ['app:migrate', ['--fix-soul-picto-count' => true] ] ],
         '4fa1ae01cc1262eb707769291a0ba43ca9579134' => [ ["app:migrate", ['--fix-fixtures' => true ] ] ],
         '26fbeee45f182a400a8c051ce2f2a5b93cd99dcf' => [ ["app:migrate", ['--fix-town-forum-names' => true ] ] ],
+        '3b460b6a4c4420a75d43353f921f83eeee5b792f' => [ ["app:migrate", ['--fix-thread-creation-date' => true ] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -229,6 +230,7 @@ class MigrateCommand extends Command
             ->addOption('fix-soul-picto-count', null, InputOption::VALUE_NONE, '')
             ->addOption('fix-fixtures', null, InputOption::VALUE_NONE, 'Fix fixtures with duplicate keys')
             ->addOption('fix-town-forum-names', null, InputOption::VALUE_NONE, 'Fix town forum names')
+            ->addOption('fix-thread-creation-date', null, InputOption::VALUE_NONE, 'Fix creation date of threads')
         ;
     }
 
@@ -1390,6 +1392,12 @@ class MigrateCommand extends Command
 
                 return false;
 
+            }, true);
+        }
+
+        if ($input->getOption('fix-thread-creation-date')) {
+            $this->helper->leChunk($output, Thread::class, 500, [], true, true, function(Thread $thread) {
+                $thread->setDate( $thread->firstPost(true)->getDate() );
             }, true);
         }
 

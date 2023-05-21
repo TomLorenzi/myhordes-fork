@@ -24,6 +24,12 @@ class TownConf extends Conf
     const CONF_POPULATION_MIN        = 'population.min';
     const CONF_POPULATION_MAX        = 'population.max';
 
+    const CONF_MARGIN_CUSTOM_ENABLED = 'margin_custom.enabled';
+    const CONF_MARGIN_CUSTOM_NORTH	 = 'margin_custom.north';
+    const CONF_MARGIN_CUSTOM_SOUTH	 = 'margin_custom.south';
+    const CONF_MARGIN_CUSTOM_WEST	 = 'margin_custom.west';
+    const CONF_MARGIN_CUSTOM_EAST	 = 'margin_custom.east';
+
     const CONF_ZONE_ITEMS_MIN        = 'zone_items.min';
     const CONF_ZONE_ITEMS_MAX        = 'zone_items.max';
     const CONF_ZONE_ITEMS_RE_MIN     = 'zone_items.refresh_min';
@@ -120,6 +126,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_GENEROSITY_LAST     = 'modifiers.generosity.from_last_death_factor';
     const CONF_MODIFIER_GUARDTOWER_MAX     = 'modifiers.guard_tower.max_def';
     const CONF_MODIFIER_GUARDTOWER_UNIT    = 'modifiers.guard_tower.per_use';
+    const CONF_MODIFIER_STRANGE_SOIL        = 'modifiers.strange_soil';
 
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
@@ -144,6 +151,7 @@ class TownConf extends Conf
     const CONF_FEATURE_LAST_DEATH_DAY  = 'features.last_death_day';
     const CONF_FEATURE_SURVIVAL_PICTO  = 'features.survival_picto';
     const CONF_FEATURE_NO_SP_REQUIRED  = 'features.free_for_all';
+    const CONF_FEATURE_NO_TEAMS  = 'features.free_from_teams';
 
     const CONF_GUIDE_ENABLED    = 'spiritual_guide.enabled';
     const CONF_GUIDE_SP_LIMIT   = 'spiritual_guide.sp_limit';

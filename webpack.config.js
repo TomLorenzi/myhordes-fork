@@ -62,11 +62,11 @@ Encore
     })
     .configureFilenames({
         js: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
-        ? '[name].js'
-        : '[name].[contenthash:8].js',
+            ? '[name].js'
+            : '[name].[contenthash:8].js',
         css: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
-        ? '[name].css'
-        : '[name].[contenthash:8].css',
+            ? '[name].css'
+            : '[name].[contenthash:8].css',
     })
     .configureImageRule({
         filename: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
@@ -93,9 +93,12 @@ Encore
 
     .addEntry('swagger', './assets/js/swagger.js')
 
-    .addEntry('module-map', './assets/js/modules/map.js')
     .addEntry('module-ruffle', './assets/js/modules/ruffle.js')
-    .addEntry('module-town-creator', './assets/js/modules/town-creator.js')
+
+    .addEntry('module-game', './assets/ts/modules/common-game-modules.ts')
+    .addEntry('module-town-creator', './assets/ts/modules/town-creator.ts')
+    .addEntry('module-event-creator', './assets/ts/modules/event-creator.ts')
+    .addEntry('module-avatar-creator', './assets/ts/modules/avatar-creator.ts')
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

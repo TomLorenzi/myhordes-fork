@@ -1,7 +1,7 @@
 {% set today = date() %}
 {% set yesterday = date('-1days') %}
 <div class="row">
-    <div class="cell padded rw-3"><button id="backbtn"><img src="{{ asset("build/images/icons/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
+    <div class="cell padded rw-3"><button id="backbtn"><img src="{{ asset("build/images/icons/small_back.gif") }}" /> {% trans from 'global' %}Zurück{% endtrans %}</button></div>
     {% if thread.archived %}
     <div class="cell padded rw-3"><button id="unarchivebtn"><img src="{{ asset("build/images/icons/small_archive.gif") }}" /> {% trans from 'global' %}Entstauben{% endtrans %}</button></div>
     {% elseif thread.sender %}
@@ -91,14 +91,14 @@
         e.preventDefault();
         $.ajax.easySend( '{{ path('town_house_send_pm_controller') }}', {global: false, 'content': document.getElementById("pmanswer").value, 'tid': {{ thread.id }}},
             function () {
-                $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                $.ajax.load(null, '{{ path('town_house_messages', {'subtab': 'received'}) }}', true);
             } );
     });
 
     let backbtn = document.getElementById("backbtn");
     if(backbtn) backbtn.addEventListener('click', function(e){
         e.preventDefault();
-        const dest = "{% if thread.archived %}{{ path('town_house', {'tab': 'messages', 'subtab': 'archived'}) }}{% else %}{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}{% endif %}";
+        const dest = "{% if thread.archived %}{{ path('town_house_messages', {'subtab': 'archived'}) }}{% else %}{{ path('town_house_messages', {'subtab': 'received'}) }}{% endif %}";
         $.ajax.load(null, dest, true);
     });
 
@@ -107,7 +107,7 @@
         e.preventDefault();
         $.ajax.easySend( '{{ path('home_archive_pm_controller', {'tid': thread.id, 'action': 1 }) }}', {},
         function () {
-            $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+            $.ajax.load(null, '{{ path('town_house_messages', {'subtab': 'received'}) }}', true);
         } );
     });
 
@@ -116,7 +116,7 @@
         e.preventDefault();
         $.ajax.easySend( '{{ path('home_archive_pm_controller', {'tid': thread.id, 'action': 0 } ) }}', {},
         function () {
-            $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'archives'}) }}', true);
+            $.ajax.load(null, '{{ path('town_house_messages', {'subtab': 'archives'}) }}', true);
         } );
     });
 
@@ -156,7 +156,7 @@
                 if (reason > 0) {
                     $.html.triggerPopupPop(elem_sub);
                     $.ajax.easySend( '{{ url('home_report_pm_controller') }}', {pmid: parseInt( elem.getAttribute('x-post-id') ), reason: reason, details: detail }, function () {
-                        $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                        $.ajax.load(null, '{{ path('town_house_messages', {'subtab': 'received'}) }}', true);
                     } )
                 } else $.html.error('{{ 'Bitte wähle einen Grund für deine Meldung aus.'|trans({},'global')|e('js') }}')
             }] ] ],

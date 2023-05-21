@@ -42,17 +42,41 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class TownHomeController extends TownController
 {
-
     /**
-     * @Route("jx/town/house/{tab?}/{subtab?}", name="town_house")
-     * @param string|null $tab
-     * @param string|null $subtab
-     * @param EntityManagerInterface $em
-     * @param TownHandler $th
-     * @param Request $request
+     * @Route("jx/town/house/dash", name="town_house_dash")
      * @return Response
      */
-    public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th, Request $request, TranslatorInterface $trans): Response
+    public function house_dash(): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        // Get citizen, town and home objects
+        $citizen = $this->getActiveCitizen();
+        $home = $citizen->getHome();
+
+        // Render
+        return $this->render( 'ajax/game/town/home/dashboard.html.twig', $this->addDefaultTwigArgs('house', array_merge(
+            [
+                'home' => $home,
+                'tab' => 'dash',
+
+                'heroics' => $this->getHeroicActions(),
+                'home_actions' => $this->getHomeActions(),
+                'special_actions' => $this->getSpecialActions(),
+                'actions' => $this->getItemActions(),
+                'recipes' => $this->getItemCombinations(true),
+            ], $this->house_partial_inventory_args(), $this->house_partial_complaints_args())) );
+    }
+
+    /**
+     * @Route("jx/town/house/messages/{subtab?}", name="town_house_messages")
+     * @param string|null $subtab
+     * @param Request $request
+     * @param TranslatorInterface $trans
+     * @return Response
+     */
+    public function house_messages(?string $subtab, Request $request, TranslatorInterface $trans): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -61,16 +85,6 @@ class TownHomeController extends TownController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
         $home = $citizen->getHome();
-
-        // Get the next upgrade level for the house
-        $home_next_level = $em->getRepository( CitizenHomePrototype::class )->findOneByLevel(
-            $home->getPrototype()->getLevel() + 1
-        );
-
-        // Get requirements for the next upgrade
-        $home_next_level_requirement = null;
-        if ($home_next_level && $home_next_level->getRequiredBuilding())
-            $home_next_level_requirement = $th->getBuilding( $town, $home_next_level->getRequiredBuilding(), true ) ? null : $home_next_level->getRequiredBuilding();
 
         $can_send_global_pm = !$citizen->getBanished() && $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
 
@@ -158,47 +172,111 @@ class TownHomeController extends TownController
             return $a->getPrototype()->getId() <=> $b->getPrototype()->getId();
         });
 
-        $criteria = new Criteria();
-        $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
-        $criteria->andWhere($criteria->expr()->eq('culprit', $citizen));
-
         // Render
-        return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', array_merge([
-            'home' => $home,
-            'tab' => $tab,
-            'subtab' => $subtab,
-            'heroics' => $this->getHeroicActions(),
-            'home_actions' => $this->getHomeActions(),
-            'special_actions' => $this->getSpecialActions(),
-            'actions' => $this->getItemActions(),
-            'recipes' => $this->getItemCombinations(true),
-            'next_level' => $home_next_level,
-            'next_level_req' => $home_next_level_requirement,
-            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
+        return $this->render( 'ajax/game/town/home/messages.html.twig', $this->addDefaultTwigArgs('house',
+            array_merge([
+                'home' => $home,
+                'tab' => 'messages',
 
-            'devastated' => $town->getDevastated(),
+                'subtab' => $subtab,
 
-            'log' => $this->renderLog( -1, $citizen, false, null, 5 )->getContent(),
-            'day' => $town->getDay(),
-
-            'can_send_global_pm' => $can_send_global_pm,
-            'nonArchivedMessages' => $nonArchivedMessages,
-            'archivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findArchived($citizen),
-            'possible_dests' => $possible_dests,
-            'dest_citizen' => $destCitizen,
-            'sendable_items' => $sendable_items,
-        ], $this->house_partial_inventory_args())) );
+                'can_send_global_pm' => $can_send_global_pm,
+                'nonArchivedMessages' => $nonArchivedMessages,
+                'archivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findArchived($citizen),
+                'possible_dests' => $possible_dests,
+                'dest_citizen' => $destCitizen,
+                'sendable_items' => $sendable_items,
+            ], $this->house_partial_complaints_args())
+        ) );
     }
 
-    protected function house_partial_inventory_args(): array {
+    /**
+     * @Route("jx/town/house/complaints", name="town_house_complaints")
+     * @return Response
+     */
+    public function house_complaints(): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        // Get citizen, town and home objects
         $citizen = $this->getActiveCitizen();
+        $home = $citizen->getHome();
 
-        // Calculate home defense
-        $this->town_handler->calculate_home_def($citizen->getHome(), $summary);
+        // Render
+        return $this->render( 'ajax/game/town/home/complaints.html.twig', $this->addDefaultTwigArgs('house',
+            array_merge([
+                'home' => $home,
+                'tab' => 'complaints',
+            ], $this->house_partial_complaints_args())
+        ) );
+    }
 
-        // Calculate decoration
-        $decoItems = [];
-        $deco = $this->citizen_handler->getDecoPoints($citizen, $decoItems);
+    /**
+     * @Route("jx/town/house/build", name="town_house_build")
+     * @param EntityManagerInterface $em
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function house_build(EntityManagerInterface $em, TownHandler $th): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        // Get citizen, town and home objects
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+        $home = $citizen->getHome();
+
+        // Get the next upgrade level for the house
+        $home_next_level = $em->getRepository( CitizenHomePrototype::class )->findOneByLevel(
+            $home->getPrototype()->getLevel() + 1
+        );
+
+        // Get requirements for the next upgrade
+        $home_next_level_requirement = null;
+        if ($home_next_level && $home_next_level->getRequiredBuilding())
+            $home_next_level_requirement = $th->getBuilding( $town, $home_next_level->getRequiredBuilding(), true ) ? null : $home_next_level->getRequiredBuilding();
+
+        // Render
+        return $this->render( 'ajax/game/town/home/build.html.twig', $this->addDefaultTwigArgs('house',
+            array_merge([
+                'home' => $home,
+                'tab' => 'build',
+
+                'next_level' => $home_next_level,
+                'next_level_req' => $home_next_level_requirement,
+                'devastated' => $town->getDevastated(),
+            ], $this->house_partial_upgrade_args(), $this->house_partial_complaints_args())
+        ) );
+    }
+
+    /**
+     * @Route("jx/town/house/values", name="town_house_values")
+     * @return Response
+     */
+    public function house_values(): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        // Get citizen, town and home objects
+        $citizen = $this->getActiveCitizen();
+        $home = $citizen->getHome();
+
+        // Render
+        return $this->render( 'ajax/game/town/home/values.html.twig', $this->addDefaultTwigArgs('house',
+            array_merge([
+                'home' => $home,
+                'tab' => 'values',
+
+                'protected' => $this->citizen_handler->houseIsProtected($this->getActiveCitizen(), true),
+            ], $this->house_partial_deco_args(), $this->house_partial_upgrade_args(), $this->house_partial_complaints_args())
+        ) );
+    }
+
+    protected function house_partial_upgrade_args(): array {
+        $citizen = $this->getActiveCitizen();
 
         // Home extension caches
         $upgrade_proto = [];
@@ -225,22 +303,53 @@ class TownHomeController extends TownController
         }
 
         return [
+            'upgrades' => $upgrade_proto,
+            'upgrade_levels' => $upgrade_proto_lv,
+            'upgrade_costs' => $upgrade_cost,
+        ];
+    }
+
+    protected function house_partial_deco_args(): array {
+        $citizen = $this->getActiveCitizen();
+
+        // Calculate decoration
+        $decoItems = [];
+        $deco = $this->citizen_handler->getDecoPoints($citizen, $decoItems);
+
+        // Calculate home defense
+        $this->town_handler->calculate_home_def($citizen->getHome(), $summary);
+
+        return [
+            'deco' => $deco,
+            'decoItems' => $decoItems,
+            'def' => $summary,
+        ];
+    }
+
+    protected function house_partial_inventory_args(): array {
+        $citizen = $this->getActiveCitizen();
+
+        return array_merge([
             'home' => $citizen->getHome(),
             'citizen' => $citizen,
             'rucksack' => $citizen->getInventory(),
             'chest' => $citizen->getHome()->getChest(),
             'rucksack_size' => $this->inventory_handler->getSize( $citizen->getInventory() ),
             'chest_size' => $this->inventory_handler->getSize($citizen->getHome()->getChest()),
-            'def' => $summary,
-            'deco' => $deco,
-            'decoItems' => $decoItems,
-            'upgrades' => $upgrade_proto,
-            'upgrade_levels' => $upgrade_proto_lv,
-            'upgrade_costs' => $upgrade_cost,
-            'protected' => $this->citizen_handler->houseIsProtected($this->getActiveCitizen(), true),
-        ];
+        ], $this->house_partial_deco_args());
     }
 
+    protected function house_partial_complaints_args(): array {
+        $citizen = $this->getActiveCitizen();
+
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
+        $criteria->andWhere($criteria->expr()->eq('culprit', $citizen));
+
+        return [
+            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
+        ];
+    }
 
     /**
      * @Route("jx/town/partial/house/inventory", name="house_partial_inventory")
@@ -249,17 +358,6 @@ class TownHomeController extends TownController
     public function house_partial_inventory(): Response
     {
         return $this->render( 'ajax/game/town/partials/inventory.standalone.html.twig', $this->house_partial_inventory_args() );
-    }
-
-    /**
-     * @Route("api/town/house/log", name="town_house_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_house_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), $this->getActiveCitizen(), false, null, null);
     }
 
     /**
@@ -549,7 +647,7 @@ class TownHomeController extends TownController
         }
 
         $em->flush();
-        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house_messages', ['subtab' => 'received'])] );
     }
 
     /**
@@ -580,6 +678,6 @@ class TownHomeController extends TownController
         }
 
         $em->flush();
-        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house_messages', ['subtab' => 'received'])] );
     }
 }

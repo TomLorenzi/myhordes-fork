@@ -55,6 +55,8 @@ services:
         public: true
     App\Service\HTMLService:
         public: true
+    App\Service\ZoneHandler:
+        public: true
 
     # This aliases the classes used by the translation tool commands
     translation.tools.loader:
@@ -166,4 +168,5 @@ services:
             $global: '%myhordes%'
             $local:  '%local%'
             $rules:  '%rules%'
+            $rules_local:  '%rules_local%'
             $events: '%events%'

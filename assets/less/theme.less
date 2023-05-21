@@ -205,18 +205,31 @@ x-message {
       text-align: left; padding: 3px;
     }
 
-    &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger, &.popup-general {
+    &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger, &.popup-general, &.popup-altar {
 
       background: #79393a;
+
+      &.popup-shaman {
+        &>div#modal-content>.inner-notification-content>p:first-child {
+          background: #7e4d2a;
+          margin: -10px -10px 10px -10px;
+          padding: 10px;
+          border-bottom: 1px solid #b37c4a;
+          box-shadow: 0 0 3px black;
+
+          &:after {clear: both; content: " "; display: block}
+        }
+      }
+
       &>div#modal-content {
         padding: 0; font-size: 0.8em;
         &>.inner-notification-header  {
-          background: #3d3149; padding: 5px;
+          background: #3d3149; padding: 5px; position: relative;
           &>img { margin: 0 10px 10px 0; border: 2px solid black; }
         }
         &>.inner-notification-content {
           color: white; padding: 10px;
-          &>img { margin: 0 10px 10px 0; }
+          img.float-left { margin: 0 10px 10px 0; }
         }
         & p { margin: 14px 0;  text-align: justify }
         & ul.bluelist {
@@ -261,7 +274,7 @@ x-message {
   }
 
   &>#header {
-    &>#header-reload-area { position: absolute; left: 0; top: 0; height: 141px; width: 100%; cursor: pointer; z-index: 995; }
+    &>#header-reload-area { position: absolute; left: 0; top: 0; height: 141px; width: 100%; cursor: pointer; z-index: 994; }
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
   }
@@ -470,14 +483,17 @@ x-message {
       }
     }
 
-    & #modeCommand {
+    & #modeCommand, & #pivotSwapCommand {
       position: absolute;
-      top: 10px;
+
       margin-left: 60px;
       font-size: 8pt;
       line-height: 10pt;
       width: 110px;
-      z-index: 997;
+
+
+      &#modeCommand { top: 10px; z-index: 997; }
+      &#pivotSwapCommand { top: 38px; z-index: 996; }
 
       & h1 {
         margin: 0;
@@ -881,6 +897,7 @@ ul.inventory {
         background: #4d5061; padding: 2px 6px; margin-right: 2px;
         border: 1px solid #64677d;
       }
+      &.category .small { color: #64677d }
       &.item {
         &:hover { border-color: #64677d; background-color: #4d5061; }
       }
@@ -1095,7 +1112,7 @@ div.game-menu-area {
       & li {display: inline-block; list-style: none;}
       &.text-menu {
         background: url("../img/background/menu_metalbg.png") 0 0 repeat-x; height: 32px; padding-left: 32px; padding-right: 6px;
-        position: relative; z-index: 996;
+        position: relative; z-index: 995;
         &:before { position: absolute; left: 0; top: -28px; height: 84px; width: 43px; pointer-events: none; content: " "; background: url("../img/game-bar/cog0.png") 0 0 no-repeat; }
         &:after  { position: absolute; right: -43px; top: -14px; height: 53px; width: 57px; pointer-events: none; z-index: 20; content: " "; background: url("../img/game-bar/cog1.png") 0 0 no-repeat; }
         &>li {
@@ -1161,8 +1178,8 @@ div.game-menu-area {
           left: 0;
           right: 85px;
         }
-        &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 195px; right: 25px; cursor: help; z-index: 996; }
-        &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 195px; right: 25px; cursor: help; z-index: 996; }
+        &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 195px; right: 25px; cursor: help; z-index: 995; }
+        &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 195px; right: 25px; cursor: help; z-index: 995; }
         .hardcore {
           color: lighten(#7c2727, 10%);
           font-variant: small-caps;
@@ -1738,6 +1755,7 @@ div.item-tag {
   &.item-tag-item-id:after { background: url("../img/icons/small_dev.png") center/contain no-repeat }
   &.item-tag-poison-deadly:after { background: url("../img/icons/death.gif") center/contain no-repeat }
   &.item-tag-poison-infect:after { background: url("../img/status/status_infection.gif") center/contain no-repeat }
+  &.item-tag-poison-strange:after { background: url("../img/status/status_drugged.gif") center/contain no-repeat }
   &.item-tag-first-pick:after { background: url("../img/item/item_bagxl.gif") center/contain no-repeat }
   em {
     color: white;
@@ -1828,8 +1846,13 @@ div.daily-attack {
 
 .avatar, .avatarcrow {
   display: inline-block; box-shadow: 0 0 5px rgba(0,0,0,0.7); position: relative;
-  &:not(.small):not(.full)>img { max-width: 100px; max-height: 100px; }
+  &:not(.small):not(.full):not(.round)>img { max-width: 100px; max-height: 100px; }
   &.small>img { width: 90px; height: 30px; object-fit: cover }
+  &.full>img { max-width: 100% }
+  &.round {
+    border-radius: 100%; overflow: hidden;
+    &>img { width: 40px; height: 40px; object-fit: cover }
+  }
   &.full>div.crop {
     z-index: 1;
     &>div { cursor: grab; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
@@ -1877,7 +1900,7 @@ i.dagger {
   position: absolute; right: 10px; top: 100px; font-size: 10px;
   background-color: rgba(62, 36, 23, .75); border-radius: 6px; padding: 3px 5px;
   color: @myhordes-smalltext; transition: background-color 0.5s ease-in-out;
-  cursor: pointer; z-index: 996;
+  cursor: pointer; z-index: 995;
   &:hover { background-color: lighten(rgba(62, 36, 23, .75),10%); }
 
   &>div {
@@ -2004,4 +2027,11 @@ span.tag {
 div.loading {
   min-height: 24px; width: 100%;
   background: url('../img/anims/loading.gif') center no-repeat;
+}
+
+i.h-icon {
+  display: inline-block; height: 16px; width: 16px;
+
+  &.caret-up { background: url("../img/icons/small_caret_up.gif") center no-repeat }
+  &.caret-down { background: url("../img/icons/small_caret_down.gif") center no-repeat }
 }

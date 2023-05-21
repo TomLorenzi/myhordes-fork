@@ -64,17 +64,8 @@
 
     <div id="footer"></div>
 </div>
-<div id="tooltip_container"></div>
-<div id="loadzone" x-stack="0">
-    <div></div>
-</div>
-<div id="modal-backdrop">
-    <div id="modal">
-        <div id="modal-title"></div>
-        <div id="modal-content"></div>
-        <div id="modal-actions"></div>
-    </div>
-</div>
+{
+{% include "partials/containers.html.twig" with {} only %}
 </body>
 <footer class="{% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
     {% block footer %}
@@ -93,26 +84,7 @@
                 </div>
             </div>
             <div class="padded cell-small footer rw-7 rw-sm-24 center">
-                <div>
-                    <strong>{{ 'Aktuelles Team'|trans({}, 'global') }}</strong>
-                    <div class="content">
-                        {% for dev in devs|filter(a => a[0] == 0) %}
-                            <div title="{{ dev[3]|trans({},'global') }}"><i class="fa fa-{{ dev[1] }}"></i> {{ dev[2]|raw }}</div>
-                        {% endfor %}
-                    </div>
-                    <strong>{{ 'Unterstützung'|trans({}, 'global') }}</strong>
-                    <div class="content">
-                        {% for dev in devs|filter(a => a[0] == 1) %}
-                            <div title="{{ dev[3]|trans({},'global') }}"><i class="fa fa-{{ dev[1] }}"></i> {{ dev[2]|raw }}</div>
-                        {% endfor %}
-                    </div>
-                    <strong>{{ 'Inaktive'|trans({}, 'global') }}</strong>
-                    <div class="content">
-                        {% for dev in devs|filter(a => a[0] == 2) %}
-                            <div title="{{ dev[3]|trans({},'global') }}"><i class="fa fa-{{ dev[1] }}"></i> {{ dev[2]|raw }}</div>
-                        {% endfor %}
-                    </div>
-                </div>
+                {% include('partials/the_team.html.twig') with { devs: devs } only %}
             </div>
             <div class="padded cell-small footer rw-7 rw-sm-24 center">
                 <div>

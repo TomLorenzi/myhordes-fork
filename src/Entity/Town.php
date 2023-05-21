@@ -10,10 +10,10 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PostPersistEventArgs;
+use Doctrine\ORM\Event\PreRemoveEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
-use Doctrine\ORM\ORMException;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\TownRepository')]
 #[ORM\HasLifecycleCallbacks]
@@ -111,6 +111,9 @@ class Town
 
     #[ORM\OneToMany(mappedBy: 'town', targetEntity: TownAspectRevision::class, cascade: ['persist','remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
     private Collection $revisions;
+
+    #[ORM\OneToOne(mappedBy: 'town', cascade: ['persist'])]
+    private ?CommunityEventTownPreset $communityEventTownPreset = null;
 
     public function __construct()
     {
@@ -557,25 +560,28 @@ class Town
         return $this;
     }
     /**
-     * @param LifecycleEventArgs $args */
+     * @param PostPersistEventArgs $args */
     #[ORM\PostPersist]
-    public function lifeCycle_postPersist(LifecycleEventArgs $args) : void
+    public function lifeCycle_postPersist(PostPersistEventArgs $args) : void
     {
-        $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
+        $args->getObjectManager()->persist( TownRankingProxy::fromTown( $this ) );
         if ($this->getForum()) {
-            $args->getEntityManager()->persist( $g = (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
-            $args->getEntityManager()->persist( (new ForumUsagePermissions())->setForum($this->getForum())->setPrincipalGroup($g)->setPermissionsGranted(ForumUsagePermissions::PermissionReadWrite)->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
+            $args->getObjectManager()->persist( $g = (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
+            $args->getObjectManager()->persist( (new ForumUsagePermissions())->setForum($this->getForum())->setPrincipalGroup($g)->setPermissionsGranted(ForumUsagePermissions::PermissionReadWrite)->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
         }
-        $args->getEntityManager()->flush();
+        $args->getObjectManager()->flush();
     }
     /**
-     * @param LifecycleEventArgs $args
+     * @param PreRemoveEventArgs $args
      */
     #[ORM\PreRemove]
-    public function lifeCycle_preRemove(LifecycleEventArgs $args): void
+    public function lifeCycle_preRemove(PreRemoveEventArgs $args): void
     {
-        $g = $args->getEntityManager()->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $this->getId()] );
-        if ($g) $args->getEntityManager()->remove($g);
+        $g = $args->getObjectManager()->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $this->getId()] );
+        if ($g) $args->getObjectManager()->remove($g);
+
+        $ga = $args->getObjectManager()->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownAnimaction, 'ref1' => $this->getId()] );
+        if ($ga) $args->getObjectManager()->remove($ga);
     }
     public function getLastAttack(): ?AttackSchedule
     {
@@ -769,6 +775,28 @@ class Town
     public function setNameSchema(?string $nameSchema): self
     {
         $this->nameSchema = $nameSchema;
+
+        return $this;
+    }
+
+    public function getCommunityEventTownPreset(): ?CommunityEventTownPreset
+    {
+        return $this->communityEventTownPreset;
+    }
+
+    public function setCommunityEventTownPreset(?CommunityEventTownPreset $communityEventTownPreset): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($communityEventTownPreset === null && $this->communityEventTownPreset !== null) {
+            $this->communityEventTownPreset->setTown(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($communityEventTownPreset !== null && $communityEventTownPreset->getTown() !== $this) {
+            $communityEventTownPreset->setTown($this);
+        }
+
+        $this->communityEventTownPreset = $communityEventTownPreset;
 
         return $this;
     }

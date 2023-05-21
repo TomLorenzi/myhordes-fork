@@ -1,4 +1,5 @@
 parameters:
+  rules_local: []
   rules:
     default:
       allow_local_conf: true
@@ -12,6 +13,14 @@ parameters:
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27, margin: 0.25 }
       population: { min: 40, max:  40 }
+
+      margin_custom:
+        enabled: false
+        north: 25
+        south: 25
+        west: 25
+        east: 25
+
       zone_items:
         min: 5
         max: 10
@@ -151,6 +160,7 @@ parameters:
         guard_tower:
           per_use: 10
           max_def: 150
+        strange_soil: false
 
       features:
         camping: true
@@ -177,6 +187,7 @@ parameters:
         last_death_day: 5
         survival_picto: null
         free_for_all: false
+        free_from_teams: false
 
       disabled_jobs: ['shaman']
       disabled_roles: []
@@ -293,3 +304,4 @@ parameters:
       features:
         give_all_pictos: false
         give_soulpoints: false
+        free_from_teams: true

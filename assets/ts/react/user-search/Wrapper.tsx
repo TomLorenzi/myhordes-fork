@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import {useLayoutEffect, useRef, useState} from "react";
 import {Fetch} from "../../v2/fetch";
 import {Global} from "../../defaults";
-import Components from "../index";
+import {Tooltip} from "../tooltip/Wrapper";
 
 declare var $: Global;
 
@@ -63,13 +63,10 @@ export const UserSearchBar = (
         context?: string,
     }) => {
 
-    const apiRef = useRef<Fetch>( new Fetch('user-search') )
+    const apiRef = useRef<Fetch>( new Fetch('user/search') )
 
     const wrapper = useRef<HTMLDivElement>();
     const input = useRef<HTMLInputElement>();
-
-    const tooltip = useRef<HTMLDivElement>();
-    const tooltip_parent = useRef<HTMLDivElement>();
 
     const container = useRef<HTMLDivElement>();
     const overlay = useRef<HTMLDivElement>();
@@ -82,11 +79,6 @@ export const UserSearchBar = (
     let [result, setResult] = useState<UserResponses|GroupResponses>([]);
     let [focus, setFocusState] = useState<boolean>(false);
     let [searching, setSearching] = useState<boolean>(false);
-
-    useLayoutEffect( () => {
-        if (tooltip.current) $.html.handleTooltip( tooltip.current );
-        return () => tooltip_parent.current ? $.html.clearTooltips( tooltip_parent.current ) : null;
-    } );
 
     let searchTimeout = useRef<number>();
     let focusTimeout = useRef<number>();
@@ -229,7 +221,7 @@ export const UserSearchBar = (
         <div className="userSearchWrapper" ref={wrapper}>
             <div className="userSearchInputContainer"><label><input type="text" ref={input} onKeyDown={e=>keyDown(e)} onKeyUp={e=>keyUp(e)}/></label>
                 { title && (
-                    <div className="tooltip help" ref={tooltip} dangerouslySetInnerHTML={{__html: title}}/>
+                    <Tooltip additionalClasses="help" html={title} />
                 ) }
                 { searching && <div className="userSearchLoadIndicator"><i className="fa fa-pulse fa-spinner"></i></div> }
             </div>

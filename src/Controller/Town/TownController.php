@@ -4,6 +4,7 @@ namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
 use App\Annotations\Semaphore;
+use App\Annotations\Toaster;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
@@ -41,6 +42,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
+use App\Enum\ItemPoisonType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
@@ -163,7 +165,7 @@ class TownController extends InventoryAwareController
     public function dashboard(TownHandler $th): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
-            return $this->redirect($this->generateUrl('game_newspaper'));
+            return $this->redirectToRoute('game_newspaper');
 
         $town = $this->getActiveCitizen()->getTown();
 
@@ -314,6 +316,7 @@ class TownController extends InventoryAwareController
 
     /**
      * @Route("jx/town/visit/{id}", name="town_visit", requirements={"id"="\d+"})
+     * @Toaster(full=false)
      * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
@@ -324,7 +327,7 @@ class TownController extends InventoryAwareController
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         if ($id === $this->getActiveCitizen()->getId())
-            return $this->redirect($this->generateUrl('town_house'));
+            return $this->redirect($this->generateUrl('town_house_dash'));
 
         /** @var Citizen $c */
         $c = $em->getRepository(Citizen::class)->find( $id );
@@ -464,7 +467,6 @@ class TownController extends InventoryAwareController
             'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
-            'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 5 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
@@ -477,27 +479,6 @@ class TownController extends InventoryAwareController
             'intruding' => $intrusion === null ? 0 : ( $intrusion->getSteal() ? 1 : -1 ),
             'recycle_ap' => $recycleAP
         ]) );
-    }
-
-    /**
-     * @Route("api/town/visit/{id}/log", name="town_visit_log_controller")
-     * @param int $id
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_visit_api(int $id, JSONRequestParser $parser): Response {
-        if ($id === $this->getActiveCitizen()->getId())
-            return $this->redirect($this->generateUrl('town_house_log_controller'));
-
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-
-        /** @var Citizen $c */
-        $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
-        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
-            $c = null;
-
-        return $this->renderLog((int)$parser->get('day', -1), $c, false, null, $c ===  null ? 0 : null);
     }
 
     /**
@@ -926,20 +907,8 @@ class TownController extends InventoryAwareController
             'maximum' => $allow_take,
             'pump' => $pump,
 
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
-    }
-
-    /**
-     * @Route("api/town/well/log", name="town_well_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_well_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWell, null);
     }
 
     /**
@@ -950,7 +919,7 @@ class TownController extends InventoryAwareController
      * @param BankAntiAbuseService $ba
      * @return Response
      */
-    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, BankAntiAbuseService $ba): Response {
+    public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, BankAntiAbuseService $ba, ConfMaster $conf): Response {
         $direction = $parser->get('direction', '');
 
         if (in_array($direction, ['up','down'])) {
@@ -972,6 +941,8 @@ class TownController extends InventoryAwareController
                 $inv_target = $citizen->getInventory();
                 $inv_source = null;
                 $item = $factory->createItem( 'water_#00' );
+                if ($conf->getTownConfiguration( $town )->get( TownConf::CONF_MODIFIER_STRANGE_SOIL, false ))
+                    $item->setPoison( ItemPoisonType::Strange );
 
                 if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen )) {
                     $ba->increaseBankCount($citizen);
@@ -1081,20 +1052,8 @@ class TownController extends InventoryAwareController
             'item_def_factor' => $item_def_factor,
             'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeBank, 5 )->getContent(),
             'day' => $town->getDay(),
         ]) );
-    }
-
-    /**
-     * @Route("api/town/bank/log", name="town_bank_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_bank_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeBank, null);
     }
 
     /**
@@ -1545,7 +1504,6 @@ class TownController extends InventoryAwareController
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
             'workshopBonus' => $workshopBonus,
             'hpToAp' => $hpToAp,
-            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeConstruction, 5 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'canvote' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
@@ -1589,17 +1547,6 @@ class TownController extends InventoryAwareController
         }
 
         return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/town/constructions/log", name="town_constructions_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_constructions_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeConstruction, null);
     }
 
     /**
@@ -1775,22 +1722,10 @@ class TownController extends InventoryAwareController
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
-            'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 5 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
             'door_section'      => 'door',
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $time ) )
+            'map_public_json'   => json_encode( $th->get_public_map_blob( $town, $this->getActiveCitizen(), 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day', 'satellite', $time ) )
         ]) );
-    }
-
-    /**
-     * @Route("api/town/door/log", name="town_door_log_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function log_door_api(JSONRequestParser $parser): Response {
-        if ($this->getActiveCitizen()->getZone())
-            return $this->renderLog((int)$parser->get('day', -1), null, false, -1, 0);
-        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDoor, null);
     }
 
     /**
@@ -1807,7 +1742,7 @@ class TownController extends InventoryAwareController
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown()),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+            'map_public_json'   => json_encode( $this->town_handler->get_public_map_blob( $this->getActiveCitizen()->getTown(), $this->getActiveCitizen(), 'door-preview', $this->getTownConf()->isNightTime() ? 'night' : 'day', 'satellite' ) )
         ]));
     }
 
@@ -1829,7 +1764,7 @@ class TownController extends InventoryAwareController
             'door_section'      => 'planner',
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
-            'map_public_json'   => json_encode( $this->get_public_map_blob( 'door-planner', $this->getTownConf()->isNightTime() ? 'night' : 'day' ) )
+            'map_public_json'   => json_encode( $this->town_handler->get_public_map_blob($this->getActiveCitizen()->getTown(), $this->getActiveCitizen(), 'door-planner', $this->getTownConf()->isNightTime() ? 'night' : 'day', 'satellite' ) )
         ]) );
     }
 

@@ -65,7 +65,7 @@
                                     <div class="padded cell rw-3 right">
                                         {% if user_citizen.home.description %}
                                             <div class="inline pointer" data-delete-subject="status">
-                                                <i class="fa fa-trash"></i>
+                                                <img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" />
                                                 <div class="tooltip"><b>{{ 'Löschen'|trans({}, 'admin') }}</b></div>
                                             </div>
                                         {% endif %}
@@ -77,7 +77,7 @@
                                     <div class="padded cell rw-3">
                                         {% if user_citizen.comment %}
                                             <div class="inline pointer" data-delete-subject="comment">
-                                                <i class="fa fa-trash"></i>
+                                                <img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" />
                                                 <div class="tooltip"><b>{{ 'Löschen'|trans({}, 'admin') }}</b></div>
                                             </div>
                                         {% endif %}
@@ -89,7 +89,7 @@
                                     <div class="padded cell rw-3">
                                         {% if user_citizen.lastWords %}
                                             <div class="inline pointer" data-delete-subject="lastWords">
-                                                <i class="fa fa-trash"></i>
+                                                <img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" />
                                                 <div class="tooltip"><b>{{ 'Löschen'|trans({}, 'admin') }}</b></div>
                                             </div>
                                         {% endif %}
@@ -115,10 +115,10 @@
                                     <button {% if not is_granted("ROLE_ADMIN") %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: 0}) }}"><i class="fa fa-recycle"></i> <span class="hide-md hide-sm">{{ 'Entkoppeln'|trans({}, 'admin') }}</span></button>
                                 </div>
                                 <div class="cell padded rw-3">
-                                    <button id="x-pm"><i class="fa fa-edit"></i> <span class="hide-md hide-sm">{{ 'PM vom Raben'|trans({}, 'admin') }}</span></button>
+                                    <button id="x-pm"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /> <span class="hide-md hide-sm">{{ 'PM vom Raben'|trans({}, 'admin') }}</span></button>
                                 </div>
                                 <div class="cell padded rw-3">
-                                    <button x-ajax-href="{{ path("admin_town_explorer", {id: town.id}) }}"><i class="fa fa-eye"></i> <span class="hide-md hide-sm">{{ 'Stadt ansehen'|trans({}, 'admin') }}</span></button>
+                                    <button x-ajax-href="{{ path("admin_town_dashboard", {id: town.id}) }}"><i class="fa fa-eye"></i> <span class="hide-md hide-sm">{{ 'Stadt ansehen'|trans({}, 'admin') }}</span></button>
                                 </div>
                                 </div>
 
@@ -129,7 +129,7 @@
                                     <div class="cell padded rw-6 rw-md-12">{{ status_control(citizenStati) }}</div>
                                     <div class="cell padded rw-6 rw-md-12">{{ role_control(citizenRoles) }}</div>
                                     <div class="cell padded rw-12">{{ home_control(user_citizen,home_upgrades) }}</div>
-                                    {% if town.conf and town.conf.features and town.conf.features.citizen_alias %}
+                                    {% if town.conf and (town.conf.features is defined) and (town.conf.features.citizen_alias is defined) and town.conf.features.citizen_alias %}
                                         <div class="cell padded rw-12">{{ alias_control(user_citizen) }}</div>
                                     {% endif %}
                                 {% endif %}

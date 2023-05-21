@@ -2518,6 +2518,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:18.2.0":
+  version: 18.2.0
+  resolution: "@types/react-dom@npm:18.2.0"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 5f745ca83e8c47eeaae42963c15f07535587551f1d6c00cbce49304ef5dbd98c8893b48ee3e490567d0e312e21ba8718ed774685633f1f982fa56f50a4512e8e
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*":
   version: 18.0.20
   resolution: "@types/react@npm:18.0.20"
@@ -8268,6 +8277,7 @@ __metadata:
     "@fortawesome/fontawesome-free": "npm:6.4.0"
     "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2023.4.7"
     "@symfony/webpack-encore": "npm:4.2.0"
+    "@types/react-dom": "npm:18.2.0"
     buffer: "npm:6.0.3"
     core-js: "npm:3.30.0"
     favicons: "npm:^7.0.2"

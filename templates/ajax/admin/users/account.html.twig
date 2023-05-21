@@ -70,6 +70,7 @@
                                                 <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
                                             {% endif %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>
+                                            <option value="{{ url('admin_users_account_manage', {action: 'link', id: user.id}) }}" x-confirm="LINK" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Sekundäraccount verknüpfen'|trans({},'admin') }}</option>
                                         {% endif %}
                                         {% if user.avatar is not null %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'clear_avatar', id: user.id}) }}" x-confirm="CLEAR AVATAR">{{ 'Avatar entfernen'|trans({},'admin') }}</option>
@@ -82,6 +83,7 @@
                                         {% endif %}
                                         {% if is_granted("ROLE_ADMIN") %}
                                             <option value="{{ url('admin_users_account_manage', {action: 'herodays', id: user.id}) }}" x-query="{{ 'Neue Anzahl:'|trans({},'admin') }}">{{ 'Heldentage setzen'|trans({},'admin') }}</option>
+                                            <option value="{{ url('admin_users_account_manage', {action: 'team', id: user.id}) }}" x-query="{{ 'Team'|trans({},'admin') }}">{{ 'Team setzen'|trans({},'admin') }}</option>
                                         {% endif %}
                                     </optgroup>
                                     {% if user|is_granted('ROLE_ANIMAC') or user|is_granted('ROLE_ORACLE') %}
@@ -202,14 +204,14 @@
                         </div>
 
                         <div class="cell padded rw-3 rw-sm-12 note note-lightest">
-                            <b><label>{{ 'Titel'|trans({}, 'admin') }}</label></b>
+                            <label>{{ 'Titel'|trans({}, 'admin') }}</label>
                         </div>
 
                         <div class="cell padded rw-3 rw-sm-12">
                             {% if user.activeTitle or user.activeIcon %}
                                 <div>
                                     {% if user.activeIcon %}<img alt="" src="{{ user.activeIcon.customIcon ? url('app_web_customicon', {uid: user.id, aid: user.activeIcon.id, name: user.activeIcon.customIconName, ext: user.activeIcon.customIconFormat}) : asset('build/images/icons/title/' ~ user.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                    {% if user.activeTitle %} {{ user.activeTitle.customTitle ?? user.activeTitle.prototype.title|trans({},'game')|raw }}{% endif %}
+                                    {% if user.activeTitle %} {{ user.activeTitle.customTitle ?? user|translated_title(app.user)|raw }}{% endif %}
                                 </div>
                             {% else %}
                                 <div>---</div>
@@ -220,6 +222,30 @@
                                 <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>"{{ user_desc|raw }}"</div></div>
                             </div>
                         {% endif %}
+
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            <label>{{ 'Sprache'|trans({}, 'admin') }}</label>
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {% if user.language == 'ach' %}
+                                <div>---</div>
+                            {% elseif user.language is not null %}
+                                <img src="{{ asset("build/images/lang/" ~ user.language ~ ".png") }}" alt="{{ user.language }}" />
+                            {% else %}
+                                <div>---</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                            <label>{{ 'Team'|trans({}, 'admin') }}</label>
+                        </div>
+                        <div class="cell padded rw-3 rw-sm-12">
+                            {% if user.team is not null %}
+                                <img src="{{ asset("build/images/lang/" ~ user.team ~ ".png") }}" alt="{{ user.team }}" />
+                            {% else %}
+                                <div>---</div>
+                            {% endif %}
+                        </div>
                     </div>
 
                     <h5>{{ 'Kartei'|trans({}, 'admin') }}</h5>
@@ -313,7 +339,7 @@
                                     {% if spon is not null %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: spon.sponsor.id}) }}">{{ spon.sponsor.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% else %}-{% endif %}
                                 </div>
@@ -331,13 +357,13 @@
                                     {% for entry in spon_active %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                     {% for entry in spon_inactive %}
                                         <div>
                                             <strike><a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a></strike>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -364,9 +390,9 @@
                                 <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
                                 {% for soul in user.twinoidImports %}
                                     {% if soul.main %}
-                                        <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
+                                        <div><img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
                                     {% else %}
-                                        <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope|replace({'www.': ''}) }}</i></div>
+                                        <div><img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <i>{{ soul.scope|replace({'www.': ''}) }}</i></div>
                                     {% endif %}
                                 {% endfor %}
                             {% else %} - {% endif %}
@@ -399,11 +425,12 @@
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ChangeEmailValidation') %} ChangeEmailValidation
                                         {% else                                                                                  %} {{ token.type }} {% endif %})
-                                            <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
+                                            <div x-delete-token="{{ token.id }}" class="button small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>
                                         </div>
                                     {% endfor %}
                                 </div>
                             {% endif %}
+
                             <div class="cell padded rw-3 rw-sm-12 note note-lightest">
                                 {{ 'Multi-Account Whitelist'|trans({}, 'admin') }}
                             </div>
@@ -413,7 +440,7 @@
                                     {% for other_user in list.users %}
                                         {% if other_user.id != user.id %}
                                             <div>
-                                                {{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span>
+                                                {{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></span>
                                                 <div class="tooltip">
                                                     <div>
                                                         {% if list.creator %}
@@ -433,6 +460,20 @@
                                             </div>
                                         {% endif %}
                                     {% endfor %}
+                                {% endfor %}
+                            </div>
+
+                            <div class="cell padded rw-3 rw-sm-12 note note-lightest">
+                                {{ 'Sekundäre Accounts'|trans({}, 'admin') }}
+                            </div>
+                            <div class="cell padded rw-9 rw-sm-12">
+                                {% if swap_pivots|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                                {% for pivot in swap_pivots %}
+                                    {% if pivot.secondary.id != user.id %}
+                                        <div>
+                                            {{ pivot.secondary.name }} <span class="pointer" data-unlink="{{ pivot.secondary.id }}"><i class="fa fa-trash"></i></span>
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         {% endif %}
@@ -497,6 +538,12 @@
             });
             $.html.addEventListenerAll('[x-unwhitelist]', 'click', function(e,elem) {
                 $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'unwhitelist'}) }}', {param: elem.getAttribute('x-unwhitelist')},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
+                    } );
+            });
+            $.html.addEventListenerAll('[data-unlink]', 'click', function(e,elem) {
+                $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'unlink'}) }}', {param: elem.dataset.unlink},
                     function () {
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );

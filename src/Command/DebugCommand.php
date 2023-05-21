@@ -4,6 +4,7 @@
 namespace App\Command;
 
 
+use App\Entity\Avatar;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
@@ -161,13 +162,24 @@ class DebugCommand extends LanguageCommand
                     $output->writeln('<error>User 66 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }
+
+                $avatar_data = file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.png");
+                $avatar_small_data = file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png");
+
                 $crow
                     ->setName("Der Rabe")
                     ->setEmail("crow")
-                    ->setRightsElevation(User::USER_LEVEL_CROW);
-
-                $this->user_handler->setUserBaseAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.png"), UserHandler::ImageProcessingPreferImagick, 'png', 100, 100);
-                $this->user_handler->setUserSmallAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png"));
+                    ->setRightsElevation(User::USER_LEVEL_CROW)
+                    ->setAvatar( (new Avatar())
+                        ->setChanged(new \DateTime())
+                        ->setFilename( md5( $avatar_data ) )
+                        ->setSmallName( md5( $avatar_small_data ) )
+                        ->setFormat( 'png' )
+                        ->setImage( $avatar_data )
+                        ->setSmallImage( $avatar_small_data )
+                        ->setX( 100 )
+                        ->setY( 100 )
+                    );
 
                 try {
                     $crow->setPassword($this->encoder->hashPassword($crow, bin2hex(random_bytes(16))));
@@ -203,13 +215,24 @@ class DebugCommand extends LanguageCommand
                     $output->writeln('<error>User 67 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }
+
+                $avatar_data = file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.gif");
+                $avatar_small_data = file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.small.gif");
+
                 $animacteur
                     ->setName("Animateur-Team")
                     ->setEmail("anim")
-                    ->addRoleFlag( User::USER_ROLE_ANIMAC );
-
-                $this->user_handler->setUserBaseAvatar($animacteur, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.gif"), UserHandler::ImageProcessingPreferImagick, 'gif', 100, 100);
-                $this->user_handler->setUserSmallAvatar($animacteur, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/anim.small.gif"));
+                    ->addRoleFlag( User::USER_ROLE_ANIMAC )
+                    ->setAvatar( (new Avatar())
+                        ->setChanged(new \DateTime())
+                        ->setFilename( md5( $avatar_data ) )
+                        ->setSmallName( md5( $avatar_small_data ) )
+                        ->setFormat( 'gif' )
+                        ->setImage( $avatar_data )
+                        ->setSmallImage( $avatar_small_data )
+                        ->setX( 100 )
+                        ->setY( 100 )
+                    );
 
                 try {
                     $animacteur->setPassword($this->encoder->hashPassword($animacteur, bin2hex(random_bytes(16))));

@@ -1,4 +1,3 @@
----
 'Diesen Bürger töten?': 'Tuer ce citoyen ?'
 Status: États
 Dauer: Durée
@@ -43,7 +42,7 @@ Ausführen: Exécuter
 'Alle anzeigen': 'Voir tout'
 Users: Utilisateurs
 Städte: Villes
-Zukunft: Évolutions
+Zukunft: Évos-Annonces
 Auszeichnungen: Distinctions
 Admin-Wachturm: TDG
 Ruinenscanner: Ruines
@@ -564,3 +563,8 @@ Senden: Envoyer
 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': '{success} ont été envoyés avec succès, {error} messages contenaient des erreurs.'
 Entwickler-URL: URL de développement
 Heldentage: Jours héros
+'Sekundäraccount verknüpfen': 'Lier un compte secondaire'
+'Sekundäre Accounts': 'Comptes secondaires'
+'Team setzen': 'Définir la communauté'
+'Versteckt von {player}': 'Caché de {player}'
+Verdächtig: Suspect

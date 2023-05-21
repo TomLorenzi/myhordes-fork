@@ -5,13 +5,16 @@ namespace App\Twig;
 
 
 use App\Entity\Award;
+use App\Entity\AwardPrototype;
 use App\Entity\Item;
 use App\Entity\Town;
 use App\Entity\TownSlotReservation;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\User;
+use App\Enum\UserSetting;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
@@ -26,6 +29,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+use function PHPUnit\Framework\matches;
 
 class Extensions extends AbstractExtension implements GlobalsInterface
 {
@@ -37,8 +41,9 @@ class Extensions extends AbstractExtension implements GlobalsInterface
     private TownHandler $townHandler;
     private GameFactory $gameFactory;
     private EntrypointLookupInterface $entryPoints;
+    private ConfMaster $conf;
 
-    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th, GameFactory $gf, EntrypointLookupInterface $epl) {
+    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th, GameFactory $gf, EntrypointLookupInterface $epl, ConfMaster $c) {
         $this->translator = $ti;
         $this->router = $r;
         $this->userHandler = $uh;
@@ -47,6 +52,8 @@ class Extensions extends AbstractExtension implements GlobalsInterface
         $this->townHandler = $th;
         $this->gameFactory = $gf;
         $this->entryPoints = $epl;
+        $this->conf = $c;
+
     }
 
     public function getFilters(): array
@@ -62,6 +69,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
             new TwigFilter('whitelisted',  [$this, 'town_whitelisted']),
             new TwigFilter('openFor',  [$this, 'town_openFor']),
+            new TwigFilter('conf',  [$this, 'town_conf']),
             new TwigFilter('items',  [$this, 'item_prototypes_with']),
             new TwigFilter('group_titles',  [$this, 'group_titles']),
             new TwigFilter('watchpoint',  [$this, 'fetch_watch_points']),
@@ -70,6 +78,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFilter('dogname',  [$this, 'dogname']),
             new TwigFilter('color',  [$this, 'color']),
             new TwigFilter('textcolor',  [$this, 'color_tx']),
+            new TwigFilter('translated_title',  [$this, 'translatedTitle']),
         ];
     }
 
@@ -207,6 +216,11 @@ class Extensions extends AbstractExtension implements GlobalsInterface
         return $this->gameFactory->userCanEnterTown($town,$user,$this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town]) > 0);
     }
 
+    public function town_conf(Town $town, ?string $property = null, mixed $default = null): mixed {
+        $c = $this->conf->getTownConfiguration( $town );
+        return $property === null ? $c->raw() : $c->get($property,$default);
+    }
+
     public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {
         return $this->userHandler->getActiveRestrictionExpiration($user,$mask);
     }
@@ -286,5 +300,28 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             (bool)$this->townHandler->getBuilding($town, 'small_ikea_#00', true),
             (bool)$this->townHandler->getBuilding($town, 'small_armor_#00', true)
         );
+    }
+
+    public function translatedTitle(string|Award|AwardPrototype|User $subject, User $object, ?User $object2 = null): string {
+
+        /** @var $owner User */
+        /** @var $me User */
+        [$base, $owner, $me] = match (true) {
+            is_string( $subject ) => [$subject, $object, $object2],
+            is_a( $subject, Award::class ) => [$subject->getPrototype()?->getTitle(), $object, $object2],
+            is_a( $subject, AwardPrototype::class ) => [$subject->getTitle(), $object, $object2],
+            is_a( $subject, User::class ) => [$subject->getActiveTitle()?->getPrototype()?->getTitle(), $subject, $object],
+            default => [null,null,null]
+        };
+
+        if ($base === null) return '';
+        $lang = match ($owner?->getSetting( UserSetting::TitleLanguage )) {
+            null, '_them' => $me?->getLanguage(),
+            '_me' => $owner?->getLanguage() ?? $me?->getLanguage(),
+            'de', 'en', 'fr', 'es' => $owner?->getSetting( UserSetting::TitleLanguage ),
+            default => null
+        };
+
+        return $this->translator->trans($base, [], 'game', $lang);
     }
 }

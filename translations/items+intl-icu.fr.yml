@@ -1,4 +1,3 @@
----
 'Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.': 'Vous lancez les dés, vous obtenez {dc1}, {dc2} et {dc3}.'
 'Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Bravo, vous obtenez un <strong>triplet</strong> ! Qu''est-ce qu''on s''amuse !<hr />Ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.'
 'Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!': 'Vous formez une suite ! C''est toujours sympa pour le moral. <hr />Et ça vous fait tellement plaisir que vous gagnez <strong>1 PA</strong>.'
@@ -972,3 +971,7 @@ Freundschaft: Camaraderie
 'Du hast deine Großzügigkeit in diesem Leben bereits unter Beweis gestellt!': 'Vous avez déjà prouvé votre générosité dans cette vie !'
 'Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.': 'Il vous faut de la <strong>place dans votre coffre</strong> pour récupérer le contenu de {item}.'
 'Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.': 'Il vous faut de la <strong>place dans votre sac à dos</strong> pour récupérer le contenu de {item}.'
+'<nt-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</nt-kills><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>': '<nt-kills>Ce chaton est incroyable, peur de rien, même pas de vous ! Du coup il vous saute à la gorge et trampouille délicatement ses griffes dans les profondeurs de votre chair.</nt-kills><t-kills>Ce chaton est incroyable, peur de rien, même pas de l''odeur infâme des zombies. Plus fort que les lapins Duracell et des Monty Python réunis, ce chat il vous nettoie la zone.</t-kills>'
+'Aber eine Frage bleibt: Waren diese fliegenden grünen Mäuse schon immer da?': 'Mais une question demeure : ces souris vertes volantes ont-elles toujours été là ?'
+'Sofort nach dem herunterschlucken verspürst du das Verlangen nach mehr... du bist nun <b>drogenabhängig</b>!': 'Immédiatement après l''avoir avalé, vous en voulez plus... Vous êtes maintenant <b>dépendant</b> !'
+'Plötzlich fängt alles um dich herum an, sich zu drehen ...': 'Soudain, tout autour de vous commence à tourner...'

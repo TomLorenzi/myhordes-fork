@@ -33,7 +33,7 @@ let $ = {
 };
 window.$ = $;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('tokenExchangeCompleted', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
     $.html.init();
     if (!document.body.classList.contains('page-attract'))
@@ -121,7 +121,6 @@ window.addEventListener("resize", resizer);
 window.addEventListener('load', resizer, {once: true});
 window.addEventListener( 'load', () => {
     if (document.querySelector('html.lang-base-ach')) {
-        console.log('do');
         let button = document.createElement('button');
         button.style.display = 'inline-block';
         button.innerText = 'Exit In-Context Translation';
@@ -145,4 +144,5 @@ window.addEventListener( 'load', () => {
 }, {once: true} )
 
 // Import common modules
-require('./modules/common-modules.js');
+require('../ts/modules/common-modules.ts');
+require('../ts/toaster');

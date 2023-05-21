@@ -1,6 +1,8 @@
 {% use "ajax/game/partials/header_inventory.html.twig" with html as html_header %}
 {% use "ajax/game/beyond/partials/inventory.html.twig" %}
 
+<div data-trigger-event-name="mh-current-log-update"></div>
+
 <div x-render-target="#wb-item-action-section">
     {% embed "ajax/game/actions.html.twig" with {'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, item_action_proxy: path('beyond_dashboard_partial_item_actions')} %}
     {% endembed %}
@@ -24,16 +26,10 @@
     </div>
 {% endfor %}
 
-<div x-render-target="#beyond_log_content">
-    {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('beyond_desert_log_controller') } %}
-    {% endembed %}
-</div>
-
 <script>
     {{ block('includes') }}
     {{ block('js') }}
 
-    {{ include("scripts/log.js.twig") }}
     {{ include('scripts/actions_animate.js.twig') }}
     item_action_collapse('actions','x-item-action-toggle');
 </script>
