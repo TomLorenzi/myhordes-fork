@@ -154,6 +154,7 @@ class RenderMapAction
         return [
             'geo' => [ 'x0' => $range_x[0], 'x1' => $range_x[1], 'y0' => $range_y[0], 'y1' => $range_y[1] ],
             'zones' => $zones,
+            'lid' => $citizen_zone?->getId() ?? 0,
             'local' => array_map( function(Zone $z) use ($activeCitizen, $town, $citizen_zone, $scavenger_sense, $scout_sense) {
                 $local = $citizen_zone === $z;
                 $adjacent = ( abs( $citizen_zone->getX() - $z->getX() ) + abs( $citizen_zone->getY() - $z->getY() ) ) <= 1;

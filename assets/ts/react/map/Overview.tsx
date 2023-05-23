@@ -200,7 +200,7 @@ const MapOverviewGrid = React.memo(( props: MapOverviewGridProps ) => {
             </div>
         )
 }, (prevProps:MapOverviewGridProps, nextProps:MapOverviewGridProps) => {
-    if (prevProps.zoom !== nextProps.zoom || prevProps.etag !== nextProps.etag) return false;
+    if (prevProps.zoom !== nextProps.zoom || prevProps.etag !== nextProps.etag || prevProps.map?.lid !== nextProps.map?.lid) return false;
     return Object.entries(prevProps.settings).map(([k,v]) => nextProps.settings[k] === v).filter(v=>!v).length === 0;
 });
 
