@@ -219,7 +219,7 @@ class LogController extends CustomAbstractCoreController
      * @Route("/town", name="town", methods={"GET"})
      * @Route("/citizen/{id}", name="town_citizen", methods={"GET"})
      * @Toaster()
-     * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
+     * @GateKeeperProfile(only_in_town=true, only_with_profession=true)
      * @param Request $request
      * @param EntityManagerInterface $em
      * @param Citizen|null $citizen
