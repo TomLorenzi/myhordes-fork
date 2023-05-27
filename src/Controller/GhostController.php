@@ -150,7 +150,11 @@ class GhostController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
+        $limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOWNS_MAX_PRIVATE, 10);
+
         return $this->render( 'ajax/ghost/create_town_rc.html.twig', $this->addDefaultTwigArgs(null, [
+            'town_limit' => $limit,
+            'limit_reached' => count(array_filter($em->getRepository(Town::class)->findOpenTown(), fn(Town $t) => $t->getType()->getName() === 'custom')) >= $limit,
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
             'professions' => array_filter( $em->getRepository(CitizenProfession::class)->findAll(), fn(CitizenProfession $pro) => $pro->getName() !== CitizenProfession::DEFAULT ),
             'constructions' => $em->getRepository(BuildingPrototype::class)->findAll(),

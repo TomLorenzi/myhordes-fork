@@ -7,6 +7,7 @@ use App\Controller\CustomAbstractCoreController;
 use App\Entity\BuildingPrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRulesTemplate;
 use App\Entity\User;
@@ -16,6 +17,7 @@ use App\Service\Actions\Ghost\SanitizeTownConfigAction;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserHandler;
+use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -462,8 +464,12 @@ class TownCreatorController extends CustomAbstractCoreController
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        if ($user->getRightsElevation() < User::USER_LEVEL_CROW && !$userHandler->hasSkill($user, 'mayor'))
+        if (!$this->isGranted('ROLE_CROW') && !$userHandler->hasSkill($user, 'mayor'))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
+
+        $limit = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_TOWNS_MAX_PRIVATE, 10);
+        if (!$this->isGranted('ROLE_CROW') && count(array_filter($em->getRepository(Town::class)->findOpenTown(), fn(Town $t) => $t->getType()->getName() === 'custom')) >= $limit)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $header = $parser->get_array('head');
         $rules = $parser->get_array('rules');

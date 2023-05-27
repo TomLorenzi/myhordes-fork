@@ -41,9 +41,12 @@
 
             <div class="row">
                 <div class="cell padded rw-12">
-                    <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
-
-                    <hordes-town-creator data-elevation="{{ app.user.rightsElevation }}"></hordes-town-creator>
+                    {% if limit_reached and not is_granted('ROLE_CROW') %}
+                        <div class="note warning">{{ 'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.'|trans({number: town_limit}, 'ghost') }}</div>
+                    {% else %}
+                        <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
+                        <hordes-town-creator data-elevation="{{ app.user.rightsElevation }}"></hordes-town-creator>
+                    {% endif %}
                 </div>
             </div>
 
