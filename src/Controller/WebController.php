@@ -239,7 +239,8 @@ class WebController extends CustomAbstractController
         return $this->render('web/legal.html.twig', [
             'content' => $content,
             'langs' => $this->generatedLangsCodes,
-            'document' => $document
+            'document' => $document,
+            'toc' => $document === 'tos' || $document === 'privacy-policy'
         ]);
     }
 

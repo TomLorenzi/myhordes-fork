@@ -41,28 +41,82 @@
         <div id="header-reload-area"></div>
     </div>
 
-    <div id="content" class="help-content">
-        <div class="row"><div class="padded cell rw-12">
-            {% if content %}
-                {{ content|raw }}
-            {% else %}
-                <p><b>{{ 'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.'|trans({},'global') }}</b></p>
-                <p>
-                    {{ 'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:'|trans({},'global') }}
-                </p>
-                <div style="font-family: monospace"><ul style="list-style: none">
-                    {% for lang in langs %}
-                        <li>{{ '<myhordes>/var/documents/' ~ document ~ '/' ~ lang ~ '.html' }}</li>
-                    {% endfor %}
-                </ul></div>
+    <div id="content">
+        <div class="row-flex">
+            {% if toc %}
+                <div class="padded cell rw-4 rw-lg-5 rw-md-0 background">
+                    <div class="toc">
+                        <b>{{ 'Inhaltsverzeichnis'|trans({},'global') }}</b>
+                        <ul id="toc"></ul>
+                    </div>
+                </div>
             {% endif %}
-        </div></div>
+            <div data-content="1" class="help-content padded cell background {{ toc ? 'rw-8 rw-lg-7 rw-md-12' : 'rw-12' }}">
+                {% if content %}
+                    {{ content|raw }}
+                {% else %}
+                    <p><b>{{ 'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.'|trans({},'global') }}</b></p>
+                    <p>
+                        {{ 'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:'|trans({},'global') }}
+                    </p>
+                    <div style="font-family: monospace"><ul style="list-style: none">
+                        {% for lang in langs %}
+                            <li>{{ '<myhordes>/var/documents/' ~ document ~ '/' ~ lang ~ '.html' }}</li>
+                        {% endfor %}
+                    </ul></div>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
     <div id="footer"></div>
 </div>
 <script>
     document.getElementById('header-reload-area').addEventListener('click', ()=>window.location.href = '{{ url('home') }}');
+    {% if toc %}
+        let toc_latest = document.getElementById('toc');
+        let toc_level = 2;
+        document.querySelector('[data-content="1"]')?.querySelectorAll('h2,h3,h4,h5,h6').forEach( headline => {
+
+            let toc_current = toc_level;
+            switch (headline.tagName) {
+                case 'H2': toc_current = 2; break;
+                case 'H3': toc_current = 3; break;
+                case 'H4': toc_current = 4; break;
+                case 'H5': toc_current = 5; break;
+                case 'H6': toc_current = 6; break;
+            }
+
+            const make_entry = () => {
+                const li = document.createElement('li');
+                const span = document.createElement('span');
+                span.innerText = headline.innerText;
+                span.addEventListener("click", () => headline.scrollIntoView({block: "start", inline: "nearest",behavior: "smooth"}))
+                li.appendChild(span);
+                return li;
+            }
+
+            if (toc_level === toc_current) {
+                toc_latest.appendChild(make_entry());
+            } else if (toc_current > toc_level) {
+                while (toc_current > toc_level) {
+                    const ul = document.createElement('ul');
+                    toc_latest.lastElementChild.appendChild(ul);
+                    toc_latest = ul;
+                    toc_level++;
+                    toc_latest.appendChild(make_entry());
+                }
+            } else if (toc_current < toc_level) {
+                while (toc_current < toc_level) {
+                    toc_latest = toc_latest.parentElement.closest('ul');
+                    toc_level--;
+                }
+                toc_latest.appendChild(make_entry());
+            }
+
+
+        } )
+    {% endif %}
 </script>
 </body>
 <footer>

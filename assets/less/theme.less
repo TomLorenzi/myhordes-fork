@@ -2035,3 +2035,34 @@ i.h-icon {
   &.caret-up { background: url("../img/icons/small_caret_up.gif") center no-repeat }
   &.caret-down { background: url("../img/icons/small_caret_down.gif") center no-repeat }
 }
+
+.toc {
+  position: sticky; top: 4px;
+  font-size: 1.1rem;
+  background: #8a5432; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border: 1px solid #704328;
+
+  &>b:first-child {
+    display: block; background: #965c36; padding: 4px; font-variant: small-caps; overflow: hidden; white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  ul {
+    margin: 4px 0; padding: 0;
+    li {
+      background: #8a5432; list-style: none; padding: 2px 10px;
+      color: white; cursor: pointer;
+      border-top: 1px solid #965c36;
+    }
+  }
+
+  &>ul>li {
+    &:first-child {border-top: none;}
+    margin-left: 0;
+    &>ul>li {
+      margin-left: 12px;
+      &>ul>li {
+        margin-left: 24px;
+      }
+    }
+  }
+}
