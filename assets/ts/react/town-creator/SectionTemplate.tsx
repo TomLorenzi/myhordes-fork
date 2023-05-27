@@ -77,7 +77,6 @@ export const TownCreatorSectionTemplate = ({getOptions}) => {
     }
 
     const arrayEqual = (v1: any[]|Set<any>, v2: any[]|Set<any>) => {
-        console.log(v1, v2);
         const a = (v1 instanceof Set) ? Array.from(v1) : v1;
         const b = (v2 instanceof Set) ? Array.from(v2) : v2;
         return a.length === b.length && a.reduce((carry: any, current: any) => carry && b.includes(current), true);

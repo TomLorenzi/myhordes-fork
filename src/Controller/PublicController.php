@@ -9,6 +9,8 @@ use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\HordesFact;
+use App\Entity\MarketingCampaign;
+use App\Entity\MarketingCampaignConversion;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationLog;
@@ -328,7 +330,10 @@ class PublicController extends CustomAbstractController
      * @param EntityManagerInterface $entityManager
      * @param EternalTwinHandler $etwin
      * @param UserHandler $userHandler
+     * @param SessionInterface $session
      * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function register_api(
         Request $request,
@@ -338,7 +343,8 @@ class PublicController extends CustomAbstractController
         UserFactory $factory,
         EntityManagerInterface $entityManager,
         EternalTwinHandler $etwin,
-        UserHandler $userHandler
+        UserHandler $userHandler,
+        SessionInterface $session,
     ): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ) || $etwin->isReady())
@@ -456,6 +462,16 @@ class PublicController extends CustomAbstractController
                             ->setDate(new \DateTime())
                             ->setIdentifier( md5($request->getClientIp()) )
                         );
+
+                        if ($campaign = $session->get('campaign')) {
+                            $campaign_obj = $entityManager->getRepository(MarketingCampaign::class)->find($campaign);
+                            if ($campaign_obj)
+                                $entityManager->persist( (new MarketingCampaignConversion())
+                                    ->setUser($user)
+                                    ->setTime(new DateTime())
+                                    ->setCampaign($campaign_obj)
+                                );
+                        }
 
                         if ($referred_player)
                             $entityManager->persist( (new UserSponsorship())
@@ -687,6 +703,16 @@ class PublicController extends CustomAbstractController
                                                             ->setDate(new \DateTime())
                                                             ->setIdentifier( md5($request->getClientIp()) )
                         );
+
+                        if ($campaign = $session->get('campaign')) {
+                            $campaign_obj = $this->entity_manager->getRepository(MarketingCampaign::class)->find($campaign);
+                            if ($campaign_obj)
+                                $this->entity_manager->persist( (new MarketingCampaignConversion())
+                                                             ->setUser($new_user)
+                                                             ->setTime(new DateTime())
+                                                             ->setCampaign($campaign_obj)
+                                );
+                        }
 
                         if ($referred_player)
                             $this->entity_manager->persist( (new UserSponsorship())

@@ -365,8 +365,6 @@ export default class Ajax {
     load( target: HTMLElement, url: string, push_history: boolean = false, data: object = {}, callback: ajaxStack|null = null ) {
         let ajax_instance = this;
 
-        console.log(url);
-
         if (!(target = this.prepareTarget( target ))) return;
         url = this.prepareURL(url);
 
