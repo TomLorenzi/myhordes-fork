@@ -43,7 +43,7 @@ const MapControls = ( props: MapControlProps ) => {
                             className={`small inline ${props.markEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_left`}
                             onClick={()=>props.wrapDispatcher({markEnabled: !props.markEnabled})}
                         >
-                            <div>{globals.strings?.mark && globals.strings?.global}</div>
+                            <div>{globals.strings?.mark}</div>
                         </button>
                         { props.showGlobalButton && (
                             <button
