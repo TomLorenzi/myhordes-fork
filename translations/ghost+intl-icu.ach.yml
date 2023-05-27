@@ -286,3 +286,4 @@ Löschen: crwdns136959:0crwdne136959:0
 'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.': 'crwdns168655:0{tickets_left}crwdne168655:0'
 'Eigenartiger Boden': 'crwdns168657:0crwdne168657:0'
 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'crwdns168659:0crwdne168659:0'
+'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.': 'crwdns168661:0{number}crwdne168661:0'
