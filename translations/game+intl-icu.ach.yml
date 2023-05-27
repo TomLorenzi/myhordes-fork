@@ -2386,3 +2386,15 @@ Stadt/Stadttor: crwdns74786:0crwdne74786:0
 Tarnexperte: crwdns136973:0crwdne136973:0
 'Einrichtung (Tab)': crwdns152375:0crwdne152375:0
 'Offizieller AP-Versorger': 'crwdns167959:0crwdne167959:0'
+'Community-Events verwalten': 'crwdns168495:0crwdne168495:0'
+'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'crwdns168497:0{eventName}crwdne168497:0'
+'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'crwdns168499:0{eventName}crwdne168499:0'
+'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'crwdns168501:0crwdne168501:0'
+'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'crwdns168503:0crwdne168503:0'
+'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'crwdns168505:0crwdne168505:0'
+'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'crwdns168507:0crwdne168507:0'
+'Das Ende deines Lebens in <strong>{town}</strong>': 'crwdns168509:0{town}crwdne168509:0'
+'Du hast {sp} Seelenpunkte erhalten.': 'crwdns168511:0{sp}crwdne168511:0'
+'Du hast keine Seelenpunkte erhalten.': 'crwdns168513:0crwdne168513:0'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'crwdns168515:0crwdne168515:0'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'crwdns168517:0crwdne168517:0'
