@@ -2386,3 +2386,15 @@ Stadt/Stadttor: Town/Doors
 Tarnexperte: Camo Chief
 'Einrichtung (Tab)': Home Improvements
 'Offizieller AP-Versorger': 'Official AP Provider'
+'Community-Events verwalten': 'Manage Community Events'
+'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Your community event "{eventName}" has been verified by a moderator and can now start at the scheduled time.'
+'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Your community event "{eventName}" has been deleted by a moderator.'
+'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'Even from afar, you can hear cheers and shouts of joy echoing through the alleys. No one would have thought it possible...'
+'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'After the completion of the altar, The Crow appeared in your godforsaken city and, in His infinite mercy, lifted all the banishments.'
+'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'The Crow has granted you a second chance and released you from the shackles of banishment. How will you use your newfound freedom?'
+'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'If you just try hard enough, you may be able to take something with you into your next life ...'
+'Das Ende deines Lebens in <strong>{town}</strong>': 'The end of your life in <strong>{town}</strong>'
+'Du hast {sp} Seelenpunkte erhalten.': 'You have obtained {sp} soul points.'
+'Du hast keine Seelenpunkte erhalten.': 'You have not obtained any soul points.'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'Mama always told you that other people''s stuff is like a box of chocolate. Well, in this case, the chocolate was high-explosives, and your insides have decided to repaint the walls. Consider yourself lucky: you won''t have to be the one cleaning it up.'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'The funny thing about crucifixion is that you can tell yourself that it''s because you were too important, rather than that everyone else hated you. At least they seemed to have liked the chocolate: the cross was devoured shortly after you died...'
