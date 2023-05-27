@@ -2386,3 +2386,15 @@ Stadt/Stadttor: Pueblo/Portal
 Tarnexperte: Amo del Camuflaje
 'Einrichtung (Tab)': Instalaciones
 'Offizieller AP-Versorger': 'Proveedor oficial de PA'
+'Community-Events verwalten': 'Administrar Eventos Comunitarios'
+'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Tu evento comunitario "{eventName}" ha sido verificado por un moderador e iniciará correctamente en la fecha establecida.'
+'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Tu evento comunitario "{eventName}" ha sido eliminado por un moderador.'
+'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'Incluso de lejos, se pueden oír vítores y gritos de alegría recorriendo todas las calles del pueblo. Nadie hubiese pensado que esto fuese posible...'
+'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'Tras la construcción del altar, El Cuervo apareció en medio de la plaza del pueblo y, en su infinita misericordia, perdonó a todos los desterrados.'
+'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'El Cuervo te ha otorgado una segunda oportunidad y te liberó de los grilletes del destierro. ¿Cómo usarás esta nueva oportunidad?'
+'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'Si te esfuerzas lo suficiente, quizás puedas llevarte algo a tu próxima vida...'
+'Das Ende deines Lebens in <strong>{town}</strong>': 'El fin de tu vida en <strong>{town}</strong>'
+'Du hast {sp} Seelenpunkte erhalten.': 'Has obtenido {sp} puntos de alma.'
+'Du hast keine Seelenpunkte erhalten.': 'No has obtenido ningún punto de alma.'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'Mamá siempre te decía que las cosas de los demás son como una caja de bombones. Pues bien, en este caso, el bombón era un explosivo de gran potencia, y tus entrañas han decidido repintar la muralla. Considérate afortunado: no tendrás que ser tú quien lo limpie.'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'Lo curioso de la crucifixión es que puedes decirte a ti mismo que fue porque eras demasiado importante, y no porque todo el mundo te odiara. Al menos pareció gustarles el chocolate: la cruz se comió poco después de tu muerte...'
