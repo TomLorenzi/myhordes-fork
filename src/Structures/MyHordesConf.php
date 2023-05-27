@@ -50,6 +50,7 @@ class MyHordesConf extends Conf
     const CONF_TOWNS_OPENMIN_PANDA  = 'towns.openmin.panda';
     const CONF_TOWNS_OPENMIN_SMALL  = 'towns.openmin.small';
     const CONF_TOWNS_OPENMIN_CUSTOM = 'towns.openmin.custom';
+    const CONF_TOWNS_MAX_PRIVATE = 'towns.max_private';
 
     const CONF_RAW_AVATARS = 'avatars.allow_raw';
     const CONF_AVATAR_SIZE_UPLOAD  = 'avatars.max_processing_size';
