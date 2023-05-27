@@ -940,9 +940,16 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->setSetting( UserSetting::Flag, $flag );
     }
+
+    public function hasConfiguredSetting( UserSetting $setting ): bool
+    {
+        return key_exists($setting->value, $this->getSettings() ?? []);
+    }
+
     public function getSetting( UserSetting $setting ) {
         return ($this->getSettings() ?? [])[ $setting->value ] ?? $setting->defaultValue();
     }
+
     public function setSetting( UserSetting $setting, $value ): self {
         $settings = $this->getSettings() ?? [];
         $settings[ $setting->value ] = $value;
