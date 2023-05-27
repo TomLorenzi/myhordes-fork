@@ -67,6 +67,15 @@
 
         <div class="cell rw-12 padded">
 
+            {% if (swapPivots is defined and swapPivots is not empty) %}
+                <h5>{{ 'Account wechseln'|trans({},'global') }}</h5>
+                <ul>
+                    {% for pivot in swapPivots %}
+                        <li><a class="link" href="{{ url('home', {'_switch_user': pivot.secondary.username}) }}"><span>{{ pivot.secondary.name }}</span></a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
             <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="profile">
                 <h5>{{ 'Dein Profil'|trans({},'soul') }}</h5>
                 <div class="row">
