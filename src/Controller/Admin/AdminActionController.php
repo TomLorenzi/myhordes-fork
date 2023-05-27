@@ -57,6 +57,7 @@ class AdminActionController extends CustomAbstractController
     public static function getAdminActions(): array {
         return [
             ['name' => T::__('Dashboard', 'admin'),   'route' => 'admin_dashboard'],
+            ['name' => T::__('Kampagnen', 'admin'),   'route' => 'admin_campaigns'],
             ['name' => T::__('Users', 'admin'),       'route' => 'admin_users'],
             ['name' => T::__('Foren-Mod.', 'admin'),  'route' => 'admin_reports'],
             ['name' => T::__('Städte', 'admin'),      'route' => 'admin_town_list'],
@@ -72,6 +73,7 @@ class AdminActionController extends CustomAbstractController
     public static function getCommunityActions(): array {
         return [
             ['name' => T::__('Dashboard', 'admin'),  'route' => 'admin_dashboard'],
+            ['name' => T::__('Kampagnen', 'admin'),   'route' => 'admin_campaigns'],
             ['name' => T::__('Zukunft', 'admin'),    'route' => 'admin_changelogs'],
         ];
     }

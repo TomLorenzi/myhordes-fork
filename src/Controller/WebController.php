@@ -8,6 +8,7 @@ use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
 use App\Entity\Award;
 use App\Entity\ExternalApp;
+use App\Entity\MarketingCampaign;
 use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
@@ -28,6 +29,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -609,6 +611,17 @@ class WebController extends CustomAbstractController
             Response::HTTP_NOT_FOUND,
             ['content-type' => 'text/plain']
         );
+    }
+
+
+    /**
+     * @Route("/c/{campaign_slug}", name="campaign_redirect", methods={"GET"},condition="!request.isXmlHttpRequest()")
+     * @ParamConverter("campaign", options={"mapping": {"campaign_slug": "slug"}})
+     * @return Response
+     */
+    public function redirect_campaign(?MarketingCampaign $campaign, SessionInterface $session) {
+        if ($campaign && !$this->getUser()) $session->set('campaign', $campaign->getId());
+        return $this->redirectToRoute('home');
     }
 
 }
