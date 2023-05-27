@@ -569,3 +569,12 @@ Heldentage: crwdns136929:0crwdne136929:0
 'Team setzen': 'crwdns168341:0crwdne168341:0'
 'Versteckt von {player}': 'crwdns168343:0{player}crwdne168343:0'
 Verdächtig: crwdns168345:0crwdne168345:0
+Kampagnen: crwdns168663:0crwdne168663:0
+'Neue Kampagne': 'crwdns168665:0crwdne168665:0'
+'Kampagne "{campaign}"': 'crwdns168667:0{campaign}crwdne168667:0'
+Kampagne: crwdns168669:0crwdne168669:0
+Slug: crwdns168671:0crwdne168671:0
+'Zusätzliche Verwalter': 'crwdns168673:0crwdne168673:0'
+'Neue Kampagne anlegen': 'crwdns168675:0crwdne168675:0'
+Einstiegspunkt: crwdns168677:0crwdne168677:0
+'Geworbene Spieler': 'crwdns168679:0crwdne168679:0'
