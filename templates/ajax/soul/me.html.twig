@@ -115,7 +115,7 @@
 
             {% if app.user.activeCitizen is not null and app.user.activeCitizen.alive %}
                 <div class="current">
-                    <em>{{ 'Aktuelles Leben'|trans({}, 'global') }} : </em><br/><strong><img
+                    <em>{{ 'Aktuelles Leben'|trans({}, 'global') }} : </em><br/><strong class="pointer" x-ajax-href="{{ path('soul_view_town', {sid: 'me', idtown: app.user.activeCitizen.town.rankingEntry.id}) }}"><img
                                 src="{{ asset('build/images/soul/r_explor.gif') }}"
                                 alt=""/> {{ app.user.activeCitizen.town.name }}</strong>
                     ({{ 'Tag {day}'|trans({ '{day}':app.user.activeCitizen.town.day }, 'game') }})
