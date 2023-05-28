@@ -6,6 +6,7 @@ use MyHordes\Fixtures\DTO\Container;
 use MyHordes\Fixtures\DTO\ElementInterface;
 
 /**
+ * @method ItemPrototypeDataElement[] all()
  * @method ItemPrototypeDataElement add()
  * @method ItemPrototypeDataElement modify(string $id, bool $required = true)
  */

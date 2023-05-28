@@ -2,6 +2,9 @@
 
 namespace MyHordes\Fixtures\DTO\Items;
 
+use App\Entity\ItemCategory;
+use App\Entity\ItemPrototype;
+use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Fixtures\DTO\Element;
 
 /**
@@ -33,4 +36,40 @@ use MyHordes\Fixtures\DTO\Element;
  * @method ItemPrototypeDataContainer commit()
  * @method ItemPrototypeDataContainer discard()
  */
-class ItemPrototypeDataElement extends Element {}
+class ItemPrototypeDataElement extends Element {
+
+    /**
+     * @throws \Exception
+     */
+    public function toEntity(EntityManagerInterface $em, ItemPrototype $entity): void {
+
+        try {
+            // Check the category
+            $category = $em->getRepository(ItemCategory::class)->findOneBy( ['name' => $this->category ?? 'Misc'] );
+            if ($category === null)
+                throw new \Exception("Invalid category '{$this->category}' defined for item '{$this->label}'.");
+
+            $entity
+                ->setLabel( $this->label )
+                ->setIcon( $this->icon )
+                ->setDeco( $this->deco ?? 0 )
+                ->setHeavy( $this->heavy ?? false )
+                ->setCategory( $category )
+                ->setSort( $this->sort ?? 0 )
+                ->setDescription( $this->description )
+                ->setHideInForeignChest( $this->hideInForeignChest ?? false )
+                ->setDecoText($this->deco_text)
+                ->setIndividual( $this->unstackable ?? false )
+                ->setWatchpoint($this->watchpoint ?? 0)
+                ->setFragile( $this->fragile ?? false );
+        } catch (\Throwable $t) {
+            throw new \Exception(
+                "Exception when persisten item prototype to database: {$t->getMessage()} \n\nOccured when processing the following item:\n" . print_r($this->toArray(), true),
+                previous: $t
+            );
+        }
+
+
+    }
+
+}

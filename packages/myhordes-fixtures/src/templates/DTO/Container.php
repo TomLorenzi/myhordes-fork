@@ -39,6 +39,14 @@ abstract class Container implements ContainerInterface
     }
 
     /**
+     * @return ElementInterface[]
+     */
+    public function all(): array {
+        $keys = array_keys( $this->data );
+        return array_combine( $keys, array_map( fn(string $key) => $this->generate(from: $key), $keys ) );
+    }
+
+    /**
      * @throws Exception
      */
     public function modify(string $id, bool $required = true): ElementInterface {

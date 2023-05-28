@@ -8,6 +8,7 @@ use App\Entity\ItemPrototype;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
+use MyHordes\Fixtures\DTO\Items\ItemPrototypeDataContainer;
 use MyHordes\Plugins\Fixtures\Item;
 use MyHordes\Plugins\Fixtures\ItemGroup;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -103,64 +104,26 @@ class ItemFixtures extends Fixture
     }
 
     protected function insert_item_prototypes(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $item_prototype_data = $this->item_data->data();
+        $item_prototype_data = (new ItemPrototypeDataContainer($this->item_data->data()))->all();
         $item_prototype_properties = $this->item_property_data->data();
 
-        $out->writeln( '<comment>Item prototypes: ' . count($item_prototype_data['items']) . ' fixture entries available.</comment>' );
-
-        // Get misc category
-        $misc_category = $this->entityManager->getRepository(ItemCategory::class)->findOneBy( ['name' => 'Misc'] );
-        $cache = [];
+        $out->writeln( '<comment>Item prototypes: ' . count($item_prototype_data) . ' fixture entries available.</comment>' );
 
         // Set up console
         $progress = new ProgressBar( $out->section() );
-        $progress->start( count($item_prototype_data['items']) );
+        $progress->start( count($item_prototype_data) );
 
         $properties = [];
 
         // Iterate over all entries
-        foreach ($item_prototype_data['items'] as $entry) {
-            // Set up the icon cache
-            if (!isset($cache[$entry['icon']])) $cache[$entry['icon']] = 0;
-            else $cache[$entry['icon']]++;
-
-            // Generate unique ID
-            $entry_unique_id = $entry['icon'] . '_#' . str_pad($cache[$entry['icon']],2, '0',STR_PAD_LEFT);
-
-            // Check the category
-            $category = $this->entityManager->getRepository(ItemCategory::class)->findOneBy( ['name' => $entry['category']] );
-            if ($category === null) {
-                $category = $misc_category;
-                $out->writeln('<error>Unable to locate category \'' . $entry['category'] . '\' for item \'' .
-                    $entry_unique_id . '\'. Assigning MISC category instead.</error>');
-            }
-            if ($category === null) {
-                $out->writeln('<error>Unable to locate category \'' . $entry['category'] . '\' for item \'' .
-                    $entry_unique_id . '\'. MISC category could not be located, entry will be skipped!</error>');
-                continue;
-            }
+        foreach ($item_prototype_data as $entry_unique_id => $entry) {
 
             // Get existing entry, or create new one
             $entity = $this->entityManager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $entry_unique_id] );
-            if ($entity === null) $entity = new ItemPrototype();
+            if ($entity === null) $entity = (new ItemPrototype())->setName( $entry_unique_id );
+            else $entity->getProperties()->clear();
 
-            // Set property
-            $entity->setName( $entry_unique_id )
-                ->setLabel( $entry['label'] )
-                ->setIcon( $entry['icon'] )
-                ->setDeco( $entry['deco'] )
-                ->setHeavy( $entry['heavy'] )
-                ->setCategory( $category )
-                ->setSort( $entry['sort'] ?? 0 )
-                ->setDescription( $item_prototype_data['descriptions'][ $entry_unique_id ] ?? "" )
-                ->setHideInForeignChest( $entry['hideInForeignChest'] ?? false )
-                ->setDecoText($entry['deco_text'] ?? null)
-                ->setIndividual( $entry['unstackable'] ?? false )
-                ->getProperties()->clear();
-
-            $entity
-                ->setWatchpoint($entry['watchpoint'] ?? 0)
-                ->setFragile( $entry['fragile'] ?? false );
+            $entry->toEntity( $this->entityManager, $entity );
 
             if (isset($item_prototype_properties[$entry_unique_id]))
                 foreach ($item_prototype_properties[$entry_unique_id] as $property) {

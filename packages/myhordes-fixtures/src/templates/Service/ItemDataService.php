@@ -7,6 +7,9 @@ use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ItemDataService implements FixtureProcessorInterface {
 
+    /**
+     * @throws \Exception
+     */
     public function process(array &$data): void
     {
         $container = new ItemPrototypeDataContainer($data);
