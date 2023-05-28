@@ -18,9 +18,8 @@
     {% endif %}
     <div class="row-table citizens-list">
         <div class="row-flex header">
-            <div class="padded cell rw-5 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
-            <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
-            <div class="padded cell rw-1 hide-lg hide-md hide-sm center">
+            <div class="padded cell rw-9 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
+            <div class="padded cell rw-1 hide-md hide-sm right">
                 {{ 'Def.'|trans({},'game') }}<br />
                 {{ help_btn('Zeigt die Hausverteidigung an.'|trans({},'game')) }}
             </div>
@@ -42,7 +41,7 @@
                         <div class="avatar small ua-{{ random(0,9) }} hide-mobile" style="flex-basis: 92px;background: url('{{ asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;">&nbsp;</div>
                         <div class="cell factor-0 citizen-{{ town.strangerPower > 0 ? 'online' : 'dead' }}" style="flex-basis: 8px;">&nbsp;</div>
 
-                        <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
+                        <div class="padded cell rw-7 factor-1 small content-center-vertical citizen-box citizen-box-name">
                             <div>
                                 <div>
                                     {% if town.strangerPower > 0 %}
@@ -69,7 +68,7 @@
                                 <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                                 <span class="citizen-defense"> -- </span>
                             </div>
-                            <div class="padded cell factor-0 small right citizen-box location" style="flex-basis: 80px;">
+                            <div class="padded cell factor-0 small right citizen-box location" style="flex-basis: 75px;">
                                 {{ "In der Stadt"|trans({},'game') }}
                             </div>
                         {% else %}
@@ -96,7 +95,7 @@
                 {% include "ajax/soul/playeravatar.html.twig" with {user: citizen.user, small: true, background: true, class: ['cell','factor-0','hide-mobile'], attributes: {style: 'flex-basis: 92px', 'x-ajax-href': path('town_visit', {id: citizen.id}) }} only %}
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
-                <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}">
+                <div class="padded cell rw-8 factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
                     <div>
                         <div>
                             {% if citizen.alive %}
@@ -149,18 +148,10 @@
                                 {% endif %}
                             {% endif %}
                         </div>
-                        <div class="hide-desktop small-citizen-defense">
-                            {% if citizen.alive %}
-                                <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
-                                <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% if citizen.alive %}
-                    <div class="padded cell rw-8 hide-md factor-2 small citizen-box" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
                         {{ citizen.home.description }}
-                        <div class="tooltip normal">
+                        
+                    </div>
+                    <div class="tooltip normal">
                             {% if not hidden[citizen.id] %}
                                 {% if citizen.home.chest.items|length == 0 %}
                                     <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
@@ -180,12 +171,13 @@
                                 <em>{{ 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...'|trans({},'game') }}</em>
                             {% endif %}
                         </div>
-                    </div>
-                    <div class="padded cell factor-0 citizen-box hide-lg hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
+                </div>
+                {% if citizen.alive %}
+                    <div class="padded cell factor-0 citizen-box hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                         <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
                     </div>
-                    <div class="padded cell factor-0 small right citizen-box location" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px;">
+                    <div class="padded cell factor-0 small right citizen-box location" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 75px;">
                         <div class="tooltip normal">
                             {% if not hidden[citizen.id] %}
                                 {% if citizen.home.chest.items|length == 0 %}
