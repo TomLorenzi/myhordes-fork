@@ -98,3 +98,5 @@ Registrierungstoken: Registration token
 'Du hast den Nutzungsbedingungen von MyHordes noch nicht zugestimmt. Beachte, dass du diese Warnung nicht für immer ignorieren kannst.': 'You have not yet agreed to the MyHordes Terms of Service. Note that you cannot ignore this warning forever.'
 'Zum Zustimmungsdialog wechseln': 'Open dialog to accept'
 'Klicke auf "Später zustimmen", um diesen Hinweis vorerst auszublenden. Bitte beachte jedoch, dass du diesen Hinweis nicht ewig ignorieren kannst.': 'Click "Agree later" to hide this notice for now. However, please note that you cannot ignore this notice forever.'
+'Dein Name muss mindestens {limit} Zeichen umfassen.': 'Dein Name muss mindestens {limit} Zeichen umfassen.'
+'Dein Name kann höchstens {limit} Zeichen umfassen.': 'Dein Name kann höchstens {limit} Zeichen umfassen.'
