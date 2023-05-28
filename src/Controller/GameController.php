@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
 use App\Annotations\Semaphore;
+use App\Controller\Soul\SoulController;
 use App\Entity\ActionCounter;
 use App\Entity\Announcement;
 use App\Entity\Citizen;
@@ -255,10 +256,9 @@ class GameController extends CustomAbstractController
 
         $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
         if($citizen_alias_active) {
-            $apply_result = $this->citizen_handler->applyAlias( $citizen, $parser->trimmed('citizenalias', '') );
-            if($apply_result == -1) {
-                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-            }
+            if (!$this->user_handler->isNameValid( $alias = $parser->trimmed('citizenalias', ''), custom_length: 22 ))
+                return AjaxResponse::error(SoulController::ErrorUserEditUserName);
+            $citizen->setAlias( $alias );
         }
 
         $this->citizen_handler->applyProfession( $citizen, $new_profession );

@@ -569,30 +569,6 @@ class CitizenHandler
 
     }
 
-    /**
-     * Tries to apply an alias to the citizen.
-     * 
-     * @param Citizen $citizen
-     * @param string $alias
-     * @return int 1: Alias applied, 0: Alias not applied, -1: Error to report
-     */
-    public function applyAlias(Citizen &$citizen, string $alias) {
-        if (!empty($alias) && $alias !== $citizen->getUser()->getName()) {
-
-
-            if (!$this->user_handler->isNameValid( $alias ))
-                return -1;
-
-            if (mb_strlen($alias) < 4 || mb_strlen($alias) > 22 || preg_match('/[^\w]/', $alias))
-                return -1;
-
-            $citizen->setAlias( $alias ); // nbsp
-
-            return 1;
-        }
-        return 0;
-    }
-
     public function getSoulpoints(Citizen $citizen): int {
         $days = $citizen->getSurvivedDays();
         return $days * ( $days + 1 ) / 2;
