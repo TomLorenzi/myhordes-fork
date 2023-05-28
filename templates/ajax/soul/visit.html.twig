@@ -41,7 +41,7 @@
                     {# @var user \App\Entity\User #}
                     {% if user.activeCitizen is not null and user.activeCitizen.alive %}
                         <div class="current">
-                            <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ user.activeCitizen.town.name }}</strong> ({{ 'Tag {day}'|trans({'{day}':user.activeCitizen.town.day}, 'game') }})
+                            <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong  class="pointer" x-ajax-href="{{ path('soul_view_town', {sid: user.id, idtown: user.activeCitizen.town.rankingEntry.id}) }}"><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ user.activeCitizen.town.name }}</strong> ({{ 'Tag {day}'|trans({'{day}':user.activeCitizen.town.day}, 'game') }})
                         </div>
                     {% endif %}
                     {% if user_desc %}
