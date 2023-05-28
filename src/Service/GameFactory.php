@@ -696,14 +696,15 @@ class GameFactory
         $entry_cache = [];
         foreach ($followers as $joining_user) {
 
-            if (!$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_TEAMS ) && $town->getLanguage() !== null && $town->getLanguage() !== 'multi' && $town->getRankingEntry() && !$town->getRankingEntry()->getEvent() && $town->getSeason())
-                $this->entity_manager->persist(
-                    (new TeamTicket())
-                        ->setTown( $town->getRankingEntry() )
-                        ->setSeason( $town->getSeason() )
-                        ->setUser( $joining_user )
-                        ->setTeam( $town->getLanguage() )
-                );
+            if (!$this->user_handler->hasRole( $joining_user, 'ROLE_CROW' ))
+                if (!$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_TEAMS ) && $town->getLanguage() !== null && $town->getLanguage() !== 'multi' && $town->getRankingEntry() && !$town->getRankingEntry()->getEvent() && $town->getSeason())
+                    $this->entity_manager->persist(
+                        (new TeamTicket())
+                            ->setTown( $town->getRankingEntry() )
+                            ->setSeason( $town->getSeason() )
+                            ->setUser( $joining_user )
+                            ->setTeam( $town->getLanguage() )
+                    );
 
             $home = new CitizenHome();
             $home
