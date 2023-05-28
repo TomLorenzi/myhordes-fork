@@ -30,9 +30,7 @@
     <div class="cell padded rw-12">
         {% if ranking|length > 0 %}
             <div class="row-flex header">
-                <div class="cell padded rw-1 center">
-                    {{'Lang.'|trans({}, 'soul')}}
-                </div>
+                <div class="cell padded rw-1 center"></div>
                 <div class="cell padded rw-1 center">
                     {{'Pos.'|trans({}, 'soul')}}
                 </div>
@@ -50,7 +48,19 @@
                     {% set points = info.allPoints %}
                     {% set pos = pos + 1 %}
                     <div class="row-flex stretch season_entry_solo{% if player.id == user.id %} played{% endif %}{% if pos <= 5 %} top5{% else %} top5plus{% endif %}">
-                        <div class="cell rw-1 season_entry_td center soul_season_flag"><img src="{% if player.language %} {{ asset("build/images/lang/" ~ player.language ~".png") }} {% else %} {{ asset("build/images/lang/multi.png") }} {% endif %}" alt="{{ user.language }}" /></div>
+                        <div class="cell rw-1 season_entry_td center soul_season_flag">
+                            {% if player.flag is not null %}
+                                <div class="user-flag {% if pos > 5 %}small{% endif %}"><img alt="{{ player.flag }}" src="{{ asset('build/images/lang/any/' ~ player.flag ~ '.svg' ) }}"/></div>
+                            {% elseif player.language is not null and player.language != 'ach' %}
+                                {% if player.language == 'en' %}
+                                    <img src="{{ asset("build/images/lang/" ~ player.language ~ ".png") }}" alt="{{ player.language }}" />
+                                {% else %}
+                                    <div class="user-flag {% if pos > 5 %}small{% endif %}"><img alt="{{ player.language }}" src="{{ asset('build/images/lang/any/' ~ player.language|upper ~ '.svg' ) }}"/></div>
+                                {% endif %}
+                            {% else %}
+                                <img src="{{ asset("build/images/lang/multi.png") }}" alt="" />
+                            {% endif %}
+                        </div>
                         <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
                         <div class="cell rw-6 season_entry_td left soul_season_name">
                             {% set extra_class="" %}
