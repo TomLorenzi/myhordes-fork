@@ -1375,14 +1375,7 @@ class AdminTownController extends AdminActionController
         if(!$citizen_alias_active)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if($alias == null) {
-            $citizen->setAlias(null);
-        } else {
-            $apply_result = $this->citizen_handler->applyAlias($citizen, $alias);
-            if($apply_result == -1) {
-                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-            }
-        }
+        $citizen->setAlias($alias);
 
         try {
             $this->entity_manager->persist( $citizen );
