@@ -64,7 +64,7 @@ class ItemPrototypeDataElement extends Element {
                 ->setFragile( $this->fragile ?? false );
         } catch (\Throwable $t) {
             throw new \Exception(
-                "Exception when persisten item prototype to database: {$t->getMessage()} \n\nOccured when processing the following item:\n" . print_r($this->toArray(), true),
+                "Exception when persisting item prototype to database: {$t->getMessage()} \n\nOccurred when processing the following item:\n" . print_r($this->toArray(), true),
                 previous: $t
             );
         }

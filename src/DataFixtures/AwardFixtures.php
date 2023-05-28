@@ -11,6 +11,8 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
+use MyHordes\Fixtures\DTO\Awards\AwardIconPrototypeDataContainer;
+use MyHordes\Fixtures\DTO\Awards\AwardTitlePrototypeDataContainer;
 use MyHordes\Plugins\Fixtures\AwardFeature;
 use MyHordes\Plugins\Fixtures\AwardIcon;
 use MyHordes\Plugins\Fixtures\AwardTitle;
@@ -27,7 +29,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
     private AwardFeature $data_aw_feature;
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $award_data = $this->data_aw_title->data();
+        $award_data = (new AwardTitlePrototypeDataContainer( $this->data_aw_title->data() ))->all();
         $out->writeln('<comment>Awards: ' . count($award_data) . ' fixture entries available.</comment>');
 
         $progress = new ProgressBar( $out->section() );
@@ -36,22 +38,10 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         $titles = [];
 
         foreach($award_data as $entry) {
-            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByTitle($entry['title']) ?? new AwardPrototype();
+            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByTitle($entry->title) ?? new AwardPrototype();
 
-            $pp = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $entry['associatedpicto']]);
-            if ($pp === null) {
-                $out->writeln("<error>Skipping award '{$entry['title']}' because the associated picto '{$entry['associatedpicto']}' does not exist.</error>");
-                continue;
-            }
-
-            $entity
-                ->setAssociatedPicto( $pp )
-                ->setAssociatedTag($entry['associatedtag'])
-                ->setTitle($entry['title'])
-                ->setIcon(null)
-                ->setUnlockQuantity($entry['unlockquantity']);
-
-            $titles[] = $entry['title'];
+            $entry->toEntity( $this->entityManager, $entity );
+            $titles[] = $entry->title;
 
             $manager->persist($entity);
             $progress->advance();
@@ -69,7 +59,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
     }
 
     private function insertIconAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $icon_data = $this->data_aw_icon->data();
+        $icon_data = (new AwardIconPrototypeDataContainer( $this->data_aw_icon->data() ))->all();
         $out->writeln('<comment>Icon Awards: ' . count($icon_data) . ' fixture entries available.</comment>');
 
         $progress = new ProgressBar( $out->section() );
@@ -78,22 +68,10 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         $icons = [];
 
         foreach($icon_data as $entry) {
-            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByIcon($entry['icon']) ?? new AwardPrototype();
+            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByIcon($entry->icon) ?? new AwardPrototype();
 
-            $pp = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $entry['associatedpicto']]);
-            if ($pp === null) {
-                $out->writeln("<error>Skipping award '{$entry['icon']}' because the associated picto '{$entry['associatedpicto']}' does not exist.</error>");
-                continue;
-            }
-
-            $entity
-                ->setAssociatedPicto( $pp )
-                ->setAssociatedTag(null)
-                ->setTitle(null)
-                ->setIcon($entry['icon'])
-                ->setUnlockQuantity($entry['unlockquantity']);
-
-            $icons[] = $entry['icon'];
+            $entry->toEntity( $this->entityManager, $entity );
+            $icons[] = $entry->icon;
 
             $manager->persist($entity);
             $progress->advance();
