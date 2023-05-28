@@ -61,7 +61,7 @@ class WebController extends CustomAbstractController
         [0, 'small_dev.png', 'Benjamin "<i>Brainbox</i>" Behrendt'],
         [0, 'small_dev.png', 'Ludovic "<i>Cheh\'Tan</i>" Le Brech'],
         [0, 'small_dev.png', 'Adrien "<i>Adri</i>" Boitelle'],
-        [0, 'icon_mh_team.gif', 'Connor "<i>Dylan57</i>" Ottermann'],
+        [0, 'small_dev.png', 'Connor "<i>Dylan57</i>" Ottermann'],
         [1, 'icon_mh_team.gif', 'Ryan "<i>Nayr</i>" Nayrovic'],
         [2, 'small_dev.png', 'Paul "<i>CountCount</i>" Bruhn'],
         [2, 'small_dev.png', 'Niklas "<i>Choreas</i>" Kosanke'],
