@@ -75,7 +75,6 @@ class LogEntryTemplateRepository extends ServiceEntityRepository
                 ->orWhere('l.secondaryType IN (:val)')
                 ->setParameter('val', $value)
                 ->orderBy('l.id', 'ASC')
-                ->setMaxResults(10)
                 ->getQuery()
                 ->getResult()
             ;
