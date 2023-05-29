@@ -290,6 +290,40 @@ class AdminForumController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/forum/reports/moderate-u", name="admin_reports_mod_u")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function reports_moderate_u(JSONRequestParser $parser): Response
+    {
+        $user = $this->getUser();
+
+        $uid = $parser->get_int('uid', null);
+        if ($uid === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!($target = $this->entity_manager->getRepository(User::class)->find($uid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $existing_reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['user' => $target]);
+        if (empty($existing_reports)) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $seen = (bool)$parser->get('seen', false);
+
+        if (!$seen) return AjaxResponse::success();
+        foreach ($existing_reports as $report)
+            $this->entity_manager->persist($report->setSeen(true));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/admin/forum/reports/seen-pm", name="admin_reports_seen_pm")
      * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
@@ -714,6 +748,52 @@ class AdminForumController extends AdminActionController
             'tab' => 'citizen',
 
             'citizens'  => array_filter($c_cache, fn($e) => $e['content'] !== null ),
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/user/{opt}", name="admin_reports_user")
+     * @param string $opt
+     * @return Response
+     */
+    public function user_reports(string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
+        /** @var AdminReport[] $u_reports */
+        $u_reports = array_filter($reports, function(AdminReport $r) {
+            if (!$r->getUser()) return false;
+            return true;
+        });
+
+        $u_cache = [];
+        foreach ($u_reports as $report) {
+            $key = "{$report->getUser()->getId()}";
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
+            if (!isset($u_cache[$key]))
+                $u_cache[$key] = [
+                    'user' => $report->getUser(), 'spec' => $report->getSpecification(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [
+                        [$report->getSourceUser(), $report->getReason(), $report->getDetails()]
+                    ]
+                ];
+            else {
+                $u_cache[$key]['count']++;
+                $u_cache[$key]['seen'] += $seen ? 1 : 0;
+                $u_cache[$key]['reporters'][] = [$report->getSourceUser(), $report->getReason(), $report->getDetails()];
+            }
+        }
+
+        if (!$show_bin) $u_cache = array_filter( $u_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/users.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'users',
+
+            'users'  => $u_cache,
 
             'opt' => $opt,
             'bin_shown' => $show_bin,

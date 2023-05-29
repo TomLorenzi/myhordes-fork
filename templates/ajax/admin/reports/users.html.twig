@@ -1,0 +1,72 @@
+{% extends "ajax/admin/reports/framework.html.twig" %}
+
+{% set complaint_list = [
+    'Keinen Grund angeben','Cheating','Flooding oder Spam','Verwendung einer anderen als der Forensprache',
+    'Beleidigungen / Unangemessener Ausdruck','Pornographie','Hassrede','Verbreitung persönlicher Informationen',
+    'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung',
+    'Unangemessene Profilbeschreibung', 'Unangemessener Avatar', 'Unangemessener Name'
+] %}
+
+{% block content %}
+    <h5>{{ 'Meldungen für Benutzeraccounts'|trans({},'admin') }}</h5>
+
+    {% if bin_shown %}
+        <div class="note">
+            {{ 'Du siehst aktuell gelöschte Meldungen.'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_user', {opt: ''}) }}">{{ 'Zurück zur Meldungsübersicht'|trans({},'admin') }}</a>
+        </div>
+    {% else %}
+        <div class="note">
+            {{ 'Möchtest du bereits gelöschte Meldungen durchsuchen?'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_user', {opt: 'bin'}) }}">{{ 'Zum Papierkorb'|trans({},'admin') }}</a>
+        </div>
+    {% endif %}
+
+    <div class="row-table">
+        <div class="row header">
+            <div class="cell rw-3 hide-sm hide-md padded">{{ "Benutzername" |trans({}, 'admin') }}</div>
+            <div class="cell rw-1 hide-sm hide-md hide-lg padded">#</div>
+            <div class="cell rw-6 rw-lg-4 hide-sm hide-md padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
+            <div class="cell rw-2 hide-sm hide-md padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
+        </div>
+        {% for user in users %}
+            <div class="row">
+                <div class="cell padded rw-3 rw-md-12">
+                    {% include 'ajax/soul/playername.html.twig' with {user: user.user} only %}
+                </div>
+                <div class="cell padded rw-1 hide-sm hide-md hide-lg">
+                    <span>{{ user.count }}</span>
+                </div>
+                <div class="cell padded rw-6 rw-lg-7 rw-sm-12">
+                    {% for reporter in user.reporters %}
+                        <div class="small">
+                            <b>{{ reporter[0].name }}</b>:
+                            <i>{{ complaint_list[reporter[1]]|trans({},'global') }}</i>
+                            {% if reporter[2] is not null %}
+                                <div class="tooltip"><div class="bold">{{ 'Details'|trans({},'global') }}</div><p>{{ reporter[2] }}</p></div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="cell padded rw-2 rw-md-8">
+                    <button class="small inline" x-ajax-target="_blank" x-ajax-href="{{ path('admin_users_account_view', {id: user.user.id}) }}">{{ 'Öffnen'|trans({}, 'admin') }}</button>
+                    {% if not bin_shown %}
+                        <button class="small inline" x-report-action="seen-u-reports" x-post-id={{ user.user.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                    {% endif %}
+                </div>
+                <div class="hidden cell padded rw-12" x-u-target="{{ user.user.id }}"></div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll('[x-report-action=seen-u-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_mod_u') }}', {uid: parseInt(elem.getAttribute('x-post-id')), seen: true},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports_user', {opt: opt}) }}', true);
+                } );
+        } );
+    </script>
+{% endblock %}
