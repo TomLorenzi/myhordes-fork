@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AdminReport;
+use App\Entity\BlackboardEdit;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
@@ -12,6 +14,7 @@ use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\ReportSeenMarker;
 use App\Entity\User;
+use App\Enum\AdminReportSpecification;
 use App\Response\AjaxResponse;
 use App\Service\AdminHandler;
 use App\Service\CrowService;
@@ -211,6 +214,116 @@ class AdminForumController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/forum/reports/moderate-bb", name="admin_reports_mod_bb")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function reports_moderate_bb(JSONRequestParser $parser, PermissionHandler $perm): Response
+    {
+        $user = $this->getUser();
+
+        $bbid = $parser->get('bbid', null);
+        if ($bbid === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $pm */
+        if (!($board = $this->entity_manager->getRepository(BlackboardEdit::class)->find($bbid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+
+        $existing_reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['blackBoard' => $board]);
+        if (empty($existing_reports)) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$perm->checkAnyEffectivePermissions($user, $board->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $seen = (bool)$parser->get('seen', false);
+
+        if (!$seen) return AjaxResponse::success();
+        foreach ($existing_reports as $report)
+            $this->entity_manager->persist($report->setSeen(true));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/moderate-c", name="admin_reports_mod_c")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function reports_moderate_c(JSONRequestParser $parser): Response
+    {
+        $user = $this->getUser();
+
+        $cid = $parser->get_int('cid', null);
+        $ct = $parser->get_int('ct', null);
+        if ($cid === null || $ct === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (($ct = AdminReportSpecification::tryFrom($ct)) === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!($citizen = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($cid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $existing_reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['citizen' => $citizen, 'specification' => $ct->value]);
+        if (empty($existing_reports)) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $seen = (bool)$parser->get('seen', false);
+
+        if (!$seen) return AjaxResponse::success();
+        foreach ($existing_reports as $report)
+            $this->entity_manager->persist($report->setSeen(true));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/moderate-u", name="admin_reports_mod_u")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function reports_moderate_u(JSONRequestParser $parser): Response
+    {
+        $user = $this->getUser();
+
+        $uid = $parser->get_int('uid', null);
+        if ($uid === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!($target = $this->entity_manager->getRepository(User::class)->find($uid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $existing_reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['user' => $target]);
+        if (empty($existing_reports)) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $seen = (bool)$parser->get('seen', false);
+
+        if (!$seen) return AjaxResponse::success();
+        foreach ($existing_reports as $report)
+            $this->entity_manager->persist($report->setSeen(true));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/admin/forum/reports/seen-pm", name="admin_reports_seen_pm")
      * @AdminLogProfile(enabled=true)
      * @param JSONRequestParser $parser
@@ -393,13 +506,12 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/{tab}/{opt}", name="admin_reports")
+     * @Route("jx/admin/forum/posts/{opt}", name="admin_reports_forum_posts")
      * @param PermissionHandler $perm
-     * @param string $tab
      * @param string $opt
      * @return Response
      */
-    public function reports(PermissionHandler $perm, string $tab = 'reports', string $opt = ''): Response
+    public function forum_reports(PermissionHandler $perm, string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
         $show_all = $show_bin || $opt === 'all';
@@ -439,6 +551,31 @@ class AdminForumController extends AdminActionController
             }
         }
 
+        return $this->render( 'ajax/admin/reports/posts.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'posts',
+
+            'posts' => $selectedReports,
+
+            'opt' => $opt,
+            'all_shown' => $show_all,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/pn/{opt}", name="admin_reports_town")
+     * @param PermissionHandler $perm
+     * @param string $opt
+     * @return Response
+     */
+    public function pn_reports(PermissionHandler $perm, string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $allowed_forums = [];
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
         /** @var AdminReport[] $pm_reports */
         $pm_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
             if ($r->getPm() === null || $r->getPm()->getOwner() === null || $r->getPm()->getOwner()->getTown()->getForum() === null) return false;
@@ -461,6 +598,29 @@ class AdminForumController extends AdminActionController
             }
         }
 
+        if (!$show_bin) $pm_cache = array_filter( $pm_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/pn.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'pn',
+
+            'pms'  => $pm_cache,
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/global/{opt}", name="admin_reports_global")
+     * @param string $opt
+     * @return Response
+     */
+    public function gpn_reports(string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
         /** @var AdminReport[] $gpm_reports */
         $gpm_reports = array_filter($reports, function(AdminReport $r) {
             if ($r->getGpm() === null || $r->getGpm()->getReceiverGroup() === null || $r->getGpm()->getSender() === null) return false;
@@ -481,22 +641,174 @@ class AdminForumController extends AdminActionController
             }
         }
 
-        if (!$show_all) {
-            $pm_cache = array_filter( $pm_cache, fn($e) => $e['count'] > $e['seen'] );
-            $gpm_cache = array_filter( $gpm_cache, fn($e) => $e['count'] > $e['seen'] );
-        }
+        if (!$show_bin) $gpm_cache = array_filter( $gpm_cache, fn($e) => $e['count'] > $e['seen'] );
 
-        return $this->render( 'ajax/admin/reports/reports.html.twig', $this->addDefaultTwigArgs(null, [
-            'tab' => $tab,
+        return $this->render( 'ajax/admin/reports/gpn.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'gpn',
 
-            'posts' => $selectedReports,
-            'pms'  => $pm_cache,
             'gpms' => $gpm_cache,
 
             'opt' => $opt,
-            'all_shown' => $show_all,
             'bin_shown' => $show_bin,
+        ]));
+    }
 
+    /**
+     * @Route("jx/admin/forum/woh/{opt}", name="admin_reports_blackboard")
+     * @param PermissionHandler $perm
+     * @param string $opt
+     * @return Response
+     */
+    public function blackboard_reports(PermissionHandler $perm, string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $allowed_forums = [];
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
+        /** @var AdminReport[] $bb_reports */
+        $bb_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+            if ($r->getBlackBoard() === null || $r->getBlackBoard()->getTown()->getForum() === null) return false;
+            $tid = $r->getBlackBoard()->getTown()->getForum()->getId();
+            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
+            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getBlackBoard()->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]);
+        });
+
+        $bb_cache = [];
+        foreach ($bb_reports as $report) {
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
+            if (!isset($bb_cache[$report->getBlackBoard()->getId()]))
+                $bb_cache[$report->getBlackBoard()->getId()] = [
+                    'board' => $report->getBlackBoard(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [ $report->getSourceUser() ]
+                ];
+            else {
+                $bb_cache[$report->getBlackBoard()->getId()]['count']++;
+                $bb_cache[$report->getBlackBoard()->getId()]['seen'] += $seen ? 1 : 0;
+                $bb_cache[$report->getBlackBoard()->getId()]['reporters'][] = $report->getSourceUser();
+            }
+        }
+
+        if (!$show_bin) $bb_cache = array_filter( $bb_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/woh.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'woh',
+
+            'boards'  => $bb_cache,
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/citizen/{opt}", name="admin_reports_citizen")
+     * @param string $opt
+     * @return Response
+     */
+    public function citizen_reports(string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
+        /** @var AdminReport[] $c_reports */
+        $c_reports = array_filter($reports, function(AdminReport $r) {
+            if (!$r->getCitizen()) return false;
+            if ($r->getSpecification() === AdminReportSpecification::CitizenAnnouncement && !$r->getCitizen()->getCitizen()) return false;
+            return true;
+        });
+
+        $c_cache = [];
+        foreach ($c_reports as $report) {
+            $key = "{$report->getCitizen()->getId()}_{$report->getSpecification()->value}";
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
+            if (!isset($c_cache[$key]))
+                $c_cache[$key] = [
+                    'citizen' => $report->getCitizen(), 'spec' => $report->getSpecification(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [
+                        [$report->getSourceUser(), $report->getReason(), $report->getDetails()]
+                    ],
+                    'content' => match ( $report->getSpecification() ) {
+                        AdminReportSpecification::None => null,
+                        AdminReportSpecification::CitizenAnnouncement => $report->getCitizen()->getCitizen()->getHome()->getDescription(),
+                        AdminReportSpecification::CitizenLastWords => $report->getCitizen()->getLastWords(),
+                        AdminReportSpecification::CitizenTownComment => $report->getCitizen()->getComment(),
+                    }
+                ];
+            else {
+                $c_cache[$key]['count']++;
+                $c_cache[$key]['seen'] += $seen ? 1 : 0;
+                $c_cache[$key]['reporters'][] = [$report->getSourceUser(), $report->getReason(), $report->getDetails()];
+            }
+        }
+
+        if (!$show_bin) $c_cache = array_filter( $c_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/citizen.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'citizen',
+
+            'citizens'  => array_filter($c_cache, fn($e) => $e['content'] !== null ),
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/user/{opt}", name="admin_reports_user")
+     * @param string $opt
+     * @return Response
+     */
+    public function user_reports(string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
+        /** @var AdminReport[] $u_reports */
+        $u_reports = array_filter($reports, function(AdminReport $r) {
+            if (!$r->getUser()) return false;
+            return true;
+        });
+
+        $u_cache = [];
+        foreach ($u_reports as $report) {
+            $key = "{$report->getUser()->getId()}";
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
+            if (!isset($u_cache[$key]))
+                $u_cache[$key] = [
+                    'user' => $report->getUser(), 'spec' => $report->getSpecification(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [
+                        [$report->getSourceUser(), $report->getReason(), $report->getDetails()]
+                    ]
+                ];
+            else {
+                $u_cache[$key]['count']++;
+                $u_cache[$key]['seen'] += $seen ? 1 : 0;
+                $u_cache[$key]['reporters'][] = [$report->getSourceUser(), $report->getReason(), $report->getDetails()];
+            }
+        }
+
+        if (!$show_bin) $u_cache = array_filter( $u_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/users.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'users',
+
+            'users'  => $u_cache,
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/snippets", name="admin_reports_snippets")
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function forum_snippets(PermissionHandler $perm): Response
+    {
+        return $this->render( 'ajax/admin/reports/snippets.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'short',
             'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
         ]));
     }

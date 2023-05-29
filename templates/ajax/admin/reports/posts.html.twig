@@ -1,0 +1,79 @@
+{% extends "ajax/admin/reports/framework.html.twig" %}
+{% block content %}
+    <h5>{{ 'Foren-Meldungen'|trans({},'admin') }}</h5>
+    {% if not all_shown %}
+        <div class="note">
+            {{ 'Posts mit nur einer Meldung werden ausgeblendet.'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_forum_posts', {opt: 'all'}) }}">{{ 'Alle anzeigen'|trans({},'admin') }}</a>
+        </div>
+    {% endif %}
+
+    {% if bin_shown %}
+        <div class="note">
+            {{ 'Du siehst aktuell gelöschte Meldungen.'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_forum_posts', {opt: ''}) }}">{{ 'Zurück zur Meldungsübersicht'|trans({},'admin') }}</a>
+        </div>
+    {% else %}
+        <div class="note">
+            {{ 'Möchtest du bereits gelöschte Meldungen durchsuchen?'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_forum_posts', {opt: 'bin'}) }}">{{ 'Zum Papierkorb'|trans({},'admin') }}</a>
+        </div>
+    {% endif %}
+    <div class="row-table">
+        <div class="row header">
+            <div class="cell rw-3 rw-md-12 padded">{{ "Forum" |trans({}, 'admin') }}</div>
+            <div class="cell rw-2 rw-lg-3 hide-sm hide-md padded">{{ "Autor" |trans({}, 'admin') }}</div>
+            <div class="cell rw-1 hide-sm hide-md hide-lg padded">#</div>
+            <div class="cell rw-4 hide-sm hide-md padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
+            <div class="cell rw-2 hide-sm hide-md padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
+        </div>
+        {% for post in posts %}
+            <div class="row">
+                <div class="cell padded rw-3 rw-md-6">
+                    <a href="{{path('forum_jump_view', {pid: post['post'].id})}}" target="_blank">{{ post['post'].thread.forum.title }}</a>
+                </div>
+                <div class="cell padded rw-2 rw-lg-3 rw-md-6">
+                    <span>{{ post['post'].owner.name }}</span>
+                </div>
+                <div class="cell padded rw-1 hide-sm hide-md hide-lg">
+                    <span>{{ post['count'] }}</span>
+                </div>
+                <div class="cell padded rw-4 rw-md-8">
+                    {% set iteration = 0 %}
+                    {% for reporter in post['reporters'] %}
+                        {% if iteration > 0 %}
+                            <span>{{ ", " ~ reporter.name }}</span>
+                        {% else %}
+                            <span>{{ reporter.name }}</span>
+                        {% endif %}
+                        {% set iteration = iteration + 1 %}
+                    {% endfor %}
+                </div>
+                <div class="cell padded rw-2 rw-md-4 right">
+                    {% if not bin_shown %}
+                        <button class="small inline" x-report-action="seen-reports" x-post-id={{ post['post'].id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                        <button class="small inline" x-report-action="clear-reports" x-post-id={{ post['post'].id }}>{{ 'Löschen'|trans({}, 'admin') }}</button>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll('[x-report-action=clear-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_clear') }}', {postId: parseInt( elem.getAttribute('x-post-id'))},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports_forum_posts', {opt: opt}) }}', true);
+                } )
+        } );
+
+        $.html.addEventListenerAll('[x-report-action=seen-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_seen') }}', {postId: parseInt( elem.getAttribute('x-post-id'))},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports_forum_posts', {opt: opt}) }}', true);
+                } )
+        } );
+    </script>
+{% endblock %}
