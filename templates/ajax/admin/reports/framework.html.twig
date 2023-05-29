@@ -1,0 +1,20 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block title %}{{ 'Foren-Mod.'|trans({}, 'admin') }}{% endblock %}
+{% block ajax %}
+    <div class="row">
+
+        <div class="cell rw-12">
+            <ul class="tabs plain">
+                <li {{ {tab: true, selected: tab == 'posts'}|classes }} x-ajax-href="{{ path('admin_reports_forum_posts') }}"><div class="tab-link">{% trans from 'admin' %}Übersicht{% endtrans %}</div></li>
+                <li {{ {tab: true, selected: tab == 'short'}|classes }} x-ajax-href="{{ path('admin_reports_snippets') }}"><div class="tab-link">{% trans from 'admin' %}Kurztexte{% endtrans %}</div></li>
+            </ul>
+
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+{% endblock %}

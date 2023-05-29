@@ -393,13 +393,12 @@ class AdminForumController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/forum/{tab}/{opt}", name="admin_reports")
+     * @Route("jx/admin/forum/posts/{opt}", name="admin_reports_forum_posts")
      * @param PermissionHandler $perm
-     * @param string $tab
      * @param string $opt
      * @return Response
      */
-    public function reports(PermissionHandler $perm, string $tab = 'reports', string $opt = ''): Response
+    public function forum_reports(PermissionHandler $perm, string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
         $show_all = $show_bin || $opt === 'all';
@@ -486,8 +485,8 @@ class AdminForumController extends AdminActionController
             $gpm_cache = array_filter( $gpm_cache, fn($e) => $e['count'] > $e['seen'] );
         }
 
-        return $this->render( 'ajax/admin/reports/reports.html.twig', $this->addDefaultTwigArgs(null, [
-            'tab' => $tab,
+        return $this->render( 'ajax/admin/reports/posts.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'posts',
 
             'posts' => $selectedReports,
             'pms'  => $pm_cache,
@@ -496,7 +495,18 @@ class AdminForumController extends AdminActionController
             'opt' => $opt,
             'all_shown' => $show_all,
             'bin_shown' => $show_bin,
+        ]));
+    }
 
+    /**
+     * @Route("jx/admin/forum/snippets", name="admin_reports_snippets")
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function forum_snippets(PermissionHandler $perm): Response
+    {
+        return $this->render( 'ajax/admin/reports/snippets.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'short',
             'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
         ]));
     }
