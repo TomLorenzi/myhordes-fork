@@ -438,6 +438,31 @@ class AdminForumController extends AdminActionController
             }
         }
 
+        return $this->render( 'ajax/admin/reports/posts.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'posts',
+
+            'posts' => $selectedReports,
+
+            'opt' => $opt,
+            'all_shown' => $show_all,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/pn/{opt}", name="admin_reports_town")
+     * @param PermissionHandler $perm
+     * @param string $opt
+     * @return Response
+     */
+    public function pn_reports(PermissionHandler $perm, string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $allowed_forums = [];
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
         /** @var AdminReport[] $pm_reports */
         $pm_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
             if ($r->getPm() === null || $r->getPm()->getOwner() === null || $r->getPm()->getOwner()->getTown()->getForum() === null) return false;
@@ -460,6 +485,30 @@ class AdminForumController extends AdminActionController
             }
         }
 
+        if (!$show_bin) $pm_cache = array_filter( $pm_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/pn.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'pn',
+
+            'pms'  => $pm_cache,
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/global/{opt}", name="admin_reports_global")
+     * @param PermissionHandler $perm
+     * @param string $opt
+     * @return Response
+     */
+    public function gpn_reports(PermissionHandler $perm, string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
         /** @var AdminReport[] $gpm_reports */
         $gpm_reports = array_filter($reports, function(AdminReport $r) {
             if ($r->getGpm() === null || $r->getGpm()->getReceiverGroup() === null || $r->getGpm()->getSender() === null) return false;
@@ -480,20 +529,14 @@ class AdminForumController extends AdminActionController
             }
         }
 
-        if (!$show_all) {
-            $pm_cache = array_filter( $pm_cache, fn($e) => $e['count'] > $e['seen'] );
-            $gpm_cache = array_filter( $gpm_cache, fn($e) => $e['count'] > $e['seen'] );
-        }
+        if (!$show_bin) $gpm_cache = array_filter( $gpm_cache, fn($e) => $e['count'] > $e['seen'] );
 
-        return $this->render( 'ajax/admin/reports/posts.html.twig', $this->addDefaultTwigArgs(null, [
-            'tab' => 'posts',
+        return $this->render( 'ajax/admin/reports/gpn.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'gpn',
 
-            'posts' => $selectedReports,
-            'pms'  => $pm_cache,
             'gpms' => $gpm_cache,
 
             'opt' => $opt,
-            'all_shown' => $show_all,
             'bin_shown' => $show_bin,
         ]));
     }

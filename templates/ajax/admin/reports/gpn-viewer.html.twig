@@ -100,7 +100,7 @@
 
         $.ajax.easySend( '{{ path('admin_reports_mod_gpm') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: seen, hide: hide, message: message},
             function () {
-                $.ajax.load(null, '{{ path('admin_reports_forum_posts', {opt: ''}) }}', true);
+                $.ajax.load(null, '{{ path('admin_reports_global', {opt: ''}) }}', true);
             } );
     } );
 </script>

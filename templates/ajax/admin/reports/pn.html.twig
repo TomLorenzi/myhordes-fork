@@ -1,0 +1,97 @@
+{% extends "ajax/admin/reports/framework.html.twig" %}
+{% block content %}
+    <h5>{{ 'Gemeldete Stadtnachrichten'|trans({},'admin') }}</h5>
+
+    {% if bin_shown %}
+        <div class="note">
+            {{ 'Du siehst aktuell gelöschte Meldungen.'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_town', {opt: ''}) }}">{{ 'Zurück zur Meldungsübersicht'|trans({},'admin') }}</a>
+        </div>
+    {% else %}
+        <div class="note">
+            {{ 'Möchtest du bereits gelöschte Meldungen durchsuchen?'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_town', {opt: 'bin'}) }}">{{ 'Zum Papierkorb'|trans({},'admin') }}</a>
+        </div>
+    {% endif %}
+
+    <div class="row-table">
+        <div class="row header">
+            <div class="cell rw-3 rw-sm-12 padded">{{ "Titel" |trans({}, 'admin') }}</div>
+            <div class="cell rw-lg-3 hide-sm hide-md padded">{{ "Autor" |trans({}, 'admin') }}</div>
+            <div class="cell rw-1 hide-sm hide-md hide-lg padded">#</div>
+            <div class="cell rw-4 hide-sm hide-md padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
+            <div class="cell rw-2 hide-sm hide-md padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
+        </div>
+        {% for pm in pms %}
+            <div class="row">
+                <div class="cell-small padded rw-1 hide-sm hide-md hide-lg small">
+                    <i class="fa fa-building"></i>
+                </div>
+                <div class="cell-small padded rw-5 rw-lg-6 rw-md-12">
+                    <span>{{ pm.post.privateMessageThread.title }}</span>
+                </div>
+                <div class="cell padded rw-2 rw-lg-3 rw-md-6">
+                    <span>{{ pm.post.owner.name }}</span>
+                </div>
+                <div class="cell padded rw-1 hide-sm hide-md hide-lg">
+                    <span>{{ pm.count }}</span>
+                </div>
+                <div class="cell padded rw-4 rw-sm-12">
+                    {% set iteration = 0 %}
+                    {% for reporter in pm.reporters %}
+                        {% if iteration > 0 %}
+                            <span>{{ ", " ~ reporter.name }}</span>
+                        {% else %}
+                            <span>{{ reporter.name }}</span>
+                        {% endif %}
+                        {% set iteration = iteration + 1 %}
+                    {% endfor %}
+                </div>
+                <div class="cell padded rw-4 rw-md-8">
+                    <button class="small inline" x-report-action="open-pm-reports" x-post-id={{ pm.post.id }}>{{ 'Öffnen'|trans({}, 'admin') }}</button>
+                    {% if not bin_shown %}
+                        <button class="small inline" x-report-action="seen-pm-reports" x-post-id={{ pm.post.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                        <button class="small inline" x-report-action="clear-pm-reports" x-post-id={{ pm.post.id }}>{{ 'Löschen'|trans({}, 'admin') }}</button>
+                    {% endif %}
+                </div>
+                <div class="hidden cell padded rw-12" x-pm-target="{{ pm.post.id }}"></div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll('[x-report-action=clear-pm-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_mod_pm') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: true},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports_town', {opt: opt}) }}', true);
+                } );
+        } );
+
+        $.html.addEventListenerAll('[x-report-action=seen-pm-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_seen_pm') }}', {pmid: parseInt(elem.getAttribute('x-post-id'))},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports_town', {opt: opt}) }}', true);
+                } );
+        } );
+
+        $.html.addEventListenerAll('[x-report-action=open-pm-reports]', 'click', function(e,elem) {
+            const pm_id = parseInt( elem.getAttribute('x-post-id'));
+            let target = document.querySelector('[x-pm-target="' + pm_id + '"]');
+            if (!target) return;
+
+            $.html.forEach( '[x-pm-target],[x-gpm-target]', e => {
+                e.innerHTML = '';
+                e.classList.add('hidden')
+            } );
+            $.html.forEach( '[x-report-action="open-pm-reports"],[x-report-action="open-gpm-reports"]', e => e.classList.remove('hidden') );
+
+            elem.classList.add('hidden');
+            target.innerHTML = '<div class="center"><i class="fa fa-pulse fa-spinner"></i></div>';
+            target.classList.remove('hidden');
+
+            $.ajax.background().load(target, '{{ path('admin_pm_viewer')|e('js') }}', false, {pmid: pm_id})
+        } );
+    </script>
+{% endblock %}
