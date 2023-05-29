@@ -588,7 +588,7 @@ Drogenerfahrungen: Experimentaciones
 Expertenexpeditionen: Exploraciones muy lejanas
 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Cantidad de edificios que has explorado en zonas REALMENTE muy alejadas.'
 Großzügigkeit: Generosidad
-'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Cantidad de días de Modo Héroe que regalaste a otro habitante necesitado.'
+'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Cantidad de días de Modo Héroe/Acciones Heroicas que regalaste a otro habitante necesitado.'
 'Spiritueller Führer': 'Guía Espiritual'
 'Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.': 'Días pasados como guía en las regiones amateur.'
 Laborant: Laboratorio
@@ -1659,9 +1659,9 @@ Pisa-Geraderichter: El reparador
 'Ein Riss? Welcher Riss?': '¿Una grieta? ¿Qué grieta?'
 'Das braucht noch 10 Jahre!': '¡Eso llevara otros 10 años!'
 'Architekt (title)': Arquitecto
-gering: bajo
-hoch: importantes
-'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...': 'Tus probabilidades de ser descubierto si devoras a un habitante son {chances}...'
+gering: bajas
+hoch: altas
+'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...': 'Tus probabilidades de ser descubierto al devorar a un habitante son <strong>{chances}</strong>...'
 'Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.': 'Este riesgo depende directamente de la cantidad de habitantes que se quedaron en el pueblo: mientras haya más habitantes en el Ultramundo, menor es el riesgo de ser visto en el pueblo.'
 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?': 'No tenemos ni idea. <strong>El cuerpo ha desaperecido sin dejar rastro...</strong> Puede ser que haya sido arrojado fuerta del pueblo y que una de estas noches regrese para visitamos.'
 'Legendärer Dompteur': 'Domador legendario'
@@ -1918,7 +1918,7 @@ Weihnachten: Navidad
 'Ich beobachte euch...': 'Te estoy vigilando...'
 'Zeuge des Armageddon': 'Testigo de Armagedón'
 'Ewiger Zweiter': 'Eterno segundo'
-'Ein Wächter stirbt, aber gibt niemals auf': 'El guardia puede morir, ¡pero nunca se rinde!'
+'Ein Wächter stirbt, aber gibt niemals auf': 'La guardia puede morir, ¡pero nunca se rinde!'
 'Der Zweitletzte Mohikaner': 'El segundo último de los mohicanos'
 'Faaaaaaaast, ach verdammt': 'Casi!!!, ah no, ¡maldita sea!'
 'Bis zum Ende und einen Schritt weiter': 'Todo el camino hasta el final y un poco más lejos'
