@@ -6,6 +6,7 @@ use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AdminReport;
 use App\Entity\BlackboardEdit;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
@@ -13,6 +14,7 @@ use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\ReportSeenMarker;
 use App\Entity\User;
+use App\Enum\AdminReportSpecification;
 use App\Response\AjaxResponse;
 use App\Service\AdminHandler;
 use App\Service\CrowService;
@@ -235,6 +237,42 @@ class AdminForumController extends AdminActionController
 
         if (!$perm->checkAnyEffectivePermissions($user, $board->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $seen = (bool)$parser->get('seen', false);
+
+        if (!$seen) return AjaxResponse::success();
+        foreach ($existing_reports as $report)
+            $this->entity_manager->persist($report->setSeen(true));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/moderate-c", name="admin_reports_mod_c")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function reports_moderate_c(JSONRequestParser $parser): Response
+    {
+        $user = $this->getUser();
+
+        $cid = $parser->get_int('cid', null);
+        $ct = $parser->get_int('ct', null);
+        if ($cid === null || $ct === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (($ct = AdminReportSpecification::tryFrom($ct)) === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!($citizen = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($cid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $existing_reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['citizen' => $citizen, 'specification' => $ct->value]);
+        if (empty($existing_reports)) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $seen = (bool)$parser->get('seen', false);
 
@@ -606,7 +644,7 @@ class AdminForumController extends AdminActionController
         $bb_cache = [];
         foreach ($bb_reports as $report) {
             $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
-            if (!isset($pm_cache[$report->getBlackBoard()->getId()]))
+            if (!isset($bb_cache[$report->getBlackBoard()->getId()]))
                 $bb_cache[$report->getBlackBoard()->getId()] = [
                     'board' => $report->getBlackBoard(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [ $report->getSourceUser() ]
                 ];
@@ -623,6 +661,59 @@ class AdminForumController extends AdminActionController
             'tab' => 'woh',
 
             'boards'  => $bb_cache,
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/citizen/{opt}", name="admin_reports_citizen")
+     * @param string $opt
+     * @return Response
+     */
+    public function citizen_reports(string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
+        /** @var AdminReport[] $c_reports */
+        $c_reports = array_filter($reports, function(AdminReport $r) {
+            if (!$r->getCitizen()) return false;
+            if ($r->getSpecification() === AdminReportSpecification::CitizenAnnouncement && !$r->getCitizen()->getCitizen()) return false;
+            return true;
+        });
+
+        $c_cache = [];
+        foreach ($c_reports as $report) {
+            $key = "{$report->getCitizen()->getId()}_{$report->getSpecification()->value}";
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
+            if (!isset($c_cache[$key]))
+                $c_cache[$key] = [
+                    'citizen' => $report->getCitizen(), 'spec' => $report->getSpecification(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [
+                        [$report->getSourceUser(), $report->getReason(), $report->getDetails()]
+                    ],
+                    'content' => match ( $report->getSpecification() ) {
+                        AdminReportSpecification::None => null,
+                        AdminReportSpecification::CitizenAnnouncement => $report->getCitizen()->getCitizen()->getHome()->getDescription(),
+                        AdminReportSpecification::CitizenLastWords => $report->getCitizen()->getLastWords(),
+                        AdminReportSpecification::CitizenTownComment => $report->getCitizen()->getComment(),
+                    }
+                ];
+            else {
+                $c_cache[$key]['count']++;
+                $c_cache[$key]['seen'] += $seen ? 1 : 0;
+                $c_cache[$key]['reporters'][] = [$report->getSourceUser(), $report->getReason(), $report->getDetails()];
+            }
+        }
+
+        if (!$show_bin) $c_cache = array_filter( $c_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/citizen.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'citizen',
+
+            'citizens'  => array_filter($c_cache, fn($e) => $e['content'] !== null ),
 
             'opt' => $opt,
             'bin_shown' => $show_bin,

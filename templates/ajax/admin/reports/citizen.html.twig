@@ -1,0 +1,92 @@
+{% extends "ajax/admin/reports/framework.html.twig" %}
+
+{% set complaint_list = [
+    'Keinen Grund angeben','Cheating','Flooding oder Spam','Verwendung einer anderen als der Forensprache',
+    'Beleidigungen / Unangemessener Ausdruck','Pornographie','Hassrede','Verbreitung persönlicher Informationen',
+    'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung',
+    'Unangemessene Profilbeschreibung', 'Unangemessener Avatar', 'Unangemessener Name'
+] %}
+
+{% block content %}
+    <h5>{{ 'Meldungen für Bürgertexte'|trans({},'admin') }}</h5>
+
+    {% if bin_shown %}
+        <div class="note">
+            {{ 'Du siehst aktuell gelöschte Meldungen.'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_citizen', {opt: ''}) }}">{{ 'Zurück zur Meldungsübersicht'|trans({},'admin') }}</a>
+        </div>
+    {% else %}
+        <div class="note">
+            {{ 'Möchtest du bereits gelöschte Meldungen durchsuchen?'|trans({},'admin') }}
+            <a href="#" x-ajax-href="{{ path('admin_reports_citizen', {opt: 'bin'}) }}">{{ 'Zum Papierkorb'|trans({},'admin') }}</a>
+        </div>
+    {% endif %}
+
+    <div class="row-table">
+        <div class="row header">
+            <div class="cell rw-3 hide-sm hide-md padded">{{ "Stadt" |trans({}, 'admin') }} / {{ "Autor" |trans({}, 'admin') }}</div>
+            <div class="cell rw-3 hide-sm hide-md padded">{{ "Inhalt" |trans({}, 'admin') }}</div>
+            <div class="cell rw-1 hide-sm hide-md hide-lg padded">#</div>
+            <div class="cell rw-3 rw-lg-4 hide-sm hide-md padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
+            <div class="cell rw-2 hide-sm hide-md padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
+        </div>
+        {% for citizen in citizens %}
+            <div class="row">
+                <div class="cell padded rw-3 rw-md-12">
+                    <span class="small">{{ citizen.citizen.town.name }}</span><br/>
+                    {% include 'ajax/soul/playername.html.twig' with {user: citizen.citizen.user} only %}
+                </div>
+                <div class="cell padded rw-3 rw-md-6">
+                    <span class="small">
+                        {% if citizen.spec == constant("\\App\\Enum\\AdminReportSpecification::CitizenAnnouncement") %}
+                            {{ 'Ankündigung'|trans({},'global') }}
+                        {% elseif citizen.spec == constant("\\App\\Enum\\AdminReportSpecification::CitizenLastWords") %}
+                            {{ 'Letzte Worte'|trans({},'soul') }}
+                        {% elseif citizen.spec == constant("\\App\\Enum\\AdminReportSpecification::CitizenTownComment") %}
+                            {{ 'Kommentar'|trans({},'soul') }}
+                        {% else %}
+                            --
+                        {% endif %}
+                    </span><br/>
+                    <span>{{ citizen.content }}</span>
+                </div>
+                <div class="cell padded rw-1 hide-sm hide-md hide-lg">
+                    <span>{{ citizen.count }}</span>
+                </div>
+                <div class="cell padded rw-3 rw-lg-4 rw-sm-12">
+                    {% for reporter in citizen.reporters %}
+                        <div class="small">
+                            <b>{{ reporter[0].name }}</b>:
+                            <i>{{ complaint_list[reporter[1]]|trans({},'global') }}</i>
+                            {% if reporter[2] is not null %}
+                                <div class="tooltip"><div class="bold">{{ 'Details'|trans({},'global') }}</div><p>{{ reporter[2] }}</p></div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="cell padded rw-2 rw-md-8">
+                    {% if citizen.spec == constant("\\App\\Enum\\AdminReportSpecification::CitizenAnnouncement") %}
+                        <button class="small inline" x-ajax-target="_blank" x-ajax-href="{{ path('admin_users_citizen_view', {id: citizen.citizen.user.id}) }}">{{ 'Öffnen'|trans({}, 'admin') }}</button>
+                    {% else %}
+                        <button class="small inline" x-ajax-target="_blank" x-ajax-href="{{ path('soul_view_town', {sid: citizen.citizen.user.id, idtown: citizen.citizen.town.id}) }}">{{ 'Öffnen'|trans({}, 'admin') }}</button>
+                    {% endif %}
+                    {% if not bin_shown %}
+                        <button class="small inline" x-report-action="seen-c-reports" x-post-type="{{ citizen.spec.value }}" x-post-id={{ citizen.citizen.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                    {% endif %}
+                </div>
+                <div class="hidden cell padded rw-12" x-cc-target="{{ citizen.citizen.id }}"></div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll('[x-report-action=seen-c-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_mod_c') }}', {cid: parseInt(elem.getAttribute('x-post-id')), ct: parseInt(elem.getAttribute('x-post-type')), seen: true},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports_citizen', {opt: opt}) }}', true);
+                } );
+        } );
+    </script>
+{% endblock %}

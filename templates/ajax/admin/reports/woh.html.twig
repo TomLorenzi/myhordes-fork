@@ -16,24 +16,24 @@
 
     <div class="row-table">
         <div class="row header">
-            <div class="cell rw-3 rw-sm-12 padded">{{ "Stadt" |trans({}, 'admin') }}</div>
-            <div class="cell rw-lg-3 hide-sm hide-md padded">{{ "Autor" |trans({}, 'admin') }}</div>
+            <div class="cell rw-3 hide-sm hide-md padded">{{ "Stadt" |trans({}, 'admin') }}</div>
+            <div class="cell rw-3 hide-sm hide-md padded">{{ "Autor" |trans({}, 'admin') }}</div>
             <div class="cell rw-1 hide-sm hide-md hide-lg padded">#</div>
-            <div class="cell rw-4 hide-sm hide-md padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
+            <div class="cell rw-3 rw-lg-4 hide-sm hide-md padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
             <div class="cell rw-2 hide-sm hide-md padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
         </div>
         {% for board in boards %}
             <div class="row">
-                <div class="cell-small padded rw-6 rw-md-12">
+                <div class="cell padded rw-3 rw-md-12">
                     <span>{{ board.board.town.name }}</span>
                 </div>
-                <div class="cell padded rw-2 rw-lg-3 rw-md-6">
-                    <span>{{ board.board.user.name }}</span>
+                <div class="cell padded rw-3 rw-md-6">
+                    {% include 'ajax/soul/playername.html.twig' with {user: board.board.user} only %}
                 </div>
                 <div class="cell padded rw-1 hide-sm hide-md hide-lg">
                     <span>{{ board.count }}</span>
                 </div>
-                <div class="cell padded rw-4 rw-sm-12">
+                <div class="cell rw-3 rw-lg-4">
                     {% set iteration = 0 %}
                     {% for reporter in board.reporters %}
                         {% if iteration > 0 %}
@@ -44,7 +44,7 @@
                         {% set iteration = iteration + 1 %}
                     {% endfor %}
                 </div>
-                <div class="cell padded rw-4 rw-md-8">
+                <div class="cell padded rw-2">
                     <button class="small inline" x-ajax-target="_blank" x-ajax-href="{{ path('admin_town_blackboard', {id: board.board.town.id, highlight: board.board.id}) }}">{{ 'Öffnen'|trans({}, 'admin') }}</button>
                     {% if not bin_shown %}
                         <button class="small inline" x-report-action="seen-bb-reports" x-post-id={{ board.board.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
