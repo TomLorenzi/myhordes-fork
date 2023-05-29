@@ -187,6 +187,10 @@
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
                         <select id="user_title">
                             <option {% if app.user.activeTitle is null %}selected{% endif %} value="-1">--- {{ 'Kein Titel'|trans({},'soul') }} ---</option>
+                            {%  set title_translation_key_suffix = '' %}
+                            {%  if app.user.preferredPronoun == constant('App\\Entity\\User::PRONOUN_FEMALE') %}
+                                {%  set title_translation_key_suffix = '_f'  %}
+                            {% endif %}
                             {% for id,list in app.user.awards.values|group_titles %}
 
                                 {% set has_title = false %}
@@ -211,11 +215,11 @@
                                                 <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.customTitle }}</option>
                                             {% elseif award.prototype is not null and award.prototype.title is not null %}
                                                 <option {{ {
-                                                        'data-name-default': award.prototype.title|trans({},'game'),
-                                                        'data-name-lde': award.prototype.title|trans({},'game','de'),
-                                                        'data-name-len': award.prototype.title|trans({},'game','en'),
-                                                        'data-name-lfr': award.prototype.title|trans({},'game','fr'),
-                                                        'data-name-les': award.prototype.title|trans({},'game','es'),
+                                                        'data-name-default': (award.prototype.title~title_translation_key_suffix)|trans({},'game'),
+                                                        'data-name-lde': (award.prototype.title~title_translation_key_suffix)|trans({},'game','de'),
+                                                        'data-name-len': (award.prototype.title~title_translation_key_suffix)|trans({},'game','en'),
+                                                        'data-name-lfr': (award.prototype.title~title_translation_key_suffix)|trans({},'game','fr'),
+                                                        'data-name-les': (award.prototype.title~title_translation_key_suffix)|trans({},'game','es'),
                                                 }|attributes }} {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">
                                                     {{ award|translated_title(app.user,app.user) }}
                                                 </option>
