@@ -573,18 +573,18 @@ Kampagnen: Campañas
 'Neue Kampagne': 'Nueva Campaña'
 'Kampagne "{campaign}"': 'Campaña "{campaign}"'
 Kampagne: Campaña
-Slug: Slug
+Slug: Babosa
 'Zusätzliche Verwalter': 'Administradores adicionales'
 'Neue Kampagne anlegen': 'Crear nueva campaña'
 Einstiegspunkt: Punto de entrada
 'Geworbene Spieler': 'Nuevas jugadoras'
 'Meldungen für das Schwarze Brett': 'Meldungen für das Schwarze Brett'
-Stadt: Stadt
+Stadt: Pueblo
 'Gemeldete globale Nachrichten': 'Gemeldete globale Nachrichten'
-'Private Nachrichten (Stadt)': 'Private Nachrichten (Stadt)'
-'Private Nachrichten (Global)': 'Private Nachrichten (Global)'
+'Private Nachrichten (Stadt)': 'Mensajes Privados (Pueblo)'
+'Private Nachrichten (Global)': 'Mensajes Privados (Global)'
 Bürgertexte: Bürgertexte
-Accounts: Accounts
-'Meldungen für Bürgertexte': 'Meldungen für Bürgertexte'
-'Gemeldete Stadtnachrichten': 'Gemeldete Stadtnachrichten'
-'Meldungen für Benutzeraccounts': 'Meldungen für Benutzeraccounts'
+Accounts: Cuentas
+'Meldungen für Bürgertexte': 'Mensajes de aviso a los habitantes'
+'Gemeldete Stadtnachrichten': 'Noticias del pueblo'
+'Meldungen für Benutzeraccounts': 'Mensajes de la cuenta de usuario'
