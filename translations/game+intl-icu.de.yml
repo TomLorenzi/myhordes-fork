@@ -1,4 +1,4 @@
-'ninjaDeine Route wurde gespeichert.': 'Deine Route wurde gespeichert.'
+'Deine Route wurde gespeichert.': 'Deine Route wurde gespeichert.'
 'Du hast deine Beschreibung geändert.': 'Du hast deine Beschreibung geändert.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.'
 '{citizen} hat an dem Bauprojekt {plan} mitgearbeitet und dabei {ap} ausgegeben.': '{citizen} hat an dem Bauprojekt {plan} mitgearbeitet und dabei {ap} ausgegeben.'
@@ -2851,5 +2851,4 @@ Schaufelführer_f: Schaufelführer_f
 'Ich bin ein Biest!_f': 'Ich bin ein Biest!_f'
 'DdA Beste Buddler_f': 'DdA Beste Buddler_f'
 Tarnexperte_f: Tarnexperte_f
-'Deine Route wurde gespeichert.': 'Deine Route wurde gespeichert.'
 Ninja_f: Ninja_f
