@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AdminReport;
+use App\Entity\BlackboardEdit;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
@@ -200,6 +201,46 @@ class AdminForumController extends AdminActionController
             );
             if ($notification) $this->entity_manager->persist($notification);
         }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/moderate-bb", name="admin_reports_mod_bb")
+     * @AdminLogProfile(enabled=true)
+     * @param JSONRequestParser $parser
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function reports_moderate_bb(JSONRequestParser $parser, PermissionHandler $perm): Response
+    {
+        $user = $this->getUser();
+
+        $bbid = $parser->get('bbid', null);
+        if ($bbid === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $pm */
+        if (!($board = $this->entity_manager->getRepository(BlackboardEdit::class)->find($bbid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+
+        $existing_reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['blackBoard' => $board]);
+        if (empty($existing_reports)) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$perm->checkAnyEffectivePermissions($user, $board->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $seen = (bool)$parser->get('seen', false);
+
+        if (!$seen) return AjaxResponse::success();
+        foreach ($existing_reports as $report)
+            $this->entity_manager->persist($report->setSeen(true));
 
         try {
             $this->entity_manager->flush();
@@ -499,11 +540,10 @@ class AdminForumController extends AdminActionController
 
     /**
      * @Route("jx/admin/forum/global/{opt}", name="admin_reports_global")
-     * @param PermissionHandler $perm
      * @param string $opt
      * @return Response
      */
-    public function gpn_reports(PermissionHandler $perm, string $opt = ''): Response
+    public function gpn_reports(string $opt = ''): Response
     {
         $show_bin = $opt === 'bin';
 
@@ -535,6 +575,54 @@ class AdminForumController extends AdminActionController
             'tab' => 'gpn',
 
             'gpms' => $gpm_cache,
+
+            'opt' => $opt,
+            'bin_shown' => $show_bin,
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/forum/woh/{opt}", name="admin_reports_blackboard")
+     * @param PermissionHandler $perm
+     * @param string $opt
+     * @return Response
+     */
+    public function blackboard_reports(PermissionHandler $perm, string $opt = ''): Response
+    {
+        $show_bin = $opt === 'bin';
+
+        $allowed_forums = [];
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => $show_bin]);
+
+        /** @var AdminReport[] $bb_reports */
+        $bb_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+            if ($r->getBlackBoard() === null || $r->getBlackBoard()->getTown()->getForum() === null) return false;
+            $tid = $r->getBlackBoard()->getTown()->getForum()->getId();
+            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
+            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getBlackBoard()->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]);
+        });
+
+        $bb_cache = [];
+        foreach ($bb_reports as $report) {
+            $seen = $this->entity_manager->getRepository(ReportSeenMarker::class)->findOneBy(['user' => $this->getUser(), 'report' => $report]) !== null;
+            if (!isset($pm_cache[$report->getBlackBoard()->getId()]))
+                $bb_cache[$report->getBlackBoard()->getId()] = [
+                    'board' => $report->getBlackBoard(), 'count' => 1, 'seen' => $seen ? 1 : 0, 'reporters' => [ $report->getSourceUser() ]
+                ];
+            else {
+                $bb_cache[$report->getBlackBoard()->getId()]['count']++;
+                $bb_cache[$report->getBlackBoard()->getId()]['seen'] += $seen ? 1 : 0;
+                $bb_cache[$report->getBlackBoard()->getId()]['reporters'][] = $report->getSourceUser();
+            }
+        }
+
+        if (!$show_bin) $bb_cache = array_filter( $bb_cache, fn($e) => $e['count'] > $e['seen'] );
+
+        return $this->render( 'ajax/admin/reports/woh.html.twig', $this->addDefaultTwigArgs(null, [
+            'tab' => 'woh',
+
+            'boards'  => $bb_cache,
 
             'opt' => $opt,
             'bin_shown' => $show_bin,
