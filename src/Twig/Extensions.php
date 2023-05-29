@@ -273,7 +273,6 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             else if (!$b->getPrototype()) return  1;
             else return $a->getPrototype()->getUnlockQuantity() <=> $b->getPrototype()->getUnlockQuantity();
         } );
-
         return $g;
     }
 
