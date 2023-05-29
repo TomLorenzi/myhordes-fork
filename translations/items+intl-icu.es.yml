@@ -907,7 +907,7 @@ Ruhm: Fama
 '<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>': '<nt-morphed>Buena noticia, ¡el bidón aún contiene agua!</nt-morphed><t-morphed><strong>El bidón está VACÍO</strong> !</t-morphed>'
 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.': 'Instalas {item} en tu casa. No se ve muy bien. Pero francamente... ¿a quién le importa?{hr}Este objeto te permite agregar definitivamente <strong>{home_storage} compartimento(s)</strong> a tu baúl.'
 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>': 'Coloca con cuidado un {item} en tu casa. Este objeto da permanentemente a tu casa <strong>{home_defense} puntos de defensa adicionales.</strong>'
-'Du hast bereits volle AP.': 'Tus PA estan llenos'
+'Du hast bereits volle AP.': 'Tus PA están al máximo.'
 'Gegenstand verwenden': 'Usar un objeto de mi mochila'
 'Die Batterie fällt ein paar Meter entfernt auf den Boden.': 'La batería cae al suelo a unos metros de distancia.'
 'Die Batterie wurde beim Aufprall vollständig zerstört.': 'La batería quedó completamente destruida en el impacto.'
