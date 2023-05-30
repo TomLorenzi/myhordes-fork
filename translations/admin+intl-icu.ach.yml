@@ -564,3 +564,27 @@ Senden: crwdns136843:0crwdne136843:0
 'Es wurden {success} Nachrichten erfolgreich verschickt, bei {error} Nachrichten tragen Fehler auf.': 'crwdns136847:0{success}crwdnd136847:0{error}crwdne136847:0'
 Entwickler-URL: crwdns136853:0crwdne136853:0
 Heldentage: crwdns136929:0crwdne136929:0
+'Sekundäraccount verknüpfen': 'crwdns168337:0crwdne168337:0'
+'Sekundäre Accounts': 'crwdns168339:0crwdne168339:0'
+'Team setzen': 'crwdns168341:0crwdne168341:0'
+'Versteckt von {player}': 'crwdns168343:0{player}crwdne168343:0'
+Verdächtig: crwdns168345:0crwdne168345:0
+Kampagnen: crwdns168663:0crwdne168663:0
+'Neue Kampagne': 'crwdns168665:0crwdne168665:0'
+'Kampagne "{campaign}"': 'crwdns168667:0{campaign}crwdne168667:0'
+Kampagne: crwdns168669:0crwdne168669:0
+Slug: crwdns168671:0crwdne168671:0
+'Zusätzliche Verwalter': 'crwdns168673:0crwdne168673:0'
+'Neue Kampagne anlegen': 'crwdns168675:0crwdne168675:0'
+Einstiegspunkt: crwdns168677:0crwdne168677:0
+'Geworbene Spieler': 'crwdns168679:0crwdne168679:0'
+'Meldungen für das Schwarze Brett': 'crwdns168689:0crwdne168689:0'
+Stadt: crwdns168691:0crwdne168691:0
+'Gemeldete globale Nachrichten': 'crwdns168693:0crwdne168693:0'
+'Private Nachrichten (Stadt)': 'crwdns168695:0crwdne168695:0'
+'Private Nachrichten (Global)': 'crwdns168697:0crwdne168697:0'
+Bürgertexte: crwdns168699:0crwdne168699:0
+Accounts: crwdns168701:0crwdne168701:0
+'Meldungen für Bürgertexte': 'crwdns168703:0crwdne168703:0'
+'Gemeldete Stadtnachrichten': 'crwdns168705:0crwdne168705:0'
+'Meldungen für Benutzeraccounts': 'crwdns168707:0crwdne168707:0'

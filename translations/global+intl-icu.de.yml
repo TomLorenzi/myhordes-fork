@@ -84,7 +84,6 @@ Vorschau: Vorschau
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...'
 Autor: Autor
 Datum: Datum
-Züruck: Züruck
 Archivieren: Archivieren
 Fett: Fett
 Kursiv: Kursiv
@@ -482,3 +481,51 @@ Nutzungsbedingungen: Nutzungsbedingungen
 Kopiert!: Kopiert!
 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!'
 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def, select, 1 {einen Verteidigungspunkt} other {{def} Verteidigungspunkte}}</strong>.'
+'Eigenes Event organisieren': 'Eigenes Event organisieren'
+'Zurück zur Übersicht': 'Zurück zur Übersicht'
+'Event-Verifizierung beantragen': 'Event-Verifizierung beantragen'
+'Event-Verifizierung abbrechen': 'Event-Verifizierung abbrechen'
+'Event freischalten': 'Event freischalten'
+'Verifizierung beantragt': 'Verifizierung beantragt'
+'Start geplant': 'Start geplant'
+'Event beenden': 'Event beenden'
+'Vorläufiges Startdatum am {date}': 'Vorläufiges Startdatum am {date}'
+'Event startet morgen, am {date}': 'Event startet morgen, am {date}'
+'Event startet in {days} Tagen, am {date}': 'Event startet in {days} Tagen, am {date}'
+'Event läuft seit {date}': 'Event läuft seit {date}'
+'Event beendet': 'Event beendet'
+'Verifizierung erfolgreich beantragt. Dein Event wird in Kürze von einem Raben oder Administrator geprüft.': 'Verifizierung erfolgreich beantragt. Dein Event wird in Kürze von einem Raben oder Administrator geprüft.'
+'Dein Antrag auf Verifizierung wurde erfolgreich zurückgezogen.': 'Dein Antrag auf Verifizierung wurde erfolgreich zurückgezogen.'
+'Event erfolgreich verifiziert.': 'Event erfolgreich verifiziert.'
+'Aktuell sind keine Community-Events geplant.': 'Aktuell sind keine Community-Events geplant.'
+'Neues Event': 'Neues Event'
+'Bist du sicher, dass du dieses Event löschen möchtest?': 'Bist du sicher, dass du dieses Event löschen möchtest?'
+'Weitere Informationen und Regeln anzeigen.': 'Weitere Informationen und Regeln anzeigen.'
+Event-Städte: Event-Städte
+'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.'
+'Deiner Kreativität sind somit keine Grenzen gesetzt!': 'Deiner Kreativität sind somit keine Grenzen gesetzt!'
+'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.'
+'Automatisch generierter Name': 'Automatisch generierter Name'
+'Stadt hinzufügen': 'Stadt hinzufügen'
+'Bist du sicher, dass du dieses Stadt löschen möchtest?': 'Bist du sicher, dass du dieses Stadt löschen möchtest?'
+'Neue Stadt anlegen': 'Neue Stadt anlegen'
+'Stadt bearbeiten': 'Stadt bearbeiten'
+'Stadtinstanz bereit': 'Stadtinstanz bereit'
+'Stadtinstanz beendet': 'Stadtinstanz beendet'
+'Am Leben': 'Am Leben'
+'Zur Chronik': 'Zur Chronik'
+'Allgemeine Event-Informationen': 'Allgemeine Event-Informationen'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.'
+'Event bearbeiten': 'Event bearbeiten'
+'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.'
+'Geplanter Startzeitpunkt': 'Geplanter Startzeitpunkt'
+Event-Titel: Event-Titel
+Kurzbeschreibung: Kurzbeschreibung
+'Beschreibung und Regeln des Events': 'Beschreibung und Regeln des Events'
+'Du musst mindestens eine Event-Beschreibung hinzufügen.': 'Du musst mindestens eine Event-Beschreibung hinzufügen.'
+'Du musst ein Startdatum für dein Event festlegen.': 'Du musst ein Startdatum für dein Event festlegen.'
+'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen'
+'Account wechseln': 'Account wechseln'
+'Mehr Ergebnisse anzeigen': 'Mehr Ergebnisse anzeigen'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'
+Inhaltsverzeichnis: Inhaltsverzeichnis
