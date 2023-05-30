@@ -68,10 +68,10 @@
         <div class="cell rw-12 padded">
 
             {% if (swapPivots is defined and swapPivots is not empty) %}
-                <h5>{{ 'Account wechseln'|trans({},'global') }}</h5>
+                <h5 style="color: red">{{ 'Account wechseln'|trans({},'global') }}</h5>
                 <ul>
                     {% for pivot in swapPivots %}
-                        <li><a class="link" target="_self" href="{{ url('home', {'_switch_user': pivot.secondary.username}) }}"><span>{{ pivot.secondary.name }}</span></a></li>
+                        <li><a class="link" target="_self" href="{{ url('home', {'_switch_user': pivot.secondary.username}) }}"><span style="color: red">{{ pivot.secondary.name }}</span></a></li>
                     {% endfor %}
                 </ul>
             {% endif %}
