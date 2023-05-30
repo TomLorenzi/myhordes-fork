@@ -1,3 +1,4 @@
+---
 'Allgemeiner Fehler.': 'Common error.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'The selected forum doesn''t exist or you are lacking the permission to view it.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Your text has to be at least 2 characters long.'
@@ -528,3 +529,4 @@ Kurzbeschreibung: Short description
 'Account wechseln': 'Switch accounts'
 'Mehr Ergebnisse anzeigen': 'Show more results'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Use "^" to search only for words that begin or end with a specific string. For example, "short^" will find the word "ultrashort", but not "shortage".'
+Inhaltsverzeichnis: Table of Contents

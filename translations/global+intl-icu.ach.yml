@@ -1,530 +1,532 @@
-'Allgemeiner Fehler.': 'crwdns146621:0crwdne146621:0'
-'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'crwdns146623:0crwdne146623:0'
-'Dein Text muss mindestens 2 Zeichen lang sein.': 'crwdns146625:0crwdne146625:0'
-'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.': 'crwdns146627:0crwdne146627:0'
-Kommunikationsfehler.: crwdns146629:0crwdne146629:0
-'Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.': 'crwdns146631:0crwdne146631:0'
-'Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.': 'crwdns146633:0crwdne146633:0'
-'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.': 'crwdns146635:0crwdne146635:0'
-'Für diese Aktion hast du nicht genug AP.': 'crwdns146637:0crwdne146637:0'
-'Diese Aktion steht dir aktuell nicht zur Verfügung.': 'crwdns146639:0crwdne146639:0'
-'Hierfür fehlen dir notwendige Gegenstände.': 'crwdns146641:0crwdne146641:0'
-'Diese Aktion steht nur Helden zur Verfügung.': 'crwdns146643:0crwdne146643:0'
-'Neuer Thread': 'crwdns146645:0crwdne146645:0'
-'Neuer Post': 'crwdns146647:0crwdne146647:0'
-Titel: crwdns146649:0crwdne146649:0
-'Deine Nachricht': 'crwdns146651:0crwdne146651:0'
-Absenden: crwdns146653:0crwdne146653:0
-Zurück: crwdns146655:0crwdne146655:0
-'Neues Thema': 'crwdns146657:0crwdne146657:0'
-'Der Rabe': 'crwdns146659:0crwdne146659:0'
-'Seite {page}/{pages}': 'crwdns146661:0{page}crwdnd146661:0{pages}crwdne146661:0'
-'Bitte halte dich an die Regeln:': 'crwdns146663:0crwdne146663:0'
-'Achte auf deine Rechtschreibung': 'crwdns146665:0crwdne146665:0'
-'Bleibe höflich und freundlich': 'crwdns146667:0crwdne146667:0'
-'Werbung ist verboten (Links etc.)': 'crwdns146669:0crwdne146669:0'
-'Heute um': 'crwdns146671:0crwdne146671:0'
-'Gestern um': 'crwdns146673:0crwdne146673:0'
-Antworten: crwdns146675:0crwdne146675:0
-Schließen: crwdns146677:0crwdne146677:0
-'Bestätigen?': 'crwdns146679:0crwdne146679:0'
-Rückgängig: crwdns146681:0crwdne146681:0
-Abbrechen: crwdns146683:0crwdne146683:0
-Speichern: crwdns146685:0crwdne146685:0
-Achtung: crwdns146687:0crwdne146687:0
-'Bist du sicher?': 'crwdns146689:0crwdne146689:0'
-'Auswahl bestätigen': 'crwdns146691:0crwdne146691:0'
-Forum: crwdns146693:0crwdne146693:0
-'Deine Seele': 'crwdns146695:0crwdne146695:0'
-Hilfe: crwdns146697:0crwdne146697:0
-'Zum Spiel': 'crwdns146699:0crwdne146699:0'
-Deutsch: crwdns146701:0crwdne146701:0
-Englisch: crwdns146703:0crwdne146703:0
-Französisch: crwdns146705:0crwdne146705:0
-Spanisch: crwdns146707:0crwdne146707:0
-Bearbeiten: crwdns146709:0crwdne146709:0
-Hinweis: crwdns146711:0crwdne146711:0
-Spiel: crwdns146713:0crwdne146713:0
-Statistiken: crwdns146715:0crwdne146715:0
-'{points} Punkte': 'crwdns146717:0{points}crwdne146717:0'
-'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'crwdns146719:0crwdne146719:0'
-Seelenpunktzahl: crwdns146721:0crwdne146721:0
-'Aktuelles Leben': 'crwdns146723:0crwdne146723:0'
-Saison: crwdns146725:0crwdne146725:0
-Tage: crwdns146727:0crwdne146727:0
-Punkte: crwdns146729:0crwdne146729:0
-'Es wurde keine Stadt gefunden...': 'crwdns146731:0crwdne146731:0'
-'Achtung! Der von dir ausgewählte Link, leitet dich auf eine <strong>nicht-offizielle Seite</strong> weiter (sprich: eine Fan- oder Spielerseite).': 'crwdns146733:0crwdne146733:0'
-'Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!': 'crwdns146735:0crwdne146735:0'
-'Auch dann nicht, wenn du dazu aufgefordert wirst!': 'crwdns146737:0crwdne146737:0'
-'Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.': 'crwdns146739:0{contact}crwdne146739:0'
-'Weiter zu': 'crwdns146741:0crwdne146741:0'
-'Du hast keine Externe ID.': 'crwdns146743:0crwdne146743:0'
-'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'crwdns146745:0crwdne146745:0'
-Verzeichnis: crwdns146747:0crwdne146747:0
-'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'crwdns146749:0crwdne146749:0'
-'Dazu hast Du kein Recht.': 'crwdns146751:0crwdne146751:0'
-Moderation: crwdns146753:0crwdne146753:0
-Online: crwdns146755:0crwdne146755:0
-Offline: crwdns146757:0crwdne146757:0
-Sticky: crwdns146759:0crwdne146759:0
-Dev: crwdns146761:0crwdne146761:0
-Löschen: crwdns146763:0crwdne146763:0
-Öffnen: crwdns146765:0crwdne146765:0
-Anpinnen: crwdns146767:0crwdne146767:0
-Loslösen: crwdns146769:0crwdne146769:0
-'Du wurdest aus dem Forum verbannt.': 'crwdns146771:0crwdne146771:0'
-Schere: crwdns146773:0crwdne146773:0
-Stein: crwdns146775:0crwdne146775:0
-Papier: crwdns146777:0crwdne146777:0
-Kopf: crwdns146779:0crwdne146779:0
-Zahl: crwdns146781:0crwdne146781:0
-'{color} {value}': 'crwdns146783:0{color}crwdnd146783:0{value}crwdne146783:0'
-Vorschau: crwdns146785:0crwdne146785:0
-'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'crwdns146787:0crwdne146787:0'
-Autor: crwdns146789:0crwdne146789:0
-Datum: crwdns146791:0crwdne146791:0
-Archivieren: crwdns146795:0crwdne146795:0
-Fett: crwdns146797:0crwdne146797:0
-Kursiv: crwdns146799:0crwdne146799:0
-Unterstreichen: crwdns146801:0crwdne146801:0
-Durchstreichen: crwdns146803:0crwdne146803:0
-Listenpunkt: crwdns146805:0crwdne146805:0
-Spoiler: crwdns146807:0crwdne146807:0
-Zitat: crwdns146809:0crwdne146809:0
-Ruhm: crwdns146811:0crwdne146811:0
-Linie: crwdns146813:0crwdne146813:0
-Entstauben: crwdns146815:0crwdne146815:0
-Einfügen: crwdns146817:0crwdne146817:0
-'Du kannst keine weiteren Gegenstände senden.': 'crwdns146819:0crwdne146819:0'
-Verräter: crwdns146821:0crwdne146821:0
-'Link einfügen': 'crwdns146823:0crwdne146823:0'
-'Bild einfügen': 'crwdns146825:0crwdne146825:0'
-'Admin Ankündigung': 'crwdns146827:0crwdne146827:0'
-'Mod Ankündigung': 'crwdns146829:0crwdne146829:0'
-'Orakel Ankündigung': 'crwdns146831:0crwdne146831:0'
-Rollenspiel: crwdns146833:0crwdne146833:0
-Link-Text: crwdns146835:0crwdne146835:0
-Link-URL: crwdns146837:0crwdne146837:0
-Bildtitel: crwdns146839:0crwdne146839:0
-Bild-URL: crwdns146841:0crwdne146841:0
-'Liste der Themen aktualisieren': 'crwdns146843:0crwdne146843:0'
-'Dieses Thema enthält offizielle Ansagen der Website Administratoren.': 'crwdns146845:0crwdne146845:0'
-'Dieses Thema enthält Ansagen von Community-Vertretern.': 'crwdns146847:0crwdne146847:0'
-'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'crwdns146849:0{count}crwdne146849:0'
-'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'crwdns146851:0{count}crwdne146851:0'
-Zitieren: crwdns146853:0crwdne146853:0
-Version: crwdns146855:0crwdne146855:0
-Sprache: crwdns146857:0crwdne146857:0
-Vertraulich: crwdns146859:0crwdne146859:0
-'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'crwdns146861:0crwdne146861:0'
-'Diese Punkte werden für die Seelenrangliste verwendet.': 'crwdns146863:0crwdne146863:0'
-'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.': 'crwdns146865:0crwdne146865:0'
-'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'crwdns146867:0crwdne146867:0'
-Bestätigen: crwdns146869:0crwdne146869:0
-'Num. Listenpunkt': 'crwdns146871:0crwdne146871:0'
-'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'crwdns146873:0crwdne146873:0'
-'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'crwdns146875:0crwdne146875:0'
-'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'crwdns146877:0crwdne146877:0'
-'Unangemessene Nachricht blockieren': 'crwdns146879:0crwdne146879:0'
-Link: crwdns146881:0crwdne146881:0
-'Permanenter Link zu diesem Post:': 'crwdns146883:0crwdne146883:0'
-'Mehr anzeigen': 'crwdns146885:0crwdne146885:0'
-'Deinen Rucksack umklammern': 'crwdns146887:0crwdne146887:0'
-Schreien: crwdns146889:0crwdne146889:0
-'Rotz und Wasser heulen': 'crwdns146891:0crwdne146891:0'
-'Die Zähne zusammenbeißen': 'crwdns146893:0crwdne146893:0'
-'Eine Gitarre umarmen': 'crwdns146895:0crwdne146895:0'
-'Nervös weinen': 'crwdns146897:0crwdne146897:0'
-'In Panik ausbrechen': 'crwdns146899:0crwdne146899:0'
-'Hinter dem Wrack verstecken': 'crwdns146901:0crwdne146901:0'
-'Die Tür zuhalten': 'crwdns146903:0crwdne146903:0'
-'Unter der Decke verstecken': 'crwdns146905:0crwdne146905:0'
-'Nach Hilfe schreien': 'crwdns146907:0crwdne146907:0'
-'"Hilfe" schreien': 'crwdns146909:0crwdne146909:0'
-'Unter einem Karton verstecken': 'crwdns146911:0crwdne146911:0'
-'Unter dem Bett verstecken': 'crwdns146913:0crwdne146913:0'
-'Ruhig bleiben...': 'crwdns146915:0crwdne146915:0'
-'In die Fötusstellung zusammenrollen': 'crwdns146917:0crwdne146917:0'
-'Alleine laut singen': 'crwdns146919:0crwdne146919:0'
-'Um dein Leben beten': 'crwdns146921:0crwdne146921:0'
-'Die Backen halten': 'crwdns146923:0crwdne146923:0'
-'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?': 'crwdns146925:0crwdne146925:0'
-'Schön hier im Warmen bleiben': 'crwdns146927:0crwdne146927:0'
-'Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.': 'crwdns146929:0crwdne146929:0'
-'Ursprünglichen Text anzeigen': 'crwdns146931:0crwdne146931:0'
-Mehrsprachig: crwdns146933:0crwdne146933:0
-'Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.': 'crwdns146935:0crwdne146935:0'
-'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)': 'crwdns146937:0crwdne146937:0'
-'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.': 'crwdns146939:0crwdne146939:0'
-'Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..': 'crwdns146941:0crwdne146941:0'
-Stadtforum: crwdns146943:0crwdne146943:0
-Weltforen: crwdns146945:0crwdne146945:0
-'Andere Foren': 'crwdns146947:0crwdne146947:0'
-'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.': 'crwdns146949:0crwdne146949:0'
-'Dieses Thema enthält {count} gemeldete Posts:': 'crwdns146951:0{count}crwdne146951:0'
-'{num} Meldungen. Klicken, um Benutzer anzuzeigen.': 'crwdns146953:0{num}crwdne146953:0'
-'Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.': 'crwdns146955:0{user}crwdnd146955:0{time}crwdne146955:0'
-Überprüft: crwdns146957:0crwdne146957:0
-Wiederherstellen: crwdns146959:0crwdne146959:0
-'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'crwdns146961:0crwdne146961:0'
-'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!': 'crwdns146963:0crwdne146963:0'
-'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.': 'crwdns146965:0crwdne146965:0'
-'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.': 'crwdns146967:0crwdne146967:0'
-'Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>': 'crwdns146969:0crwdne146969:0'
-'Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.': 'crwdns146971:0crwdne146971:0'
-'Du musst noch mehr Erfahrung sammeln, um das tun zu können...': 'crwdns146973:0crwdne146973:0'
-Code: crwdns146975:0crwdne146975:0
-Kein: crwdns146977:0crwdne146977:0
-'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'crwdns146979:0crwdne146979:0'
-'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'crwdns146981:0crwdne146981:0'
-'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'crwdns146983:0crwdne146983:0'
-'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'crwdns146985:0crwdne146985:0'
-Ausblenden: crwdns146987:0crwdne146987:0
-Nachricht: crwdns146989:0crwdne146989:0
-Ausb.+Nachr.: crwdns146991:0crwdne146991:0
-'<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': 'crwdns146993:0crwdne146993:0'
-Entwickler-Einstellungen: crwdns146995:0crwdne146995:0
-'Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.': 'crwdns146997:0crwdne146997:0'
-'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.': 'crwdns146999:0crwdne146999:0'
-'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.': 'crwdns147001:0crwdne147001:0'
-'Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.': 'crwdns147003:0crwdne147003:0'
-'Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.': 'crwdns147005:0crwdne147005:0'
-'Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.': 'crwdns147007:0crwdne147007:0'
-'Alle Foren': 'crwdns147009:0crwdne147009:0'
-'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...': 'crwdns147011:0crwdne147011:0'
-'Die Seite wird von Horden von Zombies belagert!': 'crwdns147013:0crwdne147013:0'
-'Spielhilfe:': 'crwdns147015:0crwdne147015:0'
-'Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:': 'crwdns147017:0crwdne147017:0'
-'Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.': 'crwdns147019:0crwdne147019:0'
-'Bürger! Seid auf inoffiziellen Webseiten wachsam!': 'crwdns147021:0crwdne147021:0'
-'Du bist vor Angst erstarrt...': 'crwdns147023:0crwdne147023:0'
-'Nachrichten des Raben': 'crwdns147025:0crwdne147025:0'
-Anzeigen: crwdns147027:0crwdne147027:0
-Dauerhaft: crwdns147029:0crwdne147029:0
-'{n} Tage': 'crwdns147031:0{n}crwdne147031:0'
-'1 Tag': 'crwdns147033:0crwdne147033:0'
-'{n} Stunden': 'crwdns147035:0{n}crwdne147035:0'
-'1 Stunde': 'crwdns147037:0crwdne147037:0'
-'{n} Minuten': 'crwdns147039:0{n}crwdne147039:0'
-'1 Minute': 'crwdns147041:0crwdne147041:0'
-'{n} Sekunden': 'crwdns147043:0{n}crwdne147043:0'
-'1 Sekunde': 'crwdns147045:0crwdne147045:0'
-'Zum erweiterten Editor wechseln': 'crwdns147047:0crwdne147047:0'
-'Aktuelle Teilnehmer': 'crwdns147049:0crwdne147049:0'
-'Spieler ausschließen': 'crwdns147051:0crwdne147051:0'
-'Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.': 'crwdns147053:0crwdne147053:0'
-'Spieler hinzufügen': 'crwdns147055:0crwdne147055:0'
-'Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.': 'crwdns147057:0crwdne147057:0'
-'Einen Empfänger hinzufügen': 'crwdns147059:0crwdne147059:0'
-'Ausgeschlossene Teilnehmer': 'crwdns147061:0crwdne147061:0'
-'Ausschluss annulieren': 'crwdns147063:0crwdne147063:0'
-'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.': 'crwdns147065:0crwdne147065:0'
-'Wird geladen...': 'crwdns147067:0crwdne147067:0'
-'Bitte wähle eine Konversation auf der linken Seite.': 'crwdns147069:0crwdne147069:0'
-'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.': 'crwdns147071:0crwdne147071:0'
-'Weitere Einträge werden geladen...': 'crwdns147073:0crwdne147073:0'
-Aktionen: crwdns147075:0crwdne147075:0
-Schreiben: crwdns147077:0crwdne147077:0
-Konversationen: crwdns147079:0crwdne147079:0
-'Lade Unterhaltungen ...': 'crwdns147081:0crwdne147081:0'
-'Diese Konversation': 'crwdns147083:0crwdne147083:0'
-'Nicht gelesen': 'crwdns147085:0crwdne147085:0'
-Teilnehmer: crwdns147087:0crwdne147087:0
-'Lade Unterhaltung...': 'crwdns147089:0crwdne147089:0'
-'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.': 'crwdns147091:0crwdne147091:0'
-'Neue Nachricht': 'crwdns147093:0crwdne147093:0'
-Ankündigung: crwdns147095:0crwdne147095:0
-'{n} Teilnehmer': 'crwdns147097:0{n}crwdne147097:0'
-'Weitere Einträge laden': 'crwdns147099:0crwdne147099:0'
-'Posteingang wird geladen ...': 'crwdns147101:0crwdne147101:0'
-'Fehler beim Laden des Posteingangs.': 'crwdns147103:0crwdne147103:0'
-Heute: crwdns147105:0crwdne147105:0
-Gestern: crwdns147107:0crwdne147107:0
-Abonniert: crwdns147109:0crwdne147109:0
-Abonnieren: crwdns147111:0crwdne147111:0
-und: crwdns147113:0crwdne147113:0
-'HINWEIS: Diese Aktion ist nur in der Stadt möglich.': 'crwdns147115:0crwdne147115:0'
-'HINWEIS: Diese Aktion ist nur in Übersee möglich.': 'crwdns147117:0crwdne147117:0'
-'Neuer Beitrag in': 'crwdns147119:0crwdne147119:0'
-'Diese Diskussion ist beendet.': 'crwdns147121:0crwdne147121:0'
-'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'crwdns147123:0crwdne147123:0'
-'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'crwdns147125:0crwdne147125:0'
-'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'crwdns147127:0crwdne147127:0'
-'Nachrichten suchen': 'crwdns147129:0crwdne147129:0'
-Suchbegriff: crwdns147131:0crwdne147131:0
-'Suchbegriffe eingeben': 'crwdns147133:0crwdne147133:0'
-'Benutzer (optional)': 'crwdns147135:0crwdne147135:0'
-Entfernen: crwdns147137:0crwdne147137:0
-Optionen: crwdns147139:0crwdne147139:0
-'In Titeln suchen': 'crwdns147141:0crwdne147141:0'
-'Tipps zur Suche': 'crwdns147143:0crwdne147143:0'
-'Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"': 'crwdns147145:0crwdne147145:0'
-'Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen': 'crwdns147147:0crwdne147147:0'
-'Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!': 'crwdns147149:0crwdne147149:0'
-Suchen: crwdns147151:0crwdne147151:0
-'Foren durchsuchen': 'crwdns147153:0crwdne147153:0'
-'Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.': 'crwdns147155:0crwdne147155:0'
-'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.': 'crwdns147157:0crwdne147157:0'
-'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!': 'crwdns147159:0crwdne147159:0'
-'Diese Aktion kostet dich 1 AP!': 'crwdns147161:0crwdne147161:0'
-'Es wurde noch keine Stadt in die Rangliste aufgenommen!': 'crwdns147163:0crwdne147163:0'
-'Bitte wähle die Art der Beschränkung.': 'crwdns147165:0crwdne147165:0'
-'Wer?': 'crwdns147167:0crwdne147167:0'
-'Namen eingeben': 'crwdns147169:0crwdne147169:0'
-'Dein Icon': 'crwdns147171:0crwdne147171:0'
-Auswählen: crwdns147173:0crwdne147173:0
-'Dein Titel': 'crwdns147175:0crwdne147175:0'
-'Deine Beschreibung': 'crwdns147177:0crwdne147177:0'
-Avatar: crwdns147179:0crwdne147179:0
-'Gruppe aus {num} Spielern': 'crwdns147181:0{num}crwdne147181:0'
-'Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>': 'crwdns147183:0crwdne147183:0'
-Groß: crwdns147185:0crwdne147185:0
-'Mit offiziellen Gruppen in Kontakt treten': 'crwdns147187:0crwdne147187:0'
-'Eine offizielle Gruppe kontaktieren': 'crwdns147189:0crwdne147189:0'
-'via {group_inbox}': 'crwdns147191:0{group_inbox}crwdne147191:0'
-'Überlebte Tage': 'crwdns147193:0crwdne147193:0'
-Abschiedsworte: crwdns147195:0crwdne147195:0
-'Zum Wechsein der Seite hier klicken': 'crwdns147197:0crwdne147197:0'
-'Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.': 'crwdns147199:0crwdne147199:0'
-'Pin entfernen': 'crwdns147201:0crwdne147201:0'
-'Angepinnte Nachricht': 'crwdns147203:0crwdne147203:0'
-Einblenden: crwdns147205:0crwdne147205:0
-'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.': 'crwdns147207:0{user}crwdne147207:0'
-'{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.': 'crwdns147209:0{user}crwdne147209:0'
-'{users} und {last_user}': 'crwdns147211:0{users}crwdnd147211:0{last_user}crwdne147211:0'
-'{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.': 'crwdns147213:0{users}crwdne147213:0'
-'Du hast diesen Spieler auf deine Blacklist gesetzt.': 'crwdns147215:0crwdne147215:0'
-'Du hast diesen Spieler von deiner Blacklist genommen.': 'crwdns147217:0crwdne147217:0'
-'Du hast {user} blockiert.': 'crwdns147219:0{user}crwdne147219:0'
-'Blockade aufheben': 'crwdns147221:0crwdne147221:0'
-'Spieler blockieren': 'crwdns147223:0crwdne147223:0'
-'{user} blockieren': 'crwdns147225:0{user}crwdne147225:0'
-'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'crwdns147227:0crwdne147227:0'
-'Möchtest du fortfahren?': 'crwdns147229:0crwdne147229:0'
-'Absender blockieren': 'crwdns147231:0crwdne147231:0'
-'Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'crwdns147233:0crwdne147233:0'
-'Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.': 'crwdns147235:0crwdne147235:0'
-'Bevorzugte Pronomen': 'crwdns147237:0crwdne147237:0'
-'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.': 'crwdns147239:0crwdne147239:0'
-Männlich: crwdns147241:0crwdne147241:0
-Weiblich: crwdns147243:0crwdne147243:0
-'Keine Präferenz': 'crwdns147245:0crwdne147245:0'
-'E-Mail konnte nicht gesendet werden.': 'crwdns147247:0crwdne147247:0'
-Kopieren: crwdns147249:0crwdne147249:0
-'Wenn möglich gib bitte einen Grund für deine Meldung an:': 'crwdns147251:0crwdne147251:0'
-'Keinen Grund angeben': 'crwdns147253:0crwdne147253:0'
-Cheating: crwdns147255:0crwdne147255:0
-'Flooding oder Spam': 'crwdns147257:0crwdne147257:0'
-'Verwendung einer anderen als der Forensprache': 'crwdns147259:0crwdne147259:0'
-'Beleidigungen / Unangemessener Ausdruck': 'crwdns147261:0crwdne147261:0'
-Pornographie: crwdns147263:0crwdne147263:0
-Hassrede: crwdns147265:0crwdne147265:0
-'Verbreitung persönlicher Informationen': 'crwdns147267:0crwdne147267:0'
-'Verletzung von Copyright': 'crwdns147269:0crwdne147269:0'
-'Aufruf zu Gesetzesverstößen': 'crwdns147271:0crwdne147271:0'
-'Ermutigung von Selbstmord oder Selbstverletzung': 'crwdns147273:0crwdne147273:0'
-'Inhalt melden': 'crwdns147275:0crwdne147275:0'
-'Verwendung einer anderen als der Stadtsprache': 'crwdns147277:0crwdne147277:0'
-'Unangemessenen Inhalt melden': 'crwdns147279:0crwdne147279:0'
-'Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.': 'crwdns147281:0crwdne147281:0'
-'Diese Umfrage ist ungültig oder wurde gelöscht.': 'crwdns147283:0crwdne147283:0'
-Abstimmen: crwdns147285:0crwdne147285:0
-'Ergebnisse anzeigen': 'crwdns147287:0crwdne147287:0'
-'Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?': 'crwdns147289:0crwdne147289:0'
-'Umfrage einfügen': 'crwdns147291:0crwdne147291:0'
-'Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!': 'crwdns147293:0crwdne147293:0'
-'Fragetext eingeben (optional)': 'crwdns147295:0crwdne147295:0'
-'Antwort hinzufügen': 'crwdns147297:0crwdne147297:0'
-Antwort: crwdns147299:0crwdne147299:0
-(optional): crwdns147301:0crwdne147301:0
-'Info-Text hinzufügen': 'crwdns147303:0crwdne147303:0'
-Info-Text: crwdns147305:0crwdne147305:0
-'Du musst mindestens eine Antwort eingeben.': 'crwdns147307:0crwdne147307:0'
-'Spielernamen einfügen': crwdns147309:0crwdne147309:0
-'Umfrage schließen': 'crwdns147311:0crwdne147311:0'
-'Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?': 'crwdns147313:0crwdne147313:0'
-Animateur-Team: crwdns147315:0crwdne147315:0
-Entwickler: crwdns147317:0crwdne147317:0
-Community-Tools: crwdns147319:0crwdne147319:0
-Posteingang: crwdns147321:0crwdne147321:0
-Archiv: crwdns147323:0crwdne147323:0
-'Nachricht suchen...': 'crwdns147325:0crwdne147325:0'
-'Gib hier den Titel einer Nachricht ein, um danach zu suchen.': 'crwdns147327:0crwdne147327:0'
-'Dieser Ordner ist leer.': 'crwdns147329:0crwdne147329:0'
-'Es wurden keine passenden Nachrichten gefunden.': 'crwdns147331:0crwdne147331:0'
-'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).': 'crwdns147333:0crwdne147333:0'
-'Dieser Spieler ist ein Administrator auf diesem Server.': 'crwdns147335:0crwdne147335:0'
-'Dieser Spieler ist ein Entwickler von MyHordes.': 'crwdns147337:0crwdne147337:0'
-'Dieser Spieler ist ein Moderator auf MyHordes.': 'crwdns147339:0crwdne147339:0'
-'Dieser Spieler ist ein Animateur auf MyHordes.': 'crwdns147341:0crwdne147341:0'
-'Dieser Spieler ist ein Orakel auf MyHordes.': 'crwdns147343:0crwdne147343:0'
-'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.': 'crwdns147345:0crwdne147345:0'
-"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "crwdns147347:0crwdne147347:0"
-'Das Zombie Survival Game!': 'crwdns147349:0crwdne147349:0'
-Details: crwdns147351:0crwdne147351:0
-'Zusätzliche Informationen zu deiner Meldung (optional):': 'crwdns147353:0crwdne147353:0'
-Anfang: crwdns147355:0crwdne147355:0
-Vorh.: crwdns147357:0crwdne147357:0
-'Seite {page}': 'crwdns147359:0{page}crwdne147359:0'
-Folg.: crwdns147361:0crwdne147361:0
-Ende: crwdns147363:0crwdne147363:0
-'Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von <b>MotionTwin</b>.': 'crwdns147365:0{dv}crwdnd147365:0{d2n}crwdnd147365:0{hordes}crwdnd147365:0{zn}crwdne147365:0'
-'All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von <b>MotionTwin</b>': 'crwdns147367:0crwdne147367:0'
-'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.': 'crwdns147369:0{gitlab}crwdne147369:0'
-'MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.': 'crwdns147371:0{etwin}crwdnd147371:0{opencollective}crwdne147371:0'
-Programmierung: crwdns147373:0crwdne147373:0
-'Danke an': 'crwdns147375:0crwdne147375:0'
-'Thread verschieben': 'crwdns147377:0crwdne147377:0'
-'Verschiebe den aktuellen Thread in ein anderes Forum:': 'crwdns147379:0crwdne147379:0'
-Verschieben: crwdns147381:0crwdne147381:0
-Icons: crwdns147383:0crwdne147383:0
-'Einzigartige Titel': 'crwdns147385:0crwdne147385:0'
-'Einzigartige Icons': 'crwdns147387:0crwdne147387:0'
-Ergebnisse: crwdns147389:0crwdne147389:0
-'Ergebnisse pro Seite': 'crwdns147391:0crwdne147391:0'
-Ja: crwdns147393:0crwdne147393:0
-Nein: crwdns147395:0crwdne147395:0
-Anwenden: crwdns147397:0crwdne147397:0
-'Keine Ergebnisse': 'crwdns147399:0crwdne147399:0'
-'Deine Nachricht benötigt einen Titel sowie Inhalt.': 'crwdns147401:0crwdne147401:0'
-Gelöst: crwdns147403:0crwdne147403:0
-'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).': 'crwdns147405:0crwdne147405:0'
-Fehler: crwdns147407:0crwdne147407:0
-Changelog: crwdns147409:0crwdne147409:0
-Event: crwdns147411:0crwdne147411:0
-RP: crwdns147413:0crwdne147413:0
-Update: crwdns147415:0crwdne147415:0
-Post: crwdns147417:0crwdne147417:0
-Disk.: crwdns147419:0crwdne147419:0
-Guide: crwdns147421:0crwdne147421:0
-Orga.: crwdns147423:0crwdne147423:0
-Vorschlag: crwdns147425:0crwdne147425:0
-SALC: crwdns147427:0crwdne147427:0
-Projekt: crwdns147429:0crwdne147429:0
-'Tag hinzufügen (optional)': 'crwdns147431:0crwdne147431:0'
-Tag: crwdns147433:0crwdne147433:0
-'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'crwdns147435:0crwdne147435:0'
-'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'crwdns147437:0crwdne147437:0'
-'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'crwdns147439:0crwdne147439:0'
-Offiziell: crwdns147441:0crwdne147441:0
-'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'crwdns147443:0crwdne147443:0'
-'{n} neue Beiträge in': 'crwdns147445:0{n}crwdne147445:0'
-'{n} oder mehr neue Beiträge in': 'crwdns147447:0{n}crwdne147447:0'
-'und andere.': 'crwdns147449:0crwdne147449:0'
-'Deine Platzierung': 'crwdns147451:0crwdne147451:0'
-'{num} Seelenpunkte, Platz {rank}': 'crwdns147453:0{num}crwdnd147453:0{rank}crwdne147453:0'
-'Zu meinem Eintrag springen': 'crwdns147455:0crwdne147455:0'
-'Diskussion aktualisieren': 'crwdns147457:0crwdne147457:0'
-Support-Postfach: crwdns147459:0crwdne147459:0
-'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.': 'crwdns147461:0crwdne147461:0'
-'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.': 'crwdns147463:0crwdne147463:0'
-'Für diese Aktion hast du nicht genug MP.': 'crwdns147465:0crwdne147465:0'
-Ankündigungen: crwdns147467:0crwdne147467:0
-Foren: crwdns147469:0crwdne147469:0
-Kontaktliste: crwdns147471:0crwdne147471:0
-STRG: crwdns147473:0crwdne147473:0
-'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.': 'crwdns147475:0crwdne147475:0'
-'Schon gewusst?': 'crwdns147477:0crwdne147477:0'
-'Umfrage starten': 'crwdns147479:0crwdne147479:0'
-'Alles als gelesen markieren': 'crwdns147481:0crwdne147481:0'
-Weltforum: crwdns147483:0crwdne147483:0
-'im-Kontext Übersetzung': 'crwdns147485:0crwdne147485:0'
-'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'crwdns147487:0crwdne147487:0'
-'Spieler melden': 'crwdns147489:0crwdne147489:0'
-'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?': 'crwdns147491:0crwdne147491:0'
-'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.': 'crwdns147493:0crwdne147493:0'
-'Unangemessene Profilbeschreibung': 'crwdns147495:0crwdne147495:0'
-'Unangemessener Avatar': 'crwdns147497:0crwdne147497:0'
-'Unangemessener Name': 'crwdns147499:0crwdne147499:0'
-'Liste der Foren aktualisieren': 'crwdns147501:0crwdne147501:0'
-Community-Management: crwdns147503:0crwdne147503:0
-'Aktuelles Team': 'crwdns147505:0crwdne147505:0'
-Unterstützung: crwdns147507:0crwdne147507:0
-Inaktive: crwdns147509:0crwdne147509:0
-'Rechtliche Informationen': 'crwdns147511:0crwdne147511:0'
-Datenschutzerklärung: crwdns147513:0crwdne147513:0
-Impressum: crwdns147515:0crwdne147515:0
-'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.': 'crwdns147517:0crwdne147517:0'
-'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:': 'crwdns147519:0crwdne147519:0'
-'Aktuelle Umfrage': 'crwdns147521:0crwdne147521:0'
-'Deine Meinung ist gefragt!': 'crwdns147523:0crwdne147523:0'
-'Später erinnern': 'crwdns147525:0crwdne147525:0'
-'Optionen für dieses Forum': 'crwdns147527:0crwdne147527:0'
-'Freundesliste öffnen': 'crwdns147529:0crwdne147529:0'
-'Du hast die Seiteneinstellungen geändert.': 'crwdns147531:0crwdne147531:0'
-'Ein für die Darstellung dieser Seite erforderliches Script konnte nicht geladen werden. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'crwdns147533:0crwdne147533:0'
-'Ein für die Darstellung dieser Seite erforderliches Script ist abgestürzt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'crwdns147535:0crwdne147535:0'
-'Kein Interesse': 'crwdns147537:0crwdne147537:0'
-'Bist du sicher? Wir würden wirklich gerne deine Meinung zu hören!': 'crwdns147539:0crwdne147539:0'
-Einklappen: crwdns147541:0crwdne147541:0
-'Eingeklappte Sektion hinzufügen': 'crwdns147543:0crwdne147543:0'
-Kopfzeile: crwdns147545:0crwdne147545:0
-'Du musst eine Kopfzeile angeben.': 'crwdns147547:0crwdne147547:0'
-'Bitte auswählen': 'crwdns147549:0crwdne147549:0'
-'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'crwdns147551:0crwdne147551:0'
-'Link wurde in die Zwischenablage kopiert.': 'crwdns147553:0crwdne147553:0'
-'Link konnte nicht kopiert werden.': 'crwdns147555:0crwdne147555:0'
-'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'crwdns147557:0{gitlab}crwdne147557:0'
-'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'crwdns147559:0crwdne147559:0'
-'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'crwdns147561:0crwdne147561:0'
-"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "crwdns147563:0crwdne147563:0"
-Antw.: crwdns147565:0crwdne147565:0
-'Aktive Spieler': 'crwdns147567:0crwdne147567:0'
-'Täglich aktive Spieler (Durchschn.)': 'crwdns147569:0crwdne147569:0'
-'Monatlich aktive Spieler': 'crwdns147571:0crwdne147571:0'
-Gesamt: crwdns147573:0crwdne147573:0
-'Bitte wähle einen Grund für deine Meldung aus.': 'crwdns147575:0crwdne147575:0'
-'Sprache des Stadtnamens': 'crwdns147577:0crwdne147577:0'
-Nutzungsbedingungen: crwdns147579:0crwdne147579:0
-'Hier kannst du eine URL für eine Test- oder Entwicklungsumgebung hinterlegen (z.B. "localhost"). Du siehst dann einen zusätzlichen Button, der dich auf diese Umgebung weiterleitet. Diese URL sowie der zusätzliche Button sind ausschließlich für dich sichtbar.': 'crwdns147581:0crwdne147581:0'
-Kopiert!: crwdns147583:0crwdne147583:0
-'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': 'crwdns147585:0crwdne147585:0'
-'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'crwdns147587:0def={def}crwdnd147587:0def={def}crwdne147587:0'
-'Eigenes Event organisieren': 'crwdns147589:0crwdne147589:0'
-'Zurück zur Übersicht': 'crwdns147591:0crwdne147591:0'
-'Event-Verifizierung beantragen': 'crwdns147593:0crwdne147593:0'
-'Event-Verifizierung abbrechen': 'crwdns147595:0crwdne147595:0'
-'Event freischalten': 'crwdns147597:0crwdne147597:0'
-'Verifizierung beantragt': 'crwdns147599:0crwdne147599:0'
-'Start geplant': 'crwdns147601:0crwdne147601:0'
-'Event beenden': 'crwdns147603:0crwdne147603:0'
-'Vorläufiges Startdatum am {date}': 'crwdns147605:0{date}crwdne147605:0'
-'Event startet morgen, am {date}': 'crwdns147607:0{date}crwdne147607:0'
-'Event startet in {days} Tagen, am {date}': 'crwdns147609:0{days}crwdnd147609:0{date}crwdne147609:0'
-'Event läuft seit {date}': 'crwdns147611:0{date}crwdne147611:0'
-'Event beendet': 'crwdns147613:0crwdne147613:0'
-'Verifizierung erfolgreich beantragt. Dein Event wird in Kürze von einem Raben oder Administrator geprüft.': 'crwdns147615:0crwdne147615:0'
-'Dein Antrag auf Verifizierung wurde erfolgreich zurückgezogen.': 'crwdns147617:0crwdne147617:0'
-'Event erfolgreich verifiziert.': 'crwdns147619:0crwdne147619:0'
-'Aktuell sind keine Community-Events geplant.': 'crwdns147621:0crwdne147621:0'
-'Neues Event': 'crwdns147623:0crwdne147623:0'
-'Bist du sicher, dass du dieses Event löschen möchtest?': 'crwdns147625:0crwdne147625:0'
-'Weitere Informationen und Regeln anzeigen.': 'crwdns147627:0crwdne147627:0'
-Event-Städte: crwdns147629:0crwdne147629:0
-'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'crwdns147631:0crwdne147631:0'
-'Deiner Kreativität sind somit keine Grenzen gesetzt!': 'crwdns147633:0crwdne147633:0'
-'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'crwdns147635:0crwdne147635:0'
-'Automatisch generierter Name': 'crwdns147637:0crwdne147637:0'
-'Stadt hinzufügen': 'crwdns147639:0crwdne147639:0'
-'Bist du sicher, dass du dieses Stadt löschen möchtest?': 'crwdns147641:0crwdne147641:0'
-'Neue Stadt anlegen': 'crwdns147643:0crwdne147643:0'
-'Stadt bearbeiten': 'crwdns147645:0crwdne147645:0'
-'Stadtinstanz bereit': 'crwdns147647:0crwdne147647:0'
-'Stadtinstanz beendet': 'crwdns147649:0crwdne147649:0'
-'Am Leben': 'crwdns147651:0crwdne147651:0'
-'Zur Chronik': 'crwdns147653:0crwdne147653:0'
-'Allgemeine Event-Informationen': 'crwdns147655:0crwdne147655:0'
-'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'crwdns147657:0crwdne147657:0'
-'Event bearbeiten': 'crwdns147659:0crwdne147659:0'
-'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'crwdns147661:0{lang}crwdne147661:0'
-'Geplanter Startzeitpunkt': 'crwdns147663:0crwdne147663:0'
-Event-Titel: crwdns147665:0crwdne147665:0
-Kurzbeschreibung: crwdns147667:0crwdne147667:0
-'Beschreibung und Regeln des Events': 'crwdns147669:0crwdne147669:0'
-'Du musst mindestens eine Event-Beschreibung hinzufügen.': 'crwdns147671:0crwdne147671:0'
-'Du musst ein Startdatum für dein Event festlegen.': 'crwdns147673:0crwdne147673:0'
-'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'crwdns147675:0{minDays}crwdnd147675:0{maxDays}crwdne147675:0'
-'Account wechseln': 'crwdns152389:0crwdne152389:0'
-'Mehr Ergebnisse anzeigen': 'crwdns167995:0crwdne167995:0'
-'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'crwdns167997:0crwdne167997:0'
+---
+'Allgemeiner Fehler.': 'crwdns67412:0crwdne67412:0'
+'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'crwdns67414:0crwdne67414:0'
+'Dein Text muss mindestens 2 Zeichen lang sein.': 'crwdns67416:0crwdne67416:0'
+'Dein Titel muss zwischen 3 und 64 Zeichen lang sein.': 'crwdns67418:0crwdne67418:0'
+Kommunikationsfehler.: crwdns67420:0crwdne67420:0
+'Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.': 'crwdns67422:0crwdne67422:0'
+'Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.': 'crwdns67424:0crwdne67424:0'
+'Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.': 'crwdns67426:0crwdne67426:0'
+'Für diese Aktion hast du nicht genug AP.': 'crwdns67428:0crwdne67428:0'
+'Diese Aktion steht dir aktuell nicht zur Verfügung.': 'crwdns67430:0crwdne67430:0'
+'Hierfür fehlen dir notwendige Gegenstände.': 'crwdns67432:0crwdne67432:0'
+'Diese Aktion steht nur Helden zur Verfügung.': 'crwdns67434:0crwdne67434:0'
+'Neuer Thread': 'crwdns67436:0crwdne67436:0'
+'Neuer Post': 'crwdns67438:0crwdne67438:0'
+Titel: crwdns67440:0crwdne67440:0
+'Deine Nachricht': 'crwdns67442:0crwdne67442:0'
+Absenden: crwdns67444:0crwdne67444:0
+Zurück: crwdns67446:0crwdne67446:0
+'Neues Thema': 'crwdns67448:0crwdne67448:0'
+'Der Rabe': 'crwdns67450:0crwdne67450:0'
+'Seite {page}/{pages}': 'crwdns67452:0{page}crwdnd67452:0{pages}crwdne67452:0'
+'Bitte halte dich an die Regeln:': 'crwdns67454:0crwdne67454:0'
+'Achte auf deine Rechtschreibung': 'crwdns67456:0crwdne67456:0'
+'Bleibe höflich und freundlich': 'crwdns67458:0crwdne67458:0'
+'Werbung ist verboten (Links etc.)': 'crwdns67460:0crwdne67460:0'
+'Heute um': 'crwdns67462:0crwdne67462:0'
+'Gestern um': 'crwdns67464:0crwdne67464:0'
+Antworten: crwdns67466:0crwdne67466:0
+Schließen: crwdns67468:0crwdne67468:0
+'Bestätigen?': 'crwdns67470:0crwdne67470:0'
+Rückgängig: crwdns67472:0crwdne67472:0
+Abbrechen: crwdns67474:0crwdne67474:0
+Speichern: crwdns67476:0crwdne67476:0
+Achtung: crwdns67478:0crwdne67478:0
+'Bist du sicher?': 'crwdns67480:0crwdne67480:0'
+'Auswahl bestätigen': 'crwdns67482:0crwdne67482:0'
+Forum: crwdns67484:0crwdne67484:0
+'Deine Seele': 'crwdns67486:0crwdne67486:0'
+Hilfe: crwdns67488:0crwdne67488:0
+'Zum Spiel': 'crwdns67490:0crwdne67490:0'
+Deutsch: crwdns67492:0crwdne67492:0
+Englisch: crwdns67494:0crwdne67494:0
+Französisch: crwdns67496:0crwdne67496:0
+Spanisch: crwdns67498:0crwdne67498:0
+Bearbeiten: crwdns67500:0crwdne67500:0
+Hinweis: crwdns67502:0crwdne67502:0
+Spiel: crwdns67504:0crwdne67504:0
+Statistiken: crwdns67506:0crwdne67506:0
+'{points} Punkte': 'crwdns67508:0{points}crwdne67508:0'
+'Dieser Spieler hat bisher noch keine Preise gewonnen...': 'crwdns67510:0crwdne67510:0'
+Seelenpunktzahl: crwdns67512:0crwdne67512:0
+'Aktuelles Leben': 'crwdns67514:0crwdne67514:0'
+Saison: crwdns67516:0crwdne67516:0
+Tage: crwdns67518:0crwdne67518:0
+Punkte: crwdns67520:0crwdne67520:0
+'Es wurde keine Stadt gefunden...': 'crwdns67522:0crwdne67522:0'
+'Achtung! Der von dir ausgewählte Link, leitet dich auf eine <strong>nicht-offizielle Seite</strong> weiter (sprich: eine Fan- oder Spielerseite).': 'crwdns67524:0crwdne67524:0'
+'Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!': 'crwdns67526:0crwdne67526:0'
+'Auch dann nicht, wenn du dazu aufgefordert wirst!': 'crwdns67528:0crwdne67528:0'
+'Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.': 'crwdns67530:0{contact}crwdne67530:0'
+'Weiter zu': 'crwdns67532:0crwdne67532:0'
+'Du hast keine Externe ID.': 'crwdns67534:0crwdne67534:0'
+'Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.': 'crwdns67536:0crwdne67536:0'
+Verzeichnis: crwdns67538:0crwdne67538:0
+'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:': 'crwdns67540:0crwdne67540:0'
+'Dazu hast Du kein Recht.': 'crwdns67542:0crwdne67542:0'
+Moderation: crwdns67544:0crwdne67544:0
+Online: crwdns67546:0crwdne67546:0
+Offline: crwdns67548:0crwdne67548:0
+Sticky: crwdns67550:0crwdne67550:0
+Dev: crwdns67552:0crwdne67552:0
+Löschen: crwdns67554:0crwdne67554:0
+Öffnen: crwdns67556:0crwdne67556:0
+Anpinnen: crwdns67558:0crwdne67558:0
+Loslösen: crwdns67560:0crwdne67560:0
+'Du wurdest aus dem Forum verbannt.': 'crwdns67562:0crwdne67562:0'
+Schere: crwdns67564:0crwdne67564:0
+Stein: crwdns67566:0crwdne67566:0
+Papier: crwdns67568:0crwdne67568:0
+Kopf: crwdns67570:0crwdne67570:0
+Zahl: crwdns67572:0crwdne67572:0
+'{color} {value}': 'crwdns67574:0{color}crwdnd67574:0{value}crwdne67574:0'
+Vorschau: crwdns67576:0crwdne67576:0
+'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'crwdns67578:0crwdne67578:0'
+Autor: crwdns67580:0crwdne67580:0
+Datum: crwdns67582:0crwdne67582:0
+Archivieren: crwdns67586:0crwdne67586:0
+Fett: crwdns67588:0crwdne67588:0
+Kursiv: crwdns67590:0crwdne67590:0
+Unterstreichen: crwdns67592:0crwdne67592:0
+Durchstreichen: crwdns67594:0crwdne67594:0
+Listenpunkt: crwdns67596:0crwdne67596:0
+Spoiler: crwdns67598:0crwdne67598:0
+Zitat: crwdns67600:0crwdne67600:0
+Ruhm: crwdns67602:0crwdne67602:0
+Linie: crwdns67604:0crwdne67604:0
+Entstauben: crwdns67606:0crwdne67606:0
+Einfügen: crwdns67608:0crwdne67608:0
+'Du kannst keine weiteren Gegenstände senden.': 'crwdns67610:0crwdne67610:0'
+Verräter: crwdns67612:0crwdne67612:0
+'Link einfügen': 'crwdns67614:0crwdne67614:0'
+'Bild einfügen': 'crwdns67616:0crwdne67616:0'
+'Admin Ankündigung': 'crwdns67618:0crwdne67618:0'
+'Mod Ankündigung': 'crwdns67620:0crwdne67620:0'
+'Orakel Ankündigung': 'crwdns67622:0crwdne67622:0'
+Rollenspiel: crwdns67624:0crwdne67624:0
+Link-Text: crwdns67626:0crwdne67626:0
+Link-URL: crwdns67628:0crwdne67628:0
+Bildtitel: crwdns67630:0crwdne67630:0
+Bild-URL: crwdns67632:0crwdne67632:0
+'Liste der Themen aktualisieren': 'crwdns67634:0crwdne67634:0'
+'Dieses Thema enthält offizielle Ansagen der Website Administratoren.': 'crwdns67636:0crwdne67636:0'
+'Dieses Thema enthält Ansagen von Community-Vertretern.': 'crwdns67638:0crwdne67638:0'
+'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:': 'crwdns67640:0{count}crwdne67640:0'
+'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:': 'crwdns67642:0{count}crwdne67642:0'
+Zitieren: crwdns67644:0crwdne67644:0
+Version: crwdns67646:0crwdne67646:0
+Sprache: crwdns67648:0crwdne67648:0
+Vertraulich: crwdns67650:0crwdne67650:0
+'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.': 'crwdns67652:0crwdne67652:0'
+'Diese Punkte werden für die Seelenrangliste verwendet.': 'crwdns67654:0crwdne67654:0'
+'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.': 'crwdns67656:0crwdne67656:0'
+'Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.': 'crwdns67658:0crwdne67658:0'
+Bestätigen: crwdns67660:0crwdne67660:0
+'Num. Listenpunkt': 'crwdns67662:0crwdne67662:0'
+'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...': 'crwdns67664:0crwdne67664:0'
+'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.': 'crwdns67666:0crwdne67666:0'
+'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.': 'crwdns67668:0crwdne67668:0'
+'Unangemessene Nachricht blockieren': 'crwdns67670:0crwdne67670:0'
+Link: crwdns67672:0crwdne67672:0
+'Permanenter Link zu diesem Post:': 'crwdns67674:0crwdne67674:0'
+'Mehr anzeigen': 'crwdns67676:0crwdne67676:0'
+'Deinen Rucksack umklammern': 'crwdns67678:0crwdne67678:0'
+Schreien: crwdns67680:0crwdne67680:0
+'Rotz und Wasser heulen': 'crwdns67682:0crwdne67682:0'
+'Die Zähne zusammenbeißen': 'crwdns67684:0crwdne67684:0'
+'Eine Gitarre umarmen': 'crwdns67686:0crwdne67686:0'
+'Nervös weinen': 'crwdns67688:0crwdne67688:0'
+'In Panik ausbrechen': 'crwdns67690:0crwdne67690:0'
+'Hinter dem Wrack verstecken': 'crwdns67692:0crwdne67692:0'
+'Die Tür zuhalten': 'crwdns67694:0crwdne67694:0'
+'Unter der Decke verstecken': 'crwdns67696:0crwdne67696:0'
+'Nach Hilfe schreien': 'crwdns67698:0crwdne67698:0'
+'"Hilfe" schreien': 'crwdns67700:0crwdne67700:0'
+'Unter einem Karton verstecken': 'crwdns67702:0crwdne67702:0'
+'Unter dem Bett verstecken': 'crwdns67704:0crwdne67704:0'
+'Ruhig bleiben...': 'crwdns67706:0crwdne67706:0'
+'In die Fötusstellung zusammenrollen': 'crwdns67708:0crwdne67708:0'
+'Alleine laut singen': 'crwdns67710:0crwdne67710:0'
+'Um dein Leben beten': 'crwdns67712:0crwdne67712:0'
+'Die Backen halten': 'crwdns67714:0crwdne67714:0'
+'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?': 'crwdns67716:0crwdne67716:0'
+'Schön hier im Warmen bleiben': 'crwdns67718:0crwdne67718:0'
+'Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.': 'crwdns67720:0crwdne67720:0'
+'Ursprünglichen Text anzeigen': 'crwdns67722:0crwdne67722:0'
+Mehrsprachig: crwdns67724:0crwdne67724:0
+'Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.': 'crwdns67726:0crwdne67726:0'
+'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)': 'crwdns67728:0crwdne67728:0'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.': 'crwdns67730:0crwdne67730:0'
+'Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..': 'crwdns67732:0crwdne67732:0'
+Stadtforum: crwdns67734:0crwdne67734:0
+Weltforen: crwdns67736:0crwdne67736:0
+'Andere Foren': 'crwdns67738:0crwdne67738:0'
+'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.': 'crwdns67740:0crwdne67740:0'
+'Dieses Thema enthält {count} gemeldete Posts:': 'crwdns67742:0{count}crwdne67742:0'
+'{num} Meldungen. Klicken, um Benutzer anzuzeigen.': 'crwdns67744:0{num}crwdne67744:0'
+'Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.': 'crwdns67746:0{user}crwdnd67746:0{time}crwdne67746:0'
+Überprüft: crwdns67748:0crwdne67748:0
+Wiederherstellen: crwdns67750:0crwdne67750:0
+'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'crwdns67752:0crwdne67752:0'
+'<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!': 'crwdns67754:0crwdne67754:0'
+'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.': 'crwdns67756:0crwdne67756:0'
+'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.': 'crwdns67758:0crwdne67758:0'
+'Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>': 'crwdns67760:0crwdne67760:0'
+'Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.': 'crwdns67762:0crwdne67762:0'
+'Du musst noch mehr Erfahrung sammeln, um das tun zu können...': 'crwdns67764:0crwdne67764:0'
+Code: crwdns67766:0crwdne67766:0
+Kein: crwdns67768:0crwdne67768:0
+'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...': 'crwdns67770:0crwdne67770:0'
+'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.': 'crwdns67772:0crwdne67772:0'
+'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.': 'crwdns67774:0crwdne67774:0'
+'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.': 'crwdns67776:0crwdne67776:0'
+Ausblenden: crwdns67778:0crwdne67778:0
+Nachricht: crwdns67780:0crwdne67780:0
+Ausb.+Nachr.: crwdns67782:0crwdne67782:0
+'<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>': 'crwdns67784:0crwdne67784:0'
+Entwickler-Einstellungen: crwdns67786:0crwdne67786:0
+'Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.': 'crwdns67788:0crwdne67788:0'
+'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.': 'crwdns67790:0crwdne67790:0'
+'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.': 'crwdns67792:0crwdne67792:0'
+'Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.': 'crwdns67794:0crwdne67794:0'
+'Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.': 'crwdns67796:0crwdne67796:0'
+'Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.': 'crwdns67798:0crwdne67798:0'
+'Alle Foren': 'crwdns67800:0crwdne67800:0'
+'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...': 'crwdns67802:0crwdne67802:0'
+'Die Seite wird von Horden von Zombies belagert!': 'crwdns67804:0crwdne67804:0'
+'Spielhilfe:': 'crwdns67806:0crwdne67806:0'
+'Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:': 'crwdns67808:0crwdne67808:0'
+'Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.': 'crwdns67810:0crwdne67810:0'
+'Bürger! Seid auf inoffiziellen Webseiten wachsam!': 'crwdns67812:0crwdne67812:0'
+'Du bist vor Angst erstarrt...': 'crwdns67814:0crwdne67814:0'
+'Nachrichten des Raben': 'crwdns67816:0crwdne67816:0'
+Anzeigen: crwdns67818:0crwdne67818:0
+Dauerhaft: crwdns67820:0crwdne67820:0
+'{n} Tage': 'crwdns67822:0{n}crwdne67822:0'
+'1 Tag': 'crwdns67824:0crwdne67824:0'
+'{n} Stunden': 'crwdns67826:0{n}crwdne67826:0'
+'1 Stunde': 'crwdns67828:0crwdne67828:0'
+'{n} Minuten': 'crwdns67830:0{n}crwdne67830:0'
+'1 Minute': 'crwdns67832:0crwdne67832:0'
+'{n} Sekunden': 'crwdns67834:0{n}crwdne67834:0'
+'1 Sekunde': 'crwdns67836:0crwdne67836:0'
+'Zum erweiterten Editor wechseln': 'crwdns67838:0crwdne67838:0'
+'Aktuelle Teilnehmer': 'crwdns67840:0crwdne67840:0'
+'Spieler ausschließen': 'crwdns67842:0crwdne67842:0'
+'Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.': 'crwdns67844:0crwdne67844:0'
+'Spieler hinzufügen': 'crwdns67846:0crwdne67846:0'
+'Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.': 'crwdns67848:0crwdne67848:0'
+'Einen Empfänger hinzufügen': 'crwdns67850:0crwdne67850:0'
+'Ausgeschlossene Teilnehmer': 'crwdns67852:0crwdne67852:0'
+'Ausschluss annulieren': 'crwdns67854:0crwdne67854:0'
+'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.': 'crwdns67856:0crwdne67856:0'
+'Wird geladen...': 'crwdns67858:0crwdne67858:0'
+'Bitte wähle eine Konversation auf der linken Seite.': 'crwdns67860:0crwdne67860:0'
+'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.': 'crwdns67862:0crwdne67862:0'
+'Weitere Einträge werden geladen...': 'crwdns67864:0crwdne67864:0'
+Aktionen: crwdns67866:0crwdne67866:0
+Schreiben: crwdns67868:0crwdne67868:0
+Konversationen: crwdns67870:0crwdne67870:0
+'Lade Unterhaltungen ...': 'crwdns67872:0crwdne67872:0'
+'Diese Konversation': 'crwdns67874:0crwdne67874:0'
+'Nicht gelesen': 'crwdns67876:0crwdne67876:0'
+Teilnehmer: crwdns67878:0crwdne67878:0
+'Lade Unterhaltung...': 'crwdns67880:0crwdne67880:0'
+'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.': 'crwdns67882:0crwdne67882:0'
+'Neue Nachricht': 'crwdns67884:0crwdne67884:0'
+Ankündigung: crwdns67886:0crwdne67886:0
+'{n} Teilnehmer': 'crwdns67888:0{n}crwdne67888:0'
+'Weitere Einträge laden': 'crwdns67890:0crwdne67890:0'
+'Posteingang wird geladen ...': 'crwdns67892:0crwdne67892:0'
+'Fehler beim Laden des Posteingangs.': 'crwdns67894:0crwdne67894:0'
+Heute: crwdns67896:0crwdne67896:0
+Gestern: crwdns67898:0crwdne67898:0
+Abonniert: crwdns67900:0crwdne67900:0
+Abonnieren: crwdns67902:0crwdne67902:0
+und: crwdns67904:0crwdne67904:0
+'HINWEIS: Diese Aktion ist nur in der Stadt möglich.': 'crwdns67906:0crwdne67906:0'
+'HINWEIS: Diese Aktion ist nur in Übersee möglich.': 'crwdns67908:0crwdne67908:0'
+'Neuer Beitrag in': 'crwdns67910:0crwdne67910:0'
+'Diese Diskussion ist beendet.': 'crwdns67912:0crwdne67912:0'
+'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.': 'crwdns67914:0crwdne67914:0'
+'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt': 'crwdns67916:0crwdne67916:0'
+'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.': 'crwdns67918:0crwdne67918:0'
+'Nachrichten suchen': 'crwdns67920:0crwdne67920:0'
+Suchbegriff: crwdns67922:0crwdne67922:0
+'Suchbegriffe eingeben': 'crwdns67924:0crwdne67924:0'
+'Benutzer (optional)': 'crwdns67926:0crwdne67926:0'
+Entfernen: crwdns67928:0crwdne67928:0
+Optionen: crwdns67930:0crwdne67930:0
+'In Titeln suchen': 'crwdns67932:0crwdne67932:0'
+'Tipps zur Suche': 'crwdns67934:0crwdne67934:0'
+'Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"': 'crwdns67936:0crwdne67936:0'
+'Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen': 'crwdns67938:0crwdne67938:0'
+'Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!': 'crwdns67940:0crwdne67940:0'
+Suchen: crwdns67942:0crwdne67942:0
+'Foren durchsuchen': 'crwdns67944:0crwdne67944:0'
+'Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.': 'crwdns67946:0crwdne67946:0'
+'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.': 'crwdns67948:0crwdne67948:0'
+'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!': 'crwdns67950:0crwdne67950:0'
+'Diese Aktion kostet dich 1 AP!': 'crwdns67952:0crwdne67952:0'
+'Es wurde noch keine Stadt in die Rangliste aufgenommen!': 'crwdns67954:0crwdne67954:0'
+'Bitte wähle die Art der Beschränkung.': 'crwdns67956:0crwdne67956:0'
+'Wer?': 'crwdns67958:0crwdne67958:0'
+'Namen eingeben': 'crwdns67960:0crwdne67960:0'
+'Dein Icon': 'crwdns67962:0crwdne67962:0'
+Auswählen: crwdns67964:0crwdne67964:0
+'Dein Titel': 'crwdns67966:0crwdne67966:0'
+'Deine Beschreibung': 'crwdns67968:0crwdne67968:0'
+Avatar: crwdns67970:0crwdne67970:0
+'Gruppe aus {num} Spielern': 'crwdns67972:0{num}crwdne67972:0'
+'Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>': 'crwdns67974:0crwdne67974:0'
+Groß: crwdns67976:0crwdne67976:0
+'Mit offiziellen Gruppen in Kontakt treten': 'crwdns67978:0crwdne67978:0'
+'Eine offizielle Gruppe kontaktieren': 'crwdns67980:0crwdne67980:0'
+'via {group_inbox}': 'crwdns67982:0{group_inbox}crwdne67982:0'
+'Überlebte Tage': 'crwdns67984:0crwdne67984:0'
+Abschiedsworte: crwdns67986:0crwdne67986:0
+'Zum Wechsein der Seite hier klicken': 'crwdns67988:0crwdne67988:0'
+'Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.': 'crwdns67990:0crwdne67990:0'
+'Pin entfernen': 'crwdns67992:0crwdne67992:0'
+'Angepinnte Nachricht': 'crwdns67994:0crwdne67994:0'
+Einblenden: crwdns67996:0crwdne67996:0
+'Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.': 'crwdns67998:0{user}crwdne67998:0'
+'{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.': 'crwdns68000:0{user}crwdne68000:0'
+'{users} und {last_user}': 'crwdns68002:0{users}crwdnd68002:0{last_user}crwdne68002:0'
+'{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.': 'crwdns68004:0{users}crwdne68004:0'
+'Du hast diesen Spieler auf deine Blacklist gesetzt.': 'crwdns68006:0crwdne68006:0'
+'Du hast diesen Spieler von deiner Blacklist genommen.': 'crwdns68008:0crwdne68008:0'
+'Du hast {user} blockiert.': 'crwdns68010:0{user}crwdne68010:0'
+'Blockade aufheben': 'crwdns68012:0crwdne68012:0'
+'Spieler blockieren': 'crwdns68014:0crwdne68014:0'
+'{user} blockieren': 'crwdns68016:0{user}crwdne68016:0'
+'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'crwdns68018:0crwdne68018:0'
+'Möchtest du fortfahren?': 'crwdns68020:0crwdne68020:0'
+'Absender blockieren': 'crwdns68022:0crwdne68022:0'
+'Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.': 'crwdns68024:0crwdne68024:0'
+'Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.': 'crwdns68026:0crwdne68026:0'
+'Bevorzugte Pronomen': 'crwdns68028:0crwdne68028:0'
+'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.': 'crwdns68030:0crwdne68030:0'
+Männlich: crwdns68032:0crwdne68032:0
+Weiblich: crwdns68034:0crwdne68034:0
+'Keine Präferenz': 'crwdns68036:0crwdne68036:0'
+'E-Mail konnte nicht gesendet werden.': 'crwdns68038:0crwdne68038:0'
+Kopieren: crwdns68040:0crwdne68040:0
+'Wenn möglich gib bitte einen Grund für deine Meldung an:': 'crwdns68042:0crwdne68042:0'
+'Keinen Grund angeben': 'crwdns68044:0crwdne68044:0'
+Cheating: crwdns68046:0crwdne68046:0
+'Flooding oder Spam': 'crwdns68048:0crwdne68048:0'
+'Verwendung einer anderen als der Forensprache': 'crwdns68050:0crwdne68050:0'
+'Beleidigungen / Unangemessener Ausdruck': 'crwdns68052:0crwdne68052:0'
+Pornographie: crwdns68054:0crwdne68054:0
+Hassrede: crwdns68056:0crwdne68056:0
+'Verbreitung persönlicher Informationen': 'crwdns68058:0crwdne68058:0'
+'Verletzung von Copyright': 'crwdns68060:0crwdne68060:0'
+'Aufruf zu Gesetzesverstößen': 'crwdns68062:0crwdne68062:0'
+'Ermutigung von Selbstmord oder Selbstverletzung': 'crwdns68064:0crwdne68064:0'
+'Inhalt melden': 'crwdns68066:0crwdne68066:0'
+'Verwendung einer anderen als der Stadtsprache': 'crwdns68068:0crwdne68068:0'
+'Unangemessenen Inhalt melden': 'crwdns68070:0crwdne68070:0'
+'Umfragen können an dieser Stelle nicht angezeigt werden. Bitte besuche das Forum.': 'crwdns68072:0crwdne68072:0'
+'Diese Umfrage ist ungültig oder wurde gelöscht.': 'crwdns68074:0crwdne68074:0'
+Abstimmen: crwdns68076:0crwdne68076:0
+'Ergebnisse anzeigen': 'crwdns68078:0crwdne68078:0'
+'Wenn du die Ergebnisse abrufst kannst du danach nicht mehr abstimmen. Bist du sicher?': 'crwdns68080:0crwdne68080:0'
+'Umfrage einfügen': 'crwdns68082:0crwdne68082:0'
+'Kontrolliere deine Eingaben! Umfragen können nach dem Absenden des Posts nicht mehr bearbeitet werden!': 'crwdns68084:0crwdne68084:0'
+'Fragetext eingeben (optional)': 'crwdns68086:0crwdne68086:0'
+'Antwort hinzufügen': 'crwdns68088:0crwdne68088:0'
+Antwort: crwdns68090:0crwdne68090:0
+(optional): crwdns68092:0crwdne68092:0
+'Info-Text hinzufügen': 'crwdns68094:0crwdne68094:0'
+Info-Text: crwdns68096:0crwdne68096:0
+'Du musst mindestens eine Antwort eingeben.': 'crwdns68098:0crwdne68098:0'
+'Spielernamen einfügen': crwdns68100:0crwdne68100:0
+'Umfrage schließen': 'crwdns68102:0crwdne68102:0'
+'Diese Aktion kann nicht rückgängig gemacht werden. Bist du sicher?': 'crwdns68104:0crwdne68104:0'
+Animateur-Team: crwdns68106:0crwdne68106:0
+Entwickler: crwdns68108:0crwdne68108:0
+Community-Tools: crwdns68110:0crwdne68110:0
+Posteingang: crwdns68112:0crwdne68112:0
+Archiv: crwdns68114:0crwdne68114:0
+'Nachricht suchen...': 'crwdns68116:0crwdne68116:0'
+'Gib hier den Titel einer Nachricht ein, um danach zu suchen.': 'crwdns68118:0crwdne68118:0'
+'Dieser Ordner ist leer.': 'crwdns68120:0crwdne68120:0'
+'Es wurden keine passenden Nachrichten gefunden.': 'crwdns68122:0crwdne68122:0'
+'Beachte: Die Suchfunktion durchsucht nur den aktuell gewählten Tab (Posteingang oder Archiv).': 'crwdns68124:0crwdne68124:0'
+'Dieser Spieler ist ein Administrator auf diesem Server.': 'crwdns68126:0crwdne68126:0'
+'Dieser Spieler ist ein Entwickler von MyHordes.': 'crwdns68128:0crwdne68128:0'
+'Dieser Spieler ist ein Moderator auf MyHordes.': 'crwdns68130:0crwdne68130:0'
+'Dieser Spieler ist ein Animateur auf MyHordes.': 'crwdns68132:0crwdne68132:0'
+'Dieser Spieler ist ein Orakel auf MyHordes.': 'crwdns68134:0crwdne68134:0'
+'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.': 'crwdns68136:0crwdne68136:0'
+"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                        <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "crwdns68138:0crwdne68138:0"
+'Das Zombie Survival Game!': 'crwdns68140:0crwdne68140:0'
+Details: crwdns68142:0crwdne68142:0
+'Zusätzliche Informationen zu deiner Meldung (optional):': 'crwdns68144:0crwdne68144:0'
+Anfang: crwdns68146:0crwdne68146:0
+Vorh.: crwdns68148:0crwdne68148:0
+'Seite {page}': 'crwdns68150:0{page}crwdne68150:0'
+Folg.: crwdns68152:0crwdne68152:0
+Ende: crwdns68154:0crwdne68154:0
+'Dies ist ein Fan-Projekt für die Spiele {dv}, {d2n}, {hordes} und {zn} von <b>MotionTwin</b>.': 'crwdns68156:0{dv}crwdnd68156:0{d2n}crwdnd68156:0{hordes}crwdnd68156:0{zn}crwdne68156:0'
+'All Grafiken stammen aus diesen Spielen, wenn nicht explizit anders angegeben, und sind damit Eigentum von <b>MotionTwin</b>': 'crwdns68158:0crwdne68158:0'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab}.': 'crwdns68160:0{gitlab}crwdne68160:0'
+'MyHordes ist ein Teil des {etwin} Projekts, du kannst uns auf {opencollective} mit einer Spende unterstützen.': 'crwdns68162:0{etwin}crwdnd68162:0{opencollective}crwdne68162:0'
+Programmierung: crwdns68164:0crwdne68164:0
+'Danke an': 'crwdns68166:0crwdne68166:0'
+'Thread verschieben': 'crwdns68168:0crwdne68168:0'
+'Verschiebe den aktuellen Thread in ein anderes Forum:': 'crwdns68170:0crwdne68170:0'
+Verschieben: crwdns68172:0crwdne68172:0
+Icons: crwdns68174:0crwdne68174:0
+'Einzigartige Titel': 'crwdns68176:0crwdne68176:0'
+'Einzigartige Icons': 'crwdns68178:0crwdne68178:0'
+Ergebnisse: crwdns68180:0crwdne68180:0
+'Ergebnisse pro Seite': 'crwdns68182:0crwdne68182:0'
+Ja: crwdns68184:0crwdne68184:0
+Nein: crwdns68186:0crwdne68186:0
+Anwenden: crwdns68188:0crwdne68188:0
+'Keine Ergebnisse': 'crwdns68190:0crwdne68190:0'
+'Deine Nachricht benötigt einen Titel sowie Inhalt.': 'crwdns68192:0crwdne68192:0'
+Gelöst: crwdns68194:0crwdne68194:0
+'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).': 'crwdns68196:0crwdne68196:0'
+Fehler: crwdns68198:0crwdne68198:0
+Changelog: crwdns68200:0crwdne68200:0
+Event: crwdns68202:0crwdne68202:0
+RP: crwdns68204:0crwdne68204:0
+Update: crwdns68206:0crwdne68206:0
+Post: crwdns68208:0crwdne68208:0
+Disk.: crwdns68210:0crwdne68210:0
+Guide: crwdns68212:0crwdne68212:0
+Orga.: crwdns68214:0crwdne68214:0
+Vorschlag: crwdns68216:0crwdne68216:0
+SALC: crwdns68218:0crwdne68218:0
+Projekt: crwdns68220:0crwdne68220:0
+'Tag hinzufügen (optional)': 'crwdns68222:0crwdne68222:0'
+Tag: crwdns68224:0crwdne68224:0
+'Ein Script auf dieser Seite ist abgestürzt; weitere Informationen wurden an die Web-Konsole übermittelt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'crwdns68226:0crwdne68226:0'
+'Ein Fehler ist aufgetreten. Es stehen keine weiteren Informationen zur Verfügung.': 'crwdns68228:0crwdne68228:0'
+'Schon gewusst? Bei vielen Aktionen wird auf mobilen Geräten zunächst ein Hilfetext eingeblendet. Wenn du die Aktion durchführen möchtest, musst du die Aktion erneut antippen. Wenn du es eilig hast und lieber keine Hilfetexte sehen möchtest, kannst du dieses Verhalten kannst du in deinen Seeleneinstellungen über die Einstellung "Tooltips auf mobilen Geräten durch antippen anzeigen" deaktivieren.': 'crwdns68230:0crwdne68230:0'
+Offiziell: crwdns68232:0crwdne68232:0
+'Wir MÜSSEN Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.': 'crwdns68234:0crwdne68234:0'
+'{n} neue Beiträge in': 'crwdns68236:0{n}crwdne68236:0'
+'{n} oder mehr neue Beiträge in': 'crwdns68238:0{n}crwdne68238:0'
+'und andere.': 'crwdns68240:0crwdne68240:0'
+'Deine Platzierung': 'crwdns68242:0crwdne68242:0'
+'{num} Seelenpunkte, Platz {rank}': 'crwdns68244:0{num}crwdnd68244:0{rank}crwdne68244:0'
+'Zu meinem Eintrag springen': 'crwdns68246:0crwdne68246:0'
+'Diskussion aktualisieren': 'crwdns68248:0crwdne68248:0'
+Support-Postfach: crwdns68250:0crwdne68250:0
+'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.': 'crwdns68252:0crwdne68252:0'
+'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.': 'crwdns68254:0crwdne68254:0'
+'Für diese Aktion hast du nicht genug MP.': 'crwdns68256:0crwdne68256:0'
+Ankündigungen: crwdns68258:0crwdne68258:0
+Foren: crwdns68260:0crwdne68260:0
+Kontaktliste: crwdns68262:0crwdne68262:0
+STRG: crwdns68264:0crwdne68264:0
+'Es wurden keine Dokumente gefunden, die deiner Suchanfrage entsprechen.': 'crwdns68266:0crwdne68266:0'
+'Schon gewusst?': 'crwdns68268:0crwdne68268:0'
+'Umfrage starten': 'crwdns68270:0crwdne68270:0'
+'Alles als gelesen markieren': 'crwdns68272:0crwdne68272:0'
+Weltforum: crwdns68274:0crwdne68274:0
+'im-Kontext Übersetzung': 'crwdns74754:0crwdne74754:0'
+'Mit dieser speziellen Sprache aktivierst du die Crowdin-Kontextübersetzung. Damit kannst du MyHordes direkt aus dem Spiel heraus übersetzen.': 'crwdns74756:0crwdne74756:0'
+'Spieler melden': 'crwdns74760:0crwdne74760:0'
+'Bist du sicher, dass du diesen Spieler an die Moderatoren melden willst?': 'crwdns74762:0crwdne74762:0'
+'Wenn du eine Nachricht oder einen Foren-Post dieses Spielers melden willst, benutze bitte stattdessen die Melden-Funktion der entsprechenden Nachricht.': 'crwdns74764:0crwdne74764:0'
+'Unangemessene Profilbeschreibung': 'crwdns74792:0crwdne74792:0'
+'Unangemessener Avatar': 'crwdns74794:0crwdne74794:0'
+'Unangemessener Name': 'crwdns74796:0crwdne74796:0'
+'Liste der Foren aktualisieren': 'crwdns74800:0crwdne74800:0'
+Community-Management: crwdns136072:0crwdne136072:0
+'Aktuelles Team': 'crwdns136074:0crwdne136074:0'
+Unterstützung: crwdns136076:0crwdne136076:0
+Inaktive: crwdns136078:0crwdne136078:0
+'Rechtliche Informationen': 'crwdns136104:0crwdne136104:0'
+Datenschutzerklärung: crwdns136106:0crwdne136106:0
+Impressum: crwdns136108:0crwdne136108:0
+'Das angeforderte Dokument wurde auf diesem Server nicht eingerichtet.': 'crwdns136110:0crwdne136110:0'
+'Wenn du der Administrator dieses Servers bist, stelle das angeforderte Dokument an folgenden Orten im Dateisystem bereit:': 'crwdns136112:0crwdne136112:0'
+'Aktuelle Umfrage': 'crwdns136098:0crwdne136098:0'
+'Deine Meinung ist gefragt!': 'crwdns136100:0crwdne136100:0'
+'Später erinnern': 'crwdns136102:0crwdne136102:0'
+'Optionen für dieses Forum': 'crwdns136118:0crwdne136118:0'
+'Freundesliste öffnen': 'crwdns136346:0crwdne136346:0'
+'Du hast die Seiteneinstellungen geändert.': 'crwdns136370:0crwdne136370:0'
+'Ein für die Darstellung dieser Seite erforderliches Script konnte nicht geladen werden. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'crwdns136358:0crwdne136358:0'
+'Ein für die Darstellung dieser Seite erforderliches Script ist abgestürzt. Die Seite funktioniert möglicherweise nicht mehr korrekt. Bitte melde diesen Fehler:': 'crwdns136360:0crwdne136360:0'
+'Kein Interesse': 'crwdns136382:0crwdne136382:0'
+'Bist du sicher? Wir würden wirklich gerne deine Meinung zu hören!': 'crwdns136384:0crwdne136384:0'
+Einklappen: crwdns136386:0crwdne136386:0
+'Eingeklappte Sektion hinzufügen': 'crwdns136388:0crwdne136388:0'
+Kopfzeile: crwdns136390:0crwdne136390:0
+'Du musst eine Kopfzeile angeben.': 'crwdns136392:0crwdne136392:0'
+'Bitte auswählen': 'crwdns136568:0crwdne136568:0'
+'Netzwerkfehler. Bitte prüfe deine Internetverbindung.': 'crwdns136590:0crwdne136590:0'
+'Link wurde in die Zwischenablage kopiert.': 'crwdns136592:0crwdne136592:0'
+'Link konnte nicht kopiert werden.': 'crwdns136594:0crwdne136594:0'
+'MyHordes ist <i>Open Source</i> und jeder ist zur <b>Mitwirkung</b> eingeladen. Du findest den Quellcode bei {gitlab} und kannst dort auch Fehler melden.': 'crwdns136665:0{gitlab}crwdne136665:0'
+'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.': 'crwdns136671:0crwdne136671:0'
+'Dieser Bürger verwendet in der aktuellen Stadt einen alternativen Spitznamen.': 'crwdns136661:0crwdne136661:0'
+"Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.\n                                            <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>": "crwdns136679:0crwdne136679:0"
+Antw.: crwdns136695:0crwdne136695:0
+'Aktive Spieler': 'crwdns136703:0crwdne136703:0'
+'Täglich aktive Spieler (Durchschn.)': 'crwdns136705:0crwdne136705:0'
+'Monatlich aktive Spieler': 'crwdns136707:0crwdne136707:0'
+Gesamt: crwdns136709:0crwdne136709:0
+'Bitte wähle einen Grund für deine Meldung aus.': 'crwdns136741:0crwdne136741:0'
+'Sprache des Stadtnamens': 'crwdns136747:0crwdne136747:0'
+Nutzungsbedingungen: crwdns136793:0crwdne136793:0
+'Hier kannst du eine URL für eine Test- oder Entwicklungsumgebung hinterlegen (z.B. "localhost"). Du siehst dann einen zusätzlichen Button, der dich auf diese Umgebung weiterleitet. Diese URL sowie der zusätzliche Button sind ausschließlich für dich sichtbar.': 'crwdns136867:0crwdne136867:0'
+Kopiert!: crwdns136873:0crwdne136873:0
+'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': 'crwdns136975:0crwdne136975:0'
+'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'crwdns136979:0def={def}crwdnd136979:0def={def}crwdne136979:0'
+'Eigenes Event organisieren': 'crwdns168519:0crwdne168519:0'
+'Zurück zur Übersicht': 'crwdns168521:0crwdne168521:0'
+'Event-Verifizierung beantragen': 'crwdns168523:0crwdne168523:0'
+'Event-Verifizierung abbrechen': 'crwdns168525:0crwdne168525:0'
+'Event freischalten': 'crwdns168527:0crwdne168527:0'
+'Verifizierung beantragt': 'crwdns168529:0crwdne168529:0'
+'Start geplant': 'crwdns168531:0crwdne168531:0'
+'Event beenden': 'crwdns168533:0crwdne168533:0'
+'Vorläufiges Startdatum am {date}': 'crwdns168535:0{date}crwdne168535:0'
+'Event startet morgen, am {date}': 'crwdns168537:0{date}crwdne168537:0'
+'Event startet in {days} Tagen, am {date}': 'crwdns168539:0{days}crwdnd168539:0{date}crwdne168539:0'
+'Event läuft seit {date}': 'crwdns168541:0{date}crwdne168541:0'
+'Event beendet': 'crwdns168543:0crwdne168543:0'
+'Verifizierung erfolgreich beantragt. Dein Event wird in Kürze von einem Raben oder Administrator geprüft.': 'crwdns168545:0crwdne168545:0'
+'Dein Antrag auf Verifizierung wurde erfolgreich zurückgezogen.': 'crwdns168547:0crwdne168547:0'
+'Event erfolgreich verifiziert.': 'crwdns168549:0crwdne168549:0'
+'Aktuell sind keine Community-Events geplant.': 'crwdns168551:0crwdne168551:0'
+'Neues Event': 'crwdns168553:0crwdne168553:0'
+'Bist du sicher, dass du dieses Event löschen möchtest?': 'crwdns168555:0crwdne168555:0'
+'Weitere Informationen und Regeln anzeigen.': 'crwdns168557:0crwdne168557:0'
+Event-Städte: crwdns168559:0crwdne168559:0
+'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'crwdns168561:0crwdne168561:0'
+'Deiner Kreativität sind somit keine Grenzen gesetzt!': 'crwdns168563:0crwdne168563:0'
+'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'crwdns168565:0crwdne168565:0'
+'Automatisch generierter Name': 'crwdns168567:0crwdne168567:0'
+'Stadt hinzufügen': 'crwdns168569:0crwdne168569:0'
+'Bist du sicher, dass du dieses Stadt löschen möchtest?': 'crwdns168571:0crwdne168571:0'
+'Neue Stadt anlegen': 'crwdns168573:0crwdne168573:0'
+'Stadt bearbeiten': 'crwdns168575:0crwdne168575:0'
+'Stadtinstanz bereit': 'crwdns168577:0crwdne168577:0'
+'Stadtinstanz beendet': 'crwdns168579:0crwdne168579:0'
+'Am Leben': 'crwdns168581:0crwdne168581:0'
+'Zur Chronik': 'crwdns168583:0crwdne168583:0'
+'Allgemeine Event-Informationen': 'crwdns168585:0crwdne168585:0'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'crwdns168587:0crwdne168587:0'
+'Event bearbeiten': 'crwdns168589:0crwdne168589:0'
+'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'crwdns168591:0{lang}crwdne168591:0'
+'Geplanter Startzeitpunkt': 'crwdns168593:0crwdne168593:0'
+Event-Titel: crwdns168595:0crwdne168595:0
+Kurzbeschreibung: crwdns168597:0crwdne168597:0
+'Beschreibung und Regeln des Events': 'crwdns168599:0crwdne168599:0'
+'Du musst mindestens eine Event-Beschreibung hinzufügen.': 'crwdns168601:0crwdne168601:0'
+'Du musst ein Startdatum für dein Event festlegen.': 'crwdns168603:0crwdne168603:0'
+'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'crwdns168605:0{minDays}crwdnd168605:0{maxDays}crwdne168605:0'
+'Account wechseln': 'crwdns168607:0crwdne168607:0'
+'Mehr Ergebnisse anzeigen': 'crwdns168609:0crwdne168609:0'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'crwdns168611:0crwdne168611:0'
+Inhaltsverzeichnis: crwdns168681:0crwdne168681:0
