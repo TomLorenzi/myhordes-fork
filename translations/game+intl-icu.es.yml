@@ -588,7 +588,7 @@ Drogenerfahrungen: Experimentaciones
 Expertenexpeditionen: Exploraciones muy lejanas
 'Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.': 'Cantidad de edificios que has explorado en zonas REALMENTE muy alejadas.'
 Großzügigkeit: Generosidad
-'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Cantidad de días de Modo Héroe que regalaste a otro habitante necesitado.'
+'Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.': 'Cantidad de días de Modo Héroe/Acciones Heroicas que regalaste a otro habitante necesitado.'
 'Spiritueller Führer': 'Guía Espiritual'
 'Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.': 'Días pasados como guía en las regiones amateur.'
 Laborant: Laboratorio
@@ -1659,9 +1659,9 @@ Pisa-Geraderichter: El reparador
 'Ein Riss? Welcher Riss?': '¿Una grieta? ¿Qué grieta?'
 'Das braucht noch 10 Jahre!': '¡Eso llevara otros 10 años!'
 'Architekt (title)': Arquitecto
-gering: bajo
-hoch: importantes
-'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...': 'Tus probabilidades de ser descubierto si devoras a un habitante son {chances}...'
+gering: bajas
+hoch: altas
+'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist {chances}...': 'Tus probabilidades de ser descubierto al devorar a un habitante son <strong>{chances}</strong>...'
 'Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.': 'Este riesgo depende directamente de la cantidad de habitantes que se quedaron en el pueblo: mientras haya más habitantes en el Ultramundo, menor es el riesgo de ser visto en el pueblo.'
 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?': 'No tenemos ni idea. <strong>El cuerpo ha desaperecido sin dejar rastro...</strong> Puede ser que haya sido arrojado fuerta del pueblo y que una de estas noches regrese para visitamos.'
 'Legendärer Dompteur': 'Domador legendario'
@@ -1918,7 +1918,7 @@ Weihnachten: Navidad
 'Ich beobachte euch...': 'Te estoy vigilando...'
 'Zeuge des Armageddon': 'Testigo de Armagedón'
 'Ewiger Zweiter': 'Eterno segundo'
-'Ein Wächter stirbt, aber gibt niemals auf': 'El guardia puede morir, ¡pero nunca se rinde!'
+'Ein Wächter stirbt, aber gibt niemals auf': 'La guardia puede morir, ¡pero nunca se rinde!'
 'Der Zweitletzte Mohikaner': 'El segundo último de los mohicanos'
 'Faaaaaaaast, ach verdammt': 'Casi!!!, ah no, ¡maldita sea!'
 'Bis zum Ende und einen Schritt weiter': 'Todo el camino hasta el final y un poco más lejos'
@@ -2386,3 +2386,16 @@ Stadt/Stadttor: Pueblo/Portal
 Tarnexperte: Amo del Camuflaje
 'Einrichtung (Tab)': Instalaciones
 'Offizieller AP-Versorger': 'Proveedor oficial de PA'
+'Community-Events verwalten': 'Administrar Eventos Comunitarios'
+'Dein Community-Event "{eventName}" wurde von einem Moderator verifiziert und kann nun zum geplanten Zeitpunkt starten.': 'Tu evento comunitario "{eventName}" ha sido verificado por un moderador e iniciará correctamente en la fecha establecida.'
+'Dein Community-Event "{eventName}" wurde von einem Moderator gelöscht.': 'Tu evento comunitario "{eventName}" ha sido eliminado por un moderador.'
+'Schon von Weitem hört man Jubelschreie und Freudenrufe durch die Gassen schallen. Niemand hätte es für Möglich gehalten...': 'Incluso de lejos, se pueden oír vítores y gritos de alegría recorriendo todas las calles del pueblo. Nadie hubiese pensado que esto fuese posible...'
+'Nach der Fertigstellung des Altars ist der Rabe in deiner gottverlassenen Stadt erschienen und hat in seiner unendlichen Gnade alle Verbannungen aufgehoben.': 'Tras la construcción del altar, El Cuervo apareció en medio de la plaza del pueblo y, en su infinita misericordia, perdonó a todos los desterrados.'
+'Der Rabe hat dir eine zweite Chance gewährt und dich von den Fesseln der Verbannung erlöst. Wie wirst du deine neugewonnene Freiheit nutzen?': 'El Cuervo te ha otorgado una segunda oportunidad y te liberó de los grilletes del destierro. ¿Cómo usarás esta nueva oportunidad?'
+'Wenn du dich nur genug anstrengst, kannst du möglicherweise etwas mit in dein nächstes Leben nehmen ...': 'Si te esfuerzas lo suficiente, quizás puedas llevarte algo a tu próxima vida...'
+'Das Ende deines Lebens in <strong>{town}</strong>': 'El fin de tu vida en <strong>{town}</strong>'
+'Du hast {sp} Seelenpunkte erhalten.': 'Has obtenido {sp} puntos de alma.'
+'Du hast keine Seelenpunkte erhalten.': 'No has obtenido ningún punto de alma.'
+'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'Mamá siempre te decía que las cosas de los demás son como una caja de bombones. Pues bien, en este caso, el bombón era un explosivo de gran potencia, y tus entrañas han decidido repintar la muralla. Considérate afortunado: no tendrás que ser tú quien lo limpie.'
+'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'Lo curioso de la crucifixión es que puedes decirte a ti mismo que fue porque eras demasiado importante, y no porque todo el mundo te odiara. Al menos pareció gustarles el chocolate: la cruz se comió poco después de tu muerte...'
+'Ein Spielername kann maximal {number} Zeichen lang sein. Es gelten die gleichen Beschränkungen wie bei Nutzernamen (keine Leer- und Sonderzeichen, keine Namen die wie die von Raben aussehen).': 'Un apodo puede constar de {number} caracteres. Las mismas restricciones establecidas para los nombres de usuario se aplican (sin espacios ni caracteres especiales, sin suplantaciones de cuervos).'

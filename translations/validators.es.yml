@@ -99,6 +99,7 @@ Error: Error
 'This value is not a valid CSS color.': 'Este valor no es un color CSS válido.'
 'This value is not a valid CIDR notation.': 'Este valor no es una notación CIDR válida.'
 'The value of the netmask should be between {{ min }} and {{ max }}.': 'El valor de la máscara de red debería estar entre {{ min }} y {{ max }}.'
+'The filename is too long. It should have {{ filename_max_length }} character or less.|The filename is too long. It should have {{ filename_max_length }} characters or less.': 'El nombre del archivo es demasiado largo. No debe superar los {{ filename_max_length }} caracteres.| El nombre del archivo es demasiado largo. No debe superar los {{ filename_max_length }} caracteres.'
 'This form should not contain extra fields.': 'Este formulario no debería contener campos adicionales.'
 'The uploaded file was too large. Please try to upload a smaller file.': 'El archivo subido es demasiado grande. Por favor, suba un archivo más pequeño.'
 'The CSRF token is invalid. Please try to resubmit the form.': 'El token CSRF no es válido. Por favor, pruebe a enviar nuevamente el formulario.'
@@ -132,3 +133,5 @@ Error: Error
 'Please select a valid option.': 'Por favor, seleccione una opción válida.'
 'Please select a valid range.': 'Por favor, seleccione un rango válido.'
 'Please enter a valid week.': 'Por favor, ingrese una semana válida.'
+v: v
+a: a

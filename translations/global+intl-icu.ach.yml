@@ -85,7 +85,6 @@ Vorschau: crwdns67576:0crwdne67576:0
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'crwdns67578:0crwdne67578:0'
 Autor: crwdns67580:0crwdne67580:0
 Datum: crwdns67582:0crwdne67582:0
-Züruck: crwdns67584:0crwdne67584:0
 Archivieren: crwdns67586:0crwdne67586:0
 Fett: crwdns67588:0crwdne67588:0
 Kursiv: crwdns67590:0crwdne67590:0
@@ -483,3 +482,51 @@ Nutzungsbedingungen: crwdns136793:0crwdne136793:0
 Kopiert!: crwdns136873:0crwdne136873:0
 'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!': 'crwdns136975:0crwdne136975:0'
 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>{def} Verteidigungspunkt(e)</strong>.': 'crwdns136979:0def={def}crwdnd136979:0def={def}crwdne136979:0'
+'Eigenes Event organisieren': 'crwdns168519:0crwdne168519:0'
+'Zurück zur Übersicht': 'crwdns168521:0crwdne168521:0'
+'Event-Verifizierung beantragen': 'crwdns168523:0crwdne168523:0'
+'Event-Verifizierung abbrechen': 'crwdns168525:0crwdne168525:0'
+'Event freischalten': 'crwdns168527:0crwdne168527:0'
+'Verifizierung beantragt': 'crwdns168529:0crwdne168529:0'
+'Start geplant': 'crwdns168531:0crwdne168531:0'
+'Event beenden': 'crwdns168533:0crwdne168533:0'
+'Vorläufiges Startdatum am {date}': 'crwdns168535:0{date}crwdne168535:0'
+'Event startet morgen, am {date}': 'crwdns168537:0{date}crwdne168537:0'
+'Event startet in {days} Tagen, am {date}': 'crwdns168539:0{days}crwdnd168539:0{date}crwdne168539:0'
+'Event läuft seit {date}': 'crwdns168541:0{date}crwdne168541:0'
+'Event beendet': 'crwdns168543:0crwdne168543:0'
+'Verifizierung erfolgreich beantragt. Dein Event wird in Kürze von einem Raben oder Administrator geprüft.': 'crwdns168545:0crwdne168545:0'
+'Dein Antrag auf Verifizierung wurde erfolgreich zurückgezogen.': 'crwdns168547:0crwdne168547:0'
+'Event erfolgreich verifiziert.': 'crwdns168549:0crwdne168549:0'
+'Aktuell sind keine Community-Events geplant.': 'crwdns168551:0crwdne168551:0'
+'Neues Event': 'crwdns168553:0crwdne168553:0'
+'Bist du sicher, dass du dieses Event löschen möchtest?': 'crwdns168555:0crwdne168555:0'
+'Weitere Informationen und Regeln anzeigen.': 'crwdns168557:0crwdne168557:0'
+Event-Städte: crwdns168559:0crwdne168559:0
+'Hier kannst du Städte für dein Event anlegen, welche zusammen mit deinem Event gestartet werden. Dir stehen hierfür fast alle Optionen zur Verfügung, die auch Raben für die Erstellung von Städten haben.': 'crwdns168561:0crwdne168561:0'
+'Deiner Kreativität sind somit keine Grenzen gesetzt!': 'crwdns168563:0crwdne168563:0'
+'Aktuell werden keine Städte mit dem Start des Events automatisch angelegt.': 'crwdns168565:0crwdne168565:0'
+'Automatisch generierter Name': 'crwdns168567:0crwdne168567:0'
+'Stadt hinzufügen': 'crwdns168569:0crwdne168569:0'
+'Bist du sicher, dass du dieses Stadt löschen möchtest?': 'crwdns168571:0crwdne168571:0'
+'Neue Stadt anlegen': 'crwdns168573:0crwdne168573:0'
+'Stadt bearbeiten': 'crwdns168575:0crwdne168575:0'
+'Stadtinstanz bereit': 'crwdns168577:0crwdne168577:0'
+'Stadtinstanz beendet': 'crwdns168579:0crwdne168579:0'
+'Am Leben': 'crwdns168581:0crwdne168581:0'
+'Zur Chronik': 'crwdns168583:0crwdne168583:0'
+'Allgemeine Event-Informationen': 'crwdns168585:0crwdne168585:0'
+'Hier kannst du allgemeine Optionen für dein Event, wie dessen Name, Beschreibung oder Startzeitpunkt festlegen.': 'crwdns168587:0crwdne168587:0'
+'Event bearbeiten': 'crwdns168589:0crwdne168589:0'
+'Klicke hier, um eine Eventbeschreibung in {lang} hinzuzufügen.': 'crwdns168591:0{lang}crwdne168591:0'
+'Geplanter Startzeitpunkt': 'crwdns168593:0crwdne168593:0'
+Event-Titel: crwdns168595:0crwdne168595:0
+Kurzbeschreibung: crwdns168597:0crwdne168597:0
+'Beschreibung und Regeln des Events': 'crwdns168599:0crwdne168599:0'
+'Du musst mindestens eine Event-Beschreibung hinzufügen.': 'crwdns168601:0crwdne168601:0'
+'Du musst ein Startdatum für dein Event festlegen.': 'crwdns168603:0crwdne168603:0'
+'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'crwdns168605:0{minDays}crwdnd168605:0{maxDays}crwdne168605:0'
+'Account wechseln': 'crwdns168607:0crwdne168607:0'
+'Mehr Ergebnisse anzeigen': 'crwdns168609:0crwdne168609:0'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'crwdns168611:0crwdne168611:0'
+Inhaltsverzeichnis: crwdns168681:0crwdne168681:0
