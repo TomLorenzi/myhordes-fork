@@ -1,5 +1,5 @@
 <div class="tooltip normal">
-    {% if not hidden[citizen.id] %}
+    {% if not hidden[citizen.id] or not citizen.alive %}
         {% if citizen.home.chest.items|length == 0 %}
             <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
         {% else %}
