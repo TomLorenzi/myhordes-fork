@@ -2,6 +2,7 @@
 namespace App\Tests\Service;
 
 use App\Entity\CitizenProfession;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
@@ -86,6 +87,7 @@ class GameFactoryTest extends KernelTestCase
 
         // Let's create a small town
         $town = $gameFactory->createTown(new TownSetup('small', language: 'en', population: 40));
+        $town->setRankingEntry(new TownRankingProxy());
         $users = $this->entityManager->getRepository(User::class)->findBy([], [], $town->getPopulation());
 
         foreach ($users as $user) {
