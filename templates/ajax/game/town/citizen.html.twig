@@ -139,18 +139,18 @@
                                     <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                                 {% endif %}
                             {% endif %}
-                        </div>
-                        {% if citizen.alive %}
-                            {{ citizen.home.description }}
-                        {% else %}
-                            {% if citizen.lastWords is null %}
-                                <span>--</span>
-                            {% elseif citizen.lastWords is empty %}
-                                <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                            {% if citizen.alive %}
+                                {{ citizen.home.description }}
                             {% else %}
-                                <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
+                                {% if citizen.lastWords is null %}
+                                    <span>--</span>
+                                {% elseif citizen.lastWords is empty %}
+                                    <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                                {% else %}
+                                    <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
+                        </div>
                     </div>
                     <div class="tooltip normal">
                             {% if not hidden[citizen.id] %}
