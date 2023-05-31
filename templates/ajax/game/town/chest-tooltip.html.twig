@@ -1,0 +1,20 @@
+<div class="tooltip normal">
+    {% if not hidden[citizen.id] %}
+        {% if citizen.home.chest.items|length == 0 %}
+            <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+        {% else %}
+            <em>{{ 'Truhe'|trans({},'game') }}</em><br />
+        {% endif %}
+        <ul class="inventory borderless">
+            {% for item in citizen.home.chest.items %}
+                {# @var \App\Entity\Item item #}
+                {% if (citizen == me or not item.prototype.hideInForeignChest) %}
+                    {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <em>{{ 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...'|trans({},'game') }}</em>
+    {% endif %}
+</div>

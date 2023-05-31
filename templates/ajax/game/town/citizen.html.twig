@@ -140,7 +140,7 @@
                                 {% endif %}
                             {% endif %}
                             {% if citizen.alive %}
-                                {{ citizen.home.description }}
+                                <span class="small">{{ citizen.home.description }}</span>
                             {% else %}
                                 {% if citizen.lastWords is null %}
                                     <span>--</span>
@@ -152,54 +152,17 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="tooltip normal">
-                            {% if not hidden[citizen.id] %}
-                                {% if citizen.home.chest.items|length == 0 %}
-                                    <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
-                                {% else %}
-                                    <em>{{ 'Truhe'|trans({},'game') }}</em><br />
-                                {% endif %}
-                                <ul class="inventory borderless">
-                                {% for item in citizen.home.chest.items %}
-                                    {# @var \App\Entity\Item item #}
-                                    {% if (citizen == me or not item.prototype.hideInForeignChest) %}
-                                        {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
-                                    {% endif %}
-                                {% endfor %}
-                                </ul>
-
-                            {% else %}
-                                <em>{{ 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...'|trans({},'game') }}</em>
-                            {% endif %}
-                        </div>
+                    {% include "ajax/game/town/chest-tooltip.html.twig" %}
                 </div>
                 {% if citizen.alive %}
                     <div class="padded cell factor-0 citizen-box hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
+                        {% include "ajax/game/town/chest-tooltip.html.twig" %}
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                         <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
                     </div>
                     <div class="padded cell factor-0 small right citizen-box location" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 75px;">
-                        <div class="tooltip normal">
-                            {% if not hidden[citizen.id] %}
-                                {% if citizen.home.chest.items|length == 0 %}
-                                    <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
-                                {% else %}
-                                    <em>{{ 'Truhe'|trans({},'game') }}</em><br />
-                                {% endif %}
-                                <ul class="inventory borderless">
-                                {% for item in citizen.home.chest.items %}
-                                    {# @var \App\Entity\Item item #}
-                                    {% if (citizen == me or not item.prototype.hideInForeignChest) %}
-                                        {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
-                                    {% endif %}
-                                {% endfor %}
-                                </ul>
-
-                            {% else %}
-                                <em>{{ 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...'|trans({},'game') }}</em>
-                            {% endif %}
-                        </div>
-                    {% if not citizen.zone %}
+                        {% include "ajax/game/town/chest-tooltip.html.twig" %}
+                        {% if not citizen.zone %}
                         {{ "In der Stadt"|trans({},'game') }}
                     {% else %}
                         {% if town.chaos %}
