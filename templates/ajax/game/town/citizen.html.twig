@@ -18,12 +18,12 @@
     {% endif %}
     <div class="row-table citizens-list">
         <div class="row-flex header">
-            <div class="padded cell rw-9 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
-            <div class="padded cell rw-1 hide-md hide-sm right">
-                {{ 'Def.'|trans({},'game') }}<br />
+            <div class="padded cell factor-1 stretch left">{{ 'Bürger'|trans({},'game') }}</div>
+            <div class="padded cell factor-0 stretch right" style="flex-basis: 80px">
+                {{ 'Def.'|trans({},'game') }}
                 {{ help_btn('Zeigt die Hausverteidigung an.'|trans({},'game')) }}
             </div>
-            <div class="padded cell rw-2 rw-lg-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
+            <div class="padded cell factor-0 stretch right" style="flex-basis: 75px">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
 
         {% set wrapped_citizens = citizens %}
@@ -155,7 +155,7 @@
                     {% include "ajax/game/town/chest-tooltip.html.twig" %}
                 </div>
                 {% if citizen.alive %}
-                    <div class="padded cell factor-0 citizen-box hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
+                    <div class="padded cell factor-0 citizen-box" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
                         {% include "ajax/game/town/chest-tooltip.html.twig" %}
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                         <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
