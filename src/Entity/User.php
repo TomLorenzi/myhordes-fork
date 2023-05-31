@@ -848,6 +848,15 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     {
         return $this->setSetting( UserSetting::PreferredPronoun, $preferredPronoun );
     }
+
+    public function getPreferredPronounTitle(): ?int
+    {
+        return $this->getSetting( UserSetting::PreferredPronounTitle );
+    }
+    public function setPreferredPronounTitle(?int $preferredPronounTitle): self
+    {
+        return $this->setSetting( UserSetting::PreferredPronounTitle, $preferredPronounTitle );
+    }
     public function getOpenModToolsSameWindow(): ?bool
     {
         return $this->getSetting( UserSetting::OpenDashboardInSameWindow );
