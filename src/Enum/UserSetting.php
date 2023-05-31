@@ -22,6 +22,8 @@ enum UserSetting: string {
     case DistinctionTop3     = 'distinctions-top-3';
     case TitleLanguage     = 'title-language';
 
+    case PreferredPronounTitle          = 'preferred-pronoun-title';
+
     /**
      * @return UserSetting[]
      */
@@ -55,6 +57,7 @@ enum UserSetting: string {
             UserSetting::ReorderTownLocationButtons    => true,
             UserSetting::DistinctionTop3               => [null,null,null],
             UserSetting::TitleLanguage                 => '_them',
+            UserSetting::PreferredPronounTitle         => 0,
         };
     }
 }

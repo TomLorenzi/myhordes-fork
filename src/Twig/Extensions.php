@@ -322,7 +322,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             default => null
         };
 
-        if($owner?->getPreferredPronoun() == User::PRONOUN_FEMALE){
+        if($owner?->getPreferredPronounTitle() == User::PRONOUN_FEMALE){
             $base = $base . "_f";
         }
 
