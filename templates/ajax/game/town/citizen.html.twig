@@ -87,9 +87,9 @@
                 {% include "ajax/soul/playeravatar.html.twig" with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0','hide-md','hide-sm'], attributes: {style: 'flex-basis: 92px', 'x-ajax-href': path('town_visit', {id: citizen.id}) }} only %}
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
-                <div class="padded cell factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
+                <div class="userCell padded cell factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}" x-visit-path="{{ path('town_visit', {id: citizen.id}) }}"  x-citizen-id="{{citizen.id}}">
                     <div>
-                        <div>
+                        <div style="display: inline">
                             {% if citizen.alive %}
                                 <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                                 {% for role in citizen.roles %}
@@ -139,6 +139,8 @@
                                     <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                                 {% endif %}
                             {% endif %}
+                        </div>
+                        <div style="display: inline">
                             {% if citizen.alive %}
                                 <span class="small">{{ citizen.home.description }}</span>
                             {% else %}
@@ -233,5 +235,12 @@
 {% block js %}
     {{ parent() }}
     <script>
+        //This allows the username box to take precedence over the user cell, so that you can click on username
+        //to open user tooltip, or on the cell to open house
+        $.html.addEventListenerAll('.userCell', 'click', (e, elem) => {
+            let path = elem.getAttribute('x-visit-path');
+            let user_id = elem.getAttribute('x-citizen-id');
+            $.ajax.load(target, path, false, {"id": user_id});
+        });
     </script>
 {% endblock %}
