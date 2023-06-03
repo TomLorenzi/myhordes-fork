@@ -2,6 +2,7 @@
 namespace App\Tests\Service;
 
 use App\Entity\CitizenProfession;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
