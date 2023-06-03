@@ -95,7 +95,7 @@
                 </div>
                 {% if citizen.infos.alive %}
                 <div class="cell rw-2 rd-md-1 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
-                    {{ citizen.soulPoint }} {{ 'Punkt(e)'|trans({},'game') }}
+                    {{ citizen.soulPoint }} pts
                 </div>
                 <div class="cell rw-3 small citizen-box content-center-horizontal content-center-vertical link undecorated" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                 {% if citizen.omniscienceLevel > 0 %}
