@@ -43,12 +43,17 @@ abstract class Element implements ElementInterface
         return $this->parent;
     }
 
+    protected function beforeSerialization(): void {}
+    protected function afterSerialization(): void {}
+
     final public function toArray(): array {
+        $this->beforeSerialization();;
         return $this->data;
     }
 
     final public function fromArray(array $data): self {
         $this->data = $data;
+        $this->afterSerialization();
         return $this;
     }
 }

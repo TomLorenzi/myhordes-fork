@@ -2,14 +2,14 @@
 
 namespace MyHordes\Fixtures\Service;
 
-use MyHordes\Fixtures\DTO\Awards\AwardIconPrototypeDataContainer;
+use MyHordes\Fixtures\DTO\Awards\RequirementsDataContainer;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class AwardIconDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $container = new AwardIconPrototypeDataContainer($data);
+        $container = new RequirementsDataContainer($data);
         $container->add()->icon('r_heroac')->unlockquantity(15)->associatedpicto('r_heroac_#00')->commit();
         $container->add()->icon('r_cwater')->unlockquantity(50)->associatedpicto('r_cwater_#00')->commit();
         $container->add()->icon('r_solban')->unlockquantity(20)->associatedpicto('r_solban_#00')->commit();

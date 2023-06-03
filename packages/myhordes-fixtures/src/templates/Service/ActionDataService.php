@@ -11,6 +11,9 @@ use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
+use MyHordes\Fixtures\DTO\ArrayDecoratorInterface;
+use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
+use MyHordes\Fixtures\DTO\ElementInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ActionDataService implements FixtureProcessorInterface {
@@ -1438,5 +1441,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'not_in_event' => 'Dir fällt kein Grund ein, dies zu tun...'
             ],
         ]);
+
+        array_walk_recursive( $data, fn(&$value) => is_a( $value, ArrayDecoratorReadInterface::class ) ? $value->toArray() : $value );
     }
 }
