@@ -1,4 +1,5 @@
 parameters:
+  rules_local: []
   rules:
     default:
       allow_local_conf: true
@@ -159,6 +160,7 @@ parameters:
         guard_tower:
           per_use: 10
           max_def: 150
+        strange_soil: false
 
       features:
         camping: true

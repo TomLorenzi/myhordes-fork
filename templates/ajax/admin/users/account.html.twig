@@ -339,7 +339,7 @@
                                     {% if spon is not null %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: spon.sponsor.id}) }}">{{ spon.sponsor.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% else %}-{% endif %}
                                 </div>
@@ -357,13 +357,13 @@
                                     {% for entry in spon_active %}
                                         <div>
                                             <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                     {% for entry in spon_inactive %}
                                         <div>
                                             <strike><a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a></strike>
-                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>{% endif %}
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -390,9 +390,9 @@
                                 <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
                                 {% for soul in user.twinoidImports %}
                                     {% if soul.main %}
-                                        <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
+                                        <div><img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope|replace({'www.': ''}) }}</b></div>
                                     {% else %}
-                                        <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope|replace({'www.': ''}) }}</i></div>
+                                        <div><img alt=">" src="{{ asset('build/images/icons/arrowRight.png') }}" /> <i>{{ soul.scope|replace({'www.': ''}) }}</i></div>
                                     {% endif %}
                                 {% endfor %}
                             {% else %} - {% endif %}
@@ -425,7 +425,7 @@
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
                                         {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ChangeEmailValidation') %} ChangeEmailValidation
                                         {% else                                                                                  %} {{ token.type }} {% endif %})
-                                            <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
+                                            <div x-delete-token="{{ token.id }}" class="button small inline"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div>
                                         </div>
                                     {% endfor %}
                                 </div>
@@ -440,7 +440,7 @@
                                     {% for other_user in list.users %}
                                         {% if other_user.id != user.id %}
                                             <div>
-                                                {{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span>
+                                                {{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></span>
                                                 <div class="tooltip">
                                                     <div>
                                                         {% if list.creator %}

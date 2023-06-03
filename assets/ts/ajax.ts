@@ -238,7 +238,11 @@ export default class Ajax {
                     let target_desc = buttons[b].getAttribute('x-ajax-target');
                     let load_target = null;
 
-                    if (target_desc === 'parent') load_target = target;
+                    if (target_desc === '_blank') {
+                        window.open(buttons[b].getAttribute('x-ajax-href'), '_blank');
+                        return;
+                    }
+                    else if (target_desc === 'parent') load_target = target;
                     else if (!target_desc || target_desc === 'default') load_target = ajax_instance.defaultNode;
                     else load_target = document.querySelector(target_desc) as HTMLElement;
 

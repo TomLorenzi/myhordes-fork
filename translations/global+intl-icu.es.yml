@@ -1,3 +1,4 @@
+---
 'Allgemeiner Fehler.': 'Error común.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'El foro seleccionado no existe o no tienes permiso para verlo.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Tu texto debe tener al menos 2 caracteres de largo.'
@@ -84,7 +85,6 @@ Vorschau: Vista previa
 'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...': 'Cuando llega el momento de hacerlo, tu dolor te hace gritar y te detiene en tu camino. Tienes que curarte antes de poder hacerlo...'
 Autor: Autor
 Datum: Fecha
-Züruck: Volver
 Archivieren: Archivar
 Fett: Negrita
 Kursiv: Cursiva
@@ -527,3 +527,6 @@ Kurzbeschreibung: Descripción breve
 'Du musst ein Startdatum für dein Event festlegen.': 'Necesitas establecer una fecha de inicio para tu evento.'
 'Das Startdatum deines Events muss mindestens {minDays} Tage und maximal {maxDays} Tage in der Zukunft liegen': 'La fecha de inicio de tu evento debe ser como mínimo de {minDays} días y como máximo de {maxDays} días en el futuro'
 'Account wechseln': 'Cambiar de cuenta'
+'Mehr Ergebnisse anzeigen': 'Ver más resultados'
+'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utiliza "^" para buscar únicamente palabras que empiecen o terminen con una palabra concreta. Por ejemplo, "corto^" encontrará la palabra "ultracorto", pero no "cortísimo".'
+Inhaltsverzeichnis: Tabla de contenidos

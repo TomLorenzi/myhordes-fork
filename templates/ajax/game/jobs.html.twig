@@ -32,7 +32,11 @@
                     </div>
                     <div class="padded cell rw-9">
                         <input type="text" name="citizenalias" id="citizenalias" maxlength="22" minlength="4" />
-                        <div class="tooltip help">{{ 'Freilassen, um normalen Spielernamen zu verwenden.'|trans({},'game') }}</div>
+                        <div class="tooltip help">
+                            {{ 'Ein Spielername kann maximal {number} Zeichen lang sein. Es gelten die gleichen Beschränkungen wie bei Nutzernamen (keine Leer- und Sonderzeichen, keine Namen die wie die von Raben aussehen).'|trans({number: 22},'game') }}
+                            <br/>
+                            <b>{{ 'Freilassen, um normalen Spielernamen zu verwenden.'|trans({},'game') }}</b>
+                        </div>
                     </div>
                 </div>
             {% endif %}
@@ -119,11 +123,11 @@
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
                 form.citizenalias = document.getElementById('citizenalias').value;
                 if (form.citizenalias && form.citizenalias.length < 4) {
-                    $.html.error('{{ 'Dein Name muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
+                    $.html.error('{{ 'Dein Name muss mindestens {limit} Zeichen umfassen.'|trans({limit: '4'},'login')|e('js') }}');
                     return;
                 }
                 if (form.citizenalias && form.citizenalias.length > 22) {
-                    $.html.error('{{ 'Dein Name kann höchstens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '22'},'login')|e('js') }}');
+                    $.html.error('{{ 'Dein Name kann höchstens {limit} Zeichen umfassen.'|trans({limit: '22'},'login')|e('js') }}');
                     return;
                 }
                 if (form.citizenalias && form.citizenalias.match(/[^\w]/)) {

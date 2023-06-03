@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Annotations\AdminLogProfile;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionEventLog;
+use App\Entity\AdminReport;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
@@ -464,20 +465,29 @@ class AdminTownController extends AdminActionController
 	}
 
 	/**
-	 * @Route("jx/admin/town/blackboard/{id<\d+>}", name="admin_town_blackboard")
+	 * @Route("jx/admin/town/blackboard/{id<\d+>}/{highlight<\d+>}", name="admin_town_blackboard")
 	 * @param int $id The internal ID of the town
 	 * @return Response
 	 */
-	public function town_explorer_blackboard(int $id): Response {
+	public function town_explorer_blackboard(int $id, int $highlight = 0): Response {
 		/** @var Town $town */
 		$town = $this->entity_manager->getRepository(Town::class)->find($id);
 		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
+
+        $blackboards = $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], $highlight > 0 ? 500 : 100);
+        $reports_q = $this->entity_manager->getRepository(AdminReport::class)->findBy(['blackBoard' => $blackboards]);
+
+        $reports = [];
+        foreach ($blackboards as $b) $reports[$b->getId()] = [];
+        foreach ($reports_q as $r) $reports[$r->getBlackBoard()->getId()][] = $r;
 
 		return $this->render('ajax/admin/towns/explorer_blackboard.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
 			'day' => $town->getDay(),
 			'tab' => "blackboard",
-			'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100),
+			'highlight' => $highlight,
+			'blackboards' => $blackboards,
+			'reports' => $reports,
 		])));
 	}
 
@@ -1375,14 +1385,7 @@ class AdminTownController extends AdminActionController
         if(!$citizen_alias_active)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if($alias == null) {
-            $citizen->setAlias(null);
-        } else {
-            $apply_result = $this->citizen_handler->applyAlias($citizen, $alias);
-            if($apply_result == -1) {
-                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-            }
-        }
+        $citizen->setAlias($alias);
 
         try {
             $this->entity_manager->persist( $citizen );

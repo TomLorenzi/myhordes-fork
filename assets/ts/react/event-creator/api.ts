@@ -96,7 +96,7 @@ export class EventCreationAPI {
     }
 
     public index(): Promise<ResponseIndex> {
-        return this.fetch.from('/index/')
+        return this.fetch.from('/index_data/')
             .request().withCache().get() as Promise<ResponseIndex>;
     }
 

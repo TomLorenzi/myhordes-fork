@@ -18,6 +18,14 @@
 
             {% if is_granted('ROLE_CROW') %}
                 <div x-tab-group="admin-announcements" x-tab-id="changelog" x-tab-target>
+                    <div class="row">
+                        <div class="cell padded rw-3 rw-md-6 rw-sm-12">
+                            <button id="new_changelog">
+                                {{'Neue Update'|trans({}, 'admin')}}
+                            </button>
+                        </div>
+                    </div>
+                <div id="changelog-forum-editor"></div>
                 <div class="row-table">
                     <div class="row header">
                         <div class="cell padded rw-8 rw-lg-6 rw-sm-12">
@@ -47,20 +55,17 @@
                         </div>
                     {% endfor %}
                 </div>
-
+            </div>
+            {% endif %}
+            <div x-tab-group="admin-announcements" x-tab-id="announcement" x-tab-target>
                 <div class="row">
                     <div class="cell padded rw-3 rw-md-6 rw-sm-12">
-                        <button id="new_changelog">
-                            {{'Neue Update'|trans({}, 'admin')}}
+                        <button id="new_announce">
+                            {{'Neue Ankündigung'|trans({}, 'admin')}}
                         </button>
                     </div>
                 </div>
-
-                <div id="changelog-forum-editor"></div>
-            </div>
-            {% endif %}
-
-            <div x-tab-group="admin-announcements" x-tab-id="announcement" x-tab-target>
+                <div id="announcement-forum-editor"></div>
                 <div class="row-table">
                     <div class="row header">
                         <div class="cell padded rw-10">
@@ -89,16 +94,6 @@
                         </div>
                     {% endfor %}
                 </div>
-
-                <div class="row">
-                    <div class="cell padded rw-3 rw-md-6 rw-sm-12">
-                        <button id="new_announce">
-                            {{'Neue Ankündigung'|trans({}, 'admin')}}
-                        </button>
-                    </div>
-                </div>
-
-                <div id="announcement-forum-editor"></div>
             </div>
         </div>
     </div>

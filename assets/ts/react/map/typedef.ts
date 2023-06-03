@@ -64,6 +64,7 @@ export type MapData = {
     geo: MapGeometry,
     zones: MapZone[],
     local: LocalZone[],
+    lid: number
 }
 
 export type MapCoreProps = {

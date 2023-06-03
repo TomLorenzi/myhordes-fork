@@ -1,0 +1,155 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block title %}{% if current_campaign is null %}{{ 'Neue Kampagne'|trans({}, 'admin') }}{% else %}{{ 'Kampagne "{campaign}"'|trans({'campaign': current_campaign.name}, "admin")|raw }}{% endif %}{% endblock %}
+{% block ajax %}
+    {# @var current_campaign \App\Entity\MargetingCampaign #}
+    <div class="row">
+        <div class="padded cell rw-12">
+
+            <div class="form">
+                <h5>{{ 'Kampagne'|trans({},'admin') }}</h5>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="campaign-name">{{ 'Name'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="campaign-name" type="text" value="{{ current_campaign is not null ? current_campaign.name : '' }}" /></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="campaign-slug">{{ 'Slug'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="campaign-slug" type="text" value="{{ current_campaign is not null ? current_campaign.slug : '' }}" /></div>
+                </div>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="row">
+                        <div class="cell padded rw-4 note note-lightest">{{ 'Zusätzliche Verwalter'|trans({},'admin') }}</div>
+                        <div class="cell padded rw-4">
+    
+                            <div id="campaign-manager-container">
+                                {% if current_campaign %}
+                                    {% for manager in current_campaign.managers %}
+                                        <div><b>{{ manager.name }}</b><div class="float-right pointer" data-manager="{{ manager.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div></div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+    
+                            <button id="campaign-manager-add" class="small inline float-right"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /></button>
+                        </div>
+                    </div>
+                    <div class="row hidden" id="campaign-manager-select">
+                        <div class="cell padded rw-4 ro-4">
+                            <div id="users-list-admin">{% include 'ajax/admin/snippets/user_search.html.twig' %}</div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="padded cell rw-4 ro-4">
+                        {% if current_campaign is null %}
+                            <button id="save_button">{{ 'Neue Kampagne anlegen'|trans({},'admin') }}</button>
+                        {% else %}
+                            <button id="save_button">{{ "Änderungen speichern"|trans({},'admin') }}</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        let managers_added = [];
+        let managers_removed = [];
+
+        {% if is_granted('ROLE_ADMIN') %}
+            let typingTimer, doneTypingInterval = 500;
+            let searchBox = document.getElementById('user-search');
+    
+            const removeManager = function(id) {
+                if (managers_removed.indexOf(id) < 0) managers_removed.push(id);
+                const add_index = managers_added.indexOf( id );
+                if (add_index >= 0) managers_added.splice( add_index, 1);
+    
+                let entry = document.querySelector('[x-member-id="' + id + '"]');
+                if (entry) entry.parentElement.remove();
+            }
+    
+            $.html.addEventListenerAll('[data-manager]','click',(e,elem) => removeManager( parseInt( elem.getAttribute('x-member-id') ) ));
+    
+            $.html.addEventListenerAll('#campaign-manager-add','click', () => {
+                document.getElementById('campaign-manager-select').classList.remove('hidden');
+                document.getElementById('campaign-manager-add').classList.add('hidden');
+            });
+    
+            let enterPressed = false;
+            const userSearchHandler = function() {
+                $.ajax.background().load(
+                    document.getElementById('users-list'),
+                    '{{ path('admin_users_fuzzyfind') }}',
+                    false,
+                    {'name': searchBox.value, 'no-href': true},
+                    () => {
+                        $.html.addEventListenerAll('.users-list-entry', 'click', function (e, elem) {
+                            let container = document.getElementById('campaign-manager-container');
+                            const m_id = parseInt(elem.getAttribute('x-user-id'));
+    
+                            if (container.querySelector('[data-member="' + m_id + '"]'))
+                                return;
+    
+                            if (managers_added.indexOf(m_id) < 0) managers_added.push(m_id);
+                            const rem_index = managers_removed.indexOf(m_id);
+                            if (rem_index >= 0) managers_removed.splice(rem_index, 1);
+    
+                            let new_entry = $.html.createElement('<div/>');
+                            let control;
+                            new_entry.appendChild($.html.createElement('<b/>', elem.getAttribute('x-user-name')));
+                            new_entry.appendChild(control = $.html.createElement('<div class="float-right pointer" x-member-id="' + m_id + '"/>'));
+    
+                            control.addEventListener('click', function () {
+                                removeManager(m_id);
+                            });
+                            control.append($.html.createElement('<img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" />'));
+    
+                            container.append(new_entry);
+                            document.getElementById('campaign-manager-select').classList.add('hidden');
+                            document.getElementById('campaign-manager-add').classList.remove('hidden');
+    
+                            document.getElementById('users-list').innerHTML = '';
+                        });
+                        if (enterPressed) document.querySelector( '.users-list-entry' ).dispatchEvent( new Event('click') );
+                    }
+                );
+            };
+    
+            const userSearchHandlerUp = function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+            };
+    
+            const userSearchHandlerDown = e => {
+                enterPressed = e.keyCode === 13;
+                clearTimeout(typingTimer);
+            };
+    
+            searchBox.addEventListener('keyup', userSearchHandlerUp);
+            searchBox.addEventListener('keydown', userSearchHandlerDown);
+
+        {% endif %}
+        
+        $.html.addEventListenerAll('#save_button','click', () => {
+
+            const payload = {
+                name: document.getElementById('campaign-name').value,
+                slug: document.getElementById('campaign-slug').value,
+                m_add: managers_added,
+                m_rem: managers_removed,
+            }
+
+            $.ajax.easySend( '{{ current_campaign ? path('admin_campaign_update', {id: current_campaign.id }) : path('admin_campaign_create') }}', payload,
+                function () {
+                    $.ajax.load(null, '{{ path('admin_campaigns') }}', true);
+                } );
+
+        });
+    </script>
+{% endblock %}

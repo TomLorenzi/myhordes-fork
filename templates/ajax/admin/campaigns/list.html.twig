@@ -1,0 +1,49 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block title %}{{ 'Kampagnen'|trans({},'admin') }}{% endblock %}
+{% block ajax %}
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="row-table">
+                <div class="row header">
+                    <div class="padded cell rw-5 rw-md-4 rw-sm-12">{{ 'Name'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-5 rw-md-4 rw-sm-8">{{ 'Einstiegspunkt'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-2 rw-md-4 rw-sm-4">{{ 'Geworbene Spieler'|trans({},'admin') }}</div>
+                </div>
+
+                {% for campaign in campaigns %}
+                    {# @var campaign \App\Entity\MarketingCampaign #}
+                    <div class="row">
+                        <div class="padded cell rw-5 rw-md-4 rw-sm-12 pointer" x-ajax-href="{{ path('admin_campaign_edit', {id: campaign.id}) }}">{{ campaign.name }}</div>
+                        <div class="padded cell rw-5 rw-md-4 rw-sm-8">{{ url('campaign_redirect', {'campaign_slug': campaign.slug}) }}</div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-2">{{ campaign.conversions.count }}</div>
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-2 right">
+                            <img alt="E" src="{{ asset('build/images/forum/edit.png') }}" x-ajax-href="{{ path('admin_campaign_edit', {id: campaign.id}) }}" class="pointer" />
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <img alt="E" src="{{ asset('build/images/icons/small_trash_red.png') }}" data-campaign-delete="{{ path('admin_campaign_delete', {id: campaign.id}) }}" class="pointer" />
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% if is_granted("ROLE_ANIMAC") %}
+                    <div class="row">
+                        <div class="padded cell ro-11 rw-1 right">
+                            <button x-ajax-href="{{ path('admin_campaign_new') }}" class="small inline"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /></button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_granted("ROLE_ANIMAC") %}
+            document.querySelectorAll('[data-campaign-delete]').forEach( e => e.addEventListener('click', () => {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+                $.ajax.easySend( e.dataset.campaignDelete, {}, () => $.ajax.load(null, '{{ path('admin_campaigns') }}', true));
+            }) )
+        {% endif %}
+    </script>
+{% endblock %}

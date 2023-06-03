@@ -43,7 +43,7 @@ const MapControls = ( props: MapControlProps ) => {
                             className={`small inline ${props.markEnabled ? 'show-tags' : 'hide-tags'} map_button map_button_left`}
                             onClick={()=>props.wrapDispatcher({markEnabled: !props.markEnabled})}
                         >
-                            <div>{globals.strings?.mark && globals.strings?.global}</div>
+                            <div>{globals.strings?.mark}</div>
                         </button>
                         { props.showGlobalButton && (
                             <button
@@ -55,10 +55,10 @@ const MapControls = ( props: MapControlProps ) => {
                         ) }
                     </div>
                     <div className="float-right">
-                        <button onClick={()=>zoom_handler(1)}  disabled={props.zoom >= 2}
-                            className={`small inline map_button map_button_icon map_button_right`}
+                        <button onClick={()=>zoom_handler(1)} disabled={props.zoom >= 2}
+                            className={`small inline map_button map_button_icon map_button_right map_button_zoom_in`}
                         >
-                            <i className="fa fa-plus"/>
+                            &nbsp;
                         </button>
                         <button onClick={()=>center_handler()} disabled={props.zoom <= 0}
                             className={`small inline map_button map_button_icon map_button_right`}
@@ -66,9 +66,9 @@ const MapControls = ( props: MapControlProps ) => {
                             <i className="fa fa-map-marker-alt"/>
                         </button>
                         <button onClick={()=>zoom_handler(-1)} disabled={props.zoom <= 0}
-                            className={`small inline map_button map_button_icon map_button_right`}
+                            className={`small inline map_button map_button_icon map_button_right map_button_zoom_out`}
                         >
-                            <i className="fa fa-minus"/>
+                            &nbsp;
                         </button>
                         { props.showRoutes && globals.strings?.routes && (
                             <button

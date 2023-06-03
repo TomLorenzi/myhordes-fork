@@ -112,10 +112,10 @@
                             {% for lang in langsCodes %}<span data-lang-label="{{ lang }}"></span>{% endfor %}
                         </div>
                         <div class="padded cell rw-2 rw-lg-4 rw-sm-6">
-                            <button class="small inline" data-action="up"><i class="fa fa-arrow-up"></i></button>
-                            <button class="small inline" data-action="down"><i class="fa fa-arrow-down"></i></button>
+                            <button class="small inline" data-action="up"><img alt="^" src="{{ asset('build/images/icons/arrowUp.png') }}" /></button>
+                            <button class="small inline" data-action="down"><img alt="V" src="{{ asset('build/images/icons/arrowDown.png') }}" /></button>
                             <button class="small inline" data-action="copy"><i class="fa fa-copy"></i></button>
-                            <button class="small inline" data-action="delete"><i class="fa fa-trash"></i></button>
+                            <button class="small inline" data-action="delete"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></button>
                         </div>
                         <div class="hidden">
                             {% for lang in langsCodes %}

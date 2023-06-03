@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\ThreadRepository')]
@@ -47,9 +48,13 @@ class Thread
     #[ORM\ManyToOne(targetEntity: ThreadTag::class)]
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $tag;
+
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $date;
     public function __construct()
     {
         $this->posts = new ArrayCollection();
+        $this->date = new \DateTime();
     }
     public function getId(): ?int
     {
@@ -262,6 +267,18 @@ class Thread
     public function setTag(?ThreadTag $tag): self
     {
         $this->tag = $tag;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

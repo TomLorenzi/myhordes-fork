@@ -41,7 +41,7 @@ class EventController extends CustomAbstractCoreController
 
     /**
      * @Route("/index", name="base", methods={"GET"})
-     * @Cache(smaxage="43200", mustRevalidate=false, public=true)
+     * @Route("/index_data", name="base_index", methods={"GET"})
      * @param Packages $assets
      * @return JsonResponse
      */

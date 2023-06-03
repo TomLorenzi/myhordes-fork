@@ -8,9 +8,13 @@
 {# @var forum \App\Entity\Forum #}
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
-{% macro display_thread_list( list, fid, icon, title, select, jump, permission, town = false, add_seperators = false, paranoid = false, post_page = -1 ) %}
+{% macro display_thread_list( list, fid, icon, title, select, jump, permission, town = false, add_seperators = false, paranoid = false, post_page = -1, icon_image = null ) %}
     <div class="forum-note thread-list-{{ icon }}">
-        <b><i class="fa {{ icon }}"></i> {{ title }}</b>
+        <b>
+            {% if icon_image is null %}<i class="fa {{ icon }}"></i>{% endif%}
+            {% if icon_image is not null %}<img alt="{{ icon }}" src="{{ icon_image }}" />{% endif%}
+            {{ title }}
+        </b>
         <span>{{ 'Antw.'|trans({},'global') }}</span>
         {% set last_day = 'today'|to_date %}
         {% for thread in list %}
@@ -125,12 +129,12 @@
                     <div class="forum-control">
                         <div class="forum-header-bar">
                             <a href="#" x-ajax-href="{{ url('forum_list') }}">{{ 'Alle Foren'|trans({},'global') }}</a>
-                            <span><i class="fa fa-caret-right"></i></span>
+                            <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
                             {% if forum.worldForumLanguage %}
                                 <img style="height: 15px; width: auto;" alt="forum.worldForumLanguage" src="{{ asset('build/images/lang/' ~ forum.worldForumLanguage ~ '.png') }}" >
-                                <span><i class="fa fa-caret-right"></i></span>
+                                <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
                             {% endif %}
-                            <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
+                            <b><img alt=">" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ forum.title }}</b>
                         </div>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
@@ -169,11 +173,11 @@
                     {% endif %}
 
                     {% if pinned_threads %}
-                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, town, false, false, post_page) }}
+                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, town, false, false, post_page, asset('build/images/icons/pin3.png')) }}
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, town, true, paranoid, post_page) }}
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, town, true, paranoid, post_page, asset('build/images/icons/small_rp.gif')) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">

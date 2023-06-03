@@ -151,7 +151,7 @@ export const TownCreatorSectionHead = ( {townTypes, setDefaultRules, setBlocked,
                             { reservedPlaces.length === 0 && <div className="placeholder">{ head.reserve_none }</div> }
                             { reservedPlaces.length > 0 && <>
                                 <div className="placeholder">{ head.reserve_num } { reservedPlaces.length }</div>
-                                { reservedPlaces.map( u => <div key={u.id} className="town-reserved-spot">{ u.name }<span onClick={()=>removeReserved(u)}><i className="fa fa-times-circle pointer"></i></span></div> ) }
+                                { reservedPlaces.map( u => <div key={u.id} className="town-reserved-spot">{ u.name }<span onClick={()=>removeReserved(u)}><img alt="" className="pointer" src={globals.strings.common.delete_icon}/></span></div> ) }
                             </> }
                         </div>
                         <h5>{ head.reserve_add }</h5>

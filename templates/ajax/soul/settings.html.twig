@@ -67,6 +67,15 @@
 
         <div class="cell rw-12 padded">
 
+            {% if (swapPivots is defined and swapPivots is not empty) %}
+                <h5 style="color: red">{{ 'Account wechseln'|trans({},'global') }}</h5>
+                <ul>
+                    {% for pivot in swapPivots %}
+                        <li><a class="link" target="_self" href="{{ url('home', {'_switch_user': pivot.secondary.username}) }}"><span style="color: red">{{ pivot.secondary.name }}</span></a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
             <div x-tab-target x-tab-group="user-settings-tabs" x-tab-id="profile">
                 <h5>{{ 'Dein Profil'|trans({},'soul') }}</h5>
                 <div class="row">
@@ -490,7 +499,7 @@
                                 <div class="note note-lightest"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
                             </div>
                             <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
-                            <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+                            <div class="padded cell rw-4"><button id="acc_del_btn"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
                         </div>
                     {% endif %}
                 </div>

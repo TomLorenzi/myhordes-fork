@@ -208,15 +208,28 @@ x-message {
     &.popup-ghoul, &.popup-shaman, &.popup-insurrection, &.popup-stranger, &.popup-general, &.popup-altar {
 
       background: #79393a;
+
+      &.popup-shaman {
+        &>div#modal-content>.inner-notification-content>p:first-child {
+          background: #7e4d2a;
+          margin: -10px -10px 10px -10px;
+          padding: 10px;
+          border-bottom: 1px solid #b37c4a;
+          box-shadow: 0 0 3px black;
+
+          &:after {clear: both; content: " "; display: block}
+        }
+      }
+
       &>div#modal-content {
         padding: 0; font-size: 0.8em;
         &>.inner-notification-header  {
-          background: #3d3149; padding: 5px;
+          background: #3d3149; padding: 5px; position: relative;
           &>img { margin: 0 10px 10px 0; border: 2px solid black; }
         }
         &>.inner-notification-content {
           color: white; padding: 10px;
-          &>img { margin: 0 10px 10px 0; }
+          img.float-left { margin: 0 10px 10px 0; }
         }
         & p { margin: 14px 0;  text-align: justify }
         & ul.bluelist {
@@ -1742,6 +1755,7 @@ div.item-tag {
   &.item-tag-item-id:after { background: url("../img/icons/small_dev.png") center/contain no-repeat }
   &.item-tag-poison-deadly:after { background: url("../img/icons/death.gif") center/contain no-repeat }
   &.item-tag-poison-infect:after { background: url("../img/status/status_infection.gif") center/contain no-repeat }
+  &.item-tag-poison-strange:after { background: url("../img/status/status_drugged.gif") center/contain no-repeat }
   &.item-tag-first-pick:after { background: url("../img/item/item_bagxl.gif") center/contain no-repeat }
   em {
     color: white;
@@ -2013,4 +2027,42 @@ span.tag {
 div.loading {
   min-height: 24px; width: 100%;
   background: url('../img/anims/loading.gif') center no-repeat;
+}
+
+i.h-icon {
+  display: inline-block; height: 16px; width: 16px;
+
+  &.caret-up { background: url("../img/icons/small_caret_up.gif") center no-repeat }
+  &.caret-down { background: url("../img/icons/small_caret_down.gif") center no-repeat }
+}
+
+.toc {
+  position: sticky; top: 4px;
+  font-size: 1.1rem;
+  background: #8a5432; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border: 1px solid #704328;
+
+  &>b:first-child {
+    display: block; background: #965c36; padding: 4px; font-variant: small-caps; overflow: hidden; white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  ul {
+    margin: 4px 0; padding: 0;
+    li {
+      background: #8a5432; list-style: none; padding: 2px 10px;
+      color: white; cursor: pointer;
+      border-top: 1px solid #965c36;
+    }
+  }
+
+  &>ul>li {
+    &:first-child {border-top: none;}
+    margin-left: 0;
+    &>ul>li {
+      margin-left: 12px;
+      &>ul>li {
+        margin-left: 24px;
+      }
+    }
+  }
 }

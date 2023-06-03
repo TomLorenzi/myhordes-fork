@@ -8,6 +8,7 @@ use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
 use App\Entity\Award;
 use App\Entity\ExternalApp;
+use App\Entity\MarketingCampaign;
 use App\Entity\OfficialGroup;
 use App\Entity\User;
 use App\Entity\UserGroup;
@@ -28,6 +29,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Shivas\VersioningBundle\Service\VersionManagerInterface as VersionManager;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -54,23 +56,23 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class WebController extends CustomAbstractController
 {
     // Format:
-    // [ type, fa-icon, name ], with type: 0 => Current team, 1 => Support, 2 => Inactive
+    // [ type,icon, name ], with type: 0 => Current team, 1 => Support, 2 => Inactive
     public static array $devs = [
-        [0, 'code', 'Benjamin "<i>Brainbox</i>" Behrendt'],
-        [0, 'code', 'Ludovic "<i>Cheh\'Tan</i>" Le Brech'],
-        [0, 'code', 'Adrien "<i>Adri</i>" Boitelle'],
-        [0, 'users', 'Connor "<i>Dylan57</i>" Ottermann'],
-        [1, 'users', 'Ryan "<i>Nayr</i>" Nayrovic'],
-        [2, 'code', 'Paul "<i>CountCount</i>" Bruhn'],
-        [2, 'code', 'Niklas "<i>Choreas</i>" Kosanke'],
-        [2, 'code', 'Christopher "<i>Vander</i>" Chalfant'],
+        [0, 'small_dev.png', 'Benjamin "<i>Brainbox</i>" Behrendt'],
+        [0, 'small_dev.png', 'Ludovic "<i>Cheh\'Tan</i>" Le Brech'],
+        [0, 'small_dev.png', 'Adrien "<i>Adri</i>" Boitelle'],
+        [0, 'small_dev.png', 'Connor "<i>Dylan57</i>" Ottermann'],
+        [1, 'icon_mh_team.gif', 'Ryan "<i>Nayr</i>" Nayrovic'],
+        [2, 'small_dev.png', 'Paul "<i>CountCount</i>" Bruhn'],
+        [2, 'small_dev.png', 'Niklas "<i>Choreas</i>" Kosanke'],
+        [2, 'small_dev.png', 'Christopher "<i>Vander</i>" Chalfant'],
     ];
 
     public static array $supporters = [
         'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
         'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
         'Rikrdo', 'Valedres', 'Yaken', 'Finne', 'Aeon',
-        'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus'
+        'Elara', 'MisterSimple', 'Eragony', 'Tristana', 'Bigonoud', 'Bacchus', 'unukun'
     ];
 
     private VersionManager $version_manager;
@@ -237,7 +239,8 @@ class WebController extends CustomAbstractController
         return $this->render('web/legal.html.twig', [
             'content' => $content,
             'langs' => $this->generatedLangsCodes,
-            'document' => $document
+            'document' => $document,
+            'toc' => $document === 'tos' || $document === 'privacy-policy'
         ]);
     }
 
@@ -609,6 +612,17 @@ class WebController extends CustomAbstractController
             Response::HTTP_NOT_FOUND,
             ['content-type' => 'text/plain']
         );
+    }
+
+
+    /**
+     * @Route("/c/{campaign_slug}", name="campaign_redirect", methods={"GET"},condition="!request.isXmlHttpRequest()")
+     * @ParamConverter("campaign", options={"mapping": {"campaign_slug": "slug"}})
+     * @return Response
+     */
+    public function redirect_campaign(?MarketingCampaign $campaign, SessionInterface $session) {
+        if ($campaign && !$this->getUser()) $session->set('campaign', $campaign->getId());
+        return $this->redirectToRoute('home');
     }
 
 }

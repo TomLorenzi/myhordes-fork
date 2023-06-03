@@ -1,5 +1,12 @@
 {% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
 
+{% set complaint_list = [
+    'Keinen Grund angeben','Cheating','Flooding oder Spam','Verwendung einer anderen als der Forensprache',
+    'Beleidigungen / Unangemessener Ausdruck','Pornographie','Hassrede','Verbreitung persönlicher Informationen',
+    'Verletzung von Copyright','Aufruf zu Gesetzesverstößen','Ermutigung von Selbstmord oder Selbstverletzung',
+    'Unangemessene Profilbeschreibung', 'Unangemessener Avatar', 'Unangemessener Name'
+] %}
+
 {% block explorer_content %}
 	<div class="row-table">
 		<div class="row header">
@@ -8,14 +15,28 @@
 			<div class="padded cell rw-3"><button x-api-trigger="{{ url('admin_town_manage', {action: 'clear_bb', id: town.id}) }}">{{ 'Löschen'|trans({},'admin') }}</button></div>
 		</div>
 		{% for entry in blackboards %}
-			<div class="row">
+			<div class="row" data-highlight="{{ highlight is defined and highlight == entry.id ? "1" : "0" }}">
 				<div class="padded cell rw-3">
-					<a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a><br />
+					{% if reports[entry.id] is not empty %}
+                        <img src="{{ asset('build/images/assets/img/forum/warning.png') }}" alt="!"/>
+                    {% endif %}
+                    <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a><br />
 					<i>{{ entry.time|format_datetime('medium', 'short') }}</i>
 				</div>
 				<div class="padded cell rw-9 pointer" x-blackboard-short="{{ entry.id }}">{{ entry.text }}</div>
-				<div class="padded cell rw-9 pointer" x-blackboard-preview="{{ entry.id }}" style="display:none">
-					<div class="words-of-heroes"><div class="content">{{ entry.text|nl2br }}</div></div>
+				<div class="padded cell rw-9" x-blackboard-preview="{{ entry.id }}" style="display:none">
+					{% for report in reports[entry.id] %}
+                        <div class="small">
+                            <a target="_blank" href="{{ url('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</a>:
+                            {% if report.reason > 0 and report.reason < complaint_list|length %}
+                                <i>{{ complaint_list[report.reason]|trans({},'global') }}</i>
+                            {% endif %}
+                            {% if report.details is not null %}
+                                <div class="tooltip"><div class="bold">{{ 'Details'|trans({},'global') }}</div><p>{{ report.details }}</p></div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <div class="words-of-heroes pointer"><div class="content">{{ entry.text|nl2br }}</div></div>
 				</div>
 			</div>
 		{% endfor %}
@@ -38,7 +59,7 @@
 
             $.ajax.easySend( api_url, {param: q_param},
                 function () {
-                    $.ajax.load(null, url ? url : '{{ path('admin_town_blackboard', {id: town.id}) }}', true);
+                    $.ajax.load(null, url ? url : '{{ path('admin_town_blackboard', {id: town.id, highlight: highlight}) }}', true);
                 } );
         }
 
@@ -49,9 +70,15 @@
             elem.style.display = 'none';
             document.querySelector('[x-blackboard-preview="' + elem.getAttribute('x-blackboard-short') + '"]').style.display = null;
         });
-        $.html.addEventListenerAll('[x-blackboard-preview]','click', (e,elem) => {
-            elem.style.display = 'none';
+        $.html.addEventListenerAll('[x-blackboard-preview] .words-of-heroes','click', (e,elem) => {
+            elem.closest('[x-blackboard-preview]').style.display = 'none';
             document.querySelector('[x-blackboard-short="' + elem.getAttribute('x-blackboard-preview') + '"]').style.display = null;
+        })
+
+        $.html.forEach('[data-highlight="1"]', e => {
+            e.querySelector('[x-blackboard-short]').style.display = 'none';
+            e.querySelector('[x-blackboard-preview]').style.display = null;
+            e.scrollIntoView();
         })
 	</script>
 {% endblock %}

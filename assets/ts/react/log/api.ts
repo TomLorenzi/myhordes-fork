@@ -41,7 +41,7 @@ export class LogAPI {
     }
 
     public index(): Promise<TranslationStrings> {
-        return this.fetch.from('/')
+        return this.fetch.from('/index')
             .request().withCache().get() as Promise<TranslationStrings>;
     }
 

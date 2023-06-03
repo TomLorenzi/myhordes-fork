@@ -46,19 +46,6 @@
             </div>
         </div>
     {% endif %}
-    {% if (swapPivots is defined and swapPivots is not empty) %}
-        <div id="pivotSwapCommand">
-            <h1><span>{{ 'Account wechseln'|trans({},'global') }}</span></h1>
-            <div id="scrollMenu">
-                <ul>
-                    {% for pivot in swapPivots %}
-                        {# @var adminAction \App\Entity\AdminAction #}
-                        <li><a class="link" href="{{ url('home', {'_switch_user': pivot.secondary.username}) }}"><span>{{ pivot.secondary.name }}</span></a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    {% endif %}
     {% if is_granted('IS_IMPERSONATOR') %}
         <div><a class="button inline small" x-ajax-href="{{ impersonation_exit_path(path('initial_landing') ) }}">{{"Impersonifizierung beenden"|trans({}, 'admin')}}</a></div>
     {% endif %}
@@ -67,7 +54,7 @@
             <div class="game-bar">
                 {% block text_menu_content %}
                 <ul class="text-menu">
-                    <li class="burger-button"><i class="fa fa-bars"></i></li>
+                    <li class="burger-button"><img alt="" src="{{ asset('build/images/icons/burger.gif') }}" /></li>
                     <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">
                     <div class="tooltip help">
                         <p>{% trans from 'game' %}Mit den anderen Bürgern reden... {% endtrans %}</p>

@@ -33,7 +33,7 @@ class DistinctionController extends CustomAbstractCoreController
 
     /**
      * @Route("", name="base", methods={"GET"})
-     * @Cache(smaxage="43200", mustRevalidate=false, public=true)
+     * @Route("/index", name="base_index", methods={"GET"})
      * @param Packages $assets
      * @return JsonResponse
      */
@@ -93,7 +93,7 @@ class DistinctionController extends CustomAbstractCoreController
             default => []
         }), null, 'id');
 
-        $award_db = ($user === $this->getUser() || $userHandler->hasRole( $this->getUser(), 'ROLE_CROW' )) ? match ($source) {
+        $award_db = match ($source) {
             'soul' => $user->getAwards()->filter(fn(Award $a) => $a->getCustomTitle() || $a->getPrototype()?->getTitle())->map(fn(Award $a) => [
                 'id' => $a->getPrototype()?->getId() ?? 0,
                 'label' => $a->getCustomTitle() ?? $this->translator->trans( $a->getPrototype()?->getTitle() ?? '', [], 'game' ),
@@ -103,7 +103,7 @@ class DistinctionController extends CustomAbstractCoreController
                 ] : null,
             ])->toArray(),
             default => null
-        } : null;
+        };
 
         foreach ( $award_db ?? [] as $item )
             if ($item['picto'] && !isset( $picto_db[ $item['picto']['id'] ] )) {

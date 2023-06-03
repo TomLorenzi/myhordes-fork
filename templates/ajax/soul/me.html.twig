@@ -7,7 +7,7 @@
             <div class="bar">
                 <div class="progresstext"><span class="text">{{ progress }}%</span></div>
                 <div class="progressbar left">
-                    <img alt="" src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{ progress }}%;"/>
+                    <img alt="" src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress*1.001}}%;"/>
                 </div>
 
             </div>
@@ -28,7 +28,9 @@
         </div>
         <div class="cell rw-5 rw-sm-12 center padded ">
             <hordes-distinctions data-plain="0" data-source="soul" data-user="{{ app.user.id }}" data-interactive="1"></hordes-distinctions>
-            <div class="help small"><span class="small">{{ 'Hinweis: Du kannst auswählen, welche 3 Auszeichnungen du anderen Spielern präsentieren möchtest, indem du eine deiner Auszeichnungen in die dafür vorgesehene Box ziehst.'|trans({}, 'soul') }}</span></div>
+            {% if not user.hasConfiguredSetting( constant("\\App\\Enum\\UserSetting::DistinctionTop3") ) %}
+                <div class="help small"><span class="small">{{ 'Hinweis: Du kannst auswählen, welche 3 Auszeichnungen du anderen Spielern präsentieren möchtest, indem du eine deiner Auszeichnungen in die dafür vorgesehene Box ziehst.'|trans({}, 'soul') }}</span></div>
+            {% endif %}
             <a href="#" class="small" x-ajax-href="{{ path('soul_pictos_all', {id: app.user.id}) }}" >{{ 'Details'|trans({},'soul') }}</a>
         </div>
         <div class="cell padded rw-7 rw-sm-12">
@@ -113,7 +115,7 @@
 
             {% if app.user.activeCitizen is not null and app.user.activeCitizen.alive %}
                 <div class="current">
-                    <em>{{ 'Aktuelles Leben'|trans({}, 'global') }} : </em><br/><strong><img
+                    <em>{{ 'Aktuelles Leben'|trans({}, 'global') }} : </em><br/><strong class="pointer" x-ajax-href="{{ path('soul_view_town', {sid: 'me', idtown: app.user.activeCitizen.town.rankingEntry.id}) }}"><img
                                 src="{{ asset('build/images/soul/r_explor.gif') }}"
                                 alt=""/> {{ app.user.activeCitizen.town.name }}</strong>
                     ({{ 'Tag {day}'|trans({ '{day}':app.user.activeCitizen.town.day }, 'game') }})

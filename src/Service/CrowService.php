@@ -381,7 +381,7 @@ class CrowService {
                     case self::ModerationActionTargetEventValidation .'.'. self::ModerationActionSolve:   $name = 'gpm_mod_eventValidated'; break;
                     default: return null;
                 }
-                $data = [ 'eventName' => $object->getMeta('en')?->getName() ?? '---' ];
+                $data = [ 'eventName' => $object->getMeta('en')?->getName() ?? $object->getMeta('fr')?->getName() ?? $object->getMeta('de')?->getName() ?? $object->getMeta('es')?->getName() ?? '---' ];
                 break;
 
             default: break;

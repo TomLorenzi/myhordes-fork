@@ -100,6 +100,8 @@ class SoulController extends CustomAbstractController
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
     const ErrorCoalitionUserAlreadyMember    = ErrorHelper::BaseSoulErrors + 22;
     const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 23;
+    const ErrorCoalitionNameTooLong          = ErrorHelper::BaseSoulErrors + 24;
+    const ErrorCoalitionNameTooShort          = ErrorHelper::BaseSoulErrors + 25;
 
 
     protected UserFactory $user_factory;

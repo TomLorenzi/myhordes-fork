@@ -59,7 +59,7 @@ class LogController extends CustomAbstractCoreController
 
     /**
      * @Route("", name="base", methods={"GET"})
-     * @Cache(smaxage="43200", mustRevalidate=false, public=true)
+     * @Route("/index", name="base_index", methods={"GET"})
      * @param Packages $asset
      * @return JsonResponse
      */
@@ -219,7 +219,7 @@ class LogController extends CustomAbstractCoreController
      * @Route("/town", name="town", methods={"GET"})
      * @Route("/citizen/{id}", name="town_citizen", methods={"GET"})
      * @Toaster()
-     * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
+     * @GateKeeperProfile(only_in_town=true, only_with_profession=true)
      * @param Request $request
      * @param EntityManagerInterface $em
      * @param Citizen|null $citizen

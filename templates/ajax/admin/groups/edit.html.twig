@@ -46,7 +46,7 @@
                         <div class="avatar {{ current_group is null ? 'hidden' : '' }}">
                             <img id="group-icon" alt="[ {{ 'Avatar'|trans({},'admin') }} ]" src="{{ (current_group is not null) ? path('app_web_group_icon', { gid: current_group.usergroup.id, name: current_group.avatarName, ext: current_group.avatarExt }) : '' }}" />
                         </div>
-                        <label for="group-icon-select" id="group-icon-edit" class="small inline float-right button"><i class="fa fa-edit"></i></label>
+                        <label for="group-icon-select" id="group-icon-edit" class="small inline float-right button"><img alt="" src="{{ asset('build/images/forum/edit.png') }}" /></label>
                     </div>
                 </div>
                 <div class="row">
@@ -61,11 +61,11 @@
 
                         <div id="group-member-container">
                             {% for member in members %}
-                                <div><b>{{ member.name }}</b><div class="float-right pointer" x-member-id="{{ member.id }}"><i class="fa fa-trash"></i></div></div>
+                                <div><b>{{ member.name }}</b><div class="float-right pointer" x-member-id="{{ member.id }}"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /></div></div>
                             {% endfor %}
                         </div>
 
-                        <button id="group-member-add" class="small inline float-right"><i class="fa fa-plus"></i></button>
+                        <button id="group-member-add" class="small inline float-right"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" /></button>
                     </div>
                 </div>
                 <div class="row hidden" id="group-member-select">
@@ -147,7 +147,7 @@
                         control.addEventListener('click', function () {
                             removeMember(m_id);
                         });
-                        control.append($.html.createElement('<i class="fa fa-trash" />'));
+                        control.append($.html.createElement('<img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" />'));
 
                         container.append(new_entry);
                         document.getElementById('group-member-select').classList.add('hidden');

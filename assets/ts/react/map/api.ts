@@ -24,7 +24,7 @@ export class BeyondMapAPI {
     }
 
     public index(): Promise<RuntimeMapStrings> {
-        return this.fetch.from('/')
+        return this.fetch.from('/index')
             .request().withCache().get() as Promise<RuntimeMapStrings>;
     }
 
