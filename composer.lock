@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1057ffcbabc82b7be55c5a7abd690c12",
+    "content-hash": "8842141bb97a36318422cbb6286496fb",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2343,7 +2343,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-renovate/all-minor-patch",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -2381,7 +2381,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-renovate/all-minor-patch",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
@@ -2415,11 +2415,11 @@
         },
         {
             "name": "myhordes/prime",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-prime",
-                "reference": "6e2c57c8bca5a62eb76b56f91a40e56be4289003"
+                "reference": "618d5cf7036cd1e2d5133b222fe7fea24de21276"
             },
             "require": {
                 "php": ">=8.1",
