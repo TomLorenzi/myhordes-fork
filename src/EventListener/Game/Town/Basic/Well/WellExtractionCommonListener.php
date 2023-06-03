@@ -6,13 +6,16 @@ namespace App\EventListener\Game\Town\Basic\Well;
 
 use App\Controller\Town\TownController;
 use App\Entity\ActionCounter;
+use App\Enum\ItemPoisonType;
 use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Event\Game\Town\Basic\Well\WellExtractionExecuteEvent;
 use App\Event\Traits\ItemProducerTrait;
 use App\Service\BankAntiAbuseService;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
+use App\Structures\TownConf;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerExceptionInterface;
@@ -46,7 +49,8 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
             BankAntiAbuseService::class,
             EntityManagerInterface::class,
             LogTemplateHandler::class,
-            TranslatorInterface::class
+            TranslatorInterface::class,
+            ItemFactory::class
         ];
     }
 
@@ -99,7 +103,12 @@ final class WellExtractionCommonListener implements ServiceSubscriberInterface
     }
 
     public function onItemTransfer(WellExtractionExecuteEvent $event ): void {
-        $event->addItem( 'water_#00', $event->check->trying_to_take );
+        for ($i = 0; $i < $event->check->trying_to_take; $i++) {
+            $item = $this->container->get(ItemFactory::class)->createItem( 'water_#00' );
+            if ($event->townConfig->get( TownConf::CONF_MODIFIER_STRANGE_SOIL, false ))
+                $item->setPoison( ItemPoisonType::Strange );
+            $event->addItem( $item, $event->check->trying_to_take );
+        }
     }
 
     /**
