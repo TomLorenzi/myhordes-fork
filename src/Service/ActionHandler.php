@@ -40,6 +40,7 @@ use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
+use App\Enum\ActionHandler\ActionValidity;
 use App\Enum\ItemPoisonType;
 use App\Service\Maps\MazeMaker;
 use App\Structures\EscortItemActionSet;
@@ -76,17 +77,11 @@ class ActionHandler
         private readonly GameProfilerService $gps
     ) {}
 
-    const ActionValidityNone = 1;
-    const ActionValidityHidden = 2;
-    const ActionValidityCrossed = 3;
-    const ActionValidityAllow = 4;
-    const ActionValidityFull = 5;
+    protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message ): ActionValidity {
 
-    protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message ): int {
-
-        if ($item && !$item->getPrototype()->getActions()->contains( $action )) return self::ActionValidityNone;
+        if ($item && !$item->getPrototype()->getActions()->contains( $action )) return ActionValidity::None;
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
-            return self::ActionValidityNone;
+            return ActionValidity::None;
 
         $evaluate_info_cache = [
             'missing_items' => [],
@@ -95,16 +90,15 @@ class ActionHandler
 
         $messages = [];
 
-
-        $current_state = self::ActionValidityFull;
+        $current_state = ActionValidity::Full;
         foreach ($action->getRequirements() as $meta_requirement) {
             $last_state = $current_state;
 
-            $this_state = self::ActionValidityNone;
+            $this_state = ActionValidity::None;
             switch ($meta_requirement->getFailureMode()) {
-                case Requirement::MessageOnFail: $this_state = self::ActionValidityAllow; break;
-                case Requirement::CrossOnFail: $this_state = self::ActionValidityCrossed; break;
-                case Requirement::HideOnFail: $this_state = self::ActionValidityHidden; break;
+                case Requirement::MessageOnFail: $this_state = ActionValidity::Allow; break;
+                case Requirement::CrossOnFail: $this_state = ActionValidity::Crossed; break;
+                case Requirement::HideOnFail: $this_state = ActionValidity::Hidden; break;
             }
 
             if ($config = $meta_requirement->getConf()) {
@@ -114,65 +108,65 @@ class ActionHandler
                 $success = false;
                 if (!$success && $config->getBoolVal() !== null && $set_val === $config->getBoolVal()) $success = true;
 
-                if (!$success) $current_state = min( $current_state, $this_state );
+                if (!$success) $current_state = $current_state->merge($this_state);
             }
 
 
             if ($status = $meta_requirement->getStatusRequirement()) {
                 if ($status->getStatus() !== null && $status->getEnabled() !== null) {
                     $status_is_active = $citizen->getStatus()->contains( $status->getStatus() );
-                    if ($status_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
+                    if ($status_is_active !== $status->getEnabled()) $current_state = $current_state->merge($this_state);
                 }
 
                 if ($status->getProfession() !== null && $status->getEnabled() !== null) {
                     $profession_is_active = $citizen->getProfession()->getId() === $status->getProfession()->getId();
-                    if ($profession_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
+                    if ($profession_is_active !== $status->getEnabled()) $current_state = $current_state->merge($this_state);
                 }
 
                 if ($status->getRole() !== null && $status->getEnabled() !== null) {
                     $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
-                    if ($role_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
+                    if ($role_is_active !== $status->getEnabled()) $current_state = $current_state->merge($this_state);
                 }
 
-                if ($status->getBanished() !== null && $citizen->getBanished() !== $status->getBanished()) $current_state = min( $current_state, $this_state );
+                if ($status->getBanished() !== null && $citizen->getBanished() !== $status->getBanished()) $current_state = $current_state->merge($this_state);;
             }
 
             if ($home = $meta_requirement->getHome()) {
                 if ($home->getUpgrade() === null) {
-                    if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = min( $current_state, $this_state );
-                    if ($home->getMaxLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() > $home->getMaxLevel()) $current_state = min( $current_state, $this_state );
+                    if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = $current_state->merge($this_state);
+                    if ($home->getMaxLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() > $home->getMaxLevel()) $current_state = $current_state->merge($this_state);
                 } else {
                     /** @var CitizenHomeUpgrade|null $target_home_upgrade */
                     $target_home_upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(), $home->getUpgrade());
                     $target_home_upgrade_level = $target_home_upgrade ? $target_home_upgrade->getLevel() : 0;
-                    if ($home->getMinLevel() !== null && $target_home_upgrade_level < $home->getMinLevel()) $current_state = min( $current_state, $this_state );
-                    if ($home->getMaxLevel() !== null && $target_home_upgrade_level > $home->getMaxLevel()) $current_state = min( $current_state, $this_state );
+                    if ($home->getMinLevel() !== null && $target_home_upgrade_level < $home->getMinLevel()) $current_state = $current_state->merge($this_state);
+                    if ($home->getMaxLevel() !== null && $target_home_upgrade_level > $home->getMaxLevel()) $current_state = $current_state->merge($this_state);
                 }
             }
 
             if ($zone = $meta_requirement->getZone()) {
-                if ($zone->getMaxLevel() !== null && $citizen->getZone() && ( $citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = min( $current_state, $this_state );
+                if ($zone->getMaxLevel() !== null && $citizen->getZone() && ( $citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = $current_state->merge($this_state);
             }
 
             if ($ap = $meta_requirement->getAp()) {
                 $max = $ap->getRelativeMax() ? ($this->citizen_handler->getMaxAP( $citizen ) + $ap->getMax()) : $ap->getMax();
-                if ($citizen->getAp() < $ap->getMin() || $citizen->getAp() > $max) $current_state = min( $current_state, $this_state );
+                if ($citizen->getAp() < $ap->getMin() || $citizen->getAp() > $max) $current_state = $current_state->merge($this_state);
             }
 
             if ($pm = $meta_requirement->getPm()) {
                 $max = $pm->getRelativeMax() ? ($this->citizen_handler->getMaxPM( $citizen ) + $pm->getMax()) : $pm->getMax();
-                if ($citizen->getPm() < $pm->getMin() || $citizen->getPm() > $max) $current_state = min( $current_state, $this_state );
+                if ($citizen->getPm() < $pm->getMin() || $citizen->getPm() > $max) $current_state = $current_state->merge($this_state);
             }
 
             if ($cp = $meta_requirement->getCp()) {
                 $max = $cp->getRelativeMax() ? ($this->citizen_handler->getMaxBP( $citizen ) + $cp->getMax()) : $cp->getMax();
-                if ($citizen->getBp() < $cp->getMin() || $citizen->getBp() > $max) $current_state = min( $current_state, $this_state );
+                if ($citizen->getBp() < $cp->getMin() || $citizen->getBp() > $max) $current_state = $current_state->merge($this_state);
             }
 
             if ($counter = $meta_requirement->getCounter()) {
                 $counter_value = $citizen->getSpecificActionCounterValue( $counter->getType() );
-                if ($counter->getMin() !== null && $counter_value < $counter->getMin()) $current_state = min( $current_state, $this_state );
-                if ($counter->getMax() !== null && $counter_value > $counter->getMax()) $current_state = min( $current_state, $this_state );
+                if ($counter->getMin() !== null && $counter_value < $counter->getMin()) $current_state = $current_state->merge($this_state);
+                if ($counter->getMax() !== null && $counter_value > $counter->getMax()) $current_state = $current_state->merge($this_state);
             }
 
             if ($item_condition = $meta_requirement->getItem()) {
@@ -189,14 +183,14 @@ class ActionHandler
                         [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
                     ))) {
                         if (!$is_prop) for ($i = 0; $i < $item_condition->getCount() ?? 1; $i++) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
-                        $current_state = min($current_state, $this_state);
+                        $current_state = $current_state->merge($this_state);
                     }
                 } else {
                     if (!empty($this->inventory_handler->fetchSpecificItems( $source,
                         [new ItemRequest($item_str, 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
                     ))) {
                         if (!$is_prop) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
-                        $current_state = min( $current_state, $this_state );
+                        $current_state = $current_state->merge($this_state);
                     }
                 }
             }
@@ -204,27 +198,27 @@ class ActionHandler
             if ($location_condition = $meta_requirement->getLocation()) {
                 switch ( $location_condition->getLocation() ) {
                     case RequireLocation::LocationInTown:
-                        if ( $citizen->getZone() ) $current_state = min( $current_state, $this_state );
+                        if ( $citizen->getZone() ) $current_state = $current_state->merge($this_state);
                         break;
                     case RequireLocation::LocationOutside:case RequireLocation::LocationOutsideFree:
                     case RequireLocation::LocationOutsideRuin:case RequireLocation::LocationOutsideBuried:
                     case RequireLocation::LocationOutsideOrExploring:
-                        if ( !$citizen->getZone() ) $current_state = min( $current_state, $this_state );
+                        if ( !$citizen->getZone() ) $current_state = $current_state->merge($this_state);
                         else {
-                            if     ( $location_condition->getLocation() === RequireLocation::LocationOutsideFree   &&  $citizen->getZone()->getPrototype() ) $current_state = min( $current_state, $this_state );
-                            elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideRuin   && !$citizen->getZone()->getPrototype() ) $current_state = min( $current_state, $this_state );
-                            elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideBuried && (!$citizen->getZone()->getPrototype() || !$citizen->getZone()->getBuryCount()) ) $current_state = min( $current_state, $this_state );
-                            elseif ( $location_condition->getLocation() !== RequireLocation::LocationOutsideOrExploring && $citizen->activeExplorerStats() ) $current_state = min( $current_state, $this_state );
+                            if     ( $location_condition->getLocation() === RequireLocation::LocationOutsideFree   &&  $citizen->getZone()->getPrototype() ) $current_state = $current_state->merge($this_state);
+                            elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideRuin   && !$citizen->getZone()->getPrototype() ) $current_state = $current_state->merge($this_state);
+                            elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideBuried && (!$citizen->getZone()->getPrototype() || !$citizen->getZone()->getBuryCount()) ) $current_state = $current_state->merge($this_state);
+                            elseif ( $location_condition->getLocation() !== RequireLocation::LocationOutsideOrExploring && $citizen->activeExplorerStats() ) $current_state = $current_state->merge($this_state);
 
                             if ($location_condition->getMinDistance() !== null || $location_condition->getMaxDistance() !== null) {
                                 $dist = round(sqrt( pow($citizen->getZone()->getX(),2) + pow($citizen->getZone()->getY(),2) ));
                                 if ( ($location_condition->getMinDistance() !== null && $dist < $location_condition->getMinDistance() ) || ($location_condition->getMaxDistance() !== null && $dist > $location_condition->getMaxDistance() ) )
-                                    $current_state = min( $current_state, $this_state );
+                                    $current_state = $current_state->merge($this_state);
                             }
                         }
                         break;
                     case RequireLocation::LocationExploring:
-                        if ( !$citizen->activeExplorerStats() ) $current_state = min( $current_state, $this_state );
+                        if ( !$citizen->activeExplorerStats() ) $current_state = $current_state->merge($this_state);
                         break;
                     default:
                         break;
@@ -247,17 +241,17 @@ class ActionHandler
 
                 if ($zombie_condition->getMustBlock() !== null) {
 
-                    if ($zombie_condition->getMustBlock() && $cp >= $current_zeds) $current_state = min( $current_state, $this_state );
+                    if ($zombie_condition->getMustBlock() && $cp >= $current_zeds) $current_state = $current_state->merge($this_state);
                     elseif (!$zombie_condition->getMustBlock() && $cp < $current_zeds) {
 
                         if (!$zombie_condition->getTempControlAllowed() || !$this->entity_manager->getRepository( EscapeTimer::class )->findActiveByCitizen($citizen))
-                            $current_state = min( $current_state, $this_state );
+                            $current_state = $current_state->merge($this_state);
 
                     }
 
                 }
 
-                if ($zombie_condition->getNumber() > $current_zeds) $current_state = min( $current_state, $this_state );
+                if ($zombie_condition->getNumber() > $current_zeds) $current_state = $current_state->merge($this_state);
             }
 
             if ($building_condition = $meta_requirement->getBuilding()) {
@@ -265,24 +259,24 @@ class ActionHandler
                 $building = $this->town_handler->getBuilding($town, $building_condition->getBuilding(), false);
 
                 if ($building) {
-                    if ($building_condition->getComplete() !== null && $building_condition->getComplete() !== $building->getComplete()) $current_state = min( $current_state, $this_state );
+                    if ($building_condition->getComplete() !== null && $building_condition->getComplete() !== $building->getComplete()) $current_state = $current_state->merge($this_state);
                     if ($building->getComplete()) {
-                        if ($building_condition->getMinLevel() > $building->getLevel()) $current_state = min( $current_state, $this_state );
-                        if ($building_condition->getMaxLevel() < $building->getLevel()) $current_state = min( $current_state, $this_state );
+                        if ($building_condition->getMinLevel() > $building->getLevel()) $current_state = $current_state->merge($this_state);
+                        if ($building_condition->getMaxLevel() < $building->getLevel()) $current_state = $current_state->merge($this_state);
                     }
-                    elseif ($building_condition->getMinLevel() !== null) $current_state = min( $current_state, $this_state );
-                    elseif ($building_condition->getMaxLevel() !== null) $current_state = min( $current_state, $this_state );
+                    elseif ($building_condition->getMinLevel() !== null) $current_state = $current_state->merge($this_state);
+                    elseif ($building_condition->getMaxLevel() !== null) $current_state = $current_state->merge($this_state);
                 }
-                elseif ($building_condition->getComplete() === true) $current_state = min( $current_state, $this_state );
-                elseif ($building_condition->getMinLevel() !== null) $current_state = min( $current_state, $this_state );
-                elseif ($building_condition->getMaxLevel() !== null) $current_state = min( $current_state, $this_state );
+                elseif ($building_condition->getComplete() === true) $current_state = $current_state->merge($this_state);
+                elseif ($building_condition->getMinLevel() !== null) $current_state = $current_state->merge($this_state);
+                elseif ($building_condition->getMaxLevel() !== null) $current_state = $current_state->merge($this_state);
             }
 
             if ($day = $meta_requirement->getDay()) {
                 /** @var RequireDay $day */
                 $town = $citizen->getTown();
                 if($day->getMin() > $town->getDay() || $day->getMax() < $town->getDay()) {
-                    $current_state = min( $current_state, $this_state );
+                    $current_state = $current_state->merge($this_state);
                 }
             }
 
@@ -297,7 +291,7 @@ class ActionHandler
                     }
                 }
                 if(!$found) {
-                    $current_state = min( $current_state, $this_state );
+                    $current_state = $current_state->merge($this_state);
                 }
             }
 
@@ -307,11 +301,11 @@ class ActionHandler
                     // Day & Night
                     case 1:
                         if ($this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
-                            $current_state = min($current_state, Requirement::HideOnFail);
+                            $current_state = $current_state->merge($this_state);
                         break;
                     case 2:
                         if (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
-                            $current_state = min($current_state, Requirement::HideOnFail);
+                            $current_state = $current_state->merge($this_state);
                         break;
 
                     // Event - April Fools
@@ -320,7 +314,7 @@ class ActionHandler
                         $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
                         $b = false;
                         foreach ($eam as $m) if ($m->getEvent() === 'afools') $b = true;
-                        if (!$b) $current_state = min($current_state, Requirement::CrossOnFail);
+                        if (!$b) $current_state = $current_state->merge($this_state);
                         break;
 
                     // Guard tower
@@ -328,26 +322,26 @@ class ActionHandler
                         $cn = $this->town_handler->getBuilding( $citizen->getTown(), 'small_watchmen_#00', true );
                         $max = $this->conf->getTownConfiguration( $citizen->getTown() )->get( TownConf::CONF_MODIFIER_GUARDTOWER_MAX, 150 );
                         if ($cn && $max > 0 && $cn->getTempDefenseBonus() >= $max)
-                            $current_state = min($current_state, $this_state);
+                            $current_state = $current_state->merge($this_state);
                         break;
 
                     // Vote
                     case 18: case 19:
                         if (!$citizen->getProfession()->getHeroic()) {
-                            $current_state = min($current_state, Requirement::HideOnFail);
+                            $current_state = $current_state->merge($this_state);
                             break;
                         }
 
                         if (!($role = $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $meta_requirement->getCustom() === 18 ? 'shaman' : 'guide']))) {
-                            $current_state = min($current_state, Requirement::HideOnFail);
+                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
                             break;
                         }
 
                         if ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role))
-                            $current_state = min($current_state, Requirement::CrossOnFail);
+                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::CrossOnFail ) );
 
                         if (!$this->town_handler->is_vote_needed( $citizen->getTown(), $role ))
-                            $current_state = min($current_state, Requirement::HideOnFail);
+                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
 
                     break;
 
@@ -356,7 +350,7 @@ class ActionHandler
                         $inv_full = $this->inventory_handler->getFreeSize( $citizen->getInventory() ) <= 0;
                         $trunk_full = $citizen->getZone() === null && $this->inventory_handler->getFreeSize( $citizen->getHome()->getChest() ) <= 0;
 
-                        if ($inv_full && ($citizen->getZone() || $trunk_full)) $current_state = min($current_state, $this_state);
+                        if ($inv_full && ($citizen->getZone() || $trunk_full)) $current_state = $current_state->merge($this_state);
 
                         if ($inv_full && $trunk_full)
                             $messages[] = $this->translator->trans('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.', ['item' => $this->wrap( $item->getPrototype() )], 'items');
@@ -367,13 +361,13 @@ class ActionHandler
                     // Friendship
                     case 70:
                         if (!$this->user_handler->checkFeatureUnlock($citizen->getUser(), 'f_share', false))
-                            $current_state = min($current_state, Requirement::HideOnFail);
+                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
                         break;
 
                     // Camourflace for hunter
                     case 100:
                         if (!$citizen->getLeadingEscorts()->isEmpty()) {
-                            $current_state = min($current_state, $this_state);
+                            $current_state = $current_state->merge($this_state);
                             $messages[] = $this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items');
                         }
 
@@ -429,8 +423,8 @@ class ActionHandler
         foreach ($item->getPrototype()->getActions() as $action) {
             if ($is_at_00 && !$action->getAllowedAtGate()) continue;
             $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
-            if ($mode >= self::ActionValidityAllow) $available[] = $action;
-            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+            if ($mode->thatOrAbove( ActionValidity::Allow )) $available[] = $action;
+            else if ($mode->thatOrAbove(ActionValidity::Crossed)) $crossed[] = $action;
             if (!empty($tx)) $messages[$action->getId()] = $tx;
         }
     }
@@ -455,8 +449,8 @@ class ActionHandler
                     if ($escort_action->getActions()->contains($action)) {
                         if ($is_at_00 && !$action->getAllowedAtGate()) continue;
                         $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
-                        if ($mode >= self::ActionValidityAllow) $struct->addAction( $action, $item, true );
-                        else if ($mode >= self::ActionValidityCrossed) $struct->addAction( $action, $item, false );
+                        if ($mode->thatOrAbove( ActionValidity::Allow )) $struct->addAction( $action, $item, true );
+                        else if ($mode->thatOrAbove(ActionValidity::Crossed)) $struct->addAction( $action, $item, false );
                     }
 
             $list[] = $struct;
@@ -477,8 +471,8 @@ class ActionHandler
 
       foreach ($campingActions as $action) {
         $mode = $this->evaluate( $citizen, null, null, $action->getAction(), $tx );
-        if ($mode >= self::ActionValidityAllow) $available[] = $action;
-        else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+        if ($mode->thatOrAbove( ActionValidity::Allow )) $available[] = $action;
+        else if ($mode->thatOrAbove(ActionValidity::Crossed)) $crossed[] = $action;
       }
 
     }
@@ -495,8 +489,8 @@ class ActionHandler
 
         foreach ($home_actions as $action) {
             $mode = $this->evaluate( $citizen, null, null, $action->getAction(), $tx );
-            if ($mode >= self::ActionValidityAllow) $available[] = $action;
-            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+            if ($mode->thatOrAbove( ActionValidity::Allow )) $available[] = $action;
+            else if ($mode->thatOrAbove(ActionValidity::Crossed)) $crossed[] = $action;
         }
 
     }
@@ -516,14 +510,14 @@ class ActionHandler
         foreach ($citizen->getHeroicActions() as $heroic) {
             if ($is_at_00 && !$heroic->getAction()->getAllowedAtGate()) continue;
             $mode = $this->evaluate( $citizen, null, null, $heroic->getAction(), $tx );
-            if ($mode >= self::ActionValidityAllow) $available[] = $heroic;
-            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $heroic;
+            if ($mode->thatOrAbove( ActionValidity::Allow )) $available[] = $heroic;
+            else if ($mode->thatOrAbove(ActionValidity::Crossed)) $crossed[] = $heroic;
         }
 
         foreach ($citizen->getUsedHeroicActions() as $used_heroic) {
             if ($citizen->getHeroicActions()->contains($used_heroic) || ($is_at_00 && !$used_heroic->getAction()->getAllowedAtGate())) continue;
             $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx );
-            if ($mode >= self::ActionValidityCrossed) $used[] = $used_heroic;
+            if ($mode->thatOrAbove(ActionValidity::Crossed)) $used[] = $used_heroic;
         }
 
     }
@@ -538,8 +532,8 @@ class ActionHandler
 
         foreach ($citizen->getSpecialActions() as $special) {
             $mode = $this->evaluate( $citizen, null, null, $special->getAction(), $tx );
-            if ($mode >= self::ActionValidityAllow) $available[] = $special;
-            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $special;
+            if ($mode->thatOrAbove( ActionValidity::Allow )) $available[] = $special;
+            else if ($mode->thatOrAbove(ActionValidity::Crossed)) $crossed[] = $special;
         }
 
     }
@@ -651,9 +645,9 @@ class ActionHandler
 
         if (!$force) {
             $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
-            if ($mode <= self::ActionValidityNone)    return self::ErrorActionUnregistered;
-            if ($mode <= self::ActionValidityCrossed) return self::ErrorActionImpossible;
-            if ($mode <= self::ActionValidityAllow) {
+            if ($mode->thatOrBelow( ActionValidity::Hidden ) ) return self::ErrorActionUnregistered;
+            if ($mode->thatOrBelow( ActionValidity::Crossed ) ) return self::ErrorActionImpossible;
+            if ($mode->thatOrBelow( ActionValidity::Allow ) ) {
 
                 if ($item?->getPoison() === ItemPoisonType::Deadly && $action->getPoisonHandler() === ItemAction::PoisonHandlerConsume) {
                     $this->death_handler->kill( $citizen, CauseOfDeath::Poison, $r );
@@ -664,7 +658,7 @@ class ActionHandler
                 $message = $tx;
                 return self::ErrorActionForbidden;
             }
-            if ($mode != self::ActionValidityFull) return self::ErrorActionUnregistered;
+            if ($mode != ActionValidity::Full) return self::ErrorActionUnregistered;
         }
 
         $target_item_prototype = null;
