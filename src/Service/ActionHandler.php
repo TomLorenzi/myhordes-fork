@@ -43,6 +43,7 @@ use App\Entity\ZonePrototype;
 use App\Enum\ActionHandler\ActionValidity;
 use App\Enum\ItemPoisonType;
 use App\Service\Maps\MazeMaker;
+use App\Structures\ActionHandler\Evaluation;
 use App\Structures\EscortItemActionSet;
 use App\Structures\FriendshipActionTarget;
 use App\Structures\ItemRequest;
@@ -83,10 +84,7 @@ class ActionHandler
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
             return ActionValidity::None;
 
-        $evaluate_info_cache = [
-            'missing_items' => [],
-            'user' => $citizen
-        ];
+        $cache = new Evaluation($citizen, $item);
 
         $messages = [];
 
@@ -182,14 +180,14 @@ class ActionHandler
                     if (empty($this->inventory_handler->fetchSpecificItems( $source,
                         [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
                     ))) {
-                        if (!$is_prop) for ($i = 0; $i < $item_condition->getCount() ?? 1; $i++) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
+                        if (!$is_prop) for ($i = 0; $i < $item_condition->getCount() ?? 1; $i++) $cache->addMissingItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str));
                         $current_state = $current_state->merge($this_state);
                     }
                 } else {
                     if (!empty($this->inventory_handler->fetchSpecificItems( $source,
                         [new ItemRequest($item_str, 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
                     ))) {
-                        if (!$is_prop) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
+                        if (!$is_prop) $cache->addMissingItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str));
                         $current_state = $current_state->merge($this_state);
                     }
                 }
@@ -377,8 +375,8 @@ class ActionHandler
 
             if ($current_state < $last_state) {
                 $thisMessage = $meta_requirement->getFailureText() ? $this->translator->trans( $meta_requirement->getFailureText(), [
-                    '{items_required}' => $this->wrap_concat($evaluate_info_cache['missing_items']),
-                    '{km_from_town}'   => $evaluate_info_cache['user']?->getZone()?->getDistance() ?? 0,
+                    '{items_required}' => $this->wrap_concat($cache->getMissingItems()),
+                    '{km_from_town}'   => $citizen?->getZone()?->getDistance() ?? 0,
                     '{hr}'             => "<hr />",
                 ], 'items' ) : null;
 
