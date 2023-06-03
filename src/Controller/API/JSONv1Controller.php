@@ -281,7 +281,7 @@ class JSONv1Controller extends CoreController {
             }
         }
 
-        return $this->getUserData($filters, $fields_user);
+        return $this->getUserData($filters, $fields_user, $type === "me");
     }
 
     private function getAdminAPI(): array {
@@ -1411,7 +1411,7 @@ class JSONv1Controller extends CoreController {
         return $data;
     }
 
-    private function getUserData(array $filters, array $fields = []): array {
+    private function getUserData(array $filters, array $fields = [], $me = false): array {
 
         if (empty($fields)) {
             $fields = ['id', 'name', 'isGhost', 'avatar'];
@@ -1459,7 +1459,7 @@ class JSONv1Controller extends CoreController {
                     $user_data[$field] = $this->getPlayedMapData($user);
                     break;
                 case "contacts":
-                    if($user === $this->getUser()) {
+                    if($me) {
                         $friends = [];
                         foreach ($user->getFriends() as $friend) {
                             $friends[] = $this->getUserData([$friend->getId()], $fields);
