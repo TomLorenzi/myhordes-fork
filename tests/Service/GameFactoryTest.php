@@ -87,7 +87,6 @@ class GameFactoryTest extends KernelTestCase
 
         // Let's create a small town
         $town = $gameFactory->createTown(new TownSetup('small', language: 'en', population: 40));
-        $town->setRankingEntry(TownRankingProxy::fromTown( $town ));
         $users = $this->entityManager->getRepository(User::class)->findBy([], [], $town->getPopulation());
 
         foreach ($users as $user) {
