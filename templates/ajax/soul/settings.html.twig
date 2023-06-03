@@ -187,6 +187,10 @@
                     <div class="padded cell rw-9 rw-md-8 rw-sm-12">
                         <select id="user_title">
                             <option {% if app.user.activeTitle is null %}selected{% endif %} value="-1">--- {{ 'Kein Titel'|trans({},'soul') }} ---</option>
+                            {%  set title_translation_key_suffix = '' %}
+                            {%  if app.user.preferredPronounTitle == constant('App\\Entity\\User::PRONOUN_FEMALE') %}
+                                {%  set title_translation_key_suffix = '_f'  %}
+                            {% endif %}
                             {% for id,list in app.user.awards.values|group_titles %}
 
                                 {% set has_title = false %}
@@ -211,11 +215,11 @@
                                                 <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.customTitle }}</option>
                                             {% elseif award.prototype is not null and award.prototype.title is not null %}
                                                 <option {{ {
-                                                        'data-name-default': award.prototype.title|trans({},'game'),
-                                                        'data-name-lde': award.prototype.title|trans({},'game','de'),
-                                                        'data-name-len': award.prototype.title|trans({},'game','en'),
-                                                        'data-name-lfr': award.prototype.title|trans({},'game','fr'),
-                                                        'data-name-les': award.prototype.title|trans({},'game','es'),
+                                                        'data-name-default': (award.prototype.title~title_translation_key_suffix)|trans({},'game'),
+                                                        'data-name-lde': (award.prototype.title~title_translation_key_suffix)|trans({},'game','de'),
+                                                        'data-name-len': (award.prototype.title~title_translation_key_suffix)|trans({},'game','en'),
+                                                        'data-name-lfr': (award.prototype.title~title_translation_key_suffix)|trans({},'game','fr'),
+                                                        'data-name-les': (award.prototype.title~title_translation_key_suffix)|trans({},'game','es'),
                                                 }|attributes }} {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">
                                                     {{ award|translated_title(app.user,app.user) }}
                                                 </option>
@@ -226,6 +230,23 @@
 
                             {% endfor %}
                         </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                        <div class="note note-lightest">
+                            <label>
+                                {{ 'Bevorzugte Pronomen (Titel)'|trans({}, 'global')}}
+                                <a class="help-button"><div class="tooltip help">{{ 'Das Geschlecht deines Titels.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell rw-9 rw-md-8 rw-sm-12">
+                        <div class="row-flex wrap">
+                            <div class="padded cell"><label class="small"><input {{ app.user.preferredPronounTitle == constant('App\\Entity\\User::PRONOUN_MALE') ? 'checked' : '' }} type="radio" name="user_pronoun_title" value="male" /> {{ 'Männlich'|trans({},'global') }}</label></div>
+                            <div class="padded cell"><label class="small"><input {{ app.user.preferredPronounTitle == constant('App\\Entity\\User::PRONOUN_FEMALE') ? 'checked' : '' }} type="radio" name="user_pronoun_title" value="female" /> {{ 'Weiblich'|trans({},'global') }}</label></div>
+                            <div class="padded cell"><label class="small"><input {{ app.user.preferredPronounTitle is null or app.user.preferredPronounTitle == constant('App\\Entity\\User::PRONOUN_NONE') ? 'checked' : '' }} type="radio" name="user_pronoun_title" value="none" /> {{ 'Keine Präferenz'|trans({},'global') }}</label></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -934,6 +955,8 @@
             const flag  = document.getElementById('user_flag').value;
             const pronounSel = document.querySelector('input[name="user_pronoun"]:checked');
             const pronoun = pronounSel ? pronounSel.value : 'none';
+            const pronounTitleSel = document.querySelector('input[name="user_pronoun_title"]:checked');
+            const pronounTitle = pronounTitleSel ? pronounTitleSel.value : 'none';
 
             if (icon >= 0 && title < 0) {
                 $.html.error('{{ 'Du kannst kein Icon ohne einen Titel wählen.'|trans({},'soul')|e('js') }}');
@@ -941,7 +964,7 @@
             }
 
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
-                title, title_lang, icon, flag, pronoun,
+                title, title_lang, icon, flag, pronoun, pronounTitle,
                 desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s], {autoLinks: $.client.config.autoParseLinks.get()}),
                 displayName: document.getElementById('user_displayname').value
             }, () => {

@@ -77,6 +77,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
         return $data;
     }
 
+
     protected function extractData( FixtureChainInterface $provider, array $data ): bool {
         if ($provider::class === Building::class)
             $data = $this->flattenBuildingData( $data );
@@ -89,7 +90,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
                 $this->extractColumnData( $data['escort'] ?? [], ['label','tooltip'], 'items') &&
                 $this->extractColumnData( $data['heroics'] ?? [], ['used'], 'items') &&
                 $this->extractColumnData( array_column( $data['meta_results'] ?? [], 'message' ), 'text', 'items'),
-            AwardTitle::class => $this->extractColumnData($data, 'title', 'game'),
+            AwardTitle::class => $this->extractColumnDataAndHandleFemaleTitles($data, 'title', 'game'),
             Item::class =>
                 $this->extractColumnData( $data, ['label','description'], 'items'),
             Recipe::class => $this->extractColumnData( $data, ['action','tooltip'], 'items'),
@@ -116,6 +117,25 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
             CouncilEntry::class => $this->extractColumnData( $data, 'text', 'council'),
             default => true,
         };
+    }
+
+    protected function extractColumnDataAndHandleFemaleTitles( array $data, array|string $columns, string $domain ): bool {
+        return array_reduce(
+            array_map(
+                fn($column) => $this->extractArrayDataForTitles( array_column( $data, $column ), $domain ),
+                is_array($columns) ? $columns : [$columns]
+            ),
+            fn($c,$r) => $r && $c,
+            true
+        );
+    }
+
+    protected function extractArrayDataForTitles( array $data, string $domain ): bool {
+        foreach ( array_filter($data) as $message ){
+            $this->addMessageToCatalogue($message, $domain, 0);
+            $this->addMessageToCatalogue($message."_f", $domain, 0);
+        }
+        return true;
     }
 
     public function enterNode(Node $node): ?Node

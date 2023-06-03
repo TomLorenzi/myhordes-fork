@@ -322,6 +322,10 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             default => null
         };
 
+        if($owner?->getPreferredPronounTitle() == User::PRONOUN_FEMALE){
+            $base = $base . "_f";
+        }
+
         return $this->translator->trans($base, [], 'game', $lang);
     }
 }

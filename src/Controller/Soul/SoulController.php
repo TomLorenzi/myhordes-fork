@@ -673,6 +673,7 @@ class SoulController extends CustomAbstractController
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
         $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
         $pronoun = $parser->get('pronoun','none', ['male','female','none']);
+        $pronounTitle = $parser->get('pronounTitle','none', ['male','female','none']);
 
         if ($pronoun !== 'none' && $user->getUseICU() !== true)
             $user->setUseICU(true);
@@ -687,6 +688,12 @@ class SoulController extends CustomAbstractController
             case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
             case 'female': $user->setPreferredPronoun( User::PRONOUN_FEMALE ); break;
             default: $user->setPreferredPronoun( User::PRONOUN_NONE ); break;
+        }
+
+        switch ($pronounTitle) {
+            case 'male': $user->setPreferredPronounTitle( User::PRONOUN_MALE ); break;
+            case 'female': $user->setPreferredPronounTitle( User::PRONOUN_FEMALE ); break;
+            default: $user->setPreferredPronounTitle( User::PRONOUN_NONE ); break;
         }
 
         if ($title < 0 && $icon >= 0)
