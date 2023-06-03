@@ -18,12 +18,12 @@
     {% endif %}
     <div class="row-table citizens-list">
         <div class="row-flex header">
-            <div class="padded cell rw-9 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
-            <div class="padded cell rw-1 hide-md hide-sm right">
-                {{ 'Def.'|trans({},'game') }}<br />
+            <div class="padded cell factor-1 stretch left">{{ 'Bürger'|trans({},'game') }}</div>
+            <div class="padded cell factor-0 stretch right" style="flex-basis: 80px">
+                {{ 'Def.'|trans({},'game') }}
                 {{ help_btn('Zeigt die Hausverteidigung an.'|trans({},'game')) }}
             </div>
-            <div class="padded cell rw-2 rw-lg-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
+            <div class="padded cell factor-0 stretch right" style="flex-basis: 75px">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
 
         {% set wrapped_citizens = citizens %}
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         {% if town.strangerPower > 0 %}
-                            <div class="padded cell factor-0 citizen-box hide-md hide-sm" style="flex-basis: 80px">
+                            <div class="padded cell factor-0 citizen-box" style="flex-basis: 80px">
                                 <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                                 <span class="citizen-defense"> -- </span>
                             </div>
@@ -87,9 +87,9 @@
                 {% include "ajax/soul/playeravatar.html.twig" with {user: citizen.user, small: true, background: true, classes: ['cell','factor-0','hide-md','hide-sm'], attributes: {style: 'flex-basis: 92px', 'x-ajax-href': path('town_visit', {id: citizen.id}) }} only %}
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
-                <div class="padded cell factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
+                <div class="userCell padded cell factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}" x-visit-path="{{ path('town_visit', {id: citizen.id}) }}"  x-citizen-id="{{citizen.id}}">
                     <div>
-                        <div>
+                        <div style="display: inline">
                             {% if citizen.alive %}
                                 <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                                 {% for role in citizen.roles %}
@@ -140,66 +140,31 @@
                                 {% endif %}
                             {% endif %}
                         </div>
-                        {% if citizen.alive %}
-                            {{ citizen.home.description }}
-                        {% else %}
-                            {% if citizen.lastWords is null %}
-                                <span>--</span>
-                            {% elseif citizen.lastWords is empty %}
-                                <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                        <div style="display: inline">
+                            {% if citizen.alive %}
+                                <span class="small">{{ citizen.home.description }}</span>
                             {% else %}
-                                <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                    <div class="tooltip normal">
-                            {% if not hidden[citizen.id] %}
-                                {% if citizen.home.chest.items|length == 0 %}
-                                    <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                                {% if citizen.lastWords is null %}
+                                    <span>--</span>
+                                {% elseif citizen.lastWords is empty %}
+                                    <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
                                 {% else %}
-                                    <em>{{ 'Truhe'|trans({},'game') }}</em><br />
+                                    <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}
                                 {% endif %}
-                                <ul class="inventory borderless">
-                                {% for item in citizen.home.chest.items %}
-                                    {# @var \App\Entity\Item item #}
-                                    {% if (citizen == me or not item.prototype.hideInForeignChest) %}
-                                        {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
-                                    {% endif %}
-                                {% endfor %}
-                                </ul>
-
-                            {% else %}
-                                <em>{{ 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...'|trans({},'game') }}</em>
                             {% endif %}
                         </div>
+                    </div>
+                    {% include "ajax/game/town/chest-tooltip.html.twig" %}
                 </div>
                 {% if citizen.alive %}
-                    <div class="padded cell factor-0 citizen-box hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
+                    <div class="padded cell factor-0 citizen-box" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
+                        {% include "ajax/game/town/chest-tooltip.html.twig" %}
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
                         <span class="citizen-defense">{% if citizenInfo.defense > 0 %} {{ citizenInfo.defense }} pts {% else %} -- {% endif %}</span>
                     </div>
                     <div class="padded cell factor-0 small right citizen-box location" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 75px;">
-                        <div class="tooltip normal">
-                            {% if not hidden[citizen.id] %}
-                                {% if citizen.home.chest.items|length == 0 %}
-                                    <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
-                                {% else %}
-                                    <em>{{ 'Truhe'|trans({},'game') }}</em><br />
-                                {% endif %}
-                                <ul class="inventory borderless">
-                                {% for item in citizen.home.chest.items %}
-                                    {# @var \App\Entity\Item item #}
-                                    {% if (citizen == me or not item.prototype.hideInForeignChest) %}
-                                        {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
-                                    {% endif %}
-                                {% endfor %}
-                                </ul>
-
-                            {% else %}
-                                <em>{{ 'Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...'|trans({},'game') }}</em>
-                            {% endif %}
-                        </div>
-                    {% if not citizen.zone %}
+                        {% include "ajax/game/town/chest-tooltip.html.twig" %}
+                        {% if not citizen.zone %}
                         {{ "In der Stadt"|trans({},'game') }}
                     {% else %}
                         {% if town.chaos %}
@@ -270,5 +235,12 @@
 {% block js %}
     {{ parent() }}
     <script>
+        //This allows the username box to take precedence over the user cell, so that you can click on username
+        //to open user tooltip, or on the cell to open house
+        $.html.addEventListenerAll('.userCell', 'click', (e, elem) => {
+            let path = elem.getAttribute('x-visit-path');
+            let user_id = elem.getAttribute('x-citizen-id');
+            $.ajax.load(target, path, false, {"id": user_id});
+        });
     </script>
 {% endblock %}
