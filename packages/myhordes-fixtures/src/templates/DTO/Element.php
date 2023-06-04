@@ -8,7 +8,9 @@ abstract class Element implements ElementInterface
         private readonly Container $parent,
         private readonly \Closure  $commit_callback,
         private          array     $data = []
-    ) { }
+    ) {
+        if (!empty($this->data)) $this->afterSerialization();
+    }
 
     protected function provide_default(string $name): mixed {
         return null;

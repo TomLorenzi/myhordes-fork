@@ -881,7 +881,7 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'hero_hunter_1' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' =>
                     array_merge(
-                        [ 'must_be_outside', ['type' => Requirement::MessageOnFail, 'collection' => ['custom' => [100]]], [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!'] ],
+                        [ 'must_be_outside', [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!'] ],
                         (new RequirementsDataContainer())->add()->identifier('no_followers')->type( Requirement::MessageOnFail )->text('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {escortCount} Personen im Schlepptau hast...')->add( (new EscortRequirement())->maxFollowers(0) )->commit()->toArray()
                     )
                     , 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],

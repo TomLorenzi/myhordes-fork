@@ -12,7 +12,7 @@ use App\Structures\TownConf;
 
 class Evaluation
 {
-    private array $missing_items;
+    private array $missing_items = [];
     private array $messages = [];
     private array $trans = [];
 

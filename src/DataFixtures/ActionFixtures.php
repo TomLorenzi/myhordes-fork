@@ -105,9 +105,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $requirement->clear()
                 ->setName( $id )
                 ->setFailureMode( $data['type'] ?? Requirement::HideOnFail )
-                ->setFailureText( isset($data['text_key']) ? $this->action_data_cache['message_keys'][$data['text_key']] : ($data['text'] ?? null) );
+                ->setFailureText( isset($data['text_key']) ? $this->action_data_cache['message_keys'][$data['text_key']] : ($data['text'] ?? null) )
+                ->setAtoms( $data['atomList'] ?? null );
 
-            foreach ($data['collection'] as $sub_id => $sub_req) {
+            foreach (($data['collection'] ?? []) as $sub_id => $sub_req) {
                 if (is_array($sub_req)) {
                     $sub_data = $sub_req;
                     $sub_req = "{$id}_i_{$sub_id}";

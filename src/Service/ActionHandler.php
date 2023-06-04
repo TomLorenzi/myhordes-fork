@@ -42,6 +42,7 @@ use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\ActionHandler\ActionValidity;
 use App\Enum\ItemPoisonType;
+use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
 use App\Service\Maps\MazeMaker;
 use App\Structures\ActionHandler\Evaluation;
 use App\Structures\EscortItemActionSet;
@@ -52,7 +53,9 @@ use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
+use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ActionHandler
@@ -75,7 +78,8 @@ class ActionHandler
         private readonly LogTemplateHandler $log,
         private readonly ConfMaster $conf,
         private readonly MazeMaker $maze,
-        private readonly GameProfilerService $gps
+        private readonly GameProfilerService $gps,
+        private readonly ContainerInterface $container
     ) {}
 
     protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message ): ActionValidity {
@@ -359,19 +363,16 @@ class ActionHandler
                         if (!$this->user_handler->checkFeatureUnlock($citizen->getUser(), 'f_share', false))
                             $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
                         break;
-
-                    // Camourflace for hunter
-                    case 100:
-                        if (!$citizen->getLeadingEscorts()->isEmpty()) {
-                            $current_state = $current_state->merge($this_state);
-                            $cache->addMessage($this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items'));
-                        }
-
-                        break;
                 }
 
+            if ($meta_requirement->getAtoms()) {
+                $container = (new RequirementsDataContainer())->fromArray([['atomList' => $meta_requirement->getAtoms()]]);
+                foreach ( $container->all() as $requirementsDataElement )
+                    if (!AtomRequirementProcessor::process( $this->container, $cache, $requirementsDataElement->atomList ))
+                        $current_state = $current_state->merge($this_state);
+            }
 
-            if ($current_state < $last_state) {
+            if (!$current_state->thatOrAbove($last_state)) {
                 $thisMessage = $meta_requirement->getFailureText() ? $this->translator->trans( $meta_requirement->getFailureText(), array_merge([
                     '{items_required}' => $this->wrap_concat($cache->getMissingItems()),
                     '{km_from_town}'   => $citizen?->getZone()?->getDistance() ?? 0,

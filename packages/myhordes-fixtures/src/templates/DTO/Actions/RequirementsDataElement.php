@@ -119,6 +119,7 @@ class RequirementsDataElement extends Element {
     public function afterSerialization(): void
     {
         parent::afterSerialization();
+        $this->atomList = array_map( fn(array $a) => RequirementsAtom::fromArray( $a ), $this->atomList );
         $this->sortAtomList();
     }
 }

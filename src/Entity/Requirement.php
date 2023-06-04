@@ -56,6 +56,10 @@ class Requirement
     private $custom;
     #[ORM\ManyToOne(targetEntity: RequireEvent::class)]
     private $Event;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $atoms = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -242,6 +246,18 @@ class Requirement
     public function setEvent(?RequireEvent $Event): self
     {
         $this->Event = $Event;
+
+        return $this;
+    }
+
+    public function getAtoms(): ?array
+    {
+        return $this->atoms;
+    }
+
+    public function setAtoms(?array $atoms): self
+    {
+        $this->atoms = $atoms;
 
         return $this;
     }
