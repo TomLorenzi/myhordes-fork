@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8842141bb97a36318422cbb6286496fb",
+    "content-hash": "7c16fbd0865e267aff925f2a41c768e9",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1990,6 +1990,50 @@
             "time": "2020-02-20T18:01:41+00:00"
         },
         {
+            "name": "jdrieghe/array-helpers",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jdrieghe/array-helpers.git",
+                "reference": "c2ce0a40a160cfa861feb3af4cb7dc1699206b0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jdrieghe/array-helpers/zipball/c2ce0a40a160cfa861feb3af4cb7dc1699206b0e",
+                "reference": "c2ce0a40a160cfa861feb3af4cb7dc1699206b0e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/php-code-coverage": "^4.0",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/array-helpers.php"
+                ],
+                "psr-4": {
+                    "ArrayHelpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Drieghe",
+                    "email": "jonasd@madewithlove.be"
+                }
+            ],
+            "description": "A collection of convenience methods to deal with arrays in php. Somewhat inspired by Laravel array helpers.",
+            "support": {
+                "issues": "https://github.com/jdrieghe/array-helpers/issues",
+                "source": "https://github.com/jdrieghe/array-helpers/tree/master"
+            },
+            "time": "2018-07-17T15:53:10+00:00"
+        },
+        {
             "name": "laminas/laminas-code",
             "version": "4.11.0",
             "source": {
@@ -2343,7 +2387,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-master-v2.0",
+            "version": "dev-rework-action-handler",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -2381,7 +2425,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-master-v2.0",
+            "version": "dev-rework-action-handler",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",

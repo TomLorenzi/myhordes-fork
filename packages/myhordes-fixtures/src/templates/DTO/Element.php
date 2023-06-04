@@ -7,7 +7,7 @@ abstract class Element implements ElementInterface
     public function __construct(
         private readonly Container $parent,
         private readonly \Closure  $commit_callback,
-        private                    $data = []
+        private          array     $data = []
     ) { }
 
     protected function provide_default(string $name): mixed {

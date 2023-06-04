@@ -2,18 +2,12 @@
 
 namespace MyHordes\Fixtures\DTO\Actions;
 
-use App\Entity\AwardPrototype;
-use App\Entity\PictoPrototype;
 use App\Enum\SortDefinitionWord;
+use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
 use App\Structures\SortDefinition;
-use Doctrine\ORM\EntityManagerInterface;
-use MyHordes\Fixtures\DTO\ArrayDecoratorInterface;
 use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
-use MyHordes\Fixtures\DTO\Element;
 
 abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
-
-
 
     public function __construct(
         public readonly SortDefinition $sort = new SortDefinition(),
@@ -48,6 +42,9 @@ abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
         if (!is_a( $atom, RequirementsAtom::class, true ))
             throw new \Exception("Requirement atom references invalid self class '$atom'.");
 
+        if (!is_a( $processor, AtomRequirementProcessor::class, true ))
+            throw new \Exception("Requirement atom references invalid processor class '$processor'.");
+
         $instance = new $atom(
             new SortDefinition( SortDefinitionWord::from( $sort_word ), $sort_ref, $sort_priority ),
             $payload
@@ -56,5 +53,25 @@ abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
             throw new \Exception("Expected requirement atom to be processed by '{$instance->getClass()}', got '{$processor}' instead.");
 
         return $instance;
+    }
+
+    public function __set(string $name, $value): void
+    {
+        $this->data[$name] = $value;
+    }
+
+    public function __get(string $name): mixed
+    {
+        return $this->data[$name] ?? null;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function __call(string $name, array $arguments): self
+    {
+        if (count($arguments) !== 1) throw new \Exception('Atom exception: Invalid __call payload.');
+        $this->$name = $arguments[0];
+        return $this;
     }
 }

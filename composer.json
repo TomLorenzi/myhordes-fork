@@ -24,6 +24,7 @@
         "doctrine/migrations": "3.6.0",
         "doctrine/orm": "2.15.2",
         "graphp/algorithms": "0.8.2",
+        "jdrieghe/array-helpers": "^0.2.0",
         "laminas/laminas-code": "4.11.0",
         "league/commonmark": "2.4.0",
         "myhordes/fixtures": "@dev",

@@ -84,9 +84,7 @@ class ActionHandler
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
             return ActionValidity::None;
 
-        $cache = new Evaluation($citizen, $item);
-
-        $messages = [];
+        $cache = new Evaluation($citizen, $item, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
 
         $current_state = ActionValidity::Full;
         foreach ($action->getRequirements() as $meta_requirement) {
@@ -351,9 +349,9 @@ class ActionHandler
                         if ($inv_full && ($citizen->getZone() || $trunk_full)) $current_state = $current_state->merge($this_state);
 
                         if ($inv_full && $trunk_full)
-                            $messages[] = $this->translator->trans('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.', ['item' => $this->wrap( $item->getPrototype() )], 'items');
+                            $cache->addMessage($this->translator->trans('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.', ['item' => $this->wrap( $item->getPrototype() )], 'items'));
                         elseif ($inv_full && $citizen->getZone())
-                            $messages[] = $this->translator->trans('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', ['item' => $this->wrap( $item->getPrototype() )], 'items');
+                            $cache->addMessage($this->translator->trans('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', ['item' => $this->wrap( $item->getPrototype() )], 'items'));
                         break;
 
                     // Friendship
@@ -366,7 +364,7 @@ class ActionHandler
                     case 100:
                         if (!$citizen->getLeadingEscorts()->isEmpty()) {
                             $current_state = $current_state->merge($this_state);
-                            $messages[] = $this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items');
+                            $cache->addMessage($this->translator->trans('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {num} Personen im Schlepptau hast...', ['num' => $citizen->getLeadingEscorts()->count()], 'items'));
                         }
 
                         break;
@@ -374,17 +372,18 @@ class ActionHandler
 
 
             if ($current_state < $last_state) {
-                $thisMessage = $meta_requirement->getFailureText() ? $this->translator->trans( $meta_requirement->getFailureText(), [
+                $thisMessage = $meta_requirement->getFailureText() ? $this->translator->trans( $meta_requirement->getFailureText(), array_merge([
                     '{items_required}' => $this->wrap_concat($cache->getMissingItems()),
                     '{km_from_town}'   => $citizen?->getZone()?->getDistance() ?? 0,
                     '{hr}'             => "<hr />",
-                ], 'items' ) : null;
+                ], $cache->getTranslationKeys()), 'items' ) : null;
 
-                if ($thisMessage) $messages[] = $thisMessage;
+                if ($thisMessage) $cache->addMessage($thisMessage);
             }
 
         }
 
+        $messages = $cache->getMessages();
         $message = !empty($messages) ? implode('<hr />', $messages) : null;
 
         return $current_state;
