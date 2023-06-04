@@ -307,7 +307,7 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     /**
      * @inheritDoc
      */
-    public function eraseCredentials() {}
+    public function eraseCredentials(): void {}
     /**
      * @inheritDoc
      */

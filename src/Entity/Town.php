@@ -70,7 +70,6 @@ class Town
     #[ORM\OneToMany(targetEntity: 'App\Entity\CitizenWatch', mappedBy: 'town', orphanRemoval: true)]
     private $citizenWatches;
     #[ORM\OneToOne(targetEntity: TownRankingProxy::class, mappedBy: 'town', cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?TownRankingProxy $rankingEntry = null;
     #[ORM\ManyToOne(targetEntity: AttackSchedule::class)]
     private $lastAttack;

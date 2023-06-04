@@ -97,7 +97,7 @@ class InventoryHandler
         // Items with the <individual> tag cannot stack
         if ($item->getPrototype()->getIndividual()) return null;
         try {
-            return $this->entity_manager->createQueryBuilder()->select('i')->from('App:Item', 'i')
+            return $this->entity_manager->createQueryBuilder()->select('i')->from(Item::class, 'i')
                 ->where('i.inventory = :inv')->setParameter('inv', $inv)
                 ->andWhere('i.id != :id')->setParameter( 'id', $item->getId() ?? -1 )
                 ->andWhere('i.poison = :p')->setParameter('p', $item->getPoison()->value)
@@ -157,8 +157,8 @@ class InventoryHandler
 
         try {
             $qb = $this->entity_manager->createQueryBuilder()
-                ->select('SUM(i.count)')->from('App:Item', 'i')
-                ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
+                ->select('SUM(i.count)')->from(Item::class, 'i')
+                ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
                 ->where('i.inventory IN (:inv)')->setParameter('inv', $inventory)
                 ->andWhere('p.id IN (:type)')->setParameter('type', $prototype);
             if ($broken !== null) $qb->andWhere('i.broken = :broken')->setParameter('broken', $broken);
@@ -198,8 +198,8 @@ class InventoryHandler
 
             $qb = $this->entity_manager->createQueryBuilder();
             $qb
-                ->select('i.id')->from('App:Item','i')
-                ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id');
+                ->select('i.id')->from(Item::class,'i')
+                ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id');
             if (!$request->getAll())
                 $qb->setMaxResults( $request->getCount() );
             if (is_array($inventory))
@@ -237,8 +237,8 @@ class InventoryHandler
     public function fetchHeavyItems(Inventory $inventory) {
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
-            ->select('i.id')->from('App:Item','i')
-            ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
+            ->select('i.id')->from(Item::class,'i')
+            ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory)
             ->andWhere('p.heavy = :hv')->setParameter('hv', true);
 
@@ -256,7 +256,7 @@ class InventoryHandler
     public function countEssentialItems(Inventory $inventory): int {
         try {
             return $this->entity_manager->createQueryBuilder()
-                ->select('SUM(i.count)')->from('App:Item', 'i')
+                ->select('SUM(i.count)')->from(Item::class, 'i')
                 ->where('i.inventory = :inv')->setParameter('inv', $inventory)
                 ->andWhere('i.essential = :ev')->setParameter('ev', true)
                 ->getQuery()->getSingleScalarResult() ?? 0;
