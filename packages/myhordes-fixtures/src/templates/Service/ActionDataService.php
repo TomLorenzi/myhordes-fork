@@ -12,6 +12,7 @@ use App\Entity\Requirement;
 use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
 use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataElement;
 use MyHordes\Fixtures\DTO\ArrayDecoratorInterface;
@@ -105,7 +106,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'not_hungover' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hungover' ] ]],
 
                 'room_for_item' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [69] ]],
-                'can_use_friendship' =>  [ 'type' => Requirement::HideOnFail, 'collection' => ['custom' => [70] ]],
+                'can_use_friendship' => (new RequirementsDataContainer())->add()->identifier('friendship')->type(Requirement::HideOnFail)->add( (new FeatureRequirement())->feature('f_share') )->commit()->unpackFirst(),
                 'guard_tower_not_max' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [13] ], 'text' => 'Du hast das Gefühl, dass du die Organisation der Verteidigung der Stadt nicht weiter verbessern kannst.'],
 
                 'have_can_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],

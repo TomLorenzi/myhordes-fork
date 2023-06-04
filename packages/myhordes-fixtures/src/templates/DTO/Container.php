@@ -46,6 +46,10 @@ abstract class Container implements ContainerInterface
         return array_combine( $keys, array_map( fn(string $key) => $this->generate(from: $key), $keys ) );
     }
 
+    public function unpackFirst(): ?array {
+        return empty($this->data) ? null : $this->data[array_key_first( $this->data )];
+    }
+
     /**
      * @throws Exception
      */

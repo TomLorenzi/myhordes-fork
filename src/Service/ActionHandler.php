@@ -357,12 +357,6 @@ class ActionHandler
                         elseif ($inv_full && $citizen->getZone())
                             $cache->addMessage($this->translator->trans('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', ['item' => $this->wrap( $item->getPrototype() )], 'items'));
                         break;
-
-                    // Friendship
-                    case 70:
-                        if (!$this->user_handler->checkFeatureUnlock($citizen->getUser(), 'f_share', false))
-                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
-                        break;
                 }
 
             if ($meta_requirement->getAtoms()) {
