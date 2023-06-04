@@ -8,4 +8,5 @@ enum ExternalAPIError {
    case AppKeyNotFound;
    case AppKeyInvalid;
    case HordeAttacking;
+   case RateLimitReached;
 }
