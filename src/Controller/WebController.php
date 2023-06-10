@@ -512,7 +512,8 @@ class WebController extends CustomAbstractController
     }
 
     /**
-     * @Route("/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
+     * @Route("/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()",name="app_web_avatar_legacy")
+     * @Route("/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()",name="app_web_avatar")
      * @param int $uid
      * @param string $name
      * @param string $ext
