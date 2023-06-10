@@ -506,13 +506,13 @@ class WebController extends CustomAbstractController
         $response->headers->set('Content-Disposition', $disposition);
         $response->headers->set('Content-Type', "image/{$ext}");
         $response
-            ->setPublic()->setMaxAge(157680000)->setImmutable()
+            ->setPrivate()->setMaxAge(157680000)->setImmutable()
             ->headers->set(AbstractSessionListener::NO_AUTO_CACHE_CONTROL_HEADER, 'true');
         return $response;
     }
 
     /**
-     * @Route("/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
+     * @Route("/cdn/avatars/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
      * @param int $uid
      * @param string $name
      * @param string $ext
