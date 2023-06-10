@@ -695,6 +695,11 @@ ul.subscriptions {
       }
     }
 
+    .title {
+      overflow: hidden;
+      &>div { overflow-wrap: break-word; }
+    }
+
     .count {
       background:#593223; overflow: hidden; white-space: nowrap;
       .nbPost { font-size: 1.3em; font-weight: bold; line-height: 0.9em; }
