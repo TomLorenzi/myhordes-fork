@@ -1370,6 +1370,14 @@ class NightlyHandler
             }
         }
 
+        foreach ($town->getZones() as $zone)
+            foreach ($zone->getActivityMarkers() as $marker)
+                if ($marker->getType()->daily()) {
+                    $zone->removeActivityMarker($marker);
+                    $marker->getCitizen()->removeZoneActivityMarker($marker);
+                    $this->cleanup[] = $marker;
+                }
+
         if($town->getDevastated()){
             // Each day as devastated, the town lose water as zombies are entering town.
             $d = min($town->getWell(), rand(20, 40));

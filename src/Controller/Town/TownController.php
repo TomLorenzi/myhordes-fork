@@ -1696,7 +1696,7 @@ class TownController extends InventoryAwareController
         $town = $this->getActiveCitizen()->getTown();
         $time = $this->getTownConf()->isNightTime() ? 'night' : 'day';
 
-        if ($door_locked || true) {
+        if ($door_locked) {
             /** @var Zone $zeroZero */
             $zeroZero = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town, 0, 0);
             if ($zeroZero &&
