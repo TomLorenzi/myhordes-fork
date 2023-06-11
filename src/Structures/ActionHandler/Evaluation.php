@@ -9,6 +9,7 @@ use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class Evaluation
 {
@@ -27,8 +28,8 @@ class Evaluation
         $this->missing_items[] = $prototype;
     }
 
-    public function addMessage(string $message): void {
-        $this->messages[] = $message;
+    public function addMessage(string $message, array $variables = [], string $translationDomain = null): void {
+        $this->messages[] = [$message, $variables, $translationDomain];
     }
 
     public function addTranslationKey(string $key, string $value): void {
@@ -39,8 +40,10 @@ class Evaluation
         return $this->missing_items;
     }
 
-    public function getMessages(): array {
-        return $this->messages;
+    public function getMessages(TranslatorInterface $trans, array $keys = []): array {
+        return array_map( function(array $m) use ($trans, $keys) {
+            return $m[1] === null ? $m[0] : $trans->trans( $m[0], array_merge($m[1], $this->getTranslationKeys(), $keys), $m[2] );
+        }, $this->messages );
     }
 
     public function getTranslationKeys(): array {

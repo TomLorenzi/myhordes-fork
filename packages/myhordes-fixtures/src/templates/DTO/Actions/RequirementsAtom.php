@@ -55,6 +55,10 @@ abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
         return $instance;
     }
 
+    protected function default(string $name): mixed {
+        return null;
+    }
+
     public function __set(string $name, $value): void
     {
         $this->data[$name] = $value;
@@ -62,7 +66,7 @@ abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
 
     public function __get(string $name): mixed
     {
-        return $this->data[$name] ?? null;
+        return $this->data[$name] ?? $this->default($name);
     }
 
     /**

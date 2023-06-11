@@ -344,19 +344,6 @@ class ActionHandler
                             $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
 
                     break;
-
-                    // Inventory space
-                    case 69:
-                        $inv_full = $this->inventory_handler->getFreeSize( $citizen->getInventory() ) <= 0;
-                        $trunk_full = $citizen->getZone() === null && $this->inventory_handler->getFreeSize( $citizen->getHome()->getChest() ) <= 0;
-
-                        if ($inv_full && ($citizen->getZone() || $trunk_full)) $current_state = $current_state->merge($this_state);
-
-                        if ($inv_full && $trunk_full)
-                            $cache->addMessage($this->translator->trans('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.', ['item' => $this->wrap( $item->getPrototype() )], 'items'));
-                        elseif ($inv_full && $citizen->getZone())
-                            $cache->addMessage($this->translator->trans('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', ['item' => $this->wrap( $item->getPrototype() )], 'items'));
-                        break;
                 }
 
             if ($meta_requirement->getAtoms()) {
@@ -366,19 +353,16 @@ class ActionHandler
                         $current_state = $current_state->merge($this_state);
             }
 
-            if (!$current_state->thatOrAbove($last_state)) {
-                $thisMessage = $meta_requirement->getFailureText() ? $this->translator->trans( $meta_requirement->getFailureText(), array_merge([
-                    '{items_required}' => $this->wrap_concat($cache->getMissingItems()),
-                    '{km_from_town}'   => $citizen?->getZone()?->getDistance() ?? 0,
-                    '{hr}'             => "<hr />",
-                ], $cache->getTranslationKeys()), 'items' ) : null;
-
-                if ($thisMessage) $cache->addMessage($thisMessage);
-            }
-
+            if (!$current_state->thatOrAbove($last_state) && $thisMessage = $meta_requirement->getFailureText())
+                $cache->addMessage($thisMessage, translationDomain: 'items');
         }
 
-        $messages = $cache->getMessages();
+        $messages = $cache->getMessages( $this->translator, [
+            '{items_required}' => $this->wrap_concat($cache->getMissingItems()),
+            '{km_from_town}'   => $citizen?->getZone()?->getDistance() ?? 0,
+            '{item}'           => $this->wrap( $item?->getPrototype() ),
+            '{hr}'             => "<hr />",
+        ] );
         $message = !empty($messages) ? implode('<hr />', $messages) : null;
 
         return $current_state;
