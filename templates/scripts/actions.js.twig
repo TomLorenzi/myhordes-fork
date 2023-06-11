@@ -1,7 +1,9 @@
 {{ include('scripts/actions_animate.js.twig') }}
 
 item_action_collapse('actions','x-item-action-toggle');
-item_action_collapse('heroic_actions','x-heroic-toggle');
+{% if no_heroic is not defined %}
+    item_action_collapse('heroic_actions','x-heroic-toggle');
+{% endif %}
 
 let camping = document.querySelectorAll('.camping_actions');
 
