@@ -8,6 +8,7 @@ use MyHordes\Fixtures\DTO\ElementInterface;
 /**
  * @method ItemPrototypeDataElement[] all()
  * @method ItemPrototypeDataElement add()
+ * @method ItemPrototypeDataElement clone(string $id)
  * @method ItemPrototypeDataElement modify(string $id, bool $required = true)
  */
 class ItemPrototypeDataContainer extends Container

@@ -370,13 +370,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
             $status = isset($data['status']) ? $manager->getRepository(CitizenStatus::class)->findOneBy(['name' => $data['status']]) : null;
-            $prof = isset($data['profession']) ? $manager->getRepository(CitizenProfession::class)->findOneBy(['name' => $data['profession']]) : null;
-            $role = isset($data['role']) ? $manager->getRepository(CitizenRole::class)->findOneBy(['name' => $data['role']]) : null;
             if (isset($data['status']) && !$status) throw new Exception('Status condition not found: ' . $data['status']);
-            if (isset($data['profession']) && !$prof) throw new Exception('Profession not found: ' . $data['profession']);
-            if (isset($data['role']) && !$role) throw new Exception('Role not found: ' . $data['role']);
 
-            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setProfession( $prof ?? null )->setRole( $role ?? null)->setBanished( $data['ban'] ?? null );
+            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setBanished( $data['ban'] ?? null );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
         

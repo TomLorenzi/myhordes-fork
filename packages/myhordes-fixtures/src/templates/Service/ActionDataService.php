@@ -14,11 +14,9 @@ use App\Structures\TownConf;
 use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
-use MyHordes\Fixtures\DTO\Actions\RequirementsDataElement;
-use MyHordes\Fixtures\DTO\ArrayDecoratorInterface;
 use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
-use MyHordes\Fixtures\DTO\ElementInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
 
 class ActionDataService implements FixtureProcessorInterface {
@@ -29,6 +27,22 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('can_use_friendship')->type(Requirement::HideOnFail)->add( (new FeatureRequirement())->feature('f_share') )->commit();
         $requirement_container->add()->identifier('hunter_no_followers')->type( Requirement::MessageOnFail )->text('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {escortCount} Personen im Schlepptau hast...')->add( (new EscortRequirement())->maxFollowers(0) )->commit();
         $requirement_container->add()->identifier('room_for_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement()) )->commit();
+
+        $requirement_container->add()->identifier('profession_basic')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('basic', true) )->commit();
+        $requirement_container->add()->identifier('profession_collec')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('collec', true) )->commit();
+        $requirement_container->add()->identifier('profession_guardian')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('guardian', true) )->commit();
+        $requirement_container->add()->identifier('profession_hunter')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('hunter', true) )->commit();
+        $requirement_container->add()->identifier('profession_tamer')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('tamer', true) )->commit();
+        $requirement_container->add()->identifier('profession_tech')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('tech', true) )->commit();
+        $requirement_container->add()->identifier('profession_shaman')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('shaman', true) )->commit();
+        $requirement_container->add()->identifier('profession_survivalist')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('survivalist', true) )->commit();
+
+        $requirement_container->add()->identifier('not_profession_tech')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('tech', false) )->commit();
+
+        $requirement_container->add()->identifier('role_shaman')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('shaman', true) )->commit();
+        $requirement_container->add()->identifier('role_ghoul')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('ghoul', true) )->commit();
+        $requirement_container->clone('role_ghoul')->identifier('role_ghoul_serum')->type( Requirement::MessageOnFail )->text('Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...')->commit();
+        $requirement_container->add()->identifier('not_role_ghoul')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('ghoul', false) )->commit();
 
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
@@ -46,20 +60,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'drink_tl1'   => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'thirst1' ] ]],
                 'drink_tl2'   => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'thirst2' ] ]],
-
-                'profession_basic'       => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'basic', 'enabled' => true ] ]],
-                'profession_collec'      => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'collec', 'enabled' => true ] ]],
-                'profession_guardian'    => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'guardian', 'enabled' => true ] ]],
-                'profession_hunter'      => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'hunter', 'enabled' => true ] ]],
-                'profession_tamer'       => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'tamer', 'enabled' => true ] ]],
-                'profession_tech'        => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'tech', 'enabled' => true ] ]],
-                'profession_shaman'      => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'shaman', 'enabled' => true ] ]],
-                'profession_survivalist' => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'survivalist', 'enabled' => true ] ]],
-                'not_profession_tech'    => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'profession' => 'tech', 'enabled' => false ] ]],
-                'role_shaman'            => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'shaman', 'enabled' => true ] ]],
-                'role_ghoul'             => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => true ] ]],
-                'role_ghoul_serum'       => [ 'type' => Requirement::MessageOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => true ] ], 'text' => 'Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...'],
-                'not_role_ghoul'         => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => false ] ]],
 
                 'during_christmas'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'event' => ['name' => 'christmas' ] ], 'text_key' => 'not_in_event'],
 

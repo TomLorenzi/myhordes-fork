@@ -8,6 +8,7 @@ use MyHordes\Fixtures\DTO\ElementInterface;
 /**
  * @method AwardIconPrototypeDataElement[] all()
  * @method AwardIconPrototypeDataElement add()
+ * @method AwardIconPrototypeDataElement clone(string $id)
  * @method AwardIconPrototypeDataElement modify(string $id, bool $required = true)
  */
 class AwardIconPrototypeDataContainer extends Container

@@ -7,7 +7,6 @@ use App\Structures\ActionHandler\Evaluation;
 use App\Translation\T;
 use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ProcessInventorySpaceRequirement extends AtomRequirementProcessor
 {

@@ -118,17 +118,7 @@ class ActionHandler
                     if ($status_is_active !== $status->getEnabled()) $current_state = $current_state->merge($this_state);
                 }
 
-                if ($status->getProfession() !== null && $status->getEnabled() !== null) {
-                    $profession_is_active = $citizen->getProfession()->getId() === $status->getProfession()->getId();
-                    if ($profession_is_active !== $status->getEnabled()) $current_state = $current_state->merge($this_state);
-                }
-
-                if ($status->getRole() !== null && $status->getEnabled() !== null) {
-                    $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
-                    if ($role_is_active !== $status->getEnabled()) $current_state = $current_state->merge($this_state);
-                }
-
-                if ($status->getBanished() !== null && $citizen->getBanished() !== $status->getBanished()) $current_state = $current_state->merge($this_state);;
+                if ($status->getBanished() !== null && $citizen->getBanished() !== $status->getBanished()) $current_state = $current_state->merge($this_state);
             }
 
             if ($home = $meta_requirement->getHome()) {

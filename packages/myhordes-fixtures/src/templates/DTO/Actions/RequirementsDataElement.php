@@ -112,14 +112,14 @@ class RequirementsDataElement extends Element {
 
     public function beforeSerialization(): void
     {
-        parent::afterSerialization();
+        parent::beforeSerialization();
         $this->sortAtomList();
     }
 
     public function afterSerialization(): void
     {
         parent::afterSerialization();
-        $this->atomList = array_map( fn(array $a) => RequirementsAtom::fromArray( $a ), $this->atomList );
+        $this->atomList = array_map( fn(array|RequirementsAtom $a) => is_array($a) ? RequirementsAtom::fromArray( $a ) : RequirementsAtom::fromArray( $a->toArray() ), $this->atomList );
         $this->sortAtomList();
     }
 }

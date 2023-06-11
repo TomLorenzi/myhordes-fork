@@ -24,10 +24,6 @@ class RequireStatus
     private $status;
     #[ORM\Column(type: 'string', length: 64)]
     private $name;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenProfession')]
-    private $profession;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\CitizenRole')]
-    private $role;
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $banished;
     public function getId(): ?int
@@ -61,26 +57,6 @@ class RequireStatus
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-    public function getProfession(): ?CitizenProfession
-    {
-        return $this->profession;
-    }
-    public function setProfession(?CitizenProfession $profession): self
-    {
-        $this->profession = $profession;
-
-        return $this;
-    }
-    public function getRole(): ?CitizenRole
-    {
-        return $this->role;
-    }
-    public function setRole(?CitizenRole $role): self
-    {
-        $this->role = $role;
 
         return $this;
     }

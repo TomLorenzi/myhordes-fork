@@ -8,6 +8,7 @@ use MyHordes\Fixtures\DTO\ElementInterface;
 /**
  * @method RequirementsDataElement[] all()
  * @method RequirementsDataElement add()
+ * @method RequirementsDataElement clone(string $id)
  * @method RequirementsDataElement modify(string $id, bool $required = true)
  */
 class RequirementsDataContainer extends Container
