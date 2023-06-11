@@ -4,7 +4,7 @@
 </div>
 
 <script>
-    {% embed "scripts/actions.js.twig" %}{% endembed %}
+    {% embed "scripts/actions.js.twig" with {no_heroic: true} %}{% endembed %}
 
     handleActions(
         document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
