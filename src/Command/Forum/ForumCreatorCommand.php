@@ -117,21 +117,24 @@ class ForumCreatorCommand extends Command
 
         if (!$input->getOption('no-permissions')) {
             $g = match ($newForum->getType()) {
-                Forum::ForumTypeDefault => $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]),
-                Forum::ForumTypeElevated => $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]),
-                Forum::ForumTypeMods => $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]),
-                Forum::ForumTypeAdmins => $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]),
-                Forum::ForumTypeAnimac => $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]),
-                default => null,
+                Forum::ForumTypeDefault => [$this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup])],
+                Forum::ForumTypeElevated => [$this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup])],
+                Forum::ForumTypeMods => [$this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup])],
+                Forum::ForumTypeAdmins => [$this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup])],
+                Forum::ForumTypeAnimac => [
+                    $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]),
+                    $this->entityManager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]),
+                ],
+                default => [],
             };
 
             foreach ($this->entityManager->getRepository(ThreadTag::class)->findAll() as $tag)
                 $newForum->addAllowedTag($tag);
 
-            if ($g)
+            foreach ($g as $group)
                 $this->entityManager->persist( $p = (new ForumUsagePermissions())
                     ->setForum($newForum)
-                    ->setPrincipalGroup($g)
+                    ->setPrincipalGroup($group)
                     ->setPermissionsGranted(ForumUsagePermissions::PermissionReadWrite)
                     ->setPermissionsDenied(ForumUsagePermissions::PermissionNone)
                 );

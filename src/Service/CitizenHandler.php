@@ -232,6 +232,8 @@ class CitizenHandler
                 $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'cata']));
 
             // Disable escort on banishment
+            foreach ($citizen->getLeadingEscorts() as $escort)
+                $this->entity_manager->persist( $escort->getCitizen()->getEscortSettings()->setLeader(null) );
             if ($citizen->getEscortSettings()) {
                 $this->entity_manager->remove($citizen->getEscortSettings());
                 $citizen->setEscortSettings(null);

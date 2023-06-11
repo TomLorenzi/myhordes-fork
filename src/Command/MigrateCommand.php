@@ -26,6 +26,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
@@ -126,6 +127,7 @@ class MigrateCommand extends Command
         '4fa1ae01cc1262eb707769291a0ba43ca9579134' => [ ["app:migrate", ['--fix-fixtures' => true ] ] ],
         '26fbeee45f182a400a8c051ce2f2a5b93cd99dcf' => [ ["app:migrate", ['--fix-town-forum-names' => true ] ] ],
         '3b460b6a4c4420a75d43353f921f83eeee5b792f' => [ ["app:migrate", ['--fix-thread-creation-date' => true ] ] ],
+        '9ba59c2c0d9474987f99a0e039009d2dab6a8656' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -958,46 +960,56 @@ class MigrateCommand extends Command
                 }
             };
 
-            $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
-            $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
-            $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
-            $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
-            $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
-            $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
+            $g_users  = null;
+            $g_elev   = null;
+            $g_oracle = null;
+            $g_mods   = null;
+            $g_admin  = null;
+            $g_anim   = null;
 
             // Fix group associations
-            $all_users = $this->entity_manager->getRepository(User::class)->findAll();
-            foreach ($all_users as $current_user) {
-
+            $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $current_user) use (
+                $fun_assoc,$fun_dis_assoc, &$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim
+            ) {
                 if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
-                if ($current_user->getRightsElevation() > User::USER_LEVEL_BASIC) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
+                if (
+                    $current_user->getRightsElevation() > User::USER_LEVEL_BASIC ||
+                    $this->user_handler->hasRole($current_user, "ROLE_ORACLE")
+                ) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
                 if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC"))  $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
 
-            }
+            }, true, function () use (&$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim) {
+                $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
+                $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
+                $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
+                $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
+                $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
+                $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
+            });
 
             // Fix town groups
-            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $current_town) {
+            $this->helper->leChunk($output, Town::class, 10, [], true, false, function(Town $current_town) use (
+                $fun_assoc,$fun_dis_assoc
+            ) {
                 $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $current_town->getId()] );
                 if (!$town_group) {
                     $output->writeln("Creating town group for <info>{$current_town->getName()}</info>");
                     $this->entity_manager->persist( $town_group = (new UserGroup())->setName("[town:{$current_town->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($current_town->getId()) );
                 }
 
-                foreach ($all_users as $current_user) {
-                    $assoc = false; $allow = false;
-
-                    if ($this->user_handler->hasRole( $current_user, 'ROLE_ANIMAC' )) $allow = true;
-                    foreach ( $current_user->getCitizens()->filter(fn(Citizen $c) => $c->getAlive() ) as $alive_citizen )
-                            if ($alive_citizen->getTown() === $current_town)
-                                $assoc = true;
-
-                    if ($assoc) $fun_assoc($current_user, $town_group);
-                    elseif (!$allow) $fun_dis_assoc($current_user, $town_group);
+                foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy(['association' => $town_group]) as $assoc) {
+                    $current_user = $assoc->getUser();
+                    if (!$current_user->getCitizenFor( $current_town )?->getAlive() && !$this->user_handler->hasRole( $current_user, 'ROLE_ANIMAC' ))
+                        $fun_dis_assoc($current_user, $town_group);
                 }
-            }
+
+                foreach ($current_town->getCitizens() as $current_citizen)
+                    if ($current_citizen->getAlive())
+                        $fun_assoc($current_citizen->getUser(), $town_group);
+            });
 
             foreach ($this->entity_manager->getRepository(UserGroup::class)->findBy(['type' => UserGroup::GroupTownInhabitants]) as $town_group)
                 if (!$this->entity_manager->getRepository(Town::class)->find( $town_group->getRef1() )) {
@@ -1025,7 +1037,10 @@ class MigrateCommand extends Command
                 elseif ($forum->getType() === Forum::ForumTypeElevated) $this->ensureForumPermissions($output,$forum, $g_elev);
                 elseif ($forum->getType() === Forum::ForumTypeMods) $this->ensureForumPermissions($output,$forum, $g_mods);
                 elseif ($forum->getType() === Forum::ForumTypeAdmins) $this->ensureForumPermissions($output,$forum, $g_admin);
-                elseif ($forum->getType() === Forum::ForumTypeAnimac) $this->ensureForumPermissions($output,$forum, $g_anim);
+                elseif ($forum->getType() === Forum::ForumTypeAnimac) {
+                    $this->ensureForumPermissions($output, $forum, $g_anim);
+                    $this->ensureForumPermissions($output, $forum, $g_oracle);
+                }
 
             }
 

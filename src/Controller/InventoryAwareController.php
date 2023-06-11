@@ -22,6 +22,7 @@ use App\Entity\HomeIntrusion;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
+use App\Entity\ItemCategory;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
@@ -360,15 +361,15 @@ class InventoryAwareController extends CustomAbstractController
     protected function renderInventoryAsBank( Inventory $inventory ): array {
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
-            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
+            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from(Item::class,'i')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory);
         if ($this->getTownConf()->get(TownConf::CONF_MODIFIER_POISON_STACK, false))
             $qb->groupBy('i.prototype', 'i.broken');
         else $qb->groupBy('i.prototype', 'i.broken', 'i.poison');
         $qb
-            ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
-            ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
-            ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
+            ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
+            ->leftJoin(ItemCategory::class, 'c', Join::WITH, 'p.category = c.id')
+            ->leftJoin(ItemCategory::class, 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC');
 
         if ($this->getUser()->getClassicBankSort()) $qb->addOrderBy('n', 'DESC');

@@ -55,6 +55,7 @@ class JSONv1Controller extends CoreController {
             ExternalAPIError::UserKeyNotFound, ExternalAPIError::UserKeyInvalid => $this->json(["error" => "invalid_userkey"]),
             ExternalAPIError::AppKeyNotFound, ExternalAPIError::AppKeyInvalid => $this->json(["error" => "invalid_appkey"]),
             ExternalAPIError::HordeAttacking => $this->json(["error" => "nightly_attack"]),
+            ExternalAPIError::RateLimitReached => $this->json(["error" => "rate_limit_reached"]),
         };
     }
 

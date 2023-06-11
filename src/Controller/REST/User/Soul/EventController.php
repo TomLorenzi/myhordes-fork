@@ -687,10 +687,8 @@ class EventController extends CustomAbstractCoreController
      */
     public function save_town_preset(
         bool $create,
-        #[MapEntity(id: 'id')]
-        CommunityEvent $event,
-        #[MapEntity(id: 'preset')]
-        ?CommunityEventTownPreset $preset,
+        #[MapEntity(id: 'id')] CommunityEvent $event,
+        #[MapEntity(id: 'preset')] ?CommunityEventTownPreset $preset,
         EntityManagerInterface $em,
         JSONRequestParser $parser,
         SanitizeTownConfigAction $sanitizeTownConfigAction

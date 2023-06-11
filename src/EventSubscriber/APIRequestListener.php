@@ -126,7 +126,7 @@ class APIRequestListener implements EventSubscriberInterface
                     $this->headers['X-RateLimit-Limit'] = min( $this->headers['X-RateLimit-Limit'], $limit->getLimit() );
 
                     if (!$limit->isAccepted())
-                        throw new TooManyRequestsHttpException($limit->getRetryAfter()->format("Y-m-d H:i:s"), "Rate Limit Exceeded", null, 0, $this->headers);
+                        return $this->redirectToErrorHandler($event, ExternalAPIError::RateLimitReached);
                 }
             }
 

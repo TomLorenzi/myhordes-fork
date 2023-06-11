@@ -55,7 +55,6 @@ class Citizen
     #[ORM\OneToMany(targetEntity: 'App\Entity\DigTimer', mappedBy: 'citizen', orphanRemoval: true)]
     private $digTimers;
     #[ORM\OneToOne(targetEntity: 'App\Entity\DailyUpgradeVote', mappedBy: 'citizen', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $dailyUpgradeVote;
     #[ORM\Column(type: 'integer')]
     private $walkingDistance = 0;
@@ -111,12 +110,10 @@ class Citizen
     #[ORM\OneToMany(targetEntity: PrivateMessageThread::class, mappedBy: 'recipient', orphanRemoval: true)]
     private $privateMessageThreads;
     #[ORM\OneToOne(targetEntity: CitizenRankingProxy::class, mappedBy: 'citizen', cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $rankingEntry;
     #[ORM\OneToMany(targetEntity: RuinExplorerStats::class, mappedBy: 'citizen', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private $explorerStats;
     #[ORM\OneToOne(targetEntity: BuildingVote::class, mappedBy: 'citizen', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $buildingVote;
     #[ORM\ManyToMany(targetEntity: HelpNotificationMarker::class)]
     private $helpNotifications;
