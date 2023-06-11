@@ -127,6 +127,7 @@ class MigrateCommand extends Command
         '4fa1ae01cc1262eb707769291a0ba43ca9579134' => [ ["app:migrate", ['--fix-fixtures' => true ] ] ],
         '26fbeee45f182a400a8c051ce2f2a5b93cd99dcf' => [ ["app:migrate", ['--fix-town-forum-names' => true ] ] ],
         '3b460b6a4c4420a75d43353f921f83eeee5b792f' => [ ["app:migrate", ['--fix-thread-creation-date' => true ] ] ],
+        '9ba59c2c0d9474987f99a0e039009d2dab6a8656' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
