@@ -60,7 +60,9 @@ const LocalZone = React.memo(( props: { zone: LocalZone, identifier: string } ) 
     );
 
 }, (prevProps: { zone: LocalZone, identifier: string }, nextProps: { zone: LocalZone, identifier: string }) => {
+    //return false;
     if (prevProps.identifier !== nextProps.identifier) return false;
+    if (Object.entries(prevProps.zone).length !== Object.entries(nextProps.zone).length) return false;
     return Object.entries(prevProps.zone).map(([k,v]) => nextProps.zone[k] === v).filter(v=>!v).length === 0;
 });
 
