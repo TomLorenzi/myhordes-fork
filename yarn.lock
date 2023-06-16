@@ -1446,13 +1446,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime-corejs3@npm:^7.21.5":
-  version: 7.21.5
-  resolution: "@babel/runtime-corejs3@npm:7.21.5"
+"@babel/runtime-corejs3@npm:^7.22.5":
+  version: 7.22.5
+  resolution: "@babel/runtime-corejs3@npm:7.22.5"
   dependencies:
-    core-js-pure: "npm:^3.25.1"
+    core-js-pure: "npm:^3.30.2"
     regenerator-runtime: "npm:^0.13.11"
-  checksum: 6d3516d213bb4631cc8267fd21cb381dc2db3c1f43479c057b764255d043bb5bad4dddf828c7afce7e42c1dadd939b3fc5c57dd7062152f9107d16618430622b
+  checksum: 5f2bcad69c0a10a9551478673a18a25551a872cc3d2b44a3e584910a95456b9952c019c84fc092c94c95ecec89e4d93a0b18a0cf7c8df7e23cdc42633edd2657
   languageName: node
   linkType: hard
 
@@ -1666,10 +1666,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.9":
-  version: 0.1.0-nightly.2023.6.9
-  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.9"
-  checksum: 43c6cfb12b92b502a23c48c3b31bae3b163ba11ed623ff8b6a8d8f54af266ff18fb2ca40eabd34ff8bb30e1dc89555adbbc6dc3591d3fc4c477e968ab39c1bf8
+"@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.16":
+  version: 0.1.0-nightly.2023.6.16
+  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.16"
+  checksum: 38f1e39f1561cdd19d4323f6498c59b31ffac7f45db19ce0bfca929bc3d6113d595c0decad25ef1e81b04cd7597b60559a371e8554a14417f1b717d554f98b9c
   languageName: node
   linkType: hard
 
@@ -2375,12 +2375,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.4":
-  version: 18.2.4
-  resolution: "@types/react-dom@npm:18.2.4"
+"@types/react-dom@npm:18.2.5":
+  version: 18.2.5
+  resolution: "@types/react-dom@npm:18.2.5"
   dependencies:
     "@types/react": "npm:*"
-  checksum: ebede9432aa5438fe020a2bf76730cace72bcbd5b989a5c55fabbfc16e72af5f3d3424f6a1f3501ab7b608eadff99e05bc53fd7dc34406d6d14acd0b30a5881f
+  checksum: 7ae5eeb0c9c9aee7eaac10b2afe527774518a4c6e33c84822fc69911ac929c76bb2882585e9052f2ee99b9588924f05f5fd983bfe181b0385f290e5940a0a754
   languageName: node
   linkType: hard
 
@@ -3680,10 +3680,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:3.30.2":
-  version: 3.30.2
-  resolution: "core-js@npm:3.30.2"
-  checksum: 6810fb533ee1591eb54496a8bd015b6f500ee9878a5ca54304e0f51bafa28bd9af38394cb94d5bb864d84144440d5d67c23ed7432f43142edd1b2e4bfa964e89
+"core-js-pure@npm:^3.30.2":
+  version: 3.31.0
+  resolution: "core-js-pure@npm:3.31.0"
+  checksum: 40c392ec830dc79ae15eb2efb0993e30708d0dc2c21deab5679c5157ce3dc2d1ff6ce44816917dfb2ece159f3a50e021f9cc70b2813b698902b38b3486bd09c2
+  languageName: node
+  linkType: hard
+
+"core-js@npm:3.31.0":
+  version: 3.31.0
+  resolution: "core-js@npm:3.31.0"
+  checksum: 8d38fb70c4dc7e2b3e43dc7e0c7e9770fb6cc5870f1aa9d69f8a7bffb27b5085d9968925dfe746e3856d3e68fa7314d789241b81094bc664b5cb69addd3f70b1
   languageName: node
   linkType: hard
 
@@ -4229,13 +4236,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.14.1":
-  version: 5.14.1
-  resolution: "enhanced-resolve@npm:5.14.1"
+"enhanced-resolve@npm:^5.15.0":
+  version: 5.15.0
+  resolution: "enhanced-resolve@npm:5.15.0"
   dependencies:
     graceful-fs: "npm:^4.2.4"
     tapable: "npm:^2.2.0"
-  checksum: d0dca4a78a824fddeacd5853ad7bd18d33469bc8556d3bca2eafbb4a2325ec462f830d58eeefbd9efb9708e9a65a2f52073a757b4c2ad928daab56a0aa394514
+  checksum: 80df14e9d11ae561b7477866cf5d475aaf5988de7f118ef5a05b94722a107ab58928e3e2cd5a270f696a4f6a16308661872bd6f27cccb2dbe4d8283eee39f62d
   languageName: node
   linkType: hard
 
@@ -8168,11 +8175,11 @@ __metadata:
     "@babel/preset-env": "npm:7.22.5"
     "@babel/preset-react": "npm:7.22.5"
     "@fortawesome/fontawesome-free": "npm:6.4.0"
-    "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2023.6.9"
+    "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2023.6.16"
     "@symfony/webpack-encore": "npm:4.3.0"
-    "@types/react-dom": "npm:18.2.4"
+    "@types/react-dom": "npm:18.2.5"
     buffer: "npm:6.0.3"
-    core-js: "npm:3.30.2"
+    core-js: "npm:3.31.0"
     favicons: "npm:^7.0.2"
     favicons-webpack-plugin: "npm:^6.0.0"
     file-loader: "npm:6.2.0"
@@ -8187,10 +8194,10 @@ __metadata:
     stream: "npm:0.0.2"
     stream-browserify: "npm:3.0.0"
     string.prototype.matchall: "npm:4.0.8"
-    swagger-ui: "npm:4.19.0"
+    swagger-ui: "npm:4.19.1"
     ts-loader: "npm:9.4.3"
     typescript: "npm:5.1.3"
-    webpack: "npm:5.86.0"
+    webpack: "npm:5.87.0"
     webpack-cli: "npm:5.1.4"
     webpack-notifier: "npm:1.15.0"
   languageName: unknown
@@ -8276,14 +8283,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"schema-utils@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "schema-utils@npm:3.1.2"
+"schema-utils@npm:^3.2.0":
+  version: 3.3.0
+  resolution: "schema-utils@npm:3.3.0"
   dependencies:
     "@types/json-schema": "npm:^7.0.8"
     ajv: "npm:^6.12.5"
     ajv-keywords: "npm:^3.5.2"
-  checksum: 11d35f997eb710b684142bd0ca9ef00f96329258a31410ac13e59a3b4d5822e37be1218e44355b0dd669bdca09f0facbed4f3bc183a08e35293561e7a56d766b
+  checksum: 0b289b19ec89b665f3050bf7b6d4099dd035ecfc196b4856be1fcc8e07c3133dea07686e687f1a25bc73dbf1283547b4adc8222c8558d2370a7ceeb062efbc2e
   languageName: node
   linkType: hard
 
@@ -8975,11 +8982,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui@npm:4.19.0":
-  version: 4.19.0
-  resolution: "swagger-ui@npm:4.19.0"
+"swagger-ui@npm:4.19.1":
+  version: 4.19.1
+  resolution: "swagger-ui@npm:4.19.1"
   dependencies:
-    "@babel/runtime-corejs3": "npm:^7.21.5"
+    "@babel/runtime-corejs3": "npm:^7.22.5"
     "@braintree/sanitize-url": "npm:=6.0.2"
     base64-js: "npm:^1.5.1"
     classnames: "npm:^2.3.1"
@@ -9015,7 +9022,7 @@ __metadata:
     xml: "npm:=1.0.1"
     xml-but-prettier: "npm:^1.0.1"
     zenscroll: "npm:^4.0.2"
-  checksum: 045c51705932b18f23ee410c3b3a9aa603d307df4b5c80597bab0a2d27b5fbeb52b16b170424de77f291a4254f02b26ec56254003e3979c6a67b160592af330d
+  checksum: 7544e76e7863f08774d5f61607d56dd87ecb07347d108689ba27a474f76f6f29a3500ab5cf76aeb0df047f698e57c6ada8b0868aa1d369d736b07c6eee6de532
   languageName: node
   linkType: hard
 
@@ -9706,9 +9713,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.86.0":
-  version: 5.86.0
-  resolution: "webpack@npm:5.86.0"
+"webpack@npm:5.87.0":
+  version: 5.87.0
+  resolution: "webpack@npm:5.87.0"
   dependencies:
     "@types/eslint-scope": "npm:^3.7.3"
     "@types/estree": "npm:^1.0.0"
@@ -9719,7 +9726,7 @@ __metadata:
     acorn-import-assertions: "npm:^1.9.0"
     browserslist: "npm:^4.14.5"
     chrome-trace-event: "npm:^1.0.2"
-    enhanced-resolve: "npm:^5.14.1"
+    enhanced-resolve: "npm:^5.15.0"
     es-module-lexer: "npm:^1.2.1"
     eslint-scope: "npm:5.1.1"
     events: "npm:^3.2.0"
@@ -9729,7 +9736,7 @@ __metadata:
     loader-runner: "npm:^4.2.0"
     mime-types: "npm:^2.1.27"
     neo-async: "npm:^2.6.2"
-    schema-utils: "npm:^3.1.2"
+    schema-utils: "npm:^3.2.0"
     tapable: "npm:^2.1.1"
     terser-webpack-plugin: "npm:^5.3.7"
     watchpack: "npm:^2.4.0"
@@ -9739,7 +9746,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 621cf04cc49b5428b4ae87cd72d2ee8c5e032a49aab9e2a347448c675a71a8e6767f43a2317bf9553768fa0e0f2294a25c9bac8ab0361207c839bf40c6d2479d
+  checksum: ae83af9c096c4ba7272086a49ce7769b32e83426b8c1ecd99cc5dadedc66354efb6faba56e3157a5333613c88bdb605791041742c84c78fdf11875726763027c
   languageName: node
   linkType: hard
 
