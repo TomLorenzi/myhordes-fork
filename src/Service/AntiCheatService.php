@@ -95,9 +95,9 @@ class AntiCheatService {
         };
 
         $fun_score_time = function(int $dif): int {
-            if     ($dif <  3600) return 50 + (1 - $dif/ 3600) * 50; // Score 50 - 100 if dif is below 1  hour
-            elseif ($dif < 21600) return 10 + (1 - $dif/21600) * 40; // Score 10 -  50 if dif is below 6  hours
-            elseif ($dif < 86400) return  0 + (1 - $dif/86400) * 10; // Score  0 -  10 if dif is below 24 hours
+            if     ($dif <  3600) return (int)(50 + (1 - $dif/ 3600) * 50); // Score 50 - 100 if dif is below 1  hour
+            elseif ($dif < 21600) return (int)(10 + (1 - $dif/21600) * 40); // Score 10 -  50 if dif is below 6  hours
+            elseif ($dif < 86400) return (int)( 0 + (1 - $dif/86400) * 10); // Score  0 -  10 if dif is below 24 hours
             else return 0;
         };
 

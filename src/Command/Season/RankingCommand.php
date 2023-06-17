@@ -52,7 +52,7 @@ class RankingCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addArgument('SeasonNumber', InputArgument::OPTIONAL, 'The season number. Enter numeric value or c for current, l for latest.', 'c')

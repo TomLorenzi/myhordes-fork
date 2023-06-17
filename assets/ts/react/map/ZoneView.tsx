@@ -8,9 +8,10 @@ import {
 import ZoneControlParent from "./HUD";
 import {useContext, useLayoutEffect, useRef} from "react";
 import {Globals} from "./Wrapper";
+import {string} from "prop-types";
 
 // React.memo(( props: MapOverviewGridProps ) => {
-const LocalZone = React.memo(( props: { zone: LocalZone, key: string } ) => {
+const LocalZone = React.memo(( props: { zone: LocalZone, identifier: string } ) => {
 
     const defaultPositions:{x:number,y:number}[] = [];
     const [citizenPositions, setCitizenPositions] = React.useState(defaultPositions);
@@ -58,8 +59,10 @@ const LocalZone = React.memo(( props: { zone: LocalZone, key: string } ) => {
             </div>
     );
 
-}, (prevProps: { zone: LocalZone, key: string }, nextProps: { zone: LocalZone, key: string }) => {
-    if (prevProps.key !== nextProps.key) return false;
+}, (prevProps: { zone: LocalZone, identifier: string }, nextProps: { zone: LocalZone, identifier: string }) => {
+    //return false;
+    if (prevProps.identifier !== nextProps.identifier) return false;
+    if (Object.entries(prevProps.zone).length !== Object.entries(nextProps.zone).length) return false;
     return Object.entries(prevProps.zone).map(([k,v]) => nextProps.zone[k] === v).filter(v=>!v).length === 0;
 });
 
@@ -79,7 +82,7 @@ const LocalZoneGrid = ( props: { cache: { [key: string]: LocalZone; } } ) => {
     let censor = [];
 
     bar.forEach( yr =>  bar.forEach( xr => {
-        zones.push(<LocalZone zone={props.cache[`${-yr}-${xr}`]} key={`${-yr}-${xr}`}/>)
+        zones.push(<LocalZone zone={props.cache[`${-yr}-${xr}`]} key={`${-yr}-${xr}`} identifier={`${-yr}-${xr}`}/>)
         censor.push(<LocalCensorZone zone={props.cache[`${-yr}-${xr}`]} key={`${-yr}-${xr}`}/>)
     } ));
 
@@ -96,7 +99,7 @@ const LocalZoneView = React.memo( ( props: LocalZoneProps ) => {
 
     const plane = useRef<HTMLDivElement>(null);
     const prevState = useRef<{left: string, top: string}>({left: '-200%', top:  '-200%'});
-    const prevEtag = useRef<number>(null);
+    const ignoreNext = useRef<boolean>(false);
 
     let cache = {};
     let surroundings: LocalZoneSurroundings = {n:null,s:null,e:null,w:null,'0':null};
@@ -124,12 +127,15 @@ const LocalZoneView = React.memo( ( props: LocalZoneProps ) => {
     };
 
     useLayoutEffect(() => {
-        plane.current.animate([
-            {...prevState.current},
-            prevState.current = style
-        ], {easing: "ease", duration: prevEtag.current === globals.etag ? 1250 : 1});
-        prevEtag.current = globals.etag;
-    }, [props.dx, props.dy])
+        if (style.left !== prevState.current.left || style.top !== prevState.current.top) {
+            plane.current.animate([
+                {...prevState.current},
+                prevState.current = style
+            ], {easing: "ease", duration: (ignoreNext.current) ? 1 : 1250});
+
+            ignoreNext.current = !ignoreNext.current;
+        }
+    }, [props.dx, props.dy, globals.etag])
 
     return (
         <>

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\CitizenRankingProxy;
 use App\Entity\RememberMeTokens;
 use App\Entity\Season;
 use App\Entity\TownRankingProxy;
@@ -259,8 +260,8 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
 
         $qb = $this->createQueryBuilder('u')
             ->select("SUM(r.points) as allPoints", 'u')
-            ->innerJoin('App:CitizenRankingProxy', 'r', Join::WITH, 'u.id = r.user')
-            ->innerJoin('App:TownRankingProxy', 't', Join::WITH, 'r.town = t.id')
+            ->innerJoin(CitizenRankingProxy::class, 'r', Join::WITH, 'u.id = r.user')
+            ->innerJoin(TownRankingProxy::class, 't', Join::WITH, 'r.town = t.id')
             ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
             ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
             ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
@@ -287,8 +288,8 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         try {
             $qb = $this->createQueryBuilder('u')
                 ->select("SUM(r.points) as allPoints")
-                ->innerJoin('App:CitizenRankingProxy', 'r', Join::WITH, 'u.id = r.user')
-                ->innerJoin('App:TownRankingProxy', 't', Join::WITH, 'r.town = t.id')
+                ->innerJoin(CitizenRankingProxy::class, 'r', Join::WITH, 'u.id = r.user')
+                ->innerJoin(TownRankingProxy::class, 't', Join::WITH, 'r.town = t.id')
                 ->andWhere('u.id = :uid')->setParameter('uid', $user->getId())
                 ->andWhere('r.points > 0')->andWhere( 'r.disabled = :false' )->andWhere( 'r.confirmed = :true' )
                 ->andWhere( 't.disabled = :false' )->andWhere( 't.event = :false' )
@@ -310,8 +311,8 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
 
         $qb = $this->createQueryBuilder('u')
             ->select('u.id')
-            ->innerJoin('App:CitizenRankingProxy', 'r', Join::WITH, 'u.id = r.user')
-            ->innerJoin('App:TownRankingProxy', 't', Join::WITH, 'r.town = t.id')
+            ->innerJoin(CitizenRankingProxy::class, 'r', Join::WITH, 'u.id = r.user')
+            ->innerJoin(TownRankingProxy::class, 't', Join::WITH, 'r.town = t.id')
             ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
             ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
             ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
@@ -345,8 +346,8 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
 
         $qb = $this->createQueryBuilder('u')
             ->select('u.id')
-            ->innerJoin('App:CitizenRankingProxy', 'r', Join::WITH, 'u.id = r.user')
-            ->innerJoin('App:TownRankingProxy', 't', Join::WITH, 'r.town = t.id')
+            ->innerJoin(CitizenRankingProxy::class, 'r', Join::WITH, 'u.id = r.user')
+            ->innerJoin(TownRankingProxy::class, 't', Join::WITH, 'r.town = t.id')
             ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
             ->andWhere('u.email NOT LIKE :anim')->setParameter('anim', 'anim')
             ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")

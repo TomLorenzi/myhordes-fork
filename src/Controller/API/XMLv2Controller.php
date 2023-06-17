@@ -63,6 +63,10 @@ class XMLv2Controller extends CoreController {
                 $data['error']['attributes'] = ['code' => "horde_attacking"];
                 $data['status']['attributes'] = ['open' => "0", "msg" => $this->translator->trans("Die Seite wird von Horden von Zombies belagert!", [], 'global')];
                 break;
+            case ExternalAPIError::RateLimitReached:
+                $data['error']['attributes'] = ['code' => "rate_limit_reached"];
+                $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                break;
         }
 
         $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));

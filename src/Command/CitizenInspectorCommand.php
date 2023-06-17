@@ -46,7 +46,7 @@ class CitizenInspectorCommand extends LanguageCommand
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This command allows you work on single citizen.')

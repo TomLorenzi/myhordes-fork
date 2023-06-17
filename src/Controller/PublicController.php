@@ -518,6 +518,7 @@ class PublicController extends CustomAbstractController
      * @param TranslatorInterface $translator
      * @param EternalTwinHandler $etwin
      * @param SessionInterface $session
+     * @param UserHandler $userHandler
      * @return Response
      */
     public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session, UserHandler $userHandler): Response {
@@ -535,6 +536,7 @@ class PublicController extends CustomAbstractController
             $etwin->setAuthorizationCode( $code );
             $user = $etwin->requestAuthSelf($e);
         } catch (Exception $e) {
+            dump($e);
             $this->addFlash('error', $translator->trans('Fehler bei der Datenübertragung.', [], 'login'));
             throw new DynamicAjaxResetException(Request::createFromGlobals());
         }

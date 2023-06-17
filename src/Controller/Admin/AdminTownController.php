@@ -30,6 +30,7 @@ use App\Entity\ExpeditionRoute;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\ItemCategory;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -136,12 +137,12 @@ class AdminTownController extends AdminActionController
     protected function renderInventoryAsBank( Inventory $inventory ) {
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
-            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
+            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from(Item::class,'i')
             ->where('i.inventory = :inv')->setParameter('inv', $inventory)
             ->groupBy('i.prototype', 'i.broken', 'i.poison')
-            ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
-            ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
-            ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
+            ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
+            ->leftJoin(ItemCategory::class, 'c', Join::WITH, 'p.category = c.id')
+            ->leftJoin(ItemCategory::class, 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC')
             ->addOrderBy('p.icon', 'DESC')
             ->addOrderBy('i.id', 'ASC');

@@ -41,7 +41,7 @@ class SeasonCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addArgument('SeasonNumber', InputArgument::REQUIRED, 'The season number.')

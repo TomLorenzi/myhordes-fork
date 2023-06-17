@@ -98,7 +98,7 @@ class DebugCommand extends LanguageCommand
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('Debug options.')

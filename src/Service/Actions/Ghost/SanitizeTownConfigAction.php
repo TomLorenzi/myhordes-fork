@@ -150,7 +150,7 @@ class SanitizeTownConfigAction
                 $rules[$list] = ['replace' => $rules[$list]];
     }
 
-    public function restore_lists( $rules ): array
+    public function restore( $rules ): array
     {
 
         $lists = ['disabled_jobs', 'disabled_roles', 'initial_buildings', 'unlocked_buildings', 'disabled_buildings'];
@@ -158,6 +158,24 @@ class SanitizeTownConfigAction
         foreach ($lists as $list)
             if (isset( $rules[$list] ) && isset( $rules[$list]['replace'] ))
                 $rules[$list] = $rules[$list]['replace'];
+
+        $well_preset = match (true) {
+            ($rules['well'] ?? null) === null => null,
+            ($rules['well']['min'] ?? null) === 60 && ($rules['well']['max'] ?? null) === 90 => 'low',
+            ($rules['well']['min'] ?? null) === 90 && ($rules['well']['max'] ?? null) === 180 => 'normal',
+            ($rules['well']['min'] ?? null) === ($rules['well']['max'] ?? null) => '_fixed',
+            default => '_range'
+        };
+        if ($well_preset !== null) $rules['wellPreset'] = $well_preset;
+
+        $map_preset = match (true) {
+            ($rules['map'] ?? null) === null && ($rules['ruins'] ?? null) === null && ($rules['explorable_ruins'] ?? null) === null => null,
+            ($rules['map']['min'] ?? null) === 12 && ($rules['map']['max'] ?? null) === 14 && ($rules['ruins'] ?? null) === 7 && ($rules['explorable_ruins'] ?? null) === 0 => 'small',
+            ($rules['map']['min'] ?? null) === 25 && ($rules['map']['max'] ?? null) === 27 && ($rules['ruins'] ?? null) === 20 && ($rules['explorable_ruins'] ?? null) === 1 => 'normal',
+            ($rules['map']['min'] ?? null) === 32 && ($rules['map']['max'] ?? null) === 35 && ($rules['ruins'] ?? null) === 30 && ($rules['explorable_ruins'] ?? null) === 2 => 'large',
+            default => '_custom'
+        };
+        if ($map_preset !== null) $rules['mapPreset'] = $map_preset;
 
         return $rules;
     }
