@@ -126,9 +126,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 if (!isset($sub_cache[$sub_id])) $sub_cache[$sub_id] = [];
                                 
                 switch ($sub_id) {
-                    case 'ap':
-                        $requirement->setAp( $this->process_ap_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
                     case 'item':
                         $requirement->setItem( $this->process_item_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
@@ -150,12 +147,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'zone':
                         $requirement->setZone( $this->process_zone_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
-                    case 'pm':
-                        $requirement->setPm( $this->process_pm_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
-                    case 'cp':
-                        $requirement->setCp( $this->process_cp_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
                     case 'conf':
                         $requirement->setConf( $this->process_conf_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
@@ -176,62 +167,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t<comment>Skip</comment> meta condition <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
         
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireAP
-     * @throws Exception
-     */
-    private function process_ap_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireAP
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireAP::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireAP();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] )->setRelativeMax( $data['relative'] );
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequirePM
-     * @throws Exception
-     */
-    private function process_pm_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequirePM
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequirePM::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequirePM();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] )->setRelativeMax( $data['relative'] );
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
         return $cache[$id];
     }
 
@@ -343,36 +278,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>conf/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireStatus
-     * @throws Exception
-     */
-    private function process_status_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out, 
-        array &$cache, string $id, array $data): RequireStatus
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireStatus::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireStatus();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-            $status = isset($data['status']) ? $manager->getRepository(CitizenStatus::class)->findOneBy(['name' => $data['status']]) : null;
-            if (isset($data['status']) && !$status) throw new Exception('Status condition not found: ' . $data['status']);
-
-            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setBanished( $data['ban'] ?? null );
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-        
         return $cache[$id];
     }
 

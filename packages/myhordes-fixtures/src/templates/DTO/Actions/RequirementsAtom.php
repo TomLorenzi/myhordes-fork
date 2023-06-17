@@ -9,12 +9,24 @@ use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 
 abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
 
+    protected array $data;
+
     public function __construct(
         public readonly SortDefinition $sort = new SortDefinition(),
-        protected array $data = []
-    ) {}
+        $data = []
+    ) {
+        $this->data = static::afterSerialization( $data );
+    }
 
     abstract public function getClass(): string;
+
+    protected static function beforeSerialization(array $data): array {
+        return $data;
+    }
+
+    protected static function afterSerialization(array $data): array {
+        return $data;
+    }
 
     final public function toArray(): array {
         return [
@@ -25,7 +37,7 @@ abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
             ],
             'processor' => $this->getClass(),
             'atom' => get_class($this),
-            'payload' => $this->data
+            'payload' => static::beforeSerialization( $this->data )
         ];
     }
 
@@ -47,7 +59,7 @@ abstract class RequirementsAtom implements ArrayDecoratorReadInterface {
 
         $instance = new $atom(
             new SortDefinition( SortDefinitionWord::from( $sort_word ), $sort_ref, $sort_priority ),
-            $payload
+            static::afterSerialization( $payload )
         );
         if ($instance->getClass() !== $processor && !is_a($processor, $instance->getClass(), true))
             throw new \Exception("Expected requirement atom to be processed by '{$instance->getClass()}', got '{$processor}' instead.");

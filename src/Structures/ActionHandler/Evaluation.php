@@ -16,6 +16,7 @@ class Evaluation
     private array $missing_items = [];
     private array $messages = [];
     private array $trans = [];
+    private array $metaTrans = [];
 
     public function __construct(
         public readonly Citizen $citizen,
@@ -36,17 +37,24 @@ class Evaluation
         $this->trans[$key] = $value;
     }
 
+    public function addMetaTranslationKey(string $key, string $value, string $domain): void {
+        $this->metaTrans[$key] = [$value, $domain];
+    }
+
     public function getMissingItems(): array {
         return $this->missing_items;
     }
 
     public function getMessages(TranslatorInterface $trans, array $keys = []): array {
-        return array_map( function(array $m) use ($trans, $keys) {
-            return $m[1] === null ? $m[0] : $trans->trans( $m[0], array_merge($m[1], $this->getTranslationKeys(), $keys), $m[2] );
+        $ownKeys = array_merge(
+            $this->trans,
+            array_map( fn(array $obj) => $trans->trans( $obj[0], [], $obj[1] ), $this->metaTrans )
+        );
+
+        return array_map( function(array $m) use ($trans, $keys, $ownKeys) {
+            return $m[1] === null ? $m[0] : $trans->trans( $m[0], array_merge($m[1], $ownKeys, $keys), $m[2] );
         }, $this->messages );
     }
 
-    public function getTranslationKeys(): array {
-        return $this->trans;
-    }
+
 }

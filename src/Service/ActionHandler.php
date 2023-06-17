@@ -62,7 +62,6 @@ class ActionHandler
 {
     public function __construct(
         private readonly EntityManagerInterface $entity_manager,
-        private readonly StatusFactory $status_factory,
         private readonly CitizenHandler $citizen_handler,
         private readonly UserHandler $user_handler,
         private readonly DeathHandler $death_handler,
@@ -70,7 +69,6 @@ class ActionHandler
         private readonly RandomGenerator $random_generator,
         private readonly ItemFactory $item_factory,
         private readonly TranslatorInterface $translator,
-        private readonly GameFactory $game_factory,
         private readonly TownHandler $town_handler,
         private readonly ZoneHandler $zone_handler,
         private readonly PictoHandler $picto_handler,
@@ -126,21 +124,6 @@ class ActionHandler
 
             if ($zone = $meta_requirement->getZone()) {
                 if ($zone->getMaxLevel() !== null && $citizen->getZone() && ( $citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = $current_state->merge($this_state);
-            }
-
-            if ($ap = $meta_requirement->getAp()) {
-                $max = $ap->getRelativeMax() ? ($this->citizen_handler->getMaxAP( $citizen ) + $ap->getMax()) : $ap->getMax();
-                if ($citizen->getAp() < $ap->getMin() || $citizen->getAp() > $max) $current_state = $current_state->merge($this_state);
-            }
-
-            if ($pm = $meta_requirement->getPm()) {
-                $max = $pm->getRelativeMax() ? ($this->citizen_handler->getMaxPM( $citizen ) + $pm->getMax()) : $pm->getMax();
-                if ($citizen->getPm() < $pm->getMin() || $citizen->getPm() > $max) $current_state = $current_state->merge($this_state);
-            }
-
-            if ($cp = $meta_requirement->getCp()) {
-                $max = $cp->getRelativeMax() ? ($this->citizen_handler->getMaxBP( $citizen ) + $cp->getMax()) : $cp->getMax();
-                if ($citizen->getBp() < $cp->getMin() || $citizen->getBp() > $max) $current_state = $current_state->merge($this_state);
             }
 
             if ($counter = $meta_requirement->getCounter()) {

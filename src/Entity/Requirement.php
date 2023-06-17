@@ -32,8 +32,6 @@ class Requirement
     private $zombies;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireLocation')]
     private $location;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireAP')]
-    private $ap;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireBuilding')]
     private $building;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireHome')]
@@ -42,10 +40,6 @@ class Requirement
     private $zone;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireCounter')]
     private $counter;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequirePM')]
-    private $pm;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireCP')]
-    private $cp;
     #[ORM\ManyToOne(targetEntity: RequireConf::class)]
     private $conf;
     #[ORM\ManyToOne(targetEntity: RequireDay::class)]
@@ -127,16 +121,6 @@ class Requirement
 
         return $this;
     }
-    public function getAp(): ?RequireAP
-    {
-        return $this->ap;
-    }
-    public function setAp(?RequireAP $ap): self
-    {
-        $this->ap = $ap;
-
-        return $this;
-    }
     public function getBuilding(): ?RequireBuilding
     {
         return $this->building;
@@ -174,26 +158,6 @@ class Requirement
     public function setCounter(?RequireCounter $counter): self
     {
         $this->counter = $counter;
-
-        return $this;
-    }
-    public function getPm(): ?RequirePM
-    {
-        return $this->pm;
-    }
-    public function setPm(?RequirePM $pm): self
-    {
-        $this->pm = $pm;
-
-        return $this;
-    }
-    public function getCp(): ?RequireCP
-    {
-        return $this->cp;
-    }
-    public function setCp(?RequireCP $cp): self
-    {
-        $this->cp = $cp;
 
         return $this;
     }

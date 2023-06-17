@@ -9,11 +9,13 @@ use App\Entity\ItemAction;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
+use App\Enum\ActionHandler\PointType;
 use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
 use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\PointRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\StatusRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
@@ -79,7 +81,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('drug_1')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', false) )->commit();
         $requirement_container->add()->identifier('drug_2')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', true) )->commit();
 
-        $requirement_container->add()->identifier('not_tired')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tired', false) )->text('Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.')->commit();
+        $requirement_container->add()->identifier('not_tired')->type( Requirement::MessageOnFail )->add( (new StatusRequirement())->status('tired', false) )->text('Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.')->commit();
 
         $requirement_container->add()->identifier('is_wounded')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', true) )->commit();
         $requirement_container->add()->identifier('is_not_wounded')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', false) )->commit();
@@ -107,26 +109,29 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('must_be_hidden')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_hide', true) )->commit();
         $requirement_container->add()->identifier('must_be_tombed')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_tomb', true) )->commit();
 
+        $requirement_container->add()->identifier('no_bonus_ap')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::AP)->max(0)->fromLimit() )->text_key('already_full_ap')->commit();
+        $requirement_container->add()->identifier('no_full_ap')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::AP)->max(-1)->fromLimit() )->text_key('already_full_ap')->commit();
+        $requirement_container->clone('no_full_ap')->identifier('not_thirsty')->type( Requirement::MessageOnFail )->text_key('already_full_ap_drink')->commit();
+        $requirement_container->clone('no_full_ap')->identifier('no_full_ap_msg')->type( Requirement::MessageOnFail )->text('Das brauchst du gerade nicht ...')->commit();
+
+        $requirement_container->add()->identifier('min_6_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(6) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_5_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(5) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_1_ap')->type( Requirement::MessageOnFail )->add( (new PointRequirement())->require(PointType::AP)->min(1) )->text_key('pt_required')->commit();
+
+        $requirement_container->add()->identifier('no_cp')->type( Requirement::HideOnFail )->add( (new PointRequirement())->require(PointType::CP)->max(0) )->commit();
+        $requirement_container->add()->identifier('min_1_cp')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(1) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_1_cp_hd')->type( Requirement::HideOnFail )->add( (new PointRequirement())->require(PointType::CP)->min(1) )->commit();
+
+        $requirement_container->add()->identifier('min_1_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(1) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_2_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(2) )->text_key('pt_required')->commit();
+        $requirement_container->add()->identifier('min_3_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(3) )->text_key('pt_required')->commit();
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
 
                 'feature_camping' => [ 'type' => Requirement::HideOnFail, 'collection' => ['conf' => [ 'value' => TownConf::CONF_FEATURE_CAMPING, 'bool' => true ] ] ],
 
                 'during_christmas'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'event' => ['name' => 'christmas' ] ], 'text_key' => 'not_in_event'],
-
-                'no_bonus_ap'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => 0,  'relative' => true ] ], 'text_key' => 'already_full_ap'],
-                'no_full_ap'     => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text_key' => 'already_full_ap'],
-                'not_thirsty'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text_key' => 'already_full_ap_drink'],
-                'no_full_ap_msg' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text' => 'Das brauchst du gerade nicht ...'],
-                'min_6_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 6, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 6 AP.'],
-                'min_5_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 5, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 5 AP.'],
-                'min_1_ap'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ]],
-                'no_cp'          => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'cp' => [ 'min' => 0, 'max' => 0, 'relative' => false ] ] ],
-                'min_1_cp'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'cp' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 1 CP.'],
-                'min_1_cp_hd'    => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'cp' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ] ],
-                'min_1_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 1 PM.'],
-                'min_2_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 2, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 2 PM.'],
-                'min_3_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 3, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 3 PM.'],
 
                 'guard_tower_not_max' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [13] ], 'text' => 'Du hast das Gefühl, dass du die Organisation der Verteidigung der Stadt nicht weiter verbessern kannst.'],
 
@@ -235,7 +240,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
             'requirements' => [
 
-                'ap' => [],
                 'item' => [],
                 'location' => [],
                 'zombies' => [],
@@ -1448,6 +1452,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'once_a_day'                    => 'Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...',
                 'already_full_ap'               => 'Du hast bereits volle AP.',
                 'already_full_ap_drink'         => 'Du brauchst im Moment <strong>nichts trinken</strong>, da du nicht müde bist und noch alle deine Aktionspunkte hast.',
+
+                'pt_required' => 'Hierfür brauchst du mindestens {pt_min} {pt_name}.',
 
                 'eat_human_meat' => '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>',
                 'eat_human_meat_ghoul' => 'Es ist nicht so appetitlich wie ein <strong>schöner, frischer, zappelnder Mensch</strong>, aber es erfüllt seinen Zweck und lässt den <strong>Hunger</strong> ein wenig nachlassen.... Zum Glück ist das Fleisch ziemlich zart, sonst wäre diese Mahlzeit furchtbar gewesen.<hr/>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...',
