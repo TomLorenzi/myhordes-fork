@@ -15,6 +15,7 @@ use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\StatusRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
@@ -44,22 +45,72 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->clone('role_ghoul')->identifier('role_ghoul_serum')->type( Requirement::MessageOnFail )->text('Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...')->commit();
         $requirement_container->add()->identifier('not_role_ghoul')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('ghoul', false) )->commit();
 
+        $requirement_container->add()->identifier('never_cross')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_never', true) )->commit();
+
+        $requirement_container->add()->identifier('drink_cross')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('hasdrunk', false) )->commit();
+        $requirement_container->clone('drink_cross')->identifier('drink_mesg')->type( Requirement::MessageOnFail )->text('Du hast <strong>heute bereits getrunken</strong>: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.')->commit();
+        $requirement_container->clone('drink_cross')->identifier('drink_hide')->type( Requirement::HideOnFail )->commit();
+        $requirement_container->add()->identifier('drink_rhide')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('hasdrunk', true) )->commit();
+
+        $requirement_container->add()->identifier('drink_tl0a')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst1', false) )->commit();
+        $requirement_container->add()->identifier('drink_tl0b')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst2', false) )->commit();
+        $requirement_container->add()->identifier('drink_tl1')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst1', true) )->commit();
+        $requirement_container->add()->identifier('drink_tl2')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('thirst2', true) )->commit();
+
+        $requirement_container->add()->identifier('not_yet_dice')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_dice', true) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_card')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_cards', true) )->text_key('once_a_day')->commit();
+        $requirement_container->add()->identifier('not_yet_teddy')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_teddy', true) )->text_key('once_a_day')->commit();
+
+        $requirement_container->add()->identifier('not_yet_guitar')->type( Requirement::MessageOnFail )->add( (new StatusRequirement())->status('tg_guitar', false) )->text('Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.')->commit();
+        $requirement_container->add()->identifier('not_yet_beta')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_betadrug', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_sbook')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_sbook', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_hero')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_hero', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_home_cleaned')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_home_clean' , false) )->commit();
+        $requirement_container->add()->identifier('not_yet_home_showered')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_home_shower', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_home_heal_1')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_home_heal_1', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_home_heal_2')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_home_heal_2', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_home_defbuff')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_home_defbuff', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_rested')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_rested', false) )->commit();
+        $requirement_container->add()->identifier('not_yet_immune')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_shaman_immune', false) )->commit();
+        $requirement_container->add()->identifier('immune')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_shaman_immune', true) )->commit();
+
+        $requirement_container->add()->identifier('eat_ap')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('haseaten', false) )->text_key('once_a_day')->commit();
+
+        $requirement_container->add()->identifier('drug_1')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', false) )->commit();
+        $requirement_container->add()->identifier('drug_2')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('drugged', true) )->commit();
+
+        $requirement_container->add()->identifier('not_tired')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tired', false) )->text('Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.')->commit();
+
+        $requirement_container->add()->identifier('is_wounded')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', true) )->commit();
+        $requirement_container->add()->identifier('is_not_wounded')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', false) )->commit();
+        $requirement_container->add()->identifier('is_not_wounded_hands')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('wound2', false) )->commit();
+        $requirement_container->add()->identifier('is_not_bandaged')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('healed', false) )->commit();
+
+        $requirement_container->add()->identifier('is_wounded_h')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', true) )->commit();
+        $requirement_container->add()->identifier('is_not_wounded_h')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_meta_wound', false) )->commit();
+        $requirement_container->add()->identifier('is_infected_h')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('infection', true) )->commit();
+        $requirement_container->add()->identifier('is_not_infected_h')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('infection', false) )->commit();
+
+        $requirement_container->add()->identifier('not_drunk')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('drunk', false) )->commit();
+        $requirement_container->add()->identifier('not_hungover')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('hungover', false) )->commit();
+
+        $requirement_container->add()->identifier('must_be_terrorized')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('terror', true) )->text('Das brauchst du gerade nicht ...')->commit();
+        $requirement_container->clone('must_be_terrorized')->identifier('must_be_terrorized_hd')->type( Requirement::HideOnFail )->commit();
+        $requirement_container->add()->identifier('must_not_be_terrorized')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('terror', false) )->text('Das brauchst du gerade nicht ...')->commit();
+
+        $requirement_container->add()->identifier('must_not_be_banished')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->shunned(false) )->commit();
+        $requirement_container->add()->identifier('must_not_be_banished_w')->type( Requirement::MessageOnFail )->add( (new StatusRequirement())->shunned(false) )->text_key('water_purification_impossible')->commit();
+        $requirement_container->add()->identifier('must_be_banished')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->shunned(true) )->commit();
+
+        $requirement_container->add()->identifier('must_not_be_hidden')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_hide', false) )->commit();
+        $requirement_container->add()->identifier('must_not_be_tombed')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_tomb', false) )->commit();
+        $requirement_container->add()->identifier('must_be_hidden')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_hide', true) )->commit();
+        $requirement_container->add()->identifier('must_be_tombed')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_tomb', true) )->commit();
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
+
                 'feature_camping' => [ 'type' => Requirement::HideOnFail, 'collection' => ['conf' => [ 'value' => TownConf::CONF_FEATURE_CAMPING, 'bool' => true ] ] ],
-
-                'never_cross'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_never' ] ]],
-
-                'drink_cross'  => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hasdrunk' ] ]],
-                'drink_mesg'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hasdrunk' ] ], 'text' => 'Du hast <strong>heute bereits getrunken</strong>: weitere Rationen werden nur deinen Durst löschen, deine AP aber nicht erneuern.'],
-                'drink_hide'   => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hasdrunk' ] ]],
-                'drink_rhide'  => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'hasdrunk' ] ]],
-
-                'drink_tl0a'  => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'thirst1' ] ]],
-                'drink_tl0b'  => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'thirst2' ] ]],
-
-                'drink_tl1'   => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'thirst1' ] ]],
-                'drink_tl2'   => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'thirst2' ] ]],
 
                 'during_christmas'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'event' => ['name' => 'christmas' ] ], 'text_key' => 'not_in_event'],
 
@@ -76,40 +127,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'min_1_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 1 PM.'],
                 'min_2_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 2, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 2 PM.'],
                 'min_3_pm'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'pm' => [ 'min' => 3, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 3 PM.'],
-                'not_yet_dice'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_dice' ]  ], 'text_key' => 'once_a_day'],
-                'not_yet_card'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_cards' ] ], 'text_key' => 'once_a_day'],
-                'not_yet_guitar' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_guitar' ] ], 'text' => 'Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.'],
-                'not_yet_beta'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_betadrug' ] ]],
-                'not_yet_sbook'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_sbook' ] ]],
-                'not_yet_hero'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hero' ] ]],
-                'not_yet_home_cleaned'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_clean'  ] ]],
-                'not_yet_home_showered' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_shower' ] ]],
-                'not_yet_home_heal_1'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_heal_1' ] ]],
-                'not_yet_home_heal_2'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_heal_2' ] ]],
-                'not_yet_home_defbuff'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_home_defbuff' ] ]],
-                'not_yet_rested'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_rested' ]  ]],
-                'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_shaman_immune' ]  ]],
-                'immune'           => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_shaman_immune' ]  ]],
-
-                'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ], 'text_key' => 'once_a_day'],
-
-                'drug_1'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'drugged' ] ]],
-                'drug_2'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'drugged' ] ]],
-
-                'not_tired' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tired' ] ], 'text' => 'Solange du <strong>erschöpft bist</strong>, kannst du diese Aktion nicht ausführen (da du keine Aktionspunkte mehr hast)... Trink oder iss etwas, oder nimm eine Droge, ansonsten musst du bis <strong>morgen</strong> warten.'],
-
-                'is_wounded'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'tg_meta_wound' ] ]],
-                'is_not_wounded'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_meta_wound' ] ]],
-                'is_not_wounded_hands'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'wound2' ] ]],
-                'is_not_bandaged' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'healed' ] ]],
-
-                'is_wounded_h'       => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'tg_meta_wound' ] ]],
-                'is_not_wounded_h'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_meta_wound' ] ]],
-                'is_infected_h'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'infection' ] ]],
-                'is_not_infected_h'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'infection' ] ]],
-
-                'not_drunk'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'drunk' ] ]],
-                'not_hungover' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hungover' ] ]],
 
                 'guard_tower_not_max' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [13] ], 'text' => 'Du hast das Gefühl, dass du die Organisation der Verteidigung der Stadt nicht weiter verbessern kannst.'],
 
@@ -144,10 +161,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'kitchen_counter_below_5' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 4 ] ] ],
                 'kitchen_counter_below_6' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'counter' => [ 'type' => ActionCounter::ActionTypeHomeKitchen, 'max' => 5 ] ] ],
 
-                'must_be_terrorized'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
-                'must_be_terrorized_hd'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true,  'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
-                'must_not_be_terrorized' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
-
                 'must_be_outside'              => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
                 'must_be_outside_or_exploring' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutsideOrExploring ] ]],
                 'must_be_exploring'            => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationExploring ] ]],
@@ -168,10 +181,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'must_have_micropur' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_cleaner_#00', 'prop' => null ] ], 'text_key' => 'item_needed_generic'],
                 'must_have_micropur_in' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_cleaner_#00', 'prop' => null ] ], 'text_key' => 'water_purification_impossible'],
                 'must_have_drug'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'drug_#00',          'prop' => null ] ], 'text_key' => 'item_needed_generic'],
-
-                'must_not_be_banished'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'ban' => false ] ] ],
-                'must_not_be_banished_w' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'ban' => false ] ], 'text_key' => 'water_purification_impossible' ],
-                'must_be_banished'       => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'ban' => true ] ] ],
 
                 'must_have_purifier'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#00', 'complete' => true  ] ] ],
                 'must_not_have_purifier' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#00', 'complete' => false ] ] ],
@@ -212,10 +221,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'zone_is_improvable' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zone' => [ 'max_level' => 10 ] ], 'text' => 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.' ],
 
-                'must_not_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_hide' ] ] ],
-                'must_not_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ] ],
-                'must_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ] ],
-                'must_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ] ],
                 'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ], 'text' => 'Dies kannst du erst ab <strong>Tag 2</strong> tun.' ],
 
                 'must_be_day' => [ 'collection' =>    [ 'custom' => [1] ] ],
@@ -231,7 +236,6 @@ class ActionDataService implements FixtureProcessorInterface {
             'requirements' => [
 
                 'ap' => [],
-                'status' => [],
                 'item' => [],
                 'location' => [],
                 'zombies' => [],
@@ -861,7 +865,7 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'ghoul_serum' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul_serum' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
 
-                'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_be_terrorized', [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_teddy' ] ]] ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_teddy' ], 'group' => [ ['do_nothing', 70], ['unterrorize', 30] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ], /* based on Hordes data */
+                'cuddle_teddy_1' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_be_terrorized', 'not_yet_teddy' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_teddy' ], 'group' => [ ['do_nothing', 70], ['unterrorize', 30] ] ] ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>' ], /* based on Hordes data */
                 'cuddle_teddy_2' => [ 'label' => 'Knuddeln', 'meta' => [ 'must_not_be_terrorized' ], 'result' => [ 'terrorize' ], 'message' => 'Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>' ],
 
                 'clean_clothes' => [ 'label' => 'Reinigen (Kleidung)', 'meta' => [ 'must_be_inside' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_clothes', 'counter' => ActionCounter::ActionTypeClothes ], 'item' => ['consume' => false, 'morph' => 'basic_suit_#00'] ] ], 'message' => 'Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.' ],

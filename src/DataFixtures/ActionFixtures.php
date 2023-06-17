@@ -129,9 +129,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'ap':
                         $requirement->setAp( $this->process_ap_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
-                    case 'status':
-                        $requirement->setStatusRequirement( $this->process_status_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
                     case 'item':
                         $requirement->setItem( $this->process_item_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;

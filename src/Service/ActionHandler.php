@@ -111,16 +111,6 @@ class ActionHandler
                 if (!$success) $current_state = $current_state->merge($this_state);
             }
 
-
-            if ($status = $meta_requirement->getStatusRequirement()) {
-                if ($status->getStatus() !== null && $status->getEnabled() !== null) {
-                    $status_is_active = $citizen->getStatus()->contains( $status->getStatus() );
-                    if ($status_is_active !== $status->getEnabled()) $current_state = $current_state->merge($this_state);
-                }
-
-                if ($status->getBanished() !== null && $citizen->getBanished() !== $status->getBanished()) $current_state = $current_state->merge($this_state);
-            }
-
             if ($home = $meta_requirement->getHome()) {
                 if ($home->getUpgrade() === null) {
                     if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = $current_state->merge($this_state);

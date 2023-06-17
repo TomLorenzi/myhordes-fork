@@ -23,7 +23,6 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
  * @property ?bool role_guide
  * @property ?bool role_ghoul
  * @property ?bool role_cata
- * @property ?bool considerTrunk
  */
 class ProfessionRoleRequirement extends RequirementsAtom {
 
@@ -63,15 +62,6 @@ class ProfessionRoleRequirement extends RequirementsAtom {
             if (str_starts_with( $key, 'role_' ) && $value === false)
                 $list[] = substr( $key, 5 );
         return $list;
-    }
-
-    protected function default(string $name): mixed
-    {
-        return match ($name) {
-            'space' => 1,
-            'considerTrunk' => true,
-            default => parent::default($name)
-        };
     }
 
     public function getClass(): string

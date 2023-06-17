@@ -22,8 +22,6 @@ class Requirement
     private $id;
     #[ORM\Column(type: 'string', length: 32)]
     private $name;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireStatus')]
-    private $statusRequirement;
     #[ORM\Column(type: 'smallint')]
     private $failureMode;
     #[ORM\Column(type: 'text', nullable: true)]
@@ -77,16 +75,6 @@ class Requirement
     public function clear(): self {
         $this->statusRequirement = $this->item = $this->zombies = $this->location = $this->ap = $this->building =
         $this->home = $this->zone = $this->counter = $this->pm = $this->cp = $this->conf = $this->custom = null;
-        return $this;
-    }
-    public function getStatusRequirement(): ?RequireStatus
-    {
-        return $this->statusRequirement;
-    }
-    public function setStatusRequirement(?RequireStatus $statusRequirement): self
-    {
-        $this->statusRequirement = $statusRequirement;
-
         return $this;
     }
     public function getFailureMode(): ?int
