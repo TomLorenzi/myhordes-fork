@@ -174,7 +174,7 @@ const HordesLogWrapper = (props: mountProps) => {
     const loadMore = ( day: number ) => {
         if ((cache.current[day] ?? null) === null) return;
         setLoading( true );
-        api.logs( props.domain, props.citizen, props.inlineDays ? 0 : day, 150, props.category, cache.current[day].entries[cache.current[day].entries.length-1].id,  -1 )
+        api.logs( props.domain, props.citizen, props.inlineDays ? 0 : day, -1, props.category, cache.current[day].entries[cache.current[day].entries.length-1].id,  -1 )
             .then( v => {
                 applyData( day, v.entries, false, v.entries.length >= v.total);
                 setManipulations( v.manipulations );
