@@ -81,7 +81,21 @@ export const TownCreatorSectionDifficulty = () => {
 
         { /* Well Level */ }
         <OptionCoreTemplate propName={WELL} propHelp={difficulty.well_help} propTitle={difficulty.well}>
-            <select name="wellPreset" value={globals.getOption( 'rules.wellPreset' ) ?? ''} onChange={globals.setOption}>
+            <select name="wellPreset" value={globals.getOption( 'rules.wellPreset' ) ?? ''}
+                onChange={e => {
+                    const v =  (e.target as HTMLSelectElement).value;
+                    if (v === '_fixed') {
+                        if (!globals.getOption('rules.well.min')) globals.setOption('rules.map.min', 120);
+                        globals.setOption('rules.map.max', globals.getOption('rules.map.min'));
+                    } else if (v === '_range') {
+                        if (!globals.getOption('rules.well.min')) globals.setOption('rules.map.min', 90);
+                        if (!globals.getOption('rules.well.max')) globals.setOption('rules.map.max', 180);
+                    } else {
+                        globals.removeOption('rules.well.min');
+                        globals.removeOption('rules.well.max');
+                    }
+                    globals.setOption('rules.wellPreset', v);
+                }}>
                 { difficulty.well_presets.map( option => <React.Fragment key={option.value}>
                     <option value={option.value}>{ option.label }</option>
                 </React.Fragment> ) }
@@ -109,6 +123,22 @@ export const TownCreatorSectionDifficulty = () => {
         { /* Map Settings */ }
         <OptionSelect value={ globals.getOption( 'rules.mapPreset' ) } propName={MAP_PRESET} propTitle={ difficulty.map }
                       options={ difficulty.map_presets.filter(globals.elevation < 3 ? v=> ['small','normal'].includes(v.value) : ()=>true).map( m => ({ value: m.value, title: m.label }) ) }
+                      onChange={e => {
+                          const v =  (e.target as HTMLSelectElement).value;
+                          if (v === '_custom') {
+                              if (!globals.getOption('rules.map.min')) globals.setOption('rules.map.min', 26);
+                              if (!globals.getOption('rules.map.max')) globals.setOption('rules.map.max', 26);
+                              if (!globals.getOption('rules.ruins')) globals.setOption('rules.ruins', 20);
+                              if (!globals.getOption('rules.explorable_ruins')) globals.setOption('rules.explorable_ruins', 1);
+                          } else {
+                              globals.removeOption('rules.map.min');
+                              globals.removeOption('rules.map.max');
+                              globals.removeOption('rules.ruins');
+                              globals.removeOption('rules.explorable_ruins');
+                          }
+
+                          globals.setOption('rules.mapPreset', v);
+                      }}
         />
         { globals.getOption( 'rules.mapPreset' ) === '_custom' && (
             <AtLeast elevation="crow">
