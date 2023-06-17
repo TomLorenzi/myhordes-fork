@@ -47,7 +47,7 @@ class SchedulerCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This command controls scheduled actions.')

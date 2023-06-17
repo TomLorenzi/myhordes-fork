@@ -50,7 +50,7 @@ class ForumPermissionCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This command allows editing forum permissions.')

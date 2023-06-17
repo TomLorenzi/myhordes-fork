@@ -573,9 +573,10 @@ class TownCreatorController extends CustomAbstractCoreController
      * @return JsonResponse
      */
     public function load_template(
-        TownRulesTemplate $template
+        TownRulesTemplate $template,
+        SanitizeTownConfigAction $sanitizer
     ): JsonResponse {
-        return new JsonResponse(['rules' => $template->getData()]);
+        return new JsonResponse(['rules' => $sanitizer->restore( $template->getData() )]);
     }
 
 }

@@ -22,7 +22,7 @@ class LanguageCommand extends Command
     protected ?CommandHelper $helper = null;
 
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->addOption('lang', null, InputOption::VALUE_REQUIRED, 'Select output language', 'en');
     }

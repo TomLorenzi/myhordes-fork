@@ -33,7 +33,7 @@ class UserCreateCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This command allows you to create new users.')

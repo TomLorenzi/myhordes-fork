@@ -275,6 +275,7 @@ class EventController extends CustomAbstractCoreController
      * @param bool $option
      * @param EntityManagerInterface $em
      * @param UrlGeneratorInterface $urlGenerator
+     * @param MessageBusInterface $bus
      * @return JsonResponse
      */
     public function editEventProposal(
@@ -471,6 +472,7 @@ class EventController extends CustomAbstractCoreController
      * @Route("/{id}", name="delete", methods={"DELETE"})
      * @param CommunityEvent $event
      * @param EntityManagerInterface $em
+     * @param CrowService $crow
      * @return JsonResponse
      */
     public function deleteEvent(
@@ -645,6 +647,7 @@ class EventController extends CustomAbstractCoreController
      * @param CommunityEvent $event
      * @param CommunityEventTownPreset $preset
      * @param EntityManagerInterface $em
+     * @param SanitizeTownConfigAction $sanitizer
      * @return JsonResponse
      */
     public function get_town_preset(
@@ -670,7 +673,7 @@ class EventController extends CustomAbstractCoreController
         return new JsonResponse([
             'uuid' => $preset->getId(),
             'header' => $header,
-            'rules'  => $sanitizer->restore_lists( $preset->getRules() ),
+            'rules'  => $sanitizer->restore( $preset->getRules() ),
         ]);
     }
 

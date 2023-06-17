@@ -50,7 +50,7 @@ class ForumDeleteCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This command allows deleting an existing forum.')
