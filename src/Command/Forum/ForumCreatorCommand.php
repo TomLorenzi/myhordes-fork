@@ -47,7 +47,7 @@ class ForumCreatorCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This command allows creating a new forum.')

@@ -38,7 +38,7 @@ class WatchdogCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addOption('create-towns', null, InputOption::VALUE_NONE, 'Creates towns for community events that start in 48 hours or less.')

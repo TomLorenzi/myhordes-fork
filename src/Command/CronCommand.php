@@ -104,7 +104,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This should be run on a regular basis.')

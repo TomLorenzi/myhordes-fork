@@ -48,7 +48,7 @@ class PrepareEndCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->addOption('yes', 'y', InputOption::VALUE_NONE, 'Auto-confirm');
     }

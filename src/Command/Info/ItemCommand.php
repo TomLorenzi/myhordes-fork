@@ -35,7 +35,7 @@ class ItemCommand extends LanguageCommand
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addArgument('item',  InputArgument::OPTIONAL, 'What item would you like to know about?')

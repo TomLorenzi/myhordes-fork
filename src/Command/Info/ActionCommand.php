@@ -37,7 +37,7 @@ class ActionCommand extends LanguageCommand
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addArgument('what', InputArgument::REQUIRED, 'What is the source of the action (item, workshop, home)')

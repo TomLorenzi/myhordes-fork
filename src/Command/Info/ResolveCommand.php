@@ -18,7 +18,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class ResolveCommand extends LanguageCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setHelp('This command resolves a given identifier.')
