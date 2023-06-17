@@ -37,19 +37,14 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
-use App\Entity\RequireAP;
 use App\Entity\RequireBuilding;
 use App\Entity\RequireConf;
 use App\Entity\RequireCounter;
-use App\Entity\RequireCP;
-use App\Entity\RequireDay;
 use App\Entity\RequireEvent;
 use App\Entity\RequireHome;
 use App\Entity\RequireItem;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
-use App\Entity\RequirePM;
-use App\Entity\RequireStatus;
 use App\Entity\RequireZombiePresence;
 use App\Entity\RequireZone;
 use App\Entity\Result;
@@ -150,9 +145,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'conf':
                         $requirement->setConf( $this->process_conf_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
-                    case 'day':
-                        $requirement->setDay( $this->process_day_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
                     case 'event':
                         $requirement->setEvent( $this->process_event_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
@@ -167,34 +159,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t<comment>Skip</comment> meta condition <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
         
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireDay
-     * @throws Exception
-     */
-    private function process_day_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireDay
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireDay::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>day/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireDay();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>day/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] );
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>day/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
         return $cache[$id];
     }
 

@@ -18,6 +18,7 @@ use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\PointRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\StatusRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\TimeRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use MyHordes\Fixtures\DTO\ArrayDecoratorReadInterface;
 use MyHordes\Plugins\Interfaces\FixtureProcessorInterface;
@@ -126,9 +127,12 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('min_2_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(2) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_3_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(3) )->text_key('pt_required')->commit();
 
+        $requirement_container->add()->identifier('not_before_day_2')->type( Requirement::CrossOnFail )->add( (new TimeRequirement())->minDay(2) )->text('Dies kannst du erst ab <strong>Tag {day_min}</strong> tun.')->commit();
+        $requirement_container->add()->identifier('must_be_day')->type( Requirement::HideOnFail )->add( (new TimeRequirement())->atDay() )->commit();
+        $requirement_container->add()->identifier('must_be_night')->type( Requirement::HideOnFail )->add( (new TimeRequirement())->atNight() )->commit();
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
-
                 'feature_camping' => [ 'type' => Requirement::HideOnFail, 'collection' => ['conf' => [ 'value' => TownConf::CONF_FEATURE_CAMPING, 'bool' => true ] ] ],
 
                 'during_christmas'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'event' => ['name' => 'christmas' ] ], 'text_key' => 'not_in_event'],
@@ -175,8 +179,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'must_be_outside_not_at_doors' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 1 ] ] ],
                 'must_be_outside_3km'          => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ 'min' => 3 ] ],  'text' => 'Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.'],
                 'must_be_outside_within_11km'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.'],
-
-
 
                 'must_have_zombies'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => null  ] ], 'text' => 'Zum Glück sind hier keine Zombies...'],
                 'must_be_blocked'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => true ] ], 'text' => 'Das solltest du nur in einer ausweglosen Situation tun...'],
@@ -226,10 +228,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'zone_is_improvable' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zone' => [ 'max_level' => 10 ] ], 'text' => 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.' ],
 
-                'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ], 'text' => 'Dies kannst du erst ab <strong>Tag 2</strong> tun.' ],
-
-                'must_be_day' => [ 'collection' =>    [ 'custom' => [1] ] ],
-                'must_be_night'  => [ 'collection' => [ 'custom' => [2] ] ],
                 'must_be_aprils_fools'  => [ 'collection' => [ 'custom' => [3] ] ],
 
                 'must_have_inventory_space'  => [ 'collection' => [ 'custom' => [4] ] ],
