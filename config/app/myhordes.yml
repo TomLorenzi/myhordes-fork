@@ -61,6 +61,7 @@ parameters:
     etwin:
       reg: ~
       auth: ~
+      internal: ~
       api: ~
       sk: ~
       return: ~
