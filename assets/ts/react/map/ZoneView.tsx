@@ -104,6 +104,8 @@ const LocalZoneView = React.memo( ( props: LocalZoneProps ) => {
     let cache = {};
     let surroundings: LocalZoneSurroundings = {n:null,s:null,e:null,w:null,'0':null};
 
+    let lastInc = useRef(props.inc);
+
     props.plane.forEach( zone => {
         cache[`${zone.yr}-${zone.xr}`] = zone;
         if (zone.xr * zone.yr === 0) {
@@ -129,10 +131,11 @@ const LocalZoneView = React.memo( ( props: LocalZoneProps ) => {
     useLayoutEffect(() => {
         if (style.left !== prevState.current.left || style.top !== prevState.current.top) {
             plane.current.animate([
-                {...prevState.current},
+                props.inc === lastInc.current ? {...prevState.current} : null,
                 prevState.current = style
-            ], {easing: "ease", duration: (ignoreNext.current) ? 1 : 1250});
+            ].filter(v=>v!==null), {easing: "ease", duration: (ignoreNext.current && props.inc === lastInc.current) ? 1 : 1250});
 
+            lastInc.current = props.inc;
             ignoreNext.current = !ignoreNext.current;
         }
     }, [props.dx, props.dy, globals.etag])
