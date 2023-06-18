@@ -126,12 +126,6 @@ class ActionHandler
                 if ($zone->getMaxLevel() !== null && $citizen->getZone() && ( $citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = $current_state->merge($this_state);
             }
 
-            if ($counter = $meta_requirement->getCounter()) {
-                $counter_value = $citizen->getSpecificActionCounterValue( $counter->getType() );
-                if ($counter->getMin() !== null && $counter_value < $counter->getMin()) $current_state = $current_state->merge($this_state);
-                if ($counter->getMax() !== null && $counter_value > $counter->getMax()) $current_state = $current_state->merge($this_state);
-            }
-
             if ($item_condition = $meta_requirement->getItem()) {
                 $item_str = ($is_prop = (bool)$item_condition->getProperty())
                     ? $item_condition->getProperty()->getName()
@@ -233,14 +227,6 @@ class ActionHandler
                 elseif ($building_condition->getComplete() === true) $current_state = $current_state->merge($this_state);
                 elseif ($building_condition->getMinLevel() !== null) $current_state = $current_state->merge($this_state);
                 elseif ($building_condition->getMaxLevel() !== null) $current_state = $current_state->merge($this_state);
-            }
-
-            if ($day = $meta_requirement->getDay()) {
-                /** @var RequireDay $day */
-                $town = $citizen->getTown();
-                if($day->getMin() > $town->getDay() || $day->getMax() < $town->getDay()) {
-                    $current_state = $current_state->merge($this_state);
-                }
             }
 
             if ($eventReq = $meta_requirement->getEvent()) {

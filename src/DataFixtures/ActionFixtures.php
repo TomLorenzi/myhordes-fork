@@ -39,7 +39,6 @@ use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
 use App\Entity\RequireBuilding;
 use App\Entity\RequireConf;
-use App\Entity\RequireCounter;
 use App\Entity\RequireEvent;
 use App\Entity\RequireHome;
 use App\Entity\RequireItem;
@@ -132,9 +131,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'home':
                         $requirement->setHome( $this->process_home_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
-                    case 'counter':
-                        $requirement->setCounter( $this->process_counter_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
                     case 'building':
                         $requirement->setBuilding( $this->process_building_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
@@ -384,39 +380,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireCounter
-     * @throws Exception
-     */
-    private function process_counter_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireCounter
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireCounter::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>counter/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireCounter();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>counter/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement
-                ->setName( $id )
-                ->setType( $data['type'] )
-                ->setMin( $data['min'] ?? null )
-                ->setMax( $data['max'] ?? null );
-
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>counter/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

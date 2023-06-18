@@ -38,8 +38,6 @@ class Requirement
     private $home;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireZone')]
     private $zone;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireCounter')]
-    private $counter;
     #[ORM\ManyToOne(targetEntity: RequireConf::class)]
     private $conf;
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -149,16 +147,7 @@ class Requirement
 
         return $this;
     }
-    public function getCounter(): ?RequireCounter
-    {
-        return $this->counter;
-    }
-    public function setCounter(?RequireCounter $counter): self
-    {
-        $this->counter = $counter;
 
-        return $this;
-    }
     public function getConf(): ?RequireConf
     {
         return $this->conf;
