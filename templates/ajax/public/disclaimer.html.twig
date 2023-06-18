@@ -47,14 +47,14 @@
             {% endif %}
 
             {% if (key is not empty) or ex.linkOnly %}
-                <form action="{{ ex.url }}" method="post" target="_self">
+                <form action="{{ url }}" method="post" target="_self">
                     {% if not ex.linkOnly %}
                         <input type="hidden" name="key" value="{{ key }}">
                     {% endif %}
                     <button type="submit" class="button" style="margin-bottom: 4px;">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
                 </form>
-                {% if ex.owner is not null and app.user == ex.owner and ex.devurl is not empty and not ex.linkOnly %}
-                    <form action="{{ ex.devurl }}" method="post" target="_self">
+                {% if ex.owner is not null and app.user == ex.owner and devurl is not empty and not ex.linkOnly %}
+                    <form action="{{ devurl }}" method="post" target="_self">
                         <input type="hidden" name="key" value="{{ key }}">
                         <button type="submit" class="button" style="margin-bottom: 4px;">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}' [{{ 'Entwickler-URL'|trans({},'admin') }}]</button>
                     </form>
@@ -146,8 +146,8 @@
                 $.ajax.easySend( '{{ path('soul_own_app_update', {id: ex.id}) }}', {
                         contact: document.getElementById('app_email').value,
                         url: document.getElementById('app_url').value,
-                        devurl: document.getElementById('app_dev_url').value,
-                        sk: document.getElementById('app_regen') ? document.getElementById('app_regen').checked : false
+                        devurl: document.getElementById('app_dev_url')?.value ?? null,
+                        sk: document.getElementById('app_regen')?.checked ?? false
                     },
                     function () {
                         $.html.message('notice', '{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}')

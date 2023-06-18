@@ -43,6 +43,9 @@ class ExternalApp
 
     #[ORM\Column(length: 190, nullable: true)]
     private ?string $devurl = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $wiki = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -166,6 +169,18 @@ class ExternalApp
     public function setDevurl(?string $devurl): self
     {
         $this->devurl = $devurl;
+
+        return $this;
+    }
+
+    public function isWiki(): ?bool
+    {
+        return $this->wiki;
+    }
+
+    public function setWiki(?bool $wiki): static
+    {
+        $this->wiki = $wiki;
 
         return $this;
     }
