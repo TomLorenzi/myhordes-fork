@@ -201,7 +201,10 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
     });
     useEffect(()=>{
         if (state.conf.enableLocalView) {
-            const f_resetPan = () => { dispatch({}) };
+            const f_resetPan = () => {
+                dispatch({});
+                setInc(inc+1);
+            };
             props.eventRegistrar('movement-reset',  f_resetPan,    false);
 
             return () => {
@@ -213,6 +216,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
     const [strings, setStrings] = useState<RuntimeMapStrings>( null );
     const [map, setMap] = useState<MapData>( null );
     const [routes, setRoutes] = useState<MapRoute[]>( [] );
+    const [inc, setInc] = useState<number>( 0 );
 
     const activeRoute = routes.filter(r=>r.id===state.activeRoute)[0] ?? null;
 
@@ -250,7 +254,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
                                       activeRoute={state.activeRoute} wrapDispatcher={dispatch}
                         />
                         { state.conf.enableLocalView && map && (
-                            <LocalZoneView fx={props.data.fx} plane={map.local}
+                            <LocalZoneView fx={props.data.fx} plane={map.local} inc={inc}
                                            activeRoute={activeRoute} dx={dx} dy={dy} wrapDispatcher={dispatch} marker={state.activeZone ?? null}
                                            movement={state.conf.enableMovementControls && props.data.displayType !== 'beyond-static'} />
                         ) }

@@ -183,4 +183,5 @@ export type LocalZoneProps = {
     dx: number,
     dy: number,
     marker: MapCoordinate | null,
+    inc: number
 }
