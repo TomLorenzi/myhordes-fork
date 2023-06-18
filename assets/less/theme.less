@@ -471,13 +471,25 @@ x-message {
 
         & ul {
           padding: 0; position: relative; margin: 0 0 8px; list-style: none;
+          display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.25em; align-items: center;
+
+          & li.hr {
+            grid-column: span 2; height: 1px; background: #ddab76;
+          }
 
           & li.app-external {
-            display: inline-block; width: 50%; float: left;
-            margin: 0 0 .5em; padding: 0; font-size: 1.3rem; color: #ddab76; cursor: pointer;
-            img { vertical-align: middle; margin-right: 10px; }
-            span { font-weight: normal; }
-            div.small { margin-left: 26px; font-size: 0.6em; font-variant: small-caps; }
+            padding: 0; font-size: 1.3rem; color: #ddab76; cursor: pointer;
+
+            a {
+              display: flex; gap: 4px; padding: 0.25em; transition: all 0.5s ease-in-out;
+              &:hover { background: rgba(221, 171, 118, 0.25); color: white; box-shadow: 0 0 3px rgba(0,0,0,0.3); }
+
+              &>img { flex: 0 0; align-self: center }
+              &>div {
+                flex: 1 1; font-weight: normal;
+                div.small { font-size: 0.6em; font-variant: small-caps; }
+              }
+            }
           }
         }
       }

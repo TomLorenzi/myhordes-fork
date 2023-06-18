@@ -57,6 +57,14 @@
                 </div>
 
                 <div class="row">
+                    <div class="cell padded rw-8 rw-md-12"><div class="help">{{ 'Wikis werden separat von anderen Anwendungen angezeigt.'|trans({},'admin') }}</div></div>
+                </div>
+                <div class="row">
+                    <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_wiki">{{ 'Wiki'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-6"><input id="app_wiki" type="checkbox" {% if current_app and current_app.wiki %}checked{% endif%} /></div>
+                </div>
+
+                <div class="row">
                     <div class="cell padded rw-4 rw-md-6 note note-lightest"><label for="app_icon">{{ 'Icon'|trans({},'admin') }}</label></div>
                     <div class="cell padded rw-4 rw-md-6">
                         <img id="app_icon" style="height: 16px; width: 16px;" alt="-" src="{{ (current_app is not null and current_app.imageName is not null) ? path('app_web_app_icon', { aid: current_app.id, name: current_app.imageName, ext: current_app.imageFormat }) : '' }}" />
@@ -181,6 +189,7 @@
                 url: document.getElementById('app_url').value,
 
                 test: document.getElementById('app_testing').checked,
+                wiki: document.getElementById('app_wiki').checked,
                 icon: image_change ? image_upload : false,
                 mime: image_mime,
 

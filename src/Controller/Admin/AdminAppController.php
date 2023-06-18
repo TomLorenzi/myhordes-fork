@@ -121,6 +121,7 @@ class AdminAppController extends AdminActionController
             ->setUrl( $parser->get('url') )
             ->setOwner($owner)
             ->setTesting( (bool)$parser->get('test') )
+            ->setWiki( (bool)$parser->get('wiki') )
             ->setLinkOnly( !(bool)$parser->get('flux') );
 
         if ($parser->get('icon') !== false) {

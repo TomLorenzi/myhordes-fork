@@ -1524,7 +1524,10 @@ class SoulController extends CustomAbstractController
 
         if (!$parser->has_all( ['contact','url'], true )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+        $violations = Validation::createValidator()->validate( array_merge($parser->all( true ), [
+            'url' => preg_replace('/\{.*?\}/', 'SYMBOL', $parser->get('url')),
+            'devurl' => preg_replace('/\{.*?\}/', 'SYMBOL', $parser->get('devurl', '')),
+        ]), new Constraints\Collection([
             'url' => [ new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ) ],
             'devurl' => [
                 new Constraints\AtLeastOneOf([
