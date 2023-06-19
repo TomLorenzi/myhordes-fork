@@ -37,7 +37,6 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
-use App\Entity\RequireBuilding;
 use App\Entity\RequireConf;
 use App\Entity\RequireEvent;
 use App\Entity\RequireHome;
@@ -131,9 +130,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'home':
                         $requirement->setHome( $this->process_home_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
-                    case 'building':
-                        $requirement->setBuilding( $this->process_building_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
                     case 'zone':
                         $requirement->setZone( $this->process_zone_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
@@ -412,44 +408,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         return $cache[$id];
     }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireBuilding
-     * @throws Exception
-     */
-    private function process_building_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireBuilding
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireBuilding::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>building/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireBuilding();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>building/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $prototype = $manager->getRepository(BuildingPrototype::class)->findOneByName($data['prototype'], false );
-            if (!$prototype)
-                throw new Exception('Building prototype not found: ' . $data['item']);
-
-            $requirement->setName( $id )->setBuilding( $prototype )
-                ->setFound( $data['found'] ?? null )
-                ->setComplete( $data['complete'] ?? null )
-                ->setMinLevel( $data['minLevel'] ?? null )
-                ->setMaxLevel( $data['maxLevel'] ?? null )
-                ;
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>building/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
 
     /**
      * @param ObjectManager $manager

@@ -12,6 +12,7 @@ use App\Entity\Requirement;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\ItemPoisonType;
 use App\Structures\TownConf;
+use MyHordes\Fixtures\DTO\Actions\Atoms\BuildingRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\CounterRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
@@ -143,6 +144,27 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('kitchen_counter_below_5')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 4 ) )->commit();
         $requirement_container->add()->identifier('kitchen_counter_below_6')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 5 ) )->commit();
 
+        $requirement_container->add()->identifier('must_have_purifier')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_jerrycan_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_not_have_purifier')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_jerrycan_#00', false) )->commit();
+        $requirement_container->add()->identifier('must_have_filter')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_jerrycan_#01', true) )->commit();
+        $requirement_container->add()->identifier('must_not_have_filter')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_jerrycan_#01', false) )->commit();
+
+        $requirement_container->add()->identifier('must_have_shower')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_shower_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_slaughter')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_meat_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_hospital')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_infirmary_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_guardtower')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_watchmen_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_crowsnest')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_watchmen_#01', true) )->commit();
+        $requirement_container->add()->identifier('must_have_valve')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_valve_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_cinema')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cinema_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_have_hammam')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_spa4souls_#00', true) )->commit();
+
+        $requirement_container->add()->identifier('must_have_lab')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_acid_#00', true) )->commit();
+        $requirement_container->add()->identifier('must_not_have_lab')->type( Requirement::MessageOnFail )->add( (new BuildingRequirement())->building('item_acid_#00', false) )->text('Vielleicht solltest du stattdessen dein Labor benutzen...')->commit();
+        $requirement_container->add()->identifier('must_have_canteen')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cafet_#01', true) )->commit();
+        $requirement_container->add()->identifier('must_not_have_canteen')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cafet_#01', false) )->commit();
+
+        $requirement_container->add()->identifier('must_not_have_valve')->type( Requirement::MessageOnFail )->add( (new BuildingRequirement())->building('small_valve_#00', false) )->text('Vielleicht solltest du das mithilfe des Wasserhahns füllen...')->commit();
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
                 'feature_camping' => [ 'type' => Requirement::HideOnFail, 'collection' => ['conf' => [ 'value' => TownConf::CONF_FEATURE_CAMPING, 'bool' => true ] ] ],
@@ -189,27 +211,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'must_have_micropur_in' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_cleaner_#00', 'prop' => null ] ], 'text_key' => 'water_purification_impossible'],
                 'must_have_drug'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'drug_#00',          'prop' => null ] ], 'text_key' => 'item_needed_generic'],
 
-                'must_have_purifier'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#00', 'complete' => true  ] ] ],
-                'must_not_have_purifier' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#00', 'complete' => false ] ] ],
-                'must_have_filter'       => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#01', 'complete' => true  ] ] ],
-                'must_not_have_filter'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#01', 'complete' => false ] ] ],
-
-                'must_have_shower'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_shower_#00', 'complete' => true  ] ] ],
-                'must_have_slaughter'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_meat_#00', 'complete' => true  ] ] ],
-                'must_have_hospital'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_infirmary_#00', 'complete' => true  ] ] ],
-                'must_have_guardtower' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_watchmen_#00', 'complete' => true  ] ] ],
-                'must_have_crowsnest'  => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_watchmen_#01', 'complete' => true  ] ] ],
-                'must_have_valve'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_valve_#00', 'complete' => true  ] ] ],
-                'must_have_cinema'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cinema_#00', 'complete' => true  ] ] ],
-                'must_have_hammam'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_spa4souls_#00', 'complete' => true  ] ]],
-
-                'must_have_lab'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => true  ] ]],
-                'must_not_have_lab'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => false  ] ], 'text' => 'Vielleicht solltest du stattdessen dein Labor benutzen...' ],
-                'must_have_canteen'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => true  ] ]],
-                'must_not_have_canteen' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => false  ] ]],
-
-                'must_not_have_valve'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_valve_#00', 'complete' => false  ] ], 'text' => 'Vielleicht solltest du das mithilfe des Wasserhahns füllen...' ],
-
                 'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
 
                 'must_have_home_lab_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'lab' ] ]],
@@ -241,8 +242,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'item' => [],
                 'location' => [],
                 'zombies' => [],
-                'building' => [],
-                'day' => [],
             ],
 
             'meta_results' => [

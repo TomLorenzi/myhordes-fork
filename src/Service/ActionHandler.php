@@ -211,24 +211,6 @@ class ActionHandler
                 if ($zombie_condition->getNumber() > $current_zeds) $current_state = $current_state->merge($this_state);
             }
 
-            if ($building_condition = $meta_requirement->getBuilding()) {
-                $town = $citizen->getTown();
-                $building = $this->town_handler->getBuilding($town, $building_condition->getBuilding(), false);
-
-                if ($building) {
-                    if ($building_condition->getComplete() !== null && $building_condition->getComplete() !== $building->getComplete()) $current_state = $current_state->merge($this_state);
-                    if ($building->getComplete()) {
-                        if ($building_condition->getMinLevel() > $building->getLevel()) $current_state = $current_state->merge($this_state);
-                        if ($building_condition->getMaxLevel() < $building->getLevel()) $current_state = $current_state->merge($this_state);
-                    }
-                    elseif ($building_condition->getMinLevel() !== null) $current_state = $current_state->merge($this_state);
-                    elseif ($building_condition->getMaxLevel() !== null) $current_state = $current_state->merge($this_state);
-                }
-                elseif ($building_condition->getComplete() === true) $current_state = $current_state->merge($this_state);
-                elseif ($building_condition->getMinLevel() !== null) $current_state = $current_state->merge($this_state);
-                elseif ($building_condition->getMaxLevel() !== null) $current_state = $current_state->merge($this_state);
-            }
-
             if ($eventReq = $meta_requirement->getEvent()) {
                 /** @var RequireEvent $eventReq */
                 $events = $this->conf->getCurrentEvents($citizen->getTown(), $markers);

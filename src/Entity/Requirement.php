@@ -32,8 +32,6 @@ class Requirement
     private $zombies;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireLocation')]
     private $location;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireBuilding')]
-    private $building;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireHome')]
     private $home;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireZone')]
@@ -114,16 +112,6 @@ class Requirement
     public function setLocation(?RequireLocation $location): self
     {
         $this->location = $location;
-
-        return $this;
-    }
-    public function getBuilding(): ?RequireBuilding
-    {
-        return $this->building;
-    }
-    public function setBuilding(?RequireBuilding $building): self
-    {
-        $this->building = $building;
 
         return $this;
     }
