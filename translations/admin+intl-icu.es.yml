@@ -576,7 +576,7 @@ Slug: Babosa
 'Zusätzliche Verwalter': 'Administradores adicionales'
 'Neue Kampagne anlegen': 'Crear nueva campaña'
 Einstiegspunkt: Punto de entrada
-'Geworbene Spieler': 'Nuevas jugadoras'
+'Geworbene Spieler': 'Nuevos jugadores'
 'Meldungen für das Schwarze Brett': 'Mensajes para el tablón de noticias'
 Stadt: Pueblo
 'Gemeldete globale Nachrichten': 'Noticias mundiales'
@@ -587,3 +587,4 @@ Accounts: Cuentas
 'Meldungen für Bürgertexte': 'Mensajes de aviso a los habitantes'
 'Gemeldete Stadtnachrichten': 'Noticias del pueblo'
 'Meldungen für Benutzeraccounts': 'Mensajes de la cuenta de usuario'
+'Änderungen an {appname} speichern': 'Guardar modificaciones de « {appname} »'
