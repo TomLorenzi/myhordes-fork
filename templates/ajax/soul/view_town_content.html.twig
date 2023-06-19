@@ -279,9 +279,27 @@
                     {% endif %}
                     {% if not citizen.lastWords is empty %}
                         : <span class="small">"{{ citizen.lastWords|replace({'{gotKilled}': '...der Mörder .. ist.. IST.. AAARGHhh..'|trans({},'game')}) }}"</span>
+                        {% if citizen.user != app.user %}
+                            <a data-report-url="{{ path('soul_report_comment', {sid: citizen.user.id, idtown: citizen.town.id, topic: 'lw'}) }}" href="#" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"></a>
+                        {% endif %}
+                        {% if is_granted('ROLE_CROW') %}
+                            <br/>
+                            <img x-model="last" x-action="edit" x-original="{{ citizen.lastWords }}" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
+                            <img x-model="last" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
+                        {% endif %}
                     {% endif %}
                     {% if citizen.comment is not empty %}
-                        <br />{{citizen.comment}}
+                        <br />{% if is_granted('ROLE_CROW') and citizen.commentLocked %}<span style="color: red">{{citizen.comment}}</span>
+                    {% else %}{{citizen.comment}}{% endif %}
+                        {% if citizen.user != app.user and citizen.comment %}
+                            <a data-report-url="{{ path('soul_report_comment', {sid: citizen.user.id, idtown: citizen.town.id, topic: 'com'}) }}" href="#" title="{{ 'Unangemessenen Inhalt melden'|trans({},'global') }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"></a>
+                        {% endif %}
+                        <br/>
+                        <img x-model="com" x-original="{{ citizen.comment }}" x-action="edit" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/forum/edit.png') }}" alt="edit" />
+                        <img x-model="com" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="del" />
+                        {% if is_granted('ROLE_CROW') and not citizen.commentLocked %}
+                            <img x-model="com" x-action="del" x-endpoint="{{ path('admin_user_edit_comment', {id: citizen.user.id, cid: citizen.id}) }}" class="pointer" src="{{ asset('build/images/icons/lock.gif') }}" alt="lock" />
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
