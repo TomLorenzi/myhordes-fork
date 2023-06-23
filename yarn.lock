@@ -1666,10 +1666,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.16":
-  version: 0.1.0-nightly.2023.6.16
-  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.16"
-  checksum: 38f1e39f1561cdd19d4323f6498c59b31ffac7f45db19ce0bfca929bc3d6113d595c0decad25ef1e81b04cd7597b60559a371e8554a14417f1b717d554f98b9c
+"@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.23":
+  version: 0.1.0-nightly.2023.6.23
+  resolution: "@ruffle-rs/ruffle@npm:0.1.0-nightly.2023.6.23"
+  checksum: 10/b391262475dd9a5c024b3f304abf8162d4676ea5d7e1dcd90f49846cff9a6c85291a2fff99c31ed7493d99388e9c6979a68b6ab1b09f32fe13b31a1b6765e324
   languageName: node
   linkType: hard
 
@@ -2375,12 +2375,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.5":
-  version: 18.2.5
-  resolution: "@types/react-dom@npm:18.2.5"
+"@types/react-dom@npm:18.2.6":
+  version: 18.2.6
+  resolution: "@types/react-dom@npm:18.2.6"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 7ae5eeb0c9c9aee7eaac10b2afe527774518a4c6e33c84822fc69911ac929c76bb2882585e9052f2ee99b9588924f05f5fd983bfe181b0385f290e5940a0a754
+  checksum: 10/dbdf98d127db58130f3e4394f23a6b4b200703049579e97a4e6049c0f47f871c7731cec37e2067afb62cc7c5486bd1b151fc0ef672b9ea7369c40d811592b948
   languageName: node
   linkType: hard
 
@@ -8175,9 +8175,9 @@ __metadata:
     "@babel/preset-env": "npm:7.22.5"
     "@babel/preset-react": "npm:7.22.5"
     "@fortawesome/fontawesome-free": "npm:6.4.0"
-    "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2023.6.16"
+    "@ruffle-rs/ruffle": "npm:0.1.0-nightly.2023.6.23"
     "@symfony/webpack-encore": "npm:4.3.0"
-    "@types/react-dom": "npm:18.2.5"
+    "@types/react-dom": "npm:18.2.6"
     buffer: "npm:6.0.3"
     core-js: "npm:3.31.0"
     favicons: "npm:^7.0.2"
@@ -8197,7 +8197,7 @@ __metadata:
     swagger-ui: "npm:4.19.1"
     ts-loader: "npm:9.4.3"
     typescript: "npm:5.1.3"
-    webpack: "npm:5.87.0"
+    webpack: "npm:5.88.0"
     webpack-cli: "npm:5.1.4"
     webpack-notifier: "npm:1.15.0"
   languageName: unknown
@@ -9713,9 +9713,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.87.0":
-  version: 5.87.0
-  resolution: "webpack@npm:5.87.0"
+"webpack@npm:5.88.0":
+  version: 5.88.0
+  resolution: "webpack@npm:5.88.0"
   dependencies:
     "@types/eslint-scope": "npm:^3.7.3"
     "@types/estree": "npm:^1.0.0"
@@ -9746,7 +9746,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: ae83af9c096c4ba7272086a49ce7769b32e83426b8c1ecd99cc5dadedc66354efb6faba56e3157a5333613c88bdb605791041742c84c78fdf11875726763027c
+  checksum: 10/2d54e7e3863a34eb4233c9bafaefd417a06c3aef95cd61d5054d0cd7f774be77105ff57b1e2ee2c422ec1e5fb731295d63331b6a45c41807bba4c080e559cb8b
   languageName: node
   linkType: hard
 
