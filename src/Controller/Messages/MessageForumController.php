@@ -14,6 +14,8 @@ use App\Entity\ForumPoll;
 use App\Entity\ForumPollAnswer;
 use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\GlobalPrivateMessage;
+use App\Entity\LogEntryTemplate;
 use App\Entity\OfficialGroup;
 use App\Entity\Post;
 use App\Entity\SocialRelation;
@@ -588,7 +590,7 @@ class MessageForumController extends MessageController
         }
 
         $has_notif = false;
-        if (count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
+        if (!$mod_post && count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
             foreach ( $insight->taggedUsers as $tagged_user )
                 if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
                     $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
@@ -1536,11 +1538,22 @@ class MessageForumController extends MessageController
 
                     if ($notification) $this->entity_manager->persist($notification);
 
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_post_notification']);
+                    $relatedNotifications = $this->entity_manager->getRepository(GlobalPrivateMessage::class)
+                        ->createQueryBuilder('g')
+                        ->where( 'g.template = :value' )->setParameter('value', $template)
+                        ->andWhere("JSON_EXTRACT(g.data, '$.link_post') = :pid")->setParameter('pid', $post->getId())
+                        ->getQuery()->getResult();
+
+                    foreach ($relatedNotifications as $n)
+                        $this->entity_manager->remove($n);
+
                     $this->entity_manager->flush();
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
-                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                    throw $e;
+                    //return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
 
             case 'undelete':
