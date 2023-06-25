@@ -567,3 +567,5 @@ Bildformat: crwdns168469:0crwdne168469:0
 'Koalition umbenennen': 'crwdns168489:0crwdne168489:0'
 'Gib den neuen Namen deiner Koalition ein.': 'crwdns168491:0crwdne168491:0'
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'crwdns168493:0crwdne168493:0'
+'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'crwdns201629:0crwdne201629:0'
+'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'crwdns201631:0crwdne201631:0'
