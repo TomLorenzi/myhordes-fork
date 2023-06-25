@@ -22,7 +22,7 @@
         "doctrine/doctrine-fixtures-bundle": "3.4.4",
         "doctrine/doctrine-migrations-bundle": "3.2.4",
         "doctrine/migrations": "3.6.0",
-        "doctrine/orm": "2.15.2",
+        "doctrine/orm": "2.15.3",
         "graphp/algorithms": "0.8.2",
         "laminas/laminas-code": "4.11.0",
         "league/commonmark": "2.4.0",
