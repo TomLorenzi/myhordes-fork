@@ -43,6 +43,7 @@ class UserHandler
     const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors +  5;
     const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors +  6;
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
+    const ErrorAvatarTooManyFrames = ErrorHelper::BaseAvatarErrors + 8;
 
     const ImageProcessingForceImagick = 0;
     const ImageProcessingPreferImagick = 1;
