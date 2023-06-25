@@ -386,7 +386,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
 
             document.body.addEventListener('pointerup', onMouseUp, {once: true})
             document.body.addEventListener('pointermove', onMouseMove)
-            document.querySelector('hordes-avatar-creator [data-purpose="avarat-editor-area"]').addEventListener('mousedown', onPreventDefault)
+            document.querySelector('hordes-avatar-creator [data-purpose="avarat-editor-area"]')?.addEventListener('mousedown', onPreventDefault)
         }
 
         const onMouseMove = (e: PointerEvent) => {
@@ -472,7 +472,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
             window.removeEventListener('resize', onResize);
             document.body.removeEventListener('pointermove', onMouseMove)
             document.body.removeEventListener('pointerup', onMouseUp)
-            document.querySelector('hordes-avatar-creator [data-purpose="avarat-editor-area"]').removeEventListener('mousemove', onPreventDefault)
+            document.querySelector('hordes-avatar-creator [data-purpose="avarat-editor-area"]')?.removeEventListener('mousemove', onPreventDefault)
             sel.querySelectorAll('[data-handle-x][data-handle-y]').forEach(
                 n => n.removeEventListener('pointerdown', onMouseDown)
             )
@@ -654,7 +654,7 @@ const AvatarEditor = ({data, mime, cancel, confirm}:{data:ArrayBuffer, mime: str
                         } : null, format.current?.value ).then(()=> {
                             confirm();
                             setLoading(false);
-                        });
+                        }).catch(() => setLoading(false));
 
                     }}>
                         { globals.strings.common.action_upload }

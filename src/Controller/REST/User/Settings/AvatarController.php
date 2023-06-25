@@ -244,6 +244,6 @@ class AvatarController extends AbstractController
         $em->persist( $user );
         $em->flush();
 
-        return new JsonResponse();
+        return new JsonResponse(['success' => true]);
     }
 }
