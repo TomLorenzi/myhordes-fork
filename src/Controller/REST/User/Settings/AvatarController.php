@@ -189,6 +189,9 @@ class AvatarController extends AbstractController
         $cropDefault = $this->validateCrop( $parser->get_array( 'crop' )['default'] ?? null, $image );
         $cropSmall = $this->validateCrop( $parser->get_array( 'crop' )['small'] ?? null, $image );
 
+        if (($cropSmall || $cropDefault) && $image->frames > 10)
+            return new JsonResponse(['error' => UserHandler::ErrorAvatarTooManyFrames]);
+
         if ($cropSmall) {
             list('height' => $h, 'width' => $w, 'x' => $x, 'y' => $y) = $cropSmall;
             $small_image = ImageService::cloneImage( $image );
