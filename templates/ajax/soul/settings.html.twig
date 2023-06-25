@@ -295,7 +295,7 @@
                         <div id="team_sel" class="row-flex wrap v-center gap-small space" style="display: none; margin-top: 5px;">
                             {% for flag in langs %}
                                 {% if flag['code'] != 'ach' %}
-                                    <img alt="{{ flag['label'] }}" title="{{ flag['label'] }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
+                                    <img alt="{{ flag['label']|trans({},'global') }}" title="{{ flag['label']|trans({},'global') }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
                                 {% endif %}
                             {% endfor %}
                             <span id="hide_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
