@@ -56,6 +56,9 @@ class TownHandler
 	private Packages $asset;
 	private ContainerInterface $container;
 
+    private $protoFence = null;
+    private $protoDefence = null;
+
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
@@ -75,6 +78,28 @@ class TownHandler
         $this->translator = $translator;
 		$this->asset = $asset;
 		$this->container = $container;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProtoFence()
+    {
+        if($this->protoFence == null){
+            $this->protoFence = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('fence');
+        }
+        return $this->protoFence;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProtoDefense()
+    {
+        if($this->protoDefence == null){
+            $this->protoDefence = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('defense');
+        }
+        return $this->protoDefence;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -396,11 +421,21 @@ class TownHandler
      * Calculate the citizen's home defense
      *
      * @param CitizenHome $home The citizen home
+     * @param CitizenHomeUpgrade[] $homeUpgrades Upgrades
      * @param HomeDefenseSummary|null $summary The defense summary
      * @return integer The total home defense
      */
     public function calculate_home_def( CitizenHome $home, ?HomeDefenseSummary &$summary = null): int {
         $town = $home->getCitizen()->getTown();
+        $homeUpgrades = $home->getCitizenHomeUpgrades()->count() > 0 ? $home->getCitizenHomeUpgrades()->getValues() : [];
+
+        $homeUpgradesPrototypes =
+            array_map(
+                function($item) {
+                    return $item->getPrototype();
+                },
+                $homeUpgrades
+            );
 
         $summary = new HomeDefenseSummary();
         if (!$home->getCitizen()->getAlive())
@@ -421,11 +456,10 @@ class TownHandler
 
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
-            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'defense' )
-            );
+            $defenseIndex = array_search($this->getProtoDefense(), $homeUpgradesPrototypes);
 
-            if($n) {
+            if($defenseIndex) {
+                $n = $homeUpgrades[$defenseIndex];
                 if($n->getLevel() <= 6)
                     $summary->upgrades_defense += $n->getLevel();
                 else {
@@ -433,9 +467,7 @@ class TownHandler
                 }
             }
 
-            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'fence' )
-            );
+            $n = in_array($this->getProtoFence(), $homeUpgradesPrototypes);
             $summary->upgrades_defense += ($n ? 3 : 0);
         }
 

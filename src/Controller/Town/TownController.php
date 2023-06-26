@@ -1096,18 +1096,31 @@ class TownController extends InventoryAwareController
         $prof_count = [];
         $death_count = 0;
 
+        $protoCurtain = $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain');
+
         foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+            $homeUpgrades = $c->getHome()->getCitizenHomeUpgrades()->getValues();
+
+            $citizenHomeUpgrades = $homeUpgrades?
+                array_map(
+                    function($item) {
+                        return $item->getPrototype();
+                    },
+                    $homeUpgrades
+                ) : [];
+
             $citizenInfo = new CitizenInfo();
             $citizenInfo->citizen = $c;
             $citizenInfo->defense = 0;
 
-            $hidden[$c->getId()] = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($c->getHome(),
-                $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
-            ));
-
-            if (!$c->getAlive()) $death_count++;
+            if (!$c->getAlive()){
+                $death_count++;
+                $hidden[$c->getId()] = false;
+            }
             else {
                 $home = $c->getHome();
+                $hidden[$c->getId()] = in_array($protoCurtain, $citizenHomeUpgrades);
+
                 $citizenInfo->defense = $th->calculate_home_def($home);
 
                 if (!isset($prof_count[ $c->getProfession()->getId() ])) {
