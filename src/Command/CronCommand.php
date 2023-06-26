@@ -6,7 +6,12 @@ namespace App\Command;
 
 use App\Entity\Announcement;
 use App\Entity\AttackSchedule;
+use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\EventAnnouncementMarker;
+use App\Entity\HeaderStat;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Statistic;
 use App\Entity\Town;
 use App\Entity\User;
@@ -102,6 +107,30 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
         $this->db = $db;
         parent::__construct();
+    }
+
+    /**
+     * @return void
+     */
+    public function updateHeaderStats(): void
+    {
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->neq('end', null));
+        $criteria->orWhere($criteria->expr()->neq('importID', 0));
+        $deadCitizenCount = $this->entityManager->getRepository(CitizenRankingProxy::class)->matching($criteria)->count() + $this->entityManager->getRepository(Citizen::class)->count(['alive' => 0]);
+
+        $pictoKillZombies = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
+        $zombiesKilled = $this->entityManager->getRepository(Picto::class)->countPicto($pictoKillZombies);
+
+        $pictoCanibal = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_cannib_#00']);
+        $cannibalismCount = $this->entityManager->getRepository(Picto::class)->countPicto($pictoCanibal);
+
+        $this->entityManager->persist( (new HeaderStat())
+            ->setId(1)
+            ->setKilledCitizens( $deadCitizenCount )
+            ->setKilledZombies( $zombiesKilled )
+            ->setCannibalismActs($cannibalismCount)
+        );
     }
 
     protected function configure(): void
@@ -229,6 +258,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
             $s = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);
             $this->entityManager->persist($s->setCompleted(true));
+
+            $this->updateHeaderStats();
 
             $datemod = $this->conf->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
             if ($datemod !== 'never') {
