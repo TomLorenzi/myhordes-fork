@@ -1717,8 +1717,8 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $victim->getTown() )
             ->setDay( $victim->getTown()->getDay() )
-            ->setCitizen( $victim )
-            ->setSecondaryCitizen( $actor )
+            ->setCitizen( $actor )
+            ->setSecondaryCitizen( $victim )
             ->setTimestamp( new DateTime('now') );
     }
 
