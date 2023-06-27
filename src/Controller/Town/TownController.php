@@ -1096,7 +1096,7 @@ class TownController extends InventoryAwareController
         $prof_count = [];
         $death_count = 0;
 
-        $protoCurtain = $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain');
+        $protoCurtain = $th->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain');
 
         foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
             $homeUpgrades = $c->getHome()->getCitizenHomeUpgrades()->getValues();

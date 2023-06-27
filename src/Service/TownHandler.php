@@ -83,10 +83,10 @@ class TownHandler
     /**
      * @return mixed
      */
-    public function getProtoSingleton($name)
+    public function getProtoSingleton($repository, $name)
     {
         if(!array_key_exists($name, $this->protoSingletons)){
-            $this->protoSingletons[$name] = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName($name);
+            $this->protoSingletons[$name] = $this->entity_manager->getRepository($repository)->findOneByName($name);
         }
         return $this->protoSingletons[$name];
     }
@@ -456,7 +456,7 @@ class TownHandler
 
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
-            $defenseIndex = array_search($this->getProtoSingleton("defense"), $homeUpgradesPrototypes);
+            $defenseIndex = array_search($this->getProtoSingleton(CitizenHomeUpgradePrototype::class,"defense"), $homeUpgradesPrototypes);
 
             if($defenseIndex) {
                 $n = $homeUpgrades[$defenseIndex];
@@ -467,7 +467,7 @@ class TownHandler
                 }
             }
 
-            $n = in_array($this->getProtoSingleton("fence"), $homeUpgradesPrototypes);
+            $n = in_array($this->getProtoSingleton(CitizenHomeUpgradePrototype::class,"fence"), $homeUpgradesPrototypes);
             $summary->upgrades_defense += ($n ? 3 : 0);
         }
 
@@ -477,15 +477,15 @@ class TownHandler
         );
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_blue_#00'
+            $this->getProtoSingleton(ItemPrototype::class, "soul_blue_#00")
         ) * 2;
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_blue_#01'
+                $this->getProtoSingleton(ItemPrototype::class, "soul_blue_#01")
         ) * 2;
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_red_#00'
+                $this->getProtoSingleton(ItemPrototype::class, "soul_red_#00")
         ) * 2;
 
         return $summary->sum();
