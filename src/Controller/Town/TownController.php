@@ -357,58 +357,9 @@ class TownController extends InventoryAwareController
 
         // Getting delta time between now and the last action
         $time = time() - $lastActionTimestamp; 
-        $time = abs($time); 
+        $time = abs($time);
 
-        // Less than 1min ago
-        if ($time <= 60)
-            $lastActionText = $this->translator->trans('vor wenigen Augenblicken', [], 'game');
-        // At least 5 hours ago, same day in the morning
-        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 12)
-            $lastActionText = $this->translator->trans('heute morgen um {H}:{i}', [
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
-        // At least 5 hours ago, same day in the afternoon
-        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 19)
-            $lastActionText = $this->translator->trans('heute nachmittag um {H}:{i}', [
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
-        // Same day, use relative format if no other notation applies
-        elseif ($date->format('d') === (new DateTime())->format('d')) {
-            // Tableau des unités et de leurs valeurs en secondes
-            $times = [
-                3600 =>  T::__('Stunde(n)', 'game'),
-                60   =>  T::__('Minute(n)', 'game'),
-                1    =>  T::__('Sekunde(n)', 'game')
-            ];
-
-            foreach ($times as $seconds => $unit) {
-                $delta = floor($time / $seconds);
-
-                if ($delta >= 1) {
-                    $unit = $this->translator->trans($unit, [], 'game');
-                    $lastActionText = $this->translator->trans('vor {time}', ['{time}' => "$delta $unit"], 'game');
-                    break;
-                }
-            }
-        }
-        // Yesterday
-        elseif ((int)$date->format('d') === ((int)(new DateTime())->format('d') - 1))
-            $lastActionText = $this->translator->trans('gestern um {H}:{i}', [
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
-        // Default, full notation
-        else
-            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText = $this->translator->trans('am {d}.{m}.{Y}, um {H}:{i}', [
-                '{d}' => date('d', $lastActionTimestamp),
-                '{m}' => date('m', $lastActionTimestamp),
-                '{Y}' => date('Y', $lastActionTimestamp),
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
+        $lastActionText = $this->generateLastActionText($time, $date, $lastActionTimestamp);
 
         $cc = 0;
         foreach ($c->getTown()->getCitizens() as $citizen)
@@ -2289,5 +2240,59 @@ class TownController extends InventoryAwareController
         $this->entity_manager->flush();
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('town_dashboard')]);
+    }
+
+    /**
+     * @param float|int $time
+     * @param DateTime $date
+     * @param int $lastActionTimestamp
+     * @return string
+     */
+    public function generateLastActionText(float|int $time, DateTime $date, int $lastActionTimestamp): string
+    {
+        // Less than 1min ago
+        if ($time <= 60)
+            $lastActionText = $this->translator->trans('vor wenigen Augenblicken', [], 'game');
+        // At least 5 hours ago, same day before evening
+        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 19)
+            $lastActionText = $this->translator->trans('heute ' . ((int)date('H', $lastActionTimestamp) < 12 ? 'morgen' : 'nachmittag') . ' um {H}:{i}', [
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        // Same day, use relative format if no other notation applies
+        elseif ($date->format('d') === (new DateTime())->format('d')) {
+            // Tableau des unités et de leurs valeurs en secondes
+            $times = [
+                3600 => T::__('Stunde(n)', 'game'),
+                60 => T::__('Minute(n)', 'game'),
+                1 => T::__('Sekunde(n)', 'game')
+            ];
+
+            foreach ($times as $seconds => $unit) {
+                $delta = floor($time / $seconds);
+
+                if ($delta >= 1) {
+                    $unit = $this->translator->trans($unit, [], 'game');
+                    $lastActionText = $this->translator->trans('vor {time}', ['{time}' => "$delta $unit"], 'game');
+                    break;
+                }
+            }
+        } // Yesterday
+        elseif ((int)$date->format('d') === ((int)(new DateTime())->format('d') - 1))
+            $lastActionText = $this->translator->trans('gestern um {H}:{i}', [
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        // Default, full notation
+        else
+            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
+            $lastActionText = $this->translator->trans('am {d}.{m}.{Y}, um {H}:{i}', [
+                '{d}' => date('d', $lastActionTimestamp),
+                '{m}' => date('m', $lastActionTimestamp),
+                '{Y}' => date('Y', $lastActionTimestamp),
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        return $lastActionText;
     }
 }
