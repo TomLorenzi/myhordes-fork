@@ -421,7 +421,6 @@ class TownHandler
      * Calculate the citizen's home defense
      *
      * @param CitizenHome $home The citizen home
-     * @param CitizenHomeUpgrade[] $homeUpgrades Upgrades
      * @param HomeDefenseSummary|null $summary The defense summary
      * @return integer The total home defense
      */
