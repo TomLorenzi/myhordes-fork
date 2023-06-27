@@ -146,27 +146,18 @@ class InventoryHandler
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
 
-        if (count( $inventory ) === 1 && is_a( $inventory[0], Inventory::class ))
-            return array_reduce( array_filter( $inventory[0]->getItems()->getValues(),
-                fn(Item $i) =>
-                    in_array( $i->getPrototype(), $prototype) &&
-                    ( $broken === null || $i->getBroken() === $broken ) &&
-                    ( $poison === null || $i->getPoison()->poisoned() === $poison )
-            )
-        , fn(int $c, Item $i) => $i->getCount() + $c, 0);
-
-        try {
-            $qb = $this->entity_manager->createQueryBuilder()
-                ->select('SUM(i.count)')->from(Item::class, 'i')
-                ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
-                ->where('i.inventory IN (:inv)')->setParameter('inv', $inventory)
-                ->andWhere('p.id IN (:type)')->setParameter('type', $prototype);
-            if ($broken !== null) $qb->andWhere('i.broken = :broken')->setParameter('broken', $broken);
-            if ($poison !== null) $qb->andWhere('i.poison = :poison')->setParameter('poison', $poison);
-            return (int)$qb->getQuery()->getSingleScalarResult();
-        } catch (UnexpectedResultException $e) {
-            return 0;
+        $j = 0;
+        for($i = 0; $i < sizeof($inventory); $i++){
+            $j = $j + array_reduce( array_filter( $inventory[0]->getItems()->getValues(),
+                        fn(Item $k) =>
+                            in_array( $k->getPrototype(), $prototype) &&
+                            ( $broken === null || $k->getBroken() === $broken ) &&
+                            ( $poison === null || $k->getPoison()->poisoned() === $poison )
+                    )
+                    , fn(int $c, Item $i) => $i->getCount() + $c, 0);
         }
+
+        return $j;
     }
 
     /**
