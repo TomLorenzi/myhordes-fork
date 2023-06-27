@@ -60,7 +60,7 @@ class UserHandler
     private $protoSingletons = [];
 
 
-    public function getProtoSingleton($repository, $name)
+    protected function getProtoSingleton($repository, $name)
     {
         if(!array_key_exists($name, $this->protoSingletons)){
             $this->protoSingletons[$name] = $this->entity_manager->getRepository($repository)->findOneByName($name);
