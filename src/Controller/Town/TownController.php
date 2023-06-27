@@ -197,7 +197,7 @@ class TownController extends InventoryAwareController
                 $has_levelable_building = true;
         }
 
-        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
+        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$th->getPrototypesForDefenceItems(), false, false);
 
         $display_home_upgrade = false;
         foreach ($citizens as $citizen) {

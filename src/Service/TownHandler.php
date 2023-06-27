@@ -343,7 +343,7 @@ class TownHandler
         $selected = empty($choice) ? null : $this->random->pick($choice);
 
         if ($selected) {
-            $selected->addRole( $this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata') );
+            $selected->addRole( $this->getProtoSingleton(CitizenRole::class, 'cata'));
             $this->crowService->postAsPM($selected, '', '', PrivateMessage::TEMPLATE_CROW_CATAPULT, $selected->getId());
         }
 
@@ -404,7 +404,7 @@ class TownHandler
      */
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
         if (is_string($prototype))
-            $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
+            $prototype = $this->getProtoSingleton(BuildingPrototype::class, $prototype);
 
         if (!$prototype) return null;
         foreach ($town->getBuildings() as $b)
