@@ -56,8 +56,8 @@ class TownHandler
 	private Packages $asset;
 	private ContainerInterface $container;
 
-    private $protoFence = null;
-    private $protoDefence = null;
+    private $protoSingletons = [];
+    private $protoDefenceItems = null;
 
 
     public function __construct(
@@ -83,23 +83,23 @@ class TownHandler
     /**
      * @return mixed
      */
-    public function getProtoFence()
+    public function getProtoSingleton($name)
     {
-        if($this->protoFence == null){
-            $this->protoFence = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('fence');
+        if(!array_key_exists($name, $this->protoSingletons)){
+            $this->protoSingletons[$name] = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName($name);
         }
-        return $this->protoFence;
+        return $this->protoSingletons[$name];
     }
 
     /**
-     * @return mixed
+     * @return ItemPrototype[]
      */
-    public function getProtoDefense()
+    public function getPrototypesForDefenceItems(): array
     {
-        if($this->protoDefence == null){
-            $this->protoDefence = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('defense');
+        if($this->protoDefenceItems == null){
+            $this->protoDefenceItems = $this->inventory_handler->resolveItemProperties('defence');
         }
-        return $this->protoDefence;
+        return $this->protoDefenceItems;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -456,7 +456,7 @@ class TownHandler
 
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
-            $defenseIndex = array_search($this->getProtoDefense(), $homeUpgradesPrototypes);
+            $defenseIndex = array_search($this->getProtoSingleton("defense"), $homeUpgradesPrototypes);
 
             if($defenseIndex) {
                 $n = $homeUpgrades[$defenseIndex];
@@ -467,13 +467,13 @@ class TownHandler
                 }
             }
 
-            $n = in_array($this->getProtoFence(), $homeUpgradesPrototypes);
+            $n = in_array($this->getProtoSingleton("fence"), $homeUpgradesPrototypes);
             $summary->upgrades_defense += ($n ? 3 : 0);
         }
 
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
-            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
+            $this->getPrototypesForDefenceItems(), false, false
         );
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
@@ -573,7 +573,7 @@ class TownHandler
 
 
         $summary->item_defense = min(500, floor($this->inventory_handler->countSpecificItems( $town->getBank(),
-            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
+                $this->getPrototypesForDefenceItems(), false, false
         ) * $item_def_factor));
 
         $summary->soul_defense = $town->getSoulDefense();
