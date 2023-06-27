@@ -92,6 +92,18 @@ class TownController extends InventoryAwareController
     const ErrorAlreadyCooked     = ErrorHelper::BaseTownErrors + 13;
     const ErrorAlreadyGhoul      = ErrorHelper::BaseTownErrors + 14;
 
+    private $protoSingletons = [];
+
+
+    public function getProtoSingleton($repository, $name)
+    {
+        if(!array_key_exists($name, $this->protoSingletons)){
+            $this->protoSingletons[$name] = $this->entity_manager->getRepository($repository)->findOneByName($name);
+        }
+        return $this->protoSingletons[$name];
+    }
+
+
     protected function get_needed_votes(): array {
         $town = $this->getActiveCitizen()->getTown();
         /** @var CitizenRole[] $roles */
@@ -404,7 +416,7 @@ class TownController extends InventoryAwareController
         $cc = (float)$cc / (float)$c->getTown()->getPopulation(); // Completely arbitrary
 
         $hidden = ($c->getAlive() && (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
-            $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
+                $this->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain')
         )));
 
         $is_injured    = $this->citizen_handler->isWounded($c);
@@ -548,7 +560,7 @@ class TownController extends InventoryAwareController
                 $town = $ac->getTown();
                 if (!$this->town_handler->getBuilding($town, 'item_hmeat_#00', true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-                $spawn_items[] = [ 'item' => $em->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'hmeat_#00'] ), 'count' => 4 ];
+                $spawn_items[] = [ 'item' => $this->getProtoSingleton( ItemPrototype::class, 'hmeat_#00'), 'count' => 4 ];
                 $pictoName = "r_cooked_#00";
                 $message = $this->translator->trans('Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?', ['{disposed}' => '<span>' . $c->getName() . '</span>','{ration}' => '<span>4</span>'], 'game');
                 $c->setDisposed(Citizen::Cooked);
@@ -570,7 +582,7 @@ class TownController extends InventoryAwareController
         }
 
         // Give picto according to action
-        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
+        $pictoPrototype = $this->getProtoSingleton(PictoPrototype::class, $pictoName);
         $this->picto_handler->give_picto($ac, $pictoPrototype);
 
         try {
@@ -806,7 +818,7 @@ class TownController extends InventoryAwareController
         foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['intruder' => $this->getActiveCitizen()]) as $other_intrusion)
             $this->entity_manager->remove($other_intrusion);
 
-        if ($action !== 0 && $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $victim->getHome(), $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim->getAlive()) {
+        if ($action !== 0 && $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $victim->getHome(), $this->getProtoSingleton(CitizenHomeUpgradePrototype::class, 'alarm' ) ) && $victim->getAlive()) {
             $this->entity_manager->persist( $this->log->citizenHomeIntrusion( $this->getActiveCitizen(), $victim, true) );
             $this->addFlash( 'error', $this->translator->trans( 'Du hast das Alarmsystem bei {victim} ausgelöst! Die ganze Stadt weiß jetzt über deinen Einbruch Bescheid.', ['victim' => $victim], 'game' ) );
             $this->crow->postAsPM( $victim, '', '' . time(), PrivateMessage::TEMPLATE_CROW_INTRUSION, $this->getActiveCitizen()->getId() );
@@ -1096,7 +1108,7 @@ class TownController extends InventoryAwareController
         $prof_count = [];
         $death_count = 0;
 
-        $protoCurtain = $th->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain');
+        $protoCurtain = $this->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain');
 
         foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
             $homeUpgrades = $c->getHome()->getCitizenHomeUpgrades()->getValues();
@@ -1264,9 +1276,7 @@ class TownController extends InventoryAwareController
         $hidden = [];
 
         foreach($town->getCitizens() as $citizen) {
-            $hidden[$citizen->getId()] = (bool)($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(),
-                $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
-            ));
+            $hidden[$citizen->getId()] = false;
             $citizens[] = [
                 'infos' => $citizen,
                 'omniscienceLevel' => $this->citizen_handler->getActivityLevel($citizen),

@@ -672,8 +672,6 @@ class TownHandler
             $min2 = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
             $max2 = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
 
-            $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
-
             $min2 = round($min2 * $soulFactor);
             $max2 = round($max2 * $soulFactor);
 
@@ -940,7 +938,7 @@ class TownHandler
         if ($town->getChaos() || ($town->isOpen() && !$town->getForceStartAhead())) return false;
 
         // Resolve the role; if it does not exist or is not votable, no votes are needed
-        if (is_string($role)) $role =  $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role]);
+        if (is_string($role)) $role =  $this->getProtoSingleton(CitizenRole::class, $role);;
         if (!$role || !$role->getVotable()) return false;
 
         // If the role is disabled, no vote is needed

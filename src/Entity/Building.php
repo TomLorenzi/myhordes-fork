@@ -27,7 +27,7 @@ class Building
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: 'buildings')]
     #[ORM\JoinColumn(nullable: false)]
     private $town;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\DailyUpgradeVote', mappedBy: 'building', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: 'App\Entity\DailyUpgradeVote', mappedBy: 'building', orphanRemoval: true, fetch: 'EXTRA_LAZY')]
     private $dailyUpgradeVotes;
     #[ORM\Column(type: 'integer')]
     private $level = 0;
@@ -41,7 +41,7 @@ class Building
     private $hp = 0;
     #[ORM\Column(type: 'integer')]
     private $defense = 0;
-    #[ORM\OneToMany(targetEntity: BuildingVote::class, mappedBy: 'building', orphanRemoval: true, cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: BuildingVote::class, mappedBy: 'building', orphanRemoval: true, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     private $buildingVotes;
     public function __construct()
     {
