@@ -361,14 +361,18 @@ class TownController extends InventoryAwareController
 
         $lastActionText = $this->generateLastActionText($time, $date, $lastActionTimestamp);
 
-        $cc = 0;
-        foreach ($c->getTown()->getCitizens() as $citizen)
-            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $c->getId() && $c->getId() !== $c->getId()) $cc++;
-        $cc = (float)$cc / (float)$c->getTown()->getPopulation(); // Completely arbitrary
+        $homeUpgrades = $home->getCitizenHomeUpgrades()->getValues();
 
-        $hidden = ($c->getAlive() && (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
-                $this->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain')
-        )));
+        $citizenHomeUpgrades = $homeUpgrades?
+            array_map(
+                function($item) {
+                    return $item->getPrototype();
+                },
+                $homeUpgrades
+            ) : [];
+
+
+        $hidden = $c->getAlive() && in_array($this->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain'), $citizenHomeUpgrades);
 
         $is_injured    = $this->citizen_handler->isWounded($c);
         $is_infected   = $this->citizen_handler->hasStatusEffect($c, 'infection');
@@ -382,7 +386,7 @@ class TownController extends InventoryAwareController
         $hasClairvoyance = false;
         $clairvoyanceLevel = 0;
 
-        if ($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
+        if ($this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'clairvoyance')) {
             $hasClairvoyance = true;
             $clairvoyanceLevel = $this->citizen_handler->getActivityLevel($c);
         }
@@ -405,11 +409,8 @@ class TownController extends InventoryAwareController
             'owner' => $c,
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_devour' => !$this->getActiveCitizen()->getBanished() && $this->getActiveCitizen()->hasRole('ghoul'),
-            'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
-            'home' => $home,
-            'actions' => $this->getItemActions(),
             'can_complain' => !$this->getActiveCitizen()->getBanished() && $complaint_possible,
             'can_undo_complain' => $complaint_possible && $active_complaint?->getSeverity() > 0,
             'complaint' => $active_complaint,
@@ -421,7 +422,6 @@ class TownController extends InventoryAwareController
             'lastActionText' => $lastActionText,
             'def' => $summary,
             'deco' => $deco,
-            'time' => $time,
             'is_injured' => $is_injured,
             'is_infected' => $is_infected,
             'is_thirsty' => $is_thirsty,
@@ -430,7 +430,6 @@ class TownController extends InventoryAwareController
             'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
-            'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
             'protect' => $protected,
