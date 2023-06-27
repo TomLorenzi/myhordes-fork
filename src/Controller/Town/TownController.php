@@ -1062,7 +1062,7 @@ class TownController extends InventoryAwareController
             'def' => $th->calculate_town_def($town, $defSummary),
             'item_defense' => $defSummary->item_defense,
             'item_def_factor' => $item_def_factor,
-            'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
+            'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$th->getPrototypesForDefenceItems(), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'day' => $town->getDay(),
         ]) );
@@ -1240,7 +1240,7 @@ class TownController extends InventoryAwareController
         $citizen->addVote($citizenVote);
 
         // We remove the ability to vote from the WB
-        $special_action = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
+        $special_action = $this->getProtoSingleton(SpecialActionPrototype::class, 'special_vote_' . $role->getName());
         if($special_action && $citizen->getSpecialActions()->contains($special_action))
             $citizen->removeSpecialAction($special_action);
 
@@ -1453,9 +1453,9 @@ class TownController extends InventoryAwareController
 
         // Give picto to the citizen
         if(!$was_completed){
-            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+            $pictoPrototype = $this->getProtoSingleton(PictoPrototype::class,"r_buildr_#00");
         } else {
-            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_brep_#00");
+            $pictoPrototype = $this->getProtoSingleton(PictoPrototype::class,"r_brep_#00");
         }
         $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
 

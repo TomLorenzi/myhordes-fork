@@ -536,16 +536,21 @@ class TownHandler
 
         $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 10 : 5;
 
-        foreach ($town->getCitizens() as $citizen)
+        $deadCitizens = 0;
+
+        foreach ($town->getCitizens() as $citizen) {
             if ($citizen->getAlive()) {
                 $home = $citizen->getHome();
-                $this->calculate_home_def( $home, $home_summary);
+                $this->calculate_home_def($home, $home_summary);
                 /** @var HomeDefenseSummary $home_summary */
                 $f_house_def += ($home_summary->house_defense + $home_summary->job_defense + $home_summary->upgrades_defense) * $home_def_factor;
 
-                if (!$citizen->getZone() && $citizen->getProfession()->getName() === 'guardian')
+                if ($citizen->getProfession()->getName() === 'guardian' && !$citizen->getZone())
                     $summary->guardian_defense += $guardian_bonus;
+            } else {
+                $deadCitizens++;
             }
+        }
         $summary->house_defense = floor($f_house_def);
         $item_def_factor = 1.0;
         foreach ($town->getBuildings() as $building)
@@ -559,12 +564,10 @@ class TownHandler
                 if ($building->getPrototype()->getName() === 'item_meca_parts_#00')
                     $item_def_factor += (1+$building->getLevel()) * 0.5;
                 else if ($building->getPrototype()->getName() === "small_cemetery_#00") {
-                    $c = 0;
-                    foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
                     $ratio = 10;
                     if ($this->getBuilding($town, 'small_coffin_#00'))
                         $ratio = 20;
-                    $summary->cemetery = $ratio * $c;
+                    $summary->cemetery = $ratio * $deadCitizens;
                 }
             }
 

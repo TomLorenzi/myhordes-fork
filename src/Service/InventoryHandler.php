@@ -36,6 +36,17 @@ class InventoryHandler
     private ConfMaster $conf;
     private RandomGenerator $rand;
 
+    private $protoSingletons = [];
+
+
+    public function getProtoSingleton($repository, $name)
+    {
+        if(!array_key_exists($name, $this->protoSingletons)){
+            $this->protoSingletons[$name] = $this->entity_manager->getRepository($repository)->findOneByName($name);
+        }
+        return $this->protoSingletons[$name];
+    }
+
     public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh, ConfMaster $cm, RandomGenerator $r)
     {
         $this->entity_manager = $em;
@@ -76,7 +87,7 @@ class InventoryHandler
             // Check upgrades
             $upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                 $inventory->getHome(),
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneBy( ['name' => 'chest'] )
+                $this->getProtoSingleton( CitizenHomeUpgradePrototype::class, 'chest')
             );
             /** @var CitizenHomeUpgrade $upgrade */
             if ($upgrade) $base += $upgrade->getLevel();
@@ -96,20 +107,18 @@ class InventoryHandler
     public function findStackPrototype( Inventory $inv, Item $item ): ?Item {
         // Items with the <individual> tag cannot stack
         if ($item->getPrototype()->getIndividual()) return null;
-        try {
-            return $this->entity_manager->createQueryBuilder()->select('i')->from(Item::class, 'i')
-                ->where('i.inventory = :inv')->setParameter('inv', $inv)
-                ->andWhere('i.id != :id')->setParameter( 'id', $item->getId() ?? -1 )
-                ->andWhere('i.poison = :p')->setParameter('p', $item->getPoison()->value)
-                ->andWhere('i.broken = :b')->setParameter('b', $item->getBroken())
-                ->andWhere('i.essential = :e')->setParameter('e', $item->getEssential())
-                ->andWhere('i.prototype = :proto')->setParameter('proto', $item->getPrototype())
-                ->orderBy('i.count', 'DESC')
-                ->setMaxResults(1)
-                ->getQuery()->getOneOrNullResult();
-        } catch (NonUniqueResultException $e) {
-            return null;
-        }
+            $items = $inv->getItems();
+            foreach($items as $compareItem){
+                if($item->getPrototype() === $compareItem->getPrototype()
+                    && $item->getId() != $compareItem->getId()
+                    && $item->getPoison() == $compareItem->getPoison()
+                    && $item->getBroken() == $compareItem->getBroken()
+                    && $item->getEssential() == $compareItem->getEssential()
+                ){
+                    return $compareItem;
+                }
+            }
+        return null;
     }
 
     /**
@@ -141,14 +150,14 @@ class InventoryHandler
     public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null, ?bool $poison = null): int {
         if (is_string( $prototype )) $prototype = $is_property
             ? $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $prototype] )->getItemPrototypes()->getValues()
-            : $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $prototype] );
+            : $this->getProtoSingleton(ItemPrototype::class, $prototype);
 
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
 
         $j = 0;
-        for($i = 0; $i < sizeof($inventory); $i++){
-            $j = $j + array_reduce( array_filter( $inventory[0]->getItems()->getValues(),
+        foreach($inventory as $inv){
+            $j = $j + array_reduce( array_filter( $inv->getItems()->getValues(),
                         fn(Item $k) =>
                             in_array( $k->getPrototype(), $prototype) &&
                             ( $broken === null || $k->getBroken() === $broken ) &&
@@ -226,15 +235,10 @@ class InventoryHandler
     }
 
     public function fetchHeavyItems(Inventory $inventory) {
-        $qb = $this->entity_manager->createQueryBuilder();
-        $qb
-            ->select('i.id')->from(Item::class,'i')
-            ->leftJoin(ItemPrototype::class, 'p', Join::WITH, 'i.prototype = p.id')
-            ->where('i.inventory = :inv')->setParameter('inv', $inventory)
-            ->andWhere('p.heavy = :hv')->setParameter('hv', true);
-
-        $result = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_SCALAR);
-        return array_map(function(array $a): Item { return $this->entity_manager->getRepository(Item::class)->find( $a['id'] ); }, $result);
+        $items = [];
+        foreach ($inventory->getItems() as $item)
+            if ($item->getPrototype()->getHeavy()) $items[] = $item;
+        return $items;
     }
 
     public function countHeavyItems(Inventory $inventory): int {
@@ -245,15 +249,10 @@ class InventoryHandler
     }
 
     public function countEssentialItems(Inventory $inventory): int {
-        try {
-            return $this->entity_manager->createQueryBuilder()
-                ->select('SUM(i.count)')->from(Item::class, 'i')
-                ->where('i.inventory = :inv')->setParameter('inv', $inventory)
-                ->andWhere('i.essential = :ev')->setParameter('ev', true)
-                ->getQuery()->getSingleScalarResult() ?? 0;
-        } catch (Exception $e) {
-            return 0;
-        }
+        $c = 0;
+        foreach ($inventory->getItems() as $item)
+            if ($item->getEssential()) $c += $item->getCount();
+        return $c;
     }
 
     const TransferTypeUnknown  = 0;
