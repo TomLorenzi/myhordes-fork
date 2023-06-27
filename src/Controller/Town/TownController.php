@@ -1049,7 +1049,8 @@ class TownController extends InventoryAwareController
      */
     public function citizens(EntityManagerInterface $em, TownHandler $th): Response
     {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        $activeCitizen = $this->getActiveCitizen();
+        if (!$activeCitizen->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         $citizenInfos = [];
@@ -1060,7 +1061,7 @@ class TownController extends InventoryAwareController
 
         $protoCurtain = $this->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain');
 
-        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+        foreach ($activeCitizen->getTown()->getCitizens() as $c) {
             $homeUpgrades = $c->getHome()->getCitizenHomeUpgrades()->getValues();
 
             $citizenHomeUpgrades = $homeUpgrades?
@@ -1098,19 +1099,19 @@ class TownController extends InventoryAwareController
         }
 
         $cc = 0;
-        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
-            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $this->getActiveCitizen()->getId()) $cc++;
-        $town = $this->getActiveCitizen()->getTown();
+        foreach ($activeCitizen->getTown()->getCitizens() as $citizen)
+            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $activeCitizen->getId()) $cc++;
+        $town = $activeCitizen->getTown();
         $cc = (float)$cc / (float)$this->town_handler->get_alive_citizens($town); // Completely arbitrary
 
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizenInfos,
-            'me' => $this->getActiveCitizen(),
+            'me' => $activeCitizen,
             'hidden' => $hidden,
             'prof_count' => $prof_count,
             'death_count' => $death_count,
-            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
-            'is_ghoul' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'has_omniscience' => $activeCitizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($activeCitizen->getUser(), 'omniscience'),
+            'is_ghoul' => $activeCitizen->hasRole('ghoul'),
             'caught_chance' => $cc
         ]) );
     }
