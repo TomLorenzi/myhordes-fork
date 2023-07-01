@@ -1061,7 +1061,8 @@ class TownController extends InventoryAwareController
 
         $protoCurtain = $this->getProtoSingleton(CitizenHomeUpgradePrototype::class,'curtain');
 
-        foreach ($activeCitizen->getTown()->getCitizens() as $c) {
+        $townCitizens = $activeCitizen->getTown()->getCitizens();
+        foreach ($townCitizens as $c) {
             $homeUpgrades = $c->getHome()->getCitizenHomeUpgrades()->getValues();
 
             $citizenHomeUpgrades = $homeUpgrades?
@@ -1099,8 +1100,8 @@ class TownController extends InventoryAwareController
         }
 
         $cc = 0;
-        foreach ($activeCitizen->getTown()->getCitizens() as $citizen)
-            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $activeCitizen->getId()) $cc++;
+        foreach ($townCitizens as $citizen)
+            if ($citizen->getId() !== $activeCitizen->getId() && $citizen->getAlive() && !$citizen->getZone()) $cc++;
         $town = $activeCitizen->getTown();
         $cc = (float)$cc / (float)$this->town_handler->get_alive_citizens($town); // Completely arbitrary
 

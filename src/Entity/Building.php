@@ -24,7 +24,7 @@ class Building
     private $complete = false;
     #[ORM\Column(type: 'integer')]
     private $ap = 0;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', inversedBy: 'buildings')]
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Town', fetch: 'EXTRA_LAZY', inversedBy: 'buildings')]
     #[ORM\JoinColumn(nullable: false)]
     private $town;
     #[ORM\OneToMany(targetEntity: 'App\Entity\DailyUpgradeVote', mappedBy: 'building', orphanRemoval: true, fetch: 'EXTRA_LAZY')]

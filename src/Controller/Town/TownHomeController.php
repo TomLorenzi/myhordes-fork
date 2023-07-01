@@ -48,12 +48,12 @@ class TownHomeController extends TownController
      */
     public function house_dash(): Response
     {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        $activeCitizen = $this->getActiveCitizen();
+        if (!$activeCitizen->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         // Get citizen, town and home objects
-        $citizen = $this->getActiveCitizen();
-        $home = $citizen->getHome();
+        $home = $activeCitizen->getHome();
 
         // Render
         return $this->render( 'ajax/game/town/home/dashboard.html.twig', $this->addDefaultTwigArgs('house', array_merge(

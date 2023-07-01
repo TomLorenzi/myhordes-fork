@@ -52,7 +52,7 @@ class Town
     private bool $chaos = false;
     #[ORM\Column(type: 'boolean')]
     private bool $devastated = false;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\Building', mappedBy: 'town', orphanRemoval: true, cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Building', mappedBy: 'town', orphanRemoval: true, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     #[ORM\OrderBy(['position' => 'ASC'])]
     private $buildings;
     #[ORM\OneToMany(targetEntity: 'App\Entity\ZombieEstimation', mappedBy: 'town', orphanRemoval: true, cascade: ['persist'])]

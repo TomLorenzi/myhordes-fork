@@ -149,7 +149,7 @@ class InventoryHandler
      */
     public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null, ?bool $poison = null): int {
         if (is_string( $prototype )) $prototype = $is_property
-            ? $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $prototype] )->getItemPrototypes()->getValues()
+            ? $this->getProtoSingleton(ItemProperty::class, $prototype)->getItemPrototypes()->getValues()
             : $this->getProtoSingleton(ItemPrototype::class, $prototype);
 
         if (!is_array($prototype)) $prototype = [$prototype];

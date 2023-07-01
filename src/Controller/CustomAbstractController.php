@@ -61,12 +61,13 @@ class CustomAbstractController extends CustomAbstractCoreController {
         $data = $data ?? [];
         $data['menu_section'] = $section;
 
+        $activeCitizen = $this->getActiveCitizen();
         $data['clock'] = [
-            'desc'      => $this->getActiveCitizen()?->getTown()->getName() ?? $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => $this->getActiveCitizen()?->getTown()->getDay() ?? '',
+            'desc'      => $activeCitizen?->getTown()->getName() ?? $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
+            'day'       => $activeCitizen?->getTown()->getDay() ?? '',
             'timestamp' => new DateTime('now'),
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => $this->getActiveCitizen()?->getTown()->getType()->getName() ?? '',
+            'towntype'  => $activeCitizen?->getTown()->getType()->getName() ?? '',
             'offset'    => timezone_offset_get( timezone_open( date_default_timezone_get ( ) ), new DateTime() )
         ];
 
@@ -96,28 +97,28 @@ class CustomAbstractController extends CustomAbstractCoreController {
                 fn(GlobalPoll $poll) => !$poll->getPoll()->getParticipants()->contains( $this->getUser() )
             ))[0] ?? null;
 
-        if ( $this->getActiveCitizen()?->getAlive() ){
-            $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
-            $data['citizen'] = $this->getActiveCitizen();
+        if ( $activeCitizen?->getAlive() ){
+            $is_shaman = $this->citizen_handler->hasRole($activeCitizen, 'shaman') || $activeCitizen->getProfession()->getName() == 'shaman';
+            $data['citizen'] = $activeCitizen;
             $data['conf'] = $this->getTownConf();
-            $data['ap'] = $this->getActiveCitizen()->getAp();
-            $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
-            $data['has_wound'] = $this->citizen_handler->isWounded($this->getActiveCitizen());
-            $data['banished'] = $this->getActiveCitizen()->getBanished();
-            $data['town_chaos'] = $this->getActiveCitizen()->getTown()->getChaos();
-            $data['bp'] = $this->getActiveCitizen()->getBp();
-            $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
-            $data['status'] = $this->getActiveCitizen()->getStatus();
-            $data['roles'] = $this->getActiveCitizen()->getVisibleRoles();
-            $data['rucksack'] = $this->getActiveCitizen()->getInventory();
-            $data['rucksack_size'] = $this->inventory_handler->getSize( $this->getActiveCitizen()->getInventory() );
-            $data['pm'] = $this->getActiveCitizen()->getPm();
-            $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
+            $data['ap'] = $activeCitizen->getAp();
+            $data['max_ap'] = $this->citizen_handler->getMaxAP($activeCitizen);
+            $data['has_wound'] = $this->citizen_handler->isWounded($activeCitizen);
+            $data['banished'] = $activeCitizen->getBanished();
+            $data['town_chaos'] = $activeCitizen->getTown()->getChaos();
+            $data['bp'] = $activeCitizen->getBp();
+            $data['max_bp'] = $this->citizen_handler->getMaxBP($activeCitizen);
+            $data['status'] = $activeCitizen->getStatus();
+            $data['roles'] = $activeCitizen->getVisibleRoles();
+            $data['rucksack'] = $activeCitizen->getInventory();
+            $data['rucksack_size'] = $this->inventory_handler->getSize( $activeCitizen->getInventory() );
+            $data['pm'] = $activeCitizen->getPm();
+            $data['max_pm'] = $this->citizen_handler->getMaxPM($activeCitizen);
             $data['username'] = $this->getUser()->getName();
             $data['is_shaman'] = $is_shaman;
-            $data['is_shaman_job'] = $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
-            $data['is_shaman_role'] = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
-            $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
+            $data['is_shaman_job'] = $activeCitizen->getProfession()->getName() == 'shaman';
+            $data['is_shaman_role'] = $this->citizen_handler->hasRole($activeCitizen, 'shaman');
+            $data['hunger'] = $activeCitizen->getGhulHunger();
             $data['is_night'] = $this->getTownConf()->isNightTime();
         }
         return $data;
