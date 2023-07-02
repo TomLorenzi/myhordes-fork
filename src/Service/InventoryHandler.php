@@ -121,7 +121,7 @@ class InventoryHandler
         if (!is_array( $props )) $props = [$props];
         $props = array_map(function($e):ItemProperty {
             if (!is_string($e)) return $e;
-            return $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $e] );
+            return $this->doctrineCache->getEntityByIdentifier(ItemProperty::class, $e);
         }, $props);
 
         $tmp = [];
@@ -182,7 +182,7 @@ class InventoryHandler
         foreach ($requests as $request) {
             $id_list = [];
             if ($request->isProperty()) {
-                $prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $request->getItemPropertyName()] );
+                $prop = $this->doctrineCache->getEntityByIdentifier(ItemProperty::class, $request->getItemPropertyName());
                 if ($prop) $id_list = array_map(function(ItemPrototype $p): int {
                     return $p->getId();
                 }, $prop->getItemPrototypes()->getValues() );
