@@ -414,9 +414,7 @@ class TownHandler
 
         $homeUpgradesPrototypes =
             array_map(
-                function($item) {
-                    return $item->getPrototype();
-                },
+                fn(CitizenHomeUpgrade $item) => $item->getPrototype(),
                 $homeUpgrades
             );
 
@@ -441,7 +439,7 @@ class TownHandler
             /** @var CitizenHomeUpgrade|null $n */
             $defenseIndex = array_search($this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,"defense"), $homeUpgradesPrototypes);
 
-            if($defenseIndex) {
+            if($defenseIndex !== false) {
                 $n = $homeUpgrades[$defenseIndex];
                 if($n->getLevel() <= 6)
                     $summary->upgrades_defense += $n->getLevel();
