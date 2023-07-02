@@ -8,6 +8,7 @@ use App\Controller\Soul\SoulController;
 use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\HeaderStat;
 use App\Entity\HordesFact;
 use App\Entity\MarketingCampaign;
 use App\Entity\MarketingCampaignConversion;
@@ -60,21 +61,10 @@ class PublicController extends CustomAbstractController
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
-        $criteria = new Criteria();
-        $criteria->andWhere($criteria->expr()->neq('end', null));
-        $criteria->orWhere($criteria->expr()->neq('importID', 0));
-
-        $deadCitizenCount = $this->entity_manager->getRepository(CitizenRankingProxy::class)->matching($criteria)->count() + $this->entity_manager->getRepository(Citizen::class)->count(['alive' => 0]);
-        
-        $pictoKillZombies = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
-        $zombiesKilled = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoKillZombies);
-
-        $pictoCanibal = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_cannib_#00']);
-        $canibalismCount = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoCanibal);
-
-        $data['deadCitizenCount'] = $deadCitizenCount;
-        $data['zombiesKilled'] = $zombiesKilled;
-        $data['canibalismCount'] = $canibalismCount;
+        $headerStat = $this->entity_manager->getRepository(HeaderStat::class)->findOneBy([], ['timestamp' => 'DESC']);
+        $data['deadCitizenCount'] = $headerStat?->getKilledCitizens() ?? 0;
+        $data['zombiesKilled'] = $headerStat?->getKilledZombies() ?? 0;
+        $data['canibalismCount'] = $headerStat?->getCannibalismActs() ?? 0;
 
         $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
         if ($locale) $locale = explode('_', $locale)[0];

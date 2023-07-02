@@ -44,6 +44,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\DeathHandler;
+use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
@@ -92,10 +93,12 @@ class InventoryAwareController extends CustomAbstractController
     protected TownHandler $town_handler;
     protected Packages $asset;
 
+    protected DoctrineCacheService $doctrineCache;
+
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
-        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th, Packages $asset)
+        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th, Packages $asset, DoctrineCacheService $doctrineCache)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->action_handler = $ah;
@@ -109,56 +112,58 @@ class InventoryAwareController extends CustomAbstractController
         $this->crow = $armbrust;
         $this->town_handler = $th;
         $this->asset = $asset;
+        $this->doctrineCache = $doctrineCache;
     }
 
     public function before(): bool
     {
-        if ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'ghoul') && !$this->getActiveCitizen()->hasSeenHelpNotification('ghoul')) {
+        $activeCitizen = $this->getActiveCitizen();
+        if ($this->citizen_handler->hasRole($activeCitizen, 'ghoul') && !$activeCitizen->hasSeenHelpNotification('ghoul')) {
             $this->addFlash('popup-ghoul', $this->renderView('ajax/game/notifications/ghoul.html.twig'));
-            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('ghoul') );
-            $this->entity_manager->persist($this->getActiveCitizen());
+            $activeCitizen->addHelpNotification( $this->doctrineCache->getEntityByIdentifier(HelpNotificationMarker::class, 'ghoul') );
+            $this->entity_manager->persist($activeCitizen);
             $this->entity_manager->flush();
-        } else if ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') && !$this->getActiveCitizen()->hasSeenHelpNotification('shaman')) {
+        } else if ($this->citizen_handler->hasRole($activeCitizen, 'shaman') && !$activeCitizen->hasSeenHelpNotification('shaman')) {
             $this->addFlash('popup-shaman', $this->renderView('ajax/game/notifications/shaman.html.twig'));
-            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('shaman') );
-            $this->entity_manager->persist($this->getActiveCitizen());
+            $activeCitizen->addHelpNotification( $this->doctrineCache->getEntityByIdentifier(HelpNotificationMarker::class, 'shaman') );
+            $this->entity_manager->persist($activeCitizen);
             $this->entity_manager->flush();
-        } else if ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'guide') && !$this->getActiveCitizen()->hasSeenHelpNotification('guide')) {
+        } else if ($this->citizen_handler->hasRole($activeCitizen, 'guide') && !$activeCitizen->hasSeenHelpNotification('guide')) {
             $this->addFlash('popup-shaman', $this->renderView('ajax/game/notifications/guide.html.twig'));
-            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('guide') );
-            $this->entity_manager->persist($this->getActiveCitizen());
+            $activeCitizen->addHelpNotification( $this->doctrineCache->getEntityByIdentifier(HelpNotificationMarker::class, 'guide') );
+            $this->entity_manager->persist($activeCitizen);
             $this->entity_manager->flush();
-        } else if ($this->getActiveCitizen()->getTown()->getInsurrectionProgress() >= 100 && !$this->getActiveCitizen()->hasSeenHelpNotification('insurrection') ) {
-            $this->addFlash('popup-insurrection', $this->renderView('ajax/game/notifications/insurrection.html.twig', ['revolutionist' => $this->getActiveCitizen()->hasStatus('tg_revolutionist')]));
-            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('insurrection') );
-            $this->entity_manager->persist($this->getActiveCitizen());
+        } else if ($activeCitizen->getTown()->getInsurrectionProgress() >= 100 && !$activeCitizen->hasSeenHelpNotification('insurrection') ) {
+            $this->addFlash('popup-insurrection', $this->renderView('ajax/game/notifications/insurrection.html.twig', ['revolutionist' => $activeCitizen->hasStatus('tg_revolutionist')]));
+            $activeCitizen->addHelpNotification( $this->doctrineCache->getEntityByIdentifier(HelpNotificationMarker::class, 'insurrection') );
+            $this->entity_manager->persist($activeCitizen);
             $this->entity_manager->flush();
-        } else if ($this->getActiveCitizen()->hasStatus('tg_unban_altar') && !$this->getActiveCitizen()->hasSeenHelpNotification('altar') ) {
+        } else if ($activeCitizen->hasStatus('tg_unban_altar') && !$activeCitizen->hasSeenHelpNotification('altar') ) {
             $this->addFlash('popup-altar', $this->renderView('ajax/game/notifications/altar.html.twig'));
-            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('altar') );
-            $this->entity_manager->persist($this->getActiveCitizen());
+            $activeCitizen->addHelpNotification( $this->doctrineCache->getEntityByIdentifier(HelpNotificationMarker::class, 'altar') );
+            $this->entity_manager->persist($activeCitizen);
             $this->entity_manager->flush();
-        } else if ($this->getActiveCitizen()->getTown()->getForceStartAhead() && !$this->getActiveCitizen()->hasSeenHelpNotification('stranger') ) {
-            $this->addFlash('popup-stranger', $this->renderView('ajax/game/notifications/stranger.html.twig', ['population' => $this->getActiveCitizen()->getTown()->getPopulation()]));
-            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('stranger') );
-            $this->entity_manager->persist($this->getActiveCitizen());
+        } else if ($activeCitizen->getTown()->getForceStartAhead() && !$activeCitizen->hasSeenHelpNotification('stranger') ) {
+            $this->addFlash('popup-stranger', $this->renderView('ajax/game/notifications/stranger.html.twig', ['population' => $activeCitizen->getTown()->getPopulation()]));
+            $activeCitizen->addHelpNotification( $this->doctrineCache->getEntityByIdentifier(HelpNotificationMarker::class, 'stranger') );
+            $this->entity_manager->persist($activeCitizen);
             $this->entity_manager->flush();
-        } else if ( !empty( $records = array_filter( $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
+        } else if ( !empty( $records = array_filter( $activeCitizen->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->getAdditionalData() ?? [],
             fn($record) => is_array($record) && !( $record['seen'] ?? true ) && ( $record['valid'] ?? false )
         ) ) ) {
             $key = array_key_first( $records );
             $record = $records[$key];
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find( (int)$record['from'] ?? 0 );
-            if ($citizen && $citizen->getTown() !== $this->getActiveCitizen()->getTown()) $citizen = null;
+            if ($citizen && $citizen->getTown() !== $activeCitizen->getTown()) $citizen = null;
 
-            $action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $record['action'] ?? '']);
+            $action = $this->doctrineCache->getEntityByIdentifier(HeroicActionPrototype::class, $record['action'] ?? '');
             if ($citizen && $action)
                 $this->addFlash('popup-general', $this->renderView('ajax/game/notifications/hero_donation.html.twig', [
                     'citizen' => $citizen, 'action' => $action]
                 ));
 
             $this->entity_manager->persist(
-                $this->getActiveCitizen()->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->setRecord( $key, true, 'seen' )
+                $activeCitizen->getSpecificActionCounter( ActionCounter::ActionTypeReceiveHeroic )->setRecord( $key, true, 'seen' )
             );
             $this->entity_manager->flush();
         }
@@ -760,7 +765,7 @@ class InventoryAwareController extends CustomAbstractController
 
                             $alarm = ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                                     $victim_home,
-                                    $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim_home->getCitizen()->getAlive());
+                                    $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class, 'alarm' ) ) && $victim_home->getCitizen()->getAlive());
 
                             if($steal_up) {
                                 if ($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()) {
@@ -883,7 +888,7 @@ class InventoryAwareController extends CustomAbstractController
 
         if ($recipe->getName() === 'com027' && !$citizen->getZone() ) {
 
-            $lab = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('lab');
+            $lab = $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class, 'lab');
             $home_lab_upgrade = $lab ? $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(), $lab) : null;
             if ($home_lab_upgrade) {
                 $this->addFlash("error", $this->translator->trans('Dafür solltest du dein Labor verwenden...', [], 'game'));
@@ -1039,7 +1044,7 @@ class InventoryAwareController extends CustomAbstractController
             $citizen->addUsedHeroicAction($heroic);
 
             // Add the picto Heroic Action
-            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
+            $picto = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class, "r_heroac_#00");
             $this->picto_handler->give_picto($citizen, $picto);
 
             $this->entity_manager->persist($citizen);

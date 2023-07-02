@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\SpecialActionPrototype;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,19 @@ class SpecialActionPrototypeRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, SpecialActionPrototype::class);
+    }
+
+    public function findOneByName(string $value): ?SpecialActionPrototype
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->andWhere('c.name = :val')
+                ->setParameter('val', $value)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
     }
 
     // /**

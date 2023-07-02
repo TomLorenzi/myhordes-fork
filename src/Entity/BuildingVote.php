@@ -14,7 +14,7 @@ class BuildingVote
     #[ORM\ManyToOne(targetEntity: Building::class, inversedBy: 'buildingVotes')]
     #[ORM\JoinColumn(nullable: false)]
     private $building;
-    #[ORM\OneToOne(targetEntity: Citizen::class, inversedBy: 'buildingVote', cascade: ['persist'])]
+    #[ORM\OneToOne(targetEntity: Citizen::class, inversedBy: 'buildingVote', cascade: ['persist'], fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
     private $citizen;
     public function getId(): ?int

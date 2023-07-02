@@ -52,15 +52,15 @@ class TownHandler
     private RandomGenerator $random;
     private ConfMaster $conf;
     private CrowService $crowService;
-    private TranslatorInterface $translator;
-	private Packages $asset;
-	private ContainerInterface $container;
+
+    private $protoDefenceItems = null;
+    private DoctrineCacheService $doctrineCache;
 
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
         TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
-        CrowService $armbrust, TranslatorInterface $translator, ContainerInterface $container, Packages $asset)
+        CrowService $armbrust, DoctrineCacheService $doctrineCache)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -72,9 +72,18 @@ class TownHandler
         $this->conf = $conf;
         $this->random = $rand;
         $this->crowService = $armbrust;
-        $this->translator = $translator;
-		$this->asset = $asset;
-		$this->container = $container;
+        $this->doctrineCache = $doctrineCache;
+    }
+
+    /**
+     * @return ItemPrototype[]
+     */
+    public function getPrototypesForDefenceItems(): array
+    {
+        if($this->protoDefenceItems == null){
+            $this->protoDefenceItems = $this->inventory_handler->resolveItemProperties('defence');
+        }
+        return $this->protoDefenceItems;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -318,7 +327,7 @@ class TownHandler
         $selected = empty($choice) ? null : $this->random->pick($choice);
 
         if ($selected) {
-            $selected->addRole( $this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata') );
+            $selected->addRole( $this->doctrineCache->getEntityByIdentifier(CitizenRole::class, 'cata'));
             $this->crowService->postAsPM($selected, '', '', PrivateMessage::TEMPLATE_CROW_CATAPULT, $selected->getId());
         }
 
@@ -379,7 +388,7 @@ class TownHandler
      */
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
         if (is_string($prototype))
-            $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
+            $prototype = $this->doctrineCache->getEntityByIdentifier(BuildingPrototype::class, $prototype);
 
         if (!$prototype) return null;
         foreach ($town->getBuildings() as $b)
@@ -401,6 +410,13 @@ class TownHandler
      */
     public function calculate_home_def( CitizenHome $home, ?HomeDefenseSummary &$summary = null): int {
         $town = $home->getCitizen()->getTown();
+        $homeUpgrades = $home->getCitizenHomeUpgrades()->count() > 0 ? $home->getCitizenHomeUpgrades()->getValues() : [];
+
+        $homeUpgradesPrototypes =
+            array_map(
+                fn(CitizenHomeUpgrade $item) => $item->getPrototype(),
+                $homeUpgrades
+            );
 
         $summary = new HomeDefenseSummary();
         if (!$home->getCitizen()->getAlive())
@@ -421,11 +437,10 @@ class TownHandler
 
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
-            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'defense' )
-            );
+            $defenseIndex = array_search($this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,"defense"), $homeUpgradesPrototypes);
 
-            if($n) {
+            if($defenseIndex !== false) {
+                $n = $homeUpgrades[$defenseIndex];
                 if($n->getLevel() <= 6)
                     $summary->upgrades_defense += $n->getLevel();
                 else {
@@ -433,27 +448,25 @@ class TownHandler
                 }
             }
 
-            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'fence' )
-            );
+            $n = in_array($this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,"fence"), $homeUpgradesPrototypes);
             $summary->upgrades_defense += ($n ? 3 : 0);
         }
 
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
-            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
+            $this->getPrototypesForDefenceItems(), false, false
         );
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_blue_#00'
+            $this->doctrineCache->getEntityByIdentifier(ItemPrototype::class, "soul_blue_#00")
         ) * 2;
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_blue_#01'
+                $this->doctrineCache->getEntityByIdentifier(ItemPrototype::class, "soul_blue_#01")
         ) * 2;
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_red_#00'
+                $this->doctrineCache->getEntityByIdentifier(ItemPrototype::class, "soul_red_#00")
         ) * 2;
 
         return $summary->sum();
@@ -505,16 +518,21 @@ class TownHandler
 
         $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 10 : 5;
 
-        foreach ($town->getCitizens() as $citizen)
+        $deadCitizens = 0;
+
+        foreach ($town->getCitizens() as $citizen) {
             if ($citizen->getAlive()) {
                 $home = $citizen->getHome();
-                $this->calculate_home_def( $home, $home_summary);
+                $this->calculate_home_def($home, $home_summary);
                 /** @var HomeDefenseSummary $home_summary */
                 $f_house_def += ($home_summary->house_defense + $home_summary->job_defense + $home_summary->upgrades_defense) * $home_def_factor;
 
-                if (!$citizen->getZone() && $citizen->getProfession()->getName() === 'guardian')
+                if ($citizen->getProfession()->getName() === 'guardian' && !$citizen->getZone())
                     $summary->guardian_defense += $guardian_bonus;
+            } else {
+                $deadCitizens++;
             }
+        }
         $summary->house_defense = floor($f_house_def);
         $item_def_factor = 1.0;
         foreach ($town->getBuildings() as $building)
@@ -528,12 +546,10 @@ class TownHandler
                 if ($building->getPrototype()->getName() === 'item_meca_parts_#00')
                     $item_def_factor += (1+$building->getLevel()) * 0.5;
                 else if ($building->getPrototype()->getName() === "small_cemetery_#00") {
-                    $c = 0;
-                    foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
                     $ratio = 10;
                     if ($this->getBuilding($town, 'small_coffin_#00'))
                         $ratio = 20;
-                    $summary->cemetery = $ratio * $c;
+                    $summary->cemetery = $ratio * $deadCitizens;
                 }
             }
 
@@ -541,7 +557,7 @@ class TownHandler
 
 
         $summary->item_defense = min(500, floor($this->inventory_handler->countSpecificItems( $town->getBank(),
-            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
+                $this->getPrototypesForDefenceItems(), false, false
         ) * $item_def_factor));
 
         $summary->soul_defense = $town->getSoulDefense();
@@ -640,8 +656,6 @@ class TownHandler
 
             $min2 = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
             $max2 = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
-
-            $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
             $min2 = round($min2 * $soulFactor);
             $max2 = round($max2 * $soulFactor);
@@ -909,7 +923,7 @@ class TownHandler
         if ($town->getChaos() || ($town->isOpen() && !$town->getForceStartAhead())) return false;
 
         // Resolve the role; if it does not exist or is not votable, no votes are needed
-        if (is_string($role)) $role =  $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role]);
+        if (is_string($role)) $role = $this->doctrineCache->getEntityByIdentifier(CitizenRole::class, $role);
         if (!$role || !$role->getVotable()) return false;
 
         // If the role is disabled, no vote is needed
