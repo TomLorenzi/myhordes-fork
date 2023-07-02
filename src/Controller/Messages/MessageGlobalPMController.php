@@ -1442,8 +1442,8 @@ class MessageGlobalPMController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume()->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume())->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())

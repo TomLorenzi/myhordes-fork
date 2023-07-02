@@ -61,6 +61,7 @@ use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
+use DateTime;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -1330,8 +1331,8 @@ class InventoryAwareController extends CustomAbstractController
 
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume())->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())

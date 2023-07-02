@@ -18,7 +18,24 @@
 {{ constant('App\\Service\\ErrorHelper::ErrorActionNotAvailableWounded') }}: '{{'Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...'|trans({},'global')|e('js')}}',
 {{ constant('App\\Service\\ErrorHelper::ErrorActionNotAvailableSP') }}: '{{'Du musst noch mehr Erfahrung sammeln, um das tun zu können...'|trans({},'global')|e('js')}}',
 {{ constant('App\\Service\\ErrorHelper::ErrorActionNotAvailableTerror') }}: '{{'Du bist vor Angst erstarrt...'|trans({},'global')|e('js')}}',
-{{ constant('App\\Service\\ErrorHelper::ErrorRateLimited') }}: '{{'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.'|trans({},'global')|e('js')}}',
+{{ constant('App\\Service\\ErrorHelper::ErrorRateLimited') }}: (data) => {
+    frags = [];
+    switch (data.detail ?? '') {
+        case 'report':
+            frags.push('{{'Du kannst vorerst keine weiteren Meldungen an die Raben senden.'|trans({},'global')|e('js')}}');
+            break;
+        default:
+            frags.push('{{'Du hast diese Aktion bereits zu oft durchgeführt. Warte eine Weile und versuche es dann erneut.'|trans({},'global')|e('js')}}');
+            break;
+    };
+    if (data.retry_in) {
+        if (data.retry_in < 300) frags.push('{{'Bitte versuche es in einigen Minuten erneut.'|trans({},'global')|e('js')}}');
+        else if (data.retry_in < 18000) frags.push('{{'Bitte versuche es in einigen Stunden erneut.'|trans({},'global')|e('js')}}');
+        else if (data.retry_in < 86400) frags.push('{{'Bitte versuche es morgen erneut.'|trans({},'global')|e('js')}}');
+        else frags.push('{{'Bitte versuche es in {days} Tagen erneut.'|trans({},'global')|e('js')}}'.replace('{days}', Math.ceil(data.retry_in/86400) ));
+    }
+    return frags.join('<br/>');
+},
 {{ constant('App\\Service\\ErrorHelper::ErrorNoMP') }}                     : '{{'Für diese Aktion hast du nicht genug MP.'|trans({},'global')|e('js')}}',
 {{ constant('App\\Service\\ErrorHelper::ErrorActionNotAvailableImpersonator') }}                     : '{{'Das kannst du nicht tun, während du einen Benutzer impersonifizierst.'|trans({},'global')|e('js')}}',
 {{ constant('App\\Service\\ErrorHelper::ErrorActionNotAvailableBanished') }} : '{{'Du kannst diese Aktion nicht ausführen, da du <strong>verbannt</strong> wurdest!'|trans({},'global')|e('js')}}',
