@@ -13,6 +13,7 @@ use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\FoundRolePlayText;
 use App\Entity\GitVersions;
+use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Post;
@@ -22,6 +23,7 @@ use App\Entity\SoulResetMarker;
 use App\Entity\Thread;
 use App\Entity\ThreadTag;
 use App\Entity\Town;
+use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
@@ -128,6 +130,7 @@ class MigrateCommand extends Command
         '26fbeee45f182a400a8c051ce2f2a5b93cd99dcf' => [ ["app:migrate", ['--fix-town-forum-names' => true ] ] ],
         '3b460b6a4c4420a75d43353f921f83eeee5b792f' => [ ["app:migrate", ['--fix-thread-creation-date' => true ] ] ],
         '9ba59c2c0d9474987f99a0e039009d2dab6a8656' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
+		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -233,6 +236,7 @@ class MigrateCommand extends Command
             ->addOption('fix-fixtures', null, InputOption::VALUE_NONE, 'Fix fixtures with duplicate keys')
             ->addOption('fix-town-forum-names', null, InputOption::VALUE_NONE, 'Fix town forum names')
             ->addOption('fix-thread-creation-date', null, InputOption::VALUE_NONE, 'Fix creation date of threads')
+			->addOption('fix-town-loot-log', null, InputOption::VALUE_NONE, 'Fix townLoot log entries')
         ;
     }
 
@@ -992,7 +996,7 @@ class MigrateCommand extends Command
 
             // Fix town groups
             $this->helper->leChunk($output, Town::class, 10, [], true, false, function(Town $current_town) use (
-                $fun_assoc,$fun_dis_assoc
+                $fun_assoc,$fun_dis_assoc,$output
             ) {
                 $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $current_town->getId()] );
                 if (!$town_group) {
@@ -1415,6 +1419,15 @@ class MigrateCommand extends Command
                 $thread->setDate( $thread->firstPost(true)->getDate() );
             }, true);
         }
+
+		if ($input->getOption('fix-town-loot-log')) {
+			$template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'townLoot']);
+			$this->helper->leChunk($output, TownLogEntry::class, 500, ['logEntryTemplate' => $template], true, true, function(TownLogEntry $log) {
+				$victim = $log->getCitizen();
+				$actor = $log->getSecondaryCitizen();
+				$log->setCitizen($actor)->setSecondaryCitizen($victim);
+			}, true);
+		}
 
         return 99;
     }
