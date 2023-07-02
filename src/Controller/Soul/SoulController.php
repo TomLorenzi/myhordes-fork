@@ -1715,8 +1715,8 @@ class SoulController extends CustomAbstractController
 
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume())->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
@@ -1761,8 +1761,8 @@ class SoulController extends CustomAbstractController
 
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 )->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 ))->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())

@@ -529,3 +529,8 @@ Kurzbeschreibung: Kurzbeschreibung
 'Mehr Ergebnisse anzeigen': 'Mehr Ergebnisse anzeigen'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".'
 Inhaltsverzeichnis: Inhaltsverzeichnis
+'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'Du kannst vorerst keine weiteren Meldungen an die Raben senden.'
+'Bitte versuche es in einigen Minuten erneut.': 'Bitte versuche es in einigen Minuten erneut.'
+'Bitte versuche es in einigen Stunden erneut.': 'Bitte versuche es in einigen Stunden erneut.'
+'Bitte versuche es morgen erneut.': 'Bitte versuche es morgen erneut.'
+'Bitte versuche es in {days} Tagen erneut.': 'Bitte versuche es in {days} Tagen erneut.'
