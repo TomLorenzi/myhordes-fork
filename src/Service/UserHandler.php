@@ -56,19 +56,9 @@ class UserHandler
     private CrowService $crow;
     private TranslatorInterface $translator;
     private ConfMaster $conf;
+    private DoctrineCacheService $doctrineCache;
 
-    private $protoSingletons = [];
-
-
-    protected function getProtoSingleton($repository, $name)
-    {
-        if(!array_key_exists($name, $this->protoSingletons)){
-            $this->protoSingletons[$name] = $this->entity_manager->getRepository($repository)->findOneByName($name);
-        }
-        return $this->protoSingletons[$name];
-    }
-
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache)
     {
         $this->entity_manager = $em;
         $this->container = $c;
@@ -76,6 +66,7 @@ class UserHandler
         $this->crow = $crow;
         $this->translator = $translator;
         $this->conf = $conf;
+        $this->doctrineCache = $doctrineCache;
     }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
@@ -327,7 +318,7 @@ class UserHandler
 
     public function hasSkill(User $user, $skill){
         if(is_string($skill)) {
-            $skill = $this->getProtoSingleton(HeroSkillPrototype::class, $skill);
+            $skill = $this->doctrineCache->getEntityByIdentifier(HeroSkillPrototype::class, $skill);
             if($skill === null)
                 return false;
         }
@@ -744,11 +735,11 @@ class UserHandler
 
         if ($nextDeath->getGenerosityBonus() > 0 && !$nextDeath->getDisabled() && !$nextDeath->getTown()->getDisabled()) {
 
-            $generosity = $this->getProtoSingleton(FeatureUnlockPrototype::class, 'f_share');
+            $generosity = $this->doctrineCache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share');
             /** @var FeatureUnlock $instance */
             $instance = $this->entity_manager->getRepository(FeatureUnlock::class)->findBy([
                 'user' => $user, 'expirationMode' => FeatureUnlock::FeatureExpirationTownCount,
-                'prototype' =>$this->getProtoSingleton(FeatureUnlockPrototype::class, 'f_share')
+                'prototype' =>$this->doctrineCache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share')
             ])[0] ?? null;
             if (!$instance) $instance = (new FeatureUnlock())->setPrototype( $generosity )->setUser( $user )
                 ->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount($nextDeath->getGenerosityBonus());

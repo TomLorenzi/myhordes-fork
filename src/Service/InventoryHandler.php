@@ -36,18 +36,9 @@ class InventoryHandler
     private ConfMaster $conf;
     private RandomGenerator $rand;
 
-    private $protoSingletons = [];
+    private DoctrineCacheService $doctrineCache;
 
-
-    protected function getProtoSingleton($repository, $name)
-    {
-        if(!array_key_exists($name, $this->protoSingletons)){
-            $this->protoSingletons[$name] = $this->entity_manager->getRepository($repository)->findOneByName($name);
-        }
-        return $this->protoSingletons[$name];
-    }
-
-    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh, ConfMaster $cm, RandomGenerator $r)
+    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh, ConfMaster $cm, RandomGenerator $r, DoctrineCacheService $doctrineCache)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -56,6 +47,7 @@ class InventoryHandler
         $this->user_handler = $uh;
         $this->conf = $cm;
         $this->rand = $r;
+        $this->doctrineCache = $doctrineCache;
     }
 
     public function getSize( Inventory $inventory ): int {
@@ -87,7 +79,7 @@ class InventoryHandler
             // Check upgrades
             $upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                 $inventory->getHome(),
-                $this->getProtoSingleton( CitizenHomeUpgradePrototype::class, 'chest')
+                $this->doctrineCache->getEntityByIdentifier( CitizenHomeUpgradePrototype::class, 'chest')
             );
             /** @var CitizenHomeUpgrade $upgrade */
             if ($upgrade) $base += $upgrade->getLevel();
@@ -149,8 +141,8 @@ class InventoryHandler
      */
     public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null, ?bool $poison = null): int {
         if (is_string( $prototype )) $prototype = $is_property
-            ? $this->getProtoSingleton(ItemProperty::class, $prototype)->getItemPrototypes()->getValues()
-            : $this->getProtoSingleton(ItemPrototype::class, $prototype);
+            ? $this->doctrineCache->getEntityByIdentifier(ItemProperty::class, $prototype)->getItemPrototypes()->getValues()
+            : $this->doctrineCache->getEntityByIdentifier(ItemPrototype::class, $prototype);
 
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
