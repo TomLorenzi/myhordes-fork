@@ -566,3 +566,5 @@ Bildformat: Formato de imagen
 'Koalition umbenennen': 'Renombrar alianza'
 'Gib den neuen Namen deiner Koalition ein.': 'Introduce el nuevo nombre de la alianza.'
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'Has cambiado correctamente el nombre de tu alianza.'
+'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.'
+'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256'

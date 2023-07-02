@@ -460,7 +460,7 @@ Kopfschuss: Shot in the head
 'Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...': 'The door to this supermarket stockroom has thus far resisted would-be pillagers... surely there must be something tasty inside worth having...'
 "Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'": "A good hideout, that's for sure. Whoever put this up certainly knew how to keep his ass well away from zombie clutches: natural camouflage, good all-round visibility, multiple exits and even a hole to hide underground if need be. The name 'C. Norris' has been written on the canvas in unicorn's tears."
 'Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.': 'A small local pharmacy... serving the erm... middle of the desert apparently. The unmentionable smells make you think of everything except medicines.'
-'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...': 'It doesn''t really look like a bar any more, but the sign that is half-buried in the sand and the presence of some broken optics don''t leave you in much doubt. Most of the bottles are broken, but you can almost certainly find something useful here...'
+'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...': 'It doesn''t really look like a bar anymore, but the half-buried sign in the sand and the presence of some broken glass don''t leave much doubt. Most of the bottles are broken, but you can almost certainly find something useful here...'
 'Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...': 'There''s a distinct shortage of shelter here. You feel a little bit exposed.'
 "Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.": "This zone offers nothing more than minimal \"natural\" protection. You'll just need to make do with what comes to hand."
 'Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.': 'After a quick look around, it looks like you could find a good hiding place here.'
@@ -778,7 +778,7 @@ Eskorte: Escort
 'Zugriff auf meinen Rucksack zulassen': 'Allow the objects in my rucksack to be viewed and used'
 'Eskorte deaktivieren': 'Cancel escort'
 Senden: Send
-'Stadt im {direction} in {km} Entfernung': 'The Town is {km} to {direction}'
+'Stadt im {direction} in {km} Entfernung': 'The Town is {km} {direction}'
 'Position:': 'Position:'
 'Akteneinsicht wird beantragt...': 'Access to the file is requested ...'
 'Protokolle werden analysiert...': 'Logs are being analyzed ...'
@@ -2136,7 +2136,7 @@ Auszeichnungsdetails: Distinctions details
 'Du hast es geschafft, dich aus dieser Gefahr zu befreien, aber die Zombies schauen dich jetzt hungrig an und kommen gefährlich knurrend auf dich zu... FLIEHE!': 'You have managed to extricate yourself from danger this time, but the zombies are looking at you hungrily and shuffling towards you threateningly and groaning... FLEEEEEE!'
 Profi-Fotograph: Professional Photographer
 'Du beginst jede neue Stadt mit einer Kamera aus Vorkriegstagen.': 'You start each new town with a pre-war camera.'
-Kopf: Head
+Kopf: Heads
 Hand: Hand
 Arme: Arms
 Bein: Leg

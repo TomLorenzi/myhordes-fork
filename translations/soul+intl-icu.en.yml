@@ -293,7 +293,7 @@ Spielen: Play
 'Reservierte Plätze:': 'Reserved places:'
 'Du kannst kein Icon ohne einen Titel wählen.': 'You can''t choose an icon without a title.'
 Statistiken: Statistics
-Errungenschaften: Earnings
+Errungenschaften: Wins
 'Hat dir dein letztes Leben gefallen?': 'Did you like your last life?'
 'MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.': 'MyHordes is developed by an independent team of programmers in their spare time.'
 'Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.': 'We are a part of the Eternaltwin project, which is dedicated to keeping the MotionTwin browser games alive.'
@@ -566,3 +566,5 @@ Bildformat: Image format
 'Koalition umbenennen': 'Rename coalition'
 'Gib den neuen Namen deiner Koalition ein.': 'Enter your coalition''s new name.'
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'You''ve successfully changed the name of your coalition.'
+'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.'
+'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256'
