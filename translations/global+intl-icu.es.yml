@@ -530,8 +530,8 @@ Kurzbeschreibung: Descripción breve
 'Mehr Ergebnisse anzeigen': 'Ver más resultados'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utiliza "^" para buscar únicamente palabras que empiecen o terminen con una palabra concreta. Por ejemplo, "corto^" encontrará la palabra "ultracorto", pero no "cortísimo".'
 Inhaltsverzeichnis: Tabla de contenidos
-'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'Du kannst vorerst keine weiteren Meldungen an die Raben senden.'
-'Bitte versuche es in einigen Minuten erneut.': 'Bitte versuche es in einigen Minuten erneut.'
-'Bitte versuche es in einigen Stunden erneut.': 'Bitte versuche es in einigen Stunden erneut.'
-'Bitte versuche es morgen erneut.': 'Bitte versuche es morgen erneut.'
-'Bitte versuche es in {days} Tagen erneut.': 'Bitte versuche es in {days} Tagen erneut.'
+'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'No puedes denunciar más mensajes a los Cuervos por el momento.'
+'Bitte versuche es in einigen Minuten erneut.': 'Por favor, vuelve a intentarlo más tarde.'
+'Bitte versuche es in einigen Stunden erneut.': 'Por favor, inténtalo de nuevo en unas horas.'
+'Bitte versuche es morgen erneut.': 'Vuelve a intentarlo mañana.'
+'Bitte versuche es in {days} Tagen erneut.': 'Vuelve a intentarlo en {days} días.'
