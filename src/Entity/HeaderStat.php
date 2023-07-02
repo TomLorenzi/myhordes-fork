@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping\Table;
 class HeaderStat
 {
     #[ORM\Id]
+    #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
     #[ORM\Column(type: 'integer')]
@@ -20,6 +22,9 @@ class HeaderStat
 
     #[ORM\Column(type: 'integer')]
     private $cannibalismActs;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $timestamp = null;
 
     /**
      * @return mixed
@@ -92,5 +97,17 @@ class HeaderStat
     }
 
     public function __construct() {}
+
+    public function getTimestamp(): ?\DateTimeInterface
+    {
+        return $this->timestamp;
+    }
+
+    public function setTimestamp(\DateTimeInterface $timestamp): static
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
 
 }

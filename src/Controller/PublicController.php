@@ -61,10 +61,10 @@ class PublicController extends CustomAbstractController
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
-        $headerStat = $this->entity_manager->getRepository(HeaderStat::class)->findOneBy(['id' => 1]);
-        $data['deadCitizenCount'] = $headerStat->getKilledCitizens();
-        $data['zombiesKilled'] = $headerStat->getKilledZombies();
-        $data['canibalismCount'] = $headerStat->getCannibalismActs();
+        $headerStat = $this->entity_manager->getRepository(HeaderStat::class)->findOneBy([], ['timestamp' => 'DESC']);
+        $data['deadCitizenCount'] = $headerStat?->getKilledCitizens() ?? 0;
+        $data['zombiesKilled'] = $headerStat?->getKilledZombies() ?? 0;
+        $data['canibalismCount'] = $headerStat?->getCannibalismActs() ?? 0;
 
         $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
         if ($locale) $locale = explode('_', $locale)[0];

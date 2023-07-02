@@ -126,7 +126,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
         $cannibalismCount = $this->entityManager->getRepository(Picto::class)->countPicto($pictoCanibal);
 
         $this->entityManager->persist( (new HeaderStat())
-            ->setId(1)
+            ->setTimestamp( new DateTime() )
             ->setKilledCitizens( $deadCitizenCount )
             ->setKilledZombies( $zombiesKilled )
             ->setCannibalismActs($cannibalismCount)
