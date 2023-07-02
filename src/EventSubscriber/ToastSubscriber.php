@@ -31,7 +31,9 @@ class ToastSubscriber implements EventSubscriberInterface
 
         if ($sent_key !== $needed_key) {
             $event->stopPropagation();
-            $event->setController( fn() => new Response("TOAST FAILURE.", 400) );
+            $event->setController( fn() => new Response("TOAST FAILURE.", 400, [
+                'X-WHAT' => 'TOAST'
+            ]) );
         }
     }
 

@@ -15,6 +15,7 @@ class RegisterNewTokenAction
         if ($request->headers->get('Sec-Fetch-Dest') !== 'document') return ($this->keygen)(16);
 
         $token  = $request->getSession()->get('token', ($this->keygen)(16));
+        if (strlen($token) !== 16) $token = ($this->keygen)(16);
         $tickets = [ ($ticket = ($this->keygen)(16)) => $token ];
 
         $request->getSession()->set('token', $token);

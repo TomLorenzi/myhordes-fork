@@ -273,6 +273,13 @@ export class Fetch {
 
             if (!response.ok) {
                 switch (response.status) {
+                    case 400:
+                        if (response.headers.get('X-WHAT') === 'TOAST') {
+                            console.error('Server reports that connection is no longer toasty. Attempting to fetch new bread.');
+                            window.location.href = $.ajax.getBaseURL();
+                        }
+                        else error_code = error_code ?? 'com';
+                        break;
                     case 401: case 403:
                         window.location.href = $.ajax.getBaseURL();
                         throw null;

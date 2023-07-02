@@ -3,6 +3,7 @@
 
 namespace App\Security;
 
+use App\Service\Actions\Security\GenerateKeyAction;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +18,8 @@ use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPasspor
 class RememberMeAuthenticator extends AbstractAuthenticator
 {
     public function __construct(
-        private readonly Security $security
+        private readonly Security $security,
+        private readonly GenerateKeyAction $keygen
     ) {}
 
     /**
@@ -43,6 +45,7 @@ class RememberMeAuthenticator extends AbstractAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey): ?Response
     {
+        $request->getSession()->set('token', ($this->keygen)(15));
         if ($request->isXmlHttpRequest() && str_starts_with( $request->getPathInfo(), '/jx/' ))
             return new Response( '', 200, [
                 'X-AJAX-Control' => 'navigate',
