@@ -69,7 +69,13 @@ export default class Client {
     constructor() { this.config = new Config(this); }
 
     private key( name: string, group: string|null ): string {
-        return (group !== 'config' ? 'myh:' + this.pSession : 'myh') + '.' + (group === null ? 'default' : group) + '.' + name;
+        const user_prefix = group !== 'config' || [
+            'editorCache',
+            'scopedEditorCache',
+            'twinImport',
+            'completedTutorials'
+        ].includes(name);
+        return (user_prefix ? 'myh:' + this.pSession : 'myh') + '.' + (group === null ? 'default' : group) + '.' + name;
     }
 
     private get_var(storage: Storage, name: string, group: string|null = null, default_value: any, mask: Array<boolean> ): any | null {
@@ -108,7 +114,7 @@ export default class Client {
     }
 
     set( name: string, group: string|null, value: any, session_only: boolean ): boolean {
-        return this.set_var( session_only ? window.sessionStorage : window.localStorage, name, group, value );
+        return this.set_var( session_only ? (window.sessionStorage as Storage) : (window.localStorage as Storage), name, group, value );
     }
 
     get( name: string, group: string|null = null, default_value: any = null, mask: Array<boolean> = Client.DomainUser ): any {
