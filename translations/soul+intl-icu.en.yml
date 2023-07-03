@@ -566,5 +566,5 @@ Bildformat: Image format
 'Koalition umbenennen': 'Rename coalition'
 'Gib den neuen Namen deiner Koalition ein.': 'Enter your coalition''s new name.'
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'You''ve successfully changed the name of your coalition.'
-'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.'
-'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256'
+'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'This animation contains too many frames, the server cannot crop it to the required size.'
+'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'If you upload an animated image with a resolution more than 200×200 pixels, it must not exceed 256 animation frames.'
