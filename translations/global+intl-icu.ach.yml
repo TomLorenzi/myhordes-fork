@@ -530,3 +530,8 @@ Kurzbeschreibung: crwdns168597:0crwdne168597:0
 'Mehr Ergebnisse anzeigen': 'crwdns168609:0crwdne168609:0'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'crwdns168611:0crwdne168611:0'
 Inhaltsverzeichnis: crwdns168681:0crwdne168681:0
+'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'crwdns201633:0crwdne201633:0'
+'Bitte versuche es in einigen Minuten erneut.': 'crwdns201635:0crwdne201635:0'
+'Bitte versuche es in einigen Stunden erneut.': 'crwdns201637:0crwdne201637:0'
+'Bitte versuche es morgen erneut.': 'crwdns201639:0crwdne201639:0'
+'Bitte versuche es in {days} Tagen erneut.': 'crwdns201641:0{days}crwdne201641:0'
