@@ -1090,11 +1090,11 @@ class User implements UserInterface, EquatableInterface, PasswordAuthenticatedUs
     }
 
     /**
-     * @param Season $season
+     * @param Season|null $season
      * @param string|null $team
      * @return Collection<int, TeamTicket>
      */
-    public function getTeamTicketsFor(Season $season, ?string $team = null): Collection
+    public function getTeamTicketsFor(?Season $season, ?string $team = null): Collection
     {
         $criteria = (new Criteria())->andWhere( new Comparison( 'season', Comparison::EQ, $season ) );
         if ($team === '!' && $this->getTeam() !== null) $criteria->andWhere( new Comparison('team', Comparison::NEQ, $this->team ) );
