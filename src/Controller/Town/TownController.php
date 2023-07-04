@@ -1214,9 +1214,20 @@ class TownController extends InventoryAwareController
 
         $citizens = [];
         $hidden = [];
+        $protoCurtain = $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,'curtain');
 
         foreach($town->getCitizens() as $citizen) {
-            $hidden[$citizen->getId()] = false;
+            $citizenHomeUpgrades = $citizen->getHome()->getCitizenHomeUpgrades()->getValues()?
+                array_map(
+                    function($item) {
+                        return $item->getPrototype();
+                    },
+                    $citizen->getHome()->getCitizenHomeUpgrades()->getValues()
+                ) : [];
+
+
+
+            $hidden[$citizen->getId()] = $citizen->getAlive() && in_array($protoCurtain, $citizenHomeUpgrades);
             $citizens[] = [
                 'infos' => $citizen,
                 'omniscienceLevel' => $this->citizen_handler->getActivityLevel($citizen),
