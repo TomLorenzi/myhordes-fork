@@ -34,6 +34,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('hunter_no_followers')->type( Requirement::MessageOnFail )->text('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {escortCount} Personen im Schlepptau hast...')->add( (new EscortRequirement())->maxFollowers(0) )->commit();
         $requirement_container->add()->identifier('room_for_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement()) )->commit();
 
+        //<editor-fold desc="ProfessionRoleRequirements">
         $requirement_container->add()->identifier('profession_basic')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('basic', true) )->commit();
         $requirement_container->add()->identifier('profession_collec')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('collec', true) )->commit();
         $requirement_container->add()->identifier('profession_guardian')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('guardian', true) )->commit();
@@ -49,7 +50,9 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('role_ghoul')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('ghoul', true) )->commit();
         $requirement_container->clone('role_ghoul')->identifier('role_ghoul_serum')->type( Requirement::MessageOnFail )->text('Du kannst dieses Serum nicht auf dich selbst anwenden, oder du wirst der beste Freund eines Ghuls...')->commit();
         $requirement_container->add()->identifier('not_role_ghoul')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->role('ghoul', false) )->commit();
+        //</editor-fold>
 
+        //<editor-fold desc="StatusRequirements">
         $requirement_container->add()->identifier('never_cross')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('tg_never', true) )->commit();
 
         $requirement_container->add()->identifier('drink_cross')->type( Requirement::CrossOnFail )->add( (new StatusRequirement())->status('hasdrunk', false) )->commit();
@@ -111,7 +114,9 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('must_not_be_tombed')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_tomb', false) )->commit();
         $requirement_container->add()->identifier('must_be_hidden')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_hide', true) )->commit();
         $requirement_container->add()->identifier('must_be_tombed')->type( Requirement::HideOnFail )->add( (new StatusRequirement())->status('tg_tomb', true) )->commit();
+        //</editor-fold>
 
+        //<editor-fold desc="PointRequirements">
         $requirement_container->add()->identifier('no_bonus_ap')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::AP)->max(0)->fromLimit() )->text_key('already_full_ap')->commit();
         $requirement_container->add()->identifier('no_full_ap')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::AP)->max(-1)->fromLimit() )->text_key('already_full_ap')->commit();
         $requirement_container->clone('no_full_ap')->identifier('not_thirsty')->type( Requirement::MessageOnFail )->text_key('already_full_ap_drink')->commit();
@@ -128,11 +133,15 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('min_1_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(1) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_2_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(2) )->text_key('pt_required')->commit();
         $requirement_container->add()->identifier('min_3_pm')->type( Requirement::CrossOnFail )->add( (new PointRequirement())->require(PointType::MP)->min(3) )->text_key('pt_required')->commit();
+        //</editor-fold>
 
+        //<editor-fold desc="TimeRequirements">
         $requirement_container->add()->identifier('not_before_day_2')->type( Requirement::CrossOnFail )->add( (new TimeRequirement())->minDay(2) )->text('Dies kannst du erst ab <strong>Tag {day_min}</strong> tun.')->commit();
         $requirement_container->add()->identifier('must_be_day')->type( Requirement::HideOnFail )->add( (new TimeRequirement())->atDay() )->commit();
         $requirement_container->add()->identifier('must_be_night')->type( Requirement::HideOnFail )->add( (new TimeRequirement())->atNight() )->commit();
+        //</editor-fold>
 
+        //<editor-fold desc="CounterRequirements">
         $requirement_container->add()->identifier('lab_counter_below_1')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeLab)->max( 0 ) )->commit();
         $requirement_container->add()->identifier('lab_counter_below_4')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeLab)->max( 3 ) )->commit();
         $requirement_container->add()->identifier('lab_counter_below_6')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeLab)->max( 5 ) )->commit();
@@ -143,7 +152,9 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('kitchen_counter_below_4')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 3 ) )->commit();
         $requirement_container->add()->identifier('kitchen_counter_below_5')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 4 ) )->commit();
         $requirement_container->add()->identifier('kitchen_counter_below_6')->type( Requirement::CrossOnFail )->add( (new CounterRequirement())->counter(ActionCounter::ActionTypeHomeKitchen)->max( 5 ) )->commit();
+        //</editor-fold>
 
+        //<editor-fold desc="BuildingRequirements">
         $requirement_container->add()->identifier('must_have_purifier')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_jerrycan_#00', true) )->commit();
         $requirement_container->add()->identifier('must_not_have_purifier')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_jerrycan_#00', false) )->commit();
         $requirement_container->add()->identifier('must_have_filter')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('item_jerrycan_#01', true) )->commit();
@@ -164,6 +175,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('must_not_have_canteen')->type( Requirement::HideOnFail )->add( (new BuildingRequirement())->building('small_cafet_#01', false) )->commit();
 
         $requirement_container->add()->identifier('must_not_have_valve')->type( Requirement::MessageOnFail )->add( (new BuildingRequirement())->building('small_valve_#00', false) )->text('Vielleicht solltest du das mithilfe des Wasserhahns füllen...')->commit();
+        //</editor-fold>
 
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
