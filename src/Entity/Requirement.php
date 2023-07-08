@@ -36,12 +36,8 @@ class Requirement
     private $home;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireZone')]
     private $zone;
-    #[ORM\ManyToOne(targetEntity: RequireConf::class)]
-    private $conf;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $custom;
-    #[ORM\ManyToOne(targetEntity: RequireEvent::class)]
-    private $Event;
 
     #[ORM\Column(nullable: true)]
     private ?array $atoms = null;
@@ -61,8 +57,8 @@ class Requirement
         return $this;
     }
     public function clear(): self {
-        $this->statusRequirement = $this->item = $this->zombies = $this->location = $this->ap = $this->building =
-        $this->home = $this->zone = $this->counter = $this->pm = $this->cp = $this->conf = $this->custom = null;
+        $this->item = $this->zombies = $this->location =
+        $this->home = $this->zone = $this->custom = null;
         return $this;
     }
     public function getFailureMode(): ?int
@@ -136,16 +132,6 @@ class Requirement
         return $this;
     }
 
-    public function getConf(): ?RequireConf
-    {
-        return $this->conf;
-    }
-    public function setConf(?RequireConf $conf): self
-    {
-        $this->conf = $conf;
-
-        return $this;
-    }
     public function getCustom(): ?int
     {
         return $this->custom;
@@ -153,16 +139,6 @@ class Requirement
     public function setCustom(?int $custom): self
     {
         $this->custom = $custom;
-
-        return $this;
-    }
-    public function getEvent(): ?RequireEvent
-    {
-        return $this->Event;
-    }
-    public function setEvent(?RequireEvent $Event): self
-    {
-        $this->Event = $Event;
 
         return $this;
     }

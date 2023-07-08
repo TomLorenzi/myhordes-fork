@@ -99,16 +99,6 @@ class ActionHandler
                 case Requirement::HideOnFail: $this_state = ActionValidity::Hidden; break;
             }
 
-            if ($config = $meta_requirement->getConf()) {
-
-                $set_val = $this->conf->getTownConfiguration($citizen->getTown())->get($config->getConf(), null);
-
-                $success = false;
-                if (!$success && $config->getBoolVal() !== null && $set_val === $config->getBoolVal()) $success = true;
-
-                if (!$success) $current_state = $current_state->merge($this_state);
-            }
-
             if ($home = $meta_requirement->getHome()) {
                 if ($home->getUpgrade() === null) {
                     if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = $current_state->merge($this_state);
@@ -209,21 +199,6 @@ class ActionHandler
                 }
 
                 if ($zombie_condition->getNumber() > $current_zeds) $current_state = $current_state->merge($this_state);
-            }
-
-            if ($eventReq = $meta_requirement->getEvent()) {
-                /** @var RequireEvent $eventReq */
-                $events = $this->conf->getCurrentEvents($citizen->getTown(), $markers);
-                $found = false;
-                foreach ($events as $event) {
-                    if ($event->name() == $eventReq->getEventName() && $event->active()) {
-                        $found = true;
-                        break;
-                    }
-                }
-                if(!$found) {
-                    $current_state = $current_state->merge($this_state);
-                }
             }
 
             if ($meta_requirement->getCustom())
