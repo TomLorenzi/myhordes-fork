@@ -112,68 +112,6 @@ class ActionHandler
                 }
             }
 
-            if ($zone = $meta_requirement->getZone()) {
-                if ($zone->getMaxLevel() !== null && $citizen->getZone() && ( $citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = $current_state->merge($this_state);
-            }
-
-            if ($location_condition = $meta_requirement->getLocation()) {
-                switch ( $location_condition->getLocation() ) {
-                    case RequireLocation::LocationInTown:
-                        if ( $citizen->getZone() ) $current_state = $current_state->merge($this_state);
-                        break;
-                    case RequireLocation::LocationOutside:case RequireLocation::LocationOutsideFree:
-                    case RequireLocation::LocationOutsideRuin:case RequireLocation::LocationOutsideBuried:
-                    case RequireLocation::LocationOutsideOrExploring:
-                        if ( !$citizen->getZone() ) $current_state = $current_state->merge($this_state);
-                        else {
-                            if     ( $location_condition->getLocation() === RequireLocation::LocationOutsideFree   &&  $citizen->getZone()->getPrototype() ) $current_state = $current_state->merge($this_state);
-                            elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideRuin   && !$citizen->getZone()->getPrototype() ) $current_state = $current_state->merge($this_state);
-                            elseif ( $location_condition->getLocation() === RequireLocation::LocationOutsideBuried && (!$citizen->getZone()->getPrototype() || !$citizen->getZone()->getBuryCount()) ) $current_state = $current_state->merge($this_state);
-                            elseif ( $location_condition->getLocation() !== RequireLocation::LocationOutsideOrExploring && $citizen->activeExplorerStats() ) $current_state = $current_state->merge($this_state);
-
-                            if ($location_condition->getMinDistance() !== null || $location_condition->getMaxDistance() !== null) {
-                                $dist = round(sqrt( pow($citizen->getZone()->getX(),2) + pow($citizen->getZone()->getY(),2) ));
-                                if ( ($location_condition->getMinDistance() !== null && $dist < $location_condition->getMinDistance() ) || ($location_condition->getMaxDistance() !== null && $dist > $location_condition->getMaxDistance() ) )
-                                    $current_state = $current_state->merge($this_state);
-                            }
-                        }
-                        break;
-                    case RequireLocation::LocationExploring:
-                        if ( !$citizen->activeExplorerStats() ) $current_state = $current_state->merge($this_state);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            if ($zombie_condition = $meta_requirement->getZombies()) {
-                $cp = 0;
-                $current_zeds = 0;
-
-                if ($citizen->activeExplorerStats())
-                    $current_zeds = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats( $citizen->activeExplorerStats() )->getZombies();
-                elseif ($citizen->getZone())
-                    $current_zeds = $citizen->getZone()->getZombies();
-
-                if ( $citizen->getZone() && !$citizen->activeExplorerStats() )
-                    foreach ( $citizen->getZone()->getCitizens() as $c )
-                        $cp += $this->citizen_handler->getCP( $c );
-
-                if ($zombie_condition->getMustBlock() !== null) {
-
-                    if ($zombie_condition->getMustBlock() && $cp >= $current_zeds) $current_state = $current_state->merge($this_state);
-                    elseif (!$zombie_condition->getMustBlock() && $cp < $current_zeds) {
-
-                        if (!$zombie_condition->getTempControlAllowed() || !$this->entity_manager->getRepository( EscapeTimer::class )->findActiveByCitizen($citizen))
-                            $current_state = $current_state->merge($this_state);
-
-                    }
-
-                }
-
-                if ($zombie_condition->getNumber() > $current_zeds) $current_state = $current_state->merge($this_state);
-            }
-
             if ($meta_requirement->getCustom())
                 switch ($meta_requirement->getCustom()) {
 

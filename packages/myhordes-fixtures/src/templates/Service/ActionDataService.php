@@ -19,6 +19,7 @@ use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\LocationRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\PointRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\StatusRequirement;
@@ -211,23 +212,28 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('must_have_drug')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('drug_#00') )->text_key('item_needed_generic')->commit();
         //</editor-fold>
 
+        //<editor-fold desc="LocationRequirements">
+        $requirement_container->add()->identifier('must_be_outside')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true) )->commit();
+        $requirement_container->add()->identifier('must_be_outside_or_exploring')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(null) )->commit();
+        $requirement_container->add()->identifier('must_be_exploring')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->exploring(true) )->commit();
+        $requirement_container->add()->identifier('must_be_inside')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->town(true) )->commit();
+        $requirement_container->add()->identifier('must_be_inside_bp')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->town(true) )->text('Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.')->commit();
+        $requirement_container->add()->identifier('must_be_at_buried_ruin')->type( Requirement::CrossOnFail )->add( (new LocationRequirement())->beyond(true)->atBuriedRuin(true) )->text('Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.')->commit();
+        $requirement_container->add()->identifier('must_be_outside_not_at_doors')->type( Requirement::HideOnFail )->add( (new LocationRequirement())->beyond(true)->minAp(1) )->commit();
+        $requirement_container->add()->identifier('must_be_outside_3km')->type( Requirement::CrossOnFail )->add( (new LocationRequirement())->beyond(true)->minKm(3) )->text('Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.')->commit();
+        $requirement_container->add()->identifier('must_be_outside_within_11km')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->maxKm(11) )->text('Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.')->commit();
+
+        $requirement_container->add()->identifier('must_have_zombies')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->minZombies(1) )->text('Zum Glück sind hier keine Zombies...')->commit();
+        $requirement_container->add()->identifier('must_be_blocked')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->isControlled(false) )->text('Das solltest du nur in einer ausweglosen Situation tun...')->commit();
+        $requirement_container->add()->identifier('must_not_be_blocked')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->isControlled(true) )->text('Das kannst du nicht tun während du umzingelt bist...')->commit();
+        $requirement_container->add()->identifier('must_have_control')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->isControlledOrTempControlled(true) )->text('Das kannst du nicht tun während du umzingelt bist...')->commit();
+        $requirement_container->add()->identifier('must_have_control_hunter')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->isControlledOrTempControlled(true) )->text('Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!')->commit();
+
+        $requirement_container->add()->identifier('zone_is_improvable')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->maxLevel(9.9) )->text('Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.')->commit();
+        //</editor-fold>
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
-                'must_be_outside'              => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
-                'must_be_outside_or_exploring' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutsideOrExploring ] ]],
-                'must_be_exploring'            => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationExploring ] ]],
-                'must_be_inside'               => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
-                'must_be_inside_bp'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ], 'text' => 'Wenn du den Plan studieren willst, musst du in die relative Ruhe der Stadt zurückkehren.'],
-                'must_be_at_buried_ruin'       => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
-                'must_be_outside_not_at_doors' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 1 ] ] ],
-                'must_be_outside_3km'          => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ 'min' => 3 ] ],  'text' => 'Du musst mindestens 3 Kilometer von der Stadt entfernt sein, um das zu tun.'],
-                'must_be_outside_within_11km'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'location' => [ 'max' => 11 ] ], 'text' => 'Du bist <strong>zu weit von der Stadt entfernt</strong>, um diese Fähigkeit benutzen zu können! Genauer gesagt bist du {km_from_town} km entfernt. Die maximale Entfernung darf höchstens 11 km betragen.'],
-
-                'must_have_zombies'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => null  ] ], 'text' => 'Zum Glück sind hier keine Zombies...'],
-                'must_be_blocked'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 1, 'block' => true ] ], 'text' => 'Das solltest du nur in einer ausweglosen Situation tun...'],
-                'must_not_be_blocked' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false ] ], 'text' => 'Das kannst du nicht tun während du umzingelt bist...'],
-                'must_have_control'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst du nicht tun während du umzingelt bist...'],
-
                 'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
 
                 'must_have_home_lab_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'lab' ] ]],
@@ -243,8 +249,6 @@ class ActionDataService implements FixtureProcessorInterface {
                 'must_have_home_rest_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'rest' ] ]],
                 'must_have_home_rest_v2' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 2, 'max_level' => 2, 'upgrade' => 'rest' ] ]],
                 'must_have_home_rest_v3' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 3, 'max_level' => 3, 'upgrade' => 'rest' ] ]],
-
-                'zone_is_improvable' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zone' => [ 'max_level' => 10 ] ], 'text' => 'Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.' ],
 
                 'guard_tower_not_max' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [13] ], 'text' => 'Du hast das Gefühl, dass du die Organisation der Verteidigung der Stadt nicht weiter verbessern kannst.'],
 
@@ -908,7 +912,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'hero_surv_1' => [ 'label' => 'Wasser suchen', 'renderer' => 'survivalist_popup', 'meta' => [ 'must_be_outside', 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
                 'hero_surv_2' => [ 'label' => 'Essen suchen',  'renderer' => 'survivalist_popup', 'meta' => [ 'must_be_outside', 'no_full_ap', 'must_be_outside_3km', 'not_yet_sbook', 'eat_ap' ], 'result' => [ 'contaminated_zone_infect', 'hero_surv_0', 'hero_surv_2' ], 'message' => '{casino}' ],
 
-                'hero_hunter_1' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_outside', 'hunter_no_followers', [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!'] ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
+                'hero_hunter_1' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_outside', 'hunter_no_followers', 'must_have_control_hunter' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
                 'hero_hunter_2' => [ 'label' => 'Tarnen', 'at00' => true, 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
 
                 'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'at00' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]], ['message' => [ 'text' => 'Mit deiner letzten Kraft hast du dich *in die Stadt geschleppt*... *Ein Wunder*!' ]] ],  ],

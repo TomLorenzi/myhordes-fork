@@ -26,14 +26,8 @@ class Requirement
     private $failureMode;
     #[ORM\Column(type: 'text', nullable: true)]
     private $failureText;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireZombiePresence')]
-    private $zombies;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireLocation')]
-    private $location;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireHome')]
     private $home;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireZone')]
-    private $zone;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $custom;
 
@@ -55,8 +49,7 @@ class Requirement
         return $this;
     }
     public function clear(): self {
-        $this->zombies = $this->location =
-        $this->home = $this->zone = $this->custom = null;
+        $this->home = $this->custom = null;
         return $this;
     }
     public function getFailureMode(): ?int
@@ -79,26 +72,6 @@ class Requirement
 
         return $this;
     }
-    public function getZombies(): ?RequireZombiePresence
-    {
-        return $this->zombies;
-    }
-    public function setZombies(?RequireZombiePresence $zombies): self
-    {
-        $this->zombies = $zombies;
-
-        return $this;
-    }
-    public function getLocation(): ?RequireLocation
-    {
-        return $this->location;
-    }
-    public function setLocation(?RequireLocation $location): self
-    {
-        $this->location = $location;
-
-        return $this;
-    }
     public function getHome(): ?RequireHome
     {
         return $this->home;
@@ -106,16 +79,6 @@ class Requirement
     public function setHome(?RequireHome $home): self
     {
         $this->home = $home;
-
-        return $this;
-    }
-    public function getZone(): ?RequireZone
-    {
-        return $this->zone;
-    }
-    public function setZone(?RequireZone $zone): self
-    {
-        $this->zone = $zone;
 
         return $this;
     }

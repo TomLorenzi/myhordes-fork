@@ -116,17 +116,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 if (!isset($sub_cache[$sub_id])) $sub_cache[$sub_id] = [];
                                 
                 switch ($sub_id) {
-                    case 'location':
-                        $requirement->setLocation( $this->process_location_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
-                    case 'zombies':
-                        $requirement->setZombies( $this->process_zombie_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
                     case 'home':
                         $requirement->setHome( $this->process_home_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
-                    case 'zone':
-                        $requirement->setZone( $this->process_zone_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
                     case 'custom':
                         $requirement->setCustom( $sub_data[0] );
@@ -139,72 +130,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t<comment>Skip</comment> meta condition <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
         
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireLocation
-     * @throws Exception
-     */
-    private function process_location_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireLocation
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireLocation::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>location/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireLocation();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>location/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement->setName( $id );
-            if (count($data) === 1 && isset( $data[0] ))
-                $requirement->setLocation( $data[0] );
-            else $requirement
-                ->setMinDistance( $data['min'] ?? null )
-                ->setMaxDistance( $data['max'] ?? null )
-                ->setLocation( $data['type'] ?? ( ( isset($data['min']) || isset($data['max']) ) ? RequireLocation::LocationOutsideOrExploring : RequireLocation::LocationInTown ) );
-
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>location/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireZombiePresence
-     * @throws Exception
-     */
-    private function process_zombie_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireZombiePresence
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireZombiePresence::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>zombies/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireZombiePresence();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>zombies/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement->setName( $id )
-                ->setNumber( $data['min'] )
-                ->setMustBlock( $data['block'] ?? null )
-                ->setTempControlAllowed( $data['temp'] ?? null );
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>zombies/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
         return $cache[$id];
     }
 
@@ -242,35 +167,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireZone
-     * @throws Exception
-     */
-    private function process_zone_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireZone
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireZone::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireZone();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement->setName( $id );
-            if ($data['max_level']) $requirement->setMaxLevel( $data['max_level'] );
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }
