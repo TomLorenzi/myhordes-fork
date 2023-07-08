@@ -80,7 +80,7 @@ class ActionHandler
         private readonly ContainerInterface $container
     ) {}
 
-    protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message ): ActionValidity {
+    protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null ): ActionValidity {
 
         if ($item && !$item->getPrototype()->getActions()->contains( $action )) return ActionValidity::None;
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
@@ -116,32 +116,6 @@ class ActionHandler
                 if ($zone->getMaxLevel() !== null && $citizen->getZone() && ( $citizen->getZone()->getImprovementLevel() ) >= $zone->getMaxLevel()) $current_state = $current_state->merge($this_state);
             }
 
-            if ($item_condition = $meta_requirement->getItem()) {
-                $item_str = ($is_prop = (bool)$item_condition->getProperty())
-                    ? $item_condition->getProperty()->getName()
-                    : $item_condition->getPrototype()->getName();
-
-                $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
-
-                $count = $item_condition->getCount() === null ? 1 : $item_condition->getCount();
-
-                if ($count > 0) {
-                    if (empty($this->inventory_handler->fetchSpecificItems( $source,
-                        [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
-                    ))) {
-                        if (!$is_prop) for ($i = 0; $i < $item_condition->getCount() ?? 1; $i++) $cache->addMissingItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str));
-                        $current_state = $current_state->merge($this_state);
-                    }
-                } else {
-                    if (!empty($this->inventory_handler->fetchSpecificItems( $source,
-                        [new ItemRequest($item_str, 1, false, ($item_condition->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false, $is_prop)]
-                    ))) {
-                        if (!$is_prop) $cache->addMissingItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str));
-                        $current_state = $current_state->merge($this_state);
-                    }
-                }
-            }
-
             if ($location_condition = $meta_requirement->getLocation()) {
                 switch ( $location_condition->getLocation() ) {
                     case RequireLocation::LocationInTown:
@@ -171,7 +145,6 @@ class ActionHandler
                         break;
                 }
             }
-
 
             if ($zombie_condition = $meta_requirement->getZombies()) {
                 $cp = 0;
@@ -464,9 +437,11 @@ class ActionHandler
      * @param int $c
      * @return string
      */
-    private function wrap($o, int $c=1) :string {
+    private function wrap($o, int $c=1): string {
         $i = null;
-        if (is_a($o, ItemPrototype::class)) {
+        if (is_array($o))
+            return implode( ', ', array_map( fn($e) => $this->wrap($e, $c), $o ));
+        else if (is_a($o, ItemPrototype::class)) {
             $s = $this->translator->trans($o->getLabel(), [], 'items');
             $i = 'build/images/item/item_' . $o->getIcon() . '.gif';
         } else if (is_a($o, BuildingPrototype::class)) {
@@ -525,8 +500,11 @@ class ActionHandler
 
         $town_conf = $this->conf->getTownConfiguration( $citizen->getTown() );
 
+        /** @var ?Evaluation $evaluation */
+        $evaluation = null;
+
         if (!$force) {
-            $mode = $this->evaluate( $citizen, $item, $target, $action, $tx );
+            $mode = $this->evaluate( $citizen, $item, $target, $action, $tx, $evaluation );
             if ($mode->thatOrBelow( ActionValidity::Hidden ) ) return self::ErrorActionUnregistered;
             if ($mode->thatOrBelow( ActionValidity::Crossed ) ) return self::ErrorActionImpossible;
             if ($mode->thatOrBelow( ActionValidity::Allow ) ) {
@@ -560,7 +538,7 @@ class ActionHandler
             'item_target_morph' => [ null, null ],
             'items_consume' => [],
             'items_spawn' => [],
-            'item_tool' => [],
+            'item_tool' => $evaluation->getProcessedItems('item_tool'),
             'tamer_dog' => LogTemplateHandler::generateDogName($citizen->getId(), $this->translator),
             'bp_spawn' => [],
             'bp_parent' => [],
@@ -763,30 +741,6 @@ class ActionHandler
                 $box_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'box_opener']);
                 $parcel_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'parcel_opener']);
                 $parcel_opener_home_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'parcel_opener_h']);
-
-                foreach ($action->getRequirements() as $req) {
-                    if (!$req->getItem() || $req->getItem()->getCount() <= 0) continue;
-
-                    if ($req->getItem() && $req->getItem()->getProperty() == $can_opener_prop) {
-                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('can_opener', 1, false, null, true)])[0]->getPrototype();
-                        break;
-                    }
-
-                    if ($req->getItem() && $req->getItem()->getProperty() == $box_opener_prop) {
-                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('box_opener', 1, false, null, true)])[0]->getPrototype();
-                        break;
-                    }
-
-                    if ($req->getItem() && $req->getItem()->getProperty() == $parcel_opener_prop) {
-                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('parcel_opener', 1, false, null, true)])[0]->getPrototype();
-                        break;
-                    }
-
-                    if ($req->getItem() && $req->getItem()->getProperty() == $parcel_opener_home_prop) {
-                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('parcel_opener_h', 1, false, null, true)])[0]->getPrototype();
-                        break;
-                    }
-                }
             }
 
             if ($target && $target_result = $result->getTarget()) {

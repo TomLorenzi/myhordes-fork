@@ -18,6 +18,7 @@ use MyHordes\Fixtures\DTO\Actions\Atoms\CounterRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\PointRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ProfessionRoleRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\StatusRequirement;
@@ -183,31 +184,35 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('during_christmas')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->event('christmas') )->text_key('not_in_event')->commit();
         //</editor-fold>
 
+        //<editor-fold desc="ItemRequirements">
+        $requirement_container->add()->identifier('have_can_opener')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->property('can_opener')->store('item_tool') )->text('Du hast nichts, mit dem du dieses Ding aufbekommen könntest..')->commit();
+        $requirement_container->add()->identifier('have_box_opener')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->property('box_opener')->store('item_tool') )->text('Du hast nichts, mit dem du dieses Ding aufbekommen könntest..')->commit();
+        $requirement_container->add()->identifier('have_parcel_opener')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->property('parcel_opener')->store('item_tool') )->text('Du hast nichts, mit dem du dieses Ding aufbekommen könntest..')->commit();
+        $requirement_container->add()->identifier('have_parcel_opener_home')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->property('parcel_opener_h')->store('item_tool') )->text('Du hast nichts, mit dem du dieses Ding aufbekommen könntest..')->commit();
+
+        $requirement_container->add()->identifier('have_can_opener_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('can_opener')->store('item_tool') )->commit();
+        $requirement_container->add()->identifier('have_box_opener_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('box_opener')->store('item_tool') )->commit();
+        $requirement_container->add()->identifier('have_parcel_opener_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('parcel_opener')->store('item_tool') )->commit();
+        $requirement_container->add()->identifier('have_parcel_opener_home_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('parcel_opener_h')->store('item_tool') )->commit();
+
+        $requirement_container->add()->identifier('not_have_can_opener_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('can_opener')->count(0) )->commit();
+        $requirement_container->add()->identifier('not_have_box_opener_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('box_opener')->count(0) )->commit();
+        $requirement_container->add()->identifier('not_have_parcel_opener_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('parcel_opener')->count(0) )->commit();
+        $requirement_container->add()->identifier('not_have_parcel_opener_home_hd')->type( Requirement::HideOnFail )->add( (new ItemRequirement())->property('parcel_opener_h')->count(0) )->commit();
+
+        $requirement_container->add()->identifier('have_water_shaman')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('water_#00') )->text('Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.')->commit();
+        $requirement_container->add()->identifier('have_water')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('water_#00') )->text_key('item_needed_generic')->commit();
+        $requirement_container->add()->identifier('have_canister')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('jerrycan_#00') )->text_key('item_needed_generic')->commit();
+        $requirement_container->add()->identifier('have_battery')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('pile_#00') )->text_key('item_needed_generic')->commit();
+        $requirement_container->add()->identifier('have_matches')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('lights_#00') )->text_key('item_needed_generic')->commit();
+        $requirement_container->add()->identifier('have_2_pharma')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('pharma_#00')->count(2) )->text_key('item_needed_generic')->commit();
+        $requirement_container->add()->identifier('must_have_micropur')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('water_cleaner_#00') )->text_key('item_needed_generic')->commit();
+        $requirement_container->add()->identifier('must_have_micropur_in')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('water_cleaner_#00') )->text_key('water_purification_impossible')->commit();
+        $requirement_container->add()->identifier('must_have_drug')->type( Requirement::MessageOnFail )->add( (new ItemRequirement())->item('drug_#00') )->text_key('item_needed_generic')->commit();
+        //</editor-fold>
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
-                'have_can_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-                'have_box_opener'            => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-                'have_parcel_opener'         => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener' ] ],      'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-                'have_parcel_opener_home'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener_h' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-                'have_can_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ] ],
-                'have_box_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ] ],
-                'have_parcel_opener_hd'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener' ] ] ],
-                'have_parcel_opener_home_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener_h' ] ] ],
-                'not_have_can_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener', 'count' => 0 ] ] ],
-                'not_have_box_opener_hd'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener', 'count' => 0 ] ] ],
-                'not_have_parcel_opener_hd'      => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener', 'count' => 0 ] ] ],
-                'not_have_parcel_opener_home_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'parcel_opener_h', 'count' => 0 ] ] ],
-                'have_water'        => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_#00', 'prop' => null ] ],    'text_key' => 'item_needed_generic' ],
-                'have_water_shaman' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_#00', 'prop' => null ] ],    'text' => 'Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.' ],
-                'have_canister'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'jerrycan_#00', 'prop' => null ] ], 'text_key' => 'item_needed_generic' ],
-                'have_battery'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'pile_#00',  'prop' => null ] ],    'text_key' => 'item_needed_generic' ],
-                'have_matches'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'lights_#00', 'prop' => null ] ],   'text_key' => 'item_needed_generic' ],
-                'have_2_pharma'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'pharma_#00', 'prop' => null, 'count' => 2 ] ], 'text_key' => 'item_needed_generic' ],
-
-                'must_have_micropur' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_cleaner_#00', 'prop' => null ] ], 'text_key' => 'item_needed_generic'],
-                'must_have_micropur_in' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_cleaner_#00', 'prop' => null ] ], 'text_key' => 'water_purification_impossible'],
-                'must_have_drug'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'drug_#00',          'prop' => null ] ], 'text_key' => 'item_needed_generic'],
-
                 'must_be_outside'              => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
                 'must_be_outside_or_exploring' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutsideOrExploring ] ]],
                 'must_be_exploring'            => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationExploring ] ]],

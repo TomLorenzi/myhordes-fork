@@ -26,8 +26,6 @@ class Requirement
     private $failureMode;
     #[ORM\Column(type: 'text', nullable: true)]
     private $failureText;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireItem')]
-    private $item;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireZombiePresence')]
     private $zombies;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireLocation')]
@@ -57,7 +55,7 @@ class Requirement
         return $this;
     }
     public function clear(): self {
-        $this->item = $this->zombies = $this->location =
+        $this->zombies = $this->location =
         $this->home = $this->zone = $this->custom = null;
         return $this;
     }
@@ -78,16 +76,6 @@ class Requirement
     public function setFailureText(?string $failureText): self
     {
         $this->failureText = $failureText;
-
-        return $this;
-    }
-    public function getItem(): ?RequireItem
-    {
-        return $this->item;
-    }
-    public function setItem(?RequireItem $item): self
-    {
-        $this->item = $item;
 
         return $this;
     }

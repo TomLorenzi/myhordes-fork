@@ -116,9 +116,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 if (!isset($sub_cache[$sub_id])) $sub_cache[$sub_id] = [];
                                 
                 switch ($sub_id) {
-                    case 'item':
-                        $requirement->setItem( $this->process_item_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
                     case 'location':
                         $requirement->setLocation( $this->process_location_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
@@ -142,45 +139,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t<comment>Skip</comment> meta condition <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
         
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireItem
-     * @throws Exception
-     */
-    private function process_item_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireItem
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireItem::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireItem();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-            $prototype = empty($data['item']) ? null : $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $data['item']]);
-            if (!empty($data['item']) && ! $prototype) {
-                throw new Exception('Item prototype not found: ' . $data['item']);
-            }
-
-            $property  = empty($data['prop']) ? null : $manager->getRepository(ItemProperty::class )->findOneBy(['name' => $data['prop']]);
-            if (!empty($data['prop']) && ! $property)
-                throw new Exception('Item property not found: ' . $data['prop']);
-
-            if (!$prototype && !$property)
-                throw new Exception('Item condition must have a prototype or property attached. not found: ' . $data['status']);
-
-            $requirement->setName( $id )->setPrototype( $prototype )->setProperty( $property )->setCount( $data['count'] ?? 1 )->setAllowPoison( $data['allowPoison'] ?? false );
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
         return $cache[$id];
     }
 

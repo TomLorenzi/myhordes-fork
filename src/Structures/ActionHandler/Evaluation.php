@@ -14,6 +14,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class Evaluation
 {
     private array $missing_items = [];
+    private array $processed_items = [];
     private array $messages = [];
     private array $trans = [];
     private array $metaTrans = [];
@@ -27,6 +28,11 @@ class Evaluation
 
     public function addMissingItem(ItemPrototype $prototype): void {
         $this->missing_items[] = $prototype;
+    }
+
+    public function addProcessedItem(string $key, ItemPrototype $prototype): void {
+        if (!isset( $this->processed_items[$key] )) $this->processed_items[$key] = [];
+        $this->processed_items[$key][] = $prototype;
     }
 
     public function addMessage(string $message, array $variables = [], string $translationDomain = null): void {
@@ -43,6 +49,10 @@ class Evaluation
 
     public function getMissingItems(): array {
         return $this->missing_items;
+    }
+
+    public function getProcessedItems(string $key): array {
+        return $this->processed_items[$key] ?? [];
     }
 
     public function getMessages(TranslatorInterface $trans, array $keys = []): array {
