@@ -164,6 +164,7 @@ services:
       public: false
 
     App\Service\ConfMaster:
+        public: true
         arguments:
             $global: '%myhordes%'
             $local:  '%local%'

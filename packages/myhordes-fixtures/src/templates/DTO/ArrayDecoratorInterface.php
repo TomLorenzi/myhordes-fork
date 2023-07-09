@@ -2,7 +2,6 @@
 
 namespace MyHordes\Fixtures\DTO;
 
-interface ArrayDecoratorInterface {
-    public function toArray(): array;
+interface ArrayDecoratorInterface extends ArrayDecoratorReadInterface {
     public function fromArray(array $data): self;
 }
