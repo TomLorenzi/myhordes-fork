@@ -430,7 +430,7 @@ class InventoryAwareController extends CustomAbstractController
             $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf {citizen}. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['{citizen}' => $victim->getName()], 'game' );
             $notes[] = $this->translator->trans( 'Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!', [], 'game' );
 
-            $give_ap = 7;
+            $give_ap = $this->citizen_handler->getMaxAP( $aggressor ) + 1;
 
             if ($aggressor->getZone()) {
                 $this->entity_manager->persist($this->log->citizenBeyondGhoulAttack($aggressor, $victim, true));
