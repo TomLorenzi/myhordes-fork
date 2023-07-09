@@ -467,7 +467,7 @@
                         {% endembed %}
                     </div>
 
-                    {% embed "ajax/game/actions.html.twig" with {'special_action_list': specials, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true} %}
+                    {% embed "ajax/game/actions.html.twig" with {'special_action_list': specials, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, 'hidden_warning': false} %}
                     {% endembed %}
 
                     {% if not citizen_hidden and is_shaman %}
