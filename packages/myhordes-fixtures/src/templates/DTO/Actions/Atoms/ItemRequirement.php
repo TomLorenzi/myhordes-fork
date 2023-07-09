@@ -26,7 +26,7 @@ class ItemRequirement extends RequirementsAtom {
     }
 
     public function isPropertyRequirement(): bool {
-        return $this->property;
+        return $this->property ?? false;
     }
 
     protected function default(string $name): mixed

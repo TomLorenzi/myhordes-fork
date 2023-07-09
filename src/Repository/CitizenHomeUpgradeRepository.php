@@ -22,9 +22,10 @@ class CitizenHomeUpgradeRepository extends ServiceEntityRepository
         parent::__construct($registry, CitizenHomeUpgrade::class);
     }
 
-    public function findOneByPrototype(CitizenHome $home, ?CitizenHomeUpgradePrototype $proto): ?CitizenHomeUpgrade
+    public function findOneByPrototype(CitizenHome $home, CitizenHomeUpgradePrototype|string|null $proto): ?CitizenHomeUpgrade
     {
         if ($proto === null) return null;
+        elseif (is_string($proto)) return $this->findOneByPrototype( $home, $this->getEntityManager()->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( $proto ) );
         try {
             return $this->createQueryBuilder('c')
                 ->andWhere('c.prototype = :val')->setParameter('val', $proto)

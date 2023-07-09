@@ -17,6 +17,7 @@ use MyHordes\Fixtures\DTO\Actions\Atoms\ConfigRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\CounterRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\HomeRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\InventorySpaceRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\LocationRequirement;
@@ -232,24 +233,24 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('zone_is_improvable')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->maxLevel(9.9) )->text('Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.')->commit();
         //</editor-fold>
 
+        $requirement_container->add()->identifier('must_have_upgraded_home')->type( Requirement::CrossOnFail )->add( (new HomeRequirement())->minLevel(1) )->commit();
+
+        $requirement_container->add()->identifier('must_have_home_lab_v1')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('lab')->minLevel(1)->maxLevel(1) )->commit();
+        $requirement_container->add()->identifier('must_have_home_lab_v2')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('lab')->minLevel(2)->maxLevel(2) )->commit();
+        $requirement_container->add()->identifier('must_have_home_lab_v3')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('lab')->minLevel(3)->maxLevel(3) )->commit();
+        $requirement_container->add()->identifier('must_have_home_lab_v4')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('lab')->minLevel(4)->maxLevel(4) )->commit();
+
+        $requirement_container->add()->identifier('must_have_home_kitchen_v1')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('kitchen')->minLevel(1)->maxLevel(1) )->commit();
+        $requirement_container->add()->identifier('must_have_home_kitchen_v2')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('kitchen')->minLevel(2)->maxLevel(2) )->commit();
+        $requirement_container->add()->identifier('must_have_home_kitchen_v3')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('kitchen')->minLevel(3)->maxLevel(3) )->commit();
+        $requirement_container->add()->identifier('must_have_home_kitchen_v4')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('kitchen')->minLevel(4)->maxLevel(4) )->commit();
+
+        $requirement_container->add()->identifier('must_have_home_rest_v1')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(1)->maxLevel(1) )->commit();
+        $requirement_container->add()->identifier('must_have_home_rest_v2')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(2)->maxLevel(2) )->commit();
+        $requirement_container->add()->identifier('must_have_home_rest_v3')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(3)->maxLevel(3) )->commit();
+
         $data = array_merge_recursive($data, [
             'meta_requirements' => [
-                'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
-
-                'must_have_home_lab_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'lab' ] ]],
-                'must_have_home_lab_v2' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 2, 'max_level' => 2, 'upgrade' => 'lab' ] ]],
-                'must_have_home_lab_v3' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 3, 'max_level' => 3, 'upgrade' => 'lab' ] ]],
-                'must_have_home_lab_v4' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 4, 'max_level' => 4, 'upgrade' => 'lab' ] ]],
-
-                'must_have_home_kitchen_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'kitchen' ] ]],
-                'must_have_home_kitchen_v2' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 2, 'max_level' => 2, 'upgrade' => 'kitchen' ] ]],
-                'must_have_home_kitchen_v3' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 3, 'max_level' => 3, 'upgrade' => 'kitchen' ] ]],
-                'must_have_home_kitchen_v4' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 4, 'max_level' => 4, 'upgrade' => 'kitchen' ] ]],
-
-                'must_have_home_rest_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'rest' ] ]],
-                'must_have_home_rest_v2' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 2, 'max_level' => 2, 'upgrade' => 'rest' ] ]],
-                'must_have_home_rest_v3' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 3, 'max_level' => 3, 'upgrade' => 'rest' ] ]],
-
                 'guard_tower_not_max' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [13] ], 'text' => 'Du hast das Gefühl, dass du die Organisation der Verteidigung der Stadt nicht weiter verbessern kannst.'],
 
                 'must_be_aprils_fools'  => [ 'collection' => [ 'custom' => [3] ] ],

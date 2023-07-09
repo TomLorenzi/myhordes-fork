@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Service\Actions\Game\AtomProcessors\Require;
-use App\Enum\ActionHandler\ActionValidity;
 use App\Structures\ActionHandler\Evaluation;
 use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 use Symfony\Component\DependencyInjection\ContainerInterface;

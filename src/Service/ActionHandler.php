@@ -86,7 +86,7 @@ class ActionHandler
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
             return ActionValidity::None;
 
-        $cache = new Evaluation($citizen, $item, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
+        $cache = new Evaluation($this->entity_manager, $citizen, $item, $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getGlobalConf());
 
         $current_state = ActionValidity::Full;
         foreach ($action->getRequirements() as $meta_requirement) {
@@ -97,19 +97,6 @@ class ActionHandler
                 case Requirement::MessageOnFail: $this_state = ActionValidity::Allow; break;
                 case Requirement::CrossOnFail: $this_state = ActionValidity::Crossed; break;
                 case Requirement::HideOnFail: $this_state = ActionValidity::Hidden; break;
-            }
-
-            if ($home = $meta_requirement->getHome()) {
-                if ($home->getUpgrade() === null) {
-                    if ($home->getMinLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() < $home->getMinLevel()) $current_state = $current_state->merge($this_state);
-                    if ($home->getMaxLevel() !== null && $citizen->getHome()->getPrototype()->getLevel() > $home->getMaxLevel()) $current_state = $current_state->merge($this_state);
-                } else {
-                    /** @var CitizenHomeUpgrade|null $target_home_upgrade */
-                    $target_home_upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(), $home->getUpgrade());
-                    $target_home_upgrade_level = $target_home_upgrade ? $target_home_upgrade->getLevel() : 0;
-                    if ($home->getMinLevel() !== null && $target_home_upgrade_level < $home->getMinLevel()) $current_state = $current_state->merge($this_state);
-                    if ($home->getMaxLevel() !== null && $target_home_upgrade_level > $home->getMaxLevel()) $current_state = $current_state->merge($this_state);
-                }
             }
 
             if ($meta_requirement->getCustom())

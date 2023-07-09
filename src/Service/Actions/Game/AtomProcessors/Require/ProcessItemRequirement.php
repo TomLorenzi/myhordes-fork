@@ -30,7 +30,7 @@ class ProcessItemRequirement extends AtomRequirementProcessor
 
         if ($data->count > 0 && empty($result)) {
             if (!$data->isPropertyRequirement()) {
-                $prototype = $this->container->get(EntityManagerInterface::class)?->getRepository(ItemPrototype::class)->findOneByName($item_str);
+                $prototype = $cache->em->getRepository(ItemPrototype::class)->findOneByName($item_str);
                 if ($prototype) for ($i = 0; $i < $data->count; $i++) $cache->addMissingItem($prototype);
             }
             return false;

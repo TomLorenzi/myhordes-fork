@@ -26,8 +26,6 @@ class Requirement
     private $failureMode;
     #[ORM\Column(type: 'text', nullable: true)]
     private $failureText;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\RequireHome')]
-    private $home;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $custom;
 
@@ -49,7 +47,7 @@ class Requirement
         return $this;
     }
     public function clear(): self {
-        $this->home = $this->custom = null;
+        $this->custom = $this->atoms = null;
         return $this;
     }
     public function getFailureMode(): ?int
@@ -69,16 +67,6 @@ class Requirement
     public function setFailureText(?string $failureText): self
     {
         $this->failureText = $failureText;
-
-        return $this;
-    }
-    public function getHome(): ?RequireHome
-    {
-        return $this->home;
-    }
-    public function setHome(?RequireHome $home): self
-    {
-        $this->home = $home;
 
         return $this;
     }

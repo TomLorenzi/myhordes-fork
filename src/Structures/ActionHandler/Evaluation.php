@@ -9,6 +9,7 @@ use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class Evaluation
@@ -20,6 +21,7 @@ class Evaluation
     private array $metaTrans = [];
 
     public function __construct(
+        public readonly EntityManagerInterface $em,
         public readonly Citizen $citizen,
         public readonly ?Item $item,
         public readonly TownConf $conf,

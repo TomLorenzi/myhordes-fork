@@ -116,9 +116,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 if (!isset($sub_cache[$sub_id])) $sub_cache[$sub_id] = [];
                                 
                 switch ($sub_id) {
-                    case 'home':
-                        $requirement->setHome( $this->process_home_requirement($manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
-                        break;
                     case 'custom':
                         $requirement->setCustom( $sub_data[0] );
                         break;
@@ -130,44 +127,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t<comment>Skip</comment> meta condition <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
         
-        return $cache[$id];
-    }
-
-    /**
-     * @param ObjectManager $manager
-     * @param ConsoleOutputInterface $out
-     * @param array $cache
-     * @param string $id
-     * @param array $data
-     * @return RequireHome
-     * @throws Exception
-     */
-    private function process_home_requirement(
-        ObjectManager $manager, ConsoleOutputInterface $out,
-        array &$cache, string $id, array $data): RequireHome
-    {
-        if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireHome::class)->findOneBy(['name' => $id]);
-            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            else {
-                $requirement = new RequireHome();
-                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-            }
-
-            $requirement
-                ->setName( $id )
-                ->setMinLevel( $data['min_level'] ?? null )
-                ->setMaxLevel( $data['max_level'] ?? null );
-
-            if (isset($data['upgrade'])) {
-                $proto = $manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => $data['upgrade']]);
-                if (!$proto) throw new Exception('Home upgrade prototype not found: ' . $data['upgrade']);
-                $requirement->setUpgrade( $proto );
-            }
-
-            $manager->persist( $cache[$id] = $requirement );
-        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
-
         return $cache[$id];
     }
 

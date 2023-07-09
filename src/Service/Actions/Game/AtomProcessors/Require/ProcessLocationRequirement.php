@@ -33,7 +33,7 @@ class ProcessLocationRequirement extends AtomRequirementProcessor
 
             $zombies = $zone->getZombies();
             if ($data->requiresZombieCheck() && $cache->citizen->activeExplorerStats())
-                $zombies = $this->container->get(EntityManagerInterface::class)->getRepository(RuinZone::class)->findOneByExplorerStats( $cache->citizen->activeExplorerStats() )->getZombies();
+                $zombies = $cache->em->getRepository(RuinZone::class)->findOneByExplorerStats( $cache->citizen->activeExplorerStats() )->getZombies();
 
             $cp = 0;
             if ($data->requiresCPCheck() && !$cache->citizen->activeExplorerStats()) {
@@ -57,8 +57,8 @@ class ProcessLocationRequirement extends AtomRequirementProcessor
             if ($data->maxLevel !== null && $zone->getImprovementLevel() > $data->maxLevel) return false;
 
             if ($data->isControlled !== null && $data->isControlled !== ($cp >= $zombies)) return false;
-            if ($data->isTempControlled !== null && $data->isTempControlled !== !!$this->container->get(EntityManagerInterface::class)->getRepository( EscapeTimer::class )->findActiveByCitizen( $cache->citizen )) return false;
-            if ($data->isControlledOrTempControlled !== null && $data->isControlledOrTempControlled !== ($cp >= $zombies || !!$this->container->get(EntityManagerInterface::class)->getRepository( EscapeTimer::class )->findActiveByCitizen( $cache->citizen ))) return false;
+            if ($data->isTempControlled !== null && $data->isTempControlled !== !!$cache->em->getRepository( EscapeTimer::class )->findActiveByCitizen( $cache->citizen )) return false;
+            if ($data->isControlledOrTempControlled !== null && $data->isControlledOrTempControlled !== ($cp >= $zombies || !!$cache->em->getRepository( EscapeTimer::class )->findActiveByCitizen( $cache->citizen ))) return false;
 
         }
 
