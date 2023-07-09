@@ -98,32 +98,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 ->setFailureText( isset($data['text_key']) ? $this->action_data_cache['message_keys'][$data['text_key']] : ($data['text'] ?? null) )
                 ->setAtoms( $data['atomList'] ?? null );
 
-            foreach (($data['collection'] ?? []) as $sub_id => $sub_req) {
-                if (is_array($sub_req)) {
-                    $sub_data = $sub_req;
-                    $sub_req = "{$id}_i_{$sub_id}";
-                }
-
-                else {
-                    if (!isset( $this->action_data_cache['requirements'][$sub_id] ))
-                        throw new Exception('Requirement type definition not found: ' . $sub_id);
-                    if (!isset( $this->action_data_cache['requirements'][$sub_id][$sub_req] ))
-                        throw new Exception('Requirement entry definition not found: ' . $sub_id . '/' . $sub_req);
-
-                    $sub_data = $this->action_data_cache['requirements'][$sub_id][$sub_req];
-                }
-
-                if (!isset($sub_cache[$sub_id])) $sub_cache[$sub_id] = [];
-                                
-                switch ($sub_id) {
-                    case 'custom':
-                        $requirement->setCustom( $sub_data[0] );
-                        break;
-                    default:
-                        throw new Exception('No handler for requirement type ' . $sub_id);
-                }
-            }
-
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t<comment>Skip</comment> meta condition <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
         

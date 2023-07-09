@@ -7,14 +7,16 @@ use App\Entity\AffectItemSpawn;
 use App\Entity\CauseOfDeath;
 use App\Entity\ItemAction;
 use App\Entity\ItemTargetDefinition;
-use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Enum\ActionHandler\PointType;
 use App\Enum\ItemPoisonType;
+use App\Service\Actions\Game\AtomProcessors\Require\Custom\GuardTowerUseIsNotMaxed;
+use App\Service\Actions\Game\AtomProcessors\Require\Custom\RoleVote;
 use App\Structures\TownConf;
 use MyHordes\Fixtures\DTO\Actions\Atoms\BuildingRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\ConfigRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\CounterRequirement;
+use MyHordes\Fixtures\DTO\Actions\Atoms\CustomClassRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\EscortRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\FeatureRequirement;
 use MyHordes\Fixtures\DTO\Actions\Atoms\HomeRequirement;
@@ -37,8 +39,15 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('can_use_friendship')->type(Requirement::HideOnFail)->add( (new FeatureRequirement())->feature('f_share') )->commit();
         $requirement_container->add()->identifier('hunter_no_followers')->type( Requirement::MessageOnFail )->text('Du kannst die <strong>Tarnkleidung</strong> nicht benutzen, wenn du {escortCount} Personen im Schlepptau hast...')->add( (new EscortRequirement())->maxFollowers(0) )->commit();
         $requirement_container->add()->identifier('room_for_item')->type( Requirement::MessageOnFail )->add( (new InventorySpaceRequirement()) )->commit();
+        $requirement_container->add()->identifier('guard_tower_not_max')->type( Requirement::MessageOnFail )->add( (new CustomClassRequirement())->requirement(GuardTowerUseIsNotMaxed::class) )->commit();
+
+        $requirement_container->add()->identifier('vote_shaman_needed')->type( Requirement::HideOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['needed' => 'shaman']) )->commit();
+        $requirement_container->add()->identifier('vote_shaman_not_given')->type( Requirement::CrossOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['hasNotVoted' => 'shaman']) )->commit();
+        $requirement_container->add()->identifier('vote_guide_needed')->type( Requirement::HideOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['needed' => 'guide']) )->commit();
+        $requirement_container->add()->identifier('vote_guide_not_given')->type( Requirement::CrossOnFail )->add( (new CustomClassRequirement())->requirement(RoleVote::class)->args(['hasNotVoted' => 'guide']) )->commit();
 
         //<editor-fold desc="ProfessionRoleRequirements">
+        $requirement_container->add()->identifier('profession_heroic')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->hero(true) )->commit();
         $requirement_container->add()->identifier('profession_basic')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('basic', true) )->commit();
         $requirement_container->add()->identifier('profession_collec')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('collec', true) )->commit();
         $requirement_container->add()->identifier('profession_guardian')->type( Requirement::HideOnFail )->add( (new ProfessionRoleRequirement())->job('guardian', true) )->commit();
@@ -184,6 +193,7 @@ class ActionDataService implements FixtureProcessorInterface {
         //<editor-fold desc="ConfigRequirements">
         $requirement_container->add()->identifier('feature_camping')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->config(TownConf::CONF_FEATURE_CAMPING, true) )->commit();
         $requirement_container->add()->identifier('during_christmas')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->event('christmas') )->text_key('not_in_event')->commit();
+        $requirement_container->add()->identifier('must_be_aprils_fools')->type( Requirement::HideOnFail )->add( (new ConfigRequirement())->event('afools') )->text_key('not_in_event')->commit();
         //</editor-fold>
 
         //<editor-fold desc="ItemRequirements">
@@ -233,6 +243,7 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('zone_is_improvable')->type( Requirement::MessageOnFail )->add( (new LocationRequirement())->beyond(true)->maxLevel(9.9) )->text('Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.')->commit();
         //</editor-fold>
 
+        //<editor-fold desc="HomeRequirements">
         $requirement_container->add()->identifier('must_have_upgraded_home')->type( Requirement::CrossOnFail )->add( (new HomeRequirement())->minLevel(1) )->commit();
 
         $requirement_container->add()->identifier('must_have_home_lab_v1')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('lab')->minLevel(1)->maxLevel(1) )->commit();
@@ -248,25 +259,11 @@ class ActionDataService implements FixtureProcessorInterface {
         $requirement_container->add()->identifier('must_have_home_rest_v1')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(1)->maxLevel(1) )->commit();
         $requirement_container->add()->identifier('must_have_home_rest_v2')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(2)->maxLevel(2) )->commit();
         $requirement_container->add()->identifier('must_have_home_rest_v3')->type( Requirement::HideOnFail )->add( (new HomeRequirement())->upgrade('rest')->minLevel(3)->maxLevel(3) )->commit();
+        //</editor-fold>
 
         $data = array_merge_recursive($data, [
-            'meta_requirements' => [
-                'guard_tower_not_max' =>  [ 'type' => Requirement::MessageOnFail, 'collection' => ['custom' => [13] ], 'text' => 'Du hast das Gefühl, dass du die Organisation der Verteidigung der Stadt nicht weiter verbessern kannst.'],
-
-                'must_be_aprils_fools'  => [ 'collection' => [ 'custom' => [3] ] ],
-
-                'must_have_inventory_space'  => [ 'collection' => [ 'custom' => [4] ] ],
-
-                'custom_vote_shaman' => [ 'collection' => [ 'custom' => [18] ] ],
-                'custom_vote_guide'  => [ 'collection' => [ 'custom' => [19] ] ],
-            ],
-
-            'requirements' => [
-
-                'item' => [],
-                'location' => [],
-                'zombies' => [],
-            ],
+            'meta_requirements' => [],
+            'requirements' => [],
 
             'meta_results' => [
                 'do_nothing' => [],
@@ -930,8 +927,8 @@ class ActionDataService implements FixtureProcessorInterface {
                 'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ],   'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 50], [[ ['zone' => ['escape' => ['armag',600]] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 50]]] ] ],
                 'special_armag_d'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_day'],   'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 50], [[ ['zone' => ['escape' => ['armag',600]] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 50]]] ] ],
                 'special_armag_n'      => [ 'label' => 'Durchgang in Kraft', 'tooltip_key' => 'heroic_arma_tooltip', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked', 'must_be_night'], 'result' => [ ['group' => [ [['do_nothing', ['message' => ['text_key' => 'heroic_arma_fail']]], 25], [[ ['zone' => ['escape' => ['armag',600]] ], ['zombies' => 'kill_1z'], ['message' => ['text_key' => 'heroic_arma_success']] ], 75]]] ] ],
-                'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'custom_vote_shaman'] , 'result' => [ ['custom' => [18]] ] ],
-                'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'custom_vote_guide'], 'result' => [ ['custom' => [19]] ] ],
+                'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'profession_heroic', 'vote_shaman_needed', 'vote_shaman_not_given'] , 'result' => [ ['custom' => [18]] ] ],
+                'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenVoteType], 'meta' => [ 'must_be_outside', 'profession_heroic', 'vote_guide_needed', 'vote_guide_not_given'], 'result' => [ ['custom' => [19]] ] ],
 
                 'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors', 'feature_camping' ], 'result' => [ 'minus_1ap', 'consume_item', [ 'zone' => ['improve' =>  1.8] ] ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ],
 

@@ -99,57 +99,6 @@ class ActionHandler
                 case Requirement::HideOnFail: $this_state = ActionValidity::Hidden; break;
             }
 
-            if ($meta_requirement->getCustom())
-                switch ($meta_requirement->getCustom()) {
-
-                    // Day & Night
-                    case 1:
-                        if ($this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
-                            $current_state = $current_state->merge($this_state);
-                        break;
-                    case 2:
-                        if (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
-                            $current_state = $current_state->merge($this_state);
-                        break;
-
-                    // Event - April Fools
-                    case 3:
-                        /** @var EventActivationMarker[] $eam */
-                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
-                        $b = false;
-                        foreach ($eam as $m) if ($m->getEvent() === 'afools') $b = true;
-                        if (!$b) $current_state = $current_state->merge($this_state);
-                        break;
-
-                    // Guard tower
-                    case 13:
-                        $cn = $this->town_handler->getBuilding( $citizen->getTown(), 'small_watchmen_#00', true );
-                        $max = $this->conf->getTownConfiguration( $citizen->getTown() )->get( TownConf::CONF_MODIFIER_GUARDTOWER_MAX, 150 );
-                        if ($cn && $max > 0 && $cn->getTempDefenseBonus() >= $max)
-                            $current_state = $current_state->merge($this_state);
-                        break;
-
-                    // Vote
-                    case 18: case 19:
-                        if (!$citizen->getProfession()->getHeroic()) {
-                            $current_state = $current_state->merge($this_state);
-                            break;
-                        }
-
-                        if (!($role = $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $meta_requirement->getCustom() === 18 ? 'shaman' : 'guide']))) {
-                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
-                            break;
-                        }
-
-                        if ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role))
-                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::CrossOnFail ) );
-
-                        if (!$this->town_handler->is_vote_needed( $citizen->getTown(), $role ))
-                            $current_state = $current_state->merge( ActionValidity::fromRequirement( Requirement::HideOnFail ) );
-
-                    break;
-                }
-
             if ($meta_requirement->getAtoms()) {
                 $container = (new RequirementsDataContainer())->fromArray([['atomList' => $meta_requirement->getAtoms()]]);
                 foreach ( $container->all() as $requirementsDataElement )

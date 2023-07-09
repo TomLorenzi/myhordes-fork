@@ -26,8 +26,6 @@ class Requirement
     private $failureMode;
     #[ORM\Column(type: 'text', nullable: true)]
     private $failureText;
-    #[ORM\Column(type: 'integer', nullable: true)]
-    private $custom;
 
     #[ORM\Column(nullable: true)]
     private ?array $atoms = null;
@@ -47,7 +45,7 @@ class Requirement
         return $this;
     }
     public function clear(): self {
-        $this->custom = $this->atoms = null;
+        $this->atoms = null;
         return $this;
     }
     public function getFailureMode(): ?int
@@ -67,17 +65,6 @@ class Requirement
     public function setFailureText(?string $failureText): self
     {
         $this->failureText = $failureText;
-
-        return $this;
-    }
-
-    public function getCustom(): ?int
-    {
-        return $this->custom;
-    }
-    public function setCustom(?int $custom): self
-    {
-        $this->custom = $custom;
 
         return $this;
     }
