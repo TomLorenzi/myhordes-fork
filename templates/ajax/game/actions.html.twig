@@ -372,7 +372,7 @@
         </ul>
 
     {% endif %}
-{% else %}
+{% elseif (hidden_warning is not defined or hidden_warning) %}
     <ul class="{{ prefix }}actions">
         <li class="no-interaction">{{ 'Du kannst keine Aktionen ausführen, während du dich versteckst.'|trans({},'game')  }}</li>
     </ul>
