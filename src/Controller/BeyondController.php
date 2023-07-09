@@ -973,7 +973,7 @@ class BeyondController extends InventoryAwareController
                 }
             }
 
-            if ($new_zone->isTownZone() && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn()) {
+            if ($new_zone->isTownZone() && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $mover->getTown()->getDoor()) {
                 // The citizen want to go back home. When we're on the town zone, make it go inside automatically
                 $mover->setZone(null);
                 $zone->removeCitizen($mover);
