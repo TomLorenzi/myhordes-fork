@@ -15,6 +15,7 @@ class Forum
     const ForumTypeAdmins = 3;
     const ForumTypeCustom = 4;
     const ForumTypeAnimac = 5;
+    const ForumTypeDev = 6;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

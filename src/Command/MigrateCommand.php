@@ -970,10 +970,11 @@ class MigrateCommand extends Command
             $g_mods   = null;
             $g_admin  = null;
             $g_anim   = null;
+            $g_dev    = null;
 
             // Fix group associations
             $this->helper->leChunk($output, User::class, 100, [], true, false, function(User $current_user) use (
-                $fun_assoc,$fun_dis_assoc, &$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim
+                $fun_assoc,$fun_dis_assoc, &$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim, &$g_dev
             ) {
                 if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
                 if (
@@ -983,7 +984,8 @@ class MigrateCommand extends Command
                 if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
                 if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
                 if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
-                if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC"))  $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
+                if ($this->user_handler->hasRole($current_user, "ROLE_ANIMAC")) $fun_assoc($current_user, $g_anim); else $fun_dis_assoc($current_user, $g_anim);
+                if ($this->user_handler->hasRole($current_user, "ROLE_DEV"))    $fun_assoc($current_user, $g_dev); else $fun_dis_assoc($current_user, $g_dev);
 
             }, true, function () use (&$g_users, &$g_elev, &$g_oracle, &$g_mods, &$g_admin, &$g_anim) {
                 $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
@@ -992,6 +994,7 @@ class MigrateCommand extends Command
                 $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
                 $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
                 $g_anim   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAnimactorGroup]);
+                $g_dev    = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultDevGroup]);
             });
 
             // Fix town groups
@@ -1043,6 +1046,9 @@ class MigrateCommand extends Command
                 elseif ($forum->getType() === Forum::ForumTypeAdmins) $this->ensureForumPermissions($output,$forum, $g_admin);
                 elseif ($forum->getType() === Forum::ForumTypeAnimac) {
                     $this->ensureForumPermissions($output, $forum, $g_anim);
+                    $this->ensureForumPermissions($output, $forum, $g_oracle);
+                } elseif ($forum->getType() === Forum::ForumTypeDev) {
+                    $this->ensureForumPermissions($output, $forum, $g_admin);
                     $this->ensureForumPermissions($output, $forum, $g_oracle);
                 }
 
