@@ -33,6 +33,10 @@
     {{ block('includes') }}
     {{ block('js') }}
 
-    {{ include('scripts/actions_animate.js.twig') }}
-    item_action_collapse('actions','x-item-action-toggle');
+    {% embed "scripts/actions.js.twig" with {no_heroic: true} %}{% endembed %}
+
+    handleActions(
+        document.querySelectorAll('._ec [x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled]), [x-action-id="p"][x-provoking-id="p"][x-citizen][x-escort-meta-action]'),
+        '{{ path('beyond_desert_escort_action_controller') }}', '{{ path('beyond_dashboard') }}', document.getElementById('beyond_desert_content')
+    );
 </script>
