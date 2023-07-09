@@ -257,7 +257,7 @@ class HTMLService {
             return true;
 
         } elseif ($node->nodeType === XML_TEXT_NODE) {
-            $text_length += mb_strlen($node->textContent);
+            $text_length += mb_strlen(trim($node->textContent));
             if ($child_nodes_forbidden && !$emotes_explicitly_allowed) $node->textContent = str_replace(':', ':​', $node->textContent);
             return true;
         }
