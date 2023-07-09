@@ -33,6 +33,7 @@ security:
         ROLE_USER:      ROLE_REGISTERED
         ROLE_ELEVATED:  ROLE_USER
         ROLE_TEAM:      ROLE_USER
+        ROLE_DEV:       ROLE_USER
         ROLE_ANIMAC:    ROLE_ELEVATED
         ROLE_ORACLE:    ROLE_ELEVATED
         ROLE_CROW:      ROLE_ELEVATED

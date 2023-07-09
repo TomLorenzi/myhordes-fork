@@ -16,6 +16,7 @@ class PermissionDataService implements FixtureProcessorInterface {
             ['name'=>'[mods]',       'type'=> UserGroup::GroupTypeDefaultModeratorGroup],
             ['name'=>'[admins]',     'type'=> UserGroup::GroupTypeDefaultAdminGroup],
             ['name'=>'[animaction]', 'type'=> UserGroup::GroupTypeDefaultAnimactorGroup],
+            ['name'=>'[dev]',        'type'=> UserGroup::GroupTypeDefaultDevGroup],
         ]);
     }
 }
