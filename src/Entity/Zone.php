@@ -371,7 +371,7 @@ class Zone
 
     public function getScoutLevel(): int
     {
-        return max(0, floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count()/5));
+        return min(3, max(0, floor($this->getActivityMarkersFor( ZoneActivityMarkerType::ScoutVisit )->count()/5)));
     }
     public function getScoutEstimationOffset(): ?int
     {
@@ -379,8 +379,15 @@ class Zone
     }
     public function getPersonalScoutEstimation(Citizen $c): ?int
     {
-        return ($this->getZombies() === 0) ? 0 : max(0, $this->getZombies() + (($c->getId() + $this->scoutEstimationOffset) % 5) - 2);
+        if($this->getZombies() === 0){
+            return 0;
+        }
+        mt_srand($c->getId()+$this->getId());
+        $offset = mt_rand((3 - $this->getScoutLevel())*-1, 3 - $this->getScoutLevel());
+        mt_srand();
+        return max(0, $this->getZombies() + $offset);
     }
+
     public function setScoutEstimationOffset(int $scoutEstimationOffset): self
     {
         $this->scoutEstimationOffset = $scoutEstimationOffset;

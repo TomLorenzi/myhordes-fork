@@ -140,7 +140,7 @@ class BeyondController extends InventoryAwareController
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $merge_map = true ): array {
         $zone = $this->getActiveCitizen()->getZone();
-        $blocked = !$this->zone_handler->check_cp($zone, $cp);
+        $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen(), true );
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
         $citizen_hidden = !$this->activeCitizenIsNotCamping();
@@ -251,7 +251,7 @@ class BeyondController extends InventoryAwareController
 
         $citizen_tired = $this->getActiveCitizen()->getAp() <= 0 || $this->citizen_handler->isTired( $this->getActiveCitizen());
 
-        $blocked = !$this->zone_handler->check_cp($zone, $cp);
+        $blocked = !$this->zone_handler->isZoneUnderControl($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
         $escape_desperate = ($escape < 0) ? $this->get_escape_timeout( $this->getActiveCitizen(), true ) : -1;
 
@@ -427,7 +427,7 @@ class BeyondController extends InventoryAwareController
             'rucksack_size' => $this->inventory_handler->getSize( $citizen->getInventory() ),
             'rucksack_sizes' => $rucksack_sizes,
             'citizen_hidden' => !$this->activeCitizenIsNotCamping(),
-            'zone_blocked' => !$this->zone_handler->check_cp($citizen->getZone(), $cp),
+            'zone_blocked' => !$this->zone_handler->isZoneUnderControl($citizen->getZone(), $cp),
             'escort_actions' => $escort_actions,
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
@@ -565,7 +565,7 @@ class BeyondController extends InventoryAwareController
             if(!$fellow_citizen->getBanished() && !$town->getChaos()) // If there's a non-banished citizen on the zone during a non-chaos town, the items are not hidden
                 $hide_success = false;
 
-        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+        if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash('collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!', [], 'game'));
         $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items, $processed);
         if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
@@ -647,7 +647,7 @@ class BeyondController extends InventoryAwareController
                 return AjaxResponse::error( $mover->getId() === $citizen->getId() ? ErrorHelper::ErrorNoAP : BeyondController::ErrorEscortFailure );
         }
 
-        $cp_ok = $this->zone_handler->check_cp( $zone );
+        $cp_ok = $this->zone_handler->isZoneUnderControl( $zone );
 
         foreach ($movers as $mover) {
             // If labyrinth is active, deduct 1AP
@@ -731,7 +731,7 @@ class BeyondController extends InventoryAwareController
         $scout_movement = $this->inventory_handler->countSpecificItems(
                 $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
             ) > 0;
-        if (!$this->zone_handler->check_cp( $citizen->getZone() ) && !$scout_movement)
+        if (!$this->zone_handler->isZoneUnderControl( $citizen->getZone() ) && !$scout_movement)
             return AjaxResponse::error( self::ErrorZoneBlocked );
 
         // Make sure the citizen has enough AP
@@ -786,7 +786,7 @@ class BeyondController extends InventoryAwareController
         $px = $parser->get('x', PHP_INT_MAX);
         $py = $parser->get('y', PHP_INT_MAX);
 
-        $cp_ok = $this->zone_handler->check_cp( $zone );
+        $cp_ok = $this->zone_handler->isZoneUnderControl( $zone );
         $scout_movement = $this->inventory_handler->countSpecificItems(
             $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         ) > 0;
@@ -798,7 +798,7 @@ class BeyondController extends InventoryAwareController
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
-        $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone, $cp_before_new_zone);
+        $cp_ok_new_zone = $this->zone_handler->isZoneUnderControl($new_zone, $cp_before_new_zone);
         if($cp_before_new_zone <= 0) $cp_ok_new_zone = null;
 
         $movement_interrupted = false;
@@ -892,24 +892,29 @@ class BeyondController extends InventoryAwareController
             $new_zone->addCitizen( $mover );
 
             // Scout check
-            if ($mover->getProfession()->getName() === 'hunter' && !$new_zone->getActivityMarkerFor(ZoneActivityMarkerType::ScoutVisit, $mover)) {
-                $new_zone->addActivityMarker( (new ZoneActivityMarker())
-                    ->setCitizen( $mover )
-                    ->setTimestamp( new DateTime() )
+            if ($mover->getProfession()->getName() === 'hunter') {
+                $new_zone->addActivityMarker((new ZoneActivityMarker())
+                    ->setCitizen($mover)
+                    ->setTimestamp(new DateTime())
                     ->setType(ZoneActivityMarkerType::ScoutVisit)
                 );
-                if ($scouts[$mover->getId()] && !$this->zone_handler->check_cp( $new_zone )) {
+                $cpNewZone = $this->zone_handler->getZoneControlPoints($new_zone);
+                if ($scouts[$mover->getId()] && $cpNewZone < $new_zone->getZombies()) {
 
-                    $new_zed_count = $new_zone->getZombies();
-                    $new_zone_lv = $new_zone->getScoutLevel();
+                    $zedsAboveCps = $new_zone->getZombies() - $cpNewZone;
+                    $delta = floor($zedsAboveCps * 1.3);
 
-                    if ($this->getTownConf()->isNightMode()) $new_zone_lv += 1;
+                    if ($this->getTownConf()->isNightMode()) {
+                        $delta -= 5;
+                    }
+                    if ($delta <= 6) {
+                        $delta *= 0.5;
+                    }
 
-                    $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
-                    if ($this->getTownConf()->isNightMode())
-                        $factor *= 0.667;
+                    $factor = max(0, $delta - (3 * $new_zone->getScoutLevel()))/100;
+                    $this->addFlash('notice', "factor: " . $factor);
 
-                    if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
+                    if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)) {
                         if ($mover->getId() === $citizen->getId())
                             $this->addFlash('notice', $this->translator->trans('Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!', [], 'game'));
                         else
@@ -999,7 +1004,7 @@ class BeyondController extends InventoryAwareController
         }
 
         // If the new zone is controlled by citizens, invalidate all escape timers
-        if ($this->zone_handler->check_cp( $new_zone )) foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByZone($new_zone) as $et)
+        if ($this->zone_handler->isZoneUnderControl( $new_zone )) foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByZone($new_zone) as $et)
             $this->entity_manager->remove( $et );
 
         try {
@@ -1025,7 +1030,7 @@ class BeyondController extends InventoryAwareController
 
         $uncover_fun = function(ItemAction &$a) {
 
-            if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+            if (!$a->getKeepsCover() && !$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
@@ -1079,7 +1084,7 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $uncover_fun = function(ItemAction &$a) use ($citizen) {
-            if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $citizen->getZone() ) && $this->get_escape_timeout( $citizen ) < 0 && $this->uncoverHunter($citizen))
+            if (!$a->getKeepsCover() && !$this->zone_handler->isZoneUnderControl( $citizen->getZone() ) && $this->get_escape_timeout( $citizen ) < 0 && $this->uncoverHunter($citizen))
                 $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['name' => $citizen], 'game') );
         };
 
@@ -1097,7 +1102,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(ItemAction &$a) use ($zone) {
-            if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $zone ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+            if (!$a->getKeepsCover() && !$this->zone_handler->isZoneUnderControl( $zone ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
@@ -1134,7 +1139,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(Recipe &$r) {
-            if (!$r->getStealthy() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+            if (!$r->getStealthy() && !$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
                 $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
@@ -1166,7 +1171,7 @@ class BeyondController extends InventoryAwareController
             $citizen = $this->getActiveCitizen();
         }
 
-        if (!$this->zone_handler->check_cp( $citizen->getZone() ) && $this->get_escape_timeout( $citizen ) < 0 && $this->uncoverHunter($citizen))
+        if (!$this->zone_handler->isZoneUnderControl( $citizen->getZone() ) && $this->get_escape_timeout( $citizen ) < 0 && $this->uncoverHunter($citizen))
             $this->addFlash( 'collapse', $citizen === $this->getActiveCitizen()
                 ? $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game')
                 : $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['name' => $citizen], 'game')
@@ -1182,7 +1187,7 @@ class BeyondController extends InventoryAwareController
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
-        if ($this->zone_handler->check_cp( $citizen->getZone() ) || $this->get_escape_timeout( $citizen, true ) > 0)
+        if ($this->zone_handler->isZoneUnderControl( $citizen->getZone() ) || $this->get_escape_timeout( $citizen, true ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems(
@@ -1241,7 +1246,7 @@ class BeyondController extends InventoryAwareController
         if ($this->citizen_handler->hasStatusEffect( $citizen, 'terror' ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableTerror );
 
-        if ($this->zone_handler->check_cp( $zone ) || $this->get_escape_timeout( $citizen, true ) > 0)
+        if ($this->zone_handler->isZoneUnderControl( $zone ) || $this->get_escape_timeout( $citizen, true ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems($this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])) > 0)
@@ -1254,7 +1259,7 @@ class BeyondController extends InventoryAwareController
         if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $old_cp_ok = $this->zone_handler->check_cp($zone);
+        $old_cp_ok = $this->zone_handler->isZoneUnderControl($zone);
 
         $this->citizen_handler->setAP( $citizen, true, -1 );
         $ratio = 0.08;
@@ -1305,7 +1310,7 @@ class BeyondController extends InventoryAwareController
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
 
-        if (!$this->zone_handler->check_cp( $zone ))
+        if (!$this->zone_handler->isZoneUnderControl( $zone ))
             return AjaxResponse::error( self::ErrorZoneBlocked );
         if ($zone->isTownZone())
             return AjaxResponse::error( self::ErrorNotDiggable );
@@ -1378,7 +1383,7 @@ class BeyondController extends InventoryAwareController
         if ($zone->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $citizen ))
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+        if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
 
         if ($zone->getRuinDigs() > 0) {
@@ -1506,7 +1511,7 @@ class BeyondController extends InventoryAwareController
 
         $str[] = $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>1</strong>", '{raw_count}' => 1], 'game');
 
-        if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+        if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
             $str[] = $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game');
 
         if(!empty($str))
