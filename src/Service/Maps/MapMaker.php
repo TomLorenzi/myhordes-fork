@@ -771,6 +771,7 @@ class MapMaker
         }
 
         // Final
+        //TODO: We can delete this after checking it's unused thanks to new scout behaviour
         foreach ($baseZones as $zone) {
             $zone->zone->setScoutEstimationOffset( $zone->town ? 0 : mt_rand(-2,2) );
 
