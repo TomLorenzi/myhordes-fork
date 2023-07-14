@@ -50,6 +50,15 @@
                     {% set world_forums = forums|filter(f => f.town is empty)|sort((a,b) => (a.type <=> b.type ?? a.id <=> b.id)) %}
                     {% if world_forums is not empty %}
 
+						{% set private_forums = world_forums|filter( f => f.worldForumLanguage is null ) %}
+                    	{% if private_forums is not empty %}
+							<h5>{{ 'Private Foren'|trans({},'global') }}</h5>
+
+							{% for forum in private_forums %}
+								{{ _self.drawForum(forum, forums_new[forum.id]) }}
+							{% endfor %}
+						{% endif %}
+
                         <h5>{{ 'Weltforen'|trans({},'global') }}</h5>
                         {% for section in forumSections %}
                             <div class="forumGroup">
@@ -63,10 +72,6 @@
                                     {% endfor %}
                                 </div>
                             </div>
-                        {% endfor %}
-
-                        {% for forum in world_forums|filter( f => f.worldForumLanguage is null ) %}
-                            {{ _self.drawForum(forum, forums_new[forum.id]) }}
                         {% endfor %}
                     {% endif %}
 
