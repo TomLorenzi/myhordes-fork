@@ -36,8 +36,8 @@ abstract class Element implements ElementInterface
         return $this;
     }
 
-    final public function commit(): ContainerInterface {
-        ($this->commit_callback)($this);
+    final public function commit(string &$id = null): ContainerInterface {
+        ($this->commit_callback)($this, $id);
         return $this->parent;
     }
 

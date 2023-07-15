@@ -6,12 +6,9 @@ use App\Entity\ItemCategory;
 use App\Entity\ItemPrototype;
 use Doctrine\ORM\EntityManagerInterface;
 use MyHordes\Fixtures\DTO\Element;
+use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
 
 /**
- * @property string label
- * @method self label(string $v)
- * @property string icon
- * @method self icon(string $v)
  * @property string description
  * @method self description(string $v)
  * @property string category
@@ -36,7 +33,7 @@ use MyHordes\Fixtures\DTO\Element;
  * @method ItemPrototypeDataContainer commit()
  * @method ItemPrototypeDataContainer discard()
  */
-class ItemPrototypeDataElement extends Element {
+class ItemPrototypeDataElement extends Element implements LabeledIconElementInterface {
 
     /**
      * @throws \Exception

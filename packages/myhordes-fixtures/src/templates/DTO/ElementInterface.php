@@ -4,7 +4,7 @@ namespace MyHordes\Fixtures\DTO;
 
 interface ElementInterface extends ArrayDecoratorInterface {
 
-    public function commit(): ContainerInterface;
+    public function commit(string &$id = null): ContainerInterface;
     public function discard(): ContainerInterface;
 
     public function toArray(): array;

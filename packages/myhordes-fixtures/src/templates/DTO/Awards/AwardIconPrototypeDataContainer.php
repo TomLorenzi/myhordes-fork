@@ -18,8 +18,8 @@ class AwardIconPrototypeDataContainer extends Container
         return AwardIconPrototypeDataElement::class;
     }
 
-    protected function store(ElementInterface|AwardIconPrototypeDataElement $child, mixed $context = null): void
+    protected function store(ElementInterface|AwardIconPrototypeDataElement $child, mixed $context = null): string
     {
-        parent::store( $child, $context ?? "{$child->associatedpicto}:{$child->unlockquantity}" );
+        return parent::store( $child, $context ?? "{$child->associatedpicto}:{$child->unlockquantity}" );
     }
 }

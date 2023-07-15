@@ -15,7 +15,7 @@ use MyHordes\Fixtures\DTO\Element;
  * @property int unlockquantity
  * @method self unlockquantity(int $v)
  *
- * @method AwardIconPrototypeDataContainer commit()
+ * @method AwardIconPrototypeDataContainer commit(string &$id = null)
  * @method AwardIconPrototypeDataContainer discard()
  */
 class AwardIconPrototypeDataElement extends Element {

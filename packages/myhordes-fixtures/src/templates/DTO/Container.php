@@ -10,9 +10,10 @@ abstract class Container implements ContainerInterface
         private array $data = []
     ) { }
 
-    protected function store(ElementInterface $child, mixed $context = null): void
+    protected function store(ElementInterface $child, mixed $context = null): string
     {
         $this->writeDataFor( $context, $child->toArray() );
+        return $context;
     }
 
     protected function generate(?string $from = null, bool $allow_commit = true, bool $clone = false): ElementInterface
@@ -22,7 +23,7 @@ abstract class Container implements ContainerInterface
 
         return new ($this->getElementClass())(
             $this,
-            fn(ElementInterface $c) => $this->store( $c, $clone ? null : $from ),
+            fn(ElementInterface $c, ?string &$id = null) => $this->store( $c, $clone ? null : $from ),
             $data
         );
     }
