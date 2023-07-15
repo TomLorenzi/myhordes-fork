@@ -62,6 +62,8 @@
                 <div class="note note-important">{{ 'Dieser Spieler ist ein Animateur auf MyHordes.'|trans({},'global') }}</div>
             {% elseif team %}
                 <div class="note note-important">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+            {% elseif dev %}
+                <div class="note note-important">{{ 'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
             {% endif %}
 
             {% if not user|is_granted('ROLE_CROW') and app.user != user %}
