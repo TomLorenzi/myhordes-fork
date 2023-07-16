@@ -108,6 +108,10 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
             new_state.globalEnabled = action.globalEnabled;
             $.client.set('map', 'global', new_state.markEnabled ? 'show' : 'hide', true);
         }
+        if (typeof action.scoutEnabled !== "undefined") {
+            new_state.scoutEnabled = action.scoutEnabled;
+            $.client.set('map', 'scout', new_state.markEnabled ? 'show' : 'hide', true);
+        }
         if (typeof action.activeRoute !== "undefined") {
             new_state.activeRoute = action.activeRoute === false ? undefined : action.activeRoute as number;
             $.client.set('current','routes', new_state.activeRoute, false);
@@ -142,6 +146,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
     }, {
         markEnabled: $.client.get('map', 'tags', 'hide', Client.DomainScavenger) === 'show',
         globalEnabled: $.client.get('map', 'global', 'hide', Client.DomainScavenger) === 'show' || props.data.displayType.split('-')[0] !== 'beyond',
+        scoutEnabled: $.client.get('map', 'scout', 'hide', Client.DomainScavenger) === 'show',
         activeRoute: $.client.get('current','routes', null, Client.DomainDaily) ?? undefined,
         zoomChanged: false,
         activeZone: mk,
@@ -288,7 +293,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
                 onMouseLeave={props.data.fx ? mouseLeaveHandler : null}
             >
                 { (!map || !strings) && <div className={'map-load-container'}/> }
-                <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
+                <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}  ${state.scoutEnabled ? 'show-scout' : ''}`}>
                     <div className="frame-plane">
                         { ['tl','tr','bl','br','t0l','t1','t0r','l0t','l1','l0m','l0b','l2','r0t','r1','r0b','b']
                             .map(s=><div key={s} className={s}/>) }
@@ -317,7 +322,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
                     markEnabled={state.markEnabled} globalEnabled={state.globalEnabled} wrapDispatcher={dispatch}
                     showRoutes={routes.length > 0} showRoutesPanel={state.showPanel} zoom={state.zoom}
                     scrollAreaRef={scrollPlaneRef} showGlobalButton={state.conf.enableGlobalButton}
-                    showZoneViewerButtons={state.conf.enableLocalView}
+                    showZoneViewerButtons={state.conf.enableLocalView} scoutEnabled={state.scoutEnabled}
                 />
             </div>
         </Globals.Provider>

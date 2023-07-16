@@ -146,6 +146,7 @@ class RenderMapAction
             elseif ($zone->isTownZone())
                 $current_zone['co'] = count( array_filter( $town->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
 
+            $current_zone['scoutLevel'] = $zone->getScoutLevel();
             $zones[] = $current_zone;
         }
 
