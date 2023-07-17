@@ -13,6 +13,10 @@ use MyHordes\Fixtures\DTO\Element;
 use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
 
 /**
+ * @property string label
+ * @method self label(string $v)
+ * @property string icon
+ * @method self icon(string $v)
  * @property ?string parentBuilding
  * @method self parentBuilding(string $v)
  * @property string description
@@ -33,6 +37,7 @@ use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
  * @method self blueprintLevel(int $v)
  * @property array resources
  * @method self resources(array $v)
+ * @method self resource(string $key, int $value)
  * @property int voteLevel
  * @method self voteLevel(int $v)
  * @property string baseVoteText
@@ -92,6 +97,17 @@ class BuildingPrototypeDataElement extends Element implements LabeledIconElement
         }
 
 
+    }
+
+    public function __call(string $name, array $arguments): Element
+    {
+        if ($name === 'resource' && count($arguments) === 2) {
+            [$key, $value] = $arguments;
+            $r = $this->resources ?? [];
+            if ($value <= 0) unset( $r[$key] );
+            else $r[$key] = $value;
+            return $this->resources($r);
+        } else return parent::__call($name, $arguments);
     }
 
 }

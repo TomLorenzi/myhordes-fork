@@ -9,6 +9,10 @@ use MyHordes\Fixtures\DTO\Element;
 use MyHordes\Fixtures\DTO\LabeledIconElementInterface;
 
 /**
+ * @property string label
+ * @method self label(string $v)
+ * @property string icon
+ * @method self icon(string $v)
  * @property string description
  * @method self description(string $v)
  * @property string category
