@@ -32,13 +32,14 @@ class BuildingDataService implements FixtureProcessorInterface {
         $container->add()->parentBuilding($small_gather)
             ->icon('small_waterhole')->label('Wassergraben')->description('Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...')
             ->isTemporary(0)->defense(65)->ap(50)->health(50)->blueprintLevel(1)->resources(["water_#00" => 20,])->orderBy(0)->commit();
-        $container->add()->parentBuilding($small_gather)
+
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('item_plate')->label('Rasierklingenmauer')->description('Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.')
             ->isTemporary(0)->defense(50)->ap(40)->health(40)->blueprintLevel(1)->resources(["metal_#00" => 15,"meca_parts_#00" => 2,])->orderBy(1)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_spears')->label('Pfahlgraben')->description('Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.')
             ->isTemporary(0)->defense(40)->ap(40)->health(40)->blueprintLevel(1)->resources(["wood2_#00" => 8,"wood_beam_#00" => 4,])->orderBy(2)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_barbed')->label('Stacheldraht')->description('Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.')
             ->isTemporary(0)->defense(10)->ap(20)->health(20)->blueprintLevel(0)->resources(["metal_#00" => 2,])->orderBy(3)->commit($small_barbed);
 
@@ -47,10 +48,10 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->isTemporary(1)->defense(80)->ap(10)->health(0)->blueprintLevel(1)->resources(["bone_meat_#00" => 3,])->orderBy(0)->commit();
 
 
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_wallimprove')->label('Weiterentwickelte Stadtmauer')->description('Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.')
             ->isTemporary(0)->defense(50)->ap(40)->health(40)->blueprintLevel(1)->resources(["meca_parts_#00" => 3,"wood_beam_#00" => 9,"metal_beam_#00" => 6,])->orderBy(4)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
            ->icon('item_plate')->label('Verstärkende Balken')->description('Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.')
            ->isTemporary(0)->defense(25)->ap(40)->health(40)->blueprintLevel(0)->resources(["wood_beam_#00" => 1,"metal_beam_#00" => 3,])->orderBy(5)->commit($item_plate);
 
@@ -87,22 +88,22 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->icon('small_wallimprove')->label('Betonschicht')->description('Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.')
             ->isTemporary(0)->defense(50)->ap(60)->health(60)->blueprintLevel(1)->resources(["concrete_wall_#00" => 6,"metal_beam_#00" => 2,])->orderBy(3)->commit();
 
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_grater')->label('Zombiereibe')->description('Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.')
             ->isTemporary(0)->defense(55)->ap(60)->health(60)->blueprintLevel(1)->resources(["meca_parts_#00" => 3,"metal_#00" => 20,"plate_#00" => 3,])->orderBy(6)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_gather')->label('Fallgruben')->description('Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.')
             ->isTemporary(0)->defense(35)->ap(50)->health(50)->blueprintLevel(0)->resources(["wood2_#00" => 10,])->orderBy(7)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_fence')->label('Zaun (Baustellen)')->description('Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.')
             ->isTemporary(0)->defense(30)->ap(50)->health(50)->blueprintLevel(0)->resources(["wood_beam_#00" => 5,])->orderBy(8)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_fence')->label('Holzzaun')->description('Verbessert die Stadtverteidigung erheblich.')
             ->isTemporary(0)->defense(45)->ap(50)->health(50)->blueprintLevel(1)->resources(["meca_parts_#00" => 2,"wood2_#00" => 20,"wood_beam_#00" => 5,])->orderBy(9)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_wallimprove')->label('Einseifer')->description('Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?')
             ->isTemporary(0)->defense(60)->ap(40)->health(40)->blueprintLevel(1)->resources(["water_#00" => 10,"pharma_#00" => 5,"concrete_wall_#00" => 1,])->orderBy(10)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_waterspray')->label('Zerstäuber')->description('Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).')
             ->isTemporary(0)->defense(0)->ap(50)->health(50)->blueprintLevel(1)->resources(["meca_parts_#00" => 2,"metal_#00" => 10,"tube_#00" => 1,"metal_beam_#00" => 2,])->orderBy(11)->commit($small_waterspray);
 
@@ -114,22 +115,22 @@ class BuildingDataService implements FixtureProcessorInterface {
             ->icon('small_gazspray')->label('Spraykanone')->description('Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.')
             ->isTemporary(1)->defense(150)->ap(40)->blueprintLevel(2)->resources(["water_#00" => 2,"pharma_#00" => 5,"drug_#00" => 1,])->orderBy(1)->commit();
 
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('item_plate')->label('Rüstungsplatten')->description('Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..')
             ->isTemporary(0)->defense(25)->ap(30)->health(30)->blueprintLevel(0)->resources(["wood2_#00" => 10,])->orderBy(12)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('item_plate')->label('Rüstungsplatten 2.0')->description('Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.')
             ->isTemporary(0)->defense(25)->ap(30)->health(30)->blueprintLevel(0)->resources(["metal_#00" => 10,])->orderBy(13)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('item_plate')->label('Rüstungsplatten 3.0')->description('Simpel aber stabil: Was will man mehr?')
             ->isTemporary(0)->defense(40)->ap(40)->health(40)->blueprintLevel(0)->resources(["wood2_#00" => 10,"metal_#00" => 10,])->orderBy(14)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('item_plate')->label('Sperrholz')->description('Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...')
             ->isTemporary(0)->defense(25)->ap(30)->health(30)->blueprintLevel(0)->resources(["wood2_#00" => 5,"metal_#00" => 5,])->orderBy(15)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('item_plate')->label('Extramauer')->description('Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.')
             ->isTemporary(0)->defense(45)->ap(30)->health(30)->blueprintLevel(1)->resources(["wood2_#00" => 15,"metal_#00" => 15,])->orderBy(16)->commit();
-        $container->add()->parentBuilding($small_gather)
+        $container->add()->parentBuilding($small_wallimprove)
             ->icon('small_round_path')->label('Brustwehr')->description('Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.')
             ->isTemporary(0)->defense(0)->ap(20)->blueprintLevel(0)->resources(["wood2_#00" => 6,"metal_#00" => 2,"meca_parts_#00" => 1,])->orderBy(17)->commit();
 

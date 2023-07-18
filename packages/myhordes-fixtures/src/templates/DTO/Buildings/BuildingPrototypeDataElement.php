@@ -53,7 +53,7 @@ class BuildingPrototypeDataElement extends Element implements LabeledIconElement
     /**
      * @throws Exception
      */
-    public function toEntity(EntityManagerInterface $em, BuildingPrototype $entity): void {
+    public function toEntity(EntityManagerInterface $em, string $id, BuildingPrototype $entity): void {
         try {
             $entity
                 ->setLabel( $this->label )
@@ -75,7 +75,7 @@ class BuildingPrototypeDataElement extends Element implements LabeledIconElement
             else $entity->setMaxLevel( 0 )->setZeroLevelText( null )->setUpgradeTexts( null );
 
             if ($this->resources) {
-                $group = $em->getRepository(ItemGroup::class)->findOneByName("{$entity->getName()}_rsc") ?? (new ItemGroup())->setName( "{$entity->getName()}_rsc" );
+                $group = $em->getRepository(ItemGroup::class)->findOneByName("{$id}_rsc") ?? (new ItemGroup())->setName( "{$id}_rsc" );
                 $group->getEntries()->clear();
 
                 foreach ($this->resources as $item_name => $count) {
