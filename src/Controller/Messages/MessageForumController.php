@@ -341,6 +341,12 @@ class MessageForumController extends MessageController
         if ( !$this->isGranted('ROLE_ELEVATED') && !$rateLimiter->forumThreadCreation->create( $user->getId() )->consume( $forum->getTown() ? 1 : 2 )->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited );
 
+        if (!$this->isGranted('ROLE_ELEVATED') && $user->getSoulPoints() <= 0 && !$forum->getTown()) {
+            $last_user_posts = $this->entity_manager->getRepository(Post::class)->findBy(['owner' => $user], ['date' => 'DESC'], 10);
+            if (count($last_user_posts) >= 10 && $last_user_posts[9]->getDate()->getTimestamp() > (time() - 600))
+                return AjaxResponse::error( self::ErrorForumLimitHit );
+        }
+
         $thread = (new Thread())->setTitle( $title )->setTag($tag)->setOwner($user);
 
         $map_type = [
@@ -521,6 +527,12 @@ class MessageForumController extends MessageController
                 $all_by_user = true;
                 foreach ($last_posts as $last_post) $all_by_user = $all_by_user && ($last_post->getOwner() === $user);
                 if ($all_by_user && $last_posts[0]->getDate()->getTimestamp() > (time() - 14400) )
+                    return AjaxResponse::error( self::ErrorForumLimitHit );
+            }
+
+            if ($user->getSoulPoints() <= 0 && !$forum->getTown()) {
+                $last_user_posts = $this->entity_manager->getRepository(Post::class)->findBy(['owner' => $user], ['date' => 'DESC'], 10);
+                if (count($last_user_posts) >= 10 && $last_user_posts[9]->getDate()->getTimestamp() > (time() - 600))
                     return AjaxResponse::error( self::ErrorForumLimitHit );
             }
         }
