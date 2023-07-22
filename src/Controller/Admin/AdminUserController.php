@@ -491,7 +491,7 @@ class AdminUserController extends AdminActionController
             foreach ($this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) as $pf) {
                 /** @var $pf UserPendingValidation */
                 if ($action === 'regen_tokens') $pf->generatePKey();
-                $uf->announceValidationToken( $pf );
+                $uf->announceValidationToken( $pf, true );
                 $this->entity_manager->persist( $pf );
             }
             break;
