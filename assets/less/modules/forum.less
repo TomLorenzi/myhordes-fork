@@ -388,7 +388,7 @@ ul.subscriptions {
 
   &.forum-post-small {
     .avatar, .avatarcrow {
-      margin: 0 15px 0 0; float: left; z-index: 1;
+      margin: 0 15px 0 0; float: left;
       &>img { width: 90px !important; height: 30px !important; object-fit: cover }
     }
     margin-bottom: 2px;
@@ -406,14 +406,22 @@ ul.subscriptions {
     &>i { float: right; font-size: 0.7em; opacity: 0.5; }
     &>div.post-note { font-size: 0.8em; span { opacity: 1.0; } }
     &>.avatar, &>.avatarcrow {
-      margin: 0 15px 0 10px; float: left; z-index: 1;
+      margin: 0 15px 0 10px; float: left; z-index: 2; position: relative;
       &:not(.small) { margin-bottom: 10px; }
     }
     &:before, &:after {content: " "; clear: right;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
     background: linear-gradient(to top, #784a2b, 50%, #965c36);
-    &.header-variant-crow { background: rgba(0,0,0,0.3); }
+    &.header-variant-crow {
+      position: relative;
+      background: rgba(0,0,0,0.3);
+      &:after {
+        position: absolute; content: " ";
+        top: 100%; left: 0; width: 300px; height: 100px;
+        background: url("../../img/forum/crowMsg_bg.gif") no-repeat top left;
+      }
+    }
     &.header-variant-dev { background: #006495; }
     a.link, span.link { color: white; text-decoration: none }
     .username { color: white; text-decoration: none; background: none !important; border: none !important; box-shadow: none; padding: 0;}
@@ -458,6 +466,7 @@ ul.subscriptions {
   }
 
   &>.forum-post-content {
+    position: relative; z-index: 1;
     padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/
     border-top: 1px solid #00000066; padding-right: 4px; word-break: break-word;
 
@@ -468,8 +477,7 @@ ul.subscriptions {
   }
 
   &.forum-post-variant-crow {
-    background: url("../../img/forum/crowMsg_bg.gif") no-repeat top left, #5c2b20;
-    &>.forum-post-content { border-top: none; }
+    background: #5c2b20;
   }
 
   &.forum-post-search-result .forum-post-content {
