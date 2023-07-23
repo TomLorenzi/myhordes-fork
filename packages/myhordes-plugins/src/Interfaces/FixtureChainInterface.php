@@ -2,6 +2,7 @@
 
 namespace MyHordes\Plugins\Interfaces;
 
+use Adbar\Dot;
 use Exception;
 
 abstract class FixtureChainInterface
@@ -10,6 +11,55 @@ abstract class FixtureChainInterface
 
     public function addProcessor( FixtureProcessorInterface $if, string $source ): void {
         $this->processors[] = [$if,$source];
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function data( string|array $limit = [] ): array {
+        if (empty($this->processors))
+            throw new Exception('Fixture chain has no processors!');
+
+        $limit = is_string($limit) ? [$limit] : $limit;
+
+        $data = [];
+
+        // If no filters are enabled, we can simply walk the processor chain and return the final result
+        if (empty($limit)) {
+            foreach ($this->processors as [$processor])
+                $processor->process($data);
+            return $data;
+        // Otherwise, we need to track changes more carefully
+        } else {
+            // Make a separate data container to track changes
+            $tracked_changes = new Dot();
+
+            foreach ($this->processors as [$processor,$source]) {
+                // Check if the current source is tracked
+                $track = self::filter_fits($limit, $source);
+
+                // If it is tracked, make a snapshot of the data before applying the processor
+                if ($track) $data_before = new Dot($data);
+                $processor->process($data);
+
+                // If it is tracked...
+                if ($track) {
+                    // make a snapshot of the data after processing and extract a union of all existing flat array keys
+                    $data_after = new Dot($data);
+                    $keyset = array_unique( array_merge( array_keys($data_before->flatten()), array_keys($data_after->flatten()) ) );
+
+                    // For each key, check if the value has been changed between snapshots
+                    // If the value has changed, track the change
+                    foreach ($keyset as $key)
+                        if ($data_before->get( $key ) !== $data_after->get( $key ))
+                            $tracked_changes->set( $key, $data_after->get( $key ) );
+
+                }
+            }
+
+            // Return only tracked changes
+            return $tracked_changes->all();
+        }
     }
 
     protected static function filter_fits(array $filters, string $subject): bool {
@@ -34,21 +84,5 @@ abstract class FixtureChainInterface
         }
 
         return false;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function data( string|array $limit = [] ): array {
-        if (empty($this->processors))
-            throw new Exception('Fixture chain has no processors!');
-
-        $limit = is_string($limit) ? [$limit] : $limit;
-
-        $data = [];
-        foreach ($this->processors as [$processor,$source])
-            if (self::filter_fits( $limit, $source ))
-                $processor->process($data);
-        return $data;
     }
 }

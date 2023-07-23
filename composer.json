@@ -15,6 +15,7 @@
         "ext-libxml": "*",
         "ext-mbstring": "*",
         "ext-simplexml": "*",
+        "adbario/php-dot-notation": "^3.3",
         "brainbox-et/etwin-api-client": "0.1.1",
         "clue/graph": "0.9.3",
         "doctrine/annotations": "1.14.3",

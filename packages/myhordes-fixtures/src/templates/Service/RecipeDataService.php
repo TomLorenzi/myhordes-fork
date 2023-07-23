@@ -9,7 +9,7 @@ class RecipeDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'ws001' => ['type' => Recipe::WorkshopType, 'in' => 'repair_kit_part_#00', 'out' => 'repair_kit_#00', 'action' => 'Wandeln'],
             'ws002' => ['type' => Recipe::WorkshopType, 'in' => 'can_#00',             'out' => 'can_open_#00', 'action' => 'Öffnen'],
             'ws003' => ['type' => Recipe::WorkshopType, 'in' => 'plate_raw_#00',       'out' => 'plate_#00', 'action' => 'Wandeln'],

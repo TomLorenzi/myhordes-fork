@@ -606,7 +606,7 @@ class BuildingDataService implements FixtureProcessorInterface {
         $data = $container->toArray();
 
         /*
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             ["name" => "Verstärkte Stadtmauer",'desc' => 'Verbessert die Stadtverteidigung erheblich.', "temporary" => 0,"img" => "small_wallimprove","vp" => 30,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 15,"metal_#00" => 5,], "orderby" => 0, "children" => [
                 ["name" => "Großer Graben",'desc' => 'Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.', "maxLevel" => 5,"temporary" => 0,"img" => "small_gather","vp" => 10,"ap" => 80, "hp" => 80,"bp" => 0,"rsc" => [], "orderby" => 0,
                     "lv0text" => 'Der Verteidigungswert der Stadt steigt mit dem Großen Graben auf 10 Punkte.',

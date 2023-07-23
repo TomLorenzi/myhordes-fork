@@ -9,7 +9,7 @@ class ZoneTagDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'none' => [
                 'label' => '[nichts]',
                 'icon' => '',

@@ -8,7 +8,7 @@ class ItemPropertyDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'saw_tool_#00'               => [ 'impoundable', 'can_opener', 'box_opener' ],
             'saw_tool_part_#00'          => [ 'impoundable' ],
             'can_opener_#00'             => [ 'weapon', 'can_opener', 'box_opener', 'nw_armory', 'parcel_opener', 'parcel_opener_h' ],

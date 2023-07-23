@@ -62,26 +62,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
         );
     }
 
-    protected function flattenBuildingData( array $data ): array {
-        do {
-            $children = array_reduce( array_column( $data, 'children' ),
-                fn(array $c, array $a) => array_merge( $c, $a ), []
-            );
-
-            $data = array_merge( array_map( function($entry) {
-                unset( $entry['children'] );
-                return $entry;
-            }, $data ), $children );
-        } while (!empty($children));
-
-        return $data;
-    }
-
-
     protected function extractData( FixtureChainInterface $provider, array $data ): bool {
-        if ($provider::class === Building::class)
-            $data = $this->flattenBuildingData( $data );
-
         return match ($provider::class) {
             Action::class =>
                 $this->extractArrayData( $data['message_keys'] ?? [], 'items') &&
@@ -97,7 +78,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
             ItemCategory::class => $this->extractColumnData( $data, 'label', 'items'),
             AwardFeature::class => $this->extractColumnData( $data, ['label', 'desc'], 'items'),
             Building::class =>
-                $this->extractColumnData( $data, ['name', 'desc','lv0text'], 'buildings') &&
+                $this->extractColumnData( $data, ['label', 'description','baseVoteText'], 'buildings') &&
                 $this->extractArrayData( array_column( $data, 'upgradeTexts' ), 'buildings'),
             CitizenHomeLevel::class => $this->extractColumnData( $data, 'label', 'buildings'),
             CitizenHomeUpgrade::class => $this->extractColumnData( $data, ['label','desc'], 'buildings'),

@@ -10,7 +10,7 @@ class RuinDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             // id 20
             'home' => ["label" => "Abgelegenes Haus",'icon' => 'home',"camping" => 7,"min_dist" => 1, "max_dist" => 4, "chance" => 686, "empty" => 0.25, "drops"=> [
                 'chest_citizen_#00' => 50,

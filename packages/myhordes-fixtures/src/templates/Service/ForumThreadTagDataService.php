@@ -9,7 +9,7 @@ class ForumThreadTagDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'bugs'   => [ 'color' => '3b1c32', 'label' => 'Fehler' ],
             'help'   => [ 'color' => 'ca054d', 'label' => 'Hilfe'  ],
             'update' => [ 'color' => '3d405b', 'label' => 'Changelog', 'mask' => ForumUsagePermissions::PermissionPostAsDev ],

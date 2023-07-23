@@ -8,7 +8,7 @@ class HeroSkillDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             ['name' => 'manipulator', 'title' => 'Tipp-Ex', 'description' => 'Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)', 'icon' => 'small_falsify', 'daysNeeded' => 3],
             ['name' => 'clairvoyance', 'title' => 'Hellseherei', 'description' => 'Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...', 'icon' => 'small_view', 'daysNeeded' => 7],
             ['name' => 'writer', 'title' => 'Rundbrief', 'description' => 'Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).', 'icon' => 'item_rp_sheets', 'daysNeeded' => 16],

@@ -9,7 +9,7 @@ class QuoteDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             // French Quotes
             ['name' => 'fr_001', 'content' => '... Carnage... Défaite... Trahison... Lacheté... Voilà le vocabulaire à employer.', 'author' => '', 'lang' => 'fr'],
             ['name' => 'fr_002', 'content' => 'Allez quoi, ouvrez ! Promis je le referai plus... Les gars ?...', 'author' => '', 'lang' => 'fr'],

@@ -2589,7 +2589,7 @@ Maurerlehrling_f: Maurerlehrling
 Maurer_f: Maurerin
 Polier_f: Polierin
 Baustellenleiter_f: Baustellenleiterin
-'Architekt (title)_f': 'Architektin'
+'Architekt (title)_f': Architektin
 Meisterarchitekt_f: Meisterarchitektin
 'Oscar Niemeyer_f': 'Oscar Niemeyer'
 'Zement & Garfunkel_f': 'Zement & Garfunkel'
@@ -2611,7 +2611,7 @@ Fleisch-Schuldner_f: Fleisch-Schuldnerin
 'Bruce Campbell_f': 'Bruce Campbell'
 Hobby-Heimwerker_f: Hobby-Heimwerkerin
 Techniker_f: Technikerin
-'Meisterbastler _f': 'Meisterbastlerin'
+'Meisterbastler _f': Meisterbastlerin
 'Sowas wirft man doch nicht weg!_f': 'Sowas wirft man doch nicht weg!'
 'Mac Gyver der Außenwelt_f': 'Mac Gyver der Außenwelt'
 'Super Soaker_f': 'Super Soaker'
@@ -2853,3 +2853,6 @@ Schaufelführer_f: Schaufelführerin
 'DdA Beste Buddler_f': 'DdA Beste Buddler'
 Tarnexperte_f: Tarnexpertin
 Ninja_f: Ninja
+AP: AP
+CP: CP
+MP: MP

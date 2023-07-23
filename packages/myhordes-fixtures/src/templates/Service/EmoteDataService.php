@@ -8,7 +8,7 @@ class EmoteDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             ['tag'=>':mh:', 'path'=>'build/images/emotes/favicon.ico', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 0],
             ['tag'=>':smile:', 'path'=>'build/images/emotes/smile.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 1],
             ['tag'=>':sad:', 'path'=>'build/images/emotes/sad.gif', 'isactive'=> true, 'requiresunlock'=> false, 'index'=> 2],

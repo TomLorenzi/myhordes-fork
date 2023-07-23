@@ -9,7 +9,7 @@ class CouncilDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
 
             'shaman_root_first' => [
                 'semantic' => CouncilEntryTemplate::CouncilNodeRootShamanFirst, 'mode' => CouncilEntryTemplate::CouncilBranchModeStructured,

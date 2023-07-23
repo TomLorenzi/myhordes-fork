@@ -8,7 +8,7 @@ class AwardFeatureDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'f_wtns'  => [ 'icon' => 'r_ginfec', 'label' => 'Zeuge der großen Verseuchung', 'desc' =>  'Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.'],
             'f_arma'  => [ 'icon' => 'r_armag' , 'label' => 'Zeuge des Armageddon',         'desc' =>  'Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.'],
             'f_glory' => [ 'icon' => 'f_glory' , 'label' => 'Ruhm',                         'desc' =>  'Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.'],
