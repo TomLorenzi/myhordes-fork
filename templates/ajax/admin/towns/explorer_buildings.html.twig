@@ -8,23 +8,22 @@
 		{# @var building \App\Entity\BuildingPrototype #}
 		{# @var fromTown \App\Entity\Building #}
 
-		<div class="row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
+        {% if fromTown is defined or building.blueprint < 6 %}
+		    <div class="row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
 			<div class="padded cell rw-5 rw-lg-12">
 				{% if not fromTown is defined %}
 					<label style="margin-left: -{{ min(n,6) * 16 }}px;float: left;">
 						<input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToUnlockList" />
-						<div class="tooltip help">Cochez cette case pour ajouter ce chantier à la liste de ceux à débloquer dans la ville.</div>
+						<div class="tooltip help">{{ 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'|trans({},'admin') }}</div>
 					</label>
 					<label>
 						<input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToTown" />
-						<div class="tooltip help">Cochez cette case pour débloquer ce chantier.</div>
+						<div class="tooltip help">{{ 'Markieren, um diese Baustelle freizuschalten.'|trans({},'admin') }}</div>
 					</label>
 				{% else %}
 					<div class="inline-block">
 						<img class="link" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" x-prototype-id="{{ building.id }}" x-building-admin-action="removeFromTown" />
-						<div class="tooltip help">
-							Cliquez ici pour supprimer ce chantier de la ville.
-						</div>
+						<div class="tooltip help">{{ 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'|trans({},'admin') }}</div>
 					</div>
 				{% endif %}
 				{% if buildable %}
@@ -32,7 +31,11 @@
 				{% else %}
 					<img alt="" src="{{ asset('build/images/icons/lock.gif' ) }}" >
 				{% endif %}
-				<span>{{ building.label|trans({},'buildings') }}</span>
+                {% if building.blueprint >= 6 %}
+                    <span style="color: red; font-weight: bold" title="{{ 'Dieses Gebäude ist veraltet.'|trans({},'admin') }}">{{ building.label|trans({},'buildings') }}</span>
+                {% else %}
+                    <span>{{ building.label|trans({},'buildings') }}</span>
+                {% endif %}
 				{% if building.temp %}
 					<span>
 							<img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
@@ -82,11 +85,12 @@
 				</div>
 			{% endif %}
 		</div>
-		{% if n < 20 and dict[building.id] is not empty %}
-			{% for sub_building in dict[building.id] %}
-				{{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available) }}
-			{% endfor %}
-		{% endif %}
+		    {% if n < 20 and dict[building.id] is not empty %}
+		    	{% for sub_building in dict[building.id] %}
+		    		{{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available) }}
+		    	{% endfor %}
+		    {% endif %}
+        {% endif %}
 	{% endmacro %}
 
 	{# @var rootBuildings \App\Entity\BuildingPrototype[] #}
