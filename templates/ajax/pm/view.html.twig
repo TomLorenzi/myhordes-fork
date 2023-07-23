@@ -748,6 +748,8 @@
                 const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
                 if (!selected_thread) return;
 
+                $.html.forEach('.pm-conversation-list .selected', (elem) => elem.classList.add('new'));
+
                 $.ajax.easySend(selected_thread.getAttribute('x-unread'), {}, function() {
                     $.html.forEach('#gpm-forum-content>ul>li', e => e.classList.add('new'));
                 });
