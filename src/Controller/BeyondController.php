@@ -31,6 +31,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\DeathHandler;
+use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
@@ -114,9 +115,9 @@ class BeyondController extends InventoryAwareController
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk,
         DeathHandler $dh, PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg,
         ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
-        CrowService $armbrust, TownHandler $th)
+        CrowService $armbrust, TownHandler $th, DoctrineCacheService $doctrineCache)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a, $doctrineCache);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -972,7 +973,7 @@ class BeyondController extends InventoryAwareController
                 }
             }
 
-            if ($new_zone->isTownZone() && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn()) {
+            if ($new_zone->isTownZone() && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $mover->getTown()->getDoor()) {
                 // The citizen want to go back home. When we're on the town zone, make it go inside automatically
                 $mover->setZone(null);
                 $zone->removeCitizen($mover);

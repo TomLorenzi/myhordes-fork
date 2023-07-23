@@ -186,8 +186,10 @@ export const UserSearchBar = (
         });
 
         const fix = () => {
-            overlay.current.style.height = `${final}px`
-            overlay.current.style.opacity = h ? '1' : '0'
+            if (overlay.current) {
+                overlay.current.style.height = `${final}px`
+                overlay.current.style.opacity = h ? '1' : '0'
+            }
         }
 
         animation.addEventListener('finish', fix);

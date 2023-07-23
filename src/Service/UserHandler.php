@@ -43,6 +43,7 @@ class UserHandler
     const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors +  5;
     const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors +  6;
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
+    const ErrorAvatarTooManyFrames = ErrorHelper::BaseAvatarErrors + 8;
 
     const ImageProcessingForceImagick = 0;
     const ImageProcessingPreferImagick = 1;
@@ -55,8 +56,9 @@ class UserHandler
     private CrowService $crow;
     private TranslatorInterface $translator;
     private ConfMaster $conf;
+    private DoctrineCacheService $doctrineCache;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow, TranslatorInterface  $translator, ConfMaster $conf, DoctrineCacheService $doctrineCache)
     {
         $this->entity_manager = $em;
         $this->container = $c;
@@ -64,6 +66,7 @@ class UserHandler
         $this->crow = $crow;
         $this->translator = $translator;
         $this->conf = $conf;
+        $this->doctrineCache = $doctrineCache;
     }
 
     public function fetchSoulPoints(User $user, bool $all = true, bool $useCached = false): int {
@@ -315,7 +318,7 @@ class UserHandler
 
     public function hasSkill(User $user, $skill){
         if(is_string($skill)) {
-            $skill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findOneBy(['name' => $skill]);
+            $skill = $this->doctrineCache->getEntityByIdentifier(HeroSkillPrototype::class, $skill);
             if($skill === null)
                 return false;
         }
@@ -453,7 +456,7 @@ class UserHandler
      * @return string[]
      */
     public function admin_validFlags(): array {
-        return ['FLAG_ORACLE', 'FLAG_ANIMAC', 'FLAG_TEAM', 'FLAG_RUFFIAN'];
+        return ['FLAG_ORACLE', 'FLAG_ANIMAC', 'FLAG_TEAM', 'FLAG_RUFFIAN', 'FLAG_DEV'];
     }
 
     /**
@@ -732,11 +735,11 @@ class UserHandler
 
         if ($nextDeath->getGenerosityBonus() > 0 && !$nextDeath->getDisabled() && !$nextDeath->getTown()->getDisabled()) {
 
-            $generosity = $this->entity_manager->getRepository( FeatureUnlockPrototype::class )->findOneBy(['name' => 'f_share']);
+            $generosity = $this->doctrineCache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share');
             /** @var FeatureUnlock $instance */
             $instance = $this->entity_manager->getRepository(FeatureUnlock::class)->findBy([
                 'user' => $user, 'expirationMode' => FeatureUnlock::FeatureExpirationTownCount,
-                'prototype' => $this->entity_manager->getRepository( FeatureUnlockPrototype::class )->findOneBy(['name' => 'f_share'])
+                'prototype' =>$this->doctrineCache->getEntityByIdentifier(FeatureUnlockPrototype::class, 'f_share')
             ])[0] ?? null;
             if (!$instance) $instance = (new FeatureUnlock())->setPrototype( $generosity )->setUser( $user )
                 ->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount($nextDeath->getGenerosityBonus());

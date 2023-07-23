@@ -869,6 +869,16 @@ class AdminUserController extends AdminActionController
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAnimactorGroup));
                         break;
 
+                    case 'FLAG_DEV':
+                        $user->addRoleFlag( User::USER_ROLE_DEV );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultDevGroup));
+                        break;
+
+                    case '!FLAG_DEV':
+                        $user->removeRoleFlag( User::USER_ROLE_DEV );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultDevGroup));
+                        break;
+
                     default: breaK;
                 }
                 $this->entity_manager->persist($user);

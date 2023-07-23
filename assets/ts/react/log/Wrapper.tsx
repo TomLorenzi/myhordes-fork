@@ -259,7 +259,7 @@ const HordesLogContentContainer = (props: logContainerProps) => {
                                 props.deleteEntry(entry.id);
                             }
                         } }>
-                            <img src={globals.strings.content.falsify} alt="[X]" />
+                            <img src={globals.strings?.content.falsify} alt="[X]" />
                             &nbsp;
                             <Tooltip additionalClasses="help" html={ globals.strings?.content.hide }></Tooltip>
                         </span>

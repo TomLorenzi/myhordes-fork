@@ -1531,7 +1531,10 @@ class SoulController extends CustomAbstractController
 
         if (!$parser->has_all( ['contact','url'], true )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+        $violations = Validation::createValidator()->validate( array_merge($parser->all( true ), [
+            'url' => preg_replace('/\{.*?\}/', 'SYMBOL', $parser->get('url')),
+            'devurl' => preg_replace('/\{.*?\}/', 'SYMBOL', $parser->get('devurl', '')),
+        ]), new Constraints\Collection([
             'url' => [ new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ) ],
             'devurl' => [
                 new Constraints\AtLeastOneOf([
@@ -1619,6 +1622,7 @@ class SoulController extends CustomAbstractController
             'oracle' => $this->user_handler->hasRole($user,'ROLE_ORACLE'),
             'anim'   => $this->user_handler->hasRole($user,'ROLE_ANIMAC'),
             'team'   => $this->user_handler->hasRole($user,'ROLE_TEAM'),
+            'dev'    => $this->user_handler->hasRole($user, 'ROLE_DEV')
         ]);
     }
 
@@ -1719,8 +1723,8 @@ class SoulController extends CustomAbstractController
 
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume())->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
@@ -1765,8 +1769,8 @@ class SoulController extends CustomAbstractController
 
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 )->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 ))->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())

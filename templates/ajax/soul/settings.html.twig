@@ -316,7 +316,7 @@
                         <div id="team_sel" class="row-flex wrap v-center gap-small space" style="display: none; margin-top: 5px;">
                             {% for flag in langs %}
                                 {% if flag['code'] != 'ach' %}
-                                    <img alt="{{ flag['label'] }}" title="{{ flag['label'] }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
+                                    <img alt="{{ flag['label']|trans({},'global') }}" title="{{ flag['label']|trans({},'global') }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
                                 {% endif %}
                             {% endfor %}
                             <span id="hide_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
@@ -403,6 +403,7 @@
                         'Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.'|trans({size: avatar_max_size[0]},'soul') ~ '<br />' ~
                         'Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).'|trans({},'soul') ~ '<br />' ~
                         'Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.'|trans({size: avatar_max_size[1]},'soul')  ~ '<br /><br />' ~
+                        'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256 '|trans({size: avatar_max_size[1]},'soul')  ~ '<br /><br />' ~
                         'Die folgenden Bildformate werden unterstützt:'|trans({},'soul') ~ ' <b>JPEG</b>, <b>GIF</b>, <b>BMP</b>, <b>PNG</b>, <b>WEBP</b>, <b>AVIF</b>'
                     ) }}
                 </h5>

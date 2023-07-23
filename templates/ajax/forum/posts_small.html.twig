@@ -33,6 +33,11 @@
                     <img alt="MH" src="{{ asset('build/images/icons/icon_mh_team.gif') }}" />
                     <div class="tooltip">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
                 </div>
+            {% elseif user|is_granted('ROLE_DEV') %}
+                <div class="inline-block mh-icon">
+                    <img alt="MH" src="{{ asset('build/images/icons/small_dev.png') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+                </div>
             {% endif %}
         {% endif %}
     {% endmacro %}

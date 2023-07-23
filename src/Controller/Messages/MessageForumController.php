@@ -14,6 +14,8 @@ use App\Entity\ForumPoll;
 use App\Entity\ForumPollAnswer;
 use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\GlobalPrivateMessage;
+use App\Entity\LogEntryTemplate;
 use App\Entity\OfficialGroup;
 use App\Entity\Post;
 use App\Entity\SocialRelation;
@@ -588,7 +590,7 @@ class MessageForumController extends MessageController
         }
 
         $has_notif = false;
-        if (count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
+        if (!$mod_post && count($insight->taggedUsers) <= ($forum->getTown() ? 10 : 5) )
             foreach ( $insight->taggedUsers as $tagged_user )
                 if ( $this->should_notify( $user, $tagged_user, $forum->getTown() ) && $this->perm->checkEffectivePermissions( $tagged_user, $forum, ForumUsagePermissions::PermissionReadThreads ) ) {
                     $this->entity_manager->persist( $crow->createPM_mentionNotification( $tagged_user, $post ) );
@@ -661,6 +663,7 @@ class MessageForumController extends MessageController
         $permission = $this->perm->getEffectivePermissions($user, $thread->getForum());
 
         $mod_permissions = $thread->hasReportedPosts(false) && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate);
+        $anim_permissions = $thread->getTag()?->getName() === 'event' && $post === $thread->firstPost(false) && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim);
 
         if ($post->getOwner()->getId() === 66 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsCrow | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -668,7 +671,7 @@ class MessageForumController extends MessageController
         if ($post->getOwner()->getId() === 67 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
+        if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$anim_permissions && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (($thread->getLocked() || $thread->getHidden() || ($post !== $thread->lastPost(false) && $post !== $thread->firstPost(true))) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
@@ -1256,9 +1259,15 @@ class MessageForumController extends MessageController
         $post = null;
         if ($pid !== null) {
             $post = $em->getRepository(Post::class)->find((int)$pid);
-            if (!$post || (!$post->isEditable() && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) || $post->getThread() !== $thread || (
-                (($post->getOwner() !== $user && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) && $post->getOwner()->getId() === 66) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getOwner()->getId() === 67))
-                )) return new Response('');
+            if (!$post || (!$post->isEditable() && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) || $post->getThread() !== $thread) return new Response('');
+
+            if (
+                ($post->getOwner() !== $user && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) &&
+                !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) && $post->getOwner()->getId() === 66) &&
+                !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getOwner()->getId() === 67) &&
+                !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getThread()->firstPost(false) === $post && $post->getThread()->getTag()?->getName() === 'event')
+            )
+                return new Response('');
         }
 
         $town = $forum->getTown();
@@ -1536,11 +1545,22 @@ class MessageForumController extends MessageController
 
                     if ($notification) $this->entity_manager->persist($notification);
 
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_post_notification']);
+                    $relatedNotifications = $this->entity_manager->getRepository(GlobalPrivateMessage::class)
+                        ->createQueryBuilder('g')
+                        ->where( 'g.template = :value' )->setParameter('value', $template)
+                        ->andWhere("JSON_EXTRACT(g.data, '$.link_post') = :pid")->setParameter('pid', $post->getId())
+                        ->getQuery()->getResult();
+
+                    foreach ($relatedNotifications as $n)
+                        $this->entity_manager->remove($n);
+
                     $this->entity_manager->flush();
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
-                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                    throw $e;
+                    //return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
 
             case 'undelete':
@@ -1665,8 +1685,8 @@ class MessageForumController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume($reports->isEmpty() ? 2 : 1)->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume($reports->isEmpty() ? 2 : 1))->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $post->addAdminReport(

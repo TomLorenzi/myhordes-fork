@@ -116,11 +116,16 @@ export default class HTML {
                 this.error( messages[code](data) );
             else this.error( messages[code] );
         } else if ( base.hasOwnProperty(code) ) {
-            let str = base[code];
-            for(let prop in data){
-                str = str.replace('{' + prop + '}', data[prop]);
+
+            if (typeof base[code] === 'function')
+                this.error( base[code](data) );
+            else {
+                let str = base[code];
+                for(let prop in data){
+                    str = str.replace('{' + prop + '}', data[prop]);
+                }
+                this.error( str );
             }
-            this.error( str );
         }
         else this.error( c.errors['common'] );
     }

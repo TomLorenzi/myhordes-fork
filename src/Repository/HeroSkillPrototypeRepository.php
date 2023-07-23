@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\HeroSkillPrototype;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -56,5 +57,18 @@ class HeroSkillPrototypeRepository extends ServiceEntityRepository
             ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult();
+    }
+
+    public function findOneByName(string $value): ?HeroSkillPrototype
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->andWhere('c.name = :val')
+                ->setParameter('val', $value)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
     }
 }
