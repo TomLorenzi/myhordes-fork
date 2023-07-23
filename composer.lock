@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f3120b65531e6706c1cfd926b14281f",
+    "content-hash": "4363fbe51e264311a92a98bcc410ad3b",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2387,7 +2387,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-rework-action-handler",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -2425,7 +2425,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-rework-action-handler",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
