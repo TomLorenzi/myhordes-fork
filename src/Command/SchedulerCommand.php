@@ -23,6 +23,7 @@ use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
@@ -70,7 +71,7 @@ class SchedulerCommand extends Command
         if ($new_date === false) throw new Exception('Invalid date.');
 
         $output->writeln( "A new attack has been scheduled for <info>{$new_date->format('d.m.Y H:i:s')}</info>." );
-        $this->entityManager->persist( (new AttackSchedule())->setTimestamp( $new_date ) );
+        $this->entityManager->persist( (new AttackSchedule())->setTimestamp( DateTimeImmutable::createFromMutable($new_date) ) );
     }
 
     private function execute_clear( InputInterface $input, OutputInterface $output ) {

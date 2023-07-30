@@ -26,7 +26,7 @@ class AttackScheduleRepository extends ServiceEntityRepository
     {
         try {
             return $this->createQueryBuilder('a')
-                ->andWhere('a.timestamp > :val')->setParameter('val', $time ?? new DateTime('now'))
+                ->andWhere('a.timestamp > :val')->setParameter('val', $time ?? new \DateTimeImmutable('now'))
                 ->orderBy('a.timestamp', 'ASC')
                 ->setMaxResults(1)
                 ->getQuery()
@@ -54,7 +54,7 @@ class AttackScheduleRepository extends ServiceEntityRepository
     {
         try {
             return $this->createQueryBuilder('a')
-                ->andWhere('a.timestamp <= :val')->setParameter('val', $time ?? new DateTime('now'))
+                ->andWhere('a.timestamp <= :val')->setParameter('val', $time ?? new \DateTimeImmutable('now'))
                 ->orderBy('a.timestamp', 'DESC')
                 ->setMaxResults(1)
                 ->getQuery()
