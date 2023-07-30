@@ -607,3 +607,4 @@ Start: crwdns201669:0crwdne201669:0
 Ende: crwdns201671:0crwdne201671:0
 'Wartezeit: {s} Sekunden': 'crwdns201673:0{s}crwdne201673:0'
 'Verarbeitungszeit: {s} Sekunden': 'crwdns201675:0{s}crwdne201675:0'
+'{n} Städte in Quarantäne!': 'crwdns201677:0{n}crwdne201677:0'
