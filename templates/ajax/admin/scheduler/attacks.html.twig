@@ -86,6 +86,11 @@
                                 <div class="small">{{ 'Verarbeitungszeit: {s} Sekunden'|trans({s: schedule.completedAt.timestamp - schedule.startedAt.timestamp},'admin') }}</div>
                             {% endif %}
                         </div>
+                        {% if schedule.failures > 0 %}
+                            <div class="padded cell rw-12">
+                                <div class="note note-warning">{{ '{n} Städte in Quarantäne!'|trans({n: schedule.failures},'admin') }}</div>
+                            </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>

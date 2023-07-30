@@ -234,6 +234,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
             $this->entityManager->clear();
 
+            $quarantined_towns = 0;
+
             $i = 1; $num = count($town_ids);
             foreach ( $town_ids as $town_id ) {
 
@@ -246,6 +248,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 if (!empty($failures)) {
                     // If we exceed the number of allowed processing tries, quarantine the town
                     if (count($failures) >= $try_limit) {
+                        $quarantined_towns++;
+
                         /** @var Town $town */
                         $town = $this->entityManager->getRepository(Town::class)->find($town_id);
                         $town->setAttackFails( count($failures) );
@@ -264,7 +268,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
             $s = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);
             $this->entityManager->persist(
-                $s->setCompleted(true)->setCompletedAt( new DateTimeImmutable('now') )
+                $s->setCompleted(true)->setCompletedAt( new DateTimeImmutable('now') )->setFailures($quarantined_towns)
             );
 
             $this->updateHeaderStats();

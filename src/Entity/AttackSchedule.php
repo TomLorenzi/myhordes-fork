@@ -24,6 +24,9 @@ class AttackSchedule
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $completedAt = null;
 
+    #[ORM\Column]
+    private int $failures = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +72,18 @@ class AttackSchedule
     public function setCompletedAt(?\DateTimeImmutable $completedAt): static
     {
         $this->completedAt = $completedAt;
+
+        return $this;
+    }
+
+    public function getFailures(): ?int
+    {
+        return $this->failures;
+    }
+
+    public function setFailures(int $failures): static
+    {
+        $this->failures = $failures;
 
         return $this;
     }
