@@ -83,6 +83,7 @@ class HTMLService {
             'oracle' => [
                 'ul' => ['class'],
                 'li' => ['class'],
+                'img' => [ 'alt', 'src', 'title']
             ],
             'crow' => [],
             'admin' => [

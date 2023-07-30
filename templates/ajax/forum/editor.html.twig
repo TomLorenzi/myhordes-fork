@@ -116,8 +116,10 @@
                     <div x-forum-action="edit" x-text-wrap-node="big" x-control-shortcut="+" class="forum-button"><i class="fa fa-expand-alt"></i><span class="forum-button-tooltip">{{ 'Groß'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
-                    {% if permission.format_admin() %}
+                    {% if permission.format_admin() or permission.format_oracle() %}
                         <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                    {% endif %}
+                    {% if permission.format_admin() %}
                         <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
                     {% endif %}
                     {% if permission.format_mod() %}
