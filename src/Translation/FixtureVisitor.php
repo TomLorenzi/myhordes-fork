@@ -51,6 +51,14 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
         return true;
     }
 
+    protected function extractNestedArrayData( array $data, string $domain ): bool {
+        $messages = [];
+        array_walk_recursive( $data, function($message) use (&$messages) {
+            $messages[] = $message;}
+        );
+        return $this->extractArrayData( $messages, $domain );
+    }
+
     protected function extractColumnData( array $data, array|string $columns, string $domain ): bool {
         return array_reduce(
             array_map(
@@ -79,7 +87,7 @@ final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
             AwardFeature::class => $this->extractColumnData( $data, ['label', 'desc'], 'items'),
             Building::class =>
                 $this->extractColumnData( $data, ['label', 'description','baseVoteText'], 'buildings') &&
-                $this->extractArrayData( array_column( $data, 'upgradeTexts' ), 'buildings'),
+                $this->extractNestedArrayData( array_column( $data, 'upgradeTexts' ), 'buildings'),
             CitizenHomeLevel::class => $this->extractColumnData( $data, 'label', 'buildings'),
             CitizenHomeUpgrade::class => $this->extractColumnData( $data, ['label','desc'], 'buildings'),
             CitizenStatus::class,
