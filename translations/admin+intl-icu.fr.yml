@@ -592,23 +592,23 @@ Accounts: Comptes
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Les wikis sont affichés séparément des autres applications.'
 Wiki: Wiki
 Entwickler: Développeur
-Angriffsplan: Angriffsplan
-Uhrzeit: Uhrzeit
-Geplant: Geplant
-'Wartet auf Abarbeitung': 'Wartet auf Abarbeitung'
-'Wartet seit {s} Sekunden': 'Wartet seit {s} Sekunden'
-'Wird verarbeitet': 'Wird verarbeitet'
-'Arbeitet seit {s} Sekunden': 'Arbeitet seit {s} Sekunden'
-Abgeschlossen: Abgeschlossen
-Projiziert: Projiziert
-'Nächsten Angriff verschieben': 'Nächsten Angriff verschieben'
-'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
-Start: Start
-Ende: Ende
-'Wartezeit: {s} Sekunden': 'Wartezeit: {s} Sekunden'
-'Verarbeitungszeit: {s} Sekunden': 'Verarbeitungszeit: {s} Sekunden'
-'{n} Städte in Quarantäne!': '{n} Städte in Quarantäne!'
-Konfiguration: Konfiguration
+Angriffsplan: Plan d'attaque
+Uhrzeit: Heure
+Geplant: Planifié
+'Wartet auf Abarbeitung': 'En attente de traitement'
+'Wartet seit {s} Sekunden': 'Attendu {s} secondes'
+'Wird verarbeitet': 'En cours de traitement'
+'Arbeitet seit {s} Sekunden': 'Travaillé depuis {s} secondes'
+Abgeschlossen: Achevée
+Projiziert: Projeté
+'Nächsten Angriff verschieben': 'Reporter la prochaine attaque'
+'Ausgeführte Angriffe': 'Attaques exécutées'
+Start: Début
+Ende: Fin
+'Wartezeit: {s} Sekunden': 'Temps d''attente : {s} secondes'
+'Verarbeitungszeit: {s} Sekunden': 'Temps de traitement : {s} secondes'
+'{n} Städte in Quarantäne!': '{n} Ville(s) en Quarantaine !'
+Konfiguration: Configuration
 Option: Option
-Wert: Wert
-'Keine Verifizierungsmails versenden': 'Keine Verifizierungsmails versenden'
+Wert: Valeur
+'Keine Verifizierungsmails versenden': 'Ne pas envoyer d''e-mails de vérification'
