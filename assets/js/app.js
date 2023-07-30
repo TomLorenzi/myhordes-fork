@@ -36,8 +36,10 @@ window.$ = $;
 document.addEventListener('tokenExchangeCompleted', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
     $.html.init();
-    if (!document.body.classList.contains('page-attract'))
-        document.body.classList.add( 'icon-zoom-' + $.client.config.iconZoom.get() )
+    if (!document.body.classList.contains('page-attract')) {
+        document.body.classList.add('icon-zoom-' + $.client.config.iconZoom.get())
+        document.body.classList.add('forum-font-' + $.client.config.forumFontSize.get())
+    }
     const initial_landing = document.documentElement.getAttribute('x-ajax-landing');
     if (initial_landing) $.ajax.no_loader().load( null, initial_landing, true, {} );
 }, {once: true, passive: true});

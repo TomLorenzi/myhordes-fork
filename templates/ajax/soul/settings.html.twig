@@ -705,6 +705,19 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                                <div class="note note-lightest">
+                                    <label for="setting_browser_forumFontSize">{{ 'Schriftgröße im Forum'|trans({}, 'soul') }}</label>
+                                </div>
+                            </div>
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-12">
+                                <select id="setting_browser_forumFontSize">
+                                    <option value="normal">{{ 'Normal'|trans({}, 'soul') }}</option>
+                                    <option value="twinoid">{{ 'Twinoid (klein)'|trans({}, 'soul') }}</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -778,6 +791,18 @@
 
             document.body.classList.add('icon-zoom-' + elem.value);
             $.client.config.iconZoom.set(elem.value);
+            confirmConig();
+        });
+
+        $.html.forEach('#setting_browser_forumFontSize', e => e.value = $.client.config.forumFontSize.get());
+        $.html.addEventListenerAll('#setting_browser_forumFontSize', 'change', function(e,elem) {
+            const old_classes = document.body.classList;
+            old_classes.forEach(c => {
+                if (c.substring(0,11) === 'forum-font-') document.body.classList.remove(c);
+            });
+
+            document.body.classList.add('forum-font-' + elem.value);
+            $.client.config.forumFontSize.set(elem.value);
             confirmConig();
         });
 
