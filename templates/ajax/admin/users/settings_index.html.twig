@@ -1,0 +1,36 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+    <div class="row">
+        <div class="cell rw-12">
+            {% embed "ajax/admin/users/listing_tabs.html.twig" %}{% endembed %}
+            <h5>{{'Konfiguration'|trans({}, "admin")}}</h5>
+            <div class="row-table">
+                <div class="row header">
+                    <div class="cell padded rw-8 rw-md-12">{{ 'Option'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-4 rw-md-12">{{ 'Wert'|trans({},'admin') }}</div>
+                </div>
+                <div class="row">
+                    <div class="cell padded rw-8 rw-md-12"><label for="s_DisableAutomaticUserValidationMails">{{ 'Keine Verifizierungsmails versenden'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4 rw-md-12">
+                        {% if s.DisableAutomaticUserValidationMails %}
+                            <input type="checkbox" checked id="s_DisableAutomaticUserValidationMails"
+                                   data-fetch="{{ path('rest_admin_settings_mod') }}"
+                                   data-fetch-method="patch"
+                                   data-fetch-payload="{{ {setting: constant("\\App\\Enum\\ServerSetting::DisableAutomaticUserValidationMails"), value: false}|json_encode }}"
+                                   data-fetch-load="{{ path('admin_users_settings') }}"
+                            />
+                        {% else %}
+                            <input type="checkbox" id="s_DisableAutomaticUserValidationMails"
+                                   data-fetch="{{ path('rest_admin_settings_mod') }}"
+                                   data-fetch-method="patch"
+                                   data-fetch-payload="{{ {setting: constant("\\App\\Enum\\ServerSetting::DisableAutomaticUserValidationMails"), value: true}|json_encode }}"
+                                   data-fetch-load="{{ path('admin_users_settings') }}"
+                            />
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

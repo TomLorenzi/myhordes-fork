@@ -34,6 +34,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownSetup;
 use DateTime;
+use DateTimeImmutable;
 use DirectoryIterator;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -217,6 +218,11 @@ class CronCommand extends Command implements SelfSchedulingCommand
             $try_limit = $this->conf->get(MyHordesConf::CONF_NIGHTLY_RETRIES, 3);
             $schedule_id = $s->getId();
 
+            $this->entityManager->persist(
+                $s->setStartedAt( new DateTimeImmutable('now') )
+            );
+            $this->entityManager->flush();
+
             $town_ids = array_column($this->entityManager->createQueryBuilder()
                 ->select('t.id')
                 ->from(Town::class, 't')
@@ -227,6 +233,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 ->getScalarResult(), 'id');
 
             $this->entityManager->clear();
+
+            $quarantined_towns = 0;
 
             $i = 1; $num = count($town_ids);
             foreach ( $town_ids as $town_id ) {
@@ -240,6 +248,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 if (!empty($failures)) {
                     // If we exceed the number of allowed processing tries, quarantine the town
                     if (count($failures) >= $try_limit) {
+                        $quarantined_towns++;
+
                         /** @var Town $town */
                         $town = $this->entityManager->getRepository(Town::class)->find($town_id);
                         $town->setAttackFails( count($failures) );
@@ -257,7 +267,9 @@ class CronCommand extends Command implements SelfSchedulingCommand
             }
 
             $s = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);
-            $this->entityManager->persist($s->setCompleted(true));
+            $this->entityManager->persist(
+                $s->setCompleted(true)->setCompletedAt( new DateTimeImmutable('now') )->setFailures($quarantined_towns)
+            );
 
             $this->updateHeaderStats();
 
@@ -266,7 +278,7 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
                 $new_date = (new DateTime())->setTimestamp( $s->getTimestamp()->getTimestamp() )->modify($datemod);
                 if ($new_date !== false && $new_date > $s->getTimestamp())
-                    $this->entityManager->persist( (new AttackSchedule())->setTimestamp( $new_date ) );
+                    $this->entityManager->persist( (new AttackSchedule())->setTimestamp( DateTimeImmutable::createFromMutable($new_date) ) );
 
             }
 

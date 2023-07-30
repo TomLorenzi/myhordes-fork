@@ -1,4 +1,5 @@
 import {Const, Global} from "./defaults";
+import {dataDrivenFunctions} from "./v2/applicator";
 import {SecureStorage} from "./v2/security";
 import {EventConnector} from "./v2/events";
 
@@ -358,6 +359,7 @@ export default class Ajax {
         $.components.prune();
         $.html.restoreTutorialStage();
 
+        dataDrivenFunctions( target );
         EventConnector.handle( target );
     }
 

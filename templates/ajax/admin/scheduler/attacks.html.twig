@@ -1,0 +1,99 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block title %}
+    {% trans from 'admin' %}Angriffsplan{% endtrans %}
+{% endblock %}
+{% block ajax %}
+    <div class="row">
+        <div class="padded cell rw-12">
+            <h5>{{ 'Geplante Angriffe'|trans({},'admin') }}</h5>
+            <div class="row-table">
+                <div class="row header">
+                    <div class="padded cell rw-1 rw-md-2 hide-sm">#</div>
+                    <div class="padded cell rw-2 rw-lg-3 hide-sm">{{ 'Datum'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-2 rw-lg-3 hide-sm">{{ 'Uhrzeit'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-7 rw-lg-5 rw-md-4 hide-sm">{{ 'Status'|trans({},'admin') }}</div>
+                </div>
+                {% for schedule in planned_schedules %}
+                    <div class="row">
+                        <div class="padded cell rw-1 rw-md-2 rw-sm-2">{{ schedule.id }}</div>
+                        <div class="padded cell rw-2 rw-lg-3 rw-sm-5">{{ schedule.timestamp|format_datetime('short', 'none') }}</div>
+                        <div class="padded cell rw-2 rw-lg-3 rw-sm-5">{{ schedule.timestamp|format_datetime('none', 'short') }}</div>
+                        <div class="padded cell rw-7 rw-lg-5 rw-md-4 rw-sm-12">
+                            {% if schedule.timestamp > now %}{{ 'Geplant'|trans({},'admin') }}
+                            {% elseif schedule.startedAt is null %}
+                                <div class="small">{{ 'Wartet auf Abarbeitung'|trans({},'admin') }}</div>
+                                <div class="small">{{ 'Wartet seit {s} Sekunden'|trans({s: schedule.now.timestamp - schedule.timestamp.timestamp},'admin') }}</div>
+                            {% elseif schedule.completedAt is null %}
+                                <div class="small">{{ 'Wird verarbeitet'|trans({},'admin') }}</div>
+                                <div class="small">{{ 'Arbeitet seit {s} Sekunden'|trans({s: schedule.now.timestamp - schedule.startedAt.timestamp},'admin') }}</div>
+                            {% else %}{{ 'Abgeschlossen'|trans({},'admin') }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if projected is not null %}
+                        <div class="row">
+                            <div class="padded cell rw-1 rw-md-2 rw-sm-2"></div>
+                            <div class="padded cell rw-2 rw-lg-3 rw-sm-5">{{ projected|format_datetime('short', 'none') }}</div>
+                            <div class="padded cell rw-2 rw-lg-3 rw-sm-5">{{ projected|format_datetime('none', 'short') }}</div>
+                            <div class="padded cell rw-7 rw-lg-5 rw-md-4 rw-sm-12">{{ 'Projiziert'|trans({},'admin') }} </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <div class="right">
+                            <button class="inline small"
+                                    data-fetch="{{ path('rest_admin_schedule_attack_find') }}"
+                                    data-fetch-method="patch"
+                                    data-fetch-payload="{{ {method: 'delay'}|json_encode }}"
+                                    data-fetch-load="{{ path('admin_schedule_attacks') }}"
+                                    data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}">
+                                {{ 'Nächsten Angriff verschieben'|trans({},'admin') }}</button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <h5>{{ 'Ausgeführte Angriffe'|trans({},'admin') }}</h5>
+            <div class="row-table">
+                <div class="row header">
+                    <div class="padded cell rw-1 rw-md-2 hide-sm">#</div>
+                    <div class="padded cell rw-3 rw-lg-2 hide-sm">{{ 'Datum'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-2 rw-lg-2 hide-sm">{{ 'Uhrzeit'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-3 rw-lg-3 hide-sm">{{ 'Start'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-3 rw-lg-3 hide-sm">{{ 'Ende'|trans({},'admin') }}</div>
+                </div>
+                {% for schedule in completed_schedules %}
+                    <div class="row">
+                        <div class="padded cell rw-1 rw-md-2">{{ schedule.id }}</div>
+                        <div class="padded cell rw-3 rw-lg-2">{{ schedule.timestamp|format_datetime('short', 'none') }}</div>
+                        <div class="padded cell rw-2 rw-lg-2">{{ schedule.timestamp|format_datetime('none', 'short') }}</div>
+                        <div class="padded cell rw-3 rw-lg-3">
+                            {% if schedule.startedAt is not null %}
+                                <div class="small">{{ schedule.startedAt|format_datetime('none', 'short') }}</div>
+                                <div class="small">{{ 'Wartezeit: {s} Sekunden'|trans({s: schedule.startedAt.timestamp - schedule.timestamp.timestamp},'admin') }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="padded cell rw-3 rw-lg-3">
+                            {% if schedule.completedAt is not null %}
+                                <div class="small">{{ schedule.completedAt|format_datetime('none', 'short') }}</div>
+                                <div class="small">{{ 'Verarbeitungszeit: {s} Sekunden'|trans({s: schedule.completedAt.timestamp - schedule.startedAt.timestamp},'admin') }}</div>
+                            {% endif %}
+                        </div>
+                        {% if schedule.failures > 0 %}
+                            <div class="padded cell rw-12">
+                                <div class="note note-warning">{{ '{n} Städte in Quarantäne!'|trans({n: schedule.failures},'admin') }}</div>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -34,6 +34,7 @@ use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Entity\UserSwapPivot;
+use App\Enum\ServerSetting;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
 use App\Service\AdminHandler;
@@ -260,6 +261,19 @@ class AdminUserController extends AdminActionController
         $tokens = $this->entity_manager->getRepository(RegistrationToken::class)->findAll();
         return $this->render( 'ajax/admin/users/token_index.html.twig', $this->addDefaultTwigArgs("token_list", [
             'tokens' => $tokens
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/users/settings", name="admin_users_settings")
+     * @return Response
+     */
+    public function settings(): Response
+    {
+        return $this->render( 'ajax/admin/users/settings_index.html.twig', $this->addDefaultTwigArgs("settings", [
+            's' => [
+                'DisableAutomaticUserValidationMails' => $this->conf->serverSetting( ServerSetting::DisableAutomaticUserValidationMails )
+            ]
         ]));
     }
 
@@ -491,7 +505,7 @@ class AdminUserController extends AdminActionController
             foreach ($this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) as $pf) {
                 /** @var $pf UserPendingValidation */
                 if ($action === 'regen_tokens') $pf->generatePKey();
-                $uf->announceValidationToken( $pf );
+                $uf->announceValidationToken( $pf, true );
                 $this->entity_manager->persist( $pf );
             }
             break;
