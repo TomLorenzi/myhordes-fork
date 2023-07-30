@@ -602,13 +602,13 @@ Geplant: Planned
 Abgeschlossen: Completed
 Projiziert: Projected
 'Nächsten Angriff verschieben': 'Postpone next attack'
-'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
+'Ausgeführte Angriffe': 'Executed Attacks'
 Start: Start
-Ende: Ende
-'Wartezeit: {s} Sekunden': 'Wartezeit: {s} Sekunden'
-'Verarbeitungszeit: {s} Sekunden': 'Verarbeitungszeit: {s} Sekunden'
-'{n} Städte in Quarantäne!': '{n} Städte in Quarantäne!'
-Konfiguration: Konfiguration
+Ende: End
+'Wartezeit: {s} Sekunden': 'Waiting time: {s} seconds'
+'Verarbeitungszeit: {s} Sekunden': 'Processing time: {s} seconds'
+'{n} Städte in Quarantäne!': '{n} Town(s) in Quarantine!'
+Konfiguration: Configuration
 Option: Option
-Wert: Wert
-'Keine Verifizierungsmails versenden': 'Keine Verifizierungsmails versenden'
+Wert: Value
+'Keine Verifizierungsmails versenden': 'Do not send verification emails'
