@@ -592,14 +592,14 @@ Accounts: Cuentas
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Los wikis se muestran separadamente de las otras aplicaciones.'
 Wiki: Wiki
 Entwickler: Desarrollador
-Angriffsplan: Angriffsplan
-Uhrzeit: Uhrzeit
-Geplant: Geplant
-'Wartet auf Abarbeitung': 'Wartet auf Abarbeitung'
-'Wartet seit {s} Sekunden': 'Wartet seit {s} Sekunden'
-'Wird verarbeitet': 'Wird verarbeitet'
-'Arbeitet seit {s} Sekunden': 'Arbeitet seit {s} Sekunden'
-Abgeschlossen: Abgeschlossen
+Angriffsplan: Plan de ataque
+Uhrzeit: Hora
+Geplant: Planificado
+'Wartet auf Abarbeitung': 'En espera de tratamiento'
+'Wartet seit {s} Sekunden': 'Espera {s} segundos'
+'Wird verarbeitet': 'En proceso'
+'Arbeitet seit {s} Sekunden': 'Trabajando desde {s} segundos'
+Abgeschlossen: Completado
 Projiziert: Projiziert
 'Nächsten Angriff verschieben': 'Nächsten Angriff verschieben'
 'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
