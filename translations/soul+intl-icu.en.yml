@@ -569,6 +569,6 @@ Bildformat: Image format
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'You''ve successfully changed the name of your coalition.'
 'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'This animation contains too many frames, the server cannot crop it to the required size.'
 'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'If you upload an animated image with a resolution more than 200×200 pixels, it must not exceed 256 animation frames.'
-'Schriftgröße im Forum': 'Schriftgröße im Forum'
+'Schriftgröße im Forum': 'Font size in the forum'
 Normal: Normal
-'Twinoid (klein)': 'Twinoid (klein)'
+'Twinoid (klein)': 'Twinoid (small)'
