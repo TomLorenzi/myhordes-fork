@@ -592,16 +592,16 @@ Accounts: Accounts
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Wikis are displayed separately from other apps.'
 Wiki: Wiki
 Entwickler: Developer
-Angriffsplan: Angriffsplan
-Uhrzeit: Uhrzeit
-Geplant: Geplant
-'Wartet auf Abarbeitung': 'Wartet auf Abarbeitung'
-'Wartet seit {s} Sekunden': 'Wartet seit {s} Sekunden'
-'Wird verarbeitet': 'Wird verarbeitet'
-'Arbeitet seit {s} Sekunden': 'Arbeitet seit {s} Sekunden'
-Abgeschlossen: Abgeschlossen
-Projiziert: Projiziert
-'Nächsten Angriff verschieben': 'Nächsten Angriff verschieben'
+Angriffsplan: Attack Plan
+Uhrzeit: Time
+Geplant: Planned
+'Wartet auf Abarbeitung': 'Awaiting processing'
+'Wartet seit {s} Sekunden': 'Waited for {s} seconds'
+'Wird verarbeitet': 'Processing'
+'Arbeitet seit {s} Sekunden': 'Working for {s} seconds'
+Abgeschlossen: Completed
+Projiziert: Projected
+'Nächsten Angriff verschieben': 'Postpone next attack'
 'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
 Start: Start
 Ende: Ende
