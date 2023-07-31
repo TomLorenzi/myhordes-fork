@@ -591,3 +591,23 @@ Accounts: Cuentas
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Los wikis se muestran separadamente de las otras aplicaciones.'
 Wiki: Wiki
 Entwickler: Desarrollador
+Angriffsplan: Plan de ataque
+Uhrzeit: Hora
+Geplant: Planificado
+'Wartet auf Abarbeitung': 'En espera de tratamiento'
+'Wartet seit {s} Sekunden': 'Espera {s} segundos'
+'Wird verarbeitet': 'En proceso'
+'Arbeitet seit {s} Sekunden': 'Trabajando desde {s} segundos'
+Abgeschlossen: Completado
+Projiziert: Projiziert
+'Nächsten Angriff verschieben': 'Nächsten Angriff verschieben'
+'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
+Start: Start
+Ende: Ende
+'Wartezeit: {s} Sekunden': 'Wartezeit: {s} Sekunden'
+'Verarbeitungszeit: {s} Sekunden': 'Verarbeitungszeit: {s} Sekunden'
+'{n} Städte in Quarantäne!': '{n} Städte in Quarantäne!'
+Konfiguration: Konfiguration
+Option: Option
+Wert: Wert
+'Keine Verifizierungsmails versenden': 'Keine Verifizierungsmails versenden'
