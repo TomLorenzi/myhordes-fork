@@ -50,11 +50,11 @@ Sprinkleranlage: Automatic Sprinkler
 Dusche: Shower
 Wasserleitungsnetz: Hydraulic Network
 Wasserturm: Water Turrets
-'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'The Water Turrets is multiply by 1.8 (126 defense points), but cost 2 water rations per night.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'The Water Turrets is multiply by 2.6 (182 defense points), but cost 4 water rations per night.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'The Water Turrets is multiply by 3.4 (238 defense points), but cost 6 water rations per night.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'The Water Turrets is multiply by 4.2 (294 defense points), but cost 9 water rations per night.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'The Water Turrets is multiply by 5 (350 defense points), but cost 12 water rations per night.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'The Water Turrets defence is multiplied by 1.8 (126 defense points), but cost 2 water rations per night.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'The Water Turrets defence is multiplied by 2.6 (182 defense points), but cost 4 water rations per night.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'The Water Turrets defence is multiplied by 3.4 (238 defense points), but cost 6 water rations per night.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'The Water Turrets defence is multiplied by 4.2 (294 defense points), but cost 9 water rations per night.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'The Water Turrets defence is multiplied by 5 (350 defense points), but cost 12 water rations per night.'
 Wasserfänger: Water Catcher
 Wasserkanone: Mist Spray
 Schleuse: Sluice
