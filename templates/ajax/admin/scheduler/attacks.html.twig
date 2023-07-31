@@ -26,10 +26,10 @@
                             {% if schedule.timestamp > now %}{{ 'Geplant'|trans({},'admin') }}
                             {% elseif schedule.startedAt is null %}
                                 <div class="small">{{ 'Wartet auf Abarbeitung'|trans({},'admin') }}</div>
-                                <div class="small">{{ 'Wartet seit {s} Sekunden'|trans({s: schedule.now.timestamp - schedule.timestamp.timestamp},'admin') }}</div>
+                                <div class="small">{{ 'Wartet seit {s} Sekunden'|trans({s: now.timestamp - schedule.timestamp.timestamp},'admin') }}</div>
                             {% elseif schedule.completedAt is null %}
                                 <div class="small">{{ 'Wird verarbeitet'|trans({},'admin') }}</div>
-                                <div class="small">{{ 'Arbeitet seit {s} Sekunden'|trans({s: schedule.now.timestamp - schedule.startedAt.timestamp},'admin') }}</div>
+                                <div class="small">{{ 'Arbeitet seit {s} Sekunden'|trans({s: now.timestamp - schedule.startedAt.timestamp},'admin') }}</div>
                             {% else %}{{ 'Abgeschlossen'|trans({},'admin') }}
                             {% endif %}
                         </div>
