@@ -31,6 +31,7 @@ use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
@@ -39,6 +40,7 @@ use App\Structures\TownSetup;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
@@ -70,11 +72,14 @@ class GameFactory
     const ErrorTownNoCoaRoom         = ErrorHelper::BaseTownSelectionErrors + 5;
     const ErrorMemberBlocked         = ErrorHelper::BaseTownSelectionErrors + 6;
     private GameProfilerService $gps;
+    private EventDispatcherInterface $ed;
+    private EventFactory $ef;
 
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th, TimeKeeperService $ts,
         RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
+        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps,
+        EventDispatcherInterface $ed, EventFactory $ef)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -94,6 +99,8 @@ class GameFactory
         $this->perm = $perm;
         $this->gps = $gps;
         $this->timeKeeper = $ts;
+        $this->ed = $ed;
+        $this->ef = $ef;
     }
 
     private static array $town_name_snippets = [
@@ -539,8 +546,7 @@ class GameFactory
             /** @var BuildingPrototype $proto */
             $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] );
             $b = $this->town_handler->addBuilding( $town, $proto );
-            $b->setAp( $proto->getAp() )->setComplete( true )->setHp($proto->getHp());
-            $this->gps->recordBuildingConstructed( $proto, $town, null, 'config' );
+            if ($b) $this->ed->dispatch( $this->ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $b, 'config' ) );
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );

@@ -2347,8 +2347,7 @@ class AdminTownController extends AdminActionController
 
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
             $building->setComplete(true);
-            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building ) );
-            $gps->recordBuildingConstructed( $building->getPrototype(), $town, null, 'debug' );
+            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building, 'debug' ) );
         } elseif ($building->getAp() <= 0) {
             $building->setComplete(false);
             $th->destroy_building($town, $building);

@@ -11,6 +11,7 @@ use App\Entity\Zone;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Service\CitizenHandler;
 use App\Service\DoctrineCacheService;
+use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
@@ -23,6 +24,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
 #[AsEventListener(event: BuildingConstructionEvent::class, method: 'onSetUpBuildingInstance', priority: 0)]
+#[AsEventListener(event: BuildingConstructionEvent::class, method: 'onStoreInGPS', priority: -1)]
 
 #[AsEventListener(event: BuildingConstructionEvent::class, method: 'onConfigureWellEffect', priority: -15)]
 #[AsEventListener(event: BuildingConstructionEvent::class, method: 'onExecuteWellEffect', priority: -19)]
@@ -45,6 +47,7 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
             PictoHandler::class,
             DoctrineCacheService::class,
             TownHandler::class,
+            GameProfilerService::class
         ];
     }
 
@@ -54,6 +57,13 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
         $event->building->setHp($event->building->getPrototype()->getHp());
         $event->building->setDefense($event->building->getPrototype()->getDefense());
         $event->markModified();
+    }
+
+    public function onStoreInGPS( BuildingConstructionEvent $event ): void {
+        if ($event->method !== null) {
+            $this->container->get(GameProfilerService::class)->recordBuildingConstructed( $event->building->getPrototype(), $event->town, $event->citizen, $event->method );
+            $event->markModified();
+        }
     }
 
     public function onConfigureWellEffect( BuildingConstructionEvent $event ): void {

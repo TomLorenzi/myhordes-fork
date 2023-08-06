@@ -1240,7 +1240,6 @@ class TownController extends InventoryAwareController
                 $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             } else {
                 $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
-                $gps->recordBuildingConstructed( $building->getPrototype(), $town, $citizen, 'manual' );
             }
         }
 
@@ -1256,7 +1255,7 @@ class TownController extends InventoryAwareController
             }
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
-            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building ) );
+            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building, $citizen ) );
             $votes = $building->getBuildingVotes();
             foreach ($votes as $vote) {
                 $vote->getCitizen()->setBuildingVote(null);

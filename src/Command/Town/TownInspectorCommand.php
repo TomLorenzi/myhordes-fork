@@ -256,12 +256,11 @@ class TownInspectorCommand extends Command
                 $changed = false;
                 foreach ($buildings as $building) {
                     if(!$building->getComplete()) {
-                        $this->ed->dispatch( $this->ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building ) );
+                        $this->ed->dispatch( $this->ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building, 'debug' ) );
                         $changed = true;
                         $changes = true;
                         $built++;
                         $this->entityManager->persist( $building );
-                        $this->gps->recordBuildingConstructed( $building->getPrototype(), $town, null, 'debug' );
                     }
                 }
             } while ($changed);
