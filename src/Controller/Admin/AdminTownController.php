@@ -42,12 +42,14 @@ use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Enum\ItemPoisonType;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Response\AjaxResponse;
 use App\Service\AdminLog;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\GazetteService;
@@ -73,6 +75,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -2316,7 +2319,7 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
+    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps, EventDispatcherInterface $ed, EventFactory $ef)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -2344,7 +2347,7 @@ class AdminTownController extends AdminActionController
 
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
             $building->setComplete(true);
-            $th->triggerBuildingCompletion($town, $building);
+            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building ) );
             $gps->recordBuildingConstructed( $building->getPrototype(), $town, null, 'debug' );
         } elseif ($building->getAp() <= 0) {
             $building->setComplete(false);

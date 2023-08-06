@@ -44,6 +44,7 @@ use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
 use App\Enum\ItemPoisonType;
 use App\Enum\ZoneActivityMarkerType;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
@@ -1128,7 +1129,7 @@ class TownController extends InventoryAwareController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps): Response {
+    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps, EventDispatcherInterface $ed, EventFactory $ef): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1255,7 +1256,7 @@ class TownController extends InventoryAwareController
             }
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
-            $this->town_handler->triggerBuildingCompletion( $town, $building );
+            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building ) );
             $votes = $building->getBuildingVotes();
             foreach ($votes as $vote) {
                 $vote->getCitizen()->setBuildingVote(null);

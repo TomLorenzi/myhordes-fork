@@ -4,7 +4,9 @@
 namespace App\Service;
 
 
+use App\Entity\Town;
 use App\Entity\User;
+use App\Event\Game\GameEvent;
 use App\Event\Game\GameInteractionEvent;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -51,6 +53,29 @@ class EventFactory implements ServiceSubscriberInterface
         return new $class(
             $citizen,
             $conf->getTownConfiguration( $citizen->getTown() ),
+            $conf->getGlobalConf(),
+        );
+    }
+
+    /**
+     * Instances a game event object
+     *
+     * @param string $class The name of the event class.
+     * @psalm-param class-string<T> $class
+     *
+     * @return GameEvent The repository class.
+     * @psalm-return T
+     *
+     * @template T as GameEvent
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function gameEvent(string $class, Town $town): GameEvent {
+        $conf = $this->container->get(ConfMaster::class);
+
+        return new $class(
+            $town,
+            $conf->getTownConfiguration( $town ),
             $conf->getGlobalConf(),
         );
     }

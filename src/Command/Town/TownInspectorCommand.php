@@ -9,8 +9,10 @@ use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Entity\Zone;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Service\CommandHelper;
 use App\Service\ConfMaster;
+use App\Service\EventFactory;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\Maps\MapMaker;
@@ -19,6 +21,7 @@ use App\Service\NightlyHandler;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -45,10 +48,12 @@ class TownInspectorCommand extends Command
     private CommandHelper $helper;
     private ConfMaster $conf;
     private GameProfilerService $gps;
+    private EventDispatcherInterface $ed;
+    private EventFactory $ef;
 
     public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th,
                                 NightlyHandler $nh, Translator $translator, MapMaker $map_maker, MazeMaker $maker,
-                                CommandHelper $ch, ConfMaster $conf, GameProfilerService $gps)
+                                CommandHelper $ch, ConfMaster $conf, GameProfilerService $gps, EventDispatcherInterface $ed, EventFactory $ef)
     {
         $this->entityManager = $em;
         $this->gameFactory = $gf;
@@ -61,6 +66,8 @@ class TownInspectorCommand extends Command
         $this->helper = $ch;
         $this->conf = $conf;
         $this->gps = $gps;
+        $this->ed = $ed;
+        $this->ef = $ef;
         parent::__construct();
     }
 
@@ -249,10 +256,7 @@ class TownInspectorCommand extends Command
                 $changed = false;
                 foreach ($buildings as $building) {
                     if(!$building->getComplete()) {
-                        $building->setAP($building->getPrototype()->getAP());
-                        $building->setComplete(true);
-                        $building->setHP($building->getPrototype()->getHP());
-                        $this->townHandler->triggerBuildingCompletion($town, $building);
+                        $this->ed->dispatch( $this->ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building ) );
                         $changed = true;
                         $changes = true;
                         $built++;
