@@ -44,6 +44,17 @@ abstract class GameEvent extends Event
         };
     }
 
+    public function __set(string $name, $value): void
+    {
+        $this->data_mixin->$name = $value;
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        $r = call_user_func_array( [$this->data_mixin, $name], $arguments );
+        return $name === 'setup' ? $this : $r;
+    }
+
     public function markModified(): static {
         $this->state_modified = true;
         return $this;

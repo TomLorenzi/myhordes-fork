@@ -20,7 +20,10 @@ class BuildingConstructionData
         if (is_a($method, Citizen::class)) {
             $this->citizen = $method;
             $this->method = 'manual';
-        } else $this->method = $method;
+        } else {
+            $this->citizen = null;
+            $this->method = $method;
+        }
     }
     public Building $building;
 
