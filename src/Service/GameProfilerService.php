@@ -62,7 +62,8 @@ class GameProfilerService {
                 ?->setForeign1($creator?->getId())
                 ?->setData( [
                                 'conf' =>$this->confMaster->getTownConfiguration( $town )->raw(),
-                                'by' => $method
+                                'by' => $method,
+								'lang' => $town->getLanguage()
                             ]
                 )
         );
