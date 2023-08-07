@@ -47,7 +47,7 @@ class FixtureChainTestCommand extends Command
 
         $paths = $input->getOption('path');
         if (empty($paths)) {
-            $output->writeln("<fg=green,bg=darkgray> ### Output ### </>");
+            $output->writeln("<fg=green;bg=gray> ### Output ### </>");
             $rendered = print_r($data, true);
             $output->writeln( $rendered );
         } else foreach ($paths as $path) {
