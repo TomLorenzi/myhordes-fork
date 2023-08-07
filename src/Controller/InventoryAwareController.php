@@ -46,6 +46,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
 use App\Service\ErrorHelper;
+use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
 use App\Service\JSONRequestParser;
@@ -95,11 +96,13 @@ class InventoryAwareController extends CustomAbstractController
     protected Packages $asset;
 
     protected DoctrineCacheService $doctrineCache;
+    protected EventProxyService $events;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
-        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th, Packages $asset, DoctrineCacheService $doctrineCache)
+        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th, Packages $asset, DoctrineCacheService $doctrineCache,
+        EventProxyService $events)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->action_handler = $ah;
@@ -114,6 +117,7 @@ class InventoryAwareController extends CustomAbstractController
         $this->town_handler = $th;
         $this->asset = $asset;
         $this->doctrineCache = $doctrineCache;
+        $this->events = $events;
     }
 
     public function before(): bool

@@ -230,7 +230,7 @@ class TownHandler
      * Return the wanted building
      *
      * @param Town $town The town we're looking the building into
-     * @param String|BuildingPrototype $prototype The prototype of the building (name of prototype or Prototype Entity)
+     * @param string|BuildingPrototype $prototype The prototype of the building (name of prototype or Prototype Entity)
      * @param boolean $finished Do we want the building if is finished, null otherwise ?
      * @return Building|null
      */
@@ -243,6 +243,25 @@ class TownHandler
             if ($b->getPrototype()->getId() === $prototype->getId())
                 return (!$finished || $b->getComplete()) ? $b : null;
         return null;
+    }
+
+    private array $building_list_cache = [];
+
+    /**
+     * Return a list of buildings available in town
+     *
+     * @param Town $town The town we're looking the building into
+     * @param boolean $finished Do we want only the buildings if they finished ?
+     * @return array
+     */
+    public function getCachedBuildingList(Town $town, bool $finished = true): array {
+        $key = $finished ? "{$town->getId()}-1" : "{$town->getId()}-0";
+        if (array_key_exists( $key, $this->building_list_cache )) return $this->building_list_cache[$key];
+
+        return $this->building_list_cache[$key] = array_map(
+            fn(Building $b): string => $b->getPrototype()->getName(),
+            $finished ? array_filter( $town->getBuildings()->toArray(), fn(Building $b) => $b->getComplete() ) : $town->getBuildings()->toArray()
+        );
     }
 
     public function getBuildingPrototype(string $prototype, bool $cache = false): ?BuildingPrototype {
@@ -422,16 +441,11 @@ class TownHandler
         if ($day <= 0) $day = ($town->getDay() - $day);
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town,$day);
 
-        $has_shooting_gallery = (bool)$this->getBuilding($town, 'small_tourello_#00', true);
-        $has_trebuchet        = (bool)$this->getBuilding($town, 'small_catapult3_#00', true);
-        $has_ikea             = (bool)$this->getBuilding($town, 'small_ikea_#00', true);
-        $has_armory           = (bool)$this->getBuilding($town, 'small_armor_#00', true);
-
         $count = 0;
         foreach ($watchers as $watcher) {
             if ($watcher->getCitizen()->getZone() !== null) continue;
             $count++;
-            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
+            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
                 if($item->getPrototype()->getName() == 'chkspk_#00') {
                     $has_counsel = true;

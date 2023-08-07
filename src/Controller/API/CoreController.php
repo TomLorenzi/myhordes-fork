@@ -14,6 +14,7 @@ use App\Service\ConfMaster;
 use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\DoctrineCacheService;
+use App\Service\EventProxyService;
 use App\Service\GazetteService;
 use App\Service\InventoryHandler;
 use App\Service\LogTemplateHandler;
@@ -69,8 +70,8 @@ abstract class CoreController extends InventoryAwareController {
                                 RandomGenerator $rg, LogTemplateHandler $lh,
                                 ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
                                 CrowService $armbrust, Packages $a, TownHandler $th, GazetteService $gs,
-                                AdminHandler $adminHandler, UrlGeneratorInterface $urlGenerator, DoctrineCacheService $doctrineCache) {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a, $doctrineCache);
+                                AdminHandler $adminHandler, UrlGeneratorInterface $urlGenerator, DoctrineCacheService $doctrineCache, EventProxyService $events) {
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a, $doctrineCache, $events);
         $this->gazette_service = $gs;
         $this->adminHandler = $adminHandler;
         $this->urlGenerator = $urlGenerator;

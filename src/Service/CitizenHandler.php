@@ -42,10 +42,11 @@ class CitizenHandler
     private ConfMaster $conf;
     private GameProfilerService $gps;
     private CrowService $crow;
+    private EventProxyService $events;
 
     public function __construct(EntityManagerInterface $em, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf, GameProfilerService $gps, CrowService $crow )
+                                ConfMaster $conf, GameProfilerService $gps, CrowService $crow, EventProxyService $events )
     {
         $this->entity_manager = $em;
         $this->random_generator = $g;
@@ -58,6 +59,7 @@ class CitizenHandler
         $this->conf = $conf;
         $this->gps = $gps;
         $this->crow = $crow;
+        $this->events = $events;
     }
 
     /**
@@ -804,30 +806,14 @@ class CitizenHandler
         return round($chances, 2, PHP_ROUND_HALF_DOWN);
     }
 
-    public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {
-        if ($item->getBroken()) return 0;
-
-        $bonus = [];
-        if ($shooting_gallery && $item->getPrototype()->hasProperty('nw_shooting'))  $bonus[] = 0.2;
-        if ($trebuchet        && $item->getPrototype()->hasProperty('nw_trebuchet')) $bonus[] = 0.2;
-        if ($ikea             && $item->getPrototype()->hasProperty('nw_ikea'))      $bonus[] = 0.2;
-        if ($armory           && $item->getPrototype()->hasProperty('nw_armory'))    $bonus[] = 0.2;
-
-        $total = $item->getPrototype()->getWatchpoint();
-        foreach ($bonus as $single)
-            $total = (int)floor( $total * (1.0+$single) );
-
-        return $total;
-    }
-
-    public function getNightWatchDefense(Citizen $citizen, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory): int {
+    public function getNightWatchDefense(Citizen $citizen): int {
         $def = 10 + $this->getNightwatchProfessionDefenseBonus($citizen);
 
         foreach ($citizen->getStatus() as $status)
             $def += $status->getNightWatchDefenseBonus();
 
         foreach ($citizen->getInventory()->getItems() as $item)
-            $def += $this->getNightWatchItemDefense($item, $shooting_gallery, $trebuchet, $ikea, $armory);
+            $def += $this->events->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $item );
 
         return $def;
     }

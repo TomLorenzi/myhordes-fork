@@ -15,6 +15,7 @@ use App\Entity\User;
 use App\Enum\UserSetting;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
+use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
@@ -22,6 +23,8 @@ use App\Service\UserHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface;
@@ -37,22 +40,18 @@ class Extensions extends AbstractExtension implements GlobalsInterface
     private UrlGeneratorInterface $router;
     private UserHandler $userHandler;
     private EntityManagerInterface $entityManager;
-    private CitizenHandler $citizenHandler;
-    private TownHandler $townHandler;
     private GameFactory $gameFactory;
-    private EntrypointLookupInterface $entryPoints;
     private ConfMaster $conf;
+    private EventProxyService $events;
 
-    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th, GameFactory $gf, EntrypointLookupInterface $epl, ConfMaster $c) {
+    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, GameFactory $gf, ConfMaster $c, EventProxyService $events) {
         $this->translator = $ti;
         $this->router = $r;
         $this->userHandler = $uh;
         $this->entityManager = $em;
-        $this->citizenHandler = $ch;
-        $this->townHandler = $th;
         $this->gameFactory = $gf;
-        $this->entryPoints = $epl;
         $this->conf = $c;
+        $this->events = $events;
 
     }
 
@@ -279,8 +278,10 @@ class Extensions extends AbstractExtension implements GlobalsInterface
     /**
      * @param Item|ItemPrototype $item
      * @return int
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function fetch_watch_points($item): int {
+    public function fetch_watch_points(Item|ItemPrototype $item): int {
 
         if ($this->instance_of($item, ItemPrototype::class)) return $item->getWatchpoint();
         if ($item->getInventory() === null) return $item->getPrototype()->getWatchpoint();
@@ -294,12 +295,7 @@ class Extensions extends AbstractExtension implements GlobalsInterface
         else if ($item->getInventory()->getRuinZoneRoom()) $town = $item->getInventory()->getRuinZoneRoom()->getZone()->getTown();
 
         if ($town === null) return $item->getPrototype()->getWatchpoint();
-        return $this->citizenHandler->getNightWatchItemDefense($item,
-            (bool)$this->townHandler->getBuilding($town, 'small_tourello_#00', true),
-            (bool)$this->townHandler->getBuilding($town, 'small_catapult3_#00', true),
-            (bool)$this->townHandler->getBuilding($town, 'small_ikea_#00', true),
-            (bool)$this->townHandler->getBuilding($town, 'small_armor_#00', true)
-        );
+        return $this->events->buildingQueryNightwatchDefenseBonus( $town, $item );
     }
 
     public function translatedTitle(string|Award|AwardPrototype|User $subject, User $object, ?User $object2 = null): string {
