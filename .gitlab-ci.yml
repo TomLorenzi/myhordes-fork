@@ -14,8 +14,10 @@ services:
 variables:
   # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
   # MYSQL_DATABASE: myhordes
-  MARIADB_ROOT_PASSWORD : MyH0rd3sD@tAbaze!
-  DATABASE_URL: mysql://root:MyH0rd3sD@tAbaze!@mariadb:3306/myhordes
+  MARIADB_DATABASE: mariadb
+  MARIADB_USER: myhordes-ci
+  MARIADB_PASSWORD: Sullen.Vindicate9.Untruth
+  DATABASE_URL: mysql://myhordes-ci:Sullen.Vindicate9.Untruth@mariadb:3306/myhordes
   XDEBUG_MODE: coverage
 
 stages:
