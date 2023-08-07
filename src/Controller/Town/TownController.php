@@ -49,6 +49,7 @@ use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
 use App\Service\EventFactory;
+use App\Service\EventProxyService;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -1129,7 +1130,7 @@ class TownController extends InventoryAwareController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps, EventDispatcherInterface $ed, EventFactory $ef): Response {
+    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps, EventProxyService $events): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1255,7 +1256,7 @@ class TownController extends InventoryAwareController
             }
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
-            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building, $citizen ) );
+            $events->buildingConstruction( $building, $citizen );
             $votes = $building->getBuildingVotes();
             foreach ($votes as $vote) {
                 $vote->getCitizen()->setBuildingVote(null);

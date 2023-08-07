@@ -72,14 +72,14 @@ class GameFactory
     const ErrorTownNoCoaRoom         = ErrorHelper::BaseTownSelectionErrors + 5;
     const ErrorMemberBlocked         = ErrorHelper::BaseTownSelectionErrors + 6;
     private GameProfilerService $gps;
-    private EventDispatcherInterface $ed;
-    private EventFactory $ef;
+
+    private EventProxyService $events;
 
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th, TimeKeeperService $ts,
         RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
         TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps,
-        EventDispatcherInterface $ed, EventFactory $ef)
+        EventProxyService $events)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -99,8 +99,7 @@ class GameFactory
         $this->perm = $perm;
         $this->gps = $gps;
         $this->timeKeeper = $ts;
-        $this->ed = $ed;
-        $this->ef = $ef;
+        $this->events = $events;
     }
 
     private static array $town_name_snippets = [
@@ -546,7 +545,7 @@ class GameFactory
             /** @var BuildingPrototype $proto */
             $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] );
             $b = $this->town_handler->addBuilding( $town, $proto );
-            if ($b) $this->ed->dispatch( $this->ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $b, 'config' ) );
+            if ($b) $this->events->buildingConstruction( $b, 'config' );
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );

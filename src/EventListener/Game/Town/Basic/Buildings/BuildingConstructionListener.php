@@ -47,7 +47,10 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
             PictoHandler::class,
             DoctrineCacheService::class,
             TownHandler::class,
-            GameProfilerService::class
+            GameProfilerService::class,
+            InventoryHandler::class,
+            ItemFactory::class,
+            CitizenHandler::class
         ];
     }
 
@@ -135,7 +138,7 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
         switch ($event->building->getPrototype()->getName()) {
             /*case 'small_fireworks_#00':*/case 'small_balloon_#00':
             $all = $event->building->getPrototype()->getName() === 'small_balloon_#00';
-            /** @var TownHandler $event->townHandler */
+            /** @var TownHandler $townHandler */
             $townHandler = $this->container->get(TownHandler::class);
             
             $state = $townHandler->getBuilding($event->town, 'item_electro_#00', true) ? Zone::ZombieStateExact : Zone::ZombieStateEstimate;
@@ -173,7 +176,7 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
             case 'r_dhang_#00':case 'small_fleshcage_#00':case 'small_eastercross_#00':
                 /** @var CitizenHandler $citizenHandler */
                 $citizenHandler = $this->container->get(CitizenHandler::class);
-                /** @var TownHandler $event->townHandler */
+                /** @var TownHandler $townHandler */
                 $townHandler = $this->container->get(TownHandler::class);
                 /** @var EntityManagerInterface $em */
                 $em = $this->container->get(EntityManagerInterface::class);
@@ -203,7 +206,7 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
                     }
                 break;
             case "small_lastchance_#00":
-                /** @var TownHandler $event->townHandler */
+                /** @var TownHandler $townHandler */
                 $townHandler = $this->container->get(TownHandler::class);
                 /** @var InventoryHandler $inventoryHandler */
                 $inventoryHandler = $this->container->get(InventoryHandler::class);
@@ -231,7 +234,7 @@ final class BuildingConstructionListener implements ServiceSubscriberInterface
                 }
                 break;
             case "item_courroie_#00":
-                /** @var TownHandler $event->townHandler */
+                /** @var TownHandler $townHandler */
                 $townHandler = $this->container->get(TownHandler::class);
                 $townHandler->assignCatapultMaster($event->town);
                 break;

@@ -50,6 +50,7 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\EventFactory;
+use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\GazetteService;
@@ -2319,7 +2320,7 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps, EventDispatcherInterface $ed, EventFactory $ef)
+    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps, EventProxyService $events)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -2334,7 +2335,7 @@ class AdminTownController extends AdminActionController
 
         /** @var Building $building */
         $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
-        if (!$building)
+        if (!$building || $building->getTown() !== $town)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $ap = intval($parser->get("ap"));
@@ -2346,8 +2347,7 @@ class AdminTownController extends AdminActionController
         $building->setAp($ap);
 
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
-            $building->setComplete(true);
-            $ed->dispatch( $ef->gameEvent( BuildingConstructionEvent::class, $town )->setup( $building, 'debug' ) );
+            $events->buildingConstruction( $building, 'debug' );
         } elseif ($building->getAp() <= 0) {
             $building->setComplete(false);
             $th->destroy_building($town, $building);
