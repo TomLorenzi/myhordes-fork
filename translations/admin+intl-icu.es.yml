@@ -601,14 +601,14 @@ Geplant: Planificado
 'Arbeitet seit {s} Sekunden': 'Trabajando desde {s} segundos'
 Abgeschlossen: Completado
 Projiziert: Proyectado
-'Nächsten Angriff verschieben': 'Nächsten Angriff verschieben'
-'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
-Start: Start
-Ende: Ende
-'Wartezeit: {s} Sekunden': 'Wartezeit: {s} Sekunden'
-'Verarbeitungszeit: {s} Sekunden': 'Verarbeitungszeit: {s} Sekunden'
-'{n} Städte in Quarantäne!': '{n} Städte in Quarantäne!'
-Konfiguration: Konfiguration
-Option: Option
-Wert: Wert
-'Keine Verifizierungsmails versenden': 'Keine Verifizierungsmails versenden'
+'Nächsten Angriff verschieben': 'Posponer el próximo ataque'
+'Ausgeführte Angriffe': 'Ataques ejecutados'
+Start: Inicio
+Ende: Fin
+'Wartezeit: {s} Sekunden': 'Tiempo de espera: {s} segundos'
+'Verarbeitungszeit: {s} Sekunden': 'Tiempo de tratamiento: {s} segundos'
+'{n} Städte in Quarantäne!': '¡{n} Pueblo(s) en Cuarentena!'
+Konfiguration: Configuración
+Option: Opción
+Wert: Valor
+'Keine Verifizierungsmails versenden': 'No enviar e-mails de verificación'
