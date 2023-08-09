@@ -15,11 +15,11 @@ use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
-#[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onProcessPreAttackUpgrade',  priority: -100)]
-#[AsEventListener(event: BuildingUpgradePostAttackEvent::class, method: 'onProcessPostAttackUpgrade', priority: -100)]
+#[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onProcessPreAttackUpgrade',  priority: 0)]
+#[AsEventListener(event: BuildingUpgradePostAttackEvent::class, method: 'onProcessPostAttackUpgrade', priority: 0)]
 
-#[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onApplyUpgrade', priority: -200)]
-#[AsEventListener(event: BuildingUpgradePostAttackEvent::class, method: 'onApplyUpgrade', priority: -200)]
+#[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onApplyUpgrade', priority: -100)]
+#[AsEventListener(event: BuildingUpgradePostAttackEvent::class, method: 'onApplyUpgrade', priority: -100)]
 final class BuildingUpgradeListener implements ServiceSubscriberInterface
 {
     public function __construct(
