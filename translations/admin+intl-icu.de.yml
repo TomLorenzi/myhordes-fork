@@ -595,3 +595,6 @@ Entwickler: Entwickler
 'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
 'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'
 'Dieses Gebäude ist veraltet.': 'Dieses Gebäude ist veraltet.'
+'Level {current} / {max}': 'Level {current} / {max}'
+'Anzahl Level: {max}': 'Anzahl Level: {max}'
+'Gebäude-Effekt auslösen': 'Gebäude-Effekt auslösen'
