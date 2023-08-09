@@ -1,0 +1,156 @@
+<?php
+
+
+namespace App\EventListener\Game\Town\Basic\Buildings;
+
+use App\Entity\CitizenStatus;
+use App\Entity\Complaint;
+use App\Entity\ItemPrototype;
+use App\Entity\PictoPrototype;
+use App\Entity\Zone;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingUpgradeEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
+use App\Service\CitizenHandler;
+use App\Service\DoctrineCacheService;
+use App\Service\GameProfilerService;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
+use App\Service\LogTemplateHandler;
+use App\Service\PictoHandler;
+use App\Service\RandomGenerator;
+use App\Service\TownHandler;
+use App\Structures\TownConf;
+use Doctrine\ORM\EntityManagerInterface;
+use Psr\Container\ContainerInterface;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Symfony\Component\Form\Extension\Core\DataMapper\RadioListMapper;
+use Symfony\Contracts\Service\ServiceSubscriberInterface;
+
+#[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onProcessPreAttackUpgrade',  priority: -100)]
+#[AsEventListener(event: BuildingUpgradePostAttackEvent::class, method: 'onProcessPostAttackUpgrade', priority: -100)]
+
+#[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onApplyUpgrade', priority: -200)]
+#[AsEventListener(event: BuildingUpgradePostAttackEvent::class, method: 'onApplyUpgrade', priority: -200)]
+final class BuildingUpgradeListener implements ServiceSubscriberInterface
+{
+    public function __construct(
+        private readonly ContainerInterface $container,
+    ) {}
+
+    public static function getSubscribedServices(): array
+    {
+        return [
+            EntityManagerInterface::class,
+            LogTemplateHandler::class,
+            RandomGenerator::class,
+            InventoryHandler::class,
+            //PictoHandler::class,
+            //DoctrineCacheService::class,
+            //TownHandler::class,
+            //GameProfilerService::class,
+            //InventoryHandler::class,
+            //ItemFactory::class,
+            //CitizenHandler::class
+        ];
+    }
+
+    public function onProcessPreAttackUpgrade( BuildingUpgradeEvent $event ): void {
+        $event->defenseIncrement = match ($event->building->getPrototype()->getName()) {
+            'small_gather_#00'  => [0,13,21,32,33,51][ $event->building->getLevel() ] ?? 0,
+            'item_home_def_#00' => [0,30,35,50,65,80][ $event->building->getLevel() ] ?? 0,
+            default => 0
+        };
+
+        $event->defenseMultiplier = match ($event->building->getPrototype()->getName()) {
+            'item_tube_#00' => [0, 0.8, 1.6, 2.4, 3.2, 4][ $event->building->getLevel() ] ?? 1.0,
+            default => 1.0
+        };
+
+        $event->waterIncrement = match ($event->building->getPrototype()->getName()) {
+            'small_water_#00'  => [5,20,20,30,30,40][ $event->building->getLevel() ] ?? 0,
+            default => 0
+        };
+    }
+
+    public function onProcessPostAttackUpgrade( BuildingUpgradeEvent $event ): void {
+        switch ($event->building->getPrototype()->getName()) {
+            case 'small_refine_#01':
+                $bps = [
+                    ['bplan_c_#00' => 1],
+                    ['bplan_c_#00' => 4],
+                    ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
+                    ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
+                ];
+                $opt_bp = [null,null,'bplan_r_#00','bplan_e_#00'];
+
+                $plans = [];
+                foreach (($bps[$event->building->getLevel()] ?? []) as $id => $count)
+                    $plans[$id] = [
+                        'item' => $id,
+                        'count' => ($plans[$id]['count'] ?? 0) + $count
+                    ];
+
+                /** @var RandomGenerator $random */
+                $random = $this->container->get(RandomGenerator::class);
+
+                $opt = $opt_bp[$event->building->getLevel()] ?? null;
+                if ( $opt !== null && $random->chance( 0.5 ) )
+                    $plans[$opt] = [
+                        'item' => $opt,
+                        'count' => ($plans[$opt]['count'] ?? 0) + 1
+                    ];
+
+                $event->spawnedBlueprints = $plans;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public function onApplyUpgrade( BuildingUpgradeEvent $event ): void {
+        if ($event->defenseIncrement !== 0 || $event->defenseMultiplier !== 1.0) {
+            $event->building->setDefenseBonus(($event->defenseMultiplier * $event->building->getDefenseBonus()) + $event->defenseIncrement );
+            $event->markModified();
+        }
+
+        if ($event->waterIncrement !== 0) {
+            $event->town->setWell( $event->town->getWell() + $event->waterIncrement );
+            if ($event->waterIncrement > 0) {
+                /** @var EntityManagerInterface $em */
+                $em = $this->container->get(EntityManagerInterface::class);
+                /** @var LogTemplateHandler $log */
+                $log = $this->container->get(LogTemplateHandler::class);
+
+                $em->persist($log->nightlyAttackUpgradeBuildingWell($event->building, $event->waterIncrement));
+                $event->markModified();
+            }
+        }
+
+        if (!empty($event->spawnedBlueprints) && !$event->town->findGazette( $event->town->getDay(), false )?->getReactorExplosion()) {
+            /** @var EntityManagerInterface $em */
+            $em = $this->container->get(EntityManagerInterface::class);
+            /** @var LogTemplateHandler $log */
+            $log = $this->container->get(LogTemplateHandler::class);
+            /** @var InventoryHandler $inventory */
+            $inventory = $this->container->get(InventoryHandler::class);
+            /** @var ItemFactory $factory */
+            $factory = $this->container->get(ItemFactory::class);
+
+            $plans = [];
+            foreach ($event->spawnedBlueprints as ['item' => $item, 'count' => $count]) {
+                $plan = ['item' => $item, 'count' => $count];
+                for ($i = 0; $i < $count; $i++) {
+                    $inventory->forceMoveItem($event->town->getBank(), $item = $factory->createItem($item));
+                    $plan['item'] = $item->getPrototype()->getId();
+                }
+                $plans[] = $plan;
+            }
+
+            $em->persist( $log->nightlyAttackUpgradeBuildingItems( $event->building, $plans ));
+
+        }
+    }
+
+}
