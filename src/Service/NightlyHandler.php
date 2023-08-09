@@ -463,77 +463,19 @@ class NightlyHandler
             }
         }
 
-        $watertower = $this->town_handler->getBuilding( $town, 'item_tube_#00', true );
-        if ($watertower && $watertower->getLevel() > 0) {
-            $n = [0,2,4,6,9,12];
-            if ($town->getWell() >= $n[ $watertower->getLevel() ]) {
-                $town->setWell( $town->getWell() - $n[ $watertower->getLevel() ] );
-                $gazette = $town->findGazette( $town->getDay(), true );
-                $gazette->setWaterlost($gazette->getWaterlost() + $n[$watertower->getLevel()]);
-                $this->entity_manager->persist($gazette);
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingDefenseWater( $watertower, $n[ $watertower->getLevel() ] ) );
-                $this->log->debug( "Deducting <info>{$n[$watertower->getLevel()]}</info> water from the well to operate the <info>{$watertower->getPrototype()->getLabel()}</info>." );
-            } else {
-                $watertower->setTempDefenseBonus(0 - $watertower->getDefense() - $watertower->getDefenseBonus());
-            }
-        }
+        foreach ($town->getBuildings() as $building)
+            if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, true );
     }
 
     private function stage2_post_attack_building_effects(Town $town) {
         $this->log->info('<info>Processing post-attack building functions</info> ...');
 
-        $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
-        if ($this->upgraded_building->getPrototype()->getName() === 'small_refine_#01' && $this->upgraded_building->getLevel() !== 1)
-            $spawn_default_blueprint = false;
+        if (!$town->getDevastated() && $this->upgraded_building !== null)
+            $this->events->buildingUpgrade( $this->upgraded_building, false );
 
-        $gazette = $town->findGazette( $town->getDay(), true );
-        if (!$town->getDevastated()) {
-
-            if ($this->upgraded_building !== null) {
-                $this->events->buildingUpgrade( $this->upgraded_building, false );
-            }
-        }
-
-        $daily_items = []; $tx = [];
-        if ($spawn_default_blueprint) {
-            if (!$gazette->getReactorExplosion())
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
-            $daily_items['bplan_c_#00'] = 1;
-        }
-
-        $has_fertilizer = $this->town_handler->getBuilding( $town, 'item_digger_#00', true ) !== null;
-
-        $db = [
-            'small_appletree_#00'      => [ 'apple_#00' => mt_rand(3,5) ],
-            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,7) : mt_rand(6,8), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(3,5) ],
-            'item_bgrenade_#01'        => [ 'boomfruit_#00' => !$has_fertilizer ? mt_rand(3,7) : mt_rand(5,8) ],
-            'small_chicken_#00'        => [ 'egg_#00' => 3 ],
-        ];
-
-        foreach ($db as $b_class => $spawn)
-            if (($b = $this->town_handler->getBuilding( $town, $b_class, true )) !== null) {
-                $local = [];
-                foreach ( $spawn as $item_id => $count ) {
-                    if (!isset($daily_items[$item_id])) $daily_items[$item_id] = $count;
-                    else $daily_items[$item_id] += $count;
-                    if ($count > 0) $local[] = ['item' => $item_id, 'count' => $count];
-                }
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProduction( $b, array_map( function($e) {
-                    return [ 'item' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($e['item']), 'count' => $e['count'] ];
-                }, $local ) ) );
-            }
-
-        $strange = $this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_STRANGE_SOIL, false );
-        foreach ($daily_items as $item_id => $count)
-            for ($i = 0; $i < $count; $i++) {
-                $item = $this->item_factory->createItem( $item_id );
-                if ($strange) $item->setPoison( ItemPoisonType::Strange );
-                $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
-                $tx[] = "<info>{$item->getPrototype()->getLabel()}</info>";
-            }
-
-        if (!empty($daily_items))
-            $this->log->debug("Daily items: Placing " . implode(', ', $tx) . " in the bank.");
+        if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion())
+            foreach ($town->getBuildings() as $building)
+                if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, false );
     }
 
     private function stage2_day(Town $town) {

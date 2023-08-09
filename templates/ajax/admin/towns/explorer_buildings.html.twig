@@ -89,6 +89,7 @@
 						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><img alt="ok" src="{{ asset('build/images/icons/done.png') }}" /></button>
 					{% else %}
 						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><img alt="[x]" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
+						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="trigger_n" title="{{ 'Gebäude-Effekt auslösen'|trans({},'admin') }}"><img alt="[n]" src="{{ asset('build/images/icons/small_action.gif') }}" /></button>
 					{% endif %}
 				</div>
 			{% endif %}
@@ -184,6 +185,12 @@
                         break;
                     case "destroy":
                         $.ajax.easySend( '{{ path('admin_town_set_building_ap', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'ap': 0},
+                            function () {
+                                $.ajax.load(null, '{{ path('admin_town_buildings', {id: town.id}) }}', true);
+                            } );
+                        break;
+                    case "trigger_n":
+                        $.ajax.easySend( '{{ path('admin_town_trigger_building_nightly_effect', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id")},
                             function () {
                                 $.ajax.load(null, '{{ path('admin_town_buildings', {id: town.id}) }}', true);
                             } );

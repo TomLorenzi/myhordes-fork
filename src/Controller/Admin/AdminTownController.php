@@ -2468,6 +2468,40 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("api/admin/town/{id}/buildings/exec-nightly", name="admin_town_trigger_building_nightly_effect", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Set level to a building of a town
+     * @param Town $town
+     * @param JSONRequestParser $parser The JSON request parser
+     * @param EventProxyService $events
+     * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function town_trigger_building_nightly_effect(Town $town, JSONRequestParser $parser, EventProxyService $events): Response
+    {
+        if (!$parser->has_all(['building']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $building_id = $parser->get("building");
+
+        /** @var Building $building */
+        $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
+        if (!$building || $building->getTown() !== $town || !$building->getComplete())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $events->buildingEffect( $building, null, true );
+        $events->buildingEffect( $building, null, false );
+
+        $this->entity_manager->persist($building);
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("jx/admin/towns/old/fuzzyfind", name="admin_old_towns_fuzzyfind")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em

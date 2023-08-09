@@ -3,29 +3,16 @@
 
 namespace App\EventListener\Game\Town\Basic\Buildings;
 
-use App\Entity\CitizenStatus;
-use App\Entity\Complaint;
-use App\Entity\ItemPrototype;
-use App\Entity\PictoPrototype;
-use App\Entity\Zone;
-use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradeEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
-use App\Service\CitizenHandler;
-use App\Service\DoctrineCacheService;
-use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
-use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
-use App\Service\TownHandler;
-use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
-use Symfony\Component\Form\Extension\Core\DataMapper\RadioListMapper;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
 #[AsEventListener(event: BuildingUpgradePreAttackEvent::class, method: 'onProcessPreAttackUpgrade',  priority: -100)]
@@ -46,13 +33,6 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
             LogTemplateHandler::class,
             RandomGenerator::class,
             InventoryHandler::class,
-            //PictoHandler::class,
-            //DoctrineCacheService::class,
-            //TownHandler::class,
-            //GameProfilerService::class,
-            //InventoryHandler::class,
-            //ItemFactory::class,
-            //CitizenHandler::class
         ];
     }
 
