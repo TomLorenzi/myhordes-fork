@@ -45,6 +45,11 @@
 							</div>
 						</span>
 				{% endif %}
+                {% if fromTown is defined and fromTown.complete and building.maxLevel > 0 %}
+                    <span class="small">{{ 'Level {current} / {max}'|trans({current: fromTown.level, max: building.maxLevel},'admin') }}</span>
+                {% elseif building.maxLevel > 0 %}
+                    <span class="small">{{ 'Anzahl Level: {max}'|trans({max: building.maxLevel},'admin') }}</span>
+                {% endif %}
 				{% if building.defense > 0 %}
 					<div class="float-right defense">
 						{% if building.defense > 0 %}
@@ -52,11 +57,6 @@
 						{% endif %}
 					</div>
 				{% endif %}
-				{#{% if building.description %}
-								<div class="tooltip help">
-									{{ building.description|trans({}, 'buildings') }}
-								</div>
-							{% endif %}#}
 			</div>
 			{% if fromTown is defined %}
 				<div class="padded cell rw-3 rw-lg-5 rw-sm-12 no-ws">
@@ -76,11 +76,19 @@
 					</div>
 				</div>
 				<div class="padded cell rw-4 rw-lg-7 rw-sm-12 right">
-					<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><i class="fa fa-edit"></i></button>
+                    {% if fromTown.complete and building.maxLevel > 0 %}
+                        {% if fromTown.level < building.maxLevel %}
+                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level + 1 }}" x-building-admin-action="lv"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}"></button>
+                        {% endif %}
+                        {% if fromTown.level > 0 %}
+                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lvd"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}"></button>
+                        {% endif %}
+                    {% endif %}
+					<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><img alt="E" src="{{ asset('build/images/forum/edit.png') }}" /></button>
 					{% if not fromTown.complete %}
-						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><i class="fa fa-check"></i></button>
+						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><img alt="ok" src="{{ asset('build/images/icons/done.png') }}" /></button>
 					{% else %}
-						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><i class="fa fa-times"></i></button>
+						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><img alt="[x]" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
 					{% endif %}
 				</div>
 			{% endif %}
@@ -176,6 +184,12 @@
                         break;
                     case "destroy":
                         $.ajax.easySend( '{{ path('admin_town_set_building_ap', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'ap': 0},
+                            function () {
+                                $.ajax.load(null, '{{ path('admin_town_buildings', {id: town.id}) }}', true);
+                            } );
+                        break;
+                    case "lv":
+                        $.ajax.easySend( '{{ path('admin_town_set_building_level', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'level': buildingBtns[i].dataset.level ?? -1},
                             function () {
                                 $.ajax.load(null, '{{ path('admin_town_buildings', {id: town.id}) }}', true);
                             } );
