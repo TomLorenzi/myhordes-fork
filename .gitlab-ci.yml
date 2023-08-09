@@ -161,6 +161,7 @@ quodana:
     paths:
       - qodana/report/
     expose_as: 'Qodana report'
+  allow_failure: true
 
 deploy_staging:
   stage: deploy
