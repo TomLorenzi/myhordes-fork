@@ -591,10 +591,10 @@ Accounts: Comptes
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Les wikis sont affichés séparément des autres applications.'
 Wiki: Wiki
 Entwickler: Développeur
-'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'
-'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
-'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'
-'Dieses Gebäude ist veraltet.': 'Dieses Gebäude ist veraltet.'
-'Level {current} / {max}': 'Level {current} / {max}'
-'Anzahl Level: {max}': 'Anzahl Level: {max}'
-'Gebäude-Effekt auslösen': 'Gebäude-Effekt auslösen'
+'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Cochez cette case pour ajouter ce chantier à la liste des chantiers débloqués.'
+'Markieren, um diese Baustelle freizuschalten.': 'Cochez cette case pour immédiatement débloquer le chantier.'
+'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Cliquez pour supprimer le chantier de la ville.'
+'Dieses Gebäude ist veraltet.': 'Ce chantier est obsolète.'
+'Level {current} / {max}': 'Niveau {current} / {max}'
+'Anzahl Level: {max}': 'Niveau max: {max}'
+'Gebäude-Effekt auslösen': 'Déclencher l''action nocturne'
