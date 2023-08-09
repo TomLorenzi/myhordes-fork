@@ -126,8 +126,9 @@ test:
     - build
   variables:
     BRANCH: $CI_COMMIT_BRANCH
+    TAG: $CI_COMMIT_TAG
   script:
-    - echo "We're in branch $BRANCH !"
+    - echo "We're in branch $BRANCH with tag $TAG !"
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests
