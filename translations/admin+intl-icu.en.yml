@@ -591,3 +591,10 @@ Accounts: Accounts
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Wikis are displayed separately from other apps.'
 Wiki: Wiki
 Entwickler: Developer
+'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'
+'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
+'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'
+'Dieses Gebäude ist veraltet.': 'Dieses Gebäude ist veraltet.'
+'Level {current} / {max}': 'Level {current} / {max}'
+'Anzahl Level: {max}': 'Anzahl Level: {max}'
+'Gebäude-Effekt auslösen': 'Gebäude-Effekt auslösen'
