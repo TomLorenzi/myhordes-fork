@@ -85,7 +85,7 @@ translate:
   rules:
     - if: $CI_PIPELINE_SOURCE != "push"
       when: never
-    - if: $CI_COMMIT_TAG =~ /^translate-\d+/ && $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_TAG =~ /^translate-\d+/
       when: on_success
   variables:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
@@ -113,7 +113,7 @@ translate-next:
   rules:
     - if: $CI_PIPELINE_SOURCE != "push"
       when: never
-    - if: $CI_COMMIT_TAG =~ /^translate-\d+/ && $CI_COMMIT_BRANCH =~ /^master-v([\d.]+)/
+    - if: $CI_COMMIT_TAG =~ /^translate-next-\d+/
       when: on_success
   variables:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
