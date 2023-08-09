@@ -124,7 +124,10 @@ test:
   stage: test-translate
   dependencies:
     - build
+  variables:
+    BRANCH: $CI_COMMIT_BRANCH
   script:
+    - echo "We're in branch $BRANCH !"
     # Install a DB
     - php bin/console app:migrate -i -vvv
     # Run tests
