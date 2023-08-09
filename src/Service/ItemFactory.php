@@ -24,8 +24,7 @@ class ItemFactory
      * @param bool $poison
      * @return Item|null
      */
-    public function createItem( $prototype, bool $broken = false, ItemPoisonType|bool $poison = false ) {
-
+    public function createItem( string|ItemPrototype $prototype, bool $broken = false, ItemPoisonType|bool $poison = false ) {
         $prototype = is_string( $prototype )
             ? $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( $prototype )
             : ( is_a( $prototype, ItemPrototype::class ) ? $prototype : null );
