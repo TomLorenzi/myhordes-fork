@@ -285,3 +285,4 @@ Löschen: Delete
 'Damit das Ranking für alle Gemeinschaften fair bleibt, ist die Zahl der Städte fremder Teams, die du betreten kannst, beschränkt. Aktuell kannst du noch {tickets_left} weitere Städte eines fremden Teams betreten.': 'To keep the ranking fair for all communities, the number of a foreign communities towns you can enter is limited. Currently you can still enter {tickets_left} more towns belonging to a foreign community.'
 'Eigenartiger Boden': 'Strange Soil'
 'Der Boden, auf dem die Stadt errichtet wurde, ist mit Chemikalien verseucht. Dies hat Einfluss auf die Qualität des Brunnenwassers und damit auch auf die Landwirtschaft...': 'The soil on which the city was built is contaminated with chemicals. This has an impact on the quality of the well water and thus also on the agriculture...'
+'Es können maximal {number} Private Städte gleichzeitig eröffnet werden.': 'No more than {number} Private Towns can be opened at the same time.'
