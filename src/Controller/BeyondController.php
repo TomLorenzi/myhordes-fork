@@ -446,6 +446,7 @@ class BeyondController extends InventoryAwareController
             'active_scout_mode' => $this->inventory_handler->countSpecificItems(
                     $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0,
+			'conf' => $this->getTownConf()
         ];
     }
 
