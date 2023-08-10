@@ -528,3 +528,12 @@ Kurzbeschreibung: Brève description
 'Account wechseln': 'Changer de compte'
 'Mehr Ergebnisse anzeigen': 'Afficher plus de résultats'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utilisez "^" pour rechercher uniquement les mots qui commencent ou se terminent par une suite de lettres spécifique. Par exemple, vous trouverez le mot "herbe" avec "^herb", mais pas "désherbant".'
+Inhaltsverzeichnis: Sommaire
+'Das Geschlecht deines Titels.': 'Le genre de votre titre.'
+'Bevorzugte Pronomen (Titel)': 'Pronoms préférés (titre)'
+'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'Vous ne pouvez plus reporter de messages aux Corbeaux pour le moment.'
+'Bitte versuche es in einigen Minuten erneut.': 'S''il vous plait, réessayez dans quelques minutes.'
+'Bitte versuche es in einigen Stunden erneut.': 'S''il vous plait, réessayez dans quelques heures.'
+'Bitte versuche es morgen erneut.': 'Veuillez réessayer demain.'
+'Bitte versuche es in {days} Tagen erneut.': 'Veuillez réessayer dans {days} jours.'
+'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.': 'Ce joueur est un développeur non-administrateur de MyHordes.'
