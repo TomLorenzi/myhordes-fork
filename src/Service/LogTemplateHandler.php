@@ -157,8 +157,8 @@ class LogTemplateHandler
 		];
 
 		// As we may have empty prefix and empty suffix, we must remove empty translated values in order to always have a full string
-		$dog_names_prefix = array_filter($dog_names_prefix);
-		$dog_names_suffix = array_filter($dog_names_suffix);
+		$dog_names_prefix = array_values(array_filter($dog_names_prefix));
+		$dog_names_suffix = array_values(array_filter($dog_names_suffix));
 
 		// We still need an empty value if there's nothing available
 		if (empty($dog_names_prefix)) $dog_names_prefix = [""];
