@@ -11,6 +11,7 @@ use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreDefaultEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreUpgradeEvent;
 use App\EventListener\ContainerTypeTrait;
+use App\Service\EventProxyService;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -44,15 +45,11 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
         return [
             EntityManagerInterface::class,
             LogTemplateHandler::class,
-            //RandomGenerator::class,
-            //InventoryHandler::class,
-            //PictoHandler::class,
-            //DoctrineCacheService::class,
             TownHandler::class,
             GameProfilerService::class,
             InventoryHandler::class,
             ItemFactory::class,
-            //CitizenHandler::class
+            EventProxyService::class
         ];
     }
 
@@ -145,8 +142,7 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
 
             if ($event->building->getHp() <= 0) {
                 $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->constructionsDestroy($event->town, $event->building->getPrototype(), $event->buildingDamage ) );
-                $this->getService(TownHandler::class)->destroy_building($event->town, $event->building);
-                $this->getService(GameProfilerService::class)->recordBuildingDestroyed( $event->building->getPrototype(), $event->town, 'attack' );
+                $this->getService(EventProxyService::class)->buildingDestruction( $event->building, 'attack' );
             } else $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->constructionsDamage($event->town, $event->building->getPrototype(), $event->buildingDamage ) );
 
             $event->markModified();

@@ -46,6 +46,8 @@ class Gazette
     private $votes_needed;
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $reactorExplosion;
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $fireworksExplosion;
     public function __construct()
     {
         $this->victims = new ArrayCollection();
@@ -209,6 +211,17 @@ class Gazette
     public function setReactorExplosion(?bool $reactorExplosion): self
     {
         $this->reactorExplosion = $reactorExplosion;
+
+        return $this;
+    }
+
+    public function getFireworksExplosion(): ?bool
+    {
+        return $this->fireworksExplosion;
+    }
+    public function setFireworksExplosion(?bool $fireworksExplosion): self
+    {
+        $this->fireworksExplosion = $fireworksExplosion;
 
         return $this;
     }

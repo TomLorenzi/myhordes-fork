@@ -2320,14 +2320,12 @@ class AdminTownController extends AdminActionController
      * Set AP to a building of a town
      * @param int $id ID of the town
      * @param JSONRequestParser $parser The JSON request parser
-     * @param TownHandler $th The town handler
-     * @param GameProfilerService $gps
      * @param EventProxyService $events
      * @return Response
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps, EventProxyService $events)
+    public function town_set_building_ap(int $id, JSONRequestParser $parser, EventProxyService $events)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -2353,13 +2351,10 @@ class AdminTownController extends AdminActionController
 
         $building->setAp($ap);
 
-        if ($building->getAp() >= $building->getPrototype()->getAp()) {
+        if ($building->getAp() >= $building->getPrototype()->getAp())
             $events->buildingConstruction( $building, 'debug' );
-        } elseif ($building->getAp() <= 0) {
-            $building->setComplete(false);
-            $th->destroy_building($town, $building);
-            $gps->recordBuildingDestroyed( $building->getPrototype(), $town, 'debug' );
-        }
+        elseif ($building->getAp() <= 0)
+            $events->buildingDestruction( $building, 'debug' );
 
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
@@ -2375,10 +2370,9 @@ class AdminTownController extends AdminActionController
      * Set HP to a building of a town
      * @param int $id ID of the town
      * @param JSONRequestParser $parser The JSON request parser
-     * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_set_building_hp(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
+    public function town_set_building_hp(int $id, JSONRequestParser $parser, EventProxyService $events)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -2410,11 +2404,8 @@ class AdminTownController extends AdminActionController
 
         $building->setHp($hp);
 
-        if ($building->getHp() <= 0) {
-            $building->setComplete(false);
-            $th->destroy_building($town, $building);
-            $gps->recordBuildingDestroyed( $building->getPrototype(), $town, 'debug' );
-        }
+        if ($building->getHp() <= 0)
+            $events->buildingDestruction( $building, 'debug' );
 
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);

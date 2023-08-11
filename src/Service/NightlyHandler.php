@@ -46,9 +46,7 @@ class NightlyHandler
     private array $cleanup = [];
     private array $skip_reanimation = [];
     private array $skip_infection = [];
-    private bool $exec_firework = false;
     private ?Building $upgraded_building = null;
-    private bool $exec_reactor = false;
     private array $deferred_log_entries = [];
 
     private EntityManagerInterface $entity_manager;
@@ -399,33 +397,8 @@ class NightlyHandler
 
     private function stage2_pre_attack_buildings(Town &$town){
         $this->log->info('<info>Processing building before the attack</info> ...');
-
-        $reactor = $this->town_handler->getBuilding($town, 'small_arma_#00', true);
-        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Radiations]);
-
         foreach ($town->getBuildings() as $building)
             if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDailyUpgrade );
-
-        if ($reactor) {
-
-            if($reactor->getHp() <= 0){
-
-                $gazette = $town->findGazette( $town->getDay(), true );
-
-                $this->log->debug("The reactor is destroyed. Everybody dies !");
-
-                // It is destroyed, let's kill everyone with the good cause of death
-                foreach ($this->town_handler->get_alive_citizens($town) as $citizen) {
-                    $gazette->setDeaths($gazette->getDeaths() + 1);
-                    $this->kill_wrap($citizen, $cod, true, 0, true, $town->getDay());
-                }
-
-                $gazette->setReactorExplosion(true);
-                $this->exec_reactor = true;
-                $this->entity_manager->persist($gazette);
-
-            }
-        }
     }
 
     private function stage2_building_effects(Town $town) {
@@ -460,50 +433,6 @@ class NightlyHandler
     private function stage2_post_attack_buildings(Town &$town){
         foreach ($town->getBuildings() as $building)
             if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDefaultEvents );
-
-        $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00');
-        if($fireworks){
-
-            if($fireworks->getHp() <= 0) {
-                // It is destroyed, let's do this !
-                $this->entity_manager->persist($this->logTemplates->fireworkExplosion($town, $fireworks->getPrototype()));
-
-                $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
-
-                // Fetching alive citizens
-                $citizens = $this->town_handler->get_alive_citizens($town);
-                $toInfect = [];
-                // Keeping citizens in town
-                foreach ($citizens as $citizen) {
-                    /** @var Citizen $citizen */
-                    if($citizen->getZone() || !$citizen->getAlive()) continue;
-                    $toInfect[] = $citizen;
-                }
-
-                // Randomness
-                shuffle($toInfect);
-                // We infect the first half of the list
-                for ($i=0; $i < count($toInfect) / 2; $i++)
-                    $this->citizen_handler->inflictStatus($toInfect[$i], "tg_meta_ginfect");
-
-                $this->exec_firework = true;
-
-                $ratio = 1 - mt_rand(13, 16) / 100;
-
-                /** @var ZombieEstimation $est */
-                $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
-
-                $zombie_diff = $est->getZombies() - ($est->getZombies() * $ratio);
-                $est->setZombies($est->getZombies() * $ratio);
-                $est->setTargetMin($est->getTargetMin() - $zombie_diff);
-                $est->setTargetMax($est->getTargetMax() - $zombie_diff);
-                $this->entity_manager->persist($est);
-
-            } else {
-                $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
-            }
-            $this->entity_manager->persist($fireworks);
-        }
 
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
             if ($b->getPrototype()->getTemp()){
@@ -918,8 +847,7 @@ class NightlyHandler
                 if($target->getHp() <= 0){
                     $this->log->info("<info>{$target->getPrototype()->getLabel()}</info> is now destroyed !");
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $realDamage ));
-                    $this->town_handler->destroy_building($town, $target);
-                    $this->gps->recordBuildingDestroyed( $target->getPrototype(), $town, 'attack' );
+                    $this->events->buildingDestruction( $target, 'attack' );
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $realDamage ));
                 }
@@ -1336,7 +1264,7 @@ class NightlyHandler
         $this->log->debug('Spreading zombies ...');
         $this->map->dailyZombieSpawn($town);
 
-        if ($this->exec_firework)
+        if (!$town->findGazette( $town->getDay(), true )->getFireworksExplosion())
             // Kill zombies around the town (all at 1km, none beyond 10km)
             foreach ($town->getZones() as $zone) {
                 $km = $this->zone_handler->getZoneKm($zone);
@@ -1771,10 +1699,9 @@ class NightlyHandler
         $this->stage2_building_effects($town);
         $this->stage2_day($town);
 
-        if (!$this->exec_reactor) {
+        if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion()) {
             $this->stage2_attack($town);
-        } else foreach ($this->deferred_log_entries as $deferred_log_entry)
-            $this->entity_manager->persist( $deferred_log_entry );
+        }
 
         $this->stage2_post_attack_buildings($town);
         $this->stage2_post_attack_building_effects($town);

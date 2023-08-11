@@ -8,6 +8,7 @@ use App\Entity\Item;
 use App\Entity\Town;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
@@ -33,6 +34,17 @@ class EventProxyService
      */
     public function buildingConstruction( Building $building, string|Citizen $method = null ): void {
         $this->ed->dispatch( $this->ef->gameEvent( BuildingConstructionEvent::class, $building->getTown() )->setup( $building, $method ) );
+    }
+
+    /**
+     * @param Building $building
+     * @param string $method
+     * @return void
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function buildingDestruction( Building $building, string $method = 'attack' ): void {
+        $this->ed->dispatch( $this->ef->gameEvent( BuildingDestructionEvent::class, $building->getTown() )->setup( $building, $method ) );
     }
 
     /**
