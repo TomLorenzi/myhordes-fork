@@ -81,7 +81,7 @@
                             <button class="inline build-btn" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level + 1 }}" x-building-admin-action="lv"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}"></button>
                         {% endif %}
                         {% if fromTown.level > 0 %}
-                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lvd"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}"></button>
+                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lv"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}"></button>
                         {% endif %}
                     {% endif %}
 					<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><img alt="E" src="{{ asset('build/images/forum/edit.png') }}" /></button>
