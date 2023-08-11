@@ -6,6 +6,7 @@ use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\Item;
 use App\Entity\Town;
+use App\Enum\EventStages\BuildingEffectStage;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
@@ -49,14 +50,14 @@ class EventProxyService
     /**
      * @param Building $building
      * @param ?Building $upgraded
-     * @param bool $isPreAttack
+     * @param BuildingEffectStage $stage
      * @return void
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function buildingEffect( Building $building, ?Building $upgraded, bool $isPreAttack ): void {
+    public function buildingEffect( Building $building, ?Building $upgraded, BuildingEffectStage $stage ): void {
         /** @noinspection PhpUndefinedMethodInspection */
-        $this->ed->dispatch($this->ef->gameEvent($isPreAttack ? BuildingEffectPreAttackEvent::class : BuildingEffectPostAttackEvent::class, $building->getTown() )->setup($building,$upgraded) );
+        $this->ed->dispatch($this->ef->gameEvent($stage->eventClass(), $building->getTown() )->setup($building,$upgraded) );
     }
 
     /**

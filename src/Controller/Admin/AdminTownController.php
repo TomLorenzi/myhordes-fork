@@ -41,6 +41,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\ItemPoisonType;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Response\AjaxResponse;
@@ -2491,8 +2492,8 @@ class AdminTownController extends AdminActionController
         if (!$building || $building->getTown() !== $town || !$building->getComplete())
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $events->buildingEffect( $building, null, true );
-        $events->buildingEffect( $building, null, false );
+        foreach (BuildingEffectStage::cases() as $stage)
+            $events->buildingEffect( $building, null, $stage );
 
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);

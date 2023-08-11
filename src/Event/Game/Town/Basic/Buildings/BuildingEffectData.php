@@ -20,6 +20,7 @@ class BuildingEffectData
     public readonly Building $building;
     public readonly ?Building $upgradedBuilding;
 
+    public int $buildingDamage = 0;
     public int $waterDeducted = 0;
     public array $dailyProduceItems = [];
 

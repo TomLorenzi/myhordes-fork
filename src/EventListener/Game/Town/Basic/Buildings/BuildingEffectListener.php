@@ -8,7 +8,10 @@ use App\Enum\ItemPoisonType;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreDefaultEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreUpgradeEvent;
 use App\EventListener\ContainerTypeTrait;
+use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
@@ -19,10 +22,14 @@ use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
+#[AsEventListener(event: BuildingEffectPreUpgradeEvent::class, method: 'onProcessPreUpgradeEffect',  priority: 0)]
 #[AsEventListener(event: BuildingEffectPreAttackEvent::class, method: 'onProcessPreAttackEffect',  priority: 0)]
+#[AsEventListener(event: BuildingEffectPreDefaultEvent::class, method: 'onProcessPreDefaultEffect', priority: 0)]
 #[AsEventListener(event: BuildingEffectPostAttackEvent::class, method: 'onProcessPostAttackEffect', priority: 0)]
 
+#[AsEventListener(event: BuildingEffectPreUpgradeEvent::class, method: 'onApplyEffect',  priority: -100)]
 #[AsEventListener(event: BuildingEffectPreAttackEvent::class, method: 'onApplyEffect',  priority: -100)]
+#[AsEventListener(event: BuildingEffectPreDefaultEvent::class, method: 'onApplyEffect',  priority: -100)]
 #[AsEventListener(event: BuildingEffectPostAttackEvent::class, method: 'onApplyEffect', priority: -100)]
 final class BuildingEffectListener implements ServiceSubscriberInterface
 {
@@ -42,11 +49,23 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             //PictoHandler::class,
             //DoctrineCacheService::class,
             TownHandler::class,
-            //GameProfilerService::class,
+            GameProfilerService::class,
             InventoryHandler::class,
             ItemFactory::class,
             //CitizenHandler::class
         ];
+    }
+
+    public function onProcessPreUpgradeEffect( BuildingEffectEvent $event ): void {
+
+        switch ($event->building->getPrototype()->getName()) {
+            case 'small_arma_#00':
+                $event->buildingDamage = mt_rand(50, 125);
+                $event->markModified();
+                break;
+            default:
+                break;
+        }
     }
 
     public function onProcessPreAttackEffect( BuildingEffectEvent $event ): void {
@@ -61,6 +80,18 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
                     $event->waterDeducted += $water_needed;
                 else $event->building->setTempDefenseBonus(0 - $event->building->getDefense() - $event->building->getDefenseBonus());
 
+                break;
+            default:
+                break;
+        }
+    }
+
+    public function onProcessPreDefaultEffect( BuildingEffectEvent $event ): void {
+
+        switch ($event->building->getPrototype()->getName()) {
+            case 'small_fireworks_#00':
+                $event->buildingDamage = 20;
+                $event->markModified();
                 break;
             default:
                 break;
@@ -101,6 +132,23 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             $gazette->setWaterlost($gazette->getWaterlost() + $event->waterDeducted );
             $this->getService(EntityManagerInterface::class)->persist($gazette);
             $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackBuildingDefenseWater( $event->building, $event->waterDeducted ) );
+            $event->markModified();
+        }
+
+        if ($event->buildingDamage > 0) {
+            $event->buildingDamage = min( $event->building->getHp(), $event->buildingDamage );
+            $event->building->setHp($event->building->getHp() - $event->buildingDamage);
+            $newDef = round(max(0, $event->building->getPrototype()->getDefense() * $event->building->getHp() / $event->building->getPrototype()->getHp()));
+            $event->building->setDefense($newDef);
+
+            $this->getService(GameProfilerService::class)->recordBuildingDamaged( $event->building->getPrototype(), $event->town, $event->buildingDamage);
+
+            if ($event->building->getHp() <= 0) {
+                $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->constructionsDestroy($event->town, $event->building->getPrototype(), $event->buildingDamage ) );
+                $this->getService(TownHandler::class)->destroy_building($event->town, $event->building);
+                $this->getService(GameProfilerService::class)->recordBuildingDestroyed( $event->building->getPrototype(), $event->town, 'attack' );
+            } else $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->constructionsDamage($event->town, $event->building->getPrototype(), $event->buildingDamage ) );
+
             $event->markModified();
         }
 
