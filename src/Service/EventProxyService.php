@@ -7,6 +7,7 @@ use App\Entity\Citizen;
 use App\Entity\Item;
 use App\Entity\Town;
 use App\Enum\EventStages\BuildingEffectStage;
+use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
@@ -82,5 +83,14 @@ class EventProxyService
     public function buildingQueryNightwatchDefenseBonus( Town $town, Item $item ): int {
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryNightwatchDefenseBonusEvent::class, $town )->setup( $item ) );
         return $event->defense;
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function citizenPostDeath( Citizen $citizen ): void {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenPostDeathEvent::class, $citizen->getTown() )->setup( $citizen ) );
     }
 }
