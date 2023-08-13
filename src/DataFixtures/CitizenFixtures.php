@@ -183,8 +183,13 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $entity = $this->entityManager->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $level] );
             if ($entity === null) $entity = new CitizenHomePrototype();
 
-            $entity->setLevel($level)->setAp( $entry['ap'] )->setIcon( $entry['icon'] )
-                ->setAllowSubUpgrades( $entry['upgrades'] )->setDefense( $entry['def'] )->setLabel( $entry['label'] )
+            $entity->setLevel($level)
+                ->setAp( $entry['ap'] )
+                ->setApUrbanism( $entry['ap_urbanism'] )
+                ->setIcon( $entry['icon'] )
+                ->setAllowSubUpgrades( $entry['upgrades'] )
+                ->setDefense( $entry['def'] )
+                ->setLabel( $entry['label'] )
                 ->setTheftProtection( $entry['theft'] );
 
             $building = empty($entry['building']) ? null : $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry['building'], false );
@@ -206,6 +211,26 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                     $ip = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] );
                     if (!$item) throw new Exception("Unable to locate item prototype '{$item}'");
                     $entity->getResources()->addEntry( (new ItemGroupEntry())->setPrototype( $ip )->setChance( $count ) );
+
+                }
+
+            }
+
+            if (empty($entry['resources_urbanism'])) {
+                if ($entity->getResourcesUrbanism()) {
+                    $manager->remove( $entity->getResourcesUrbanism() );
+                    $entity->setResourcesUrbanism( null );
+                }
+            } else {
+
+                if ($entity->getResourcesUrbanism()) $entity->getResourcesUrbanism()->getEntries()->clear();
+                else $entity->setResourcesUrbanism( (new ItemGroup())->setName( "hu_{$level}_res" ) );
+
+                foreach ( $entry['resources_urbanism'] as $item => $count ) {
+
+                    $ip = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] );
+                    if (!$item) throw new Exception("Unable to locate item prototype '{$item}'");
+                    $entity->getResourcesUrbanism()->addEntry( (new ItemGroupEntry())->setPrototype( $ip )->setChance( $count ) );
 
                 }
 

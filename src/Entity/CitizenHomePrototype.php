@@ -27,8 +27,12 @@ class CitizenHomePrototype
     private $defense;
     #[ORM\Column(type: 'integer')]
     private $ap;
+    #[ORM\Column(type: 'integer')]
+    private $apUrbanism;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', cascade: ['persist'])]
     private $resources;
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\ItemGroup', cascade: ['persist'])]
+    private $resourcesUrbanism;
     #[ORM\ManyToOne(targetEntity: 'App\Entity\BuildingPrototype')]
     private $requiredBuilding;
     #[ORM\Column(type: 'boolean')]
@@ -89,6 +93,20 @@ class CitizenHomePrototype
 
         return $this;
     }
+    public function getApUrbanism(): ?int
+    {
+        return $this->ap;
+    }
+    public function setApUrbanism(int $apUrbanism): self
+    {
+        $this->apUrbanism = $apUrbanism;
+
+        return $this;
+    }
+    public function getApAndApUrbanism(): ?int
+    {
+        return $this->ap + $this->apUrbanism;
+    }
     public function getResources(): ?ItemGroup
     {
         return $this->resources;
@@ -98,6 +116,32 @@ class CitizenHomePrototype
         $this->resources = $resources;
 
         return $this;
+    }
+    public function getResourcesUrbanism(): ?ItemGroup
+    {
+        return $this->resourcesUrbanism;
+    }
+    public function setResourcesUrbanism(?ItemGroup $resourcesUrbanism): self
+    {
+        $this->resourcesUrbanism = $resourcesUrbanism;
+
+        return $this;
+    }
+    public function getResourcesAndResourcesUrbanism(): ?ItemGroup
+    {
+        if(isset($this->resources_and_urbanism)) return $this->resources_and_urbanism;
+        $required_items = $this->getResources();
+        if(!$required_items) {
+            $required_items = $this->getResourcesUrbanism();
+        }
+        else {
+            foreach($this->getResourcesUrbanism() as $resource => $quantity) {
+                if($required_items[$resource]) $required_items[$resource] += $quantity;
+                else $required_items[$resource] = $quantity;
+            }
+        }
+        $this->resources_and_urbanism = $required_items;
+        return $this->resources_and_urbanism;
     }
     public function getRequiredBuilding(): ?BuildingPrototype
     {

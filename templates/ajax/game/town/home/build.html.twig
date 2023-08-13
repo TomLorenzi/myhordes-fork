@@ -26,7 +26,7 @@
                     <button id="upgrade_home_level" {% if devastated %}disabled{% endif %}>
                         <img alt="" src="{{ asset('build/images/icons/home.gif') }}" />
                         {% trans from 'game' %}Bauen{% endtrans %}: <b>{{ next_level.label|trans({}, 'buildings') }}</b>
-                        {% if (next_level.ap > 0) %}(<div class="ap">{{ next_level.ap }}</div>){% endif %}
+                        {% if (next_level_ap > 0) %}(<div class="ap">{{ next_level_ap }}</div>){% endif %}
                     </button>
                     {% if not devastated %}
                         {{ tooltip('<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>'|trans({}, 'game'), 'normal') }}
@@ -39,11 +39,11 @@
                                 Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:
                             {% endtrans %}
                             <b>{{ next_level_req.label|trans({},'buildings') }}</b>
-                        {% elseif next_level.resources %}
+                        {% elseif next_level_resources %}
                             {% trans from 'game' %}
                                 Für diesen Ausbau benötigst du folgende Gegenstände:
                             {% endtrans %}<br />
-                            {% for res in next_level.resources.entries %}
+                            {% for res in next_level_resources.entries %}
                                 <span class="entity">
                                     <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif' ) }}">
                                     x {{ res.chance }}

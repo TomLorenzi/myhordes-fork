@@ -225,6 +225,8 @@ class TownHomeController extends TownController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
         $home = $citizen->getHome();
+        
+        $has_urbanism = $th->hasUrbanism();
 
         // Get the next upgrade level for the house
         $home_next_level = $em->getRepository( CitizenHomePrototype::class )->findOneByLevel(
@@ -243,6 +245,8 @@ class TownHomeController extends TownController
                 'tab' => 'build',
 
                 'next_level' => $home_next_level,
+                'next_level_ap' => $has_urbanism ? $home_next_level->getAp() : $home_next_level->getApAndApUrbanism(),
+                'next_level_resources' => $has_urbanism ? $home_next_level->getResources() : $home_next_level->getResourcesAndResourcesUrbanism(),
                 'next_level_req' => $home_next_level_requirement,
                 'devastated' => $town->getDevastated(),
             ], $this->house_partial_upgrade_args(), $this->house_partial_complaints_args())
@@ -427,6 +431,8 @@ class TownHomeController extends TownController
         $town = $citizen->getTown();
         $home = $citizen->getHome();
 
+        $has_urbanism = $th->hasUrbanism();
+
         // Can't do it when the town is devastated
         if ($town->getDevastated()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -434,9 +440,11 @@ class TownHomeController extends TownController
         /** @var CitizenHomePrototype $next */
         $next = $em->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $home->getPrototype()->getLevel() + 1] );
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        
+        $required_ap = $has_urbanism ? $next->getAp() : $next->getApAndApUrbanism();
 
         // Make sure the citizen is not tired
-        if ($ch->isTired( $citizen ) || $citizen->getAp() < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if ($ch->isTired( $citizen ) || $citizen->getAp() < $required_ap) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Make sure the citizen has not upgraded their home today, only if we're not in chaos
         if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade') && !$town->getChaos())
@@ -448,8 +456,9 @@ class TownHomeController extends TownController
 
         // Fetch upgrade resources; fail if they are missing
         $items = [];
-        if ($next->getResources()) {
-            $items = $ih->fetchSpecificItems( [$home->getChest(),$citizen->getInventory()], $next->getResources() );
+        $required_items = $has_urbanism ? $next->getResources() : $next->getResourcesAndResourcesUrbanism();
+        if ($required_items) {
+            $items = $ih->fetchSpecificItems( [$home->getChest(),$citizen->getInventory()], $required_items );
             if (!$items)  return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
         }
 
@@ -457,12 +466,12 @@ class TownHomeController extends TownController
         $home->setPrototype($next);
 
         // Deduct AP and set the has-upgraded status
-        $this->citizen_handler->setAP( $citizen, true, -$next->getAp() );
+        $this->citizen_handler->setAP( $citizen, true, -$required_ap );
         $ch->inflictStatus( $citizen, 'tg_home_upgrade' );
 
         // Consume items
         foreach ($items as $item) {
-            $r = $next->getResources()->findEntry( $item->getPrototype()->getName() );
+            $r = $required_items->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
 
@@ -472,16 +481,16 @@ class TownHomeController extends TownController
         $text = [];
         // Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt und hast dafür 2 Aktionspunkt(e) ausgegeben.
         $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.', ['{home}' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
-        if($next->getResources()){
+        if($required_items){
             /** @var ItemGroupEntry $r */
             $resText = " " . $this->translator->trans('Folgenden Dinge wurden dazu gebraucht:', [], 'game');
-            foreach ($next->getResources()->getEntries() as $item) {
+            foreach ($required_items->getEntries() as $item) {
                 $resText .= " " . $this->log->wrap($this->log->iconize($item));
             }
             $text[] = $resText;
         }
 
-        $text[]= " " . $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>" . $next->getAp() . "</strong>", '{raw_count}' => $next->getAp()], "game");
+        $text[]= " " . $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>" . $required_ap . "</strong>", '{raw_count}' => $required_ap], "game");
 
         $this->addFlash('notice', implode("<hr />", $text));
 
