@@ -28,12 +28,11 @@ class AttackScheduleController extends CustomAbstractCoreController
 {
     private function current_delay( EntityManagerInterface $em ): JsonResponse {
         $planned = $em->getRepository(AttackSchedule::class)->findBy(['completed' => false, 'startedAt' => null], ['timestamp' => 'ASC']);
-        if (empty($planned)) return new JsonResponse([], Response::HTTP_NOT_ACCEPTABLE);
 
         if (count($planned) > 1)
             $em->remove( $planned[array_key_first($planned)] );
-        else {
-            $planned = $planned[array_key_first($planned)];
+        else {;
+            $planned = empty($planned) ? (new AttackSchedule())->setTimestamp( new DateTimeImmutable() ) : $planned[array_key_first($planned)];
             $datemod = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
             if ($datemod !== 'never') {
                 $new_date = (new DateTime())->setTimestamp( $planned->getTimestamp()->getTimestamp() )->modify($datemod);

@@ -36,7 +36,7 @@ class AdminScheduleController extends AdminActionController
     public function attack_index(): Response
     {
         $planned = $this->entity_manager->getRepository(AttackSchedule::class)->findBy(['completed' => false], ['timestamp' => 'ASC']);
-        $last_scheduled_attack = $planned[array_key_last( $planned ) ?? 0]?->getTimestamp();
+        $last_scheduled_attack = ($planned[array_key_last( $planned ) ?? 0] ?? null)?->getTimestamp();
 
         $projection = null;
         if ($last_scheduled_attack) {
