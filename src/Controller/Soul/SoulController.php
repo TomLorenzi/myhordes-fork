@@ -1600,7 +1600,7 @@ class SoulController extends CustomAbstractController
         if ($user->getEmail() !== null && !str_contains($user->getEmail(), '@'))
             $is_dummy = true;
 
-        $is_deleted = strstr($user->getName(), '$ deleted') !== false;
+        $is_deleted = strstr($user->getEmail(), '$ deleted') !== false;
 
         return $this->render("ajax/soul/user_tooltip.html.twig", [
             'user' => $user,
