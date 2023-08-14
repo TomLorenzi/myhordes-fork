@@ -348,13 +348,13 @@
             const transfer_to_preview = function() {
 
                 {% if snippets is not empty %}
-                {% for snippet in snippets %}
-                {# @var snippet \App\Entity\ForumModerationSnippet #}
-                node_transfer_source.value = node_transfer_source.value.replace('%{{ snippet.lang|e('js') }}%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
-                {% if snippet.lang == app.user.language %}
-                node_transfer_source.value = node_transfer_source.value.replace('%%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
-                {% endif %}
-                {% endfor %}
+                    {% for snippet in snippets|sort((a, b) => b.short|length <=> a.short|length) %}
+                        {# @var snippet \App\Entity\ForumModerationSnippet #}
+                        node_transfer_source.value = node_transfer_source.value.replace('%{{ snippet.lang|e('js') }}%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                        {% if snippet.lang == app.user.language %}
+                            node_transfer_source.value = node_transfer_source.value.replace('%%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                        {% endif %}
+                    {% endfor %}
                 {% endif %}
 
                 $.html.twinoParser.AjaxUrl = "{{path('user_exists') }}";
