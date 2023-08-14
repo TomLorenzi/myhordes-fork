@@ -52,7 +52,7 @@
                 {% set has_packed_water = false %}
                 {% for item in app.user.activeCitizen.inventory.items %}
                     {% if item.prototype.hasProperty('is_water') %}{% set has_packed_water = true %}{% endif %}
-                    {% if item.prototype.hasProperty('food') %}    {% set has_packed_food  = true %}{% endif %}
+                    {% if item.prototype.hasProperty('food') and not item.prototype.hasProperty('inedible') %}    {% set has_packed_food  = true %}{% endif %}
                 {% endfor %}
 
                 {% if not has_packed_food and not has_packed_water %}
