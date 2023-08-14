@@ -219,7 +219,7 @@
                         </div>
                         {% if user_desc %}
                             <div class="cell padded {% if user.avatar is null %}ro-6 ro-sm-0{% endif%} rw-6 rw-sm-12">
-                                <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>"{{ user_desc|raw }}"</div></div>
+                                <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>« {{ user_desc|raw }} »</div></div>
                             </div>
                         {% endif %}
 
