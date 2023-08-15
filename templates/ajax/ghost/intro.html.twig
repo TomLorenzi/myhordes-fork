@@ -41,32 +41,34 @@
 
             <div class="relative row">
                 <div {{ {cell: true, 'rw-md-12': true, 'rw-6': hasCoaInfo, 'rw-12': not hasCoaInfo}|classes  }}>
-                    <div class="row">
-                        <div class="cell rw-12 padded">
-                            <h5 class="relative">
-                                {{ 'Dein Team'|trans({},'soul') }}
-                            </h5>
+                    {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
+                        <div class="row">
+                            <div class="cell rw-12 padded">
+                                <h5 class="relative">
+                                    {{ 'Dein Team'|trans({},'soul') }}
+                                </h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row-flex">
-                        {% if app.user.team is null %}
-                            <div class="cell padded grow-1">
-                                <div class="note note-warning">
-                                    {{ 'Du bist bisher keinem Team beigetreten.'|trans({},'ghost') }}
-                                    <a x-ajax-href="{{ path('soul_settings') }}" href="#">{{ 'Team wählen'|trans({},'ghost') }}</a>
+                        <div class="row-flex">
+                            {% if app.user.team is null %}
+                                <div class="cell padded grow-1">
+                                    <div class="note note-warning">
+                                        {{ 'Du bist bisher keinem Team beigetreten.'|trans({},'ghost') }}
+                                        <a x-ajax-href="{{ path('soul_settings') }}" href="#">{{ 'Team wählen'|trans({},'ghost') }}</a>
+                                    </div>
                                 </div>
-                            </div>
-                        {% else %}
-                            <div class="cell padded grow-0 shrink-0">
-                                <span class="language"><img src="{{ asset("build/images/lang/" ~ app.user.team ~ ".png") }}" alt="{{ app.user.team }}" /></span>
-                            </div>
-                            <div class="cell padded grow-1 small">
-                                <strong>{{ allLangs[app.user.team].label|trans({},'global') }}</strong><br/>
-                                <i>{{ '{members} Mitglieder, {souls} verlorene Seelen'|trans({members: team_members, souls: team_souls},'ghost') }}</i>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="row"><div class="cell rw-12 padded">
+                            {% else %}
+                                <div class="cell padded grow-0 shrink-0">
+                                    <span class="language"><img src="{{ asset("build/images/lang/" ~ app.user.team ~ ".png") }}" alt="{{ app.user.team }}" /></span>
+                                </div>
+                                <div class="cell padded grow-1 small">
+                                    <strong>{{ allLangs[app.user.team].label|trans({},'global') }}</strong><br/>
+                                    <i>{{ '{members} Mitglieder, {souls} verlorene Seelen'|trans({members: team_members, souls: team_souls},'ghost') }}</i>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {# <div class="row"><div class="cell rw-12 padded">
                         {% if cap_left == 0 %}
                             <div class="note note-warning">
                                 {% if app.user.team %}
@@ -77,7 +79,7 @@
                             </div>
                         {% endif %}
                         {{ help_lnk('Teams'|trans({}, 'help'), 'help', {'name': 'your_team'}) }}
-                    </div></div>
+                    </div></div> #}
 
                 </div>
                 {% if hasCoaInfo %}

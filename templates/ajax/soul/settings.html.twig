@@ -288,7 +288,7 @@
                             {% else %}
                                 <img id="user_current_team" alt="" src="" class="hidden pointer"/>
                             {% endif %}
-                            {% if team_tickets_limit < 0 or team_tickets_in < team_tickets_limit %}
+                            {% if app.user.team is null or  not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
                                 <span id="show_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
                             {% endif %}
                         </div>
@@ -302,7 +302,7 @@
                         </div>
                     </div>
                 </div>
-                {% if app.user.team %}
+                {# {% if app.user.team %}
                     <div class="row">
                         <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                             <div class="note note-lightest">
@@ -369,7 +369,7 @@
                             {% endif %}
                         </div>
                     </div>
-                {% endif %}
+                {% endif %} #}
                 <div class="row">
                     <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
                         <button id="save_team" class="hidden">{{ 'Speichern'|trans({},'global') }}</button>

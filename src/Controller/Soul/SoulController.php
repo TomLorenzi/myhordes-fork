@@ -778,16 +778,19 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
 
         $team  = $parser->get('team', '');
+        
+        if ($user->getTeam() != null && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang ))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($team !== '' && ($team === 'ach' || !in_array( $team, $this->allLangsCodes )))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($team !== '' && $team !== $user->getTeam()) {
-            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
-            $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
-            if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
-                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        }
+        // if ($team !== '' && $team !== $user->getTeam()) {
+        //     $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        //     $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+        //     if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
+        //         return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        // }
 
         if ($team !== '') $user->setTeam($team);
 

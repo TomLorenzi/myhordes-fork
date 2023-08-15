@@ -1,4 +1,4 @@
-{% extends "ajax/help/shell.html.twig" %}
+{# {% extends "ajax/help/shell.html.twig" %}
 {% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Dein Team'|trans({}, 'help')|raw}}{% endblock %}
 {% block helpContent %}
 <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
@@ -37,4 +37,4 @@
 </p>
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'death_and_soul_points'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</strong></a>
-{% endblock %}
+{% endblock %} #}

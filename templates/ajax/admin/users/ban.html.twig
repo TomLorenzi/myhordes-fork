@@ -69,6 +69,8 @@
                                                 {% endif %}
                                                 {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}
                                                     <div>{{ 'Spiel'|trans({},'admin') }}</div>
+                                                {% else %}
+                                                    {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}<div>{{ 'Spielen in anderen Gemeinden'|trans({},'admin') }}</div>{% endif %}
                                                 {% endif %}
                                                 {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfile')) %}
                                                     <div>{{ 'Profil'|trans({},'admin') }}</div>
@@ -181,7 +183,18 @@
                                         <input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionComments') }}"> {{ 'Kommentare verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label x-tooltip="title" title="{{ 'Verbietet das Gründen neuer Koalitionen sowie die Mitgliederverwaltung und den Koalitionschat existierender Koalitionen.'|trans({},'admin') }}">
                                         <input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionOrganization') }}"> {{ 'Organisation in Gruppen verbieten'|trans({},'admin') }}</label></div>
-                                <div class="cell rw-12"><label><input x-confirmation="2" type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionGameplay') }}"> {{ 'Spielen verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}</label></div>
+                                <div class="cell rw-12">
+                                    <label>
+                                        <input x-confirmation="2" type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionGameplay') }}">
+                                        {{ 'Spielen verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
+                                    </label>
+                                </div>
+                                <div class="cell ro-1 rw-11">
+                                    <label>
+                                        <input x-confirmation="2" type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang') }}">
+                                        {{ 'Das Spielen in anderen Gemeinden verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
+                                    </label>
+                                </div>
                                 <div class="cell rw-12"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfile') }}"> {{ 'Änderungen am Profil verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar') }}"> {{ 'Ändern des Avatars verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription') }}"> {{ 'Ändern der Profilbeschreibung verbieten'|trans({},'admin') }}</label></div>
