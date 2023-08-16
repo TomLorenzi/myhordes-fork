@@ -1385,12 +1385,13 @@ class BeyondController extends InventoryAwareController
             $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
 
         if ($zone->getRuinDigs() > 0) {
-            $factor = $this->zone_handler->getDigChanceFactor( $this->getActiveCitizen(), $zone );
+            /*$factor = $this->zone_handler->getDigChanceFactor( $this->getActiveCitizen(), $zone );
 
             if ($zone->getPrototype()->getEmptyDropChance() >= 1) $total_dig_chance = 0;
             elseif ($zone->getPrototype()->getEmptyDropChance() <= 0) $total_dig_chance = 1;
-            else $total_dig_chance = min(max(0.1, $factor * (1.0 - $zone->getPrototype()->getEmptyDropChance())), 0.95);
+            else $total_dig_chance = min(max(0.1, $factor * (1.0 - $zone->getPrototype()->getEmptyDropChance())), 0.95);*/
 
+			$total_dig_chance = $this->zone_handler->getDigChance($citizen, $zone->getPrototype());
             $item_found = $this->random_generator->chance($total_dig_chance);
 
             $zone->addActivityMarker( (new ZoneActivityMarker())

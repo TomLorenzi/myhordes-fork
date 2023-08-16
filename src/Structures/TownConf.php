@@ -55,6 +55,8 @@ class TownConf extends Conf
     const CONF_MAP_BURIED_PROB      = 'map_params.buried_ruins.probability';
     const CONF_MAP_BURIED_DIGS_MIN  = 'map_params.buried_ruins.digs.min';
     const CONF_MAP_BURIED_DIGS_MAX  = 'map_params.buried_ruins.digs.max';
+	const CONF_DIG_CHANCES_BASE     = 'map_params.dig_chances.base';
+	const CONF_DIG_CHANCES_DEPLETED = 'map_params.dig_chances.depleted';
 
     const CONF_ESTIM_INITIAL_SHIFT  = 'estimation.shift';
     const CONF_ESTIM_SPREAD         = 'estimation.spread';
@@ -78,6 +80,7 @@ class TownConf extends Conf
     const CONF_EXPLORABLES_PLAN_LIMIT_E = 'explorable_ruin_params.plan_limits.epic';
     const CONF_SCAVENGING_PLAN_LIMIT_B = 'zone_items.plan_limits.bag';
     const CONF_EXPLORABLES_FLOORS      = 'explorable_ruin_params.floors';
+	const CONF_EXPLORABLES_DIG_CHANCE  = 'explorable_ruin_params.dig_chance';
 
     const CONF_TIMES_DIG_NORMAL     = 'times.digging.normal';
     const CONF_TIMES_DIG_COLLEC     = 'times.digging.collec';

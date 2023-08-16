@@ -103,7 +103,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setDescription( $entry['desc'])
                 ->setPictoName( $entry['picto'] ?? null )
                 ->setNightwatchDefenseBonus($entry['nightwatch_def_bonus'] ?? 0)
-                ->setNightwatchSurvivalBonus($entry['nightwatch_surv_bonus'] ?? 0);
+                ->setNightwatchSurvivalBonus($entry['nightwatch_surv_bonus'] ?? 0)
+				->setDigBonus( $entry['dig_bonus'] ?? 0 );
 
             foreach ( $entry['items'] as $p_item ) {
                 $i = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $p_item] );

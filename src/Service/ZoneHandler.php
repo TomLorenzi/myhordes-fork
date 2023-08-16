@@ -13,11 +13,13 @@ use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;
+use App\Entity\RuinZonePrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
+use App\Entity\ZonePrototype;
 use App\Enum\ZoneActivityMarkerType;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
@@ -185,9 +187,11 @@ class ZoneHandler
             usort( $dig_timers_due, $sort_func );
             foreach ($dig_timers_due as &$timer)
                 if ($timer->getTimestamp() < $up_to) {
-                    $factor = $this->getDigChanceFactor($timer->getCitizen(), $zone);
+                    /*$factor = $this->getDigChanceFactor($timer->getCitizen(), $zone);
 
-                    $total_dig_chance = $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 );
+                    $total_dig_chance = $factor * ($zone->getDigs() > 0 ? 0.6 : 0.35 );*/
+
+					$total_dig_chance = $this->getDigChance($timer->getCitizen(), $zone);
 
                     $found_item = $this->random_generator->chance($total_dig_chance, 0.1, 0.9);
                     $found_event_item = (!$found_item && $event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance, 0.1, $event_cap ));
@@ -388,7 +392,7 @@ class ZoneHandler
         if ($zone && $this->conf->getTownConfiguration( $citizen->getTown() )->isNightMode($time)) {
 
             // If there are items that prevent night mode present, the night malus is set to 0
-            $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.25 : 0.0; // based on 733 searchs made during night
+            $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.25 : 0; // based on 733 searchs made during night
 
             if ($citizen->hasStatus('tg_novlamps')) {
                 // Night mode is active, but so are the Novelty Lamps; we must check if they apply
@@ -411,6 +415,87 @@ class ZoneHandler
 
         return $factor;
     }
+
+	function getDigChance(Citizen $citizen, Zone|ZonePrototype|RuinZonePrototype|null $zone): float {
+		$time = new \DateTime();
+
+		if (is_a($zone, Zone::class)) {
+			// We're digging on a regular zone
+
+			// A depleted zone have 35% chance of giving an item
+			// A non-depleted one have 60% chance of giving an item, + the profession bonus
+			$chance = ($zone->getDigs() <= 0)
+						? $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DIG_CHANCES_DEPLETED, 0.35)
+						: ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DIG_CHANCES_BASE, 0.60) + $citizen->getProfession()->getDigBonus());
+
+			// We remove the night malus if it applies
+			$chance -= $this->getNightMalus($citizen, $zone, $zone->getDistance());
+
+			// A depleted zone does not take into account the statuses
+			if ($zone->getDigs() <= 0) return $chance;
+
+			if ($this->citizen_handler->hasStatusEffect( $citizen, 'camper' )) $chance += 0.1;
+			if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $chance *= 0.5;
+			if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $chance -= 0.2;
+
+			return max($chance, 0);
+		} else if (is_a($zone, ZonePrototype::class)) {
+			/* @var $zone ZonePrototype */
+			// We're searching a building
+			$chance = 1.0 - $zone->getEmptyDropChance() + $citizen->getProfession()->getDigBonus();
+
+			if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $chance -= 0.2;
+			if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $chance -= 0.2;
+
+			$chance -= $this->getNightMalus($citizen, $zone, $citizen->getZone()->getDistance());
+
+			return max($chance, 0);
+		} else if (is_a($zone, RuinZonePrototype::class)) {
+			// We're searching an e-ruin
+			// TODO: Re-implement how items are generated in an e-ruin
+			$chance = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_EXPLORABLES_DIG_CHANCE, 0.55) + $citizen->getProfession()->getDigBonus();
+
+			// The drunk status is the only applied, since we can't be wounded in an e-ruin
+			if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk' )) $chance -= 0.2;
+
+			return $chance;
+
+		}
+
+		return 0;
+	}
+
+	private function getNightMalus(Citizen $citizen, Zone|ZonePrototype $zone, int $zoneDistance): float {
+		$time = new DateTime();
+		if ($this->conf->getTownConfiguration( $citizen->getTown() )->isNightMode($time)) {
+			$malus = (is_a($zone, Zone::class) ? 0.2 : 0.1);
+			// If there are items that prevent night mode present, the night malus is set to a quarter of the base malus
+			$night_mode_malus = $malus;
+			if ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true )> 0) {
+				$night_mode_malus /= 4;
+			}
+
+			if ($citizen->hasStatus('tg_novlamps')) {
+				// Night mode is active, but so are the Novelty Lamps; we must check if they apply
+				$novelty_lamps = $this->town_handler->getBuilding( $citizen->getTown(), 'small_novlamps_#00', true );
+
+				// Novelty Lamps are not built; apply malus
+				if (!$novelty_lamps) $malus = $night_mode_malus;
+				// Novelty Lamps are at lv0 and the zone distance is above 2km; apply malus
+				elseif ($novelty_lamps->getLevel() === 0 && $zone->getDistance() > 2) $malus = $night_mode_malus;
+				// Novelty Lamps are at lv1 and the zone distance is above 6km; apply malus
+				elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6) $malus = $night_mode_malus;
+				// Novelty Lamps are at lv2; never apply malus
+				elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 999) $malus = $night_mode_malus;
+				// Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
+				// elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10) $chance += 0.2;
+			} else $malus = $night_mode_malus; // Night mode is active; apply malus
+
+			return $malus;
+		}
+
+		return 0; // Night malus not active
+	}
 
     public function check_cp(Zone $zone, ?int &$cp = null): bool {
         $cp = 0;

@@ -45,6 +45,9 @@ class CitizenProfession implements NamedEntity
 
     #[ORM\Column]
     private ?float $nightwatch_survival_bonus = 0;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $dig_bonus = null;
     public function __construct()
     {
         $this->professionItems = new ArrayCollection();
@@ -185,6 +188,18 @@ class CitizenProfession implements NamedEntity
     public function setNightwatchSurvivalBonus(float $nightwatch_survival_bonus): self
     {
         $this->nightwatch_survival_bonus = $nightwatch_survival_bonus;
+
+        return $this;
+    }
+
+    public function getDigBonus(): ?float
+    {
+        return $this->dig_bonus;
+    }
+
+    public function setDigBonus(?float $dig_bonus): static
+    {
+        $this->dig_bonus = $dig_bonus;
 
         return $this;
     }

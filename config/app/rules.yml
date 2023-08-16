@@ -44,6 +44,9 @@ parameters:
         buried_ruins:
           probability: 0.5
           digs: { min: 1, max: 19 }
+        dig_chances:
+          base: 0.6
+          depleted: 0.35
 
       explorable_ruin_params:
         complexity: 0.9
@@ -56,6 +59,7 @@ parameters:
         item_fillrate: 7
         max_distance: 10
         floors: 1
+        dig_chance: 0.55
         plan_limits:
           unusual: -1
           rare: -1
