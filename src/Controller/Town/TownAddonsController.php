@@ -507,7 +507,7 @@ class TownAddonsController extends TownController
                 if($item->getPrototype()->getName() == 'chkspk_#00')
                     $has_counsel = true;
 
-            	if($item->getPrototype()->getWatchpoint() <= 0)
+            	if($item->getPrototype()->getWatchpoint() === 0)
                     continue;
 
             	$watchers[$watcher->getId()]['items'][] = array(
