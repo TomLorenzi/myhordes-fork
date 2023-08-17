@@ -447,7 +447,7 @@ class ZoneHandler
 			if ($this->citizen_handler->hasStatusEffect( $citizen, 'wound5' )) $chance -= 0.2;
 			if ($this->citizen_handler->hasStatusEffect( $citizen, 'drunk'  )) $chance -= 0.2;
 
-			$chance -= $this->getNightMalus($citizen, $zone, $citizen->getZone()->getDistance());
+			$chance -= $this->getNightMalus($citizen, $citizen->getZone(), $citizen->getZone()->getDistance());
 
 			return max($chance, 0);
 		} else if (is_a($zone, RuinZonePrototype::class)) {
