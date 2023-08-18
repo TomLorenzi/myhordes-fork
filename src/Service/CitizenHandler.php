@@ -591,7 +591,20 @@ class CitizenHandler
 			$citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
 		) > 0;
 
-		$chance = [];
+		$chance = [
+			'previous' => 0,
+			'tomb' => 0,
+			'town' => 0,
+			'zone' => 0,
+			'zoneBuilding' => 0,
+			'lighthouse' => 0,
+			'campitems' => 0,
+			'zombies' => 0,
+			'campers' => 0,
+			'night' => 0,
+			'distance' => 0,
+			'devastated' => 0
+		];
 		// Previous campings
 		if( $is_panda )
 			if( $has_pro_camper )
@@ -642,7 +655,7 @@ class CitizenHandler
 		// Other campers on the zone
 		if (count($citizen->getZone()->getCampers()) > 0) {
 			$crowdChances = [0,-10,-30,-50,-70];
-			$cc = $crowdChances[ min(count($crowdChances) - 1, max(0, count($citizen->getZone()->getCampers()) - 1))];
+			$cc = $crowdChances[ min(count($crowdChances) - 1, max(0, count($citizen->getZone()->getCampers()) - 2))]; // -1 because we must not count ourselves AND we ignore the first camper.
 			$chance["campers"] = $cc;
 		}
 
@@ -660,6 +673,7 @@ class CitizenHandler
 		// Devastated town
 		if ($citizen->getTown()->getDevastated())
 			$chance["devastated"] = -50;
+
 		return max(0, min(array_sum($chance) / 100.0, $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9));
 		// OLD METHOD:
         // return min(max((100.0 - (abs(min(0, array_sum($this->getCampingValues($citizen)))) * 5)) / 100.0, .1), $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9);
