@@ -1344,21 +1344,7 @@ class NightlyHandler
             }
 
             if ($zone->getDirection() === $wind && round($distance) > $wind_dist) {
-                $reco_counter[1]++;
-                if ($this->random->chance( $recovery_chance )) {
-                    $digs = mt_rand( $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MIN, 2) , $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5));
-                    if ($zone->getDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_THROTTLE_AT, 12))
-                        $digs = ceil(($digs-1) / 2);
-                    $zone->setDigs( min( $zone->getDigs() + $digs, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_TOTAL_MAX, 30) ) );
-                    $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>." );
-                    $reco_counter[0]++;
-                }
-
-                if ($zone->getPrototype() && $this->random->chance( $recovery_chance ) ) {
-                    $rdigs = mt_rand(1, 5);
-                    $zone->setRuinDigs( min( $zone->getRuinDigs() + $rdigs, 10 ) );
-                    $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>." );
-                }
+                $this->attemptRegenZone($reco_counter, $zone, $town, $recovery_chance);
             }
 
             if ($zone->getImprovementLevel() > 0) {
@@ -1738,5 +1724,38 @@ class NightlyHandler
         $cc = $this->cleanup;
         $this->cleanup = [];
         return $cc;
+    }
+
+    /**
+     * @param array $reco_counter
+     * @param Zone $zone
+     * @param Town $town
+     * @param float $recovery_chance
+     * @return void
+     */
+    public function attemptRegenZone(array $reco_counter, Zone $zone, Town $town, float $recovery_chance): void
+    {
+        $reco_counter[1]++;
+        $dropChanceFactor = $zone->getDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ? 0.33 : 1;
+        $dropRegenChance = $recovery_chance * $dropChanceFactor;
+        if ($this->random->chance($dropRegenChance)) {
+            $digs = $zone->getDigs()
+                + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5)
+                + mt_rand(0, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5) - 1);
+
+            $zone->setDigs(min($zone->getDigs() + $digs));
+            $this->log->debug("Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>.");
+            $reco_counter[0]++;
+        }
+
+        $ruinChanceFactor = $zone->getRuinDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ? 0.33 : 1;
+        $ruinRegenChange = $recovery_chance * $ruinChanceFactor;
+        if ($zone->getPrototype() && $this->random->chance($ruinRegenChange)) {
+            $rdigs = $zone->getRuinDigs()
+                + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5)
+                + mt_rand(0, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5) - 1);
+            $zone->setRuinDigs($rdigs);
+            $this->log->debug("Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>.");
+        }
     }
 }
