@@ -68,19 +68,6 @@
                                 </div>
                             {% endif %}
                         </div>
-
-                    <div class="row"><div class="cell rw-12 padded">
-                        {% if cap_left == 0 %}
-                            <div class="note note-warning">
-                                {% if app.user.team %}
-                                    {{ 'Du hast das Limit für das Betreten von Städte aus anderen Teams erreicht. Bis zum Ende dieser Saison kannst du nur Städte deines eigenen Teams betreten.'|trans({},'ghost') }}
-                                {% else %}
-                                    {{ 'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.'|trans({},'ghost') }}
-                                {% endif %}
-                            </div>
-                        {% endif %}
-                        {{ help_lnk('Teams'|trans({}, 'help'), 'help', {'name': 'your_team'}) }}
-                    </div></div>
                 </div>
                 {% endif %}
                 {% if hasCoaInfo %}
