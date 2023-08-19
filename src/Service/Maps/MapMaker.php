@@ -46,10 +46,12 @@ class MapMaker
         for ($x = 0; $x < $map_resolution; $x++)
             for ($y = 0; $y < $map_resolution; $y++) {
                 $zone = new Zone();
+                //Hordes Dig Count is N + rand(N), where rand is between 0 included and N excluded
+                $digCount = ceil($conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5)*0.7) + mt_rand(0,$conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5)-1 ) ;
                 $zone
                     ->setX( $x - $ox )
                     ->setY( $y - $oy )
-                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 5), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
+                    ->setDigs($digCount)
                     ->setFloor( new Inventory() )
                     ->setDiscoveryStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::DiscoveryStateCurrent : Zone::DiscoveryStateNone )
                     ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )
@@ -123,9 +125,12 @@ class MapMaker
             if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
             else $previous[$target_ruin->getId()]++;
 
+            //Hordes Dig Count is N + rand(N), where rand is between 0 included and N excluded
+            $ruinDigCount = ceil($conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 8)*0.7) + mt_rand(0,$conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 8)-1 ) ;
+
             $zone_list[$i+$o]
                 ->setPrototype( $target_ruin )
-                ->setRuinDigs( mt_rand( $conf->get(TownConf::CONF_RUIN_ITEMS_MIN, 8), $conf->get(TownConf::CONF_RUIN_ITEMS_MAX, 16) ) );
+                ->setRuinDigs($ruinDigCount);
 
             if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
                 $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
