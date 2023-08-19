@@ -778,7 +778,10 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
 
         $team  = $parser->get('team', '');
-        
+
+        if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang ))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
         if ($user->getTeam() != null && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang ))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 

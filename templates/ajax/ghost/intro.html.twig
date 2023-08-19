@@ -40,16 +40,17 @@
             {% set hasCoaInfo = warnCoaInactive or warnCoaEmpty or warnCoaNotComplete or coa is not empty %}
 
             <div class="relative row">
-                <div {{ {cell: true, 'rw-md-12': true, 'rw-6': hasCoaInfo, 'rw-12': not hasCoaInfo}|classes  }}>
-                    {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
-                        <div class="row">
-                            <div class="cell rw-12 padded">
-                                <h5 class="relative">
-                                    {{ 'Dein Team'|trans({},'soul') }}
-                                </h5>
-                            </div>
+                {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
+                    <div {{ {cell: true, 'rw-md-12': true, 'rw-6': hasCoaInfo, 'rw-12': not hasCoaInfo}|classes }}>
+
+                    <div class="row">
+                        <div class="cell rw-12 padded">
+                            <h5 class="relative">
+                                {{ 'Dein Team'|trans({},'soul') }}
+                            </h5>
                         </div>
-                        <div class="row-flex">
+                    </div>
+                    <div class="row-flex">
                             {% if app.user.team is null %}
                                 <div class="cell padded grow-1">
                                     <div class="note note-warning">
@@ -67,8 +68,8 @@
                                 </div>
                             {% endif %}
                         </div>
-                    {% endif %}
-                    {# <div class="row"><div class="cell rw-12 padded">
+
+                    <div class="row"><div class="cell rw-12 padded">
                         {% if cap_left == 0 %}
                             <div class="note note-warning">
                                 {% if app.user.team %}
@@ -79,12 +80,12 @@
                             </div>
                         {% endif %}
                         {{ help_lnk('Teams'|trans({}, 'help'), 'help', {'name': 'your_team'}) }}
-                    </div></div> #}
-
+                    </div></div>
                 </div>
+                {% endif %}
                 {% if hasCoaInfo %}
-                    <div class="cell rw-6 rw-md-12">
-                    <div class="row">
+                    <div {{ {cell: true, 'rw-md-12': true, 'rw-6': app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')), 'rw-12': not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang'))}|classes }}>
+                        <div class="row">
 
                         <div class="cell rw-12 padded">
                             <h5 class="relative">
@@ -119,7 +120,7 @@
                             {% endif %}
                         </div>
                     </div>
-                </div>
+                    </div>
                 {% endif %}
             </div>
 
@@ -272,7 +273,11 @@
         $.html.addEventListenerAll( 'a[x-town-id][x-town-lang]', 'click', function(e,elem) {
             e.preventDefault();
             const user_lang = '{{ app.request.locale|e('js') }}';
-            const user_team = '{{ app.user.team|e('js') }}';
+            {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
+                const user_team = '{{ app.user.team|e('js') }}';
+            {% else %}
+                const user_team = null;
+            {% endif %}
             const town_lang = elem.getAttribute('x-town-lang');
             const town_name = elem.getAttribute('x-town-name');
             const town_ticketed = elem.getAttribute('x-town-ticket') === "1";
