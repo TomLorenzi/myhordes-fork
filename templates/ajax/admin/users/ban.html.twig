@@ -67,11 +67,8 @@
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionComments')) %}<div>{{ 'Kommentare'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionOrganization')) %}<div>{{ 'Org.'|trans({},'admin') }}</div>{% endif %}
                                                 {% endif %}
-                                                {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}
-                                                    <div>{{ 'Spiel'|trans({},'admin') }}</div>
-                                                {% else %}
-                                                    {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}<div>{{ 'Spielen in anderen Gemeinden'|trans({},'admin') }}</div>{% endif %}
-                                                {% endif %}
+                                                {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}<div>{{ 'Spiel'|trans({},'admin') }}</div>{% endif %}
+                                                {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}<div>{{ 'Spielen in anderen Gemeinden'|trans({},'admin') }}</div>{% endif %}
                                                 {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfile')) %}
                                                     <div>{{ 'Profil'|trans({},'admin') }}</div>
                                                 {% else %}
@@ -189,7 +186,7 @@
                                         {{ 'Spielen verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
                                     </label>
                                 </div>
-                                <div class="cell ro-1 rw-11">
+                                <div class="cell rw-12">
                                     <label>
                                         <input x-confirmation="2" type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang') }}">
                                         {{ 'Das Spielen in anderen Gemeinden verbieten'|trans({},'admin') }}{% if not is_granted('ROLE_ADMIN') %} ({{ 'Admin-Bestätigung erforderlich'|trans({},'admin') }}){% endif %}
