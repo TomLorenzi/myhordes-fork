@@ -181,6 +181,9 @@ class GhostController extends CustomAbstractController
         if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplayLang ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
