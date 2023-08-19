@@ -1,4 +1,5 @@
 @import (once) "../theme";
+@import (once) "../mobile.less";
 
 @myhordes-building-row-color: #663024;
 @myhordes-building-complete-row-color: #3b3249;
@@ -6,16 +7,26 @@
 @myhordes-building-header-color: #b37c4a;
 @myhordes-building-complete-header-color: #696486;
 
+@myhordes-building-complete-text-color: #afacc1;
+
+@myhordes-building-locked-color: #773939;
+
+@myhordes-building-height-root: 29px;
+@myhordes-building-height: 24px;
+
 .b-table() {
-  &:nth-child(2n+0) {background: darken(@myhordes-building-row-color,5%); &>.cell { background: darken(@myhordes-building-row-color,5%); }}
-  &:nth-child(2n+1) {background: @myhordes-building-row-color; &>.cell { background: @myhordes-building-row-color; }}
+  &:not(.locked) {
+    &:nth-child(2n+0) {background: darken(@myhordes-building-row-color,5%); &>.cell { background: darken(@myhordes-building-row-color,5%); }}
+    &:nth-child(2n+1) {background: @myhordes-building-row-color; &>.cell { background: @myhordes-building-row-color; }}
+  }
 }
 
 div.buildings {
-  padding: 0; margin-top: 32px;
+  margin-top: 7px;
   font-size: 1.2rem;
-  border: 1px solid @myhordes-smalltext;
   border-bottom: 2px solid @myhordes-cell-header-text-color;
+  outline: 2px solid #5c2b20;
+
   .lv_list(@max,@n:1) when (@n <= @max) {
     &.lv-@{n} > div.cell:first-child { padding-left: 16px * @n; }
     .lv_list(@max,@n+1)
@@ -23,8 +34,16 @@ div.buildings {
   .lv_list(@max,@n:1) when (@n > @max) {}
 
   .build-btn {
-    padding: 0 8px;
-    img { margin: 0}
+    padding: 0;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    img {
+      margin: 0;
+    }
   }
 
   .ap-bar {
@@ -33,7 +52,8 @@ div.buildings {
     &>.bar { background: linear-gradient(180deg, #fffb58 0%, #f2c94d 100%); height: 100% }
   }
 
-  &>.row,&>.row-flex {
+  .building {
+    display: flex;
     .b-table();
     &.root > div.cell:first-child>span { font-weight: bold }
     overflow: hidden;
@@ -41,9 +61,9 @@ div.buildings {
     &> div.cell {
       position: relative; z-index: 2;
       &>* { position: relative; z-index: 2; }
-      &:first-child {
-        &:before { position: absolute; left: 0; top: -200%; height: 500%; width: 100%; content: " "; background: @myhordes-building-header-color; z-index: 1;  }
-      }
+      // &:nth-child(2) {
+      //   &:before {position: absolute; left: 0; top: -200%; height: 500%; width: 100%; content: " "; background: @myhordes-building-header-color; z-index: 1;  }
+      // }
     }
 
     &.complete {
@@ -55,23 +75,26 @@ div.buildings {
     }
 
     &.voted {
-      background: #6B3977; &>.cell { background: #6B3977; }
-      &> div.cell:first-child:before { background: #6B3977; }
+      .building_resources {
+        background: #6B3977
+      }
     }
 
     .vote {
-      visibility: hidden;
+      display: none;
     }
 
     &:hover {
+      .vote_hide {
+        display: none;
+      }
       .vote {
-        visibility: visible;
+        display: inline;
       }
     }
 
     .no-ws:empty { display: none}
 
-    &.locked { opacity: 0.35}
     .lv_list(6);
   }
 
@@ -81,82 +104,191 @@ div.buildings {
     &+.build-req { border-left: 1px dotted @myhordes-smalltext; }
     &>span.resource {
       &.current {
-        font-size: 1.2rem; font-weight: normal;
-        &.low { color: #d04d3f;  }
+        font-size: 1.1rem; font-weight: normal;
+        &.low { color: #FF6A6A;  }
         &:not(.low) { color: @myhordes-smalltext; }
       }
+      &.needed {
+        font-size: 1.3rem;
+      }
+    }
+    .ap {
+      margin-left: 2px;
     }
   }
 
-  padding-top: 25px;
   position: relative;
 
-  &:before {
-    content: '';
-    display: block;
+  .type_indicator {
+    width: 5px;
+  }
+
+  .level_indicator {
+    width: 16px;
+    height: 16px;
+  }
+
+  .building {
+    font-variant: small-caps;
+    border-top: 1px solid #996739;
+    border-top-style: dashed;
+    white-space: nowrap;
+
+    .building_row {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .building_info {
+      display: flex;
+      width: 42%;
+      padding: 0px 3px 0px;
+      align-items: center;
+      background: @myhordes-building-header-color;
+
+      .building_icon {
+        margin-right: 3px;
+      }
+      .defense {
+        display: flex;
+        margin-left: auto; // float right
+        font-size: 90%;
+      }
+    }
+
+    .building_action {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &.locked {
+      .building_row {
+        color: #ecb0b0;
+        opacity: 0.35;
+        .building_info,
+        .building_resources,
+        .building_action {
+          background-color: @myhordes-building-locked-color;
+        }
+      }
+    }
+
+    &.complete {
+      color: @myhordes-building-complete-text-color;
+      .building_info {
+        background-color: @myhordes-building-complete-header-color;
+      }
+      .building_resources,
+      .building_action {
+        background-color: @myhordes-building-complete-row-color;
+      }
+    }
+    
+
+    .building_resources {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+  }
+  .building_name {
+    font-weight: bold;
+  }
+  .building.root .building_name {
+    font-size: 140%;
+  }
+
+  .building {
+    &.root {
+      height: @myhordes-building-height-root;
+    }
+    &:not(.root) {
+      height: @myhordes-building-height;
+    }
+  }
+
+  .buildings_header {
+    display: flex;
     height: 25px;
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
+    .buildings_header_image {
+      flex-grow: 1;
+      background-position: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-top: 1px solid;
+    }
   }
   &.type_small_wallimprove {
-    border-top: 1px solid #899775;
-    border-left: 5px solid #899775;
-    &:before {
+    .type_indicator {
+      background-color: #899775;
+    }
+    .buildings_header_image {
+      border-color: #899775;
       background-image: url('../../img/building/construction/building_wall1.png');
     }
   }
   &.type_small_water {
-    border-top: 1px solid #93b0c1;
-    border-left: 5px solid #93b0c1;
-    &:before {
+    .type_indicator {
+      background-color: #93b0c1;
+    }
+    .buildings_header_image {
+      border-color: #93b0c1;
       background-image: url('../../img/building/construction/building_pump.png');
     }
   }
   &.type_item_meat {
-    border-top: 1px solid #ff9073;
-    border-left: 5px solid #ff9073;
-    &:before {
+    .type_indicator {
+      background-color: #ff9073;
+    }
+    .buildings_header_image {
+      border-color: #ff9073;
       background-image: url('../../img/building/construction/building_meat.png');
     }
   }
   &.type_small_refine {
-    border-top: 1px solid #c5ba8f;
-    border-left: 5px solid #c5ba8f;
-    &:before {
+    .type_indicator {
+      background-color: #c5ba8f;
+    }
+    .buildings_header_image {
+      border-color: #c5ba8f;
       background-image: url('../../img/building/construction/building_command.png');
     }
   }
   &.type_item_tagger {
-    border-top: 1px solid #edb867;
-    border-left: 5px solid #edb867;
-    &:before {
+    .type_indicator {
+      background-color: #edb867;
+    }
+    .buildings_header_image {
+      border-color: #edb867;
       background-image: url('../../img/building/construction/building_tower.png');
     }
   }
   &.type_small_building {
-    border-top: 1px solid #e39191;
-    border-left: 5px solid #e39191;
-
-    &:before {
+    .type_indicator {
+      background-color: #e39191;
+    }
+    .buildings_header_image {
+      border-color: #e39191;
       background-image: url('../../img/building/construction/building_fondations.png');
     }
   }
   &.type_small_door_closed {
-    border-top: 1px solid #c982d2;
-    border-left: 5px solid #c982d2;
-    &:before {
+    .type_indicator {
+      background-color: #c982d2;
+    }
+    .buildings_header_image {
+      border-color: #c982d2;
       background-image: url('../../img/building/construction/building_doorLock.png');
     }
   }
   &.type_small_spa4souls {
-    border-top: 1px solid #66c295;
-    border-left: 5px solid #66c295;
-    &:before {
+    .type_indicator {
+      background-color: #66c295;
+    }
+    .buildings_header_image {
+      border-color: #66c295;
       background-image: url('../../img/building/construction/building_spa4souls.png');
     }
   }
@@ -216,4 +348,61 @@ ul.tabs {
   outline: 1px solid black;
   border: 2px solid #ddab76;
   z-index: 9999;
+}
+
+@media (max-width: (@screen-large-threshold - 1)) {
+
+div.buildings {
+  .building {
+    &.root {
+      height: @myhordes-building-height-root * 2;
+      .building_info,
+      .building_resources {
+        height: @myhordes-building-height-root;
+      }
+    }
+    &:not(.root) {
+      height: @myhordes-building-height * 2;
+      .building_info,
+      .building_resources {
+        height: @myhordes-building-height;
+      }
+    }
+
+    &.locked,
+    &.complete {
+      &.root {
+        height: @myhordes-building-height-root;
+      }
+      &:not(.root) {
+        height: @myhordes-building-height;
+      }
+      .building_resources {
+        height: 0px;
+      }
+    }
+
+    .building_row {
+      flex-direction: column;
+
+      .building_info {
+        width: 100%;
+
+        &:has(.vote) {
+          .defense {
+            margin-left: 5px;
+          }
+          .vote_hide {
+            display: inline;
+          }
+          .vote {
+            display: inline;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
 }
