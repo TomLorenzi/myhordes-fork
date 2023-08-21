@@ -353,7 +353,7 @@ Buddler: "\n            {ref__icu, select,\n                on {\n              
 Wächter: "Gardien"
 Aufklärer: "Éclaireur"
 Dompteur: "Apprivoiseur"
-Techniker: "Technicien"
+Techniker: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Technicienne}\n                        other {Technicien}\n                    }\n                }\n            other {Technicien}\n            }\n        "
 Schamane: "Chaman"
 Einsiedler: "Ermite"
 'Verbesserung des Tages': 'Les évolutions du jour'
