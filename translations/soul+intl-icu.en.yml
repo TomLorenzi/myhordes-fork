@@ -570,4 +570,9 @@ Bildformat: Image format
 'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'If you upload an animated image with a resolution more than 200×200 pixels, it must not exceed 256 animation frames.'
 'Schriftgröße im Forum': 'Font size in the forum'
 Normal: Normal
-'Twinoid (klein)': 'Twinoid (small)'
+'Sehr klein': 'Very small'
+Klein: Small
+Gross: Big
+'Sehr gross': 'Very big'
+'Spielen in anderen Gemeinden': 'Playing in other communities'
+'Du kannst nur den Städten deiner Gemeinschaft beitreten.': 'You are only allowed to join towns from your community.'
