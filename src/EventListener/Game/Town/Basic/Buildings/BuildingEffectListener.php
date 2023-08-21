@@ -151,7 +151,7 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
         $local = [];
         if ($event->produceDailyBlueprint) {
             $plan = $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName('bplan_c_#00');
-            $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProductionBlueprint( $event->town, $plan, $event->building));
+            $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProductionBlueprint( $event->town, $plan, $event->building->getPrototype()));
             $local[] = ['item' => $plan, 'count' => 1];
         }
 
