@@ -131,7 +131,7 @@ class LogController extends CustomAbstractCoreController
             ->setMaxResults(($limit > 0 && $limits) ? $limit : null)
             ->orderBy( ['timestamp' => Criteria::DESC, 'id' => Criteria::DESC] );
 
-        if ($day <= 0 && !$allow_inline_days) $day = $context->getTown()->getDay();
+        if ($day <= 0 && !$allow_inline_days) $day = $town->getDay();
         if ($day > 0) $criteria->andWhere( Criteria::expr()->eq('day', $day) );
 
         if (!$admin) $criteria->andWhere( Criteria::expr()->eq('adminOnly', false) );

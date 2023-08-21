@@ -44,10 +44,7 @@
   &::after {display: block; height: 0;}
   >.cell,.cell-small {
     display: inline-block; float: left; position: relative;
-    &.padded {
-      padding: @myhordes-grid-padsize;
-      .status, .title, .count {padding: 3px; }
-    }
+    &.padded       {padding: @myhordes-grid-padsize;}
     &.padded-small {padding: @myhordes-grid-padsize-small;}
     &.padded-none  {padding: 0}
     &::before, &::after {clear: both;}

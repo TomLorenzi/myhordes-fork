@@ -786,15 +786,21 @@ class SoulController extends CustomAbstractController
 
         $team  = $parser->get('team', '');
 
+        if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang ))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($user->getTeam() != null && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang ))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
         if ($team !== '' && ($team === 'ach' || !in_array( $team, $this->allLangsCodes )))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($team !== '' && $team !== $user->getTeam()) {
-            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
-            $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
-            if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
-                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        }
+        // if ($team !== '' && $team !== $user->getTeam()) {
+        //     $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        //     $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+        //     if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
+        //         return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        // }
 
         if ($team !== '') $user->setTeam($team);
 
@@ -1607,7 +1613,7 @@ class SoulController extends CustomAbstractController
         if ($user->getEmail() !== null && !str_contains($user->getEmail(), '@'))
             $is_dummy = true;
 
-        $is_deleted = strstr($user->getName(), '$ deleted') !== false;
+        $is_deleted = strstr($user->getEmail(), '$ deleted') !== false;
 
         return $this->render("ajax/soul/user_tooltip.html.twig", [
             'user' => $user,

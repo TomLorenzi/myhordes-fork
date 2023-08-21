@@ -11,7 +11,7 @@ function applyFetchFunctions( node: HTMLElement ) {
             (new Fetch('', false))
                 .from( node.dataset.fetch ).bodyDeterminesSuccess().withErrorMessages()
                 .request()
-                .method( node.dataset.fetchMethod )
+                .method( node.dataset.fetchMethod, node.dataset.fetchPayload ? JSON.parse( node.dataset.fetchPayload ) : null )
                 .then(() => $.ajax.load(null, node.dataset.fetchLoad, true) )
         })
     )

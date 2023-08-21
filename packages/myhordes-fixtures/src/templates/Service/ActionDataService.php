@@ -869,7 +869,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'nessquick'    => [ 'label' => 'Einsetzen', 'meta' => [ 'must_be_outside', 'must_be_at_buried_ruin' ], 'result' => [ 'consume_item', 'nessquick' ], 'message' => 'Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).' ],
 
                 'bomb_1'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' =>  40] ] ], 'message_key' => 'escape_item' ],
-                'bomb_2'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message_key' => 'escape_item' ],
+                'bomb_2'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message_key' => 'escape_item' ],
 
                 'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', [ 'zone' => ['chatSilence' => 60] ] ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
 
@@ -1455,7 +1455,7 @@ class ActionDataService implements FixtureProcessorInterface {
                 'use_butcher'               => 'Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!',
                 'use_bed'                   => 'Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>',
 
-                'escape_item'               => 'Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!',
+                'escape_item'               => '<t-escape>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>',
                 'escape_item_camera'        => '<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>',
 
                 'heroic_arma_tooltip'       => 'Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.<br /><em>Angesichts des <strong>Armageddon</strong> kannst du diese Spezialaktion <strong>einmal pro Spiel</strong> durchführen.</em>',

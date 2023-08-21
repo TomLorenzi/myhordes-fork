@@ -25,6 +25,8 @@ class AccountRestriction
                                            AccountRestriction::RestrictionOrganization;
     // Gameplay restrictions
     const RestrictionGameplay            = 1 << 10;
+    const RestrictionGameplayLang        = 1 << 11;
+
     // Profile restrictions
     const RestrictionProfileAvatar       = 1 << 20;
     const RestrictionProfileDescription  = 1 << 21;

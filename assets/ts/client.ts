@@ -15,6 +15,7 @@ class Config {
     public twoTapTooltips:        conf<boolean>;
     public ttttHelpSeen:          conf<boolean>;
     public iconZoom:              conf<string>;
+    public forumFontSize:         conf<string>;
     public twinoidImport:         conf<[number,string,string]>;
     public editorCache:           conf<string>;
     public scopedEditorCache:     conf<[string,string]>;
@@ -34,6 +35,7 @@ class Config {
         this.twoTapTooltips        = this.makeConf<boolean>('twoTapTooltips', false);
         this.ttttHelpSeen          = this.makeConf<boolean>('ttttHelpSeen', false);
         this.iconZoom              = this.makeConf<string>('iconZoom', '1-00');
+        this.forumFontSize         = this.makeConf<string>('forumFontSize', 'normal');
         this.twinoidImport         = this.makeConf<[number,string,string]>('twinImport', [0,'',''], true);
         this.editorCache           = this.makeConf<string>('editorCache', '', true);
         this.scopedEditorCache     = this.makeConf<[string,string]>('scopedEditorCache', ['',''], true);

@@ -268,6 +268,7 @@ class LogTemplateHandler
                     if ( $binmatch($mask, AccountRestriction::RestrictionComments) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Kommentare', [], 'soul' ));
                     if ( $binmatch($mask, AccountRestriction::RestrictionOrganization) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Gruppenorganisation', [], 'soul' ));
                     if ( $binmatch($mask, AccountRestriction::RestrictionGameplay) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Spielen', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionGameplayLang) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Spielen in anderen Gemeinden', [], 'soul' ));
                     if ( $binmatch($mask, AccountRestriction::RestrictionProfile) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Profils', [], 'soul' ));
                     else {
                         if ( $binmatch($mask, AccountRestriction::RestrictionProfileAvatar) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Avatars', [], 'soul' ));
