@@ -1747,7 +1747,7 @@ class NightlyHandler
                 + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5)
                 + mt_rand(0, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5) - 1);
 
-            $zone->setDigs(min($zone->getDigs() + $digs));
+            $zone->setDigs($zone->getDigs() + $digs);
             $this->log->debug("Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>.");
             $reco_counter[0]++;
         }
