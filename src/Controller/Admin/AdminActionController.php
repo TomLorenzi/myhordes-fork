@@ -67,6 +67,7 @@ class AdminActionController extends CustomAbstractController
             ['name' => T::__('Saisons', 'admin'),     'route' => 'admin_seasons_view'],
             ['name' => T::__('Gruppen', 'admin'),     'route' => 'admin_group_view'],
             ['name' => T::__('Dateisystem', 'admin'), 'route' => 'admin_file_system_dash'],
+            ['name' => T::__('Angriffsplan', 'admin'),'route' => 'admin_schedule_attacks'],
         ];
     }
 
@@ -101,15 +102,12 @@ class AdminActionController extends CustomAbstractController
 
     /**
      * @Route("jx/admin/com/dash", name="admin_dashboard")
-     * @param ParameterBagInterface $params
      * @return Response
      */
-    public function dash(ParameterBagInterface $params): Response
+    public function dash(): Response
     {
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
             'actions' => $this->isGranted('ROLE_CROW') ? self::getAdminActions() : self::getCommunityActions(),
-            'now' => time(),
-            'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
         ]));
     }
 

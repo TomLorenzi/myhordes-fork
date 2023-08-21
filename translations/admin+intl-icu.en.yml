@@ -591,6 +591,28 @@ Accounts: Accounts
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Wikis are displayed separately from other apps.'
 Wiki: Wiki
 Entwickler: Developer
+Angriffsplan: Attack Plan
+Uhrzeit: Time
+Geplant: Planned
+'Wartet auf Abarbeitung': 'Awaiting processing'
+'Wartet seit {s} Sekunden': 'Waited for {s} seconds'
+'Wird verarbeitet': 'Processing'
+'Arbeitet seit {s} Sekunden': 'Working for {s} seconds'
+Abgeschlossen: Completed
+Projiziert: Projected
+'Nächsten Angriff verschieben': 'Postpone next attack'
+'Ausgeführte Angriffe': 'Executed Attacks'
+Start: Start
+Ende: End
+'Wartezeit: {s} Sekunden': 'Waiting time: {s} seconds'
+'Verarbeitungszeit: {s} Sekunden': 'Processing time: {s} seconds'
+'{n} Städte in Quarantäne!': '{n} Town(s) in Quarantine!'
+Konfiguration: Configuration
+Option: Option
+Wert: Value
+'Keine Verifizierungsmails versenden': 'Do not send verification emails'
+'Spielen in anderen Gemeinden': 'Play in other communities'
+'Das Spielen in anderen Gemeinden verbieten': 'Forbid playing in other communities'
 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'
 'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
 'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'

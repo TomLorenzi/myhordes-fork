@@ -28,13 +28,13 @@
                     <li class="status{% if role.helpSection is not null %} link{% endif %}" {% if role.helpSection is not null %}x-ajax-href="{{ path('help', {'name': role.helpSection}) }}"{% endif %}>
                         <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
                         {% if role.name == "ghoul" and hunger > 40 %}
-                            <img class="alt-hunger-bar hidden" src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\" />
+                            <img class="alt-hunger-bar" src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\" />
                         {% endif %}
                         <div class="tooltip item">
                             <h1>{{ role.label|trans({}, 'game') }}</h1>
                             {{ (role.message ?? 'Du bist der {rolename} dieser Stadt.')|trans({'{rolename}': role.label|trans({}, 'game')}, 'game')}}
                             {% if role.name == "ghoul" %}
-                                <div class="alt-hunger-bar hidden">
+                                <div class="alt-hunger-bar">
                                     <div><b>{{ 'Hunger:'|trans({}, 'game') }}</b></div>
                                     <div class="ghoul-hunger-container in-tooltip">
                                         <div class="ghoul-hunger-background"></div>

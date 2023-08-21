@@ -591,6 +591,28 @@ Accounts: Comptes
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Les wikis sont affichés séparément des autres applications.'
 Wiki: Wiki
 Entwickler: Développeur
+Angriffsplan: Plan d'attaque
+Uhrzeit: Heure
+Geplant: Planifié
+'Wartet auf Abarbeitung': 'En attente de traitement'
+'Wartet seit {s} Sekunden': 'Attendu {s} secondes'
+'Wird verarbeitet': 'En cours de traitement'
+'Arbeitet seit {s} Sekunden': 'Travaillé depuis {s} secondes'
+Abgeschlossen: Achevée
+Projiziert: Projeté
+'Nächsten Angriff verschieben': 'Reporter la prochaine attaque'
+'Ausgeführte Angriffe': 'Attaques exécutées'
+Start: Début
+Ende: Fin
+'Wartezeit: {s} Sekunden': 'Temps d''attente : {s} secondes'
+'Verarbeitungszeit: {s} Sekunden': 'Temps de traitement : {s} secondes'
+'{n} Städte in Quarantäne!': '{n} Ville(s) en Quarantaine !'
+Konfiguration: Configuration
+Option: Option
+Wert: Valeur
+'Keine Verifizierungsmails versenden': 'Ne pas envoyer d''e-mails de vérification'
+'Spielen in anderen Gemeinden': 'Jeu dans d''autres communautés'
+'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d''autres communautés'
 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Cochez cette case pour ajouter ce chantier à la liste des chantiers débloqués.'
 'Markieren, um diese Baustelle freizuschalten.': 'Cochez cette case pour immédiatement débloquer le chantier.'
 'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Cliquez pour supprimer le chantier de la ville.'

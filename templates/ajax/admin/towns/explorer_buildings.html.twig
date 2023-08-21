@@ -8,22 +8,30 @@
 		{# @var building \App\Entity\BuildingPrototype #}
 		{# @var fromTown \App\Entity\Building #}
 
-        {% if fromTown is defined or building.blueprint < 6 %}
-		    <div class="row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
-			<div class="padded cell rw-5 rw-lg-12">
+		<div class="building row {% if not buildable %}locked{% elseif (fromTown is defined and fromTown.complete) %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
+			<div class="type_indicator"></div>
+			<div class="building_row">
+				<div class="building_info cell">
+				{% for i in range(0, n) %}
+					{% if i != 0 %}
+						<img alt="" class="level_indicator" src="{{ asset('build/images/building/small_parent.gif' ) }}">
+					{% endif %}
+				{% endfor %}
 				{% if not fromTown is defined %}
-					<label style="margin-left: -{{ min(n,6) * 16 }}px;float: left;">
+					<label style="">
 						<input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToUnlockList" />
-						<div class="tooltip help">{{ 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'|trans({},'admin') }}</div>
+						<div class="tooltip help">Cochez cette case pour ajouter ce chantier à la liste de ceux à débloquer dans la ville.</div>
 					</label>
 					<label>
 						<input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToTown" />
-						<div class="tooltip help">{{ 'Markieren, um diese Baustelle freizuschalten.'|trans({},'admin') }}</div>
+						<div class="tooltip help">Cochez cette case pour débloquer ce chantier.</div>
 					</label>
 				{% else %}
 					<div class="inline-block">
 						<img class="link" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" x-prototype-id="{{ building.id }}" x-building-admin-action="removeFromTown" />
-						<div class="tooltip help">{{ 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'|trans({},'admin') }}</div>
+						<div class="tooltip help">
+							Cliquez ici pour supprimer ce chantier de la ville.
+						</div>
 					</div>
 				{% endif %}
 				{% if buildable %}
@@ -31,11 +39,7 @@
 				{% else %}
 					<img alt="" src="{{ asset('build/images/icons/lock.gif' ) }}" >
 				{% endif %}
-                {% if building.blueprint >= 6 %}
-                    <span style="color: red; font-weight: bold" title="{{ 'Dieses Gebäude ist veraltet.'|trans({},'admin') }}">{{ building.label|trans({},'buildings') }}</span>
-                {% else %}
-                    <span>{{ building.label|trans({},'buildings') }}</span>
-                {% endif %}
+				<span class="building_name">{{ building.label|trans({},'buildings') }}</span>
 				{% if building.temp %}
 					<span>
 							<img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
@@ -45,11 +49,6 @@
 							</div>
 						</span>
 				{% endif %}
-                {% if fromTown is defined and fromTown.complete and building.maxLevel > 0 %}
-                    <span class="small">{{ 'Level {current} / {max}'|trans({current: fromTown.level, max: building.maxLevel},'admin') }}</span>
-                {% elseif building.maxLevel > 0 %}
-                    <span class="small">{{ 'Anzahl Level: {max}'|trans({max: building.maxLevel},'admin') }}</span>
-                {% endif %}
 				{% if building.defense > 0 %}
 					<div class="float-right defense">
 						{% if building.defense > 0 %}
@@ -57,49 +56,47 @@
 						{% endif %}
 					</div>
 				{% endif %}
-			</div>
-			{% if fromTown is defined %}
-				<div class="padded cell rw-3 rw-lg-5 rw-sm-12 no-ws">
-					{% if fromTown.ap > 0 and not fromTown.complete %}
-						<div class="ap-bar">
-							<div class="bar" style="width: {{ 100*(fromTown.ap/building.ap) }}%"></div>
-						</div>
-					{% elseif fromTown.complete and fromTown.hp < building.hp %}
-						<div class="ap-bar">
-							<div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%"></div>
-							<div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
-						</div>
-					{% endif %}
+				{#{% if building.description %}
+								<div class="tooltip help">
+									{{ building.description|trans({}, 'buildings') }}
+								</div>
+							{% endif %}#}
+				</div>
+				<div class="building_resources cell">
+					{% if fromTown is defined %}
+						{% if fromTown.ap > 0 and not fromTown.complete %}
+							<div class="ap-bar">
+								<div class="bar" style="width: {{ 100*(fromTown.ap/building.ap) }}%"></div>
+							</div>
+                        	<img class="ap-bar-start" src="{{ asset('build/images/building/building_barStart.gif' ) }}"/>
+						{% elseif fromTown.complete and fromTown.hp < building.hp %}
+							<div class="ap-bar" style="right: 50px">
+								<div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%;"></div>
+								<div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
+							</div>
+                        	<img class="ap-bar-start" src="{{ asset('build/images/building/building_barStartBroken.png' ) }}"/>
+						{% endif %}
 
-					<div class="build-req">
-						<div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
-					</div>
-				</div>
-				<div class="padded cell rw-4 rw-lg-7 rw-sm-12 right">
-                    {% if fromTown.complete and building.maxLevel > 0 %}
-                        {% if fromTown.level < building.maxLevel %}
-                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level + 1 }}" x-building-admin-action="lv"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}"></button>
-                        {% endif %}
-                        {% if fromTown.level > 0 %}
-                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lv"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}"></button>
-                        {% endif %}
-                    {% endif %}
-					<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><img alt="E" src="{{ asset('build/images/forum/edit.png') }}" /></button>
-					{% if not fromTown.complete %}
-						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><img alt="ok" src="{{ asset('build/images/icons/done.png') }}" /></button>
-					{% else %}
-						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><img alt="[x]" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
-						<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="trigger_n" title="{{ 'Gebäude-Effekt auslösen'|trans({},'admin') }}"><img alt="[n]" src="{{ asset('build/images/icons/small_action.gif') }}" /></button>
+						<div class="build-req">
+							<div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
+						</div>
+						<div class="building_action cell">
+							<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><i class="fa fa-edit"></i></button>
+							{% if not fromTown.complete %}
+								<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete" style="margin-top: 1px"><i class="fa fa-check"></i></button>
+							{% else %}
+								<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy" style="margin-top: 1px"><i class="fa fa-times"></i></button>
+							{% endif %}
+						</div>
 					{% endif %}
 				</div>
-			{% endif %}
+			</div>
 		</div>
-		    {% if n < 20 and dict[building.id] is not empty %}
-		    	{% for sub_building in dict[building.id] %}
-		    		{{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available) }}
-		    	{% endfor %}
-		    {% endif %}
-        {% endif %}
+		{% if n < 20 and dict[building.id] is not empty %}
+			{% for sub_building in dict[building.id] %}
+				{{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available) }}
+			{% endfor %}
+		{% endif %}
 	{% endmacro %}
 
 	{# @var rootBuildings \App\Entity\BuildingPrototype[] #}
@@ -125,7 +122,7 @@
 	</div>
 
 	{% for building in rootBuildings %}
-		<div x-tab-group="buildings" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings) }}</div>
+		<div x-tab-group="buildings" style="margin-top:31px" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings) }}</div>
 	{% endfor %}
 
 	<button x-building-admin-action="unlockCheckedBuildings"><i class="fa fa-unlock-alt"></i> Unlock checked buildings</button>
@@ -185,18 +182,6 @@
                         break;
                     case "destroy":
                         $.ajax.easySend( '{{ path('admin_town_set_building_ap', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'ap': 0},
-                            function () {
-                                $.ajax.load(null, '{{ path('admin_town_buildings', {id: town.id}) }}', true);
-                            } );
-                        break;
-                    case "trigger_n":
-                        $.ajax.easySend( '{{ path('admin_town_trigger_building_nightly_effect', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id")},
-                            function () {
-                                $.ajax.load(null, '{{ path('admin_town_buildings', {id: town.id}) }}', true);
-                            } );
-                        break;
-                    case "lv":
-                        $.ajax.easySend( '{{ path('admin_town_set_building_level', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'level': buildingBtns[i].dataset.level ?? -1},
                             function () {
                                 $.ajax.load(null, '{{ path('admin_town_buildings', {id: town.id}) }}', true);
                             } );
