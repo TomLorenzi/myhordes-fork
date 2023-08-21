@@ -109,13 +109,16 @@
                         </div>
                     {% endif %}
                 </div>
-                <div class="building_resources padded cell">
+                {% set not_built = buildable and building.ap < ((building.prototype.ap * workshopBonus)|round) %}
+                {% set needs_repair = not not_built and building.complete and building.hp < building.prototype.hp %}
+                <div class="building_resources{% if needs_repair %} to_repair{% endif %} padded cell">
                     {% set res_ok = true %}
                     {# initial test: building.ap > 0 and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) #}
                     {% if building.ap > 0 and not building.complete %}
                         <div class="ap-bar">
                             <div class="bar" style="width: {{ 100*(building.ap/((building.prototype.ap * workshopBonus)|round)) }}%"></div>
                         </div>
+                        <img class="ap-bar-start" src="{{ asset('build/images/building/building_barStart.gif' ) }}"/>
                     {% elseif building.complete and building.hp < building.prototype.hp %}
                         <div class="ap-bar">
                             <div class="bar" style="width: {{ 100*(building.hp/((building.prototype.hp)|round)) }}%"></div>
@@ -124,18 +127,19 @@
                                 {{"Die Reparatur verbraucht keine Ressourcen."|trans({}, 'game')}}
                             </div>
                         </div>
+                        <img class="ap-bar-start" src="{{ asset('build/images/building/building_barStartBroken.png' ) }}"/>
                     {% endif %}
                     
-                    {% if buildable and building.ap < ((building.prototype.ap * workshopBonus)|round) %}
+                    {% if not_built %}
                         <div class="build-req">
-                            <div class="ap">
-                                {{ ((building.prototype.ap * workshopBonus)|round) - building.ap }}
+                            <div class="ap-cost">
+                                <div class="ap">{{ ((building.prototype.ap * workshopBonus)|round) - building.ap }}</div>
                                 <div class="tooltip help">
                                     {{ 'Zum Bau dieses Bauprojekts fehlen noch {ap} AP'|trans({'{ap}':((building.prototype.ap * workshopBonus)|round) - building.ap },"game") }}
                                 </div>
                             </div>
                         </div>
-                    {% elseif (building.complete and building.hp < building.prototype.hp) %}
+                    {% elseif needs_repair %}
                         <div class="build-req">
                             <div class="ap">{{ ((building.prototype.hp - building.hp)/hpToAp)|round(0, 'ceil') }}</div>
                         </div>

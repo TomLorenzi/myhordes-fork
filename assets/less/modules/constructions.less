@@ -46,12 +46,6 @@ div.buildings {
     }
   }
 
-  .ap-bar {
-    position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-    overflow: hidden;
-    &>.bar { background: linear-gradient(180deg, #fffb58 0%, #f2c94d 100%); height: 100% }
-  }
-
   .building {
     display: flex;
     .b-table();
@@ -69,9 +63,6 @@ div.buildings {
     &.complete {
       background: @myhordes-building-complete-row-color; &>.cell { background: @myhordes-building-complete-row-color; }
       &> div.cell:first-child:before { background: @myhordes-building-complete-header-color; }
-      .bar {
-        background: linear-gradient(180deg, #fb4648 0%, #bf2f31 100%);;
-      }
     }
 
     &.voted {
@@ -113,7 +104,8 @@ div.buildings {
       }
     }
     .ap {
-      margin-left: 2px;
+      margin-left: 7px;
+      font-size: 90%;
     }
   }
 
@@ -141,7 +133,7 @@ div.buildings {
 
     .building_info {
       display: flex;
-      width: 42%;
+      width: 41.5%;
       padding: 0px 3px 0px;
       align-items: center;
       background: @myhordes-building-header-color;
@@ -149,10 +141,59 @@ div.buildings {
       .building_icon {
         margin-right: 3px;
       }
-      .defense {
+      .defense,
+      .defense-broken {
         display: flex;
         margin-left: auto; // float right
         font-size: 90%;
+      }
+    }
+
+    .building_resources {
+      .ap-bar-start {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 10px;
+        height: 10px;
+      }
+      .ap-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 24px;
+        height: 5px;
+        background: linear-gradient(
+          180deg,
+          rgba(0,0,0,0.6) 0%,
+          rgba(0,0,0,0.2) 100%
+        );
+        overflow: hidden;
+    
+        &>.bar {
+          background: linear-gradient(
+            180deg,
+            #f9e888 0%,
+            #f2c94d 20%
+          );
+          height: 100%
+        }
+      }
+
+      &.to_repair {
+        .ap {
+          color: #FF6A6A;
+        }
+      }
+    }
+
+    &.complete .building_resources {
+      .bar {
+        background: linear-gradient(
+          180deg,
+          #fb4648 0%,
+          #bf2f31 20%
+        );;
       }
     }
 
@@ -189,6 +230,7 @@ div.buildings {
     .building_resources {
       display: flex;
       align-items: center;
+      position: relative;
       flex-grow: 1;
     }
   }
@@ -369,8 +411,7 @@ div.buildings {
       }
     }
 
-    &.locked,
-    &.complete {
+    &.locked{
       &.root {
         height: @myhordes-building-height-root;
       }
@@ -389,7 +430,8 @@ div.buildings {
         width: 100%;
 
         &:has(.vote) {
-          .defense {
+          .defense,
+          .defense-broken {
             margin-left: 5px;
           }
           .vote_hide {
@@ -401,6 +443,11 @@ div.buildings {
           }
         }
       }
+    }
+
+    .build-btn {
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }
