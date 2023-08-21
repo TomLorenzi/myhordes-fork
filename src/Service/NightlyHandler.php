@@ -859,8 +859,8 @@ class NightlyHandler
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
             // Panda towns sees their defense object in the bank destroyed
 			// REVAMPED FROM: https://github.com/motion-twin/WebGamesArchives/blob/main/Hordes/src/HordeAttack.hx#L226
-			$zombiesOnDef = $est->getZombies() - $def_summary->building_defense;
-			$number = min($zombiesOnDef / $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_RATIO, 50), $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_MAX, 20));
+			$zombiesOnDef = max($est->getZombies() - $def_summary->building_defense, 0);
+			$number = min(floor($zombiesOnDef / $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_RATIO, 50)), $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_MAX, 20));
 
 			$this->log->info("There are <info>$zombiesOnDef</info> zombies attacking the bank");
             $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
