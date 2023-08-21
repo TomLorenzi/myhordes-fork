@@ -622,7 +622,8 @@ class NightlyHandler
 
         /** @var TownDefenseSummary|null $def_summary */
         $def_summary = null;
-        $gazette->setDefense($def = $town->getDevastated() ? 0 : $this->town_handler->calculate_town_def( $town, $def_summary ));
+		$this->town_handler->calculate_town_def( $town, $def_summary );
+        $gazette->setDefense($def = $town->getDevastated() ? 0 : $def_summary->sum());
 
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
