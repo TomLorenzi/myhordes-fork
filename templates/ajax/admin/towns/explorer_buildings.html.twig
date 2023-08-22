@@ -1,7 +1,7 @@
 {% extends 'ajax/admin/towns/explorer_shell.html.twig' %}
 
 {% block explorer_content %}
-	{% macro building_entry(building, buildable, n, dict, available) %}
+	{% macro building_entry(building, buildable, n, dict, available, workshopBonus, hpToAp) %}
 		{% if available[building.id] is defined %}
 			{% set fromTown = available[building.id] %}
 		{% endif %}
@@ -64,19 +64,28 @@
 						<span class="small" style="margin-left: 5px;" >{{ 'Anzahl Level: {max}'|trans({max: building.maxLevel},'admin') }}</span>
 					{% endif %}
 
-					{% if building.defense > 0 %}
-					<div class="float-right defense">
-						{% if building.defense > 0 %}
-							{{ building.defense }}
-						{% endif %}
-					</div>
-				{% endif %}
+					{% if (fromTown.complete and fromTown.defense > 0) or (not fromTown.complete and building.defense > 0) %}
+						<div class="defense{% if fromTown.complete and fromTown.defense != building.defense %}-broken{% endif %}">
+							{% if (fromTown.complete and fromTown.defense > 0) %}
+								{{ fromTown.defense }}
+							{% elseif not fromTown.complete%}
+								{{ building.defense }}
+							{% endif %}
+							{% if fromTown.complete and fromTown.defense != building.defense %}
+								<div class="tooltip">
+									{{"Beschädigte Verteidigung: {defense} / {max}"|trans({"{defense}": fromTown.defense, "{max}": building.defense}, 'game')}}
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
 				{#{% if building.description %}
 								<div class="tooltip help">
 									{{ building.description|trans({}, 'buildings') }}
 								</div>
 							{% endif %}#}
 				</div>
+				{% set not_built = buildable and fromTown.ap < ((building.ap * workshopBonus)|round) %}
+				{% set needs_repair = not not_built and fromTown.complete and fromTown.hp < building.hp %}
 				<div class="building_resources cell">
 					{% if fromTown is defined %}
 						{% if fromTown.ap > 0 and not fromTown.complete %}
@@ -92,9 +101,20 @@
                         	<img class="ap-bar-start" src="{{ asset('build/images/building/building_barStartBroken.png' ) }}"/>
 						{% endif %}
 
-						<div class="build-req">
-							<div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
-						</div>
+						{% if not_built %}
+							<div class="build-req">
+								<div class="ap-cost">
+									<div class="ap">{{ building.ap - fromTown.ap }}</div>
+									<div class="tooltip help">
+										{{ 'Zum Bau dieses Bauprojekts fehlen noch {ap} AP'|trans({'{ap}':building.ap - fromTown.ap },"game") }}
+									</div>
+								</div>
+							</div>
+						{% elseif needs_repair %}
+							<div class="build-req" style="color: #FF6A6A;">
+								<div class="ap">{{ ((fromTown.hp)/hpToAp)|round(0, 'ceil') }} / {{ ((building.hp)/hpToAp)|round(0, 'ceil') }}</div>
+							</div>
+						{% endif %}
 						<div class="building_action cell">
 							{% if fromTown.complete and building.maxLevel > 0 %}
 								{% if fromTown.level < building.maxLevel %}
@@ -105,7 +125,7 @@
 								{% endif %}
 							{% endif %}
 
-							<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><img alt="E" src="{{ asset('build/images/forum/edit.png') }}" /></button>
+							<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><img alt="E" src="{% if fromTown.complete %}{{ asset('build/images/icons/small_refine.gif') }}{% else %}{{ asset('build/images/forum/edit.png') }}{% endif %}" /></button>
 							{% if not fromTown.complete %}
 								<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete" style="margin-top: 1px"><img alt="ok" src="{{ asset('build/images/icons/done.png') }}" /></button>
 							{% else %}
@@ -119,7 +139,7 @@
 		</div>
 		{% if n < 20 and dict[building.id] is not empty %}
 			{% for sub_building in dict[building.id] %}
-				{{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available) }}
+				{{ _self.building_entry(sub_building, buildable and fromTown is defined and fromTown.complete , n+1, dict, available, workshopBonus, hpToAp) }}
 			{% endfor %}
 		{% endif %}
 		{% endif %}
@@ -148,7 +168,7 @@
 	</div>
 
 	{% for building in rootBuildings %}
-		<div x-tab-group="buildings" style="margin-top:31px" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings) }}</div>
+		<div x-tab-group="buildings" style="margin-top:31px" x-tab-id="type_{{ building.icon }}" x-tab-target class="buildings type_{{ building.icon }}">{{ _self.building_entry(building, true, 0, dictBuildings, availBuldings, workshopBonus, hpToAp) }}</div>
 	{% endfor %}
 
 	<button x-building-admin-action="unlockCheckedBuildings"><i class="fa fa-unlock-alt"></i> Unlock checked buildings</button>

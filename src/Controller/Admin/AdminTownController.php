@@ -547,6 +547,10 @@ class AdminTownController extends AdminActionController
 			if ($available)
 				$inTown[$building->getId()] = $available;
 		}
+		$this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
+
+		$workshopBonus = 1 - $workshopBonus;
+		$hpToAp = 2 + $repairBonus;
 
 		return $this->render('ajax/admin/towns/explorer_buildings.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
@@ -555,6 +559,8 @@ class AdminTownController extends AdminActionController
 			'dictBuildings' => $dict,
 			'rootBuildings' => $root,
 			'availBuldings' => $inTown,
+			'workshopBonus' => $workshopBonus,
+			'hpToAp' => $hpToAp
 		])));
 	}
 
@@ -2390,7 +2396,11 @@ class AdminTownController extends AdminActionController
         if (!$building)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $hp = $parser->get_int("hp");
+		$this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
+		$workshopBonus = 1 - $workshopBonus;
+		$hpToAp = 2 + $repairBonus;
+
+        $hp = $parser->get_int("hp") * $hpToAp;
 
         if ($hp >= $building->getPrototype()->getHp()) {
             $hp = $building->getPrototype()->getHp();
@@ -2406,6 +2416,12 @@ class AdminTownController extends AdminActionController
 
         if ($building->getHp() <= 0)
             $events->buildingDestruction( $building, 'debug' );
+		else {
+			if($building->getPrototype()->getDefense() > 0) {
+				$newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
+				$building->setDefense((int)floor($newDef));
+			}
+		}
 
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
