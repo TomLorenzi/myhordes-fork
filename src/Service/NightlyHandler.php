@@ -637,8 +637,8 @@ class NightlyHandler
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
-        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies (<info>{$est->getZombies()}</info> x <info>{$soulFactor}</info>, from <info>{$redsouls}</info> red souls). The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
-        $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
+        $this->log->info("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies (<info>{$est->getZombies()}</info> x <info>{$soulFactor}</info>, from <info>{$redsouls}</info> red souls). The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
+        $this->log->info("<info>{$overflow}</info> Zombies have entered the town!");
 
         $gazette->setInvasion($overflow);
 
@@ -863,7 +863,7 @@ class NightlyHandler
 			$zombiesOnDef = max($est->getZombies() - $def_summary->building_defense, 0);
 			$number = min(floor($zombiesOnDef / $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_RATIO, 50)), $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_MAX, 20));
 
-			$this->log->info("There are <info>$zombiesOnDef</info> zombies attacking the bank");
+			$this->log->info("There are <info>$zombiesOnDef</info> zombies attacking the bank (with a ratio of {$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_RATIO, 50)})");
 			if ($number > 0) {
 				$items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
 				$this->log->info("We destroy <info>$number</info> items</info>");
