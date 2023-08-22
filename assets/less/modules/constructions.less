@@ -150,6 +150,7 @@ div.buildings {
     }
 
     .building_resources {
+      flex-wrap: wrap;
       .ap-bar-start {
         position: absolute;
         top: 0px;
@@ -161,7 +162,7 @@ div.buildings {
         position: absolute;
         top: 0;
         left: 0;
-        right: 24px;
+        right: 0;
         height: 5px;
         background: linear-gradient(
           180deg,
@@ -232,6 +233,7 @@ div.buildings {
       align-items: center;
       position: relative;
       flex-grow: 1;
+      padding-top: 5px;
     }
   }
   .building_name {
@@ -243,10 +245,10 @@ div.buildings {
 
   .building {
     &.root {
-      height: @myhordes-building-height-root;
+      min-height: @myhordes-building-height-root;
     }
     &:not(.root) {
-      height: @myhordes-building-height;
+      min-height: @myhordes-building-height;
     }
   }
 
@@ -397,17 +399,18 @@ ul.tabs {
 div.buildings {
   .building {
     &.root {
-      height: @myhordes-building-height-root * 2;
+      min-height: @myhordes-building-height-root * 2;
       .building_info,
       .building_resources {
-        height: @myhordes-building-height-root;
+        min-height: @myhordes-building-height-root;
       }
     }
     &:not(.root) {
-      height: @myhordes-building-height * 2;
+      min-height: @myhordes-building-height * 2;
       .building_info,
       .building_resources {
-        height: @myhordes-building-height;
+        min-height: @myhordes-building-height;
+
       }
     }
 
