@@ -668,7 +668,9 @@ class NightlyHandler
         elseif ($count_zombified_citizens > 0)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null, false) );
 
-        $this->stage2_surprise_attack($town);
+		// There's no dead awaken for the attack from D1 to D2
+		// See https://github.com/motion-twin/WebGamesArchives/blob/main/Hordes/src/HordeAttack.hx#L52
+        if ($town->getDay() > 2) $this->stage2_surprise_attack($town);
 
         /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
