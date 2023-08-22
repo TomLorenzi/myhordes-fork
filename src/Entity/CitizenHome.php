@@ -33,6 +33,9 @@ class CitizenHome
     private $holdsBody = false;
     #[ORM\Column(type: 'integer')]
     private $recycling = 0;
+
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $alreadyAttacked = false;
     public function __construct()
     {
         $this->citizenHomeUpgrades = new ArrayCollection();
@@ -151,6 +154,18 @@ class CitizenHome
     public function setRecycling(?int $recycling): self
     {
         $this->recycling = $recycling;
+
+        return $this;
+    }
+
+    public function hasAlreadyAttacked(): ?bool
+    {
+        return $this->alreadyAttacked;
+    }
+
+    public function setAlreadyAttacked(bool $alreadyAttacked): static
+    {
+        $this->alreadyAttacked = $alreadyAttacked;
 
         return $this;
     }
