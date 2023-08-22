@@ -64,7 +64,11 @@
                 <div class="building_info cell">
                     {% for i in range(0, n) %}
                         {% if i != 0 %}
-                            <img alt="" class="level_indicator" src="{{ asset('build/images/building/small_parent.gif' ) }}">
+                            {% if i < n %}
+                            <img alt="" class="level_indicator" src="{{ asset('build/images/building/small_parent2.gif' ) }}" />
+                            {% else %}
+                            <img alt="" class="level_indicator" src="{{ asset('build/images/building/small_parent.gif' ) }}" />
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                     {% if building.prototype.description is not empty %}
