@@ -770,7 +770,7 @@ class CitizenHandler
         return $citizen->getProfession()->getNightwatchDefenseBonus();
     }
 
-    public function getNightwatchProfessionSurvivalBonus(Citizen $citizen){
+    public function getNightwatchProfessionSurvivalBonus(Citizen $citizen): float{
         /*if ($citizen->getProfession()->getName() == "guardian") {
             return 0.04;
         }*/
