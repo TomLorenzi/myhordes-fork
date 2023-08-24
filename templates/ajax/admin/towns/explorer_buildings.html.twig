@@ -58,34 +58,32 @@
 							</div>
 						</span>
 				{% endif %}
-					{% if fromTown is defined and fromTown.complete and building.maxLevel > 0 %}
-						<span class="small" style="margin-left: 5px;" >{{ 'Level {current} / {max}'|trans({current: fromTown.level, max: building.maxLevel},'admin') }}</span>
-					{% elseif building.maxLevel > 0 %}
-						<span class="small" style="margin-left: 5px;" >{{ 'Anzahl Level: {max}'|trans({max: building.maxLevel},'admin') }}</span>
+					{% if fromTown is defined %}
+						{% if fromTown.complete and building.maxLevel > 0 %}
+							<span class="small" style="margin-left: 5px;" >{{ 'Level {current} / {max}'|trans({current: fromTown.level, max: building.maxLevel},'admin') }}</span>
+						{% elseif building.maxLevel > 0 %}
+							<span class="small" style="margin-left: 5px;" >{{ 'Anzahl Level: {max}'|trans({max: building.maxLevel},'admin') }}</span>
+						{% endif %}
+
+						{% if (fromTown.complete and fromTown.defense > 0) or (not fromTown.complete and building.defense > 0) %}
+							<div class="defense{% if fromTown.complete and fromTown.defense != building.defense %}-broken{% endif %}">
+								{% if (fromTown.complete and fromTown.defense > 0) %}
+									{{ fromTown.defense }}
+								{% elseif not fromTown.complete%}
+									{{ building.defense }}
+								{% endif %}
+								{% if fromTown.complete and fromTown.defense != building.defense %}
+									<div class="tooltip">
+										{{"Beschädigte Verteidigung: {defense} / {max}"|trans({"{defense}": fromTown.defense, "{max}": building.defense}, 'game')}}
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
 					{% endif %}
 
-					{% if (fromTown.complete and fromTown.defense > 0) or (not fromTown.complete and building.defense > 0) %}
-						<div class="defense{% if fromTown.complete and fromTown.defense != building.defense %}-broken{% endif %}">
-							{% if (fromTown.complete and fromTown.defense > 0) %}
-								{{ fromTown.defense }}
-							{% elseif not fromTown.complete%}
-								{{ building.defense }}
-							{% endif %}
-							{% if fromTown.complete and fromTown.defense != building.defense %}
-								<div class="tooltip">
-									{{"Beschädigte Verteidigung: {defense} / {max}"|trans({"{defense}": fromTown.defense, "{max}": building.defense}, 'game')}}
-								</div>
-							{% endif %}
-						</div>
-					{% endif %}
-				{#{% if building.description %}
-								<div class="tooltip help">
-									{{ building.description|trans({}, 'buildings') }}
-								</div>
-							{% endif %}#}
 				</div>
-				{% set not_built = buildable and fromTown.ap < ((building.ap * workshopBonus)|round) %}
-				{% set needs_repair = not not_built and fromTown.complete and fromTown.hp < building.hp %}
+				{% set not_built = fromTown is defined and buildable and fromTown.ap < ((building.ap * workshopBonus)|round) %}
+				{% set needs_repair = fromTown is defined and not not_built and fromTown.complete and fromTown.hp < building.hp %}
 				<div class="building_resources cell">
 					{% if fromTown is defined %}
 						{% if fromTown.ap > 0 and not fromTown.complete %}
