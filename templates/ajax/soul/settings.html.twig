@@ -511,16 +511,26 @@
                         </div>
                     </div>
 
-                    {% if not is_granted('ROLE_ETERNAL') %}
-                        <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
-                        <div class="row">
+                    <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+                    {% if app.user.password is null %}
+                        <div class="note note-warning">{{ 'Aus Sicherheitsgründen muss dein Account über ein Passwort verfügen, um gelöscht werden zu können. Wenn du deinen Account löschen möchtest, aktiviere bitte zunächst den Passwort-Login.'|trans({},'soul') }}</div>
+                    {% else %}
+                        <form class="row">
                             <div class="padded cell rw-4">
                                 <div class="note note-lightest"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
                             </div>
-                            <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
-                            <div class="padded cell rw-4"><button id="acc_del_btn"><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
-                        </div>
+                            <div class="padded cell rw-4"><input id="acc_del_input" name="pw" type="password" /></div>
+                            <div class="padded cell rw-4"><button data-fetch="{{ path('rest_user_security_delete_account') }}"
+                                                                  data-fetch-method="delete"
+                                                                  data-fetch-load="{{ path('soul_settings') }}"
+                                                                  data-fetch-confirm="{{ 'Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul') }}"
+                                                                  data-fetch-message="message"
+                                ><img alt="" src="{{ asset('build/images/icons/small_trash_red.png') }}" /> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+                        </form>
+                        <div class="note note-warning">{{ 'Das Löschen deines Accounts geschieht mit einer Verzögerung von 24 - 48 Stunden. Wenn Du dich vor Ablauf dieser Frist erneut einloggst, wird die Löschung abgebrochen. Du kannst nach dem Löschen deines Accounts keinen neuen Account mit der gleichen E-Mail Adresse und/oder dem gleichen Eternaltwin Konto anlegen!'|trans({},'soul') }}</div>
+
                     {% endif %}
+
                 </div>
 
             {% if show_importer %}
@@ -846,22 +856,6 @@
             document.body.classList.add('forum-font-' + elem.value);
             $.client.config.forumFontSize.set(elem.value);
             confirmConig();
-        });
-
-        $.html.addEventListenerAll('#acc_del_btn', 'click', function(e) {
-            e.preventDefault();
-            const pw = document.getElementById('acc_del_input').value;
-            if (!confirm('{{ 'Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul')|e('js') }}'))
-                return;
-
-            $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
-                function () {
-                    alert(
-                        '{{ 'Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.'|trans( {'name': app.user.name}, 'login')|e('js') }}' + "\n\n" +
-                        '{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}'
-                    );
-                    window.location.href = $.ajax.getBaseURL();
-                } )
         });
 
         $.html.addEventListenerAll('#acc_ch_details', 'click', function(e) {

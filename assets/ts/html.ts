@@ -93,9 +93,7 @@ export default class HTML {
 
         const input_fields = form.querySelectorAll('input');
         for (let i = 0; i < input_fields.length; i++) {
-            const node_name = input_fields[i].getAttribute('name')
-                ? input_fields[i].getAttribute('name')
-                : input_fields[i].getAttribute('id');
+            const node_name = input_fields[i].getAttribute('name') ?? input_fields[i].getAttribute('id');
             if (node_name && input_fields[i].getAttribute('type') != 'checkbox') {
                 data[node_name] = input_fields[i].value;
             }
