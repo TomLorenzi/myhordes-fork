@@ -915,7 +915,6 @@ class BeyondController extends InventoryAwareController
                     }
 
                     $factor = max(0, $delta - (3 * $new_zone->getScoutLevel()))/100;
-                    $this->addFlash('notice', "factor: " . $factor);
 
                     if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)) {
                         if ($mover->getId() === $citizen->getId())
