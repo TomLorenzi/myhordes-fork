@@ -1,4 +1,3 @@
----
 'Allgemeiner Fehler.': 'Common error.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'The selected forum doesn''t exist or you are lacking the permission to view it.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Your text has to be at least 2 characters long.'
@@ -530,3 +529,11 @@ Kurzbeschreibung: Short description
 'Mehr Ergebnisse anzeigen': 'Show more results'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Use "^" to search only for words that begin or end with a specific string. For example, "short^" will find the word "ultrashort", but not "shortage".'
 Inhaltsverzeichnis: Table of Contents
+'Das Geschlecht deines Titels.': 'Your title''s gender.'
+'Bevorzugte Pronomen (Titel)': 'Preferred pronoun (title)'
+'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'You can''t send more reports to the Crows at the moment.'
+'Bitte versuche es in einigen Minuten erneut.': 'Please try again in a few minutes.'
+'Bitte versuche es in einigen Stunden erneut.': 'Please try again in a few hours.'
+'Bitte versuche es morgen erneut.': 'Please try again tomorrow.'
+'Bitte versuche es in {days} Tagen erneut.': 'Please try again in {days} days.'
+'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.': 'This player is a non-administrator developer on MyHordes.'

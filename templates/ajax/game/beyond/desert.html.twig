@@ -141,7 +141,7 @@
                                         Jede <strong>Aufräumaktion</strong> enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.
                                     {% endtrans %}</div>
                                 </div>
-                                {% if scout %}<button id="scout_ruin_discover">{{ 'Aufklärer: Ruinen erkunden'|trans({},'game') }}<img alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" /><div class="tooltip help">{{ 'Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.'|trans({},'game') }}</div></button>{% endif %}
+                                {% if scout %}<button id="scout_ruin_discover">{{ 'Aufklärer: Ruinen erkunden'|trans({},'game') }}<span>&nbsp;<img alt="" src="{{ asset('build/images/icons/small_stealthy.gif') }}" /></span><div class="tooltip help">{{ 'Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.'|trans({},'game') }}</div></button>{% endif %}
                             {% else %}
                                 <img alt="" src="{{ asset('build/images/icons/small_help.gif') }}" /> <span class="ruin-name">{{ 'Ruine'|trans({},'game') }} : <b>{{ zone.prototype.label|trans({}, 'game') }}</b></span><br />
                                 <span class="ruin-desc">{{ zone.prototype.description|trans({}, 'game')|raw }}</span>
@@ -467,7 +467,7 @@
                         {% endembed %}
                     </div>
 
-                    {% embed "ajax/game/actions.html.twig" with {'special_action_list': specials, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true} %}
+                    {% embed "ajax/game/actions.html.twig" with {'special_action_list': specials, 'scout': active_scout_mode, 'hidden': citizen_hidden, 'iec': true, 'hidden_warning': false} %}
                     {% endembed %}
 
                     {% if not citizen_hidden and is_shaman %}

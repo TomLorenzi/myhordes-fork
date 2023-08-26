@@ -1,10 +1,10 @@
-'Account validieren': 'crwdns151529:0crwdne151529:0'
-'Passwort zurücksetzen': 'crwdns151531:0crwdne151531:0'
-'Hallo {user}! Willkommen bei MyHordes!': 'crwdns151533:0{user}crwdne151533:0'
-'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:': 'crwdns151535:0crwdne151535:0'
-"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.": "crwdns151537:0crwdne151537:0"
-'Hallo {user}!': 'crwdns151539:0{user}crwdne151539:0'
-'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :': 'crwdns151541:0crwdne151541:0'
-"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst.": "crwdns151543:0crwdne151543:0"
-'E-Mail Validierung': 'crwdns151545:0crwdne151545:0'
-'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:': 'crwdns151547:0crwdne151547:0'
+'Account validieren': 'crwdns200755:0crwdne200755:0'
+'Passwort zurücksetzen': 'crwdns200757:0crwdne200757:0'
+'Hallo {user}! Willkommen bei MyHordes!': 'crwdns200759:0{user}crwdne200759:0'
+'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:': 'crwdns200761:0crwdne200761:0'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.\n        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.": "crwdns200763:0crwdne200763:0"
+'Hallo {user}!': 'crwdns200765:0{user}crwdne200765:0'
+'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :': 'crwdns200767:0crwdne200767:0'
+"Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.\n        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht\n        durch das Anklicken des oben genannten Links änderst.": "crwdns200769:0crwdne200769:0"
+'E-Mail Validierung': 'crwdns200771:0crwdne200771:0'
+'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:': 'crwdns200773:0crwdne200773:0'

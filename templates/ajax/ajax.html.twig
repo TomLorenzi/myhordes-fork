@@ -1,5 +1,29 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 
+{% macro external_app(ex) %}
+    {# @var ex \App\Entity\ExternalApp #}
+    {% if not ex.testing or ex.owner == app.user or is_granted('ROLE_ADMIN') %}
+        <li class="app-external" data-id="{{ ex.id }}">
+            <a target="_blank" href="{{ path('disclaimer', { 'id': ex.id }) }}">
+                {% if ex.imageName is not null %}
+                    <img alt="" src="{{ path('app_web_app_icon', { aid: ex.id, name: ex.imageName, ext: ex.imageFormat }) }}" />
+                {% else %}
+                    <img alt="" src="{{ asset('build/images/apps/null.gif') }}" />
+                {% endif %}
+                <div>
+                    <div>{{ ex.name }}</div>
+                    {% if ex.testing %}
+                        <div class="small">{{ 'Testbetrieb'|trans({},'admin') }}</div>
+                    {% endif %}
+                    {% if ex.owner == app.user and not ex.linkOnly %}
+                        <div class="small"><strong>SK:</strong> {{ ex.secret }}</div>
+                    {% endif %}
+                </div>
+            </a>
+        </li>
+    {% endif %}
+{% endmacro %}
+
 {% block ajax_base %}
     {% block header %}
         {% if is_granted('ROLE_USER') and apps is defined and (clock is not defined or clock.attack != 0) %}
@@ -8,25 +32,12 @@
                 <div id="apps-list">
                     <p>{{ 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:'|trans({}, 'global') }}</p>
                     <ul>
-                        {% for ex in apps|sort((a, b) => a.testing == b.testing ? a.name <=> b.name : a.testing <=> b.testing) %}
-                            {# @var ex \App\Entity\ExternalApp #}
-                            {% if not ex.testing or ex.owner == app.user or is_granted('ROLE_ADMIN') %}
-                                <li class="app-external" data-id="{{ ex.id }}">
-                                    <a target="_blank" href="{{ path('disclaimer', { 'id': ex.id }) }}">
-                                        {% if ex.imageName is not null %}
-                                            <img alt="" src="{{ path('app_web_app_icon', { aid: ex.id, name: ex.imageName, ext: ex.imageFormat }) }}" />
-                                        {% else %}
-                                            <img alt="" src="{{ asset('build/images/apps/null.gif') }}" />
-                                        {% endif %}
-                                        <span>{{ ex.name }}</span></a>
-                                    {% if ex.testing %}
-                                        <div class="small">{{ 'Testbetrieb'|trans({},'admin') }}</div>
-                                    {% endif %}
-                                    {% if ex.owner == app.user and not ex.linkOnly %}
-                                        <div class="small"><strong>SK:</strong> {{ ex.secret }}</div>
-                                    {% endif %}
-                                </li>
-                            {% endif %}
+                        {% for ex in apps|filter((a) => not a.wiki)|sort((a, b) => a.testing == b.testing ? a.name <=> b.name : a.testing <=> b.testing) %}
+                            {{ _self.external_app( ex ) }}
+                        {% endfor %}
+                        <li class="hr"></li>
+                        {% for ex in apps|filter((a) => a.wiki)|sort((a, b) => a.testing == b.testing ? a.name <=> b.name : a.testing <=> b.testing) %}
+                            {{ _self.external_app( ex ) }}
                         {% endfor %}
                     </ul>
                 </div>

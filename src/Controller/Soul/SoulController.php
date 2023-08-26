@@ -786,15 +786,21 @@ class SoulController extends CustomAbstractController
 
         $team  = $parser->get('team', '');
 
+        if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang ))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($user->getTeam() != null && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang ))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
         if ($team !== '' && ($team === 'ach' || !in_array( $team, $this->allLangsCodes )))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($team !== '' && $team !== $user->getTeam()) {
-            $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
-            $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
-            if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
-                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        }
+        // if ($team !== '' && $team !== $user->getTeam()) {
+        //     $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        //     $cap = $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+        //     if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $season, '' )->count())
+        //         return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        // }
 
         if ($team !== '') $user->setTeam($team);
 
@@ -1531,7 +1537,10 @@ class SoulController extends CustomAbstractController
 
         if (!$parser->has_all( ['contact','url'], true )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+        $violations = Validation::createValidator()->validate( array_merge($parser->all( true ), [
+            'url' => preg_replace('/\{.*?\}/', 'SYMBOL', $parser->get('url')),
+            'devurl' => preg_replace('/\{.*?\}/', 'SYMBOL', $parser->get('devurl', '')),
+        ]), new Constraints\Collection([
             'url' => [ new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ) ],
             'devurl' => [
                 new Constraints\AtLeastOneOf([
@@ -1604,7 +1613,7 @@ class SoulController extends CustomAbstractController
         if ($user->getEmail() !== null && !str_contains($user->getEmail(), '@'))
             $is_dummy = true;
 
-        $is_deleted = strstr($user->getName(), '$ deleted') !== false;
+        $is_deleted = strstr($user->getEmail(), '$ deleted') !== false;
 
         return $this->render("ajax/soul/user_tooltip.html.twig", [
             'user' => $user,
@@ -1619,6 +1628,7 @@ class SoulController extends CustomAbstractController
             'oracle' => $this->user_handler->hasRole($user,'ROLE_ORACLE'),
             'anim'   => $this->user_handler->hasRole($user,'ROLE_ANIMAC'),
             'team'   => $this->user_handler->hasRole($user,'ROLE_TEAM'),
+            'dev'    => $this->user_handler->hasRole($user, 'ROLE_DEV')
         ]);
     }
 
@@ -1719,8 +1729,8 @@ class SoulController extends CustomAbstractController
 
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume()->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume())->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
@@ -1765,8 +1775,8 @@ class SoulController extends CustomAbstractController
 
         $report_count = count($reports) + 1;
 
-        if (!$reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 )->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $reportToModerationLimiter->create( $user->getId() )->consume( $report_count <= 1 ? 2 : 1 ))->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())

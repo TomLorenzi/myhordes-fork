@@ -44,6 +44,9 @@ parameters:
         buried_ruins:
           probability: 0.5
           digs: { min: 1, max: 19 }
+        dig_chances:
+          base: 0.6
+          depleted: 0.35
 
       explorable_ruin_params:
         complexity: 0.9
@@ -56,6 +59,7 @@ parameters:
         item_fillrate: 7
         max_distance: 10
         floors: 1
+        dig_chance: 0.55
         plan_limits:
           unusual: -1
           rare: -1
@@ -137,6 +141,8 @@ parameters:
         meaty_bones_within_town: false
         building_attack_damage: false
         destroy_defense_objects_attack: false
+        destroy_defense_objects_attack_ratio: 1
+        destroy_defense_objects_attack_max: 0
         camping:
           default_bonus: 0
           map: 'normal'
@@ -266,11 +272,13 @@ parameters:
         wound_terror_penalty: 0.2
         building_attack_damage: true
         destroy_defense_objects_attack: true
+        destroy_defense_objects_attack_ratio: 50
+        destroy_defense_objects_attack_max: 20
         citizen_attack:
           ap: 4
           injury: 0.6
         camping:
-          default_bonus: -14
+          default_bonus: -40
           map: 'hard'
         red_soul_max_factor: 666
         sandball_nastyness: 0.85

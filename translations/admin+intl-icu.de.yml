@@ -588,3 +588,35 @@ Accounts: Accounts
 'Gemeldete Stadtnachrichten': 'Gemeldete Stadtnachrichten'
 'Meldungen für Benutzeraccounts': 'Meldungen für Benutzeraccounts'
 'Änderungen an {appname} speichern': 'Änderungen an {appname} speichern'
+'Wikis werden separat von anderen Anwendungen angezeigt.': 'Wikis werden separat von anderen Anwendungen angezeigt.'
+Wiki: Wiki
+Entwickler: Entwickler
+Angriffsplan: Angriffsplan
+Uhrzeit: Uhrzeit
+Geplant: Geplant
+'Wartet auf Abarbeitung': 'Wartet auf Abarbeitung'
+'Wartet seit {s} Sekunden': 'Wartet seit {s} Sekunden'
+'Wird verarbeitet': 'Wird verarbeitet'
+'Arbeitet seit {s} Sekunden': 'Arbeitet seit {s} Sekunden'
+Abgeschlossen: Abgeschlossen
+Projiziert: Projiziert
+'Nächsten Angriff verschieben': 'Nächsten Angriff verschieben'
+'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
+Start: Start
+Ende: Ende
+'Wartezeit: {s} Sekunden': 'Wartezeit: {s} Sekunden'
+'Verarbeitungszeit: {s} Sekunden': 'Verarbeitungszeit: {s} Sekunden'
+'{n} Städte in Quarantäne!': '{n} Städte in Quarantäne!'
+Konfiguration: Konfiguration
+Option: Option
+Wert: Wert
+'Keine Verifizierungsmails versenden': 'Keine Verifizierungsmails versenden'
+'Spielen in anderen Gemeinden': 'Spielen in anderen Gemeinden'
+'Das Spielen in anderen Gemeinden verbieten': 'Das Spielen in anderen Gemeinden verbieten'
+'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'
+'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
+'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'
+'Dieses Gebäude ist veraltet.': 'Dieses Gebäude ist veraltet.'
+'Level {current} / {max}': 'Level {current} / {max}'
+'Anzahl Level: {max}': 'Anzahl Level: {max}'
+'Gebäude-Effekt auslösen': 'Gebäude-Effekt auslösen'

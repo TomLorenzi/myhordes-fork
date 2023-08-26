@@ -1,4 +1,3 @@
----
 'Deine Route wurde gespeichert.': 'Votre expédition a été sauvegardée.'
 'Du hast deine Beschreibung geändert.': 'Vous avez modifié votre annonce personnelle. Elle est visible dans l''annuaire des Citoyens.'
 '{citizen} hat {item} in den Brunnen geschüttet und damit {num} Rationen Wasser hinzugefügt.': '{citizen} a versé {item} dans le puits et a ajouté {num} ration(s) d''eau.'
@@ -348,12 +347,12 @@ Westen: l'ouest
 'Es ist kein Bürger in der Nähe...': 'Il n''y a pas de citoyen à proximité...'
 'Rucksack in der Bank ausleeren': 'Vider son sac dans la banque'
 'Meine objekte': 'Objets'
-Gammler: "Indécis"
-Buddler: "Fouineur"
+Gammler: "{ref__icu, select,                on {                    {ref__gender, select,                        female {Indécise}                        other {Indécis}                    }                }            other {Indécis}            }"
+Buddler: "{ref__icu, select,                on {                    {ref__gender, select,                       female {Fouineuse}                        other {Fouineur}                    }                }            other {Fouineur}            }"
 Wächter: "Gardien"
 Aufklärer: "Éclaireur"
 Dompteur: "Apprivoiseur"
-Techniker: "Technicien"
+Techniker: "{ref__icu, select,                on {                    {ref__gender, select,                        female {Technicienne}                        other {Technicien}                    }                }            other {Technicien}            }"
 Schamane: "Chaman"
 Einsiedler: "Ermite"
 'Verbesserung des Tages': 'Les évolutions du jour'
@@ -1193,7 +1192,7 @@ Kantinenkoch: Cuistot de cantine
 'Meister Eintopf': 'Cordon bleu du village'
 'Großer Wüstenkonditor': 'Grand pâtissier du désert'
 'Begnadeter Wüstenkonditor': 'Maître pâtissier du désert'
-'Cooking Mama': 'Cooking-mama'
+'Cooking Mama': 'Cooking-papa'
 'Meisterhafter Kochlöffelschwinger': 'Expert de la cuillère'
 Amateur-Laborratte: Laborantin amateur
 'Kleiner Präparator': 'Petit préparateur'
@@ -1239,7 +1238,7 @@ Müllmann: Eboueur
 Entsorgungsfachmann: Expulseur de cadavres
 'SM Anhänger': 'Adepte SM'
 'SM Spezialist': 'Maître du PMV'
-'Nenn mich Herrin': 'Appelez-moi Maîtresse'
+'Nenn mich Herrin': 'Appelez-moi Maître'
 'Ich möchte dein Objekt sein.': 'Fais de moi ton objet'
 Stadtmetzger: 30 millions d'ennemis
 'Spezialität: Hundesteaks': 'Responsable d''extinctions'
@@ -1617,7 +1616,7 @@ Paranoid: Parano
 'Der Bruce Lee des Spachtels': 'Le Bruce Lee de la truelle'
 'Es ist Zeit für Kathedralen': 'Il est venu le temps des cathédrales'
 'Hast du nichts besseres zu tun?': 'Z''avez pas mieux à faire ?'
-'Hohepriesterin des Sonnentempels': 'Grande prêtresse du temple du soleil'
+'Hohepriesterin des Sonnentempels': 'Grand prêtre du temple du soleil'
 'Obelisk der heutigen Zeit!': 'Obélisque des temps modernes !'
 'Lebhafter Tribut': 'Vibrant hommage'
 'Wird in die Annalen eingehen': 'Restera dans les annales'
@@ -2399,3 +2398,461 @@ Tarnexperte: Chef-Camouflage
 'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'Maman t''a toujours dit que les affaires des autres sont comme une boîte de chocolat. Eh bien, dans ce cas, le chocolat était hautement explosif et vos entrailles ont décidé de repeindre les murs. Considérez-vous comme chanceux : vous n''aurez pas à être celui qui nettoiera.'
 'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'Ce qui est amusant avec la crucifixion, c''est que vous pouvez vous dire que c''est parce que vous étiez trop important, plutôt que parce que tout le monde vous détestait. Au moins, ils semblaient avoir aimé le chocolat : la croix a été dévorée peu de temps après votre mort...'
 'Ein Spielername kann maximal {number} Zeichen lang sein. Es gelten die gleichen Beschränkungen wie bei Nutzernamen (keine Leer- und Sonderzeichen, keine Namen die wie die von Raben aussehen).': 'Un alias peut contenir {number} caractères. Les mêmes restrictions définies pour les noms d''utilisateur s''appliquent (pas d''espaces ou de caractères spéciaux, pas de nom similaire aux Corbeaux).'
+'Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+{water} Einheit(en)</strong>)': 'Vous avez ajouté l''eau de {item} au puits (<strong>+{water} unité(s)</strong>)'
+Pfadfinder_f: Furtive
+'Green Beret_f': 'Ranger du risque'
+Schattenmann_f: Fantôme des sables
+Wüstenphantom_f: Plus fort que Sam Fisher
+'Solid Snake war gestern..._f': 'Disciple de Garrett'
+'Der unsichtbare Mann_f': 'Lady in Red'
+Sandarbeiter_f: Trouveuse
+Wüstenspringmaus_f: Maître Dénicheur
+'Großer Ameisenbär_f': 'Exhumeur de babioles'
+Wüstenfuchs_f: Trouveuse en cheffe
+'Ich sehe Alles!_f': 'Rien ne m''échappe.'
+'Ein BMW? Kein Problem!_f': 'Une BMW ? Pas de p''oblème !'
+'Où est Larchi ?_f': 'Où est Larchi ?'
+Tierliebhaber_f: Amie des bêtes
+Malteserzüchter_f: Maîtresse-bichon
+'Ich bändige Bestien_f': 'Dresseur de bêtes sauvages'
+'Nie ohne meinen Hund!_f': 'Jamais sans mon chien !'
+'Hundewurst schmeckt gar nicht schlecht!_f': 'La patée, c''est pas si mauvais'
+'Meser (halb Mensch, halb Malteser)_f': 'Bichon-Garou susceptible'
+'Personalisierter Titel - Dompteur (T-ID: 1725642)_f': 'Buffy contre les zombies'
+Wurmfresser_f: Dégoteuse de vers
+'Meister im Würmerfinden_f': 'Maîtresse dégoteuse'
+'Gefräßiger Bürger_f': 'Insatiable citoyenne'
+Wüstenwurmzüchter_f: Grande Mange-vermines
+'Ich brauche niemanden!_f': 'Hermitamor'
+'Heraklit der Außenwelt_f': 'I''m a poor lonesome hermit...'
+'Gepanzerter Fakir_f': 'Cocodile dundee'
+'Diplomierter Scharlatan_f': 'Aborigène curieux'
+'Schlimmer Finger_f': 'Charlatan diplômé'
+Seelenverwerter_f: Aruspicine maudite
+'Mystischer Seher_f': 'Recycleuse d''âmes'
+'Voodoo Sorceror_f': 'Sorcier vaudou'
+'Yo, wir schaffen das!_f': 'Bricol'' girl travesti'
+'Kleiner Schraubendreher_f': 'Amateur du PMV tournevis'
+'Schweizer Taschenmesser_f': 'Nuchuk à molette'
+'Unermüdlicher Schrauber_f': 'Constructrice increvable'
+'Seele des Handwerks_f': 'TechnicoMecanoMegalo'
+'Seele eines Profis_f': 'Âme du professionnel'
+'Personalisierter Titel - Techniker (T-ID: 631944)_f': 'Se balade jamais sans ses clefs'
+'Die Mauer_f': 'Défenseur'
+Höllenwächter_f: Maîtresse gardienne
+Kerberos_f: Paladin
+'Die letzte Verteidigungslinie_f': 'Dernier rempart'
+'Du kommst hier NICHT durch!_f': 'Vous.. ne.. passerez.. PAS !'
+Hekatoncheir_f: Citoyen infranchissable
+'Holy F***ing Iceberg_f': 'Holy F***ing Iceberg'
+Kantinenkoch_f: Cuistot de cantine
+'Kleiner Küchenchef_f': 'Petite cheffe cuistot'
+'Meister Eintopf_f': 'Cordon bleu du village'
+'Großer Wüstenkonditor_f': 'Grande pâtissière du désert'
+'Begnadeter Wüstenkonditor_f': 'Maîtresse pâtissière du désert'
+'Cooking Mama_f': 'Cooking-mama'
+'Meisterhafter Kochlöffelschwinger_f': 'Experte de la cuillère'
+'Meisterkoch der Sterne_f': 'Top-Cheffe de l''outre-monde'
+Amateur-Laborratte_f: Laborantin amateur
+'Kleiner Präparator_f': 'Petite préparatrice'
+'Chemiker von um die Ecke_f': 'Chimiste du coin'
+Produkttester_f: Orfèvre gobeuse
+Wüstenstadt-Dealer_f: Dealeuse du village
+'Ich koste alle meine Produkte_f': 'Je goûte tous mes produits'
+'Rauchts? Dann ist es meins._f': 'Ça se fume ? c''est de moi.'
+'Offizieller AP-Versorger_f': 'Fournisseuse officielle de PA'
+'X-Men Leser_f': 'Fan des X-men'
+'Aussergewöhnlicher Bürger_f': 'Citoyenne hors-norme'
+Wunder_f: Prodige
+'Werdender Superheld_f': 'Super-Héroïne en devenir'
+Volksheld_f: Héroïne du peuple
+Neo_f: L'incroyable citoyen
+'Erlöser der Menschheit_f': 'Sauveuse de l''humanité'
+Außenweltlegende_f: Légende de l'Outre-Monde
+'Messie der verlorenen Welt_f': 'Messie du monde perdu'
+'Mein Name ist Nobody_f': 'Mon nom est personne'
+'Ein Sternbild trägt meinen Namen_f': 'J''ai donné mon nom à une constellation'
+Abstauber_f: Fouineuse de décharge
+Müllkind_f: Enquiquineur débrouillard
+'Autonomer Müll_f': 'Indésirable autonome'
+'Freier Bürger_f': 'Citoyenne libre !'
+'Alles für meinen Mund_f': 'Tout pour ma gueule'
+'Ich brauche niemanden_f': 'Je n''ai besoin de personne'
+'Unabhängiger Großeinsiedler_f': 'Grande Ermite indépendante'
+'Che Guevara der Wüste_f': 'Che Guevara du désert'
+Maulheld_f: Petite frappe
+Lump_f: Fripouille
+Schaumschläger_f: Crapule
+Dieb_f: Monte-en-l'air
+Fantomas_f: Voleur
+'Ali Baba_f': 'Maître cambrioleur'
+Meisterdieb_f: Passe-muraille
+Kleptomane_f: Arsène Lupin du désert
+'Dein Haus ist mein Haus_f': 'Ta maison est ma maison'
+Ästhet_f: Coquette
+Schaufenstergestalter_f: Citoyenne de bon goût
+Innenarchitekt_f: Architecte d'intérieur
+Möbelgourmet_f: Maître-décorateur de tentes
+'Ordnung muss sein!_f': 'Maître Es-thète'
+'Ein schöneres Leben_f': 'Plus belle la vie !'
+'Großer E-KEA Katalog_f': 'Grand Catalogue Kiela'
+Plünderer_f: Pillarde
+Aasgeier_f: Vautour
+Hyäne_f: Charognard
+'Wegelagerer post mortem_f': 'Écumeuse post-mortem'
+'Hungriger Schakal_f': 'Chacal affamé'
+'Kojote der kargen Steppen_f': 'Coyote des steppes arides'
+Fingerschmied_f: Notairesse de l'outre-monde
+'Nein, das Ding fasse ich nicht an._f': 'Grand arroseur'
+Leichenhygieniker_f: Mouilleuse de cadavres
+'Ich liebe den Geruch von gewaschenen Leichen am Morgen._f': 'Pasteur du village'
+Müllmann_f: Eboueuse
+'Erfahrener Müllmann_f': 'Sorteuse en cheffe'
+Entsorgungsfachmann_f: Expulseuse de cadavres
+Maccabees-Vertreiber_f: Refouleuse de macchabées
+'SM Anhänger_f': 'Adepte SM'
+'SM Spezialist_f': 'Maîtresse du PMV'
+'Nenn mich Herrin_f': 'Appelez-moi Maîtresse'
+'Ich möchte dein Objekt sein._f': 'Fais de moi ton objet'
+Stadtmetzger_f: 30 millions d'ennemis
+'Spezialität: Hundesteaks_f': 'Responsable d''extinctions'
+'Miezi? Jaaaa, komm her..._f': 'Fléau du monde animal'
+'Fleisch ist mein Gemüse_f': 'Spécialité : steak de chaton'
+'Immer ein Auge offen_f': 'Un Oeil ouvert'
+'Mit offenen Augen schlafen? Kein Problem!_f': 'Deux yeux ouverts'
+'Immer alles im Blick_f': 'Longue Vue'
+Wachsam_f: Aware
+Paranoid_f: Parano
+'Fels in der Brandung_f': 'Le Roc !'
+'Großer Baumeister_f': 'Grande bâtisseuse'
+'Großer Architekt_f': 'Grande architecte'
+Freimauer_f: Franc-maçonne
+Terraformingspezialist_f: Spécialiste en terraformation
+'Allmächtiger Schöpfer_f': 'Grande créatrice toute-puissante'
+'Archi-Mädlicher Illustrator von Pi_f': 'Archi-maid illustratrice de Pi'
+"Muad'Dib_f": "Muad'Dib"
+'Am 7. Tag erschuf er den Fleischkäfig_f': 'Le 7ème jour, elle créa la cage à viande'
+'Bauherr ohne Sinn und Verstand_f': 'Bâtisseuse du non-sens'
+'Erbauer der verlorenen Zeit_f': 'Fondatrice du temps perdu'
+'Erleuchteter Baumeister_f': 'Édificatrice illuminée'
+'Maurer aus Leidenschaft_f': 'Maçonne du coeur'
+'Das Unnütze mit dem Angenehmen verbinden_f': 'Joindre l''inutile à l''agréable'
+'Verrückter Architekten-Visionär_f': 'Architecte visionnaire folle'
+'Ich habe einen Plan_f': 'J''ai un plan'
+'Hirnverbrannter Baumeister_f': 'Maîtresse d''oeuvre démente'
+'Meister der Nutzlosigkeit_f': 'Maîtresse de l''inutilité'
+'Vereister Ingenieur_f': 'Ingénieure complètement givrée'
+'Wundervoll nutzlos_f': 'Merveilleusement futile'
+'Der Bruce Lee des Spachtels_f': 'Le Bruce Lee de la truelle'
+'Es ist Zeit für Kathedralen_f': 'Il est venu le temps des cathédrales'
+'Hast du nichts besseres zu tun?_f': 'Z''avez pas mieux à faire ?'
+'Hohepriesterin des Sonnentempels_f': 'Grande prêtresse du temple du soleil'
+'Huldigt den riesigen KVF!_f': 'Gloire au PMV !'
+'Obelisk der heutigen Zeit!_f': 'Obélisque des temps modernes !'
+'Lebhafter Tribut_f': 'Vibrant hommage'
+'Wird in die Annalen eingehen_f': 'Restera dans les annales'
+'Extra viel Liebe_f': 'L''amour extra large'
+'Es ist kleiner als im Katalog_f': 'Ça faisait plus petit sur le catalogue'
+'Freude der Stärke 8_f': 'Bonheur de magnitude 8'
+'Bewahrer der Freuden_f': 'Gardienne des plaisirs'
+'Das hast du nicht wirklich gebaut?_f': 'Vous avez vraiment construit ça ?'
+Eimerhalter_f: Gardienne des seaux
+Sandverkäufer_f: Marchande de sable
+'Martinet am Strand_f': 'Martine à la plage'
+'Ein Spiel für echte Kinder_f': 'Un vrai jeu d''enfants !'
+"Dauermitglied in Micky's Club_f": "Membre permanent du club Mickey"
+'Niemals ohne meinen Eimer_f': 'Jamais sans mon seau'
+'Ein Korn fehlt noch_f': 'Je sais, j''ai un grain'
+'Huldigt den Raben!_f': 'Gloire au Corbeau !'
+'Taube aus der Unterwelt_f': 'Pigeon de l''Outre-Monde'
+Corvid-Spezialist_f: Spécialiste ès corvidés
+'Phoenix des Unterholzes_f': 'Phoenix des hôtes de ces bois'
+'Edit Piaf_f': 'Edit Piaf'
+'Vogel der schlechten Vorzeichen_f': 'Oiseau de mauvais augure'
+Kraaaah!_f: Crôôôaa !
+'Er war Leber ..._f': 'Il était un foie...'
+'Hey wir können die Zombies von hier oben sehen_f': 'Oh on voit les zombies d''ici'
+'Fröhlicher Hamster_f': 'Hamster jovial'
+'Showman aus der Anderen Welt!_f': 'Foraine de l''Outre Monde !'
+'5. Rad am Wagen_f': '5e roue du carrosse'
+'Mir ist schwindelig_f': 'J''ai le vertige'
+'Hier oben_f': 'Là-haut'
+'Auge der Wüste_f': 'L''œil du désert'
+'4000 Zombies starren uns an_f': '4000 zombies nous contemplent'
+Durazell_f: Gardien de la Pile
+'Hüter der Heiligen Batterie_f': 'Détentrice de la Pile Sacrée'
+'Der Batterienator_f': 'C''était pas ma guerre'
+'Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!_f': 'C''est un oiseau, c''est un avion? Non c''est super lance pile'
+'Aufgeladen und kampfbereit_f': 'Ampère et contre tous'
+'Hey! Willst du meine... Batterie sehen?_f': 'Coucou! Tu veux voir ma pile ?'
+Maurerlehrling_f: Ouvrier
+Maurer_f: Bâtisseuse
+Polier_f: Cheffe de chantier
+Baustellenleiter_f: Architecte
+'Architekt (title)_f': Maîtresse-architecte
+Meisterarchitekt_f: Créatrice de villes
+'Oscar Niemeyer_f': 'Captain Parpaing'
+'Zement & Garfunkel_f': 'Ciment & Garfunkel'
+'Menschliche Ameisenkolonie_f': 'Colonie de fourmis humaine'
+'Arbeiterhelm und Kupferstiefel_f': 'Chapeau moellon et bottes de cuivre'
+'Arbeit ist Gesundheit_f': 'Le travail, c''est la santé'
+'Bob der Baumeister_f': 'L''abbé Tonière'
+Spachtler_f: Plâtrière de la ville
+'Gewissenhafter Maurer_f': 'Briqueteuse consciencieuse'
+'Meisterwerke in Gefahr_f': 'Chef d''oeuvre en péril'
+'Ein Flicken und alles ist wie neu_f': 'Une rustine et ça repart.'
+Pisa-Geraderichter_f: Redresseuse de Pise
+'Großer Renovator_f': 'Grande rénovatrice'
+'Ein Patch, kein Spiel_f': 'Patch-day, no-play'
+'Ein Riss? Welcher Riss?_f': 'Une fissure ? Quelle fissure ?'
+'Das braucht noch 10 Jahre!_f': 'Ça tiendra encore 10 ans !'
+Kettensägenmassaker_f: Massacre à la tronçonneuse
+Fleisch-Schuldner_f: Débiteuse de viande
+'Bruce Campbell_f': 'Bruce Campbell'
+Hobby-Heimwerker_f: Bricoleuse du dimanche
+Techniker_f: Technicienne
+'Meisterbastler _f': Maîtresse ingénieure
+'Sowas wirft man doch nicht weg!_f': 'Ré-assembleur de choses'
+'Mac Gyver der Außenwelt_f': 'Mac Gyver de l''Outre-Monde'
+'Super Soaker_f': 'Pistolereau'
+Wasserwaffen-Spezialist_f: Spécialiste en pistolets à eau
+Hydraulik-Engineering_f: Ingénierie hydraulique
+'Abstieg der Atlanteaner_f': 'Descendant des atlantes'
+Archäologielehrling_f: Forçat du désert
+Archäologe_f: Ouvrière des sables
+Grabungsleiter_f: Découvreuse de bâtiments
+'Großer Löcherbuddler_f': 'Creuseuse de grands trous'
+Riesenmaulwurf_f: Taupe géante
+'Furchtloser Camper_f': 'Campeuse inébranlable'
+'Waisenkind der Wüste_f': 'Orphelin du désert'
+'Unglaubliche Entschlossenheit_f': 'Incroyable détermination'
+'Der letzte Überlebende_f': 'La dernière survivante'
+'Ich gehe alleine._f': 'Je marche seul.'
+'Neil Armstrong der Außenwelt_f': 'Neil Armstrong de l''Outre Monde'
+'Lebensmüder Kundschafter_f': 'Exploratrice vraiment impétueuse'
+'Draufgängerischer Expeditionsreisender_f': 'Expéditionnaire au long cours'
+Nervenkitzelsucher_f: Au-delà du réel
+'Christopher Kolumbus_f': 'Champollion du désert'
+'Bis zur Unendlichkeit... und noch viel weiter!_f': 'Vers l''infini et au-delà !'
+'Indiana Jones und die Ruinen der Aussenwelt_f': 'Indiana jones et les ruines de l''outre-monde'
+'Wenn ich das nur vorher gewusst hätte..._f': 'Si j''aurais su, j''aurais po v''nu'
+'Verwegener Wanderer_f': 'Voyageuse téméraire'
+Tunnelblicker_f: Apnéiste confirmée
+'Im Irrgarten_f': 'J''ai la dé-dale !'
+'Inklusive Kompass_f': 'Boussole sur patte'
+'Begrabener Freiwilliger_f': 'Enterrée volontaire'
+'Tomb Raider_f': 'Pilleur de tombeau'
+Labyrinth-Gollum_f: Gollum des labyrinthes
+'Labyrinth-Meister MB_f': 'Labyrinthe master MB'
+"Wo klemmt's?_f": "Un p'tit Bricard ?"
+Dietrich_f: Une petite tranche de Vachette ?
+'Sesam, öffne dich..._f': 'Sésame, bouge ton c...'
+Türöffner_f: Dentiste serrurière
+Gentleman-Einbrecher_f: Dame Cambrioleuse
+Schlüsseldienst_f: Capitaine Crochet
+Zerberus_f: Cerbère de la porte
+'Meister der Schlüssel_f': 'Maîtresse des clés'
+Brutalo_f: Grosse brute
+Verstümmler_f: Mutilatrice
+Killer_f: Exterminateur
+Kadaverentsorger_f: Broyeuse de cadavres
+Vernichter_f: Total annihilation
+Schlächter_f: La Tueuse
+Friedensstifter_f: La Pacificatrice
+'Alptraum der Traumlosen_f': 'J''aime les bandes décimées'
+'Hans im Glück_f': 'Spécialiste en aubaine'
+'Vierklettriges Kleeblatt_f': 'Maître du coup de bol'
+Fortuna_f: Grand Veinard en chef
+'Gontran Happiness_f': 'Gontran Bonheur'
+'Lucky 7_f': 'Lucky 7'
+'Money for Nothing_f': 'Money for Nothing'
+'Ultimate Fighter_f': 'Promeneur désespéré'
+'Wilde Bestie_f': 'Bête sauvage'
+'Rambos Großvater_f': 'Ancêtre de Rambo'
+'Absolut keine Angst!_f': 'Même pas peur !'
+'Barhändiger Stripper_f': 'Étripeuse à mains nues'
+'Stürmischer Kundschafter_f': 'Exploratrice impétueuse'
+'Furchtloser Abenteurer_f': 'Aventurière sans peur'
+'Wagemutiger Trapper_f': 'Guide de l''Outre-Monde'
+Wikinger_f: Prospectrice courageuse
+Außenweltreiseführer_f: L'outre-monde est mon bac à sable
+'Ich habe die Erde umrundet... zweimal!_f': 'J''ai fait le tour du monde... 2 fois !'
+'Internet Explorer_f': 'Internet Explorer'
+'Ich hab sogar das Klo abgesucht!_f': 'J''ai même fouillé les WC !'
+'Sind wir schon da?_f': 'Quand est ce qu''on arrive ?'
+Außenweltschläfer_f: Dormeuse suicidaire
+'Allein in dieser Welt_f': "{ref__icu, select,\n on {\n {ref__gender, select,\n female {Seule au monde...}\n other {Seul au monde...}\n }\n }\n other {Seul(e) au monde...}\n }"
+'Der mit den Zombies tanzt_f': 'Danse avec les zombies'
+'Ich sehe überall Tote!_f': 'Je vois des morts partout'
+'Ich komme heute Nacht nicht heim..._f': 'Je ne rentrerai pas ce soir...'
+'Ein Mann gegen die Außenwelt_f': 'Une fois, au stage d''été...'
+Stadtallergie_f: Allergique à la ville
+'Wo ich hinguck, seh ich Gegend._f': 'Bah alors on n''attend pas Patrick ?'
+'Runaway Michael_f': 'Michèle Fugueuse'
+'Ohne Dach oder Leber_f': 'Sans toit ni foie'
+'Neugieriger Leser_f': 'Lectrice curieuse'
+'Eifriger Leser_f': 'Conteuse d''histoires'
+Wüstenhistoriker_f: Historienne du désert
+Bibliothekar_f: Gardienne des archives
+Archivar_f: Maîtresse rôliste
+Erinnerungsträger_f: Porteuse du Souvenir
+'Erinnerungen an die Zivilisation_f': 'Mémoire de la civilisation'
+'Twinoid ist tabu_f': 'La twinoïde, c''est tabou'
+'Keine Macht den Drogen_f': 'Bien dans sa peau'
+'Sowas fasse ICH nicht an_f': 'Je touche pas à ça, MOI.'
+'Vorbild für die Jugend_f': 'Exemple pour la jeunesse'
+'Champions nehmen keine Drogen!_f': 'Winners don''t use drugs !'
+Medikamentetester_f: Cobaye de laboratoire
+Laborratte_f: Expérience dangereuse
+'Pille palle, 3 Tage wach!_f': 'Testeur de produits'
+'Timothy Leary_f': 'Je n''aurais pas dû gober ça.'
+'Ich sehe ein Blauuuuuuues Tal_f': 'Je vois une Vallée Bleuûuue !'
+Menschenfleischliebhaber_f: Amatrice de viande humaine
+Hannibalfan_f: Fan d'Hannibal
+Totmacher_f: Dévoreuse de citoyens
+'Jeffrey Dahmer_f': 'Croque morts'
+'Fast schon ein Zombie..._f': 'Zombie en devenir'
+"Schmeckt am besten wenn's noch schreit!_f": "C'est meilleur si ça hurle."
+'Die Macht der Proteine_f': 'Le plein de Protéines.'
+'Nackt und Zerfleischt_f': 'Cannibales Holocauste'
+Zombieliebling_f: Favori des zombies
+'Letzter Überlebender_f': 'Last woman standing'
+Unzerstörbar_f: Increvable
+'Allein gegen die Horde_f': 'Seul(e) contre les Hordes'
+"Chuck Norris' Ebenbild_f": "Égal de Chuck Norris"
+'Ich bin in der Hölle aufgewachsen._f': 'L''enfer, c''est mon quotidien.'
+'Es war wirklich zu einfach._f': 'C''était vraiment trop facile.'
+'Ich fresse Nägel und scheiße Kugeln!_f': 'Je mâche le silex !'
+'Pandämonium? Hah. Einfach._f': 'Le Pandémonium ? Pff. Easy.'
+'Teilweise verrottet_f': 'Partiellement putréfié'
+Virenschleuder_f: Porteur de la 'Maladie'
+Gedärmeauskotzer_f: Vomisseuse de tripes
+Seuchenherd_f: Annonciateur du fléau
+'Ich habe Magenschmerzen..._f': 'J''ai mal au ventre...'
+'Verirrter Ausflügler_f': 'Randonneuse égarée'
+'Nächtlicher Spaziergänger_f': 'Flâneuse nocturne'
+'Mir ist kalt hier draußen..._f': 'J''ai froid, dehors...'
+'Vertrauenswürdiger Bürger_f': 'Concitoyenne de confiance'
+'Sehr erfahrener Bürger_f': 'Inspiration pour le peuple'
+'Vorbild für das Volk_f': 'Joueur très expérimenté'
+'Richtwert der Gemeinschaft_f': 'Référence communautaire'
+'Berühmter Veteran_f': 'Illustre vétéran'
+Anfängerleiche_f: Cadavre débutant
+Rabenfreund_f: Copine des corbeaux
+Dehydrationskollege_f: Concitoyenne déshydratée
+'Lebender Mythos_f': 'Mythe vivant'
+'Ich bin eine Legende_f': 'Je suis une légende.'
+'Hör auf mich, wenn du überleben möchtest_f': 'Suis-moi si tu veux vivre'
+'Netter Kerl_f': 'Good Gal'
+'Zeuge der großen Verseuchung_f': 'Témoin de la Grande Contamination'
+'Alter Hase_f': 'Grande ancienne'
+'Jedes Los gewinnt_f': 'Compagnon de la communauté'
+Zinker_f: Animée de bonnes intentions
+Bingo_f: Animal social
+'Sudoku ist anders_f': 'Défunt animé'
+'Siebenseitiger Würfel_f': 'Hyper-activiste communautaire'
+'Einarmiger Bandit_f': 'Gagnante dans l''âme !'
+'Seelenführer der Gemeinschaft_f': 'Guide des âmes communautaires'
+'Charismatischer Prophet_f': 'Prophète charismatique'
+'Motivierter Messebesucher_f': 'Festivalière hordienne motivée'
+'Verdammt in Saarbrücken_f': 'Traqueur de geeks'
+"FJV'08 Kanonenfutter_f": "Chair à canon du FJV'08"
+'Kleiner Guru_f': 'Détourneur de fonds'
+'Überzeugender Guru_f': 'Trafiquant de citoyens'
+Frischfleischhändler_f: Négociante en chair fraîche
+Seelenhändler_f: Marchande d'âmes
+'Sehr überzeugender Pate_f': 'Marraine très convaincante'
+Wüstenspekulant_f: Spéculatrice du désert
+'Held der Community!_f': 'Dedans jusqu''au cou !'
+'Bringt Sachen ins Rollen!_f': 'Fais bouger les choses!'
+'Nobler Spender_f': 'Âme noble'
+'Immer zur Stelle_f': 'Donateur universel'
+Samariter_f: Assistant social
+'Freigiebiger Bürger_f': 'Citoyenne qui tombe à pic'
+Messias_f: Messie
+'Der Weihnachtsmann ist ein Schlawiner_f': 'Le Père Noël est un coquin'
+'Santa Klaus ist ein Schummler_f': 'Le Père Noël est un filou'
+'Santa Klaus ist Abfall_f': 'Le Père Noël est une ordure'
+'Santa Klaus ist Abschaum_f': 'Le Père Noël est une raclure'
+'Hängt Santa Klaus!_f': 'Pendez le Père Noël !'
+'Treffen der 4. Art_f': 'Rencontre du 4ème type'
+'Hast Du mal Feuer?_f': 'Vous avez du feu ?'
+'Medium mit Preisnachlass_f': 'Médium au rabais'
+'Amophilis Psychotropes_f': 'Amophilis psychotropes'
+'Blauer Feuerspucker_f': 'Cracheuse de flamme bleue'
+'I see dead people 0_0_f': 'I see dead people 0_0'
+'Soul Man_f': 'Aspi-rituel'
+Lebenssammler_f: Collectionneuse de vie
+'Schnitter der Aussenwelt_f': 'Faucheuse de l''outre-monde'
+'Bei meiner Seel_f': 'Leerd''âmeur nauséabond'
+'Für immer und seelich_f': 'Fan-tomme rapé'
+'Noble Seele_f': 'Âme digne'
+Beseelt_f: Spider-Ame
+Reinkarnator_f: Réincarnator
+'Göttliche Seele_f': 'Âme divine'
+Open-chakra_f: Open-chakra
+Tausend-und-ein-Leben_f: Mille et une vie
+Buddha_f: Bouddha
+'Ich bin ein Gott! Ich werde ewig leben!_f': 'Cheffe-Ascète'
+'Eine Stadt sie zu knechten!_f': 'Une ville pour les gouverner tous!'
+'Verrückter Skeptiker_f': 'Septicis-mite aïgu'
+Seelenknipser_f: Agnos-tic
+'Wächter der Seelen_f': 'Veille avec les Scouts'
+'Die Wahrheit ist irgendwo da draußen_f': 'La vérité est ailleurs'
+'Ich glaube!_f': 'I''m a believer'
+Sektenmitglied_f: Membre de la secte
+'Kosmischer Anführer_f': 'Marraine cosmique'
+'Rauch? Welcher Rauch?_f': 'De la fumée ? Quelle fumée ?'
+Leckstopper_f: Colmateuse de fuite
+'Licht in der Nacht_f': 'Lumière dans la nuit'
+RadioactiveMan_f: RadioactiveWoman
+'Strahlender Bürger_f': 'Citoyenne rayonnante'
+'Hölle, das esse ich jeden Morgen._f': 'L''enfer, j''en mange un peu chaque matin'
+'Abonnent der Pandämoniumsauna_f': 'Abonnée au sauna du pandémonium'
+'Pandämonium ist meine Liebe!_f': 'Pandémonium mon amour!'
+'Luzifers Tanzpartner_f': 'Partenaire de danse de Lucifer'
+'Ultimativer Horden-Erkunder_f': 'Ultime exploratrice Hordienne'
+'Irische Taschen sind prall gefüllt!_f': 'Les poches irlandaises sont blindées!'
+'Wo ist mein Topf voll Gold, diebische Elster!_f': 'Où est mon pot d''or, maudit voleur!'
+'Dieser Kobold ist unaufhaltbar._f': 'Cette lutine est imparable!'
+'Verbrennt ihn! Sieh nach ob seine Asche grün wird!_f': 'Brûlez-la, voyez si ses cendres deviennent vertes!'
+'Ein Wohnwagen ohne Räder???_f': 'Une caravane sans roues ???'
+'Mitglied des Roten Kreuzes_f': 'Membre de la Croix Rouge'
+'Ich bin geheilt_f': 'Je suis guéri(e)'
+'Keine Fehler hi&e%12;r_f': 'Plus d&amp;apos;erreurs ici'
+'Patient Null_f': 'Patiente Zéro'
+'Es ist der Tod der mich fürchten sollte!_f': 'La mort a peur de moi !'
+Sandmann_f: Ensableuse
+'Sandy Maverick_f': 'Franc-tireur sablonneux'
+Wegweiser_f: Lanterne de jour
+'Praktischer Begleiter_f': 'Compagnonne de poche'
+'Erleuchteter Anführer_f': 'Guide éclairée'
+'Erleuchteter Prediger_f': 'Prêcheuse illuminée'
+'Guru der Liebe_f': 'Love Gourou'
+'Höret meine Stimme_f': 'Écoutez ma voix'
+'Zeuge des Armageddon_f': 'Témoin de l''Armageddon'
+'Ewiger Zweiter_f': 'Éternelle seconde'
+'Ein Wächter stirbt, aber gibt niemals auf_f': 'La garde meurt, mais ne se rend pas !'
+'Der Zweitletzte Mohikaner_f': 'L''avant-dernière des Mohicans'
+'Faaaaaaaast, ach verdammt_f': 'Eeeeeeeet ben non'
+'Bis zum Ende und einen Schritt weiter_f': 'Jusqu''au bout, et même un peu moins loin'
+'Schließt die Ränke und haltet durch_f': 'Serrez les rangs... et les fesses...'
+'Hallo... ist da draußen jemand?_f': 'Vous êtes là les copains?'
+'Haltet eure Position!_f': 'Tenez vos positions !'
+'Nur ein Finger_f': 'Juste un doigt !'
+'Plünderer der Schnapsläden_f': 'Pilier de comptoir'
+'Hennessy Highwayman_f': 'Routier du rhum'
+'Barney Gumble der Außenwelt_f': 'Barney Gumble de l''Outre-Monde'
+'Fass das Saufen lieber sein_f': 'Absinthe toi la prochaine fois'
+'Gib mir was zu saufen oder es knallt!_f': 'A boire ou j''tue le chien !'
+'Alles unter 55% ist Wasser_f': 'Avant 55°, c''est de l''eau'
+Dialyse_f: Sans Foie ni Loi
+'Chef der Mauer_f': 'Cheffe-Rempart'
+Schaufelführer_f: Cheffe-Pelleteuse
+'Ich bin ein Biest!_f': 'Je suis une bête !'
+'DdA Beste Buddler_f': 'Fwinneur du DDH'
+Tarnexperte_f: Cheffe-Camouflage
+Ninja_f: Maître des ombres
+AP: AP
+CP: CP
+MP: MP

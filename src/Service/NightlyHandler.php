@@ -28,6 +28,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
+use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\ItemPoisonType;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
@@ -45,9 +46,7 @@ class NightlyHandler
     private array $cleanup = [];
     private array $skip_reanimation = [];
     private array $skip_infection = [];
-    private bool $exec_firework = false;
     private ?Building $upgraded_building = null;
-    private bool $exec_reactor = false;
     private array $deferred_log_entries = [];
 
     private EntityManagerInterface $entity_manager;
@@ -71,12 +70,13 @@ class NightlyHandler
     private GazetteService $gazette_service;
     private GameProfilerService $gps;
     private TimeKeeperService $timeKeeper;
+    private EventProxyService $events;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
                               CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
-                              TimeKeeperService $timeKeeper, MapMaker $mapMaker )
+                              TimeKeeperService $timeKeeper, MapMaker $mapMaker, EventProxyService $events )
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -99,6 +99,7 @@ class NightlyHandler
         $this->gps = $gps;
         $this->timeKeeper = $timeKeeper;
         $this->map = $mapMaker;
+        $this->events = $events;
     }
 
     private function check_town(Town $town): bool {
@@ -396,44 +397,8 @@ class NightlyHandler
 
     private function stage2_pre_attack_buildings(Town &$town){
         $this->log->info('<info>Processing building before the attack</info> ...');
-
-        $reactor = $this->town_handler->getBuilding($town, 'small_arma_#00', true);
-        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Radiations]);
-
-        if ($reactor) {
-            $damages = mt_rand(50, 125);
-            $this->gps->recordBuildingDamaged( $reactor->getPrototype(), $town, min( $damages, $reactor->getHp() ) );
-            $reactor->setHp(max(0, $reactor->getHp() - $damages));
-
-            $newDef = round(max(0, $reactor->getPrototype()->getDefense() * $reactor->getHp() / $reactor->getPrototype()->getHp()));
-
-            $this->log->debug("The <info>reactor</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
-
-            $reactor->setDefense($newDef);
-
-            if($reactor->getHp() <= 0){
-
-                $gazette = $town->findGazette( $town->getDay(), true );
-                $this->deferred_log_entries[] = $this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages );
-                $this->town_handler->destroy_building($town, $reactor);
-                $this->gps->recordBuildingDestroyed( $reactor->getPrototype(), $town, 'attack' );
-
-                $this->log->debug("The reactor is destroyed. Everybody dies !");
-
-                // It is destroyed, let's kill everyone with the good cause of death
-                foreach ($this->town_handler->get_alive_citizens($town) as $citizen) {
-                    $gazette->setDeaths($gazette->getDeaths() + 1);
-                    $this->kill_wrap($citizen, $cod, true, 0, true, $town->getDay());
-                }
-
-                $gazette->setReactorExplosion(true);
-                $this->exec_reactor = true;
-                $this->entity_manager->persist($gazette);
-
-            } else {
-                $this->deferred_log_entries[] = $this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages );
-            }
-        }
+        foreach ($town->getBuildings() as $building)
+            if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDailyUpgrade );
     }
 
     private function stage2_building_effects(Town $town) {
@@ -456,149 +421,41 @@ class NightlyHandler
                 /** @var Building $target_building */
                 $this->upgraded_building = $target_building = $this->random->pick( $buildings );
                 $target_building->setLevel( $target_building->getLevel() + 1 );
-
                 $this->log->debug("Increasing level of <info>{$target_building->getPrototype()->getLabel()}</info> to Level <info>{$target_building->getLevel()}</info>.");
-
-                switch ($target_building->getPrototype()->getName()) {
-                    case 'small_gather_#00':
-                        $def_add = [0,13,21,32,33,51];
-                        $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
-                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
-                        break;
-                    case 'small_water_#00':
-                        $water_add = [5,20,20,30,30,40];
-                        $town->setWell( $town->getWell() + $water_add[$target_building->getLevel()] );
-                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingWell( $target_building, $water_add[$target_building->getLevel()] ) );
-
-                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing well count by <info>{$water_add[ $target_building->getLevel() ] }</info>.");
-                        break;
-                    case 'item_home_def_#00':
-                        $def_add = [0,30,35,50,65,80];
-                        $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
-                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
-                        break;
-                    case 'item_tube_#00':
-                        $def_mul = [0, 0.8, 1.6, 2.4, 3.2, 4];
-                        $target_building->setDefenseBonus( $target_building->getDefense() * $def_mul[ $target_building->getLevel() ] );
-                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_mul[ $target_building->getLevel() ] }</info>.");
-                        break;
-                }
+                $this->events->buildingUpgrade( $target_building, true );
             }
         }
 
-        $watertower = $this->town_handler->getBuilding( $town, 'item_tube_#00', true );
-        if ($watertower && $watertower->getLevel() > 0) {
-            $n = [0,2,4,6,9,12];
-            if ($town->getWell() >= $n[ $watertower->getLevel() ]) {
-                $town->setWell( $town->getWell() - $n[ $watertower->getLevel() ] );
-                $gazette = $town->findGazette( $town->getDay(), true );
-                $gazette->setWaterlost($gazette->getWaterlost() + $n[$watertower->getLevel()]);
-                $this->entity_manager->persist($gazette);
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingDefenseWater( $watertower, $n[ $watertower->getLevel() ] ) );
-                $this->log->debug( "Deducting <info>{$n[$watertower->getLevel()]}</info> water from the well to operate the <info>{$watertower->getPrototype()->getLabel()}</info>." );
-            } else {
-                $watertower->setTempDefenseBonus(0 - $watertower->getDefense() - $watertower->getDefenseBonus());
+        foreach ($town->getBuildings() as $building)
+            if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeAttack );
+    }
+
+    private function stage2_post_attack_buildings(Town &$town){
+        foreach ($town->getBuildings() as $building)
+            if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::BeforeDefaultEvents );
+
+        foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
+            if ($b->getPrototype()->getTemp()){
+                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
+                $b->setComplete(false)->setAp(0);
+                $this->gps->recordBuildingCollapsed( $b->getPrototype(), $town );
             }
+            $b->setTempDefenseBonus(0);
         }
+
+        $town->setTempDefenseBonus(0);
     }
 
     private function stage2_post_attack_building_effects(Town $town) {
         $this->log->info('<info>Processing post-attack building functions</info> ...');
 
-        $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
+        if (!$town->getDevastated() && $this->upgraded_building !== null)
+            $this->events->buildingUpgrade( $this->upgraded_building, false );
 
-        $gazette = $town->findGazette( $town->getDay(), true );
-        if (!$town->getDevastated()) {
-
-            if ($this->upgraded_building !== null) {
-
-                switch ($this->upgraded_building->getPrototype()->getName()) {
-                    case 'small_refine_#01':
-                        $spawn_default_blueprint = $this->upgraded_building->getLevel() === 1;
-                        $bps = [
-                            ['bplan_c_#00' => 1],
-                            ['bplan_c_#00' => 4],
-                            ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
-                            ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
-                        ];
-                        $opt_bp = [null,null,'bplan_r_#00','bplan_e_#00'];
-
-                        $plans = [];
-                        foreach ($bps[$this->upgraded_building->getLevel()] as $id => $count) {
-                            $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $id]);
-                            $plans[$proto->getId()] = [
-                                'item' => $proto,
-                                'count' => $count
-                            ];
-                        }
-                        if ( $opt_bp[$this->upgraded_building->getLevel()] !== null && $this->random->chance( 0.5 ) ) {
-                            $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $opt_bp[$this->upgraded_building->getLevel()]]);
-                            if(isset($plans[$proto->getId()])) {
-                                $plans[$proto->getId()]['count'] += 1;
-                            }
-                            else {
-                                $plans[] = [
-                                    'item' => $proto,
-                                    'count' => 1
-                                ];
-                            }
-                        }
-
-
-                        $tx = [];
-                        foreach ($plans as $plan) {
-                            for($i = 0; $i < $plan['count'] ; $i++)
-                                $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem($plan['item']) );
-                            $tx[] = "<info>{$plan['item']->getLabel()} x{$plan['count']}</info>";
-                        }
-                        if (!$gazette->getReactorExplosion())
-                            $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $this->upgraded_building, $plans ));
-                        $this->log->debug("Leveling up <info>{$this->upgraded_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
-                        break;
-                }
-            }
-        }
-
-        $daily_items = []; $tx = [];
-        if ($spawn_default_blueprint) {
-            if (!$gazette->getReactorExplosion())
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']), $this->town_handler->getBuilding($town, 'small_refine_#01')->getPrototype()));
-            $daily_items['bplan_c_#00'] = 1;
-        }
-
-        $has_fertilizer = $this->town_handler->getBuilding( $town, 'item_digger_#00', true ) !== null;
-
-        $db = [
-            'small_appletree_#00'      => [ 'apple_#00' => mt_rand(3,5) ],
-            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,7) : mt_rand(6,8), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(3,5) ],
-            'item_bgrenade_#01'        => [ 'boomfruit_#00' => !$has_fertilizer ? mt_rand(3,7) : mt_rand(5,8) ],
-            'small_chicken_#00'        => [ 'egg_#00' => 3 ],
-        ];
-
-        foreach ($db as $b_class => $spawn)
-            if (($b = $this->town_handler->getBuilding( $town, $b_class, true )) !== null) {
-                $local = [];
-                foreach ( $spawn as $item_id => $count ) {
-                    if (!isset($daily_items[$item_id])) $daily_items[$item_id] = $count;
-                    else $daily_items[$item_id] += $count;
-                    if ($count > 0) $local[] = ['item' => $item_id, 'count' => $count];
-                }
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackProduction( $b, array_map( function($e) {
-                    return [ 'item' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($e['item']), 'count' => $e['count'] ];
-                }, $local ) ) );
-            }
-
-        $strange = $this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_STRANGE_SOIL, false );
-        foreach ($daily_items as $item_id => $count)
-            for ($i = 0; $i < $count; $i++) {
-                $item = $this->item_factory->createItem( $item_id );
-                if ($strange) $item->setPoison( ItemPoisonType::Strange );
-                $this->inventory_handler->forceMoveItem( $town->getBank(), $item );
-                $tx[] = "<info>{$item->getPrototype()->getLabel()}</info>";
-            }
-
-        if (!empty($daily_items))
-            $this->log->debug("Daily items: Placing " . implode(', ', $tx) . " in the bank.");
+        if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion())
+            foreach ($town->getBuildings() as $building)
+                if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::AfterAttack );
     }
 
     private function stage2_day(Town $town) {
@@ -765,7 +622,8 @@ class NightlyHandler
 
         /** @var TownDefenseSummary|null $def_summary */
         $def_summary = null;
-        $gazette->setDefense($def = $town->getDevastated() ? 0 : $this->town_handler->calculate_town_def( $town, $def_summary ));
+		$this->town_handler->calculate_town_def( $town, $def_summary );
+        $gazette->setDefense($def = $town->getDevastated() ? 0 : $def_summary->sum());
 
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
@@ -779,8 +637,8 @@ class NightlyHandler
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
-        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies (<info>{$est->getZombies()}</info> x <info>{$soulFactor}</info>, from <info>{$redsouls}</info> red souls). The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
-        $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
+        $this->log->info("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies (<info>{$est->getZombies()}</info> x <info>{$soulFactor}</info>, from <info>{$redsouls}</info> red souls). The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
+        $this->log->info("<info>{$overflow}</info> Zombies have entered the town!");
 
         $gazette->setInvasion($overflow);
 
@@ -811,7 +669,9 @@ class NightlyHandler
         elseif ($count_zombified_citizens > 0)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true, $count_zombified_citizens === 1 ? $last_zombified_citizen : null, false) );
 
-        $this->stage2_surprise_attack($town);
+		// There's no dead awaken for the attack from D1 to D2
+		// See https://github.com/motion-twin/WebGamesArchives/blob/main/Hordes/src/HordeAttack.hx#L52
+        if ($town->getDay() > 2) $this->stage2_surprise_attack($town);
 
         /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
@@ -840,11 +700,6 @@ class NightlyHandler
         $total_watch_def = floor($this->town_handler->calculate_watch_def($town, $town->getDay() - 1) * $def_scale);
         $this->log->debug("There are <info>".count($watchers)."</info> watchers (with <info>{$total_watch_def}</info> watch defense) in town, against <info>$overflow</info> zombies.");
 
-        $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
-        $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
-        $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
-        $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
-
         $wounded_citizens = [];
         $terrorized_citizens = [];
         $no_watch_items_citizens = [];
@@ -852,7 +707,7 @@ class NightlyHandler
         foreach ($watchers as $watcher) {
             $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
 
-            $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) * $def_scale) : 0;
+            $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) * $def_scale) : 0;
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
@@ -995,8 +850,7 @@ class NightlyHandler
                 if($target->getHp() <= 0){
                     $this->log->info("<info>{$target->getPrototype()->getLabel()}</info> is now destroyed !");
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $realDamage ));
-                    $this->town_handler->destroy_building($town, $target);
-                    $this->gps->recordBuildingDestroyed( $target->getPrototype(), $town, 'attack' );
+                    $this->events->buildingDestruction( $target, 'attack' );
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $realDamage ));
                 }
@@ -1007,44 +861,50 @@ class NightlyHandler
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
             // Panda towns sees their defense object in the bank destroyed
-            $number = $def_summary ? max(1, min(ceil($est->getZombies() - $def_summary->withoutItemDefense()) * 0.5, 20)) : 0;
-            $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
-            $this->log->info("We destroy <info>$number</info> items");
-            $this->log->info("We fetched <info>". count($items) . "</info> items");
-            shuffle($items);
-            $destroyed_count = 0;
-            $itemsForLog = [];
-            while($destroyed_count < $number && count($items) > 0) {
-                foreach ($items as $item) {
-                    if ($destroyed_count >= $number) break;
+			// REVAMPED FROM: https://github.com/motion-twin/WebGamesArchives/blob/main/Hordes/src/HordeAttack.hx#L226
+			$zombiesOnDef = max($est->getZombies() - $def_summary->building_defense, 0);
+			$number = min(floor($zombiesOnDef / $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_RATIO, 50)), $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_MAX, 20));
 
-                    $this->log->debug("selecting between 1 and " . min($item->getCount(), $number - $destroyed_count));
-                    $delete = mt_rand(1, min($item->getCount(), $number - $destroyed_count));
-                    $destroyed_count += $delete;
-                    $this->log->info("Destroying $delete <info>{$item->getPrototype()->getName()}</info> due to the attack");
-                    $this->inventory_handler->forceRemoveItem($item, $delete);
-                    if(isset($itemsForLog[$item->getPrototype()->getId()])) {
-                        $itemsForLog[$item->getPrototype()->getId()]['count']+= $delete;
-                    } else {
-                        $itemsForLog[$item->getPrototype()->getId()] = [
-                            'item' => $item->getPrototype(),
-                            'count' => $delete
-                        ];
-                    }
-                    if ($delete === $item->getCount()) {
-                        array_pop($items);
-                    }
-                }
-            }
+			$this->log->info("There are <info>$zombiesOnDef</info> zombies attacking the bank (with a ratio of {$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY_RATIO, 50)})");
+			if ($number > 0) {
+				$items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
+				$this->log->info("We destroy <info>$number</info> items</info>");
+				$this->log->info("We fetched <info>". count($items) . "</info> items");
+				shuffle($items);
+				$destroyed_count = 0;
+				$itemsForLog = [];
+				while($destroyed_count < $number && count($items) > 0) {
+					foreach ($items as $item) {
+						if ($destroyed_count >= $number) break;
 
-            $total = 0;
-            foreach ($itemsForLog as $item) {
-                $total += $item["count"];
-            }
+						$this->log->debug("selecting between 1 and " . min($item->getCount(), $number - $destroyed_count));
+						$delete = mt_rand(1, min($item->getCount(), $number - $destroyed_count));
+						$destroyed_count += $delete;
+						$this->log->info("Destroying $delete <info>{$item->getPrototype()->getName()}</info> due to the attack");
+						$this->inventory_handler->forceRemoveItem($item, $delete);
+						if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+							$itemsForLog[$item->getPrototype()->getId()]['count']+= $delete;
+						} else {
+							$itemsForLog[$item->getPrototype()->getId()] = [
+								'item' => $item->getPrototype(),
+								'count' => $delete
+							];
+						}
+						if ($delete === $item->getCount()) {
+							array_pop($items);
+						}
+					}
+				}
 
-            if (!empty($itemsForLog)) {
-                $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog, $total));
-            }
+				$total = 0;
+				foreach ($itemsForLog as $item) {
+					$total += $item["count"];
+				}
+
+				if (!empty($itemsForLog)) {
+					$this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog, $total));
+				}
+			}
         }
 
         if ($overflow <= 0) {
@@ -1155,76 +1015,6 @@ class NightlyHandler
         if ($deaths > 0)
             $this->entity_manager->persist($this->logTemplates->citizenDeathsDuringAttack($town, $deaths));
         $this->entity_manager->persist($gazette);
-    }
-
-    private function stage2_post_attack_buildings(Town &$town){
-        $this->log->info('Inflicting damages to buildings after the attack');
-        $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00');
-        if($fireworks){
-            $this->gps->recordBuildingDamaged( $fireworks->getPrototype(), $town, min( 20, $fireworks->getHp() ) );
-            $fireworks->setHp(max(0, $fireworks->getHp() - 20));
-
-            $this->log->debug("The <info>fireworks</info> has taken <info>20</info> damages...");
-            $newDef = round(max(0, $fireworks->getPrototype()->getDefense() * $fireworks->getHp() / $fireworks->getPrototype()->getHp()));
-
-            $this->log->debug("It now has $newDef defense...");
-
-            $fireworks->setDefense($newDef);
-            if($fireworks->getHp() <= 0) {
-                // It is destroyed, let's do this !
-                $this->entity_manager->persist($this->logTemplates->fireworkExplosion($town, $fireworks->getPrototype()));
-
-                $this->town_handler->destroy_building($town, $fireworks);
-                $this->gps->recordBuildingDestroyed( $fireworks->getPrototype(), $town, 'attack' );
-
-                $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
-
-                // Fetching alive citizens
-                $citizens = $this->town_handler->get_alive_citizens($town);
-                $toInfect = [];
-                // Keeping citizens in town
-                foreach ($citizens as $citizen) {
-                    /** @var Citizen $citizen */
-                    if($citizen->getZone() || !$citizen->getAlive()) continue;
-                    $toInfect[] = $citizen;
-                }
-
-                // Randomness
-                shuffle($toInfect);
-                // We infect the first half of the list
-                for ($i=0; $i < count($toInfect) / 2; $i++)
-                    $this->citizen_handler->inflictStatus($toInfect[$i], "tg_meta_ginfect");
-
-                $this->exec_firework = true;
-                
-                $ratio = 1 - mt_rand(13, 16) / 100;
-
-                /** @var ZombieEstimation $est */
-                $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
-
-                $zombie_diff = $est->getZombies() - ($est->getZombies() * $ratio);
-                $est->setZombies($est->getZombies() * $ratio);
-                $est->setTargetMin($est->getTargetMin() - $zombie_diff);
-                $est->setTargetMax($est->getTargetMax() - $zombie_diff);
-                $this->entity_manager->persist($est);
-
-            } else {
-                $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
-            }
-            $this->entity_manager->persist($fireworks);
-        }
-
-        foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
-            if ($b->getPrototype()->getTemp()){
-                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
-                $b->setComplete(false)->setAp(0);
-                $this->gps->recordBuildingCollapsed( $b->getPrototype(), $town );
-            }
-            $b->setTempDefenseBonus(0);
-        }
-
-        $town->setTempDefenseBonus(0);
     }
 
     private function stage3_status(Town $town) {
@@ -1483,7 +1273,7 @@ class NightlyHandler
         $this->log->debug('Spreading zombies ...');
         $this->map->dailyZombieSpawn($town);
 
-        if ($this->exec_firework)
+        if (!$town->findGazette( $town->getDay(), true )->getFireworksExplosion())
             // Kill zombies around the town (all at 1km, none beyond 10km)
             foreach ($town->getZones() as $zone) {
                 $km = $this->zone_handler->getZoneKm($zone);
@@ -1563,25 +1353,11 @@ class NightlyHandler
             }
 
             if ($zone->getDirection() === $wind && round($distance) > $wind_dist) {
-                $reco_counter[1]++;
-                if ($this->random->chance( $recovery_chance )) {
-                    $digs = mt_rand( $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MIN, 2) , $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5));
-                    if ($zone->getDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_THROTTLE_AT, 12))
-                        $digs = ceil(($digs-1) / 2);
-                    $zone->setDigs( min( $zone->getDigs() + $digs, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_TOTAL_MAX, 30) ) );
-                    $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>." );
-                    $reco_counter[0]++;
-                }
-
-                if ($zone->getPrototype() && $this->random->chance( $recovery_chance ) ) {
-                    $rdigs = mt_rand(1, 5);
-                    $zone->setRuinDigs( min( $zone->getRuinDigs() + $rdigs, 10 ) );
-                    $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>." );
-                }
+                $this->attemptRegenZone($reco_counter, $zone, $town, $recovery_chance);
             }
 
             if ($zone->getImprovementLevel() > 0) {
-              $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 3), 0));
+              $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 15), 0));
               $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Improvement Level has been reduced to <info>{$zone->getImprovementLevel()}</info>." );
             }
 
@@ -1918,10 +1694,9 @@ class NightlyHandler
         $this->stage2_building_effects($town);
         $this->stage2_day($town);
 
-        if (!$this->exec_reactor) {
+        if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion()) {
             $this->stage2_attack($town);
-        } else foreach ($this->deferred_log_entries as $deferred_log_entry)
-            $this->entity_manager->persist( $deferred_log_entry );
+        }
 
         $this->stage2_post_attack_buildings($town);
         $this->stage2_post_attack_building_effects($town);
@@ -1958,5 +1733,38 @@ class NightlyHandler
         $cc = $this->cleanup;
         $this->cleanup = [];
         return $cc;
+    }
+
+    /**
+     * @param array $reco_counter
+     * @param Zone $zone
+     * @param Town $town
+     * @param float $recovery_chance
+     * @return void
+     */
+    public function attemptRegenZone(array $reco_counter, Zone $zone, Town $town, float $recovery_chance): void
+    {
+        $reco_counter[1]++;
+        $dropChanceFactor = $zone->getDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ? 0.33 : 1;
+        $dropRegenChance = $recovery_chance * $dropChanceFactor;
+        if ($this->random->chance($dropRegenChance)) {
+            $digs = $zone->getDigs()
+                + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5)
+                + mt_rand(0, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5) - 1);
+
+            $zone->setDigs($zone->getDigs() + $digs);
+            $this->log->debug("Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>.");
+            $reco_counter[0]++;
+        }
+
+        $ruinChanceFactor = $zone->getRuinDigs() >= $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ? 0.33 : 1;
+        $ruinRegenChange = $recovery_chance * $ruinChanceFactor;
+        if ($zone->getPrototype() && $this->random->chance($ruinRegenChange)) {
+            $rdigs = $zone->getRuinDigs()
+                + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5)
+                + mt_rand(0, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5) - 1);
+            $zone->setRuinDigs($rdigs);
+            $this->log->debug("Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering ruin by <info>{$rdigs}</info> to <info>{$zone->getRuinDigs()}</info>.");
+        }
     }
 }

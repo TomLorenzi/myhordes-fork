@@ -8,7 +8,7 @@ class RolePlayTextDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'arzt' => [
                 'title' => 'Arztbescheinigung',
                 'author' => 'Waganga',

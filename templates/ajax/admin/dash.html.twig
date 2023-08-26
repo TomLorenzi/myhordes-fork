@@ -53,18 +53,6 @@
                     {% for id, action in actions %}
                         <button x-ajax-href="{{ path('admin_action', {id: id}) }}">{{ action.name|trans({},'admin') }}</button>
                     {% endfor %}
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <h5>{{ 'Geplante Angriffe'|trans({},'admin') }}</h5><br />
-                        {% for schedule in schedules %}
-                            <div>
-                                {{ schedule.timestamp|format_datetime('long', 'short') }}
-                                {% if schedule.timestamp.timestamp < now %}
-                                    <span style="color: red">{{ 'Überfällig seit {s} Sekunden!'|trans({'{s}': now - schedule.timestamp.timestamp},'admin') }}</span>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
-
-                    {% endif %}
                 {% else %}
                     <button class="noa-teaser">{{ 'Soldatenberuf freischalten'|trans({},'admin') }}</button>
                     <button class="noa-teaser">{{ '999 AP zuweisen'|trans({},'admin') }}</button>

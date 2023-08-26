@@ -1,4 +1,3 @@
----
 'Allgemeiner Fehler.': 'Error común.'
 'Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.': 'El foro seleccionado no existe o no tienes permiso para verlo.'
 'Dein Text muss mindestens 2 Zeichen lang sein.': 'Tu texto debe tener al menos 2 caracteres de largo.'
@@ -389,7 +388,7 @@ Nein: "No"
 Anwenden: Aplicar
 'Keine Ergebnisse': 'No hay resultados'
 'Deine Nachricht benötigt einen Titel sowie Inhalt.': 'Tu mensaje debe tener un título y un cuerpo.'
-Gelöst: '"Resuello"'
+Gelöst: '"Resuelto"'
 'Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt).': 'Este tema ha sido marcado como Resuelto (o fue tratado suficientemente).'
 Fehler: Error
 Changelog: Cambios
@@ -530,3 +529,11 @@ Kurzbeschreibung: Descripción breve
 'Mehr Ergebnisse anzeigen': 'Ver más resultados'
 'Verwende "^", um nur nach Worten zu suchen, die mit einer bestimmten Zeichenkette anfangen oder enden. Beispielsweise findest du mit "wasser^" das Wort "Brunnenwasser", nicht aber "Wassermangel".': 'Utiliza "^" para buscar únicamente palabras que empiecen o terminen con una palabra concreta. Por ejemplo, "corto^" encontrará la palabra "ultracorto", pero no "cortísimo".'
 Inhaltsverzeichnis: Tabla de contenidos
+'Du kannst vorerst keine weiteren Meldungen an die Raben senden.': 'No puedes denunciar más mensajes a los Cuervos por el momento.'
+'Bitte versuche es in einigen Minuten erneut.': 'Por favor, vuelve a intentarlo más tarde.'
+'Bitte versuche es in einigen Stunden erneut.': 'Por favor, inténtalo de nuevo en unas horas.'
+'Bitte versuche es morgen erneut.': 'Vuelve a intentarlo mañana.'
+'Bitte versuche es in {days} Tagen erneut.': 'Vuelve a intentarlo en {days} días.'
+'Das Geschlecht deines Titels.': 'El género de tu título.'
+'Bevorzugte Pronomen (Titel)': 'Preferencia de pronombre (título)'
+'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.': 'Este jugador es un desarrollador no-administrador del equipo de MyHordes.'

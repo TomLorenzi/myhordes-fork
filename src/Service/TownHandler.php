@@ -52,15 +52,15 @@ class TownHandler
     private RandomGenerator $random;
     private ConfMaster $conf;
     private CrowService $crowService;
-    private TranslatorInterface $translator;
-	private Packages $asset;
-	private ContainerInterface $container;
+
+    private $protoDefenceItems = null;
+    private DoctrineCacheService $doctrineCache;
 
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
         TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
-        CrowService $armbrust, TranslatorInterface $translator, ContainerInterface $container, Packages $asset)
+        CrowService $armbrust, DoctrineCacheService $doctrineCache)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -72,9 +72,18 @@ class TownHandler
         $this->conf = $conf;
         $this->random = $rand;
         $this->crowService = $armbrust;
-        $this->translator = $translator;
-		$this->asset = $asset;
-		$this->container = $container;
+        $this->doctrineCache = $doctrineCache;
+    }
+
+    /**
+     * @return ItemPrototype[]
+     */
+    public function getPrototypesForDefenceItems(): array
+    {
+        if($this->protoDefenceItems == null){
+            $this->protoDefenceItems = $this->inventory_handler->resolveItemProperties('defence');
+        }
+        return $this->protoDefenceItems;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -136,158 +145,6 @@ class TownHandler
         return $changed;
     }
 
-    /**
-     * Triggers the events that should happen upon a building completion
-     *
-     * @param Town $town The town concerned by the trigger
-     * @param Building $building The building that has just been finished
-     * @return void
-     */
-    public function triggerBuildingCompletion( Town &$town, Building $building ) {
-        $well = 0;
-
-        $water_db = [
-            'small_derrick_#00'      =>  50,
-            'small_water_#01'        =>  40,
-            'small_eden_#00'         =>  70,
-            'small_water_#00'        =>   5,
-            'small_derrick_#01'      => 150,
-            'item_tube_#01'          =>   2,
-            'item_firework_tube_#00' =>  15,
-            'small_rocketperf_#00'   =>  60,
-            'small_waterdetect_#00'  => 100,
-        ];
-
-        if (isset($water_db[$building->getPrototype()->getName()]))
-            $well += $water_db[$building->getPrototype()->getName()];
-
-        $pictos = [];
-
-        $building->setHp($building->getPrototype()->getHp());
-        
-        $building->setDefense($building->getPrototype()->getDefense());
-
-        $town->setWell( $town->getWell() + $well );
-        if ($well > 0)
-            $this->entity_manager->persist( $this->log->constructionsBuildingCompleteWell( $building, $well ) );
-
-        switch ($building->getPrototype()->getName()) {
-            /*case 'small_fireworks_#00':*/case 'small_balloon_#00':
-                $all = $building->getPrototype()->getName() === 'small_balloon_#00';
-                $state = $this->getBuilding($town, 'item_electro_#00', true) ? Zone::ZombieStateExact : Zone::ZombieStateEstimate;
-                foreach ($town->getZones() as &$zone)
-                    if ($all || $zone->getPrototype()) {
-                        $zone->setDiscoveryStatus( Zone::DiscoveryStateCurrent );
-                        $zone->setZombieStatus( max( $zone->getZombieStatus(), $state ) );
-                    }
-                break;
-            case 'small_rocket_#00':
-                foreach ($town->getZones() as &$zone)
-                    if ($zone->getX() === 0 || $zone->getY() === 0) {
-                        $zone->setZombies(0)->setInitialZombies(0);
-                        $zone->getEscapeTimers()->clear();
-                    }
-                $this->entity_manager->persist( $this->log->constructionsBuildingCompleteZombieKill( $building ) );
-                break;
-            case 'small_cafet_#00':
-                $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => 'woodsteak_#00'] );
-                $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
-                $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
-                $this->entity_manager->persist( $town->getBank() );
-                $this->entity_manager->persist( $this->log->constructionsBuildingCompleteSpawnItems( $building, [ ['item'=>$proto,'count'=>2] ] ) );
-                break;
-            case 'r_dhang_#00':case 'small_fleshcage_#00':case 'small_eastercross_#00':
-                // Only insta-kill on building completion when shunning is enabled
-                if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_SHUN, true))
-                    foreach ($town->getCitizens() as $citizen)
-                        if ($this->citizen_handler->updateBanishment( $citizen, ($building->getPrototype()->getName() === 'r_dhang_#00' || $building->getPrototype()->getName() === 'small_eastercross_#00') ? $building : ($this->getBuilding( $town, 'r_dhang_#00', true ) ?? $this->getBuilding( $town, 'small_eastercross_#00', true )), $building->getPrototype()->getName() === 'small_fleshcage_#00' ? $building : $this->getBuilding( $town, 'small_fleshcage_#00', true ) ))
-                            $this->entity_manager->persist($town);
-                break;
-            case 'small_redemption_#00':
-                foreach ($town->getCitizens() as $citizen)
-                    if ($citizen->getBanished()) {
-                        foreach ($this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen) as $complaint) {
-                            /** @var $complaint Complaint */
-                            $complaint->setSeverity(0);
-                            $this->entity_manager->persist($complaint);
-                        }
-                        $citizen->setBanished(false);
-                        $this->citizen_handler->inflictStatus( $citizen, 'tg_unban_altar' );
-                        $this->entity_manager->persist($citizen);
-                    }
-                break;
-            case "small_lastchance_#00":
-                $destroyedItems = 0;
-                $bank = $town->getBank();               
-                foreach ($bank->getItems() as $bankItem) {
-                    $count = $bankItem->getcount();
-                    $this->inventory_handler->forceRemoveItem($bankItem, $count);
-                    $destroyedItems+= $count;
-                }
-                $this->getBuilding($town, "small_lastchance_#00")->setTempDefenseBonus($destroyedItems);
-                $this->entity_manager->persist( $this->log->constructionsBuildingCompleteAllOrNothing($town, $destroyedItems ) );
-                break;
-            case "small_castle_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebcstl_#00"]);
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
-                break;
-            case "small_pmvbig_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebpmv_#00"]);
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
-                break;
-            case "small_wheel_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebgros_#00"]);
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
-                break;
-            case "small_crow_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebcrow_#00"]);
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
-                break;
-            case "item_electro_#00":
-                $zones = $town->getZones();
-                foreach ($zones as $zone) {
-                    $zone->setZombieStatus(Zone::ZombieStateExact);
-                    $this->entity_manager->persist($zone);
-                }
-                break;
-            case "item_courroie_#00":
-                $this->assignCatapultMaster($town);
-                break;
-            case "small_novlamps_#00":
-                // If the novelty lamps are built, it's effect must be applied immediately
-                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_novlamps']);
-                foreach ($town->getCitizens() as $citizen) {
-                    if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
-                    $this->entity_manager->persist($citizen);
-                }
-
-                break;
-            default: break;
-        }
-
-        // If this is a child of fundament, give a picto
-        $parent = $building->getPrototype()->getParent();
-        while($parent != null) {
-            if ($parent->getName() === "small_building_#00") {
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
-                break;
-            }
-            $parent = $parent->getParent();
-        }
-
-        /*if($building->getPrototype()->getParent() !== null && $building->getPrototype()->getParent()->getName() === 'small_building_#00'){
-            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
-        }*/
-
-        foreach ($town->getCitizens() as $target_citizen) {
-            if (!$target_citizen->getAlive()) continue;
-
-            foreach ($pictos as $picto) {
-                $this->picto_handler->give_picto($target_citizen, $picto);
-            }
-        }
-    }
-
     public function assignCatapultMaster(Town $town, bool $allow_multi = false): ?Citizen {
 
         $choice = [];
@@ -318,7 +175,7 @@ class TownHandler
         $selected = empty($choice) ? null : $this->random->pick($choice);
 
         if ($selected) {
-            $selected->addRole( $this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata') );
+            $selected->addRole( $this->doctrineCache->getEntityByIdentifier(CitizenRole::class, 'cata'));
             $this->crowService->postAsPM($selected, '', '', PrivateMessage::TEMPLATE_CROW_CATAPULT, $selected->getId());
         }
 
@@ -373,19 +230,38 @@ class TownHandler
      * Return the wanted building
      *
      * @param Town $town The town we're looking the building into
-     * @param String|BuildingPrototype $prototype The prototype of the building (name of prototype or Prototype Entity)
+     * @param string|BuildingPrototype $prototype The prototype of the building (name of prototype or Prototype Entity)
      * @param boolean $finished Do we want the building if is finished, null otherwise ?
      * @return Building|null
      */
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
         if (is_string($prototype))
-            $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
+            $prototype = $this->doctrineCache->getEntityByIdentifier(BuildingPrototype::class, $prototype);
 
         if (!$prototype) return null;
         foreach ($town->getBuildings() as $b)
             if ($b->getPrototype()->getId() === $prototype->getId())
                 return (!$finished || $b->getComplete()) ? $b : null;
         return null;
+    }
+
+    private array $building_list_cache = [];
+
+    /**
+     * Return a list of buildings available in town
+     *
+     * @param Town $town The town we're looking the building into
+     * @param boolean $finished Do we want only the buildings if they finished ?
+     * @return array
+     */
+    public function getCachedBuildingList(Town $town, bool $finished = true): array {
+        $key = $finished ? "{$town->getId()}-1" : "{$town->getId()}-0";
+        if (array_key_exists( $key, $this->building_list_cache )) return $this->building_list_cache[$key];
+
+        return $this->building_list_cache[$key] = array_map(
+            fn(Building $b): string => $b->getPrototype()->getName(),
+            $finished ? array_filter( $town->getBuildings()->toArray(), fn(Building $b) => $b->getComplete() ) : $town->getBuildings()->toArray()
+        );
     }
 
     public function getBuildingPrototype(string $prototype, bool $cache = false): ?BuildingPrototype {
@@ -401,6 +277,13 @@ class TownHandler
      */
     public function calculate_home_def( CitizenHome $home, ?HomeDefenseSummary &$summary = null): int {
         $town = $home->getCitizen()->getTown();
+        $homeUpgrades = $home->getCitizenHomeUpgrades()->count() > 0 ? $home->getCitizenHomeUpgrades()->getValues() : [];
+
+        $homeUpgradesPrototypes =
+            array_map(
+                fn(CitizenHomeUpgrade $item) => $item->getPrototype(),
+                $homeUpgrades
+            );
 
         $summary = new HomeDefenseSummary();
         if (!$home->getCitizen()->getAlive())
@@ -421,11 +304,10 @@ class TownHandler
 
         if ($home->getCitizen()->getProfession()->getHeroic()) {
             /** @var CitizenHomeUpgrade|null $n */
-            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'defense' )
-            );
+            $defenseIndex = array_search($this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,"defense"), $homeUpgradesPrototypes);
 
-            if($n) {
+            if($defenseIndex !== false) {
+                $n = $homeUpgrades[$defenseIndex];
                 if($n->getLevel() <= 6)
                     $summary->upgrades_defense += $n->getLevel();
                 else {
@@ -433,27 +315,25 @@ class TownHandler
                 }
             }
 
-            $n = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $home,
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'fence' )
-            );
+            $n = in_array($this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,"fence"), $homeUpgradesPrototypes);
             $summary->upgrades_defense += ($n ? 3 : 0);
         }
 
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
-            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
+            $this->getPrototypesForDefenceItems(), false, false
         );
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_blue_#00'
+            $this->doctrineCache->getEntityByIdentifier(ItemPrototype::class, "soul_blue_#00")
         ) * 2;
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_blue_#01'
+                $this->doctrineCache->getEntityByIdentifier(ItemPrototype::class, "soul_blue_#01")
         ) * 2;
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
-            'soul_red_#00'
+                $this->doctrineCache->getEntityByIdentifier(ItemPrototype::class, "soul_red_#00")
         ) * 2;
 
         return $summary->sum();
@@ -505,16 +385,21 @@ class TownHandler
 
         $guardian_bonus = $this->getBuilding($town, 'small_watchmen_#00', true) ? 10 : 5;
 
-        foreach ($town->getCitizens() as $citizen)
+        $deadCitizens = 0;
+
+        foreach ($town->getCitizens() as $citizen) {
             if ($citizen->getAlive()) {
                 $home = $citizen->getHome();
-                $this->calculate_home_def( $home, $home_summary);
+                $this->calculate_home_def($home, $home_summary);
                 /** @var HomeDefenseSummary $home_summary */
                 $f_house_def += ($home_summary->house_defense + $home_summary->job_defense + $home_summary->upgrades_defense) * $home_def_factor;
 
-                if (!$citizen->getZone() && $citizen->getProfession()->getName() === 'guardian')
+                if ($citizen->getProfession()->getName() === 'guardian' && !$citizen->getZone())
                     $summary->guardian_defense += $guardian_bonus;
+            } else {
+                $deadCitizens++;
             }
+        }
         $summary->house_defense = floor($f_house_def);
         $item_def_factor = 1.0;
         foreach ($town->getBuildings() as $building)
@@ -528,12 +413,10 @@ class TownHandler
                 if ($building->getPrototype()->getName() === 'item_meca_parts_#00')
                     $item_def_factor += (1+$building->getLevel()) * 0.5;
                 else if ($building->getPrototype()->getName() === "small_cemetery_#00") {
-                    $c = 0;
-                    foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
                     $ratio = 10;
                     if ($this->getBuilding($town, 'small_coffin_#00'))
                         $ratio = 20;
-                    $summary->cemetery = $ratio * $c;
+                    $summary->cemetery = $ratio * $deadCitizens;
                 }
             }
 
@@ -541,7 +424,7 @@ class TownHandler
 
 
         $summary->item_defense = min(500, floor($this->inventory_handler->countSpecificItems( $town->getBank(),
-            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
+                $this->getPrototypesForDefenceItems(), false, false
         ) * $item_def_factor));
 
         $summary->soul_defense = $town->getSoulDefense();
@@ -558,16 +441,11 @@ class TownHandler
         if ($day <= 0) $day = ($town->getDay() - $day);
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town,$day);
 
-        $has_shooting_gallery = (bool)$this->getBuilding($town, 'small_tourello_#00', true);
-        $has_trebuchet        = (bool)$this->getBuilding($town, 'small_catapult3_#00', true);
-        $has_ikea             = (bool)$this->getBuilding($town, 'small_ikea_#00', true);
-        $has_armory           = (bool)$this->getBuilding($town, 'small_armor_#00', true);
-
         $count = 0;
         foreach ($watchers as $watcher) {
             if ($watcher->getCitizen()->getZone() !== null) continue;
             $count++;
-            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
+            $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
                 if($item->getPrototype()->getName() == 'chkspk_#00') {
                     $has_counsel = true;
@@ -640,8 +518,6 @@ class TownHandler
 
             $min2 = round($est->getTargetMin() - ($est->getTargetMin() * $offsetMin / 100));
             $max2 = round($est->getTargetMax() + ($est->getTargetMax() * $offsetMax / 100));
-
-            $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
             $min2 = round($min2 * $soulFactor);
             $max2 = round($max2 * $soulFactor);
@@ -909,7 +785,7 @@ class TownHandler
         if ($town->getChaos() || ($town->isOpen() && !$town->getForceStartAhead())) return false;
 
         // Resolve the role; if it does not exist or is not votable, no votes are needed
-        if (is_string($role)) $role =  $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role]);
+        if (is_string($role)) $role = $this->doctrineCache->getEntityByIdentifier(CitizenRole::class, $role);
         if (!$role || !$role->getVotable()) return false;
 
         // If the role is disabled, no vote is needed

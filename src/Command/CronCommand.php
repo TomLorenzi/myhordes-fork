@@ -6,7 +6,12 @@ namespace App\Command;
 
 use App\Entity\Announcement;
 use App\Entity\AttackSchedule;
+use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\EventAnnouncementMarker;
+use App\Entity\HeaderStat;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Statistic;
 use App\Entity\Town;
 use App\Entity\User;
@@ -29,6 +34,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Structures\TownSetup;
 use DateTime;
+use DateTimeImmutable;
 use DirectoryIterator;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -102,6 +108,30 @@ class CronCommand extends Command implements SelfSchedulingCommand
 
         $this->db = $db;
         parent::__construct();
+    }
+
+    /**
+     * @return void
+     */
+    public function updateHeaderStats(): void
+    {
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->neq('end', null));
+        $criteria->orWhere($criteria->expr()->neq('importID', 0));
+        $deadCitizenCount = $this->entityManager->getRepository(CitizenRankingProxy::class)->matching($criteria)->count() + $this->entityManager->getRepository(Citizen::class)->count(['alive' => 0]);
+
+        $pictoKillZombies = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
+        $zombiesKilled = $this->entityManager->getRepository(Picto::class)->countPicto($pictoKillZombies);
+
+        $pictoCanibal = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_cannib_#00']);
+        $cannibalismCount = $this->entityManager->getRepository(Picto::class)->countPicto($pictoCanibal);
+
+        $this->entityManager->persist( (new HeaderStat())
+            ->setTimestamp( new DateTime() )
+            ->setKilledCitizens( $deadCitizenCount )
+            ->setKilledZombies( $zombiesKilled )
+            ->setCannibalismActs($cannibalismCount)
+        );
     }
 
     protected function configure(): void
@@ -188,6 +218,11 @@ class CronCommand extends Command implements SelfSchedulingCommand
             $try_limit = $this->conf->get(MyHordesConf::CONF_NIGHTLY_RETRIES, 3);
             $schedule_id = $s->getId();
 
+            $this->entityManager->persist(
+                $s->setStartedAt( new DateTimeImmutable('now') )
+            );
+            $this->entityManager->flush();
+
             $town_ids = array_column($this->entityManager->createQueryBuilder()
                 ->select('t.id')
                 ->from(Town::class, 't')
@@ -198,6 +233,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 ->getScalarResult(), 'id');
 
             $this->entityManager->clear();
+
+            $quarantined_towns = 0;
 
             $i = 1; $num = count($town_ids);
             foreach ( $town_ids as $town_id ) {
@@ -211,6 +248,8 @@ class CronCommand extends Command implements SelfSchedulingCommand
                 if (!empty($failures)) {
                     // If we exceed the number of allowed processing tries, quarantine the town
                     if (count($failures) >= $try_limit) {
+                        $quarantined_towns++;
+
                         /** @var Town $town */
                         $town = $this->entityManager->getRepository(Town::class)->find($town_id);
                         $town->setAttackFails( count($failures) );
@@ -228,14 +267,18 @@ class CronCommand extends Command implements SelfSchedulingCommand
             }
 
             $s = $this->entityManager->getRepository(AttackSchedule::class)->find($schedule_id);
-            $this->entityManager->persist($s->setCompleted(true));
+            $this->entityManager->persist(
+                $s->setCompleted(true)->setCompletedAt( new DateTimeImmutable('now') )->setFailures($quarantined_towns)
+            );
+
+            $this->updateHeaderStats();
 
             $datemod = $this->conf->get(MyHordesConf::CONF_NIGHTLY_DATEMOD, 'tomorrow');
             if ($datemod !== 'never') {
 
                 $new_date = (new DateTime())->setTimestamp( $s->getTimestamp()->getTimestamp() )->modify($datemod);
                 if ($new_date !== false && $new_date > $s->getTimestamp())
-                    $this->entityManager->persist( (new AttackSchedule())->setTimestamp( $new_date ) );
+                    $this->entityManager->persist( (new AttackSchedule())->setTimestamp( DateTimeImmutable::createFromMutable($new_date) ) );
 
             }
 

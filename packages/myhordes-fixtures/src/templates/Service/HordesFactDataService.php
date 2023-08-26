@@ -8,7 +8,7 @@ class HordesFactDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             // French Facts
             ['name' => 'fr_001', 'content' => 'Avec quelques piles et un moteur , on a pu fabriquer un réacteur nucléaire ! Mac Gyver, peux-tu faire pareil ?', 'author' => 'Pyrojack', 'lang' => 'fr'],
             ['name' => 'fr_002', 'content' => 'Mais on ne sait toujours pas si les zombies font caca...', 'author' => 'Neoplasme', 'lang' => 'fr'],

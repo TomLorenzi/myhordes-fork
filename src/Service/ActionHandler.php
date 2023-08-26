@@ -403,16 +403,16 @@ class ActionHandler
             'ap' => 0,
             'pm' => 0,
             'cp' => 0,
-            'item'   => $item ? $item->getPrototype() : null,
+            'item'   => $item?->getPrototype(),
             'target' => $target_item_prototype,
-            'source_inv' => $item ? $item->getInventory() : null,
+            'source_inv' => $item?->getInventory(),
             'user' => $citizen,
             'citizen' => is_a($target, Citizen::class) ? $target : (is_a($target, FriendshipActionTarget::class) ? $target->citizen() : null),
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
             'items_consume' => [],
             'items_spawn' => [],
-            'item_tool' => $evaluation->getProcessedItems('item_tool'),
+            'item_tool' => $evaluation?->getProcessedItems('item_tool'),
             'tamer_dog' => LogTemplateHandler::generateDogName($citizen->getId(), $this->translator),
             'bp_spawn' => [],
             'bp_parent' => [],
@@ -1056,7 +1056,13 @@ class ActionHandler
                     // Survivalist
                     case 6:case 7: {
                         $drink = $result->getCustom() === 6;
-                        $chances = $citizen->getTown()->getDay() <= 3 ? 1 : max(0.1, 1 - ($citizen->getTown()->getDay() * 0.025));
+                        $chances = 1;
+                        if      ($citizen->getTown()->getDay() >= 20)  $chances = .50;
+                        else if ($citizen->getTown()->getDay() >= 15)  $chances = .60;
+                        else if ($citizen->getTown()->getDay() >= 13)  $chances = .70;
+                        else if ($citizen->getTown()->getDay() >= 10)  $chances = .80;
+                        else if ($citizen->getTown()->getDay() >= 5)   $chances = .85;
+
                         if( $citizen->getTown()->getDevastated() ) $chances = max(0.1, $chances - 0.2);
 
                         $give_ap = false;

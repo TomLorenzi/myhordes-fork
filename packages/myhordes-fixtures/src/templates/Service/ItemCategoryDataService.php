@@ -8,7 +8,7 @@ class ItemCategoryDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             ["name" => "Rsc", "label" => "Baustoffe", "parent" => null, "ordering" => 0],
             ["name" => "Furniture", "label" => "Einrichtungen", "parent" => null, "ordering" => 1],
             ["name" => "Weapon", "label" => "Waffenarsenal", "parent" => null, "ordering" => 2],

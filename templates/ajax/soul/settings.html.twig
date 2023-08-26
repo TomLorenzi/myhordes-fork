@@ -291,11 +291,12 @@
                     </div>
                 </div>
 
-                <h5>
+                {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
+                    <h5>
                     {{ 'Dein Team'|trans({},'soul') }}
                     {{ help_btn('Damit das Ranking am Ende einer Season fair bleibt, musst du dich einer der existierenden Gemeinschaften zuordnen. Die Anzahl der Städte, die du pro Season mit einer anderen als deiner gewählten Gemeinschaft spielen kannst, ist begrenzt. Solange du dieses Limit noch nicht erreicht hast, kannst du deine Gemeinschaft jederzeit wechseln.'|trans({},'soul')) }}
                 </h5>
-                <div class="row">
+                    <div class="row">
                     <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                         <div class="note note-lightest">
                             <label>{{ 'Aktuelles Team'|trans({}, 'soul') }}</label>
@@ -309,21 +310,21 @@
                             {% else %}
                                 <img id="user_current_team" alt="" src="" class="hidden pointer"/>
                             {% endif %}
-                            {% if team_tickets_limit < 0 or team_tickets_in < team_tickets_limit %}
+                            {% if app.user.team is null or  not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
                                 <span id="show_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
                             {% endif %}
                         </div>
                         <div id="team_sel" class="row-flex wrap v-center gap-small space" style="display: none; margin-top: 5px;">
                             {% for flag in langs %}
                                 {% if flag['code'] != 'ach' %}
-                                    <img alt="{{ flag['label'] }}" title="{{ flag['label'] }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
+                                    <img alt="{{ flag['label']|trans({},'global') }}" title="{{ flag['label']|trans({},'global') }}" src="{{ asset('build/images/lang/' ~ flag['code'] ~ '.png' ) }}" data-team="{{ flag['code'] }}" class="pointer"/>
                                 {% endif %}
                             {% endfor %}
                             <span id="hide_team_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
                         </div>
                     </div>
                 </div>
-                {% if app.user.team %}
+                    {# {% if app.user.team %}
                     <div class="row">
                         <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                             <div class="note note-lightest">
@@ -390,12 +391,13 @@
                             {% endif %}
                         </div>
                     </div>
-                {% endif %}
-                <div class="row">
-                    <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
-                        <button id="save_team" class="hidden">{{ 'Speichern'|trans({},'global') }}</button>
+                {% endif %} #}
+                    <div class="row">
+                        <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
+                            <button id="save_team" class="hidden">{{ 'Speichern'|trans({},'global') }}</button>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
 
                 <h5>
                     {{ 'Dein Avatar'|trans({},'soul') }}
@@ -403,6 +405,7 @@
                         'Die maximale Größe der Bilddatei, die du für deinen Avatar hochladen kannst, beträgt <b>{size}</b>.'|trans({size: avatar_max_size[0]},'soul') ~ '<br />' ~
                         'Nach dem Upload wird der Server dein Bild möglicherweise komprimieren (z.B. indem die Größe reduziert oder Animationsframe optimiert werden).'|trans({},'soul') ~ '<br />' ~
                         'Der Server muss in der Lage sein, dein Bild auf höchstens <b>{size}</b> zu komprimieren - andernfalls kann es nicht gespeichert werden.'|trans({size: avatar_max_size[1]},'soul')  ~ '<br /><br />' ~
+                        'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256 '|trans({size: avatar_max_size[1]},'soul')  ~ '<br /><br />' ~
                         'Die folgenden Bildformate werden unterstützt:'|trans({},'soul') ~ ' <b>JPEG</b>, <b>GIF</b>, <b>BMP</b>, <b>PNG</b>, <b>WEBP</b>, <b>AVIF</b>'
                     ) }}
                 </h5>
@@ -725,6 +728,22 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                                <div class="note note-lightest">
+                                    <label for="setting_browser_forumFontSize">{{ 'Schriftgröße im Forum'|trans({}, 'soul') }}</label>
+                                </div>
+                            </div>
+                            <div class="padded cell rw-8 rw-md-6 rw-sm-12">
+                                <select id="setting_browser_forumFontSize">
+                                    <option value="twinoid">{{ 'Sehr klein'|trans({}, 'soul') }}</option>
+                                    <option value="small">{{ 'Klein'|trans({}, 'soul') }}</option>
+                                    <option value="normal">{{ 'Normal'|trans({}, 'soul') }}</option>
+                                    <option value="large">{{ 'Gross'|trans({}, 'soul') }}</option>
+                                    <option value="very-large">{{ 'Sehr gross'|trans({}, 'soul') }}</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -798,6 +817,18 @@
 
             document.body.classList.add('icon-zoom-' + elem.value);
             $.client.config.iconZoom.set(elem.value);
+            confirmConig();
+        });
+
+        $.html.forEach('#setting_browser_forumFontSize', e => e.value = $.client.config.forumFontSize.get());
+        $.html.addEventListenerAll('#setting_browser_forumFontSize', 'change', function(e,elem) {
+            const old_classes = document.body.classList;
+            old_classes.forEach(c => {
+                if (c.substring(0,11) === 'forum-font-') document.body.classList.remove(c);
+            });
+
+            document.body.classList.add('forum-font-' + elem.value);
+            $.client.config.forumFontSize.set(elem.value);
             confirmConig();
         });
 

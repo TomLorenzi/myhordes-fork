@@ -245,6 +245,7 @@
                                 {% elseif town.insurrectionProgress >= 80 %}
                                     {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
                                 {% endif %}
+                                <br />
                                 {{ help_lnk('Aufstand der Verbannten'|trans({},'help'), 'help', {'name': 'shunned_citizens'}) }}
                             </div>
                         {% elseif can_do_insurrection %}
@@ -386,7 +387,7 @@
                 </div>
             {% endif %}
         </div>
-        <div class="padded cell rw-8 rw-sm-12">
+        <div class="padded cell rw-8 rw-sm-12 town-main-content">
             {% block content %}
             {% endblock %}
         </div>

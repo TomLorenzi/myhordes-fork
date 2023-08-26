@@ -31,6 +31,7 @@ use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\MyHordesConf;
@@ -39,6 +40,7 @@ use App\Structures\TownSetup;
 use App\Translation\T;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GameFactory
@@ -71,10 +73,13 @@ class GameFactory
     const ErrorMemberBlocked         = ErrorHelper::BaseTownSelectionErrors + 6;
     private GameProfilerService $gps;
 
+    private EventProxyService $events;
+
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th, TimeKeeperService $ts,
         RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps)
+        TranslatorInterface $translator, MapMaker $mm, CrowService $crow, PermissionHandler $perm, UserHandler $uh, GameProfilerService $gps,
+        EventProxyService $events)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -94,6 +99,7 @@ class GameFactory
         $this->perm = $perm;
         $this->gps = $gps;
         $this->timeKeeper = $ts;
+        $this->events = $events;
     }
 
     private static array $town_name_snippets = [
@@ -539,8 +545,7 @@ class GameFactory
             /** @var BuildingPrototype $proto */
             $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $str_prototype] );
             $b = $this->town_handler->addBuilding( $town, $proto );
-            $b->setAp( $proto->getAp() )->setComplete( true )->setHp($proto->getHp());
-            $this->gps->recordBuildingConstructed( $proto, $town, null, 'config' );
+            if ($b) $this->events->buildingConstruction( $b, 'config' );
         }
 
         $this->town_handler->calculate_zombie_attacks( $town, 3 );
@@ -598,13 +603,20 @@ class GameFactory
             return false;
         }
 
-        $conf = $this->conf->getGlobalConf();
-
-        if (!$internal && !$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_TEAMS ) && !$town->getRankingEntry()?->getEvent() && $town->getLanguage() !== 'multi' && $town->getLanguage() !== $user->getTeam()) {
-            $cap = $conf->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
-            if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $town->getSeason(), '!' )->count())
-                return false;
+        // Prevent lang restricted player from joining a different lang
+        if (!$internal
+            && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplayLang)
+            && !$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_TEAMS )
+            && !$town->getRankingEntry()?->getEvent()
+            && $town->getLanguage() !== 'multi'
+            && $town->getLanguage() !== $user->getTeam())
+        {
+            // $cap = $conf->get(MyHordesConf::CONF_ANTI_GRIEF_FOREIGN_CAP, 3);
+            // if ($cap >= 0 && $cap <= $user->getTeamTicketsFor( $town->getSeason(), '!' )->count())
+            return false;
         }
+
+        $conf = $this->conf->getGlobalConf();
 
         if (!$internal && !$this->conf->getTownConfiguration( $town )->get( TownConf::CONF_FEATURE_NO_SP_REQUIRED )) {
 

@@ -464,11 +464,6 @@ class TownAddonsController extends TownController
         $counsel_def = 0;
         $total_def = 0;
 
-        $has_shooting_gallery = (bool)$th->getBuilding($town, 'small_tourello_#00', true);
-        $has_trebuchet        = (bool)$th->getBuilding($town, 'small_catapult3_#00', true);
-        $has_ikea             = (bool)$th->getBuilding($town, 'small_ikea_#00', true);
-        $has_armory           = (bool)$th->getBuilding($town, 'small_armor_#00', true);
-
         $count = 0;
 
         /** @var CitizenWatch $watcher */
@@ -479,7 +474,7 @@ class TownAddonsController extends TownController
             if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
 
-            $citizen_def = $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
+            $citizen_def = $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
             $total_def += $citizen_def;
             
             $watchers[$watcher->getId()] = array(
@@ -512,12 +507,12 @@ class TownAddonsController extends TownController
                 if($item->getPrototype()->getName() == 'chkspk_#00')
                     $has_counsel = true;
 
-            	if($item->getPrototype()->getWatchpoint() <= 0)
+            	if($item->getPrototype()->getWatchpoint() === 0)
                     continue;
-                    
+
             	$watchers[$watcher->getId()]['items'][] = array(
                     'prototype' => $item->getPrototype(),
-                    'defImpact' => $this->citizen_handler->getNightWatchItemDefense($item, $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory),
+                    'defImpact' => $this->events->buildingQueryNightwatchDefenseBonus( $town, $item ),
                 );
             }
         }

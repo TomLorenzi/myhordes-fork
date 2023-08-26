@@ -21,6 +21,7 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
+use App\Enum\ServerSetting;
 use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -328,7 +329,7 @@ class UserFactory
         }
     }
 
-    public function announceValidationToken(UserPendingValidation $token): bool {
+    public function announceValidationToken(UserPendingValidation $token, bool $force = false): bool {
 
         if (!$token->getUser() || !$token->getPkey()) return false;
 
@@ -371,12 +372,13 @@ class UserFactory
             $from_domain = implode('.', array_slice( explode( '.', $from_domain ), -$domain_slice ));
 
         try {
-            $this->mailer->send( (new Email())
-                ->from( "The Undead Mailman <mailzombie@{$from_domain}>" )
-                ->to( $token->getType() === UserPendingValidation::ChangeEmailValidation ? $token->getUser()->getPendingEmail() : $token->getUser()->getEmail() )
-                ->subject( "MyHordes - $headline" )
-                ->html( $message )
-            );
+            if ($force || !$this->conf->serverSetting( ServerSetting::DisableAutomaticUserValidationMails ) || $token->getType() !== UserPendingValidation::EMailValidation)
+                $this->mailer->send( (new Email())
+                    ->from( "The Undead Mailman <mailzombie@{$from_domain}>" )
+                    ->to( $token->getType() === UserPendingValidation::ChangeEmailValidation ? $token->getUser()->getPendingEmail() : $token->getUser()->getEmail() )
+                    ->subject( "MyHordes - $headline" )
+                    ->html( $message )
+                );
             return true;
         } catch (\Throwable $t) {
             return false;

@@ -44,10 +44,12 @@ use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
 use App\Enum\ItemPoisonType;
 use App\Enum\ZoneActivityMarkerType;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Well\WellExtractionCheckEvent;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
 use App\Service\EventFactory;
+use App\Service\EventProxyService;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
@@ -202,7 +204,7 @@ class TownController extends InventoryAwareController
                 $has_levelable_building = true;
         }
 
-        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
+        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$th->getPrototypesForDefenceItems(), false, false);
 
         $display_home_upgrade = false;
         foreach ($citizens as $citizen) {
@@ -350,67 +352,22 @@ class TownController extends InventoryAwareController
 
         // Getting delta time between now and the last action
         $time = time() - $lastActionTimestamp; 
-        $time = abs($time); 
+        $time = abs($time);
 
-        // Less than 1min ago
-        if ($time <= 60)
-            $lastActionText = $this->translator->trans('vor wenigen Augenblicken', [], 'game');
-        // At least 5 hours ago, same day in the morning
-        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 12)
-            $lastActionText = $this->translator->trans('heute morgen um {H}:{i}', [
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
-        // At least 5 hours ago, same day in the afternoon
-        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 19)
-            $lastActionText = $this->translator->trans('heute nachmittag um {H}:{i}', [
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
-        // Same day, use relative format if no other notation applies
-        elseif ($date->format('d') === (new DateTime())->format('d')) {
-            // Tableau des unités et de leurs valeurs en secondes
-            $times = [
-                3600 =>  T::__('Stunde(n)', 'game'),
-                60   =>  T::__('Minute(n)', 'game'),
-                1    =>  T::__('Sekunde(n)', 'game')
-            ];
+        $lastActionText = $this->generateLastActionText($time, $date, $lastActionTimestamp);
 
-            foreach ($times as $seconds => $unit) {
-                $delta = floor($time / $seconds);
+        $homeUpgrades = $home->getCitizenHomeUpgrades()->getValues();
 
-                if ($delta >= 1) {
-                    $unit = $this->translator->trans($unit, [], 'game');
-                    $lastActionText = $this->translator->trans('vor {time}', ['{time}' => "$delta $unit"], 'game');
-                    break;
-                }
-            }
-        }
-        // Yesterday
-        elseif ((int)$date->format('d') === ((int)(new DateTime())->format('d') - 1))
-            $lastActionText = $this->translator->trans('gestern um {H}:{i}', [
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
-        // Default, full notation
-        else
-            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText = $this->translator->trans('am {d}.{m}.{Y}, um {H}:{i}', [
-                '{d}' => date('d', $lastActionTimestamp),
-                '{m}' => date('m', $lastActionTimestamp),
-                '{Y}' => date('Y', $lastActionTimestamp),
-                '{H}' => date('H', $lastActionTimestamp),
-                '{i}' => date('i', $lastActionTimestamp),
-            ], 'game');
+        $citizenHomeUpgrades = $homeUpgrades?
+            array_map(
+                function($item) {
+                    return $item->getPrototype();
+                },
+                $homeUpgrades
+            ) : [];
 
-        $cc = 0;
-        foreach ($c->getTown()->getCitizens() as $citizen)
-            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $c->getId() && $c->getId() !== $c->getId()) $cc++;
-        $cc = (float)$cc / (float)$c->getTown()->getPopulation(); // Completely arbitrary
 
-        $hidden = ($c->getAlive() && (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
-            $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
-        )));
+        $hidden = $c->getAlive() && in_array($this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,'curtain'), $citizenHomeUpgrades);
 
         $is_injured    = $this->citizen_handler->isWounded($c);
         $is_infected   = $this->citizen_handler->hasStatusEffect($c, 'infection');
@@ -424,7 +381,7 @@ class TownController extends InventoryAwareController
         $hasClairvoyance = false;
         $clairvoyanceLevel = 0;
 
-        if ($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
+        if ($this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'clairvoyance')) {
             $hasClairvoyance = true;
             $clairvoyanceLevel = $this->citizen_handler->getActivityLevel($c);
         }
@@ -447,11 +404,8 @@ class TownController extends InventoryAwareController
             'owner' => $c,
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_devour' => !$this->getActiveCitizen()->getBanished() && $this->getActiveCitizen()->hasRole('ghoul'),
-            'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
-            'home' => $home,
-            'actions' => $this->getItemActions(),
             'can_complain' => !$this->getActiveCitizen()->getBanished() && $complaint_possible,
             'can_undo_complain' => $complaint_possible && $active_complaint?->getSeverity() > 0,
             'complaint' => $active_complaint,
@@ -463,7 +417,6 @@ class TownController extends InventoryAwareController
             'lastActionText' => $lastActionText,
             'def' => $summary,
             'deco' => $deco,
-            'time' => $time,
             'is_injured' => $is_injured,
             'is_infected' => $is_infected,
             'is_thirsty' => $is_thirsty,
@@ -472,7 +425,6 @@ class TownController extends InventoryAwareController
             'is_outside_unprotected' => $c->getZone() !== null && !$protected,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
-            'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
             'protect' => $protected,
@@ -553,7 +505,7 @@ class TownController extends InventoryAwareController
                 $town = $ac->getTown();
                 if (!$this->town_handler->getBuilding($town, 'item_hmeat_#00', true))
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-                $spawn_items[] = [ 'item' => $em->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'hmeat_#00'] ), 'count' => 4 ];
+                $spawn_items[] = [ 'item' => $this->doctrineCache->getEntityByIdentifier( ItemPrototype::class, 'hmeat_#00'), 'count' => 4 ];
                 $pictoName = "r_cooked_#00";
                 $message = $this->translator->trans('Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?', ['{disposed}' => '<span>' . $c->getName() . '</span>','{ration}' => '<span>4</span>'], 'game');
                 $c->setDisposed(Citizen::Cooked);
@@ -575,7 +527,7 @@ class TownController extends InventoryAwareController
         }
 
         // Give picto according to action
-        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
+        $pictoPrototype = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class, $pictoName);
         $this->picto_handler->give_picto($ac, $pictoPrototype);
 
         try {
@@ -811,7 +763,7 @@ class TownController extends InventoryAwareController
         foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['intruder' => $this->getActiveCitizen()]) as $other_intrusion)
             $this->entity_manager->remove($other_intrusion);
 
-        if ($action !== 0 && $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $victim->getHome(), $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'alarm' ) ) && $victim->getAlive()) {
+        if ($action !== 0 && $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype( $victim->getHome(), $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class, 'alarm' ) ) && $victim->getAlive()) {
             $this->entity_manager->persist( $this->log->citizenHomeIntrusion( $this->getActiveCitizen(), $victim, true) );
             $this->addFlash( 'error', $this->translator->trans( 'Du hast das Alarmsystem bei {victim} ausgelöst! Die ganze Stadt weiß jetzt über deinen Einbruch Bescheid.', ['victim' => $victim], 'game' ) );
             $this->crow->postAsPM( $victim, '', '' . time(), PrivateMessage::TEMPLATE_CROW_INTRUSION, $this->getActiveCitizen()->getId() );
@@ -930,7 +882,7 @@ class TownController extends InventoryAwareController
             'def' => $th->calculate_town_def($town, $defSummary),
             'item_defense' => $defSummary->item_defense,
             'item_def_factor' => $item_def_factor,
-            'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
+            'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$th->getPrototypesForDefenceItems(), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'day' => $town->getDay(),
         ]) );
@@ -967,7 +919,8 @@ class TownController extends InventoryAwareController
      */
     public function citizens(EntityManagerInterface $em, TownHandler $th): Response
     {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
+        $activeCitizen = $this->getActiveCitizen();
+        if (!$activeCitizen->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         $citizenInfos = [];
@@ -976,18 +929,32 @@ class TownController extends InventoryAwareController
         $prof_count = [];
         $death_count = 0;
 
-        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+        $protoCurtain = $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,'curtain');
+
+        $townCitizens = $activeCitizen->getTown()->getCitizens();
+        foreach ($townCitizens as $c) {
+            $homeUpgrades = $c->getHome()->getCitizenHomeUpgrades()->getValues();
+
+            $citizenHomeUpgrades = $homeUpgrades?
+                array_map(
+                    function($item) {
+                        return $item->getPrototype();
+                    },
+                    $homeUpgrades
+                ) : [];
+
             $citizenInfo = new CitizenInfo();
             $citizenInfo->citizen = $c;
             $citizenInfo->defense = 0;
 
-            $hidden[$c->getId()] = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($c->getHome(),
-                $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
-            ));
-
-            if (!$c->getAlive()) $death_count++;
+            if (!$c->getAlive()){
+                $death_count++;
+                $hidden[$c->getId()] = false;
+            }
             else {
                 $home = $c->getHome();
+                $hidden[$c->getId()] = in_array($protoCurtain, $citizenHomeUpgrades);
+
                 $citizenInfo->defense = $th->calculate_home_def($home);
 
                 if (!isset($prof_count[ $c->getProfession()->getId() ])) {
@@ -1003,19 +970,19 @@ class TownController extends InventoryAwareController
         }
 
         $cc = 0;
-        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
-            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $this->getActiveCitizen()->getId()) $cc++;
-        $town = $this->getActiveCitizen()->getTown();
+        foreach ($townCitizens as $citizen)
+            if ($citizen->getId() !== $activeCitizen->getId() && $citizen->getAlive() && !$citizen->getZone()) $cc++;
+        $town = $activeCitizen->getTown();
         $cc = (float)$cc / (float)$this->town_handler->get_alive_citizens($town); // Completely arbitrary
 
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizenInfos,
-            'me' => $this->getActiveCitizen(),
+            'me' => $activeCitizen,
             'hidden' => $hidden,
             'prof_count' => $prof_count,
             'death_count' => $death_count,
-            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
-            'is_ghoul' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'has_omniscience' => $activeCitizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($activeCitizen->getUser(), 'omniscience'),
+            'is_ghoul' => $activeCitizen->hasRole('ghoul'),
             'caught_chance' => $cc
         ]) );
     }
@@ -1095,7 +1062,7 @@ class TownController extends InventoryAwareController
         $citizen->addVote($citizenVote);
 
         // We remove the ability to vote from the WB
-        $special_action = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
+        $special_action = $this->doctrineCache->getEntityByIdentifier(SpecialActionPrototype::class, 'special_vote_' . $role->getName());
         if($special_action && $citizen->getSpecialActions()->contains($special_action))
             $citizen->removeSpecialAction($special_action);
 
@@ -1129,11 +1096,20 @@ class TownController extends InventoryAwareController
 
         $citizens = [];
         $hidden = [];
+        $protoCurtain = $this->doctrineCache->getEntityByIdentifier(CitizenHomeUpgradePrototype::class,'curtain');
 
         foreach($town->getCitizens() as $citizen) {
-            $hidden[$citizen->getId()] = (bool)($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(),
-                $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
-            ));
+            $citizenHomeUpgrades = $citizen->getHome()->getCitizenHomeUpgrades()->getValues()?
+                array_map(
+                    function($item) {
+                        return $item->getPrototype();
+                    },
+                    $citizen->getHome()->getCitizenHomeUpgrades()->getValues()
+                ) : [];
+
+
+
+            $hidden[$citizen->getId()] = $citizen->getAlive() && in_array($protoCurtain, $citizenHomeUpgrades);
             $citizens[] = [
                 'infos' => $citizen,
                 'omniscienceLevel' => $this->citizen_handler->getActivityLevel($citizen),
@@ -1154,7 +1130,7 @@ class TownController extends InventoryAwareController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps): Response {
+    public function construction_build_api(JSONRequestParser $parser, GameProfilerService $gps, EventProxyService $events): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1265,7 +1241,6 @@ class TownController extends InventoryAwareController
                 $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             } else {
                 $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
-                $gps->recordBuildingConstructed( $building->getPrototype(), $town, $citizen, 'manual' );
             }
         }
 
@@ -1281,7 +1256,7 @@ class TownController extends InventoryAwareController
             }
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
-            $this->town_handler->triggerBuildingCompletion( $town, $building );
+            $events->buildingConstruction( $building, $citizen );
             $votes = $building->getBuildingVotes();
             foreach ($votes as $vote) {
                 $vote->getCitizen()->setBuildingVote(null);
@@ -1310,9 +1285,9 @@ class TownController extends InventoryAwareController
 
         // Give picto to the citizen
         if(!$was_completed){
-            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_buildr_#00");
+            $pictoPrototype = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class,"r_buildr_#00");
         } else {
-            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_brep_#00");
+            $pictoPrototype = $this->doctrineCache->getEntityByIdentifier(PictoPrototype::class,"r_brep_#00");
         }
         $this->picto_handler->give_picto($citizen, $pictoPrototype, $ap);
 
@@ -1818,8 +1793,8 @@ class TownController extends InventoryAwareController
                 return AjaxResponse::success();
         $report_count = count($reports) + 1;
 
-        if (!$rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume()->isAccepted())
-            return AjaxResponse::error( ErrorHelper::ErrorRateLimited);
+        if (!($limit = $rateLimiter->reportLimiter( $user )->create( $user->getId() )->consume())->isAccepted())
+            return AjaxResponse::error( ErrorHelper::ErrorRateLimited, ['detail' => 'report', 'retry_in' => $limit->getRetryAfter()->getTimestamp() - (new DateTime())->getTimestamp()]);
 
         $details = $parser->trimmed('details');
         $newReport = (new AdminReport())
@@ -2162,5 +2137,59 @@ class TownController extends InventoryAwareController
         $this->entity_manager->flush();
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('town_dashboard')]);
+    }
+
+    /**
+     * @param float|int $time
+     * @param DateTime $date
+     * @param int $lastActionTimestamp
+     * @return string
+     */
+    public function generateLastActionText(float|int $time, DateTime $date, int $lastActionTimestamp): string
+    {
+        // Less than 1min ago
+        if ($time <= 60)
+            $lastActionText = $this->translator->trans('vor wenigen Augenblicken', [], 'game');
+        // At least 5 hours ago, same day before evening
+        elseif ($time > 18000 && $date->format('d') === (new DateTime())->format('d') && (int)date('H', $lastActionTimestamp) < 19)
+            $lastActionText = $this->translator->trans('heute ' . ((int)date('H', $lastActionTimestamp) < 12 ? 'morgen' : 'nachmittag') . ' um {H}:{i}', [
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        // Same day, use relative format if no other notation applies
+        elseif ($date->format('d') === (new DateTime())->format('d')) {
+            // Tableau des unités et de leurs valeurs en secondes
+            $times = [
+                3600 => T::__('Stunde(n)', 'game'),
+                60 => T::__('Minute(n)', 'game'),
+                1 => T::__('Sekunde(n)', 'game')
+            ];
+
+            foreach ($times as $seconds => $unit) {
+                $delta = floor($time / $seconds);
+
+                if ($delta >= 1) {
+                    $unit = $this->translator->trans($unit, [], 'game');
+                    $lastActionText = $this->translator->trans('vor {time}', ['{time}' => "$delta $unit"], 'game');
+                    break;
+                }
+            }
+        } // Yesterday
+        elseif ((int)$date->format('d') === ((int)(new DateTime())->format('d') - 1))
+            $lastActionText = $this->translator->trans('gestern um {H}:{i}', [
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        // Default, full notation
+        else
+            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
+            $lastActionText = $this->translator->trans('am {d}.{m}.{Y}, um {H}:{i}', [
+                '{d}' => date('d', $lastActionTimestamp),
+                '{m}' => date('m', $lastActionTimestamp),
+                '{Y}' => date('Y', $lastActionTimestamp),
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
+            ], 'game');
+        return $lastActionText;
     }
 }

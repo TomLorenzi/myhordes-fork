@@ -8,7 +8,7 @@ class CitizenHomeLevelDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             0 => [ 'label' => 'Feldbett',              'icon' => 'home_lv0', 'def' =>  0, 'ap' => 0, 'resources' => [], 'building' => null, 'upgrades' => false, 'theft' => false ],
             1 => [ 'label' => 'Zelt',                  'icon' => 'home_lv1', 'def' =>  1, 'ap' => 2, 'resources' => [], 'building' => null, 'upgrades' => true,  'theft' => false ],
             2 => [ 'label' => 'Baracke',               'icon' => 'home_lv2', 'def' =>  3, 'ap' => 6, 'resources' => [], 'building' => null, 'upgrades' => true,  'theft' => false ],

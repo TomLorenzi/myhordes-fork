@@ -9,7 +9,7 @@ class ItemGroupDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'empty_dig' => array(
                 'wood_bad_#00'              => 20,
                 'metal_bad_#00'             => 12,

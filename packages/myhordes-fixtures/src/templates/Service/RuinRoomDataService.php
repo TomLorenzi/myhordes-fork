@@ -8,7 +8,7 @@ class RuinRoomDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             [
                 "label" => "Offene Tür"
             ],

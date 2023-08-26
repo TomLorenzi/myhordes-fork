@@ -56,7 +56,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             $entity
             ->setLabel( $entry['label'] )
             ->setDescription( $entry['desc'] )
-            ->setCampingLevel( $entry['camping'] )
+            ->setCampingLevel( $entry['camping'] ?? '10' ) // It's 10% per default
             ->setMinDistance( $entry['min_dist'] )
             ->setMaxDistance( $entry['max_dist'] )
             ->setChance( $entry['chance'] )

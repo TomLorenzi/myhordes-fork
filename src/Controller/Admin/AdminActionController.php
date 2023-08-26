@@ -26,6 +26,7 @@ use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Translation\T;
@@ -53,6 +54,7 @@ class AdminActionController extends CustomAbstractController
     protected AdminLog $logger;
     protected UrlGeneratorInterface $urlGenerator;
     protected AdminHandler $adminHandler;
+	protected TownHandler $town_handler;
 
     public static function getAdminActions(): array {
         return [
@@ -67,6 +69,7 @@ class AdminActionController extends CustomAbstractController
             ['name' => T::__('Saisons', 'admin'),     'route' => 'admin_seasons_view'],
             ['name' => T::__('Gruppen', 'admin'),     'route' => 'admin_group_view'],
             ['name' => T::__('Dateisystem', 'admin'), 'route' => 'admin_file_system_dash'],
+            ['name' => T::__('Angriffsplan', 'admin'),'route' => 'admin_schedule_attacks'],
         ];
     }
 
@@ -78,7 +81,7 @@ class AdminActionController extends CustomAbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator, AdminHandler $adminHandler)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, UserHandler $uh, CrowService $crow, AdminLog $adminLogger, UrlGeneratorInterface $urlGenerator, AdminHandler $adminHandler, TownHandler $townHandler)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->logTemplateHandler = $lth;
@@ -88,6 +91,7 @@ class AdminActionController extends CustomAbstractController
         $this->logger = $adminLogger;
         $this->urlGenerator = $urlGenerator;
         $this->adminHandler = $adminHandler;
+		$this->town_handler = $townHandler;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array
@@ -101,15 +105,12 @@ class AdminActionController extends CustomAbstractController
 
     /**
      * @Route("jx/admin/com/dash", name="admin_dashboard")
-     * @param ParameterBagInterface $params
      * @return Response
      */
-    public function dash(ParameterBagInterface $params): Response
+    public function dash(): Response
     {
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
             'actions' => $this->isGranted('ROLE_CROW') ? self::getAdminActions() : self::getCommunityActions(),
-            'now' => time(),
-            'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
         ]));
     }
 

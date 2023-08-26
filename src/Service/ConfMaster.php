@@ -5,8 +5,10 @@ namespace App\Service;
 
 use App\Entity\Citizen;
 use App\Entity\EventActivationMarker;
+use App\Entity\ServerSettings;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Enum\ServerSetting;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
@@ -23,6 +25,8 @@ class ConfMaster
     private ?MyHordesConf $global_conf = null;
     private ?array $event_conf = null;
     private array $event_cache = [];
+
+    private array $setting_cache = [];
 
     public function __construct(
         array $global,
@@ -233,5 +237,14 @@ class ConfMaster
 
         usort($result, fn(array $a, array $b) => $a[1] <=> $b[1] ?: $a[2] <=> $b[2] ?: strcmp($a[0],$b[0]) );
         return $result;
+    }
+
+    protected function fetchServerSetting(ServerSetting $setting): mixed {
+        $data = $this->entityManager->getRepository(ServerSettings::class)->findOneBy(['setting' => $setting->value])?->getData();
+        return $data ? $setting->decodeValue( $data ) : $setting->default();
+    }
+
+    public function serverSetting(ServerSetting $setting): mixed {
+        return $this->setting_cache[$setting->value] ?? ($this->setting_cache[$setting->value] = $this->fetchServerSetting($setting));
     }
 }

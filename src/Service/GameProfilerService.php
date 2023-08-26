@@ -62,7 +62,8 @@ class GameProfilerService {
                 ?->setForeign1($creator?->getId())
                 ?->setData( [
                                 'conf' =>$this->confMaster->getTownConfiguration( $town )->raw(),
-                                'by' => $method
+                                'by' => $method,
+								'lang' => $town->getLanguage()
                             ]
                 )
         );
@@ -77,7 +78,11 @@ class GameProfilerService {
     public function recordCitizenJoined( Citizen $citizen, string $method = 'default' ): void {
         $this->maybe_persist(
             $this->init( GameProfileEntryType::CitizenJoined, $citizen->getTown(), $citizen )
-                ?->setData( [ 'by' => $method ] )
+                ?->setData( [
+					'by' => $method,
+					'community' => $citizen->getUser()->getTeam(),
+					'isForeign' => $citizen->getUser()->getTeam() !== $citizen->getTown()->getLanguage()
+				] )
         );
     }
 

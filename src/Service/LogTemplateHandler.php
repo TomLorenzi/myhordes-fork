@@ -117,36 +117,56 @@ class LogTemplateHandler
         return $object;
     }
 
-    public static function generateDogName(int $numeric, TranslatorInterface $trans): string {
-        $dog_names_prefix = [
-            T::__('TDG_PRE_00_','names'), T::__('TDG_PRE_10_','names'),T::__('TDG_PRE_20_','names'), T::__('TDG_PRE_30_','names'),T::__('TDG_PRE_40_','names'), T::__('TDG_PRE_50_','names'),
-            T::__('TDG_PRE_01_','names'), T::__('TDG_PRE_11_','names'),T::__('TDG_PRE_21_','names'), T::__('TDG_PRE_31_','names'),T::__('TDG_PRE_41_','names'), T::__('TDG_PRE_51_','names'),
-            T::__('TDG_PRE_02_','names'), T::__('TDG_PRE_12_','names'),T::__('TDG_PRE_22_','names'), T::__('TDG_PRE_32_','names'),T::__('TDG_PRE_42_','names'), T::__('TDG_PRE_52_','names'),
-            T::__('TDG_PRE_03_','names'), T::__('TDG_PRE_13_','names'),T::__('TDG_PRE_23_','names'), T::__('TDG_PRE_33_','names'),T::__('TDG_PRE_43_','names'), T::__('TDG_PRE_53_','names'),
-            T::__('TDG_PRE_04_','names'), T::__('TDG_PRE_14_','names'),T::__('TDG_PRE_24_','names'), T::__('TDG_PRE_34_','names'),T::__('TDG_PRE_44_','names'), T::__('TDG_PRE_54_','names'),
-            T::__('TDG_PRE_05_','names'), T::__('TDG_PRE_15_','names'),T::__('TDG_PRE_25_','names'), T::__('TDG_PRE_35_','names'),T::__('TDG_PRE_45_','names'), T::__('TDG_PRE_55_','names'),
-            T::__('TDG_PRE_06_','names'), T::__('TDG_PRE_16_','names'),T::__('TDG_PRE_26_','names'), T::__('TDG_PRE_36_','names'),T::__('TDG_PRE_46_','names'), T::__('TDG_PRE_56_','names'),
-            T::__('TDG_PRE_07_','names'), T::__('TDG_PRE_17_','names'),T::__('TDG_PRE_27_','names'), T::__('TDG_PRE_37_','names'),T::__('TDG_PRE_47_','names'), T::__('TDG_PRE_57_','names'),
-            T::__('TDG_PRE_08_','names'), T::__('TDG_PRE_18_','names'),T::__('TDG_PRE_28_','names'), T::__('TDG_PRE_38_','names'),T::__('TDG_PRE_48_','names'), T::__('TDG_PRE_58_','names'),
-            T::__('TDG_PRE_09_','names'), T::__('TDG_PRE_19_','names'),T::__('TDG_PRE_29_','names'), T::__('TDG_PRE_39_','names'),T::__('TDG_PRE_49_','names'), T::__('TDG_PRE_59_','names'),
-        ];
+	public static function generateDogName(int $numeric, TranslatorInterface $trans): string {
+		// We need to get the already-translated strings
+		$dog_names_prefix = [
+			$trans->trans('TDG_PRE_00_', [], 'names'), $trans->trans('TDG_PRE_10_', [], 'names'),$trans->trans('TDG_PRE_20_', [], 'names'), $trans->trans('TDG_PRE_30_', [], 'names'),$trans->trans('TDG_PRE_40_', [], 'names'), $trans->trans('TDG_PRE_50_', [], 'names'), $trans->trans('TDG_PRE_60_', [], 'names'), $trans->trans('TDG_PRE_70_', [], 'names'), $trans->trans('TDG_PRE_80_', [], 'names'), $trans->trans('TDG_PRE_90_', [], 'names'),
+			$trans->trans('TDG_PRE_01_', [], 'names'), $trans->trans('TDG_PRE_11_', [], 'names'),$trans->trans('TDG_PRE_21_', [], 'names'), $trans->trans('TDG_PRE_31_', [], 'names'),$trans->trans('TDG_PRE_41_', [], 'names'), $trans->trans('TDG_PRE_51_', [], 'names'), $trans->trans('TDG_PRE_61_', [], 'names'), $trans->trans('TDG_PRE_71_', [], 'names'), $trans->trans('TDG_PRE_81_', [], 'names'), $trans->trans('TDG_PRE_91_', [], 'names'),
+			$trans->trans('TDG_PRE_02_', [], 'names'), $trans->trans('TDG_PRE_12_', [], 'names'),$trans->trans('TDG_PRE_22_', [], 'names'), $trans->trans('TDG_PRE_32_', [], 'names'),$trans->trans('TDG_PRE_42_', [], 'names'), $trans->trans('TDG_PRE_52_', [], 'names'), $trans->trans('TDG_PRE_62_', [], 'names'), $trans->trans('TDG_PRE_72_', [], 'names'), $trans->trans('TDG_PRE_82_', [], 'names'), $trans->trans('TDG_PRE_92_', [], 'names'),
+			$trans->trans('TDG_PRE_03_', [], 'names'), $trans->trans('TDG_PRE_13_', [], 'names'),$trans->trans('TDG_PRE_23_', [], 'names'), $trans->trans('TDG_PRE_33_', [], 'names'),$trans->trans('TDG_PRE_43_', [], 'names'), $trans->trans('TDG_PRE_53_', [], 'names'), $trans->trans('TDG_PRE_63_', [], 'names'), $trans->trans('TDG_PRE_73_', [], 'names'), $trans->trans('TDG_PRE_83_', [], 'names'), $trans->trans('TDG_PRE_93_', [], 'names'),
+			$trans->trans('TDG_PRE_04_', [], 'names'), $trans->trans('TDG_PRE_14_', [], 'names'),$trans->trans('TDG_PRE_24_', [], 'names'), $trans->trans('TDG_PRE_34_', [], 'names'),$trans->trans('TDG_PRE_44_', [], 'names'), $trans->trans('TDG_PRE_54_', [], 'names'), $trans->trans('TDG_PRE_64_', [], 'names'), $trans->trans('TDG_PRE_74_', [], 'names'), $trans->trans('TDG_PRE_84_', [], 'names'), $trans->trans('TDG_PRE_94_', [], 'names'),
+			$trans->trans('TDG_PRE_05_', [], 'names'), $trans->trans('TDG_PRE_15_', [], 'names'),$trans->trans('TDG_PRE_25_', [], 'names'), $trans->trans('TDG_PRE_35_', [], 'names'),$trans->trans('TDG_PRE_45_', [], 'names'), $trans->trans('TDG_PRE_55_', [], 'names'), $trans->trans('TDG_PRE_65_', [], 'names'), $trans->trans('TDG_PRE_75_', [], 'names'), $trans->trans('TDG_PRE_85_', [], 'names'), $trans->trans('TDG_PRE_95_', [], 'names'),
+			$trans->trans('TDG_PRE_06_', [], 'names'), $trans->trans('TDG_PRE_16_', [], 'names'),$trans->trans('TDG_PRE_26_', [], 'names'), $trans->trans('TDG_PRE_36_', [], 'names'),$trans->trans('TDG_PRE_46_', [], 'names'), $trans->trans('TDG_PRE_56_', [], 'names'), $trans->trans('TDG_PRE_66_', [], 'names'), $trans->trans('TDG_PRE_76_', [], 'names'), $trans->trans('TDG_PRE_86_', [], 'names'), $trans->trans('TDG_PRE_96_', [], 'names'),
+			$trans->trans('TDG_PRE_07_', [], 'names'), $trans->trans('TDG_PRE_17_', [], 'names'),$trans->trans('TDG_PRE_27_', [], 'names'), $trans->trans('TDG_PRE_37_', [], 'names'),$trans->trans('TDG_PRE_47_', [], 'names'), $trans->trans('TDG_PRE_57_', [], 'names'), $trans->trans('TDG_PRE_67_', [], 'names'), $trans->trans('TDG_PRE_77_', [], 'names'), $trans->trans('TDG_PRE_87_', [], 'names'), $trans->trans('TDG_PRE_97_', [], 'names'),
+			$trans->trans('TDG_PRE_08_', [], 'names'), $trans->trans('TDG_PRE_18_', [], 'names'),$trans->trans('TDG_PRE_28_', [], 'names'), $trans->trans('TDG_PRE_38_', [], 'names'),$trans->trans('TDG_PRE_48_', [], 'names'), $trans->trans('TDG_PRE_58_', [], 'names'), $trans->trans('TDG_PRE_68_', [], 'names'), $trans->trans('TDG_PRE_78_', [], 'names'), $trans->trans('TDG_PRE_88_', [], 'names'), $trans->trans('TDG_PRE_98_', [], 'names'),
+			$trans->trans('TDG_PRE_09_', [], 'names'), $trans->trans('TDG_PRE_19_', [], 'names'),$trans->trans('TDG_PRE_29_', [], 'names'), $trans->trans('TDG_PRE_39_', [], 'names'),$trans->trans('TDG_PRE_49_', [], 'names'), $trans->trans('TDG_PRE_59_', [], 'names'), $trans->trans('TDG_PRE_69_', [], 'names'), $trans->trans('TDG_PRE_79_', [], 'names'), $trans->trans('TDG_PRE_89_', [], 'names'), $trans->trans('TDG_PRE_99_', [], 'names'),
 
-        $dog_names_suffix = [
-            T::__('TDG_SUF_00','names'), T::__('TDG_SUF_10','names'),T::__('TDG_SUF_20','names'), T::__('TDG_SUF_30','names'),T::__('TDG_SUF_40','names'), T::__('TDG_SUF_50','names'),
-            T::__('TDG_SUF_01','names'), T::__('TDG_SUF_11','names'),T::__('TDG_SUF_21','names'), T::__('TDG_SUF_31','names'),T::__('TDG_SUF_41','names'), T::__('TDG_SUF_51','names'),
-            T::__('TDG_SUF_02','names'), T::__('TDG_SUF_12','names'),T::__('TDG_SUF_22','names'), T::__('TDG_SUF_32','names'),T::__('TDG_SUF_42','names'), T::__('TDG_SUF_52','names'),
-            T::__('TDG_SUF_03','names'), T::__('TDG_SUF_13','names'),T::__('TDG_SUF_23','names'), T::__('TDG_SUF_33','names'),T::__('TDG_SUF_43','names'), T::__('TDG_SUF_53','names'),
-            T::__('TDG_SUF_04','names'), T::__('TDG_SUF_14','names'),T::__('TDG_SUF_24','names'), T::__('TDG_SUF_34','names'),T::__('TDG_SUF_44','names'), T::__('TDG_SUF_54','names'),
-            T::__('TDG_SUF_05','names'), T::__('TDG_SUF_15','names'),T::__('TDG_SUF_25','names'), T::__('TDG_SUF_35','names'),T::__('TDG_SUF_45','names'), T::__('TDG_SUF_55','names'),
-            T::__('TDG_SUF_06','names'), T::__('TDG_SUF_16','names'),T::__('TDG_SUF_26','names'), T::__('TDG_SUF_36','names'),T::__('TDG_SUF_46','names'), T::__('TDG_SUF_56','names'),
-            T::__('TDG_SUF_07','names'), T::__('TDG_SUF_17','names'),T::__('TDG_SUF_27','names'), T::__('TDG_SUF_37','names'),T::__('TDG_SUF_47','names'), T::__('TDG_SUF_57','names'),
-            T::__('TDG_SUF_08','names'), T::__('TDG_SUF_18','names'),T::__('TDG_SUF_28','names'), T::__('TDG_SUF_38','names'),T::__('TDG_SUF_48','names'), T::__('TDG_SUF_58','names'),
-            T::__('TDG_SUF_09','names'), T::__('TDG_SUF_19','names'),T::__('TDG_SUF_29','names'), T::__('TDG_SUF_39','names'),T::__('TDG_SUF_49','names'), T::__('TDG_SUF_59','names'),
-        ];
+			$trans->trans('TDG_PRE_100_', [], 'names'), $trans->trans('TDG_PRE_110_', [], 'names'), $trans->trans('TDG_PRE_120_', [], 'names'), $trans->trans('TDG_PRE_130_', [], 'names'), $trans->trans('TDG_PRE_140_', [], 'names'), $trans->trans('TDG_PRE_150_', [], 'names'), $trans->trans('TDG_PRE_160_', [], 'names'), $trans->trans('TDG_PRE_170_', [], 'names'), $trans->trans('TDG_PRE_180_', [], 'names'), $trans->trans('TDG_PRE_190_', [], 'names'), $trans->trans('TDG_PRE_200_', [], 'names'), $trans->trans('TDG_PRE_210_', [], 'names'),
+			$trans->trans('TDG_PRE_101_', [], 'names'), $trans->trans('TDG_PRE_111_', [], 'names'), $trans->trans('TDG_PRE_121_', [], 'names'), $trans->trans('TDG_PRE_131_', [], 'names'), $trans->trans('TDG_PRE_141_', [], 'names'), $trans->trans('TDG_PRE_151_', [], 'names'), $trans->trans('TDG_PRE_161_', [], 'names'), $trans->trans('TDG_PRE_171_', [], 'names'), $trans->trans('TDG_PRE_181_', [], 'names'), $trans->trans('TDG_PRE_191_', [], 'names'), $trans->trans('TDG_PRE_201_', [], 'names'), $trans->trans('TDG_PRE_211_', [], 'names'),
+			$trans->trans('TDG_PRE_102_', [], 'names'), $trans->trans('TDG_PRE_112_', [], 'names'), $trans->trans('TDG_PRE_122_', [], 'names'), $trans->trans('TDG_PRE_132_', [], 'names'), $trans->trans('TDG_PRE_142_', [], 'names'), $trans->trans('TDG_PRE_152_', [], 'names'), $trans->trans('TDG_PRE_162_', [], 'names'), $trans->trans('TDG_PRE_172_', [], 'names'), $trans->trans('TDG_PRE_182_', [], 'names'), $trans->trans('TDG_PRE_192_', [], 'names'), $trans->trans('TDG_PRE_202_', [], 'names'), $trans->trans('TDG_PRE_212_', [], 'names'),
+			$trans->trans('TDG_PRE_103_', [], 'names'), $trans->trans('TDG_PRE_113_', [], 'names'), $trans->trans('TDG_PRE_123_', [], 'names'), $trans->trans('TDG_PRE_133_', [], 'names'), $trans->trans('TDG_PRE_143_', [], 'names'), $trans->trans('TDG_PRE_153_', [], 'names'), $trans->trans('TDG_PRE_163_', [], 'names'), $trans->trans('TDG_PRE_173_', [], 'names'), $trans->trans('TDG_PRE_183_', [], 'names'), $trans->trans('TDG_PRE_193_', [], 'names'), $trans->trans('TDG_PRE_203_', [], 'names'), $trans->trans('TDG_PRE_213_', [], 'names'),
+			$trans->trans('TDG_PRE_104_', [], 'names'), $trans->trans('TDG_PRE_114_', [], 'names'), $trans->trans('TDG_PRE_124_', [], 'names'), $trans->trans('TDG_PRE_134_', [], 'names'), $trans->trans('TDG_PRE_144_', [], 'names'), $trans->trans('TDG_PRE_154_', [], 'names'), $trans->trans('TDG_PRE_164_', [], 'names'), $trans->trans('TDG_PRE_174_', [], 'names'), $trans->trans('TDG_PRE_184_', [], 'names'), $trans->trans('TDG_PRE_194_', [], 'names'), $trans->trans('TDG_PRE_204_', [], 'names'), $trans->trans('TDG_PRE_214_', [], 'names'),
+			$trans->trans('TDG_PRE_105_', [], 'names'), $trans->trans('TDG_PRE_115_', [], 'names'), $trans->trans('TDG_PRE_125_', [], 'names'), $trans->trans('TDG_PRE_135_', [], 'names'), $trans->trans('TDG_PRE_145_', [], 'names'), $trans->trans('TDG_PRE_155_', [], 'names'), $trans->trans('TDG_PRE_165_', [], 'names'), $trans->trans('TDG_PRE_175_', [], 'names'), $trans->trans('TDG_PRE_185_', [], 'names'), $trans->trans('TDG_PRE_195_', [], 'names'), $trans->trans('TDG_PRE_205_', [], 'names'), $trans->trans('TDG_PRE_215_', [], 'names'),
+			$trans->trans('TDG_PRE_106_', [], 'names'), $trans->trans('TDG_PRE_116_', [], 'names'), $trans->trans('TDG_PRE_126_', [], 'names'), $trans->trans('TDG_PRE_136_', [], 'names'), $trans->trans('TDG_PRE_146_', [], 'names'), $trans->trans('TDG_PRE_156_', [], 'names'), $trans->trans('TDG_PRE_166_', [], 'names'), $trans->trans('TDG_PRE_176_', [], 'names'), $trans->trans('TDG_PRE_186_', [], 'names'), $trans->trans('TDG_PRE_196_', [], 'names'), $trans->trans('TDG_PRE_206_', [], 'names'), $trans->trans('TDG_PRE_216_', [], 'names'),
+			$trans->trans('TDG_PRE_107_', [], 'names'), $trans->trans('TDG_PRE_117_', [], 'names'), $trans->trans('TDG_PRE_127_', [], 'names'), $trans->trans('TDG_PRE_137_', [], 'names'), $trans->trans('TDG_PRE_147_', [], 'names'), $trans->trans('TDG_PRE_157_', [], 'names'), $trans->trans('TDG_PRE_167_', [], 'names'), $trans->trans('TDG_PRE_177_', [], 'names'), $trans->trans('TDG_PRE_187_', [], 'names'), $trans->trans('TDG_PRE_197_', [], 'names'), $trans->trans('TDG_PRE_207_', [], 'names'), $trans->trans('TDG_PRE_217_', [], 'names'),
+			$trans->trans('TDG_PRE_108_', [], 'names'), $trans->trans('TDG_PRE_118_', [], 'names'), $trans->trans('TDG_PRE_128_', [], 'names'), $trans->trans('TDG_PRE_138_', [], 'names'), $trans->trans('TDG_PRE_148_', [], 'names'), $trans->trans('TDG_PRE_158_', [], 'names'), $trans->trans('TDG_PRE_168_', [], 'names'), $trans->trans('TDG_PRE_178_', [], 'names'), $trans->trans('TDG_PRE_188_', [], 'names'), $trans->trans('TDG_PRE_198_', [], 'names'), $trans->trans('TDG_PRE_208_', [], 'names'), $trans->trans('TDG_PRE_218_', [], 'names'),
+			$trans->trans('TDG_PRE_109_', [], 'names'), $trans->trans('TDG_PRE_119_', [], 'names'), $trans->trans('TDG_PRE_129_', [], 'names'), $trans->trans('TDG_PRE_139_', [], 'names'), $trans->trans('TDG_PRE_149_', [], 'names'), $trans->trans('TDG_PRE_159_', [], 'names'), $trans->trans('TDG_PRE_169_', [], 'names'), $trans->trans('TDG_PRE_179_', [], 'names'), $trans->trans('TDG_PRE_189_', [], 'names'), $trans->trans('TDG_PRE_199_', [], 'names'), $trans->trans('TDG_PRE_209_', [], 'names'), $trans->trans('TDG_PRE_219_', [], 'names'),
+		];
 
-        list(,$preID,$sufID) = unpack('l2', md5("dog-for-{$numeric}", true));
-        return "{$trans->trans($dog_names_prefix[abs($preID % count($dog_names_prefix))],[],'names')}{$trans->trans($dog_names_suffix[abs($sufID % count($dog_names_suffix))],[],'names')}";
-    }
+		$dog_names_suffix = [
+			$trans->trans('TDG_SUF_00', [], 'names'), $trans->trans('TDG_SUF_10', [], 'names'),$trans->trans('TDG_SUF_20', [], 'names'), $trans->trans('TDG_SUF_30', [], 'names'),$trans->trans('TDG_SUF_40', [], 'names'), $trans->trans('TDG_SUF_50', [], 'names'),
+			$trans->trans('TDG_SUF_01', [], 'names'), $trans->trans('TDG_SUF_11', [], 'names'),$trans->trans('TDG_SUF_21', [], 'names'), $trans->trans('TDG_SUF_31', [], 'names'),$trans->trans('TDG_SUF_41', [], 'names'), $trans->trans('TDG_SUF_51', [], 'names'),
+			$trans->trans('TDG_SUF_02', [], 'names'), $trans->trans('TDG_SUF_12', [], 'names'),$trans->trans('TDG_SUF_22', [], 'names'), $trans->trans('TDG_SUF_32', [], 'names'),$trans->trans('TDG_SUF_42', [], 'names'), $trans->trans('TDG_SUF_52', [], 'names'),
+			$trans->trans('TDG_SUF_03', [], 'names'), $trans->trans('TDG_SUF_13', [], 'names'),$trans->trans('TDG_SUF_23', [], 'names'), $trans->trans('TDG_SUF_33', [], 'names'),$trans->trans('TDG_SUF_43', [], 'names'), $trans->trans('TDG_SUF_53', [], 'names'),
+			$trans->trans('TDG_SUF_04', [], 'names'), $trans->trans('TDG_SUF_14', [], 'names'),$trans->trans('TDG_SUF_24', [], 'names'), $trans->trans('TDG_SUF_34', [], 'names'),$trans->trans('TDG_SUF_44', [], 'names'), $trans->trans('TDG_SUF_54', [], 'names'),
+			$trans->trans('TDG_SUF_05', [], 'names'), $trans->trans('TDG_SUF_15', [], 'names'),$trans->trans('TDG_SUF_25', [], 'names'), $trans->trans('TDG_SUF_35', [], 'names'),$trans->trans('TDG_SUF_45', [], 'names'), $trans->trans('TDG_SUF_55', [], 'names'),
+			$trans->trans('TDG_SUF_06', [], 'names'), $trans->trans('TDG_SUF_16', [], 'names'),$trans->trans('TDG_SUF_26', [], 'names'), $trans->trans('TDG_SUF_36', [], 'names'),$trans->trans('TDG_SUF_46', [], 'names'), $trans->trans('TDG_SUF_56', [], 'names'),
+			$trans->trans('TDG_SUF_07', [], 'names'), $trans->trans('TDG_SUF_17', [], 'names'),$trans->trans('TDG_SUF_27', [], 'names'), $trans->trans('TDG_SUF_37', [], 'names'),$trans->trans('TDG_SUF_47', [], 'names'), $trans->trans('TDG_SUF_57', [], 'names'),
+			$trans->trans('TDG_SUF_08', [], 'names'), $trans->trans('TDG_SUF_18', [], 'names'),$trans->trans('TDG_SUF_28', [], 'names'), $trans->trans('TDG_SUF_38', [], 'names'),$trans->trans('TDG_SUF_48', [], 'names'), $trans->trans('TDG_SUF_58', [], 'names'),
+			$trans->trans('TDG_SUF_09', [], 'names'), $trans->trans('TDG_SUF_19', [], 'names'),$trans->trans('TDG_SUF_29', [], 'names'), $trans->trans('TDG_SUF_39', [], 'names'),$trans->trans('TDG_SUF_49', [], 'names'), $trans->trans('TDG_SUF_59', [], 'names'),
+		];
+
+		// As we may have empty prefix and empty suffix, we must remove empty translated values in order to always have a full string
+		$dog_names_prefix = array_values(array_filter($dog_names_prefix));
+		$dog_names_suffix = array_values(array_filter($dog_names_suffix));
+
+		// We still need an empty value if there's nothing available
+		if (empty($dog_names_prefix)) $dog_names_prefix = [""];
+		if (empty($dog_names_suffix)) $dog_names_suffix = [""];
+
+		list(,$preID,$sufID) = unpack('l2', md5("dog-for-{$numeric}", true));
+		return "{$dog_names_prefix[abs($preID % count($dog_names_prefix))]}{$dog_names_suffix[abs($sufID % count($dog_names_suffix))]}";
+	}
     
     public function parseTransParams(array $variableTypes, array $variables): ?array {
         $transParams = [];
@@ -248,6 +268,7 @@ class LogTemplateHandler
                     if ( $binmatch($mask, AccountRestriction::RestrictionComments) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Kommentare', [], 'soul' ));
                     if ( $binmatch($mask, AccountRestriction::RestrictionOrganization) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Gruppenorganisation', [], 'soul' ));
                     if ( $binmatch($mask, AccountRestriction::RestrictionGameplay) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Spielen', [], 'soul' ));
+                    if ( $binmatch($mask, AccountRestriction::RestrictionGameplayLang) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Spielen in anderen Gemeinden', [], 'soul' ));
                     if ( $binmatch($mask, AccountRestriction::RestrictionProfile) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Profils', [], 'soul' ));
                     else {
                         if ( $binmatch($mask, AccountRestriction::RestrictionProfileAvatar) ) $transParams['{'.$typeEntry['name'].'}'] .= $this->wrap($this->trans->trans( 'Ändern des Avatars', [], 'soul' ));
@@ -1513,7 +1534,7 @@ class LogTemplateHandler
 
     public function nightlyAttackUpgradeBuildingItems( Building $building, ?array $items ): TownLogEntry {
         $variables = array('building' => $building->getPrototype()->getId(), 
-            'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+            'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item'],'count' => $e['count']);}
               else { return array('id' => $e[0]->getId()); } }, $items ));
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackUpgradeBuildingItems']);
 
@@ -1714,8 +1735,8 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $victim->getTown() )
             ->setDay( $victim->getTown()->getDay() )
-            ->setCitizen( $victim )
-            ->setSecondaryCitizen( $actor )
+            ->setCitizen( $actor )
+            ->setSecondaryCitizen( $victim )
             ->setTimestamp( new DateTime('now') );
     }
 

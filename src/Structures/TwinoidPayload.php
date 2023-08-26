@@ -145,6 +145,7 @@ class TwinoidPayload
                             15 => $this->_parent->internal_fetch_cod(CauseOfDeath::FleshCage),
                             16 => $this->_parent->internal_fetch_cod(CauseOfDeath::ChocolateCross),
                             17 => $this->_parent->internal_fetch_cod(CauseOfDeath::ExplosiveDoormat),
+                            18 => $this->_parent->internal_fetch_cod(CauseOfDeath::Haunted),
                             default => $this->_parent->internal_fetch_cod(CauseOfDeath::Unknown),
                         };
                     }

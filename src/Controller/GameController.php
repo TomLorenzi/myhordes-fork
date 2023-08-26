@@ -77,15 +77,16 @@ class GameController extends CustomAbstractController
      */
     public function landing(): Response
     {
-        if (!$this->getActiveCitizen()->getAlive())
+        $activeCitizen = $this->getActiveCitizen();
+        if (!$activeCitizen->getAlive())
             return $this->redirect($this->generateUrl('soul_death'));
-        elseif ($this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
+        elseif ($activeCitizen->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_jobs'));
-        elseif (!$this->getActiveCitizen()->getHasSeenGazette())
+        elseif (!$activeCitizen->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
-        elseif ($this->getActiveCitizen()->getZone() && !$this->getActiveCitizen()->activeExplorerStats())
+        elseif ($activeCitizen->getZone() && !$activeCitizen->activeExplorerStats())
             return $this->redirect($this->generateUrl('beyond_dashboard'));
-        elseif ($this->getActiveCitizen()->getZone() && $this->getActiveCitizen()->activeExplorerStats())
+        elseif ($activeCitizen->getZone() && $activeCitizen->activeExplorerStats())
             return $this->redirect($this->generateUrl('exploration_dashboard'));
         else return $this->redirect($this->generateUrl('town_dashboard'));
     }
@@ -115,11 +116,12 @@ class GameController extends CustomAbstractController
      * @return Response
      */
     public function newspaper(): Response {
-        if ($this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
+        $activeCitizen = $this->getActiveCitizen();
+        if ($activeCitizen->getAlive() && $activeCitizen->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
-        $in_town = $this->getActiveCitizen()->getZone() === null;
-        $town = $this->getActiveCitizen()->getTown();
+        $in_town = $activeCitizen->getZone() === null;
+        $town = $activeCitizen->getTown();
 
         $has_living_citizens = false;
         foreach ( $town->getCitizens() as $c )
@@ -128,7 +130,7 @@ class GameController extends CustomAbstractController
                 break;
             }
 
-        if (!$has_living_citizens && $this->getActiveCitizen()->getCauseOfDeath()->getRef() != CauseOfDeath::Radiations)
+        if (!$has_living_citizens && $activeCitizen->getCauseOfDeath()->getRef() != CauseOfDeath::Radiations)
             return $this->redirect($this->generateUrl('game_landing'));
 
         $citizensWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
@@ -140,11 +142,10 @@ class GameController extends CustomAbstractController
             if ( $this->town_handler->is_vote_needed($town, $role) )
                 $votesNeeded[$role->getName()] = $role;
 
-        $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
+        $show_register = $in_town || !$activeCitizen->getAlive();
 
-        $citizen = $this->getActiveCitizen();
-        $citizen->setHasSeenGazette(true);
-        $this->entity_manager->persist($citizen);
+        $activeCitizen->setHasSeenGazette(true);
+        $this->entity_manager->persist($activeCitizen);
         $this->entity_manager->flush();
 
         $citizenRoleList = [];
@@ -189,12 +190,13 @@ class GameController extends CustomAbstractController
      */
     public function job_select(ConfMaster $cf): Response
     {
-        if ($this->getActiveCitizen()->getProfession()->getName() !== CitizenProfession::DEFAULT)
+        $activeCitizen = $this->getActiveCitizen();
+        if ($activeCitizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
         $jobs = $this->entity_manager->getRepository(CitizenProfession::class)->findSelectable();
 
-        $town = $this->getActiveCitizen()->getTown();
+        $town = $activeCitizen->getTown();
 
         $disabledJobs = $cf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
 

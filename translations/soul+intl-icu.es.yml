@@ -566,3 +566,13 @@ Bildformat: Formato de imagen
 'Koalition umbenennen': 'Renombrar alianza'
 'Gib den neuen Namen deiner Koalition ein.': 'Introduce el nuevo nombre de la alianza.'
 'Du hast den Namen deiner Koalition erfolgreich geändert.': 'Has cambiado correctamente el nombre de tu alianza.'
+'Diese Animation beinhaltet zu viele Einzelbilder, daher kann der Server sie nicht auf die erforderliche Größe zuschneiden.': 'Esta animación contiene demasiados fotogramas, por lo cual el servidor no puede recortarla al tamaño requerido.'
+'Wenn du ein animiertes Bild mit einer Auflösung größer als 200×200 Pixel hochlädst, darf dieses aus nicht mehr als 256': 'Si subes una imagen animada con una resolución superior a 200×200 píxeles, no debe de tener más de 256 fotogramas.'
+'Schriftgröße im Forum': 'Tamaño de fuente del foro'
+Normal: Normal
+'Sehr klein': 'Muy pequeño'
+Klein: Pequeño
+Gross: Grande
+'Sehr gross': 'Muy grande'
+'Spielen in anderen Gemeinden': 'Jugar en otras comunidades'
+'Du kannst nur den Städten deiner Gemeinschaft beitreten.': 'Solo está permitido jugar en pueblos de su comunidad.'

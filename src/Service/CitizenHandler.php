@@ -42,10 +42,11 @@ class CitizenHandler
     private ConfMaster $conf;
     private GameProfilerService $gps;
     private CrowService $crow;
+    private EventProxyService $events;
 
     public function __construct(EntityManagerInterface $em, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf, GameProfilerService $gps, CrowService $crow )
+                                ConfMaster $conf, GameProfilerService $gps, CrowService $crow, EventProxyService $events )
     {
         $this->entity_manager = $em;
         $this->random_generator = $g;
@@ -58,6 +59,7 @@ class CitizenHandler
         $this->conf = $conf;
         $this->gps = $gps;
         $this->crow = $crow;
+        $this->events = $events;
     }
 
     /**
@@ -580,9 +582,101 @@ class CitizenHandler
         // In order to don't overflow 100%, we take the min between 0 and the camping value.
         // Camping value is going more and more negative when your camping chances are dropping.
         // The survivalist job can reach 100% of camping survival chances. Others are stuck at 90%.
-        // We found out that there seems to be a minimum of survival chances of 10%. We should confirm
-        // this with more tests on the original game. But for now, let's take 10%.
-        return min(max((100.0 - (abs(min(0, array_sum($this->getCampingValues($citizen)))) * 5)) / 100.0, .1), $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9);
+
+		// Generic infos
+		$is_panda = $citizen->getTown()->getType()->getName() === 'panda';
+		$has_pro_camper = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'procamp');
+		$config = $this->conf->getTownConfiguration($citizen->getTown());
+		$has_scout_protection = $this->inventory_handler->countSpecificItems(
+			$citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
+		) > 0;
+
+		$chance = [
+			'previous' => 0,
+			'tomb' => 0,
+			'town' => 0,
+			'zone' => 0,
+			'zoneBuilding' => 0,
+			'lighthouse' => 0,
+			'campitems' => 0,
+			'zombies' => 0,
+			'campers' => 0,
+			'night' => 0,
+			'distance' => 0,
+			'devastated' => 0
+		];
+		// Previous campings
+		if( $is_panda )
+			if( $has_pro_camper )
+				$campChances = [50,45,40,30,20,10,0];
+			else
+				$campChances = [50,30,20,10,0];
+		else
+			if( $has_pro_camper )
+				$campChances = [80,70,60,40,30,20,0];
+			else
+				$campChances = [80,60,35,15,0];
+		$campChances = array_merge($campChances, [-50, -100, -200, -400, -1000, -2000, -5000] );
+		$chance['previous'] = $campChances[min($citizen->getCampingCounter(), count($campChances) - 1)];
+
+		// Tomb bonus
+		$chance["tomb"] = ($citizen->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ) ) ? 8 : 0);
+
+		// Hardcore malus
+		$chance["town"] = (int)$config->get(TownConf::CONF_MODIFIER_CAMPING_BONUS, 0);
+
+		// Zone improvement
+		$chance["zone"] = $citizen->getZone()->getImprovementLevel();
+		if ($citizen->getZone()->getPrototype()) {
+			if ($citizen->getZone()->getBuryCount() == 0) {
+				$chance["zoneBuilding"] = $citizen->getZone()->getPrototype()->getCampingLevel();
+			} else {
+				$chance["zoneBuilding"] = 15;
+			}
+		} else {
+			$chance["zoneBuilding"] = -25;
+		}
+
+		// Lighthouse
+		if ($this->container->get(TownHandler::class)->getBuilding( $citizen->getTown(), "small_lighthouse_#00", true ))
+			$chance["lighthouse"] = 25;
+
+		// Camping items in the backpack
+		$campitems = [
+			$this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'smelly_meat_#00' ),
+			$this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'sheet_#00' ),
+		];
+		$chance['campitems'] = $this->inventory_handler->countSpecificItems($citizen->getInventory(), $campitems, false, false) * 5; // Each item gives a 5% bonus
+
+		// Zombies on the zone
+		$zombieRatio = ($has_scout_protection ? -3 : -7);
+		$chance["zombies"] = $citizen->getZone()->getZombies() * $zombieRatio;
+
+		// Other campers on the zone
+		if (count($citizen->getZone()->getCampers()) > 0) {
+			$crowdChances = [0,-10,-30,-50,-70];
+			$cc = $crowdChances[ min(count($crowdChances) - 1, max(0, count($citizen->getZone()->getCampers()) - 2))]; // -1 because we must not count ourselves AND we ignore the first camper.
+			$chance["campers"] = $cc;
+		}
+
+		// Night
+		$camping_datetime = new DateTime();
+		if ($citizen->getCampingTimestamp() > 0)
+			$camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
+		if ($config->isNightMode())
+			$chance['night'] = 10;
+
+		// Zone distance
+		$distChances = [-100, -75, -50, -25, -10, 0, 0, 0, 0, 0, 0, 0, 5, 7, 10, 15, 20];
+		$chance["distance"] = $distChances[ min(count($distChances) - 1, $citizen->getZone()->getDistance()) ];
+
+		// Devastated town
+		if ($citizen->getTown()->getDevastated())
+			$chance["devastated"] = -50;
+
+		return max(0, min(array_sum($chance) / 100.0, $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9));
+		// OLD METHOD:
+        // return min(max((100.0 - (abs(min(0, array_sum($this->getCampingValues($citizen)))) * 5)) / 100.0, .1), $citizen->getProfession()->getName() === 'survivalist' ? 1.0 : 0.9);
     }
 
     public function getCampingValues(Citizen $citizen): array {
@@ -768,7 +862,7 @@ class CitizenHandler
         return $citizen->getProfession()->getNightwatchDefenseBonus();
     }
 
-    public function getNightwatchProfessionSurvivalBonus(Citizen $citizen){
+    public function getNightwatchProfessionSurvivalBonus(Citizen $citizen): float{
         /*if ($citizen->getProfession()->getName() == "guardian") {
             return 0.04;
         }*/
@@ -804,30 +898,14 @@ class CitizenHandler
         return round($chances, 2, PHP_ROUND_HALF_DOWN);
     }
 
-    public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {
-        if ($item->getBroken()) return 0;
-
-        $bonus = [];
-        if ($shooting_gallery && $item->getPrototype()->hasProperty('nw_shooting'))  $bonus[] = 0.2;
-        if ($trebuchet        && $item->getPrototype()->hasProperty('nw_trebuchet')) $bonus[] = 0.2;
-        if ($ikea             && $item->getPrototype()->hasProperty('nw_ikea'))      $bonus[] = 0.2;
-        if ($armory           && $item->getPrototype()->hasProperty('nw_armory'))    $bonus[] = 0.2;
-
-        $total = $item->getPrototype()->getWatchpoint();
-        foreach ($bonus as $single)
-            $total = (int)floor( $total * (1.0+$single) );
-
-        return $total;
-    }
-
-    public function getNightWatchDefense(Citizen $citizen, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory): int {
+    public function getNightWatchDefense(Citizen $citizen): int {
         $def = 10 + $this->getNightwatchProfessionDefenseBonus($citizen);
 
         foreach ($citizen->getStatus() as $status)
             $def += $status->getNightWatchDefenseBonus();
 
         foreach ($citizen->getInventory()->getItems() as $item)
-            $def += $this->getNightWatchItemDefense($item, $shooting_gallery, $trebuchet, $ikea, $armory);
+            $def += $this->events->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $item );
 
         return $def;
     }

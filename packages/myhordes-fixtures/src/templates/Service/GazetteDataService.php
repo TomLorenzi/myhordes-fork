@@ -9,7 +9,7 @@ class GazetteDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             // Gazette: Fun Texts
             ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
                 'name'=>'gazetteFun_001',

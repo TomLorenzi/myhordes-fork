@@ -8,7 +8,7 @@ class CitizenComplaintDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             ['name' => 'theft', 'text' => 'Zahlreiche Diebstähle begangen'],
             ['name' => 'water', 'text' => 'Verbraucht zuviel Wasser'],
             ['name' => 'insulting', 'text' => 'Beleidigendes Verhalten'],

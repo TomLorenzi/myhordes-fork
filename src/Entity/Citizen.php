@@ -50,7 +50,7 @@ class Citizen
     #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenHome', inversedBy: 'citizen', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private $home;
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Zone', inversedBy: 'citizens')]
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Zone', inversedBy: 'citizens', fetch: 'EXTRA_LAZY')]
     private $zone;
     #[ORM\OneToMany(targetEntity: 'App\Entity\DigTimer', mappedBy: 'citizen', orphanRemoval: true)]
     private $digTimers;

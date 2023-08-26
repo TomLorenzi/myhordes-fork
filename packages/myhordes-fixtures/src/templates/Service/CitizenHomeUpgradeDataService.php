@@ -8,7 +8,7 @@ class CitizenHomeUpgradeDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             [ 'name' => 'curtain', 'label' => 'Großer Vorhang', 'desc' => 'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.', 'levels' => [
                 1 => [ 4, [] ]
             ] ],

@@ -13,11 +13,14 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use MyHordes\Fixtures\DTO\Buildings\BuildingPrototypeDataContainer;
+use MyHordes\Fixtures\DTO\Buildings\BuildingPrototypeDataElement;
 use MyHordes\Plugins\Fixtures\Building;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use MyHordes\Plugins\Fixtures\Recipe as RecipeFixturesData;
+use function PHPUnit\Framework\containsEqual;
 
 class RecipeFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -33,93 +36,57 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         $this->recipe_data = $recipe_data;
     }
 
-    /**
-     * @param ObjectManager $manager
-     * @param array $data
-     * @param array $cache
-     * @return BuildingPrototype
-     * @throws Exception
-     */
-    public function create_building(ObjectManager &$manager, array $data, array &$cache): BuildingPrototype {
-        // Set up the icon cache
-        if (!isset($cache[$data['img']])) $cache[$data['img']] = 0;
-        else $cache[$data['img']]++;
-
-        // Generate unique ID
-        $entry_unique_id = $data['img'] . '_#' . str_pad($cache[$data['img']],2,'0',STR_PAD_LEFT);
-
-        $object = $manager->getRepository(BuildingPrototype::class)->findOneByName( $entry_unique_id, false );
-        if ($object) {
-            if (!empty($object->getResources())) $manager->remove($object->getResources());
-        } else $object = (new BuildingPrototype())->setName( $entry_unique_id );
-
-        $object
-            ->setLabel( $data['name'] )
-            ->setTemp( $data['temporary'] > 0 )
-            ->setAp( $data['ap'] )
-            ->setBlueprint( $data['bp'] )
-            ->setDefense( $data['vp'] )
-            ->setIcon( $data['img'] )
-            ->setHp($data['hp'])
-            ->setImpervious( $data['impervious'] ?? false );
-
-        if(isset($data['desc'])){
-        	$object->setDescription($data['desc']);
-        }
-
-        if (isset($data['maxLevel'])) {
-            $object->setMaxLevel( $data['maxLevel'] );
-            $object->setZeroLevelText( $data['lv0text'] ?? null );
-            if ($data['upgradeTexts']) $object->setUpgradeTexts( $data['upgradeTexts'] );
-        }
-
-        if(isset($data['orderby'])){
-            $object->setOrderBy( $data['orderby'] );
-        }
-
-        if (!empty($data['rsc'])) {
-
-            $group = (new ItemGroup())->setName( "{$entry_unique_id}_rsc" );
-            foreach ($data['rsc'] as $item_name => $count) {
-
-                $item = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item_name] );
-                if (!$item) throw new Exception( "Item class not found: " . $item_name );
-
-                $group->addEntry( (new ItemGroupEntry())->setPrototype( $item )->setChance( $count ) );
-            }
-
-            $object->setResources( $group );
-        }
-
-        $object->getChildren()->clear();
-        $object->setParent(null);
-
-        if (!empty($data['children']))
-            foreach ($data['children'] as $child)
-                $object->addChild( $this->create_building( $manager, $child, $cache ) );
-
-        $manager->persist( $object );
-        return $object;
-
-    }
-
     public function insert_buildings(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $building_data = $this->building_data->data();
+        $building_data = (new BuildingPrototypeDataContainer( $this->building_data->data() ))->all();
         // Set up console
         $progress = new ProgressBar( $out->section() );
         $progress->start( count($building_data) );
 
+        /** @var BuildingPrototype[] $available_parents */
+        $available_parents = [];
+
         $cache = [];
-        foreach ($building_data as $building)
-            try {
-                $this->create_building($manager, $building, $cache);
-                $progress->advance();
-            } catch (Exception $e) {
-                $out->writeln("<error>{$e->getMessage()}</error>");
-                return;
-            }
+        while (!empty($building_data)) {
+            foreach ($building_data as $id => $building)
+                try {
+                    //$this->create_building($manager, $building, $cache);
+                    if (array_key_exists($id, $available_parents)) continue;
+                    if ($building->parentBuilding !== null && !array_key_exists($building->parentBuilding, $available_parents))
+                        continue;
+
+                    $object =
+                        $this->entityManager->getRepository(BuildingPrototype::class)->findOneByName($id, false) ??
+                        (new BuildingPrototype())->setName($id);
+
+                    $building->toEntity($this->entityManager, $id, $object);
+                    $object->getChildren()->clear();
+                    if ($building->parentBuilding !== null) {
+                        $object->setParent($available_parents[$building->parentBuilding]);
+                        $available_parents[$building->parentBuilding]->addChild($object);
+                    } else $object->setParent(null);
+                    $this->entityManager->persist($available_parents[$id] = $object);
+
+
+                    $progress->advance();
+                } catch (Exception $e) {
+                    $out->writeln("<error>{$e->getMessage()}</error>");
+                    return;
+                }
+
+            $c = count($building_data);
+            $building_data = array_filter( $building_data, fn($a) => !array_key_exists( $a, $available_parents ), ARRAY_FILTER_USE_KEY );
+            if (count($building_data) >= $c) throw new Exception('Dependency chain for building prototypes is broken: The following buildings can not be inserted: ' . implode( ',', array_keys($building_data) ));
+        }
 
         $manager->flush();
+
+        foreach ($this->entityManager->getRepository(BuildingPrototype::class)->findAll() as $existing)
+            if ($existing->getBlueprint() < 6 && !array_key_exists($existing->getName(), $available_parents)) {
+                $out->writeln("Retiring the building <info>{$existing->getName()}</info>.");
+                $this->entityManager->persist($existing->setBlueprint(6));
+            }
+        $manager->flush();
+
         $progress->finish();
     }
 

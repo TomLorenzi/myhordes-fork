@@ -7,12 +7,18 @@ use Exception;
 abstract class Container implements ContainerInterface
 {
     public function __construct(
-        private array $data = []
+        private array $data = [],
+        private ?string $lastKey = null
     ) { }
 
-    protected function store(ElementInterface $child, mixed $context = null): void
+    protected function store(ElementInterface $child, mixed $context = null): string
     {
         $this->writeDataFor( $context, $child->toArray() );
+        return $context;
+    }
+
+    public function getLastModifiedKey(): ?string {
+        return $this->lastKey;
     }
 
     protected function generate(?string $from = null, bool $allow_commit = true, bool $clone = false): ElementInterface
@@ -34,7 +40,7 @@ abstract class Container implements ContainerInterface
     }
 
     protected function writeDataFor(string $id, array $data): void {
-        $this->data[$id] = $data;
+        $this->data[$this->lastKey = $id] = $data;
     }
 
     public function add(): ElementInterface {

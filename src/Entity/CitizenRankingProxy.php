@@ -36,12 +36,12 @@ class CitizenRankingProxy
     private $begin;
     #[ORM\Column(name: '`end`', type: 'datetime', nullable: true)]
     private $end;
-    #[ORM\ManyToOne(targetEntity: TownRankingProxy::class, inversedBy: 'citizens')]
+    #[ORM\ManyToOne(targetEntity: TownRankingProxy::class, inversedBy: 'citizens', fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
     private $town;
     #[ORM\Column(type: 'integer')]
     private $baseID;
-    #[ORM\OneToOne(targetEntity: Citizen::class, inversedBy: 'rankingEntry', cascade: ['persist'])]
+    #[ORM\OneToOne(targetEntity: Citizen::class, inversedBy: 'rankingEntry', cascade: ['persist'], fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private $citizen;
     #[ORM\Column(type: 'text', nullable: true)]
@@ -66,7 +66,7 @@ class CitizenRankingProxy
     private $cleanup_type;
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $cleanup_username;
-    #[ORM\OneToOne(targetEntity: SoulResetMarker::class, mappedBy: 'ranking', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(targetEntity: SoulResetMarker::class, mappedBy: 'ranking', cascade: ['persist', 'remove'],  fetch: 'EXTRA_LAZY')]
     private $resetMarker;
     #[ORM\Column(type: 'integer')]
     private $disableFlag = self::DISABLE_NOTHING;

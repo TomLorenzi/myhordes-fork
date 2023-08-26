@@ -4,6 +4,7 @@ namespace MyHordes\Fixtures\DTO\Items;
 
 use MyHordes\Fixtures\DTO\Container;
 use MyHordes\Fixtures\DTO\ElementInterface;
+use MyHordes\Fixtures\DTO\UniqueIDGeneratorTrait;
 
 /**
  * @method ItemPrototypeDataElement[] all()
@@ -13,22 +14,10 @@ use MyHordes\Fixtures\DTO\ElementInterface;
  */
 class ItemPrototypeDataContainer extends Container
 {
+    use UniqueIDGeneratorTrait;
+
     protected function getElementClass(): string
     {
         return ItemPrototypeDataElement::class;
-    }
-
-    protected function store(ElementInterface|ItemPrototypeDataElement $child, mixed $context = null): void
-    {
-        $key = $context;
-        if ($key === null) {
-            // Generate unique ID
-            $i = 0; do {
-                $key = "{$child->icon}_#" . str_pad("$i",2, '0',STR_PAD_LEFT);
-                $i++;
-            } while ( $this->has($key) );
-        }
-
-        $this->writeDataFor( $key, $child->toArray() );
     }
 }

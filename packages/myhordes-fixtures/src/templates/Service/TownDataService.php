@@ -8,7 +8,7 @@ class TownDataService implements FixtureProcessorInterface {
 
     public function process(array &$data): void
     {
-        $data = array_merge_recursive($data, [
+        $data = array_replace_recursive($data, [
             'small' =>  ['name'=>'small'  ,'label'=>'Kleine Stadt'      ,'preset' => true,  'ranked' => false, 'orderBy' =>  2, 'help' => 'Der Schwierigkeitsgrad ist in dieser Stadt geringer. Deswegen gilt sie nicht für das Saison-Ranking. Die Außenwelt ist durchschnittlich 13x13 Felder groß.'],
             'remote' => ['name'=>'remote' ,'label'=>'Entfernte Regionen','preset' => true,  'ranked' => true,  'orderBy' =>  1, 'help' => 'Bei den entfernten Regionen handelt es sich um Städte, die nur von sehr erfahrenen Spielern gespielt werden dürfen (<strong>{splimit} Seelenpunkte</strong>). <p>Diese Städte sind den Veteranen vorbehalten.</p><p>Die entsprechenden Karten der entfernten Regionen sind <strong>weitaus größer</strong> und es gibt mehr zu erforschen.</p>'],
             'panda' =>  ['name'=>'panda'  ,'label'=>'Pandämonium'       ,'preset' => true,  'ranked' => true,  'orderBy' =>  0, 'help' => 'Pandämoniumstädte sind <strong>weitaus schwieriger</strong> als normale Städte! Dementsprechend sind auch die Belohnungen und Gewinnmöglichkeiten besser.<br /><strong>Du benötigst mindestens {splimit} Seelenpunkte</strong>, um in diesen Städten spielen zu dürfen.'],

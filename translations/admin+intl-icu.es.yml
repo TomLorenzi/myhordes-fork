@@ -576,7 +576,7 @@ Slug: Babosa
 'Zusätzliche Verwalter': 'Administradores adicionales'
 'Neue Kampagne anlegen': 'Crear nueva campaña'
 Einstiegspunkt: Punto de entrada
-'Geworbene Spieler': 'Nuevas jugadoras'
+'Geworbene Spieler': 'Nuevos jugadores'
 'Meldungen für das Schwarze Brett': 'Mensajes para el tablón de noticias'
 Stadt: Pueblo
 'Gemeldete globale Nachrichten': 'Noticias mundiales'
@@ -587,3 +587,36 @@ Accounts: Cuentas
 'Meldungen für Bürgertexte': 'Mensajes de aviso a los habitantes'
 'Gemeldete Stadtnachrichten': 'Noticias del pueblo'
 'Meldungen für Benutzeraccounts': 'Mensajes de la cuenta de usuario'
+'Änderungen an {appname} speichern': 'Guardar modificaciones de « {appname} »'
+'Wikis werden separat von anderen Anwendungen angezeigt.': 'Los wikis se muestran separadamente de las otras aplicaciones.'
+Wiki: Wiki
+Entwickler: Desarrollador
+Angriffsplan: Plan de ataque
+Uhrzeit: Hora
+Geplant: Planificado
+'Wartet auf Abarbeitung': 'En espera de tratamiento'
+'Wartet seit {s} Sekunden': 'Espera {s} segundos'
+'Wird verarbeitet': 'En proceso'
+'Arbeitet seit {s} Sekunden': 'Trabajando desde {s} segundos'
+Abgeschlossen: Completado
+Projiziert: Proyectado
+'Nächsten Angriff verschieben': 'Posponer el próximo ataque'
+'Ausgeführte Angriffe': 'Ataques ejecutados'
+Start: Inicio
+Ende: Fin
+'Wartezeit: {s} Sekunden': 'Tiempo de espera: {s} segundos'
+'Verarbeitungszeit: {s} Sekunden': 'Tiempo de tratamiento: {s} segundos'
+'{n} Städte in Quarantäne!': '¡{n} Pueblo(s) en Cuarentena!'
+Konfiguration: Configuración
+Option: Opción
+Wert: Valor
+'Keine Verifizierungsmails versenden': 'No enviar e-mails de verificación'
+'Spielen in anderen Gemeinden': 'Jugar en otras comunidades'
+'Das Spielen in anderen Gemeinden verbieten': 'Prohibir el juego en otras comunidades'
+'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'
+'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
+'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'
+'Dieses Gebäude ist veraltet.': 'Dieses Gebäude ist veraltet.'
+'Level {current} / {max}': 'Level {current} / {max}'
+'Anzahl Level: {max}': 'Anzahl Level: {max}'
+'Gebäude-Effekt auslösen': 'Gebäude-Effekt auslösen'

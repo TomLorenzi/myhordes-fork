@@ -41,13 +41,17 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\ItemPoisonType;
+use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Response\AjaxResponse;
 use App\Service\AdminLog;
 use App\Service\CrowService;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
+use App\Service\EventProxyService;
 use App\Service\GameFactory;
 use App\Service\GameProfilerService;
 use App\Service\GazetteService;
@@ -73,6 +77,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -540,6 +547,10 @@ class AdminTownController extends AdminActionController
 			if ($available)
 				$inTown[$building->getId()] = $available;
 		}
+		$this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
+
+		$workshopBonus = 1 - $workshopBonus;
+		$hpToAp = 2 + $repairBonus;
 
 		return $this->render('ajax/admin/towns/explorer_buildings.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
@@ -548,6 +559,8 @@ class AdminTownController extends AdminActionController
 			'dictBuildings' => $dict,
 			'rootBuildings' => $root,
 			'availBuldings' => $inTown,
+			'workshopBonus' => $workshopBonus,
+			'hpToAp' => $hpToAp
 		])));
 	}
 
@@ -2313,10 +2326,12 @@ class AdminTownController extends AdminActionController
      * Set AP to a building of a town
      * @param int $id ID of the town
      * @param JSONRequestParser $parser The JSON request parser
-     * @param TownHandler $th The town handler
+     * @param EventProxyService $events
      * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
+    public function town_set_building_ap(int $id, JSONRequestParser $parser, EventProxyService $events)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -2331,7 +2346,7 @@ class AdminTownController extends AdminActionController
 
         /** @var Building $building */
         $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
-        if (!$building)
+        if (!$building || $building->getTown() !== $town)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $ap = intval($parser->get("ap"));
@@ -2342,15 +2357,10 @@ class AdminTownController extends AdminActionController
 
         $building->setAp($ap);
 
-        if ($building->getAp() >= $building->getPrototype()->getAp()) {
-            $building->setComplete(true);
-            $th->triggerBuildingCompletion($town, $building);
-            $gps->recordBuildingConstructed( $building->getPrototype(), $town, null, 'debug' );
-        } elseif ($building->getAp() <= 0) {
-            $building->setComplete(false);
-            $th->destroy_building($town, $building);
-            $gps->recordBuildingDestroyed( $building->getPrototype(), $town, 'debug' );
-        }
+        if ($building->getAp() >= $building->getPrototype()->getAp())
+            $events->buildingConstruction( $building, 'debug' );
+        elseif ($building->getAp() <= 0)
+            $events->buildingDestruction( $building, 'debug' );
 
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);
@@ -2366,10 +2376,9 @@ class AdminTownController extends AdminActionController
      * Set HP to a building of a town
      * @param int $id ID of the town
      * @param JSONRequestParser $parser The JSON request parser
-     * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_set_building_hp(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
+    public function town_set_building_hp(int $id, JSONRequestParser $parser, EventProxyService $events)
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) {
@@ -2387,7 +2396,11 @@ class AdminTownController extends AdminActionController
         if (!$building)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $hp = $parser->get_int("hp");
+		$this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
+		$workshopBonus = 1 - $workshopBonus;
+		$hpToAp = 2 + $repairBonus;
+
+        $hp = $parser->get_int("hp") * $hpToAp;
 
         if ($hp >= $building->getPrototype()->getHp()) {
             $hp = $building->getPrototype()->getHp();
@@ -2401,11 +2414,93 @@ class AdminTownController extends AdminActionController
 
         $building->setHp($hp);
 
-        if ($building->getHp() <= 0) {
-            $building->setComplete(false);
-            $th->destroy_building($town, $building);
-            $gps->recordBuildingDestroyed( $building->getPrototype(), $town, 'debug' );
+        if ($building->getHp() <= 0)
+            $events->buildingDestruction( $building, 'debug' );
+		else {
+			if($building->getPrototype()->getDefense() > 0) {
+				$newDef = min($building->getPrototype()->getDefense(), $building->getPrototype()->getDefense() * $building->getHp() / $building->getPrototype()->getHp());
+				$building->setDefense((int)floor($newDef));
+			}
+		}
+
+        $this->entity_manager->persist($building);
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/town/{id}/buildings/set-level", name="admin_town_set_building_level", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Set level to a building of a town
+     * @param Town $town
+     * @param JSONRequestParser $parser The JSON request parser
+     * @param EventProxyService $events
+     * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function town_set_building_level(Town $town, JSONRequestParser $parser, EventProxyService $events): Response
+    {
+        if (!$parser->has_all(['building', 'level']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $building_id = $parser->get("building");
+
+        /** @var Building $building */
+        $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
+        if (!$building || $building->getTown() !== $town || !$building->getComplete())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $level = $parser->get_int("level");
+
+        if ($level < 0 || $level > $building->getPrototype()->getMaxLevel())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $upgrade = $level > $building->getLevel();
+
+        $building->setLevel($level);
+
+        if ($upgrade) {
+            $events->buildingUpgrade( $building, true );
+            $events->buildingUpgrade( $building, false );
         }
+
+        $this->entity_manager->persist($building);
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/town/{id}/buildings/exec-nightly", name="admin_town_trigger_building_nightly_effect", requirements={"id"="\d+"})
+     * @AdminLogProfile(enabled=true)
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Set level to a building of a town
+     * @param Town $town
+     * @param JSONRequestParser $parser The JSON request parser
+     * @param EventProxyService $events
+     * @return Response
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function town_trigger_building_nightly_effect(Town $town, JSONRequestParser $parser, EventProxyService $events): Response
+    {
+        if (!$parser->has_all(['building']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $building_id = $parser->get("building");
+
+        /** @var Building $building */
+        $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
+        if (!$building || $building->getTown() !== $town || !$building->getComplete())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        foreach (BuildingEffectStage::cases() as $stage)
+            $events->buildingEffect( $building, null, $stage );
 
         $this->entity_manager->persist($building);
         $this->entity_manager->persist($town);

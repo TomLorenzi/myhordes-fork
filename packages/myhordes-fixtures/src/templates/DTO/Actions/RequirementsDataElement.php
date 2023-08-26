@@ -21,7 +21,7 @@ use MyHordes\Fixtures\DTO\Element;
  * @property array collection
  * @method self collection(array $v)
  *
- * @method RequirementsDataContainer commit()
+ * @method RequirementsDataContainer commit(string &$id = null)
  * @method RequirementsDataContainer discard()
  */
 class RequirementsDataElement extends Element {
