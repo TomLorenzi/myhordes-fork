@@ -102,7 +102,7 @@
     &.cref, &.quoteauthor[x-id] { cursor: pointer }
     display: inline-block;
     font-weight: bold;
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
     text-decoration: none;
 
     &.raw {
@@ -247,7 +247,7 @@
     }
     &.modAnnounce {
       padding-top: 20px;
-      background-image: url('../../img/forum/modAnnounceBg.png'); 
+      background-image: url('../../img/forum/modAnnounceBg.png');
       background-position: 5px 5px;
       color: white;
       background-color: #5C0000;
@@ -353,7 +353,7 @@
 ul.subscriptions {
   padding: 0 0 0 12px;
   &>li {
-    span {cursor: pointer; font-size: 0.9em; color: @myhordes-smalltext;}
+    span {cursor: pointer; font-size: 0.9em; color: @myhordes-smalltext; word-break: break-word;}
     &.new { list-style: url("../../img/icons/anim_icon_mail.gif"); font-weight: bold }
     &:not(.new) { list-style: none }
     &+li { margin-top: 4px; }
@@ -388,7 +388,7 @@ ul.subscriptions {
 
   &.forum-post-small {
     .avatar, .avatarcrow {
-      margin: 0 15px 0 0; float: left; z-index: 1;
+      margin: 0 15px 0 0; float: left;
       &>img { width: 90px !important; height: 30px !important; object-fit: cover }
     }
     margin-bottom: 2px;
@@ -406,14 +406,22 @@ ul.subscriptions {
     &>i { float: right; font-size: 0.7em; opacity: 0.5; }
     &>div.post-note { font-size: 0.8em; span { opacity: 1.0; } }
     &>.avatar, &>.avatarcrow {
-      margin: 0 15px 0 10px; float: left; z-index: 1;
+      margin: 0 15px 0 10px; float: left; z-index: 2; position: relative;
       &:not(.small) { margin-bottom: 10px; }
     }
     &:before, &:after {content: " "; clear: right;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
     background: linear-gradient(to top, #784a2b, 50%, #965c36);
-    &.header-variant-crow { background: rgba(0,0,0,0.3); }
+    &.header-variant-crow {
+      position: relative;
+      background: rgba(0,0,0,0.3);
+      &:after {
+        position: absolute; content: " ";
+        top: 100%; left: 0; width: 300px; height: 100px;
+        background: url("../../img/forum/crowMsg_bg.gif") no-repeat top left;
+      }
+    }
     &.header-variant-dev { background: #006495; }
     a.link, span.link { color: white; text-decoration: none }
     .username { color: white; text-decoration: none; background: none !important; border: none !important; box-shadow: none; padding: 0;}
@@ -458,18 +466,35 @@ ul.subscriptions {
   }
 
   &>.forum-post-content {
+    position: relative; z-index: 1;
     padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/
     border-top: 1px solid #00000066; padding-right: 4px; word-break: break-word;
+
+    body.forum-font-twinoid & {
+      font-size: 1.3rem;
+    }
+
+    body.forum-font-small & {
+      font-size: 1.45rem;
+    }
+
+    body.forum-font-large & {
+      font-size: 1.75rem;
+    }
+
+    body.forum-font-very-large & {
+      font-size: 1.9rem;
+    }
 
     &.marked { background-color: #8b7700; }
 
     .forum-content-format();
-    
+
   }
 
   &.forum-post-variant-crow {
-    background: url("../../img/forum/crowMsg_bg.gif") no-repeat top left, #5c2b20;
-    &>.forum-post-content { border-top: none; }
+    background: #5c2b20;
+    overflow: hidden;
   }
 
   &.forum-post-search-result .forum-post-content {
@@ -482,6 +507,7 @@ ul.subscriptions {
     padding: 5px;
     font-size: 1rem;
     color: rgba(0,0,0,0.2);
+    position: relative;
 
     .float-left { opacity: 0.6; }
 
@@ -526,6 +552,22 @@ ul.subscriptions {
 
   #forum-editor-preview, #forum-editor-preview-global, #forum-editor-preview-answer {
     min-height: 150px; border: 1px solid #704328; background: #49261e; padding: 10px 5px 5px 10px; overflow: auto; outline: 0 solid transparent;
+
+    body.forum-font-twinoid & {
+      font-size: 1.3rem;
+    }
+
+    body.forum-font-small & {
+      font-size: 1.45rem;
+    }
+
+    body.forum-font-large & {
+      font-size: 1.75rem;
+    }
+
+    body.forum-font-very-large & {
+      font-size: 1.9rem;
+    }
   }
 }
 
@@ -674,15 +716,19 @@ ul.subscriptions {
     opacity: .75;
     color: #eba475;
     font-style: italic;
+    .status, .title, .count {padding: 3px !important; }
+
     &.selected {
       background: #46241b; opacity: 1; box-shadow: inset 0 0 2px black !important;
       &:before {
-        display: block; content: " "; width: 16px; height: 16px; top: 9px; left: -7px;
+        display: block; content: " "; width: 16px; height: 16px; top: 7px; left: -7px;
         background-image: url("../../img/forum/selected.png"); position: absolute;
       }
     }
     img {
       vertical-align: middle;
+      top: 6px;
+      left: 8px;
     }
     &.forum-thread-unread {
       font-weight: bold;
@@ -690,7 +736,7 @@ ul.subscriptions {
       background: #4d281f;
       opacity: .9;
       &:before {
-        display: block; content: " "; width: 16px; height: 16px; top: 9px; left: -7px;
+        display: block; content: " "; width: 16px; height: 16px; top: 7px; left: -7px;
         background-image: url("../../img/forum/recent.png"); position: absolute;
       }
     }
@@ -900,6 +946,7 @@ ul.subscriptions {
           display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: -5px;
           background-image: url(../../img/forum/selected.png); position: absolute;
         }
+        &.new::before { filter: hue-rotate(320deg) }
       }
       &.closed>* { filter: grayscale(1) contrast(0.7) brightness(0.8); }
 

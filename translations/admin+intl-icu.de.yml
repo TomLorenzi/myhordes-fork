@@ -591,3 +591,25 @@ Accounts: Accounts
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'Wikis werden separat von anderen Anwendungen angezeigt.'
 Wiki: Wiki
 Entwickler: Entwickler
+Angriffsplan: Angriffsplan
+Uhrzeit: Uhrzeit
+Geplant: Geplant
+'Wartet auf Abarbeitung': 'Wartet auf Abarbeitung'
+'Wartet seit {s} Sekunden': 'Wartet seit {s} Sekunden'
+'Wird verarbeitet': 'Wird verarbeitet'
+'Arbeitet seit {s} Sekunden': 'Arbeitet seit {s} Sekunden'
+Abgeschlossen: Abgeschlossen
+Projiziert: Projiziert
+'Nächsten Angriff verschieben': 'Nächsten Angriff verschieben'
+'Ausgeführte Angriffe': 'Ausgeführte Angriffe'
+Start: Start
+Ende: Ende
+'Wartezeit: {s} Sekunden': 'Wartezeit: {s} Sekunden'
+'Verarbeitungszeit: {s} Sekunden': 'Verarbeitungszeit: {s} Sekunden'
+'{n} Städte in Quarantäne!': '{n} Städte in Quarantäne!'
+Konfiguration: Konfiguration
+Option: Option
+Wert: Wert
+'Keine Verifizierungsmails versenden': 'Keine Verifizierungsmails versenden'
+'Spielen in anderen Gemeinden': 'Spielen in anderen Gemeinden'
+'Das Spielen in anderen Gemeinden verbieten': 'Das Spielen in anderen Gemeinden verbieten'

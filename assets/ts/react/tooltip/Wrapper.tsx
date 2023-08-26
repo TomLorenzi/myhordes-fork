@@ -120,6 +120,7 @@ const TooltipImplementation = (
         const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
             onHideTooltip( tooltip.current );
             tooltip.current.removeAttribute('style');
+            tooltip.current.dataset.touchtip = '0';
         }
 
         const fun_tooltip_show = function(pointer: boolean) {
@@ -137,12 +138,19 @@ const TooltipImplementation = (
                     }
 
                     document.querySelectorAll( '[data-stage="1"]').forEach(e => (e as HTMLElement).dataset.stage = '0' );
+                    document.querySelectorAll( '[data-touchtip="1"]').forEach(e => {
+                        (e as HTMLElement).dataset.touchtip = '0';
+                        (e as HTMLElement).removeAttribute('style');
+                        }
+                    );
+
                     forParent.dataset.stage = tooltip.current.dataset.touchtip = '1';
 
                     if (!$.client.config.ttttHelpSeen.get()) {
                         alert(c.taptut);
                         $.client.config.ttttHelpSeen.set(true);
                     }
+                    document.body.addEventListener('click', () => fun_tooltip_hide(e), {once: true})
                 }
             }
         }

@@ -10,20 +10,32 @@ class AttackSchedule
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
-    #[ORM\Column(type: 'datetime')]
-    private $timestamp;
+    private ?int $id;
+
+    #[ORM\Column()]
+    private ?\DateTimeImmutable $timestamp;
+
     #[ORM\Column(type: 'boolean')]
-    private $completed = false;
+    private bool $completed = false;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $startedAt = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $completedAt = null;
+
+    #[ORM\Column]
+    private int $failures = 0;
+
     public function getId(): ?int
     {
         return $this->id;
     }
-    public function getTimestamp(): ?\DateTimeInterface
+    public function getTimestamp(): ?\DateTimeImmutable
     {
         return $this->timestamp;
     }
-    public function setTimestamp(\DateTimeInterface $timestamp): self
+    public function setTimestamp(\DateTimeImmutable $timestamp): self
     {
         $this->timestamp = $timestamp;
 
@@ -36,6 +48,42 @@ class AttackSchedule
     public function setCompleted(bool $completed): self
     {
         $this->completed = $completed;
+
+        return $this;
+    }
+
+    public function getStartedAt(): ?\DateTimeImmutable
+    {
+        return $this->startedAt;
+    }
+
+    public function setStartedAt(?\DateTimeImmutable $startedAt): static
+    {
+        $this->startedAt = $startedAt;
+
+        return $this;
+    }
+
+    public function getCompletedAt(): ?\DateTimeImmutable
+    {
+        return $this->completedAt;
+    }
+
+    public function setCompletedAt(?\DateTimeImmutable $completedAt): static
+    {
+        $this->completedAt = $completedAt;
+
+        return $this;
+    }
+
+    public function getFailures(): ?int
+    {
+        return $this->failures;
+    }
+
+    public function setFailures(int $failures): static
+    {
+        $this->failures = $failures;
 
         return $this;
     }

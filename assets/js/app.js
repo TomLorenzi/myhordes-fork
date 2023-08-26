@@ -36,8 +36,10 @@ window.$ = $;
 document.addEventListener('tokenExchangeCompleted', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
     $.html.init();
-    if (!document.body.classList.contains('page-attract'))
-        document.body.classList.add( 'icon-zoom-' + $.client.config.iconZoom.get() )
+    if (!document.body.classList.contains('page-attract')) {
+        document.body.classList.add('icon-zoom-' + $.client.config.iconZoom.get())
+        document.body.classList.add('forum-font-' + $.client.config.forumFontSize.get())
+    }
     const initial_landing = document.documentElement.getAttribute('x-ajax-landing');
     if (initial_landing) $.ajax.no_loader().load( null, initial_landing, true, {} );
 }, {once: true, passive: true});
@@ -92,14 +94,14 @@ const resize_game_menu = function() {
         rucksack.classList.remove('fix-bottom');
         if (ghoul) {
             ghoul.classList.remove('hidden');
-            document.querySelectorAll('#gma .alt-hunger-bar').forEach( e => e.classList.add('hidden') );
+            document.body.classList.add('alt-ghoul-hunger-bar-hidden');
         }
         if (status.offsetLeft < 156 || status.offsetTop > 10) {
             rucksack.classList.add('fix-bottom');
             ap_counter.classList.add('fix-left');
             if (ghoul) {
                 ghoul.classList.add('hidden');
-                document.querySelectorAll('#gma .alt-hunger-bar').forEach( e => e.classList.remove('hidden') );
+                document.body.classList.remove('alt-ghoul-hunger-bar-hidden');
             }
         }
     }

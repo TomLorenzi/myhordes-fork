@@ -40,7 +40,9 @@
             {% set hasCoaInfo = warnCoaInactive or warnCoaEmpty or warnCoaNotComplete or coa is not empty %}
 
             <div class="relative row">
-                <div {{ {cell: true, 'rw-md-12': true, 'rw-6': hasCoaInfo, 'rw-12': not hasCoaInfo}|classes  }}>
+                {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
+                    <div {{ {cell: true, 'rw-md-12': true, 'rw-6': hasCoaInfo, 'rw-12': not hasCoaInfo}|classes }}>
+
                     <div class="row">
                         <div class="cell rw-12 padded">
                             <h5 class="relative">
@@ -49,40 +51,28 @@
                         </div>
                     </div>
                     <div class="row-flex">
-                        {% if app.user.team is null %}
-                            <div class="cell padded grow-1">
-                                <div class="note note-warning">
-                                    {{ 'Du bist bisher keinem Team beigetreten.'|trans({},'ghost') }}
-                                    <a x-ajax-href="{{ path('soul_settings') }}" href="#">{{ 'Team wählen'|trans({},'ghost') }}</a>
+                            {% if app.user.team is null %}
+                                <div class="cell padded grow-1">
+                                    <div class="note note-warning">
+                                        {{ 'Du bist bisher keinem Team beigetreten.'|trans({},'ghost') }}
+                                        <a x-ajax-href="{{ path('soul_settings') }}" href="#">{{ 'Team wählen'|trans({},'ghost') }}</a>
+                                    </div>
                                 </div>
-                            </div>
-                        {% else %}
-                            <div class="cell padded grow-0 shrink-0">
-                                <span class="language"><img src="{{ asset("build/images/lang/" ~ app.user.team ~ ".png") }}" alt="{{ app.user.team }}" /></span>
-                            </div>
-                            <div class="cell padded grow-1 small">
-                                <strong>{{ allLangs[app.user.team].label|trans({},'global') }}</strong><br/>
-                                <i>{{ '{members} Mitglieder, {souls} verlorene Seelen'|trans({members: team_members, souls: team_souls},'ghost') }}</i>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="row"><div class="cell rw-12 padded">
-                        {% if cap_left == 0 %}
-                            <div class="note note-warning">
-                                {% if app.user.team %}
-                                    {{ 'Du hast das Limit für das Betreten von Städte aus anderen Teams erreicht. Bis zum Ende dieser Saison kannst du nur Städte deines eigenen Teams betreten.'|trans({},'ghost') }}
-                                {% else %}
-                                    {{ 'Du musst ein Team wählen, bevor du weitere Städte betreten kannst.'|trans({},'ghost') }}
-                                {% endif %}
-                            </div>
-                        {% endif %}
-                        {{ help_lnk('Teams'|trans({}, 'help'), 'help', {'name': 'your_team'}) }}
-                    </div></div>
-
+                            {% else %}
+                                <div class="cell padded grow-0 shrink-0">
+                                    <span class="language"><img src="{{ asset("build/images/lang/" ~ app.user.team ~ ".png") }}" alt="{{ app.user.team }}" /></span>
+                                </div>
+                                <div class="cell padded grow-1 small">
+                                    <strong>{{ allLangs[app.user.team].label|trans({},'global') }}</strong><br/>
+                                    <i>{{ '{members} Mitglieder, {souls} verlorene Seelen'|trans({members: team_members, souls: team_souls},'ghost') }}</i>
+                                </div>
+                            {% endif %}
+                        </div>
                 </div>
+                {% endif %}
                 {% if hasCoaInfo %}
-                    <div class="cell rw-6 rw-md-12">
-                    <div class="row">
+                    <div {{ {cell: true, 'rw-md-12': true, 'rw-6': app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')), 'rw-12': not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang'))}|classes }}>
+                        <div class="row">
 
                         <div class="cell rw-12 padded">
                             <h5 class="relative">
@@ -117,7 +107,7 @@
                             {% endif %}
                         </div>
                     </div>
-                </div>
+                    </div>
                 {% endif %}
             </div>
 
@@ -270,7 +260,11 @@
         $.html.addEventListenerAll( 'a[x-town-id][x-town-lang]', 'click', function(e,elem) {
             e.preventDefault();
             const user_lang = '{{ app.request.locale|e('js') }}';
-            const user_team = '{{ app.user.team|e('js') }}';
+            {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplayLang')) %}
+                const user_team = '{{ app.user.team|e('js') }}';
+            {% else %}
+                const user_team = null;
+            {% endif %}
             const town_lang = elem.getAttribute('x-town-lang');
             const town_name = elem.getAttribute('x-town-name');
             const town_ticketed = elem.getAttribute('x-town-ticket') === "1";

@@ -33,6 +33,11 @@
                     <img alt="MH" src="{{ asset('build/images/icons/icon_mh_team.gif') }}" />
                     <div class="tooltip">{{ 'Dieser Spieler ist Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
                 </div>
+            {% elseif user|is_granted('ROLE_DEV') %}
+                <div class="inline-block mh-icon">
+                    <img alt="MH" src="{{ asset('build/images/icons/small_dev.png') }}" />
+                    <div class="tooltip">{{ 'Dieser Spieler ist ein nicht-administratives Mitglied des Entwickler-Teams von MyHordes.'|trans({},'global') }}</div>
+                </div>
             {% endif %}
         {% endif %}
         {% if post.type == "USER" and post.thread.forum.town is not null %}
@@ -140,7 +145,7 @@
         </div>
         {% if first_buttons %}<br />{% endif %}
         <div class="row">
-            <div class="cell padded rw-8 ro-2">
+            <div class="cell padded rw-10 ro-1">
                 <div class="{% if locked and not solved %}infoThread{% endif %} {% if locked and solved %}infoSolvedThread{% endif %}">
                     {% if locked and not solved %}
                         {{ 'Diese Diskussion ist beendet.'|trans({},'global') }}
@@ -185,7 +190,7 @@
 
     {% if permission.moderate and announces.reported|length > 0 %}
         <div class="row">
-            <div class="cell padded rw-8 ro-2">
+            <div class="cell padded rw-10 ro-1">
                 <div class="reported announces">
                     <span class="announce">{{'Dieses Thema enthält {count} gemeldete Posts:'|trans({"{count}": announces.reported|length}, 'global')}}</span>
                     <ul>
@@ -200,7 +205,7 @@
 
     {% if announces.admin|length > 0 %}
         <div class="row">
-            <div class="cell padded rw-8 ro-2">
+            <div class="cell padded rw-10 ro-1">
                 <div class="adminAnnounces announces">
                     <span class="announce">{{'Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"{count}": announces.admin|length}, 'global')}}</span>
                     <ul>
@@ -216,7 +221,7 @@
     {% if announces.oracle|length > 0 %}
         <div class="row">
             <div class="row">
-                <div class="cell padded rw-8 ro-2">
+                <div class="cell padded rw-10 ro-1">
                     <div class="oracleAnnounces announces">
                         <span class="announce">{{'Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:'|trans({"{count}": announces.oracle|length}, 'global')}}</span>
                         <ul>
@@ -350,9 +355,16 @@
                                         {% endif %}
                                     </ul>
                                 </label>
+                            {% elseif (post.thread.tag and post.thread.tag.name == 'event' and post == thread.firstPost(true) and permission.post_as_animacteur()) %}
+                                <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
+                                    <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
+                                    <ul class="mod-submenu-links">
+                                        <li><a class="action-button" x-forum-moderator-action="edit-post"   x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Bearbeiten'|trans({},'global') }}</a></li>
+                                    </ul>
+                                </label>
                             {% endif %}
                             {% if not locked %}
-                                {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow()) or (post.owner.id == 67 and permission.post_as_animacteur())) and post.editable and (post == thread.firstPost(true) or post == thread.lastPost(false)) %}
+                                {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow()) or ((post.owner.id == 67) and permission.post_as_animacteur())) and post.editable and (post == thread.firstPost(true) or post == thread.lastPost(false)) %}
                                     [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
                                 {% endif %}
                             {% endif %}
@@ -544,25 +556,29 @@
 
         $.html.addEventListenerAll('[x-forum-action="edit-post"]', 'click', (e,elem) => fun_inline_edit('{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', elem.getAttribute('x-post-id'), 0));
 
-        {% if permission.moderate() %}
+        {% if permission.moderate() or permission.post_as_animacteur %}
 
-            $.html.addEventListenerAll('.modrev.pointer', 'click', (e,elem) => { elem.classList.remove('pointer'); } )
+            {% if permission.moderate() %}
+                $.html.addEventListenerAll('.modrev.pointer', 'click', (e,elem) => { elem.classList.remove('pointer'); } )
 
-            $.html.addEventListenerAll( '[x-forum-moderator-action="delete-post"]', 'click', function(e,elem) {
-                let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
-                if (reason !== null)
-                    $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'delete'}) }}', {reason: reason, postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
-            } );
-            $.html.addEventListenerAll( '[x-forum-moderator-action="undelete-post"]', 'click', function(e,elem) {
-                $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'undelete'}) }}', {postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
-            } );
-            $.html.addEventListenerAll( '[x-forum-moderator-action="seen"]', 'click', function(e,elem) {
-                if (confirm("{{ 'Bestätigen?'|trans({},'global')|e('js') }}"))
-                    $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'seen'}) }}', {postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
-            } );
+                $.html.addEventListenerAll( '[x-forum-moderator-action="delete-post"]', 'click', function(e,elem) {
+                    let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
+                    if (reason !== null)
+                        $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'delete'}) }}', {reason: reason, postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
+                } );
+                $.html.addEventListenerAll( '[x-forum-moderator-action="undelete-post"]', 'click', function(e,elem) {
+                    $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'undelete'}) }}', {postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
+                } );
+                $.html.addEventListenerAll( '[x-forum-moderator-action="seen"]', 'click', function(e,elem) {
+                    if (confirm("{{ 'Bestätigen?'|trans({},'global')|e('js') }}"))
+                        $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'seen'}) }}', {postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
+                } );
+            {% endif %}
+
             $.html.addEventListenerAll( '[x-forum-moderator-action="edit-post"]', 'click', function(e,elem) {
                 fun_inline_edit('{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', elem.getAttribute('x-post-id'), $.html.twinoParser.OpModeRaw)
             } );
+
         {% endif %}
         $.html.addEventListenerAll( '[x-forum-moderator-action][x-forum-api-endpoint]', 'click', function(e,elem) {
             $.ajax.easySend( elem.getAttribute('x-forum-api-endpoint'), {}, reloadPage );

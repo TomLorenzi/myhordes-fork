@@ -86,7 +86,7 @@ const MapOverviewZoneTooltip = ( props: MapOverviewZoneTooltipProps ) => {
 
     return (
         <Tooltip additionalClasses="tooltip-map"
-                 onShowTooltip={ () => (Math.random() > 0.9) && setHorror( getHorrorValue() ) }
+                 onShowTooltip={ () => (Math.random() > 0.98) && setHorror( getHorrorValue() ) }
                  onHideTooltip={ () => horror && setHorror(null) }
         >
             { horror }

@@ -20,20 +20,12 @@
 @media (min-width: @screen-large-threshold) {
   .hide-desktop {display: none !important;};
 }
+
 @media (max-width: (@screen-large-threshold - 1)) {
   .hide-mobile {display: none !important;};
   body {background: black;}
   #wrapper, div.game-menu-area, footer { width: 100%; }
   #wrapper.attract > #header .attract_button { background-image: url("../img/background/bg_attract_button_detached.png") }
-  div.town-header {
-    &:before { display: none; }
-    &.hardcore {
-      &:before { display: none; }
-    }
-    position: relative; margin-bottom: 5px; padding-bottom: 5px; border-bottom: 2px solid rgba(0,0,0,0.25);
-    &>b { display: block; position: relative; left: 0; top: 0; width: 100%; color: @myhordes-smalltext }
-    &>span { position: relative; display: block; left: 0; top: 0; width: 100%; color: black; }
-  }
 
   div.game-menu-area > div.game-bar > ul.text-menu > li.poll-dash {
     left: calc( 100vw - 240px );
@@ -499,3 +491,35 @@
 .postfix(@screen-large-threshold, @screen-large);
 .postfix(@screen-medium-threshold, @screen-medium);
 .postfix(@screen-small-threshold, @screen-small);
+
+// Container queries
+.town-main-content {
+  container-type: inline-size;
+  container-name: town-main-content;
+}
+
+body.alt-ghoul-hunger-bar-hidden .alt-hunger-bar {
+  display: none;
+}
+
+@container town-main-content (max-width: 340px) {
+  .town-header {
+    margin-bottom: 102px !important;
+
+    &>div {
+      right: 6px !important; top: 7px !important;
+      width: 208px !important; height: 53px !important;
+      font-size: 1.6rem !important; font-weight: bolder !important; line-height: 1.8rem !important;
+    }
+
+    &>span {
+      right: 6px !important; top: 70px !important; width: 208px !important;
+      font-size: 1.3rem !important;
+    }
+
+    &:before {
+      height: 102px !important;
+      background-size: 410px 102px !important;
+    }
+  }
+}

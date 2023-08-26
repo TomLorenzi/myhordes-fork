@@ -348,12 +348,12 @@ Westen: l'ouest
 'Es ist kein Bürger in der Nähe...': 'Il n''y a pas de citoyen à proximité...'
 'Rucksack in der Bank ausleeren': 'Vider son sac dans la banque'
 'Meine objekte': 'Objets'
-Gammler: "Indécis"
-Buddler: "Fouineur"
+Gammler: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Indécise}\n                        other {Indécis}\n                    }\n                }\n            other {Indécis}\n            }\n        "
+Buddler: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Fouineuse}\n                        other {Fouineur}\n                    }\n                }\n            other {Fouineur}\n            }\n        "
 Wächter: "Gardien"
 Aufklärer: "Éclaireur"
 Dompteur: "Apprivoiseur"
-Techniker: "Technicien"
+Techniker: "\n            {ref__icu, select,\n                on {\n                    {ref__gender, select,\n                        female {Technicienne}\n                        other {Technicien}\n                    }\n                }\n            other {Technicien}\n            }\n        "
 Schamane: "Chaman"
 Einsiedler: "Ermite"
 'Verbesserung des Tages': 'Les évolutions du jour'

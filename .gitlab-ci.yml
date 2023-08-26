@@ -7,15 +7,28 @@ image: registry.gitlab.com/eternaltwin/myhordes/myhordes-registry:latest
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
-services:
-  - mariadb:latest
+default:
+  services:
+    - name: mariadb:latest
+      alias: mariadb
 
 # Set any variables we need
 variables:
-  # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
-  # MYSQL_DATABASE: myhordes
-  MARIADB_ROOT_PASSWORD : MyH0rd3sD@tAbaze!
-  DATABASE_URL: mysql://root:MyH0rd3sD@tAbaze!@mariadb:3306/myhordes
+  # MariaDB environments variables
+  MARIADB_DATABASE: myhordes
+  MARIADB_USER: myhordes-ci
+  MARIADB_PASSWORD: Sullen.Vindicate9.Untruth
+  MARIADB_RANDOM_ROOT_PASSWORD: 'yes'
+
+  # MH environment variables
+  # DATABASE_URL: mysql://myhordes-ci:Sullen.Vindicate9.Untruth@mariadb:3306/myhordes
+  DATABASE_DBNAME: myhordes
+  DATABASE_HOST: mariadb
+  DATABASE_PORT: 3306
+  DATABASE_USER: myhordes-ci
+  DATABASE_PASSWORD: Sullen.Vindicate9.Untruth
+  DATABASE_DRIVER: pdo_mysql
+  DATABASE_VERSION: 11.0.2
   XDEBUG_MODE: coverage
 
 stages:
@@ -78,6 +91,34 @@ translate:
     CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
     CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
 
+translate-next:
+  stage: test-translate
+  dependencies:
+    - build
+  script:
+    # Install a DB
+    - php bin/console app:migrate -i -vvv --skip-optional
+    # Let's generate source strings
+    - bin/console app:translation:update de
+    # And we send it to Crowdin
+    - crowdin upload sources -b translation-main-next
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - vendor
+      - node_modules
+      - public/build
+      - templates/build
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "push"
+      when: never
+    - if: $CI_COMMIT_TAG =~ /^translate-next-\d+/
+      when: on_success
+  variables:
+    CROWDIN_API_TOKEN: $CROWDIN_API_TOKEN
+    CROWDIN_PROJECT_ID: $CROWDIN_PROJECT_ID
+
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
@@ -104,7 +145,7 @@ test:
 quodana:
   stage: test-translate
   image:
-    name: jetbrains/qodana-php:2023.1-eap
+    name: jetbrains/qodana-php:2023.2-eap
     entrypoint: [ "" ]
   variables:
     QODANA_REMOTE_URL: git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
@@ -126,7 +167,7 @@ deploy_staging:
     - apt-get update -yqq
     - apt-get install -yqq sshpass
     - export SSHPASS=$SSH_PASSWORD
-    - sshpass -e ssh -p 2244 -o stricthostkeychecking=no deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan.dev/myhordes/www && bin/console app:migrate -g --remote origin --branch master --environment dev --phar --release'
+    - sshpass -e ssh -p 12002 -o stricthostkeychecking=no deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan.dev/myhordes/www && bin/console app:migrate -g --remote origin --branch master --environment dev --phar --release'
     - unset SSHPASS
   only:
     - master

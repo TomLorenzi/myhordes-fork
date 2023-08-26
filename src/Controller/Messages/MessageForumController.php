@@ -341,6 +341,12 @@ class MessageForumController extends MessageController
         if ( !$this->isGranted('ROLE_ELEVATED') && !$rateLimiter->forumThreadCreation->create( $user->getId() )->consume( $forum->getTown() ? 1 : 2 )->isAccepted())
             return AjaxResponse::error( ErrorHelper::ErrorRateLimited );
 
+        if (!$this->isGranted('ROLE_ELEVATED') && $user->getSoulPoints() <= 0 && !$forum->getTown()) {
+            $last_user_posts = $this->entity_manager->getRepository(Post::class)->findBy(['owner' => $user], ['date' => 'DESC'], 10);
+            if (count($last_user_posts) >= 10 && $last_user_posts[9]->getDate()->getTimestamp() > (time() - 600))
+                return AjaxResponse::error( self::ErrorForumLimitHit );
+        }
+
         $thread = (new Thread())->setTitle( $title )->setTag($tag)->setOwner($user);
 
         $map_type = [
@@ -523,6 +529,12 @@ class MessageForumController extends MessageController
                 if ($all_by_user && $last_posts[0]->getDate()->getTimestamp() > (time() - 14400) )
                     return AjaxResponse::error( self::ErrorForumLimitHit );
             }
+
+            if ($user->getSoulPoints() <= 0 && !$forum->getTown()) {
+                $last_user_posts = $this->entity_manager->getRepository(Post::class)->findBy(['owner' => $user], ['date' => 'DESC'], 10);
+                if (count($last_user_posts) >= 10 && $last_user_posts[9]->getDate()->getTimestamp() > (time() - 600))
+                    return AjaxResponse::error( self::ErrorForumLimitHit );
+            }
         }
 
 
@@ -663,6 +675,7 @@ class MessageForumController extends MessageController
         $permission = $this->perm->getEffectivePermissions($user, $thread->getForum());
 
         $mod_permissions = $thread->hasReportedPosts(false) && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate);
+        $anim_permissions = $thread->getTag()?->getName() === 'event' && $post === $thread->firstPost(false) && $this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim);
 
         if ($post->getOwner()->getId() === 66 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsCrow | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -670,7 +683,7 @@ class MessageForumController extends MessageController
         if ($post->getOwner()->getId() === 67 && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionPostAsAnim | ForumUsagePermissions::PermissionEditPost))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
+        if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$anim_permissions && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (($thread->getLocked() || $thread->getHidden() || ($post !== $thread->lastPost(false) && $post !== $thread->firstPost(true))) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
@@ -1258,9 +1271,15 @@ class MessageForumController extends MessageController
         $post = null;
         if ($pid !== null) {
             $post = $em->getRepository(Post::class)->find((int)$pid);
-            if (!$post || (!$post->isEditable() && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) || $post->getThread() !== $thread || (
-                (($post->getOwner() !== $user && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) && $post->getOwner()->getId() === 66) && !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getOwner()->getId() === 67))
-                )) return new Response('');
+            if (!$post || (!$post->isEditable() && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) || $post->getThread() !== $thread) return new Response('');
+
+            if (
+                ($post->getOwner() !== $user && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) &&
+                !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) && $post->getOwner()->getId() === 66) &&
+                !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getOwner()->getId() === 67) &&
+                !($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsAnim ) && $post->getThread()->firstPost(false) === $post && $post->getThread()->getTag()?->getName() === 'event')
+            )
+                return new Response('');
         }
 
         $town = $forum->getTown();

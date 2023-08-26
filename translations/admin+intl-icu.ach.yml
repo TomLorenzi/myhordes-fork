@@ -592,3 +592,25 @@ Accounts: crwdns168701:0crwdne168701:0
 'Wikis werden separat von anderen Anwendungen angezeigt.': 'crwdns201625:0crwdne201625:0'
 Wiki: crwdns201627:0crwdne201627:0
 Entwickler: crwdns201643:0crwdne201643:0
+Angriffsplan: crwdns201647:0crwdne201647:0
+Uhrzeit: crwdns201649:0crwdne201649:0
+Geplant: crwdns201651:0crwdne201651:0
+'Wartet auf Abarbeitung': 'crwdns201653:0crwdne201653:0'
+'Wartet seit {s} Sekunden': 'crwdns201655:0{s}crwdne201655:0'
+'Wird verarbeitet': 'crwdns201657:0crwdne201657:0'
+'Arbeitet seit {s} Sekunden': 'crwdns201659:0{s}crwdne201659:0'
+Abgeschlossen: crwdns201661:0crwdne201661:0
+Projiziert: crwdns201663:0crwdne201663:0
+'Nächsten Angriff verschieben': 'crwdns201665:0crwdne201665:0'
+'Ausgeführte Angriffe': 'crwdns201667:0crwdne201667:0'
+Start: crwdns201669:0crwdne201669:0
+Ende: crwdns201671:0crwdne201671:0
+'Wartezeit: {s} Sekunden': 'crwdns201673:0{s}crwdne201673:0'
+'Verarbeitungszeit: {s} Sekunden': 'crwdns201675:0{s}crwdne201675:0'
+'{n} Städte in Quarantäne!': 'crwdns201677:0{n}crwdne201677:0'
+Konfiguration: crwdns201679:0crwdne201679:0
+Option: crwdns201681:0crwdne201681:0
+Wert: crwdns201683:0crwdne201683:0
+'Keine Verifizierungsmails versenden': 'crwdns201685:0crwdne201685:0'
+'Spielen in anderen Gemeinden': 'crwdns202465:0crwdne202465:0'
+'Das Spielen in anderen Gemeinden verbieten': 'crwdns202467:0crwdne202467:0'
