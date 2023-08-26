@@ -47,9 +47,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsCommand(
     name: 'app:debug',
@@ -63,7 +63,7 @@ class DebugCommand extends LanguageCommand
     private EntityManagerInterface $entity_manager;
     private CitizenHandler $citizen_handler;
     private RandomGenerator $randomizer;
-    private Translator $trans;
+    private TranslatorInterface $trans;
     private InventoryHandler $inventory_handler;
     private ItemFactory $item_factory;
     private UserPasswordHasherInterface $encoder;
@@ -74,7 +74,7 @@ class DebugCommand extends LanguageCommand
     private GameProfilerService $gps;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
-                                RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
+                                RandomGenerator $rg, CitizenHandler $ch, TranslatorInterface $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordHasherInterface $passwordEncoder, ConfMaster $c,
                                 TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh, GameProfilerService $gps)
     {
