@@ -1291,37 +1291,6 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/delete_account", name="api_soul_delete_account")
-     * @param UserPasswordHasherInterface $passwordEncoder
-     * @param JSONRequestParser $parser
-     * @param TokenStorageInterface $token
-     * @return Response
-     */
-    public function soul_settings_delete_account(UserPasswordHasherInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
-    {
-        $user = $this->getUser();
-
-        if ($this->user_handler->getActiveRestrictions( $user ) !== AccountRestriction::RestrictionNone || $this->isGranted('ROLE_ETERNAL') || $this->isGranted('ROLE_DUMMY'))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
-            return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
-
-        $name = $user->getUsername();
-        $user->setDeleteAfter( new DateTime('+24hour') );
-        $user->setCheckInt($user->getCheckInt() + 1);
-
-        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
-            $this->entity_manager->remove($rm_token);
-
-        $this->entity_manager->flush();
-
-        $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['{name}' => $name], 'login') );
-        $token->setToken(null);
-        return AjaxResponse::success();
-    }
-
-    /**
      * @Route("jx/soul/{id}", name="soul_visit", requirements={"id"="\d+"})
      * @param int $id
      * @param HTMLService $html
