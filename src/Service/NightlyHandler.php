@@ -539,7 +539,7 @@ class NightlyHandler
             /** @var Citizen $citizen */
             if ($citizen->getAlive() && !$citizen->getZone())
                 $targets[] = $citizen;
-            elseif (!$citizen->getAlive() && $citizen->getHome()->getHoldsBody() && !in_array($citizen->getId(), $this->skip_reanimation))
+            elseif (!$citizen->getAlive() && $citizen->getHome()->getHoldsBody() && !$citizen->getHome()->hasAlreadyAttacked() && !in_array($citizen->getId(), $this->skip_reanimation))
                 $houses[] = $citizen;
         }
         foreach ($town->getBuildings() as $building)
@@ -560,6 +560,24 @@ class NightlyHandler
         foreach ($houses as $id => $corpse) {
             /** @var Citizen $corpse */
 
+			// HOLD HORDES BEHAVIOR:
+			// FROM: https://github.com/motion-twin/WebGamesArchives/blob/main/Hordes/src/HordeAttack.hx#L75
+			$attackPlayer = ($town->getWell() > 0 ? 66 : 100);
+			if (mt_rand(0, 100) < $attackPlayer) {
+				$d = min($town->getWell(), 20);
+				$town->setWell(max(0, $town->getWell() - $d));
+				$this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
+				$this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
+			} else {
+				$victim = array_pop($targets);
+				$this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> attacks and kills <info>{$victim->getUser()->getUsername()}</info>.");
+				$this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackKill( $corpse, $victim ) );
+				$corpse->setHasEaten(true);
+				$this->entity_manager->persist($corpse);
+				$this->kill_wrap( $victim, $cod, false, 1, true );
+			}
+			$corpse->getHome()->setAlreadyAttacked(true);
+			/*
             $opts = [];
             $opts[] = 0;
             if (!empty( $targets )) $opts[] = 1;
@@ -596,13 +614,13 @@ class NightlyHandler
                         $town->setWell( $town->getWell() - $d );
                     }
                     break;
-            }
+            }*/
         }
 
-        if ($useless > 0 && $useless === count($houses) && !$town->getDevastated() )
+        /*if ($useless > 0 && $useless === count($houses) && !$town->getDevastated() )
             $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless ) );
         else if ($useless > 0 && $town->getDevastated())
-            $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless, true ) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless, true ) );*/
 
         $this->entity_manager->persist($gazette);
     }
