@@ -482,6 +482,22 @@
                         </div>
                     {% endif %}
                     <br />
+                    {% if app.user.password is null %}
+                        <div class="row">
+                            <div class="cell padded rw-4 rw-sm-12">
+                                <div class="note note-lightest">{{ 'Passwort-Login'|trans({},'soul') }}</div>
+                            </div>
+                            <div class="padded cell rw-8 rw-sm-12">
+                                <button data-fetch="{{ path('rest_user_security_add_local_login') }}"
+                                        data-fetch-method="post"
+                                        data-fetch-load="{{ path('soul_settings') }}"
+                                        data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
+                                        data-fetch-message="message"
+                                >{{ 'Passwort-Login aktivieren'|trans({},'soul') }}</button>
+                                <p class="small">{{ 'Wenn du möchtest, kannst du dich zusätzlich auch direkt via MyHordes einloggen. Wenn du diese Option aktivierst, schicken wir dir ein Passwort zum Einloggen an deine E-Mail Adresse.'|trans({},'soul') }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
                     <div class="row">
                         <div class="cell padded rw-4 rw-sm-12">
                             <div class="note note-lightest">{% trans from 'soul' %}Überall ausloggen{% endtrans %}</div>

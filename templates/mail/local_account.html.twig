@@ -1,0 +1,12 @@
+{% extends "mail/framework.html.twig" %}
+{% block body %}
+    {# @var user \App\Entity\User #}
+    <p><b>{{ 'Hallo {user}!'|trans({ '{user}': user.name },'mail') }}</b></p>
+    <p>{{ 'Du hast ausgewählt, dass du dich in Zukunft auch mit Benutzername/EMail und Passwort bei MyHordes einloggen möchtest. Daher stellen wir dir hiermit deine neuen Zugangsdaten zu:'|trans({},'mail') }}</p>
+    <p>
+        <span>{{ 'Spielername'|trans({},'login') }}</span>: <code>{{ user.username }}</code><br/>
+        <span>{{ 'Passwort'|trans({},'login') }}</span>: <code>{{ password }}</code>
+    </p>
+    <p><i>{{ 'Wir empfehlen dringend, dieses Passwort direkt nach dem ersten Login zu ändern.'|trans({},'mail') }}</i></p>
+    <p><i>{{ 'Bitte beachte, dass sämtliche alternative Login-Möglichkeiten für deinen Account, wie beispielsweise Eternaltwin, ungeändert weiterhin funktionieren.'|trans({},'mail') }}</i></p>
+{% endblock %}

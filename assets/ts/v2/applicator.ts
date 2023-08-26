@@ -12,7 +12,13 @@ function applyFetchFunctions( node: HTMLElement ) {
                 .from( node.dataset.fetch ).bodyDeterminesSuccess().withErrorMessages()
                 .request()
                 .method( node.dataset.fetchMethod, node.dataset.fetchPayload ? JSON.parse( node.dataset.fetchPayload ) : null )
-                .then(() => $.ajax.load(null, node.dataset.fetchLoad, true) )
+                .then(data => {
+                    if (node.dataset.fetchMessage && data[node.dataset.fetchMessage]) $.html.notice( data[node.dataset.fetchMessage] );
+                    if (node.dataset.fetchLoad) $.ajax.load(null, node.dataset.fetchLoad, true)
+                } )
+                .catch(data => {
+                    if (node.dataset.fetchMessage && data[node.dataset.fetchMessage]) $.html.error( 'X' + data[node.dataset.fetchMessage] );
+                })
         })
     )
 }
