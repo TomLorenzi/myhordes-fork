@@ -77,6 +77,11 @@
     }
   }
 }
+
+@media (max-width: (@screen-large-threshold - 1)) {
+  .row > .cell.town-addons.no-town-addons { display: none; }
+}
+
 @media (max-width: (@screen-large-threshold - 1)) and (min-width: @screen-small-threshold) {
   .row > .cell.town-addons {
     flex-wrap: wrap;
