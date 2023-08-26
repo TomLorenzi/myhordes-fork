@@ -278,7 +278,7 @@ parameters:
           ap: 4
           injury: 0.6
         camping:
-          default_bonus: -14
+          default_bonus: -40
           map: 'hard'
         red_soul_max_factor: 666
         sandball_nastyness: 0.85
