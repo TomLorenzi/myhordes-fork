@@ -1302,7 +1302,7 @@ class AdminTownController extends AdminActionController
         if ($target_zone === null && $to !== 'town') return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $old_zones = [];
-        $cp_target_zone = !$target_zone || $handler->check_cp($target_zone);
+        $cp_target_zone = !$target_zone || $handler->isZoneUnderControl($target_zone);
 
         $escort = $parser->get('escort', false);
 
@@ -1330,7 +1330,7 @@ class AdminTownController extends AdminActionController
             foreach ($movers as $mover){
                 if ($mover->getZone()) {
                     if (!isset($old_zones[$mover->getZone()->getId()]))
-                        $old_zones[$mover->getZone()->getId()] = [$mover->getZone(), $handler->check_cp( $mover->getZone() )];
+                        $old_zones[$mover->getZone()->getId()] = [$mover->getZone(), $handler->isZoneUnderControl( $mover->getZone() )];
 
                     if ($dig_timer = $mover->getCurrentDigTimer()) {
                         $dig_timer->setPassive(true);

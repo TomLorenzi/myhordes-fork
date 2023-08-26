@@ -11836,6 +11836,8 @@
         "ext-mbstring": "*",
         "ext-simplexml": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {
+        "ext-sqlite3": "*"
+    },
     "plugin-api-version": "2.3.0"
 }

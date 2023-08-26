@@ -123,7 +123,7 @@ class DeathHandler
                 );
         }
         else {
-            $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );
+            $zone = $citizen->getZone(); $ok = $this->zone_handler->isZoneUnderControl( $zone );
             if ($cod->getRef() === CauseOfDeath::Vanished
              || $cod->getRef() === CauseOfDeath::GhulEaten) {
                 if ($zone->isTownZone())

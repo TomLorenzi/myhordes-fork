@@ -302,7 +302,7 @@ class NightlyHandler
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone()) {
                 $zone = $citizen->getZone();
-                $cp_ok = $this->zone_handler->check_cp($zone);
+                $cp_ok = $this->zone_handler->isZoneUnderControl($zone);
 
                 // We force the auto-search to be processed
                 $this->zone_handler->updateZone($zone);

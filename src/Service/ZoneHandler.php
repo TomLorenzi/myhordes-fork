@@ -117,7 +117,7 @@ class ZoneHandler
             $this->entity_manager->remove( $timer );
         }
 
-        if ($longest_timer !== null && empty($valid_timers) && !$this->check_cp($zone) && !empty($zone->getCitizens()))
+        if ($longest_timer !== null && empty($valid_timers) && !$this->isZoneUnderControl($zone) && !empty($zone->getCitizens()))
             $this->entity_manager->persist( $this->log->zoneEscapeTimerExpired($zone, $longest_timer) );
 
         /** @var DigTimer[] $all_dig_timers */
@@ -497,13 +497,22 @@ class ZoneHandler
 		return 0; // Night malus not active
 	}
 
-    public function check_cp(Zone $zone, ?int &$cp = null): bool {
+    public function isZoneUnderControl(Zone $zone, ?int &$cp = null): bool {
         $cp = 0;
         foreach ($zone->getCitizens() as $c)
             if ($c->getAlive())
                 $cp += $this->citizen_handler->getCP($c);
 
         return $cp >= $zone->getZombies();
+    }
+
+    public function getZoneControlPoints(Zone $zone): int {
+        $cp = 0;
+        foreach ($zone->getCitizens() as $c)
+            if ($c->getAlive())
+                $cp += $this->citizen_handler->getCP($c);
+
+        return $cp;
     }
 
     /**
@@ -531,7 +540,7 @@ class ZoneHandler
 
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
         else if ($cp_ok_before !== null) {
-            if ( $cp_ok_before && !$this->check_cp( $zone ) ) {
+            if ( $cp_ok_before && !$this->isZoneUnderControl( $zone ) ) {
                 if ( $leaving_citizen && !$zone->getCitizens()->isEmpty() ) $this->entity_manager->persist( $this->log->zoneLostControlLeaving( $zone, $leaving_citizen ) );
                 $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
                 // Disable all dig timers
@@ -545,7 +554,7 @@ class ZoneHandler
 
             }
             // If we took back control of the zone, logs it
-            elseif (!$cp_ok_before && $this->check_cp($zone)) {
+            elseif (!$cp_ok_before && $this->isZoneUnderControl($zone)) {
                 $this->entity_manager->persist($this->log->zoneUnderControl($zone));
             }
         }

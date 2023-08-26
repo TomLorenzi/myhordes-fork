@@ -1116,7 +1116,7 @@ class ActionHandler
                         if (!$zone) break;
 
                         $this->zone_handler->updateZone( $zone );
-                        $cp_ok = $this->zone_handler->check_cp( $zone );
+                        $cp_ok = $this->zone_handler->isZoneUnderControl( $zone );
 
                         if ($dig_timer = $jumper->getCurrentDigTimer()) {
                             $dig_timer->setPassive(true);
