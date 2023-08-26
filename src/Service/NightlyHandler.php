@@ -1026,8 +1026,6 @@ class NightlyHandler
                     $terror_chance -= $this->citizen_handler->hasStatusEffect( $targets[$i], 'tg_home_shower' ) ? 10 : 0;
                     $terror_chance -= $quies                                                                          ? 10 : 0;
 
-                    //'bquies_#00'
-
                     if ($this->random->chance($terror_chance / 100)) {
                         $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
                         $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
