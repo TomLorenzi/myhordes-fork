@@ -1016,7 +1016,19 @@ class NightlyHandler
                 $deco = $this->citizen_handler->getDecoPoints($targets[$i]);
 
                 if (!$has_kino && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
-                    if ($this->random->chance(1 - ($deco / 100))) {
+
+                    $quies = $this->inventory_handler->fetchSpecificItems( [$targets[$i]->getInventory(),$targets[$i]->getHome()->getChest()], [new ItemRequest('bquies_#00')] );
+
+                    $terror_chance = 100;
+                    $terror_chance -= min($deco, 10);
+                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $targets[$i], 'tg_clothes' )     ?  3 : 0;
+                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $targets[$i], 'tg_home_clean' )  ?  5 : 0;
+                    $terror_chance -= $this->citizen_handler->hasStatusEffect( $targets[$i], 'tg_home_shower' ) ? 10 : 0;
+                    $terror_chance -= $quies                                                                          ? 10 : 0;
+
+                    //'bquies_#00'
+
+                    if ($this->random->chance($terror_chance / 100)) {
                         $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
                         $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 

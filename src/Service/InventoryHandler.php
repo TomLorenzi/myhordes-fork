@@ -166,7 +166,7 @@ class InventoryHandler
      * @param ItemGroup|ItemRequest[] $requests
      * @return Item[]
      */
-    public function fetchSpecificItems($inventory, $requests): array {
+    public function fetchSpecificItems(Inventory|array $inventory, ItemGroup|array $requests): array {
         $return = [];
 
         if (is_array($inventory)) $inventory = array_filter($inventory, function(Inventory $i) { return $i->getId() !== null; } );
