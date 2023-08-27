@@ -48,6 +48,14 @@ abstract class GameInteractionEvent extends GameEvent
         };
     }
 
+    public function __isset(string $name): bool
+    {
+        return match ($name) {
+            'citizen', 'common' => true,
+            default => parent::__isset($name)
+        };
+    }
+
     public function pushErrorCode(int $code, int $priority = 0, bool $cancelCommonEffects = true): static {
         if (!isset( $this->error_codes[$priority] )) $this->error_codes[$priority] = [];
         $this->error_codes[$priority][] = $code;

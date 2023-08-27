@@ -33,6 +33,7 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
             LogTemplateHandler::class,
             RandomGenerator::class,
             InventoryHandler::class,
+            ItemFactory::class,
         ];
     }
 
@@ -58,7 +59,7 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
         switch ($event->building->getPrototype()->getName()) {
             case 'small_refine_#01':
                 $bps = [
-                    ['bplan_c_#00' => 1],
+                    [],
                     ['bplan_c_#00' => 4],
                     ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
                     ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
@@ -122,8 +123,8 @@ final class BuildingUpgradeListener implements ServiceSubscriberInterface
             foreach ($event->spawnedBlueprints as ['item' => $item, 'count' => $count]) {
                 $plan = ['item' => $item, 'count' => $count];
                 for ($i = 0; $i < $count; $i++) {
-                    $inventory->forceMoveItem($event->town->getBank(), $item = $factory->createItem($item));
-                    $plan['item'] = $item->getPrototype()->getId();
+                    $inventory->forceMoveItem($event->town->getBank(), $itemInstance = $factory->createItem($item));
+                    $plan['item'] = $itemInstance->getPrototype()->getId();
                 }
                 $plans[] = $plan;
             }

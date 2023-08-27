@@ -46,6 +46,14 @@ abstract class GameEvent extends Event
         };
     }
 
+    public function __isset(string $name): bool
+    {
+        return match ($name) {
+            'town', 'data' => true,
+            default => isset($this->data_mixin->$name)
+        };
+    }
+
     public function __set(string $name, $value): void
     {
         $this->data_mixin->$name = $value;

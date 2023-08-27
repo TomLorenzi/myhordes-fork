@@ -148,7 +148,7 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             $event->markModified();
         }
 
-        $local = [];
+        $local = $local_log = [];
         if ($event->produceDailyBlueprint) {
             $plan = $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName('bplan_c_#00');
             $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProductionBlueprint( $event->town, $plan, $event->building->getPrototype()));
@@ -157,11 +157,12 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
 
         foreach ( $event->dailyProduceItems as $item_id => $count )
             if ($count > 0)
-                $local[] = ['item' => $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName($item_id), 'count' => $count];
+                $local_log[] = $local[] = ['item' => $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName($item_id), 'count' => $count];
+
+        if (!empty($local_log))
+            $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProduction( $event->building, $local_log ) );
 
         if (!empty($local)) {
-            $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProduction( $event->building, $local ) );
-
             $strange = $event->townConfig->get( TownConf::CONF_MODIFIER_STRANGE_SOIL, false );
             foreach ($local as ['item' => $item_proto, 'count' => $count])
                 for ($i = 0; $i < $count; $i++) {

@@ -14,7 +14,7 @@ class BuildingEffectData
      */
     public function setup( Building $building, ?Building $upgradedBuilding ): void {
         $this->building = $building;
-        $this->upgradedBuilding = $building;
+        $this->upgradedBuilding = $upgradedBuilding;
     }
 
     public readonly Building $building;
