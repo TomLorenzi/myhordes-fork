@@ -35,6 +35,13 @@ class AffectStatus
     private $citizenHunger;
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $forced;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $probability = null;
+
+    #[ORM\Column]
+    private bool $modifyProbability = true;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -126,6 +133,30 @@ class AffectStatus
     public function setForced(?bool $forced): self
     {
         $this->forced = $forced;
+
+        return $this;
+    }
+
+    public function getProbability(): ?int
+    {
+        return $this->probability;
+    }
+
+    public function setProbability(?int $probability): static
+    {
+        $this->probability = $probability;
+
+        return $this;
+    }
+
+    public function isModifyProbability(): ?bool
+    {
+        return $this->modifyProbability;
+    }
+
+    public function setModifyProbability(bool $modifyProbability): static
+    {
+        $this->modifyProbability = $modifyProbability;
 
         return $this;
     }

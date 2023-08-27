@@ -463,66 +463,81 @@ class ActionHandler
         $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$infect_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
-                if ($status->getResetThirstCounter())
-                    $citizen->setWalkingDistance(0);
 
-                if ($status->getCounter() !== null)
-                    $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
+                $p = $status->getProbability();
+                if ($p !== null && $status->isModifyProbability()) {
 
-                if ($status->getCitizenHunger()) {
-                    $ghoul_mode = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
-                    $hungry_ghouls = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOULS_HUNGRY, false);
-                    if (($hungry_ghouls || $citizen->hasRole('ghoul')) && ($status->getForced() || !in_array($ghoul_mode, ['bloodthirst','airbnb'])))
-                        $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
-                }
-
-                if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
-                    if ($status->getRoleAdd()) {
-                        if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
-                            $tags[] = 'role-up';
-                            $tags[] = "role-up-{$status->getRole()->getName()}";
-                        }
-                    } else {
-                        if ($this->citizen_handler->removeRole( $citizen, $status->getRole() )) {
-                            $tags[] = 'role-down';
-                            $tags[] = "role-down-{$status->getRole()->getName()}";
-                        }
+                    if ($status->getRole()?->getName() === 'ghoul') {
+                        if ($citizen->getTown()->getType()->getName() === 'panda') $p += 3;
+                        if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_home_clean')) $p -= 3;
                     }
+
                 }
 
-                if ($status->getInitial() && $status->getResult()) {
-                    if ($citizen->getStatus()->contains( $status->getInitial() )) {
-                        $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
-                        $this->citizen_handler->inflictStatus( $citizen, $status->getResult() );
-                        $tags[] = 'stat-change';
-                        $tags[] = "stat-change-{$status->getInitial()->getName()}-{$status->getResult()->getName()}";
-                    }
-                }
-                elseif ($status->getInitial()) {
-                    if ($citizen->getStatus()->contains( $status->getInitial() ) && $this->citizen_handler->removeStatus( $citizen, $status->getInitial() )) {
-                        $tags[] = 'stat-down';
-                        $tags[] = "stat-down-{$status->getInitial()->getName()}";
-                    }
-                }
-                elseif ($status->getResult()) {
-                    $inflict = true;
+                if ($p === null || $this->random_generator->chance( $p / 100 )) {
+                    if ($status->getResetThirstCounter())
+                        $citizen->setWalkingDistance(0);
 
-                    if($inflict && $status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
-                        $inflict = $this->random_generator->chance(0.5);
-                        $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
-                        if($inflict){
-                            $execute_info_cache['message'][] = T::__("Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...", "items");
+                    if ($status->getCounter() !== null)
+                        $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
+
+                    if ($status->getCitizenHunger()) {
+                        $ghoul_mode = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
+                        $hungry_ghouls = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOULS_HUNGRY, false);
+                        if (($hungry_ghouls || $citizen->hasRole('ghoul')) && ($status->getForced() || !in_array($ghoul_mode, ['bloodthirst','airbnb'])))
+                            $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
+                    }
+
+                    if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
+                        if ($status->getRoleAdd()) {
+                            if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
+                                $tags[] = 'role-up';
+                                $tags[] = "role-up-{$status->getRole()->getName()}";
+                            }
                         } else {
-                            $execute_info_cache['message'][] = T::__("Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.", "items");
+                            if ($this->citizen_handler->removeRole( $citizen, $status->getRole() )) {
+                                $tags[] = 'role-down';
+                                $tags[] = "role-down-{$status->getRole()->getName()}";
+                            }
                         }
                     }
-                    if ($inflict){
-                        if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus($citizen, $status->getResult())) {
-                            $tags[] = 'stat-up';
-                            $tags[] = "stat-up-{$status->getResult()->getName()}";
+
+                    if ($status->getInitial() && $status->getResult()) {
+                        if ($citizen->getStatus()->contains( $status->getInitial() )) {
+                            $this->citizen_handler->removeStatus( $citizen, $status->getInitial() );
+                            $this->citizen_handler->inflictStatus( $citizen, $status->getResult() );
+                            $tags[] = 'stat-change';
+                            $tags[] = "stat-change-{$status->getInitial()->getName()}-{$status->getResult()->getName()}";
+                        }
+                    }
+                    elseif ($status->getInitial()) {
+                        if ($citizen->getStatus()->contains( $status->getInitial() ) && $this->citizen_handler->removeStatus( $citizen, $status->getInitial() )) {
+                            $tags[] = 'stat-down';
+                            $tags[] = "stat-down-{$status->getInitial()->getName()}";
+                        }
+                    }
+                    elseif ($status->getResult()) {
+                        $inflict = true;
+
+                        if($inflict && $status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
+                            $inflict = $this->random_generator->chance(0.5);
+                            $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
+                            if($inflict){
+                                $execute_info_cache['message'][] = T::__("Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...", "items");
+                            } else {
+                                $execute_info_cache['message'][] = T::__("Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.", "items");
+                            }
+                        }
+                        if ($inflict){
+                            if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus($citizen, $status->getResult())) {
+                                $tags[] = 'stat-up';
+                                $tags[] = "stat-up-{$status->getResult()->getName()}";
+                            }
                         }
                     }
                 }
+
+
             }
 
             if ($ap = $result->getAp()) {

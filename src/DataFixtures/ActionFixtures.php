@@ -253,7 +253,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 ->setResetThirstCounter( $data['reset_thirst'] ?? null )
                 ->setCitizenHunger( $data['hunger'] ?? null )
                 ->setForced( $data['force'] ?? false )
-                ->setCounter( $data['counter'] ?? null );
+                ->setCounter( $data['counter'] ?? null )
+                ->setProbability( $data['probability'] ?? null )
+                ->setModifyProbability( $data['modProbability'] ?? true );
 
             if (!$status_from && !$status_to && !$result->getResetThirstCounter() && !$result->getCitizenHunger() && $result->getCounter() === null && $role === null) {
                 throw new Exception('Status effects must have at least one attached status.');
