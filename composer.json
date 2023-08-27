@@ -23,7 +23,7 @@
         "doctrine/doctrine-fixtures-bundle": "3.4.4",
         "doctrine/doctrine-migrations-bundle": "3.2.4",
         "doctrine/migrations": "3.6.0",
-        "doctrine/orm": "2.16.1",
+        "doctrine/orm": "2.15.5",
         "graphp/algorithms": "0.8.2",
         "jdrieghe/array-helpers": "^0.2.0",
         "laminas/laminas-code": "4.11.0",
