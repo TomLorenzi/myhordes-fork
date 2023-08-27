@@ -384,10 +384,6 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'home_kitchen_success' => [ 'spawn' => 'kitchen_success_food', 'picto' => ['r_cookr_#00'] ],
                 'home_kitchen_failure' => [ 'spawn' => 'kitchen_fail_food' ],
-
-                'become_ghoul'    => [ 'status' => 'become_ghoul'    ],
-                'become_ghoul_5'  => [ 'status' => 'become_ghoul_5'  ],
-                'become_ghoul_25' => [ 'status' => 'become_ghoul_25' ],
             ],
 
             'results' => [
@@ -440,9 +436,6 @@ class ActionDataService implements FixtureProcessorInterface {
                     'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
                     'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
 
-                    'become_ghoul'    => [ 'role' => 'ghoul', 'enabled' => true  ],
-                    'become_ghoul_5'  => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'force' => true  ],
-                    'become_ghoul_25' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true ],
                     'heal_ghoul'   => [ 'role' => 'ghoul', 'enabled' => false, 'hunger' => -9999999, 'force' => true ],
                     'satisfy_ghoul_50' => [ 'hunger' => -50 ],
                     'satisfy_ghoul_30' => [ 'hunger' => -30 ],
@@ -869,16 +862,16 @@ class ActionDataService implements FixtureProcessorInterface {
 
                 'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', [ 'zone' => ['chatSilence' => 60] ] ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
 
-                'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 96], ['become_ghoul_25', 4] ]] ], 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
+                'eat_fleshroom_1'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 4 ]] ], 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
                 'eat_fleshroom_2'  => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], 'escort_message_key' => 'escort_food_eat' ],
 
-                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 95], ['become_ghoul_25', 5] ]] ], 'message_key' => 'eat_human_meat', 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
+                'eat_meat_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 5 ]] ], 'message_key' => 'eat_human_meat', 'escort_message_key' => 'escort_food_eat' ], /* based on Hordes data */
                 'eat_meat_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul', 'escort_message_key' => 'escort_food_eat' ],
 
-                'eat_bone_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 47], [ 'infect', 50 ], ['become_ghoul_25', 3] ]] ], 'message_key' => 'eat_human_meat' ], /* based on Hordes data */
+                'eat_bone_1'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 47], [ 'infect', 50 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true, 'probability' => 100 ]]], 3] ]] ], 'message_key' => 'eat_human_meat' ], /* based on Hordes data */
                 'eat_bone_2'    => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
 
-                'eat_cadaver_1' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 10 ], ['become_ghoul_5', 90] ]] ] ], /* based on Hordes data */
+                'eat_cadaver_1' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 10 ], [[['status' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'force' => true, 'probability' => 100 ]]], 90] ]] ] ], /* based on Hordes data */
                 'eat_cadaver_2' => [ 'label' => 'Essen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ], 'message_key' => 'eat_human_meat_ghoul' ],
 
                 'ghoul_serum' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul_serum' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
