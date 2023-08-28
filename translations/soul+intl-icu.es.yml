@@ -576,3 +576,5 @@ Gross: Grande
 'Sehr gross': 'Muy grande'
 'Spielen in anderen Gemeinden': 'Jugar en otras comunidades'
 'Du kannst nur den Städten deiner Gemeinschaft beitreten.': 'Solo está permitido jugar en pueblos de su comunidad.'
+'Resourcen für Baustellen immer komplett anzeigen': 'Mostrar siempre los recursos para las obras en su totalidad'
+'Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen.': 'Algunas obras requieren muchos tipos diferentes de recursos, por lo que resulta difícil mostrarlos todos en una fila. Esta opción controla si los recursos deben mostrarse siempre en su totalidad o ampliarse individualmente.'

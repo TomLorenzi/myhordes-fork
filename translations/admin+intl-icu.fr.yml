@@ -138,7 +138,7 @@ Whitelist: Liste blanche
 'Neues Passwort setzen': 'Définir un nouveau mot de passe'
 EternalTwin-Integration: Intégration Eternaltwin
 'In lokalen Account umwandeln': 'Convertir en compte local'
-Kartei: Indice de la carte
+Kartei: Fiche
 Anzeigename: Nom d'affichage
 'Lokal: {account}': 'Local: {account}'
 'Von EternalTwin verwaltet': 'Géré par Eternaltwin'
@@ -255,7 +255,7 @@ Dauerhaft: Permanent
 'Stadtübergreifende Kommunikation verbieten': 'Communications hors de la ville (MPs)'
 'Kommentare verbieten': 'Commentaires'
 'Organisation in Gruppen verbieten': 'Organisation en groupe'
-'Spielen verbieten': 'Interdire le jeu'
+'Spielen verbieten': 'Interdire de jeu'
 'Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un autre modérateur avant qu''elle ne devienne active.'
 'Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.': 'La durée de la restriction ne compte qu''à partir du moment où elle est activée.'
 'Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.': 'Cette restriction de compte doit être confirmée par un administrateur avant qu''elle ne devienne active.'
@@ -611,5 +611,5 @@ Konfiguration: Configuration
 Option: Option
 Wert: Valeur
 'Keine Verifizierungsmails versenden': 'Ne pas envoyer d''e-mails de vérification'
-'Spielen in anderen Gemeinden': 'Jeu dans d''autres communautés'
-'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d''autres communautés'
+'Spielen in anderen Gemeinden': 'Jeu dans d’autres communautés'
+'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d’autres communautés'
