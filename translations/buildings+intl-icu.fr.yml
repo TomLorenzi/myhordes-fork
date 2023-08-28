@@ -1,13 +1,13 @@
 ---
 Wassergraben: Douves
-'Großer Graben': 'Grand Fossé'
+'Großer Graben': 'Grand fossé'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'Le Grand fossé apporte 23 points de défense.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'Le Grand fossé apporte 44 points de défense.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.': 'Le Grand fossé apporte 76 points de défense.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'Le Grand fossé apporte 109 points de défense.'
 'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'Le Grand fossé apporte 160 points de défense.'
 Rasierklingenmauer: Muraille rasoir
-Pfahlgraben: Fosse à Pieux
+Pfahlgraben: Fosse à pieux
 Köder: Appâts
 Stacheldraht: Barbelés
 'Weiterentwickelte Stadtmauer': 'Remparts avancés'
@@ -26,30 +26,30 @@ Betonschicht: Bétonnade
 Zombiereibe: Râpe à zombies
 Fallgruben: Oubliettes
 Holzzaun: Palissade
-Sperrholz: Contre-plaqué
+Sperrholz: Contreplaqué
 'Rüstungsplatten 3.0': 'Cloison épaisse'
 Extramauer: Bastion
 Rüstungsplatten: Cloison en bois
 'Rüstungsplatten 2.0': 'Cloison métallique'
-Einseifer: Mur Savonné
+Einseifer: Mur savonné
 Spraykanone: Neurotoxine
 Säurespray: Projection acide
 Zerstäuber: Pulvérisateur
 'Verstärkte Stadtmauer': 'Muraille'
-Minen: Champ mines eau
+Minen: Champs de mines à eau
 Wasserfilter: Filtre
 Wasserreiniger: Purificateur
 Dünger: Fertilisation sauvage
 Granatapfel: Pamplemousses explosifs
 Gemüsebeet: Potager
-'Projekt Eden': 'Projet Eden'
+'Projekt Eden': 'Projet Éden'
 Brunnenbohrer: Foreuse puits
 Kärcher: Vaporisateur
 'Kreischender Rotor': 'Sanibroyeur'
 Sprinkleranlage: Arroseurs auto
 Dusche: Douches
 Wasserleitungsnetz: Réseau hydraulique
-Wasserturm: Aqua tourelles
+Wasserturm: Aqua-tourelles
 'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'La défense des aqua-tourelles est multipliée par 1.8 (126 points de défense), mais coûte 2 rations d''eau par nuit.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'La défense des aqua-tourelles est multipliée par 2.6 (182 points de défense), mais coûte 4 rations d''eau par nuit.'
 'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'La défense des aqua-tourelles est multipliée par 3.4 (238 points de défense), mais coûte 6 rations d''eau par nuit.'
@@ -58,10 +58,10 @@ Wasserturm: Aqua tourelles
 Wasserfänger: Percée
 Wasserkanone: Pluvio-canons
 Schleuse: Caniveaux
-Wasserfall: Rid'eau
-Wünschelrakete: Roquette Foreuse
+Wasserfall: Rid’eau
+Wünschelrakete: Roquette foreuse
 Wünschelrute: Détecteur à eau
-Apfelbaum: Pommier de l'Outre-Monde
+Apfelbaum: Pommier de l’Outre-Monde
 Pumpe: Pompe
 'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'Ajoute 20 Rations d''eau dans le puits (une seule fois).'
 'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'Ajoute 30 Rations d''eau dans le puits (une seule fois).'
@@ -76,7 +76,7 @@ Verteidigungsanlage: Fixations de défenses
 'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Chaque objet de défense en banque apporte 4 points de défense à la ville.'
 Steinkanone: Canon à briques
 'Selbstgebaute Railgun': 'Perforeuse'
-Blechplattenwerfer: Lance-Grenailles
+Blechplattenwerfer: Lance-grenailles
 'Brutale Kanone': 'Canon brutal'
 Kanonenhügel: Monticules canons
 Holzbalkendrehkreuz: Tourniquet
@@ -86,10 +86,10 @@ Bauhaus: Architectoire
 'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 4 plans communs après l''attaque.'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans communs, 2 plans inhabituels après l''attaque (et une surprise?)'
 'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans inhabituels, 2 plans rares après l''attaque (et une surprise?)'
-Baustellenbuch: Registre chantier
+Baustellenbuch: Registre de chantier
 Galgen: Potence
 'Kleines Cafe': 'Cantine à bois'
-Sarg-Katapult: Cercueils sur ressort
+Sarg-Katapult: Cercueils sur ressorts
 'Kleiner Friedhof': 'Cimetière cadenassé'
 Hühnerstall: Poulailler
 Schlachthof: Abattoir
@@ -100,38 +100,38 @@ Baumarkt: Stratégies citoyennes
 Krankenstation: Infirmerie
 Labor: Laboratoire central
 Werkstatt: Atelier
-'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 6%.'
-'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 12%.'
-'Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 18%.'
+'Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 6 %.'
+'Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 12 %.'
+'Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.': 'Le coût en PA de tous les chantiers est réduit de 18 %.'
 Scanner: Scanner
 'Verbesserte Karte': 'Carte améliorée'
 Rechenmaschine: Planificateur
 Forschungsturm: Scrutateur
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.': 'Les chances de régénération d''une case du désert passent à 37%.'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.': 'Les chances de régénération d’une case du désert passent à 37 %.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.': 'Les chances de régénération d''une case du désert passent à 49%.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.': 'Les chances de régénération d''une case du désert passent à 61%.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'Les chances de régénération d''une case du désert passent à 73%.'
 'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'Les chances de régénération d''une case du désert passent à 85%.'
 Verteidigungspfähle: Champs piégés
-Notfallabstützung: Renforts d'urgence
+Notfallabstützung: Renforts d’urgence
 Guerilla: Guérilla
 Trümmerberg: Mont pointu
-Abfallberg: Tas détritus
-Wolfsfalle: Piège à loups
+Abfallberg: Tas de détritus
+Wolfsfalle: Pièges à loups
 Sprengfalle: Dynamitage
 'Nackte Panik': 'Panique'
 Dollhouse: La Bamba
 'Heiliger Regen': 'Pluie bénite'
-Voodoo-Puppe: Poupée Vaudou XXL
-'Spirituelles Wunder': 'Mirage Spirituel'
+Voodoo-Puppe: Poupée vaudou XXL
+'Spirituelles Wunder': 'Mirage spirituel'
 'Bokors Guillotine': 'Guillotine à Bokor'
-Notfallkonstruktion: Dispositifs d'urgence
+Notfallkonstruktion: Dispositifs d’urgence
 'Verbesserter Katapult': 'Catapulte calibrée'
-Katapult: Catapulte Primitive
+Katapult: Catapulte primitive
 'Kleine Waffenschmiede': 'Armurerie'
 'Schwedische Schreinerei': 'Magasin suédois'
 Schießstand: Tourelle lance-eau
-'Kleiner Tribok': 'Lance-bête'
+'Kleiner Tribok': 'Lance-bêtes'
 Wächter-Turm: Tour des gardiens
 Krähennest: Tour des éclaireurs
 Wachturm: Tour de guet
@@ -141,10 +141,10 @@ Wachturm: Tour de guet
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Détecte tous les zombies à 10 km de la ville et permet aux citoyens à 1 km de la ville de rentrer gratuitement.'
 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Détecte tous les zombies à 10 km de la ville et permet aux citoyens à 2 km de la ville de rentrer gratuitement.'
 Bohrturm: Derrick
-'Falsche Stadt': 'Fausse Ville'
+'Falsche Stadt': 'Fausse ville'
 Wasserhahn: Robinetterie
 'Großer Umbau': 'Grand déménagement'
-Vogelscheuche: Champs d'épouvantails
+Vogelscheuche: Champs d’épouvantails
 Fleischkäfig: Cage à viande
 Bürgergericht: Dictature des héros
 Befestigungen: Habitations fortifiées
@@ -167,17 +167,17 @@ Labyrinth: Labyrinthe
 'Alles oder nichts': 'Dernière chance'
 'Riesiger KVF': 'PMV géant'
 Riesenrad: Grande roue de Grostas
-Feuerwerk: Feux d'artifices
+Feuerwerk: Feux d’artifice
 Krähenstatue: Statue du Corbeau
 Kino: Cinéma
 Luftschlag: Roquettes
 Heißluftballon: Montgolfière
 Tunnelratte: Foreuse améliorée
 Fundament: Fondations
-Torpanzerung: Blindage d'entrée
+Torpanzerung: Blindage d’entrée
 Automatiktür: Piston calibré
-Kolbenschließmechanismus: Piston verrou
-Ventilationssystem: Conduite d'aération
+Kolbenschließmechanismus: Piston-verrou
+Ventilationssystem: Conduit d’aération
 Portal: Portail
 Feldbett: Lit de camp
 Zelt: Tente
@@ -215,53 +215,53 @@ Hammam: Hamâme
 'Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...': 'Une amélioration du Grand Fossé, y mettre de l''eau…'
 'Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.': 'Le Grand Fossé est une défense efficace : un grand trou entourant la ville. Pratique sur le long terme, on pourra le remplir avec un tas de choses pour le rendre encore plus efficace !'
 'Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.': 'Une recette simple : des morceaux de ferraille rouillés qui dépassent partout sur la Muraille de la ville pour en faire une sorte de grande lime à zombies.'
-'Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.': 'Une autre manière de remplir un fossé , avec de gros pieux en bois acérés.'
+'Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.': 'Une autre manière de remplir un fossé, avec de gros pieux en bois acérés.'
 "Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen": "Un bout de viande attaché aux barbelés pour retenir quelques zombies…"
-'Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.': 'C''est encore plus artisanal que du barbelé classique, puisqu''on ne dispose même pas de fil de fer…'
-'Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.': 'Tant pis pour les défenses ce soir, mais une muraille mieux construite permettra plus tard d''y ajouter de nombreuses améliorations…'
-'Was ist besser als eine Mauer?... eine groooße Mauer.': 'Qu''est-ce qui est mieux qu''un mur ? … Un gros mur.'
-'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.': 'Un grand nombre de pieux métalliques fixés au sommet des remparts pour faire des brochettes de zombie à la tombée de la nuit…'
+'Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.': 'C’est encore plus artisanal que du barbelé classique, puisqu’on ne dispose même pas de fil de fer…'
+'Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.': 'Tant pis pour les défenses ce soir, mais une muraille mieux construite permettra plus tard d’y ajouter de nombreuses améliorations…'
+'Was ist besser als eine Mauer?... eine groooße Mauer.': 'Qu’est-ce qui est mieux qu’un mur ?… Un gros mur.'
+'Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.': 'Un grand nombre de pieux métalliques fixés au sommet des remparts, pour faire des brochettes de zombie à la tombée de la nuit…'
 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.': 'Une troisième couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.'
 'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.': 'Une seconde couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.'
-'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!': 'En dotant toute la muraille d''une ossature en fer, on peut facilement l''améliorer chaque jour et sans trop d''effort !'
+'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!': 'En ayant doté toute la muraille d’une ossature en fer, on peut facilement l’améliorer chaque jour et sans trop d’efforts !'
 'Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.': 'Une troisième couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.'
 'Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.': 'Des structures métalliques pour renforcer les parties faibles de la muraille.'
-'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.': 'Couvrez une large surface de terre avec une multitude de morceaux de métal tranchant et vous obtiendrez la plus grande râpe à fromage du monde.'
-'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.': 'Plein de trous tout autour de la ville dissimulés sous des bâches. Il ne reste alors plus qu''à attendre que quelque chose tombe dedans.'
+'Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.': 'Couvrez une large surface de terre avec une multitude de morceaux de métal tranchants, et vous obtiendrez la plus grande râpe à fromage du monde.'
+'Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.': 'Plein de trous dissimulés sous des bâches, tout autour de la ville. Il ne reste alors plus qu’à attendre que quelque chose tombe dedans.'
 'Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.': 'Des clôtures en bois tout autour de la ville qui devraient (en théorie du moins) ralentir suffisamment les hordes de zombies pendant l''attaque…'
-'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': 'Pourquoi personne n''y avait pensé avant ? Au lieu de perdre votre temps à soigner votre hygiène corporelle, utilisez votre savon pour rendre les parois de la ville glissantes. Combiné avec la rape à zombies, c''est idéal, sauf pour le “bruit”.'
+'Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?': 'Pourquoi personne n’y avait pensé avant ? Au lieu de perdre votre temps à soigner votre hygiène corporelle, utilisez votre savon pour rendre les parois de la ville glissantes. Combiné avec la râpe à zombies, c’est idéal, sauf pour le « bruit ».'
 'Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.': 'Ça ne va certainement pas améliorer le joli minois des zombies devant la ville.'
-'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'Beaucoup l''ignorent, mais les zombies ont un cerveau. Même parfois deux, s''ils sont chanceux. Ça tombe bien : le concentré projeté par ce canon a l''étonnante capacité de faire suinter la cervelle.'
-'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..': 'Un dispositif défensif sommaire mais que vous serez bien content d''avoir quand Kevo, votre ancien voisin, tentera de manger votre délicieuse cervelle ce soir.'
-'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.': 'Ce n''est pas spécialement évolué, mais ça fait son office : vous empêcher de mourir trop vite.'
+'Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.': 'Beaucoup l’ignorent, mais les zombies ont un cerveau. Même parfois deux, s’ils sont chanceux. Ça tombe bien : le concentré projeté par ce canon a l’étonnante capacité de faire suinter la cervelle.'
+'Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..': 'Un dispositif défensif sommaire, mais que vous serez bien content d’avoir quand Kevo — votre ancien voisin — tentera de manger votre délicieuse cervelle ce soir.'
+'Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.': 'Ce n’est pas spécialement évolué, mais ça fait son office : vous empêcher de mourir trop vite.'
 'Simpel aber stabil: Was will man mehr?': 'Rudimentaire mais épaisse. On ne lui en demande pas plus.'
-'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...': 'Du contre-plaqué. Vous montez ce truc parceque vous n''avez sûrement rien de mieux à faire. Vous savez que c''est inutile, mais vous le faites quand même. Allons…'
-'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.': 'Ce n''est certes pas une lumière qui a eu l''idée de ce chantier, mais finalement, tout le monde s''est dit qu''un gros mur de plus, ce n''était sûrement pas une mauvaise chose.'
-'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).': 'Un petit dispositif hydraulique conçu pour projeter de la vapeur d''eau (et d''amusants produits chimiques avec).'
-'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': 'Marre de vous prendre des lambeaux de peau à la figure, les bras déchiquetés de vos voisins sur vos chaussures, il devient intéressant de quitter la terre ferme et de s''élever avec la création de de chemin de ronde autours de la ville. Ainsi, vous pourrez veiller et défendre la ville tout en étant plus proche des cieux.'
-'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.': 'Assemblez de la poudre, des dispositifs détonateurs et de l''eau pure et vous obtiendrez une belle bouillie de chair putréfiée ce soir. Une défense puissante mais à usage unique.'
-'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).': 'Améliore significativement l''efficacité du Purificateur (rendement élevé).'
-'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.': 'Transforme l''eau des Jerrycans trouvés dans le désert en rations d''eau potable (rendement moyen).'
-'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!': 'C''est une découverte scientifique majeure : en plantant des bâtons de dynamite et les arrosant soigneusement, on peut faire pousser des grenades.'
+'Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...': 'Du contreplaqué. Vous montez ce truc parce que vous n’avez sûrement rien de mieux à faire. Vous savez que c’est inutile, mais vous le faites quand même. Allons…'
+'Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.': 'Ce n’est certes pas une lumière qui a eu l’idée de ce chantier, mais finalement, tout le monde s’est dit qu’un gros mur de plus, ce n’était sûrement pas une mauvaise chose.'
+'Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).': 'Un petit dispositif hydraulique conçu pour projeter de la vapeur d’eau (et d’amusants produits chimiques avec).'
+'Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.': 'Marre de recevoir des lambeaux de peau à la figure, ou les bras déchiquetés de vos voisins sur vos chaussures ? Peut-être est-il temps pour vous de quitter la terre ferme, et de vous élever sur ce chemin de ronde construit tout autour de la ville. Ainsi, vous pourrez veiller et défendre la ville… tout en étant plus proche des cieux.'
+'Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.': 'Assemblez de la poudre, des dispositifs détonants et de l’eau pure, et vous obtiendrez une belle bouillie de chair putréfiée ce soir. Une défense puissante, mais à usage unique.'
+'Verbessert die Ausbeute des Wasserreinigers erheblich (hoher Wirkungsgrad).': 'Améliore significativement l’efficacité du Purificateur (rendement élevé).'
+'Verwandelt in der Wüste gefundenes Kanisterwasser in Trinkwasser.': 'Transforme l’eau des Jerrycans trouvés dans le désert en rations d’eau potable (rendement moyen).'
+'Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!': 'C’est une découverte scientifique majeure : en plantant des bâtons de dynamite et en les arrosant soigneusement, on peut faire pousser des grenades.'
 'Verbessert die Ausbeute des Gemüsebeets erheblich.': 'Accroît significativement le rendement du Potager.'
 'Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.': 'Le potager permet de créer des légumes pas trop moisis, des fruits qui commencent à pourrir avant de mûrir. Bref, des rations alimentaires, si on ne fait pas trop le difficile…'
-'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.': 'La solution de la dernière chance quand on n''a plus d''eau: perforer les nappes phréatiques à la dynamite pour étendre les réserves de la ville.'
-'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.': 'Une foreuse artisanale qui permettra de puiser l''eau un peu plus profondément dans le sol et ainsi augmenter sensiblement les réserves disponibles…'
-'Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.': 'Le vaporisateur est un système qui consomme une quantité négligeable d''eau pure et qui la projète en fine vapeur brûlante dans les rues de la ville. Idéale pour faire fondre vos amis putréfiés qui nous rendent visite chaque soir.'
-'Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!': 'Deux grosses plaques autour du passage de l''entrée et un puissant système de pistons : quand on les actionne, ça écrase instantanément tout ce qui se trouvait au milieu !'
-'Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.': 'Traditionnellement utilisés dans un jardin, ils servent aussi de défense mortelle contre les Hordes… Ils tuent beaucoup de zombies, mais il faut prévoir un stock d''eau important.'
-'Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!': 'Non, vraiment, cette odeur, c''est vraiment devenu insupportable : prenez une douche.'
-'Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.': 'Grâce à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d''eau en ville ! De plus, ce système apporte un petit surplus d''eau au puits.'
-'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.': 'Ce dispositif de défense révolutionnaire projette de puissants jets de vapeur d''eau dans les rangs des zombies qui s''approchent de nos murailles. Avec quelques réglages supplémentaires, ça sera une défense d''une puissance exceptionnelle !'
-'Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.': 'Quand il s''agit d''eau, il n''y a pas de petit profit. Ce chantier apporte +2 rations au puits et peut être reconstruit chaque jour.'
-'Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.': 'Une jolie petite pluie fine pour arroser les parterres de zombies qui poussent près de l''entrée.'
-'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'Un pommier qui ressemble plutôt à un buisson rachitique et presque mort mais qui produit de jolies pommes bleues. Euh, attendez.. Quoi ?'
-'Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?': 'Les eaux usées de la ville peuvent encore servir : il suffit de connecter les toilettes de chaque habitant à un astucieux réseau de tuyaux-toboggans et d''ouvrir les vannes à minuit. Tout le monde a bien construit sa tente, hein?'
-'Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.': 'Au début, c''était supposé être un système de décontamination. Mais à l''usage ça s''est révélé être une protection très efficace contre vos copains pestiférés. En ajoutant une petite touche de gel douche au Monoï, vous pourrez même parfumer les tas de cadavres obtenus.'
-'Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.': 'Un lance-roquettes artisanal braqué vers le sol : il fallait y penser ! Pour l''anecdote, l''inventeur de ce chantier voulait en réalité inventer le “rocket-jump”. Il a seulement redécouvert “le cratère”. Ce chantier rapporte +60 rations d''eau au puits.'
-'Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.': 'Pour une fois que la haute technologie sert à autre chose qu''à trucider du zombie… Ce chantier rapporte +100 rations d''eau au puits.'
-'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.': 'La pompe débloque l''ensemble des constructions basées sur l''eau. Elle augmente aussi sensiblement les réserves souterraines du puits.'
-'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...': 'Bon, on sait tous ce qu''est un Crématorium ? On sait aussi à quoi sert un Barbecue ? Eh bien c''est facile de deviner le fonctionnement et l''utilité du Crémato-Cue. En tout cas, fini la famine…'
+'Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.': 'La solution de la dernière chance quand on n’a plus d’eau : perforer les nappes phréatiques à la dynamite pour étendre les réserves de la ville.'
+'Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.': 'Une foreuse artisanale qui permettra de puiser l’eau un peu plus profondément dans le sol, et ainsi d’augmenter sensiblement les réserves disponibles…'
+'Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.': 'Le vaporisateur est un système qui consomme une quantité négligeable d’eau pure, et la projette en une fine vapeur brûlante dans les rues de la ville. Idéal pour faire fondre vos amis putréfiés qui nous rendent visite chaque soir.'
+'Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!': 'Deux grosses plaques autour du passage de l’entrée, et un puissant système de pistons : quand on les actionne, ça écrase instantanément tout ce qui se trouve au milieu !'
+'Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.': 'Traditionnellement utilisés dans un jardin, ils servent aussi de défenses mortelles contre les Hordes… Ils tuent beaucoup de zombies, mais il faut prévoir un stock d’eau important.'
+'Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!': 'Non, vraiment, cette odeur, c’est vraiment devenu insupportable : prenez une douche.'
+'Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.': 'Grâce à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d’eau en ville ! De plus, ce système apporte un petit surplus d’eau au puits.'
+'Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.': 'Ce dispositif de défense révolutionnaire projette de puissants jets de vapeur d’eau dans les rangs des zombies qui s’approchent de nos murailles. Avec quelques réglages supplémentaires, ça sera une défense d’une puissance exceptionnelle !'
+'Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.': 'Quand il s''agit d’eau, il n’y a pas de petits profits. Ce chantier apporte +2 rations au puits, et peut être reconstruit chaque jour.'
+'Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.': 'Une jolie petite pluie fine pour arroser les parterres de zombies qui poussent près de l’entrée.'
+'Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?': 'Un pommier qui ressemble plutôt à un buisson rachitique et mourant, mais qui produit de jolies pommes bleues. Euh, attendez… Quoi ?'
+'Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?': 'Les eaux usées de la ville peuvent encore servir : il suffit de connecter les toilettes de chaque habitant à un astucieux réseau de tuyaux-toboggans, et d’ouvrir les vannes à minuit. Tout le monde a bien construit sa tente, hein ?'
+'Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.': 'Au début, c’était supposé être un système de décontamination. Mais à l’usage, ça s’est révélé une protection très efficace contre vos copains pestiférés. En ajoutant une petite touche de gel douche au monoï, vous pourrez même parfumer les tas de cadavres ainsi obtenus.'
+'Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.': 'Un lance-roquettes artisanal braqué vers le sol : il fallait y penser ! Pour l’anecdote, l’inventeur de ce chantier voulait en réalité inventer le « rocket jump ». Il a seulement redécouvert le « cratère ». Ce chantier rapporte +60 rations d’eau au puits.'
+'Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.': 'Pour une fois que la haute technologie sert à autre chose qu’à trucider du zombie… Ce chantier rapporte +100 rations d’eau au puits.'
+'Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.': 'La pompe débloque l’ensemble des constructions basées sur l’eau. Elle augmente aussi sensiblement les réserves souterraines du puits.'
+'Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...': 'Bon, on sait tous ce qu’est un Crématorium ? On sait aussi à quoi sert un Barbecue ? Eh bien c’est facile de deviner le fonctionnement et l’utilité du Crémato-Cue. En tout cas, fini la famine…'
 'In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...': 'Permet de transformer vos petits compagnons (chiens, chats, serpents…) en rations. Quand on pense qu''il y en a qui préféraient le boeuf…'
 'Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!': 'Un système ingénieux pour optimiser l''usage de plaque de défenses (tôle ou autre). Chaque objet de défense dans la Banque rapporte plus de points de défense !'
 'Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!': 'Une tourelle automatisée qui projette des rochers à grande vitesse en direction de la porte. Il s''active à minuit et tire sans discontinuer pendant plusieurs minutes (si vous comptiez dormir dans le silence, c''est loupé) !'
