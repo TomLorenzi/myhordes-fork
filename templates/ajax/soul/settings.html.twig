@@ -691,6 +691,12 @@
                                     {{help_btn("Ist diese Einstellung aktiviert, öffnet das erste Antippen eines Objekts dessen Tooltip - erst das zweite Antippen führt die eigentliche Aktion durch. Ist die Einstellung deaktiviert, führt das erste Antippen die Aktion direkt aus - um den Tooptip zu öffnen, muss das Objekt länger gedrückt werden. Dies bezieht sich ausschließlich auf Geräte mit Finger- oder Stifteingabe. Bei Mauseingaben hat diese Einstellung keinen Effekt."|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-browser-setting="extendConstructions" type="checkbox" id="setting_browser_extendConstructions">&nbsp;<label for="setting_browser_extendConstructions">{{ 'Resourcen für Baustellen immer komplett anzeigen'|trans({}, 'soul') }}</label>
+                                    {{help_btn("Für einige Baustellen werden viele verschiedene Arten von Ressourcen benötigt, so dass es schwierig ist, sie alle in einer Zeile anzuzeigen. Diese Option legt fest, ob die Resourcen immer vollständig angezeigt oder individuell ausklappbar sein sollen."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
                             <div class="padded cell rw-4 rw-md-6 rw-sm-12">
                                 <div class="note note-lightest">
                                     <label for="setting_browser_iconZoom">{{ 'Icon-Zoom auf mobilen Geräten'|trans({}, 'soul') }}</label>
@@ -770,7 +776,7 @@
     {{ parent() }}
     <script>
 
-        const confirmConig = function() {
+        const confirmConfig = function() {
             $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}')
         }
 
@@ -780,7 +786,7 @@
                     e.checked = $.client.config.get(e.getAttribute('x-browser-setting')).get();
                     e.addEventListener('change', function() {
                         $.client.config.get(e.getAttribute('x-browser-setting')).set(e.checked);
-                        confirmConig();
+                        confirmConfig();
                     } );
                     break;
                 default: return;
@@ -796,7 +802,7 @@
 
             document.body.classList.add('icon-zoom-' + elem.value);
             $.client.config.iconZoom.set(elem.value);
-            confirmConig();
+            confirmConfig();
         });
 
         $.html.forEach('#setting_browser_forumFontSize', e => e.value = $.client.config.forumFontSize.get());
@@ -808,7 +814,7 @@
 
             document.body.classList.add('forum-font-' + elem.value);
             $.client.config.forumFontSize.set(elem.value);
-            confirmConig();
+            confirmConfig();
         });
 
         $.html.addEventListenerAll('#acc_del_btn', 'click', function(e) {

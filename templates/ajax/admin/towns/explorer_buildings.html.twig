@@ -62,6 +62,8 @@
 								</div>
 							{% endif %}#}
 				</div>
+				{% set not_built = fromTown is defined and buildable and fromTown.ap < building.ap %}
+				{% set needs_repair = fromTown is defined and not not_built and fromTown.complete and fromTown.hp < building.hp %}
 				<div class="building_resources cell">
 					{% if fromTown is defined %}
 						{% if fromTown.ap > 0 and not fromTown.complete %}
@@ -70,22 +72,45 @@
 							</div>
                         	<img class="ap-bar-start" src="{{ asset('build/images/building/building_barStart.gif' ) }}"/>
 						{% elseif fromTown.complete and fromTown.hp < building.hp %}
-							<div class="ap-bar" style="right: 50px">
+							<div class="ap-bar">
 								<div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%;"></div>
 								<div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
 							</div>
                         	<img class="ap-bar-start" src="{{ asset('build/images/building/building_barStartBroken.png' ) }}"/>
 						{% endif %}
 
-						<div class="build-req">
-							<div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
-						</div>
-						<div class="building_action cell">
-							<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><i class="fa fa-edit"></i></button>
+						{% if not_built %}
+							<div class="build-req">
+								<div class="ap-cost">
+									<div class="ap">{{ building.ap - fromTown.ap }}</div>
+									<div class="tooltip help">
+										{{ 'Zum Bau dieses Bauprojekts fehlen noch {ap} AP'|trans({'{ap}':building.ap - fromTown.ap },"game") }}
+									</div>
+								</div>
+							</div>
+						{% elseif needs_repair %}
+							<div class="build-req" style="color: #FF6A6A;">
+								<div class="ap">{{ ((fromTown.hp)/2)|round(0, 'ceil') }} / {{ ((building.hp)/2)|round(0, 'ceil') }}</div>
+							</div>
+						{% endif %}
+					{% endif %}
+					{% if fromTown is defined %}
+						<div class="building_action cell" style="width: fit-content; margin-left: auto; flex-grow: 0; margin-top: 2px;">
+							{% if fromTown.complete and building.maxLevel > 0 %}
+								{% if fromTown.level < building.maxLevel %}
+									<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level + 1 }}" x-building-admin-action="lv"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}"></button>
+								{% endif %}
+								{% if fromTown.level > 0 %}
+									<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lv"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}"></button>
+								{% endif %}
+							{% endif %}
+
+							<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><img alt="E" src="{% if fromTown.complete %}{{ asset('build/images/icons/small_refine.gif') }}{% else %}{{ asset('build/images/forum/edit.png') }}{% endif %}" /></button>
 							{% if not fromTown.complete %}
-								<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete" style="margin-top: 1px"><i class="fa fa-check"></i></button>
+								<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><img alt="ok" src="{{ asset('build/images/icons/done.png') }}" /></button>
 							{% else %}
-								<button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy" style="margin-top: 1px"><i class="fa fa-times"></i></button>
+								<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><img alt="[x]" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
+								<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="trigger_n" x-tooltip="title" title="{{ 'Gebäude-Effekt auslösen'|trans({},'admin') }}"><img alt="[n]" src="{{ asset('build/images/icons/small_action.gif') }}" /></button>
 							{% endif %}
 						</div>
 					{% endif %}

@@ -2,6 +2,7 @@
 @import (once) "../mobile.less";
 
 @myhordes-building-row-color: #663024;
+@myhordes-building-row-color-odd: darken(@myhordes-building-row-color, 5%);
 @myhordes-building-complete-row-color: #3b3249;
 
 @myhordes-building-header-color: #b37c4a;
@@ -10,14 +11,51 @@
 @myhordes-building-complete-text-color: #afacc1;
 
 @myhordes-building-locked-color: #773939;
+@myhordes-building-voted-color: #6B3977;
 
 @myhordes-building-height-root: 29px;
 @myhordes-building-height: 24px;
 
+@myhordes-building-indicator-width: 5px;
+
+.overflow-gradient(@row-color) {
+  background: -moz-linear-gradient(90deg, rgba(255,255,255,0) 27%, @row-color 58%);
+  background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 27%, @row-color 58%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 27%, @row-color 58%);
+}
+
 .b-table() {
   &:not(.locked) {
-    &:nth-child(2n+0) {background: darken(@myhordes-building-row-color,5%); &>.cell { background: darken(@myhordes-building-row-color,5%); }}
-    &:nth-child(2n+1) {background: @myhordes-building-row-color; &>.cell { background: @myhordes-building-row-color; }}
+    &:nth-child(2n+0) {
+      background: @myhordes-building-row-color-odd;
+      &>.cell {
+        background: @myhordes-building-row-color-odd;
+      }
+      .overflowing .extend_resources {
+        .overflow-gradient(@myhordes-building-row-color-odd);
+      }
+    }
+    &:nth-child(2n+1) {
+      background: @myhordes-building-row-color;
+      &>.cell {
+        background: @myhordes-building-row-color;
+      }
+      .overflowing .extend_resources {
+        .overflow-gradient(@myhordes-building-row-color);
+      }
+    }
+  }
+
+  &.voted:not(.complete) {
+    background: @myhordes-building-voted-color;
+    .overflowing .extend_resources {
+      .overflow-gradient(@myhordes-building-voted-color);
+    }
+    &:not(.locked) {
+      .defense {
+        background: @myhordes-building-voted-color;
+      }
+    }
   }
 }
 
@@ -65,12 +103,6 @@ div.buildings {
       &> div.cell:first-child:before { background: @myhordes-building-complete-header-color; }
     }
 
-    &.voted {
-      .building_resources {
-        background: #6B3977
-      }
-    }
-
     .vote {
       display: none;
     }
@@ -89,10 +121,15 @@ div.buildings {
     .lv_list(6);
   }
 
+  .build-req-items {
+    .build-req {
+      border-left: 1px dotted @myhordes-smalltext;
+    }
+  }
+
   .build-req {
     img { vertical-align: middle; }
     display: inline-block; padding: 0 3px; font-weight: bold; font-size: 1.4rem;
-    &+.build-req { border-left: 1px dotted @myhordes-smalltext; }
     &>span.resource {
       &.current {
         font-size: 1.1rem; font-weight: normal;
@@ -112,7 +149,7 @@ div.buildings {
   position: relative;
 
   .type_indicator {
-    width: 5px;
+    width: @myhordes-building-indicator-width;
   }
 
   .level_indicator {
@@ -128,29 +165,80 @@ div.buildings {
 
     .building_row {
       display: flex;
-      flex-grow: 1;
+      align-items: start;
+      width: calc(100% - @myhordes-building-indicator-width);
     }
 
     .building_info {
       display: flex;
       width: 41.5%;
-      padding: 0px 3px 0px;
-      align-items: center;
+      height: 100%;
       background: @myhordes-building-header-color;
+      align-items: center;
+      padding-left: 3px;
 
       .building_icon {
         margin-right: 3px;
+      }
+      .defense {
+        color: white;
       }
       .defense,
       .defense-broken {
         display: flex;
         margin-left: auto; // float right
         font-size: 90%;
+        padding: 5px 2px 0px 5px;
+        height: 100%;
       }
     }
 
     .building_resources {
-      flex-wrap: wrap;
+      height: 100%;
+      .build-req-items {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        flex-grow: 1;
+
+        &:has(.extend_resources.focused),
+        &:has(.extend_resources .more:hover) {
+          flex-wrap: wrap;
+          padding-right: 19px;
+        }
+        .more,
+        .less {
+          display: none;
+          width: fit-content;
+          height: fit-content;
+        }
+        &.overflowing {
+          .extend_resources:not(.focused) {
+            .more {
+              display: flex;
+            }
+          }
+          .extend_resources.focused {
+            .less {
+              display: flex;
+            }
+          }
+        }
+
+        .extend_resources {
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-top: 4px;
+          padding-right: 2px;
+          width: 38px;
+          height: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+        }
+      }
+      width: 54%;
       .ap-bar-start {
         position: absolute;
         top: 0px;
@@ -201,7 +289,7 @@ div.buildings {
     .building_action {
       flex-grow: 1;
       display: flex;
-      justify-content: flex-end;
+      height: 100%;
     }
 
     &.locked {
@@ -230,14 +318,16 @@ div.buildings {
 
     .building_resources {
       display: flex;
-      align-items: center;
       position: relative;
       flex-grow: 1;
-      padding-top: 5px;
+      padding-top: 4px;
+      padding-bottom: 1px;
     }
   }
   .building_name {
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .building.root .building_name {
     font-size: 140%;
@@ -398,6 +488,14 @@ ul.tabs {
 
 div.buildings {
   .building {
+    .building_info {
+      height: unset;
+      max-height: 50%;
+    }
+    .building_resources,
+    .building_action {
+      min-height: 50%;
+    }
     &.root {
       min-height: @myhordes-building-height-root * 2;
       .building_info,
@@ -427,7 +525,7 @@ div.buildings {
     }
 
     .building_row {
-      flex-direction: column;
+      flex-wrap: wrap;
 
       .building_info {
         width: 100%;
@@ -446,11 +544,47 @@ div.buildings {
           }
         }
       }
+      
+      .building_resources {
+        width: 92%;
+        height: fit-content;
+        
+        // Resources always extended on mobile
+        .build-req-items {
+          flex-wrap: wrap;
+          align-content: flex-start;
+          .build-req {
+            height: fit-content;
+          }
+        }
+        .extend_resources {
+          display: none;
+        }
+      }
     }
 
     .build-btn {
       margin-top: 0;
       margin-bottom: 0;
+    }
+
+    &.empty {
+      .building_resources,
+      .building_action {
+        min-height: 2px;
+      }
+      &.root {
+        min-height: @myhordes-building-height-root;
+      }
+      &:not(.root) {
+        min-height: @myhordes-building-height;
+      }
+    }
+    
+    &.voted:not(.complete):not(.locked) {
+      .defense {
+        background: unset;
+      }
     }
   }
 }

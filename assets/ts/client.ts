@@ -13,6 +13,7 @@ class Config {
     public usePostBackup:         conf<boolean>;
     public autoParseLinks:        conf<boolean>;
     public twoTapTooltips:        conf<boolean>;
+    public extendConstructions:   conf<boolean>;
     public ttttHelpSeen:          conf<boolean>;
     public iconZoom:              conf<string>;
     public forumFontSize:         conf<string>;
@@ -33,6 +34,7 @@ class Config {
         this.usePostBackup         = this.makeConf<boolean>('useEditorCache', true);
         this.autoParseLinks        = this.makeConf<boolean>('autoParseLinks', true);
         this.twoTapTooltips        = this.makeConf<boolean>('twoTapTooltips', false);
+        this.extendConstructions   = this.makeConf<boolean>('extendConstructions', false);
         this.ttttHelpSeen          = this.makeConf<boolean>('ttttHelpSeen', false);
         this.iconZoom              = this.makeConf<string>('iconZoom', '1-00');
         this.forumFontSize         = this.makeConf<string>('forumFontSize', 'normal');
