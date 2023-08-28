@@ -110,7 +110,6 @@
 								<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><img alt="ok" src="{{ asset('build/images/icons/done.png') }}" /></button>
 							{% else %}
 								<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><img alt="[x]" src="{{ asset('build/images/icons/small_remove.gif') }}" /></button>
-								<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" x-building-admin-action="trigger_n" x-tooltip="title" title="{{ 'Gebäude-Effekt auslösen'|trans({},'admin') }}"><img alt="[n]" src="{{ asset('build/images/icons/small_action.gif') }}" /></button>
 							{% endif %}
 						</div>
 					{% endif %}
