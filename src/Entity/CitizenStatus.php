@@ -32,6 +32,9 @@ class CitizenStatus implements NamedEntity
     private $nightWatchDefenseBonus;
     #[ORM\Column(type: 'float')]
     private $nightWatchDeathChancePenalty;
+
+    #[ORM\Column]
+    private ?bool $volatile = false;
     public function getId(): ?int
     {
         return $this->id;
@@ -109,5 +112,17 @@ class CitizenStatus implements NamedEntity
     public static function getTranslationDomain(): ?string
     {
         return 'game';
+    }
+
+    public function isVolatile(): ?bool
+    {
+        return $this->volatile;
+    }
+
+    public function setVolatile(bool $volatile): static
+    {
+        $this->volatile = $volatile;
+
+        return $this;
     }
 }

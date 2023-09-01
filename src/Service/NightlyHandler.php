@@ -1059,7 +1059,7 @@ class NightlyHandler
         $status_ooze = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_april_ooze'] );
         $status_paranoid = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_paranoid'] );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze', 'tg_novlamps', 'tg_tried_pp'];
+        $status_clear_list = $this->entity_manager->getRepository(CitizenStatus::class)->findBy(['volatile' => true]);
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
@@ -1164,7 +1164,7 @@ class NightlyHandler
 
             $add_hangover = ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_no_hangover'));
             foreach ($citizen->getStatus() as $st)
-                if (in_array($st->getName(),$status_clear_list)) {
+                if (in_array($st,$status_clear_list)) {
                     $this->log->debug("Removing volatile status from citizen <info>{$citizen->getUser()->getUsername()}</info>: <info>{$st->getLabel()}</info>.");
                     $this->citizen_handler->removeStatus( $citizen, $st );
                 }
@@ -1174,6 +1174,7 @@ class NightlyHandler
 
             $alarm = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_on_#00")]);
             if (count($alarm) > 0) {
+
                 $this->citizen_handler->setAP($citizen, true, 1);
                 $alarm[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
                 $this->entity_manager->persist($alarm[0]);

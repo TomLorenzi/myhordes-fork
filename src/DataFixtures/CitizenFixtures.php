@@ -150,7 +150,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setHidden( !isset($entry['label']) )
                 ->setDescription($entry['description'] ?? null)
                 ->setNightWatchDefenseBonus( $entry['nw_def'] ?? 0 )
-                ->setNightWatchDeathChancePenalty( $entry['nw_death'] ?? 0.0 );
+                ->setNightWatchDeathChancePenalty( $entry['nw_death'] ?? 0.0 )
+				->setVolatile($entry['volatile'] ?? true);
 
             $manager->persist( $entity );
 
