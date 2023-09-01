@@ -1548,12 +1548,30 @@ class LogTemplateHandler
 
     /**
      * @param Town $town
-     * @param Item|ItemPrototype $item
+     * @param array $item
+     * @param BuildingPrototype $building
      * @return TownLogEntry
      */
-    public function nightlyAttackProductionBlueprint( Town $town, ItemPrototype $item, BuildingPrototype $building): TownLogEntry {
-        $variables = array('item' => $item->getId(), 'building' => $building->getId());
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackProductionBlueprint']);
+    public function nightlyAttackProductionBlueprint( Town $town, array $item, BuildingPrototype $building): TownLogEntry {
+        $single_item = false;
+        foreach ($item as $single) {
+            $c = $single['count'] ?? 1;
+            if ($c === 0) continue;
+
+            if ($c > 1 || $single_item !== false)
+                $single_item = null;
+            else $single_item = $single['item'];
+        }
+
+        if ($single_item) {
+            $variables = array('item' => $single_item->getId(), 'building' => $building->getId());
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackProductionBlueprint']);
+        } else {
+            $variables = array('building' => $building->getId(),
+                'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+                else { return array('id' => $e[0]->getId()); } }, $item ));
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackProductionBlueprints']);
+        }
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
