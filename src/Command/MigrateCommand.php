@@ -547,6 +547,11 @@ class MigrateCommand extends Command
                 return 3;
             }
 
+			if (apcu_enabled()) {
+				$output->writeln("Clearing the APCU cache");
+				apcu_clear_cache();
+			}
+
             return 0;
         }
 
