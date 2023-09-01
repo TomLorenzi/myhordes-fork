@@ -58,7 +58,10 @@
 
     {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canvote, votedBuilding) %}
         {# @var building \App\Entity\Building #}
-        <div class="building {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
+        {% set not_built = buildable and building.ap < ((building.prototype.ap * workshopBonus)|round) %}
+        {% set needs_repair = not not_built and building.complete and building.hp < building.prototype.hp %}
+        {% set empty = (not buildable) or (building.complete and not needs_repair) %}
+        <div class="building {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}{% if empty %} empty{% endif %}">
             <div class="type_indicator"></div>
             <div class="building_row">
                 <div class="building_info cell">
@@ -113,8 +116,6 @@
                         </div>
                     {% endif %}
                 </div>
-                {% set not_built = buildable and building.ap < ((building.prototype.ap * workshopBonus)|round) %}
-                {% set needs_repair = not not_built and building.complete and building.hp < building.prototype.hp %}
                 <div class="building_resources{% if needs_repair %} to_repair{% endif %} padded cell">
                     {% set res_ok = true %}
                     {# initial test: building.ap > 0 and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) #}
@@ -149,40 +150,46 @@
                         </div>
                     {% endif %}
                     {% if not building.complete and building.prototype.resources is not null and buildable %}
-                        {% for itemgroup in building.prototype.resources.entries %}
-                            {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
-                                {% set res_ok = false %}
-                            {% endif %}
-                                <div class="build-req build-req-detail">
-                                    <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
-                                    <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
-                                    <div class="tooltip">
-                                        {{ itemgroup.prototype.label|trans({}, 'items') }}
-                                    </div>
-                                </div>
+                        <div class="build-req-items">
+                            {% for itemgroup in building.prototype.resources.entries %}
                                 {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
-                                    <div class="build-req build-req-short hidden">
+                                    {% set res_ok = false %}
+                                {% endif %}
+                                    <div class="build-req build-req-detail">
                                         <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
-                                        <span class="resource needed">{{ itemgroup.chance - items[ itemgroup.prototype.id ] }}</span>
+                                        <span class="resource current {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}low{% endif %}">{{ items[ itemgroup.prototype.id ] }}/</span><span class="resource needed">{{ itemgroup.chance }}</span>
                                         <div class="tooltip">
                                             {{ itemgroup.prototype.label|trans({}, 'items') }}
                                         </div>
                                     </div>
-                                {% endif %}
-                        {% endfor %}
+                                    {% if items[ itemgroup.prototype.id ] < itemgroup.chance %}
+                                        <div class="build-req build-req-short hidden">
+                                            <img alt="" src="{{ asset('build/images/item/item_' ~ itemgroup.prototype.icon ~ '.gif' ) }}" />
+                                            <span class="resource needed">{{ itemgroup.chance - items[ itemgroup.prototype.id ] }}</span>
+                                            <div class="tooltip">
+                                                {{ itemgroup.prototype.label|trans({}, 'items') }}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                            {% endfor %}
+                            <div class="extend_resources">
+                                <img class="more" alt="more" src="{{ asset('build/images/icons/small_more.gif') }}">
+                                <img class="less" alt="less" src="{{ asset('build/images/icons/small_less.gif') }}">
+                            </div>
+                        </div>
                     {% endif %}
-                    <div class="building_action cell">
-                        {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) or (building.complete and building.hp < building.prototype.hp) %}
-                            <button class="inline build-btn" {% if (not res_ok) or (disable_all and not building.complete) %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>
-                                {% if not building.complete %}
-                                    <img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" />
-                                {% else %}
-                                    <img src="{{ asset('build/images/icons/small_refine.gif') }}" alt="" style="margin-right: 0px;" />
-                                    <div class="tooltip help">{{ 'Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.'|trans({remaining: ((building.prototype.hp - building.hp)/hpToAp)|round(0, 'ceil')}, 'game') }}</div>
-                                {% endif %}
-                            </button>
-                        {% endif %}
-                    </div>
+                </div>
+                <div class="building_action cell">
+                    {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) or (building.complete and building.hp < building.prototype.hp) %}
+                        <button class="inline build-btn" {% if (not res_ok) or (disable_all and not building.complete) %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>
+                            {% if not building.complete %}
+                                <img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}" />
+                            {% else %}
+                                <img src="{{ asset('build/images/icons/small_refine.gif') }}" alt="" style="margin-right: 0px;" />
+                                <div class="tooltip help">{{ 'Für die vollständige Instandsetzung dieses Gebäudes sind noch {remaining} AP erforderlich.'|trans({remaining: ((building.prototype.hp - building.hp)/hpToAp)|round(0, 'ceil')}, 'game') }}</div>
+                            {% endif %}
+                        </button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -347,6 +354,39 @@
         }
 
         update_view_mode();
+        
+        const on_ressource_extend_click = (e) => e.target.parentNode.classList.toggle('focused');
+        const init_extend_resources = () => {
+            Array.from(document.getElementsByClassName('extend_resources')).forEach((plus_btn) => {
+                if($.client.config.extendConstructions.get()) {
+                    plus_btn.classList.toggle('focused');
+                    return;
+                }
+                let build_items = plus_btn.parentNode;
+                let imgs = Array.from(build_items.querySelectorAll('img'));
+
+                const handle = () => {
+                    let imgs_loading = imgs.filter((i) => !i.complete).length;
+
+                    // Wait for resources images to load before determining if there is an overflow
+                    if(imgs_loading > 0) {
+                        setTimeout(handle, 250);
+                        return;
+                    }
+
+                    if(build_items.offsetWidth - build_items.scrollWidth < 0) {
+                        // overflow
+                        plus_btn.addEventListener('click', on_ressource_extend_click);
+                        build_items.classList.toggle('overflowing');
+                    } else {
+                        plus_btn.style.display = 'none';
+                    }
+                };
+
+                handle();
+            });
+        }
+        init_extend_resources();
 
         $.html.addEventListenerAll('#toggle_constmode_short', 'click', e => {
             e.preventDefault();

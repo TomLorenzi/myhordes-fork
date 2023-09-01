@@ -92,7 +92,7 @@
 							</div>
                         	<img class="ap-bar-start" src="{{ asset('build/images/building/building_barStart.gif' ) }}"/>
 						{% elseif fromTown.complete and fromTown.hp < building.hp %}
-							<div class="ap-bar" style="right: 50px">
+							<div class="ap-bar">
 								<div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%;"></div>
 								<div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
 							</div>
