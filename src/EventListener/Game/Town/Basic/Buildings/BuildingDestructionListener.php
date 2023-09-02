@@ -81,7 +81,12 @@ final class BuildingDestructionListener implements ServiceSubscriberInterface
                 // Keeping citizens in town
                 foreach ($citizens as $citizen) {
                     /** @var Citizen $citizen */
-                    if($citizen->getZone() || !$citizen->getAlive()) continue;
+                    if (
+                        $citizen->getZone() ||
+                        !$citizen->getAlive() ||
+                        $citizen->hasStatus('infected') ||
+                        $citizen->hasRole('ghoul')
+                    ) continue;
                     $toInfect[] = $citizen;
                 }
 
