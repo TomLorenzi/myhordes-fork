@@ -8,6 +8,8 @@ use App\Service\ConfMaster;
 use App\Structures\MyHordesConf;
 use DiscordWebhooks\Client;
 use DiscordWebhooks\Embed;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -26,13 +28,13 @@ class ExceptionSubscriber implements EventSubscriberInterface
     private ?string $discordEndpoint;
     private ?array $gitlabIssueMail;
 
-    private MailerInterface $mail;
-    private MessageBusInterface $bus;
-
-    public function __construct( ConfMaster $conf, ParameterBagInterface $params, MailerInterface $mailer, MessageBusInterface $bus ) {
-        $this->mail = $mailer;
-        $this->bus = $bus;
-
+    public function __construct(
+        ConfMaster                           $conf,
+        ParameterBagInterface                $params,
+        private readonly MailerInterface     $mail,
+        private readonly MessageBusInterface $bus,
+        private readonly ManagerRegistry     $mr,
+    ) {
         $this->report_path = "{$params->get('kernel.project_dir')}/var/reports";
 
         $version_file = "{$params->get('kernel.project_dir')}/VERSION";
@@ -57,6 +59,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
 
         if ($this->discordEndpoint && !file_exists($discord_file)) {
 
+            $this->mr->resetManager();
             $this->bus->dispatch( new DiscordMessage(
                 (new Client( $this->discordEndpoint ))
                     ->message(":sos: **Reporting an exception in MyHordes**\n" .
