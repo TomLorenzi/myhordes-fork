@@ -119,9 +119,10 @@ class CitizenHandler
     /**
      * @param Citizen $citizen
      * @param string|CitizenStatus $status
+     * @param bool $force
      * @return bool
      */
-    public function inflictStatus(Citizen $citizen, CitizenStatus|string $status ): bool {
+    public function inflictStatus(Citizen $citizen, CitizenStatus|string $status, bool $force = false ): bool {
         if (is_string( $status )) $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName($status);
         if (!$status) return false;
 
@@ -145,7 +146,7 @@ class CitizenHandler
             $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('infection');
 
         // Prevent a normal infection when immune
-        if ( $status->getName() === 'infection' && $this->hasStatusEffect( $citizen, 'immune' ) )
+        if ( !$force && $status->getName() === 'infection' && $this->hasStatusEffect( $citizen, 'immune' ) )
             return false;
 
         // Convert wound infection into normal infection
@@ -153,7 +154,7 @@ class CitizenHandler
             $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('infection');
 
         // Prevent terror when holding a zen booklet
-        if ($status->getName() === 'terror' && $this->inventory_handler->countSpecificItems(
+        if ( !$force && $status->getName() === 'terror' && $this->inventory_handler->countSpecificItems(
                 $citizen->getInventory(),
                 $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('lilboo_#00') )
         ) return $this->hasStatusEffect( $citizen, 'terror' );

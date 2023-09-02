@@ -97,7 +97,7 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
 
     public function onProcessPostAttackEffect( BuildingEffectEvent $event ): void {
         if ( $event->building->getPrototype()->getName() === 'small_refine_#01' && ( $event->upgradedBuilding !== $event->building || $event->building->getLevel() === 1 ) ) {
-            $event->produceDailyBlueprint = true;
+            $event->produceDailyBlueprint = array_merge($event->produceDailyBlueprint, ['bplan_c_#00']);
             $event->markModified();
         }
 
@@ -149,10 +149,20 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
         }
 
         $local = $local_log = [];
-        if ($event->produceDailyBlueprint) {
-            $plan = $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName('bplan_c_#00');
-            $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProductionBlueprint( $event->town, $plan, $event->building->getPrototype()));
-            $local[] = ['item' => $plan, 'count' => 1];
+        if (!empty($event->produceDailyBlueprint)) {
+
+            $tmp = [];
+            foreach ($event->produceDailyBlueprint as $print)
+                $tmp[$print] = ( $tmp[$print] ?? 0 ) + 1;
+
+            $plans = [];
+            foreach ($tmp as $plan_type => $count) {
+                $entity = $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName($plan_type);
+                $local[] = ['item' => $plan_type, 'count' => $count];
+                $plans[] = ['item' => $entity, 'count' => $count];
+            }
+
+            $this->getService(EntityManagerInterface::class)->persist( $this->getService(LogTemplateHandler::class)->nightlyAttackProductionBlueprint( $event->town, $plans, $event->building->getPrototype()));
         }
 
         foreach ( $event->dailyProduceItems as $item_id => $count )

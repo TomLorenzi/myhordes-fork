@@ -91,7 +91,8 @@
     "suggest": {
         "ext-imagick": "*",
         "ext-pthreads": "*",
-        "ext-ssh2": "*"
+        "ext-ssh2": "*",
+        "ext-apcu": "*"
     },
     "repositories": [
       {

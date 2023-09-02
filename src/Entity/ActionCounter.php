@@ -23,8 +23,10 @@ class ActionCounter
     const ActionTypeHomeCleanup = 10;
     const ActionTypeShower      = 11;
     const ActionTypeReceiveHeroic = 12;
+	const ActionTypePool      = 13;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
+		self::ActionTypePool
     ];
     #[ORM\Id]
     #[ORM\GeneratedValue]
