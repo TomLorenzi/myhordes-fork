@@ -146,7 +146,7 @@
         <ul class="{{ prefix }}actions" data-open-default="{{ open is defined and open ? '1' : '0' }}">
             {% if (item_action_list is defined) %}
                 {% set processed_renderers = [] %}
-                {% for entry in item_action_list|sort((a,b) => ( b.item.essential <=> a.item.essential ?: a.item.inventory.id <=> b.item.inventory.id ?: a.item.prototype.label|trans({}, 'items') <=> b.item.prototype.label|trans({}, 'items') ?: a.action.label|trans({},'items') <=> b.action.label|trans({},'items') )) %}
+                {% for entry in item_action_list|sort((a,b) => ( b.item.essential <=> a.item.essential ?: a.item.prototype.label|trans({}, 'items') <=> b.item.prototype.label|trans({}, 'items') ?: a.action.label|trans({},'items') <=> b.action.label|trans({},'items') ?: a.random <=> b.random )) %}
 
                     {% if entry.renderer is null or entry.renderer not in processed_renderers %}
 
