@@ -19,7 +19,7 @@
         {% if items|length == 0 and block('class') == "desert" %}
             <li class="category inline-block"><em class="small">{{ 'Nichts Interessantes...'|trans({}, 'game') }}</em></li>
         {% endif %}
-        {% for item in ( sort is defined and sort ? items|sort((a,b) => b.essential <=> a.essential ?: b.prototype.sort <=> a.prototype.sort ?: a.prototype.id <=> b.prototype.id ) : items) %}
+        {% for item in ( sort is defined and sort ? items|sort((a,b) => b.essential <=> a.essential ?: b.prototype.sort <=> a.prototype.sort ?: a.prototype.id <=> b.prototype.id ?: a.random <=> b.random ) : items) %}
             {% if (not item.hidden or show_banished_hidden) and (not foreignChestMode or not item.prototype.hideInForeignChest) %}
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort, 'debug': debug is defined and debug} %}{% endembed %}
             {% endif %}

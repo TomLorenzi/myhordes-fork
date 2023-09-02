@@ -31,6 +31,9 @@ class Item
     private $hidden = false;
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $firstPick = false;
+
+    private ?int $random = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -114,5 +117,9 @@ class Item
         $this->firstPick = $firstPick;
 
         return $this;
+    }
+
+    public function getRandom(): int {
+        return $this->random ?? ($this->random = mt_rand());
     }
 }
