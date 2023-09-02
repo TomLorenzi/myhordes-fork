@@ -89,7 +89,7 @@ final class BuildingDestructionListener implements ServiceSubscriberInterface
                 shuffle($toInfect);
                 // We infect the first half of the list
                 for ($i=0; $i < count($toInfect) / 2; $i++)
-                    $this->getService(CitizenHandler::class)->inflictStatus($toInfect[$i], "tg_meta_ginfect");
+                    $this->getService(CitizenHandler::class)->inflictStatus($toInfect[$i], "tg_meta_ginfect", true);
 
                 $ratio = 1 - mt_rand(13, 16) / 100;
 
