@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\ForumRepository')]
@@ -38,10 +40,14 @@ class Forum
     private $worldForumLanguage;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $worldForumSorting;
+
+    #[ORM\OneToMany(mappedBy: 'forum', targetEntity: ForumTitle::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $titles;
     public function __construct()
     {
         $this->threads = new ArrayCollection();
         $this->allowedTags = new ArrayCollection();
+        $this->titles = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -67,6 +73,21 @@ class Forum
 
         return $this;
     }
+
+    public function getLocalizedTitle(string $lang): ?string {
+        $entity = $this->getTitles()->matching( (new Criteria())
+            ->where( new Comparison( 'language', Comparison::EQ, $lang )  )
+        )->first();
+        return $entity ? $entity->getTitle() : $this->getTitle();
+    }
+
+    public function getLocalizedDescription(string $lang): ?string {
+        $entity = $this->getTitles()->matching( (new Criteria())
+            ->where( new Comparison( 'language', Comparison::EQ, $lang )  )
+        )->first();
+        return $entity ? $entity->getDescription() : $this->getDescription();
+    }
+
     /**
      * @return Collection|Thread[]
      */
@@ -163,6 +184,36 @@ class Forum
     public function setWorldForumSorting(?int $worldForumSorting): self
     {
         $this->worldForumSorting = $worldForumSorting;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ForumTitle>
+     */
+    public function getTitles(): Collection
+    {
+        return $this->titles;
+    }
+
+    public function addTitle(ForumTitle $title): static
+    {
+        if (!$this->titles->contains($title)) {
+            $this->titles->add($title);
+            $title->setForum($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTitle(ForumTitle $title): static
+    {
+        if ($this->titles->removeElement($title)) {
+            // set the owning side to null (unless already changed)
+            if ($title->getForum() === $this) {
+                $title->setForum(null);
+            }
+        }
 
         return $this;
     }
