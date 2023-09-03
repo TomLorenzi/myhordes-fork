@@ -233,9 +233,38 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
         api.index().then( v => setStrings(v) );
     }, [])
 
+    const reactRef = useRef<HTMLDivElement>();
+
+    const mouseLeaveHandler = e => {
+        const node = reactRef.current?.querySelector('.zone-plane-parent') as HTMLDivElement;
+
+        if (!node) return;
+        node.style.transform = 'translate(0px,0px)';
+    }
+
+    const mouseMoveHandler = e => {
+        const screen = reactRef.current;
+        const node = screen.querySelector('.zone-plane-parent') as HTMLDivElement;
+
+        if (!screen || !node) return;
+
+        const bounds = screen.getBoundingClientRect();
+        const nodeBounds = node.getBoundingClientRect();
+
+        const x = ((e.clientX - bounds.x) / bounds.width - 0.5) * -0.15;
+        const y = ((e.clientY - bounds.y) / bounds.height - 0.5) * -0.15;
+
+        node.style.transform = `translate(${x * nodeBounds.width}px,${y * nodeBounds.height}px)`;
+    }
+
+
     return (
         <Globals.Provider value={{ strings, etag: props.data.etag }}>
-            <div draggable={false} className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}>
+            <div
+                draggable={false} ref={reactRef}
+                className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}
+                onMouseMove={mouseMoveHandler} onMouseLeave={mouseLeaveHandler}
+            >
                 { (!map || !strings) && <div className={'map-load-container'}/> }
                 <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
                     <div className="frame-plane">

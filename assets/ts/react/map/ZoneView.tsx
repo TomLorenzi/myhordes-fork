@@ -142,15 +142,19 @@ const LocalZoneView = React.memo( ( props: LocalZoneProps ) => {
 
     return (
         <>
-            <div className={`zone-plane ${props.fx ? 'retro' : ''}`} ref={plane} style={style}>
-                { (props.fx ? [0,1,2,3,4] : []).map(i => <div key={i} className="retro-effect hide-lg hide-md hide-sm"/>) }
-                <LocalZoneGrid cache={cache}/>
+            <div className="zone-plane-parent">
+                <div className={`zone-plane ${props.fx ? 'retro' : ''}`} ref={plane} style={style}>
+                    { (props.fx ? [0,1,2,3,4] : []).map(i => <div key={i} className="retro-effect hide-lg hide-md hide-sm"/>) }
+                    <LocalZoneGrid cache={cache}/>
+                </div>
+
             </div>
             <ZoneControlParent fx={props.fx} movement={props.movement} planes={surroundings}
                                activeRoute={props.activeRoute} wrapDispatcher={props.wrapDispatcher} marker={props.marker}
                                dx={props.dx} dy={props.dy}
             />
         </>
+
 
     )
 }, (prevProps: LocalZoneProps, nextProps: LocalZoneProps) => {
