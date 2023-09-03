@@ -443,14 +443,16 @@ export default class HTML {
 
             const scrollHandler = () => reposition();
             const removeTooltip = function(event,force=false) {
-                if(event.target !== target && (!event.target.closest("#user-tooltip") || force)) {
+                if(event.target !== target && (event.target === window || !event.target?.closest("#user-tooltip") || force)) {
                     target.remove();
                     document.removeEventListener("click", removeTooltip);
+                    window.removeEventListener("popstate", removeTooltip);
                     window.removeEventListener( "scroll", scrollHandler, {capture: true} );
                 }
             }
 
-            document.addEventListener("click", removeTooltip);
+            document.addEventListener("click", removeTooltip, {once: true});
+            window.addEventListener('popstate', removeTooltip, {once: true});
             window.addEventListener("scroll", scrollHandler, {capture: true});
             reposition();
 
