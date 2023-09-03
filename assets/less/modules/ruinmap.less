@@ -106,7 +106,7 @@ div.ruin_map_area {
     }
     &.in_room:before { opacity: 0.5; }
     &:after {background: url("../../img/anims/noise.gif") repeat; opacity: 0.09; z-index: 5; pointer-events: none; mix-blend-mode: multiply; }
-    &>.zone-plane, &>.zone-plane-controls {
+    & .zone-plane, &>.zone-plane-controls {
       transition: opacity 0.25s ease, transform 0.25s ease, top 0.75s ease, left 0.75s ease; position: absolute;
     }
 
@@ -198,7 +198,7 @@ div.ruin_map_area {
       pointer-events: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 10;
     }
 
-    &>.zone-plane {
+    & .zone-plane {
       background: black; z-index: 2;
       top: -100%; left: -100%; width: 300%; height: 300%; font-size: 0;
       &>.zone-sub-container {
