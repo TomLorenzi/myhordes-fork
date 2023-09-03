@@ -1,0 +1,41 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block title %}{{ 'AntiSpam'|trans({}, 'admin') }}{% endblock %}
+{% block ajax %}
+
+    <div class="row">
+        <div class="cell rw-12">
+            {{ include('ajax/admin/spam/tabs.html.twig') }}
+
+            <b>{{ 'Anzahl der gelisteten E-Mail-Adressen: {number}'|trans({'{number}': emails},'admin') }}</b><br />
+            <b>{{ 'Anzahl der gelisteten Eternaltwin IDs: {number}'|trans({'{number}': etids},'admin') }}</b>
+            <hr />
+            <form class="row-flex">
+                <div class="padded cell">
+                    <label><select name="type">
+                        <option value="{{ constant("\\App\\Enum\\DomainBlacklistType::EmailAddress").value }}">{{ 'E-Mail-Adresse' }}</option>
+                        <option value="{{ constant("\\App\\Enum\\DomainBlacklistType::EternalTwinID").value }}">{{ 'Eternaltwin ID' }}</option>
+                    </select></label>
+                </div>
+                <div class="padded cell grow-1">
+                    <label><input type="text" name="value" placeholder="{{ 'Suche'|trans({},'admin') }}" /></label>
+                </div>
+                <div class="padded cell">
+                    <button data-fetch="{{ path('rest_admin_blacklist_spam_check') }}" data-fetch-method="post" data-fetch-load="{{ path('admin_spam_identifiers_view') }}">{{ 'Prüfen'|trans({},'admin') }}</button>
+                </div>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="padded cell">
+                        <button data-fetch="{{ path('rest_admin_blacklist_spam_add') }}" data-fetch-method="put" data-fetch-load="{{ path('admin_spam_identifiers_view') }}">{{ 'Hinzufügen'|trans({},'admin') }}</button>
+                    </div>
+                    <div class="padded cell">
+                        <button data-fetch="{{ path('rest_admin_blacklist_spam_delete') }}" data-fetch-method="delete" data-fetch-load="{{ path('admin_spam_identifiers_view') }}">{{ 'Entfernen'|trans({},'admin') }}</button>
+                    </div>
+                {% endif %}
+            </form>
+        </div>
+
+    </div>
+{% endblock %}
