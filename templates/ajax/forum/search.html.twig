@@ -43,13 +43,13 @@
                             {% for section in forumSections %}
                                 <optgroup label="{{ 'Weltforum'|trans({},'global',section) }}">
                                     {% for forum in forums|filter( f => f.worldForumLanguage == section )|sort( (a,b) => ( a.worldForumSorting <=> b.worldForumSorting ) ) %}
-                                        <option value="{{ forum.id }}" {% if forum.id == select %}selected{% endif %}>{{ forum.title }}</option>
+                                        <option value="{{ forum.id }}" {% if forum.id == select %}selected{% endif %}>{{ forum.localizedTitle(app.locale) }}</option>
                                     {% endfor %}
                                 </optgroup>
                             {% endfor %}
                             {% for forum in forums|filter( f => f.worldForumLanguage is null )|sort( (a,b) => ( a.title <=> b.title ) ) %}
                                 {# @var forum \App\Entity\Forum #}
-                                <option value="{{ forum.id }}" {% if forum.id == select %}selected{% endif %}>{{ forum.title }}</option>
+                                <option value="{{ forum.id }}" {% if forum.id == select %}selected{% endif %}>{{ forum.localizedTitle(app.locale) }}</option>
                             {% endfor %}
                         </select>
                     </div>

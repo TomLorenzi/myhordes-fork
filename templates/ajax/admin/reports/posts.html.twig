@@ -30,7 +30,7 @@
         {% for post in posts %}
             <div class="row">
                 <div class="cell padded rw-3 rw-md-6">
-                    <a href="{{path('forum_jump_view', {pid: post['post'].id})}}" target="_blank">{{ post['post'].thread.forum.title }}</a>
+                    <a href="{{path('forum_jump_view', {pid: post['post'].id})}}" target="_blank">{{ post['post'].thread.forum.localizedTitle(app.locale) }}</a>
                 </div>
                 <div class="cell padded rw-2 rw-lg-3 rw-md-6">
                     <span>{{ post['post'].owner.name }}</span>

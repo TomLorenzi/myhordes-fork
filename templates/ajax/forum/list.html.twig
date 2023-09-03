@@ -19,9 +19,9 @@
             <img alt="" src="{{ asset('build/images/forum/banner/bannerForumVoid.gif') }}">
         {% endif %}
         <div>
-            <div>{{ forum.title }}</div>
-            {% if forum.description is not empty %}
-                <span>{{ forum.description }}</span>
+            <div>{{ forum.localizedTitle(app.locale) }}</div>
+            {% if forum.localizedDescription(app.locale) is not empty %}
+                <span>{{ forum.localizedDescription(app.locale) }}</span>
             {% endif %}
         </div>
     </div>
