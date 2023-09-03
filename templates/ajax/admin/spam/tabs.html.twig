@@ -1,0 +1,8 @@
+<ul class="tabs plain">
+    <li {{ { 'tab': true, selected: tab == "domains" }|classes }}>
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_spam_domain_view') }}"><span>{{ 'E-Mail Domains'|trans({},'admin') }}</span></div>
+    </li>
+    <li {{ { 'tab': true, selected: tab == "identifiers" }|classes }}>
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('admin_spam_identifiers_view') }}"><span>{{ 'Account-IDs'|trans({},'admin') }}</span></div>
+    </li>
+</ul>
