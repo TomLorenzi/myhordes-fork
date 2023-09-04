@@ -569,6 +569,8 @@ class NightlyHandler
 				$this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
 				$this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
 			} else {
+				// No victim left, lucky them!
+				if (count($targets === 0)) continue;
 				$victim = array_pop($targets);
 				$this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> attacks and kills <info>{$victim->getUser()->getUsername()}</info>.");
 				$this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackKill( $corpse, $victim ) );
