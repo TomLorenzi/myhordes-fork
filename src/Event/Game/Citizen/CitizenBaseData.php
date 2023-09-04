@@ -16,7 +16,7 @@ class CitizenBaseData
 	 * @return CitizenBaseData
 	 * @noinspection PhpDocSignatureInspection
 	 */
-	public function setup( Citizen $citizen, bool $duringAttack): void {
+	public function setup( Citizen $citizen, bool $duringAttack = false): void {
 		$this->citizen = $citizen;
 		$this->during_attack = $duringAttack;
 	}
