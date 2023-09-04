@@ -30,6 +30,7 @@ use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\ItemPoisonType;
+use App\Event\Game\Citizen\CitizenQueryDeathChancesEvent;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\EventConf;
@@ -39,6 +40,9 @@ use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
 use DateInterval;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
 
 class NightlyHandler
@@ -71,12 +75,14 @@ class NightlyHandler
     private GameProfilerService $gps;
     private TimeKeeperService $timeKeeper;
     private EventProxyService $events;
+	private EventDispatcherInterface $dispatcher;
+	private EventFactory $eventFactory;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
                               CrowService $crow, UserHandler $uh, GameFactory $gf, GazetteService $gs, GameProfilerService $gps,
-                              TimeKeeperService $timeKeeper, MapMaker $mapMaker, EventProxyService $events )
+                              TimeKeeperService $timeKeeper, MapMaker $mapMaker, EventProxyService $events, EventDispatcherInterface $dispatcher, EventFactory $eventFactory )
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -100,6 +106,8 @@ class NightlyHandler
         $this->timeKeeper = $timeKeeper;
         $this->map = $mapMaker;
         $this->events = $events;
+		$this->dispatcher = $dispatcher;
+		$this->eventFactory = $eventFactory;
     }
 
     private function check_town(Town $town): bool {
@@ -625,7 +633,7 @@ class NightlyHandler
         $this->entity_manager->persist($gazette);
     }
 
-    private function stage2_attack(Town &$town) {
+	private function stage2_attack(Town &$town) {
         $this->log->info('<info>Marching the horde</info> ...');
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::NightlyAttack]);
         $status_terror  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'terror']);
@@ -727,8 +735,10 @@ class NightlyHandler
 
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) * $def_scale) : 0;
 
-            $deathChances = $this->events->citizenQueryDeathChances($watcher->getCitizen(), true);
-            $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
+			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
+			$deathChances = $event->deathChance;
+
+            $woundOrTerrorChances = $event->woundOrTerrorChance;
             $ctz = $watcher->getCitizen();
 
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
