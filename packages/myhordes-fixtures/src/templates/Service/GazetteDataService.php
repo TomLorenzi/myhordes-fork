@@ -22,7 +22,7 @@ class GazetteDataService implements FixtureProcessorInterface {
             ],
             ['text'=>'Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."',
                 'name'=>'gazetteFun_002',
-                'type'=>GazetteEntryTemplate::TypeGazetteFlavour,
+                'type'=>GazetteEntryTemplate::TypeGazetteNoDeaths,
                 'requirement'=>GazetteEntryTemplate::RequiresTwoCitizens,
                 'variableTypes'=>[
                     ['type'=>"citizen", 'name'=>'citizen1'],

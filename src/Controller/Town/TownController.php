@@ -403,8 +403,8 @@ class TownController extends InventoryAwareController
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
-            'can_devour' => !$this->getActiveCitizen()->getBanished() && $this->getActiveCitizen()->hasRole('ghoul'),
-            'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
+            'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'allow_devour' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'can_complain' => !$this->getActiveCitizen()->getBanished() && $complaint_possible,
             'can_undo_complain' => $complaint_possible && $active_complaint?->getSeverity() > 0,

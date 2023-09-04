@@ -375,15 +375,15 @@ class NightlyHandler
                 continue;
             }
 
-            if ($citizen->getStatus()->contains( $status_addicted ) && !$citizen->getStatus()->contains( $status_drugged )) {
-                $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_addicted->getLabel()}</info>, but not <info>{$status_drugged->getLabel()}</info>." );
-                $this->kill_wrap( $citizen, $cod_addict, true, 0, false, $town->getDay()+1 );
-                continue;
-            }
-
             if ($citizen->getStatus()->contains( $status_infected ) && !$ghoul) {
                 $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_infected->getLabel()}</info>." );
                 if ($this->random->chance($this->conf->getTownConfiguration($town)->get( TownConf::CONF_MODIFIER_INFECT_DEATH, 0.5 ))) $this->kill_wrap( $citizen, $cod_infect, true, 0, false, $town->getDay()+1 );
+                continue;
+            }
+
+            if ($citizen->getStatus()->contains( $status_addicted ) && !$citizen->getStatus()->contains( $status_drugged )) {
+                $this->log->debug( "Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>{$status_addicted->getLabel()}</info>, but not <info>{$status_drugged->getLabel()}</info>." );
+                $this->kill_wrap( $citizen, $cod_addict, true, 0, false, $town->getDay()+1 );
                 continue;
             }
 
@@ -727,7 +727,7 @@ class NightlyHandler
 
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) * $def_scale) : 0;
 
-            $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
+            $deathChances = $this->events->citizenQueryDeathChances($watcher->getCitizen(), true);
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
 

@@ -1,5 +1,5 @@
 {% extends "ajax/game/game.html.twig" %}
-{% block title %}{{ forum.title|raw }} - {{ 'Seite {page}'|trans({'{page}': current_page}, 'global')|raw }}{% endblock %}
+{% block title %}{{ forum.localizedTitle(app.locale)|raw }} - {{ 'Seite {page}'|trans({'{page}': current_page}, 'global')|raw }}{% endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
@@ -134,7 +134,7 @@
                                 <img style="height: 15px; width: auto;" alt="forum.worldForumLanguage" src="{{ asset('build/images/lang/' ~ forum.worldForumLanguage ~ '.png') }}" >
                                 <span><img alt=">" src="{{ asset('build/images/icons/small_caret_right.gif') }}" /></span>
                             {% endif %}
-                            <b><img alt=">" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ forum.title }}</b>
+                            <b><img alt=">" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{ forum.localizedTitle(app.locale) }}</b>
                         </div>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
@@ -157,7 +157,7 @@
                     {% if forum.description is not empty %}
                         <div class="forum-control">
                             <div class="quote">
-                                <i class="fa fa-quote-left"></i><span>{{ forum.description }}</span><i class="fa fa-quote-right"></i>
+                                <i class="fa fa-quote-left"></i><span>{{ forum.localizedDescription(app.locale) }}</span><i class="fa fa-quote-right"></i>
                             </div>
                         </div>
                         <br />
@@ -176,7 +176,7 @@
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, town, true, paranoid, post_page, asset('build/images/icons/small_rp.gif')) }}
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.localizedTitle(app.locale), select, jump, permission, town, true, paranoid, post_page, asset('build/images/icons/small_rp.gif')) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">

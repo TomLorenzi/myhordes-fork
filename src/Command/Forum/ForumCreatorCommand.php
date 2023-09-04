@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\Forum;
+use App\Entity\ForumTitle;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\ThreadTag;
 use App\Entity\UserGroup;
@@ -58,6 +59,10 @@ class ForumCreatorCommand extends Command
             ->addOption('icon', 'i', InputOption::VALUE_REQUIRED, 'The Forum Icon')
             ->addOption('lang', 'l', InputOption::VALUE_REQUIRED, 'The Forum Language')
             ->addOption('no-permissions', null, InputOption::VALUE_NONE, 'If set, no permissions will be set for the forum. If CUSTOM forum type is selected, this option has no effect.')
+
+            ->addOption('localize', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Adds a localized title in a given lang.')
+            ->addOption('localize-title', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Adds the actual title for each --localize flag.')
+            ->addOption('localize-desc', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Adds the actual description for each --localize flag.')
         ;
     }
 
@@ -106,6 +111,16 @@ class ForumCreatorCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $langs = $input->getOption('localize');
+        $langs_values = $input->getOption('localize-title');
+        $langs_descs = $input->getOption('localize-title');
+
+        if (count($langs) !== count($langs_values) || count($langs) !== count($langs_descs))
+            throw new \Exception('Must use exactly one --localize-title and one --localize-desc for each --localize.');
+
+        $langs_t = array_combine( $langs, $langs_values );
+        $langs_d = array_combine( $langs, $langs_descs );
+
         $p = null;
         $this->entityManager->persist($newForum = (new Forum())
             ->setTitle( $input->getArgument('Name') )
@@ -114,6 +129,9 @@ class ForumCreatorCommand extends Command
             ->setIcon( $input->getOption('icon') ?? null )
             ->setWorldForumLanguage( $input->getOption('lang') ?? null )
         );
+
+        foreach ($langs_t as $lang => $title)
+            $newForum->addTitle( (new ForumTitle())->setLanguage($lang)->setTitle($title)->setDescription($langs_d[$lang]) );
 
         if (!$input->getOption('no-permissions')) {
             $g = match ($newForum->getType()) {

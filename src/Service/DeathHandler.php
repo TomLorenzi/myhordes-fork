@@ -76,6 +76,9 @@ class DeathHandler
             $floor = $ruinZone->getFloor();
         }
 
+        // Calculate decoration
+        $deco = $this->citizen_handler->getDecoPoints($citizen);
+
         foreach ($rucksack->getItems() as $item)
             // We get his rucksack and drop items into the floor or into his chest (except job item)
             if(!$item->getEssential())
@@ -204,9 +207,6 @@ class DeathHandler
             }
 
             // Decoration picto
-            // Calculate decoration
-	        $deco = $this->citizen_handler->getDecoPoints($citizen);
-
             if($deco > 0)
 	           $this->picto_handler->give_validated_picto($citizen, "r_deco_#00", $deco);
         }

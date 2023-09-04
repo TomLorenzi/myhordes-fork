@@ -24,10 +24,37 @@ class AdminSpamController extends AdminActionController
      */
     public function spam_view(): Response
     {
-        $n = $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
-            ->select('count(a.id)')->where('a.type = :type', )->setParameter('type', DomainBlacklistType::EmailDomain)->getQuery()->getSingleScalarResult();
+        try {
+            $n = $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
+                ->select('count(a.id)')->where('a.type = :type',)->setParameter('type', DomainBlacklistType::EmailDomain)->getQuery()->getSingleScalarResult();
+        } catch (\Throwable $e) {
+            $n = 0;
+        }
 
-        return $this->render( 'ajax/admin/spam/domains.html.twig', $this->addDefaultTwigArgs(null, ['n' => $n]));
+        return $this->render( 'ajax/admin/spam/domains.html.twig', $this->addDefaultTwigArgs(null, ['n' => $n, 'tab' => 'domains']));
+    }
+
+    /**
+     * @Route("jx/admin/spam/ids", name="admin_spam_identifiers_view")
+     * @return Response
+     */
+    public function spam_view_ids(): Response
+    {
+        try {
+            $emails = $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
+                ->select('count(a.id)')->where('a.type = :type',)->setParameter('type', DomainBlacklistType::EmailAddress)->getQuery()->getSingleScalarResult();
+            $ids = $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
+                ->select('count(a.id)')->where('a.type = :type',)->setParameter('type', DomainBlacklistType::EternalTwinID)->getQuery()->getSingleScalarResult();
+        } catch (\Throwable $e) {
+            $emails = 0;
+            $ids = 0;
+        }
+
+        return $this->render( 'ajax/admin/spam/ids.html.twig', $this->addDefaultTwigArgs(null, [
+            'emails' => $emails,
+            'etids' => $ids,
+            'tab' => 'identifiers'
+        ]));
     }
 
     /**

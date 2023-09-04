@@ -86,6 +86,24 @@ class JSONRequestParser
         return (($min !== null && $v < $min) || ($max !== null && $v > $max)) ? $default : $v;
     }
 
+
+    /**
+     * @param string $key
+     * @param string $class The name of the event class.
+     * @psalm-param class-string<T> $class
+     * @param mixed|null $default
+     * @psalm-param T|null $default
+     *
+     * @return \BackedEnum The repository class.
+     * @psalm-return T
+     *
+     * @template T as \BackedEnum
+     */
+
+    public function get_enum(string $key, string $class, mixed $default = null ) {
+        return $this->has( $key ) ? ($class::tryFrom( $this->get($key) )) : $default;
+    }
+
     public function get_base64( string $key, $default = null ) {
         return $this->has( $key ) ? base64_decode($this->data[$key], true) : $default;
     }

@@ -474,7 +474,7 @@
                 {% for label, forum_group in thread_moveable_forums %}
                     group = $.html.createElement( '<optgroup label="{{ label }}"></optgroup>' )
                     {% for move_forum in forum_group|sort((a,b) => a.worldForumSorting <=> b.worldForumSorting) %}
-                        group.append($.html.createElement( '<option value="{{ move_forum.id }}">{{ move_forum.title }}</option>' ) );
+                        group.append($.html.createElement( '<option value="{{ move_forum.id }}">{{ move_forum.localizedTitle(app.locale) }}</option>' ) );
                     {% endfor %}
                     {% if forum_group is not empty %}
                         select.append(group );

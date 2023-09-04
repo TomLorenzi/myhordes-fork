@@ -149,23 +149,23 @@ class LogController extends CustomAbstractCoreController
         return $entries->map( function( TownLogEntry $entry ) use ($canHide, $admin): ?array {
             /** @var LogEntryTemplate $template */
             $template = $entry->getLogEntryTemplate();
-            if (!$template) return null;
 
             $entityVariables = $entry->getVariables();
             $json = [
                 'timestamp'  => $entry->getTimestamp()->getTimestamp(),
                 'timestring' => $entry->getTimestamp()->format('G:i'),
-                'class'     => $template->getClass(),
-                'type'      => $template->getType(),
-                'protected' => $template->getType() === LogEntryTemplate::TypeNightly,
+                'class'     => $template?->getClass() ?? LogEntryTemplate::ClassNone,
+                'type'      => $template?->getType() ?? LogEntryTemplate::TypeVarious,
+                'protected' => $template?->getType() === LogEntryTemplate::TypeNightly,
                 'id'        => $entry->getId(),
                 'hidden'    => $entry->getHidden(),
                 'hideable'  => !$admin && !$entry->getHidden() && $canHide,
                 'day'       => $entry->getDay(),
-                'retro'     => $template->getName() === 'smokeBombUsage'
+                'retro'     => $template?->getName() === 'smokeBombUsage'
             ];
 
             if ($entry->getHidden() && !$admin) $json['text'] = null;
+            elseif (!$template) $json['text'] = "-- error: [{$entry->getId()}] unable to load template --";
             else {
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->handler->parseTransParams($variableTypes, $entityVariables);

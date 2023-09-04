@@ -91,15 +91,23 @@ export default class HTML {
     serializeForm(form: ParentNode): object {
         let data: object = {};
 
-        const input_fields = form.querySelectorAll('input');
+        const input_fields = form.querySelectorAll('input,select') as NodeListOf<HTMLInputElement|HTMLSelectElement>;
         for (let i = 0; i < input_fields.length; i++) {
-            const node_name = input_fields[i].getAttribute('name') ?? input_fields[i].getAttribute('id');
-            if (node_name && input_fields[i].getAttribute('type') != 'checkbox') {
-                data[node_name] = input_fields[i].value;
-            }
-            if (node_name && input_fields[i].getAttribute('type') == 'checkbox') {
-                data[node_name] = input_fields[i].checked;
-            }
+            const node = input_fields[i];
+            const node_name = node.getAttribute('name') ?? node.getAttribute('id');
+
+            if (node_name)
+                switch (node.nodeName) {
+                    case 'INPUT':
+                        data[node_name] = node.getAttribute('type') != 'checkbox'
+                            ? (node as HTMLInputElement).value
+                            : (node as HTMLInputElement).checked;
+                        break;
+                    case 'SELECT':
+                        data[node_name] = (node as HTMLSelectElement).value;
+                        break;
+                }
+
         }
 
         return data;
@@ -435,14 +443,16 @@ export default class HTML {
 
             const scrollHandler = () => reposition();
             const removeTooltip = function(event,force=false) {
-                if(event.target !== target && (!event.target.closest("#user-tooltip") || force)) {
+                if(event.target !== target && (event.target === window || !event.target?.closest("#user-tooltip") || force)) {
                     target.remove();
                     document.removeEventListener("click", removeTooltip);
+                    window.removeEventListener("popstate", removeTooltip);
                     window.removeEventListener( "scroll", scrollHandler, {capture: true} );
                 }
             }
 
-            document.addEventListener("click", removeTooltip);
+            document.addEventListener("click", removeTooltip, {once: true});
+            window.addEventListener('popstate', removeTooltip, {once: true});
             window.addEventListener("scroll", scrollHandler, {capture: true});
             reposition();
 
