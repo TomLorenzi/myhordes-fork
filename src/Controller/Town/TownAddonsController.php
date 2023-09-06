@@ -526,6 +526,7 @@ class TownAddonsController extends TownController
         if($has_counsel)
             $total_def += ($counsel_def = 20 * $count);
 
+		/** @var CitizenQueryDeathChancesEvent $event */
 		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
 
         $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
@@ -542,7 +543,9 @@ class TownAddonsController extends TownController
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
             'deathChance' => $event->deathChance,
-            'woundAndTerrorChance' => $event->woundOrTerrorChance,
+            'woundChance' => $event->woundChance,
+			'terrorChance' => $event->terrorChance,
+			'hintSentence' => $event->hintSentence,
             'me' => $this->getActiveCitizen(),
             'total_def' => $total_def,
             'has_counsel' => $has_counsel,

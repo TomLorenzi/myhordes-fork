@@ -22,6 +22,8 @@ class CitizenBaseData
 	}
 	public readonly bool $during_attack;
 	public float $deathChance = 0.0;
-	public float $woundOrTerrorChance = 0.0;
+	public float $woundChance = 0.0;
+	public float $terrorChance = 0.0;
+	public string $hintSentence = "";
 
 }

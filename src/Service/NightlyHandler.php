@@ -737,10 +737,11 @@ class NightlyHandler
 
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) * $def_scale) : 0;
 
+			/** @var CitizenQueryDeathChancesEvent $event */
 			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
 			$deathChances = $event->deathChance;
 
-            $woundOrTerrorChances = $event->woundOrTerrorChance;
+            $woundOrTerrorChances = $event->woundChance;
             $ctz = $watcher->getCitizen();
 
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");

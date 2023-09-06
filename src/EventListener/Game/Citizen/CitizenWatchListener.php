@@ -9,6 +9,7 @@ use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -49,7 +50,8 @@ final class CitizenWatchListener implements ServiceSubscriberInterface
 			$chances += $status->getNightWatchDeathChancePenalty();
 		if($citizen->hasRole('ghoul')) $chances -= 0.05;
 		$event->deathChance = max(0.0, min($chances, 1.0));
-		$event->woundOrTerrorChance = max(0.0, min($chances + $event->townConfig->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0));
+		$event->woundChance = $event->terrorChance = max(0.0, min($chances + $event->townConfig->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0));
+		$event->hintSentence = T::__('Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von {deathChance}% sterben und zu einer Wahrscheinlichkeit von {woundAndTerrorChance}% eine Verwundung oder Angststarre während der Wache erleiden wirst.', 'game');
 	}
 
     public static function getSubscribedServices(): array
