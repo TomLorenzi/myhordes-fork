@@ -15,10 +15,12 @@ use App\Entity\Recipe;
 use App\Entity\LogEntryTemplate;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Event\Game\Citizen\CitizenQueryDeathChancesEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
+use App\Service\EventFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -27,6 +29,7 @@ use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Exception;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -445,7 +448,7 @@ class TownAddonsController extends TownController
      * @param TownHandler $th
      * @return Response
      */
-    public function addon_nightwatch(TownHandler $th): Response
+    public function addon_nightwatch(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $eventFactory): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -523,7 +526,7 @@ class TownAddonsController extends TownController
         if($has_counsel)
             $total_def += ($counsel_def = 20 * $count);
 
-        $deathChance = $this->citizen_handler->getDeathChances($this->getActiveCitizen());
+		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
 
         $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
 
@@ -538,8 +541,8 @@ class TownAddonsController extends TownController
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
-            'deathChance' => max(0.0, min($deathChance, 1.0)),
-            'woundAndTerrorChance' => max(0.0, min($deathChance + $this->getTownConf()->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0)),
+            'deathChance' => $event->deathChance,
+            'woundAndTerrorChance' => $event->woundOrTerrorChance,
             'me' => $this->getActiveCitizen(),
             'total_def' => $total_def,
             'has_counsel' => $has_counsel,
