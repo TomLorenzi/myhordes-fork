@@ -646,6 +646,12 @@
                                     {{help_btn("Verwendet ein alternatives Layout für viele Aktionsschaltflächen in der Außenwelt auf mobilen Geräten. Auf Desktops, Laptops oder Tablets mit größerem Display hat diese Einstellung keinen Effekt. Dieses Layout spart Platz, zeigt aber für einige Schaltflächen nur noch ein Icon und keine Beschriftung mehr an. Diese Einstellung sollte daher nur von erfahrenen Spielern aktiviert werden."|trans({}, 'soul'))}}
                                 </div>
                             </div>
+                            <div class="padded cell rw-12">
+                                <div class="note note-lightest">
+                                    <input x-setting {% if app.user.setting( constant("\\App\\Enum\\UserSetting::PrivateForumsOnTop") ) %}checked{% endif%} type="checkbox" id="setting_private-forums-on-top">&nbsp;<label for="setting_private-forums-on-top">{{'Private Foren über Weltforen anzeigen'|trans({}, 'soul')}}</label>
+                                    {{help_btn("Diese Option steuert, ob Private Foren in denen du Mitglied bist in der Forenliste über oder unter den Weltforen angezeigt werden. Unabhängig von dieser Einstellung wird das Stadtforum deiner aktuellen Stadt immer ganz oben angezeigt."|trans({}, 'soul'))}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -925,6 +931,7 @@
                     notifyFriend: document.getElementById('setting_notify_on_friend').checked,
                     beyondAltLayout: document.getElementById('setting_reorder-action-buttons-beyond').checked,
                     townAltLayout: document.getElementById('setting_reorder-location-buttons-town').checked,
+                    privateForumsOnTop: document.getElementById('setting_private-forums-on-top').checked,
                     {% if is_granted("ROLE_CROW") %}
                     adminLang: document.querySelector("input[name=admin_setting_preferred_language]:checked").value
                     {% endif %}
