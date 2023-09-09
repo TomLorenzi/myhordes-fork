@@ -441,6 +441,9 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         if ($ex->getInRoom() || $ex->getScavengedRooms()->contains( $ruinZone ))
             return AjaxResponse::error( BeyondController::ErrorNotDiggable );
 
+        if ($handler->getFreeSize( $citizen->getInventory() ) < 1)
+            return AjaxResponse::error( InventoryHandler::ErrorInventoryFull );
+
         $item = $this->item_factory->createItem($ruinZone->getPrototype()->getKeyImprint());
         $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
 
@@ -479,7 +482,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $key = $this->inventory_handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest( $ruinZone->getPrototype()->getKeyItem()->getName())] );
 
         if (empty($key))
-            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst {item}, um diese Tür zu öffnen.', ['{item}' => $k_str], 'game' ) );
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Um diese Tür zu öffnen, musst du etwas finden, was einem {item} ähnelt.', ['{item}' => $k_str], 'game' ) );
         else $this->inventory_handler->forceRemoveItem( $key[0] );
 
         $ruinZone->setLocked(false);
@@ -490,7 +493,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $this->entity_manager->persist($citizen);
         $this->entity_manager->persist($ex);
 
-        $this->addFlash( 'notice', $this->translator->trans( 'Mithilfe des {item} hast du die Tür aufgeschlossen!', [
+        $this->addFlash( 'notice', $this->translator->trans( 'Du hast es geschafft, die Tür zu öffnen. Doch der {item} scheint es nicht überstanden zu haben...', [
             '{item}' => $k_str
         ], 'game' ));
 
