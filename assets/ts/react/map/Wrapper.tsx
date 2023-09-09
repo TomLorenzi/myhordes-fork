@@ -239,7 +239,14 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
         const node = reactRef.current?.querySelector('.zone-plane-parent') as HTMLDivElement;
 
         if (!node) return;
+        node.classList.add('revert');
         node.style.transform = 'translate(0px,0px)';
+    }
+
+    const mouseEnterHandler = e => {
+        const node = reactRef.current?.querySelector('.zone-plane-parent') as HTMLDivElement;
+
+        node?.classList.remove('revert');
     }
 
     const mouseMoveHandler = e => {
@@ -263,7 +270,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
             <div
                 draggable={false} ref={reactRef}
                 className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}
-                onMouseMove={mouseMoveHandler} onMouseLeave={mouseLeaveHandler}
+                onMouseMove={mouseMoveHandler} onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}
             >
                 { (!map || !strings) && <div className={'map-load-container'}/> }
                 <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
