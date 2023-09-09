@@ -21,7 +21,7 @@ enum UserSetting: string {
     case ReorderTownLocationButtons     = 'reorder-location-buttons-town';
     case DistinctionTop3     = 'distinctions-top-3';
     case TitleLanguage     = 'title-language';
-
+    case PrivateForumsOnTop = 'private-forums-on-top';
     case PreferredPronounTitle          = 'preferred-pronoun-title';
 
     /**
@@ -57,6 +57,7 @@ enum UserSetting: string {
             UserSetting::ReorderTownLocationButtons    => true,
             UserSetting::DistinctionTop3               => [null,null,null],
             UserSetting::TitleLanguage                 => '_them',
+            UserSetting::PrivateForumsOnTop            => true,
             UserSetting::PreferredPronounTitle         => 0,
         };
     }

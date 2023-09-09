@@ -611,6 +611,19 @@ Konfiguration: Configuration
 Option: Option
 Wert: Valeur
 'Keine Verifizierungsmails versenden': 'Ne pas envoyer d''e-mails de vérification'
+'Spielen in anderen Gemeinden': 'Jeu dans d’autres communautés'
+'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d’autres communautés'
+'Nicht gefunden.': 'Introuvable.'
+'Eintrag gefunden.': 'Entrée trouvée.'
+'Erfolgreich hinzugefügt.': 'Ajouté avec succès.'
+'Erfolgreich entfernt.': 'Supprimé avec succès.'
+'E-Mail Domains': 'Domaines de messagerie'
+Account-IDs: ID du compte
+'Anzahl der gelisteten E-Mail-Adressen: {number}': 'Nombre d''adresses e-mail répertoriées : {number}'
+'Anzahl der gelisteten Eternaltwin IDs: {number}': 'Nombre d''identifiants Eternaltwin répertoriés : {number}'
+Suche: Recherche
+Prüfen: Vérifier
+Entfernen: Supprimer
 'Spielen in anderen Gemeinden': 'Jeu dans d''autres communautés'
 'Das Spielen in anderen Gemeinden verbieten': 'Interdire le jeu dans d''autres communautés'
 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Cochez cette case pour ajouter ce chantier à la liste des chantiers débloqués.'

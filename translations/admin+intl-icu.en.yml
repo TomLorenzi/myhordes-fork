@@ -613,6 +613,17 @@ Wert: Value
 'Keine Verifizierungsmails versenden': 'Do not send verification emails'
 'Spielen in anderen Gemeinden': 'Play in other communities'
 'Das Spielen in anderen Gemeinden verbieten': 'Forbid playing in other communities'
+'Nicht gefunden.': 'Not found.'
+'Eintrag gefunden.': 'Entry found.'
+'Erfolgreich hinzugefügt.': 'Successfully added.'
+'Erfolgreich entfernt.': 'Successfully removed.'
+'E-Mail Domains': 'E-mail domains'
+Account-IDs: Account IDs
+'Anzahl der gelisteten E-Mail-Adressen: {number}': 'Amount of listed E-mail addresses: {number}'
+'Anzahl der gelisteten Eternaltwin IDs: {number}': 'Amount of listed Eternaltwin IDs: {number}'
+Suche: Search
+Prüfen: Check
+Entfernen: Remove
 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.': 'Markieren, um diese Baustelle zur Liste der freizuschaltenden Baustellen in der Stadt hinzuzufügen.'
 'Markieren, um diese Baustelle freizuschalten.': 'Markieren, um diese Baustelle freizuschalten.'
 'Markieren, um diese Baustelle aus der Stadt zu entfernen.': 'Markieren, um diese Baustelle aus der Stadt zu entfernen.'

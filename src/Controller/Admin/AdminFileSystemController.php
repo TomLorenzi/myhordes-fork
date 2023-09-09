@@ -127,7 +127,7 @@ class AdminFileSystemController extends AdminActionController
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
 
                 try {
-                    $data['text'] = strip_tags( $this->translator->trans($template->getText(), $transParams, 'game') );
+                    $data['text'] = strip_tags( $this->translator->trans($template->getText(), $transParams, 'game', $this->getUser()->getLanguage() ?? 'de') );
                 }
                 catch (\Throwable $t) {
                     $data['text'] = "null";
@@ -154,6 +154,7 @@ class AdminFileSystemController extends AdminActionController
                     "{$data['text']}\r\n";
 
                 if (($i % $batch) === 0) {
+                    set_time_limit(10);
                     flush();
                     $this->entity_manager->clear();
                 }

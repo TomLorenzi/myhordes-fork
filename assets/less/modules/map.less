@@ -41,7 +41,10 @@ div.react_map_area {
 
       pointer-events: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 10;
     }
-    &>.zone-plane-parent { position: absolute; inset: 0; z-index: 1; transition: transform 0.2s ease-out}
+    &>.zone-plane-parent {
+      pointer-events: none; position: absolute; inset: 0; z-index: 1; transition: transform 0.3s ease-out;
+      &.revert { transition: transform 1s ease-out }
+    }
     &>.zone-plane-parent>.zone-plane, &>.zone-plane-controls {
       transition: opacity 0.25s ease, transform 0.25s ease, top 1.25s ease, left 1.25s ease; pointer-events: none; position: absolute;
       opacity: 0;

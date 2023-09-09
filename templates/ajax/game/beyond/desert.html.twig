@@ -541,7 +541,7 @@
         {% if zone.townZone %}<div class="float-right link small" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</div>{% endif %}
         {% if other_citizens|length == 1 %}
             <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
-        {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
+        {% else %}
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
                 <h5 class="row">
                     <span class="cell rw-4 rw-lg-6 rw-md-4 rw-sm-9">{% trans from 'game' %}Deine Eskorte{% endtrans %}</span>
@@ -774,7 +774,7 @@
                                     </ul>
                                 </div>
                                 <div class="padded cell rw-4 rw-sm-3 right">
-                                    {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
+                                    {% if not other_citizen.activeExplorerStats and other_citizen != citizen and (citizen.escortSettings is null or citizen.escortSettings.leader is null) %}
                                         <button {% if not can_attack_citizen or citizen_hidden %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
                                             <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
                                         </button>

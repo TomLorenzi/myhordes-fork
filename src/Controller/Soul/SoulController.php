@@ -1050,6 +1050,7 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("api/soul/settings/common", name="api_soul_common")
      * @param JSONRequestParser $parser
+     * @param SessionInterface $session
      * @return Response
      */
     public function soul_settings_common(JSONRequestParser $parser, SessionInterface $session): Response {
@@ -1065,6 +1066,7 @@ class SoulController extends CustomAbstractController
         $user->setSetting( UserSetting::NotifyMeOnFriendRequest, (bool)$parser->get('notifyFriend', true) );
         $user->setSetting( UserSetting::ReorderActionButtonsBeyond, (bool)$parser->get('beyondAltLayout', false) );
         $user->setSetting( UserSetting::ReorderTownLocationButtons, (bool)$parser->get('townAltLayout', true) );
+        $user->setSetting( UserSetting::PrivateForumsOnTop, (bool)$parser->get('privateForumsOnTop', true) );
         $user->setAdminLang($parser->get("adminLang", null));
         $session->set('_admin_lang',$user->getAdminLang() ?? $user->getLanguage());
         $this->entity_manager->persist( $user );

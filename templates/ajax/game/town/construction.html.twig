@@ -60,11 +60,14 @@
         {# @var building \App\Entity\Building #}
         {% set not_built = buildable and building.ap < ((building.prototype.ap * workshopBonus)|round) %}
         {% set needs_repair = not not_built and building.complete and building.hp < building.prototype.hp %}
+        {# Firefox compat fixes for :has() #}
+            {% set has_vote = canvote and not building.complete %}
+        {# end Firefox #}
         {% set empty = (not buildable) or (building.complete and not needs_repair) %}
         <div class="building {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}{% if empty %} empty{% endif %}">
             <div class="type_indicator"></div>
             <div class="building_row">
-                <div class="building_info cell">
+                <div class="building_info cell {% if has_vote %}has_vote{% endif %}">
                     {% for i in range(0, n) %}
                         {% if i != 0 %}
                             {% if i < n %}
@@ -88,7 +91,7 @@
                     {% else %}
                         <img alt="" class="building_icon" src="{{ asset('build/images/icons/lock.gif' ) }}" >
                     {% endif %}
-                    <span class="building_name {% if canvote and not building.complete %}vote_hide{% endif %}">{{ building.prototype.label|trans({},'buildings') }}</span>
+                    <span class="building_name {% if has_vote %}vote_hide{% endif %}">{{ building.prototype.label|trans({},'buildings') }}</span>
                     {% if building.prototype.temp %}
                         <span>
                             <img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
@@ -98,7 +101,7 @@
                             </div>
                         </span>
                     {% endif %}
-                    {% if canvote and not building.complete %}
+                    {% if has_vote %}
                         <span class="vote" x-building-id="{{ building.id }}">[ <span class="link">{{'Abstimmen'|trans({}, 'game')}}</span> ]</span>
                     {% endif %}
                     {% if (building.complete and building.defense > 0) or (not building.complete and building.prototype.defense > 0) %}
@@ -354,12 +357,37 @@
         }
 
         update_view_mode();
-        
-        const on_ressource_extend_click = (e) => e.target.parentNode.classList.toggle('focused');
+
+        const is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        const on_ressource_extend_click = (e) => {
+            e.target.parentNode.classList.toggle('focused');
+            // firefox has compat fix
+            if(is_firefox) {
+                e.target.parentElement.parentElement.classList.toggle('has-focused');
+            }
+            // end firefix
+        }
+        // firefox has compat fix
+        const firefox_add_plus_mouse = (e) => {
+            if(e.target.classList.contains('more')) {
+                e.target.parentElement.parentElement.classList.add('has-more-hover');
+            }
+        }
+        const firefox_remove_plus_mouse = (e) => {
+            if(e.target.classList.contains('more')) {
+                e.target.parentElement.parentElement.classList.remove('has-more-hover');
+            }
+        }
+        // end firefix
         const init_extend_resources = () => {
             Array.from(document.getElementsByClassName('extend_resources')).forEach((plus_btn) => {
                 if($.client.config.extendConstructions.get()) {
                     plus_btn.classList.toggle('focused');
+                    // firefox has compat fix
+                    if(is_firefox) {
+                        plus_btn.parentElement.classList.toggle('has-focused');
+                    }
+                    // end firefix
                     return;
                 }
                 let build_items = plus_btn.parentNode;
@@ -378,6 +406,13 @@
                         // overflow
                         plus_btn.addEventListener('click', on_ressource_extend_click);
                         build_items.classList.toggle('overflowing');
+                        
+                        // firefox has compat fix
+                        if(is_firefox) {
+                            plus_btn.addEventListener('mouseover', firefox_add_plus_mouse);
+                            plus_btn.addEventListener('mouseout', firefox_remove_plus_mouse);
+                        }
+                        // end firefix
                     } else {
                         plus_btn.style.display = 'none';
                     }

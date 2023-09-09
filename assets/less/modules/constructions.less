@@ -201,6 +201,13 @@ div.buildings {
         overflow: hidden;
         flex-grow: 1;
 
+        // firefox
+        &.has-focused,
+        &.has-more-hover {
+          flex-wrap: wrap;
+          padding-right: 19px;
+        }
+        // end firefox
         &:has(.extend_resources.focused),
         &:has(.extend_resources .more:hover) {
           flex-wrap: wrap;
@@ -530,6 +537,21 @@ div.buildings {
       .building_info {
         width: 100%;
 
+        // firefox
+        &.has-vote {
+          .defense,
+          .defense-broken {
+            margin-left: 5px;
+          }
+          .vote_hide {
+            display: inline;
+          }
+          .vote {
+            display: inline;
+            margin-left: auto;
+          }
+        }
+        // end firefox
         &:has(.vote) {
           .defense,
           .defense-broken {
