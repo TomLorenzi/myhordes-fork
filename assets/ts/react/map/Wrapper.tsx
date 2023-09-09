@@ -11,7 +11,7 @@ import {
 import MapOverviewParent from "./Overview";
 import MapRouteList from "./RouteList";
 import MapControls from "./Controls";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {Global} from "../../defaults";
 import LocalZoneView from "./ZoneView";
 import Client from "../../client";
@@ -235,42 +235,57 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
 
     const reactRef = useRef<HTMLDivElement>();
 
-    const mouseLeaveHandler = e => {
-        const node = reactRef.current?.querySelector('.zone-plane-parent') as HTMLDivElement;
+    let node = null, revert = false, x = 0, y = 0;
 
-        if (!node) return;
-        node.classList.add('revert');
-        node.style.transform = 'translate(0px,0px)';
+    useLayoutEffect(() => {
+        node = reactRef.current?.querySelector('.zone-plane-parent') as HTMLDivElement;
+        return () => node = null;
+    })
+
+    let timeout = null;
+    const apply = () => {
+        timeout = null;
+        if (!node || !reactRef.current) return;
+
+        node.classList.toggle('revert', revert);
+        if (revert) node.style.transform = 'translate(0px,0px)';
+        else {
+            const bounds = reactRef.current.getBoundingClientRect();
+            const nodeBounds = node.getBoundingClientRect();
+
+            const lx = ((x - bounds.x) / bounds.width - 0.5) * -0.15;
+            const ly = ((y - bounds.y) / bounds.height - 0.5) * -0.15;
+
+
+            node.style.transform = `translate(${lx * nodeBounds.width}px,${ly * nodeBounds.height}px)`;
+        }
+    }
+
+    const mouseLeaveHandler = e => {
+        revert = true;
+        timeout = timeout ?? window.setTimeout( apply, 16 );
     }
 
     const mouseEnterHandler = e => {
-        const node = reactRef.current?.querySelector('.zone-plane-parent') as HTMLDivElement;
-
-        node?.classList.remove('revert');
+        revert = false;
+        timeout = timeout ?? window.setTimeout( apply, 16 );
     }
 
     const mouseMoveHandler = e => {
-        const screen = reactRef.current;
-        const node = screen.querySelector('.zone-plane-parent') as HTMLDivElement;
+        x = e.clientX;
+        y = e.clientY;
 
-        if (!screen || !node) return;
-
-        const bounds = screen.getBoundingClientRect();
-        const nodeBounds = node.getBoundingClientRect();
-
-        const x = ((e.clientX - bounds.x) / bounds.width - 0.5) * -0.15;
-        const y = ((e.clientY - bounds.y) / bounds.height - 0.5) * -0.15;
-
-        node.style.transform = `translate(${x * nodeBounds.width}px,${y * nodeBounds.height}px)`;
+        timeout = timeout ?? window.setTimeout( apply, 100 );
     }
-
 
     return (
         <Globals.Provider value={{ strings, etag: props.data.etag }}>
             <div
                 draggable={false} ref={reactRef}
                 className={`react_map_area ${state.showViewer ? 'zone-viewer-mode' : ''}`}
-                onMouseMove={mouseMoveHandler} onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}
+                onMouseMove={props.data.fx ? mouseMoveHandler : null}
+                onMouseEnter={props.data.fx ? mouseEnterHandler : null}
+                onMouseLeave={props.data.fx ? mouseLeaveHandler : null}
             >
                 { (!map || !strings) && <div className={'map-load-container'}/> }
                 <div className={`map map-inner-react ${props.data.className} ${state.globalEnabled ? '' : 'show-global'} ${state.markEnabled ? 'show-tags' : ''}`}>
