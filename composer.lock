@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da3e2684dbdca2b09fd3811cd2d6fc13",
+    "content-hash": "dc6914507ba4bd7fd13c0bc07d7ebe83",
     "packages": [
+        {
+            "name": "adbario/php-dot-notation",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adbario/php-dot-notation.git",
+                "reference": "a94ce4493d19ea430baa8d7d210a2c9bd7129fc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adbario/php-dot-notation/zipball/a94ce4493d19ea430baa8d7d210a2c9bd7129fc2",
+                "reference": "a94ce4493d19ea430baa8d7d210a2c9bd7129fc2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.8",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Adbar\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riku Särkinen",
+                    "email": "riku@adbar.io"
+                }
+            ],
+            "description": "PHP dot notation access to arrays",
+            "homepage": "https://github.com/adbario/php-dot-notation",
+            "keywords": [
+                "ArrayAccess",
+                "dotnotation"
+            ],
+            "support": {
+                "issues": "https://github.com/adbario/php-dot-notation/issues",
+                "source": "https://github.com/adbario/php-dot-notation/tree/3.3.0"
+            },
+            "time": "2023-02-24T20:27:50+00:00"
+        },
         {
             "name": "beberlei/assert",
             "version": "v3.3.2",
@@ -1991,6 +2045,50 @@
             "time": "2020-02-20T18:01:41+00:00"
         },
         {
+            "name": "jdrieghe/array-helpers",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jdrieghe/array-helpers.git",
+                "reference": "c2ce0a40a160cfa861feb3af4cb7dc1699206b0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jdrieghe/array-helpers/zipball/c2ce0a40a160cfa861feb3af4cb7dc1699206b0e",
+                "reference": "c2ce0a40a160cfa861feb3af4cb7dc1699206b0e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/php-code-coverage": "^4.0",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/array-helpers.php"
+                ],
+                "psr-4": {
+                    "ArrayHelpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Drieghe",
+                    "email": "jonasd@madewithlove.be"
+                }
+            ],
+            "description": "A collection of convenience methods to deal with arrays in php. Somewhat inspired by Laravel array helpers.",
+            "support": {
+                "issues": "https://github.com/jdrieghe/array-helpers/issues",
+                "source": "https://github.com/jdrieghe/array-helpers/tree/master"
+            },
+            "time": "2018-07-17T15:53:10+00:00"
+        },
+        {
             "name": "laminas/laminas-code",
             "version": "4.12.0",
             "source": {
@@ -2344,7 +2442,7 @@
         },
         {
             "name": "myhordes/fixtures",
-            "version": "dev-master",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-fixtures",
@@ -2382,7 +2480,7 @@
         },
         {
             "name": "myhordes/plugins",
-            "version": "dev-master",
+            "version": "dev-master-v2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-plugins",
@@ -2416,11 +2514,11 @@
         },
         {
             "name": "myhordes/prime",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "dist": {
                 "type": "path",
                 "url": "packages/myhordes-prime",
-                "reference": "6e2c57c8bca5a62eb76b56f91a40e56be4289003"
+                "reference": "618d5cf7036cd1e2d5133b222fe7fea24de21276"
             },
             "require": {
                 "php": ">=8.1",
@@ -11753,6 +11851,8 @@
         "ext-mbstring": "*",
         "ext-simplexml": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {
+        "ext-sqlite3": "*"
+    },
     "plugin-api-version": "2.3.0"
 }
