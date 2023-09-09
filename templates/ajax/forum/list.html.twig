@@ -27,6 +27,15 @@
     </div>
 {% endmacro %}
 
+{% macro drawPrivateForums(forums, forums_new) %}
+    {% if forums is not empty %}
+        <h5>{{ 'Private Foren'|trans({},'global') }}</h5>
+        {% for forum in forums %}
+            {{ _self.drawForum(forum, forums_new[forum.id]) }}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
 {% block ajax %}
     <div class="row">
         <div class="cell padded header rw-8 rw-lg-12">
@@ -48,16 +57,13 @@
                     {% endif %}
 
                     {% set world_forums = forums|filter(f => f.town is empty)|sort((a,b) => (a.type <=> b.type ?? a.id <=> b.id)) %}
+                    {% set private_forums = world_forums|filter( f => f.worldForumLanguage is null ) %}
+
                     {% if world_forums is not empty %}
 
-						{% set private_forums = world_forums|filter( f => f.worldForumLanguage is null ) %}
-                    	{% if private_forums is not empty %}
-							<h5>{{ 'Private Foren'|trans({},'global') }}</h5>
-
-							{% for forum in private_forums %}
-								{{ _self.drawForum(forum, forums_new[forum.id]) }}
-							{% endfor %}
-						{% endif %}
+                        {% if app.user.setting( constant("\\App\\Enum\\UserSetting::PrivateForumsOnTop") ) %}
+                            {{ _self.drawPrivateForums(private_forums, forums_new) }}
+                        {% endif %}
 
                         <h5>{{ 'Weltforen'|trans({},'global') }}</h5>
                         {% for section in forumSections %}
@@ -73,6 +79,10 @@
                                 </div>
                             </div>
                         {% endfor %}
+
+                        {% if not app.user.setting( constant("\\App\\Enum\\UserSetting::PrivateForumsOnTop") ) %}
+                            {{ _self.drawPrivateForums(private_forums, forums_new) }}
+                        {% endif %}
                     {% endif %}
 
                     {% set other_forums = forums|filter(f => (f.town and (user.aliveCitizen is null or user.aliveCitizen.town.id != f.town.id))) %}
