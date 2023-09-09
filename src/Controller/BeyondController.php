@@ -24,6 +24,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -1364,7 +1365,7 @@ class BeyondController extends InventoryAwareController
      * @Route("api/beyond/desert/scavenge", name="beyond_desert_scavenge_controller")
      * @return Response
      */
-    public function desert_scavenge_api(GameProfilerService $gps): Response {
+    public function desert_scavenge_api(GameProfilerService $gps, EventProxyService $proxyService): Response {
         if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
@@ -1395,7 +1396,7 @@ class BeyondController extends InventoryAwareController
             elseif ($zone->getPrototype()->getEmptyDropChance() <= 0) $total_dig_chance = 1;
             else $total_dig_chance = min(max(0.1, $factor * (1.0 - $zone->getPrototype()->getEmptyDropChance())), 0.95);*/
 
-			$total_dig_chance = $this->zone_handler->getDigChance($citizen, $zone->getPrototype());
+			$total_dig_chance = $proxyService->citizenQueryDigChance( $citizen, $zone, ScavengingActionType::Scavenge, $this->getTownConf()->isNightMode() );
             $item_found = $this->random_generator->chance($total_dig_chance);
 
             $zone->addActivityMarker( (new ZoneActivityMarker())

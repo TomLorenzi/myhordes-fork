@@ -5,9 +5,13 @@ namespace App\Service;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\Item;
+use App\Entity\RuinZone;
 use App\Entity\Town;
+use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
+use App\Enum\ScavengingActionType;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
+use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
@@ -92,5 +96,19 @@ class EventProxyService
      */
     public function citizenPostDeath( Citizen $citizen ): void {
         $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenPostDeathEvent::class, $citizen->getTown() )->setup( $citizen ) );
+    }
+
+    /**
+     * @param Citizen $citizen
+     * @param Zone|RuinZone $zone,
+     * @param ScavengingActionType $type,
+     * @param bool $night
+     * @return float
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function citizenQueryDigChance( Citizen $citizen, Zone|RuinZone $zone, ScavengingActionType $type, bool $night ): float {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenQueryDigChancesEvent::class, $citizen->getTown() )->setup( $citizen, $type, $zone, at_night: $night ) );
+        return $event->chance;
     }
 }
