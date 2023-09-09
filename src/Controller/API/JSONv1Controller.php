@@ -1450,7 +1450,7 @@ class JSONv1Controller extends CoreController {
                                                                                    'ext' => $has_avatar->getFormat()
                         ],UrlGeneratorInterface::ABSOLUTE_URL);
                     } else {
-                        $user_data[$field] = false;
+                        $user_data[$field] = null;
                     }
                     break;
                 case "isGhost":
@@ -1782,9 +1782,9 @@ class JSONv1Controller extends CoreController {
                             $data[$field] = $this->generateUrl('app_web_avatar', ['uid'  => $citizen->getUser()->getId(),
                                 'name' => $has_avatar->getFilename(),
                                 'ext'  => $has_avatar->getFormat()
-                            ], UrlGenerator::ABSOLUTE_URL);
+                            ], UrlGeneratorInterface::ABSOLUTE_URL);
                         } else {
-                            $data[$field] = false;
+                            $data[$field] = null;
                         }
                         break;
                     case "name":
