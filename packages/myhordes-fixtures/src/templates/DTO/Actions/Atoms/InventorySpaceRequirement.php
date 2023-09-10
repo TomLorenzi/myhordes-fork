@@ -8,8 +8,10 @@ use MyHordes\Fixtures\DTO\Actions\RequirementsAtom;
 /**
  * @method space(?int $v)
  * @property ?int space
- * @method considerTrunk(?bool $v)
+ * @method self considerTrunk(?bool $v)
  * @property ?bool considerTrunk
+ * @method self container(?bool $v)
+ * @property ?bool container
  */
 class InventorySpaceRequirement extends RequirementsAtom {
 
@@ -17,7 +19,7 @@ class InventorySpaceRequirement extends RequirementsAtom {
     {
         return match ($name) {
             'space' => 1,
-            'considerTrunk' => true,
+            'considerTrunk', 'container' => true,
             default => parent::default($name)
         };
     }

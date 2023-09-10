@@ -24,6 +24,7 @@ class ActionCounter
     const ActionTypeShower      = 11;
     const ActionTypeReceiveHeroic = 12;
 	const ActionTypePool      = 13;
+    const ActionTypeSpecialDigScavenger = 14;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
 		self::ActionTypePool

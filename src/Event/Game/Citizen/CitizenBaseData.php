@@ -12,18 +12,11 @@ class CitizenBaseData
 
 	/**
 	 * @param Citizen $citizen
-	 * @param bool $duringAttack
 	 * @return CitizenBaseData
 	 * @noinspection PhpDocSignatureInspection
 	 */
-	public function setup( Citizen $citizen, bool $duringAttack = false): void {
+	public function setup( Citizen $citizen): void {
 		$this->citizen = $citizen;
-		$this->during_attack = $duringAttack;
 	}
-	public readonly bool $during_attack;
-	public float $deathChance = 0.0;
-	public float $woundChance = 0.0;
-	public float $terrorChance = 0.0;
-	public string $hintSentence = "";
 
 }

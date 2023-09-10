@@ -8,6 +8,7 @@ use App\Entity\RuinZone;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZonePrototype;
+use App\Enum\ScavengingActionType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
@@ -346,7 +347,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
      * @param GameProfilerService $gps
      * @return Response
      */
-    public function scavenge_explore_api(GameProfilerService $gps): Response {
+    public function scavenge_explore_api(GameProfilerService $gps, EventProxyService $proxyService): Response {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
         $ruinZone = $this->getCurrentRuinZone();
@@ -358,8 +359,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
         // Calculate chances
         $d = $ruinZone->getDigs() + 1;
-        $chances = 1.0 / ( 1.0 + ( $d / max( 1, $this->getTownConf()->get(TownConf::CONF_EXPLORABLES_ITEM_RATE, 11) - ($d/3.0) ) ) );
-        $chances *= $this->zone_handler->getDigChanceFactor( $citizen, null );
+        $chances = $proxyService->citizenQueryDigChance( $citizen, $ruinZone, ScavengingActionType::DigExploration, $this->getTownConf()->isNightMode() );
 
         if ($this->random_generator->chance( $chances )) {
             $group = $ruinZone->getZone()->getPrototype()->getDropByNames( $this->getTownConf()->get( TownConf::CONF_OVERRIDE_NAMED_DROPS, [] ) );
