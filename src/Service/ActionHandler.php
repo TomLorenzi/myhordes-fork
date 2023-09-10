@@ -77,7 +77,8 @@ class ActionHandler
         private readonly ConfMaster $conf,
         private readonly MazeMaker $maze,
         private readonly GameProfilerService $gps,
-        private readonly ContainerInterface $container
+        private readonly ContainerInterface $container,
+        private readonly EventProxyService $proxyService
     ) {}
 
     protected function evaluate( Citizen $citizen, ?Item $item, $target, ItemAction $action, ?string &$message, ?Evaluation &$cache = null ): ActionValidity {
@@ -1455,6 +1456,9 @@ class ActionHandler
                         } else $execute_info_cache['message'][] = T::__('Du bist aber nicht sicher, ob er damit wirklich etwas anfangen kann...', "items");
 
                         break;
+                    default:
+                        $this->proxyService->executeCustomAction( $result->getCustom(), $citizen, $item, $target, $action, $message, $remove, $execute_info_cache );
+                        break;
                 }
 
                 if ($ap) {
@@ -1537,6 +1541,8 @@ class ActionHandler
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
 
+
+
         	foreach ($execute_info_cache['message'] as $contentMessage) {
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
@@ -1582,7 +1588,9 @@ class ActionHandler
                     $placeholders['{items_consume_'.$currentIndex.'}'] = isset($execute_info_cache['items_consume'][$currentIndex]) ? ($this->wrap($execute_info_cache['items_consume'][$currentIndex])) : "-";
                 }
 
+                dump($contentMessage);
                 $contentMessage = $this->translator->trans( $contentMessage, $placeholders, 'items' );
+                dump($contentMessage);
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
 	                    [, $tag, $text] = $m;

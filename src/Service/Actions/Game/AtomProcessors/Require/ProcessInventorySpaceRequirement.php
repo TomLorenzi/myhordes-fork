@@ -21,10 +21,18 @@ class ProcessInventorySpaceRequirement extends AtomRequirementProcessor
             ? ($inventoryHandler->getFreeSize( $cache->citizen->getHome()->getChest() ) <= $data->space)
             : null;
 
-        if ($inv_full && $trunk_full === true)
-            $cache->addMessage(T::__('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.', 'items'), [], 'items');
-        elseif ($inv_full && $trunk_full === null)
-            $cache->addMessage(T::__('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', 'items'), [], 'items');
+        if ($inv_full && $trunk_full === true) {
+
+            if ($data->container)
+                $cache->addMessage(T::__('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>, wenn du den Inhalt von {item} aufbewahren möchtest.', 'items'), [], 'items');
+            else $cache->addMessage(T::__('Du brauchst <strong>in deiner Truhe etwas mehr Platz</strong>.', 'items'), [], 'items');
+
+        } elseif ($inv_full && $trunk_full === null) {
+
+            if ($data->container)
+                $cache->addMessage(T::__('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>, um den Inhalt von {item} mitnehmen zu können.', 'items'), [], 'items');
+            else $cache->addMessage(T::__('Du brauchst <strong>mehr Platz in deinem Rucksack</strong>.', 'items'), [], 'items');
+        }
 
         return !($inv_full && $trunk_full !== false);
     }

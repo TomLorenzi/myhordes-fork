@@ -5,11 +5,14 @@ namespace App\Service;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\Item;
+use App\Entity\ItemAction;
+use App\Entity\ItemPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\ScavengingActionType;
+use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
@@ -19,6 +22,7 @@ use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
+use App\Structures\FriendshipActionTarget;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -100,15 +104,25 @@ class EventProxyService
 
     /**
      * @param Citizen $citizen
-     * @param Zone|RuinZone $zone,
+     * @param Zone|RuinZone|null $zone,
      * @param ScavengingActionType $type,
      * @param bool $night
      * @return float
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function citizenQueryDigChance( Citizen $citizen, Zone|RuinZone $zone, ScavengingActionType $type, bool $night ): float {
+    public function citizenQueryDigChance( Citizen $citizen, Zone|RuinZone|null $zone, ScavengingActionType $type, bool $night ): float {
         $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenQueryDigChancesEvent::class, $citizen->getTown() )->setup( $citizen, $type, $zone, at_night: $night ) );
         return $event->chance;
+    }
+
+    /**
+
+     */
+    public function executeCustomAction( int $type, Citizen $citizen, ?Item $item, Citizen|Item|ItemPrototype|FriendshipActionTarget|null $target, ItemAction $action, ?string &$message, ?array &$remove, array &$execute_info_cache ): void {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( CustomActionProcessorEvent::class, $citizen->getTown() )->setup( $type, $citizen, $item, $target, $action, $message, $remove, $execute_info_cache ) );
+        $message = $event->message;
+        $remove = $event->remove;
+        $execute_info_cache = $event->execute_info_cache;
     }
 }
