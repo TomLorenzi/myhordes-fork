@@ -297,7 +297,7 @@ class GameController extends CustomAbstractController
                         $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
                         break;
                     case 'medicine1':
-                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
+                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'medic_#00' ) );
                         break;
                     case "cheatdeath":
                         $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_immune"]);
