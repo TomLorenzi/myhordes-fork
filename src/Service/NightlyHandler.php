@@ -508,24 +508,25 @@ class NightlyHandler
                     case "largechest2":
                         $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
                         break;
-                    case "secondwind":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_ap"]);
-                        $citizen->addHeroicAction($heroic_action);
-                        break;
-                    case "cheatdeath":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_immune"]);
-                        $citizen->addHeroicAction($heroic_action);
-                        break;
-                    case 'luckyfind':
-                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find"]);
-                        if($citizen->getHeroicActions()->contains($oldfind)) {
-                            // He didn't used the Find, we replace it with the lucky find
-                            $citizen->removeHeroicAction($oldfind);
-                            $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find_lucky"]);
-                            $citizen->addHeroicAction($newfind);
-                        }
-                        break;
                 }
+
+				// If the HeroSkill unlocks a Heroic Action, give it
+				if ($nextSkill->getUnlockedAction()) {
+					$previouslyUsed = false;
+					// A heroic action can replace one. Let's handle it!
+					if ($nextSkill->getUnlockedAction()->getReplacedAction() !== null) {
+						$proto = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $nextSkill->getUnlockedAction()->getReplacedAction()]);
+						$previouslyUsed = $citizen->getUsedHeroicActions()->contains($proto);
+						$citizen->removeHeroicAction($proto);
+						$citizen->removeUsedHeroicAction($proto);
+					}
+					if ($previouslyUsed)
+						$citizen->addUsedHeroicAction($nextSkill->getUnlockedAction());
+					else
+						$citizen->addHeroicAction($nextSkill->getUnlockedAction());
+					$this->entity_manager->persist($citizen);
+				}
+
                 $this->entity_manager->persist($citizen);
                 $this->entity_manager->persist($citizen->getHome());
             }
