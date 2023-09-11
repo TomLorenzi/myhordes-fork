@@ -238,6 +238,7 @@ class GameController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @param ItemFactory $if
      * @param ConfMaster $cf
+	 * @param TranslatorInterface $translator
      * @return Response
      */
     public function job_select_api(JSONRequestParser $parser, ItemFactory $if, ConfMaster $cf, TranslatorInterface $translator): Response {
@@ -265,57 +266,22 @@ class GameController extends CustomAbstractController
 
         $this->citizen_handler->applyProfession( $citizen, $new_profession );
         $inventory = $citizen->getInventory();
+		$null = null;
 
         if($new_profession->getHeroic()) {
             $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent());
-
-            $null = null;
 
             if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {
                 $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
                 $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
             }
 
-            foreach ($skills as $skill) {
+			/** @var HeroSkillPrototype $skill */
+			foreach ($skills as $skill) {
                 switch($skill->getName()){
-                    case "brothers":
-                        //TODO: add the heroic power
-                        break;
-                    case "resourcefulness":
-                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'chest_hero_#00' ) );
-                        break;
                     case "largechest1":
                     case "largechest2":
                         $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
-                        break;
-                    case "secondwind":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_ap"]);
-                        $citizen->addHeroicAction($heroic_action);
-                        $this->entity_manager->persist($citizen);
-                        break;
-                    case 'breakfast1':
-                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
-                        break;
-                    case 'medicine1':
-                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'medic_#00' ) );
-                        break;
-                    case "cheatdeath":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_immune"]);
-                        $citizen->addHeroicAction($heroic_action);
-                        $this->entity_manager->persist($citizen);
-                        break;
-                    case 'architect':
-                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
-                        break;
-                    case 'luckyfind':
-                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find"]);
-                        $already_used = $citizen->getUsedHeroicActions()->contains($oldfind);
-                        $citizen->removeHeroicAction($oldfind);
-                        $citizen->removeUsedHeroicAction($oldfind);
-                        $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find_lucky"]);
-                        if ($already_used)
-                            $citizen->addUsedHeroicAction($newfind);
-                        else $citizen->addHeroicAction($newfind);
                         break;
                     case 'apag':
                         // Only give the APAG via Hero XP if it is not unlocked via Soul Inventory
@@ -325,6 +291,30 @@ class GameController extends CustomAbstractController
                         }
                         break;
                 }
+
+				// If we have Start Items linked to the Skill, add them to the chest
+				if ($skill->getStartItems()->count() > 0) {
+					foreach ($skill->getStartItems() as $prototype) {
+						$this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $if->createItem($prototype));
+					}
+				}
+
+				// If the HeroSkill unlocks a Heroic Action, give it
+				if ($skill->getUnlockedAction()) {
+					$previouslyUsed = false;
+					// A heroic action can replace one. Let's handle it!
+					if ($skill->getUnlockedAction()->getReplacedAction() !== null) {
+						$proto = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $skill->getUnlockedAction()->getReplacedAction()]);
+						$previouslyUsed = $citizen->getUsedHeroicActions()->contains($proto);
+						$citizen->removeHeroicAction($proto);
+						$citizen->removeUsedHeroicAction($proto);
+					}
+					if ($previouslyUsed)
+						$citizen->addUsedHeroicAction($skill->getUnlockedAction());
+					else
+						$citizen->addHeroicAction($skill->getUnlockedAction());
+					$this->entity_manager->persist($citizen);
+				}
             }
         }
 

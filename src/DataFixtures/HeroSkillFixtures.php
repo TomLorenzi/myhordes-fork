@@ -4,7 +4,9 @@
 namespace App\DataFixtures;
 
 
+use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\ItemPrototype;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -37,6 +39,37 @@ class HeroSkillFixtures extends Fixture {
                     ->setDescription($entry['description'])
                     ->setDaysNeeded($entry['daysNeeded'])
                     ->setIcon($entry['icon']);
+
+			$entity->getStartItems()->clear();
+
+			if (isset($entry['items'])) {
+				foreach ($entry['items'] as $itemPrototype) {
+					$proto = $this->entityManager->getRepository(ItemPrototype::class)->findOneBy(['name' => $itemPrototype]);
+					if (!$proto) {
+						$out->writeln("<error>The item prototype <info>{$itemPrototype}</info> cannot be found.</error>");
+						return -1;
+					}
+					$entity->addStartItem($proto);
+				}
+			}
+
+			if (isset($entry['action'])) {
+				$proto = $this->entityManager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $entry['action']]);
+				if (!$proto) {
+					$out->writeln("<error>The Heroic Action <info>{$entry['action']}</info> cannot be found.</error>");
+					return -1;
+				}
+				$replacedProto = null;
+				if ($proto->getReplacedAction() !== null) {
+					$replacedProto = $this->entityManager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $proto->getReplacedAction()]);
+					if (!$replacedProto) {
+						$out->writeln("<error>The Heroic Action <info>{$proto->getReplacedAction()}</info> cannot be found.</error>");
+						return -1;
+					}
+				}
+
+				$entity->setUnlockedAction($proto);
+			}
 
             $manager->persist($entity);
             $progress->advance();

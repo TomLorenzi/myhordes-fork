@@ -31,6 +31,10 @@ class HeroicActionPrototype
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $usedMessage = null;
+
+	#[ORM\Column(type: Types::TEXT, nullable: true)]
+
+	private ?string $replaced_action = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -96,6 +100,18 @@ class HeroicActionPrototype
     public function setUsedMessage(?string $usedMessage): self
     {
         $this->usedMessage = $usedMessage;
+
+        return $this;
+    }
+
+    public function getReplacedAction(): ?string
+    {
+        return $this->replaced_action;
+    }
+
+    public function setReplacedAction(?string $replaced_action): self
+    {
+        $this->replaced_action = $replaced_action;
 
         return $this;
     }

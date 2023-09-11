@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HeroSkillPrototypeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -26,6 +28,17 @@ class HeroSkillPrototype
     private $name;
     #[ORM\Column(type: 'integer')]
     private $daysNeeded;
+
+    #[ORM\ManyToMany(targetEntity: ItemPrototype::class)]
+    private Collection $start_items;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?HeroicActionPrototype $unlocked_action = null;
+
+    public function __construct()
+    {
+        $this->start_items = new ArrayCollection();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +90,42 @@ class HeroSkillPrototype
     public function setDaysNeeded(int $daysNeeded): self
     {
         $this->daysNeeded = $daysNeeded;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ItemPrototype>
+     */
+    public function getStartItems(): Collection
+    {
+        return $this->start_items;
+    }
+
+    public function addStartItem(ItemPrototype $startItem): static
+    {
+        if (!$this->start_items->contains($startItem)) {
+            $this->start_items->add($startItem);
+        }
+
+        return $this;
+    }
+
+    public function removeStartItem(ItemPrototype $startItem): static
+    {
+        $this->start_items->removeElement($startItem);
+
+        return $this;
+    }
+
+    public function getUnlockedAction(): ?HeroicActionPrototype
+    {
+        return $this->unlocked_action;
+    }
+
+    public function setUnlockedAction(?HeroicActionPrototype $unlocked_action): static
+    {
+        $this->unlocked_action = $unlocked_action;
 
         return $this;
     }
