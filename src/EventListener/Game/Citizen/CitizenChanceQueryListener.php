@@ -9,7 +9,7 @@ use App\Entity\RuinZonePrototype;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Enum\ScavengingActionType;
-use App\Event\Game\Citizen\CitizenQueryDeathChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
@@ -23,7 +23,7 @@ use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
-#[AsEventListener(event: CitizenQueryDeathChancesEvent::class, method: 'getDeathChances', priority: 0)]
+#[AsEventListener(event: CitizenQueryNightwatchDeathChancesEvent::class, method: 'getNightWatchDeathChances', priority: 0)]
 #[AsEventListener(event: CitizenQueryDigChancesEvent::class, method: 'getDigChances', priority: 0)]
 final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 {
@@ -33,7 +33,7 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
         private readonly ContainerInterface $container,
     ) {}
 
-	public function getDeathChances(CitizenQueryDeathChancesEvent $event): void {
+	public function getNightWatchDeathChances(CitizenQueryNightwatchDeathChancesEvent $event): void {
 		$citizen = $event->citizen;
 		/** @var CitizenHandler $citizen_handler */
 		$citizen_handler = $this->container->get(CitizenHandler::class);

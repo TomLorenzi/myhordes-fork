@@ -30,7 +30,7 @@ use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\ItemPoisonType;
-use App\Event\Game\Citizen\CitizenQueryDeathChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\EventConf;
@@ -738,8 +738,8 @@ class NightlyHandler
 
             $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) * $def_scale) : 0;
 
-			/** @var CitizenQueryDeathChancesEvent $event */
-			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
+			/** @var CitizenQueryNightwatchDeathChancesEvent $event */
+			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
 			$deathChances = $event->deathChance;
 
             $woundOrTerrorChances = $event->woundChance;

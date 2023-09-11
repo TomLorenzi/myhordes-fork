@@ -15,7 +15,7 @@ use App\Entity\Recipe;
 use App\Entity\LogEntryTemplate;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
-use App\Event\Game\Citizen\CitizenQueryDeathChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -526,8 +526,8 @@ class TownAddonsController extends TownController
         if($has_counsel)
             $total_def += ($counsel_def = 20 * $count);
 
-		/** @var CitizenQueryDeathChancesEvent $event */
-		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
+		/** @var CitizenQueryNightwatchDeathChancesEvent $event */
+		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
 
         $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
 
