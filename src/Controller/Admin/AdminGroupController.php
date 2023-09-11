@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
-use App\Controller\CustomAbstractController;
 use App\Entity\OfficialGroup;
 use App\Entity\OfficialGroupMessageLink;
 use App\Entity\Season;
@@ -28,7 +27,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @GateKeeperProfile(allow_during_attack=true)
  */
-class AdminGroupController extends CustomAbstractController
+class AdminGroupController extends AdminActionController
 {
     /**
      * @Route("jx/admin/groups/all", name="admin_group_view")

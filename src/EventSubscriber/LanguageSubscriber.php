@@ -56,6 +56,11 @@ class LanguageSubscriber implements EventSubscriberInterface
         $user = $this->security->getUser();
         if ($user?->getLanguage() && $event->getRequest()->getLocale() !== $user?->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
+
+		$path = $event->getRequest()->getPathInfo();
+		if (strstr($path, 'admin') && $event->getRequest()->getLocale() !== $user?->getAdminLang()) {
+			$event->getRequest()->getSession()->set('_admin_lang', $user->getAdminLang() ?? $user->getLanguage());
+		}
     }
 
     /**
