@@ -2399,3 +2399,6 @@ Tarnexperte: crwdns136973:0crwdne136973:0
 'Deine Mutter hat dir immer gesagt, dass die Sachen anderer Leute wie eine Schachtel Schokolade sind. Nun, in diesem Fall war die Schokolade hochexplosiv, und dein Inneres hat beschlossen, sich nach Außen zu kehren und die Wände neu zu streichen. Du kannst dich glücklich schätzen, dass du nicht derjenige sein wirst, der das aufräumen muss.': 'crwdns168515:0crwdne168515:0'
 'Das Lustige an einer Kreuzigung ist, dass man sich leicht einreden kann, dass man zu wichtig war, und nicht, dass alle anderen einen gehasst haben. Zumindest schien die Schokolade allen zu schmecken: Das Kreuz wurde kurz nach deinem Tod vollständig verzehrt...': 'crwdns168517:0crwdne168517:0'
 'Ein Spielername kann maximal {number} Zeichen lang sein. Es gelten die gleichen Beschränkungen wie bei Nutzernamen (keine Leer- und Sonderzeichen, keine Namen die wie die von Raben aussehen).': 'crwdns168683:0{number}crwdne168683:0'
+'Um diese Tür zu öffnen, musst du etwas finden, was einem {item} ähnelt.': 'crwdns202599:0{item}crwdne202599:0'
+'Du hast es geschafft, die Tür zu öffnen. Doch der {item} scheint es nicht überstanden zu haben...': 'crwdns202601:0{item}crwdne202601:0'
+'Einen Abdruck nehmen?': 'crwdns202603:0crwdne202603:0'
