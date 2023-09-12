@@ -17,6 +17,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -479,44 +480,13 @@ class TownAddonsController extends TownController
                 $is_watcher = true;
 			$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDefenseEvent::class )->setup( $watcher->getCitizen() ));
             $total_def += $event->nightwatchDefense;
-            
-            $watchers[$watcher->getId()] = array(
-                'citizen' => $watcher->getCitizen(),
-                'def' => $event->nightwatchDefense,
-                'bonusDef' => $this->citizen_handler->getNightwatchProfessionDefenseBonus($watcher->getCitizen()),
-                'bonusSurvival' => $this->citizen_handler->getNightwatchProfessionSurvivalBonus($watcher->getCitizen()),
-                'status' => array(),
-                'items' => array()
-            );
 
-            foreach ($watcher->getCitizen()->getStatus() as $status)
-                if ($status->getNightWatchDefenseBonus() !== 0 || $status->getNightWatchDeathChancePenalty() !== 0.0)
-                    $watchers[$watcher->getId()]['status'][] = array(
-                        'icon' => $status->getIcon(),
-                        'label' => $status->getLabel(),
-                        'defImpact' => $status->getNightWatchDefenseBonus(),
-                        'deathImpact' => round($status->getNightWatchDeathChancePenalty() * 100)
-                    );
-
-            if ($watcher->getCitizen()->hasRole('ghoul')) 
-                $watchers[$watcher->getId()]['status'][] = array(
-                    'icon' => 'ghoul',
-                    'label' => 'Ghul',
-                    'defImpact' => 0,
-                    'deathImpact' => -5
-                );
+			$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchInfoEvent::class )->setup( $watcher->getCitizen() ));
+            $watchers[$watcher->getId()] = $event->nightwatchInfo;
 
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
                 if($item->getPrototype()->getName() == 'chkspk_#00')
                     $has_counsel = true;
-
-            	if($item->getPrototype()->getWatchpoint() === 0)
-                    continue;
-
-            	$watchers[$watcher->getId()]['items'][] = array(
-                    'prototype' => $item->getPrototype(),
-                    'defImpact' => $this->events->buildingQueryNightwatchDefenseBonus( $town, $item ),
-                );
             }
         }
 

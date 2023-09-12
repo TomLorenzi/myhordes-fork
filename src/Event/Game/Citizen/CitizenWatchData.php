@@ -25,5 +25,12 @@ class CitizenWatchData extends CitizenBaseData
 	public float $terrorChance = 0.0;
 	public string $hintSentence = "";
 	public int $nightwatchDefense = 0;
-
+	public array $nightwatchInfo = [
+		'citizen' => null,
+		'def' => null,
+		'bonusDef' => 0,
+		'bonusSurvival' => 0,
+		'status' => [],
+		'items' => []
+	];
 }

@@ -12,6 +12,7 @@ use App\Enum\ScavengingActionType;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
 use App\Service\EventProxyService;
@@ -26,9 +27,10 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\EventDispatcher\Event;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
-#[AsEventListener(event: CitizenQueryNightwatchDeathChancesEvent::class, method: 'getNightWatchDeathChances', priority: 0)]
 #[AsEventListener(event: CitizenQueryDigChancesEvent::class, method: 'getDigChances', priority: 0)]
+#[AsEventListener(event: CitizenQueryNightwatchDeathChancesEvent::class, method: 'getNightWatchDeathChances', priority: 0)]
 #[AsEventListener(event: CitizenQueryNightwatchDefenseEvent::class, method: 'getNightWatchDefenses', priority: 0)]
+#[AsEventListener(event: CitizenQueryNightwatchInfoEvent::class, method: 'getNightWatchInfo', priority: 0)]
 final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -69,20 +71,64 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 
 	public function getNightWatchDefenses(CitizenQueryNightwatchDefenseEvent $event): void {
 		$citizen = $event->data->citizen;
-		/** @var CitizenHandler $citizen_handler */
-		$citizen_handler = $this->container->get(CitizenHandler::class);
 		/** @var EventProxyService $events */
 		$events = $this->container->get(EventProxyService::class);
 
 		$def = 10 + $citizen->getProfession()->getNightwatchDefenseBonus();
 
-		foreach ($citizen->getStatus() as $status)
+		foreach ($citizen->getStatus() as $status) {
 			$def += $status->getNightWatchDefenseBonus();
+		}
 
-		foreach ($citizen->getInventory()->getItems() as $item)
-			$def += $events->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $item );
+		foreach ($citizen->getInventory()->getItems() as $item) {
+			$itemDef = $events->buildingQueryNightwatchDefenseBonus($citizen->getTown(), $item);;
+			$def += $itemDef;
+		}
 
-		$event->nightwatchDefense += $def;
+		$event->data->nightwatchDefense += $def;
+	}
+
+	public function getNightWatchInfo(CitizenQueryNightwatchInfoEvent $event): void {
+		$citizen = $event->data->citizen;
+		$event->data->nightwatchInfo['citizen'] = $citizen;
+		/** @var EventProxyService $events */
+		$events = $this->container->get(EventProxyService::class);
+
+		$def = 10 + $citizen->getProfession()->getNightwatchDefenseBonus();
+
+		foreach ($citizen->getStatus() as $status) {
+			if ($status->getNightWatchDefenseBonus() === 0 && $status->getNightWatchDeathChancePenalty() === 0.0) continue;
+			$def += $status->getNightWatchDefenseBonus();
+			$event->data->nightwatchInfo['status'][$status->getId()] = [
+				'icon' => $status->getIcon(),
+				'label' => $status->getLabel(),
+				'defImpact' => $status->getNightWatchDefenseBonus(),
+				'deathImpact' => round($status->getNightWatchDeathChancePenalty() * 100)
+			];
+		}
+
+		if ($citizen->hasRole('ghoul'))
+			$event->data->nightwatchInfo['status']['ghoul'] = array(
+				'icon' => 'ghoul',
+				'label' => 'Ghul',
+				'defImpact' => 0,
+				'deathImpact' => -5
+			);
+
+		foreach ($citizen->getInventory()->getItems() as $item) {
+			$itemDef = $events->buildingQueryNightwatchDefenseBonus($citizen->getTown(), $item);;
+			if($itemDef === 0)
+				continue;
+
+			$def += $itemDef;
+
+			$event->data->nightwatchInfo['items'][$item->getId()] = array(
+				'prototype' => $item->getPrototype(),
+				'defImpact' => $itemDef,
+			);
+		}
+
+		$event->data->nightwatchInfo['def'] = $def;
 	}
 
     private function applyNightMalus(Citizen $citizen, float $malus, int $zoneDistance): float {
