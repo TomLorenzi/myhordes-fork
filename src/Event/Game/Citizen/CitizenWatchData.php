@@ -24,5 +24,6 @@ class CitizenWatchData extends CitizenBaseData
 	public float $woundChance = 0.0;
 	public float $terrorChance = 0.0;
 	public string $hintSentence = "";
+	public int $nightwatchDefense = 0;
 
 }

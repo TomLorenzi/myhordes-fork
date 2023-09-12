@@ -11,8 +11,10 @@ use App\Entity\ZonePrototype;
 use App\Enum\ScavengingActionType;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\CitizenHandler;
+use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
@@ -21,10 +23,12 @@ use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Symfony\Contracts\EventDispatcher\Event;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 
 #[AsEventListener(event: CitizenQueryNightwatchDeathChancesEvent::class, method: 'getNightWatchDeathChances', priority: 0)]
 #[AsEventListener(event: CitizenQueryDigChancesEvent::class, method: 'getDigChances', priority: 0)]
+#[AsEventListener(event: CitizenQueryNightwatchDefenseEvent::class, method: 'getNightWatchDefenses', priority: 0)]
 final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -34,7 +38,7 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
     ) {}
 
 	public function getNightWatchDeathChances(CitizenQueryNightwatchDeathChancesEvent $event): void {
-		$citizen = $event->citizen;
+		$citizen = $event->data->citizen;
 		/** @var CitizenHandler $citizen_handler */
 		$citizen_handler = $this->container->get(CitizenHandler::class);
 		/** @var UserHandler $user_handler */
@@ -61,6 +65,24 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 		$event->deathChance = max(0.0, min($chances, 1.0));
 		$event->woundChance = $event->terrorChance = max(0.0, min($chances + $event->townConfig->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0));
 		$event->hintSentence = T::__('Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von {deathChance}% sterben und zu einer Wahrscheinlichkeit von {woundAndTerrorChance}% eine Verwundung oder Angststarre während der Wache erleiden wirst.', 'game');
+	}
+
+	public function getNightWatchDefenses(CitizenQueryNightwatchDefenseEvent $event): void {
+		$citizen = $event->data->citizen;
+		/** @var CitizenHandler $citizen_handler */
+		$citizen_handler = $this->container->get(CitizenHandler::class);
+		/** @var EventProxyService $events */
+		$events = $this->container->get(EventProxyService::class);
+
+		$def = 10 + $citizen->getProfession()->getNightwatchDefenseBonus();
+
+		foreach ($citizen->getStatus() as $status)
+			$def += $status->getNightWatchDefenseBonus();
+
+		foreach ($citizen->getInventory()->getItems() as $item)
+			$def += $events->buildingQueryNightwatchDefenseBonus( $citizen->getTown(), $item );
+
+		$event->nightwatchDefense += $def;
 	}
 
     private function applyNightMalus(Citizen $citizen, float $malus, int $zoneDistance): float {
@@ -155,7 +177,8 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
             InventoryHandler::class,
             TownHandler::class,
 			UserHandler::class,
-			EntityManagerInterface::class
+			EntityManagerInterface::class,
+			EventProxyService::class
         ];
     }
 }
