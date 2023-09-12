@@ -31,6 +31,7 @@ use App\Entity\ZoneTag;
 use App\Enum\EventStages\BuildingEffectStage;
 use App\Enum\ItemPoisonType;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Service\Maps\MapMaker;
 use App\Service\Maps\MazeMaker;
 use App\Structures\EventConf;
@@ -736,10 +737,12 @@ class NightlyHandler
         foreach ($watchers as $watcher) {
             $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
 
-            $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) * $def_scale) : 0;
+			/** @var CitizenQueryNightwatchDefenseEvent $event */
+			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDefenseEvent::class )->setup( $watcher->getCitizen() ));
+            $defBonus = $overflow > 0 ? floor($event->nightwatchDefense * $def_scale) : 0;
 
 			/** @var CitizenQueryNightwatchDeathChancesEvent $event */
-			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
+			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $watcher->getCitizen(), true ));
 			$deathChances = $event->deathChance;
 
             $woundOrTerrorChances = $event->woundChance;

@@ -16,6 +16,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
+use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -476,13 +477,12 @@ class TownAddonsController extends TownController
 
             if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
-
-            $citizen_def = $this->citizen_handler->getNightWatchDefense($watcher->getCitizen());
-            $total_def += $citizen_def;
+			$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDefenseEvent::class )->setup( $watcher->getCitizen() ));
+            $total_def += $event->nightwatchDefense;
             
             $watchers[$watcher->getId()] = array(
                 'citizen' => $watcher->getCitizen(),
-                'def' => $citizen_def,
+                'def' => $event->nightwatchDefense,
                 'bonusDef' => $this->citizen_handler->getNightwatchProfessionDefenseBonus($watcher->getCitizen()),
                 'bonusSurvival' => $this->citizen_handler->getNightwatchProfessionSurvivalBonus($watcher->getCitizen()),
                 'status' => array(),
@@ -527,7 +527,7 @@ class TownAddonsController extends TownController
             $total_def += ($counsel_def = 20 * $count);
 
 		/** @var CitizenQueryNightwatchDeathChancesEvent $event */
-		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen(), false ));
+		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen() ));
 
         $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
 
