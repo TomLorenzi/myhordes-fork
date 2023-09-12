@@ -87,6 +87,16 @@
                             </div>
                         </div>
                     {% endfor %}
+                    {% if watcher.other is defined %}
+                    {% for other in watcher.other %}
+                        <div class="inline-block">
+                            <img src="{{ asset('build/images/' ~ other.icon) }}" alt="{{ other.label }}">
+                            <div class="tooltip">
+                                {{ other.defImpact }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" /> {{ -other.deathImpact }} <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" />
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% endif %}
                     {% if watcher.citizen == me %}<button x-ajax-href="{{path('town_bank')}}">{{'Wähle meine Waffen!'|trans({}, 'game')}}</button>{% endif %}
                 {% endif %}
             </div>
