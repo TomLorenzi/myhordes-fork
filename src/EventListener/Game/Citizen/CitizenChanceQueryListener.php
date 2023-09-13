@@ -94,7 +94,9 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 		/** @var EventProxyService $events */
 		$events = $this->container->get(EventProxyService::class);
 
-		$def = 10 + $citizen->getProfession()->getNightwatchDefenseBonus();
+		$def = $event->data->nightwatchInfo['def'] ?? 0;
+
+		$def += 10 + $citizen->getProfession()->getNightwatchDefenseBonus();
 
 		foreach ($citizen->getStatus() as $status) {
 			if ($status->getNightWatchDefenseBonus() === 0 && $status->getNightWatchDeathChancePenalty() === 0.0) continue;

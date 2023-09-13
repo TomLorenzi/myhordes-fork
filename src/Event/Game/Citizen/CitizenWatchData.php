@@ -27,7 +27,7 @@ class CitizenWatchData extends CitizenBaseData
 	public int $nightwatchDefense = 0;
 	public array $nightwatchInfo = [
 		'citizen' => null,
-		'def' => null,
+		'def' => 0,
 		'bonusDef' => 0,
 		'bonusSurvival' => 0,
 		'status' => [],
