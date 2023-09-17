@@ -59,8 +59,10 @@ const resize_game_menu = function() {
     if(game_menu_burger !== null)
         game_menu_burger.style.display = 'none';
 
-    for (let i = 0; i < game_menu_hide.length; i++)
+    for (let i = 0; i < game_menu_hide.length; i++) {
         game_menu_hide[i].style.display = null;
+        game_menu_hide[i].querySelector('img').style.display = 'none';
+    }
 
     let content_width = 0;
     for (let i = 0; i < game_menu_elems.length; i++)
@@ -70,8 +72,10 @@ const resize_game_menu = function() {
         if(game_menu_burger !== null)
             game_menu_burger.style.display = null;
         
-        for (let i = 0; i < game_menu_hide.length; i++)
+        for (let i = 0; i < game_menu_hide.length; i++) {
             game_menu_hide[i].style.display = 'none';
+            game_menu_hide[i].querySelector('img').style.display = 'inline-block';
+        }
     } else {
         let dropdown = document.querySelector('#gma>.game-dropdown');
         if (dropdown) {
