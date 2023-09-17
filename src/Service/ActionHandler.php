@@ -1937,16 +1937,15 @@ class ActionHandler
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
             case Recipe::WorkshopTypeShamanSpecific:
-              switch($recipe->getAction()) {
-                case "Öffnen":
-                  $base = T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game');
-                  break;
-                case "Zerlegen":
-                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game');
-                  break;
-                default:
-                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} umgewandelt.', 'game');
-              }
+              $base = match ($recipe->getAction()) {
+                  "Öffnen"      => T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game'),
+                  "Zerlegen"    => T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game'),
+                  default       => match (true) {
+                      $used_bp === 0                 => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.', 'game'),
+                      $used_bp > 0 && $used_ap <= 0  => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                      default                        => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                  }
+              };
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
@@ -1962,6 +1961,7 @@ class ActionHandler
             '{item_list}' => $this->wrap_concat( $list ),
             '{item}' => $this->wrap( $new_item ),
             '{ap}' => $used_ap <= 0 ? "0" : $used_ap,
+            '{cp}' => $used_bp <= 0 ? "0" : $used_bp,
         ], 'game' );
 
         return self::ErrorNone;
