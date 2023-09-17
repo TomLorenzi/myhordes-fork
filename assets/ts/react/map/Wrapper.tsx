@@ -248,7 +248,7 @@ const MapWrapper = ( props: ReactDataMapCore ) => {
         if (!node || !reactRef.current) return;
 
         node.classList.toggle('revert', revert);
-        if (revert) node.style.transform = 'translate(0px,0px)';
+        if (revert || dx !== 0 || dy !== 0) node.style.transform = 'translate(0px,0px)';
         else {
             const bounds = reactRef.current.getBoundingClientRect();
             const nodeBounds = node.getBoundingClientRect();
