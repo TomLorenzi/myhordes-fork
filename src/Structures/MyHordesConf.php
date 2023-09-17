@@ -81,4 +81,19 @@ class MyHordesConf extends Conf
     const CONF_STAGING_HERODAYS    = 'staging.herodays';
 
     const CONF_MAIL_DOMAINCAP    = 'mail.slice_domain';
+
+    const CONF_OVERRIDE_AUTOPOST_ADDENDUM = 'override.autopost_addendum';
+
+    public function getAddendumFor(int $semantic, ?string $lang): ?string {
+        if ($semantic === 0) return null;
+
+        $addendum = $this->get( self::CONF_OVERRIDE_AUTOPOST_ADDENDUM, null );
+        return match(true) {
+            empty($addendum) => null,
+            is_string($addendum) => $addendum,
+            is_array($addendum) && array_key_exists( $semantic, $addendum ) && is_string( $addendum[$semantic] ) => $addendum[$semantic],
+            is_array($addendum) && array_key_exists( $semantic, $addendum ) && is_array( $addendum[$semantic] ) => $addendum[$semantic][$lang ?? 'de'] ?? null,
+            default => null
+        };
+    }
 }
