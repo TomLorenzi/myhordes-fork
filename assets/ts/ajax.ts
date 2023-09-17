@@ -151,6 +151,11 @@ export default class Ajax {
             let frag_target = document.querySelector<HTMLElement>( fragment.getAttribute('x-render-target') );
             if (!frag_target) console.warn('Rendered HTML contains an invalid fragment target: ', frag_target, ' Discarding.')
             else {
+                (fragment.dataset.renderTargetClassesToggle?.split(';') || []).forEach(opt => {
+                    let [c,o] = opt.split(',');
+                    frag_target.classList.toggle( c, o === '1' );
+                });
+
                 const frag_doc = document.implementation.createHTMLDocument('');
                 while (fragment.children.length > 0)
                     frag_doc.body.appendChild( fragment.children.item(0) );
