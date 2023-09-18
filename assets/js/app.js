@@ -61,7 +61,7 @@ const resize_game_menu = function() {
 
     for (let i = 0; i < game_menu_hide.length; i++) {
         game_menu_hide[i].style.display = null;
-        game_menu_hide[i].querySelector('img').style.display = 'none';
+        game_menu_hide[i].querySelectorAll('img').forEach(f => f.style.display = 'none');
     }
 
     let content_width = 0;
@@ -74,7 +74,7 @@ const resize_game_menu = function() {
         
         for (let i = 0; i < game_menu_hide.length; i++) {
             game_menu_hide[i].style.display = 'none';
-            game_menu_hide[i].querySelector('img').style.display = 'inline-block';
+            game_menu_hide[i].querySelectorAll('img').forEach(f => f.style.display = 'inline-block');
         }
     } else {
         let dropdown = document.querySelector('#gma>.game-dropdown');
