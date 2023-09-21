@@ -167,6 +167,7 @@ parameters:
           per_use: 10
           max_def: 150
         strange_soil: false
+        soul_generation_coef: 1.00
 
       features:
         camping: true
@@ -263,6 +264,8 @@ parameters:
       disabled_roles: ['shaman']
 
     remote:
+      modifiers:
+        soul_generation_coef: 1.25
 
     panda:
       well: { min: 60, max: 90 }
@@ -288,6 +291,7 @@ parameters:
         generosity:
           from_ghoul: 1
           from_last_death_factor: 2
+        soul_generation_coef: 1.75
 
       features:
         last_death:

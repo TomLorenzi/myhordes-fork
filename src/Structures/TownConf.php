@@ -133,6 +133,8 @@ class TownConf extends Conf
     const CONF_MODIFIER_GUARDTOWER_UNIT    = 'modifiers.guard_tower.per_use';
     const CONF_MODIFIER_STRANGE_SOIL        = 'modifiers.strange_soil';
 
+	const CONF_MODIFIER_SOUL_GENERATION_COEF = 'modifiers.soul_generation_coef';
+
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';

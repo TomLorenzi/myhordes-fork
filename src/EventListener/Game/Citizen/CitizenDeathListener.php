@@ -3,11 +3,13 @@
 
 namespace App\EventListener\Game\Citizen;
 
+use App\Entity\Town;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
+use App\Structures\Math;
 use App\Structures\TownConf;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -33,8 +35,9 @@ final class CitizenDeathListener implements ServiceSubscriberInterface
 
     public function onSpawnSouls( CitizenPostDeathEvent $event ): void {
         if ( $event->townConfig->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none' ) {
-            $minDistance = min(10, 3 + intval($event->town->getDay() * 0.75));
-            $maxDistance = min(15, 6 + $event->town->getDay());
+			$coef = $event->townConfig->get(TownConf::CONF_MODIFIER_SOUL_GENERATION_COEF, 1.00);
+            $minDistance = Math::Clamp($coef * ($event->town->getDay() + 4), 5, 20);
+            $maxDistance = Math::Clamp($coef * $event->town->getDay(), 4, 8);
 
             $spawnZone = $this->getService(RandomGenerator::class)->pickLocationBetweenFromList($event->town->getZones()->toArray(), $minDistance, $maxDistance);
             $soulItem = $this->getService(ItemFactory::class)->createItem( "soul_blue_#00");
