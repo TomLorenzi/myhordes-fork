@@ -36,8 +36,8 @@ final class CitizenDeathListener implements ServiceSubscriberInterface
     public function onSpawnSouls( CitizenPostDeathEvent $event ): void {
         if ( $event->townConfig->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none' ) {
 			$coef = $event->townConfig->get(TownConf::CONF_MODIFIER_SOUL_GENERATION_COEF, 1.00);
-            $minDistance = Math::Clamp($coef * ($event->town->getDay() + 4), 5, 20);
-            $maxDistance = Math::Clamp($coef * $event->town->getDay(), 4, 8);
+            $maxDistance = Math::Clamp($coef * ($event->town->getDay() + 4), 5, 20);
+            $minDistance = Math::Clamp($coef * $event->town->getDay(), 4, 8);
 
             $spawnZone = $this->getService(RandomGenerator::class)->pickLocationBetweenFromList($event->town->getZones()->toArray(), $minDistance, $maxDistance);
             $soulItem = $this->getService(ItemFactory::class)->createItem( "soul_blue_#00");
