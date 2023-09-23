@@ -409,14 +409,14 @@ class ZoneHandler
      */
     public function handleCitizenCountUpdate(Zone &$zone, $cp_ok_before, ?Citizen $leaving_citizen = null) {
         // If no citizens remain in a zone, invalidate all associated escape timers and clear the log
-        if (!count($zone->getCitizens())) {
+        if ($zone->getCitizens()->isEmpty()) {
             foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
             $zone->getEscapeTimers()->clear();
             foreach ($zone->getChatSilenceTimers() as $cst)
                 $this->entity_manager->remove( $cst );
             $zone->getChatSilenceTimers()->clear();
-            foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry) {
+            foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), zone: $zone ) as $entry) {
                 /** @var TownLogEntry $entry */
                 if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile()) {
                     $entry->setAdminOnly(true);

@@ -20,6 +20,7 @@ use App\Service\GameFactory;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -88,8 +89,8 @@ class Extensions extends AbstractExtension implements GlobalsInterface
             new TwigFunction('to_date',  [$this, 'create_date']),
             new TwigFunction('help_btn', [$this, 'help_btn'], ['is_safe' => array('html')]),
             new TwigFunction('help_lnk', [$this, 'help_lnk'], ['is_safe' => array('html')]),
-            new TwigFunction('tooltip', [$this, 'tooltip'], ['is_safe' => array('html')]),
-            new TwigFunction('tooltip', [$this, 'tooltip'], ['is_safe' => array('html')]),
+            new TwigFunction('tooltip',  [$this, 'tooltip'], ['is_safe' => array('html')]),
+            new TwigFunction('conf',     [$this, 'conf']),
         ];
     }
 
@@ -218,6 +219,10 @@ class Extensions extends AbstractExtension implements GlobalsInterface
     public function town_conf(Town $town, ?string $property = null, mixed $default = null): mixed {
         $c = $this->conf->getTownConfiguration( $town );
         return $property === null ? $c->raw() : $c->get($property,$default);
+    }
+
+    public function conf(): MyHordesConf {
+        return $this->conf->getGlobalConf();
     }
 
     public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {

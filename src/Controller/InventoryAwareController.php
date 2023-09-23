@@ -348,15 +348,23 @@ class InventoryAwareController extends CustomAbstractController
         $source_db = [];
         foreach ($recipes as $recipe) {
             /** @var Recipe $recipe */
-            $found_provoking = false;
+            $found_provoking = 0;
+            $provoking = null;
             foreach ($recipe->getProvoking() as $proto)
-                if ($this->inventory_handler->countSpecificItems( $source_inv, $proto )) {
-                    $found_provoking = true;
+                if ($c = $this->inventory_handler->countSpecificItems( $source_inv, $proto )) {
+                    $found_provoking = $c;
+                    $provoking = $proto;
                     break;
                 }
 
-            if (!$found_provoking) continue;
-            $out[] = $recipe;
+            if ($found_provoking <= 0) continue;
+
+            $uses_provoking = $recipe->getSource()->getEntries()
+                ->filter( fn(ItemGroupEntry $i) => $i->getPrototype() === $provoking )
+                ->map( fn(ItemGroupEntry $i) => $i->getChance() )
+                ->reduce( fn(int $c, int $a) => $c + $a, 0 );
+
+            for ($i = 0; $i < ($found_provoking - max(0, $uses_provoking - 1)); ++$i) $out[] = $recipe;
 
             if ($recipe->getSource())
                 foreach ($recipe->getSource()->getEntries() as $entry)

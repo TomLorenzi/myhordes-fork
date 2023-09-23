@@ -8,7 +8,7 @@
     {% endembed %}
 </div>
 
-<div x-render-target="#header-rucksack-items">
+<div x-render-target="#header-rucksack-items" data-render-target-classes-toggle="expanded,{{ rucksack_size > 10 ? 1 : 0 }}">
     {{ block('html_header') }}
 </div>
 

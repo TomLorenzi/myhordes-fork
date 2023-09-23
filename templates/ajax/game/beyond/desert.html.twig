@@ -816,7 +816,7 @@
                         </div>
                     </div>
                     <div class="cell rw-12 padded left">
-                        <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" /><span class="left">{{ 'Eskorte deaktivieren'|trans({},'game') }}</span></button>
+                        <button {% if citizen.escortSettings is not null and citizen.escortSettings.leader is not null %}data-reset-full="1"{% endif %} x-toggle-escort="0"><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" /><span class="left">{{ 'Eskorte deaktivieren'|trans({},'game') }}</span></button>
                     </div>
                 {% endif %}
             </div>
@@ -846,7 +846,9 @@
                     cf_ret: force_return,
                 },
                 elem.dataset.selfReflective ? ()=>{} : ()=>{
-                    $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard') }}');
+                    if (elem.dataset.resetFull)
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    else $.ajax.no_history().load(document.getElementById('beyond_desert_content'), '{{ path('beyond_dashboard') }}');
                 } );
         });
 
