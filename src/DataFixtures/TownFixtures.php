@@ -52,7 +52,7 @@ class TownFixtures extends Fixture
                 if (!is_array( $entry['ranked'] )) $entry['ranked'] = [];
                 $entity->setRanked(true)
                     ->setRankingTop($entry['ranked'][0] ??  1)
-                    ->setRankingMid($entry['ranked'][1] ?? 10)
+                    ->setRankingMid($entry['ranked'][1] ?? 15)
                     ->setRankingLow($entry['ranked'][2] ?? 35);
             }
 
