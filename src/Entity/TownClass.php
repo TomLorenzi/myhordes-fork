@@ -39,6 +39,15 @@ class TownClass implements NamedEntity
     private $orderBy;
     #[ORM\Column(type: 'text', nullable: true)]
     private $help;
+
+    #[ORM\Column]
+    private int $rankingTop = 0;
+
+    #[ORM\Column]
+    private int $rankingMid = 0;
+
+    #[ORM\Column]
+    private int $rankingLow = 0;
     public function __construct()
     {
         $this->towns = new ArrayCollection();
@@ -167,5 +176,41 @@ class TownClass implements NamedEntity
     public static function getTranslationDomain(): ?string
     {
         return 'game';
+    }
+
+    public function getRankingTop(): ?int
+    {
+        return $this->rankingTop;
+    }
+
+    public function setRankingTop(int $rankingTop): static
+    {
+        $this->rankingTop = $rankingTop;
+
+        return $this;
+    }
+
+    public function getRankingMid(): ?int
+    {
+        return $this->rankingMid;
+    }
+
+    public function setRankingMid(int $rankingMid): static
+    {
+        $this->rankingMid = $rankingMid;
+
+        return $this;
+    }
+
+    public function getRankingLow(): ?int
+    {
+        return $this->rankingLow;
+    }
+
+    public function setRankingLow(int $rankingLow): static
+    {
+        $this->rankingLow = $rankingLow;
+
+        return $this;
     }
 }

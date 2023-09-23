@@ -142,6 +142,12 @@ class SoulRankingController extends SoulController
             }
         }
 
+        $range = [1,10,35];
+        if ($currentSeason?->getCurrent())
+            $range = [ $currentType->getRankingTop(), $currentType->getRankingMid(), $currentType->getRankingLow() ];
+        elseif ( $rangeConf = $currentSeason?->getRankingRange( $currentType ) )
+            $range = [ $rangeConf->getTop(), $rangeConf->getMid(), $rangeConf->getLow() ];
+
         return $this->render( 'ajax/soul/ranking/towns.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
@@ -150,7 +156,8 @@ class SoulRankingController extends SoulController
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'currentType' => $currentType,
             'played' => $played,
-            'user' => $user
+            'user' => $user,
+            'range' => $range
         ]) );
     }
 

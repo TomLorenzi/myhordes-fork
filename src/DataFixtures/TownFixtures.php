@@ -43,10 +43,18 @@ class TownFixtures extends Fixture
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
                 ->setHasPreset( $entry['preset'])
-                ->setRanked( $entry['ranked'] )
                 ->setOrderBy( $entry['orderBy'] )
                 ->setHelp( $entry['help'] ?? null )
             ;
+
+            if (empty($entry['ranked'])) $entity->setRanked(false)->setRankingTop(0)->setRankingMid(0)->setRankingLow(0);
+            else {
+                if (!is_array( $entry['ranked'] )) $entry['ranked'] = [];
+                $entity->setRanked(true)
+                    ->setRankingTop($entry['ranked'][0] ??  1)
+                    ->setRankingMid($entry['ranked'][1] ?? 10)
+                    ->setRankingLow($entry['ranked'][2] ?? 35);
+            }
 
             $manager->persist( $entity );
             $progress->advance();
