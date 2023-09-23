@@ -9,6 +9,7 @@ use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Season;
+use App\Entity\SeasonRankingRange;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
@@ -176,7 +177,7 @@ class RankingCommand extends Command
                 array_slice(array_filter( array_map(
                                   fn(?TownRankingProxy $town) => $town ? (!$town->getDisabled() && !$town->hasDisableFlag( TownRankingProxy::DISABLE_RANKING ) ? $town : false) : null,
                                   array_map( fn(int $id) => $this->entityManager->getRepository(TownRankingProxy::class)->findOneBy(['baseID' => $id, 'imported' => true, 'language' => $base[1]]), explode(',', $base[2]))
-              ), fn($t) => $t !== false ), 0, 35);
+              ), fn($t) => $t !== false ), 0, $town_type->getRankingLow());
 
             foreach ($preset_ranking[$town_type->getName()] as $town) {
                 /** @var TownRankingProxy $town */
@@ -193,7 +194,17 @@ class RankingCommand extends Command
 
         foreach ($all_town_types as $type) {
 
-            if (!$clear) $io->section("Ranking for town type <info>{$type->getLabel()}</info>");
+            if (!$clear) {
+                $io->section("Ranking for town type <info>{$type->getLabel()}</info>");
+                if ($season) {
+                    $range = $this->entityManager->getRepository(SeasonRankingRange::class)->findOneBy(['season' => $season, 'type' => $type]) ?? (new SeasonRankingRange())
+                        ->setSeason($season)->setType($type);
+                    $this->entityManager->persist( $range->setTop( $type->getRankingTop() )->setMid( $type->getRankingMid() )->setLow( $type->getRankingLow() ) );
+                }
+            } elseif ($season) {
+                $range = $this->entityManager->getRepository(SeasonRankingRange::class)->findOneBy(['season' => $season, 'type' => $type]);
+                if ($range) $this->entityManager->remove( $range );
+            }
 
             /** @var TownRankingProxy[] $towns */
             $towns = $clear ? [] : $preset_ranking[$type->getName()] ?? $this->entityManager->getRepository(TownRankingProxy::class)->findTopOfSeason($season, $type);
@@ -222,11 +233,11 @@ class RankingCommand extends Command
                     if (!isset($citizen_ranking[$citizen->getUser()->getId()]))
                         $citizen_ranking[$citizen->getUser()->getId()] = [[],[],[],$citizen->getUser(),[],[]];
 
-                    if ($place === 0)
+                    if ($place < $type->getRankingTop())
                         $citizen_ranking[$citizen->getUser()->getId()][0][] = $town;
-                    if ($place < 15)
+                    if ($place < $type->getRankingMid())
                         $citizen_ranking[$citizen->getUser()->getId()][1][] = $town;
-                    if ($place < 35)
+                    if ($place < $type->getRankingLow())
                         $citizen_ranking[$citizen->getUser()->getId()][2][] = $town;
                 }
             }
