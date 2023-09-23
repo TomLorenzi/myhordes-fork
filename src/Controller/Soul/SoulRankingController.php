@@ -142,7 +142,7 @@ class SoulRankingController extends SoulController
             }
         }
 
-        $range = [1,10,35];
+        $range = [1,15,35];
         if ($currentSeason?->getCurrent())
             $range = [ $currentType->getRankingTop(), $currentType->getRankingMid(), $currentType->getRankingLow() ];
         elseif ( $rangeConf = $currentSeason?->getRankingRange( $currentType ) )
