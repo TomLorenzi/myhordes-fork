@@ -15,28 +15,55 @@ export type MapOverviewParentStateAction = {
     zoom?: number
 }
 
-const RouteRenderer = ( props: { route: MapCoordinate[], color: string, opacity: number, simple: boolean } ) => {
+const RouteRenderer = ( props: { route: MapCoordinate[], color: string, secondaryColor: string, opacity: number, simple: boolean, id: string } ) => {
     let pt_last = props.simple ? {x:0,y:0} : null;
     let last_pt = props.route.length > 0 ? props.route[ props.route.length-1 ] : null;
 
+    let known = [];
+
     return (
         <>
-            { props.route.map( (c,i) => {
-                const r = pt_last !== null ? <line key={'r' + i} x1={pt_last.x + 0.5} x2={c.x + 0.5} y1={pt_last.y + 0.5} y2={c.y + 0.5} strokeWidth={0.10} strokeOpacity={props.opacity} stroke={props.color}/> : null;
-                pt_last = c;
-                return r;
-            } ) }
-            { props.simple && (
-                <>
-                    { last_pt && last_pt.x !== last_pt.y && ( last_pt.x === 0 || last_pt.y === 0 ) && (
-                        <line x1={last_pt.x + 0.5} x2={0.5} y1={last_pt.y + 0.5} y2={0.5} strokeWidth={0.10} strokeOpacity={props.opacity} stroke={props.color} strokeDasharray={'0.1'}/>
+            <defs>
+                <g id={`mapsvg-${props.id}-content`}>
+                    { props.route.map( (c,i) => {
+                        const r = pt_last !== null
+                            ? <React.Fragment key={`r${i}`}>
+                                <line x1={pt_last.x + 0.5} x2={c.x + 0.5} y1={pt_last.y + 0.5} y2={c.y + 0.5} strokeWidth={0.19} strokeOpacity={props.opacity}/>
+                            </React.Fragment>
+                            : null;
+                        pt_last = c;
+                        return r;
+                    } ) }
+                    { props.simple && (
+                        <>
+                            { last_pt && last_pt.x !== last_pt.y && ( last_pt.x === 0 || last_pt.y === 0 ) && (
+                                <line x1={last_pt.x + 0.5} x2={0.5} y1={last_pt.y + 0.5} y2={0.5} strokeWidth={0.15} strokeOpacity={props.opacity} strokeDasharray={'0.1'}/>
+                            ) }
+                            <rect x={0.25} y={0.25} width={0.5} height={0.5} rx={0.1} strokeWidth={0}/>
+                        </>
                     ) }
-                    <circle cx={0.5} cy={0.5} r={0.12} fill={props.color}/>
-                </>
-            ) }
-            { props.route.map( (c,i) =>
-                <circle key={'c'+i} cx={c.x+0.5} cy={c.y+0.5} r={0.12} fill={props.color}/>
-            ) }
+                    { props.route.map( (c,i) =>
+                        <React.Fragment key={`c${i}`}>
+                            <rect x={c.x+0.25} y={c.y+0.25} width={0.5} height={0.5} rx={0.1} strokeWidth={0}/>
+                        </React.Fragment>
+                    ) }
+                </g>
+                <g id={`mapsvg-${props.id}-labels`}>
+                    { props.route.map( (c,i) =>
+                        !known.includes(`${c.x}-${c.y}`) && (known.push(`${c.x}-${c.y}`) || true) && i > 0 && <React.Fragment key={`c${i}`}>
+                            <rect x={c.x+0.29} y={c.y+0.29} width={0.42} height={0.42} rx={0.1} strokeWidth={0}/>
+                            <g transform={`translate(${c.x+0.5},${c.y+0.425})`}>
+                                <text x={0} y={0} style={{transform: 'scaleY(-1)'}} textAnchor="middle" alignmentBaseline="central" strokeWidth={0.025} fontSize={0.3}>
+                                    {i}
+                                </text>
+                            </g>
+                        </React.Fragment>
+                    ) }
+                </g>
+            </defs>
+            <use href={`#mapsvg-${props.id}-content`} stroke="black" fill="black" filter="url(#mapsvg-blur)"/>
+            <use href={`#mapsvg-${props.id}-content`} stroke={props.color} fill={props.color}/>
+            <use href={`#mapsvg-${props.id}-labels`} stroke={props.color} fill={props.secondaryColor}/>
         </>
     )
 }
@@ -44,17 +71,20 @@ const RouteRenderer = ( props: { route: MapCoordinate[], color: string, opacity:
 const MapOverviewRoutePainter = ( props: MapOverviewParentProps ) => {
     return (
             <div className="svg">
-                <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox={`${props.map.geo.x0} ${props.map.geo.y0} ${1+(props.map.geo.x1-props.map.geo.x0)} ${1+(props.map.geo.y1-props.map.geo.y0)}`} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                    <filter id="mapsvg-blur">
+                        <feGaussianBlur stdDeviation="0.1" />
+                    </filter>
                     {props.marking && (
                         <rect x={props.marking.x} y={props.marking.y}
                               height={1} width={1}
                               fill={'transparent'} opacity={0.5} strokeWidth={0.08} stroke={'white'}
                         />
                     )}
-                    <RouteRenderer route={props.routeViewer} color={'#b4da4c'} opacity={1} simple={false}/>
+                    <RouteRenderer route={props.routeViewer} color={'#b4da4c'} secondaryColor={'#2e3a0c'} opacity={1} simple={false} id="selected"/>
                     { props.settings.enableSimpleZoneRouting && (
-                        <RouteRenderer route={props.routeEditor} color={'white'} opacity={0.5}
-                                       simple={!props.settings.enableComplexZoneRouting}
+                        <RouteRenderer route={props.routeEditor} color={'white'} secondaryColor={'#373737'} opacity={0.5}
+                                       simple={!props.settings.enableComplexZoneRouting} id="editor"
                         />
                     ) }
                 </svg>
