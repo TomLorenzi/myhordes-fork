@@ -83,6 +83,7 @@ class MyHordesConf extends Conf
     const CONF_MAIL_DOMAINCAP    = 'mail.slice_domain';
 
     const CONF_OVERRIDE_AUTOPOST_ADDENDUM = 'override.autopost_addendum';
+    const CONF_OVERRIDE_BLACKBOARD = 'override.blackboard';
 
     public function getAddendumFor(int $semantic, ?string $lang): ?string {
         if ($semantic === 0) return null;
@@ -95,5 +96,9 @@ class MyHordesConf extends Conf
             is_array($addendum) && array_key_exists( $semantic, $addendum ) && is_array( $addendum[$semantic] ) => $addendum[$semantic][$lang ?? 'de'] ?? null,
             default => null
         };
+    }
+
+    public function getBlackboardOverrideFor(?string $lang): ?string {
+        return $this->get( self::CONF_OVERRIDE_BLACKBOARD, null ) ?? $this->getSubKey( self::CONF_OVERRIDE_BLACKBOARD, $lang, null );
     }
 }
