@@ -84,6 +84,7 @@ class MyHordesConf extends Conf
 
     const CONF_OVERRIDE_AUTOPOST_ADDENDUM = 'override.autopost_addendum';
     const CONF_OVERRIDE_BLACKBOARD = 'override.blackboard';
+    const CONF_OVERRIDE_VERSION = 'override.version';
 
     public function getAddendumFor(int $semantic, ?string $lang): ?string {
         if ($semantic === 0) return null;
@@ -100,5 +101,9 @@ class MyHordesConf extends Conf
 
     public function getBlackboardOverrideFor(?string $lang): ?string {
         return $this->get( self::CONF_OVERRIDE_BLACKBOARD, null ) ?? $this->getSubKey( self::CONF_OVERRIDE_BLACKBOARD, $lang, null );
+    }
+
+    public function getVersionLinkOverrideFor(?string $lang): ?string {
+        return $this->get( self::CONF_OVERRIDE_VERSION, null ) ?? $this->getSubKey( self::CONF_OVERRIDE_VERSION, $lang, null );
     }
 }

@@ -25,8 +25,9 @@
     </div>
 {% else %}
     <div class="debug_info_release">
-        <div class="version">
-            <div class="version-badge-global">
+        {% set link = conf().versionLinkOverrideFor(app.locale) %}
+        <div {{ {'version': true, 'pointer': link is not null }|classes }}>
+            <{{ (link is not null ? ('a ' ~ 'target="_blank" href="' ~ link ~ '"') : 'div')|raw }} class="version-badge-global">
                 <img alt="" src="{{ asset('build/images/icons/small_world.gif') }}" />&nbsp;<b>{{ version.major }}.{{ version.minor}}.{{ version.patch}}</b>
                 {% if version.isPreRelease %}
                     {% set prerelease = version.preRelease.toString|split('.') %}
@@ -34,7 +35,7 @@
                         &nbsp;<i>{{ prerelease[0] }} {{ prerelease[1] ?? '' }}</i>
                     {% endif %}
                 {% endif %}
-            </div>
+            </{{ link is not null ? 'a' : 'div' }}>
         </div>
     </div>
 {% endif %}
