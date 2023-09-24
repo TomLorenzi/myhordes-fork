@@ -2,6 +2,8 @@
 
 namespace MyHordes\Fixtures\DTO\Actions;
 
+use App\Service\Actions\Game\AtomProcessors\Require\AtomRequirementProcessor;
+use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
 use MyHordes\Fixtures\DTO\Container;
 use MyHordes\Fixtures\DTO\ElementInterface;
 
@@ -24,5 +26,25 @@ class RequirementsDataContainer extends Container
         elseif ($context !== null && $context !== $child->identifier) throw new \Exception("Forbidden attempt to change requirement identifier ('$context' > '{$child->identifier}'");
         parent::store( $child, $context ?? $child->identifier );
         return $context ?? $child->identifier;
+    }
+
+    /**
+     * Fetches specific requirements from the container
+     *
+     * @param string $class The name of the requirement class.
+     * @psalm-param class-string<T> $service
+     *
+     * @return array List of requirements
+     * @psalm-return T[]
+     *
+     * @template T as object
+     */
+    public function findRequirements(string $class): array {
+        $r = [];
+        foreach ( $this->all() as $de )
+            foreach ($de->atomList as $atom)
+                if (is_a( $atom, $class ))
+                    $r[] = $atom;
+        return $r;
     }
 }

@@ -528,7 +528,8 @@ class TownAddonsController extends TownController
             'door_section' => 'nightwatch',
             'zeds_today' => $zeds_today,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
-            'cap' => $cap
+            'cap' => $cap,
+            'allow_weapons' => $proxy->queryTownParameter( $town, BuildingValueQuery::NightWatcherWeaponsAllowed ) != 0
         ]) );
     }
 

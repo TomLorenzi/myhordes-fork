@@ -11,4 +11,5 @@ use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreUpgradeEvent;
 enum BuildingValueQuery {
     case GuardianDefenseBonus;
     case NightWatcherCap;
+    case NightWatcherWeaponsAllowed;
 }
