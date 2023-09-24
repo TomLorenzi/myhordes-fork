@@ -745,7 +745,7 @@ class NightlyHandler
 			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $watcher->getCitizen(), true ));
 			$deathChances = $event->deathChance;
 
-            $woundOrTerrorChances = $event->woundChance;
+            $woundOrTerrorChances = $event->woundChance + $event->terrorChance;
             $ctz = $watcher->getCitizen();
 
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
@@ -768,7 +768,7 @@ class NightlyHandler
 
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
 
-                if($this->random->chance(0.5)){
+                if( $this->random->pickEntryFromRawRandomArray( [ [true, round($event->woundChance * 100)], [false, round($event->terrorChance * 100)] ] ) ){
                     // Wound
                     if (!$this->citizen_handler->isWounded($ctz)) {
                         $this->citizen_handler->inflictWound($ctz);

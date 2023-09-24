@@ -39,6 +39,18 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
         private readonly ContainerInterface $container,
     ) {}
 
+    public static function getSubscribedServices(): array
+    {
+        return [
+            CitizenHandler::class,
+            InventoryHandler::class,
+            TownHandler::class,
+            UserHandler::class,
+            EntityManagerInterface::class,
+            EventProxyService::class
+        ];
+    }
+
 	public function getNightWatchDeathChances(CitizenQueryNightwatchDeathChancesEvent $event): void {
 		$citizen = $event->data->citizen;
 		/** @var CitizenHandler $citizen_handler */
@@ -65,7 +77,8 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 			$chances += $status->getNightWatchDeathChancePenalty();
 		if($citizen->hasRole('ghoul')) $chances -= 0.05;
 		$event->deathChance = max(0.0, min($chances, 1.0));
-		$event->woundChance = $event->terrorChance = max(0.0, min($chances + $event->townConfig->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0));
+		$event->woundChance = $event->terrorChance = max(0.0, min($chances + $event->townConfig->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0)) / 2;
+
 		$event->hintSentence = T::__('Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von {deathChance}% sterben und zu einer Wahrscheinlichkeit von {woundAndTerrorChance}% eine Verwundung oder Angststarre während der Wache erleiden wirst.', 'game');
 	}
 
@@ -216,17 +229,5 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
         }
 
         $event->chance = min(max(0, $event->chance), 1.0);
-    }
-
-    public static function getSubscribedServices(): array
-    {
-        return [
-            CitizenHandler::class,
-            InventoryHandler::class,
-            TownHandler::class,
-			UserHandler::class,
-			EntityManagerInterface::class,
-			EventProxyService::class
-        ];
     }
 }
