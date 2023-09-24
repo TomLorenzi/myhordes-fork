@@ -3,7 +3,10 @@
 
 namespace App\EventListener\Game\Town\Basic\Buildings;
 
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
+use App\EventListener\ContainerTypeTrait;
 use App\Service\TownHandler;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -13,8 +16,11 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: BuildingQueryNightwatchDefenseBonusEvent::class, method: 'onQueryNightwatchDefenseBonusCollect', priority: -15)]
 #[AsEventListener(event: BuildingQueryNightwatchDefenseBonusEvent::class, method: 'onQueryNightwatchDefenseBonusCalc', priority: -105)]
 #[AsEventListener(event: BuildingQueryNightwatchDefenseBonusEvent::class, method: 'onQueryNightwatchDefenseBonusFinish', priority: -115)]
+#[AsEventListener(event: BuildingQueryTownParameterEvent::class, method: 'onQueryTownParameter', priority: 0)]
 final class BuildingQueryListener implements ServiceSubscriberInterface
 {
+    use ContainerTypeTrait;
+
     public function __construct(
         private readonly ContainerInterface $container,
     ) {}
@@ -37,7 +43,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
         }
 
         /** @var TownHandler $th */
-        $th = $this->container->get(TownHandler::class);
+        $th = $this->getService(TownHandler::class);
         $event->buildings = $th->getCachedBuildingList( $event->town, true );
 
         $event->building_bonus_map = [
@@ -61,6 +67,12 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
     public function onQueryNightwatchDefenseBonusFinish( BuildingQueryNightwatchDefenseBonusEvent $event ): void {
         foreach ($event->bonus as $single)
             $event->defense = (int)floor( $event->defense * (1.0+$single) );
+    }
+
+    public function onQueryTownParameter( BuildingQueryTownParameterEvent $event ): void {
+        $event->value = match ($event->query) {
+            BuildingValueQuery::GuardianDefenseBonus => $this->getService(TownHandler::class)->getBuilding($event->town, 'small_watchmen_#00', true) ? 10 : 5,
+        };
     }
 
 }

@@ -11,6 +11,7 @@ use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ScavengingActionType;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
@@ -20,6 +21,7 @@ use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
 use App\Structures\FriendshipActionTarget;
@@ -116,9 +118,12 @@ class EventProxyService
         return $event->chance;
     }
 
-    /**
+    public function queryTownParameter( Town $town, BuildingValueQuery $query ): float {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query ) );
+        return $event->value;
+    }
 
-     */
+
     public function executeCustomAction( int $type, Citizen $citizen, ?Item $item, Citizen|Item|ItemPrototype|FriendshipActionTarget|null $target, ItemAction $action, ?string &$message, ?array &$remove, array &$execute_info_cache ): void {
         $this->ed->dispatch( $event = $this->ef->gameEvent( CustomActionProcessorEvent::class, $citizen->getTown() )->setup( $type, $citizen, $item, $target, $action, $message, $remove, $execute_info_cache ) );
         $message = $event->message;

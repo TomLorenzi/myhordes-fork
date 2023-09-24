@@ -28,6 +28,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Entity\ZoneTag;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ZoneActivityMarkerType;
 use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
@@ -55,12 +56,13 @@ class TownHandler
 
     private $protoDefenceItems = null;
     private DoctrineCacheService $doctrineCache;
+    private EventProxyService $proxy;
 
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
         TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
-        CrowService $armbrust, DoctrineCacheService $doctrineCache)
+        CrowService $armbrust, DoctrineCacheService $doctrineCache, EventProxyService $proxy)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -73,6 +75,7 @@ class TownHandler
         $this->random = $rand;
         $this->crowService = $armbrust;
         $this->doctrineCache = $doctrineCache;
+        $this->proxy = $proxy;
     }
 
     /**
@@ -383,7 +386,7 @@ class TownHandler
             else                                 $summary->overall_scale += 0.10;
         }
 
-        $guardian_bonus = 5;
+        $guardian_bonus = $this->proxy->queryTownParameter( $town, BuildingValueQuery::GuardianDefenseBonus );
 
         $deadCitizens = 0;
 
