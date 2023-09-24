@@ -20,10 +20,13 @@
     </div>
 
     <div class="help">
-         {% if is_watcher %}
+        {% if cap is not null and watchers is not empty %}
+            <p>{{'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.'|trans({'watchers': watchers|length, 'cap': cap}, 'game')|raw}}</p>
+        {% endif %}
+        {% if is_watcher %}
             <p>{{'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:'|trans({}, 'game')}}</p>
             <button class="inline" id="unwatch-button">{{'Ich habe doch zu große Angst...'|trans({}, 'game')}}</button>
-        {% else %}
+        {% elseif cap is null or watchers|length < cap %}
             <p>{{'Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:'|trans({}, 'game')|raw}}</p>
             <button class="inline" id="watch-button">{{'Ich möchte Wächter werden!'|trans({}, 'game')}}</button>
         {% endif %}

@@ -72,6 +72,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
     public function onQueryTownParameter( BuildingQueryTownParameterEvent $event ): void {
         $event->value = match ($event->query) {
             BuildingValueQuery::GuardianDefenseBonus => $this->getService(TownHandler::class)->getBuilding($event->town, 'small_watchmen_#00', true) ? 10 : 5,
+            BuildingValueQuery::NightWatcherCap => $event->town->getPopulation(),
         };
     }
 

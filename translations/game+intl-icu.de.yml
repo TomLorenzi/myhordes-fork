@@ -2862,3 +2862,4 @@ Ninja_f: Ninja
 AP: AP
 CP: CP
 MP: MP
+'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.': 'Der Raum auf den Zinnen ist begrenzt! Aktuell haben <strong>{watchers} / {cap}</strong> Nachtwächter ihren Platz eingenommen.'
