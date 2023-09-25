@@ -1594,9 +1594,7 @@ class ActionHandler
                     $placeholders['{items_consume_'.$currentIndex.'}'] = isset($execute_info_cache['items_consume'][$currentIndex]) ? ($this->wrap($execute_info_cache['items_consume'][$currentIndex])) : "-";
                 }
 
-                dump($contentMessage);
                 $contentMessage = $this->translator->trans( $contentMessage, $placeholders, 'items' );
-                dump($contentMessage);
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
 	                    [, $tag, $text] = $m;
