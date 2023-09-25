@@ -15,6 +15,7 @@ use App\Entity\Recipe;
 use App\Entity\LogEntryTemplate;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
@@ -23,6 +24,7 @@ use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\EventFactory;
+use App\Service\EventProxyService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -450,7 +452,7 @@ class TownAddonsController extends TownController
      * @param TownHandler $th
      * @return Response
      */
-    public function addon_nightwatch(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $eventFactory): Response
+    public function addon_nightwatch(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $eventFactory, EventProxyService $proxy): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -509,6 +511,9 @@ class TownAddonsController extends TownController
             round($estims[0]->getEstimation()*100) // Progress
         ];
 
+        $cap = $proxy->queryTownParameter( $town, BuildingValueQuery::NightWatcherCap );
+        if ($cap >= $town->getPopulation()) $cap = null;
+
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
@@ -523,6 +528,8 @@ class TownAddonsController extends TownController
             'door_section' => 'nightwatch',
             'zeds_today' => $zeds_today,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
+            'cap' => $cap,
+            'allow_weapons' => $proxy->queryTownParameter( $town, BuildingValueQuery::NightWatcherWeaponsAllowed ) != 0
         ]) );
     }
 
@@ -530,9 +537,10 @@ class TownAddonsController extends TownController
      * @Route("api/town/nightwatch/gowatch", name="town_nightwatch_go_controller")
      * @param TownHandler $th
      * @param JSONRequestParser $parser
+     * @param EventProxyService $proxy
      * @return Response
      */
-    public function api_nightwatch_gowatch(TownHandler $th, JSONRequestParser $parser): Response
+    public function api_nightwatch_gowatch(TownHandler $th, JSONRequestParser $parser, EventProxyService $proxy): Response
     {
         $town = $this->getActiveCitizen()->getTown();
         if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
@@ -564,6 +572,9 @@ class TownAddonsController extends TownController
         } else if ($action == "watch") {
 
             if ($activeCitizenWatcher !== null)
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+            if (count($watchers) >= $proxy->queryTownParameter( $town, BuildingValueQuery::NightWatcherCap ))
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
             $citizenWatch = new CitizenWatch();

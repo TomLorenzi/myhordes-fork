@@ -52,7 +52,7 @@ class TownRankingProxyRepository extends ServiceEntityRepository
 
         return $q->andWhere('t.type = :type')->setParameter('type', $class)
             ->andWhere('t.end IS NOT NULL')
-            ->setMaxResults(35)
+            ->setMaxResults( $season?->getCurrent() ? $class->getRankingLow() : ($season?->getRankingRange($class)?->getLow() ?? 35))
             ->addOrderBy('t.score', 'desc')
             ->addOrderBy('t.days', 'desc')
             ->addOrderBy('t.end', 'asc')

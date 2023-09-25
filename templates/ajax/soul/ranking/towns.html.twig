@@ -27,12 +27,21 @@
                     <div class="row-flex stretch season_entry {% if pos is not odd %}even{% endif %} {% if played[town.id] is defined %}played{% endif %}">
                         {# @var town \src\Entity\TownRankingProxy #}
                         <div class="cell rw-1 season_entry_td center"><img class="fit" style="max-width: 32px;" src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
-                        <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
+                        <div class="cell rw-1 season_entry_td center">
+                            {% if pos <= range[0] %}
+                                <img alt="" src="{{ asset('build/images/emotes/legend.gif') }}" />
+                            {% elseif pos <= range[1] %}
+                                <img alt="" src="{{ asset('build/images/emotes/ranked.gif') }}" />
+                            {% elseif pos <= range[2] %}
+                                <img alt="" src="{{ asset('build/images/emotes/winthi.gif') }}" />
+                            {% endif %}
+                            {{ pos }}
+                        </div>
                         <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" data-alt-src="{{ asset('build/images/icons/small_less.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
                         <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
                         <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
                     </div>
-                    {% if pos == 1 %}
+                    {% if pos <= range[0] %}
                         <div class="row-flex stretch season_entry_container" x-town-latest="">
                             <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
                             <div class="cell rw-7 ro-1">

@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
+use Doctrine\ORM\PersistentCollection;
 
 #[ORM\Entity(repositoryClass: 'App\Repository\SeasonRepository')]
 #[Table]
@@ -27,10 +30,13 @@ class Season
     private $current = false;
     #[ORM\Column(type: 'integer', nullable: true)]
     private $subNumber;
+    #[ORM\OneToMany(mappedBy: 'season', targetEntity: SeasonRankingRange::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
+    private Collection $rankingRanges;
     public function __construct()
     {
         $this->towns = new ArrayCollection();
         $this->rankedTowns = new ArrayCollection();
+        $this->rankingRanges = new ArrayCollection();
     }
     public function getId(): ?int
     {
@@ -119,6 +125,47 @@ class Season
     public function setSubNumber(?int $subNumber): self
     {
         $this->subNumber = $subNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SeasonRankingRange>|PersistentCollection<SeasonRankingRange>
+     */
+    public function getRankingRanges(): Collection|PersistentCollection
+    {
+        return $this->rankingRanges;
+    }
+
+    /**
+     * @param TownClass $class
+     * @return SeasonRankingRange|null
+     */
+    public function getRankingRange(TownClass $class): ?SeasonRankingRange
+    {
+        return $this->getRankingRanges()->matching( (new Criteria())
+            ->where( new Comparison( 'type', Comparison::EQ, $class )  )
+        )->first() ?: null;
+    }
+
+    public function addRankingRange(SeasonRankingRange $rankingRange): static
+    {
+        if (!$this->rankingRanges->contains($rankingRange)) {
+            $this->rankingRanges->add($rankingRange);
+            $rankingRange->setSeason($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRankingRange(SeasonRankingRange $rankingRange): static
+    {
+        if ($this->rankingRanges->removeElement($rankingRange)) {
+            // set the owning side to null (unless already changed)
+            if ($rankingRange->getSeason() === $this) {
+                $rankingRange->setSeason(null);
+            }
+        }
 
         return $this;
     }

@@ -53,6 +53,7 @@ use App\Translation\T;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
+use MyHordes\Fixtures\DTO\Actions\Atoms\ItemRequirement;
 use MyHordes\Fixtures\DTO\Actions\RequirementsDataContainer;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -713,12 +714,17 @@ class ActionHandler
                 $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
 				$requirements = $action->getRequirements();
 				$item_req = null;
-				foreach ($requirements as $requirement) {
-					if ($requirement->getItem() === null || $requirement->getItem()->getPrototype() !== $item_consume->getPrototype()) continue;
-					$item_req = $requirement->getItem();
-					break;
-				}
-				$poison = ($item_req?->getAllowPoison() || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false;
+				foreach ($requirements as $requirement)
+                    if ($requirement->getAtoms()) {
+                        $container = (new RequirementsDataContainer())->fromArray([['atomList' => $requirement->getAtoms()]]);
+                        foreach ( $container->findRequirements( ItemRequirement::class ) as $item_requirement ) {
+                            /** @var ItemRequirement|null $item_requirement */
+                            if ($item_requirement->item !== $item_consume->getPrototype()->getName()) continue;
+                            $item_req = $item_requirement;
+                        }
+                    }
+
+				$poison = ($item_req?->poison || $this->conf->getTownConfiguration($citizen->getTown())->get( TownConf::CONF_MODIFIER_POISON_TRANS, false )) ? null : false;
                 $items = $this->inventory_handler->fetchSpecificItems( $source,
                     [new ItemRequest( name: $item_consume->getPrototype()->getName(), count: $item_consume->getCount(), poison: $poison )]);
 
@@ -1670,16 +1676,15 @@ class ActionHandler
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
             case Recipe::WorkshopTypeShamanSpecific:
-              switch($recipe->getAction()) {
-                case "Öffnen":
-                  $base = T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game');
-                  break;
-                case "Zerlegen":
-                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game');
-                  break;
-                default:
-                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} umgewandelt.', 'game');
-              }
+              $base = match ($recipe->getAction()) {
+                  "Öffnen"      => T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game'),
+                  "Zerlegen"    => T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game'),
+                  default       => match (true) {
+                      $used_bp === 0                 => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.', 'game'),
+                      $used_bp > 0 && $used_ap <= 0  => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                      default                        => T::__('Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.', 'game'),
+                  }
+              };
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
@@ -1695,6 +1700,7 @@ class ActionHandler
             '{item_list}' => $this->wrap_concat( $list ),
             '{item}' => $this->wrap( $new_item ),
             '{ap}' => $used_ap <= 0 ? "0" : $used_ap,
+            '{cp}' => $used_bp <= 0 ? "0" : $used_bp,
         ], 'game' );
 
         return self::ErrorNone;

@@ -311,6 +311,9 @@
 
                     <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author-id="{{ post.owner.id }}" x-post-content-author="{% include 'ajax/soul/playername.html.twig' with {user: post.owner, plain: true, globalSpace: post.thread.forum.town is null} only %}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
+                        {% if thread.semantic != 0 and post.translate and conf().addendumFor(thread.semantic,app.user.language) %}
+                            {{ conf().addendumFor(thread.semantic,app.user.language)|raw }}
+                        {% endif %}
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' and post.owner != app.user %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
                             {% if mode == 0 %}

@@ -1386,10 +1386,10 @@ class BeyondController extends InventoryAwareController
         if ($zone->getActivityMarkerFor( ZoneActivityMarkerType::RuinDig, $citizen ))
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
-
         if ($zone->getRuinDigs() > 0) {
+            if (!$this->zone_handler->isZoneUnderControl( $this->getActiveCitizen()->getZone() ) && $this->get_escape_timeout( $this->getActiveCitizen() ) < 0 && $this->uncoverHunter($this->getActiveCitizen()))
+                $this->addFlash( 'collapse', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
+
             /*$factor = $this->zone_handler->getDigChanceFactor( $this->getActiveCitizen(), $zone );
 
             if ($zone->getPrototype()->getEmptyDropChance() >= 1) $total_dig_chance = 0;

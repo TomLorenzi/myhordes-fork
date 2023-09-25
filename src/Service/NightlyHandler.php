@@ -29,6 +29,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Enum\EventStages\BuildingEffectStage;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
@@ -734,6 +735,8 @@ class NightlyHandler
         $terrorized_citizens = [];
         $no_watch_items_citizens = [];
 
+        $weapons_are_active = $this->events->queryTownParameter( $town, BuildingValueQuery::NightWatcherWeaponsAllowed ) > 0;
+
         foreach ($watchers as $watcher) {
             $used_items = count( array_filter( $watcher->getCitizen()->getInventory()->getItems()->getValues(), fn(Item $i) => $i->getPrototype()->getWatchpoint() > 0 || $i->getPrototype()->getName() === 'chkspk_#00' ) );
 
@@ -745,7 +748,7 @@ class NightlyHandler
 			$this->dispatcher->dispatch($event = $this->eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $watcher->getCitizen(), true ));
 			$deathChances = $event->deathChance;
 
-            $woundOrTerrorChances = $event->woundChance;
+            $woundOrTerrorChances = $event->woundChance + $event->terrorChance;
             $ctz = $watcher->getCitizen();
 
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
@@ -768,7 +771,7 @@ class NightlyHandler
 
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)) {
 
-                if($this->random->chance(0.5)){
+                if( $this->random->pickEntryFromRawRandomArray( [ [true, round($event->woundChance * 100)], [false, round($event->terrorChance * 100)] ] ) ){
                     // Wound
                     if (!$this->citizen_handler->isWounded($ctz)) {
                         $this->citizen_handler->inflictWound($ctz);
@@ -793,16 +796,21 @@ class NightlyHandler
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$defBonus</info> zombies from his watch");
 
                 $null = null;
-                foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
+                foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
+
+                    if (!$weapons_are_active && $item->getPrototype()->getWatchpoint())
+                        continue;
+
                     if ($item->getPrototype()->getNightWatchAction()) {
                         $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info> : '<info>{$item->getPrototype()->getNightWatchAction()->getName()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
-                        $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
+                        $this->action_handler->execute($ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
                         $used_items++;
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
                     } else if ($item->getPrototype()->getWatchpoint())
                         $used_items++;
+                }
 
-                if ($used_items === 0) $no_watch_items_citizens[] = $watcher->getCitizen();
+                if ($used_items === 0 && $weapons_are_active) $no_watch_items_citizens[] = $watcher->getCitizen();
 
             } else {
                 $watcher->setSkipped(true);
