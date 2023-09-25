@@ -494,7 +494,7 @@ class TownAddonsController extends TownController
         $total_def = max(0, $total_def);
 
         if($has_counsel)
-            $total_def += ($counsel_def = 20 * $count);
+            $total_def += ($counsel_def = 15 * $count);
 
 		/** @var CitizenQueryNightwatchDeathChancesEvent $event */
 		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen() ));
