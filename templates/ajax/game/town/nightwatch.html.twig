@@ -89,8 +89,9 @@
                             <img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item.prototype.label|trans({},'items') }}">
                             <div class="tooltip">
                                 {{ item.defImpact }} <img src="{{ asset('build/images/icons/small_zombie.gif') }}" />
-                                {% if item.prototype.nightWatchAction.name == 'nw_break' %}<div>{{'Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!'|trans({}, 'game')}}</div>{% endif %}
-                                {% if item.prototype.nightWatchAction.name == 'nw_destroy' %}<div>{{'Es besteht die Chance das Objekt während des Angriffs zu verlieren!'|trans({}, 'game')}}</div>{% endif %}
+                                {{ -item.deathImpact }} <img src="{{ asset('build/images/icons/small_human.gif') }}" />
+                                {% if item.prototype.nightWatchAction is not null and item.prototype.nightWatchAction.name == 'nw_break' %}<div>{{'Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!'|trans({}, 'game')}}</div>{% endif %}
+                                {% if item.prototype.nightWatchAction is not null and item.prototype.nightWatchAction.name == 'nw_destroy' %}<div>{{'Es besteht die Chance das Objekt während des Angriffs zu verlieren!'|trans({}, 'game')}}</div>{% endif %}
                             </div>
                         </div>
                     {% endfor %}

@@ -53,6 +53,9 @@ class ItemPrototype implements NamedEntity
     private $deco_text;
     #[ORM\Column(type: 'boolean')]
     private $individual = false;
+
+    #[ORM\Column(type: 'integer')]
+    private ?int $watchimpact = 0;
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -256,5 +259,17 @@ class ItemPrototype implements NamedEntity
     public static function getTranslationDomain(): ?string
     {
         return 'items';
+    }
+
+    public function getWatchimpact(): ?int
+    {
+        return $this->watchimpact;
+    }
+
+    public function setWatchimpact(?int $watchimpact): static
+    {
+        $this->watchimpact = $watchimpact;
+
+        return $this;
     }
 }

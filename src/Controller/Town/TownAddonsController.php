@@ -500,7 +500,6 @@ class TownAddonsController extends TownController
 
 		/** @var CitizenQueryNightwatchDeathChancesEvent $event */
 		$dispatcher->dispatch($event = $eventFactory->gameInteractionEvent( CitizenQueryNightwatchDeathChancesEvent::class )->setup( $this->getActiveCitizen() ));
-
         $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
 
         $estims = $this->town_handler->get_zombie_estimation($town);
