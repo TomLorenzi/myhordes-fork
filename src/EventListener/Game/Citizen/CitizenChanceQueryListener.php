@@ -140,6 +140,7 @@ final class CitizenChanceQueryListener implements ServiceSubscriberInterface
 			$event->data->nightwatchInfo['items'][$item->getId()] = array(
 				'prototype' => $item->getPrototype(),
 				'defImpact' => $itemDef,
+				'deathImpact' => -$item->getPrototype()->getWatchimpact()
 			);
 		}
 
