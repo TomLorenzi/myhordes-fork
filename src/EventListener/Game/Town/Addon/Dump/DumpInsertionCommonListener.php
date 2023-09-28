@@ -25,9 +25,9 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: DumpInsertionCheckEvent::class, method: 'onCheckDumpExtension', priority: -10)]
 #[AsEventListener(event: DumpInsertionCheckEvent::class, method: 'onCheckItems', priority: -20)]
 
-#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onItemHandling', priority: 100)]
-#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onLogMessages', priority: 90)]
-#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onFlashMessages', priority: 80)]
+#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onItemHandling', priority: 0)]
+#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onLogMessages', priority: 10)]
+#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onFlashMessages', priority: 10)]
 final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 {
     public function __construct(
@@ -45,8 +45,8 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
     }
 
     public function onCheckDumpExtension(DumpInsertionCheckEvent $event ): void {
-        if (!$event->dump_built) {
-            $event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
+		if ($event->citizen->getBanished() || !$event->dump_built) {
+			$event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
 			return;
 		}
 
@@ -73,10 +73,12 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 		$event->dumpableItems = $cache;
     }
 
-    /**
-     * @param DumpInsertionCheckEvent $event
-     * @return void
-     */
+	/**
+	 * @param DumpInsertionCheckEvent $event
+	 * @return void
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
+	 */
     public function onCheckItems( DumpInsertionCheckEvent $event ): void {
 		if ($event->citizen->getBanished() || !$event->dump_built)
 			$event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
@@ -92,7 +94,7 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 		$inventoryHandler = $this->container->get(InventoryHandler::class);
 
 		// It's not free, and you don't have enough AP
-		if (!$event->free_dump_built && $event->citizen->getAp() < $event->quantity * $event->ap_cost) {
+		if ($event->ap_cost > 0 && $event->citizen->getAp() < $event->quantity * $event->ap_cost) {
 			$event->pushErrorCode(ErrorHelper::ErrorNoAP)->stopPropagation();
 			return;
 		}
