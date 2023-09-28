@@ -21,8 +21,9 @@ use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-#[AsEventListener(event: DumpInsertionCheckEvent::class, method: 'onCheckDumpExtension', priority: -10)]
+#[AsEventListener(event: DumpInsertionCheckEvent::class, method: 'onCheckDumpAvailability', priority: -10)]
 #[AsEventListener(event: DumpInsertionCheckEvent::class, method: 'onCheckItems', priority: -20)]
 
 #[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onItemHandling', priority: 0)]
@@ -40,11 +41,11 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
             InventoryHandler::class,
             EntityManagerInterface::class,
             LogTemplateHandler::class,
-			TownHandler::class
+			TownHandler::class,
         ];
     }
 
-    public function onCheckDumpExtension(DumpInsertionCheckEvent $event ): void {
+    public function onCheckDumpAvailability(DumpInsertionCheckEvent $event ): void {
 		if ($event->citizen->getBanished() || !$event->dump_built) {
 			$event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
 			return;
