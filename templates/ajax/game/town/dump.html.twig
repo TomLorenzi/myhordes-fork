@@ -102,7 +102,7 @@
 
             if (!ap) return;
 
-            $.ajax.easySend( '{{ path('town_dump_do_controller') }}', {id: parseInt(elem.getAttribute('x-item-id')), ap: ap},
+            $.ajax.easySend( '{{ path('rest_town_facilities_dump_insert') }}', {id: parseInt(elem.getAttribute('x-item-id')), ap: ap},
                 function () {
                     $.ajax.load(null, '{{ path('town_dump') }}', true);
                 } );

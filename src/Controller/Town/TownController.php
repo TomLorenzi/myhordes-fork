@@ -857,7 +857,6 @@ class TownController extends InventoryAwareController
             'allow_take' => $event->already_taken < $event->allowed_to_take,
             'maximum' => $event->allowed_to_take,
             'pump' => $event->pump_is_built,
-
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
     }

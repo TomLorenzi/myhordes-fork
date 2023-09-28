@@ -19,6 +19,7 @@ use App\Enum\EventStages\BuildingValueQuery;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDeathChancesEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchDefenseEvent;
 use App\Event\Game\Citizen\CitizenQueryNightwatchInfoEvent;
+use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckEvent;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -33,6 +34,8 @@ use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
@@ -333,22 +336,29 @@ class TownAddonsController extends TownController
         return 0;
     }
 
-    /**
-     * @Route("jx/town/dump", name="town_dump")
-     * @param TownHandler $th
-     * @return Response
-     */
-    public function addon_dump(TownHandler $th): Response
+	/**
+	 * @Route("jx/town/dump", name="town_dump")
+	 * @param TownHandler              $th
+	 * @param EventDispatcherInterface $dispatcher
+	 * @param EventFactory             $e
+	 * @return Response
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
+	 */
+    public function addon_dump(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $e): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         $town = $this->getActiveCitizen()->getTown();
 
-        if (!($dump = $th->getBuilding($town, 'small_trash_#00', true)))
+		/** @var DumpInsertionCheckEvent $event */
+		$dispatcher->dispatch($event = $e->gameInteractionEvent( DumpInsertionCheckEvent::class )->setup(null));
+
+        if (!$event->dump_built)
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-
+		$dump = $th->getBuilding($town, 'small_trash_#00', true);
         $cache = [];
         foreach ($town->getBank()->getItems() as $item) {
             if ($item->getBroken()) continue;
@@ -368,7 +378,7 @@ class TownAddonsController extends TownController
         } );
 
         return $this->render( 'ajax/game/town/dump.html.twig', $this->addDefaultTwigArgs('dump', [
-            'free_dumps' => $th->getBuilding( $town, 'small_trashclean_#00', true ) !== null,
+            'free_dumps' => $event->free_dump_built,
             'items' => $cache,
             'dump_def' => $dump->getTempDefenseBonus(),
             'total_def' => $th->calculate_town_def( $town ),
@@ -376,82 +386,16 @@ class TownAddonsController extends TownController
         ]) );
     }
 
-    /**
-     * @Route("api/town/dump/do", name="town_dump_do_controller")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function dump_do_api(JSONRequestParser $parser): Response {
-        $citizen = $this->getActiveCitizen();
-        $town = $citizen->getTown();
-
-        // Check if citizen is banished or dump is not build
-        if ($citizen->getBanished() || !($dump = $this->town_handler->getBuilding($town, 'small_trash_#00', true)))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        // Get prototype ID
-        if (!$parser->has_all(['id','ap'], true))
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        $id = (int)$parser->get('id');
-        $ap = (int)$parser->get('ap');
-
-        /** @var ItemPrototype $prototype */
-        // Get the item prototype and make sure it is dump-able
-        $prototype = $this->entity_manager->getRepository(ItemPrototype::class)->find( $id );
-        if ($prototype === null || !($dump_def = $this->get_dump_def_for( $prototype, $this->town_handler ))  )
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        // Check if dumping is free
-        $free_dumps = $this->town_handler->getBuilding( $town, 'small_trashclean_#00', true ) !== null;
-
-        // Check if citizen has enough AP
-        if (!$free_dumps && $citizen->getAp() < $ap)
-            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-
-        // Check if items are available
-        $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest($prototype->getName(), $ap)] );
-        if (!$items) return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
-
-        $itemsForLog = [
-            $prototype->getId() => [
-                'item' => $prototype,
-                'count' => $ap
-            ]
-        ];
-
-        // Remove items
-        $n = $ap;
-        while (!empty($items) && $n > 0) {
-            $item = array_pop($items);
-            $c = $item->getCount();
-            $this->inventory_handler->forceRemoveItem( $item, $n );
-            $n -= $c;
-        }
-
-        // Reduce AP
-        if (!$free_dumps) $citizen->setAp( $citizen->getAp() - $ap );
-
-        // Increase def
-        $dump->setTempDefenseBonus( $dump->getTempDefenseBonus() + $ap * $dump_def );
-
-        $this->entity_manager->persist($this->log->dumpItems($citizen, $itemsForLog, $ap*$dump_def));
-
-        // Persist
-        try {
-            $this->entity_manager->persist( $dump );
-            $this->entity_manager->persist( $citizen );
-            $this->entity_manager->flush();
-            return AjaxResponse::success();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-    }
-
-    /**
-     * @Route("jx/town/nightwatch", name="town_nightwatch")
-     * @param TownHandler $th
-     * @return Response
-     */
+	/**
+	 * @Route("jx/town/nightwatch", name="town_nightwatch")
+	 * @param TownHandler              $th
+	 * @param EventDispatcherInterface $dispatcher
+	 * @param EventFactory             $eventFactory
+	 * @param EventProxyService        $proxy
+	 * @return Response
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
+	 */
     public function addon_nightwatch(TownHandler $th, EventDispatcherInterface $dispatcher, EventFactory $eventFactory, EventProxyService $proxy): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
