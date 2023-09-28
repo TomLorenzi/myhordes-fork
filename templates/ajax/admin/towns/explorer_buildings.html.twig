@@ -118,10 +118,20 @@
 						<div class="building_action cell" style="width: fit-content; margin-left: auto; flex-grow: 0; margin-top: 2px;">
 							{% if fromTown.complete and building.maxLevel > 0 %}
 								{% if fromTown.level < building.maxLevel %}
-									<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level + 1 }}" x-building-admin-action="lv"><img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}"></button>
+									<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level + 1 }}" x-building-admin-action="lv">
+										<img alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}">
+										<div class="tooltip">
+											{{ building.upgradeTexts[min(building.upgradeTexts|length,fromTown.level)]|trans({},'buildings') }}
+										</div>
+									</button>
 								{% endif %}
 								{% if fromTown.level > 0 %}
-									<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lv"><img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}"></button>
+									<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lv">
+										<img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}">
+										<div class="tooltip">
+											{{ building.upgradeTexts[max(0,fromTown.level - 1)]|trans({},'buildings') }}
+										</div>
+									</button>
 								{% endif %}
 							{% endif %}
 
