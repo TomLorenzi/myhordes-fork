@@ -301,41 +301,6 @@ class TownAddonsController extends TownController
         }
     }
 
-    protected function get_dump_def_for( ItemPrototype $proto, TownHandler $th ): int {
-
-        $town = $this->getActiveCitizen()->getTown();
-        $improved = $th->getBuilding($town, 'small_trash_#06', true) !== null;
-
-        // Weapons
-        if ($proto->hasProperty('weapon') || in_array( $proto->getName(), [
-            'machine_gun_#00', 'gun_#00', 'chair_basic_#00', 'machine_1_#00', 'machine_2_#00', 'machine_3_#00', 'pc_#00'
-            ] ) )
-            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#03', true) ? 5 : 0 );
-
-        // Defense
-        if ($proto->hasProperty('defence') && $proto->getName() !== 'tekel_#00' && $proto->getName() !== 'pet_dog_#00'
-            && $proto->getName() !== 'concrete_wall_#00' && $proto->getName() !== 'table_#00')
-            return ($improved ? 5 : 4) + ( $th->getBuilding($town, 'small_trash_#05', true) ? 2 : 0 );
-
-        // Food
-        if ($proto->hasProperty('food'))
-            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#04', true) ? 3 : 0 );
-
-        // Wood
-        if ($proto->getName() === 'wood_bad_#00' || $proto->getName() === 'wood2_#00')
-            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#01', true) ? 1 : 0 );
-
-        // Metal
-        if ($proto->getName() === 'metal_bad_#00' || $proto->getName() === 'metal_#00')
-            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#02', true) ? 1 : 0 );
-
-        // Animals
-        if ($proto->hasProperty('pet'))
-            return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_howlingbait_#00', true) ? 6 : 0 );
-
-        return 0;
-    }
-
 	/**
 	 * @Route("jx/town/dump", name="town_dump")
 	 * @param TownHandler              $th
@@ -359,27 +324,10 @@ class TownAddonsController extends TownController
             return $this->redirect($this->generateUrl('town_dashboard'));
 
 		$dump = $th->getBuilding($town, 'small_trash_#00', true);
-        $cache = [];
-        foreach ($town->getBank()->getItems() as $item) {
-            if ($item->getBroken()) continue;
-
-            if (!isset($cache[$item->getPrototype()->getId()]))
-                $cache[$item->getPrototype()->getId()] = [
-                    $item->getPrototype(),
-                    $item->getCount(),
-                    $this->get_dump_def_for( $item->getPrototype(), $th )
-                ];
-            else $cache[$item->getPrototype()->getId()][1] += $item->getCount();
-        }
-
-        $cache = array_filter( $cache, function(array $a) { return $a[1] > 0 && $a[2] > 0; } );
-        usort( $cache, function(array $a, array $b) {
-            return ($a[2] === $b[2]) ? ( $a[0]->getId() < $b[0]->getId() ? -1 : 1 ) : ($a[2] < $b[2] ? 1 : -1);
-        } );
 
         return $this->render( 'ajax/game/town/dump.html.twig', $this->addDefaultTwigArgs('dump', [
             'free_dumps' => $event->free_dump_built,
-            'items' => $cache,
+            'items' => $event->dumpableItems,
             'dump_def' => $dump->getTempDefenseBonus(),
             'total_def' => $th->calculate_town_def( $town ),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),

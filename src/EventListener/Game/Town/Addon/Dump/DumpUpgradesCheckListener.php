@@ -37,7 +37,7 @@ final class DumpUpgradesCheckListener implements ServiceSubscriberInterface
 		$event->animal_dump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_howlingbait_#00', true);
 		$event->free_dump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trashclean_#00', true);
 		$event->weapon_dump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#03', true);
-		$event->food_bump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#04', true);
+		$event->food_dump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#04', true);
 		$event->defense_dump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#05', true);
 		$event->dump_upgrade_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#06', true);
     }

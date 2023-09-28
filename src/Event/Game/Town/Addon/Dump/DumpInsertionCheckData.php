@@ -8,10 +8,9 @@ use App\Entity\ItemPrototype;
 class DumpInsertionCheckData
 {
     use DumpTrait;
-
     public ?ItemPrototype $consumable;
-
     public int $quantity = 0;
+	public array $dumpableItems;
 
 	/**
 	 * @param ItemPrototype $item

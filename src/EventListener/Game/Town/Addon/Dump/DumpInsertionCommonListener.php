@@ -6,6 +6,7 @@ namespace App\EventListener\Game\Town\Addon\Dump;
 
 use App\Controller\Town\TownController;
 use App\Entity\ItemPrototype;
+use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckData;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionCheckEvent;
 use App\Event\Game\Town\Addon\Dump\DumpInsertionExecuteEvent;
 use App\Service\ErrorHelper;
@@ -44,8 +45,32 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
     }
 
     public function onCheckDumpExtension(DumpInsertionCheckEvent $event ): void {
-        if (!$event->dump_built)
+        if (!$event->dump_built) {
             $event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
+			return;
+		}
+
+		$cache = [];
+		foreach ($event->citizen->getTown()->getBank()->getItems() as $item) {
+			if ($item->getBroken()) continue;
+
+			$dumpDef = $this->get_dump_def_for( $item->getPrototype(), $event );
+			if ($dumpDef == 0) continue;
+
+			if (!isset($cache[$item->getPrototype()->getId()]))
+				$cache[$item->getPrototype()->getId()] = [
+					$item->getPrototype(),
+					$item->getCount(),
+					$dumpDef
+				];
+			else $cache[$item->getPrototype()->getId()][1] += $item->getCount();
+		}
+
+		usort( $cache, function(array $a, array $b) {
+			return ($a[2] === $b[2]) ? ( $a[0]->getId() < $b[0]->getId() ? -1 : 1 ) : ($a[2] < $b[2] ? 1 : -1);
+		} );
+
+		$event->dumpableItems = $cache;
     }
 
     /**
@@ -118,38 +143,6 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
         $event->markModified();
     }
 
-	protected function get_dump_def_for( ItemPrototype $proto, DumpInsertionExecuteEvent $event ): int {
-		$improved = $event->check->dump_upgrade_built;
-		// Weapons
-		if ($proto->hasProperty('weapon') || in_array( $proto->getName(), [
-				'machine_gun_#00', 'gun_#00', 'chair_basic_#00', 'machine_1_#00', 'machine_2_#00', 'machine_3_#00', 'pc_#00'
-			] ) )
-			return ($improved ? 2 : 1) + ( $event->check->weapon_dump_built ? 5 : 0 );
-
-		// Defense
-		if ($proto->hasProperty('defence') && $proto->getName() !== 'tekel_#00' && $proto->getName() !== 'pet_dog_#00'
-			&& $proto->getName() !== 'concrete_wall_#00' && $proto->getName() !== 'table_#00')
-			return ($improved ? 5 : 4) + ( $event->check->defense_dump_built ? 2 : 0 );
-
-		// Food
-		if ($proto->hasProperty('food'))
-			return ($improved ? 2 : 1) + ( $event->check->food_dump_built ? 3 : 0 );
-
-		// Wood
-		if ($proto->getName() === 'wood_bad_#00' || $proto->getName() === 'wood2_#00')
-			return ($improved ? 2 : 1) + ( $event->check->wood_dump_built ? 1 : 0 );
-
-		// Metal
-		if ($proto->getName() === 'metal_bad_#00' || $proto->getName() === 'metal_#00')
-			return ($improved ? 2 : 1) + ( $event->check->metal_dump_built ? 1 : 0 );
-
-		// Animals
-		if ($proto->hasProperty('pet'))
-			return ($improved ? 2 : 1) + ( $event->check->animal_dump_built ? 6 : 0 );
-
-		return 0;
-	}
-
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
@@ -176,4 +169,42 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
             T::__('Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>', 'game'), 'notice',
             'game', ['item' => $event->original_prototype, 'count' => $event->check->quantity, 'def' => $event->check->quantity * $dump_def]);
     }
+
+	protected function get_dump_def_for( ItemPrototype $proto, DumpInsertionExecuteEvent|DumpInsertionCheckEvent $event ): int {
+
+		$check = $event;
+		if (is_a($event, DumpInsertionExecuteEvent::class)) $check = $event->check;
+
+		$improved = $check->dump_upgrade_built;
+		/** @var DumpInsertionCheckData $check */
+
+		// Weapons
+		if ($proto->hasProperty('weapon') || in_array( $proto->getName(), [
+				'machine_gun_#00', 'gun_#00', 'chair_basic_#00', 'machine_1_#00', 'machine_2_#00', 'machine_3_#00', 'pc_#00'
+			] ) )
+			return $check->weapon_dump_built ? ($improved ? 1 : 0) + 5 : 0;
+
+		// Defense
+		if ($proto->hasProperty('defence') && $proto->getName() !== 'tekel_#00' && $proto->getName() !== 'pet_dog_#00'
+			&& $proto->getName() !== 'concrete_wall_#00' && $proto->getName() !== 'table_#00')
+			return ($improved ? 5 : 4) + ( $check->defense_dump_built ? 2 : 0 );
+
+		// Food
+		if ($proto->hasProperty('food'))
+			return $check->food_dump_built ? ($improved ? 1 : 0) + 3 : 0;
+
+		// Wood
+		if ($proto->getName() === 'wood_bad_#00' || $proto->getName() === 'wood2_#00')
+			return $check->wood_dump_built ? ($improved ? 1 : 0) + 1 : 0;
+
+		// Metal
+		if ($proto->getName() === 'metal_bad_#00' || $proto->getName() === 'metal_#00')
+			return $check->metal_dump_built ? ($improved ? 1 : 0) + 1 : 0;
+
+		// Animals
+		if ($proto->hasProperty('pet'))
+			return $check->animal_dump_built ? ($improved ? 1 : 0) + 6 :  0;
+
+		return 0;
+	}
 }

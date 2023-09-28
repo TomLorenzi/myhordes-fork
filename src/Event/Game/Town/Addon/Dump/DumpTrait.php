@@ -10,7 +10,7 @@ trait DumpTrait
 	public bool $animal_dump_built = false;
 	public bool $free_dump_built = false;
 	public bool $weapon_dump_built = false;
-	public bool $food_bump_built = false;
+	public bool $food_dump_built = false;
 	public bool $defense_dump_built = false;
 	public bool $dump_upgrade_built = false;
 }
