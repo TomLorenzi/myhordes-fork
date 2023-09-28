@@ -5,6 +5,7 @@ namespace App\Command;
 
 
 use App\Entity\AccountRestriction;
+use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\FeatureUnlock;
@@ -13,6 +14,7 @@ use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\FoundRolePlayText;
 use App\Entity\GitVersions;
+use App\Entity\Inventory;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -130,7 +132,8 @@ class MigrateCommand extends Command
         '26fbeee45f182a400a8c051ce2f2a5b93cd99dcf' => [ ["app:migrate", ['--fix-town-forum-names' => true ] ] ],
         '3b460b6a4c4420a75d43353f921f83eeee5b792f' => [ ["app:migrate", ['--fix-thread-creation-date' => true ] ] ],
         '9ba59c2c0d9474987f99a0e039009d2dab6a8656' => [ ['app:migrate', ['--repair-permissions' => true] ] ],
-		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ]
+		'a8ddaec85455e9ab14b1ac91b7e1b7e232ad03c9' => [ ['app:migrate', ['--fix-town-loot-log' => true] ] ],
+		'7ef3c511bb2f0c7a9504853cd7ea0daee0c37253' => [ ['app:migrate', ['--add-building-inventory' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -237,6 +240,7 @@ class MigrateCommand extends Command
             ->addOption('fix-town-forum-names', null, InputOption::VALUE_NONE, 'Fix town forum names')
             ->addOption('fix-thread-creation-date', null, InputOption::VALUE_NONE, 'Fix creation date of threads')
 			->addOption('fix-town-loot-log', null, InputOption::VALUE_NONE, 'Fix townLoot log entries')
+			->addOption('add-building-inventory', null, InputOption::VALUE_NONE, 'Add inventory to already created Building')
         ;
     }
 
@@ -1437,6 +1441,12 @@ class MigrateCommand extends Command
 				$victim = $log->getCitizen();
 				$actor = $log->getSecondaryCitizen();
 				$log->setCitizen($actor)->setSecondaryCitizen($victim);
+			}, true);
+		}
+
+		if ($input->getOption('add-building-inventory')) {
+			$this->helper->leChunk($output, Building::class, 500, ['inventory' => null], true, true, function(Building $b) {
+				$b->setInventory((new Inventory())->setBuilding($b));
 			}, true);
 		}
 
