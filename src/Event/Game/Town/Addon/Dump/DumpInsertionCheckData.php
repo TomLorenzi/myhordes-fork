@@ -20,6 +20,7 @@ class DumpInsertionCheckData
 	public function setup( ?ItemPrototype $item = null, int $quantity = 0 ): void {
 		$this->consumable = $item;
 		$this->quantity = $quantity;
+		$this->dumpableItems = [];
 	}
 
 }

@@ -60,7 +60,9 @@
 				{% endif %}
 					{% if fromTown is defined %}
 						{% if fromTown.complete and building.maxLevel > 0 %}
-							<span class="small" style="margin-left: 5px;" >{{ 'Level {current} / {max}'|trans({current: fromTown.level, max: building.maxLevel},'admin') }}</span>
+							<span class="small" style="margin-left: 5px;" x-tooltip='x-tooltip-value' x-tooltip-value="{{ building.upgradeTexts[max(0,fromTown.level - 1)]|trans({},'buildings') }}">
+								{{ 'Level {current} / {max}'|trans({current: fromTown.level, max: building.maxLevel},'admin') }}
+							</span>
 						{% elseif building.maxLevel > 0 %}
 							<span class="small" style="margin-left: 5px;" >{{ 'Anzahl Level: {max}'|trans({max: building.maxLevel},'admin') }}</span>
 						{% endif %}
@@ -129,7 +131,7 @@
 									<button class="inline build-btn small" x-building-id="{{ fromTown.id }}" data-level="{{ fromTown.level - 1 }}" x-building-admin-action="lv">
 										<img alt="-" src="{{ asset('build/images/icons/small_minus.gif') }}">
 										<div class="tooltip">
-											{{ building.upgradeTexts[max(0,fromTown.level - 1)]|trans({},'buildings') }}
+											{{ building.upgradeTexts[max(0,fromTown.level - 2)]|trans({},'buildings') }}
 										</div>
 									</button>
 								{% endif %}
