@@ -41,8 +41,12 @@ class Building
     private $hp = 0;
     #[ORM\Column(type: 'integer')]
     private $defense = 0;
-    #[ORM\OneToMany(targetEntity: BuildingVote::class, mappedBy: 'building', orphanRemoval: true, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
+    #[ORM\OneToMany(mappedBy: 'building', targetEntity: BuildingVote::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
     private $buildingVotes;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Inventory $inventory = null;
+
     public function __construct()
     {
         $this->dailyUpgradeVotes = new ArrayCollection();
@@ -205,6 +209,18 @@ class Building
                 $buildingVote->setBuilding(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getInventory(): ?Inventory
+    {
+        return $this->inventory;
+    }
+
+    public function setInventory(?Inventory $inventory): static
+    {
+        $this->inventory = $inventory;
 
         return $this;
     }
