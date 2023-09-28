@@ -11,20 +11,21 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 #[UniqueConstraint(name: 'action_counter_assoc_unique', columns: ['citizen_id', 'type', 'reference_id'])]
 class ActionCounter
 {
-    const ActionTypeWell        = 1;
-    const ActionTypeHomeKitchen = 2;
-    const ActionTypeHomeLab     = 3;
-    const ActionTypeTrash       = 4;
-    const ActionTypeComplaint   = 5;
-    const ActionTypeRemoveLog   = 6;
-    const ActionTypeSendPMItem  = 7;
-    const ActionTypeSandballHit = 8;
-    const ActionTypeClothes     = 9;
-    const ActionTypeHomeCleanup = 10;
-    const ActionTypeShower      = 11;
-    const ActionTypeReceiveHeroic = 12;
-	const ActionTypePool      = 13;
+    const ActionTypeWell        		= 1;
+    const ActionTypeHomeKitchen 		= 2;
+    const ActionTypeHomeLab     		= 3;
+    const ActionTypeTrash       		= 4;
+    const ActionTypeComplaint   		= 5;
+    const ActionTypeRemoveLog   		= 6;
+    const ActionTypeSendPMItem  		= 7;
+    const ActionTypeSandballHit 		= 8;
+    const ActionTypeClothes     		= 9;
+    const ActionTypeHomeCleanup 		= 10;
+    const ActionTypeShower      		= 11;
+    const ActionTypeReceiveHeroic 		= 12;
+	const ActionTypePool      			= 13;
     const ActionTypeSpecialDigScavenger = 14;
+	const ActionTypeDumpInsertion 				= 15;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
 		self::ActionTypePool
