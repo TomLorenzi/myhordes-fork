@@ -326,7 +326,7 @@ class TownAddonsController extends TownController
 		$dump = $th->getBuilding($town, 'small_trash_#00', true);
 
         return $this->render( 'ajax/game/town/dump.html.twig', $this->addDefaultTwigArgs('dump', [
-            'free_dumps' => $event->free_dump_built,
+            'ap_cost' => $event->ap_cost,
             'items' => $event->dumpableItems,
             'dump_def' => $dump->getTempDefenseBonus(),
             'total_def' => $th->calculate_town_def( $town ),

@@ -85,6 +85,22 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 
 		if (!$proto) {
 			$event->pushErrorCode( ErrorHelper::ErrorInvalidRequest )->stopPropagation();
+			return;
+		}
+
+		/** @var InventoryHandler $inventoryHandler */
+		$inventoryHandler = $this->container->get(InventoryHandler::class);
+
+		// It's not free, and you don't have enough AP
+		if (!$event->free_dump_built && $event->citizen->getAp() < $event->quantity * $event->ap_cost) {
+			$event->pushErrorCode(ErrorHelper::ErrorNoAP)->stopPropagation();
+			return;
+		}
+
+		// Check if items are available
+		$items = $inventoryHandler->fetchSpecificItems( $event->citizen->getTown()->getBank(), [new ItemRequest($proto->getName(), $event->quantity)] );
+		if (!$items) {
+			$event->pushErrorCode(ErrorHelper::ErrorItemsMissing)->stopPropagation();
 		}
     }
 
@@ -101,25 +117,10 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 		$inventoryHandler = $this->container->get(InventoryHandler::class);
 		/** @var TownHandler $townHandler */
 		$townHandler = $this->container->get(TownHandler::class);
-		/** @var EntityManagerInterface $entityManager */
-		$entityManager = $this->container->get(EntityManagerInterface::class);
 
-		// TODO: Get Dump Def for Prototype
 		$dump_def = $this->get_dump_def_for($event->check->consumable, $event);
 
-		// It's not free, and you don't have enough AP
-		if (!$event->check->free_dump_built && $event->citizen->getAp() < $event->quantity) {
-			$event->pushErrorCode(ErrorHelper::ErrorNoAP)->stopPropagation();
-			return;
-		}
-
-		// Check if items are available
-		$items = $inventoryHandler->fetchSpecificItems( $event->citizen->getTown()->getBank(), [new ItemRequest($event->original_prototype->getName(), $event->quantity)] );
-		if (!$items) {
-			$event->pushErrorCode(ErrorHelper::ErrorItemsMissing)->stopPropagation();
-			return;
-		}
-
+		$items = $inventoryHandler->fetchSpecificItems( $event->citizen->getTown()->getBank(), [new ItemRequest($event->check->consumable->getName(), $event->quantity)] );
 		// Remove items
 		$n = $event->quantity;
 		while (!empty($items) && $n > 0) {
@@ -131,14 +132,11 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 
 		// Reduce AP
 		if (!$event->check->free_dump_built)
-			$event->citizen->setAp( $event->citizen->getAp() - $event->quantity );
+			$event->citizen->setAp( $event->citizen->getAp() - $event->quantity * $event->check->ap_cost );
 
 		// Increase def
 		$dump = $townHandler->getBuilding($event->citizen->getTown(), "small_trash_#00");
 		$dump->setTempDefenseBonus( $dump->getTempDefenseBonus() + $event->quantity * $dump_def );
-
-		/*$entityManager->persist($event->citizen);
-		$entityManager->flush();*/
 
         $event->markModified();
     }
@@ -149,12 +147,12 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
      */
     public function onLogMessages(DumpInsertionExecuteEvent $event ): void {
 		$itemsForLog = [
-			$event->original_prototype->getId() => [
-				'item' => $event->original_prototype,
+			$event->check->consumable->getId() => [
+				'item' => $event->check->consumable,
 				'count' => $event->quantity
 			]
 		];
-		$dump_def = $this->get_dump_def_for($event->original_prototype, $event);
+		$dump_def = $this->get_dump_def_for($event->check->consumable, $event);
         $this->container->get(EntityManagerInterface::class)->persist(
             $this->container->get(LogTemplateHandler::class)->dumpItems( $event->citizen, $itemsForLog, $event->quantity * $dump_def )
         );
@@ -163,11 +161,11 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
     }
 
     public function onFlashMessages(DumpInsertionExecuteEvent $event ): void {
-		$dump_def = $this->get_dump_def_for($event->original_prototype, $event);
+		$dump_def = $this->get_dump_def_for($event->check->consumable, $event);
 
         $event->addFlashMessage(
             T::__('Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>', 'game'), 'notice',
-            'game', ['item' => $event->original_prototype, 'count' => $event->check->quantity, 'def' => $event->check->quantity * $dump_def]);
+            'game', ['item' => $event->check->consumable, 'count' => $event->check->quantity, 'def' => $event->check->quantity * $dump_def]);
     }
 
 	protected function get_dump_def_for( ItemPrototype $proto, DumpInsertionExecuteEvent|DumpInsertionCheckEvent $event ): int {

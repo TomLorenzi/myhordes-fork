@@ -11,7 +11,6 @@ class DumpInsertionExecuteData
 
     public readonly DumpInsertionCheckData $check;
 
-    public readonly ?ItemPrototype $original_prototype;
 	public readonly int $quantity;
 
     /**
@@ -21,7 +20,6 @@ class DumpInsertionExecuteData
      */
     public function setup(DumpInsertionCheckData|DumpInsertionCheckEvent $check): void {
         $this->check = is_a( $check, DumpInsertionCheckData::class ) ? $check : $check->data;
-        $this->original_prototype = $this->check->consumable;
 		$this->quantity = $this->check->quantity;
     }
 }

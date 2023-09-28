@@ -13,4 +13,5 @@ trait DumpTrait
 	public bool $food_dump_built = false;
 	public bool $defense_dump_built = false;
 	public bool $dump_upgrade_built = false;
+	public int $ap_cost = 1;
 }

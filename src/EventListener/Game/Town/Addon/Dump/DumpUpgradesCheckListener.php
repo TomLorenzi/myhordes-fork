@@ -40,5 +40,6 @@ final class DumpUpgradesCheckListener implements ServiceSubscriberInterface
 		$event->food_dump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#04', true);
 		$event->defense_dump_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#05', true);
 		$event->dump_upgrade_built = (bool)$this->container->get(TownHandler::class)->getBuilding($event->town, 'small_trash_#06', true);
+		$event->ap_cost = $event->free_dump_built ? 0 : 1;
     }
 }

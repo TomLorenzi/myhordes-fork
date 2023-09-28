@@ -12,9 +12,9 @@
             Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.
         {% endtrans %}
     </div>
-    {% if not free_dumps %}
+    {% if ap_cost > 0 %}
     <div class="help warning">
-        <b>{{ 'Achtung'|trans({},'global') }} :</b> {{ 'Jeder so zerstörte Gegenstand kostet dich {ap}.'|trans({'{ap}': '<div class="ap">1</div>'},'game')|raw }} <a class="help-button"><div class="tooltip help">{{ 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+        <b>{{ 'Achtung'|trans({},'global') }} :</b> {{ 'Jeder so zerstörte Gegenstand kostet dich {ap}.'|trans({'{ap}': '<div class="ap">' ~ ap_cost ~ '</div>'},'game')|raw }} <a class="help-button"><div class="tooltip help">{{ 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
     </div>
     {% endif %}
 
