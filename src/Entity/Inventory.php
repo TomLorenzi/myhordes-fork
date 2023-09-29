@@ -29,8 +29,10 @@ class Inventory
     private $ruinZone;
     #[ORM\OneToOne(mappedBy: 'roomFloor', targetEntity: RuinZone::class, cascade: ['persist'])]
     private $ruinZoneRoom;
-	#[ORM\OneToOne(mappedBy: 'inventory', targetEntity: Building::class, cascade: ['persist'])]
-	private $building;
+    #[ORM\OneToOne(mappedBy: 'inventory', targetEntity: Building::class, cascade: ['persist', 'remove'])]
+    private ?Building $building = null;
+	
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -159,21 +161,15 @@ class Inventory
         return $this;
     }
 
-	public function getBuilding(): Building {
-		return $this->building;
-	}
+    public function getBuilding(): ?Building
+    {
+        return $this->building;
+    }
 
-	/**
-	 * @param mixed $building
-	 */
-	public function setBuilding(Building $building): self {
-		$this->building = $building;
+    public function setBuilding(?Building $building): static
+    {
+        $this->building = $building;
 
-		// set the owning side of the relation if necessary
-		if ($building->getInventory() !== $this) {
-			$building->setInventory($this);
-		}
-
-		return $this;
-	}
+        return $this;
+    }
 }

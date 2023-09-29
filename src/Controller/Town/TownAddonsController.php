@@ -323,8 +323,7 @@ class TownAddonsController extends TownController
         if (!$event->dump_built)
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-		$dump = $th->getBuilding($town, 'small_trash_#00', true);
-
+		$dump = $th->getBuilding($town, 'small_trash_#00');
         return $this->render( 'ajax/game/town/dump.html.twig', $this->addDefaultTwigArgs('dump', [
             'ap_cost' => $event->ap_cost,
             'items' => $event->dumpableItems,

@@ -488,16 +488,16 @@ class InventoryHandler
         return false;
     }
 
-    public function forceMoveItem( Inventory $to, Item $item ): Item {
+    public function forceMoveItem( Inventory $to, Item $item, int $count = 1 ): Item {
         if ($item->getInventory() && $item->getInventory()->getId() === $to->getId())
             return $item;
 
         if ($item->getInventory()) {
             $inv = $item->getInventory();
-            if ($item->getCount() > 1) {
-                $item->setCount( $item->getCount() - 1);
+            if ($item->getCount() > $count) {
+                $item->setCount( $item->getCount() - $count);
                 $this->entity_manager->persist( $item );
-                $item = $this->item_factory->createBaseItemCopy( $item );
+                $item = $this->item_factory->createBaseItemCopy( $item )->setCount($count);
             } else
                 $item->getInventory()->removeItem( $item );
             $this->entity_manager->persist($inv);
