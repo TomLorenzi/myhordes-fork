@@ -81,7 +81,6 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 	 * @throws NotFoundExceptionInterface
 	 */
     public function onCheckItems( DumpInsertionCheckEvent $event ): void {
-		if (!empty($event->dumpableItems)) return;
 
 		if ($event->citizen->getBanished() || !$event->dump_built)
 			$event->pushErrorCode( ErrorHelper::ErrorActionNotAvailable )->stopPropagation();
