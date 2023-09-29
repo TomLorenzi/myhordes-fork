@@ -44,7 +44,7 @@ class Building
     #[ORM\OneToMany(mappedBy: 'building', targetEntity: BuildingVote::class, cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY', orphanRemoval: true)]
     private $buildingVotes;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'building', targetEntity: BuildingVote::class, cascade: ['persist', 'remove'])]
     private ?Inventory $inventory = null;
 
     public function __construct()

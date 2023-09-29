@@ -1424,7 +1424,7 @@ class NightlyHandler
         if ($this->conf->getTownConfiguration($town)->is( TownConf::CONF_FEATURE_SHAMAN_MODE, ['normal','both'], 'normal' )) {
             $this->log->debug("Processing <info>souls</info> mutations.");
 
-            $blue_souls = $this->inventory_handler->getAllItems($town, 'soul_blue_#00');
+            $blue_souls = $this->inventory_handler->getAllItems($town, 'soul_blue_#00', true, true, true, true, true, false);
 
             $red_soul_proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_red_#00');
             if (!$red_soul_proto) throw new \Exception('No red soul prototype!');

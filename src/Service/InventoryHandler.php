@@ -503,8 +503,8 @@ class InventoryHandler
             $this->entity_manager->persist($inv);
         }
 
-        // This is a bank inventory
-        if ($to->getTown() && $possible_stack = $this->findStackPrototype( $to, $item )) {
+        // This is a bank or a building inventory
+        if (($to->getTown() || $to->getBuilding()) && $possible_stack = $this->findStackPrototype( $to, $item )) {
             $possible_stack->setCount( $possible_stack->getCount() + $item->getCount() );
             $this->entity_manager->persist($possible_stack);
             $this->entity_manager->remove( $item );
@@ -518,7 +518,7 @@ class InventoryHandler
         return $item;
     }
 
-    public function forceRemoveItem( Item $item, int $count = 1 ) {
+    public function forceRemoveItem( Item $item, int $count = 1 ): void {
         if ($item->getCount() > $count) {
             $item->setCount($item->getCount() - $count);
             $this->entity_manager->persist($item);
@@ -528,7 +528,7 @@ class InventoryHandler
         }
     }
 
-    public function getAllInventoryIDs( Town $town, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true ): array {
+    public function getAllInventoryIDs( Town $town, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true, bool $buildings = true ): array {
         // Get all inventory IDs
         // We're just getting IDs, because we don't want to actually hydrate the inventory instances
         $q = $this->entity_manager->createQueryBuilder()
@@ -538,6 +538,7 @@ class InventoryHandler
         if ($homes) $q->leftJoin('i.home', 'h')->orWhere('h IN (:homes)')->setParameter('homes', array_map( fn(Citizen $c) => $c->getHome(), $town->getCitizens()->getValues()) );
         if ($rucksack) $q->leftJoin('i.citizen', 'c')->orWhere('c IN (:citizens)')->setParameter('citizens', $town->getCitizens());
         if ($floor) $q->leftJoin('i.zone', 'z')->orWhere('z IN (:zones)')->setParameter('zones', $town->getZones());
+		if ($buildings) $q->leftJoin('i.building', 'b')->orWhere('b IN (:buildings)')->setParameter('buildings', $town->getBuildings());
         if ($ruinFloor) $q
             ->leftJoin('i.ruinZone', 'rz')->orWhere('rz IN (:ruinZones)')->setParameter('ruinZones', $this->entity_manager->getRepository(RuinZone::class)->findBy(['zone' => $town->getZones()->getValues()]) )
             ->leftJoin('i.ruinZoneRoom', 'rzr')->orWhere('rzr IN (:ruinZones)');
@@ -552,9 +553,10 @@ class InventoryHandler
      * @param bool $rucksack
      * @param bool $floor
      * @param bool $ruinFloor
+	 * @param bool $buildings
      * @return Item[]
      */
-    public function getAllItems( Town $town, $prototype, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true ): array {
+    public function getAllItems( Town $town, $prototype, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true, bool $buildings = true ): array {
         if (!is_array($prototype)) $prototype = [$prototype];
         $prototype = array_map( fn($a) => is_string($a) ? $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($a) : $a, $prototype );
 
@@ -562,23 +564,24 @@ class InventoryHandler
         return $this->entity_manager->createQueryBuilder()
             ->select('i')
             ->from(Item::class, 'i')
-            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $this->getAllInventoryIDs($town, $bank, $homes, $rucksack, $floor, $ruinFloor))
+            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $this->getAllInventoryIDs($town, $bank, $homes, $rucksack, $floor, $ruinFloor, $buildings))
             ->andWhere('i.prototype IN (:protos)')->setParameter('protos', $prototype)
             ->getQuery()
             ->getResult();
     }
 
-    /**
-     * @param Town $town
-     * @param ItemPrototype|ItemProperty[]|string|string[] $prototype
-     * @param bool $bank
-     * @param bool $homes
-     * @param bool $rucksack
-     * @param bool $floor
-     * @param bool $ruinFloor
-     * @return int
-     */
-    public function countAllItems( Town $town, $prototype, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true ): int {
+	/**
+	 * @param Town                                         $town
+	 * @param ItemPrototype|ItemProperty[]|string|string[] $prototype
+	 * @param bool                                         $bank
+	 * @param bool                                         $homes
+	 * @param bool                                         $rucksack
+	 * @param bool                                         $floor
+	 * @param bool                                         $ruinFloor
+	 * @param bool                                         $buildings
+	 * @return int
+	 */
+    public function countAllItems( Town $town, $prototype, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true, bool $buildings = true ): int {
         if (!is_array($prototype)) $prototype = [$prototype];
         $prototype = array_map( fn($a) => is_string($a) ? $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($a) : $a, $prototype );
 
@@ -587,7 +590,7 @@ class InventoryHandler
             return $this->entity_manager->createQueryBuilder()
                 ->select('SUM(i.count)')
                 ->from(Item::class, 'i')
-                ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $this->getAllInventoryIDs($town, $bank, $homes, $rucksack, $floor, $ruinFloor))
+                ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $this->getAllInventoryIDs($town, $bank, $homes, $rucksack, $floor, $ruinFloor, $buildings))
                 ->andWhere('i.prototype IN (:protos)')->setParameter('protos', $prototype)
                 ->getQuery()->getSingleScalarResult();
         } catch (Exception $e) { return 0; }

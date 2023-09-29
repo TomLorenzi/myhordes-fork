@@ -14,21 +14,23 @@ class Inventory
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-    #[ORM\OneToMany(targetEntity: 'App\Entity\Item', mappedBy: 'inventory', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(mappedBy: 'inventory', targetEntity: 'App\Entity\Item', cascade: ['persist', 'remove'])]
     #[OrderBy(['essential' => 'DESC', 'prototype' => 'ASC'])]
     private $items;
-    #[ORM\OneToOne(targetEntity: 'App\Entity\Citizen', mappedBy: 'inventory', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'inventory', targetEntity: 'App\Entity\Citizen', cascade: ['persist', 'remove'])]
     private $citizen;
-    #[ORM\OneToOne(targetEntity: 'App\Entity\CitizenHome', mappedBy: 'chest', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'chest', targetEntity: 'App\Entity\CitizenHome', cascade: ['persist', 'remove'])]
     private $home;
-    #[ORM\OneToOne(targetEntity: 'App\Entity\Town', mappedBy: 'bank', cascade: ['persist'])]
+    #[ORM\OneToOne(mappedBy: 'bank', targetEntity: 'App\Entity\Town', cascade: ['persist'])]
     private $town;
-    #[ORM\OneToOne(targetEntity: 'App\Entity\Zone', mappedBy: 'floor', cascade: ['persist'])]
+    #[ORM\OneToOne(mappedBy: 'floor', targetEntity: 'App\Entity\Zone', cascade: ['persist'])]
     private $zone;
-    #[ORM\OneToOne(targetEntity: 'App\Entity\RuinZone', mappedBy: 'floor', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'floor', targetEntity: 'App\Entity\RuinZone', cascade: ['persist', 'remove'])]
     private $ruinZone;
-    #[ORM\OneToOne(targetEntity: RuinZone::class, mappedBy: 'roomFloor', cascade: ['persist'])]
+    #[ORM\OneToOne(mappedBy: 'roomFloor', targetEntity: RuinZone::class, cascade: ['persist'])]
     private $ruinZoneRoom;
+	#[ORM\OneToOne(mappedBy: 'inventory', targetEntity: Building::class, cascade: ['persist'])]
+	private $building;
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -156,4 +158,22 @@ class Inventory
 
         return $this;
     }
+
+	public function getBuilding(): Building {
+		return $this->building;
+	}
+
+	/**
+	 * @param mixed $building
+	 */
+	public function setBuilding(Building $building): self {
+		$this->building = $building;
+
+		// set the owning side of the relation if necessary
+		if ($building->getInventory() !== $this) {
+			$building->setInventory($this);
+		}
+
+		return $this;
+	}
 }
