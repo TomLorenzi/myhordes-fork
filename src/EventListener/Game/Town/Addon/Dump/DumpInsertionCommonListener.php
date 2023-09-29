@@ -26,9 +26,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[AsEventListener(event: DumpInsertionCheckEvent::class, method: 'onCheckDumpAvailability', priority: -10)]
 #[AsEventListener(event: DumpInsertionCheckEvent::class, method: 'onCheckItems', priority: -20)]
 
-#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onItemHandling', priority: 0)]
-#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onLogMessages', priority: 10)]
-#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onFlashMessages', priority: 10)]
+#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onItemHandling', priority: 10)]
+#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onLogMessages', priority: 0)]
+#[AsEventListener(event: DumpInsertionExecuteEvent::class, method: 'onFlashMessages', priority: 0)]
 final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 {
     public function __construct(
@@ -138,6 +138,8 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 		if (!$event->check->free_dump_built)
 			$event->citizen->setAp( $event->citizen->getAp() - $event->quantity * $event->check->ap_cost );
 
+		$event->addedDefense = $dump_def * $event->quantity;
+
 		// Increase def
 		$dump = $townHandler->getBuilding($event->citizen->getTown(), "small_trash_#00");
 		$dump->setTempDefenseBonus( $dump->getTempDefenseBonus() + $event->quantity * $dump_def );
@@ -158,18 +160,16 @@ final class DumpInsertionCommonListener implements ServiceSubscriberInterface
 		];
 		$dump_def = $this->get_dump_def_for($event->check->consumable, $event);
         $this->container->get(EntityManagerInterface::class)->persist(
-            $this->container->get(LogTemplateHandler::class)->dumpItems( $event->citizen, $itemsForLog, $event->quantity * $dump_def )
+            $this->container->get(LogTemplateHandler::class)->dumpItems( $event->citizen, $itemsForLog, $event->addedDefense )
         );
 
         $event->markModified();
     }
 
     public function onFlashMessages(DumpInsertionExecuteEvent $event ): void {
-		$dump_def = $this->get_dump_def_for($event->check->consumable, $event);
-
         $event->addFlashMessage(
             T::__('Du hast {count} x {item} auf der öffentlichen Müllhalde abgeladen. <strong>Die Stadt hat {def} Verteidigungspunkt(e) dazugewonnen.</strong>', 'game'), 'notice',
-            'game', ['item' => $event->check->consumable, 'count' => $event->check->quantity, 'def' => $event->check->quantity * $dump_def]);
+            'game', ['item' => $event->check->consumable, 'count' => $event->check->quantity, 'def' => $event->addedDefense]);
     }
 
 	protected function get_dump_def_for( ItemPrototype $proto, DumpInsertionExecuteEvent|DumpInsertionCheckEvent $event ): int {

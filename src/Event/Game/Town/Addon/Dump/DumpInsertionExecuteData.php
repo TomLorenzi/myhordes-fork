@@ -12,7 +12,7 @@ class DumpInsertionExecuteData
     public readonly DumpInsertionCheckData $check;
 
 	public readonly int $quantity;
-
+	public int $addedDefense = 0;
     /**
      * @param DumpInsertionCheckData $check
      * @return DumpInsertionExecuteEvent
