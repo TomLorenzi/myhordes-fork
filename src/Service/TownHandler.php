@@ -93,7 +93,7 @@ class TownHandler
 
         // Add building
         $town->addBuilding( $b = (new Building())->setPrototype( $prototype )->setPosition($prototype->getOrderBy()) );
-
+		$b->setInventory((new Inventory())->setBuilding($b));
         $blocked = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_BUILDINGS);
 
         // Add all children that do not require blueprints
