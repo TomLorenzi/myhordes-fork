@@ -62,11 +62,7 @@
                     <span class="small">{{ item[1] }}</span>
                 </div>
                 <div class="padded cell rw-2 rw-md-3 center">
-                    {% if item[2] > 1 %}
-                        <div class="defense"><b>+{{ item[2] }}</b></div>
-                    {% else %}
-                        <div class="defense">+{{ item[2] }}</div>
-                    {% endif %}
+                    <div class="defense">+{{ item[2] }}</div>
                 </div>
                 <div class="padded cell rw-3 rw-md-5 rw-sm-6 right">
                     {% if not banished %}
