@@ -212,7 +212,7 @@ parameters:
       ruins: 7
       explorable_ruins: 0
 
-      initial_buildings:  ['small_refine_#00','small_door_closed_#00','item_tagger_#00']
+      initial_buildings:  ['small_refine_#00','small_door_closed_#00','item_tagger_#00','small_wallimprove_#00']
       unlocked_buildings: ['small_gather_#02']
       disabled_buildings:
         merge: ['small_novlamps_#00']
