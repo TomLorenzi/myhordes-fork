@@ -73,7 +73,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
         $event->value = match ($event->query) {
             BuildingValueQuery::GuardianDefenseBonus => $this->getService(TownHandler::class)->getBuilding($event->town, 'small_watchmen_#00', true) ? 10 : 5,
             BuildingValueQuery::NightWatcherCap => $event->town->getPopulation(),
-            BuildingValueQuery::NightWatcherWeaponsAllowed => 1,
+            BuildingValueQuery::NightWatcherWeaponsAllowed, BuildingValueQuery::TownDoorOpeningCost, BuildingValueQuery::TownDoorClosingCost => 1,
         };
     }
 

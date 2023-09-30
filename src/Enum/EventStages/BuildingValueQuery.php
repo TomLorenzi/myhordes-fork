@@ -12,4 +12,7 @@ enum BuildingValueQuery {
     case GuardianDefenseBonus;
     case NightWatcherCap;
     case NightWatcherWeaponsAllowed;
+
+    case TownDoorOpeningCost;
+    case TownDoorClosingCost;
 }

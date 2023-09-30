@@ -842,4 +842,22 @@ class TownHandler
 			'fx' => !$admin && !$activeCitizen->getUser()->getDisableFx(),
 		];
 	}
+
+    public function door_is_locked(Town $town): bool|BuildingPrototype {
+        if ( !$town->getDoor() ) {
+
+            if ($town->isOpen() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_LOCK_UNTIL_FULL, false) ) return true;
+
+            if((($s = $this->timeKeeper->secondsUntilNextAttack(null, true)) <= 1800)) {
+                if ($b = $this->getBuilding( $town, 'small_door_closed_#02', true )) {
+                    if ($s <= 60) return $b->getPrototype();
+                } elseif ($b = $this->getBuilding( $town, 'small_door_closed_#01', true )) {
+                    if ($s <= 1800) return $b->getPrototype();
+                } elseif ($b = $this->getBuilding( $town, 'small_door_closed_#00', true )) {
+                    if ($s <= 1200) return $b->getPrototype();
+                }
+            }
+        }
+        return false;
+    }
 }

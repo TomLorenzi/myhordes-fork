@@ -6,6 +6,7 @@ namespace App\Structures;
 use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Enum\DropMod;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class EventConf extends Conf
@@ -71,7 +72,7 @@ class EventConf extends Conf
         call_user_func( $this->get(self::EVENT_HOOK_NIGHTLY_NONE, 'App\Structures\EventConf::Void') , $town);
     }
 
-    public function hook_door(string $action): ?Response {
+    public function hook_door(string $action): Response|JsonResponse|null {
         return call_user_func( $this->get(self::EVENT_HOOK_DOOR, 'App\Structures\EventConf::Void') , $action);
     }
 

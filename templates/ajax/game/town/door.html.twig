@@ -75,65 +75,120 @@
                     </p>
                 </div>
             {% else %}
-            {% if not town.devastated %}
-                <div class="help">
-                    {% trans from 'game' %}
-                        Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!
-                    {% endtrans %}
-                </div>
-
-                {% if banished %}
-                    <div class="note note-warning">
+                {% if not town.devastated %}
+                    <div class="help">
                         {% trans from 'game' %}
-                            Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.
+                            Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!
                         {% endtrans %}
                     </div>
-                {% endif %}
-            {% else %}
-                <div class="note note-critical">
-                    {% trans from 'game' %}
-                        Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.
-                    {% endtrans %}
-                    <br/><br/>
-                    <strong>{% trans from 'game' %}
-                        Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.
-                    {% endtrans %}</strong>
-                </div>
-            {% endif %}
-            <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                <div class="actions-box">
 
-            {% if town.door %}
-                <div style="margin-bottom: 5px;">
-                    <button id="door_closer" {% if town.devastated %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />{% trans from 'game' %}Tor schließen{% endtrans %} (<div class="ap">1</div>)</button>
-                    {% if town.devastated %}
-                        <div class="tooltip">{{ 'Das Stadttor ist zerstört!'|trans({},'game') }}</div>
-                    {% else %}
-                        <div class="tooltip help">{{ 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.'|trans({},'game') }}</div>
+                    {% if banished %}
+                        <div class="note note-warning">
+                            {% trans from 'game' %}
+                                Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.
+                            {% endtrans %}
+                        </div>
                     {% endif %}
-                </div>
-            {% else %}
-                <button id="door_opener" {% if door_locked %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />{% trans from 'game' %}Tor öffnen{% endtrans %} (<div class="ap">1</div>)</button>
-            {% endif %}
+                {% else %}
+                    <div class="note note-critical">
+                        {% trans from 'game' %}
+                            Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.
+                        {% endtrans %}
+                        <br/><br/>
+                        <strong>{% trans from 'game' %}
+                            Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.
+                        {% endtrans %}</strong>
+                    </div>
+                {% endif %}
+                <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
+                <div class="actions-box">
+                    {% if town.door %}
+                        <div style="margin-bottom: 5px;">
+                            <button
+                                    id="door_closer"
+                                    {% if town.devastated %}disabled{% endif %}
+                                    data-fetch="{{ path('rest_town_core_door_control') }}"
+                                    data-fetch-payload="{{ {action: 'close'}|json_encode }}"
+                                    data-fetch-method="patch"
+                                    data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
+                                    data-fetch-load="{{ path('town_door') }}"
+                            >
+                                <img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />
+                                {{ 'Tor schließen'|trans({},'game') }}
+                                {% if door_ap_cost > 0 %}
+                                    (<div class="ap">{{ door_ap_cost }}</div>)
+                                {% endif %}
+                            </button>
+                            {% if town.devastated %}
+                                <div class="tooltip">{{ 'Das Stadttor ist zerstört!'|trans({},'game') }}</div>
+                            {% else %}
+                                <div class="tooltip help">{{ 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.'|trans({},'game') }}</div>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <button
+                                id="door_opener"
+                                {% if door_locked %}disabled{% endif %}
+                                data-fetch="{{ path('rest_town_core_door_control') }}"
+                                data-fetch-payload="{{ {action: 'open'}|json_encode }}"
+                                data-fetch-method="patch"
+                                data-fetch-confirm="{{ 'Bestätigen?'|trans({},'global') }}"
+                                data-fetch-load="{{ path('town_door') }}"
+                        >
+                            <img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />
+                            {{ 'Tor öffnen'|trans({},'game') }}
+                            {% if door_ap_cost > 0 %}
+                                (<div class="ap">{{ door_ap_cost }}</div>)
+                            {% endif %}
+                        </button>
+                    {% endif %}
 
-            {% if show_ventilation %}
-                <button id="door_exit_hero" {% if not allow_ventilation or not can_go_out %}disabled{% endif %}>
-                    <img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern (out){% endtrans %}
-                    <div class="tooltip help">{{ 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).'|trans({},'game') }}</div>
-                </button>
-            {% endif %}
-            {% if show_sneaky %}
-                <button id="door_exit_sneak" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">
-                    {% trans from 'game' %}Aus der Stadt schleichen{% endtrans %}
-                    <div class="tooltip help">{{ 'Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.'|trans({},'game') }}</div>
-                </button>
-            {% endif %}
-            <button id="door_exit" {% if not town.door or not can_go_out %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" />{% trans from 'game' %}Stadt verlassen{% endtrans %}</button>
-            <button x-ajax-href="{{ path('town_routes') }}"><img alt="" src="{{ asset('build/images/item/item_bagxl.gif') }}" />{{ 'Route planen...'|trans({},'game') }}</button>
+                    {% if show_ventilation %}
+                        <button
+                                id="door_exit_hero"
+                                {% if not allow_ventilation or not can_go_out %}disabled{% endif %}
+                                data-fetch="{{ path('rest_town_core_door_exit', {'special': 'hero'}) }}"
+                                data-fetch-method="post"
+                                data-fetch-load="{{ path('game_landing') }}"
+                        >
+                            <img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern (out){% endtrans %}
+                            <div class="tooltip help">{{ 'Diese Aktion wird durch ein Gebäude in der Stadt ermöglicht (nur Helden können sie verwenden).'|trans({},'game') }}</div>
+                        </button>
+                    {% endif %}
+                    {% if show_sneaky %}
+                        <button
+                                id="door_exit_sneak"
+                                {% if not town.door or not can_go_out %}disabled{% endif %}
+                                data-fetch="{{ path('rest_town_core_door_exit', {'special': 'sneak'}) }}"
+                                data-fetch-method="post"
+                                data-fetch-load="{{ path('game_landing') }}"
+                        >
+                            <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">
+                            {{ 'Aus der Stadt schleichen'|trans({},'game') }}
+                            <div class="tooltip help">{{ 'Mit dieser Aktion kannst du die Stadt verlassen, ohne dass es ins Stadtregister eingetragen wird.'|trans({},'game') }}</div>
+                        </button>
+                    {% endif %}
+                    <button
+                            id="door_exit"
+                            {% if not town.door or not can_go_out %}disabled{% endif %}
+                            data-fetch="{{ path('rest_town_core_door_exit') }}"
+                            data-fetch-method="post"
+                            data-fetch-load="{{ path('game_landing') }}"
+                    >
+                        <img alt="" src="{{ asset('build/images/icons/small_move.gif') }}" />
+                        {{ 'Stadt verlassen'|trans({},'game') }}
+                    </button>
+                    <button x-ajax-href="{{ path('town_routes') }}">
+                        <img alt="" src="{{ asset('build/images/item/item_bagxl.gif') }}" />
+                        {{ 'Route planen...'|trans({},'game') }}
+                    </button>
                 </div>
-            {% if town.door %}
-                <div style="font-size: 1.2rem;">{{ 'Das Stadttor ist <span class="critical">geöffnet</span>! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.'|trans({}, 'game')|raw }}</div>
-            {% endif %}
+
+                {% if town.door %}
+                    <div style="font-size: 1.2rem;">
+                        {{ 'Das Stadttor ist <span class="critical">geöffnet</span>! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.'|trans({}, 'game')|raw }}
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
         <div class="padded cell rw-6 rw-md-12">
@@ -152,54 +207,4 @@
             <hordes-log id="door-log" data-react-mount="door-log" data-day="{{ day }}" data-etag="{{ date().timestamp }}" data-category="{{ constant('App\\Entity\\LogEntryTemplate::TypeDoor') }}" data-domain="town"></hordes-log>
         </div>
     </div>
-{% endblock %}
-{% block js %}
-    {{ parent() }}
-    <script>
-        const handleDoor = function(element, action) {
-            if (!element) return;
-            element.addEventListener('click', function() {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend( '{{ path('town_door_control_controller') }}', {
-                        action: action
-                    },
-                    function () {
-                        $.ajax.load(null, '{{ path('town_door') }}', true);
-                    } );
-            });
-        };
-
-        {% if can_go_out %}
-            handleDoor( document.getElementById('door_opener'), 'open' );
-            handleDoor( document.getElementById('door_closer'), 'close' );
-
-            document.getElementById('door_exit').addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('town_door_exit_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            });
-
-            {% if show_ventilation and allow_ventilation %}
-                document.getElementById('door_exit_hero').addEventListener('click', function() {
-                    $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'hero'}) }}', {},
-                        function () {
-                            $.ajax.load(null, '{{ path('game_landing') }}', true);
-                        } );
-                });
-            {% endif %}
-        {% endif %}
-
-        {% if show_sneaky %}
-            $.html.addEventListenerAll( '#door_exit_sneak', 'click', () => {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'sneak'}) }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            } );
-        {% endif %}
-    </script>
 {% endblock %}

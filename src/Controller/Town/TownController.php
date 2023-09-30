@@ -42,6 +42,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneActivityMarker;
 use App\Enum\AdminReportSpecification;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
 use App\Enum\ZoneActivityMarkerType;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
@@ -1404,138 +1405,6 @@ class TownController extends InventoryAwareController
     }
 
     /**
-     * @Route("api/town/door/control", name="town_door_control_controller")
-     * @param JSONRequestParser $parser
-     * @param TownHandler $th
-     * @return Response
-     */
-    public function door_control_api(JSONRequestParser $parser, TownHandler $th): Response {
-        $citizen = $this->getActiveCitizen();
-        $town = $citizen->getTown();
-
-        if ($citizen->getBanished())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableBanished );
-
-        if (!($action = $parser->get('action')) || !in_array($action, ['open','close']))
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        if ($action === 'close' && $town->getDevastated())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        if ($action === 'open'  && $town->getDoor())
-            return AjaxResponse::error( self::ErrorDoorAlreadyOpen );
-        if ($action === 'open'  && $town->getQuarantine()) {
-            $this->addFlash('error', $this->translator->trans('Das Stadttor kann während einer Quarantäne nicht geöffnet werden!', [], 'game'));
-            return AjaxResponse::success();
-        }
-        if ($action === 'open'  && ($b = $this->door_is_locked($th, $this->conf))) {
-            if ($b === true) {
-                $this->addFlash('error', $this->translator->trans('Es ist unmöglich, das Stadttor zu einer Privatstadt zu öffnen, solange es *weniger als {num} eingeschriebene Bürger* gibt.', [ 'num' => $town->getPopulation() ], 'game'));
-                return AjaxResponse::success();
-            } elseif (is_a( $b, BuildingPrototype::class )) {
-                if ($b->getName() === 'small_door_closed_#01') {
-                    $this->addFlash('error', $this->translator->trans('Der <strong>Kolbenschließmechanismus</strong> hat das Stadttor für heute Nacht sicher verriegelt...', [], 'game'));
-                    return AjaxResponse::success();
-                } else {
-                    $this->addFlash('error', $this->translator->trans('Der <strong>Stadttorriegel</strong> ist eingerastet und das Tor ist zu. Im Moment geht da gar nichts mehr!', [], 'game'));
-                    return AjaxResponse::success();
-                }
-            } else return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        }
-        if ($action === 'close' && !$town->getDoor())
-            return AjaxResponse::error( self::ErrorDoorAlreadyClosed );
-
-        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound3')) {
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded );
-        }
-
-        if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
-            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-
-        foreach ($this->conf->getCurrentEvents($town) as $e)
-            if ($result = $e->hook_door($action))
-                return $result;
-
-        $this->citizen_handler->setAP($citizen, true, -1);
-        $town->setDoor( $action === 'open' );
-
-        $this->entity_manager->persist( $this->log->doorControl( $citizen, $action === 'open' ) );
-
-        try {
-            $this->entity_manager->persist($citizen);
-            $this->entity_manager->persist($town);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/town/door/exit/{special}", name="town_door_exit_controller")
-     * @param string $special
-     * @return Response
-     */
-    public function door_exit_api(string $special = 'normal'): Response {
-        $citizen = $this->getActiveCitizen();
-        switch ($special) {
-            case 'normal':
-                if (!$citizen->getTown()->getDoor())
-                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-                break;
-            case 'sneak':
-                if (!$citizen->getTown()->getDoor() || !$citizen->hasRole('ghoul'))
-                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-                break;
-            case 'hero':
-                if (!$citizen->getProfession()->getHeroic())
-                    return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-                break;
-            default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        }
-
-        $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), 0, 0);
-
-        if (!$zone)
-            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-
-        if ($special !== 'sneak')
-            $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );
-        $zone->addCitizen( $citizen );
-        foreach ($this->entity_manager->getRepository(HomeIntrusion::class)->findBy(['intruder' => $citizen]) as $homeIntrusion)
-            $this->entity_manager->remove($homeIntrusion);
-
-        try {
-            $this->entity_manager->persist($citizen);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
-        }
-
-        return AjaxResponse::success();
-    }
-
-    private function door_is_locked(TownHandler $th, ConfMaster $conf): bool|BuildingPrototype {
-        $town = $this->getActiveCitizen()->getTown();
-
-        if ( !$town->getDoor() ) {
-
-            if ($town->isOpen() && $conf->getTownConfiguration($town)->get(TownConf::CONF_LOCK_UNTIL_FULL, false) ) return true;
-
-            if((($s = $this->time_keeper->secondsUntilNextAttack(null, true)) <= 1800)) {
-                if ($b = $th->getBuilding( $town, 'small_door_closed_#02', true )) {
-                    if ($s <= 60) return $b->getPrototype();
-                } elseif ($b = $th->getBuilding( $town, 'small_door_closed_#01', true )) {
-                    if ($s <= 1800) return $b->getPrototype();
-                } elseif ($b = $th->getBuilding( $town, 'small_door_closed_#00', true )) {
-                    if ($s <= 1200) return $b->getPrototype();
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
      * @Route("jx/town/door", name="town_door")
      * @param TownHandler $th
      * @return Response
@@ -1544,10 +1413,16 @@ class TownController extends InventoryAwareController
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
-        $door_locked = (bool)$this->door_is_locked($th,$this->conf);
-        $can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
 
         $town = $this->getActiveCitizen()->getTown();
+        $door_locked = $th->door_is_locked( $town );
+
+        $door_interaction_ap = $this->events->queryTownParameter( $this->getActiveCitizen()->getTown(), $this->getActiveCitizen()->getTown()->getDoor()
+            ? BuildingValueQuery::TownDoorClosingCost
+            : BuildingValueQuery::TownDoorOpeningCost
+        );
+
+        $can_go_out = ($door_interaction_ap <= 0) || (!$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() >= $door_interaction_ap);
         $time = $this->getTownConf()->isNightTime() ? 'night' : 'day';
 
         if ($door_locked) {
@@ -1573,6 +1448,7 @@ class TownController extends InventoryAwareController
             'town'              => $town,
             'door_locked'       => $door_locked,
             'can_go_out'        => $can_go_out,
+            'door_ap_cost'      => $door_interaction_ap,
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),

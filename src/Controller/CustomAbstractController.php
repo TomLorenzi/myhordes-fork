@@ -3,34 +3,26 @@
 namespace App\Controller;
 
 use App\Controller\Admin\AdminActionController;
-use App\Entity\Citizen;
 use App\Entity\ExternalApp;
 use App\Entity\GlobalPoll;
 use App\Entity\Quote;
-use App\Entity\User;
 use App\Entity\UserSwapPivot;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\EventConf;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Traits\Controller\ActiveCitizen;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use PHPUnit\Util\Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * Class CustomAbstractController
- * @method User getUser
- */
 class CustomAbstractController extends CustomAbstractCoreController {
 
-    protected ?Citizen $cache_active_citizen = null;
+    use ActiveCitizen;
+
     protected TownConf $town_conf;
     protected EntityManagerInterface $entity_manager;
     protected TimeKeeperService $time_keeper;
@@ -171,15 +163,6 @@ class CustomAbstractController extends CustomAbstractCoreController {
         if ($wrap) $content = "<div>$content</div>";
 
         return parent::render( 'ajax/ajax_plain.html.twig', ['_ajax_base_content' => $content], $response );
-    }
-
-    /**
-     * @return Citizen|null The current citizen for the current user
-     */
-    protected function getActiveCitizen(): ?Citizen {
-        $user = $this->getUser();
-        if($user === null) return null;
-        return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));
     }
 
     /**
