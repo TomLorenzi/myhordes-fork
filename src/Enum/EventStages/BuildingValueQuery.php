@@ -15,4 +15,6 @@ enum BuildingValueQuery {
     case TownDoorOpeningCost;
     case TownDoorClosingCost;
     case MissingItemDefenseLoss;
+    case ConstructionAPRatio;
+    case RepairAPRatio;
 }

@@ -1169,10 +1169,8 @@ class TownController extends InventoryAwareController
             $current = $parent;
         }
 
-        $this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
-
-        $workshopBonus = 1 - $workshopBonus;
-        $hpToAp = 2 + $repairBonus;
+        $workshopBonus = $this->events->queryTownParameter( $town, BuildingValueQuery::ConstructionAPRatio );
+        $hpToAp = $this->events->queryTownParameter( $town, BuildingValueQuery::RepairAPRatio );
 
         // Remember if the building has already been completed (i.e. this is a repair action)
         $was_completed = $building->getComplete();
@@ -1322,10 +1320,8 @@ class TownController extends InventoryAwareController
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();
 
-        $this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
-
-        $workshopBonus = 1 - $workshopBonus;
-        $hpToAp = 2 + $repairBonus;
+        $workshopBonus = $this->events->queryTownParameter( $town, BuildingValueQuery::ConstructionAPRatio );
+        $hpToAp = $this->events->queryTownParameter( $town, BuildingValueQuery::RepairAPRatio );
 
         $root = [];
         $dict = [];

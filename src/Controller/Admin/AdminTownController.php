@@ -42,6 +42,7 @@ use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Enum\EventStages\BuildingEffectStage;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Enum\ItemPoisonType;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Response\AjaxResponse;
@@ -516,12 +517,13 @@ class AdminTownController extends AdminActionController
 		])));
 	}
 
-	/**
-	 * @Route("jx/admin/town/buildings/{id<\d+>}", name="admin_town_buildings")
-	 * @param int $id The internal ID of the town
-	 * @return Response
-	 */
-	public function town_explorer_buildings(int $id): Response {
+    /**
+     * @Route("jx/admin/town/buildings/{id<\d+>}", name="admin_town_buildings")
+     * @param EventProxyService $events
+     * @param int $id The internal ID of the town
+     * @return Response
+     */
+	public function town_explorer_buildings(EventProxyService $events, int $id): Response {
 		/** @var Town $town */
 		$town = $this->entity_manager->getRepository(Town::class)->find($id);
 		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
@@ -547,10 +549,9 @@ class AdminTownController extends AdminActionController
 			if ($available)
 				$inTown[$building->getId()] = $available;
 		}
-		$this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
 
-		$workshopBonus = 1 - $workshopBonus;
-		$hpToAp = 2 + $repairBonus;
+        $workshopBonus = $events->queryTownParameter( $town, BuildingValueQuery::ConstructionAPRatio );
+        $hpToAp = $events->queryTownParameter( $town, BuildingValueQuery::RepairAPRatio );
 
 		return $this->render('ajax/admin/towns/explorer_buildings.html.twig', $this->addDefaultTwigArgs(null, array_merge([
 			'town' => $town,
@@ -2397,9 +2398,8 @@ class AdminTownController extends AdminActionController
         if (!$building)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-		$this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
-		$workshopBonus = 1 - $workshopBonus;
-		$hpToAp = 2 + $repairBonus;
+        $workshopBonus = $events->queryTownParameter( $town, BuildingValueQuery::ConstructionAPRatio );
+        $hpToAp = $events->queryTownParameter( $town, BuildingValueQuery::RepairAPRatio );
 
         $hp = $parser->get_int("hp") * $hpToAp;
 

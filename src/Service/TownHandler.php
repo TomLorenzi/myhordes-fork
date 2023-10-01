@@ -811,17 +811,6 @@ class TownHandler
         return true;
     }
 
-    public function getWorkshopBonus(Town $town, &$constructionBonus, &$repairBonus) {
-        $constructionBonus = 0;
-        $repairBonus = 0;
-        if (($workshop = $this->getBuilding($town, "small_refine_#00")) !== null) {
-            $constructionBonus = min(0.06 * $workshop->getLevel(), 0.28);
-            if ($workshop->getLevel() >= 4) {
-                $repairBonus = $workshop->getLevel() - 3;
-            }
-        }
-    }
-
     public function devastateTown(Town $town) {
         if ($town->getDevastated()) return;
 
