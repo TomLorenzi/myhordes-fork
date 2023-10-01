@@ -18,5 +18,5 @@ class BuildingQueryTownParameterData
 
     public readonly BuildingValueQuery $query;
 
-    public float $value = 0;
+    public float|int $value = 0;
 }

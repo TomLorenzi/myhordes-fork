@@ -120,7 +120,7 @@ class EventProxyService
         return $event->chance;
     }
 
-    public function queryTownParameter( Town $town, BuildingValueQuery $query ): float {
+    public function queryTownParameter( Town $town, BuildingValueQuery $query ): float|int {
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query ) );
         return $event->value;
     }

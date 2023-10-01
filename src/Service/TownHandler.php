@@ -421,7 +421,7 @@ class TownHandler
         $summary->temp_defense += $town->getTempDefenseBonus();
 
 
-        $summary->item_defense = min(500, floor($this->inventory_handler->countSpecificItems( $town->getBank(),
+        $summary->item_defense = min($this->proxy->queryTownParameter( $town, BuildingValueQuery::MaxItemDefense ), floor($this->inventory_handler->countSpecificItems( $town->getBank(),
                 $this->getPrototypesForDefenceItems(), false, false
         ) * $item_def_factor));
 

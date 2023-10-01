@@ -213,7 +213,11 @@
             <ul class="overview-list">
                 <li>{{'Grundbefestigungsmauer'|trans({}, 'game')}} : + {{def_summary.base_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 {% if def_summary.item_defense > 0 %}
-                <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}} : + {{def_summary.item_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ) {{ help_btn(('<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!'|trans({},'global')|raw)) }}</li>
+                <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}} : + {{def_summary.item_defense}} <img alt="" src="{{ asset('build/images/icons/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img alt="" src="{{ asset('build/images/icons/small_def.gif') }}" /> )
+                    {% if item_def_limit is not null %}
+                        {{ help_btn(('<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>{max}</strong> Verteidigungspunkte vergeben!'|trans({max: item_def_limit},'global')|raw)) }}
+                    {% endif %}
+                </li>
                 {% endif %}
                 <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_def_base + def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> {% if def_summary.building_def_vote > 0 %}( {{ def_summary.building_def_base }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> + {{ def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ){% endif %}</li>
                 <li>{{'Häuser der Bürger'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>

@@ -275,6 +275,9 @@ class TownController extends InventoryAwareController
             if ($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
 
+        $item_def_limit = $this->events->queryTownParameter( $town, BuildingValueQuery::MaxItemDefense );
+        if ($item_def_limit === PHP_INT_MAX) $item_def_limit = null;
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'is_watcher' => $is_watcher,
@@ -304,7 +307,8 @@ class TownController extends InventoryAwareController
             'additional_situation_points' => $additional_situation,
             'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2'),
             'bbe_id' => $this->entity_manager->getRepository(BlackboardEdit::class)->findOneBy(['town' => $town], ['id' => 'DESC'])?->getId() ?? -1,
-            'potential_defense_loss' => $this->events->queryTownParameter( $town, BuildingValueQuery::MissingItemDefenseLoss )
+            'potential_defense_loss' => $this->events->queryTownParameter( $town, BuildingValueQuery::MissingItemDefenseLoss ),
+            'item_def_limit' => $item_def_limit
         ]) );
     }
 
