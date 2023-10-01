@@ -206,6 +206,9 @@
             {% if town.well < 15 %}
                 <div class="note note-critical">{{ '<strong>Achtung:</strong> Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!'|trans({}, 'game')|raw }}</div>
             {% endif %}
+            {% if potential_defense_loss > 0 %}
+                <div class="note note-critical">{{ '<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!'|trans({}, 'game')|raw }}</div>
+            {% endif %}
         <div class="padded cell rw-12 defense-detail">
             <ul class="overview-list">
                 <li>{{'Grundbefestigungsmauer'|trans({}, 'game')}} : + {{def_summary.base_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>

@@ -304,6 +304,7 @@ class TownController extends InventoryAwareController
             'additional_situation_points' => $additional_situation,
             'is_dehydrated' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'thirst2'),
             'bbe_id' => $this->entity_manager->getRepository(BlackboardEdit::class)->findOneBy(['town' => $town], ['id' => 'DESC'])?->getId() ?? -1,
+            'potential_defense_loss' => $this->events->queryTownParameter( $town, BuildingValueQuery::MissingItemDefenseLoss )
         ]) );
     }
 
