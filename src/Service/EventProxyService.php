@@ -17,6 +17,7 @@ use App\Enum\ScavengingActionType;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
@@ -128,6 +129,11 @@ class EventProxyService
     public function queryTownRoleEnabled( Town $town, CitizenRole $role ): bool {
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownRoleEnabledEvent::class, $town )->setup( $role ) );
         return $event->enabled;
+    }
+
+    public function queryCatapultItemTransformation( Town $town, ItemPrototype $in ): ItemPrototype {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingCatapultItemTransformEvent::class, $town )->setup( $in ) );
+        return $event->out ?? $in;
     }
 
 

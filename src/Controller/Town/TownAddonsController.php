@@ -527,14 +527,17 @@ class TownAddonsController extends TownController
         } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
     }
 
-        /**
+    /**
      * @Route("api/town/catapult/do", name="town_catapult_do_controller")
      * @param JSONRequestParser $parser
      * @param CitizenHandler $ch
-     * @param TownHandler $th
+     * @param EventProxyService $event
+     * @param ItemFactory $if
+     * @param Packages $asset
+     * @param TranslatorInterface $trans
      * @return Response
      */
-    public function catapult_do_api(JSONRequestParser $parser, CitizenHandler $ch, TownHandler $th, ItemFactory $if, Packages $asset, TranslatorInterface $trans): Response {
+    public function catapult_do_api(JSONRequestParser $parser, CitizenHandler $ch, ItemFactory $if, Packages $asset, TranslatorInterface $trans): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
@@ -593,10 +596,10 @@ class TownAddonsController extends TownController
 
         $target_inv = ($target_zone->getX() === 0 && $target_zone->getY() === 0) ? $town->getBank() : $target_zone->getFloor();
 
-        if ($item->getPrototype()->getFragile()) {
-            $debris_item = $item->getPrototype()->hasProperty('pet') ? 'undef_#00' : 'broken_#00';
+        $transform = $this->events->queryCatapultItemTransformation( $town, $item->getPrototype() );
 
-            $this->inventory_handler->forceMoveItem($target_inv, $debris = $if->createItem($debris_item));
+        if ($transform !== $item->getPrototype()) {
+            $this->inventory_handler->forceMoveItem($target_inv, $debris = $if->createItem($transform));
             $this->inventory_handler->forceRemoveItem($item);
             $this->entity_manager->persist($this->log->catapultImpact($debris, $target_zone));
         } else {

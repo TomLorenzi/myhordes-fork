@@ -3,12 +3,15 @@
 
 namespace App\EventListener\Game\Town\Basic\Buildings;
 
+use App\Entity\ItemPrototype;
 use App\Enum\EventStages\BuildingValueQuery;
+use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownRoleEnabledEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\TownHandler;
+use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
@@ -19,6 +22,7 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: BuildingQueryNightwatchDefenseBonusEvent::class, method: 'onQueryNightwatchDefenseBonusFinish', priority: -115)]
 #[AsEventListener(event: BuildingQueryTownParameterEvent::class, method: 'onQueryTownParameter', priority: 0)]
 #[AsEventListener(event: BuildingQueryTownRoleEnabledEvent::class, method: 'onQueryTownRoleEnabled', priority: 0)]
+#[AsEventListener(event: BuildingCatapultItemTransformEvent::class, method: 'onQueryCatapultItemTransformation', priority: 0)]
 final class BuildingQueryListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -31,6 +35,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
     {
         return [
             TownHandler::class,
+            EntityManagerInterface::class
         ];
     }
 
@@ -106,6 +111,12 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
 
     public function onQueryTownRoleEnabled( BuildingQueryTownRoleEnabledEvent $event ): void {
         $event->enabled = true;
+    }
+
+    public function onQueryCatapultItemTransformation( BuildingCatapultItemTransformEvent $event ): void {
+        $event->out = $event->in->getFragile() ? (
+            $this->getService(EntityManagerInterface::class)->getRepository( ItemPrototype::class )->findOneByName( $event->in->hasProperty('pet') ? 'undef_#00' : 'broken_#00' )
+        ) : null;
     }
 
 }
