@@ -1520,6 +1520,20 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
+    public function nightlyAttackBuildingItems( Building $building, ?array $items ): TownLogEntry {
+        $variables = array('building' => $building->getPrototype()->getId(),
+            'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+            else { return array('id' => $e[0]->getId()); } }, $items ));
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackBuildingItems']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $building->getTown() )
+            ->setDay( $building->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function nightlyAttackUpgradeBuildingWell( Building $building, int $num ): TownLogEntry {
         $variables = array('building' => $building->getPrototype()->getId(), 'num' => $num);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackUpgradeBuildingWell']);

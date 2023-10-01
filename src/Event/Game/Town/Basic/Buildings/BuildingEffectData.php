@@ -23,6 +23,7 @@ class BuildingEffectData
     public int $buildingDamage = 0;
     public int $waterDeducted = 0;
     public array $dailyProduceItems = [];
+    public array $consumedItems = [];
 
     public array $produceDailyBlueprint = [];
 }
