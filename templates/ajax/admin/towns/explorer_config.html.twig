@@ -51,7 +51,7 @@
 				{%- endif -%}
 			{%- endmacro -%}
 
-			{% set value      = _self.render_value( conf.raw[setting] ) %}
+			{% set value      = _self.render_value( conf_self.raw[setting] ) %}
 			{% set value_comp = conf_compare is not null ? _self.render_value( conf_compare.raw[setting] ) : '' %}
 
 			{% for n,key in shown_keys %}

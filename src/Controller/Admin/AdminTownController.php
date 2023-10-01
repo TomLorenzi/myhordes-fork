@@ -620,6 +620,7 @@ class AdminTownController extends AdminActionController
 			'tab' => "config",
 			'opt_conf' => $conf,
 			'conf' => $conf_self,
+			'conf_self' => $conf_self,
 			'conf_compare' => $conf_compare,
 			'conf_keys' => array_unique( array_merge( array_keys( $conf_self->raw() ), array_keys( $conf_compare?->raw() ?? [] ) ) ),
 		])));
