@@ -6,6 +6,7 @@ namespace App\EventListener\Game\Town\Basic\Buildings;
 use App\Enum\EventStages\BuildingValueQuery;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownRoleEnabledEvent;
 use App\EventListener\ContainerTypeTrait;
 use App\Service\TownHandler;
 use Psr\Container\ContainerInterface;
@@ -17,6 +18,7 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: BuildingQueryNightwatchDefenseBonusEvent::class, method: 'onQueryNightwatchDefenseBonusCalc', priority: -105)]
 #[AsEventListener(event: BuildingQueryNightwatchDefenseBonusEvent::class, method: 'onQueryNightwatchDefenseBonusFinish', priority: -115)]
 #[AsEventListener(event: BuildingQueryTownParameterEvent::class, method: 'onQueryTownParameter', priority: 0)]
+#[AsEventListener(event: BuildingQueryTownRoleEnabledEvent::class, method: 'onQueryTownRoleEnabled', priority: 0)]
 final class BuildingQueryListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -83,7 +85,26 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
                 2 => 1.14,
                 default => 1.0
             },
+            BuildingValueQuery::NightlyZoneDiscoveryRadius => match ($this->getService(TownHandler::class)->getBuilding($event->town, 'item_tagger_#00', true )?->getLevel() ?? 0) {
+                1 => 3,
+                2 => 6,
+                3, 4 => 10,
+                default => 0
+            },
+            BuildingValueQuery::NightlyRecordWindDirection => $this->getService(TownHandler::class)->getBuilding($event->town, 'small_gather_#02', true ) ? 1 : 0,
+            BuildingValueQuery::NightlyZoneRecoveryChance => match ($this->getService(TownHandler::class)->getBuilding($event->town, 'small_gather_#02', true )?->getLevel() ?? 0) {
+                1 => 0.37,
+                2 => 0.49,
+                3 => 0.61,
+                4 => 0.73,
+                5 => 0.85,
+                default => 0.25,
+            },
         };
+    }
+
+    public function onQueryTownRoleEnabled( BuildingQueryTownRoleEnabledEvent $event ): void {
+        $event->enabled = true;
     }
 
 }

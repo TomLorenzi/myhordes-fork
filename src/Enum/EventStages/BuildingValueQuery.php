@@ -18,4 +18,7 @@ enum BuildingValueQuery {
     case ConstructionAPRatio;
     case RepairAPRatio;
     case OverallTownDefenseScale;
+    case NightlyZoneDiscoveryRadius;
+    case NightlyZoneRecoveryChance;
+    case NightlyRecordWindDirection;
 }

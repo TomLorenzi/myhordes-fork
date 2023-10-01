@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Building;
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -22,6 +23,7 @@ use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryNightwatchDefenseBonusEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownParameterEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingQueryTownRoleEnabledEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePostAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingUpgradePreAttackEvent;
 use App\Structures\FriendshipActionTarget;
@@ -121,6 +123,11 @@ class EventProxyService
     public function queryTownParameter( Town $town, BuildingValueQuery $query ): float {
         $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownParameterEvent::class, $town )->setup( $query ) );
         return $event->value;
+    }
+
+    public function queryTownRoleEnabled( Town $town, CitizenRole $role ): bool {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( BuildingQueryTownRoleEnabledEvent::class, $town )->setup( $role ) );
+        return $event->enabled;
     }
 
 

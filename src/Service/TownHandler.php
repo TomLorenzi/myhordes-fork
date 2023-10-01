@@ -786,6 +786,8 @@ class TownHandler
         if (is_string($role)) $role = $this->doctrineCache->getEntityByIdentifier(CitizenRole::class, $role);
         if (!$role || !$role->getVotable()) return false;
 
+        if (!$this->proxy->queryTownRoleEnabled( $town, $role )) return false;
+
         // If the role is disabled, no vote is needed
         if (in_array( $role->getName(), $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_ROLES, []) ))
             return false;

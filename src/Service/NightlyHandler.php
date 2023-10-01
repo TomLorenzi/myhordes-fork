@@ -1337,38 +1337,21 @@ class NightlyHandler
                 $zone->setZombies(max(0, round($zone->getZombies() * $factor, 0)));
             }
 
-        $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
-        $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);
-
         $upgraded_map = $this->town_handler->getBuilding($town,'item_electro_#00', true);
 
         $zone_tag_none = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
 
         $gazette = $town->findGazette($town->getDay(), true);
 
-        if ($watchtower) switch ($watchtower->getLevel()) {
-            case 0: $discover_range  = 0;  break;
-            case 1: $discover_range  = 3;  break;
-            case 2: $discover_range  = 6;  break;
-            default: $discover_range = 10; break;
-        } else $discover_range = 0;
-
-        if ($research_tower) switch ($research_tower->getLevel()) {
-            case 0: $recovery_chance  = 0.25; break;
-            case 1: $recovery_chance  = 0.37; break;
-            case 2: $recovery_chance  = 0.49; break;
-            case 3: $recovery_chance  = 0.61; break;
-            case 4: $recovery_chance  = 0.73; break;
-            default: $recovery_chance = 0.85; break;
-        } else $recovery_chance = 0.25;
+        $discover_range = $this->events->queryTownParameter( $town, BuildingValueQuery::NightlyZoneDiscoveryRadius );
+        $recovery_chance = $this->events->queryTownParameter( $town, BuildingValueQuery::NightlyZoneRecoveryChance );
 
         $wind = $this->random->pick( [Zone::DirectionNorthWest, Zone::DirectionNorth, Zone::DirectionNorthEast, Zone::DirectionWest, Zone::DirectionEast, Zone::DirectionSouthWest, Zone::DirectionSouth, Zone::DirectionSouthEast] );
 
         $this->log->debug('Processing individual zones ...');
-        $this->log->debug('Modifiers - <info>Search Tower</info>: <info>' . ($research_tower ? $research_tower->getLevel() : 'No') . '</info>, <info>Watch Tower</info>: <info>' . ($watchtower ? $watchtower->getLevel() : 'No') . '</info>' );
         $this->log->debug("Wind Direction is <info>{$wind}</info>." );
 
-        if ($research_tower)
+        if ( $this->events->queryTownParameter( $town, BuildingValueQuery::NightlyRecordWindDirection ) )
             $gazette->setWindDirection($wind);
 
         $this->entity_manager->persist($gazette);
