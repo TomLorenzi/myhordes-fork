@@ -298,6 +298,7 @@ parameters:
           merge: ['r_suhard_#00']
         last_death_day: 6
         survival_picto: 'r_pande_#00'
+        ghoul_mode: airborne
 
       explorable_ruins: 2
 
