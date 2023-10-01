@@ -77,6 +77,12 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
             BuildingValueQuery::MissingItemDefenseLoss => 0,
             BuildingValueQuery::ConstructionAPRatio => 1.0 - min(0.06 * $this->getService(TownHandler::class)->getBuilding($event->town, "small_refine_#00")?->getLevel() ?? 0, 0.28),
             BuildingValueQuery::RepairAPRatio => 2 + max(0, $this->getService(TownHandler::class)->getBuilding($event->town, "small_refine_#00")?->getLevel() - 3),
+            BuildingValueQuery::OverallTownDefenseScale => match ($this->getService(TownHandler::class)->getBuilding($event->town, 'item_shield_#00', true )?->getLevel() ?? -1) {
+                0 => 1.10,
+                1 => 1.12,
+                2 => 1.14,
+                default => 1.0
+            },
         };
     }
 

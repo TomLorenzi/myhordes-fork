@@ -379,12 +379,7 @@ class TownHandler
 
         $home_def_factor = $this->getBuilding( $town, 'small_strategy_#00', true ) ? 0.8 : 0.4;
 
-        $pentagon = $this->getBuilding( $town, 'item_shield_#00', true );
-        if ($pentagon) {
-            if     ($pentagon->getLevel() === 2) $summary->overall_scale += 0.14;
-            elseif ($pentagon->getLevel() === 1) $summary->overall_scale += 0.12;
-            else                                 $summary->overall_scale += 0.10;
-        }
+        $summary->overall_scale = $this->proxy->queryTownParameter( $town, BuildingValueQuery::OverallTownDefenseScale );
 
         $guardian_bonus = $this->proxy->queryTownParameter( $town, BuildingValueQuery::GuardianDefenseBonus );
 

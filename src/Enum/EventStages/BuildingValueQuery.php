@@ -17,4 +17,5 @@ enum BuildingValueQuery {
     case MissingItemDefenseLoss;
     case ConstructionAPRatio;
     case RepairAPRatio;
+    case OverallTownDefenseScale;
 }
