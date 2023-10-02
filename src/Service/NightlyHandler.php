@@ -1652,40 +1652,9 @@ class NightlyHandler
 
     private function stage3_building_effects(Town $town) {
         $this->log->info('<info>Processing post-attack building functions</info> ...');
-
-        $novelty_lamps = $this->town_handler->getBuilding( $town, 'small_novlamps_#00', true );
-
-        if ($novelty_lamps) {
-            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() >= 2 ? 2 : 1) : 0;
-
-            $ok = $bats === 0;
-
-            $this->log->debug("Novelty Lamps: Building needs <info>{$bats}</info> batteries to operate.");
-
-            if ($bats > 0) {
-                $n = $bats;
-                $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest('pile_#00', $bats)] );
-
-                if ($items) {
-                    while (!empty($items) && $n > 0) {
-                        $item = array_pop($items);
-                        $c = $item->getCount();
-                        $this->inventory_handler->forceRemoveItem( $item, $n );
-                        $n -= $c;
-                    }
-                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingBatteries( $novelty_lamps, $bats ) );
-                    $ok = true;
-                } else $this->log->debug("Novelty Lamps: Not enough batteries in the bank, building is <info>disabled</info>.");
-
-            }
-
-            if ($ok) {
-                $this->log->debug("Novelty Lamps: Building is <info>enabled</info>, setting status for all citizens.");
-                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
-                foreach ($town->getCitizens() as $citizen)
-                    if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
-            }
-        }
+        if (!$town->findGazette( $town->getDay(), true )->getReactorExplosion())
+            foreach ($town->getBuildings() as $building)
+                if ($building->getComplete()) $this->events->buildingEffect( $building, $this->upgraded_building, BuildingEffectStage::AfterDayChange );
     }
 
     private function stage4_stranger(Town $town) {

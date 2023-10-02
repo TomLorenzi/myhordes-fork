@@ -3,6 +3,7 @@
 namespace App\Event\Game\Town\Basic\Buildings;
 
 use App\Entity\Building;
+use App\Entity\ItemPrototype;
 
 class BuildingEffectData
 {
@@ -15,6 +16,11 @@ class BuildingEffectData
     public function setup( Building $building, ?Building $upgradedBuilding ): void {
         $this->building = $building;
         $this->upgradedBuilding = $upgradedBuilding;
+    }
+
+    public function addConsumedItem( string|ItemPrototype $item, int $count ): void {
+        $name = is_string($item) ? $item : $item->getName();
+        $this->consumedItems[ $name ] = ($this->consumedItems[ $name ] ?? 0) + $count;
     }
 
     public readonly Building $building;

@@ -4,6 +4,7 @@ namespace App\Enum\EventStages;
 
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostDayChangeEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreDefaultEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreUpgradeEvent;
@@ -13,6 +14,7 @@ enum BuildingEffectStage {
     case BeforeAttack;
     case BeforeDefaultEvents;
     case AfterAttack;
+    case AfterDayChange;
 
 
     /**
@@ -25,6 +27,7 @@ enum BuildingEffectStage {
             self::BeforeAttack => BuildingEffectPreAttackEvent::class,
             self::BeforeDefaultEvents => BuildingEffectPreDefaultEvent::class,
             self::AfterAttack => BuildingEffectPostAttackEvent::class,
+            self::AfterDayChange => BuildingEffectPostDayChangeEvent::class,
         };
     }
 }

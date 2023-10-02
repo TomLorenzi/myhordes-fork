@@ -3,20 +3,24 @@
 
 namespace App\EventListener\Game\Town\Basic\Buildings;
 
+use App\Entity\CitizenStatus;
 use App\Entity\ItemPrototype;
 use App\Enum\ItemPoisonType;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostAttackEvent;
+use App\Event\Game\Town\Basic\Buildings\BuildingEffectPostDayChangeEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreAttackEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreDefaultEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingEffectPreUpgradeEvent;
 use App\EventListener\ContainerTypeTrait;
+use App\Service\CitizenHandler;
 use App\Service\EventProxyService;
 use App\Service\GameProfilerService;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\LogTemplateHandler;
 use App\Service\TownHandler;
+use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
@@ -27,11 +31,13 @@ use Symfony\Contracts\Service\ServiceSubscriberInterface;
 #[AsEventListener(event: BuildingEffectPreAttackEvent::class, method: 'onProcessPreAttackEffect',  priority: 0)]
 #[AsEventListener(event: BuildingEffectPreDefaultEvent::class, method: 'onProcessPreDefaultEffect', priority: 0)]
 #[AsEventListener(event: BuildingEffectPostAttackEvent::class, method: 'onProcessPostAttackEffect', priority: 0)]
+#[AsEventListener(event: BuildingEffectPostDayChangeEvent::class, method: 'onProcessPostDayChangeEffect', priority: 0)]
 
 #[AsEventListener(event: BuildingEffectPreUpgradeEvent::class, method: 'onApplyEffect',  priority: -100)]
 #[AsEventListener(event: BuildingEffectPreAttackEvent::class, method: 'onApplyEffect',  priority: -100)]
 #[AsEventListener(event: BuildingEffectPreDefaultEvent::class, method: 'onApplyEffect',  priority: -100)]
 #[AsEventListener(event: BuildingEffectPostAttackEvent::class, method: 'onApplyEffect', priority: -100)]
+#[AsEventListener(event: BuildingEffectPostDayChangeEvent::class, method: 'onApplyEffect', priority: -100)]
 final class BuildingEffectListener implements ServiceSubscriberInterface
 {
     use ContainerTypeTrait;
@@ -49,7 +55,8 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
             GameProfilerService::class,
             InventoryHandler::class,
             ItemFactory::class,
-            EventProxyService::class
+            EventProxyService::class,
+            CitizenHandler::class
         ];
     }
 
@@ -121,6 +128,38 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
         }
     }
 
+    public function onProcessPostDayChangeEffect( BuildingEffectEvent $event ): void {
+        switch ($event->building->getPrototype()->getName()) {
+
+            case 'small_novlamps_#00':
+                $bats = $event->building->getLevel();
+
+                $inventoryHandler = $this->getService(InventoryHandler::class);
+                $citizenHandler = $this->getService(CitizenHandler::class);
+
+                $n = $bats;
+                $items = $inventoryHandler->fetchSpecificItems( $event->town->getBank(), [new ItemRequest('pile_#00', $bats)] );
+                if ($items) {
+                    while (!empty($items) && $n > 0) {
+                        $item = array_pop($items);
+                        $c = $item->getCount();
+                        $inventoryHandler->forceRemoveItem( $item, $n );
+                        $n -= $c;
+                    }
+
+                    $event->addConsumedItem( 'pile_#00', $bats );
+
+                    $novlamp_status = $this->getService(EntityManagerInterface::class)->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
+                    foreach ($event->town->getCitizens() as $citizen)
+                        if ($citizen->getAlive()) $citizenHandler->inflictStatus($citizen, $novlamp_status);
+
+                }
+
+                break;
+
+        }
+    }
+
     public function onApplyEffect( BuildingEffectEvent $event ): void {
 
         if ($event->waterDeducted > 0) {
@@ -153,10 +192,19 @@ final class BuildingEffectListener implements ServiceSubscriberInterface
 
         if (!empty($event->consumedItems)) {
             $temp = [];
+            $non_pile = 0;
+            $pile = 0;
             foreach ($event->consumedItems as $name => $count)
-                if ($count > 0)
+                if ($count > 0) {
+                    if ($name === 'pile_#00') $pile += $count;
+                    else $non_pile += $count;
                     $temp[] = ['item' => $this->getService(EntityManagerInterface::class)->getRepository(ItemPrototype::class)->findOneByName($name), 'count' => $count];
-            $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->nightlyAttackBuildingItems($event->building, $temp));
+                }
+
+            if ($non_pile > 0)
+                $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->nightlyAttackBuildingItems($event->building, $temp));
+            elseif ($pile > 0)
+                $this->getService(EntityManagerInterface::class)->persist($this->getService(LogTemplateHandler::class)->nightlyAttackBuildingBatteries($event->building, $pile));
         }
 
         $local = $local_log = [];
