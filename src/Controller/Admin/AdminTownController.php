@@ -523,11 +523,7 @@ class AdminTownController extends AdminActionController
      * @param int $id The internal ID of the town
      * @return Response
      */
-	public function town_explorer_buildings(EventProxyService $events, int $id): Response {
-		/** @var Town $town */
-		$town = $this->entity_manager->getRepository(Town::class)->find($id);
-		if ($town === null) return $this->redirect($this->generateUrl('admin_town_list'));
-
+	public function town_explorer_buildings(EventProxyService $events, Town $town): Response {
 		$root = [];
 		$dict = [];
 		$inTown = [];
@@ -2285,13 +2281,8 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_add_building(int $id, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
+    public function town_add_building(Town $town, JSONRequestParser $parser, TownHandler $th, GameProfilerService $gps)
     {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
-
         if (!$parser->has_all(['prototype_id', 'act'])) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }

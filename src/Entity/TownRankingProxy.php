@@ -66,6 +66,9 @@ class TownRankingProxy
     private $profilerVersion = 0;
     #[ORM\Column(type: 'integer')]
     private $disableFlag = self::DISABLE_NOTHING;
+
+    #[ORM\Column]
+    private int $bonusScore = 0;
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -231,6 +234,7 @@ class TownRankingProxy
             ->setLanguage( $town->getLanguage() )
             ->setPopulation( $town->getPopulation() )
             ->setType( $town->getType() )
+            ->setBonusScore( $town->getBonusScore() )
             ->setTown( $town );
 
         if ($obj->getBegin() === null) $obj->setBegin( new \DateTime('now') );
@@ -338,5 +342,17 @@ class TownRankingProxy
     }
     public function hasDisableFlag(int $disableFlag): bool {
         return ($this->getDisableFlag() & $disableFlag) === $disableFlag;
+    }
+
+    public function getBonusScore(): ?int
+    {
+        return $this->bonusScore ?? 0;
+    }
+
+    public function setBonusScore(int $bonusScore): static
+    {
+        $this->bonusScore = $bonusScore;
+
+        return $this;
     }
 }

@@ -21,8 +21,8 @@
 						{% endif %}
 					{% endif %}
 				{% endfor %}
-				{% if not fromTown is defined %}
-					<label style="">
+				{% if fromTown is not defined %}
+                    <label style="">
 						<input type="checkbox" x-prototype-id="{{ building.id }}" x-building-admin-action="addToUnlockList" />
 						<div class="tooltip help">Cochez cette case pour ajouter ce chantier à la liste de ceux à débloquer dans la ville.</div>
 					</label>

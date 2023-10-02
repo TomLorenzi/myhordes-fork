@@ -21,5 +21,6 @@ enum BuildingValueQuery {
     case NightlyZoneDiscoveryRadius;
     case NightlyZoneRecoveryChance;
     case NightlyRecordWindDirection;
+    case NightlyRedSoulPenalty;
     case MaxItemDefense;
 }

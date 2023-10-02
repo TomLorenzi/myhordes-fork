@@ -799,10 +799,11 @@ class GameFactory
 
     /**
      * @param Town|TownRankingProxy $town
+     * @param bool $resetDay
      * @return void
      */
     public function updateTownScore(TownRankingProxy|Town $town, bool $resetDay = false): void {
-        $score = 0;
+        $score = $town->getBonusScore();
         $lastDay = 0;
 
         $tr = null;

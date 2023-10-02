@@ -32,7 +32,10 @@ class RequirementsDataElement extends Element {
     }
 
     public function clear( string $class ): self {
-        $this->atomList = array_values( array_filter( $this->atomList, fn(RequirementsAtom $a) => !is_a( $a->getClass(), $class, true ) ) );
+
+        $this->atomList = array_values( array_filter( $this->atomList, fn(RequirementsAtom $a) =>
+            !is_a( $a, $class, true ) && !is_a( $a->getClass(), $class, true )
+        ) );
         return $this;
     }
 

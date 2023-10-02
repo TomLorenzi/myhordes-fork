@@ -661,7 +661,8 @@ class NightlyHandler
         $zombies = $est ? $est->getZombies() : 0;
 
         $redsouls = $this->town_handler->get_red_soul_count($town);
-        $soulFactor = min(1 + (0.04 * $redsouls), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
+        $red_soul_penality = $this->events->queryTownParameter( $town, BuildingValueQuery::NightlyRedSoulPenalty );
+        $soulFactor = min(1 + ($red_soul_penality * $redsouls), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);

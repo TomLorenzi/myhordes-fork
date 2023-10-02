@@ -99,7 +99,8 @@ class TownHandler
         // Add all children that do not require blueprints
         if ($b)
             foreach ( $prototype->getChildren() as $child )
-                if ($child->getBlueprint() == 0 && !in_array($child->getName(), $blocked)) $this->internalAddBuilding( $town, $child );
+                if ($child->getBlueprint() == 0 && !in_array($child->getName(), $blocked) && !$this->getBuilding( $town, $child, false ))
+                    $this->internalAddBuilding($town, $child);
         return $b;
     }
 

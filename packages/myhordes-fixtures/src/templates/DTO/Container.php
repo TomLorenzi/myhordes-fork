@@ -64,7 +64,7 @@ abstract class Container implements ContainerInterface
      */
     public function modify(string $id, bool $required = true): ElementInterface {
         $exists = $this->has($id);
-        if ($required && !$exists) throw new Exception("Attempt to modify non-existent element '$id' in container.");
+        if ($required && !$exists) throw new Exception("Attempt to modify non-existent element '$id' in container (containing " . implode( ', ', array_keys( $this->data ) ) . ")");
         return $exists ? $this->generate(from: $id) : $this->generate(allow_commit: false);
     }
 

@@ -114,6 +114,9 @@ class Town
     #[ORM\OneToOne(mappedBy: 'town', cascade: ['persist'])]
     private ?CommunityEventTownPreset $communityEventTownPreset = null;
 
+    #[ORM\Column]
+    private int $bonusScore = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -843,5 +846,17 @@ class Town
             );
 
         return $revision;
+    }
+
+    public function getBonusScore(): int
+    {
+        return $this->bonusScore ?? 0;
+    }
+
+    public function setBonusScore(int $bonusScore): static
+    {
+        $this->bonusScore = $bonusScore;
+
+        return $this;
     }
 }

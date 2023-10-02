@@ -621,7 +621,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('calculate-score')) {
             $this->helper->leChunk($output, TownRankingProxy::class, 5000, ['imported' => false], true, true, function(TownRankingProxy $town) {
-                $score = 0;
+                $score = $town->getBonusScore();
                 $latestDay = 0;
                 foreach ($town->getCitizens() as $citizen) {
                     /* @var CitizenRankingProxy $citizen */
