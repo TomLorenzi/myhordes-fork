@@ -125,6 +125,7 @@ parameters:
       herodays: 1000
       features: ['f_wtns','f_arma','f_cam','f_alarm','f_share']
     override:
+      version: ~
       blackboard: ~
       autopost_addendum:
         1: ~
