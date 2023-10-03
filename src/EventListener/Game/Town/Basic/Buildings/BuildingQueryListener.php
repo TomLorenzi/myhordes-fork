@@ -106,7 +106,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
                 5 => 0.85,
                 default => 0.25,
             },
-            BuildingValueQuery::NightlyRedSoulPenalty => 0.4
+            BuildingValueQuery::NightlyRedSoulPenalty => 0.04
         };
     }
 
