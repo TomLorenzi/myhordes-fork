@@ -17,6 +17,7 @@ class Recipe
 {
     const WorkshopType = 1;
     const WorkshopTypeShamanSpecific = 2;
+    const WorkshopTypeTechSpecific = 3;
     const ManualOutside = 11;
     const ManualInside = 12;
     const ManualAnywhere = 13;

@@ -17,6 +17,8 @@ use App\Enum\ScavengingActionType;
 use App\Event\Game\Actions\CustomActionProcessorEvent;
 use App\Event\Game\Citizen\CitizenPostDeathEvent;
 use App\Event\Game\Citizen\CitizenQueryDigChancesEvent;
+use App\Event\Game\Citizen\CitizenWorkshopOptionsData;
+use App\Event\Game\Citizen\CitizenWorkshopOptionsEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingCatapultItemTransformEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingConstructionEvent;
 use App\Event\Game\Town\Basic\Buildings\BuildingDestructionEvent;
@@ -119,6 +121,11 @@ class EventProxyService
     public function citizenQueryDigChance( Citizen $citizen, Zone|RuinZone|null $zone, ScavengingActionType $type, bool $night ): float {
         $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenQueryDigChancesEvent::class, $citizen->getTown() )->setup( $citizen, $type, $zone, at_night: $night ) );
         return $event->chance;
+    }
+
+    public function citizenWorkshopOptions( Citizen $citizen ): CitizenWorkshopOptionsData {
+        $this->ed->dispatch( $event = $this->ef->gameEvent( CitizenWorkshopOptionsEvent::class, $citizen->getTown() )->setup( $citizen ) );
+        return $event->data;
     }
 
     public function queryTownParameter( Town $town, BuildingValueQuery $query ): float|int {

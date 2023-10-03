@@ -4,6 +4,7 @@ namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
 use App\Annotations\Semaphore;
+use App\Entity\ActionCounter;
 use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
@@ -227,10 +228,9 @@ class TownAddonsController extends TownController
         $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'saw_tool_#00'] ), false, false ) > 0;
         $have_manu = $th->getBuilding($town, 'small_factory_#00', true) !== null;
 
-        $recipes = $this->entity_manager->getRepository(Recipe::class)->findBy( ['type' => Recipe::WorkshopType] );
-        if($this->getActiveCitizen()->getProfession()->getName() == "shaman") {
-            $recipes = array_merge($recipes, $this->entity_manager->getRepository(Recipe::class)->findBy(['type' => Recipe::WorkshopTypeShamanSpecific]));
-        }
+        $recipeData = $this->events->citizenWorkshopOptions( $this->getActiveCitizen() );
+        $recipes = $this->entity_manager->getRepository(Recipe::class)->findBy( ['type' => $recipeData->visible_types] );
+
         $source_db = []; $result_db = [];
         foreach ($recipes as $recipe) {
             /** @var Recipe $recipe */
@@ -246,6 +246,10 @@ class TownAddonsController extends TownController
 
         return $this->render( 'ajax/game/town/workshop.html.twig', $this->addDefaultTwigArgs('workshop', [
             'recipes' => $recipes,
+            'disabled_types' => $recipeData->disabled_types,
+            'penalty' => $recipeData->ap_penalty_types,
+            'sections' => $recipeData->section_types,
+            'hints' => $recipeData->section_note_types,
             'saw' => $have_saw, 'manu' => $have_manu,
             'need_ap' => 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0),
             'source' => $source_db, 'result' => $result_db,
@@ -280,11 +284,13 @@ class TownAddonsController extends TownController
         // Get recipe object and make sure it is a workshop recipe
         $recipe = $this->entity_manager->getRepository(Recipe::class)->find( $id );
 
-        if ($recipe === null || ($recipe->getType() !== Recipe::WorkshopType && $recipe->getType() !== Recipe::WorkshopTypeShamanSpecific))
+        $recipeData = $this->events->citizenWorkshopOptions( $this->getActiveCitizen() );
+
+        if ($recipe === null || !in_array( $recipe->getType(), $recipeData->visible_types ) || in_array( $recipe->getType(), $recipeData->disabled_types ) )
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Execute recipe and persist
-        if (($error = $ah->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )
+        if (($error = $ah->execute_recipe( $citizen, $recipe, $remove, $message, $recipeData->ap_penalty_types[$recipe->getType()] ?? 0 )) !== ActionHandler::ErrorNone )
             return AjaxResponse::error( $error );
         else try {
             // Set the activity status

@@ -1617,7 +1617,7 @@ class ActionHandler
         return self::ErrorNone;
     }
 
-    public function execute_recipe( Citizen &$citizen, Recipe $recipe, ?array &$remove, ?string &$message ): int {
+    public function execute_recipe( Citizen &$citizen, Recipe $recipe, ?array &$remove, ?string &$message, int $penalty = 0 ): int {
         $town = $citizen->getTown();
         $c_inv = $citizen->getInventory();
         $t_inv = $citizen->getTown()->getBank();
@@ -1633,22 +1633,22 @@ class ActionHandler
         }
 
         $remove = [];
+        $workshop_types = [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific, Recipe::WorkshopTypeTechSpecific];
 
-        if (in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific])) {
+        if (in_array($recipe->getType(), $workshop_types)) {
             $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']), false, false ) > 0;
             $have_manu = $this->town_handler->getBuilding($town, 'small_factory_#00', true) !== null;
 
-            $ap = 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0);
-        } else $ap = 0;
+            $ap = $penalty + (3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0));
+        } else $ap = $penalty;
 
-
-        if ( in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
+        if ( in_array($recipe->getType(), $workshop_types) && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
             return ErrorHelper::ErrorNoAP;
 
-        $source_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
-        $target_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest()]);
+        $source_inv = in_array($recipe->getType(), $workshop_types) ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
+        $target_inv = in_array($recipe->getType(), $workshop_types) ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest()]);
 
-        if (!in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
+        if (!in_array($recipe->getType(), $workshop_types) && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
             $source_inv[] = $citizen->getZone()->getFloor();
 
         $items = $this->inventory_handler->fetchSpecificItems( $source_inv, $recipe->getSource() );
@@ -1664,16 +1664,20 @@ class ActionHandler
 
         $this->citizen_handler->deductAPBP( $citizen, $ap, $used_ap, $used_bp );
 
+        if ($recipe->getType() === Recipe::WorkshopTypeTechSpecific)
+            $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSpecialActionTech)->increment();
+
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult(), $this->conf->getTownConfiguration( $citizen->getTown() ), $this->conf->getCurrentEvents( $citizen->getTown() ) );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
         $this->gps->recordRecipeExecuted( $recipe, $citizen, $new_item );
 
-        if (in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]))
+        if (in_array($recipe->getType(), $workshop_types))
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( function(Item $e) { return array($e->getPrototype()); }, $items  ), array([$new_item]) ) );
 
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
             case Recipe::WorkshopTypeShamanSpecific:
+            case Recipe::WorkshopTypeTechSpecific:
               $base = match ($recipe->getAction()) {
                   "Öffnen"      => T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game'),
                   "Zerlegen"    => T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game'),

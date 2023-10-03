@@ -25,7 +25,8 @@ class ActionCounter
     const ActionTypeReceiveHeroic 		= 12;
 	const ActionTypePool      			= 13;
     const ActionTypeSpecialDigScavenger = 14;
-	const ActionTypeDumpInsertion 				= 15;
+	const ActionTypeDumpInsertion 		= 15;
+    const ActionTypeSpecialActionTech	= 16;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
 		self::ActionTypePool

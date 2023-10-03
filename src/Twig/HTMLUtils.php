@@ -48,7 +48,7 @@ class HTMLUtils extends AbstractExtension  implements GlobalsInterface
             if (is_array($value) && !empty($value))
                 $normalized_data[htmlentities($value[0])] = $value[1] ?? true;
             elseif ( is_int( $key ) ) $normalized_data[htmlentities($value)] = true;
-            else  $normalized_data[htmlentities($key)] = $value;
+            elseif ( $value !== false ) $normalized_data[htmlentities($key)] = $value;
 
 
         $normalized_data = array_filter( array_map( fn($attribute, $value) => $value === true ? [$attribute,$attribute] : [$attribute,(is_string($value) ? htmlentities($value) : $value)], array_keys($normalized_data), $normalized_data ) );
