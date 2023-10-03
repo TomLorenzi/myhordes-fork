@@ -16,6 +16,9 @@ class TranslationConfigGlobal
     private bool $includeConfig = true;
     private bool $configured = false;
 
+    private bool $skipExisting = false;
+
+    private array $blacklisted_packages = [];
     private array $source_cache = [];
 
     function add_source_for(string $message, string $domain, string $handler, string $source, int $line = -1): void
@@ -81,8 +84,20 @@ class TranslationConfigGlobal
         return $this;
     }
 
+    function setSkipExistingMessages(bool $conf): self {
+        $this->skipExisting = $conf;
+        $this->configured = true;
+        return $this;
+    }
+
     function setConfigSearch(bool $conf): self {
         $this->includeConfig = $conf;
+        $this->configured = true;
+        return $this;
+    }
+
+    function setBlacklistedPackages(?array $array): self {
+        $this->blacklisted_packages = $array ?? [];
         $this->configured = true;
         return $this;
     }
@@ -91,11 +106,23 @@ class TranslationConfigGlobal
         return $this->includeDatabase && $this->includePhp && $this->includeTwig && $this->includeConfig && !$this->useFileNameMatching();
     }
 
-    function setConfigured(bool $b) {
+    function setConfigured(bool $b): self {
         $this->configured = $b;
+        return $this;
     }
 
     function isConfigured(): bool {
         return $this->configured;
+    }
+
+    function skipExistingMessages(): bool {
+        return $this->skipExisting;
+    }
+
+    function checkPath(string $path): bool {
+        if (empty($this->blacklisted_packages)) return true;
+
+        $segments = array_values( array_filter( explode( DIRECTORY_SEPARATOR, $path ), fn(?string $s) => !empty($s) ) );
+        return ($segments[0]??'') !== 'packages' || (!in_array( ($segments[1]??'*'), $this->blacklisted_packages ) && !in_array('*', $this->blacklisted_packages));
     }
 }

@@ -2,12 +2,37 @@
 
 namespace App\Translation;
 
+use App\Service\Globals\TranslationConfigGlobal;
 use PhpParser\Node;
 use PhpParser\NodeVisitor;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Translation\Extractor\Visitor\AbstractVisitor;
+use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class TMethodVisitor extends AbstractVisitor implements NodeVisitor
 {
+    private ?MessageCatalogue $catalogue = null;
+
+    private string $base_path = '';
+    private string $relative_path = '';
+    private TranslationConfigGlobal $config;
+
+    public function __construct(TranslationConfigGlobal $config, TranslatorInterface $trans, KernelInterface $appKernel)
+    {
+        $this->config = $config;
+        $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
+        $this->base_path = (new \SplFileInfo($appKernel->getProjectDir()))->getRealPath();
+    }
+
+    public function initialize(MessageCatalogue $catalogue, \SplFileInfo $file, string $messagePrefix): void
+    {
+        $this->relative_path = $file->getRealPath();
+        if ( str_starts_with( $this->relative_path, $this->base_path ) )
+            $this->relative_path = substr( $this->relative_path, strlen( $this->base_path ) );
+        parent::initialize($catalogue,$file,$messagePrefix);
+    }
+
     public function beforeTraverse(array $nodes): ?Node
     {
         return null;
@@ -42,6 +67,11 @@ final class TMethodVisitor extends AbstractVisitor implements NodeVisitor
             return null;
 
         }, $candidates ), fn(?string $s) => $s !== null );
+    }
+
+    protected function addMessageToCatalogue(string $message, ?string $domain, int $line): void {
+        if ($this->catalogue?->has($message,$domain) || !$this->config->checkPath( $this->relative_path )) return;
+        parent::addMessageToCatalogue($message,$domain,$line);
     }
 
     public function enterNode(Node $node): ?Node

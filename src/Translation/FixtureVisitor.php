@@ -2,6 +2,7 @@
 
 namespace App\Translation;
 
+use App\Service\Globals\TranslationConfigGlobal;
 use MyHordes\Plugins\Fixtures\Action;
 use MyHordes\Plugins\Fixtures\AwardFeature;
 use MyHordes\Plugins\Fixtures\AwardTitle;
@@ -32,17 +33,30 @@ use PhpParser\Node;
 use PhpParser\NodeVisitor;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Translation\Extractor\Visitor\AbstractVisitor;
+use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class FixtureVisitor extends AbstractVisitor implements NodeVisitor
 {
+    private ?MessageCatalogue $catalogue = null;
+
     public function __construct(
+        TranslationConfigGlobal $config, TranslatorInterface $trans,
         private readonly FixtureSourceLookup $lookup,
         private readonly ContainerInterface $container
-    ) {}
+    ) {
+        $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
+    }
 
     public function beforeTraverse(array $nodes): ?Node
     {
         return null;
+    }
+
+    protected function addMessageToCatalogue(string $message, ?string $domain, int $line): void {
+        if ($this->catalogue?->has($message,$domain)) return;
+
+        parent::addMessageToCatalogue($message,$domain,$line);
     }
 
     protected function extractArrayData( array $data, string $domain ): bool {

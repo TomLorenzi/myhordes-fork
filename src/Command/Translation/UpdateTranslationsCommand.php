@@ -46,6 +46,7 @@ class UpdateTranslationsCommand extends Command
             ->addOption('disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
             ->addOption('disable-config', null, InputOption::VALUE_NONE, 'Disables translation of config files')
             ->addOption('prime', null, InputOption::VALUE_NONE, 'Limits extraction to the prime bundle.')
+            ->addOption('core', null, InputOption::VALUE_NONE, 'Prevents the prime bundle from being processed.')
 
         ;
     }
@@ -87,11 +88,15 @@ class UpdateTranslationsCommand extends Command
 
             try {
                 if (!$input->getOption('prime')) {
+                    $this->conf_trans->setBlacklistedPackages(['myhordes-prime'])->setSkipExistingMessages(false);
                     $this->getCommandExecutor( 'translation:extract', $lang )($output);
                     $this->getCommandExecutor( 'translation:extract', $lang, 'MyHordesFixturesBundle' )($output);
                 }
 
-                $this->getCommandExecutor( 'app:translation:bundle', $lang, 'MyHordesPrimeBundle' )($output);
+                if (!$input->getOption('core')) {
+                    $this->conf_trans->setBlacklistedPackages(null)->setSkipExistingMessages(true);
+                    $this->getCommandExecutor( 'app:translation:bundle', $lang, 'MyHordesPrimeBundle' )($output);
+                }
             } catch (Exception $e) {
                 $output->writeln("Error: <error>{$e->getMessage()}</error>");
                 return 1;

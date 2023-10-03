@@ -9,6 +9,7 @@ use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
 use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ConfigExtractor implements ExtractorInterface
 {
@@ -17,17 +18,19 @@ class ConfigExtractor implements ExtractorInterface
     protected ConfMaster $confMaster;
     protected TranslationConfigGlobal $config;
 
+    private ?MessageCatalogue $catalogue = null;
     protected static $has_been_run = false;
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $confMaster, TranslationConfigGlobal $config)
+    public function __construct(EntityManagerInterface $em, ConfMaster $confMaster, TranslationConfigGlobal $config, TranslatorInterface $trans)
     {
         $this->em = $em;
         $this->confMaster = $confMaster;
         $this->config = $config;
+        $this->catalogue = $config->skipExistingMessages() ? $trans->getCatalogue('de') : null;
     }
 
     private function insert(MessageCatalogue &$c, string $message, string $domain, string $file) {
-        if (!empty($message)) {
+        if (!empty($message) && !$this->catalogue?->has( $message, $domain )) {
             $c->set($message, $this->prefix . $message, $domain);
             $this->config->add_source_for($message,$domain,'config',$file);
         }

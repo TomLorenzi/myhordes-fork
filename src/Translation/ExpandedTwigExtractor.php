@@ -9,6 +9,7 @@ use Symfony\Bridge\Twig\Translation\TwigExtractor;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Translation\Extractor\PhpStringTokenParser;
 use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 use Twig\Error\Error;
 use Twig\Source;
@@ -27,6 +28,7 @@ class ExpandedTwigExtractor extends TwigExtractor
     private $prefix = '';
     private $defaultDomain = 'messages';
     private $file = '';
+    private TranslatorInterface $trans;
 
     /**
      * {@inheritdoc}
@@ -36,12 +38,13 @@ class ExpandedTwigExtractor extends TwigExtractor
         $this->prefix = $prefix;
     }
 
-    public function __construct(Environment $twig, TranslationConfigGlobal $config, KernelInterface $kernel)
+    public function __construct(Environment $twig, TranslationConfigGlobal $config, KernelInterface $kernel, TranslatorInterface $trans)
     {
         parent::__construct($twig);
         $this->environment = $twig;
         $this->config = $config;
         $this->kernel = $kernel;
+        $this->trans = $trans;
     }
 
     /**
@@ -79,7 +82,12 @@ class ExpandedTwigExtractor extends TwigExtractor
 
         $this->environment->parse($this->environment->tokenize(new Source($template, '')));
 
+        $reference = $this->config->skipExistingMessages() ? $this->trans->getCatalogue('de') : null;
+
         foreach ($visitor->getMessages() as $message) {
+            if ($reference?->has( trim($message[0]), $message[1] ?: $this->defaultDomain ))
+                continue;
+
             $catalogue->set(trim($message[0]), $this->prefix.trim($message[0]), $message[1] ?: $this->defaultDomain);
             $this->config->add_source_for(trim($message[0]), $message[1] ?: $this->defaultDomain, 'twig', str_replace($this->kernel->getProjectDir(),'',$this->file));
         }
