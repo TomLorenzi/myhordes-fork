@@ -1,7 +1,7 @@
 {
     "devDependencies": {
-        "@babel/core": "7.22.19",
-        "@babel/preset-env": "7.22.15",
+        "@babel/core": "7.23.0",
+        "@babel/preset-env": "7.22.20",
         "@babel/preset-react": "7.22.15",
         "@fortawesome/fontawesome-free": "6.4.2",
         "@symfony/webpack-encore": "4.4.0",
@@ -30,8 +30,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@ruffle-rs/ruffle": "0.1.0-nightly.2023.9.15",
-        "@types/react-dom": "18.2.7",
+        "@ruffle-rs/ruffle": "0.1.0-nightly.2023.9.29",
+        "@types/react-dom": "18.2.8",
         "buffer": "6.0.3",
         "latest-createjs": "1.0.24",
         "process": "0.11.10",
@@ -41,7 +41,7 @@
         "stream": "0.0.2",
         "stream-browserify": "3.0.0",
         "string.prototype.matchall": "4.0.10",
-        "swagger-ui": "5.7.1"
+        "swagger-ui": "5.8.0"
     },
-    "packageManager": "yarn@4.0.0-rc.50"
+    "packageManager": "yarn@4.0.0-rc.51"
 }
