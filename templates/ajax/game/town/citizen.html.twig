@@ -88,7 +88,7 @@
                 <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
                 <div class="userCell padded cell factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}" x-visit-path="{{ path('town_visit', {id: citizen.id}) }}"  x-citizen-id="{{citizen.id}}">
-                    <div>
+                    <div style="max-height: 100px">
                         <div style="display: inline">
                             {% if citizen.alive %}
                                 <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
