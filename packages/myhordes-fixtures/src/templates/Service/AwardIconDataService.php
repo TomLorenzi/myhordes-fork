@@ -97,6 +97,8 @@ class AwardIconDataService implements FixtureProcessorInterface {
             ['icon'=>'r_scaddh', 'unlockquantity'=>1, 'associatedpicto'=>'r_scaddh_#00'],
             ['icon'=>'r_rangwin', 'unlockquantity'=>1, 'associatedpicto'=>'r_rangwin_#00'],
             ['icon'=>'r_tamwin', 'unlockquantity'=>1, 'associatedpicto'=>'r_tamwin_#00'],
+            ['icon'=>'r_eventwin', 'unlockquantity'=>1, 'associatedpicto'=>'r_eventwin_#00'],
+            ['icon'=>'r_eventpart', 'unlockquantity'=>1, 'associatedpicto'=>'r_eventpart_#00'],
         ]);
     }
 }
