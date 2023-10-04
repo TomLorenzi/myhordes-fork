@@ -2405,3 +2405,7 @@ Tarnexperte: crwdns136973:0crwdne136973:0
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> verbraucht.': 'crwdns202663:0{item}crwdnd202663:0{ap}crwdne202663:0'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns202665:0{item}crwdnd202665:0{cp}crwdne202665:0'
 'Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.<hr />Du hast dafür <strong>{ap} Aktionspunkt(e)</strong> und <strong>{cp} Baupunkt(e)</strong> verbraucht.': 'crwdns202667:0{item}crwdnd202667:0{ap}crwdnd202667:0{cp}crwdne202667:0'
+Eventsieger: crwdns202688:0crwdne202688:0
+Eventteilnehmer: crwdns202690:0crwdne202690:0
+'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'crwdns202692:0crwdne202692:0'
+'Auszeichnung für deine Teilnahme an einem Community-Event.': 'crwdns202694:0crwdne202694:0'
