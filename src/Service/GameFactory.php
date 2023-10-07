@@ -159,7 +159,7 @@ class GameFactory
             'sets' => [
                 [   // Subjects
                     'f' => ['Toundra|s', 'Steppe|s', 'Pampa|s', 'Plaine|s', 'Prairie|s', 'Tranchée|s', 'Cavité|s', 'Fosse|s', 'Vallée|s', 'Immensité|s', 'Étendue|s', 'Multitude|s', 'Arène|s', 'Indolence|s', 'Ignorance|s', 'Colline|s', 'Installation|s', 'Promenade|s', 'Surface|s', 'Caverne|s', 'Contrée|s', 'Région|s', 'Dévastation|s', 'Désolation|s', 'Cité|s', 'Caserne|s', 'Rémanence|s', 'Falaise|s', 'Faille|s', 'Crique|s', 'Attraction|s', 'Annexe|s', 'Enclave|s', 'Communauté|s', 'Citadelle|s', 'Plantation|s', 'Gangrène|s', 'Frontière|s', 'Engeance|s', 'Jonction|s', 'Retraite|s', 'Terre|s', 'Croisée|s', 'Orbite|s', 'Structure|s', 'Côte|s', 'Butte|s', 'Coalition|s', 'Paranoïa|s', 'Inconnue|s'],
-                    'm' => ['Abîme|s', 'Trou|s', 'Vide|s', 'Fossé|s', 'Canyon|s', 'Espace|s', 'Colisée|s', 'Espoir|s', 'Antre|s', 'Théâtre|s', 'Hypogée|s', 'Souterrain|s', 'Centre|s', 'Écho|s', 'Bidonville|s', 'Gouffre|s', 'Cloaque|s', 'Enfer|s', 'Mont|s', 'Village|s', 'Lieu-dit|<Lieux-dits', 'Monolithe|s', 'Cimetière|s', 'Avant-poste|s', 'Camp|s', 'Refuge|s', 'Mystère|s', 'Hameau|x', 'Tombeau|x', 'Comté|s', 'Fort|s', 'Tertre|s', 'Coteau|x', 'Sommet|s', 'Bas-fond|s', 'Songe|s', 'Rempart|s', 'Tumulus'],
+                    'm' => ['Abîme|s', 'Trou|s', 'Vide|s', 'Fossé|s', 'Canyon|s', 'Espace|s', 'Colisée|s', 'Espoir|s', 'Antre|s', 'Théâtre|s', 'Hypogée|s', 'Souterrain|s', 'Centre|s', 'Écho|s', 'Bidonville|s', 'Gouffre|s', 'Cloaque|s', 'Enfer|s', 'Mont|s', 'Village|s', 'Lieu-dit|<Lieux\-dits', 'Monolithe|s', 'Cimetière|s', 'Avant-poste|s', 'Camp|s', 'Refuge|s', 'Mystère|s', 'Hameau|x', 'Tombeau|x', 'Comté|s', 'Fort|s', 'Tertre|s', 'Coteau|x', 'Sommet|s', 'Bas-fond|s', 'Songe|s', 'Rempart|s', 'Tumulus'],
                     '*' => [ ],
                 ],
                 [   // Adjectives
@@ -307,15 +307,19 @@ class GameFactory
         if (!$pluralize) return explode( '|', $expression )[0];
 
         [$word, $generator] = explode( '|', "$expression|" );
+        $escape = false;
         while (!empty($generator)) {
             $char = mb_substr( $generator, 0, 1 );
             $generator = mb_substr( $generator, 1 );
 
-            switch ($char) {
-                case '-': $word = mb_substr( $word, 0, -1 ); break;
-                case '<': $word = ''; break;
-                default: $word .= $char; break;
-            }
+            $word = match (true) {
+                !$escape && $char === '-' => mb_substr( $word, 0, -1 ),
+                !$escape && $char === '<' => '',
+                !$escape && $char === '\\' => $word,
+                default => $word . $char
+            };
+
+            $escape = $char === '\\';
         }
 
         return $word;
