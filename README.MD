@@ -9,7 +9,7 @@ The whole folder is under [CC-BY-NC-SA-4.0 license](https://creativecommons.org/
 * zip
 * unzip
 * imagemagick
-* php (>=8.1)
+* php (>=8.2)
 * php-xml
 * php-intl
 * php-zip
