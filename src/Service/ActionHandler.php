@@ -1547,9 +1547,7 @@ class ActionHandler
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
 
-
-
-        	foreach ($execute_info_cache['message'] as $contentMessage) {
+        	foreach ($execute_info_cache['message'] as $content) {
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
@@ -1594,7 +1592,15 @@ class ActionHandler
                     $placeholders['{items_consume_'.$currentIndex.'}'] = isset($execute_info_cache['items_consume'][$currentIndex]) ? ($this->wrap($execute_info_cache['items_consume'][$currentIndex])) : "-";
                 }
 
-                $contentMessage = $this->translator->trans( $contentMessage, $placeholders, 'items' );
+                if (is_array($content)) {
+                    $contentMessage = $content[0];
+                    $contentDomain = $content[1] ?? 'items';
+                } else {
+                    $contentMessage = $content;
+                    $contentDomain = 'items';
+                }
+
+                $contentMessage = $this->translator->trans( $contentMessage, $placeholders, $contentDomain );
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
 	                    [, $tag, $text] = $m;

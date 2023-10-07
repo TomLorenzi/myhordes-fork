@@ -491,7 +491,7 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
-    public function wellAdd( Citizen $citizen, ?ItemPrototype $item, int $count ): TownLogEntry {
+    public function wellAdd( Citizen $citizen, ?ItemPrototype $item = null, int $count = 1 ): TownLogEntry {
         if (isset($item)) {
             $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'num' => $count);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'wellAddItem']);

@@ -75,7 +75,7 @@ class RandomGenerator
         if (empty($g)) return null;
         $sum = 0;
         foreach ( $g as $entry )
-            $sum += abs($entry[1]);
+            $sum += abs($entry[1] ?? 0);
         if ($sum === 0) {
             $pe = $this->pick( $g );
             return $pe[0];

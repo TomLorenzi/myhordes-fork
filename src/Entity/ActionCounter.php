@@ -27,6 +27,7 @@ class ActionCounter
     const ActionTypeSpecialDigScavenger = 14;
 	const ActionTypeDumpInsertion 		= 15;
     const ActionTypeSpecialActionTech	= 16;
+    const ActionTypeSpecialActionSurv	= 17;
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,
 		self::ActionTypePool
