@@ -364,7 +364,7 @@ class InventoryAwareController extends CustomAbstractController
                 ->map( fn(ItemGroupEntry $i) => $i->getChance() )
                 ->reduce( fn(int $c, int $a) => $c + $a, 0 );
 
-            for ($i = 0; $i < ($found_provoking - max(0, $uses_provoking - 1)); ++$i) $out[] = $recipe;
+            for ($i = 0; $i < max(1,($found_provoking - max(0, $uses_provoking - 1))); ++$i) $out[] = $recipe;
 
             if ($recipe->getSource())
                 foreach ($recipe->getSource()->getEntries() as $entry)

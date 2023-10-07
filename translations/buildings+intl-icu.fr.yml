@@ -1,10 +1,10 @@
 Wassergraben: Douves
 'Großer Graben': 'Grand fossé'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'Le Grand fossé apporte 23 points de défense.'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'Le Grand fossé apporte 44 points de défense.'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.': 'Le Grand fossé apporte 76 points de défense.'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'Le Grand fossé apporte 109 points de défense.'
-'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'Le Grand fossé apporte 160 points de défense.'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 13.': 'Le Grand fossé apporte 23 points de défense.'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 21.': 'Le Grand fossé apporte 44 points de défense.'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 32.': 'Le Grand fossé apporte 76 points de défense.'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 33.': 'Le Grand fossé apporte 109 points de défense.'
+'Der Verteidigungsbonus des Grabens steigt dauerhaft um 51.': 'Le Grand fossé apporte 160 points de défense.'
 Rasierklingenmauer: Muraille rasoir
 Pfahlgraben: Fosse à pieux
 Köder: Appâts
@@ -16,11 +16,11 @@ Zackenmauer: Muraille à pointes
 'Zweite Schicht': 'Seconde couche'
 Betonschicht: Bétonnade
 'Entwicklungsfähige Stadtmauer': 'Muraille évolutive'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'La Muraille évolutive apporte 85 points de défense.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'La Muraille évolutive apporte 120 points de défense.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.': 'La Muraille évolutive apporte 170 points de défense.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'La Muraille évolutive apporte 235 points de défense.'
-'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'La Muraille évolutive apporte 315 points de défense.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 30.': 'La Muraille évolutive apporte 85 points de défense.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 35.': 'La Muraille évolutive apporte 120 points de défense.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 50.': 'La Muraille évolutive apporte 170 points de défense.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 65.': 'La Muraille évolutive apporte 235 points de défense.'
+'Der Verteidigungsbonus der Stadtmauer steigt dauerhaft um 80.': 'La Muraille évolutive apporte 315 points de défense.'
 'Verstärkende Balken': 'Poutres renfort'
 Zombiereibe: Râpe à zombies
 Fallgruben: Oubliettes
@@ -49,11 +49,11 @@ Sprinkleranlage: Arroseurs auto
 Dusche: Douches
 Wasserleitungsnetz: Réseau hydraulique
 Wasserturm: Aqua-tourelles
-'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'La défense des aqua-tourelles est multipliée par 1.8 (126 points de défense), mais coûte 2 rations d''eau par nuit.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'La défense des aqua-tourelles est multipliée par 2.6 (182 points de défense), mais coûte 4 rations d''eau par nuit.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'La défense des aqua-tourelles est multipliée par 3.4 (238 points de défense), mais coûte 6 rations d''eau par nuit.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'La défense des aqua-tourelles est multipliée par 4.2 (294 points de défense), mais coûte 9 rations d''eau par nuit.'
-'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'La défense des aqua-tourelles est multipliée par 5 (350 points de défense), mais coûte 12 rations d''eau par nuit.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.': 'La défense des aqua-tourelles est multipliée par 1,8 (126 points de défense), mais cela coûte 2 rations d’eau par nuit.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.': 'La défense des aqua-tourelles est multipliée par 2,6 (182 points de défense), mais cela coûte 4 rations d’eau par nuit.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.': 'La défense des aqua-tourelles est multipliée par 3,4 (238 points de défense), mais cela coûte 6 rations d’eau par nuit.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.': 'La défense des aqua-tourelles est multipliée par 4,2 (294 points de défense), mais cela coûte 9 rations d’eau par nuit.'
+'Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.': 'La défense des aqua-tourelles est multipliée par 5 (350 points de défense), mais cela coûte 12 rations d’eau par nuit.'
 Wasserfänger: Percée
 Wasserkanone: Pluvio-canons
 Schleuse: Caniveaux
@@ -62,17 +62,17 @@ Wünschelrakete: Roquette foreuse
 Wünschelrute: Détecteur à eau
 Apfelbaum: Pommier de l’Outre-Monde
 Pumpe: Pompe
-'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'Ajoute 20 Rations d''eau dans le puits (une seule fois).'
-'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'Ajoute 30 Rations d''eau dans le puits (une seule fois).'
-'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'Ajoute 40 Rations d''eau dans le puits (une seule fois).'
+'Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt': 'Ajoute 20 rations d’eau dans le puits (une seule fois).'
+'Der Brunnen der Stadt wird einmalig um 30 Rationen Wasser aufgefüllt': 'Ajoute 30 rations d’eau dans le puits (une seule fois).'
+'Der Brunnen der Stadt wird einmalig um 40 Rationen Wasser aufgefüllt': 'Ajoute 40 rations d’eau dans le puits (une seule fois).'
 Kremato-Cue: Crémato-Cue
 Metzgerei: Boucherie
 Verteidigungsanlage: Fixations de défenses
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'Chaque objet de défense en banque apporte 2 points de défense à la ville.'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'Chaque objet de défense en banque apporte 2.5 points de défense à la ville.'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'Chaque objet de défense en banque apporte 3 points de défense à la ville.'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'Chaque objet de défense en banque apporte 3.5 points de défense à la ville.'
-'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Chaque objet de défense en banque apporte 4 points de défense à la ville.'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.': 'Chaque objet de défense en banque apporte 2 points de défense à la ville.'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.': 'Chaque objet de défense en banque apporte 2,5 points de défense à la ville.'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.': 'Chaque objet de défense en banque apporte 3 points de défense à la ville.'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.': 'Chaque objet de défense en banque apporte 3,5 points de défense à la ville.'
+'Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.': 'Chaque objet de défense en banque apporte 4 points de défense à la ville.'
 Steinkanone: Canon à briques
 'Selbstgebaute Railgun': 'Perforeuse'
 Blechplattenwerfer: Lance-grenailles
@@ -82,9 +82,9 @@ Holzbalkendrehkreuz: Tourniquet
 Manufaktur: Manufacture
 'Kreischende Sägen': 'Scies hurlantes'
 Bauhaus: Architectoire
-'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 4 plans communs après l''attaque.'
-'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans communs, 2 plans inhabituels après l''attaque (et une surprise?)'
-'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans inhabituels, 2 plans rares après l''attaque (et une surprise?)'
+'Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 4 plans communs après l’attaque.'
+'Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans communs, 2 plans inhabituels après l’attaque (et une surprise ?)'
+'Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.': 'La ville obtiendra 2 plans inhabituels, 2 plans rares après l’attaque (et une surprise ?)'
 Baustellenbuch: Registre de chantier
 Galgen: Potence
 'Kleines Cafe': 'Cantine à bois'
@@ -106,11 +106,11 @@ Scanner: Scanner
 'Verbesserte Karte': 'Carte améliorée'
 Rechenmaschine: Planificateur
 Forschungsturm: Scrutateur
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.': 'Les chances de régénération d’une case du désert passent à 37 %.'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.': 'Les chances de régénération d''une case du désert passent à 49%.'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.': 'Les chances de régénération d''une case du désert passent à 61%.'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'Les chances de régénération d''une case du désert passent à 73%.'
-'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'Les chances de régénération d''une case du désert passent à 85%.'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 37%.': 'Les chances de régénération d''une case du désert passent à 37%.'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 49%.': 'Les chances de régénération d’une case du désert passent à 49 %.'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 61%.': 'Les chances de régénération d’une case du désert passent à 61 %.'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 73%.': 'Les chances de régénération d’une case du désert passent à 73 %.'
+'Die Chance, dass sich die Zonen in Windrichtung regenerieren steigt auf 85%.': 'Les chances de régénération d’une case du désert passent à 85 %.'
 Verteidigungspfähle: Champs piégés
 Notfallabstützung: Renforts d’urgence
 Guerilla: Guérilla
@@ -134,11 +134,11 @@ Schießstand: Tourelle lance-eau
 Wächter-Turm: Tour des gardiens
 Krähennest: Tour des éclaireurs
 Wachturm: Tour de guet
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 3 km de la ville.'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 6 km de la ville.'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 10 km de la ville.'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Détecte tous les zombies à 10 km de la ville et permet aux citoyens à 1 km de la ville de rentrer gratuitement.'
-'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Détecte tous les zombies à 10 km de la ville et permet aux citoyens à 2 km de la ville de rentrer gratuitement.'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 3 km de la ville.'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 6 km de la ville.'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.': 'Chaque matin, détecte tous les zombies à 10 km de la ville.'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Détecte tous les zombies à 10 km de la ville, et permet aux citoyens à 1 km de la ville de rentrer gratuitement.'
+'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.': 'Détecte tous les zombies à 10 km de la ville, et permet aux citoyens à 2 km de la ville de rentrer gratuitement.'
 Bohrturm: Derrick
 'Falsche Stadt': 'Fausse ville'
 Wasserhahn: Robinetterie
@@ -188,27 +188,27 @@ Haus: Maison
 Bunker: Bunker
 Schloss: Château
 'Großer Vorhang': 'Gros rideau'
-'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'Un vieux morceau de toile de jute taché qui permet de cacher aux yeux de vos voisins vos possessions.'
-Hobbylabor: Cave laboratoire
-'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'Un minuscule trou qui sent fort le camphre et la mort, creusé au milieu de votre ''salon''. Mais vous pouvez y mener vos expériences pharmaceutiques tranquillement (chaque niveau augmente de 25% les chances d''obtenir une puissante drogue)…'
+'Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.': 'Un vieux morceau de toile de jute taché, qui permet de cacher vos possessions aux yeux de vos voisins.'
+Hobbylabor: Cave-laboratoire
+'Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.': 'Un minuscule trou creusé au milieu de votre « salon », qui sent fort le camphre et la mort. Mais vous pouvez y mener vos expériences pharmaceutiques tranquillement… (Chaque niveau augmente de 25 % les chances d’obtenir une puissante drogue.)'
 Küche: Cuisine
-"In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.": "La cuisine est un coin aménagé de manière très sommaire pour y préparer des rations de meilleure qualité (chaque niveau augmente de 33% les chances d'obtenir un bon plat)."
+"In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.": "La cuisine est un coin aménagé de manière très sommaire pour y préparer des rations de meilleure qualité. (Chaque niveau augmente de 33 % les chances d’obtenir un bon plat.)"
 'Primitives Alarmsystem': 'Alarme rudimentaire'
-'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'C''est un système un peu simpliste de ferrailles fixées par un fil, mais ça marchera bien pour rameuter tout le monde si quelqu''un entre chez vous...'
+'Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...': 'C’est un système un peu simpliste de ferrailles fixées par un fil, mais ça marchera bien pour rameuter tout le monde si quelqu’un entre chez vous…'
 Ruheecke: Coin sieste
-"Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.": "Il s'agit juste d'un trou dans le sol couvert par quelques cartons. Mais c'est bien utile pour se faire une petite sieste quand l'envie s'en fait sentir (chaque niveau augmente de 33% les chances de bien dormir)."
+"Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.": "Il s’agit juste d’un trou dans le sol couvert par quelques cartons. Mais c’est bien utile pour se faire une petite sieste quand l’envie s’en fait sentir. (Chaque niveau augmente de 33 % les chances de bien dormir.)"
 Türschloss: Verrou
 'Dieses rudimentäre Schließsystem schützt dein Haus vor Diebstahl.': 'Ce système rudimentaire mais efficace empêchera quiconque de vous voler un objet.'
-'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.': 'Quand les murs ne suffisent plus, une vraie clôture n''est jamais un luxe. Une défense de bonne qualité.'
+'Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.': 'Quand les murs ne suffisent plus, une vraie clôture n’est jamais un luxe. Une défense de bonne qualité.'
 Stauraum: Rangements
-'Deine persönliche Truhe vergrößert sich. ': 'Ajoute une place dans votre coffre personnel. '
+'Deine persönliche Truhe vergrößert sich. ': 'Ajoute un emplacement dans votre coffre personnel. '
 Verstärkungen: Renforts 
-'Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.': 'Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie... un peu (chaque niveau ajoute 1 pt de défense)..'
+'Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.': 'Un peu de bricolage avec les moyens du bord et on augmente sa durée de vie… un peu. (Chaque niveau ajoute 1 point de défense.)'
 Verteidigung: en défense
 Brustwehr: Chemin de ronde
 Hammam: Hamâme
-'Temporäre Konstruktion!': 'Construction temporaire !'
-'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.': 'Cette construction est <strong>à usage unique</strong>. Elle sera détruite ce soir, après l''attaque de la Horde.'
+'Temporäre Konstruktion!': 'Construction temporaire !'
+'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.': 'Cette construction est <strong>à usage unique</strong>. Elle sera détruite ce soir, après l’attaque de la Horde.'
 'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.': 'Vous pourrez de nouveau la bâtir demain si vous le souhaitez.'
 'Verbessert die Stadtverteidigung erheblich.': 'Augmente sensiblement les défenses de la ville.'
 'Eine verbesserte Version des Großen Grabens. Muss mit Wasser gefüllt werden...': 'Une amélioration du Grand Fossé, y mettre de l''eau…'

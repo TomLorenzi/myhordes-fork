@@ -129,7 +129,7 @@ class SoulRankingController extends SoulController
         if ($currentType === null)
             return $this->redirect($this->generateUrl('soul_season'));
 
-        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findTopOfSeason($currentSeason, $currentType);
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findTopOfSeason($currentSeason, $currentType, 10);
         $played = [];
         foreach ($towns as $town) {
             /* @var TownRankingProxy $town */

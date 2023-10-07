@@ -2866,3 +2866,7 @@ MP: MP
 '<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!': '<strong>Achtung:</strong> In der Bank fehlen Gegenstände, die benötigt werden, damit die Verteidigungsanlagen mit voller Stärke arbeiten können!'
 '{building} hat folgende Gegenstände verbraucht: {items}.': '{building} hat folgende Gegenstände verbraucht: {items}.'
 Schamanenkreis: Schamanenkreis
+Eventsieger: Eventsieger
+Eventteilnehmer: Eventteilnehmer
+'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!': 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!'
+'Auszeichnung für deine Teilnahme an einem Community-Event.': 'Auszeichnung für deine Teilnahme an einem Community-Event.'

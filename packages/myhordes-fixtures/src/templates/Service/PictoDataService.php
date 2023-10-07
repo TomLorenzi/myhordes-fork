@@ -697,6 +697,20 @@ class PictoDataService implements FixtureProcessorInterface {
                 'rare' => false,
                 'special' => true,
             ],
+            [
+                'label' => 'Eventsieger',
+                'description' => 'Auszeichnung für deinen Sieg in einem Community-Event, Glückwünsch!',
+                'icon' => 'r_eventwin',
+                'rare' => false,
+                'special' => true,
+            ],
+            [
+                'label' => 'Eventteilnehmer',
+                'description' => 'Auszeichnung für deine Teilnahme an einem Community-Event.',
+                'icon' => 'r_eventpart',
+                'rare' => false,
+                'special' => true,
+            ],
         ]);
     }
 }
