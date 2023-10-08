@@ -6,7 +6,9 @@ use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Entity\ZombieEstimation;
+use App\Enum\EventStages\BuildingValueQuery;
 use App\Service\CitizenHandler;
+use App\Service\EventProxyService;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,6 +24,7 @@ class RenderMapAction
         private readonly ZoneHandler $zone_handler,
         private readonly CitizenHandler $citizen_handler,
         private readonly Packages $asset,
+        private readonly EventProxyService $proxy,
     ) { }
 
     /**
@@ -52,8 +55,12 @@ class RenderMapAction
         $local_zones = [];
         $citizen_zone = $activeCitizen?->getZone();
 
-        $scavenger_sense = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'collec' : $admin;
-        $scout_sense     = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'hunter' : $admin;
+        $scavenger_sense = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'collec'  : $admin;
+        $scout_sense     = $activeCitizen !== null ? $activeCitizen->getProfession()->getName() === 'hunter'  : $admin;
+
+        $scout_markings = $admin || $this->proxy->queryTownParameter( $town, BuildingValueQuery::ScoutMarkingsEnabled );
+        $scout_markings_own = $scout_markings && $scout_sense;
+        $scout_markings_global = $admin || ($scout_markings && ($scout_markings_own || $activeCitizen->hasRole('guide')));
 
         $citizen_zone_cache = [];
         foreach ($town->getCitizens() as $citizen)
@@ -146,6 +153,10 @@ class RenderMapAction
             elseif ($zone->isTownZone())
                 $current_zone['co'] = count( array_filter( $town->getCitizens()->getValues(), fn(Citizen $c) => $c->getAlive() && $c->getZone() === null ) );
 
+            if ($admin || $scout_markings_global || $scout_markings_own) $current_zone['scoutLevel'] = $admin
+                ? $zone->getScoutLevel()
+                : ( ($scout_markings_global ? $zone->getScoutLevelFor( null ) : 0) + (($scout_markings_own && $activeCitizen) ? $zone->getScoutLevelFor( $activeCitizen ) : 0) );
+
             $zones[] = $current_zone;
         }
 
@@ -155,6 +166,9 @@ class RenderMapAction
             'geo' => [ 'x0' => $range_x[0], 'x1' => $range_x[1], 'y0' => $range_y[0], 'y1' => $range_y[1] ],
             'zones' => $zones,
             'lid' => $citizen_zone?->getId() ?? 0,
+            'conf' => [
+                'scout' => ($admin || $scout_markings_global || $scout_markings_own)
+            ],
             'local' => array_map( function(Zone $z) use ($activeCitizen, $town, $citizen_zone, $scavenger_sense, $scout_sense) {
                 $local = $citizen_zone === $z;
                 $adjacent = ( abs( $citizen_zone->getX() - $z->getX() ) + abs( $citizen_zone->getY() - $z->getY() ) ) <= 1;

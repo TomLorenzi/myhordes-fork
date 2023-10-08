@@ -80,8 +80,11 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
         $event->value = match ($event->query) {
             BuildingValueQuery::GuardianDefenseBonus => $this->getService(TownHandler::class)->getBuilding($event->town, 'small_watchmen_#00', true) ? 10 : 5,
             BuildingValueQuery::NightWatcherCap => $event->town->getPopulation(),
-            BuildingValueQuery::NightWatcherWeaponsAllowed, BuildingValueQuery::TownDoorOpeningCost, BuildingValueQuery::TownDoorClosingCost => 1,
-            BuildingValueQuery::MissingItemDefenseLoss => 0,
+            BuildingValueQuery::NightWatcherWeaponsAllowed,
+            BuildingValueQuery::TownDoorOpeningCost,
+            BuildingValueQuery::TownDoorClosingCost => 1,
+            BuildingValueQuery::MissingItemDefenseLoss,
+            BuildingValueQuery::ScoutMarkingsEnabled => 0,
             BuildingValueQuery::ConstructionAPRatio => 1.0 - min(0.06 * $this->getService(TownHandler::class)->getBuilding($event->town, "small_refine_#00")?->getLevel() ?? 0, 0.28),
             BuildingValueQuery::RepairAPRatio => 2 + max(0, $this->getService(TownHandler::class)->getBuilding($event->town, "small_refine_#00")?->getLevel() - 3),
             BuildingValueQuery::MaxItemDefense => 500,
@@ -106,7 +109,7 @@ final class BuildingQueryListener implements ServiceSubscriberInterface
                 5 => 0.85,
                 default => 0.25,
             },
-            BuildingValueQuery::NightlyRedSoulPenalty => 0.04
+            BuildingValueQuery::NightlyRedSoulPenalty => 0.04,
         };
     }
 

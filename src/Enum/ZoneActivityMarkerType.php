@@ -10,6 +10,7 @@ enum ZoneActivityMarkerType: int {
     case ShamanRain = 1;
     case RuinDig = 2;
     case ScoutVisit = 3;
+    case ScoutMarker = 4;
 
     case DoorAutoClosed = 10;
     case DoorAutoCloseReported = 11;
@@ -21,7 +22,7 @@ enum ZoneActivityMarkerType: int {
 
     public function daily(): bool {
         return match($this) {
-            self::ScoutVisit, self::ExplorableBlueprintU, self::ExplorableBlueprintR, self::ExplorableBlueprintE => false,
+            self::ScoutVisit, self::ExplorableBlueprintU, self::ExplorableBlueprintR, self::ExplorableBlueprintE, self::ScoutMarker => false,
             default => true
         };
     }

@@ -293,6 +293,20 @@ div.react_map_area {
               background-image: url('../../img/tags/tag_12.gif');
             }
           }
+
+          &>div.scoutLevelMark {
+            display: none;
+            &.scout-1 {
+              background: url('../../img/icons/scout_lv1_map.gif') no-repeat center center / 90%;
+            }
+            &.scout-2 {
+              background: url('../../img/icons/scout_lv2_map.gif') no-repeat center center / 90%;
+            }
+            &.scout-3 {
+              background: url('../../img/icons/scout_lv3_map.gif') no-repeat center center / 90%;
+            }
+          }
+
           &>div.soul-area {
             width: 200%;
             height: 200%;
@@ -360,6 +374,16 @@ div.react_map_area {
       &>.scroll-plane {
         .zone {
           &>div.tag {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &.show-scout {
+      &>.scroll-plane {
+        .zone {
+          &>div.scoutLevelMark {
             display: block;
           }
         }
@@ -490,6 +514,8 @@ div.react_map_area {
         &.show-tags { background: url('../../img/icons/tickOn.gif') 3px -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; }
         &.map_button_zoom_in { background: url(../../img/icons/small_more2.gif) 0 -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; min-width: 17px; }
         &.map_button_zoom_out { background: url(../../img/icons/small_minus.gif) 0 -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; min-width: 17px; }
+        &.map_button_scout.hide-tags { background: url(../../img/icons/tickOff.gif) 3px -2px no-repeat, url(../../img/professions/vest.gif) 15px -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; min-width: 33px; }
+        &.map_button_scout.show-tags { background: url(../../img/icons/tickOn.gif) 3px -2px no-repeat, url(../../img/professions/vest.gif) 15px -2px no-repeat, url(../../img/background/bg_button.gif) center / cover no-repeat; min-width: 33px; }
         &.hide-tags,&.show-tags { padding-left: 12px; padding-right: 2px; }
         &.route_button > div {  margin: -4px -9px 0 -9px; }
       }

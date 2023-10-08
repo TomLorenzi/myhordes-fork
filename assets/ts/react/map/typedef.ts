@@ -19,18 +19,19 @@ export type MapCoordinate = {
 }
 
 export interface MapZone extends MapCoordinate {
-    id?: number,    // zone id
-    z?: number,     // Exact number of zombies
-    d?: number,     // Danger level
+    id?: number,        // zone id
+    z?: number,         // Exact number of zombies
+    d?: number,         // Danger level
     r?: MapZoneRuin,
-    td?: boolean    // Only defined for town zone: true - town is devastated, false - town is not devastated
-    c?: string[],   // Names of all citizens on the zone
-    co?: number,    // Number of additional citizens to display without names (only town zone)
-    cc?: boolean    // True, if the active citizen is here
-    t?: boolean     // Visited today?
-    g?: boolean     // Global view
-    s?: boolean     // Contains a soul
-    tg?: number     // Tag Ref
+    td?: boolean        // Only defined for town zone: true - town is devastated, false - town is not devastated
+    c?: string[],       // Names of all citizens on the zone
+    co?: number,        // Number of additional citizens to display without names (only town zone)
+    cc?: boolean,       // True, if the active citizen is here
+    t?: boolean,        // Visited today?
+    g?: boolean,        // Global view
+    s?: boolean,        // Contains a soul
+    tg?: number,        // Tag Ref
+    scoutLevel?: number // Scout level
 }
 
 export interface LocalZone {
@@ -60,11 +61,16 @@ export type MapRoute = {
     stops: MapCoordinate[],
 }
 
+export type MapConfig = {
+    scout: boolean
+}
+
 export type MapData = {
     geo: MapGeometry,
     zones: MapZone[],
     local: LocalZone[],
     lid: number
+    conf: MapConfig
 }
 
 export type MapCoreProps = {
@@ -93,6 +99,7 @@ export type RuntimeMapState = {
     showViewer: boolean,
     markEnabled: boolean,
     globalEnabled: boolean,
+    scoutEnabled: boolean,
     activeRoute: number | undefined;
     activeZone: MapCoordinate | undefined;
     routeEditor: MapCoordinate[];
@@ -106,6 +113,7 @@ export type RuntimeMapStateAction = {
     showViewer?: boolean,
     markEnabled?: boolean,
     globalEnabled?: boolean,
+    scoutEnabled?: boolean,
     activeRoute?: number | boolean,
     activeZone?: MapCoordinate | boolean,
     routeEditorPush?: MapCoordinate,
@@ -146,6 +154,8 @@ export type MapRouteListState = {
 export type MapControlProps = {
     markEnabled: boolean,
     globalEnabled: boolean,
+    scoutEnabled: boolean,
+    showScoutButton: boolean,
     showRoutes: boolean,
     showRoutesPanel: boolean,
     showGlobalButton: boolean,
