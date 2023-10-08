@@ -72,6 +72,8 @@ export const Tooltip = (
     /></div></>
 }
 
+let tooltipStack = [];
+
 const TooltipImplementation = (
     {forParent = null, children = null,childNodes=[],textContent = null, additionalClasses = [], html = null, onHideTooltip = ()=>{}, onShowTooltip = () => {}}: {
         children?: ReactNode|ReactNode[]|null,
@@ -87,6 +89,17 @@ const TooltipImplementation = (
     const key = useRef<number>( ++TooltipGlobal.counter );
     const tooltip = useRef<HTMLDivElement>();
 
+    const getOffset = (obj: HTMLDivElement) => {
+        let found = false;
+        let accum = 0;
+        tooltipStack.forEach( (tt) => {
+            if (found) return;
+            if (tt === obj) found = true;
+            else accum += tt.clientHeight + 5;
+        } );
+        return accum;
+    }
+
     useLayoutEffect(() => {
         if (!forParent) return () => {};
         const fun_tooltip_pos = function(pointer: boolean = false) {
@@ -96,11 +109,11 @@ const TooltipImplementation = (
                     if (e instanceof PointerEvent && e.pointerType === 'mouse') return;
 
                     // Center the tooltip below the parent
-                    tooltip.current.style.top  = forParent.getBoundingClientRect().top + forParent.clientHeight + 'px';
+                    tooltip.current.style.top  = forParent.getBoundingClientRect().top + forParent.clientHeight + getOffset(tooltip.current) + 'px';
                     tooltip.current.style.left = (window.innerWidth - tooltip.current.clientWidth)/2 + 'px';
 
                 } else if (tooltip.current.dataset.touchtip !== '1') {
-                    tooltip.current.style.top  = e.clientY + 'px';
+                    tooltip.current.style.top  = e.clientY + getOffset(tooltip.current) + 'px';
 
                     // Make sure the tooltip does not exit the screen on the right
                     // If it does, attach it left to the cursor instead of right
@@ -118,6 +131,7 @@ const TooltipImplementation = (
         }
 
         const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
+            tooltipStack = tooltipStack.filter(t => t !== tooltip.current);
             onHideTooltip( tooltip.current );
             tooltip.current.removeAttribute('style');
             tooltip.current.dataset.touchtip = '0';
@@ -129,6 +143,7 @@ const TooltipImplementation = (
                 tooltip.current.style.display = 'block';
                 fun_tooltip_pos(pointer)(e);
                 onShowTooltip( tooltip.current );
+                tooltipStack.push( tooltip.current );
                 if (pointer && $.client.config.twoTapTooltips.get()) {
                     if (forParent.dataset.stage !== '1') {
                         document.body.addEventListener('click', e => e.stopPropagation(),
