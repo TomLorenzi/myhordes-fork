@@ -23,4 +23,5 @@ enum BuildingValueQuery {
     case NightlyRecordWindDirection;
     case NightlyRedSoulPenalty;
     case MaxItemDefense;
+    case ScoutMarkingsEnabled;
 }
